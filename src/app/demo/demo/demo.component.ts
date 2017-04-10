@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-demo',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+  activeSlideId = 0;
 
   ngOnInit() {
+    if(this.route.snapshot.params['id']){
+      this.activeSlideId = Number(this.route.snapshot.params['id']);
+    }
   }
 
 }
