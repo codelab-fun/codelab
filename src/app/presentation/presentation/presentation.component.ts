@@ -19,6 +19,10 @@ export class PresentationComponent {
     return this.generatedSlideId++;
   }
 
+  get totalSlides() {
+    return this.generatedSlideId;
+  }
+
   nextSlide() {
     if (this.activeSlideId + 1 < this.generatedSlideId) {
       this.activeSlideId++;
