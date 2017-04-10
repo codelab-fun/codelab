@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+
+.slide {
+  border: 1px solid #000;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+/* TODO(kirjs): Support themes */
+.slide h1 {
+  font-size: 60px;
+}
+
