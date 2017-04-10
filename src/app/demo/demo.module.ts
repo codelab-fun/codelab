@@ -12,7 +12,8 @@ export function monacoReady() {
 
 @NgModule({
   declarations: [
-    DemoComponent
+    DemoComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,7 @@ export function monacoReady() {
     useValue: monacoReady,
     multi: true
   }],
-  bootstrap: [DemoComponent]
+  bootstrap: [AppComponent]
 })
 export class DemoModule {
 
