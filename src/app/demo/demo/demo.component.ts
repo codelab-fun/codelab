@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-demo',
@@ -8,15 +8,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class DemoComponent implements OnInit {
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private route: ActivatedRoute) {}
   activeSlideId = 0;
 
   ngOnInit() {
-    if(this.route.snapshot.params['id']){
-      this.activeSlideId = Number(this.route.snapshot.params['id']);
+    let id = Number(this.route.snapshot.params['id']);
+    if(id){
+      this.activeSlideId = id;
     }
   }
 

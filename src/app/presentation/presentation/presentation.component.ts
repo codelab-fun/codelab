@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-presentation',
@@ -7,11 +8,10 @@ import {Component, Input} from '@angular/core';
 })
 export class PresentationComponent {
   @Input() displayShortcuts = true;
-  @Input() activeSlideId = 0;
+  @Input() activeSlideId : number = 0;
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
-
 
   private generatedSlideId = 0;
 
