@@ -8,9 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod --aot && firebase deploy"
   },
-  "private": true,
+  "public": true,
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
