@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 export interface SlideConfig {
   resize: boolean,
@@ -10,12 +11,13 @@ export interface SlideConfig {
   styleUrls: ['./presentation.component.css']
 })
 export class PresentationComponent {
-  @Input() activeSlideId = 0;
+  @Input() activeSlideId : number = 0;
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
   areShortcutsEnabled = true;
   generatedSlideId = 0;
+
 
   registerSlide() {
     return this.generatedSlideId++;
