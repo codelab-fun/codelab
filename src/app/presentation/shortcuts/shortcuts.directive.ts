@@ -2,7 +2,7 @@ import {Directive, HostListener} from '@angular/core';
 import {PresentationComponent} from '../presentation/presentation.component';
 
 @Directive({
-  selector: 'app-shortcuts'
+  selector: '[app-shortcuts]'
 })
 export class ShortcutsDirective {
 
