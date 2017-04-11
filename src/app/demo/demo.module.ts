@@ -4,20 +4,26 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import { DemoComponent } from './demo/demo.component';
 import {SharedModule} from '../shared.module';
+import {RouterModule} from '@angular/router';
+import {getSlidesRoutes} from '../routes';
+import { AppComponent } from './app.component';
+
+const routes = getSlidesRoutes(DemoComponent);
 
 @NgModule({
   declarations: [
-    DemoComponent
+    DemoComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [DemoComponent]
+  bootstrap: [AppComponent]
 })
 export class DemoModule {
-
 }
