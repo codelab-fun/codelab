@@ -4,11 +4,11 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {DemoComponent} from './demo/demo.component';
 import {SharedModule} from '../shared.module';
-import {ExerciseModule} from '../exercise/exersice.module';
-import {MonacoConfigService} from '../exercise/services/monaco-config.service';
-export function monacoReady() {
-  return MonacoConfigService.monacoReady
-};
+import {RouterModule} from '@angular/router';
+import {getSlidesRoutes} from '../routes';
+import { AppComponent } from './app.component';
+
+const routes = getSlidesRoutes(DemoComponent);
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ export function monacoReady() {
     FormsModule,
     HttpModule,
     SharedModule,
-    ExerciseModule
+    RouterModule.forRoot(routes)
   ],
   providers: [{
     provide: APP_INITIALIZER,
@@ -30,5 +30,4 @@ export function monacoReady() {
   bootstrap: [AppComponent]
 })
 export class DemoModule {
-
 }

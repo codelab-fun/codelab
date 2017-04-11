@@ -8,12 +8,12 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit {
+
   exercises = [
     ng2tsConfig.milestones[0].exercises[1],
     ng2tsConfig.milestones[1].exercises[1],
     ng2tsConfig.milestones[1].exercises[2]
   ];
-
   constructor(private route: ActivatedRoute) {}
   activeSlideId = 0;
 
@@ -23,4 +23,5 @@ export class DemoComponent implements OnInit {
       this.activeSlideId = id;
     }
   }
+
 }

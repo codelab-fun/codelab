@@ -5,8 +5,9 @@ import {PresentationComponent} from './presentation/presentation/presentation.co
 import {ResizeDirective} from './presentation/resize/resize.directive';
 import {ShortcutsDirective} from './presentation/shortcuts/shortcuts.directive';
 import {ProgressBarComponent} from './presentation/progress-bar/progress-bar.component';
-import {FooterComponent} from './presentation/footer/footer.component';
 import {ArrowsComponent} from './presentation/arrows/arrows.component';
+import {SlidesRoutingDirective} from './presentation/slides-routing/slides-routing.directive';
+import {FooterComponent} from './presentation/footer/footer.component';
 
 
 @NgModule({
@@ -17,16 +18,18 @@ import {ArrowsComponent} from './presentation/arrows/arrows.component';
     ResizeDirective,
     ShortcutsDirective,
     ProgressBarComponent,
-    FooterComponent,
+    SlidesRoutingDirective,
     ArrowsComponent
   ],
 
   exports: [
     PresentationComponent,
     SlideComponent,
+
     FooterComponent,
     ProgressBarComponent,
     ArrowsComponent
+    SlidesRoutingDirective
   ],
   imports: [BrowserModule],
   providers: [],
