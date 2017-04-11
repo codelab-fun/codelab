@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 export interface SlideConfig {
   resize: boolean,
@@ -15,8 +16,9 @@ export class PresentationComponent {
   @Input() public height = 720;
   @Input() public zoom = 1;
   areShortcutsEnabled = true;
-  generatedSlideId = 0;
 
+  constructor(private router: Router){}
+  private generatedSlideId = 0;
 
   registerSlide() {
     return this.generatedSlideId++;
@@ -29,14 +31,14 @@ export class PresentationComponent {
   nextSlide(isTriggeredByShortcut: boolean = false) {
     if ((this.activeSlideId + 1 < this.generatedSlideId) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
-      this.activeSlideId++;
+      this.router.navigate(['/', this.activeSlideId++]);
     }
   }
 
   previousSlide(isTriggeredByShortcut: boolean = false) {
     if ((this.activeSlideId > 0) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
-      this.activeSlideId--;
+      this.router.navigate(['/', this.activeSlideId--]);
     }
   }
 
