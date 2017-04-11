@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-presentation',
@@ -12,6 +13,7 @@ export class PresentationComponent {
   @Input() public height = 720;
   @Input() public zoom = 1;
 
+  constructor(private router: Router){}
   private generatedSlideId = 0;
 
   generateSlideId() {
@@ -24,13 +26,13 @@ export class PresentationComponent {
 
   nextSlide() {
     if (this.activeSlideId + 1 < this.generatedSlideId) {
-      this.activeSlideId++;
+      this.router.navigate(['/', this.activeSlideId++]);
     }
   }
 
   previousSlide() {
     if (this.activeSlideId > 0) {
-      this.activeSlideId--;
+      this.router.navigate(['/', this.activeSlideId--]);
     }
   }
 }
