@@ -31,14 +31,14 @@ export class PresentationComponent {
   nextSlide(isTriggeredByShortcut: boolean = false) {
     if ((this.activeSlideId + 1 < this.generatedSlideId) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
-      this.router.navigate(['/', this.activeSlideId++]);
+      this.router.navigate(['/', ++this.activeSlideId]);
     }
   }
 
   previousSlide(isTriggeredByShortcut: boolean = false) {
     if ((this.activeSlideId > 0) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
-      this.router.navigate(['/', this.activeSlideId--]);
+      this.router.navigate(['/', --this.activeSlideId]);
     }
   }
 
