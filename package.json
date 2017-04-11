@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --aot && firebase deploy"
+    "deploy": "ng build --prod --aot && firebase deploy",
+    "i18n": "ng-xi18n -p src/tsconfig.app.json"
   },
   "public": true,
   "dependencies": {
