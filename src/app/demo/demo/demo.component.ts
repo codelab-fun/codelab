@@ -1,21 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, ComponentFactoryResolver} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent implements OnInit {
-
-  constructor(private route: ActivatedRoute) {}
   activeSlideId = 0;
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    let id = Number(this.route.snapshot.params['id']);
-    if(id){
+    const id = Number(this.route.snapshot.params['id']);
+    if (id) {
       this.activeSlideId = id;
     }
   }
-
 }

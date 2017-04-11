@@ -13,7 +13,7 @@ import {ProgressBarComponent} from './presentation/progress-bar/progress-bar.com
     SlideComponent,
     ResizeDirective,
     ShortcutsDirective,
-    ProgressBarComponent
+    ProgressBarComponent,
   ],
 
   exports: [

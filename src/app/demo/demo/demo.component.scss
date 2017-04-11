@@ -1,0 +1,27 @@
+h1 {
+  font-size: 5em;
+}
+
+h2 {
+  font-size: 3.4em;
+}
+
+app-presentation {
+  position: relative;
+}
+
+img.bottom-right {
+  position: absolute;
+  bottom: 50px;
+  right: -1200px;
+}
+
+app-slide#slide0 {
+  h1 {
+    padding-bottom: 10%;
+  }
+
+  img {
+    width: 400px;
+  }
+}
