@@ -5,12 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve:ru": "ng serve --aot --i18n-file=src/i18n/messages.ru.xlf --locale=ru --i18n-format=xlf",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "ng build --prod --aot && firebase deploy",
-    "i18n": "ng-xi18n -p src/tsconfig.app.json"
+    "i18n": "ng xi18n --output-path src/i18n"
   },
   "public": true,
   "dependencies": {
