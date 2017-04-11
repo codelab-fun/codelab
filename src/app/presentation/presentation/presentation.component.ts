@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,8 +12,8 @@ export class PresentationComponent {
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
+  @Output() onSlideChange = new EventEmitter<number>();
 
-  constructor(private router: Router){}
   private generatedSlideId = 0;
 
   generateSlideId() {
@@ -26,13 +26,15 @@ export class PresentationComponent {
 
   nextSlide() {
     if (this.activeSlideId + 1 < this.generatedSlideId) {
-      this.router.navigate(['/', ++this.activeSlideId]);
+      this.activeSlideId++;
+      this.onSlideChange.next(this.activeSlideId);
     }
   }
 
   previousSlide() {
     if (this.activeSlideId > 0) {
-      this.router.navigate(['/', --this.activeSlideId]);
+      this.activeSlideId--;
+      this.onSlideChange.next(this.activeSlideId);
     }
   }
 }

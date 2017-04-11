@@ -5,8 +5,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import { DemoComponent } from './demo/demo.component';
 import {SharedModule} from '../shared.module';
 import {RouterModule} from '@angular/router';
-import {AppRoutes} from './routes';
+import {getSlidesRoutes} from '../routes';
 import { AppComponent } from './app.component';
+
+const routes = getSlidesRoutes(DemoComponent);
 
 @NgModule({
   declarations: [
@@ -18,11 +20,10 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     SharedModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class DemoModule {
-
 }
