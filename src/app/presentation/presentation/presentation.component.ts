@@ -26,13 +26,13 @@ export class PresentationComponent {
 
   nextSlide() {
     if (this.activeSlideId + 1 < this.generatedSlideId) {
-      this.router.navigate(['/', this.activeSlideId++]);
+      this.router.navigate(['/', ++this.activeSlideId]);
     }
   }
 
   previousSlide() {
     if (this.activeSlideId > 0) {
-      this.router.navigate(['/', this.activeSlideId--]);
+      this.router.navigate(['/', --this.activeSlideId]);
     }
   }
 }
