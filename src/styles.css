@@ -14,6 +14,8 @@ body {
 }
 
 .slide {
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 40px;
   box-sizing: border-box;
@@ -26,3 +28,9 @@ body {
   font-size: 60px;
 }
 
+.centered-vertically {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
