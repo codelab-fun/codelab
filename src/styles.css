@@ -5,6 +5,14 @@ body {
   background-color: #000;
 }
 
+.slide img {
+  width: 100%;
+}
+
+.no-padding .slide {
+  padding: 0;
+}
+
 .slide {
   padding: 40px;
   box-sizing: border-box;
