@@ -1,0 +1,18 @@
+<app-resize>
+  <div class="editors">
+    <div *ngFor="let file of visibleFiles" class="editor">
+      <div *ngIf="debug && !file.readonly" (click)="loadSolution(file)" style="float: right">
+        [load solution]
+      </div>
+      <div class="filename" (click)="toggleFile(file)">
+        <span *ngIf="file.collapsed" class="arrow">▷</span>
+        <span *ngIf="!file.collapsed" class="arrow">▽</span>
+        <span class="file-{{file.type}} file">{{file.type.substr(0,2)}}</span>
+        {{file.path}} {{file.readonly?' (this file is read only) ': ''}}
+      </div>
+      <app-editor [file]="file" *ngIf="!file.collapsed" (onCodeChange)="onCodeChange({file: file, code: $event})">
+      </app-editor>
+    </div>
+  </div>
+</app-resize>
+

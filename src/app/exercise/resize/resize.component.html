@@ -1,0 +1,14 @@
+<div
+	class="resize"
+	[ngStyle]="{'width': width + 'px'}">
+
+	<ng-content></ng-content>
+
+	<div [class.overlay]="isMouseDown"></div>
+	<div class="spacer">
+		<div
+			class="handle"
+			[class.is-dragged]="isMouseDown">
+		</div>
+	</div>
+</div>

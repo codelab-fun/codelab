@@ -1,0 +1,24 @@
+.autorun.running button {
+  /*background: url(../../../assets/images/heart.gif) no-repeat 2px;*/
+  background-color: #dddddd;
+  color: #bbb;
+  border: 1px solid #999;
+  cursor: default;
+}
+
+.autorun.running .stop {
+  display: inline;
+}
+
+.stop {
+  display: none;
+}
+
+.autorun button {
+  border: 1px solid #000;
+  background-color: #5ccb5d;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px 30px;
+  margin-right: 20px;
+}

@@ -1,0 +1,17 @@
+<div class="autorun" [class.running]="running">
+  <button
+    type="submit"
+    *ngIf="!autorun"
+    (click)="run()">Run
+  </button>
+
+  <label>
+    <span>Autorun</span>
+    <input
+      type="checkbox"
+      name="isAutorun"
+      [(ngModel)]="autorun"
+      (click)="toggleAutorun()">
+  </label>
+  <span class = "stop" (click)="endRun()">(Running, click to stop)</span>
+</div>
