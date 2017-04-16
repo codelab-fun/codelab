@@ -11,9 +11,9 @@ export class DemoComponent implements OnInit {
     ng2tsConfig.milestones[0].exercises[1]
   ];
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
 }

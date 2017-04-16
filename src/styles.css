@@ -37,7 +37,14 @@ h1, h2 {
 
 .centered-vertically {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  align-items: center;
   justify-content: center;
 }
+
+b {
+  color: #c04e22;
+}
+
+h1 {  font-size: 70px;  }
+h2 {  font-size: 40px;  }
