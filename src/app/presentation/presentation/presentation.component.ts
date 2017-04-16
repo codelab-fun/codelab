@@ -12,7 +12,6 @@ export class PresentationComponent {
   @Input() public height = 720;
   @Input() public zoom = 1;
 
-
   private generatedSlideId = 0;
 
   generateSlideId() {

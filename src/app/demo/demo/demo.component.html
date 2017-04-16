@@ -1,6 +1,17 @@
 <app-presentation>
   <app-progress-bar></app-progress-bar>
-
+  <app-slide>
+    <app-exercise [config]="exercises[1]">
+      <div class="description">
+        <p>We created a TypeScript file for you, now let's add our first TS class
+          called Codelab.</p>
+        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people who're
+          coming.</p>
+        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute change
+          of plans, so only 3 people should be returned.</p>
+      </div>
+    </app-exercise>
+  </app-slide>
   <app-slide>
     <div class="centered-vertically">
       <h1 i18n>Angular 4</h1>

@@ -18,11 +18,6 @@ import {ScriptLoaderService} from '../services/script-loader.service';
 
 let cachedIframes = {};
 
-function jsInjector(iframe) {
-  return function (script) {
-    iframe.contentWindow.eval(script);
-  }
-}
 function jsScriptInjector(iframe) {
   return function (code) {
     const script = document.createElement('script');
@@ -242,12 +237,11 @@ export class RunnerComponent implements AfterViewInit, OnChanges {
   @Output() onTestUpdate = new EventEmitter<any>();
   html = `<my-app></my-app>`;
   @ViewChild('runner') element: ElementRef;
-  private stateSubscription: Subscription;
   private handleMessageBound: any;
   public System: any;
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.runCode(changes.files.currentValue, 'TypeScript');
+    this.runCode(changes.files.currentValue, this.runnerType);
   }
 
 
@@ -322,7 +316,6 @@ export class RunnerComponent implements AfterViewInit, OnChanges {
   ngOnDestroy() {
     Object.keys(cachedIframes).map(key => cachedIframes[key].remove());
     window.removeEventListener("message", this.handleMessageBound, false);
-    this.stateSubscription.unsubscribe();
   }
 
   ngAfterViewInit() {

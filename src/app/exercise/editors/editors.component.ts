@@ -10,7 +10,14 @@ import {FileConfig} from '../interfaces/file-config';
 export class EditorsComponent {
   @Input() public files: Array<any>;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
+  @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
+  @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
   private debug: boolean;
+
+
+  trackFile(index, file) {
+    return file.path;
+  }
 
   get visibleFiles() {
     return this.files.filter(file => !file.hidden);
@@ -25,11 +32,5 @@ export class EditorsComponent {
     this.debug = true;
   }
 
-  toggleFile(file: FileConfig) {
-    // TODO
-  }
 
-  loadSolution(file: FileConfig) {
-    file.code = file.solution;
-  }
 }

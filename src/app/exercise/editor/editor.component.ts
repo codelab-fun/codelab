@@ -1,4 +1,15 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
@@ -6,6 +17,7 @@ import {Subject} from 'rxjs';
 import {FileConfig} from '../interfaces/file-config';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Subscription} from 'rxjs/Subscription';
 declare const monaco: any;
 declare const require: any;
 
@@ -23,7 +35,14 @@ declare const require: any;
     }
   ],
 })
-export class EditorComponent implements AfterViewInit {
+export class EditorComponent implements AfterViewInit, OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.file.currentValue.code !== this.code) {
+      this.loadCode(changes.file.currentValue.code);
+    }
+  }
+
+  editSubscription: Subscription;
   private _editor: any;
   @Input() public file: FileConfig;
   @Input() fontSize = 12;
@@ -41,18 +60,23 @@ export class EditorComponent implements AfterViewInit {
 
 
   constructor(private monacoConfigService: MonacoConfigService) {
-    this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1000) : A))
+    this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1000) : A))
       .subscribe(this.onCodeChange);
   }
 
   loadCode(code: string) {
-    this._editor.getModel().setValue(code);
+    this.code = code;
+    if (this._editor) {
+      this._editor.getModel().setValue(code);
+      this.updateHeight(code)
+    }
   }
 
   ngAfterViewInit() {
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
 
     let model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
+    this.code = this.file.code;
     this._editor = this.monacoConfigService.monaco.editor.create(myDiv,
       {
         model: model,
@@ -88,6 +112,7 @@ export class EditorComponent implements AfterViewInit {
   }
 
   ngOnDestroy() {
+    this.editSubscription.unsubscribe();
     this.onCodeChange.unsubscribe();
     this.editSub.unsubscribe();
   }

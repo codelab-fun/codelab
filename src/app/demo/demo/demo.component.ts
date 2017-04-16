@@ -8,7 +8,9 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 })
 export class DemoComponent implements OnInit {
   exercises = [
-    ng2tsConfig.milestones[0].exercises[1]
+    ng2tsConfig.milestones[0].exercises[1],
+    ng2tsConfig.milestones[1].exercises[1],
+    ng2tsConfig.milestones[1].exercises[2]
   ];
 
   constructor() {

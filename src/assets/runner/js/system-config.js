@@ -9,7 +9,6 @@ function loadSystemModule(name, code) {
 
 System.config({
   map: {
-    'reflect-metadata': 'npm:reflect-metadata/Reflect.js',
     'rxjs': 'npm:rxjs',
     '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
     '@angular/core/testing': 'npm:@angular/core/bundles/core-testing.umd.js',

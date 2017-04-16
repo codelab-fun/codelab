@@ -1,6 +1,8 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnDestroy} from '@angular/core';
 import {ExerciseConfig} from '../interfaces/exercise-config';
 import {MonacoConfigService} from 'app/exercise/services/monaco-config.service';
+import {SlideComponent} from '../../presentation/slide/slide.component';
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -8,12 +10,18 @@ import {MonacoConfigService} from 'app/exercise/services/monaco-config.service';
   templateUrl: 'exercise.component.html',
   styleUrls: ['exercise.component.css']
 })
-export class ExerciseComponent {
+export class ExerciseComponent implements OnDestroy {
   @Input() public config: ExerciseConfig;
   running = false;
+  private onActiveUsubscribe: Subscription;
 
-  ngOnInit(): void {
+
+  loadModels() {
     this.monacoConfig.createFileModels(this.config.files);
+  }
+
+  ngOnDestroy(): void {
+    this.onActiveUsubscribe.unsubscribe();
   }
 
   onTestUpdate(event) {
@@ -42,14 +50,30 @@ export class ExerciseComponent {
     }
   }
 
-  onChanges(change) {
+  toggleFile(toggledFile) {
+    this.config = {
+      ...this.config,
+      files: this.config.files.map(file => file === toggledFile ? {...file, collapsed: !file.collapsed} : file)
+    };
+  }
+
+  loadSolution(solutionFile) {
+    this.config = {
+      ...this.config,
+      files: this.config.files.map(file => file === solutionFile ? {...file, code: file.solution} : file)
+    };
+  }
+
+  onCodeChanges(change) {
     this.config = {
       ...this.config,
       files: this.config.files.map(file => file === change.file ? {...file, code: change.code} : file)
     };
   }
 
-  constructor(private monacoConfig: MonacoConfigService) {
-
+  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService) {
+    this.onActiveUsubscribe = slide.onActive.filter(a => a).subscribe(() => {
+      this.loadModels();
+    });
   }
 }
