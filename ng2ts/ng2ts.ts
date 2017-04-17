@@ -1,6 +1,6 @@
 //  TODO: This should be done using require.context
 import {DiffFilesResolver} from '../src/app/differ/diffFilesResolver';
-declare var require;
+declare const require;
 
 const preloadedFiles = {
   'app.component.ts': require(`!raw-loader!./app.component.ts`),
@@ -184,7 +184,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             name: 'Intro',
             slide: true,
             description: `
-          <h1>${'Angular/TypeScript CodeLab!'}</h1>
+          <h1>Angular/TypeScript CodeLab!</h1>
           <p>In this codelab we're going to learn the basics of TypeScript and Angular.</p>
           <p>This is a beta version of the codelab with limited access, please don't share it publically (yet).</p>
           <p>This codelab is very new and only covers the basics of Angular. Please leave your feedback (in the end) and come back for more advanced exercises later.</p>
@@ -195,7 +195,6 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           },
           {
             name: 'TypeScript',
-
             runner: 'TypeScript',
             description: `
           <p>We created a TypeScript file for you, now let's add our first TS class

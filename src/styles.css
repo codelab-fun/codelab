@@ -20,6 +20,10 @@ h1, h2 {
   padding: 0;
 }
 
+.presentation {
+  position: relative;
+}
+
 .slide {
   display: flex;
   flex-direction: column;
@@ -46,5 +50,10 @@ b {
   color: #c04e22;
 }
 
-h1 {  font-size: 70px;  }
-h2 {  font-size: 40px;  }
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 40px;
+}

@@ -9,13 +9,13 @@ export class ShortcutsDirective {
   @HostListener('window:keydown.ArrowRight')
   @HostListener('window:keydown.PageDown')
   next() {
-    this.presentation.nextSlide();
+    this.presentation.nextSlide(true);
   }
 
   @HostListener('window:keydown.ArrowLeft')
   @HostListener('window:keydown.PageUp')
   previous() {
-    this.presentation.previousSlide();
+    this.presentation.previousSlide(true);
   }
 
   constructor(private presentation: PresentationComponent) {

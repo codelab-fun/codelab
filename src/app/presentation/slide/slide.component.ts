@@ -15,8 +15,10 @@ export class SlideComponent implements OnInit {
 
   constructor(public presentation: PresentationComponent) {
     this.onActive = this.activeSubject.distinctUntilChanged();
-    this.id = presentation.generateSlideId();
+    this.id = presentation.registerSlide();
   }
+
+
 
   get active() {
     this.activeSubject.next(this.presentation.activeSlideId === this.id);
@@ -26,4 +28,11 @@ export class SlideComponent implements OnInit {
   ngOnInit() {
   }
 
+  disableShortcuts() {
+    this.presentation.disableShortcuts();
+  }
+
+  disableResize() {
+    this.presentation.disableResize();
+  }
 }
