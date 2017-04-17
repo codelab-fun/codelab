@@ -7,11 +7,11 @@ import {SharedModule} from '../shared.module';
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
-import {SlidesRouter} from '../routes';
 import {ExerciseModule} from '../exercise/exersice.module';
+import {SlidesRoutes} from '../presentation/slide-routes';
 
 
-export const routes = SlidesRouter.getRoutes(DemoComponent);
+export const routes = SlidesRoutes.get(DemoComponent);
 export function monacoReady() {
   return MonacoConfigService.monacoReady
 }
