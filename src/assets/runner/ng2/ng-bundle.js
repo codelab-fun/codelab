@@ -29528,7 +29528,7 @@
             case 'pt':
                 if (n === Math.floor(n) && n >= 0 && n <= 2 && !(n === 2)) return Plural.One;
                 return Plural.Other;
-            case 'ro':
+            case 'getRoutes':
                 if (i === 1 && v === 0) return Plural.One;
                 if (!(v === 0) || n === 0 || !(n === 1) && n % 100 === Math.floor(n % 100) && n % 100 >= 1 && n % 100 <= 19) return Plural.Few;
                 return Plural.Other;
