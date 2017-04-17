@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import { DemoComponent } from './demo/demo.component';
 import {SharedModule} from '../shared.module';
+import {CodeHighlighterModule} from "../code-highlighter/code-highlighter.module";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {SharedModule} from '../shared.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    SharedModule
+    SharedModule,
+    CodeHighlighterModule
   ],
   providers: [],
   bootstrap: [DemoComponent]
