@@ -44,4 +44,8 @@ export class PresentationComponent {
   enableShortcuts() {
     this.areShortcutsEnabled = true;
   }
+
+  disableResize() {
+    // TODO
+  }
 }
