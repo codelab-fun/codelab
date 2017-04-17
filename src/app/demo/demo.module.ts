@@ -5,15 +5,22 @@ import {BrowserModule} from '@angular/platform-browser';
 import {DemoComponent} from './demo/demo.component';
 import {SharedModule} from '../shared.module';
 import {CodeHighlighterModule} from "../code-highlighter/code-highlighter.module";
-import {ExerciseModule} from '../exercise/exersice.module';
+import {RouterModule} from '@angular/router';
+import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
+import {ExerciseModule} from '../exercise/exersice.module';
+import {SlidesRoutes} from '../presentation/slide-routes';
+
+
+export const routes = SlidesRoutes.get(DemoComponent);
 export function monacoReady() {
   return MonacoConfigService.monacoReady
-};
+}
 
 @NgModule({
   declarations: [
-    DemoComponent
+    DemoComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -22,14 +29,14 @@ export function monacoReady() {
     SharedModule,
     CodeHighlighterModule,
     ExerciseModule
+    RouterModule.forRoot(routes)
   ],
   providers: [{
     provide: APP_INITIALIZER,
     useValue: monacoReady,
     multi: true
   }],
-  bootstrap: [DemoComponent]
+  bootstrap: [AppComponent]
 })
 export class DemoModule {
-
 }

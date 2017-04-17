@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {Router} from "@angular/router";
 
 export interface SlideConfig {
   resize: boolean,
@@ -10,12 +11,14 @@ export interface SlideConfig {
   styleUrls: ['./presentation.component.css']
 })
 export class PresentationComponent {
-  @Input() activeSlideId = 0;
+  @Input() activeSlideId : number = 0;
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
+  @Output() onSlideChange = new EventEmitter<number>();
   areShortcutsEnabled = true;
-  generatedSlideId = 0;
+
+  private generatedSlideId = 0;
 
   registerSlide() {
     return this.generatedSlideId++;
@@ -29,6 +32,7 @@ export class PresentationComponent {
     if ((this.activeSlideId + 1 < this.generatedSlideId) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
       this.activeSlideId++;
+      this.onSlideChange.next(this.activeSlideId);
     }
   }
 
@@ -36,6 +40,7 @@ export class PresentationComponent {
     if ((this.activeSlideId > 0) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
       this.activeSlideId--;
+      this.onSlideChange.next(this.activeSlideId);
     }
   }
 
