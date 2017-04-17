@@ -57,3 +57,18 @@ h1 {
 h2 {
   font-size: 40px;
 }
+
+
+.popup-message{
+  padding:5px 5px 0 5px;
+  background:black;
+  color:white;
+  font-size: 20px;
+}
+.popup-arrow{
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 8px solid black;
+}

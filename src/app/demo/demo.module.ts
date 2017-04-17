@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
 import {ExerciseModule} from '../exercise/exersice.module';
 import {SlidesRoutes} from '../presentation/slide-routes';
+import {TooltipsModule} from "../tooltips/tooltips.module";
 
 
 export const routes = SlidesRoutes.get(DemoComponent);
@@ -27,7 +28,8 @@ export function monacoReady() {
     HttpModule,
     SharedModule,
     ExerciseModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    TooltipsModule
   ],
   providers: [{
     provide: APP_INITIALIZER,
