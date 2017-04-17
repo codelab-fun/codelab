@@ -1,0 +1,31 @@
+.arrow-left {
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+
+  left: 0;
+  text-align: right;
+
+}
+
+.arrow-right {
+  border-top-left-radius: 40%;
+  border-bottom-left-radius: 40%;
+  right: 0;
+  text-align: left;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+  opacity: 0.5;
+}
+
+.arrow-left, .arrow-right {
+  top: 50%;
+  position: absolute;
+  font-size: 30px;
+  z-index: 100;
+  padding: 20px 5px;
+  background: #ddd;
+  cursor: pointer;
+
+  opacity: 0.1;
+}

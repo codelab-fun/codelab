@@ -26,13 +26,15 @@ export class PresentationComponent {
   }
 
   nextSlide(isTriggeredByShortcut: boolean = false) {
-    if ((this.areShortcutsEnabled && isTriggeredByShortcut) || this.activeSlideId + 1 < this.generatedSlideId) {
+    if ((this.activeSlideId + 1 < this.generatedSlideId) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+      this.enableShortcuts();
       this.activeSlideId++;
     }
   }
 
   previousSlide(isTriggeredByShortcut: boolean = false) {
-    if ((this.areShortcutsEnabled && isTriggeredByShortcut) || this.activeSlideId > 0) {
+    if ((this.activeSlideId > 0) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+      this.enableShortcuts();
       this.activeSlideId--;
     }
   }
