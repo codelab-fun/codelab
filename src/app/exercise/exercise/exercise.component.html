@@ -1,0 +1,16 @@
+<div *ngIf="slide.active">
+  <div class="exercise-panel">
+    <app-editors [files]="config.files"
+                 (onChanges)="onCodeChanges($event)"
+                 (onToggle)="toggleFile($event)"
+                 (onLoadSolution)="loadSolution($event)"
+    ></app-editors>
+    <div class="side">
+      <ng-content select=".description"></ng-content>
+      <app-tests [tests]="config.tests"></app-tests>
+      <app-runner (onTestUpdate)="onTestUpdate($event)"
+                  [files]="config.files" style="flex: 50%"
+                  [runnerType]="config.runner || 'Angular'"></app-runner>
+    </div>
+  </div>
+</div>

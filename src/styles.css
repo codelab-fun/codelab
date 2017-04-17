@@ -3,6 +3,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000;
+  font-family: Roboto, sans-serif;
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
 }
 
 .slide img {
@@ -13,7 +20,14 @@ body {
   padding: 0;
 }
 
+.presentation {
+  position: relative;
+}
+
 .slide {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   padding: 40px;
   box-sizing: border-box;
   background-color: #fff;
@@ -25,3 +39,21 @@ body {
   font-size: 60px;
 }
 
+.centered-vertically {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+b {
+  color: #c04e22;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 40px;
+}

@@ -5,21 +5,28 @@ import {PresentationComponent} from './presentation/presentation/presentation.co
 import {ResizeDirective} from './presentation/resize/resize.directive';
 import {ShortcutsDirective} from './presentation/shortcuts/shortcuts.directive';
 import {ProgressBarComponent} from './presentation/progress-bar/progress-bar.component';
+import {FooterComponent} from './presentation/footer/footer.component';
+import {ArrowsComponent} from './presentation/arrows/arrows.component';
 
 
 @NgModule({
   declarations: [
     PresentationComponent,
     SlideComponent,
+    FooterComponent,
     ResizeDirective,
     ShortcutsDirective,
-    ProgressBarComponent
+    ProgressBarComponent,
+    FooterComponent,
+    ArrowsComponent
   ],
 
   exports: [
     PresentationComponent,
     SlideComponent,
-    ProgressBarComponent
+    FooterComponent,
+    ProgressBarComponent,
+    ArrowsComponent
   ],
   imports: [BrowserModule],
   providers: [],

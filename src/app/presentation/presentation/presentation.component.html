@@ -1,4 +1,5 @@
-<div class="presentation" [style.zoom]="zoom" app-shortcuts>
+<div class="presentation" [style.zoom]="zoom" [style.width.px]="width" [style.height.px]="height" app-shortcuts>
   <app-resize></app-resize>
+
   <ng-content></ng-content>
 </div>
