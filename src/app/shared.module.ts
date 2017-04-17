@@ -8,6 +8,7 @@ import {ProgressBarComponent} from './presentation/progress-bar/progress-bar.com
 import {ArrowsComponent} from './presentation/arrows/arrows.component';
 import {SlidesRoutingDirective} from './presentation/slides-routing/slides-routing.directive';
 import {FooterComponent} from './presentation/footer/footer.component';
+import {ExerciseModule} from './exercise/exersice.module';
 
 
 @NgModule({
@@ -25,10 +26,9 @@ import {FooterComponent} from './presentation/footer/footer.component';
   exports: [
     PresentationComponent,
     SlideComponent,
-
     FooterComponent,
     ProgressBarComponent,
-    ArrowsComponent
+    ArrowsComponent,
     SlidesRoutingDirective
   ],
   imports: [BrowserModule],

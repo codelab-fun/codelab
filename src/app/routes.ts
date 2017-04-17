@@ -11,3 +11,13 @@ export function getSlidesRoutes(SlidesComponent, route?:string){
     {path: '**', component: SlidesComponent}
   ];
 }
+
+
+export class SlidesRouter {
+  static getRoutes(Component: any) {
+    return [
+      {path: `:id`, component: Component},
+      {path: `**`, component: Component}
+    ];
+  }
+}
