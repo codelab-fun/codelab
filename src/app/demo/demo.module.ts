@@ -28,7 +28,7 @@ export function monacoReady() {
     HttpModule,
     SharedModule,
     CodeHighlighterModule,
-    ExerciseModule
+    ExerciseModule,
     RouterModule.forRoot(routes)
   ],
   providers: [{
