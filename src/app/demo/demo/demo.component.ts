@@ -16,6 +16,29 @@ export class DemoComponent implements OnInit {
     ng2tsConfig.milestones[1].exercises[2]
   ];
 
+  code = {
+    '0':{
+      code: `export class Hello {
+  constructor(private name: string){}
+  hello(){
+     const greeting = 'Hello';
+		return \`\${greeting} ${name}!\`
+  }
+}
+`,
+      readonly:true,
+      path:'hello.ts',
+      type:'typescript'
+    },
+    '1':{
+      code: `import {Hello} from 'Hello';
+console.log(new Hello(2016).hello())`,
+      readonly:true,
+      path:'main.ts',
+      type:'typescript'
+    }
+  };
+
   constructor(private route: ActivatedRoute) {
   }
 

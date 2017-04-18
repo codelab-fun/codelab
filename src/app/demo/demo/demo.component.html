@@ -128,8 +128,22 @@
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_07.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_08.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_09.jpg" alt=""></app-slide>
-  <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_10.jpg" alt=""></app-slide>
-  <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_11.jpg" alt=""></app-slide>
+  <app-slide class="no-padding">
+    {{code['0'].path}}
+    <app-editor [file]="code['0']" [fontSize]="45">
+    </app-editor>
+    {{code['1'].path}}
+    <app-editor [file]="code['1']" [fontSize]="45">
+    </app-editor>
+  </app-slide>
+  <app-slide class="no-padding">
+    {{code['0'].path}}
+    <app-editor [file]="code['0']" [fontSize]="45">
+    </app-editor>
+    {{code['1'].path}}
+    <app-editor [file]="code['1']" [fontSize]="45" [ng-tooltips]="[{match:'2016',text:'Types'}]">
+    </app-editor>
+  </app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_12.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_13.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_14.jpg" alt=""></app-slide>

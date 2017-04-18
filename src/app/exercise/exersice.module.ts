@@ -18,7 +18,7 @@ import {MonacoConfigService} from './services/monaco-config.service';
     EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent, ResizeComponent,],
   imports: [BrowserModule, FormsModule],
   providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
-  exports: [ExerciseComponent]
+  exports: [ExerciseComponent, EditorComponent]
 })
 export class ExerciseModule {
 }
