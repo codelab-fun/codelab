@@ -1,0 +1,83 @@
+.arrow {
+  font-size: 10px;
+}
+
+.editor.is-hidden {
+    display: none;
+}
+
+.tabs {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 26px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #2d2d30;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 4px;
+  line-height: 24px;
+  list-style-type: none;
+  cursor: pointer;
+  border: 1px solid #444;
+  border-bottom: 0;
+  background-color: #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &.is-active {
+    position: relative;
+    height: 26px;
+    color: blue;
+    background-color: white;
+    overflow: initial;
+    z-index: 1;
+  }
+}
+
+.solution {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  min-height: 15px;
+  margin-bottom: 10px;
+  z-index: 100;
+
+  span {
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+.readonlyIcon {
+  width: 14px;
+  height: 14px;
+  margin: 0 3px 0 5px;
+  background-image: url("/assets/images/lock.png");
+  background-size: contain;
+}
+
+.file {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 16px;
+  border: 1px solid #000;
+  margin-bottom: 2px;
+}
+.file-ts {
+  background: #1a67bf;
+  color: white;
+}
+.file-html{
+  background: #9cff7d;
+}

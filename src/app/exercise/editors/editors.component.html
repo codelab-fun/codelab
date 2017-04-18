@@ -1,18 +1,32 @@
 <app-resize>
-  <div class="editors">
-    <div *ngFor="let file of visibleFiles; trackBy: trackFile" class="editor">
-      <div *ngIf="debug && !file.readonly" (click)="onLoadSolution.emit(file)" style="float: right">
-        [load solution]
-      </div>
-      <div class="filename" (click)="onToggle.emit(file)">
-        <span *ngIf="file.collapsed" class="arrow">▷</span>
-        <span *ngIf="!file.collapsed" class="arrow">▽</span>
-        <span class="file-{{file.type}} file">{{file.type.substr(0,2)}}</span>
-        {{file.path}} {{file.readonly?' (this file is read only) ': ''}}
-      </div>
-      <app-editor [file]="file" *ngIf="!file.collapsed" (onCodeChange)="onCodeChange({file: file, code: $event})">
-      </app-editor>
+  <div class="tabs">
+    <div
+      class="tab"
+      *ngFor="let file of visibleFiles; trackBy: trackFile"
+      [class.is-active]="isOpenFile(file)"
+      (click)="showFile(file)">
+      {{ getFileName(file) }}
+      <span
+        class="readonlyIcon"
+        *ngIf="file.readonly">
+      </span>
     </div>
+   </div>
+
+
+  <div *ngFor="let file of visibleFiles; trackBy: trackFile">
+    <div
+       class="solution"
+       *ngIf="debug && !file.readonly">
+        <span (click)="onLoadSolution.emit(file)">
+          [load solution]
+        </span>
+    </div>
+    <app-editor
+      class="editor"
+      [class.is-hidden]="!isOpenFile(file)"
+      [file]="file"
+      (onCodeChange)="onCodeChange({file: file, code: $event})">
+    </app-editor>
   </div>
 </app-resize>
-
