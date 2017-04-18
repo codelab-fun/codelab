@@ -12,7 +12,6 @@ import {ExerciseModule} from '../exercise/exersice.module';
 import {SlidesRoutes} from '../presentation/slide-routes';
 import {TooltipsModule} from "../tooltips/tooltips.module";
 
-
 export const routes = SlidesRoutes.get(DemoComponent);
 export function monacoReady() {
   return MonacoConfigService.monacoReady

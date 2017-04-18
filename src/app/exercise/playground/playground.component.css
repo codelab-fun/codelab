@@ -1,0 +1,7 @@
+.playground {
+  display: flex;
+}
+
+app-editors {
+  width: 600px;
+}

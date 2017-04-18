@@ -2,6 +2,11 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
   <app-slide>
+    <app-playground [config]="exercises[3]">
+    </app-playground>
+  </app-slide>
+
+  <app-slide>
     <div class="centered-vertically">
       <h1 i18n>Angular 4</h1>
       <h2 i18n>In this codelab you will learn how to create angular4 apps!</h2>
@@ -9,13 +14,21 @@
     </div>
   </app-slide>
   <app-slide>
+    <div class="centered-vertically">
+      <ng-code [language]="'typescript'" [theme]="'Vs'" [code]="code.hello">
+      </ng-code>
+    </div>
+  </app-slide>
+  <app-slide>
     <app-exercise [config]="exercises[1]">
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
           called Codelab.</p>
-        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people who're
+        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people
+          who're
           coming.</p>
-        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute change
+        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute
+          change
           of plans, so only 3 people should be returned.</p>
       </div>
     </app-exercise>
@@ -25,7 +38,8 @@
     <div class="centered-vertically" i18n>
       <h2>
         Angular is a <b>development platform</b> for building mobile and desktop
-        applications. Angular lets you <b>extend HTML's syntax</b> to express your application's components clearly and
+        applications. Angular lets you <b>extend HTML's syntax</b> to express your application's components clearly
+        and
         succinctly. Angular's binding and dependency injection <b>eliminate much of the code</b> you would otherwise
         have to write.
       </h2>
@@ -36,9 +50,11 @@
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
           called Codelab.</p>
-        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people who're
+        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people
+          who're
           coming.</p>
-        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute change
+        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute
+          change
           of plans, so only 3 people should be returned.</p>
       </div>
     </app-exercise>

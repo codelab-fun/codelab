@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
-import {ExerciseBase} from './exercise.base';
+import {ExerciseBase} from '../exercise/exercise.base';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
 
 
 @Component({
-  selector: 'app-exercise',
-  templateUrl: 'exercise.component.html',
-  styleUrls: ['exercise.component.css']
+  selector: 'app-playground',
+  templateUrl: './playground.component.html',
+  styleUrls: ['./playground.component.css']
 })
-export class ExerciseComponent extends ExerciseBase {
+export class PlaygroundComponent extends ExerciseBase {
   constructor(slide: SlideComponent, monacoConfig: MonacoConfigService) {
     super(slide, monacoConfig);
   }

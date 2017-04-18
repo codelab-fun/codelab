@@ -11,14 +11,15 @@ import {FormsModule} from '@angular/forms';
 import {LoopProtectionService} from './services/loop-protection.service';
 import {ScriptLoaderService} from './services/script-loader.service';
 import {MonacoConfigService} from './services/monaco-config.service';
+import {PlaygroundComponent} from './playground/playground.component';
 
 @NgModule({
   declarations: [
     ExerciseComponent,
-    EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent, ResizeComponent,],
+    EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent, ResizeComponent, PlaygroundComponent,],
   imports: [BrowserModule, FormsModule],
   providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
-  exports: [ExerciseComponent, EditorComponent]
+  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent]
 })
 export class ExerciseModule {
 }
