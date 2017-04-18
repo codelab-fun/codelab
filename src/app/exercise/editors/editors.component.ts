@@ -52,4 +52,8 @@ export class EditorsComponent {
   trackFile(index, file) {
     return file.path;
   }
+
+  loadSolution(file: FileConfig) {
+    this.onLoadSolution.next(file);
+  }
 }

@@ -13,7 +13,15 @@
     </div>
    </div>
 
-  <div *ngFor="let file of visibleFiles">
+
+  <div *ngFor="let file of visibleFiles; trackBy: trackFile">
+    <div
+       class="solution"
+       *ngIf="debug && !file.readonly">
+        <span (click)="onLoadSolution.emit(file)">
+          [load solution]
+        </span>
+    </div>
     <app-editor
       class="editor"
       [class.is-hidden]="!isOpenFile(file)"
