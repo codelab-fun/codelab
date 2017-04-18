@@ -1,4 +1,7 @@
-<link rel="stylesheet" [href]="getThemeStylesUrl()">
-<pre class="{{language}}">
-  <ng-content></ng-content>
-</pre>
+<div class="code-block">
+  <link rel="stylesheet" [href]="getThemeStylesUrl()">
+  <div class="file-name">{{fileName}}</div>
+  <pre class="{{language}}">
+    <ng-content></ng-content>
+  </pre>
+</div>

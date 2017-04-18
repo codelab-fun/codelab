@@ -20,13 +20,14 @@ code}}
 
 @Component({
   selector: 'ng-code',
-  templateUrl: './code.component.html'
+  templateUrl: './code.component.html',
+  styleUrls:['./code.component.css']
 })
 export class CodeComponent implements OnInit {
   @Input() code:string;
   @Input() language:string = '';
   @Input() theme:string = 'default';
-
+  @Input() fileName: string = '';
   constructor(private el: ElementRef, private sanitizer: DomSanitizer) { }
   ngOnInit() {
     if (this.code){
