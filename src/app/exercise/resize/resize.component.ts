@@ -16,7 +16,7 @@ export class ResizeComponent {
   }
 
   ngOnInit() {
-    this.width = this.elementRef.nativeElement.clientWidth;
+    this.width = Math.max(this.minWidth, this.elementRef.nativeElement.clientWidth);
   }
 
   calcWidth(x) {

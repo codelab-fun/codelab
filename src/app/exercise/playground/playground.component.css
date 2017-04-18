@@ -2,6 +2,16 @@
   display: flex;
 }
 
-app-editors {
+app-editor {
   width: 600px;
+  /* To compensate for hidden line numbers */
+  margin-left: -30px;
+}
+
+:host >>> .margin-view-overlays.monaco-editor-background {
+  display: none;
+}
+
+:host >>> .current-line {
+  display: none;
 }

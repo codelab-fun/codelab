@@ -13,4 +13,8 @@ export class PlaygroundComponent extends ExerciseBase {
   constructor(slide: SlideComponent, monacoConfig: MonacoConfigService) {
     super(slide, monacoConfig);
   }
+
+  onCodeChange(code) {
+    this.onCodeChanges({file: this.config.files[0], code})
+  }
 }
