@@ -2,10 +2,8 @@
   font-size: 10px;
 }
 
-.editor {
-  &.is-hidden {
+.editor.is-hidden {
     display: none;
-  }
 }
 
 .tabs {
