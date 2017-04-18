@@ -13,20 +13,27 @@
     </div>
    </div>
 
-
-  <div *ngFor="let file of visibleFiles; trackBy: trackFile">
-    <div
-       class="solution"
-       *ngIf="debug && !file.readonly">
-        <span (click)="onLoadSolution.emit(file)">
-          [load solution]
-        </span>
+  <app-resize [isVertical]="true">
+    <div *ngFor="let file of visibleFiles; trackBy: trackFile">
+      <div
+         class="solution"
+         *ngIf="debug && !file.readonly">
+          <span (click)="onLoadSolution.emit(file)">
+            [load solution]
+          </span>
+      </div>
+      <app-editor
+        class="editor"
+        [class.is-hidden]="!isOpenFile(file)"
+        [file]="file"
+        (onCodeChange)="onCodeChange({file: file, code: $event})">
+      </app-editor>
     </div>
-    <app-editor
-      class="editor"
-      [class.is-hidden]="!isOpenFile(file)"
-      [file]="file"
-      (onCodeChange)="onCodeChange({file: file, code: $event})">
-    </app-editor>
+  </app-resize>
+
+  <div class="presentationPlaceholder">
+    [ PresentationPlaceholder ]
   </div>
+
+
 </app-resize>

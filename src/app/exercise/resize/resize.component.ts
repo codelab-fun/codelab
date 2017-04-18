@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener} from '@angular/core';
+import {Component, ElementRef, HostListener, Input} from '@angular/core';
 
 @Component({
   selector: 'app-resize',
@@ -6,21 +6,43 @@ import {Component, ElementRef, HostListener} from '@angular/core';
   styleUrls: ['./resize.component.css']
 })
 export class ResizeComponent {
-  private initOffsetX: number;
-  private initWidth: number;
-  private minWidth = 400;
-  isMouseDown: boolean;
-  width: number;
+  @Input() isVertical: boolean;
+  private MIN_WIDTH = 400;
+  private MIN_HEIGHT = 200;
+  private isMouseDown: boolean;
+  private width: number;
+  private height: number;
+  private initOffset;
+  private initSize;
+  private minSize;
+  private size;
 
   constructor(private elementRef: ElementRef) {
   }
 
   ngOnInit() {
-    this.width = this.elementRef.nativeElement.clientWidth;
+    if (this.isVertical) {
+      this.minSize = this.MIN_HEIGHT;
+      this.size = Math.max(this.minSize, this.elementRef.nativeElement.clientHeight);
+
+    } else {
+      this.minSize = this.MIN_WIDTH;
+      this.size = this.elementRef.nativeElement.clientWidth;
+    }
   }
 
-  calcWidth(x) {
-    return this.initWidth + x - this.initOffsetX
+  calcSize(currentOffset) {
+     return this.initSize + currentOffset - this.initOffset;
+  }
+
+  getWidth() {
+    if (this.isVertical) { return; }
+    return this.size;
+  }
+
+  getHeight() {
+    if (!this.isVertical) { return; }
+    return this.size;
   }
 
   @HostListener('mousemove', ['$event'])
@@ -29,16 +51,30 @@ export class ResizeComponent {
       return;
     }
     e.preventDefault();
+    let offset;
 
-    this.width = Math.max(this.minWidth, this.calcWidth(e.clientX));
+    if (!this.isVertical) {
+      offset = e.clientX;
+    } else {
+      offset = e.clientY;
+    }
+
+    this.size = Math.max(this.minSize, this.calcSize(offset));
   }
 
   @HostListener('mousedown', ['$event'])
   onMouseDown(e) {
     if (e.target.className && (e.target.className.includes('spacer') || e.target.className.includes('handle') )) {
+      e.stopPropagation();
       this.isMouseDown = true;
-      this.initOffsetX = e.clientX;
-      this.initWidth = this.width
+      this.initSize = this.size;
+
+      if (!this.isVertical) {
+        this.initOffset = e.clientX;
+      } else {
+        this.initOffset = e.clientY;
+      }
+
     }
   }
 

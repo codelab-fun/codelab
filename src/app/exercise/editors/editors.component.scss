@@ -81,3 +81,11 @@
 .file-html{
   background: #9cff7d;
 }
+
+.presentationPlaceholder {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: green;
+  font-weight: bold;
+}

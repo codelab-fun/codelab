@@ -1,11 +1,16 @@
 <div
 	class="resize"
-	[ngStyle]="{'width': width + 'px'}">
+	[class.resize--vertical]="isVertical"
+	[ngStyle]="{
+		'width': getWidth() + 'px',
+		'height': getHeight() + 'px'}">
 
 	<ng-content></ng-content>
 
 	<div [class.overlay]="isMouseDown"></div>
-	<div class="spacer">
+	<div
+		class="spacer"
+		[class.spacer--vertical]="isVertical">
 		<div
 			class="handle"
 			[class.is-dragged]="isMouseDown">
