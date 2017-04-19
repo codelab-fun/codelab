@@ -8,7 +8,7 @@ import {ProgressBarComponent} from './presentation/progress-bar/progress-bar.com
 import {ArrowsComponent} from './presentation/arrows/arrows.component';
 import {SlidesRoutingDirective} from './presentation/slides-routing/slides-routing.directive';
 import {FooterComponent} from './presentation/footer/footer.component';
-import {ExerciseModule} from './exercise/exersice.module';
+import {BrowserWindowComponent} from './presentation/browser-window/browser-window.component';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import {ExerciseModule} from './exercise/exersice.module';
     ShortcutsDirective,
     ProgressBarComponent,
     SlidesRoutingDirective,
-    ArrowsComponent
+    ArrowsComponent,
+    BrowserWindowComponent
   ],
 
   exports: [
@@ -29,7 +30,8 @@ import {ExerciseModule} from './exercise/exersice.module';
     FooterComponent,
     ProgressBarComponent,
     ArrowsComponent,
-    SlidesRoutingDirective
+    SlidesRoutingDirective,
+    BrowserWindowComponent
   ],
   imports: [BrowserModule],
   providers: [],

@@ -2,6 +2,27 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
   <app-slide>
+    <app-browser-window style="width: 300px">
+      <h1>hi</h1>
+    </app-browser-window>
+  </app-slide>
+  <app-slide class="no-padding">
+    {{code.test0.path}}
+    <app-editor [file]="code.test0" [fontSize]="45">
+    </app-editor>
+    {{code.test1.path}}
+    <app-editor [file]="code.test1" [fontSize]="45">
+    </app-editor>
+  </app-slide>
+  <app-slide class="no-padding">
+    {{code.test0.path}}
+    <app-editor [file]="code.test0" [fontSize]="45">
+    </app-editor>
+    {{code.test1.path}}
+    <app-editor [file]="code.test1" [fontSize]="45" [ng-tooltips]="[{match:'2016',text:'Types'}]">
+    </app-editor>
+  </app-slide>
+  <app-slide>
     <h1>App component</h1>
     <p>Component is the base of an angular App.</p>
     <p>It's a piece of code which</p>
@@ -147,22 +168,7 @@
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_07.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_08.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_09.jpg" alt=""></app-slide>
-  <app-slide class="no-padding">
-    {{code['0'].path}}
-    <app-editor [file]="code['0']" [fontSize]="45">
-    </app-editor>
-    {{code['1'].path}}
-    <app-editor [file]="code['1']" [fontSize]="45">
-    </app-editor>
-  </app-slide>
-  <app-slide class="no-padding">
-    {{code['0'].path}}
-    <app-editor [file]="code['0']" [fontSize]="45">
-    </app-editor>
-    {{code['1'].path}}
-    <app-editor [file]="code['1']" [fontSize]="45" [ng-tooltips]="[{match:'2016',text:'Types'}]">
-    </app-editor>
-  </app-slide>
+
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_12.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_13.jpg" alt=""></app-slide>
   <app-slide class="no-padding"><img src="assets/jpg-slides/Codelab_Page_14.jpg" alt=""></app-slide>
