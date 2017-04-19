@@ -9,20 +9,67 @@
     </div>
   </app-slide>
 
-<app-slide>
+  <app-slide>
     <div class="centered-vertically">
       <h1 i18n>Angular</h1>
       <h2 i18n>A framework for creating applications</h2>
+      <div flex m40>
+        <img column-2 src="assets/images/responsive-framework.svg">
+        <div column-1></div>
+        <div>
+          <h3>Develop Across All Platforms</h3>
+          <p large-font>Learn one way to build applications with Angular and reuse your code and abilities to build apps
+            for any
+            deployment target. For web, mobile web, native mobile and native desktop.</p>
+        </div>
+      </div>
+      <div flex m20>
+        <div>
+          <h3>Speed & Performance</h3>
+          <p large-font>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web
+            Workers and
+            server-side rendering.
 
+            Angular puts you in control over scalability. Meet huge data requirements by building data models on RxJS,
+            Immutable.js or another push-model.</p>
+        </div>
+        <img column-2 src="assets/images/speed-performance.svg">
+      </div>
+    </div>
+  </app-slide>
+  <app-slide>
+    <div>
+      <h1 i18n>In this codelab we'll create a CatTube</h1>
+      <h2 i18n>App for cat videos</h2>
+      <app-browser-window>
+        TODO: Actual cat videos example
+      </app-browser-window>
     </div>
   </app-slide>
 
+  <app-slide>
+    <div class="centered-vertically">
+      <h1>Milestone 1</h1>
+      <h2>Hello world app</h2>
+    </div>
+  </app-slide>
 
   <app-slide>
-    <app-browser-window style="width: 300px">
-      <h1>hi</h1>
-    </app-browser-window>
+    <h1>3 simple steps to create an Angular app</h1>
+    <ul>
+      <li>1. Create a component</li>
+      <li>2. Put it in a module</li>
+      <li>3. Bootstrap it</li>
+    </ul>
   </app-slide>
+
+  <app-slide>
+    <h1>Angular component</h1>
+    <h1>Building block for your app. It generates HTML and adds behavior on top of it</h1>
+
+  </app-slide>
+
+
   <app-slide class="no-padding">
     {{code.test0.path}}
     <app-editor [file]="code.test0" [fontSize]="45">

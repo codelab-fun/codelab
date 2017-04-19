@@ -19,7 +19,7 @@ import {PlaygroundComponent} from './playground/playground.component';
     EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent, ResizeComponent, PlaygroundComponent,],
   imports: [BrowserModule, FormsModule],
   providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
-  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent]
+  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent, RunnerComponent]
 })
 export class ExerciseModule {
 }
