@@ -74,7 +74,7 @@ export class TooltipsDirective {
             currentNode = currentNode.offsetParent;
           }
           this.el.nativeElement.append(newPopup);
-          newPopup.style.position = 'absolute';
+          newPopup.style.position = 'fixed';
           newPopup.style.top = offsetTop - (newPopup.offsetHeight) + 5 + 'px';
           newPopup.style.left = offsetLeft + (text.offsetWidth) + 'px';
         });
