@@ -22,6 +22,7 @@ h1, h2 {
 
 .presentation {
   position: relative;
+  margin: 0 auto;
 }
 
 .slide {
