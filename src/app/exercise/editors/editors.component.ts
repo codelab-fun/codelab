@@ -14,6 +14,7 @@ export class EditorsComponent {
   @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
   private debug: boolean;
   private currentFile;
+  private isExpanded
 
   constructor() {
     // TODO
@@ -43,6 +44,10 @@ export class EditorsComponent {
   isOpenFile(file) {
     if (!file || !this.currentFile) { return; }
     return file.path == this.currentFile.path;
+  }
+
+  expandToggle() {
+    return this.isExpanded = !this.isExpanded;
   }
 
   showFile(file) {

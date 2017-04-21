@@ -31,8 +31,18 @@
     </div>
   </app-resize>
 
-  <div class="presentationPlaceholder">
-    [ PresentationPlaceholder ]
+  <div
+    class="presentation"
+    [class.presentation--expanded]="isExpanded">
+    <div class="presentation-header">
+      <button
+        class="button-expand"
+        (click)="expandToggle()">
+      </button>
+    </div>
+    <div class="presentation-body">
+      [ PresentationPlaceholder ]
+    </div>
   </div>
 
 

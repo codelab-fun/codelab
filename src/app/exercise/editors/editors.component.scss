@@ -82,10 +82,50 @@
   background: #9cff7d;
 }
 
-.presentationPlaceholder {
+.presentation {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: green;
+  transition: all 0.218s ease-in;
+  background: #bdc3c7;
+}
+
+.presentation--expanded {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.presentation-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ecf0f1;
+}
+
+.button-expand {
+  outline: none;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: 0;
+  background-color: #ddd;
+  background-image: url("/assets/images/expand.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  transition: background-color 0.218s ease-in;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.presentation-body {
+  flex: 1;
   font-weight: bold;
 }
