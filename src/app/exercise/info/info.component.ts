@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'info',
@@ -8,8 +9,15 @@ import { Component } from '@angular/core';
 
 export class InfoComponent {
   private isExpanded: boolean;
-
+  iframeSource;
+  constructor(private sanitizer:DomSanitizer){
+    this.iframeSource = this.sanitizer.bypassSecurityTrustResourceUrl(window.location.href);
+  }
   expandToggle() {
     return this.isExpanded = !this.isExpanded;
+  }
+
+  getSource(){
+
   }
 }
