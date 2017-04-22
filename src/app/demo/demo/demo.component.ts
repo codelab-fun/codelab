@@ -11,7 +11,7 @@ export class DemoComponent implements OnInit {
 
 
   code = {
-    'test0':{
+    'test0': {
       code: `export class Hello {
   constructor(private name: string){}
   hello(){
@@ -20,16 +20,35 @@ export class DemoComponent implements OnInit {
   }
 }
 `,
-      readonly:true,
-      path:'hello.ts',
-      type:'typescript'
+      readonly: true,
+      path: 'hello.ts',
+      type: 'typescript'
     },
-    'test1':{
+    component: {
+      p1: `export class AppComponent {
+}`,
+      p2: `@Component({
+  /* Metadata comes here */
+})
+export class AppComponent {
+}`,
+      p3: `@Component({
+  selector: 'my-app'
+})
+export class AppComponent {
+}`, p4: `@Component({
+  selector: 'my-app',
+  template: \`<h1>Hello</h1><p><!-- Put your text here !--></p>\`
+})
+export class AppComponent {
+}`,
+    },
+    'test1': {
       code: `import {Hello} from 'Hello';
 console.log(new Hello(2016).hello())`,
-      readonly:true,
-      path:'main.ts',
-      type:'typescript'
+      readonly: true,
+      path: 'main.ts',
+      type: 'typescript'
     },
     hello: `tooltips = [
  {

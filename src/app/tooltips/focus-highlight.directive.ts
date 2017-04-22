@@ -3,10 +3,10 @@ import {EditorComponent} from '../exercise/editor/editor.component';
 import {findPosition} from './utils';
 
 @Directive({
-  selector: '[app-focus-highlight]'
+  selector: '[app-focus-highlight-match]'
 })
 export class FocusHighlightDirective {
-  @Input('app-focus-highlight') tooltips: Array<string> = [];
+  @Input('app-focus-highlight-match') tooltips: Array<string> = [];
 
   constructor(private editorComponent: EditorComponent) {
   }
