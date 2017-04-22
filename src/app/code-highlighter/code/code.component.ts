@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ContentChild, Input} from '@angular/core';
+import { Component, OnInit, ElementRef, ContentChild, Input, ViewChild } from '@angular/core';
 import {highlightBlock} from 'highlight.js'
 import {DomSanitizer} from '@angular/platform-browser';
 
@@ -12,9 +12,9 @@ Passing string code as an input:
 
 Writing code within the component tag:
 <ng-code ngNonBindable [language]="'typescript'" [theme]="'atom-one-dark'">
-{{code
+<![CDATA[
 import {Component} from '@angular/core';
-code}}
+]]
 </ng-code>
 */
 
@@ -27,18 +27,25 @@ export class CodeComponent implements OnInit {
   @Input() language:string = '';
   @Input() theme:string = 'default';
 
-  constructor(private el: ElementRef, private sanitizer: DomSanitizer) { }
+  @ViewChild('pre') pre: ElementRef;
+
+  securedURL;
+
+  constructor(private el: ElementRef, private sanitizer: DomSanitizer) {}
+
   ngOnInit() {
-    if (this.code){
-      this.el.nativeElement.querySelector('pre').innerHTML = this.code;
+    this.getThemeStylesUrl();
+
+    if (this.code) {
+      this.pre.nativeElement.innerHTML = this.code;
     }
   }
-  getThemeStylesUrl(){
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`/node_modules/highlight.js/styles/${this.theme}.css`);
-  }
+
   ngAfterViewInit() {
-    let elem = this.el.nativeElement.querySelector('pre');
-    elem.innerHTML = elem.innerHTML.replace(/(\r?\n)*{{code(\r)?(\n)/g, '').replace(/((\r)?(\n))*code}}((\r)?(\n))*/g,'')  ;
-    highlightBlock(elem);
+    highlightBlock(this.pre.nativeElement);
+  }
+
+  getThemeStylesUrl(){
+    this.securedURL = this.sanitizer.bypassSecurityTrustResourceUrl(`/node_modules/highlight.js/styles/${this.theme}.css`);
   }
 }
