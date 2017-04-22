@@ -1,10 +1,11 @@
 export function findPosition(code: string, match: string) {
-  let textBeforeMatch = code.slice(0, code.indexOf(match));
+  const textBeforeMatch = code.slice(0, code.indexOf(match));
+  const lineStart = textBeforeMatch.split('\n').length;
+  const lineStartPosition = textBeforeMatch.lastIndexOf('\n') + /*compensate for \n */1;
+  const indexStart = textBeforeMatch.length - lineStartPosition + 1;
 
-  let lineNumber = textBeforeMatch.split('\n').length;
-  let lineStart = textBeforeMatch.lastIndexOf('\n');
-  let indexStart = textBeforeMatch.length - lineStart === -1 ? 0 : lineStart;
-
-  let indexEnd = indexStart + match.length;
-  return {lineNumber, indexStart, indexEnd};
+  const lastMatchNewLinePosition = match.lastIndexOf('\n') + 1;
+  const lineEnd = lineStart + match.split('\n').length - 1;
+  const indexEnd = match.includes('\n') ? match.length - lastMatchNewLinePosition : indexStart + match.length;
+  return {lineStart, indexStart, indexEnd, lineEnd};
 }
