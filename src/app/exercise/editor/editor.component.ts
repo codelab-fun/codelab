@@ -74,6 +74,9 @@ export class EditorComponent implements AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit() {
+    if(!this.code){
+      debugger
+    }
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
 
     let model = this.monacoConfigService.monaco.editor.getModel(this.file.path);

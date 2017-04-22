@@ -25,38 +25,39 @@ export class DemoComponent implements OnInit {
       type: 'typescript'
     },
     component: {
-      p1: `export class AppComponent {
+      p1: {
+        code: `export class AppComponent {
 }`,
-      p2: `@Component({
+        readonly: true,
+        path: 'Path',
+        type: 'TypeScript'
+      },
+      p2: {
+        code: `@Component({
   /* Metadata comes here */
 })
 export class AppComponent {
 }`,
-      p3: `@Component({
-  selector: 'my-app'
-})
-export class AppComponent {
-}`, p4: `@Component({
-  selector: 'my-app',
-  template: \`<h1>Hello</h1><p><!-- Put your text here !--></p>\`
-})
-export class AppComponent {
-}`,
-    },
-    'test1': {
-      code: `import {Hello} from 'Hello';
+        readonly: true,
+        path: 'file',
+        type: 'typescript'
+      },
+
+      'test1': {
+        code: `import {Hello} from 'Hello';
 console.log(new Hello(2016).hello())`,
-      readonly: true,
-      path: 'main.ts',
-      type: 'typescript'
-    },
-    hello: `tooltips = [
+        readonly: true,
+        path: 'main.ts',
+        type: 'typescript'
+      },
+      hello: `tooltips = [
  {
   match:'Angular',
   text:'This is Angular',
   fontSize: 40 //optional
  }
 ];`
+    }
   };
   exercises = [
     ng2tsConfig.milestones[0].exercises[1],
