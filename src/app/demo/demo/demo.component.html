@@ -62,29 +62,10 @@
       <li>3. Bootstrap it</li>
     </ul>
   </app-slide>
-
   <app-slide>
     <h1>Angular component</h1>
     <h2>Building block for your app. It generates HTML and adds behavior on top of it</h2>
 
-    <app-editor [file]="code.test1" [fontSize]="45" [ng-tooltips]="[{match:'2016',text:'Types'}]">
-    </app-editor>
-  </app-slide>
-
-
-  <app-slide class="no-padding">
-    {{code.test0.path}}
-    <app-editor [file]="code.test0" [fontSize]="45">
-    </app-editor>
-    {{code.test1.path}}
-    <app-editor [file]="code.test1" [fontSize]="45">
-    </app-editor>
-  </app-slide>
-  <app-slide class="no-padding">
-    {{code.test0.path}}
-    <app-editor [file]="code.test0" [fontSize]="45">
-    </app-editor>
-    {{code.test1.path}}
     <app-editor [file]="code.test1" [fontSize]="45" [ng-tooltips]="[{match:'2016',text:'Types'}]">
     </app-editor>
   </app-slide>
@@ -94,14 +75,6 @@
     <p>It's a piece of code which</p>
     <app-playground [config]="exercises[3]">
     </app-playground>
-  </app-slide>
-
-
-  <app-slide>
-    <div class="centered-vertically">
-      <ng-code [language]="'typescript'" [theme]="'Vs'" [code]="code.hello">
-      </ng-code>
-    </div>
   </app-slide>
   <app-slide>
     <app-exercise [config]="exercises[1]">
