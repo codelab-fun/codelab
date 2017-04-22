@@ -31,9 +31,9 @@ export class TooltipsDirective {
   ngAfterViewInit() {
     this.editorComponent.slide.onActive.filter(a => a).subscribe(() => { //only generate tooltip when the slide is active
       let decorations = this.tooltips.map((tooltip, i) => {
-        const {indexStart, lineNumber, indexEnd} = findPosition(this.editorComponent.code, tooltip.match);
+        const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, tooltip.match);
         return {
-          range: new this.editorComponent.monacoConfigService.monaco.Range(lineNumber, indexStart, lineNumber, indexEnd),
+          range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
           options: {
             inlineClassName: 'tooltip-text-' + i
           }

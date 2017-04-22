@@ -34,17 +34,34 @@ h1, h2 {
 .slide [large-font] {
   font-size: 30px;
 }
-.slide [p20] { padding-top: 20px }
-.slide [m20] { margin-top: 20px }
-.slide [m40] { margin-top: 40px }
-.slide [column-4] { width: 40%; }
-.slide [column-2] { width: 20%; }
-.slide [column-1] { width: 10%; }
+
+.slide [p20] {
+  padding-top: 20px
+}
+
+.slide [m20] {
+  margin-top: 20px
+}
+
+.slide [m40] {
+  margin-top: 40px
+}
+
+.slide [column-4] {
+  width: 40%;
+}
+
+.slide [column-2] {
+  width: 20%;
+}
+
+.slide [column-1] {
+  width: 10%;
+}
+
 .slide [flex] {
   display: flex;
 }
-
-
 
 /* TODO(kirjs): Support themes */
 .slide h1 {
@@ -83,4 +100,8 @@ h2 {
   border-left: 0px solid transparent;
   border-right: 20px solid transparent;
   border-top: 8px solid black;
+}
+
+.monaco-editor.vs .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
+  color: #a6a6a6;
 }
