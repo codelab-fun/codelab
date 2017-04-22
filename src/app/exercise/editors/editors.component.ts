@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 
-
 @Component({
   selector: 'app-editors',
   templateUrl: './editors.component.html',
@@ -44,10 +43,6 @@ export class EditorsComponent {
   isOpenFile(file) {
     if (!file || !this.currentFile) { return; }
     return file.path == this.currentFile.path;
-  }
-
-  expandToggle() {
-    return this.isExpanded = !this.isExpanded;
   }
 
   showFile(file) {

@@ -1,10 +1,16 @@
 <div *ngIf="slide.active">
   <div class="exercise-panel">
-    <app-editors [files]="config.files"
-                 (onChanges)="onCodeChanges($event)"
-                 (onToggle)="toggleFile($event)"
-                 (onLoadSolution)="loadSolution($event)"
-    ></app-editors>
+    <app-resize>
+      <app-editors [files]="config.files"
+                   (onChanges)="onCodeChanges($event)"
+                   (onToggle)="toggleFile($event)"
+                   (onLoadSolution)="loadSolution($event)">
+      </app-editors>
+      <app-resize [isVertical]="true">
+        <info></info>
+      </app-resize>
+    </app-resize>
+
     <div class="side">
       <ng-content select=".description"></ng-content>
       <app-tests [tests]="config.tests"></app-tests>

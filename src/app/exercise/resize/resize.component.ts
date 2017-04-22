@@ -28,7 +28,7 @@ export class ResizeComponent {
     }
   }
 
-  calcSize(currentOffset) {
+  calcWidth(currentOffset) {
      return this.initSize + currentOffset - this.initOffset;
   }
 
@@ -48,15 +48,12 @@ export class ResizeComponent {
       return;
     }
     e.preventDefault();
-    let offset;
 
     if (!this.isVertical) {
-      offset = e.clientX;
+      this.size = Math.max(this.minSize, this.calcWidth(e.clientX));
     } else {
-      offset = e.clientY;
+      this.size = this.initSize + this.initOffset - e.clientY;
     }
-
-    this.size = Math.max(this.minSize, this.calcSize(offset));
   }
 
   @HostListener('mousedown', ['$event'])
