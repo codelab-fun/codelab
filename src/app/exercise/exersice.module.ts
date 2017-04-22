@@ -6,6 +6,7 @@ import {AutorunComponent} from './autorun/autorun.component';
 import {TestsComponent} from './tests/tests.component';
 import {RunnerComponent} from './runner/runner.component';
 import {EditorComponent} from './editor/editor.component';
+import {InfoComponent} from './info/info.component';
 import {ResizeComponent} from './resize/resize.component';
 import {FormsModule} from '@angular/forms';
 import {LoopProtectionService} from './services/loop-protection.service';
@@ -13,13 +14,14 @@ import {ScriptLoaderService} from './services/script-loader.service';
 import {MonacoConfigService} from './services/monaco-config.service';
 import {PlaygroundComponent} from './playground/playground.component';
 
+
 @NgModule({
   declarations: [
     ExerciseComponent,
-    EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent, ResizeComponent, PlaygroundComponent,],
+    EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent, InfoComponent, ResizeComponent, PlaygroundComponent,],
   imports: [BrowserModule, FormsModule],
   providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
-  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent, RunnerComponent]
+  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent, InfoComponent, RunnerComponent]
 })
 export class ExerciseModule {
 }
