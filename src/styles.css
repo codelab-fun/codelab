@@ -12,16 +12,13 @@ h1, h2 {
   font-weight: 300;
 }
 
-.slide img {
-  width: 100%;
-}
-
 .no-padding .slide {
   padding: 0;
 }
 
 .presentation {
   position: relative;
+  margin: 0 auto;
 }
 
 .slide {
@@ -33,6 +30,21 @@ h1, h2 {
   background-color: #fff;
   margin: 0 auto;
 }
+
+.slide [large-font] {
+  font-size: 30px;
+}
+.slide [p20] { padding-top: 20px }
+.slide [m20] { margin-top: 20px }
+.slide [m40] { margin-top: 40px }
+.slide [column-4] { width: 40%; }
+.slide [column-2] { width: 20%; }
+.slide [column-1] { width: 10%; }
+.slide [flex] {
+  display: flex;
+}
+
+
 
 /* TODO(kirjs): Support themes */
 .slide h1 {
@@ -58,14 +70,14 @@ h2 {
   font-size: 40px;
 }
 
-
-.popup-message{
-  padding:5px 5px 0 5px;
-  background:black;
-  color:white;
+.popup-message {
+  padding: 5px 5px 0 5px;
+  background: black;
+  color: white;
   font-size: 20px;
 }
-.popup-arrow{
+
+.popup-arrow {
   width: 0;
   height: 0;
   border-left: 0px solid transparent;

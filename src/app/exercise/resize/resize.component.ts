@@ -10,15 +10,12 @@ export class ResizeComponent {
   private MIN_WIDTH = 400;
   private MIN_HEIGHT = 200;
   private isMouseDown: boolean;
-  private width: number;
-  private height: number;
   private initOffset;
   private initSize;
   private minSize;
   private size;
 
-  constructor(private elementRef: ElementRef) {
-  }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
     if (this.isVertical) {

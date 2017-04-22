@@ -18,6 +18,7 @@ import {FileConfig} from '../interfaces/file-config';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Subscription} from 'rxjs/Subscription';
+import {SlideComponent} from "../../presentation/slide/slide.component";
 declare const monaco: any;
 declare const require: any;
 
@@ -43,7 +44,7 @@ export class EditorComponent implements AfterViewInit, OnChanges {
   }
 
   editSubscription: Subscription;
-  private _editor: any;
+  public _editor: any;
   @Input() public file: FileConfig;
   @Input() fontSize = 12;
   @ViewChild('editor') editorContent: ElementRef;
@@ -59,7 +60,7 @@ export class EditorComponent implements AfterViewInit, OnChanges {
   }
 
 
-  constructor(private monacoConfigService: MonacoConfigService) {
+  constructor(public monacoConfigService: MonacoConfigService, public slide: SlideComponent) {
     this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1000) : A))
       .subscribe(this.onCodeChange);
   }
@@ -76,6 +77,10 @@ export class EditorComponent implements AfterViewInit, OnChanges {
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
 
     let model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
+    if(!model){
+      model = this.monacoConfigService.monaco.editor.createModel(this.file.code, this.file.type, this.file.path);
+    }
+
     this.code = this.file.code;
     this._editor = this.monacoConfigService.monaco.editor.create(myDiv,
       {

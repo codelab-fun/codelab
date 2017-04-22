@@ -86,8 +86,9 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  transition: all 0.218s ease-in;
+  width: 100%;
   background: #bdc3c7;
+  transition: all 0.218s ease-in;
 }
 
 .presentation--expanded {
@@ -118,7 +119,6 @@
   background-image: url("/assets/images/expand.png");
   background-size: 100% 100%;
   cursor: pointer;
-  transition: background-color 0.218s ease-in;
 
   &:hover {
     background-color: #eee;
