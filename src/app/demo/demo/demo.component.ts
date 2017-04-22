@@ -25,14 +25,18 @@ export class DemoComponent implements OnInit {
       type: 'typescript'
     },
     component: {
-      p1: {
-        code: `export class AppComponent {
+      justClass: {
+        code: `
+        
+        
+export class AppComponent {
 }`,
         readonly: true,
         path: 'Path',
-        type: 'TypeScript'
+        type: 'typescript',
+
       },
-      p2: {
+      withDecorators: {
         code: `@Component({
   /* Metadata comes here */
 })
@@ -40,7 +44,43 @@ export class AppComponent {
 }`,
         readonly: true,
         path: 'file',
-        type: 'typescript'
+        type: 'typescript',
+        match: /@C[^]*?\)[^]/
+      },
+      withSelector: {
+        code: `@Component({
+  selector: 'my-app'
+})
+export class AppComponent {
+}`,
+        readonly: true,
+        path: 'selector.ts',
+        type: 'typescript',
+        match: /selector.*'.*'/
+      },
+      withTemplate: {
+        code: `@Component({
+  selector: 'my-app',
+  template: '<h1>Hello</h1><p>Change me!!</p>'
+})
+export class AppComponent {
+}`,
+        readonly: true,
+        path: 'template.ts',
+        type: 'typescript',
+        match: /template.*'.*'/
+      },
+      withTemplateUrl: {
+        code: `@Component({
+  selector: 'my-app',
+  templateUrl: './app.html'
+})
+export class AppComponent {
+}`,
+        readonly: true,
+        path: 'templateurl.ts',
+        type: 'typescript',
+        match: /template.*'.*'/
       },
 
       'test1': {

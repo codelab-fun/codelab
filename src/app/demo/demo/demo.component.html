@@ -3,15 +3,45 @@
   <app-arrows></app-arrows>
   <app-slide>
     <h1>Angular component</h1>
-    <h2>Building block for your app. It generates HTML and adds behavior on top of it</h2>
-    <app-editor [file]="code.component.p1" [fontSize]="30">
-    </app-editor>
-  </app-slide> <app-slide>
+    <h2>Component is a main building block of your app.</h2>
+    <p><img src="" alt=""></p>
+  </app-slide>
+  <app-slide>
     <h1>Angular component</h1>
     <h2>Building block for your app. It generates HTML and adds behavior on top of it</h2>
-    <app-editor [file]="code.component.p2" [fontSize]="30">
+    <app-editor [file]="code.component.withTemplate" [fontSize]="30">
     </app-editor>
   </app-slide>
+  <app-slide>
+    <h1>Angular component</h1>
+    <h2>To let Angular know that this is not just a class, but an Angular component it has to be adorned with the
+      decorator</h2>
+    <app-editor [file]="code.component.withTemplate" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withDecorators.match]">
+    </app-editor>
+  </app-slide>
+  <app-slide>
+    <h1>Angular component</h1>
+    <h2>Selector defines where the component will be rendered</h2>
+    <app-editor [file]="code.component.withTemplate" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withSelector.match]">
+    </app-editor>
+  </app-slide>
+  <app-slide>
+    <h1>Angular component</h1>
+    <h2>Template defines the output of the </h2>
+    <app-editor [file]="code.component.withTemplate" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withTemplate.match]">
+    </app-editor>
+  </app-slide>
+  <app-slide>
+    <h1>Angular component</h1>
+    <h2>Selector defines where the component will be rendered</h2>
+    <app-editor [file]="code.component.withTemplateUrl" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withTemplateUrl.match]">
+    </app-editor>
+  </app-slide>
+
   <app-slide>
     <div class="centered-vertically">
       <h1 i18n>Angular 4</h1>

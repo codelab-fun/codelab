@@ -27,15 +27,26 @@ Hello`, 'Hello')).toEqual({lineStart: 3, indexStart: 1, indexEnd: 6, lineEnd: 3}
       expect(findPosition(`Yo uuuu
 He\nllo`, 'He\nllo')).toEqual({lineStart: 2, indexStart: 1, indexEnd: 3, lineEnd: 3});
     });
-  });
 
-  it('Assymetric line break in match', () => {
-    expect(findPosition(`Yo uuuu
+
+    it('Assymetric line break in match', () => {
+      expect(findPosition(`Yo uuuu
 He\nlloooo`, 'He\nlloooo')).toEqual({lineStart: 2, indexStart: 1, indexEnd: 6, lineEnd: 3});
-  });
+    });
 
-  it('Multiline with spaces before match', () => {
-    expect(findPosition(`Yo uuuu
+    it('Multiline with spaces before match', () => {
+      expect(findPosition(`Yo uuuu
    He\nlloooo`, 'He\nlloooo')).toEqual({lineStart: 2, indexStart: 4, indexEnd: 6, lineEnd: 3});
+    });
+
+
+    it('Regex multiline with spaces before match', () => {
+      expect(findPosition(`aaaaaabbbbbbaaaaaaaa`, /b+/)).toEqual({
+        lineStart: 1,
+        indexStart: 7,
+        indexEnd: 13,
+        lineEnd: 1
+      });
+    });
   });
 });

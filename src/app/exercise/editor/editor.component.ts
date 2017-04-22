@@ -55,7 +55,7 @@ export class EditorComponent implements AfterViewInit, OnChanges {
   public code = '';
 
   calcHeight(lines) {
-    let lineHeight = this.fontSize + 6;
+    let lineHeight = this.fontSize + 8;
     return Math.max(lines * lineHeight, lineHeight * 6);
   }
 

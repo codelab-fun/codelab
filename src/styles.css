@@ -97,11 +97,14 @@ h2 {
 .popup-arrow {
   width: 0;
   height: 0;
-  border-left: 0px solid transparent;
+  border-left: 0 solid transparent;
   border-right: 20px solid transparent;
   border-top: 8px solid black;
 }
 
 .monaco-editor.vs .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
-  color: #a6a6a6;
+
+}
+.monaco-editor.vs .highlighted-code.highlighted-code.highlighted-code.highlighted-code {
+  background: yellow;
 }
