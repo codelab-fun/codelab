@@ -23,7 +23,7 @@ export class CodeEditorComponent {
     this.file = {
       code: this.codeElement.nativeElement.innerText.trim() || this.code,
       readonly: true,
-      path: '',
+      path: ''+Math.random(),
       type: this.type,
       template: ''
     }

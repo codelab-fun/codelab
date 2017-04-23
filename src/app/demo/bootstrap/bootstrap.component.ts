@@ -10,7 +10,7 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 export class BootstrapComponent extends BaseRouteableComponent {
 
   code = {
-    componentAnatomy: {
+    componentAnatomy: {   // Component Anatomy - Milestone #1
       code:`import { Component } from '@angular/core';
 @Component({
   selector: 'hello-world',
@@ -18,11 +18,57 @@ export class BootstrapComponent extends BaseRouteableComponent {
 })
 export class HelloWorldComponent {}`,
       matches: {
-        export: /export.*/,
+        exportClass: /export.*/,
         decorator: /@C[^]*?\)[^]/,
         selector: /selector.*'.*'/,
         template: /template.*'.*'/
-      }
+      },
+      readonly: true,
+      path: 'component.anatomy.ts',
+      type: 'typescript'
+    },
+    moduleAnatomy: {  // Module Anatomy - Milestone #1
+      code: `import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HelloWorldComponent } from './hello-world.component';
+
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ HelloWorldComponent ],
+  bootstrap: [ HelloWorldComponent ],
+})
+export class AppModule {}`,
+      matches: {
+        exportClass: /export.*/,
+        ngModule: /@N[^]*?\)[^]/,
+        importsArr: /imports.*/,
+        declarationsArr: /declarations.*/,
+        bootstrapArr: /bootstrap.*/
+      },
+      readonly: true,
+      path: 'module.anatomy.ts',
+      type: 'typescript'
+    },
+    moduleBootstrapping: {
+      code: {
+        mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+  import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);`,
+        indexHTML: `<body>
+  <!-- Typically our “root” component has the selector 
+       <app-root></app-root>. We're using <hello-world></hello-word>
+       as tradition dictates. -->
+  <hello-world>Loading...</hello-world>
+  <script>...</script>
+</body>`
+      },
+      matches: {
+        bootstrap: /platformBrowserDynamic().*/
+      },
+      readonly: true,
+      path: 'main.ts',
+      type: 'typescript'
     }
   };
 
