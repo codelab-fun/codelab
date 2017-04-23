@@ -23,6 +23,12 @@ export const routes = [
     description: 'Learn how create and bootstrap your first Angular application'
   },
   {
+    path: 'dependency-injection',
+    loadChildren: './dependency-injection/dependency-injection.module#DependencyInjectionModule',
+    name: 'Dependency-Injection',
+    description: 'Learn how to provide dependencies to your code instead of hard-coding them.'
+  },
+  {
     path: 'experiments',
     loadChildren: './experiments/experiments.module#ExperimentsModule',
     name: 'Experiments',
