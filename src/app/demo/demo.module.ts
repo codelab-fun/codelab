@@ -24,6 +24,12 @@ export const routes = [
     description: 'Learn how create and bootstrap your first Angular application'
   },
   {
+    path: 'templates',
+    loadChildren: './templates/templates.module#TemplatesModule',
+    name: 'Templates',
+    description: 'See how you can use angular templates'
+  },
+  {
     path: 'dependency-injection',
     loadChildren: './dependency-injection/dependency-injection.module#DependencyInjectionModule',
     name: 'Dependency-Injection',
