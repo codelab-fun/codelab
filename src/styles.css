@@ -105,6 +105,15 @@ h2 {
 .monaco-editor.vs .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
 
 }
+
 .monaco-editor.vs .highlighted-code.highlighted-code.highlighted-code.highlighted-code {
   background: yellow;
 }
+
+p {
+  font-size: 22px;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
