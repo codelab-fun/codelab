@@ -123,6 +123,37 @@ export class AppComponent {
         type: 'typescript',
         match: /template.*'.*'/
       },
+      consumeTheInjectable:{
+        code: `import { Component } from '@angular/core';
+import { UnitConverterService } 
+    from '../services/unit-converter.service';
+
+@Component({...})
+export class UnitConversionComponent {
+  constructor(converter: UnitConverterService) {}
+}`,
+        readonly: true,
+        path: 'unit-conversion.component.ts',
+        type: 'typescript',
+        match: /constructor.*/
+      },
+      handlingServices:{
+        code: `import { Component } from '@angular/core';
+import { UnitConverterService } 
+    from '../services/unit-converter.service';
+
+@Component({...})
+export class UnitConversionComponent {
+  constructor(converter: UnitConverterService) {}
+  getUnit(fromUnit: string, value: number) {
+    this.converter.doStuff();
+  }
+}`,
+        readonly: true,
+        path: 'unit-conversion.getUnit.component.ts',
+        type: 'typescript',
+        match: /getUnit[^]*?\)[^]/
+      },
       moduleBootstrapping:{
         code: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
@@ -144,7 +175,34 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
         path: 'index.html',
         type: 'typescript'
       },
+      noDependencyInjection: {
+        code: `export class Person {
+  profession: Profession;
 
+  constructor(name: string, age: number) {
+    this.profession = new Profession();
+  }
+
+}`,
+        readonly: true,
+        path: 'person.noDI.ts',
+        type: 'typescript',
+        match: /this.*/
+      },
+
+      dependencyInjection: {
+        code: `export class MyComponent {
+  /** 
+   * Typescript shorthand makes 'service'
+   * available to component instance.
+   */
+  constructor(public service: MyService) {}
+}`,
+        readonly: true,
+        path: 'person.module.ts',
+        type: 'typescript',
+        match: /constructor.*/
+      },
       'test1': {
         code: `import {Hello} from 'Hello';
 console.log(new Hello(2016).hello())`,
@@ -159,6 +217,37 @@ console.log(new Hello(2016).hello())`,
   fontSize: 40 //optional
  }
 ];`
+    },
+    injectable: {
+      classAsInjectable: {
+        code: `import { Injectable } from '@angular/core';
+
+@Injectable()
+export class MyService {
+  ...
+}`,
+        readonly: true,
+        path: 'my-service.ts',
+        type: 'typescript',
+        match: /@I[^]*?\)[^]/
+      },
+      provideTheInjectable:{
+        code: `import { NgModule } from '@angular/core';
+import { UnitConverterService }
+    from '../services/unit-converter.service';
+import { UnitConversionComponent }
+    from './unit-conversion.component';
+
+@NgModule({
+  declarations: [ UnitConversionComponent ],
+  providers: [ UnitConverterService ],
+})
+export class AppModule {}`,
+        readonly: true,
+        path: 'injectable.app.module.ts',
+        type: 'typescript',
+        match: /providers.*/
+      }
     }
   };
   exercises = [
