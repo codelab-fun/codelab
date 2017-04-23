@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {SlideComponent} from './presentation/slide/slide.component';
 import {PresentationComponent} from './presentation/presentation/presentation.component';
 import {ResizeDirective} from './presentation/resize/resize.directive';
@@ -9,6 +8,7 @@ import {ArrowsComponent} from './presentation/arrows/arrows.component';
 import {SlidesRoutingDirective} from './presentation/slides-routing/slides-routing.directive';
 import {FooterComponent} from './presentation/footer/footer.component';
 import {BrowserWindowComponent} from './presentation/browser-window/browser-window.component';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -33,10 +33,10 @@ import {BrowserWindowComponent} from './presentation/browser-window/browser-wind
     SlidesRoutingDirective,
     BrowserWindowComponent
   ],
-  imports: [BrowserModule],
+  imports: [CommonModule],
   providers: [],
   bootstrap: []
 })
-export class SharedModule {
+export class PresentationModule {
 
 }

@@ -3,15 +3,33 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {DemoComponent} from './demo/demo.component';
-import {SharedModule} from '../shared.module';
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
 import {ExerciseModule} from '../exercise/exersice.module';
-import {SlidesRoutes} from '../presentation/slide-routes';
-import {TooltipsModule} from "../tooltips/tooltips.module";
+import {TooltipsModule} from '../tooltips/tooltips.module';
+import {PresentationModule} from '../presentation.module';
 
-export const routes = SlidesRoutes.get(DemoComponent);
+export const routes = [
+  {
+    path: 'typescript',
+    loadChildren: './typescript/typescript.module#TypescriptModule',
+    name: 'Typescript (Optional)',
+    description: 'Angular is using TypeScript which is an improved version with JavaScript. Learn more about it in this codelab'
+  }, {
+    path: 'bootstrap',
+    loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
+    name: 'Bootstrap',
+    description: 'Learn how create and bootstrap your first Angular application'
+  },
+  {
+    path: 'experiments',
+    loadChildren: './experiments/experiments.module#ExperimentsModule',
+    name: 'Experiments',
+    description: 'This is a place for experiments, dev only'
+  },
+];
+
 export function monacoReady() {
   return MonacoConfigService.monacoReady
 }
@@ -19,13 +37,13 @@ export function monacoReady() {
 @NgModule({
   declarations: [
     DemoComponent,
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    SharedModule,
+    PresentationModule,
     ExerciseModule,
     RouterModule.forRoot(routes),
     TooltipsModule

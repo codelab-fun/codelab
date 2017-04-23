@@ -317,10 +317,10 @@ export class AppComponent {
     }
   ];
 
+  activeSlideId = 0;
+
   constructor(private route: ActivatedRoute) {
   }
-
-  activeSlideId = 0;
 
   ngOnInit() {
     let id = Number(this.route.snapshot.params['id']);
