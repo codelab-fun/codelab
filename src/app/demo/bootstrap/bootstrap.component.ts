@@ -49,7 +49,7 @@ export class AppModule {}`,
       path: 'module.anatomy.ts',
       type: 'typescript'
     },
-    moduleBootstrapping: {
+    moduleBootstrapping: {  // Module Bootstraping - Milestone #1
       code: {
         mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
   import { AppModule } from './app.module';
@@ -121,20 +121,6 @@ export class AppComponent {
           "code": "import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';\nimport {AppModule} from './app.module';\n\nconst platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n",
           "readonly": true,
           "collapsed": true
-        },
-        {
-          "bootstrap": true,
-          "excludeFromTesting": false,
-          "type": "typescript",
-          "path": "tests/test.ts",
-          "template": "\nimport {TestBed} from '@angular/core/testing';\n// Solution prefix will be stripped-out by the app\nimport {AppComponent, evalJs} from '../app.component';\nimport 'reflect-metadata';\n\nlet metadata;\nbeforeEach(() => {\n  try {\n    TestBed.resetTestingModule();\n    TestBed.configureTestingModule({declarations: [AppComponent]});\n    metadata = Reflect.getMetadata('annotations', AppComponent);\n  } catch (e) {\n    // Do nothing, we have assertions below for this case\n  }\n});\n\ndescribe('Component', () => {\n  it(`Create a class called AppComponent`, () => {\n    chai.expect(typeof evalJs('AppComponent')).equals('function');\n  });\n\n  it(`Export the created class`, () => {\n    chai.expect(typeof AppComponent).equals('function');\n  });\n\n  it(`Add a Component decorator for the class`, () => {\n    chai.expect(metadata).is.not.undefined\n  });\n\n  it(`Add a selector to the component decorator`, () => {\n    chai.expect(metadata[0].selector).equals('my-app');\n  });\n\n  it(`Add a template that contains: '<h1>Hello CatTube!</h1>'`, () => {\n    chai.expect(metadata[0].template).equals('<h1>Hello CatTube!</h1>');\n  });\n});\n\n",
-          "moduleName": "tests/test",
-          "code": "\nimport {TestBed} from '@angular/core/testing';\n// Solution prefix will be stripped-out by the app\nimport {AppComponent, evalJs} from '../app.component';\nimport 'reflect-metadata';\n\nlet metadata;\nbeforeEach(() => {\n  try {\n    TestBed.resetTestingModule();\n    TestBed.configureTestingModule({declarations: [AppComponent]});\n    metadata = Reflect.getMetadata('annotations', AppComponent);\n  } catch (e) {\n    // Do nothing, we have assertions below for this case\n  }\n});\n\ndescribe('Component', () => {\n  it(`Create a class called AppComponent`, () => {\n    chai.expect(typeof evalJs('AppComponent')).equals('function');\n  });\n\n  it(`Export the created class`, () => {\n    chai.expect(typeof AppComponent).equals('function');\n  });\n\n  it(`Add a Component decorator for the class`, () => {\n    chai.expect(metadata).is.not.undefined\n  });\n\n  it(`Add a selector to the component decorator`, () => {\n    chai.expect(metadata[0].selector).equals('my-app');\n  });\n\n  it(`Add a template that contains: '<h1>Hello CatTube!</h1>'`, () => {\n    chai.expect(metadata[0].template).equals('<h1>Hello CatTube!</h1>');\n  });\n});\n\n",
-          "solution": "\nimport {TestBed} from '@angular/core/testing';\n// Solution prefix will be stripped-out by the app\nimport {AppComponent, evalJs} from '../app.component';\nimport 'reflect-metadata';\n\nlet metadata;\nbeforeEach(() => {\n  try {\n    TestBed.resetTestingModule();\n    TestBed.configureTestingModule({declarations: [AppComponent]});\n    metadata = Reflect.getMetadata('annotations', AppComponent);\n  } catch (e) {\n    // Do nothing, we have assertions below for this case\n  }\n});\n\ndescribe('Component', () => {\n  it(`Create a class called AppComponent`, () => {\n    chai.expect(typeof evalJs('AppComponent')).equals('function');\n  });\n\n  it(`Export the created class`, () => {\n    chai.expect(typeof AppComponent).equals('function');\n  });\n\n  it(`Add a Component decorator for the class`, () => {\n    chai.expect(metadata).is.not.undefined\n  });\n\n  it(`Add a selector to the component decorator`, () => {\n    chai.expect(metadata[0].selector).equals('my-app');\n  });\n\n  it(`Add a template that contains: '<h1>Hello CatTube!</h1>'`, () => {\n    chai.expect(metadata[0].template).equals('<h1>Hello CatTube!</h1>');\n  });\n});\n\n",
-          "test": true,
-          "before": "mochaBefore();",
-          "after": "mochaAfter();",
-          "hidden": true
         }
       ]
     }
