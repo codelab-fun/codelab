@@ -9,6 +9,7 @@ import {MonacoConfigService} from '../exercise/services/monaco-config.service';
 import {ExerciseModule} from '../exercise/exersice.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {PresentationModule} from '../presentation.module';
+import {IndexComponent} from './index/index.component';
 
 export const routes = [
   {
@@ -34,6 +35,10 @@ export const routes = [
     name: 'Experiments',
     description: 'This is a place for experiments, dev only'
   },
+  {
+    path: '',
+    component: IndexComponent
+  }
 ];
 
 export function monacoReady() {
@@ -44,6 +49,7 @@ export function monacoReady() {
   declarations: [
     DemoComponent,
     AppComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,11 +60,16 @@ export function monacoReady() {
     RouterModule.forRoot(routes),
     TooltipsModule
   ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useValue: monacoReady,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: 'ROUTES',
+      useValue: routes
+    },
+    {
+      provide: APP_INITIALIZER,
+      useValue: monacoReady,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class DemoModule {
