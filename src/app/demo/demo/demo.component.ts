@@ -36,6 +36,35 @@ export class AppComponent {
         type: 'typescript',
 
       },
+      componentAnatomy: {
+        code: `import { Component } from '@angular/core';
+@Component({                      
+  selector: 'hello-world',
+  template: '<h1>Hello World!</h1>',
+})
+export class HelloWorldComponent {}`,
+        readonly: true,
+        path: 'hello-world.component.ts',
+        type: 'typescript'
+      },
+      withClass: {
+        match: /export.*/
+      },
+      moduleAnatomy: {
+        code: `import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser;
+import { HelloWorldComponent } from './hello-world.component';
+
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ HelloWorldComponent ],
+  bootstrap: [ HelloWorldComponent ],
+})
+export class AppModule {}`,
+        readonly: true,
+        path: 'app.module.ts',
+        type: 'typescript'
+      },
       withDecorators: {
         code: `@Component({
   /* Metadata comes here */
@@ -45,7 +74,19 @@ export class AppComponent {
         readonly: true,
         path: 'file',
         type: 'typescript',
-        match: /@C[^]*?\)[^]/
+        match: /@C[^]*?\)[^]/,
+      },
+      withNgModel:{
+        match: /@N[^]*?\)[^]/
+      },
+      withImports: {
+        match: /imports.*/
+      },
+      withDeclarations: {
+        match: /declarations.*/
+      },
+      withBootstrap:{
+        match: /bootstrap.*/
       },
       withSelector: {
         code: `@Component({
@@ -81,6 +122,27 @@ export class AppComponent {
         path: 'templateurl.ts',
         type: 'typescript',
         match: /template.*'.*'/
+      },
+      moduleBootstrapping:{
+        code: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);`,
+        readonly: true,
+        path: 'main-bootstrap.ts',
+        type: 'typescript'
+      },
+      moduleBootstrappingHTML:{
+        code: `<body>
+  <!-- Typically our “root” component has the selector 
+       <app-root></app-root>. We're using <hello-world></hello-word>
+       as tradition dictates. -->
+  <hello-world>Loading...</hello-world>
+  <script>...</script>
+</body>`,
+        readonly: true,
+        path: 'index.html',
+        type: 'typescript'
       },
 
       'test1': {

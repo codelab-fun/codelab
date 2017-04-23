@@ -248,7 +248,112 @@
       <li>And more!</li>
     </ul>
   </app-slide>
+
+
+  <!--  COMPONENT ANATOMY -->
   <app-slide>
     <h1>Component Anatomy - Inline Template</h1>
+    <h2>Declaration of your component's class. Here will be the logic of your page</h2>
+    <app-editor [file]="code.component.componentAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withClass.match]"></app-editor>
   </app-slide>
+    <!--  @-Decorator -->
+  <app-slide>
+    <h1>Component Anatomy - Inline Template</h1>
+    <h2>Declaration of your component's class.</h2>
+    <h3>
+      Components are the main way we build and specify elements and logic on the page, through both custom elements
+      and attributes that add functionality to our existing components.
+    </h3>
+    <app-editor [file]="code.component.componentAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withDecorators.match]"></app-editor>
+  </app-slide>
+    <!--  Selector  -->
+  <app-slide>
+    <h1>Component Anatomy - Inline Template</h1>
+    <h3>
+      Selector defines where the component will be rendered
+    </h3>
+    <p>
+      When we use the 'hello-world' tag in our HTML, this component will be created, our constructor called, and rendered.
+    </p>
+    <app-editor [file]="code.component.componentAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withSelector.match]"></app-editor>
+  </app-slide>
+    <!--  Template  -->
+  <app-slide>
+    <h1>Component Anatomy - Inline Template</h1>
+    <h3>
+      Template defines the output of the component.
+    </h3>
+    <app-editor [file]="code.component.componentAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withTemplate.match]"></app-editor>
+  </app-slide>
+
+
+  <!--  MODULE ANATOMY -->
+  <app-slide>
+    <h1>Module Anatomy</h1>
+    <h3>
+      An Angular module identifies the components, directives, and pipes that the application uses along with the list
+      of external Angular modules that the application needs, such as BrowserModule.
+    </h3>
+    <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withClass.match]"></app-editor>
+  </app-slide>
+    <!--  NgModel -->
+  <app-slide>
+    <h1>Module Anatomy</h1>
+    <h3>
+      NgModules help organize an application into cohesive blocks of functionality.
+    </h3>
+    <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withNgModel.match]"></app-editor>
+  </app-slide>
+  <!--  Imports  -->
+  <app-slide>
+    <h1>Module Anatomy</h1>
+    <h3>
+      The BrowserModule that this and every application needs to run in a browser.
+    </h3>
+    <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withImports.match]"></app-editor>
+  </app-slide>
+    <!--  Declarations  -->
+  <app-slide>
+    <h1>Module Anatomy</h1>
+    <h3>
+      You tell Angular which components belong to the AppModule by listing it in the module's declarations array.
+    </h3>
+    <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withDeclarations.match]"></app-editor>
+  </app-slide>
+    <!--  Bootstrap -->
+  <app-slide>
+    <h1>Module Anatomy</h1>
+    <h3>
+      The root component that Angular creates and inserts into the index.html host web page.
+    </h3>
+    <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
+                [app-focus-highlight-match]="[code.component.withBootstrap.match]"></app-editor>
+  </app-slide>
+
+
+  <!--  MODULE BOOTSTRAPPING-->
+  <app-slide>
+    <h1>Module Bootstrapping</h1>
+    <h3>
+      The bootstrapping process sets up the execution environment, digs the root AppComponent out of the module's
+      bootstrap array, creates an instance of the component and inserts it within the element tag identified by the
+      component's selector.
+    </h3>
+    <app-editor [file]="code.component.moduleBootstrapping" [fontSize]="20"></app-editor>
+    <p>
+      The AppComponent selector — in most documentation samples — is my-app so Angular looks for a
+      <![CDATA[<my-app>]]> tag in the index.html and displays the AppComponent there. We are using hello-world in
+      this example.
+    </p>
+    <app-editor [file]="code.component.moduleBootstrappingHTML" [fontSize]="20"></app-editor>
+  </app-slide>
+
 </app-presentation>
