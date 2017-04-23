@@ -1,4 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+
+const baseCode = `
+@Component({
+  selector: 'my-app', 
+  template: \`{{template}}\`
+})
+class AppComponent {
+  name = 'Angularjs'
+}
+`;
 
 @Component({
   selector: 'app-templates',
@@ -7,7 +18,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplatesComponent implements OnInit {
 
-  constructor() { }
+
+  getCode(code: string) {
+    return baseCode.replace('{{template}}', code);
+  }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
