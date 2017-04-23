@@ -6,14 +6,14 @@ import {findPosition} from './utils';
   selector: '[app-focus-highlight-match]'
 })
 export class FocusHighlightDirective {
-  @Input('app-focus-highlight-match') tooltips: Array<string> = [];
+  @Input('app-focus-highlight-match') matches: Array<string> = [];
 
   constructor(private editorComponent: EditorComponent) {
   }
 
   ngAfterViewInit() {
     this.editorComponent.slide.onActive.filter(a => a).first().subscribe(() => {
-      const decorations = this.tooltips.reduce((ranges, match) => {
+      const decorations = this.matches.reduce((ranges, match) => {
         const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, match);
 
 

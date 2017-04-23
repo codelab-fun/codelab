@@ -12,7 +12,7 @@ import {LoopProtectionService} from './services/loop-protection.service';
 import {ScriptLoaderService} from './services/script-loader.service';
 import {MonacoConfigService} from './services/monaco-config.service';
 import {PlaygroundComponent} from './playground/playground.component';
-import {EditorInlineComponent} from './editor-inline/editor-inline.component';
+import {CodeEditorComponent} from './code-editor/code-editor.component';
 import {CommonModule} from '@angular/common';
 
 @NgModule({
@@ -25,7 +25,7 @@ import {CommonModule} from '@angular/common';
     EditorComponent,
     ResizeComponent,
     PlaygroundComponent,
-    EditorInlineComponent
+    CodeEditorComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +41,7 @@ import {CommonModule} from '@angular/common';
     PlaygroundComponent,
     EditorComponent,
     RunnerComponent,
-    EditorInlineComponent
+    CodeEditorComponent
   ]
 })
 export class ExerciseModule {
