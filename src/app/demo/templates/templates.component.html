@@ -1,11 +1,18 @@
 <app-presentation app-slides-routing>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
-  <template #appCode>
-
-  </template>
   <app-slide>Templates module
-
   </app-slide>
-  <app-slide><h1>Templates</h1></app-slide>
+
+  <app-slide><h1>Templates</h1>
+    <app-code-editor
+      [code]="code.binding"
+      [fontSize]="30"
+    ><textarea #code>
+      if(x<10){
+        y++
+        <b></b>
+      }
+    </textarea></app-code-editor>
+  </app-slide>
 </app-presentation>

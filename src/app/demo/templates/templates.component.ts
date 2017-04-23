@@ -18,6 +18,9 @@ class AppComponent {
 })
 export class TemplatesComponent implements OnInit {
 
+  code = {
+    binding: ``
+  };
 
   getCode(code: string) {
     return baseCode.replace('{{template}}', code);
