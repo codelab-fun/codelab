@@ -253,17 +253,16 @@
   <!--  COMPONENT ANATOMY -->
   <app-slide>
     <h1>Component Anatomy - Inline Template</h1>
-    <h2>Declaration of your component's class. Here will be the logic of your page</h2>
+    <h3>Declaration of your component's class. Here will be the module's logic.</h3>
     <app-editor [file]="code.component.componentAnatomy" [fontSize]="30"
                 [app-focus-highlight-match]="[code.component.withClass.match]"></app-editor>
   </app-slide>
     <!--  @-Decorator -->
   <app-slide>
     <h1>Component Anatomy - Inline Template</h1>
-    <h2>Declaration of your component's class.</h2>
     <h3>
-      Components are the main way we build and specify elements and logic on the page, through both custom elements
-      and attributes that add functionality to our existing components.
+      Apply the @Component decorator to the component class, thereby attaching to the class the essential component
+      metadata that Angular needs to create a component instance and render the component with its template as a view.
     </h3>
     <app-editor [file]="code.component.componentAnatomy" [fontSize]="30"
                 [app-focus-highlight-match]="[code.component.withDecorators.match]"></app-editor>
@@ -272,11 +271,9 @@
   <app-slide>
     <h1>Component Anatomy - Inline Template</h1>
     <h3>
-      Selector defines where the component will be rendered
-    </h3>
-    <p>
+      Selector defines where the component will be rendered.<br>
       When we use the 'hello-world' tag in our HTML, this component will be created, our constructor called, and rendered.
-    </p>
+    </h3>
     <app-editor [file]="code.component.componentAnatomy" [fontSize]="30"
                 [app-focus-highlight-match]="[code.component.withSelector.match]"></app-editor>
   </app-slide>
@@ -314,7 +311,8 @@
   <app-slide>
     <h1>Module Anatomy</h1>
     <h3>
-      The BrowserModule that this and every application needs to run in a browser.
+      Add a module to the imports array when the application requires its features.<br>
+      Every application that executes in a browser needs the BrowserModule
     </h3>
     <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
                 [app-focus-highlight-match]="[code.component.withImports.match]"></app-editor>
@@ -323,7 +321,8 @@
   <app-slide>
     <h1>Module Anatomy</h1>
     <h3>
-      You tell Angular which components belong to the AppModule by listing it in the module's declarations array.
+      In the declarations array, you tell Angular which components belong to the AppModule by listing it in the
+      module's declarations array.
     </h3>
     <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
                 [app-focus-highlight-match]="[code.component.withDeclarations.match]"></app-editor>
@@ -332,7 +331,7 @@
   <app-slide>
     <h1>Module Anatomy</h1>
     <h3>
-      The root component that Angular creates and inserts into the index.html host web page.
+      Bootstrap: The root component that Angular creates and inserts into the index.html host web page.
     </h3>
     <app-editor [file]="code.component.moduleAnatomy" [fontSize]="30"
                 [app-focus-highlight-match]="[code.component.withBootstrap.match]"></app-editor>
@@ -347,13 +346,12 @@
       bootstrap array, creates an instance of the component and inserts it within the element tag identified by the
       component's selector.
     </h3>
-    <app-editor [file]="code.component.moduleBootstrapping" [fontSize]="20"></app-editor>
-    <p>
-      The AppComponent selector — in most documentation samples — is my-app so Angular looks for a
-      <![CDATA[<my-app>]]> tag in the index.html and displays the AppComponent there. We are using hello-world in
-      this example.
-    </p>
-    <app-editor [file]="code.component.moduleBootstrappingHTML" [fontSize]="20"></app-editor>
+    <app-editor [file]="code.component.moduleBootstrapping" [fontSize]="15"></app-editor>
+    <h3>
+      The AppComponent selector looks for a <![CDATA[<hello-world>]]> tag in the index.html and displays the
+      AppComponent there.
+    </h3>
+    <app-editor [file]="code.component.moduleBootstrappingHTML" [fontSize]="15"></app-editor>
   </app-slide>
 
 </app-presentation>
