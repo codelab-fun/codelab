@@ -19,7 +19,22 @@ class AppComponent {
 export class TemplatesComponent implements OnInit {
 
   code = {
-    binding: ``
+    bindingMatch: /name/,
+    binding: `<h1>Hello, {{name}}</h1>`,
+    bindingPropMatch: /pic/,
+    bindingProp: `<h1>Hello, {{name}}</h1>
+<img src="{{pic}}" alt="Picture">
+    `,
+    bindingPropSquareMatch: /name/,
+    bindingPropSquare: `<h1>Hello, {{name}}</h1>
+<img [src]="pic" alt="Picture">
+    `,
+    bindingToInput: `<h1>Hello, {{name}}</h1>
+<img [src]="pic" alt="Picture">
+      
+    `,
+
+
   };
 
   getCode(code: string) {

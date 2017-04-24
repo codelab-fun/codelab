@@ -10,7 +10,8 @@ import {Component, ContentChild, Input} from '@angular/core';
 })
 export class CodeEditorComponent {
   @Input('type') type = 'typescript';
-  @Input('fontSize') fontSize = 30;
+  @Input() fontSize = 30;
+  @Input() readonly = true;
   @Input('code') code = '';
   @Input('tooltips') ngTooltips = [];
   @Input('focus-highlight-match') highlight = [];
@@ -37,8 +38,8 @@ export class CodeEditorComponent {
 
     this.file = {
       code: code,
-      readonly: true,
-      path: ''+Math.random(),
+      readonly: this.readonly,
+      path: 'hi' + Math.random(),
       type: this.type,
       template: ''
     }

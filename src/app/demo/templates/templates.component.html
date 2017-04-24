@@ -4,15 +4,34 @@
   <app-slide>Templates module
   </app-slide>
 
-  <app-slide><h1>Templates</h1>
+  <app-slide>
+    <h1>Templates</h1>
     <app-code-editor
       [code]="code.binding"
       [fontSize]="30"
-    ><textarea #code>
-      if(x<10){
-        y++
-        <b></b>
-      }
-    </textarea></app-code-editor>
+      [focus-highlight-match]="[code.bindingMatch]"
+      [readonly]="false"
+      type="html"
+    ></app-code-editor>
+  </app-slide>
+  <app-slide>
+    <h1>Templates 2</h1>
+    <app-code-editor
+      [code]="code.bindingProp"
+      [fontSize]="30"
+      [focus-highlight-match]="[code.bindingPropMatch]"
+      [readonly]="false"
+      type="html"
+    ></app-code-editor>
+  </app-slide>
+  <app-slide>
+    <h1>Templates 2</h1>
+    <app-code-editor
+      [code]="code.bindingPropSquare"
+      [fontSize]="30"
+      [focus-highlight-match]="[code.bindingPropSquareMatch]"
+      [readonly]="false"
+      type="html"
+    ></app-code-editor>
   </app-slide>
 </app-presentation>
