@@ -6,13 +6,7 @@
 
   <app-slide>
     <h1>Templates</h1>
-    <app-code-editor
-      [code]="code.binding"
-      [fontSize]="30"
-      [focus-highlight-match]="[code.bindingMatch]"
-      [readonly]="false"
-      type="html"
-    ></app-code-editor>
+    <app-playground [config]="code.bindingExercise"></app-playground>
   </app-slide>
   <app-slide>
     <h1>Templates 2</h1>
