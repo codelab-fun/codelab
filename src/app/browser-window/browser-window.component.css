@@ -1,6 +1,8 @@
 .frame {
   border: 1px solid #dddddd;
   padding: 20px;
+  margin-top: -6px;
+  width: 500px;
 }
 
 

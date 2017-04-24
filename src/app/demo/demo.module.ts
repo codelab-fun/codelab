@@ -8,8 +8,8 @@ import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
 import {ExerciseModule} from '../exercise/exersice.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
-import {PresentationModule} from '../presentation.module';
 import {IndexComponent} from './index/index.component';
+import {PresentationModule} from '../presentation/presentation.module';
 
 export const routes = [
   {

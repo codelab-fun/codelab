@@ -43,12 +43,71 @@ export function bootstrap(moduleName: string, template: string, solution: string
 
 export function displayAngularComponent(componentCode: string) {
   const moduleCode = "import {BrowserModule} from '@angular/platform-browser';\nimport {NgModule} from '@angular/core';\nimport {AppComponent} from './app.component';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n";
-  const bootstrapCode = "import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';\nimport {AppModule} from './app.module';\n\nconst platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n";
+  const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {AppModule} from './app.module';
+import {ResourceLoader} from '@angular/compiler';
+import * as code from './code';
+
+// The code below is used to match the Components with the appropriate templates.
+//
+class MyResourceLoader extends ResourceLoader {
+  get(url: string): Promise<string> {
+    const templateId = Object.keys(code).find(key => key.includes(url.replace(/[\/\.-]/gi, '_')));
+    let template = code[templateId];
+    if (!template) {
+      console.log(template);
+      debugger;
+    }
+    return Promise.resolve(template);
+  };
+}
+
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule, {
+  providers: [
+    {provide: ResourceLoader, useClass: MyResourceLoader}
+  ]
+});
+
+`;
   return {
     files: [
       exercise('app.component', componentCode, componentCode),
       exercise('app.module', moduleCode, moduleCode),
-      bootstrap('main', bootstrapCode, bootstrapCode)
+      bootstrap('main', bootstrapCode, bootstrapCode),
+      {
+        type: 'css',
+        path: 'styles.css',
+        code: `
+          body, html {
+            margin: 0; 
+            padding: 0;
+            font-family: sans-serif;
+          }
+          
+          h1 {
+            margin: 0; 
+            padding: 0;
+            font-size: 20px;
+          }
+        `
+      }
     ]
   };
+}
+
+
+export function displayAngularComponentWithHtml(componentCode: string) {
+  return {
+    files: [
+      {
+        code: "<h1>Hi</h1>",
+        path: "app/app.html",
+        solution: "",
+        type: "html"
+      },
+      ...
+        displayAngularComponent(componentCode).files
+    ]
+  }
 }

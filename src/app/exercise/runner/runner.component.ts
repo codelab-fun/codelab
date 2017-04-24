@@ -11,7 +11,6 @@ import {
   ViewChild
 } from '@angular/core';
 import * as ts from 'typescript';
-import {Subscription} from 'rxjs';
 import {FileConfig} from '../interfaces/file-config';
 import {LoopProtectionService} from '../services/loop-protection.service';
 import {ScriptLoaderService} from '../services/script-loader.service';
@@ -72,6 +71,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   cachedIframes[config.id] = iframe;
   element.appendChild(iframe);
   const runJs = jsScriptInjector(iframe);
+  const runCss = cssInjector(iframe);
   let index = 0;
 
   return new Promise((resolve, reject) => {
@@ -137,6 +137,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
         },
         runSingleScriptFile: jsScriptInjector(iframe),
         runSingleFile: runJs,
+        runSingleCssFile: runCss,
         setHtml: setHtml,
         loadSystemJS: (name) => {
           (iframe.contentWindow as any).loadSystemModule(name, runner.scriptLoaderService.getScript(name));
@@ -167,6 +168,11 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
           files.filter(file => file.path.indexOf('index.html') >= 0).map((file => {
             setHtml(file.code)
           }));
+
+          files.filter(file => file.type === 'css').map((file) => {
+            runCss(file.code);
+
+          });
 
           files.filter(file => file.type === 'typescript').map((file) => {
             // Update module names
@@ -310,6 +316,8 @@ export class RunnerComponent implements AfterViewInit, OnChanges {
           .filter(file => !file.excludeFromTesting);
         sandbox.runMultipleFiles(testFiles);
       });
+    } else {
+      throw new Error("No runner specified")
     }
   }
 

@@ -1,7 +1,10 @@
 <div *ngIf="slide.active" class="playground">
   <app-editor [file]="config.files[0]"
               (onCodeChange)="onCodeChange($event)"
+              [fontSize]="30"
   ></app-editor>
-  <app-runner [files]="config.files" style="flex: 50%"
-              [runnerType]="config.runner || 'Angular'"></app-runner>
+  <app-browser-window>
+    <app-runner [files]="config.files" style="flex: 50%"
+                [runnerType]="config.runner || 'Angular'"></app-runner>
+  </app-browser-window>
 </div>

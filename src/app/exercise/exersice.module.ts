@@ -1,4 +1,4 @@
-import {TooltipsModule} from './../tooltips/tooltips.module';
+import {TooltipsModule} from '../tooltips/tooltips.module';
 import {NgModule} from '@angular/core';
 import {ExerciseComponent} from './exercise/exercise.component';
 import {EditorsComponent} from './editors/editors.component';
@@ -14,6 +14,7 @@ import {MonacoConfigService} from './services/monaco-config.service';
 import {PlaygroundComponent} from './playground/playground.component';
 import {CodeEditorComponent} from './code-editor/code-editor.component';
 import {CommonModule} from '@angular/common';
+import {BrowserWindowModule} from '../browser-window/browser-window.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {CommonModule} from '@angular/common';
   imports: [
     CommonModule,
     FormsModule,
-    TooltipsModule
+    TooltipsModule,
+    BrowserWindowModule
   ],
   providers: [
     LoopProtectionService,

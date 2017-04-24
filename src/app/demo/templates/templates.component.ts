@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {displayAngularComponent} from '../../exercise/helpers/helpers';
+import {displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
 
 
 const baseCode = `
@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app', 
-  template: \`<h1>Hello</h1>\`
+  templateUrl: \`./app/app.html\`
 })
 export class AppComponent {
   name = 'Angularjs'
@@ -23,7 +23,7 @@ export class AppComponent {
 export class TemplatesComponent implements OnInit {
 
   code = {
-    bindingExercise: displayAngularComponent(baseCode),
+    bindingExercise: displayAngularComponentWithHtml(baseCode),
     bindingMatch: /name/,
     binding: `<h1>Hello, {{name}}</h1>`,
     bindingPropMatch: /pic/,
@@ -43,10 +43,6 @@ export class TemplatesComponent implements OnInit {
 
 
   };
-
-  getCode(code: string) {
-    return baseCode.replace('{{template}}', code);
-  }
 
   constructor() {
   }
