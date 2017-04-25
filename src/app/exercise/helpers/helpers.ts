@@ -85,11 +85,13 @@ platform.bootstrapModule(AppModule, {
             font-family: sans-serif;
           }
           
-          h1 {
+          h1, h2 {
             margin: 0; 
             padding: 0;
-            font-size: 20px;
           }
+          
+          h1 {font-size: 20px;}
+          h2 {font-size: 16px;}
         `
       }
     ]
@@ -97,11 +99,11 @@ platform.bootstrapModule(AppModule, {
 }
 
 
-export function displayAngularComponentWithHtml(componentCode: string) {
+export function displayAngularComponentWithHtml(componentCode: string, html: string) {
   return {
     files: [
       {
-        code: "<h1>Hi</h1>",
+        code: html,
         path: "app/app.html",
         solution: "",
         type: "html"

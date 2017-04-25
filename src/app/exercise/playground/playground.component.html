@@ -2,6 +2,7 @@
   <app-editor [file]="config.files[0]"
               (onCodeChange)="onCodeChange($event)"
               [fontSize]="30"
+              [app-focus-highlight-match]="highlightMatches"
   ></app-editor>
   <app-browser-window>
     <app-runner [files]="config.files" style="flex: 50%"

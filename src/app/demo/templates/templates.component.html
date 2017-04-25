@@ -6,7 +6,9 @@
 
   <app-slide>
     <h1>Templates</h1>
-    <app-playground [config]="code.bindingExercise"></app-playground>
+    <h2>Display both firstName and lastName in the header</h2>
+    <app-playground vertical [config]="code.bindingExercise"
+                    [focus-highlight-match]="[code.bindingExerciseMatch]"></app-playground>
   </app-slide>
   <app-slide>
     <h1>Templates 2</h1>

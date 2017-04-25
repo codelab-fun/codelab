@@ -1,3 +1,8 @@
+
+:host([vertical]) .playground {
+  flex-direction: column;
+}
+
 .playground {
   display: flex;
 }
@@ -8,10 +13,19 @@ app-editor {
   margin-left: -30px;
 }
 
-:host >>> .margin-view-overlays.monaco-editor-background {
+:host /deep/ .margin-view-overlays.monaco-editor-background {
   display: none;
 }
 
-:host >>> .current-line {
+:host /deep/ iframe.testing {
+  display: none;
+}
+
+:host([vertical]) /deep/ iframe.preview {
+  height: 80px !important;
+  width: 100%;
+}
+
+:host /deep/ .current-line {
   display: none;
 }
