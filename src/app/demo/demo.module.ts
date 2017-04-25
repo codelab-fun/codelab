@@ -10,14 +10,11 @@ import {ExerciseModule} from '../exercise/exersice.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
 import {PresentationModule} from '../presentation/presentation.module';
+import {TypescriptRoutes} from './typescript/typescript.routes';
 
 export const routes = [
+  ...TypescriptRoutes,
   {
-    path: 'typescript',
-    loadChildren: './typescript/typescript.module#TypescriptModule',
-    name: 'Typescript (Optional)',
-    description: 'Angular is using TypeScript which is an improved version with JavaScript. Learn more about it in this codelab'
-  }, {
     path: 'bootstrap',
     loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
     name: 'Bootstrap',
