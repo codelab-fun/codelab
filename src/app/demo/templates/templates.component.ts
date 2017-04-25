@@ -26,8 +26,7 @@ export class TemplatesComponent implements OnInit {
   code = {
     bindingExercise: displayAngularComponentWithHtml(baseCode, '<h1>{{firstName}} </h1>'),
     bindingExerciseMatch: / /,
-    bindingPropMatch: displayAngularComponentWithHtml(baseCode, `<h1>{{firstName}} </h1>
-<img src="{{picture}}">`),
+    bindingPropMatch: /name/,
     //bindingPropMatch: /pic/,
     bindingProp: `<h1>Hello, {{name}}</h1>
 <img src="{{pic}}" alt="Picture">
