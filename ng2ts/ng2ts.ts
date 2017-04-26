@@ -140,35 +140,35 @@ const diffFilesResolver = new DiffFilesResolver(preloadedFiles, stages, {
 
 export interface CodelabConfigTemplate {
   name: string;
-  id: string,
-  defaultRunner: string,
-  milestones: MilestoneConfigTemplate[]
+  id: string;
+  defaultRunner: string;
+  milestones: MilestoneConfigTemplate[];
 }
 
 export interface SlideTemplate {
-  slide: true,
-  name: string,
-  description: string
+  slide: true;
+  name: string;
+  description: string;
 }
 
 export interface ExerciseConfigTemplate {
-  slide?: false,
-  name: string,
-  skipTests?: boolean,
-  description: string,
-  runner?: string,
+  slide?: false;
+  name: string;
+  skipTests?: boolean;
+  description: string;
+  runner?: string;
   files: {
-    exercise?: string[]
-    reference?: string[]
-    hidden?: string[]
-    bootstrap?: string[],
-    test?: string[]
-  }
+    exercise?: string[];
+    reference?: string[];
+    hidden?: string[];
+    bootstrap?: string[];
+    test?: string[];
+  };
 }
 
 export interface MilestoneConfigTemplate {
-  name: string,
-  exercises: Array<ExerciseConfigTemplate | SlideTemplate>
+  name: string;
+  exercises: Array<ExerciseConfigTemplate | SlideTemplate>;
 }
 
 
