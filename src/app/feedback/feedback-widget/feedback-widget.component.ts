@@ -1,5 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {AngularFireModule, AuthProviders, AuthMethods, AngularFire} from 'angularfire2';
+
 import {PresentationComponent} from "../../presentation/presentation/presentation.component";
 @Component({
   selector: 'app-feedback-widget',
@@ -13,10 +14,12 @@ export class FeedbackWidgetComponent implements OnInit {
   comment: string = '';
   statusMessage:string = '';
   error = false;
+
   constructor(private angularFire: AngularFire, private el: ElementRef) {
   }
 
   ngOnInit() {
+    //TODO retrieve username from state.local.user
   }
 
   buttonClicked(){
