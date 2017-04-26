@@ -9,6 +9,16 @@ import {TypescriptExercises} from './typescript.exercises';
   styleUrls: ['./typescript.component.css']
 })
 export class TypescriptComponent extends BaseRouteableComponent {
-  exercises = TypescriptExercises;
-}
+  readonly exercises = TypescriptExercises;
 
+  readonly sampleCode =
+`export class Hello {
+  constructor(private readonly name: string){}
+  
+  hello(): string {
+     const greeting = 'Hello';
+		 return \`\${greeting} \${name}!\`;
+  }
+}`;
+
+}

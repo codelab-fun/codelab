@@ -3,6 +3,12 @@
   <app-arrows></app-arrows>
   <app-slide>
     <h1>TypeScript</h1>
+
+    <p>TypeScript is a language compiled to JavaScript.</p>
+
+    <app-code-editor [code]="sampleCode">
+
+    </app-code-editor>
   </app-slide>
 
   <app-slide>
@@ -12,7 +18,7 @@
       <li>Enums</li>
       <li>Async/await</li>
       <li>Getters/setters</li>
-      <li>Desctructuring</li>
+      <li>Destructuring</li>
       <li>Arrow functions</li>
       <li>And more!</li>
     </ul>
@@ -21,12 +27,12 @@
   <app-slide>
     <div style="text-align: center;">
       <h1 i18n>Why TypeScript?</h1>
-
       <app-typescript-circles></app-typescript-circles>
     </div>
   </app-slide>
+
   <app-slide>
-    <app-exercise [config]="exercises[0]">
+    <app-exercise [config]="exercises[1]">
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
           called Codelab.</p>
