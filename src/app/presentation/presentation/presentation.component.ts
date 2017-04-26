@@ -1,5 +1,10 @@
-import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {Router} from "@angular/router";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+  } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface SlideConfig {
   resize: boolean,
@@ -16,12 +21,15 @@ export class PresentationComponent {
   @Input() public height = 720;
   @Input() public zoom = 1;
   @Output() onSlideChange = new EventEmitter<number>();
+  @Output() onSlideAdded = new EventEmitter<{ index: number, id: string}>();
   areShortcutsEnabled = true;
 
   private generatedSlideId = 0;
 
-  registerSlide() {
-    return this.generatedSlideId++;
+  registerSlide(id:string) {
+    const index = this.generatedSlideId++;
+    this.onSlideAdded.emit({index, id});
+    return index;
   }
 
   get totalSlides() {

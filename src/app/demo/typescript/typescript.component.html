@@ -1,11 +1,11 @@
 <app-presentation app-slides-routing>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
-  <app-slide>
+  <app-slide id="intro">
     <h1>TypeScript</h1>
   </app-slide>
 
-  <app-slide>
+  <app-slide id="goals">
     <h1 i18n>Also</h1>
     <ul>
       <li>Interfaces</li>
@@ -18,7 +18,7 @@
     </ul>
   </app-slide>
 
-  <app-slide>
+  <app-slide id="why">
     <div style="text-align: center;">
       <h1 i18n>Why TypeScript?</h1>
 
@@ -53,7 +53,7 @@
       </svg>
     </div>
   </app-slide>
-  <app-slide>
+  <app-slide id="exercise">
     <app-exercise [config]="exercises[0]">
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
