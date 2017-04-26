@@ -22,7 +22,7 @@ export class SlidesRoutingDirective implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private  pres: PresentationComponent) {
   }
 
-  @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id: string }) {
+  @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {
     // Add url mapping
     this.ids[value.index] = value.id;
     if(this.pres.activeSlideId === value.index) {
