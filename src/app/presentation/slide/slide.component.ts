@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
   selector: 'app-slide',
@@ -9,23 +9,24 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./slide.component.css']
 })
 export class SlideComponent implements OnInit {
-  readonly id: number;
+  private slideId: number;
   private activeSubject = new BehaviorSubject<boolean>(false);
   public onActive: Observable<boolean>;
 
+  @Input()
+  id: string;
+
   constructor(public presentation: PresentationComponent) {
     this.onActive = this.activeSubject.distinctUntilChanged();
-    this.id = presentation.registerSlide();
   }
 
-
-
   get active() {
-    this.activeSubject.next(this.presentation.activeSlideId === this.id);
-    return this.presentation.activeSlideId === this.id;
+    this.activeSubject.next(this.presentation.activeSlideId === this.slideId);
+    return this.presentation.activeSlideId === this.slideId;
   }
 
   ngOnInit() {
+    this.slideId = this.presentation.registerSlide(this.id);
   }
 
   disableShortcuts() {
