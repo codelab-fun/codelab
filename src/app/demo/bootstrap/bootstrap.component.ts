@@ -28,9 +28,7 @@ export class HelloWorldComponent {}`,
       type: 'typescript'
     },
     moduleAnatomy: {  // Module Anatomy - Milestone #1
-      code: `import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HelloWorldComponent } from './hello-world.component';
+      code: `/* Imports */
 
 @NgModule({
   imports: [ BrowserModule ],
@@ -56,14 +54,13 @@ export class AppModule {}`,
 
 platformBrowserDynamic().bootstrapModule(AppModule);`,
         indexHTML: `<body>
-  <!-- Typically our “root” component has the selector 
-       <app-root></app-root>. We're using <hello-world></hello-word>
-       as tradition dictates. -->
-  <hello-world>Loading...</hello-world>
-  <script>...</script>
+  <hello-world>
+    Loading...
+  </hello-world>
 </body>`
       },
       matches: {
+        index: /<hello-[^]*world>/,
         bootstrap: /platformBrowserDynamic().*/
       },
       readonly: true,
