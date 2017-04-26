@@ -21,8 +21,8 @@ export class SlideComponent implements OnInit {
   }
 
   get active() {
-    this.activeSubject.next(this.presentation.activeSlideId === this.slideId);
-    return this.presentation.activeSlideId === this.slideId;
+    this.activeSubject.next(this.presentation.activeSlideIndex === this.slideId);
+    return this.presentation.activeSlideIndex === this.slideId;
   }
 
   ngOnInit() {

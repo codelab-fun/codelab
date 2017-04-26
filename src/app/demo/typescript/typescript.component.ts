@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BaseRouteableComponent} from '../BaseRouteableComponent';
+
 import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 @Component({
@@ -7,7 +7,7 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })
-export class TypescriptComponent extends BaseRouteableComponent {
+export class TypescriptComponent {
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ]

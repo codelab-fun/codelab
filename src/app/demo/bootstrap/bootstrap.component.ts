@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BaseRouteableComponent} from '../BaseRouteableComponent';
+
 import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 @Component({
@@ -7,11 +7,11 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   templateUrl: './bootstrap.component.html',
   styleUrls: ['./bootstrap.component.css']
 })
-export class BootstrapComponent extends BaseRouteableComponent {
+export class BootstrapComponent {
 
   code = {
     componentAnatomy: {   // Component Anatomy - Milestone #1
-      code:`import { Component } from '@angular/core';
+      code: `import { Component } from '@angular/core';
 @Component({
   selector: 'hello-world',
   template: '<h1>Hello World!</h1>',

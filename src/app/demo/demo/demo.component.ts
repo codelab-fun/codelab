@@ -123,10 +123,10 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    let id = Number(this.route.snapshot.params['id']);
-    if (id) {
-      this.activeSlideId = id;
-    }
+    //let id = Number(this.route.snapshot.params['id']);
+    //if (id) {
+      //this.activeSlideIndex = id;
+    //}
   }
 
 }

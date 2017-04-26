@@ -16,22 +16,6 @@
     </div>
   </app-slide>
 
-  <!--  TYPESCRIPT EXERCISE -->
-  <app-slide>
-    <app-exercise [config]="exercises[0]">
-      <div class="description">
-        <p>We created a TypeScript file for you, now let's add our first TS class
-          called Codelab.</p>
-        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people
-          who're
-          coming.</p>
-        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute
-          change
-          of plans, so only 3 people should be returned.</p>
-      </div>
-    </app-exercise>
-  </app-slide>
-
   <!-- PLATFORM BENEFITS  -->
   <app-slide>
     <h1 i18n>Platform Benefits</h1>
@@ -59,20 +43,24 @@
 
   <!--  COMPONENT ANATOMY -->
   <app-slide>
-    <h1>Component Anatomy - Inline Template</h1>
-    <h3>Declaration of your component's class. Here will be the module's logic.</h3>
+    <h1>Component Anatomy - Class</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
-                        [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></app-code-editor>
+                     [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></app-code-editor>
+    <h2>Angular component is just a class. Properties and behavior can be added inside.</h2>
   </app-slide>
   <!--  @-Decorator -->
   <app-slide>
     <h1>Component Anatomy - Inline Template</h1>
-    <h3>
-      Apply the @Component decorator to the component class, thereby attaching to the class the essential component
-      metadata that Angular needs to create a component instance and render the component with its template as a view.
-    </h3>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></app-code-editor>
+    <h2>
+      The class is adorned with an <b>@Component</b> decorator with additional metadata, to let the Angular know how to
+      use it.
+    </h2>
+    <div class="info">
+      Decorators is a new feature of TypeScript. It's coming from python.
+    </div>
+    <h2></h2>
   </app-slide>
   <!--  Selector  -->
   <app-slide>
@@ -103,8 +91,8 @@
       An Angular module identifies the components, directives, and pipes that the application uses along with the list
       of external Angular modules that the application needs, such as BrowserModule.
     </h3>
-    <app-code-editor [fontSize]="30"[code]="code.moduleAnatomy.code"
-                [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></app-code-editor>
+    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></app-code-editor>
   </app-slide>
   <!--  NgModule -->
   <app-slide>
@@ -112,8 +100,8 @@
     <h3>
       NgModules help organize an application into cohesive blocks of functionality.
     </h3>
-    <app-code-editor [fontSize]="30"[code]="code.moduleAnatomy.code"
-                [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></app-code-editor>
+    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></app-code-editor>
   </app-slide>
   <!--  Imports  -->
   <app-slide>
@@ -122,8 +110,8 @@
       Add a module to the imports array when the application requires its features.<br>
       Every application that executes in a browser needs the BrowserModule
     </h3>
-    <app-code-editor [fontSize]="30"[code]="code.moduleAnatomy.code"
-                [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></app-code-editor>
+    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></app-code-editor>
   </app-slide>
   <!--  Declarations  -->
   <app-slide>
@@ -132,8 +120,8 @@
       In the declarations array, you tell Angular which components belong to the AppModule by listing it in the
       module's declarations array.
     </h3>
-    <app-code-editor [fontSize]="30"[code]="code.moduleAnatomy.code"
-                [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></app-code-editor>
+    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></app-code-editor>
   </app-slide>
   <!--  Bootstrap -->
   <app-slide>
@@ -141,8 +129,8 @@
     <h3>
       Bootstrap: The root component that Angular creates and inserts into the index.html host web page.
     </h3>
-    <app-code-editor [fontSize]="30"[code]="code.moduleAnatomy.code"
-                [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></app-code-editor>
+    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></app-code-editor>
   </app-slide>
 
 
@@ -159,7 +147,7 @@
       The AppComponent selector looks for a &lt;hello-world&gt; tag in the index.html and displays the
       AppComponent there.
     </h3>
-    <app-code-editor [fontSize]="15"[code]="code.moduleBootstrapping.code.indexHTML"></app-code-editor>
+    <app-code-editor [fontSize]="15" [code]="code.moduleBootstrapping.code.indexHTML"></app-code-editor>
   </app-slide>
 
 </app-presentation>
