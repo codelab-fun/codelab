@@ -17,38 +17,33 @@
     </div>
   </app-slide>
 
-  <!-- PLATFORM BENEFITS  -->
+
+  <!--  index.html -->
   <app-slide>
-    <h1 i18n>Platform Benefits</h1>
-    <ul>
-      <li i18n>PWA</li>
-      <li i18n>Native</li>
-      <li i18n>Desktop</li>
-      <li i18n>Optimization</li>
-      <li i18n>Universal</li>
-      <li i18n>Code Splitting</li>
-      <li i18n>CLI</li>
-      <li i18n>Templates</li>
-      <li i18n>IDE Support</li>
-      <li i18n>Testing</li>
-      <li i18n>Animation</li>
-      <li i18n>Accessibility</li>
-    </ul>
+    <h1>Given an HTML file</h1>
+    <app-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.indexHTML"></app-code-editor>
+    <h2>Let's create an angular app which replaces &lt;hello-world> element with the aplication contents</h2>
+    <h2>This can be done with 3 simple steps</h2>
   </app-slide>
 
-  <!--  INTERACTIVE LAB -->
+  <!--  3 steps -->
   <app-slide>
-    <h1 i18n>This is an <b>interactive</b> codelab. You don't need your IDE, <b>use your
-      browser</b></h1>
+    <h1>Creating angular app</h1>
+    <ol>
+      <li>Create an angular component</li>
+      <li>Create an angular module</li>
+      <li>Bootstrap the module</li>
+    </ol>
   </app-slide>
 
   <!--  COMPONENT ANATOMY -->
   <app-slide>
-    <h1>Component Anatomy - Class</h1>
+    <h1>Step 1: Create component</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></app-code-editor>
     <h2>Angular component is just a class. Properties and behavior can be added inside.</h2>
   </app-slide>
+
   <!--  @-Decorator -->
   <app-slide>
     <h1>Component Anatomy - Inline Template</h1>
@@ -108,9 +103,9 @@
     <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
                      [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></app-code-editor>
     <h2>
-      Add a module to the imports array when the application requires its features.<br>
-      Every application that executes in a browser needs the BrowserModule
+      Let's skip through the imports section, bottomline is: if you're writing an app for a browser, you'll need to import BrowserModule.
     </h2>
+    <div class="info">Angular is not just web app anymore, it allows to create native phone apps and even VR scenes.</div>
   </app-slide>
   <!--  Declarations  -->
   <app-slide>
@@ -123,16 +118,7 @@
     </h2>
   </app-slide>
 
-  <!--  Bootstrap -->
-  <app-slide>
-    <h1>Bootstrap</h1>
-
-    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
-                     [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></app-code-editor>
-    <h3>
-      Bootstrap: The root component that Angular creates and inserts into the index.html host web page.
-    </h3>
-  </app-slide><!--  Bootstrap -->
+ <!--  Bootstrap -->
   <app-slide>
     <h1>Module Anatomy</h1>
 
@@ -171,16 +157,17 @@
 
   <!--  Whole picture -->
   <app-slide>
-    <h1>Angular App structure</h1>
+    <h1>Overview</h1>
     <div row>
-      <app-code-editor class="col-6" [fontSize]="15" [code]="code.moduleBootstrapping.code.mainTs"></app-code-editor>
-      <app-code-editor class="col-6" [fontSize]="15" [focus-highlight-match]="code.moduleBootstrapping.matches.index"
+      <app-code-editor class="col-6" [fontSize]="18" [focus-highlight-match]="code.moduleBootstrapping.matches.index"
                        type="html"
                        [code]="code.moduleBootstrapping.code.indexHTML"></app-code-editor>
+      <app-code-editor class="col-6" [fontSize]="18" [code]="code.moduleBootstrapping.code.mainTs"></app-code-editor>
+
     </div>
     <div row>
-      <app-code-editor class="col-6" [fontSize]="15" [code]="code.moduleAnatomy.code"></app-code-editor>
-      <app-code-editor class="col-6" [fontSize]="15" [code]="code.componentAnatomy.code"></app-code-editor>
+      <app-code-editor class="col-6" [fontSize]="18" [code]="code.moduleAnatomy.code"></app-code-editor>
+      <app-code-editor class="col-6" [fontSize]="18" [code]="code.componentAnatomy.code"></app-code-editor>
     </div>
   </app-slide>
 

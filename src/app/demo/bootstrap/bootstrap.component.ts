@@ -61,7 +61,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
       },
       matches: {
         index: /<hello-[^]*world>/,
-        bootstrap: /platformBrowserDynamic().*/
+        bootstrap: /platformBrowserDynamic\(\).*/
       },
       readonly: true,
       path: 'main.ts',
