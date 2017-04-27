@@ -2,12 +2,13 @@
   <app-menu-shortcut></app-menu-shortcut>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
+  <app-overview></app-overview>
   <app-slide>
     <h1>Angular Templates</h1>
     <h3>For the following slides we are going to use this AppComponent Example</h3>
      <app-code-editor
       [code]="code.appComponent"
-      [fontSize]="25"    
+      [fontSize]="25"
       [readonly]="true"
       [focus-highlight-match]="[code.appComponentMatch]"
       type="html">
@@ -31,8 +32,8 @@
   <app-slide>
   <h1>Templates - Text Interpolation Exercise</h1>
   <p>Using template interpolation try to display the full name and the pic of the user from the appComponent example.</p>
-  <app-playground vertical  
-        [config]="code.templateInterpolationExercise"         
+  <app-playground vertical
+        [config]="code.templateInterpolationExercise"
         [focus-highlight-match]="[code.templateInterpolationExerciseMatch]" >
     </app-playground>
   </app-slide>
@@ -52,7 +53,7 @@
     <h1>Property Binding Exercise</h1>
     <h3>Using property binding try to display the full name and the pic of the user from the appComponent example. </h3>
       <app-playground vertical
-        [config]="code.bindingPropExercise" 
+        [config]="code.bindingPropExercise"
         [focus-highlight-match]="[code.bindingPropExerciseMatch]">
     </app-playground>
   </app-slide>
@@ -89,13 +90,13 @@
     <h1>Reference binding Exercise</h1>
     <p>Using refrence binding display an input and a button.When button gets clicked it should call the "onButtonClick" function from the app component </p>
       <app-playground vertical
-        [config]="code.bindingRefExercise" 
+        [config]="code.bindingRefExercise"
         [focus-highlight-match]="[code.bindingRefExerciseMatch]">
     </app-playground>
   </app-slide>
    <app-slide>
     <h2>Conditional Display (*ngIf)</h2>
-    <p>    
+    <p>
       Conditionally includes a template based on the value of an expression.
     </p>
     <app-code-editor
@@ -104,7 +105,7 @@
       [focus-highlight-match]="[code.conditionalDisplayMatch]"
       [readonly]="true"
       type="html">
-    </app-code-editor>    
+    </app-code-editor>
   </app-slide>
    <app-slide>
     <h1>Conditional Display Exercise</h1>
@@ -115,7 +116,7 @@
   </app-slide>
    <app-slide>
     <h2>Conditional Display (*ngFor)</h2>
-    <p>    
+    <p>
      The ngFor directive instantiates a template once per item from an iterable. The context for each instantiated template inherits from the outer context with the given loop variable set to the current item from the iterable.
     </p>
     <app-code-editor
@@ -124,7 +125,7 @@
       [focus-highlight-match]="[code.conditionalDisplayForMatch]"
       [readonly]="true"
       type="html">
-    </app-code-editor>    
+    </app-code-editor>
   </app-slide>
    <app-slide>
     <h1>Conditional Display Exercise</h1>
