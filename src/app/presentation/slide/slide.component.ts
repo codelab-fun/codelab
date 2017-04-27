@@ -2,6 +2,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { PresentationComponent } from '../presentation/presentation.component';
+import { PresentationMode } from './../presentation-mode.enum';
 
 @Component({
   selector: 'app-slide',
@@ -22,7 +23,7 @@ export class SlideComponent implements OnInit {
 
   get active() {
     this.activeSubject.next(this.presentation.activeSlideIndex === this.slideId);
-    return this.presentation.activeSlideIndex === this.slideId;
+    return this.presentation.activeSlideIndex === this.slideId || this.presentation.mode === PresentationMode.overview;
   }
 
   ngOnInit() {
