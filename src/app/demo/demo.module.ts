@@ -55,7 +55,7 @@ export function monacoReady() {
   declarations: [
     DemoComponent,
     AppComponent,
-    IndexComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
