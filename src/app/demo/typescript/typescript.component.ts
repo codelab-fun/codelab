@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {BaseRouteableComponent} from '../BaseRouteableComponent';
 import {TypescriptExercises} from './typescript.exercises';
 
 @Component({
@@ -8,7 +6,7 @@ import {TypescriptExercises} from './typescript.exercises';
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })
-export class TypescriptComponent extends BaseRouteableComponent {
+export class TypescriptComponent {
   readonly exercises = TypescriptExercises;
 
   readonly sampleCode =
@@ -20,5 +18,5 @@ export class TypescriptComponent extends BaseRouteableComponent {
 		 return \`\${greeting} \${name}!\`;
   }
 }`;
-
+  
 }

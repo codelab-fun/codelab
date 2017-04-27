@@ -3,7 +3,7 @@
     <h1>Angular codelab</h1>
     <h2>Welcome! Chose the topic below to learn</h2>
 
-    <div>
+    <div class="intro">
       <ul *ngFor="let route of routes">
         <li>
           <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>

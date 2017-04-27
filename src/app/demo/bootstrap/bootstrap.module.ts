@@ -5,6 +5,7 @@ import {SlidesRoutes} from '../../presentation/slide-routes';
 
 import {ExerciseModule} from '../../exercise/exersice.module';
 import {PresentationModule} from '../../presentation/presentation.module';
+import {BrowserWindowModule} from '../../browser-window/browser-window.module';
 
 
 const routes = RouterModule.forChild(
@@ -12,7 +13,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule],
+  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule],
   declarations: [BootstrapComponent],
   exports: [BootstrapComponent]
 })
