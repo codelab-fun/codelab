@@ -1,10 +1,15 @@
 import {
   Component,
+  ContentChildren,
   EventEmitter,
+  forwardRef,
   Input,
-  Output
+  Output,
+  QueryList
   } from '@angular/core';
+import { PresentationMode } from './../presentation-mode.enum';
 import { Router } from '@angular/router';
+import { SlideComponent } from './../slide/slide.component';
 
 export interface SlideConfig {
   resize: boolean,
@@ -20,9 +25,15 @@ export class PresentationComponent {
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
+
+  @ContentChildren(forwardRef(() => SlideComponent))
+  slides:QueryList<SlideComponent>;
+
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string}>();
   areShortcutsEnabled = true;
+
+  mode: PresentationMode = PresentationMode.none;
 
   private generatedSlideIndex = 0;
 
@@ -63,4 +74,6 @@ export class PresentationComponent {
   disableResize() {
     // TODO
   }
+
+  print(){}
 }
