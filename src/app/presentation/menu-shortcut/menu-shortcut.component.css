@@ -33,14 +33,14 @@
 
 .menu-list .menu-item a:hover{
   color: #fff;
-  background-color: #c04e22;
+  background-color: #ff594b;
   font-weight: 500;
 }
 .tri-box{
   visibility: hidden;
   /*align-self: center;*/
   transform: rotate(45deg);
-  margin-top: -10px;
+  margin-top: -11px;
   width: 20px;
   height: 20px;
   border: thin black solid;
@@ -60,7 +60,7 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: #c04e22;
+  background-color: #ff594b;
   background-image: url("../../../assets/images/home.png");
   background-repeat: no-repeat;
   background-position: center;
