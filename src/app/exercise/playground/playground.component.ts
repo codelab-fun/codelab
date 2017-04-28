@@ -17,6 +17,6 @@ export class PlaygroundComponent extends ExerciseBase {
   }
 
   onCodeChange(code) {
-    this.onCodeChanges({file: this.config.files[0], code})
+    this.onCodeChanges({file: this.config.files[0], code});
   }
 }

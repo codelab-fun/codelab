@@ -5,7 +5,8 @@ export function assert(x) {
   if (x !== undefined) {
     return x;
   } else {
-    debugger
+    // tslint:disable-next-line:no-debugger
+    debugger;
     throw new Error('Assertion failed');
   }
 }
