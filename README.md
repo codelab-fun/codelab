@@ -9,6 +9,10 @@ There are 2 folders in the `src/app` folder:
 
 
 ## How to: 
-start: `npm start`
-test: `npm test`
+* clone: `git clone https://github.com/kirjs/angular-presentation.git`
+* [Install npm](https://nodejs.org/en/download/)
+* install: `npm install`
+* start: `npm start`
+* test: `npm test`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
