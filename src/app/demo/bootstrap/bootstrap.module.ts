@@ -7,6 +7,7 @@ import {ExerciseModule} from '../../exercise/exersice.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from "../../feedback/feedback.module";
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
+import {TrackingModule} from "../../tracking/tracking.module";
 
 
 const routes = RouterModule.forChild(
@@ -14,7 +15,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule, FeedbackModule],
+  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule, FeedbackModule, TrackingModule],
   declarations: [BootstrapComponent],
   exports: [BootstrapComponent]
 })
