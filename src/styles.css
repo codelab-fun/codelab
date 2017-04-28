@@ -83,6 +83,7 @@ h1, h2 {
   margin: 0 auto;
 }
 
+/* Hide all elements that are not slides when in overview mode */
 .presentation.overview > *:not(app-slide) {
   visibility:hidden;
 }
