@@ -7,8 +7,8 @@ import {
 import { Router } from '@angular/router';
 
 export interface SlideConfig {
-  resize: boolean,
-  shortcuts: boolean
+  resize: boolean;
+  shortcuts: boolean;
 }
 @Component({
   selector: 'app-presentation',
@@ -16,7 +16,7 @@ export interface SlideConfig {
   styleUrls: ['./presentation.component.css']
 })
 export class PresentationComponent {
-  @Input() activeSlideIndex : number = 0;
+  @Input() activeSlideIndex = 0;
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
@@ -26,7 +26,7 @@ export class PresentationComponent {
 
   private generatedSlideIndex = 0;
 
-  registerSlide(id:string) {
+  registerSlide(id: string) {
     const index = this.generatedSlideIndex++;
     this.onSlideAdded.emit({index, id});
     return index;
