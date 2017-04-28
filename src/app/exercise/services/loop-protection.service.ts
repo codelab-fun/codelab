@@ -3,10 +3,6 @@ import * as ts from 'typescript';
 
 @Injectable()
 export class LoopProtectionService {
-
-  constructor() {
-  }
-
   public static loopBreaker =
     `// Breaks out of infinite loops.
 const loopBreaker = (function(){
@@ -17,8 +13,12 @@ const loopBreaker = (function(){
       throw new Error("Infinite loop detected");
     }
   }
-}()); 
+}());
       `;
+
+  constructor() {
+  }
+
 
   findAllLoops(source) {
     const messages = [];
@@ -58,7 +58,7 @@ const loopBreaker = (function(){
         `{loopBreaker();${text.slice(1)}` :
         `{loopBreaker();${text}}`;
 
-      code = code.slice(0, start) + replacement + code.slice(end)
+      code = code.slice(0, start) + replacement + code.slice(end);
 
     }
     if (messages.length > 0) {

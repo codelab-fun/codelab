@@ -3,6 +3,7 @@ export function findPosition(code: string, match: string | RegExp) {
     try {
       match = code.match(match)[0];
     } catch (e) {
+      // tslint:disable-next-line:no-debugger
       debugger;
       match = '';
     }
