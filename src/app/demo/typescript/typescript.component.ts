@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-
-import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
+import {TypescriptExercises} from './typescript.exercises';
 
 @Component({
   selector: 'app-typescript',
@@ -8,8 +7,16 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   styleUrls: ['./typescript.component.css']
 })
 export class TypescriptComponent {
-  exercises = [
-    ng2tsConfig.milestones[0].exercises[1]
-  ]
-}
+  readonly exercises = TypescriptExercises;
 
+  readonly sampleCode =
+`export class Hello {
+  constructor(private readonly name: string){}
+  
+  hello(): string {
+     const greeting = 'Hello';
+		 return \`\${greeting} \${name}!\`;
+  }
+}`;
+  
+}
