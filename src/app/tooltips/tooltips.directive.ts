@@ -1,6 +1,7 @@
-import {Directive, ElementRef, Input} from '@angular/core';
+import {Directive, ElementRef, Input, AfterViewInit} from '@angular/core';
 import {EditorComponent} from '../exercise/editor/editor.component';
 import {findPosition} from './utils';
+import 'rxjs/add/operator/filter';
 
 /*
  This directive adds tooltips to the provided text
@@ -22,15 +23,15 @@ import {findPosition} from './utils';
 @Directive({
   selector: '[ng-tooltips]'
 })
-export class TooltipsDirective {
+export class TooltipsDirective implements AfterViewInit {
   @Input('ng-tooltips') tooltips: Array<any> = [];
 
   constructor(private el: ElementRef, private editorComponent: EditorComponent) {
   }
 
-  ngAfterViewInit() {
-    this.editorComponent.slide.onActive.filter(a => a).subscribe(() => { //only generate tooltip when the slide is active
-      let decorations = this.tooltips.map((tooltip, i) => {
+  ngAfterViewInit(): void {
+    this.editorComponent.slide.onActive.filter(a => a).subscribe(() => { // only generate tooltip when the slide is active
+      const decorations = this.tooltips.map((tooltip, i) => {
         const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, tooltip.match);
         return {
           range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
@@ -44,15 +45,15 @@ export class TooltipsDirective {
 
       setTimeout(() => {
         this.tooltips.forEach((item, i) => {
-          let text = this.el.nativeElement.querySelector('.tooltip-text-' + i);
+          const text = this.el.nativeElement.querySelector('.tooltip-text-' + i);
           if (!text) {
             return;
           }
-          let newPopup = document.createElement('div');
+          const newPopup = document.createElement('div');
           newPopup.className = 'popup';
 
-          let popupMessage = document.createElement('div');
-          let popupArrow = document.createElement('div');
+          const popupMessage = document.createElement('div');
+          const popupArrow = document.createElement('div');
           popupMessage.className = 'popup-message';
           popupArrow.className = 'popup-arrow';
           popupMessage.innerHTML = item.text;
@@ -65,13 +66,13 @@ export class TooltipsDirective {
 
           let offsetTop = 0;
           let currentNode = text;
-          while (currentNode.nodeName != 'BODY') {
+          while (currentNode.nodeName !== 'BODY') {
             offsetTop += currentNode.offsetTop;
             currentNode = currentNode.offsetParent;
           }
           let offsetLeft = 0;
           currentNode = text;
-          while (currentNode.nodeName != 'BODY') {
+          while (currentNode.nodeName !== 'BODY') {
             offsetLeft += currentNode.offsetLeft;
             currentNode = currentNode.offsetParent;
           }

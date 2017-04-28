@@ -1,7 +1,8 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { PresentationComponent } from '../presentation/presentation.component';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
   selector: 'app-slide',
