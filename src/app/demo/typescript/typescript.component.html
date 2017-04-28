@@ -3,8 +3,110 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
   <app-overview></app-overview>
+
+  <!-- Intro -->
   <app-slide id="intro">
-    <h1>TypeScript</h1>
+    <div style="text-align: center; display: flex; height: 100%; justify-content: center;">
+      <div style="align-self: center">
+        <h1 style="color: #0e70c0; margin: 0;">TypeScript</h1>
+        <h3 style="color: #000; margin: 0;">is a language compiled to</h3>
+        <h2 style="color: #f7df1e; margin: 0;">JavaScript</h2>
+      </div>
+    </div>
+  </app-slide>
+
+   <!-- TYPES IN TYPESCRIPT-->
+  <app-slide id="types">
+    <h1><span style="color: #0e70c0;">TypeScript</span> has different types for different units of data. These types are:</h1>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+      <div style="width: 30%;">
+        <ul>
+          <li>Boolean</li>
+          <li>Number</li>
+          <li>String</li>
+          <li>Array</li>
+          <li>Tuple</li>
+        </ul>
+      </div>
+      <div style="width: 30%;">
+        <ul>
+          <li>Enum</li>
+          <li>Any</li>
+          <li>Void</li>
+          <li>Null/Undefined</li>
+          <li>Never</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info"> We would describe 'number', 'string', and 'any'.</div>
+  </app-slide>
+  <!--  NUMBER-TYPE  -->
+  <app-slide id="number_type">
+    <h1 style="color: coral; margin-bottom: 5px;">:number</h1>
+    <p> In typescript all numbers are floating point values. TypeScript supports binary and octal literals.</p>
+    <h3>The add function should return 5. Can you find the issue?</h3>
+    <app-playground [config]="code.tsExercise"
+                    [focus-highlight-match]="[code.tsExerciseMatch]"></app-playground>
+    <div class="info"> Plain JavaScript will run the function returning a string.</div>
+  </app-slide>
+  <!--  STRING-TYPE  -->
+  <app-slide id="string_type">
+    <h1 style="color: coral; margin-bottom: 5px;">:string</h1>
+    <p style="margin-bottom: 20px;">String is used to refer to textual datatype.</p>
+    <app-code-editor [fontSize]="30" [code]="code.stringType.code"></app-code-editor>
+    <p>This is the same as:</p>
+    <app-code-editor [fontSize]="30" [code]="code.stringType2.code"></app-code-editor>
+  </app-slide>
+  <!--  ANY-TYPE  -->
+  <app-slide id="any_type">
+    <h1 style="color: coral; margin-bottom: 5px;">:any</h1>
+    <p style="margin-bottom: 20px;">
+      For when need to describe the type of variables that we do not know when we are writing an application.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.anyType.code"></app-code-editor>
+  </app-slide>
+
+  <!--  CLASSES  -->
+  <app-slide id="classes">
+    <h1 style="color: coral; margin-bottom: 5px;">Classes</h1>
+    <p style="margin-bottom: 20px;">
+      Starting with ECMAScript 2015, also known as ECMAScript 6, JavaScript programmers will be able to
+      build their applications using this object-oriented class-based approach.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.class]"></app-code-editor>
+  </app-slide>
+
+  <!--  EXPORT  -->
+  <app-slide id="export">
+    <h1 style="color: coral; margin-bottom: 5px;">Export</h1>
+    <p style="margin-bottom: 20px;">
+      Any declaration (such as a variable, function, class, type alias, or interface) can be exported by
+      adding the export keyword.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.export]"></app-code-editor>
+  </app-slide>
+
+  <!--  IMPORT  -->
+  <app-slide id="import">
+    <h1 style="color: coral; margin-bottom: 5px;">Import</h1>
+    <p style="margin-bottom: 20px;">
+      Importing is just about as easy as exporting from a module.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.import]"></app-code-editor>
+  </app-slide>
+
+  <!--  CONSTANTS  -->
+  <app-slide id="const">
+    <h1 style="color: coral; margin-bottom: 5px;">Constants - <span style="color: red;">const</span></h1>
+    <p style="margin-bottom: 20px;">
+      As its name implies, their value cannot be changed once they are bound. In other words, you can’t
+      re-assign to them.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.constants]"></app-code-editor>
   </app-slide>
 
   <app-slide id="hello">
