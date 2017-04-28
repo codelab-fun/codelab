@@ -19,7 +19,7 @@
 }
 
 .arrow-left, .arrow-right {
-  top: 50%;
+  top: 50vh;
   position: absolute;
   font-size: 30px;
   z-index: 100;

@@ -10,6 +10,7 @@ import {ExerciseModule} from '../exercise/exersice.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
 import {PresentationModule} from '../presentation/presentation.module';
+import { TitleSlideComponent } from './title-slide/title-slide.component';
 
 export const routes = [
   {
@@ -55,7 +56,8 @@ export function monacoReady() {
   declarations: [
     DemoComponent,
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    TitleSlideComponent
   ],
   imports: [
     BrowserModule,

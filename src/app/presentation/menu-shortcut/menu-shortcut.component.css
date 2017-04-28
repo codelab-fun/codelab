@@ -5,13 +5,13 @@
   /*height: 500px;*/
   display: flex;
   flex-direction: column;
-  bottom: 3%;
-  right: 5%;
+  bottom: 6vh;
+  right: 3vw;
 }
 
 .menu-index{
   visibility: hidden;
-  border: thin solid #242424;
+  border: thin solid #772323;
   background-color: rgba(244, 244, 244, 0.98);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 1em;
@@ -33,8 +33,8 @@
 
 .menu-list .menu-item a:hover{
   color: #fff;
-  background-color: #ff594b;
-  font-weight: 500;
+  background-color: #982a2a;
+  font-weight: bolder;
 }
 .tri-box{
   visibility: hidden;
@@ -43,7 +43,7 @@
   margin-top: -11px;
   width: 20px;
   height: 20px;
-  border: thin black solid;
+  border: thin solid #772323;
   border-radius: 0 0 1px 1px;
   background-color: #f4f4f4;
   border-top-color: #f4f4f4;
