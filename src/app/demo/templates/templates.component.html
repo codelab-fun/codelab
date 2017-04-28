@@ -2,33 +2,149 @@
   <app-menu-shortcut></app-menu-shortcut>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
-  <app-slide>Templates module
+  <app-overview></app-overview>
+  <app-slide id="component">
+    <h1>Angular Templates</h1>
+    <h3>For the following slides we are going to use this AppComponent Example</h3>
+    <app-code-editor
+      [code]="code.appComponent"
+      [fontSize]="25"
+      [readonly]="true"
+      [focus-highlight-match]="[code.appComponentMatch]"
+      type="html">
+    </app-code-editor>
   </app-slide>
 
-  <app-slide>
-    <h1>Templates</h1>
-    <h2>Display both firstName and lastName in the header</h2>
-    <app-playground vertical [config]="code.bindingExercise"
-                    [focus-highlight-match]="[code.bindingExerciseMatch]"></app-playground>
+  <app-slide id="interpolation">
+    <h2 ngNonBindable>Text Interpolation ({{property}}) </h2>
+    <p>You met the double-curly braces of interpolation, early in your AngularJS.
+      Compiles a string with markup into an interpolation function
+    </p>
+    <app-code-editor
+      [code]="code.templateInterpolation"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.templateInterpolationMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
   </app-slide>
-  <app-slide>
-    <h1>Templates 2</h1>
+
+  <app-slide id="interpolation-exercise">
+    <h1>Templates - Text Interpolation Exercise</h1>
+    <p>Using template interpolation try to display the full name and the pic of the user from the appComponent
+      example.</p>
+    <app-playground vertical
+                    [config]="code.templateInterpolationExercise"
+                    [focus-highlight-match]="[code.templateInterpolationExerciseMatch]">
+    </app-playground>
+  </app-slide>
+
+  <app-slide id="property-binding">
+    <h2 ngNonBindable>Property Binding one-way with Square Brackets ([...])</h2>
+    <p>We can specify one-way bindings to DOM properties using square brackets </p>
     <app-code-editor
       [code]="code.bindingProp"
-      [fontSize]="30"
+      [fontSize]="25"
       [focus-highlight-match]="[code.bindingPropMatch]"
-      [readonly]="false"
-      type="html"
-    ></app-code-editor>
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
   </app-slide>
-  <app-slide>
-    <h1>Templates 2</h1>
+  <app-slide id="property-binding-exercise">
+    <h1>Property Binding Exercise</h1>
+    <h3>Using property binding try to display the full name and the pic of the user from the appComponent example. </h3>
+    <app-playground vertical
+                    [config]="code.bindingPropExercise"
+                    [focus-highlight-match]="[code.bindingPropExerciseMatch]">
+    </app-playground>
+  </app-slide>
+
+  <app-slide id="event-binding">
+    <h2 ngNonBindable>Event binding ( (event) )</h2>
+    <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
     <app-code-editor
-      [code]="code.bindingPropSquare"
-      [focus-highlight-match]="[code.bindingPropMatch]"
-      [fontSize]="30"
-      [readonly]="false"
-      type="html"
-    ></app-code-editor>
+      [code]="code.eventBinding"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.eventBindingMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+  </app-slide>
+
+  <app-slide id="event-binding-property">
+    <h1>Event binding Exercise</h1>
+    <p>Using event binding display a button that when gets clicked it should call onButtonClick method with some
+      arbitrarily text input </p>
+    <app-playground vertical
+                    [config]="code.eventBindingExercise">
+    </app-playground>
+  </app-slide>
+
+  <app-slide id="reference-binding">
+    <h2>Reference binding ( #var )</h2>
+    <p>A template reference variable is often a reference to a DOM element within a template. It can also be a reference
+      to an Angular component or directive or a web component.</p>
+    <app-code-editor
+      [code]="code.bindingRef"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.bindingRefMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+  </app-slide>
+
+  <app-slide id="reference-binding-exercise">
+    <h1>Reference binding Exercise</h1>
+    <p>Using refrence binding display an input and a button.When button gets clicked it should call the "onButtonClick"
+      function from the app component </p>
+    <app-playground vertical
+                    [config]="code.bindingRefExercise"
+                    [focus-highlight-match]="[code.bindingRefExerciseMatch]">
+    </app-playground>
+  </app-slide>
+
+  <app-slide id="conditional-display-ngif">
+    <h2>Conditional Display (*ngIf)</h2>
+    <p>
+      Conditionally includes a template based on the value of an expression.
+    </p>
+    <app-code-editor
+      [code]="code.conditionalDisplay"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.conditionalDisplayMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+  </app-slide>
+
+  <app-slide id="conditional-display-ngif-exercise">
+    <h1>Conditional Display Exercise</h1>
+    <p>Using ngIf display the user picture and toggle button which shows and hides the pricure when clicked</p>
+    <app-playground vertical
+                    [config]="code.conditionalDisplayExercise">
+    </app-playground>
+  </app-slide>
+
+  <app-slide id="conditional-display-ngfor">
+    <h2>Conditional Display (*ngFor)</h2>
+    <p>
+      The ngFor directive instantiates a template once per item from an iterable. The context for each instantiated
+      template inherits from the outer context with the given loop variable set to the current item from the iterable.
+    </p>
+    <app-code-editor
+      [code]="code.conditionalDisplayFor"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.conditionalDisplayForMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+  </app-slide>
+
+  <app-slide id="conditional-display-ngfor-exercise">
+    <h1>Conditional Display Exercise</h1>
+    <p>Using ngFor display the user picture and toggle button which shows and hides the pricure when clicked</p>
+    <app-playground vertical
+                    [config]="code.conditionalDisplayForExercise">
+    </app-playground>
   </app-slide>
 </app-presentation>

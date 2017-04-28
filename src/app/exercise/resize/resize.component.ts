@@ -1,11 +1,11 @@
-import {Component, ElementRef, HostListener} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-resize',
   templateUrl: './resize.component.html',
   styleUrls: ['./resize.component.css']
 })
-export class ResizeComponent {
+export class ResizeComponent implements OnInit {
   private initOffsetX: number;
   private initWidth: number;
   private minWidth = 400;
@@ -15,12 +15,12 @@ export class ResizeComponent {
   constructor(private elementRef: ElementRef) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.width = Math.max(this.minWidth, this.elementRef.nativeElement.clientWidth);
   }
 
-  calcWidth(x) {
-    return this.initWidth + x - this.initOffsetX
+  calcWidth(x): number {
+    return this.initWidth + x - this.initOffsetX;
   }
 
   @HostListener('mousemove', ['$event'])
@@ -38,7 +38,7 @@ export class ResizeComponent {
     if (e.target.className && (e.target.className.includes('spacer') || e.target.className.includes('handle') )) {
       this.isMouseDown = true;
       this.initOffsetX = e.clientX;
-      this.initWidth = this.width
+      this.initWidth = this.width;
     }
   }
 

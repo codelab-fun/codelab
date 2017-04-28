@@ -1,17 +1,18 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, Input, AfterViewInit} from '@angular/core';
 import {EditorComponent} from '../exercise/editor/editor.component';
 import {findPosition} from './utils';
+import 'rxjs/add/operator/first';
 
 @Directive({
   selector: '[app-focus-highlight-match]'
 })
-export class FocusHighlightDirective {
+export class FocusHighlightDirective implements AfterViewInit {
   @Input('app-focus-highlight-match') matches: Array<string> | string = [];
 
   constructor(private editorComponent: EditorComponent) {
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.editorComponent.slide.onActive.filter(a => a).first().subscribe(() => {
       if (!Array.isArray(this.matches)) {
         this.matches = [this.matches];
@@ -43,8 +44,6 @@ export class FocusHighlightDirective {
 
 
       this.editorComponent._editor.deltaDecorations([], decorations);
-    })
+    });
   }
-
-
 }

@@ -2,7 +2,6 @@ import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
-import {DemoComponent} from './demo/demo.component';
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
@@ -36,6 +35,12 @@ export const routes = [
     description: 'Learn how to provide dependencies to your code instead of hard-coding them.'
   },
   {
+    path: 'component-tree',
+    loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
+    name: 'Component-Tree',
+    description: 'Learn how to organize your app into reusable components'
+  },
+  {
     path: 'experiments',
     loadChildren: './experiments/experiments.module#ExperimentsModule',
     name: 'Experiments',
@@ -53,7 +58,6 @@ export function monacoReady() {
 
 @NgModule({
   declarations: [
-    DemoComponent,
     AppComponent,
     IndexComponent
   ],

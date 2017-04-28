@@ -83,6 +83,34 @@ h1, h2 {
   margin: 0 auto;
 }
 
+.presentation.overview .slide{
+  pointer-events: none;
+  margin: 2% auto;
+  zoom: 0.7;
+  overflow:hidden;
+}
+
+.presentation.overview .progress-bar{
+  display: none;
+}
+
+.presentation.overview .slide .page-number {
+  position: absolute;
+  right: 3%;
+  bottom: 4%;
+}
+
+.presentation.overview .overview-buttons{
+  position: fixed;
+}
+
+.overview-buttons {
+  z-index: 1;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
 .slide {
   display: flex;
   flex-direction: column;
@@ -190,4 +218,27 @@ p {
   background: #d3fffd;
   padding: 20px;
   font-size: 30px;
+}
+
+/* Slide/presentation printing styles */
+@media print {  
+    @page {  
+      size: A4 landscape;
+    }  
+    .slide {
+      zoom: 1;
+      font-size: 12pt;
+      page-break-after:always;
+    }
+    .slide .page-number {
+      display: none;
+    }
+    .presentation.overview {
+      width: auto !important;
+      height: auto !important;
+      zoom: 1 !important;
+    }
+    .presentation.overview .overview-buttons {
+      display: none;
+    }
 }

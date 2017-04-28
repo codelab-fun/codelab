@@ -1,6 +1,12 @@
-import {ActivatedRoute, Router} from '@angular/router';
-import {Directive, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output
+  } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Directive({
   selector: '[app-slides-routing]'
@@ -21,7 +27,7 @@ export class SlidesRoutingDirective implements OnInit {
     this.ids[value.index] = value.id;
 
 
-    if (this.activeSlideId == value.index.toString() || value.id == this.activeSlideId) {
+    if (this.activeSlideId === value.index.toString() || value.id === this.activeSlideId) {
       // Maybe update route here
       this.slideChange(value.index);
       this.presentation.activeSlideIndex = value.index;
@@ -30,11 +36,11 @@ export class SlidesRoutingDirective implements OnInit {
 
   @HostListener('onSlideChange', ['$event']) slideChange(index) {
     const url = this.ids[index] || index;
-    this.router.navigate(['../' + url], {relativeTo: this.route});
+    this.router.navigate(['../' + url], {relativeTo: this.route, preserveQueryParams: true});
   }
 
   ngOnInit() {
-    let id = this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params['id'];
 
     this.activeSlideId = id || '0';
 
