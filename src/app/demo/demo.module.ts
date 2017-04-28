@@ -36,6 +36,12 @@ export const routes = [
     description: 'Learn how to provide dependencies to your code instead of hard-coding them.'
   },
   {
+    path: 'component-tree',
+    loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
+    name: 'Component-Tree',
+    description: 'Learn how to organize your app into reusable components'
+  },
+  {
     path: 'experiments',
     loadChildren: './experiments/experiments.module#ExperimentsModule',
     name: 'Experiments',
