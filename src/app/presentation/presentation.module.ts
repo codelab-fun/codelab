@@ -8,6 +8,7 @@ import {ShortcutsDirective} from './shortcuts/shortcuts.directive';
 import {ProgressBarComponent} from './progress-bar/progress-bar.component';
 import {SlidesRoutingDirective} from './slides-routing/slides-routing.directive';
 import {ArrowsComponent} from './arrows/arrows.component';
+import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {ArrowsComponent} from './arrows/arrows.component';
     ProgressBarComponent,
     SlidesRoutingDirective,
     ArrowsComponent,
+    MenuShortcutComponent
   ],
 
   exports: [
@@ -28,9 +30,12 @@ import {ArrowsComponent} from './arrows/arrows.component';
     FooterComponent,
     ProgressBarComponent,
     ArrowsComponent,
-    SlidesRoutingDirective
+    SlidesRoutingDirective,
+    MenuShortcutComponent
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule
+  ],
   providers: [],
   bootstrap: []
 })

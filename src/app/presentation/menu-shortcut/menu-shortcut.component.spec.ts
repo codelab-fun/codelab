@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DemoComponent } from './demo.component';
+import { MenuShortcutComponent } from './menu-shortcut.component';
 
-describe('DemoComponent', () => {
-  let component: DemoComponent;
-  let fixture: ComponentFixture<DemoComponent>;
+describe('MenuShortcutComponent', () => {
+  let component: MenuShortcutComponent;
+  let fixture: ComponentFixture<MenuShortcutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DemoComponent ]
+      declarations: [ MenuShortcutComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DemoComponent);
+    fixture = TestBed.createComponent(MenuShortcutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
