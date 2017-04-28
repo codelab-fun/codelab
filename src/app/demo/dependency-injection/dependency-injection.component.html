@@ -3,10 +3,10 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
   <app-overview></app-overview>
-  
+
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
-  <app-slide>
+  <app-slide id="recap">
     <h1 style="text-align: center;">Recap</h1>
     <h2>
       <b>Dependency Injection</b> is a way to provide dependencies to your code instead of hard-coding them.
@@ -14,7 +14,7 @@
   </app-slide>
 
   <!--  COMPARISON -->
-  <app-slide>
+  <app-slide id="comparison">
     <h1>Comparison</h1>
     <div class="content-container">
       <div class="col-6">
@@ -25,7 +25,8 @@
           <li>The Person class creates everything it needs inside its constructor.</li>
           <li>The Person class is brittle, inflexible, and hard to test.</li>
           <li>This Person needs a profession. Instead of asking for it, the Person constructor
-            instantiates its own copy from the very specific class Profession.</li>
+            instantiates its own copy from the very specific class Profession.
+          </li>
           <li>If the Profession class evolve and requires a parameter, we will break the Person class.</li>
           <li>You have no control over the person's hidden dependencies.</li>
         </ul>
@@ -44,7 +45,7 @@
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #1  -->
-  <app-slide>
+  <app-slide id="make-injectable">
     <h1>Implementation Step #1</h1>
     <h2>Mark a class as Injectable</h2>
     <app-code-editor [fontSize]="15" [code]="code.classAsInjectable.code"
@@ -52,7 +53,7 @@
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #2  -->
-  <app-slide>
+  <app-slide id="provide-injectable">
     <h1>Implementation Step #2</h1>
     <h2>Provide the injectable</h2>
     <app-code-editor [fontSize]="15" [code]="code.provideInjectable.code"
@@ -60,23 +61,10 @@
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #3  -->
-  <app-slide>
+  <app-slide id="consume-injectable">
     <h1>Implementation Step #3</h1>
     <h2>Consume the Injectable</h2>
     <app-code-editor [fontSize]="15" [code]="code.consumeInjectable.code"
                      [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></app-code-editor>
   </app-slide>
-
-  <!--  HANDLING SERVICES PROMISES  -->
-  <app-slide>
-    <h1>Handling services</h1>
-    <h2>Promises and callbacks</h2>
-  </app-slide>
-
-  <!--  HANDLING SERVICES OBSERVABLES  -->
-  <app-slide>
-    <h1>Handling services</h1>
-    <h2>Observables and callbacks</h2>
-  </app-slide>
-
 </app-presentation>
