@@ -104,6 +104,10 @@ h1, h2 {
   position: fixed;
 }
 
+.presentation.overview .menu-shortcut{
+  display:none;
+}
+
 .overview-buttons {
   z-index: 1;
   position: absolute;
@@ -228,7 +232,7 @@ p {
     .slide {
       zoom: 1;
       font-size: 12pt;
-      page-break-after:always;
+      page-break-after: always;
     }
     .slide .page-number {
       display: none;
