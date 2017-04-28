@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {AngularFireModule, AuthProviders, AuthMethods, AngularFire} from 'angularfire2';
-
+import {PresentationComponent} from "../../presentation/presentation/presentation.component";
 @Component({
   selector: 'app-feedback-widget',
   templateUrl: './feedback-widget.component.html',
@@ -13,12 +13,10 @@ export class FeedbackWidgetComponent implements OnInit {
   comment: string = '';
   statusMessage:string = '';
   error = false;
-
   constructor(private angularFire: AngularFire, private el: ElementRef) {
   }
 
   ngOnInit() {
-    //TODO retrieve username from state.local.user
   }
 
   buttonClicked(){
@@ -34,15 +32,18 @@ export class FeedbackWidgetComponent implements OnInit {
 
   send() {
     if (this.comment && this.email) {
+
       let comment = this.comment;
       let email = this.email;
       let items = this.angularFire.database.list('/feedback');
+      let headerText = document.body.querySelector('h1:not([style*="display:none"]') ? document.body.querySelector('h1:not([style*="display:none"]').innerHTML : '';
       items.push({
         comment:this.htmlEscape(comment),
-        //todo: slideId,
         name: this.name,
         email: email,
-        timestamp: new Date().toUTCString()
+        timestamp: new Date().toUTCString(),
+        href:window.location.href,
+        header: headerText
       }).then(x => {
         this.statusMessage = 'Successfully sent';
         setTimeout(() => {
@@ -56,6 +57,7 @@ export class FeedbackWidgetComponent implements OnInit {
         this.statusMessage = 'Error while sending feedback';
         this.error = true;
       });
+
       this.comment = '';
       //TODO set username in state.local.user
     }
