@@ -27,7 +27,8 @@ import { Subscription } from 'rxjs/Subscription';
 export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   private isOpen: boolean;
   private initialized;
-  private subscription: Subscription;
+  private repoSubscription: Subscription;
+  private routeSubscription: Subscription;
 
   statusMessage = '';
   error = false;
@@ -55,7 +56,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.activatedRoute.url.subscribe(() => {
       if (this.initialized) {
         // Get new data for route
-        this.subscription.unsubscribe();
+        this.repoSubscription.unsubscribe();
         this.initData();
       }
     });
@@ -70,15 +71,16 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (!!this.subscription) {
-      this.subscription.unsubscribe();
+    if (!!this.repoSubscription) {
+      this.repoSubscription.unsubscribe();
     }
+    this.routeSubscription.unsubscribe();
   }
 
   initData() {
     this.repo$ = this.angularFire.database.list('/feedback');
     // Get all feedback for this url, sorted by date, newest first
-    this.subscription = this.repo$.subscribe(values => {
+    this.repoSubscription = this.repo$.subscribe(values => {
       this.items = values.map(m => m as Message)
         .filter(m => m.href.toLowerCase() === this.router.url.toLowerCase())
         .sort((a, b) => a > b ? -1 : 1);
