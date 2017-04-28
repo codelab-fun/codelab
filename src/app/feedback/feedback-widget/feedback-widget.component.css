@@ -1,63 +1,81 @@
 textarea {
-  margin: 10px 0;
-  height: 100px;
+    margin: 10px 0;
+    height: 100px;
 }
 
-input, textarea {
-  width: 100%;
-  border: 1px #ddd solid;
-  padding: 4px;
+input,
+textarea {
+    width: 100%;
+    border: 1px #ddd solid;
+    padding: 4px;
 }
 
-#feedbackButton{
-  width: 70px;
-  height:70px;
-  background: #3498db;
-  border-radius: 100%;
-  text-align: center;
-  display: inline-block;
-}
-#icon{
-  height:50%;
-  width: 50%;
-  margin-top: 25%;
-}
-#form {
-  display: block;
-  margin-top: 10px;
-  padding: 10%;
-  background: white;
-  border: 1px solid silver;
+.feedback-button {
+    width: 70px;
+    height: 70px;
+    background: #3498db;
+    border-radius: 100%;
+    text-align: center;
+    display: inline-block;
 }
 
-#main{
-  position: fixed;
-  top: 30px;
-  right:30px;
-  z-index: 99;
+.icon {
+    height: 50%;
+    width: 50%;
+    margin-top: 25%;
 }
 
-#buttonContainer{
-  width: 100%;
-  text-align: right;
+.form-container {
+    display: block;
+    margin-top: 10px;
+    padding: 10%;
+    background: white;
+    border: 1px solid silver;
 }
+
+.main {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 300px;
+    z-index: 99;
+}
+
+.button-container {
+    width: 100%;
+    text-align: right;
+}
+
+.feedback-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.feedback-item {
+    background: #ececec;
+    border: 1px solid #dcdcdc;
+    padding: 8px;
+    margin: 5px 0;
+}
+
 button {
-  color: #fff;
-  background: #3e8e01;
-  display: inline-block;
-  cursor: pointer;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-  border-radius: 3px;
-  line-height: 25px;
-  white-space: nowrap;
-  text-align: center;
-  text-decoration: none;
-  border: 0 solid;
+    color: #fff;
+    background: #3e8e01;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+    border-radius: 3px;
+    line-height: 25px;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
+    border: 0 solid;
 }
 
-#message{
-  margin-top: 15px;
+#message {
+    margin-top: 15px;
 }
-.error{
-  color: red;
+
+.error {
+    color: red;
 }

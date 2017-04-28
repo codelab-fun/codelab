@@ -1,8 +1,13 @@
-import { NgModule } from '@angular/core';
+import {
+  AngularFire,
+  AngularFireModule,
+  AuthMethods,
+  AuthProviders
+  } from 'angularfire2';
 import { CommonModule } from '@angular/common';
-import { AngularFireModule, AuthProviders, AuthMethods, AngularFire } from 'angularfire2';
-import {FormsModule} from '@angular/forms';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA",
@@ -13,13 +18,13 @@ const firebaseConfig = {
 @NgModule({
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    FormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers:[
+  providers: [
     AngularFire
   ],
   declarations: [FeedbackWidgetComponent],
-  exports:[FeedbackWidgetComponent]
+  exports: [FeedbackWidgetComponent]
 })
 export class FeedbackModule { }
