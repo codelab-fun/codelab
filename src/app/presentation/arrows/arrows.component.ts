@@ -17,11 +17,11 @@ export class ArrowsComponent implements OnInit {
   }
 
   canGoNext(): boolean {
-    return this.presentation.activeSlideIndex + 1 < this.presentation.totalSlides;
+    return this.presentation.canGoNext();
   }
 
   canGoPrevious(): boolean {
-    return this.presentation.activeSlideIndex !== 0;
+    return this.presentation.canGoPrevious();
   }
   constructor(private presentation: PresentationComponent) {
 
