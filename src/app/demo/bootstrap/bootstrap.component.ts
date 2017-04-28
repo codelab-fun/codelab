@@ -71,9 +71,9 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
 
   //  Exercises
   exercises = [
-    ng2tsConfig.milestones[0].exercises[1],
     ng2tsConfig.milestones[1].exercises[1],
     ng2tsConfig.milestones[1].exercises[2],
+    ng2tsConfig.milestones[1].exercises[3],
     {
       "name": "Create a component",
       "description": "<p>Create first Angular component!</p>",
