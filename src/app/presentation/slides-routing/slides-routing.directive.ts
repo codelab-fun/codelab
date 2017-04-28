@@ -1,25 +1,42 @@
-import {Directive, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Directive, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {PresentationComponent} from '../presentation/presentation.component';
 
 @Directive({
   selector: '[app-slides-routing]'
 })
 export class SlidesRoutingDirective implements OnInit {
-  @Input() activeSlideId;
+  activeSlideId: string;
+
+  private ids: { [index: number]: string } = {};
+
+
   @Output() change = new EventEmitter();
 
-  constructor(private router: Router, private route: ActivatedRoute, private  pres: PresentationComponent) {
+  constructor(private router: Router, private route: ActivatedRoute, private  presentation: PresentationComponent) {
   }
 
-  @HostListener('onSlideChange', ['$event']) slideChange(newId) {
-    this.router.navigate(['../' + newId], {relativeTo: this.route});
+  @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {
+    // Add url mapping
+    this.ids[value.index] = value.id;
+
+
+    if (this.activeSlideId == value.index.toString() || value.id == this.activeSlideId) {
+      // Maybe update route here
+      this.slideChange(value.index);
+      this.presentation.activeSlideIndex = value.index;
+    }
+  }
+
+  @HostListener('onSlideChange', ['$event']) slideChange(index) {
+    const url = this.ids[index] || index;
+    this.router.navigate(['../' + url], {relativeTo: this.route});
   }
 
   ngOnInit() {
-    let id = Number(this.route.snapshot.params['id']);
-    if (id) {
-      this.pres.activeSlideId = id;
-    }
+    let id = this.route.snapshot.params['id'];
+
+    this.activeSlideId = id || '0';
+
   }
 }

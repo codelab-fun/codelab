@@ -7,10 +7,11 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app', 
-  templateUrl: \`./app/app.html\`
+  templateUrl: './app/app.html'
 })
 export class AppComponent {
-  name = 'Angularjs'
+  firstName = 'John'
+  lastName = 'Smith'
 }
 `;
 
@@ -23,10 +24,10 @@ export class AppComponent {
 export class TemplatesComponent implements OnInit {
 
   code = {
-    bindingExercise: displayAngularComponentWithHtml(baseCode),
-    bindingMatch: /name/,
-    binding: `<h1>Hello, {{name}}</h1>`,
-    bindingPropMatch: /pic/,
+    bindingExercise: displayAngularComponentWithHtml(baseCode, '<h1>{{firstName}} </h1>'),
+    bindingExerciseMatch: / /,
+    bindingPropMatch: /name/,
+    //bindingPropMatch: /pic/,
     bindingProp: `<h1>Hello, {{name}}</h1>
 <img src="{{pic}}" alt="Picture">
     `,
@@ -36,9 +37,9 @@ export class TemplatesComponent implements OnInit {
     `,
     bindingToInput: `<h1>Hello, {{name}}</h1>
 <img [src]="pic" alt="Picture">
-      
-      
-      
+
+
+
     `,
 
 

@@ -23,7 +23,10 @@ export class CodeEditorComponent {
 
   ngOnInit() {
     const code = this.textarea && this.textarea.nativeElement.value.trim() || this.code;
-
+    if(this.highlight[0] && !(this.highlight[0] instanceof RegExp) ){
+      // Has to be a regex
+      debugger
+    }
     if (!code) {
       throw new Error(`No code was provided for the app-code-editor component.
       

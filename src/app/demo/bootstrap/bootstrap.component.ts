@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BaseRouteableComponent} from '../BaseRouteableComponent';
+
 import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 @Component({
@@ -7,11 +7,11 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   templateUrl: './bootstrap.component.html',
   styleUrls: ['./bootstrap.component.css']
 })
-export class BootstrapComponent extends BaseRouteableComponent {
+export class BootstrapComponent {
 
   code = {
     componentAnatomy: {   // Component Anatomy - Milestone #1
-      code:`import { Component } from '@angular/core';
+      code: `import { Component } from '@angular/core';
 @Component({
   selector: 'hello-world',
   template: '<h1>Hello World!</h1>',
@@ -28,9 +28,7 @@ export class HelloWorldComponent {}`,
       type: 'typescript'
     },
     moduleAnatomy: {  // Module Anatomy - Milestone #1
-      code: `import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HelloWorldComponent } from './hello-world.component';
+      code: `/* Imports */
 
 @NgModule({
   imports: [ BrowserModule ],
@@ -56,15 +54,14 @@ export class AppModule {}`,
 
 platformBrowserDynamic().bootstrapModule(AppModule);`,
         indexHTML: `<body>
-  <!-- Typically our “root” component has the selector 
-       <app-root></app-root>. We're using <hello-world></hello-word>
-       as tradition dictates. -->
-  <hello-world>Loading...</hello-world>
-  <script>...</script>
+  <hello-world>
+    Loading...
+  </hello-world>
 </body>`
       },
       matches: {
-        bootstrap: /platformBrowserDynamic().*/
+        index: /<hello-[^]*world>/,
+        bootstrap: /platformBrowserDynamic\(\).*/
       },
       readonly: true,
       path: 'main.ts',
