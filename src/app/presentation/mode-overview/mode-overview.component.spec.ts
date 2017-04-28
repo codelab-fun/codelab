@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModeOverviewComponent } from './mode-overview.component';
 
 
-describe('OverviewComponent', () => {
+describe('ModeOverviewComponent', () => {
   let component: ModeOverviewComponent;
   let fixture: ComponentFixture<ModeOverviewComponent>;
 
