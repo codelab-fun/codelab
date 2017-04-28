@@ -27,7 +27,7 @@ export class SlidesRoutingDirective implements OnInit {
     this.ids[value.index] = value.id;
 
 
-    if (this.activeSlideId == value.index.toString() || value.id == this.activeSlideId) {
+    if (this.activeSlideId === value.index.toString() || value.id === this.activeSlideId) {
       // Maybe update route here
       this.slideChange(value.index);
       this.presentation.activeSlideIndex = value.index;
@@ -40,7 +40,7 @@ export class SlidesRoutingDirective implements OnInit {
   }
 
   ngOnInit() {
-    let id = this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params['id'];
 
     this.activeSlideId = id || '0';
 
