@@ -4,37 +4,33 @@
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
-  <app-slide>
-    <h1 style="text-align: center;">Recap: Component</h1>
+  <app-slide id="component">
+    <h1>Recap: Component</h1>
     <h2>
       Component is the main building block of your app.
     </h2>
   </app-slide>
 
-  <app-slide>
-    <h1 style="text-align: center;">Component Tree</h1>
+  <app-slide id="component-tree">
+    <h1>Component Tree</h1>
     <h2>
       Components are composable and form a tree
     </h2>
-  </app-slide>
-
-  <app-slide>
-    <h1 style="text-align: center;">Component Tree</h1>
     <h2>
       Any Component can be a parent, a child or both
     </h2>
   </app-slide>
 
-  <app-slide>
-    <h1 style="text-align: center;">Instantiating parent and sub components</h1>
-      <div class="content-container">
+  <app-slide id="parent-child-component">
+    <h1>Instantiating parent and sub components</h1>
+    <div class="content-container">
       <div row>
         <div class="col-6">
           <h3 style="text-align: justify;">Parent Component</h3>
           <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
         </div>
         <div class="col-6" style="margin-left: 10px;">
-          <h3 style="text-align: center;">Child Component</h3>
+          <h3>Child Component</h3>
           <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
         </div>
       </div>
@@ -42,25 +38,24 @@
         <div class="col-6" style="margin: auto">
           <h3 style="text-align: justify;">Module</h3>
           <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
-        </div>        
-      </div>              
+        </div>
+      </div>
     </div>
   </app-slide>
 
-  <app-slide>
-    <h1 style="text-align: center;">Passing data from parent to child</h1>
-      <div class="content-container">
+  <app-slide id="passing-data">
+    <h1>Passing data from parent to child</h1>
+    <div class="content-container">
       <div row>
         <div class="col-6">
           <h3 style="text-align: justify;">Parent Component</h3>
           <app-code-editor [fontSize]="15" [code]="code.parentComponent.code"></app-code-editor>
         </div>
         <div class="col-6" style="margin-left: 10px;">
-          <h3 style="text-align: center;">Child Component</h3>
+          <h3>Child Component</h3>
           <app-code-editor [fontSize]="15" [code]="code.childComponent.code"></app-code-editor>
         </div>
-      </div>  
-    </div>       
+      </div>
+    </div>
   </app-slide>
-
 </app-presentation>
