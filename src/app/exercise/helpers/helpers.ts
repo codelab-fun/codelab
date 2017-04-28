@@ -1,4 +1,19 @@
 import {FileConfig} from '../interfaces/file-config';
+
+
+
+function exercise_with_display(moduleName: string, code: any, code2: any) {
+  return {...exercise(moduleName, code, code2), before: `
+  
+    export const value = {};
+    function display( newValue ){
+      value.value = newValue; 
+    }
+    
+  `};
+}
+
+
 export function exercise(moduleName: string, template: string, solution: string): FileConfig {
   return {
     bootstrap: false,
@@ -98,6 +113,14 @@ platform.bootstrapModule(AppModule, {
   };
 }
 
+export function pureJavascript(code, bootstrapCode){
+  return {
+    files: [
+      exercise_with_display('app.ts', code, code),
+      bootstrap('main.ts', bootstrapCode, bootstrapCode)
+    ]
+  }
+}
 
 export function displayAngularComponentWithHtml(componentCode: string, html: string) {
   return {

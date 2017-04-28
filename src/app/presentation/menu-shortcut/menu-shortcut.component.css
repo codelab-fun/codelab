@@ -1,21 +1,17 @@
-.menu-shortcut{
-  position: absolute;
-  z-index: 2;
-  width: 300px;
-  /*height: 500px;*/
-  display: flex;
-  flex-direction: column;
-  bottom: 3%;
-  right: 5%;
-}
+
 
 .menu-index{
+  min-width: 300px;
   visibility: hidden;
+  position: absolute;
+  z-index: 2;
   border: thin solid #242424;
   background-color: rgba(244, 244, 244, 0.98);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 1em;
   font-weight: 300;
+  right: 2%;
+  bottom: 10%;
 }
 
 .menu-list{
@@ -38,7 +34,8 @@
 }
 .tri-box{
   visibility: hidden;
-  /*align-self: center;*/
+  position: absolute;
+  z-index: 2;
   transform: rotate(45deg);
   margin-top: -11px;
   width: 20px;
@@ -49,14 +46,16 @@
   border-top-color: #f4f4f4;
   border-left-color: #f4f4f4;
   margin-bottom: 15px;
-  position: relative;
-  left: 80%;
+  bottom: 48px;
+  right: 5%;
 }
 
 .menu-icon{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  position: relative;
-  left: 76%;
+  position: absolute;
+  z-index: 2;
+  right: 4%;
+  bottom: 1%;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -67,7 +66,7 @@
 
 }
 .menu-icon:hover{
-  cursor: hand;
+  cursor: pointer;
 }
 
 .toDisplay{
