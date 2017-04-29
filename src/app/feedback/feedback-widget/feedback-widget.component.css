@@ -16,12 +16,20 @@
   right: 8%;
 }
 
+.form-container {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background: white;
+}
+
 textarea {
   margin: 10px 0;
   height: 100px;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   border: 1px #ddd solid;
   padding: 4px;
@@ -41,9 +49,35 @@ input, textarea {
   border: 0 solid;
 }
 
+button {
+  color: #fff;
+  background: #3e8e01;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  border-radius: 3px;
+  line-height: 25px;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  border: 0 solid;
+}
+
 #message{
   margin-top: 15px;
 }
 .error{
   color: red;
+}
+
+.feedback-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.feedback-item {
+  background: #ececec;
+  border: 1px solid #dcdcdc;
+  padding: 8px;
+  margin: 5px 0;
 }

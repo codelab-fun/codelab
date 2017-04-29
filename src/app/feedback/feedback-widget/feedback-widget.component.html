@@ -2,27 +2,39 @@
 <div title="Feedback" (click)="buttonClicked()"  class="feedback-btn menu-bar-btn" title="Feedback"></div>
 <!--  FEEDBACK FORM -->
 <div *ngIf="open" class="feedback-form">
-  <div>
-    <input type="text"
-           [(ngModel)]="name"
-           [ngModelOptions]="{standalone: true}"
-           placeholder="Enter your name (optional)"
-           name="name"/>
-  </div>
-  <div>
-    <input type="email"
-           [(ngModel)]="email"
-           [ngModelOptions]="{standalone: true}"
-           placeholder="Enter your email"
-           name="email"/>
-  </div>
-  <div>
-    <textarea [(ngModel)]="comment" placeholder="Describe your issue or share your ideas" name="comment"></textarea>
-  </div>
-  <div>
-    <button (click)="send()" id="submit" class="btn-feedback-form">Send</button>
-  </div>
-  <div class="message" [class.error]="error">
-    {{statusMessage}}
+  <div class="form-container" *ngIf="open">
+    <form [formGroup]="formGroup" novalidate (submit)="submit()">
+      <div>
+        <input type="text" placeholder="Enter your name"
+               formControlName="name" />
+      </div>
+      <div>
+        <input type="email" placeholder="Enter your email (optional)"
+               formControlName="email" />
+      </div>
+      <div>
+          <textarea placeholder="Describe your issue or share your ideas"
+                    formControlName="comment" (keydown.enter)="submit()"></textarea>
+      </div>
+      <div>
+        <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
+                type="submit">Send</button>
+      </div>
+      <div [class.error]="error">
+        {{statusMessage}}
+      </div>
+    </form>
+    <div *ngIf="!!items && items.length">
+      <h4>Feedback</h4>
+      <div class="feedback-items">
+        <div class="feedback-item" *ngFor="let item of items">
+          <div>{{item.timestamp}}</div>
+          <div>
+            <span>{{item.name}} <span>({{item.email}})</span></span>
+          </div>
+          <p>{{item.comment}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

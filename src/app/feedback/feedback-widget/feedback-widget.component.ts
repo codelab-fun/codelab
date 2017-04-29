@@ -1,62 +1,102 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
-import {AngularFireModule, AuthProviders, AuthMethods, AngularFire} from 'angularfire2';
+import {Component, OnInit, ElementRef, OnDestroy} from '@angular/core';
+import {AngularFireModule, AuthProviders, AuthMethods, AngularFire, FirebaseListObservable} from 'angularfire2';
 
 import {PresentationComponent} from "../../presentation/presentation/presentation.component";
+import {Subscription} from "rxjs";
+import {Validators, FormBuilder, FormGroup} from "@angular/forms";
+import {Router, ActivatedRoute} from "@angular/router";
+import {Message} from "../message";
 @Component({
   selector: 'app-feedback-widget',
   templateUrl: './feedback-widget.component.html',
   styleUrls: ['./feedback-widget.component.css']
 })
-export class FeedbackWidgetComponent implements OnInit {
-  open = false;
-  email: string = '';
-  name:string = '';
-  comment: string = '';
-  statusMessage:string = '';
-  error = false;
+export class FeedbackWidgetComponent implements OnInit, OnDestroy {
+  private isOpen: boolean;
+  private initialized;
+  private repoSubscription: Subscription;
+  private routeSubscription: Subscription;
 
-  constructor(private angularFire: AngularFire, private el: ElementRef) {
+  statusMessage = '';
+  error = false;
+  formGroup: FormGroup;
+  repo$: FirebaseListObservable<any>;
+  items: Message;
+
+  set open(value: boolean) {
+    this.isOpen = value;
+    if (!this.repo$) {
+      this.initData();
+    }
+  }
+  get open(): boolean {
+    return this.isOpen;
+  }
+  constructor(
+    private angularFire: AngularFire,
+    private el: ElementRef,
+    private fb: FormBuilder,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.url.subscribe(() => {
+      if (this.initialized) {
+        // Get new data for route
+        this.repoSubscription.unsubscribe();
+        this.initData();
+      }
+    });
   }
 
   ngOnInit() {
-    //TODO retrieve username from state.local.user
+    this.formGroup = this.fb.group({
+      comment: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['']
+    });
+  }
+
+  ngOnDestroy() {
+    if (!!this.repoSubscription) {
+      this.repoSubscription.unsubscribe();
+    }
+    this.routeSubscription.unsubscribe();
+  }
+
+  initData() {
+    this.repo$ = this.angularFire.database.list('/feedback');
+    // Get all feedback for this url, sorted by date, newest first
+    this.repoSubscription = this.repo$.subscribe(values => {
+      this.items = values.map(m => m as Message)
+        .filter(m => m.href.toLowerCase() === this.router.url.toLowerCase())
+        .sort((a, b) => a > b ? -1 : 1);
+    });
+    this.initialized = true;
   }
 
   buttonClicked(){
     this.open = !this.open;
   }
 
-  send() {
-    if (this.comment && this.email) {
-
-      let comment = this.comment;
-      let email = this.email;
-      let items = this.angularFire.database.list('/feedback');
-      let headerText = document.body.querySelector('h1:not([style*="display:none"]') ? document.body.querySelector('h1:not([style*="display:none"]').innerHTML : '';
-      items.push({
-        comment:this.htmlEscape(comment),
-        name: this.name,
-        email: email,
-        timestamp: new Date().toUTCString(),
-        href:window.location.href,
-        header: headerText
-      }).then(x => {
-        this.statusMessage = 'Successfully sent';
-        setTimeout(() => {
-          this.error = false;
-          this.statusMessage = '';
-          this.open = false;
-          let mainDiv = this.el.nativeElement.querySelector('#main');
-          mainDiv.style.removeProperty('width');
-        }, 2000);
+  submit() {
+    const message: Message = this.formGroup.getRawValue();
+    message.comment = this.htmlEscape(message.comment);
+    message.href = this.router.url;
+    message.timestamp = new Date().toUTCString();
+    message.header = this.getHeaderText();
+    this.repo$.push(message)
+      .then(x => {
+        this.formGroup.reset();
       }).catch(() => {
-        this.statusMessage = 'Error while sending feedback';
-        this.error = true;
-      });
+      this.statusMessage = 'Error while sending feedback';
+      this.error = true;
+    });
+  }
 
-      this.comment = '';
-      //TODO set username in state.local.user
-    }
+  // This looks risky   -DF.
+  private getHeaderText(): string {
+    const el = document.body.querySelector('h1:not([style*="display:none"]');
+    return !!el ? el.innerHTML : '';
   }
 
   htmlEscape(str) {
