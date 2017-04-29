@@ -8,6 +8,6 @@
     </button>
   </div>
   <div class="presentation-body">
-    <iframe [src]="iframeSource"> </iframe>
+    <iframe *ngIf="milestone" [src]="iframeSource"> </iframe>
   </div>
 </div>

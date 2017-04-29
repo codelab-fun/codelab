@@ -1,7 +1,8 @@
 <app-presentation app-slides-routing>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
-  <app-slide>
+
+  <app-slide [milestone]="'foo'">
     <div class="centered-vertically">
       <h1 i18n>Angular 4</h1>
       <h2 i18n>In this codelab you will learn how to create angular4 apps!</h2>
@@ -9,7 +10,7 @@
     </div>
   </app-slide>
 
-  <app-slide>
+  <app-slide [milestone]="'foo'">
     <div class="centered-vertically">
       <h1 i18n>Angular</h1>
       <h2 i18n>A framework for creating applications</h2>
@@ -37,7 +38,8 @@
       </div>
     </div>
   </app-slide>
-  <app-slide>
+
+  <app-slide [milestone]="'intro'">
     <div>
       <h1 i18n>In this codelab we'll create a CatTube</h1>
       <h2 i18n>App for cat videos</h2>
@@ -47,15 +49,15 @@
     </div>
   </app-slide>
 
-  <app-slide>
+  <app-slide [milestone]="'intro'">
     <div class="centered-vertically">
       <h1>Milestone 1</h1>
       <h2>Hello world app</h2>
     </div>
   </app-slide>
 
-  <app-slide>
-    <h1>3 simple steps to create an Angular app</h1>
+  <app-slide [milestone]="'intro'">
+    <h1>LAST 3 simple steps to create an Angular app</h1>
     <ul>
       <li>1. Create a component</li>
       <li>2. Put it in a module</li>
@@ -63,7 +65,7 @@
     </ul>
   </app-slide>
 
-  <app-slide>
+  <app-slide [milestone]="'test'">
     <h1>Angular component</h1>
     <h2>Building block for your app. It generates HTML and adds behavior on top of it</h2>
 
@@ -72,7 +74,7 @@
   </app-slide>
 
 
-  <app-slide class="no-padding">
+  <app-slide [milestone]="'test'" class="no-padding">
     {{code.test0.path}}
     <app-editor [file]="code.test0" [fontSize]="45">
     </app-editor>
@@ -80,7 +82,7 @@
     <app-editor [file]="code.test1" [fontSize]="45">
     </app-editor>
   </app-slide>
-  <app-slide class="no-padding">
+  <app-slide [milestone]="'test'" class="no-padding">
     {{code.test0.path}}
     <app-editor [file]="code.test0" [fontSize]="45">
     </app-editor>
@@ -88,7 +90,7 @@
     <app-editor [file]="code.test1" [fontSize]="45" [ng-tooltips]="[{match:'2016',text:'Types'}]">
     </app-editor>
   </app-slide>
-  <app-slide>
+  <app-slide [milestone]="'test'">
     <h1>App component</h1>
     <p>Component is the base of an angular App.</p>
     <p>It's a piece of code which</p>
@@ -97,14 +99,17 @@
   </app-slide>
 
 
-  <app-slide>
+  <app-slide [milestone]="'test'">
     <div class="centered-vertically">
       <ng-code [language]="'typescript'" [theme]="'Vs'" [code]="code.hello">
       </ng-code>
     </div>
   </app-slide>
+
   <app-slide>
-    <app-exercise [config]="exercises[1]">
+    <app-exercise
+      [config]="exercises[1]"
+      [milestone]="'intro'">
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
           called Codelab.</p>
@@ -117,7 +122,8 @@
       </div>
     </app-exercise>
   </app-slide>
-  <app-slide>
+
+  <app-slide [milestone]="'test'">
     <h1 i18n>What is Angular?</h1>
     <div class="centered-vertically" i18n>
       <h2>
@@ -129,8 +135,9 @@
       </h2>
     </div>
   </app-slide>
+
   <app-slide>
-    <app-exercise [config]="exercises[0]">
+    <app-exercise [config]="exercises[0]" [milestone]="'test'">
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
           called Codelab.</p>
@@ -143,7 +150,8 @@
       </div>
     </app-exercise>
   </app-slide>
-  <app-slide>
+
+  <app-slide [milestone]="'test'">
     <h1 i18n>Platform Benefits</h1>
     <ul>
       <li i18n>PWA</li>
@@ -160,7 +168,7 @@
       <li i18n>Accessibility</li>
     </ul>
   </app-slide>
-  <app-slide>
+  <app-slide [milestone]="'test'">
     <div style="text-align: center;">
       <h1 i18n>Why TypeScript?</h1>
 
@@ -195,22 +203,23 @@
       </svg>
     </div>
   </app-slide>
-  <app-slide>
+
+  <app-slide [milestone]="'test'">
     <h1 i18n>This is an <b>interactive</b> codelab. You don't need your IDE, <b>use your
       browser</b></h1>
   </app-slide>
-  <app-slide>
+  <app-slide [milestone]="'test'">
     Content: TODO
   </app-slide>
-  <app-slide>
+  <app-slide [milestone]="'test'">
     <h1 i18n>
       <b>TypeScript</b> is a language compiled to <b>JavaScript</b>
     </h1>
   </app-slide>
-  <app-slide>
+  <app-slide [milestone]="'test'">
     todo: code
   </app-slide>
-  <app-slide>
+  <app-slide [milestone]="'test'">
     <h1 i18n>Also</h1>
     <ul>
       <li>Interfaces</li>
@@ -222,7 +231,7 @@
       <li>And more!</li>
     </ul>
   </app-slide>
-  <app-slide>
+  <app-slide [milestone]="'test'">
     <h1>Component Anatomy - Inline Template</h1>
   </app-slide>
 </app-presentation>

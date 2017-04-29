@@ -9,10 +9,19 @@ export class SlidesRoutingDirective implements OnInit {
   @Input() activeSlideId;
   @Output() change = new EventEmitter();
 
-  constructor(private router: Router, private route: ActivatedRoute, private  pres: PresentationComponent){}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private pres: PresentationComponent){}
 
   @HostListener('onSlideChange', ['$event']) slideChange(newId){
-    this.router.navigate(['', newId]);
+    let milestone = this.route.snapshot.params['milestone'];
+
+    if (milestone) {
+      this.router.navigate(['milestone', milestone, newId], {skipLocationChange: false});
+    } else {
+      this.router.navigate(['', newId]);
+    }
   }
 
   ngOnInit() {

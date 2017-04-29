@@ -1,5 +1,6 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {PresentationService} from './presentation.service'
 
 export interface SlideConfig {
   resize: boolean,
@@ -19,17 +20,41 @@ export class PresentationComponent {
   areShortcutsEnabled = true;
 
   private generatedSlideId = 0;
+  private currentIndex = 0;
 
-  registerSlide() {
-    return this.generatedSlideId++;
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private presentationService: PresentationService) {}
 
   get totalSlides() {
     return this.generatedSlideId;
   }
 
+  registerSlide(milestone?) {
+    if (milestone) {
+      return this.presentationService.getSetMilestoneSlides()[0];
+    }
+    return this.generatedSlideId++;
+  }
+
+  getNextSlideId() {
+    let slides = this.presentationService.getSetMilestoneSlides();
+
+    if (this.currentIndex >= slides.length) {
+      this.currentIndex = 0;
+    }
+    return this.presentationService.getSetMilestoneSlides()[this.currentIndex]
+  }
+
   nextSlide(isTriggeredByShortcut: boolean = false) {
-    if ((this.activeSlideId + 1 < this.generatedSlideId) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+    let milestone = this.route.snapshot.params['milestone'];
+
+    if (milestone) {
+      this.currentIndex++;
+      this.activeSlideId = this.getNextSlideId();
+      this.onSlideChange.next(this.activeSlideId);
+    }
+    else if ((this.activeSlideId + 1 < this.generatedSlideId) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
       this.activeSlideId++;
       this.onSlideChange.next(this.activeSlideId);

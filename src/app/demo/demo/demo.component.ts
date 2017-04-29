@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChildren, QueryList} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import {PresentationService} from '../../presentation/presentation/presentation.service'
 
 @Component({
   selector: 'app-demo',
@@ -9,6 +11,8 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 })
 export class DemoComponent implements OnInit {
 
+
+   @ViewChildren(SlideComponent) slides: QueryList<SlideComponent>;
 
   code = {
     'test0':{
@@ -106,16 +110,38 @@ export class AppComponent {
     }
   ];
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    public presentationService: PresentationService) {}
 
   activeSlideId = 0;
+  initSlideId = 0;
 
   ngOnInit() {
     let id = Number(this.route.snapshot.params['id']);
     if (id) {
       this.activeSlideId = id;
     }
+
+  }
+
+  ngAfterViewInit() {
+    let slideIds = [];
+    let milestone = this.route.snapshot.params['milestone'];
+    if (!milestone) { return; }
+
+    this.slides.forEach( slide => {
+      if (slide.milestone === milestone) {
+        slideIds.push(slide.id)
+      }
+    });
+
+    this.presentationService.getSetMilestoneSlides(slideIds);
+    this.initSlideId = slideIds[0];
+  }
+
+  getInitSlideId() {
+    return this.initSlideId;
   }
 
 }

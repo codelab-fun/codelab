@@ -9,7 +9,7 @@ import {ArrowsComponent} from './presentation/arrows/arrows.component';
 import {SlidesRoutingDirective} from './presentation/slides-routing/slides-routing.directive';
 import {FooterComponent} from './presentation/footer/footer.component';
 import {BrowserWindowComponent} from './presentation/browser-window/browser-window.component';
-
+import {PresentationService} from './presentation/presentation/presentation.service'
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import {BrowserWindowComponent} from './presentation/browser-window/browser-wind
     BrowserWindowComponent
   ],
   imports: [BrowserModule],
-  providers: [],
+  providers: [PresentationService],
   bootstrap: []
 })
 export class SharedModule {
