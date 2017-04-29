@@ -15,6 +15,9 @@ const firebaseConfig = {
   databaseURL: "https://ng2-codelab.firebaseio.com",
   storageBucket: "ng2-codelab.appspot.com"
 };
+
+export const af = AngularFireModule.initializeApp(firebaseConfig);
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,4 +30,6 @@ const firebaseConfig = {
   declarations: [FeedbackWidgetComponent],
   exports: [FeedbackWidgetComponent]
 })
-export class FeedbackModule { }
+export class FeedbackModule { 
+  
+}
