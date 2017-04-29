@@ -1,11 +1,11 @@
-<app-presentation 
-  app-slides-routing 
+<app-presentation
+  app-slides-routing
   app-mode-routing>
   <app-menu-shortcut></app-menu-shortcut>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
   <app-mode-overview></app-mode-overview>
-  <app-feedback-widget></app-feedback-widget>  
+  <app-feedback-widget></app-feedback-widget>
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
@@ -39,7 +39,7 @@
         <app-code-editor [fontSize]="15" [code]="code.withDI.code"
                          [focus-highlight-match]="[code.withDI.matches.constructor]"></app-code-editor>
         <ul style="margin-top: 10px; text-align: justify;">
-          <li>The Person class no longer creates a profession. It just consume it.</li>
+          <li>The Person class no longer creates a profession. It just consumes it.</li>
           <li>If someone extends the Profession class, it is not a Person's problem.</li>
           <li>You have complete control of Person's dependencies.</li>
         </ul>
