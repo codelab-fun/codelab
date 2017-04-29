@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {pureJavascript} from '../../exercise/helpers/helpers';
 import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
@@ -16,7 +16,7 @@ export class TypescriptComponent {
 
   code = {
     stringType: {
-      code:  `let fullName: string = 'Bob Bobbington';
+      code: `let fullName: string = 'Bob Bobbington';
 let sentence: string = \`Hello, my name is \${ fullName }.\`;`
     },
     stringType2: {
@@ -40,7 +40,7 @@ import {Hello} from 'Hello';
 console.log(new Hello('World').hello())
 `,
       matches: {
-        class:  /class/,
+        class: /class/,
         export: /export/,
         import: /import/,
         constants: /const /
@@ -55,10 +55,9 @@ console.log(new Hello('World').hello())
 
     `, `
     import {value} from 'app.ts';
-    document.write(value.value);`),
+    document.write('<h1>' + value.value + '</h1>');`),
     tsExerciseMatch: /'.*'/
   };
-
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ]

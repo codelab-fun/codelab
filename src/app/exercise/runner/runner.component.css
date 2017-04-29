@@ -1,4 +1,16 @@
-
 .runner {
   height: 100%;
+}
+
+:host /deep/ .frame iframe {
+  width: 496px;
+  height: 300px;
+}
+
+:host /deep/ .frame {
+  padding: 0;
+}
+
+:host /deep/ .testing {
+  display: none;
 }

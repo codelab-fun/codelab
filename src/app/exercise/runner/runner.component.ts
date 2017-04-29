@@ -6,10 +6,10 @@ import {
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   Output,
   SimpleChanges,
-  ViewChild,
-  OnDestroy
+  ViewChild
 } from '@angular/core';
 import * as ts from 'typescript';
 import {FileConfig} from '../interfaces/file-config';
@@ -50,7 +50,6 @@ function createIframe(config: IframeConfig) {
   iframe.setAttribute('frameBorder', '0');
   iframe.setAttribute('src', config.url);
   iframe.setAttribute('class', config.id);
-  iframe.setAttribute('style', 'width: 500px; height: 100%');
   return iframe;
 }
 
@@ -244,15 +243,13 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
   html = `<my-app></my-app>`;
-  @ViewChild('runner') element: ElementRef;
+  @ViewChild('runner') runnerElement: ElementRef;
   private handleMessageBound: any;
   public System: any;
 
-  constructor(
-      private changeDetectionRef: ChangeDetectorRef,
-      public loopProtectionService: LoopProtectionService,
-      public scriptLoaderService: ScriptLoaderService
-  ) {
+  constructor(private changeDetectionRef: ChangeDetectorRef,
+              public loopProtectionService: LoopProtectionService,
+              public scriptLoaderService: ScriptLoaderService) {
     this.handleMessageBound = this.handleMessage.bind(this);
     window.addEventListener('message', this.handleMessageBound, false);
   }
@@ -269,7 +266,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     const time = (new Date()).getTime();
 
     if (runner === 'Angular') {
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
         sandbox.setHtml(this.html);
@@ -282,7 +279,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         sandbox.runMultipleFiles(files.filter(file => !file.test));
       });
 
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
         sandbox.setHtml(this.html);
@@ -302,14 +299,14 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         sandbox.runMultipleFiles(testFiles);
       });
     } else if (runner === 'TypeScript') {
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runMultipleFiles(files.filter(file => !file.test));
       });
 
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
         console.log('FRAME CREATED', (new Date()).getTime() - time);
