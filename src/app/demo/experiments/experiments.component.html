@@ -2,6 +2,15 @@
   <app-menu-shortcut></app-menu-shortcut>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      [title]="title"
+      [description]="description"
+      [prereqs]="prereqs"
+    ></app-title-slide>
+  </app-slide>
+
   <app-slide>
     <h1>This is dev only experiments presentation</h1>
     <h2>Here you can see how some of the things are done</h2>

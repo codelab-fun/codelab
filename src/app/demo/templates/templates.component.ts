@@ -22,6 +22,9 @@ export class AppComponent {
   styleUrls: ['./templates.component.css']
 })
 export class TemplatesComponent implements OnInit {
+  title = 'Templates';
+  description = 'Human give me attention meow ask to go outside and ask to come inside and ask to go outside and ask to come inside so playing with balls of wool.';
+  prereqs = 'Components, Dependency Injection';
 
   code = {
     bindingExercise: displayAngularComponentWithHtml(baseCode, '<h1>{{firstName}} </h1>'),

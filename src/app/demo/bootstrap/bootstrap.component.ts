@@ -8,6 +8,9 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   styleUrls: ['./bootstrap.component.css']
 })
 export class BootstrapComponent {
+  title = 'Bootstrap';
+  description = 'Human give me attention meow ask to go outside and ask to come inside and ask to go outside and ask to come inside so playing with balls of wool.';
+  prereqs = 'Components, Dependency Injection';
 
   code = {
     componentAnatomy: {   // Component Anatomy - Milestone #1
