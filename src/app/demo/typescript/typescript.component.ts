@@ -51,11 +51,20 @@ console.log(new Hello('World').hello())
         return a+b
       };
 
-      display(add('1', 4));
+      display(add('2', 2));
 
     `, `
     import {value} from 'app.ts';
-    document.write('<h1>' + value.value + '</h1>');`),
+    document.write('<h1>' + value.value + '</h1>');`,
+      `
+    import {value} from 'app.ts';
+    
+    describe('value', ()=>{
+      it('equals 5', ()=>{
+        chai.expect(value.value).equals(4);
+      })
+    })
+    `),
     tsExerciseMatch: /'.*'/
   };
   exercises = [
