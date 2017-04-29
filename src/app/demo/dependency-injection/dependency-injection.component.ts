@@ -9,7 +9,7 @@ import {Component} from '@angular/core';
 export class DependencyInjectionComponent {
   title = 'Dependency Injection';
   description = '';
-  prereqs = 'Components, Dependency Injection';
+  prereqs = '';
 
   code = {
     withOutDI: {

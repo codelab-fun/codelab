@@ -11,7 +11,7 @@
 		</p>
 
 		<p id="slide-title-prereqs">
-			<strong>Prerequisites:</strong> {{ prereqs }}
+			<strong *ngIf="prereqs">Prerequisites:</strong> {{ prereqs }}
 		</p>
 
 		<p id="slide-title-instructions">

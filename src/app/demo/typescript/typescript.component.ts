@@ -12,7 +12,7 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 export class TypescriptComponent {
   title = 'TypeScript';
   description = '';
-  prereqs = 'Components, Dependency Injection';
+  prereqs = '';
 
   code = {
     stringType: {

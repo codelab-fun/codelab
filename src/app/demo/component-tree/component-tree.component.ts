@@ -10,7 +10,7 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 export class ComponentTreeComponent {
   title = 'Component Tree';
   description = '';
-  prereqs = 'Components, Dependency Injection';
+  prereqs = '';
 
   code = {
     parentComponentSkeleton: {

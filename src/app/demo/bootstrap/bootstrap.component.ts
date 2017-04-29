@@ -10,7 +10,7 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 export class BootstrapComponent {
   title = 'Bootstrap';
   description = '';
-  prereqs = 'Components, Dependency Injection';
+  prereqs = '';
 
   code = {
     componentAnatomy: {   // Component Anatomy - Milestone #1

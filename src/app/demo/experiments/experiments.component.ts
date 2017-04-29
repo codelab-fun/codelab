@@ -9,6 +9,6 @@ import {Component} from '@angular/core';
 export class ExperimentsComponent {
   title = 'Experiments';
   description = '';
-  prereqs = 'Components, Dependency Injection';
+  prereqs = '';
 
 }
