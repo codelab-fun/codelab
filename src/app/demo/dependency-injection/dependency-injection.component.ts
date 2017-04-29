@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 
 
 @Component({
@@ -7,9 +8,12 @@ import {Component} from '@angular/core';
   styleUrls: ['./dependency-injection.component.css']
 })
 export class DependencyInjectionComponent {
-  title = 'Dependency Injection';
-  description = '';
-  prereqs = '';
+  exercise;
+
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(3, 1);
+  }
+
 
   code = {
     withOutDI: {

@@ -9,9 +9,8 @@
 
   <app-slide id="intro" class="no-padding">
     <app-title-slide
-      [title]="title"
-      [description]="description"
-      [prereqs]="prereqs"
+      title="Dependency injection"
+      description="Angular has a powerful dependency injection system"
     ></app-title-slide>
   </app-slide>
 
@@ -77,5 +76,12 @@
     <h2>Consume the Injectable</h2>
     <app-code-editor [fontSize]="15" [code]="code.consumeInjectable.code"
                      [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></app-code-editor>
+  </app-slide>
+  <app-slide>
+    <app-exercise [config]="exercise">
+      <div class="description">
+        <p>Create first Angular component!</p>
+      </div>
+    </app-exercise>
   </app-slide>
 </app-presentation>
