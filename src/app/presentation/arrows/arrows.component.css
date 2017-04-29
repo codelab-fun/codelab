@@ -1,7 +1,6 @@
 .arrow-left {
   border-top-right-radius: 40%;
   border-bottom-right-radius: 40%;
-
   left: 0;
   text-align: right;
 
@@ -19,13 +18,13 @@
 }
 
 .arrow-left, .arrow-right {
-  top: 50vh;
+  top: calc(44.7vh - 6vh/2);
   position: absolute;
-  font-size: 30px;
+  font-size: 6vh;
   z-index: 100;
   padding: 20px 5px;
   background: #ddd;
   cursor: pointer;
-
+  line-height: 12vh;
   opacity: 0.1;
 }

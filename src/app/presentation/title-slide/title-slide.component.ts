@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-title-slide',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./title-slide.component.css']
 })
 export class TitleSlideComponent implements OnInit {
+
+  @Input() title: string;
+  @Input() description: string;
+  @Input() prereqs: string;
 
   constructor() { }
 
