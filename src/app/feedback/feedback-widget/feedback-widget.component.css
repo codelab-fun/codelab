@@ -1,3 +1,29 @@
+/*assets/images/icon.png*/
+.feedback-btn {
+  width: 45px;
+  height: 45px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 2;
+  bottom: 1%;
+  right: 8%;
+  background-image: url("../../../assets/images/chat.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.feedback-form {
+  width: 320px;
+  background-color: #fff;
+  padding: 10px;
+  border: thin solid #c0c0c0;
+  position: fixed;
+  z-index: 2;
+  bottom: 10%;
+  right: 8%;
+}
+
 textarea {
   margin: 10px 0;
   height: 100px;

@@ -1,32 +1,28 @@
-<div id="main">
-  <div id="buttonContainer" title="Feedback">
-    <div (click)="buttonClicked()" id="feedbackButton">
-      <img src="assets/images/icon.png" id="icon">
-    </div>
+<!--  FEEDBACK BUTTON-->
+<div title="Feedback" (click)="buttonClicked()"  class="feedback-btn" title="Feedback"></div>
+<!--  FEEDBACK FORM -->
+<div *ngIf="open" class="feedback-form">
+  <div>
+    <input type="text"
+           [(ngModel)]="name"
+           [ngModelOptions]="{standalone: true}"
+           placeholder="Enter your name (optional)"
+           name="name"/>
   </div>
-  <div *ngIf="open" id="form">
-    <div>
-      <input type="text"
-             [(ngModel)]="name"
-             [ngModelOptions]="{standalone: true}"
-             placeholder="Enter your name (optional)"
-             name="name"/>
-    </div>
-    <div>
-      <input type="email"
-             [(ngModel)]="email"
-             [ngModelOptions]="{standalone: true}"
-             placeholder="Enter your email"
-             name="email"/>
-    </div>
-    <div>
-      <textarea [(ngModel)]="comment" placeholder="Describe your issue or share your ideas" name="comment"></textarea>
-    </div>
-    <div>
-      <button (click)="send()" id="submit">Send</button>
-    </div>
-    <div id="message" [class.error]="error">
-      {{statusMessage}}
-    </div>
+  <div>
+    <input type="email"
+           [(ngModel)]="email"
+           [ngModelOptions]="{standalone: true}"
+           placeholder="Enter your email"
+           name="email"/>
+  </div>
+  <div>
+    <textarea [(ngModel)]="comment" placeholder="Describe your issue or share your ideas" name="comment"></textarea>
+  </div>
+  <div>
+    <button (click)="send()" id="submit">Send</button>
+  </div>
+  <div id="message" [class.error]="error">
+    {{statusMessage}}
   </div>
 </div>

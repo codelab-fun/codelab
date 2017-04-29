@@ -1,9 +1,7 @@
-
-
 .menu-index{
   min-width: 300px;
   visibility: hidden;
-  position: absolute;
+  position: fixed;
   z-index: 2;
   border: thin solid #242424;
   background-color: rgba(244, 244, 244, 0.98);
@@ -34,7 +32,7 @@
 }
 .tri-box{
   visibility: hidden;
-  position: absolute;
+  position: fixed;
   z-index: 2;
   transform: rotate(45deg);
   margin-top: -11px;
@@ -52,7 +50,7 @@
 
 .menu-icon{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  position: absolute;
+  position: fixed;
   z-index: 2;
   right: 4%;
   bottom: 1%;

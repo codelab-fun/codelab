@@ -24,13 +24,6 @@ export class FeedbackWidgetComponent implements OnInit {
 
   buttonClicked(){
     this.open = !this.open;
-    let mainDiv = this.el.nativeElement.querySelector('#main');
-    if (this.open) {
-      mainDiv.style['width'] = '25%';
-    }
-    else{
-      mainDiv.style.removeProperty('width');
-    }
   }
 
   send() {
