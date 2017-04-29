@@ -7,6 +7,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./dependency-injection.component.css']
 })
 export class DependencyInjectionComponent {
+  title = 'Dependency Injection';
+  description = '';
+  prereqs = '';
 
   code = {
     withOutDI: {

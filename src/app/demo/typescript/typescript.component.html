@@ -7,6 +7,14 @@
   <app-mode-overview></app-mode-overview>
   <app-feedback-widget></app-feedback-widget>  
 
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      [title]="title"
+      [description]="description"
+      [prereqs]="prereqs"
+    ></app-title-slide>
+  </app-slide>
+
   <!-- Intro -->
   <app-slide id="intro">
     <div style="text-align: center; display: flex; height: 100%; justify-content: center;">

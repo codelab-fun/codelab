@@ -8,7 +8,12 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })
+
 export class TypescriptComponent {
+  title = 'TypeScript';
+  description = '';
+  prereqs = '';
+
   code = {
     stringType: {
       code:  `let fullName: string = 'Bob Bobbington';
@@ -53,6 +58,7 @@ console.log(new Hello('World').hello())
     document.write(value.value);`),
     tsExerciseMatch: /'.*'/
   };
+
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ]

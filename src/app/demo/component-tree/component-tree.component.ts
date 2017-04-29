@@ -8,6 +8,10 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
   styleUrls: ['./component-tree.component.css']
 })
 export class ComponentTreeComponent {
+  title = 'Component Tree';
+  description = '';
+  prereqs = '';
+
   code = {
     parentComponentSkeleton: {
       code: `import { Component } from '@angular/core';

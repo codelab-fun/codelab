@@ -1,0 +1,21 @@
+<div class="slide-size">
+	<div id="slide-title-header">
+		<div id="slide-title">{{ title }}</div>
+	</div>
+
+	<app-ripple-animation class="left-half-ripple"></app-ripple-animation>
+
+	<div id="slide-title-background">
+		<p id="slide-title-description">
+			{{ description }}
+		</p>
+
+		<p id="slide-title-prereqs">
+			<strong *ngIf="prereqs">Prerequisites:</strong> {{ prereqs }}
+		</p>
+
+		<p id="slide-title-instructions">
+			Click the right arrow to get started!
+		</p>
+	</div>
+</div>

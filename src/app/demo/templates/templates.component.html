@@ -6,6 +6,15 @@
   <app-arrows></app-arrows>
   <app-mode-overview></app-mode-overview>
   <app-feedback-widget></app-feedback-widget>
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      [title]="title"
+      [description]="description"
+      [prereqs]="prereqs"
+    ></app-title-slide>
+  </app-slide>
+
   <app-slide id="component">
     <h1>Angular Templates</h1>
     <h3>For the following slides we are going to use this AppComponent Example</h3>
