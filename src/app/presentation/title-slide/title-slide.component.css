@@ -43,7 +43,6 @@
   position: relative;
   left: 5vw;
   top: calc(78% - 12vh);
-  font-style: italic;
   font-size: 4vh;
   color: white;
 }
