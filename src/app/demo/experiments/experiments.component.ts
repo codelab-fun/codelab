@@ -1,5 +1,25 @@
 import {Component} from '@angular/core';
+import {displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
 
+
+const baseCode = `
+import {Component} from '@angular/core';
+class Person {
+  constructor(public firstName: string, public lastName: string, public pic: string) { }
+  fullName() { return this.firstName + " " + this.lastName; }
+}
+@Component({
+  selector: 'my-app', 
+  templateUrl: './app/app.html'
+})
+export class AppComponent {
+  user=new Person('John','Smith','https://www.gravatar.com/avatar');
+  displayUser=true;
+  heros=["Celeritas","Magneta","Dynama"];
+  onButtonClick(input){
+    alert('You typed:'+input);
+  }  
+}`;
 
 @Component({
   selector: 'app-experiments',
@@ -9,6 +29,8 @@ import {Component} from '@angular/core';
 export class ExperimentsComponent {
 
   code = {
+    templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
+
     parentComponentSkeleton: {
       code: `import { Component } from '@angular/core';
 
