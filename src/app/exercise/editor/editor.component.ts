@@ -85,6 +85,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     let model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
     if (!model) {
       model = this.monacoConfigService.monaco.editor.createModel(this.file.code, this.file.type, this.file.path);
+      model.isSingleEditorModel = true;
     }
 
     this.code = this.file.code;

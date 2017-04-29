@@ -12,7 +12,7 @@ export class TypescriptComponent {
   code = {
     stringType: {
       code:  `let fullName: string = 'Bob Bobbington';
-let sentence: string = 'Hello, my name is \${ fullName }.';`
+let sentence: string = \`Hello, my name is \${ fullName }.\`;`
     },
     stringType2: {
       code: `let sentence: string = "Hello, my name is " + fullName + "."`
@@ -27,7 +27,7 @@ notSure = false; // okay, definitely a boolean`
   constructor(private name: string){}
   hello(){
      const greeting = 'Hello';
-		return '\${greeting} \${name}!';
+		 return \`\${greeting} \${name}!\`;
   }
 }
 

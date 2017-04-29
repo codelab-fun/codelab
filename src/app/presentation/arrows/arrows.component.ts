@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { Component, OnInit } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
   selector: 'app-arrows',
@@ -16,6 +16,13 @@ export class ArrowsComponent implements OnInit {
     this.presentation.nextSlide();
   }
 
+  canGoNext(): boolean {
+    return this.presentation.canGoNext();
+  }
+
+  canGoPrevious(): boolean {
+    return this.presentation.canGoPrevious();
+  }
   constructor(private presentation: PresentationComponent) {
 
   }
