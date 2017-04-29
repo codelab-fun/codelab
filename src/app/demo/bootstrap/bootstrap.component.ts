@@ -47,10 +47,10 @@ export class AppModule {}`,
       path: 'module.anatomy.ts',
       type: 'typescript'
     },
-    moduleBootstrapping: {  // Module Bootstraping - Milestone #1
+    moduleBootstrapping: {  // Module Bootstrapping - Milestone #1
       code: {
         mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-  import { AppModule } from './app.module';
+import { AppModule } from './app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);`,
         indexHTML: `<body>
