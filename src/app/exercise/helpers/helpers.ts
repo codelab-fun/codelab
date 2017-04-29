@@ -1,4 +1,19 @@
 import {FileConfig} from '../interfaces/file-config';
+
+
+
+function exercise_with_display(moduleName: string, code: any, code2: any) {
+  return {...exercise(moduleName, code, code2), before: `
+  
+    export const value = {};
+    function display( newValue ){
+      value.value = newValue; 
+    }
+    
+  `};
+}
+
+
 export function exercise(moduleName: string, template: string, solution: string): FileConfig {
   return {
     bootstrap: false,
@@ -15,7 +30,7 @@ export function exercise(moduleName: string, template: string, solution: string)
 export function test(moduleName: string, template: string): FileConfig {
   return {
     path: moduleName + '/' + moduleName + '/test.ts',
-    type: "typescript",
+    type: 'typescript',
     template,
     moduleName: moduleName + 'Test',
     excludeFromTesting: false,
@@ -42,7 +57,7 @@ export function bootstrap(moduleName: string, template: string, solution: string
 }
 
 export function displayAngularComponent(componentCode: string) {
-  const moduleCode = "import {BrowserModule} from '@angular/platform-browser';\nimport {NgModule} from '@angular/core';\nimport {AppComponent} from './app.component';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n";
+  const moduleCode = 'import {BrowserModule} from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport {AppComponent} from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n';
   const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app.module';
 import {ResourceLoader} from '@angular/compiler';
@@ -80,16 +95,16 @@ platform.bootstrapModule(AppModule, {
         path: 'styles.css',
         code: `
           body, html {
-            margin: 0; 
+            margin: 0;
             padding: 0;
             font-family: sans-serif;
           }
-          
+
           h1, h2 {
-            margin: 0; 
+            margin: 0;
             padding: 0;
           }
-          
+
           h1 {font-size: 20px;}
           h2 {font-size: 16px;}
         `
@@ -98,18 +113,26 @@ platform.bootstrapModule(AppModule, {
   };
 }
 
+export function pureJavascript(code, bootstrapCode){
+  return {
+    files: [
+      exercise_with_display('app.ts', code, code),
+      bootstrap('main.ts', bootstrapCode, bootstrapCode)
+    ]
+  }
+}
 
 export function displayAngularComponentWithHtml(componentCode: string, html: string) {
   return {
     files: [
       {
         code: html,
-        path: "app/app.html",
-        solution: "",
-        type: "html"
+        path: 'app/app.html',
+        solution: '',
+        type: 'html'
       },
       ...
         displayAngularComponent(componentCode).files
     ]
-  }
+  };
 }

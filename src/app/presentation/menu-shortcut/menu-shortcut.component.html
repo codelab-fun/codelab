@@ -1,6 +1,6 @@
 <div class="menu-shortcut">
-  <div [ngClass]="{toDisplay: onOpenMenu}" class="menu-index">
-    <div>
+    <div [ngClass]="{toDisplay: onOpenMenu}" class="menu-index">
+
       <ul class="menu-list">
         <li class="menu-item">
           <p><a href="/">Index</a></p>
@@ -9,9 +9,9 @@
           <p><a [href]="route.path + '/0'">{{route.name}}</a></p>
         </li>
       </ul>
-    </div>
+
   </div>
   <div [ngClass]="{toDisplay: onOpenMenu}" class="tri-box"></div>
   <div (click)="onDisplay()" class="menu-icon"></div>
-</div>
+<div>
 

@@ -1,7 +1,11 @@
-<app-presentation app-slides-routing>
+<app-presentation 
+  app-slides-routing 
+  app-mode-routing>
   <app-menu-shortcut></app-menu-shortcut>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
+  <app-mode-overview></app-mode-overview>
+  <app-feedback-widget></app-feedback-widget>
 
   <app-slide id="intro" class="no-padding">
     <app-title-slide
@@ -89,6 +93,14 @@
   </app-slide>
 
 
+  <app-slide>
+    <app-exercise [config]="exercises[0]">
+      <div class="description">
+        <p>Create first Angular component!</p>
+      </div>
+    </app-exercise>
+  </app-slide>
+
   <!--  ngModule intro  -->
   <app-slide>
     <h1>Now our component is ready to go!</h1>
@@ -111,9 +123,11 @@
     <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
                      [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></app-code-editor>
     <h2>
-      Let's skip through the imports section, bottomline is: if you're writing an app for a browser, you'll need to import BrowserModule.
+      Let's skip through the imports section, bottomline is: if you're writing an app for a browser, you'll need to
+      import BrowserModule.
     </h2>
-    <div class="info">Angular is not just web app anymore, it allows to create native phone apps and even VR scenes.</div>
+    <div class="info">Angular is not just web app anymore, it allows to create native phone apps and even VR scenes.
+    </div>
   </app-slide>
   <!--  Declarations  -->
   <app-slide>
@@ -126,7 +140,7 @@
     </h2>
   </app-slide>
 
- <!--  Bootstrap -->
+  <!--  Bootstrap -->
   <app-slide>
     <h1>Module Anatomy</h1>
 
@@ -178,5 +192,23 @@
       <app-code-editor class="col-6" [fontSize]="18" [code]="code.componentAnatomy.code"></app-code-editor>
     </div>
   </app-slide>
+
+  <app-slide>
+    <app-exercise [config]="exercises[1]">
+      <div class="description">
+        <p>Now we got the component, we need to pass it to a NgModule.</p>
+      </div>
+    </app-exercise>
+  </app-slide>
+
+  <app-slide>
+    <app-exercise [config]="exercises[2]">
+      <div class="description">
+        <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
+        <p>There's no simple way to test it, make sure your app displays: 'Hello CatTube!'</p>`
+      </div>
+    </app-exercise>
+  </app-slide>
+
 
 </app-presentation>

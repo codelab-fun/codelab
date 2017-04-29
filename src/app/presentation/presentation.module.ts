@@ -11,6 +11,8 @@ import {ArrowsComponent} from './arrows/arrows.component';
 import {MenuShortcutComponent} from './menu-shortcut/menu-shortcut.component';
 import {TitleSlideComponent} from './title-slide/title-slide.component';
 import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
+import { ModeOverviewComponent } from "app/presentation/mode-overview/mode-overview.component";
+import { ModeRoutingDirective } from "app/presentation/mode-routing/mode-routing.directive";
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { RippleAnimationComponent } from './ripple-animation/ripple-animation.co
     ArrowsComponent,
     MenuShortcutComponent,
     TitleSlideComponent,
-    RippleAnimationComponent
+    RippleAnimationComponent,
+    ModeOverviewComponent,
+    ModeRoutingDirective
   ],
 
   exports: [
@@ -35,8 +39,10 @@ import { RippleAnimationComponent } from './ripple-animation/ripple-animation.co
     ProgressBarComponent,
     ArrowsComponent,
     SlidesRoutingDirective,
+    TitleSlideComponent,
+    ModeOverviewComponent,
     MenuShortcutComponent,
-    TitleSlideComponent
+    ModeRoutingDirective
   ],
   imports: [
     CommonModule

@@ -11,7 +11,7 @@
 #slide-title {
 	position: absolute;
 	left: 5vw;
-	top: calc(50% - 25vh);
+	bottom: 50%;
 	font-size: 20vh;
 }
 

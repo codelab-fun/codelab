@@ -25,10 +25,6 @@ export class MonacoConfigService {
   });
   public monaco: any;
 
-  constructor() {
-    this.monaco = monaco;
-  }
-
   static configureMonaco() {
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
       experimentalDecorators: true,
@@ -36,31 +32,32 @@ export class MonacoConfigService {
       noImplicitAny: true,
     });
 
+
     // Some fake angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
     const core = `
         declare module '@angular/core' {
           export class EventEmitter<T> {
             emit: function(param: T);
-          }       
-            
+          }
+
           export interface ComponentConfig {
             selector: string;
             template?: string;
             templateUrl?: string;
           }
-          
+
           export interface PipeConfig {
-            name: string;           
+            name: string;
           }
-          
+
           export function Component(config: ComponentConfig);
-          
+
           export interface NgModuleConfig {
             imports?: any[];
             declarations?: any[];
             providers?: any[];
-            bootstrap?: any[];           
+            bootstrap?: any[];
           }
           export function NgModule(config: NgModuleConfig);
           export function Injectable();
@@ -70,38 +67,42 @@ export class MonacoConfigService {
           export interface PipeTransform {
             transform(value: string);
           }
-                    
-        }  
-           
+
+        }
+
         declare var x = 1;
-           
+
         declare module '@angular/platform-browser' {
-          export class BrowserModule {}                        
-        }                                                        
+          export class BrowserModule {}
+        }
 
         declare module '@angular/platform-browser-dynamic' {
           export class Platform {
             bootstrapModule: function();
           }
-          export function platformBrowserDynamic(): Platform;                       
-        }       
-        
+          export function platformBrowserDynamic(): Platform;
+        }
+
         declare module '@angular/compiler' {
-          export class ResourceLoader {           
+          export class ResourceLoader {
           }
-        }       
-                                                         
-                                                         
+        }
+
+
         `;
 
     monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
+  }
+
+  constructor() {
+    this.monaco = monaco;
   }
 
   createFileModels(files: FileConfig[]) {
     const models = monaco.editor.getModels();
 
     if (models.length) {
-      models.forEach(model => model.dispose());
+      models.filter(model=>!model.isSingleEditorModel).forEach(model => model.dispose());
     }
 
     files.map(file => {

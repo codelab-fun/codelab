@@ -4,31 +4,47 @@ import {
   Input,
   Output
   } from '@angular/core';
-import { Router } from '@angular/router';
+import { Mode } from './../mode.enum';
+import { SlideComponent } from './../slide/slide.component';
+import { Subscription } from 'rxjs/Subscription';
 
 export interface SlideConfig {
-  resize: boolean,
-  shortcuts: boolean
+  resize: boolean;
+  shortcuts: boolean;
 }
+
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent {
-  @Input() activeSlideIndex : number = 0;
+export class PresentationComponent  {
+  private generatedSlideIndex = 0;
+  private activeMode:Mode = Mode.none;
+
+  @Input() activeSlideIndex = 0;
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
+
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string}>();
+  @Output() onModeChange = new EventEmitter<Mode>();
   areShortcutsEnabled = true;
+  // Expose enum to template
+  modeEnum = Mode;
+  
+  get mode():Mode {
+    return this.activeMode;
+  }
+  set mode(value:Mode)  {
+    this.activeMode = value;
+    this.onModeChange.next(value);
+  }
 
-  private generatedSlideIndex = 0;
-
-  registerSlide(id:string) {
+  registerSlide(id: string) {
     const index = this.generatedSlideIndex++;
-    this.onSlideAdded.emit({index, id});
+    this.onSlideAdded.next({index, id});
     return index;
   }
 
@@ -37,7 +53,7 @@ export class PresentationComponent {
   }
 
   nextSlide(isTriggeredByShortcut: boolean = false) {
-    if ((this.activeSlideIndex + 1 < this.generatedSlideIndex) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+    if (this.canGoNext() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
       this.activeSlideIndex++;
       this.onSlideChange.next(this.activeSlideIndex);
@@ -45,11 +61,19 @@ export class PresentationComponent {
   }
 
   previousSlide(isTriggeredByShortcut: boolean = false) {
-    if ((this.activeSlideIndex > 0) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+    if (this.canGoPrevious() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
       this.activeSlideIndex--;
       this.onSlideChange.next(this.activeSlideIndex);
     }
+  }
+
+  canGoNext(): boolean {
+    return this.activeSlideIndex + 1 < this.generatedSlideIndex;
+  }
+
+  canGoPrevious(): boolean {
+    return this.activeSlideIndex > 0;
   }
 
   disableShortcuts() {
@@ -63,4 +87,5 @@ export class PresentationComponent {
   disableResize() {
     // TODO
   }
+
 }
