@@ -1,5 +1,5 @@
 <!--  FEEDBACK BUTTON-->
-<div title="Feedback" (click)="buttonClicked()"  class="feedback-btn" title="Feedback"></div>
+<div title="Feedback" (click)="buttonClicked()"  class="feedback-btn menu-bar-btn" title="Feedback"></div>
 <!--  FEEDBACK FORM -->
 <div *ngIf="open" class="feedback-form">
   <div>
@@ -20,9 +20,9 @@
     <textarea [(ngModel)]="comment" placeholder="Describe your issue or share your ideas" name="comment"></textarea>
   </div>
   <div>
-    <button (click)="send()" id="submit">Send</button>
+    <button (click)="send()" id="submit" class="btn-feedback-form">Send</button>
   </div>
-  <div id="message" [class.error]="error">
+  <div class="message" [class.error]="error">
     {{statusMessage}}
   </div>
 </div>

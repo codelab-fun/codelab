@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./mode-overview.css']
 })
 export class ModeOverviewComponent {
-  
+
   private previousMode:Mode;
   modeEnum = Mode;
+  onOverview = false;
 
   constructor(
     private presentation:PresentationComponent,
@@ -28,7 +29,7 @@ export class ModeOverviewComponent {
         return 'Overview';
     }
   }
-  
+
   // Show print button when in overview mode
   get shouldShowPrintButton():boolean {
     return this.presentation.mode === Mode.overview;
@@ -39,6 +40,7 @@ export class ModeOverviewComponent {
   }
 
   toggle(mode: Mode) {
+    this.onOverview = !this.onOverview;
     if (this.presentation.mode !== mode) {
       this.previousMode = this.presentation.mode;
       this.presentation.mode = mode;

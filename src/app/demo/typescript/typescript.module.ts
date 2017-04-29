@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {SlidesRoutes} from '../../presentation/slide-routes';
 import {ExerciseModule} from '../../exercise/exersice.module';
 import {PresentationModule} from 'app/presentation/presentation.module';
+import {FeedbackModule} from "../../feedback/feedback.module";
 
 
 const routes = RouterModule.forChild(
@@ -11,7 +12,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule],
   declarations: [TypescriptComponent],
   exports: [TypescriptComponent]
 })

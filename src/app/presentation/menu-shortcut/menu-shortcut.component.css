@@ -1,8 +1,6 @@
 .menu-index{
   min-width: 300px;
-  visibility: hidden;
   position: fixed;
-  z-index: 2;
   border: thin solid #242424;
   background-color: rgba(244, 244, 244, 0.98);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -31,7 +29,6 @@
   font-weight: 500;
 }
 .tri-box{
-  visibility: hidden;
   position: fixed;
   z-index: 2;
   transform: rotate(45deg);
@@ -48,26 +45,11 @@
   right: 5%;
 }
 
-.menu-icon{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  position: fixed;
-  z-index: 2;
-  right: 4%;
-  bottom: 1%;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+.menu-btn {
   background-color: #ff594b;
   background-image: url("../../../assets/images/home.png");
-  background-repeat: no-repeat;
-  background-position: center;
-
 }
 .menu-icon:hover{
   cursor: pointer;
 }
 
-.toDisplay{
-  visibility: visible;
-  transition: visibility 1s;
-}

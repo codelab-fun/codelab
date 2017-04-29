@@ -1,20 +1,12 @@
 /*assets/images/icon.png*/
 .feedback-btn {
-  width: 45px;
-  height: 45px;
   background-color: #3498db;
-  border-radius: 50%;
-  position: fixed;
-  z-index: 2;
-  bottom: 1%;
-  right: 8%;
   background-image: url("../../../assets/images/chat.png");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .feedback-form {
   width: 320px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: #fff;
   padding: 10px;
   border: thin solid #c0c0c0;
@@ -35,39 +27,7 @@ input, textarea {
   padding: 4px;
 }
 
-#feedbackButton{
-  width: 70px;
-  height:70px;
-  background: #3498db;
-  border-radius: 100%;
-  text-align: center;
-  display: inline-block;
-}
-#icon{
-  height:50%;
-  width: 50%;
-  margin-top: 25%;
-}
-#form {
-  display: block;
-  margin-top: 10px;
-  padding: 10%;
-  background: white;
-  border: 1px solid silver;
-}
-
-#main{
-  position: fixed;
-  top: 30px;
-  right:30px;
-  z-index: 99;
-}
-
-#buttonContainer{
-  width: 100%;
-  text-align: right;
-}
-button {
+.btn-feedback-form {
   color: #fff;
   background: #3e8e01;
   display: inline-block;
