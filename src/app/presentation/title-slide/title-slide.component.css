@@ -1,24 +1,29 @@
+.slide-size {
+	width: 1280px;
+	height: 720px;
+}
+
 #slide-title-header {
-	height:  50vh;
+	height:  50%;
 	color:  #222;
 }
 
 #slide-title {
 	position: absolute;
-	left:  5vw;
-	bottom: 50vh;
-	font-size:  25vh;
+	left: 5vw;
+	top: calc(50% - 25vh);
+	font-size: 20vh;
 }
 
 #slide-title-background {
-	height:  50vh;
-    background-color: #982a2a; 
+	height:  50%;
+    background-color: #982a2a;
 }
 
 #slide-title-description {
-	width:  75vw;
-	position: absolute;
-	top: 60vh;
+	width:  75%;
+	position: relative;
+	top: 15%;
 	left: 5vw;
 	font-weight: lighter;
 	font-size: 4vh;
@@ -28,16 +33,16 @@
 #slide-title-prereqs {
 	position: absolute;
 	left: 5vw;
-	bottom: 2vh;
+	top: calc(98% - 3vh);
 	font-size: 3vh;
 	font-weight: lighter;
 	color: white;
 }
 
 #slide-title-instructions {
-	position:  absolute;
+	position:  relative;
 	left:  5vw;
-	bottom: 8vh;
+	top: calc(78% - 12vh);
 	font-style:  italic;
 	font-size: 4vh;
 	color:  white;
@@ -49,6 +54,6 @@
 	height: 25vw;
 	width: calc(25vw/2 + 2vw);
 	position: absolute;
-	top: calc(50vh - 25vw/2);
+	top: calc(50% - 25vw/2);
 	right: 0vw;
 }
