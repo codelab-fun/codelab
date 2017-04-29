@@ -9,7 +9,7 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 })
 export class BootstrapComponent {
   title = 'Bootstrap';
-  description = 'Human give me attention meow ask to go outside and ask to come inside and ask to go outside and ask to come inside so playing with balls of wool.';
+  description = '';
   prereqs = 'Components, Dependency Injection';
 
   code = {
