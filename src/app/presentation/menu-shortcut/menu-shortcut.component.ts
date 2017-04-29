@@ -15,8 +15,14 @@ export class MenuShortcutComponent implements OnInit {
 
   ngOnInit() {
   }
+
   onDisplay() {
-    this.onOpenMenu = (this.onOpenMenu === false) ? true : false;
+    this.onOpenMenu = !this.onOpenMenu;
+    document.addEventListener('click', (event) => {
+      if(!(event.target as HTMLElement).classList.contains('menu-btn')){
+        this.onOpenMenu = false;
+      }
+    });
   }
 
 }

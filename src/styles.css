@@ -263,3 +263,6 @@ p {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin-left: 10px;
 }
+.menu-bar-btn:hover {
+  cursor: pointer;
+}
