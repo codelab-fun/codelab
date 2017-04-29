@@ -3,6 +3,19 @@
 <!--  FEEDBACK FORM -->
 <div *ngIf="open" class="feedback-form">
   <div class="form-container" *ngIf="open">
+    <div *ngIf="!!items && items.length">
+      <div (click)="isCommentsDisplayed = !isCommentsDisplayed">Comments ({{items.length}}) V</div>
+      <!--<span>Comments ({{items.length}}) </span>-->
+      <div class="feedback-items" *ngIf="isCommentsDisplayed">
+        <div class="feedback-item" *ngFor="let item of items">
+          <div>{{item.timestamp}}</div>
+          <div>
+            <span>{{item.name}} <span>({{item.email}})</span></span>
+          </div>
+          <p>{{item.comment}}</p>
+        </div>
+      </div>
+    </div>
     <form [formGroup]="formGroup" novalidate (submit)="submit()">
       <div>
         <input type="text" placeholder="Enter your name"
@@ -24,17 +37,5 @@
         {{statusMessage}}
       </div>
     </form>
-    <div *ngIf="!!items && items.length">
-      <h4>Feedback</h4>
-      <div class="feedback-items">
-        <div class="feedback-item" *ngFor="let item of items">
-          <div>{{item.timestamp}}</div>
-          <div>
-            <span>{{item.name}} <span>({{item.email}})</span></span>
-          </div>
-          <p>{{item.comment}}</p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>

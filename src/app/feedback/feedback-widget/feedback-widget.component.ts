@@ -12,6 +12,7 @@ import {Message} from "../message";
   styleUrls: ['./feedback-widget.component.css']
 })
 export class FeedbackWidgetComponent implements OnInit, OnDestroy {
+  private isCommentsDisplayed:boolean = false;
   private isOpen: boolean;
   private initialized;
   private repoSubscription: Subscription;
@@ -21,7 +22,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   error = false;
   formGroup: FormGroup;
   repo$: FirebaseListObservable<any>;
-  items: Message;
+  items: Array<Message>;
 
   set open(value: boolean) {
     this.isOpen = value;
