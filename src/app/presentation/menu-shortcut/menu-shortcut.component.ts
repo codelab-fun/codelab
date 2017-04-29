@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu-shortcut',
@@ -9,7 +9,7 @@ export class MenuShortcutComponent implements OnInit {
   routes: { name: string, description: string };
   onOpenMenu = false;
 
-  constructor(@Inject('ROUTES') routes) {
+  constructor( @Inject('ROUTES') routes) {
     this.routes = routes.filter(route => route.name);
   }
 
