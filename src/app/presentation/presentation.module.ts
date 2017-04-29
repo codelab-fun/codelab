@@ -10,6 +10,7 @@ import {SlidesRoutingDirective} from './slides-routing/slides-routing.directive'
 import {ArrowsComponent} from './arrows/arrows.component';
 import {MenuShortcutComponent} from './menu-shortcut/menu-shortcut.component';
 import {TitleSlideComponent} from './title-slide/title-slide.component';
+import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {TitleSlideComponent} from './title-slide/title-slide.component';
     SlidesRoutingDirective,
     ArrowsComponent,
     MenuShortcutComponent,
-    TitleSlideComponent
+    TitleSlideComponent,
+    RippleAnimationComponent
   ],
 
   exports: [
