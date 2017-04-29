@@ -79,7 +79,7 @@ import { UnitConverterService } from '../services/unit-converter.service';
 
 @Component({...})
 export class UnitConversionComponent {
-  constructor(converter: UnitConverterService) {}
+  constructor(private converter: UnitConverterService) {}
 }`,
       matches: {
         constructor: /constructor.*/
