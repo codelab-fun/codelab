@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PresentationComponent } from '../presentation/presentation.component';
-import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Component, Input, OnInit } from '@angular/core';
+import { Mode } from '../mode.enum';
+import { Observable } from 'rxjs/Observable';
+import { PresentationComponent } from '../presentation/presentation.component';
 import 'rxjs/add/operator/distinctUntilChanged';
-import {PresentationMode} from '../presentation-mode.enum';
 
 @Component({
   selector: 'app-slide',
@@ -13,10 +13,12 @@ import {PresentationMode} from '../presentation-mode.enum';
 export class SlideComponent implements OnInit {
   private slideId: number;
   private activeSubject = new BehaviorSubject<boolean>(false);
+  
   public onActive: Observable<boolean>;
 
   @Input()
   id: string;
+  modeEnum = Mode;
 
   constructor(public presentation: PresentationComponent) {
     this.onActive = this.activeSubject.distinctUntilChanged();
@@ -24,7 +26,7 @@ export class SlideComponent implements OnInit {
 
   get active() {
     this.activeSubject.next(this.presentation.activeSlideIndex === this.slideId);
-    return this.presentation.activeSlideIndex === this.slideId || this.presentation.mode === PresentationMode.overview;
+    return this.presentation.activeSlideIndex === this.slideId || this.presentation.mode === Mode.overview;
   }
 
   ngOnInit() {

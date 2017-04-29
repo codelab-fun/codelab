@@ -83,15 +83,16 @@ h1, h2 {
   margin: 0 auto;
 }
 
+/* Hide all elements that are not slides when in overview mode */
+.presentation.overview > *:not(app-slide) {
+  visibility:hidden;
+}
+
 .presentation.overview .slide{
   pointer-events: none;
   margin: 2% auto;
   zoom: 0.7;
   overflow:hidden;
-}
-
-.presentation.overview .progress-bar{
-  display: none;
 }
 
 .presentation.overview .slide .page-number {
@@ -102,6 +103,7 @@ h1, h2 {
 
 .presentation.overview .overview-buttons{
   position: fixed;
+  visibility: visible;
 }
 
 .overview-buttons {
@@ -228,7 +230,7 @@ p {
     .slide {
       zoom: 1;
       font-size: 12pt;
-      page-break-after:always;
+      page-break-after: always;
     }
     .slide .page-number {
       display: none;

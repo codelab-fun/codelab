@@ -1,45 +1,50 @@
 import {
   Component,
-  ContentChildren,
   EventEmitter,
-  forwardRef,
   Input,
-  Output,
-  QueryList
+  Output
   } from '@angular/core';
-import { PresentationMode } from './../presentation-mode.enum';
-import { Router } from '@angular/router';
+import { Mode } from './../mode.enum';
 import { SlideComponent } from './../slide/slide.component';
+import { Subscription } from 'rxjs/Subscription';
 
 export interface SlideConfig {
   resize: boolean;
   shortcuts: boolean;
 }
+
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent {
+export class PresentationComponent  {
+  private generatedSlideIndex = 0;
+  private activeMode:Mode = Mode.none;
+
   @Input() activeSlideIndex = 0;
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
 
-  @ContentChildren(forwardRef(() => SlideComponent))
-  slides:QueryList<SlideComponent>;
-
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string}>();
+  @Output() onModeChange = new EventEmitter<Mode>();
   areShortcutsEnabled = true;
-
-  mode: PresentationMode = PresentationMode.none;
-
-  private generatedSlideIndex = 0;
+  // Expose enum to template
+  modeEnum = Mode;
+  
+  get mode():Mode {
+    return this.activeMode;
+  }
+  set mode(value:Mode)  {
+    this.activeMode = value;
+    this.onModeChange.next(value);
+  }
 
   registerSlide(id: string) {
     const index = this.generatedSlideIndex++;
-    this.onSlideAdded.emit({index, id});
+    this.onSlideAdded.next({index, id});
     return index;
   }
 
@@ -75,5 +80,4 @@ export class PresentationComponent {
     // TODO
   }
 
-  print(){}
 }

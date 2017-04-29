@@ -1,0 +1,6 @@
+<div class="overview-buttons">
+  <button (click)="toggle(modeEnum.overview)">
+      {{buttonLabel}}
+  </button>
+  <button *ngIf="shouldShowPrintButton" (click)="print()">Print</button>
+</div>
