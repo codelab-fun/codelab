@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AngularFireModule, AuthProviders, AuthMethods, AngularFire } from 'angularfire2';
+import { AngularFireModule, AngularFire } from 'angularfire2';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 
@@ -11,13 +11,13 @@ const firebaseConfig = {
   storageBucket: "ng2-codelab.appspot.com"
 };
 
-export const af = AngularFireModule.initializeApp(firebaseConfig);
+export const angularFire = AngularFireModule.initializeApp(firebaseConfig);
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    af,
+    angularFire,
     FormsModule
   ],
   providers: [

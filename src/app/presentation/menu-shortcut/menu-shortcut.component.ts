@@ -1,28 +1,25 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {Component, HostListener, Inject} from '@angular/core';
 
 @Component({
   selector: 'app-menu-shortcut',
   templateUrl: './menu-shortcut.component.html',
   styleUrls: ['./menu-shortcut.component.css']
 })
-export class MenuShortcutComponent implements OnInit {
+export class MenuShortcutComponent {
   routes: { name: string, description: string };
-  onOpenMenu = false;
+  open = false;
 
-  constructor( @Inject('ROUTES') routes) {
+  constructor(@Inject('ROUTES') routes) {
     this.routes = routes.filter(route => route.name);
   }
 
-  ngOnInit() {
+  @HostListener('window:click')
+  handleDialogClose() {
+    this.open = false;
   }
 
-  onDisplay() {
-    this.onOpenMenu = !this.onOpenMenu;
-    document.addEventListener('click', (event) => {
-      if(!(event.target as HTMLElement).classList.contains('menu-btn')){
-        this.onOpenMenu = false;
-      }
-    });
+  onDisplay(event) {
+    this.open = !this.open;
+    event.stopPropagation();
   }
-
 }

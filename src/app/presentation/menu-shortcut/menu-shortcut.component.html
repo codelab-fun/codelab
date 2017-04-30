@@ -1,4 +1,4 @@
-<div *ngIf="onOpenMenu" class="menu-index">
+<div *ngIf="open" class="menu-index">
 
     <ul class="menu-list">
       <li class="menu-item">
@@ -10,7 +10,7 @@
     </ul>
 
 </div>
-<div *ngIf="onOpenMenu" class="tri-box"></div>
-<div (click)="onDisplay()" class="menu-btn menu-bar-btn"></div>
+<div *ngIf="open" class="tri-box"></div>
+<div (click)="onDisplay($event)" class="menu-btn menu-bar-btn"></div>
 
 
