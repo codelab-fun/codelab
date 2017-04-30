@@ -107,39 +107,6 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     });
   }
 
-
-  send() {
-    if (this.comment && this.email) {
-
-      let comment = this.comment;
-      let email = this.email;
-      let items = this.angularFire.database.list('/feedback');
-      let headerText = document.body.querySelector('h1:not([style*="display:none"]') ? document.body.querySelector('h1:not([style*="display:none"]').innerHTML : '';
-      items.push({
-        comment: this.htmlEscape(comment),
-        name: this.name,
-        email: email,
-        timestamp: new Date().toUTCString(),
-        href: window.location.href,
-        header: headerText
-      }).then(x => {
-        this.statusMessage = 'Successfully sent';
-        setTimeout(() => {
-          this.error = false;
-          this.statusMessage = '';
-          this.open = false;
-          let mainDiv = this.el.nativeElement.querySelector('#main');
-          mainDiv.style.removeProperty('width');
-        }, 2000);
-      }).catch(() => {
-        this.statusMessage = 'Error while sending feedback';
-        this.error = true;
-      });
-      this.comment = '';
-      //TODO set username in state.local.user
-    }
-  }
-
   private getHeaderText(): string {
     const el = document.body.querySelector('h1:not([style*="display:none"]');
     return !!el ? el.innerHTML : '';
