@@ -1,10 +1,10 @@
 import {FileConfig} from '../exercise/interfaces/file-config';
 export function hidden(...files: FileConfig[]): FileConfig[] {
-  return files.map(file => Object.assign({}, file, {hidden: true}))
+  return files.map(file => Object.assign({}, file, {hidden: true}));
 }
 
 export function readOnly(...files: FileConfig[]): FileConfig[] {
-  return files.map(file => Object.assign({}, file, {readonly: true}))
+  return files.map(file => Object.assign({}, file, {readonly: true}));
 }
 
 export function justForReference(...files: FileConfig[]): FileConfig[] {
@@ -12,7 +12,7 @@ export function justForReference(...files: FileConfig[]): FileConfig[] {
 }
 
 export function collapsed(...files: FileConfig[]): FileConfig[] {
-  return files.map(file => Object.assign({}, file, {collapsed: true}))
+  return files.map(file => Object.assign({}, file, {collapsed: true}));
 }
 
 export function test(...files: FileConfig[]): FileConfig[] {
@@ -23,7 +23,7 @@ export function test(...files: FileConfig[]): FileConfig[] {
     before: 'mochaBefore();',
     after: 'mochaAfter();',
     hidden: true,
-  }))
+  }));
 }
 
 export function evaled(file) {
