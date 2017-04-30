@@ -1,21 +1,21 @@
 <!--  FEEDBACK BUTTON-->
 <div (click)="buttonClicked()"
-     class="feedback-container feedback-btn menu-bar-btn" title="Feedback">
+     class="feedback-container feedback-button menu-bar-btn"
+     title="Feedback">
+  <span *ngIf="messages.length" class="messages-count">
+    {{messages.length}}
+  </span>
 </div>
 <!--  FEEDBACK FORM -->
 <div *ngIf="open" class="feedback-form feedback-container">
   <div class="form-container" *ngIf="open">
-    <div *ngIf="!!items && items.length">
-      <div (click)="isCommentsDisplayed = !isCommentsDisplayed">Comments ({{items.length}}) V</div>
-      <!--<span>Comments ({{items.length}}) </span>-->
-      <div class="feedback-items" *ngIf="isCommentsDisplayed">
-        <div class="feedback-item" *ngFor="let item of items">
-          <div>{{item.timestamp}}</div>
-          <div>
-            <span>{{item.name}}</span>
-          </div>
-          <p>{{item.comment}}</p>
+    <div class="feedback-items">
+      <div class="feedback-item" *ngFor="let item of messages">
+        <div class="header">
+          <span class="name">{{item.name}}</span>
+          <span class="date">{{item.timestamp|date}}</span>
         </div>
+        <div>{{item.comment}}</div>
       </div>
     </div>
     <form [formGroup]="formGroup" novalidate (submit)="submit()">
@@ -23,13 +23,14 @@
         <input type="text" placeholder="Enter your name"
                formControlName="name"/>
       </div>
-      <div>
+      <div class="email">
         <input type="email" placeholder="Enter your email (optional)"
                formControlName="email"/>
+        <label>Email is optional and, will not displayed</label>
       </div>
       <div>
           <textarea placeholder="Describe your issue or share your ideas"
-                    formControlName="comment" (keydown.enter)="submit()"></textarea>
+                    formControlName="comment" (keydown.control.enter)="submit()"></textarea>
       </div>
       <div>
         <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
