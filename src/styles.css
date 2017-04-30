@@ -68,7 +68,7 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3, li {
   margin: 0;
   padding: 0;
   font-weight: 300;
@@ -85,14 +85,14 @@ h1, h2 {
 
 /* Hide all elements that are not slides when in overview mode */
 .presentation.overview > *:not(app-slide) {
-  visibility:hidden;
+  visibility: hidden;
 }
 
-.presentation.overview .slide{
+.presentation.overview .slide {
   pointer-events: none;
   margin: 2% auto;
   zoom: 0.7;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .presentation.overview .slide .page-number {
@@ -101,7 +101,7 @@ h1, h2 {
   bottom: 4%;
 }
 
-.presentation.overview .overview-buttons{
+.presentation.overview .overview-buttons {
   position: fixed;
   visibility: visible;
 }
@@ -223,24 +223,28 @@ p {
 }
 
 /* Slide/presentation printing styles */
-@media print {  
-    @page {  
-      size: A4 landscape;
-    }  
-    .slide {
-      zoom: 1;
-      font-size: 12pt;
-      page-break-after: always;
-    }
-    .slide .page-number {
-      display: none;
-    }
-    .presentation.overview {
-      width: auto !important;
-      height: auto !important;
-      zoom: 1 !important;
-    }
-    .presentation.overview .overview-buttons {
-      display: none;
-    }
+@media print {
+  @page {
+    size: A4 landscape;
+  }
+
+  .slide {
+    zoom: 1;
+    font-size: 12pt;
+    page-break-after: always;
+  }
+
+  .slide .page-number {
+    display: none;
+  }
+
+  .presentation.overview {
+    width: auto !important;
+    height: auto !important;
+    zoom: 1 !important;
+  }
+
+  .presentation.overview .overview-buttons {
+    display: none;
+  }
 }

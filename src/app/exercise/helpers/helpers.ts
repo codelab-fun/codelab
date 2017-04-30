@@ -1,15 +1,34 @@
 import {FileConfig} from '../interfaces/file-config';
 
 
-function exercise_with_display(moduleName: string, code: any, code2: any) {
+function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
   
     export const value = {};
     function display( newValue ){
       value.value = newValue; 
+    }    
+  `
+  };
+}
+
+function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
+  return {
+    ...exercise(moduleName, code, code2), before: `
+  
+    function wrap(context, prop, callback){
+      const originalMethod = context[prop];
+       
+       context[prop] = function(...args){
+        callback(...args);
+        return originalMethod.apply(context, args); 
+       }
     }
     
+    wrap(console, 'log', (value)=>{
+      document.write('<h3>&gt; ' + value + '<h3><hr>')
+    })
   `
   };
 }
@@ -118,12 +137,23 @@ platform.bootstrapModule(AppModule, {
 export function pureJavascript(code, bootstrapCode, testCode) {
   return {
     files: [
-      exercise_with_display('app.ts', code, code),
+      exerciseWithDisplay('app.ts', code, code),
       bootstrap('main.ts', bootstrapCode, bootstrapCode),
       test('test.ts', testCode)
     ]
   }
 }
+
+export function typeScriptWithConsoleLog(code, bootstrapCode, testCode) {
+  return {
+    files: [
+      exerciseWithConsoleLog('app.ts', code, code),
+      bootstrap('main.ts', bootstrapCode, bootstrapCode),
+      test('test.ts', testCode)
+    ]
+  }
+}
+
 
 export function displayAngularComponentWithHtml(componentCode: string, html: string) {
   return {
