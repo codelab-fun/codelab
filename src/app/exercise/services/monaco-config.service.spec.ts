@@ -1,6 +1,5 @@
-/* tslint:disable:no-unused-variable */
-import {TestBed, inject} from "@angular/core/testing";
-import {MonacoConfigService} from "./monaco-config.service";
+import { TestBed, inject } from '@angular/core/testing';
+import { MonacoConfigService } from './monaco-config.service';
 
 // TODO: Fix this failing test suite.
 xdescribe('Service: MonacoConfig', () => {

@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
-import {TestBed, inject} from '@angular/core/testing';
-import {LoopProtectionService} from './loop-protection.service';
+import { TestBed, inject } from '@angular/core/testing';
+import { LoopProtectionService } from './loop-protection.service';
 
 describe('LoopProtectionService', () => {
   beforeEach(() => {
@@ -21,24 +21,28 @@ describe('LoopProtectionService', () => {
 
   it('should add loop protection to a simple loop with curlies.', inject([LoopProtectionService], (service: LoopProtectionService) => {
     expect(service.protect('file.ts', `for(let x = 0;x<10,x){console.log(123)}`))
-      .toEqual(withLoopProtection(`for(let x = 0;x<10,x){loopBreaker();console.log(123)}`))
+      .toEqual(withLoopProtection(`for(let x = 0;x<10,x){loopBreaker();console.log(123)}`));
   }));
-  it('should add loop protection and curlies to a simple loop without curlies. with multiple staments', inject([LoopProtectionService], (service: LoopProtectionService) => {
-    expect(service.protect('file.ts', `for(let x = 0;x<10,x)console.log(123),console.log(1);console.log(2)`))
-      .toEqual(withLoopProtection(`for(let x = 0;x<10,x){loopBreaker();console.log(123),console.log(1);}console.log(2)`))
-  }));
-  it('should add loop protection and curlies to a simple loop without curlies, preserving spaces', inject([LoopProtectionService], (service: LoopProtectionService) => {
-    expect(service.protect('file.ts', `for(let x = 0;x<10,x)     console.log(123)`))
-      .toEqual(withLoopProtection(`for(let x = 0;x<10,x)     {loopBreaker();console.log(123)}`))
-  }));
+  it('should add loop protection and curlies to a simple loop without curlies. with multiple staments',
+    inject([LoopProtectionService], (service: LoopProtectionService) => {
+      expect(service.protect('file.ts', `for(let x = 0;x<10,x)console.log(123),console.log(1);console.log(2)`))
+        .toEqual(withLoopProtection(`for(let x = 0;x<10,x){loopBreaker();console.log(123),console.log(1);}console.log(2)`));
+    }));
+  it('should add loop protection and curlies to a simple loop without curlies, preserving spaces',
+    inject([LoopProtectionService], (service: LoopProtectionService) => {
+      expect(service.protect('file.ts', `for(let x = 0;x<10,x)     console.log(123)`))
+        .toEqual(withLoopProtection(`for(let x = 0;x<10,x)     {loopBreaker();console.log(123)}`));
+    }));
 
-  it('should add loop protection to a simple loop with curlies and multiple statements', inject([LoopProtectionService], (service: LoopProtectionService) => {
-    expect(service.protect('file.ts', `for(let x = 0;x<10,x){console.log(123);console.log(1)}`))
-      .toEqual(withLoopProtection(`for(let x = 0;x<10,x){loopBreaker();console.log(123);console.log(1)}`))
-  }));
+  it('should add loop protection to a simple loop with curlies and multiple statements',
+    inject([LoopProtectionService], (service: LoopProtectionService) => {
+      expect(service.protect('file.ts', `for(let x = 0;x<10,x){console.log(123);console.log(1)}`))
+        .toEqual(withLoopProtection(`for(let x = 0;x<10,x){loopBreaker();console.log(123);console.log(1)}`));
+    }));
 
-  it('should add loop protection to a simple while loop with curlies and multiple statements', inject([LoopProtectionService], (service: LoopProtectionService) => {
-    expect(service.protect('file.ts', `while(true)`))
-      .toEqual(withLoopProtection(`while(true){loopBreaker();}`))
-  }));
+  it('should add loop protection to a simple while loop with curlies and multiple statements',
+    inject([LoopProtectionService], (service: LoopProtectionService) => {
+      expect(service.protect('file.ts', `while(true)`))
+        .toEqual(withLoopProtection(`while(true){loopBreaker();}`));
+    }));
 });

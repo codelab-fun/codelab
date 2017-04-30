@@ -20,7 +20,7 @@ export interface SlideConfig {
 })
 export class PresentationComponent  {
   private generatedSlideIndex = 0;
-  private activeMode:Mode = Mode.none;
+  private activeMode: Mode = Mode.none;
 
   @Input() activeSlideIndex = 0;
   @Input() public width = 1280;
@@ -33,11 +33,11 @@ export class PresentationComponent  {
   areShortcutsEnabled = true;
   // Expose enum to template
   modeEnum = Mode;
-  
-  get mode():Mode {
+
+  get mode(): Mode {
     return this.activeMode;
   }
-  set mode(value:Mode)  {
+  set mode(value: Mode)  {
     this.activeMode = value;
     this.onModeChange.next(value);
   }

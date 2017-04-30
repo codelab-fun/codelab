@@ -2,8 +2,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Mode } from './../mode.enum';
 import { PresentationComponent } from './../presentation/presentation.component';
-import { SlideComponent } from './../slide/slide.component';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-mode-overview',
@@ -17,9 +15,9 @@ export class ModeOverviewComponent {
   onOverview = false;
 
   constructor(
-    private presentation:PresentationComponent,
+    private presentation: PresentationComponent,
     private router: Router,
-    private activatedRoute:ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) { }
 
   get buttonLabel(): string {
     switch (this.presentation.mode) {
@@ -30,8 +28,8 @@ export class ModeOverviewComponent {
     }
   }
 
-  // Show print button when in overview mode
-  get shouldShowPrintButton():boolean {
+  /* Returns true if in presentation is in overview mode */
+  get shouldShowPrintButton(): boolean {
     return this.presentation.mode === Mode.overview;
   }
 

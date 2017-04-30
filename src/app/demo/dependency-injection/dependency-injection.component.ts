@@ -10,11 +10,6 @@ import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 export class DependencyInjectionComponent {
   exercise;
 
-  constructor(private exercises: Ng2TsExercises) {
-    this.exercise = exercises.getExercises(3, 1);
-  }
-
-
   code = {
     withOutDI: {
       code: `export class Person {
@@ -93,5 +88,9 @@ export class UnitConversionComponent {
       }
     }
   };
+
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(3, 1);
+  }
 
 }

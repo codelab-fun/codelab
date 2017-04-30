@@ -102,11 +102,11 @@ export class MonacoConfigService {
     const models = monaco.editor.getModels();
 
     if (models.length) {
-      models.filter(model=>!model.isSingleEditorModel).forEach(model => model.dispose());
+      models.filter(model => !model.isSingleEditorModel).forEach(model => model.dispose());
     }
 
     files.map(file => {
       monaco.editor.createModel(file.code, file.type, file.path);
-    })
+    });
   }
 }
