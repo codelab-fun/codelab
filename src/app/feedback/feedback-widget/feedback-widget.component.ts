@@ -54,7 +54,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.formGroup = this.fb.group({
       comment: ['', Validators.required],
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', []]
     });
   }
 
