@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--  FEEDBACK BUTTON-->
 <div title="Feedback" (click)="buttonClicked()"  class="feedback-container feedback-btn menu-bar-btn feedback-shared-class" title="Feedback"></div>
 <!--  FEEDBACK FORM -->
@@ -7,6 +8,42 @@
       <div (click)="isCommentsDisplayed = !isCommentsDisplayed">Comments ({{items.length}}) V</div>
       <!--<span>Comments ({{items.length}}) </span>-->
       <div class="feedback-items" *ngIf="isCommentsDisplayed">
+=======
+<div class="main" [style.width.percent]="getWidth()">
+  <div class="button-container" title="Feedback">
+    <div (click)="open = !open" class="feedback-button">
+      <img src="assets/images/icon.png" class="icon">
+    </div>
+  </div>
+  <div class="form-container" *ngIf="open">
+    <form [formGroup]="formGroup" novalidate (submit)="submit()">
+      <div>
+        <input type="text" placeholder="Enter your name (optional)"
+          formControlName="name" />
+      </div>
+      <div>
+        <input type="email" placeholder="Enter your email"
+          formControlName="email" />
+        <div class="error" *ngIf="formGroup.get('email').touched && formGroup.get('email').hasError('email')">
+          Valid email is required
+        </div>
+      </div>
+      <div>
+        <textarea placeholder="Describe your issue or share your ideas"
+          formControlName="comment" (keydown.enter)="submit()"></textarea>
+      </div>
+      <div>
+        <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
+          type="submit">Send</button>
+      </div>
+      <div [class.error]="error">
+        {{statusMessage}}
+      </div>
+    </form>
+    <div *ngIf="!!items && items.length">
+      <h4>Feedback</h4>
+      <div class="feedback-items">
+>>>>>>> master
         <div class="feedback-item" *ngFor="let item of items">
           <div>{{item.timestamp}}</div>
           <div>

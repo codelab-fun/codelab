@@ -8,21 +8,25 @@
   </div>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
+<<<<<<< HEAD
+=======
+  <app-mode-overview></app-mode-overview>
+  <app-feedback-widget></app-feedback-widget>
+>>>>>>> master
 
-  <!-- Intro -->
-  <app-slide id="intro">
-    <div style="text-align: center; display: flex; height: 100%; justify-content: center;">
-      <div style="align-self: center">
-        <h1 style="color: #0e70c0; margin: 0;">TypeScript</h1>
-        <h3 style="color: #000; margin: 0;">is a language compiled to</h3>
-        <h2 style="color: #f7df1e; margin: 0;">JavaScript</h2>
-      </div>
-    </div>
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      title="TypeScript"
+      description="Angular is written in TypeScript! Learn more about the language and the best features!"
+      prereqs="Basic understanding of JavaScript is required."
+    ></app-title-slide>
   </app-slide>
 
-   <!-- TYPES IN TYPESCRIPT-->
+  <!-- TYPES IN TYPESCRIPT-->
   <app-slide id="types">
-    <h1><span style="color: #0e70c0;">TypeScript</span> has different types for different units of data. These types are:</h1>
+    <h1><span style="color: #0e70c0;">TypeScript</span> has different types for different units of data. These types
+      are:</h1>
     <div style="display: flex; flex-direction: row; justify-content: center;">
       <div style="width: 30%;">
         <ul>
@@ -50,8 +54,11 @@
     <h1 style="color: coral; margin-bottom: 5px;">:number</h1>
     <p> In typescript all numbers are floating point values. TypeScript supports binary and octal literals.</p>
     <h3>The add function should return 5. Can you find the issue?</h3>
+    <h2 *ngIf="tsexercises.solved" style="color: green">You solved the exercise!!</h2>
     <app-playground [config]="code.tsExercise"
-                    [focus-highlight-match]="[code.tsExerciseMatch]"></app-playground>
+                    [focus-highlight-match]="[code.tsExerciseMatch]"
+                    #tsexercises
+    ></app-playground>
     <div class="info"> Plain JavaScript will run the function returning a string.</div>
   </app-slide>
   <!--  STRING-TYPE  -->
@@ -134,7 +141,7 @@
       <svg width="460" height="460" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
         <g>
           <ellipse stroke="#000" ry="227.013155" rx="229.499997" id="svg_3" cy="227.986845" cx="228.999988"
-                   stroke-width="1.5" fill="#09bcd3"></ellipse>
+                   st roke-width="1.5" fill="#09bcd3"></ellipse>
           <ellipse stroke="#000" ry="120.786392" rx="125.000014" id="svg_4" cy="314.213608" cx="286.499992"
                    stroke-width="1.5" fill="#b060b0"></ellipse>
           <ellipse stroke="#000" ry="57.866101" rx="58.500002" id="svg_5" cy="356.133899" cx="335" stroke-width="1.5"

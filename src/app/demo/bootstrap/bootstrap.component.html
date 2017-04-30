@@ -10,6 +10,14 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
 
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      [title]="title"
+      [description]="description"
+      [prereqs]="prereqs"
+    ></app-title-slide>
+  </app-slide>
+
   <!-- WHAT IS ANGULAR  -->
   <app-slide>
     <h1 i18n>What is Angular?</h1>
@@ -29,8 +37,8 @@
   <app-slide>
     <h1>Given an HTML file</h1>
     <app-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.indexHTML"></app-code-editor>
-    <h2>Let's create an angular app which replaces &lt;hello-world> element with the aplication contents</h2>
-    <h2>This can be done with 3 simple steps</h2>
+    <h2>Let's create an Angular app which replaces &lt;hello-world> element with the application contents.</h2>
+    <h2>This can be done with 3 simple steps.</h2>
   </app-slide>
 
   <!--  3 steps -->
@@ -57,11 +65,11 @@
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></app-code-editor>
     <h2>
-      The class is adorned with an <b>@Component</b> decorator with additional metadata, to let the Angular know how to
+      The class is adorned with a <b>@Component</b> decorator with additional metadata to let the Angular know how to
       use it.
     </h2>
     <div class="info">
-      Decorators is a new feature of TypeScript. It's coming from python.
+      Decorators are a new feature of TypeScript. It comes from Python.
     </div>
     <h2></h2>
   </app-slide>
@@ -70,8 +78,8 @@
     <h1>Component Anatomy - Inline Template</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.selector]"></app-code-editor>
-    <h2>Selector defines the location of component. When angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
-      html element in the document and will render the component on top of it.</h2>
+    <h2>Selector defines the location of the component. When Angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
+      HTML element in the document and will render the component on top of it.</h2>
   </app-slide>
   <!--  Template  -->
   <app-slide>
@@ -80,10 +88,10 @@
                      [focus-highlight-match]="[code.componentAnatomy.matches.template]"></app-code-editor>
 
     <h2>
-      Template defines the HTML code that component generates.
+      Template defines the HTML code that the component generates.
     </h2>
-    <div class="info"> If amount of HTML grows out of hand, it's possible to use <b>templateUrl</b> instead and
-      provide a path to HTML file.
+    <div class="info"> If the amount of HTML grows out of hand, it's possible to use <b>templateUrl</b> instead and
+      provide a path to a HTML file.
     </div>
   </app-slide>
 
@@ -118,7 +126,7 @@
     <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
                      [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></app-code-editor>
     <h2>
-      Let's skip through the imports section, bottomline is: if you're writing an app for a browser, you'll need to
+      Let's skip through the imports section. Bottom line is: if you're writing an app for a browser, you'll need to
       import BrowserModule.
     </h2>
     <div class="info">Angular is not just web app anymore, it allows to create native phone apps and even VR scenes.

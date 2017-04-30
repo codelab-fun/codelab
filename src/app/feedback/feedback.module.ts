@@ -3,7 +3,11 @@ import {
   AngularFireModule,
   AuthMethods,
   AuthProviders
+<<<<<<< HEAD
 } from 'angularfire2';
+=======
+  } from 'angularfire2';
+>>>>>>> master
 import { CommonModule } from '@angular/common';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 import { NgModule } from '@angular/core';
@@ -22,7 +26,11 @@ export const af = AngularFireModule.initializeApp(firebaseConfig);
   imports: [
     CommonModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     AngularFireModule.initializeApp(firebaseConfig)
+=======
+    af
+>>>>>>> master
   ],
   providers: [
     AngularFire

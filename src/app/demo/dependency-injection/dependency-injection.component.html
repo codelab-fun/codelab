@@ -8,6 +8,18 @@
   </div>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
+<<<<<<< HEAD
+=======
+  <app-mode-overview></app-mode-overview>
+  <app-feedback-widget></app-feedback-widget>
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      title="Dependency injection"
+      description="Angular has a powerful dependency injection system"
+    ></app-title-slide>
+  </app-slide>
+>>>>>>> master
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
@@ -41,7 +53,7 @@
         <app-code-editor [fontSize]="15" [code]="code.withDI.code"
                          [focus-highlight-match]="[code.withDI.matches.constructor]"></app-code-editor>
         <ul style="margin-top: 10px; text-align: justify;">
-          <li>The Person class no longer creates a profession. It just consume it.</li>
+          <li>The Person class no longer creates a profession. It just consumes it.</li>
           <li>If someone extends the Profession class, it is not a Person's problem.</li>
           <li>You have complete control of Person's dependencies.</li>
         </ul>
@@ -71,5 +83,12 @@
     <h2>Consume the Injectable</h2>
     <app-code-editor [fontSize]="15" [code]="code.consumeInjectable.code"
                      [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></app-code-editor>
+  </app-slide>
+  <app-slide>
+    <app-exercise [config]="exercise">
+      <div class="description">
+        <p>Create first Angular component!</p>
+      </div>
+    </app-exercise>
   </app-slide>
 </app-presentation>

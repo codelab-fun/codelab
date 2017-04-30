@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {Component, OnInit, ElementRef, OnDestroy} from '@angular/core';
 import {AngularFireModule, AuthProviders, AuthMethods, AngularFire, FirebaseListObservable} from 'angularfire2';
 
@@ -6,6 +7,29 @@ import {Subscription} from "rxjs";
 import {Validators, FormBuilder, FormGroup} from "@angular/forms";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Message} from "../message";
+=======
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  AngularFire,
+  AngularFireModule,
+  AuthMethods,
+  AuthProviders,
+  FirebaseListObservable
+  } from 'angularfire2';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild
+  } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Message } from './../message';
+import { Observable } from 'rxjs/Observable';
+import { PresentationComponent } from '../../presentation/presentation/presentation.component';
+import { Subscription } from 'rxjs/Subscription';
+
+>>>>>>> master
 @Component({
   selector: 'app-feedback-widget',
   templateUrl: './feedback-widget.component.html',
@@ -23,6 +47,13 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   repo$: FirebaseListObservable<any>;
   items: Message;
 
+<<<<<<< HEAD
+=======
+  formGroup: FormGroup;
+  repo$: FirebaseListObservable<any>;
+  items: Message;
+
+>>>>>>> master
   set open(value: boolean) {
     this.isOpen = value;
     if (!this.repo$) {
@@ -52,7 +83,11 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.formGroup = this.fb.group({
       comment: ['', Validators.required],
       name: ['', Validators.required],
+<<<<<<< HEAD
       email: ['']
+=======
+      email: ['', [Validators.required, Validators.email]]
+>>>>>>> master
     });
   }
 
@@ -74,6 +109,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.initialized = true;
   }
 
+<<<<<<< HEAD
   buttonClicked(){
     this.open = !this.open;
     document.addEventListener('click', () => {
@@ -84,6 +120,10 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
         this.open = false;
       }
     });
+=======
+  getWidth() {
+    return this.open ? 25 : 100;
+>>>>>>> master
   }
 
   submit() {
@@ -96,9 +136,15 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
       .then(x => {
         this.formGroup.reset();
       }).catch(() => {
+<<<<<<< HEAD
       this.statusMessage = 'Error while sending feedback';
       this.error = true;
     });
+=======
+        this.statusMessage = 'Error while sending feedback';
+        this.error = true;
+      });
+>>>>>>> master
   }
 
   // This looks risky   -DF.
@@ -107,12 +153,12 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     return !!el ? el.innerHTML : '';
   }
 
-  htmlEscape(str) {
+  private htmlEscape(str) {
     return str
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
 }

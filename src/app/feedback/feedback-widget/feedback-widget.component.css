@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*assets/images/icon.png*/
 .feedback-btn {
   background-color: #3498db;
@@ -61,15 +62,83 @@ button {
   text-align: center;
   text-decoration: none;
   border: 0 solid;
+=======
+textarea {
+    margin: 10px 0;
+    height: 100px;
 }
 
-#message{
-  margin-top: 15px;
-}
-.error{
-  color: red;
+input,
+textarea {
+    width: 100%;
+    border: 1px #ddd solid;
+    padding: 4px;
 }
 
+.feedback-button {
+    width: 70px;
+    height: 70px;
+    background: #3498db;
+    border-radius: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.icon {
+    height: 50%;
+    width: 50%;
+    margin-top: 25%;
+}
+
+.form-container {
+    display: block;
+    margin-top: 10px;
+    padding: 10%;
+    background: white;
+    border: 1px solid silver;
+}
+
+.main {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 300px;
+    z-index: 99;
+}
+
+.button-container {
+    width: 100%;
+    text-align: right;
+}
+
+.feedback-items {
+    max-height: 300px;
+    overflow-y: auto;
+>>>>>>> master
+}
+
+.feedback-item {
+    background: #ececec;
+    border: 1px solid #dcdcdc;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+button {
+    color: #fff;
+    background: #3e8e01;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+    border-radius: 3px;
+    line-height: 25px;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
+    border: 0 solid;
+}
+
+<<<<<<< HEAD
 .feedback-items {
   max-height: 300px;
   overflow-y: auto;
@@ -82,3 +151,12 @@ button {
   margin: 5px 0;
 }
 
+=======
+#message {
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+}
+>>>>>>> master

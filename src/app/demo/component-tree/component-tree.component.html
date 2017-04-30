@@ -2,14 +2,30 @@
   app-slides-routing
   app-mode-routing>
   <app-progress-bar></app-progress-bar>
+<<<<<<< HEAD
   <div class="btn-bar">
     <app-mode-overview></app-mode-overview>
     <app-feedback-widget></app-feedback-widget>
     <app-menu-shortcut></app-menu-shortcut>
   </div>
 
+=======
+  <app-arrows></app-arrows>
+  <app-mode-overview></app-mode-overview>
+  <app-feedback-widget></app-feedback-widget>
+  <!-- <app-feedback-widget></app-feedback-widget> -->
+>>>>>>> master
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      title="Component tree"
+      description="Combine components together"
+      [prereqs]="prereqs"
+    ></app-title-slide>
+  </app-slide>
+
   <app-slide id="component">
     <h1>Recap: Component</h1>
     <h2>
@@ -63,5 +79,13 @@
         </div>
       </div>
     </div>
+  </app-slide>
+
+  <app-slide>
+    <app-exercise [config]="exercise">
+      <div class="description">
+        <p>Component tree, TODO</p>
+      </div>
+    </app-exercise>
   </app-slide>
 </app-presentation>
