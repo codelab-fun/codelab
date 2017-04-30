@@ -16,7 +16,7 @@ const firebaseConfig = {
   storageBucket: 'ng2-codelab.appspot.com'
 };
 
-export const af = AngularFireModule.initializeApp(firebaseConfig);
+const af = AngularFireModule.initializeApp(firebaseConfig);
 
 @NgModule({
   imports: [
