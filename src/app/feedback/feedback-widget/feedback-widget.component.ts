@@ -1,23 +1,11 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import {
-  AngularFire,
-  AngularFireModule,
-  AuthMethods,
-  AuthProviders,
-  FirebaseListObservable
-  } from 'angularfire2';
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild
-  } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Message } from './../message';
-import { Observable } from 'rxjs/Observable';
-import { PresentationComponent } from '../../presentation/presentation/presentation.component';
-import { Subscription } from 'rxjs/Subscription';
+import {Component, ElementRef, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
+
+import {Subscription} from 'rxjs/Subscription';
+import {Message} from '../message';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-feedback-widget',
@@ -29,6 +17,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   private initialized;
   private repoSubscription: Subscription;
   private routeSubscription: Subscription;
+
 
   statusMessage = '';
   error = false;
@@ -43,16 +32,17 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
       this.initData();
     }
   }
+
   get open(): boolean {
     return this.isOpen;
   }
-  constructor(
-    private angularFire: AngularFire,
-    private el: ElementRef,
-    private fb: FormBuilder,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {
+
+  constructor(private angularFire: AngularFire,
+              private el: ElementRef,
+              private fb: FormBuilder,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
+
     this.activatedRoute.url.subscribe(() => {
       if (this.initialized) {
         // Get new data for route
@@ -66,7 +56,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.formGroup = this.fb.group({
       comment: ['', Validators.required],
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', []]
     });
   }
 
@@ -88,6 +78,22 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.initialized = true;
   }
 
+
+  @HostListener('window:mousedown')
+  handleDialogClose() {
+    // TODO: Move out to a directive
+    const belongsToPopup = event['path'].some(item =>
+      item.className && item.className.includes('feedback-container')
+    );
+    if (!belongsToPopup) {
+      this.open = false;
+    }
+  }
+
+  buttonClicked() {
+    this.open = !this.open;
+  }
+
   getWidth() {
     return this.open ? 25 : 100;
   }
@@ -99,18 +105,17 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     message.timestamp = new Date().toUTCString();
     message.header = this.getHeaderText();
     this.repo$.push(message)
-      .then(x => {
+      .then(() => {
         this.formGroup.reset();
       }).catch(() => {
-        this.statusMessage = 'Error while sending feedback';
-        this.error = true;
-      });
+      this.statusMessage = 'Error while sending feedback';
+      this.error = true;
+    });
   }
 
-  // This looks risky   -DF.
   private getHeaderText(): string {
-    const el = document.body.querySelector('h1:not([style*="display:none"]');
-    return !!el ? el.innerHTML : '';
+    const el = this.el.nativeElement.querySelector('h1:not([style*="display:none"]');
+    return el ? el.innerHTML : '';
   }
 
   private htmlEscape(str) {
