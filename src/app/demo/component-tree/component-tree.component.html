@@ -2,19 +2,16 @@
   app-slides-routing
   app-mode-routing>
   <app-progress-bar></app-progress-bar>
-<<<<<<< HEAD
+
   <div class="btn-bar">
     <app-mode-overview></app-mode-overview>
     <app-feedback-widget></app-feedback-widget>
     <app-menu-shortcut></app-menu-shortcut>
   </div>
 
-=======
   <app-arrows></app-arrows>
   <app-mode-overview></app-mode-overview>
-  <app-feedback-widget></app-feedback-widget>
-  <!-- <app-feedback-widget></app-feedback-widget> -->
->>>>>>> master
+
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
 
@@ -29,40 +26,46 @@
   <app-slide id="component">
     <h1>Recap: Component</h1>
     <h2>
-      Component is the main building block of your app.
+      Component is the main building block of your app.<br>
+      You define a set of components for every UI element, screen, and route.
     </h2>
   </app-slide>
 
+  <!--  COMPONENT TREE  -->
   <app-slide id="component-tree">
     <h1>Component Tree</h1>
-    <h2>
-      Components are composable and form a tree
-    </h2>
-    <h2>
-      Any Component can be a parent, a child or both
-    </h2>
+    <p>
+      Every application has a root component which contains all other components.
+      In other words, the application will have a component tree.
+    </p>
+    <br>
+    <p>
+      Any Component can be a parent, a child or both.
+    </p>
+    <div>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+    </div>
   </app-slide>
 
   <app-slide id="parent-child-component">
-    <h1>Instantiating parent and sub components</h1>
-    <div class="content-container">
-      <div row>
-        <div class="col-6">
-          <h3 style="text-align: justify;">Parent Component</h3>
-          <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
-        </div>
-        <div class="col-6" style="margin-left: 10px;">
-          <h3>Child Component</h3>
-          <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
-        </div>
+    <h2>Generate your components</h2>
+    <div style="display: flex; flex-direction: row;">
+      <div style="width: 50%">
+        <h3 style="text-align: justify;">Parent Component</h3>
+        <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
       </div>
-      <div row>
-        <div class="col-6" style="margin: auto">
-          <h3 style="text-align: justify;">Module</h3>
-          <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
-        </div>
+      <div style="width: 50%">
+        <h3 style="text-align: justify;">Child Component</h3>
+        <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
       </div>
     </div>
+    <h2>Do not forget add your components to the declarations array in your module.</h2>
+    <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
   </app-slide>
 
   <app-slide id="passing-data">

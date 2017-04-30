@@ -1,35 +1,12 @@
-<<<<<<< HEAD
 import {Component, OnInit, ElementRef, OnDestroy} from '@angular/core';
-import {AngularFireModule, AuthProviders, AuthMethods, AngularFire, FirebaseListObservable} from 'angularfire2';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
-import {PresentationComponent} from "../../presentation/presentation/presentation.component";
-import {Subscription} from "rxjs";
-import {Validators, FormBuilder, FormGroup} from "@angular/forms";
-import {Router, ActivatedRoute} from "@angular/router";
-import {Message} from "../message";
-=======
-import { ActivatedRoute, Router } from '@angular/router';
-import {
-  AngularFire,
-  AngularFireModule,
-  AuthMethods,
-  AuthProviders,
-  FirebaseListObservable
-  } from 'angularfire2';
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild
-  } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Subscription} from "rxjs/Subscription";
 import { Message } from './../message';
-import { Observable } from 'rxjs/Observable';
-import { PresentationComponent } from '../../presentation/presentation/presentation.component';
-import { Subscription } from 'rxjs/Subscription';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
 
->>>>>>> master
+
 @Component({
   selector: 'app-feedback-widget',
   templateUrl: './feedback-widget.component.html',
@@ -43,33 +20,27 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
 
   statusMessage = '';
   error = false;
+
   formGroup: FormGroup;
   repo$: FirebaseListObservable<any>;
   items: Message;
 
-<<<<<<< HEAD
-=======
-  formGroup: FormGroup;
-  repo$: FirebaseListObservable<any>;
-  items: Message;
-
->>>>>>> master
   set open(value: boolean) {
     this.isOpen = value;
     if (!this.repo$) {
       this.initData();
     }
   }
+
   get open(): boolean {
     return this.isOpen;
   }
-  constructor(
-    private angularFire: AngularFire,
-    private el: ElementRef,
-    private fb: FormBuilder,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {
+
+  constructor(private angularFire: AngularFire,
+              private el: ElementRef,
+              private fb: FormBuilder,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
     this.activatedRoute.url.subscribe(() => {
       if (this.initialized) {
         // Get new data for route
@@ -83,11 +54,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.formGroup = this.fb.group({
       comment: ['', Validators.required],
       name: ['', Validators.required],
-<<<<<<< HEAD
-      email: ['']
-=======
       email: ['', [Validators.required, Validators.email]]
->>>>>>> master
     });
   }
 
@@ -109,21 +76,20 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.initialized = true;
   }
 
-<<<<<<< HEAD
-  buttonClicked(){
+  buttonClicked() {
     this.open = !this.open;
     document.addEventListener('click', () => {
       const belongsToPopup = event['path'].some(item =>
         item.className && item.className.includes('feedback-container')
       );
-      if(!belongsToPopup){
+      if (!belongsToPopup) {
         this.open = false;
       }
     });
-=======
+  }
+
   getWidth() {
     return this.open ? 25 : 100;
->>>>>>> master
   }
 
   submit() {
@@ -136,18 +102,44 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
       .then(x => {
         this.formGroup.reset();
       }).catch(() => {
-<<<<<<< HEAD
       this.statusMessage = 'Error while sending feedback';
       this.error = true;
     });
-=======
+  }
+
+
+  send() {
+    if (this.comment && this.email) {
+
+      let comment = this.comment;
+      let email = this.email;
+      let items = this.angularFire.database.list('/feedback');
+      let headerText = document.body.querySelector('h1:not([style*="display:none"]') ? document.body.querySelector('h1:not([style*="display:none"]').innerHTML : '';
+      items.push({
+        comment: this.htmlEscape(comment),
+        name: this.name,
+        email: email,
+        timestamp: new Date().toUTCString(),
+        href: window.location.href,
+        header: headerText
+      }).then(x => {
+        this.statusMessage = 'Successfully sent';
+        setTimeout(() => {
+          this.error = false;
+          this.statusMessage = '';
+          this.open = false;
+          let mainDiv = this.el.nativeElement.querySelector('#main');
+          mainDiv.style.removeProperty('width');
+        }, 2000);
+      }).catch(() => {
         this.statusMessage = 'Error while sending feedback';
         this.error = true;
       });
->>>>>>> master
+      this.comment = '';
+      //TODO set username in state.local.user
+    }
   }
 
-  // This looks risky   -DF.
   private getHeaderText(): string {
     const el = document.body.querySelector('h1:not([style*="display:none"]');
     return !!el ? el.innerHTML : '';

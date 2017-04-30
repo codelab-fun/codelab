@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-/*assets/images/icon.png*/
 .feedback-btn {
   background-color: #3498db;
   background-image: url("../../../assets/images/chat.png");
@@ -23,17 +21,16 @@
   padding: 10px;
   background: white;
 }
-
 textarea {
-  margin: 10px 0;
-  height: 100px;
+    margin: 10px 0;
+    height: 100px;
 }
 
 input,
 textarea {
-  width: 100%;
-  border: 1px #ddd solid;
-  padding: 4px;
+    width: 100%;
+    border: 1px #ddd solid;
+    padding: 4px;
 }
 
 .btn-feedback-form {
@@ -48,31 +45,6 @@ textarea {
   text-align: center;
   text-decoration: none;
   border: 0 solid;
-}
-
-button {
-  color: #fff;
-  background: #3e8e01;
-  display: inline-block;
-  cursor: pointer;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-  border-radius: 3px;
-  line-height: 25px;
-  white-space: nowrap;
-  text-align: center;
-  text-decoration: none;
-  border: 0 solid;
-=======
-textarea {
-    margin: 10px 0;
-    height: 100px;
-}
-
-input,
-textarea {
-    width: 100%;
-    border: 1px #ddd solid;
-    padding: 4px;
 }
 
 .feedback-button {
@@ -114,7 +86,6 @@ textarea {
 .feedback-items {
     max-height: 300px;
     overflow-y: auto;
->>>>>>> master
 }
 
 .feedback-item {
@@ -159,4 +130,3 @@ button {
 .error {
     color: red;
 }
->>>>>>> master

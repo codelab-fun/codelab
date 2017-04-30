@@ -1,17 +1,8 @@
-import {
-  AngularFire,
-  AngularFireModule,
-  AuthMethods,
-  AuthProviders
-<<<<<<< HEAD
-} from 'angularfire2';
-=======
-  } from 'angularfire2';
->>>>>>> master
-import { CommonModule } from '@angular/common';
-import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { AngularFireModule, AuthProviders, AuthMethods, AngularFire } from 'angularfire2';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA",
@@ -26,11 +17,9 @@ export const af = AngularFireModule.initializeApp(firebaseConfig);
   imports: [
     CommonModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-    AngularFireModule.initializeApp(firebaseConfig)
-=======
-    af
->>>>>>> master
+    af,
+    AngularFireModule.initializeApp(firebaseConfig),
+    FormsModule
   ],
   providers: [
     AngularFire
