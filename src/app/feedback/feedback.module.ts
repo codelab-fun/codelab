@@ -1,13 +1,9 @@
-import {
-  AngularFire,
-  AngularFireModule,
-  AuthMethods,
-  AuthProviders
-  } from 'angularfire2';
-import { CommonModule } from '@angular/common';
-import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseProvider } from 'angularfire2/database';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA',
@@ -16,18 +12,21 @@ const firebaseConfig = {
   storageBucket: 'ng2-codelab.appspot.com'
 };
 
-export const af = AngularFireModule.initializeApp(firebaseConfig);
+// Note! We are using AngularFire2 v4. There are a lot of breaking changes.
+// See: https://github.com/angular/angularfire2/issues/854
+export const angularFire = AngularFireModule.initializeApp(firebaseConfig);
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    af
+    angularFire,
+    FormsModule
   ],
-  providers: [
-    AngularFire
-  ],
+  providers: [AngularFireDatabaseProvider],
   declarations: [FeedbackWidgetComponent],
   exports: [FeedbackWidgetComponent]
 })
-export class FeedbackModule {}
+export class FeedbackModule {
+
+}

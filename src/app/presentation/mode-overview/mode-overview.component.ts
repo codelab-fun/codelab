@@ -2,8 +2,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Mode } from './../mode.enum';
 import { PresentationComponent } from './../presentation/presentation.component';
-import { SlideComponent } from './../slide/slide.component';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-mode-overview',
@@ -11,8 +9,10 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./mode-overview.css']
 })
 export class ModeOverviewComponent {
-  private previousMode: Mode;
+
+  private previousMode:Mode;
   modeEnum = Mode;
+  onOverview = false;
 
   constructor(
     private presentation: PresentationComponent,
@@ -38,6 +38,7 @@ export class ModeOverviewComponent {
   }
 
   toggle(mode: Mode) {
+    this.onOverview = !this.onOverview;
     if (this.presentation.mode !== mode) {
       this.previousMode = this.presentation.mode;
       this.presentation.mode = mode;

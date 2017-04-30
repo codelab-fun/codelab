@@ -139,6 +139,10 @@ h1, h2 {
   margin-top: 40px
 }
 
+.slide [column-5] {
+  width: 40%;
+}
+
 .slide [column-4] {
   width: 40%;
 }
@@ -223,10 +227,10 @@ p {
 }
 
 /* Slide/presentation printing styles */
-@media print {  
-    @page {  
+@media print {
+    @page {
       size: A4 landscape;
-    }  
+    }
     .slide {
       zoom: 1;
       font-size: 12pt;
@@ -243,4 +247,26 @@ p {
     .presentation.overview .overview-buttons {
       display: none;
     }
+}
+
+/*  BUTTONS BAR CONTAINER  */
+.btn-bar {
+  z-index: 2;
+  position: fixed;
+  bottom: 1%;
+  right: 4%;
+  display: flex;
+  flex-direction: row;
+}
+/*  BUTTONS BAR   */
+.menu-bar-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: no-repeat center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-left: 10px;
+}
+.menu-bar-btn:hover {
+  cursor: pointer;
 }
