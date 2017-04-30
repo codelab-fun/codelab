@@ -1,9 +1,5 @@
-import {
-  AngularFire,
-  AngularFireModule,
-  AuthMethods,
-  AuthProviders
-  } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseProvider } from 'angularfire2/database';
 import { CommonModule } from '@angular/common';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 import { NgModule } from '@angular/core';
@@ -16,6 +12,8 @@ const firebaseConfig = {
   storageBucket: 'ng2-codelab.appspot.com'
 };
 
+// Note! We are using AngularFire2 v4. There are a lot of breaking changes.
+// See: https://github.com/angular/angularfire2/issues/854
 export const af = AngularFireModule.initializeApp(firebaseConfig);
 
 @NgModule({
@@ -24,9 +22,7 @@ export const af = AngularFireModule.initializeApp(firebaseConfig);
     ReactiveFormsModule,
     af
   ],
-  providers: [
-    AngularFire
-  ],
+  providers: [AngularFireDatabaseProvider],
   declarations: [FeedbackWidgetComponent],
   exports: [FeedbackWidgetComponent]
 })
