@@ -21,9 +21,11 @@ import 'rxjs/add/operator/filter';
  */
 
 @Directive({
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[ng-tooltips]'
 })
 export class TooltipsDirective implements AfterViewInit {
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('ng-tooltips') tooltips: Array<any> = [];
 
   constructor(private el: ElementRef, private editorComponent: EditorComponent) {

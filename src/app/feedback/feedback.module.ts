@@ -10,10 +10,10 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA",
-  authDomain: "ng2-codelab.firebaseapp.com",
-  databaseURL: "https://ng2-codelab.firebaseio.com",
-  storageBucket: "ng2-codelab.appspot.com"
+  apiKey: 'AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA',
+  authDomain: 'ng2-codelab.firebaseapp.com',
+  databaseURL: 'https://ng2-codelab.firebaseio.com',
+  storageBucket: 'ng2-codelab.appspot.com'
 };
 
 export const af = AngularFireModule.initializeApp(firebaseConfig);
@@ -30,6 +30,4 @@ export const af = AngularFireModule.initializeApp(firebaseConfig);
   declarations: [FeedbackWidgetComponent],
   exports: [FeedbackWidgetComponent]
 })
-export class FeedbackModule { 
-  
-}
+export class FeedbackModule {}
