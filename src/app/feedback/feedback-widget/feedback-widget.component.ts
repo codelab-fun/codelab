@@ -76,8 +76,11 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
 
   buttonClicked(){
     this.open = !this.open;
-    document.addEventListener('click', (event) => {
-      if(!(event.target as HTMLElement).classList.contains('feedback-shared-class')){
+    document.addEventListener('click', () => {
+      const belongsToPopup = event['path'].some(item =>
+        item.className && item.className.includes('feedback-container')
+      );
+      if(!belongsToPopup){
         this.open = false;
       }
     });

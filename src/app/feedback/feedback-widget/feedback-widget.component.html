@@ -1,10 +1,10 @@
 <!--  FEEDBACK BUTTON-->
-<div title="Feedback" (click)="buttonClicked()"  class="feedback-btn menu-bar-btn feedback-shared-class" title="Feedback"></div>
+<div title="Feedback" (click)="buttonClicked()"  class="feedback-container feedback-btn menu-bar-btn feedback-shared-class" title="Feedback"></div>
 <!--  FEEDBACK FORM -->
-<div *ngIf="open" class="feedback-form feedback-shared-class">
+<div *ngIf="open" class="feedback-form feedback-container">
   <div class="form-container" *ngIf="open">
     <div *ngIf="!!items && items.length">
-      <div (click)="isCommentsDisplayed = !isCommentsDisplayed" class="feedback-shared-class">Comments ({{items.length}}) V</div>
+      <div (click)="isCommentsDisplayed = !isCommentsDisplayed">Comments ({{items.length}}) V</div>
       <!--<span>Comments ({{items.length}}) </span>-->
       <div class="feedback-items" *ngIf="isCommentsDisplayed">
         <div class="feedback-item" *ngFor="let item of items">
@@ -16,21 +16,21 @@
         </div>
       </div>
     </div>
-    <form [formGroup]="formGroup" novalidate (submit)="submit()" class="feedback-shared-class">
+    <form [formGroup]="formGroup" novalidate (submit)="submit()">
       <div>
-        <input class="feedback-shared-class" type="text" placeholder="Enter your name"
+        <input type="text" placeholder="Enter your name"
                formControlName="name" />
       </div>
       <div>
-        <input class="feedback-shared-class" type="email" placeholder="Enter your email (optional)"
+        <input type="email" placeholder="Enter your email (optional)"
                formControlName="email" />
       </div>
       <div>
-          <textarea class="feedback-shared-class" placeholder="Describe your issue or share your ideas"
+          <textarea placeholder="Describe your issue or share your ideas"
                     formControlName="comment" (keydown.enter)="submit()"></textarea>
       </div>
       <div>
-        <button class="feedback-shared-class" [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
+        <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
                 type="submit">Send</button>
       </div>
       <div [class.error]="error">
