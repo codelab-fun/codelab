@@ -1,19 +1,19 @@
-<app-presentation 
-  app-slides-routing 
+<app-presentation
+  app-slides-routing
   app-mode-routing>
   <app-menu-shortcut></app-menu-shortcut>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
   <app-mode-overview></app-mode-overview>
-  <app-feedback-widget></app-feedback-widget>  
+  <app-feedback-widget></app-feedback-widget>
   <!-- <app-feedback-widget></app-feedback-widget> -->
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
 
   <app-slide id="intro" class="no-padding">
     <app-title-slide
-      [title]="title"
-      [description]="description"
+      title="Component tree"
+      description="Combine components together"
       [prereqs]="prereqs"
     ></app-title-slide>
   </app-slide>
@@ -71,5 +71,13 @@
         </div>
       </div>
     </div>
+  </app-slide>
+
+  <app-slide>
+    <app-exercise [config]="exercise">
+      <div class="description">
+        <p>Component tree, TODO</p>
+      </div>
+    </app-exercise>
   </app-slide>
 </app-presentation>

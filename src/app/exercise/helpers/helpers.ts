@@ -1,16 +1,17 @@
 import {FileConfig} from '../interfaces/file-config';
 
 
-
 function exercise_with_display(moduleName: string, code: any, code2: any) {
-  return {...exercise(moduleName, code, code2), before: `
+  return {
+    ...exercise(moduleName, code, code2), before: `
   
     export const value = {};
     function display( newValue ){
       value.value = newValue; 
     }
     
-  `};
+  `
+  };
 }
 
 
@@ -32,6 +33,7 @@ export function test(moduleName: string, template: string): FileConfig {
     path: moduleName + '/' + moduleName + '/test.ts',
     type: 'typescript',
     template,
+    code: template,
     moduleName: moduleName + 'Test',
     excludeFromTesting: false,
     test: true,
@@ -113,11 +115,12 @@ platform.bootstrapModule(AppModule, {
   };
 }
 
-export function pureJavascript(code, bootstrapCode){
+export function pureJavascript(code, bootstrapCode, testCode) {
   return {
     files: [
       exercise_with_display('app.ts', code, code),
-      bootstrap('main.ts', bootstrapCode, bootstrapCode)
+      bootstrap('main.ts', bootstrapCode, bootstrapCode),
+      test('test.ts', testCode)
     ]
   }
 }

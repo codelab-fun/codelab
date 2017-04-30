@@ -3,24 +3,24 @@
   height: 720px;
 }
 
-#slide-title-header {
+.slide-title-header {
   height: 50%;
   color: #222;
 }
 
-#slide-title {
+.slide-title {
   position: absolute;
   left: 5vw;
   bottom: 50%;
   font-size: 20vh;
 }
 
-#slide-title-background {
+.slide-title-background {
   height: 50%;
   background-color: #982a2a;
 }
 
-#slide-title-description {
+.slide-title-description {
   width: 75%;
   position: relative;
   top: 15%;
@@ -30,7 +30,7 @@
   color: white;
 }
 
-#slide-title-prereqs {
+.slide-title-prereqs {
   position: absolute;
   left: 5vw;
   top: calc(98% - 3vh);
@@ -39,11 +39,10 @@
   color: white;
 }
 
-#slide-title-instructions {
+.slide-title-instructions {
   position: relative;
   left: 5vw;
   top: calc(78% - 12vh);
-  font-style: italic;
   font-size: 4vh;
   color: white;
 }
@@ -52,8 +51,8 @@
   overflow: hidden;
   margin: 0;
   height: 25vw;
-  width: calc(25vw/2 + 2vw);
+  width: calc(25vw / 2 + 2vw);
   position: absolute;
-  top: calc(50% - 25vw/2);
-  right: 0vw;
+  top: calc(50% - 25vw / 2);
+  right: 0;
 }

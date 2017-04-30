@@ -1,5 +1,6 @@
 //  TODO: This should be done using require.context
 import {DiffFilesResolver} from '../src/app/differ/diffFilesResolver';
+import {Injectable} from '@angular/core';
 declare const require;
 
 const preloadedFiles = {
@@ -173,17 +174,17 @@ export interface MilestoneConfigTemplate {
 
 
 export const ng2tsConfig: CodelabConfigTemplate = {
-    name: 'Angular 101 Codelab (beta)',
-    id: 'ng2ts',
-    defaultRunner: 'Angular',
-    milestones: [
-      {
-        name: 'Intro to TypeScript',
-        exercises: [
-          {
-            name: 'Intro',
-            slide: true,
-            description: `
+  name: 'Angular 101 Codelab (beta)',
+  id: 'ng2ts',
+  defaultRunner: 'Angular',
+  milestones: [
+    {
+      name: 'Intro to TypeScript',
+      exercises: [
+        {
+          name: 'Intro',
+          slide: true,
+          description: `
           <h1>Angular/TypeScript CodeLab!</h1>
           <p>In this codelab we're going to learn the basics of TypeScript and Angular.</p>
           <p>This is a beta version of the codelab with limited access, please don't share it publically (yet).</p>
@@ -192,11 +193,11 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <p>The slides for the codelab are available using
           <a href = "https://docs.google.com/presentation/d/1Wh4ZwTKG1h66f3mTD4GQO8rKwGDEJeBSvUDJ3udU1LA/edit?usp=sharing">this link</a>.</p>                 
         `
-          },
-          {
-            name: 'TypeScript',
-            runner: 'TypeScript',
-            description: `
+        },
+        {
+          name: 'TypeScript',
+          runner: 'TypeScript',
+          description: `
           <p>We created a TypeScript file for you, now let's add our first TS class
            called Codelab.</p>
 
@@ -204,28 +205,28 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute change of plans,
           so only 3 people should be returned.</p>
         `,
-            files: diffFilesResolver.resolve('codelab', {
-              exercise: [
-                files.typescript_intro_Codelab_ts,
-                files.typescript_intro_Guest_ts,
-                files.typescript_intro_Main_ts
-              ],
-              test: [files.test],
-              bootstrap: [
-                files.typescript_intro_Main_ts
-              ]
-            }),
-          }
-        ]
-      },
-      {
-        name: 'Bootstrapping your app',
+          files: diffFilesResolver.resolve('codelab', {
+            exercise: [
+              files.typescript_intro_Codelab_ts,
+              files.typescript_intro_Guest_ts,
+              files.typescript_intro_Main_ts
+            ],
+            test: [files.test],
+            bootstrap: [
+              files.typescript_intro_Main_ts
+            ]
+          }),
+        }
+      ]
+    },
+    {
+      name: 'Bootstrapping your app',
 
-        exercises: [
-          {
-            name: 'Intro',
-            slide: true,
-            description: `
+      exercises: [
+        {
+          name: 'Intro',
+          slide: true,
+          description: `
           <h1>Let's build our first Angular app!</h1>
           <p>This is how it will look:</p>
 
@@ -241,50 +242,50 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             <li>Bootstrap the NgModule</li>
           </ol>
         `
-          },
-          {
-            name: 'Create a component',
-            description: `<p>Create first Angular component!</p>`,
-            files: diffFilesResolver.resolve('createComponent', {
-              exercise: [files.appComponent],
-              reference: [files.appModule, files.main],
-              bootstrap: [files.main],
-              test: [files.test],
-            })
-          },
-          {
-            name: 'Create a NgModule',
-            description: 'Now we got the component, we need to pass it to a NgModule.',
-            files: diffFilesResolver.resolve('createModule', {
-              exercise: [files.appModule],
-              reference: [files.appComponent],
-              hidden: [files.main],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          },
-          {
-            name: 'Bootstrap the module',
-            skipTests: true,
-            description: `
+        },
+        {
+          name: 'Create a component',
+          description: `<p>Create first Angular component!</p>`,
+          files: diffFilesResolver.resolve('createComponent', {
+            exercise: [files.appComponent],
+            reference: [files.appModule, files.main],
+            bootstrap: [files.main],
+            test: [files.test],
+          })
+        },
+        {
+          name: 'Create a NgModule',
+          description: 'Now we got the component, we need to pass it to a NgModule.',
+          files: diffFilesResolver.resolve('createModule', {
+            exercise: [files.appModule],
+            reference: [files.appComponent],
+            hidden: [files.main],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        },
+        {
+          name: 'Bootstrap the module',
+          skipTests: true,
+          description: `
           <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
           <p>There's no  simple way to test it,  make sure your app displays: 'Hello CatTube!'</p>`,
-            files: diffFilesResolver.resolve('bootstrap', {
-              exercise: [files.main],
-              reference: [files.appComponent, files.appModule],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          }
-        ]
-      },
-      {
-        name: 'Templates',
-        exercises: [
-          {
-            name: 'Intro',
-            slide: true,
-            description: `
+          files: diffFilesResolver.resolve('bootstrap', {
+            exercise: [files.main],
+            reference: [files.appComponent, files.appModule],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }
+      ]
+    },
+    {
+      name: 'Templates',
+      exercises: [
+        {
+          name: 'Intro',
+          slide: true,
+          description: `
           <h1>Exploring Angular templates!</h1>
           <p>As a result we'll see our cats displayed.</p>
 
@@ -307,49 +308,49 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             </div>
           </div>
         `
-          },
-          {
-            name: 'Set up the page',
-            description: 'Setup a header, a search box, and a search button in the app component!',
-            files: diffFilesResolver.resolve('templatePageSetup', {
-              exercise: [files.appHtml],
-              reference: [files.appComponent, files.appModule, files.main],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          }, {
-            name: 'Add some action',
-            description: `
+        },
+        {
+          name: 'Set up the page',
+          description: 'Setup a header, a search box, and a search button in the app component!',
+          files: diffFilesResolver.resolve('templatePageSetup', {
+            exercise: [files.appHtml],
+            reference: [files.appComponent, files.appModule, files.main],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }, {
+          name: 'Add some action',
+          description: `
               <ul>
                  <li>Add a search method to the AppComponent</li>
                  <li>Display a message when there are no videos.</li>
                </ul>
             `,
-            files: diffFilesResolver.resolve('templateAddAction', {
-              exercise: [files.appComponent, files.appHtml],
-              reference: [files.appModule, files.main, files.video_videoItem],
-              test: [files.test],
-              bootstrap: [files.main],
-            })
-          },
-          {
-            name: 'Display all videos',
-            description: `Finally  iterate over the videos.`,
-            files: diffFilesResolver.resolve('templateAllVideos', {
-              exercise: [files.appComponent, files.appHtml],
-              reference: [files.appModule, files.main, files.video_videoItem],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          }
-        ]
-      },
-      {
-        name: 'Dependency Injection',
-        exercises: [{
-          name: 'Intro',
-          slide: true,
-          description: `
+          files: diffFilesResolver.resolve('templateAddAction', {
+            exercise: [files.appComponent, files.appHtml],
+            reference: [files.appModule, files.main, files.video_videoItem],
+            test: [files.test],
+            bootstrap: [files.main],
+          })
+        },
+        {
+          name: 'Display all videos',
+          description: `Finally  iterate over the videos.`,
+          files: diffFilesResolver.resolve('templateAllVideos', {
+            exercise: [files.appComponent, files.appHtml],
+            reference: [files.appModule, files.main, files.video_videoItem],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }
+      ]
+    },
+    {
+      name: 'Dependency Injection',
+      exercises: [{
+        name: 'Intro',
+        slide: true,
+        description: `
           <h1>Let's inject a service.</h1>
           <p>Using a service is way better than hardcoded data. As a result we get even more cats.</p>
 
@@ -385,25 +386,25 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             </div>
           </div>
         `,
-        }, {
-          name: 'Service injection',
-          description: 'Fetch the videos using a service, instead of having them hardcoded.',
-          files: diffFilesResolver.resolve('diInjectService', {
-            exercise: [files.video_videoService, files.appModule, files.appComponent],
-            reference: [files.appHtml, files.apiService, files.video_videoItem, files.main],
-            test: [files.test],
-            bootstrap: [files.main]
-          })
-        }]
-      }
-      ,
-      {
-        name: 'Component Tree',
-        exercises: [
-          {
-            name: 'Intro',
-            slide: true,
-            description: `
+      }, {
+        name: 'Service injection',
+        description: 'Fetch the videos using a service, instead of having them hardcoded.',
+        files: diffFilesResolver.resolve('diInjectService', {
+          exercise: [files.video_videoService, files.appModule, files.appComponent],
+          reference: [files.appHtml, files.apiService, files.video_videoItem, files.main],
+          test: [files.test],
+          bootstrap: [files.main]
+        })
+      }]
+    }
+    ,
+    {
+      name: 'Component Tree',
+      exercises: [
+        {
+          name: 'Intro',
+          slide: true,
+          description: `
           <h1>Create a Video component!</h1>
           <p>Create a separate component with the video information.</p>
           <p>Add description, amount of views and likes.</p>
@@ -421,44 +422,44 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               </div>
             </div>
         `,
-          },
-          {
-            name: 'Create VideoComponent',
-            description: 'Create a video component.',
-            files: diffFilesResolver.resolve('videoComponentCreate', {
-              exercise: [files.video_video_component, files.video_video_html],
-              reference: [
-                files.appModule,
-                files.video_videoService, files.appHtml,
-                files.appComponent, files.video_videoItem,
-                files.apiService, files.main
-              ],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          },
-          {
-            name: 'Use VideoComponent',
-            description: 'Use the VideoComponent in the app.',
-            files: diffFilesResolver.resolve('videoComponentUse', {
-              exercise: [files.appModule, files.appHtml,],
-              reference: [
-                files.video_video_html,
-                files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
-              ],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          }]
-      }
-      ,
-      {
-        name: 'Custom events',
-        exercises: [
-          {
-            name: 'Intro',
-            slide: true,
-            description: `
+        },
+        {
+          name: 'Create VideoComponent',
+          description: 'Create a video component.',
+          files: diffFilesResolver.resolve('videoComponentCreate', {
+            exercise: [files.video_video_component, files.video_video_html],
+            reference: [
+              files.appModule,
+              files.video_videoService, files.appHtml,
+              files.appComponent, files.video_videoItem,
+              files.apiService, files.main
+            ],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        },
+        {
+          name: 'Use VideoComponent',
+          description: 'Use the VideoComponent in the app.',
+          files: diffFilesResolver.resolve('videoComponentUse', {
+            exercise: [files.appModule, files.appHtml,],
+            reference: [
+              files.video_video_html,
+              files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
+            ],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }]
+    }
+    ,
+    {
+      name: 'Custom events',
+      exercises: [
+        {
+          name: 'Intro',
+          slide: true,
+          description: `
           <h1>Let's use custom events!</h1>
           <p>Add a ThumbsComponent which will emit an 'onThumbs' event.</p>
           <p>In the video component listen to the event and change the amount of likes accordingly.</p>
@@ -477,38 +478,38 @@ export const ng2tsConfig: CodelabConfigTemplate = {
 </div>
 </div>
 `,
-          },
-          {
-            name: 'Create ThumbsComponent',
-            description: 'Create ThumbsComponent.',
-            files: diffFilesResolver.resolve('thumbsComponentCreate', {
-              exercise: [files.thumbs_thumbs_component, files.thumbs_thumbs_html],
-              reference: [files.apiService, files.appModule, files.main, files.indexHtml],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          },
-          {
-            name: 'Use ThumbsComponent',
-            description: `Use the 'ThumbsComponent' in the app.`,
-            files: diffFilesResolver.resolve('thumbsComponentUse', {
-              exercise: [files.video_video_component, files.video_video_html, files.appModule,],
-              reference: [
-                files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
-              ],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          }
-        ]
-      },
-      {
-        name: 'Content projection',
-        exercises: [
-          {
-            name: 'Intro',
-            slide: true,
-            description: `
+        },
+        {
+          name: 'Create ThumbsComponent',
+          description: 'Create ThumbsComponent.',
+          files: diffFilesResolver.resolve('thumbsComponentCreate', {
+            exercise: [files.thumbs_thumbs_component, files.thumbs_thumbs_html],
+            reference: [files.apiService, files.appModule, files.main, files.indexHtml],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        },
+        {
+          name: 'Use ThumbsComponent',
+          description: `Use the 'ThumbsComponent' in the app.`,
+          files: diffFilesResolver.resolve('thumbsComponentUse', {
+            exercise: [files.video_video_component, files.video_video_html, files.appModule,],
+            reference: [
+              files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
+            ],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }
+      ]
+    },
+    {
+      name: 'Content projection',
+      exercises: [
+        {
+          name: 'Intro',
+          slide: true,
+          description: `
 < h1 > Let
 's project some content!</h1>
 < p > In
@@ -598,10 +599,10 @@ Up< / button > <button>Thumbs Down</button>
               </div>
             </div>
         `
-          },
-          {
-            name: 'Add TogglePanelComponent',
-            description: `Let'
+        },
+        {
+          name: 'Add TogglePanelComponent',
+          description: `Let'
     s create
     a component
     which will
@@ -611,221 +612,19 @@ Up< / button > <button>Thumbs Down</button>
     description and
     meta information.
     `,
-            files: diffFilesResolver.resolve('togglePanelComponentCreate', {
-              exercise: [files.toggle_panel_toggle_panel, files.toggle_panel_toggle_panel_html],
-              reference: [files.wrapperComponent, files.apiService, files.appModule, files.main, files.indexHtml],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          },
-          {
-            name: 'Use TogglePanelComponent',
-            description: `Now use the component. `,
-            files: diffFilesResolver.resolve('togglePanelComponentUse', {
-              exercise: [files.video_video_html, files.appModule],
-              reference: [
-                files.video_video_component,
-                files.toggle_panel_toggle_panel,
-                files.toggle_panel_toggle_panel_html,
-                files.thumbs_thumbs_component,
-                files.thumbs_thumbs_html,
-                files.appHtml,
-                files.appComponent,
-                files.video_videoService,
-                files.video_videoItem,
-                files.apiService,
-                files.main
-              ],
-              test: [files.test],
-              bootstrap: [files.main]
-            })
-          }
-        ]
-      },
-      /*
-       {
-       name: 'Parent-container',
-       exercises: [{
-       name: 'Intro',
-       slide: true,
-       description: polyglot.t(`
-       < h1 > Let
-       's inject parent component!</h1>
-       < p > In
-       this
-       milestone
-       we
-       'll create create a ContextAdComponent. </p>
-       < p > This
-       component
-       will
-       not
-       use
-       inputs.Instead
-       it
-       will
-       require
-       parent(Video)
-       component
-       and
-       directly
-       look
-       at
-       it
-       's properties. </p>
-       < p > It
-       will
-       display
-       different
-       text
-       depending
-       of
-       if there's a word '
-       music
-       ' in the description. </p>
-
-       < div
-       class
-       = "inBrowser" >
-       <div class = "smaller" >
-       <div>
-       <h2>Cute
-       kitten
-       dancing < / h2 >
-       <img  src = "/assets/images/cat-0.png" >
-       <div>Decription
-       :
-       music < / div >
-       <button>Show
-       meta < / button >
-       <button>Thumbs
-       Up < / button > <button>Thumbs
-       Down < / button >
-       <div>Context
-       ad: Turn
-       up
-       your
-       speakers < / div >
-       < / div >
-       <div>
-       <h2>Cute
-       kitten
-       sleeping < / h2 >
-       <img  src = "/assets/images/cat-0.png" >
-       <div>Decription
-       :
-       sleeping < / div >
-       <button>Show
-       meta < / button >
-       <button>Thumbs
-       Up < / button > <button>Thumbs
-       Down < / button >
-       <div>Context
-       ad: Check
-       out
-       our
-       web
-       site. < / div >
-       < / div >
-       < / div >
-       < / div >
-
-       <p>Note, we
-       are
-       actually
-       calling
-       it
-       ContextComponent, because
-       when
-       it
-       was
-       called
-       ContextAdComponent, adblock
-       blocked
-       it, and
-       I
-       spent
-       2
-       hours
-       debugging. < / p >
-
-
-       `),
-       },
-       {
-       name: 'Inject parent component',
-       description: polyglot.t(` < p > Create
-       a
-       Context(Ad)
-       Component < / p >
-       <p>Which
-       will
-       inject
-       it
-       's parent component, see what thedescription, and display the value accordingly.</p>
-       < p > Note
-       :
-       We
-       had
-       to
-       get
-       rid
-       of
-       the
-       'Ad'
-       part
-       of
-       the
-       component, because
-       AdBlock
-       blocked
-       the
-       template. < / p > `),
-       files: diffFilesResolver.resolve('bootstrap', {
-       exercise: [files.contextComponent, files.context_context_html],
-       reference: [
-
-       files.contextService,
-       files.video_video_html,
-       files.appModule,
-       files.video_video_component,
-       files.toggle_panel_toggle_panel,
-       files.toggle_panel_toggle_panel_html,
-       files.thumbs_thumbs_component,
-       files.thumbs_thumbs_html,
-       files.appHtml,
-       files.appComponent,
-       files.video_videoService,
-       files.video_videoItem,
-       files.apiService,
-       files.main
-       ],
-       test: [files.test],
-       bootstrap: [files.main]
-       }),
-       }]
-       },
-       */
-      {
-        name: 'Pipes (bonus)',
-        exercises: [{
-          name: 'Create a pipe',
-          description: 'Create a fuzzy pipe, which takes a date in YYYY-MM-DD format, and returns how many days ago this was.',
-          files: diffFilesResolver.resolve('fuzzyPipeCreate', {
-            exercise: [files.fuzzyPipe_fuzzyPipe],
+          files: diffFilesResolver.resolve('togglePanelComponentCreate', {
+            exercise: [files.toggle_panel_toggle_panel, files.toggle_panel_toggle_panel_html],
+            reference: [files.wrapperComponent, files.apiService, files.appModule, files.main, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
-        }, {
-
-          name: 'Use the pipe',
-          description: 'Now include the app in the module and use in the app.',
-          files: diffFilesResolver.resolve('fuzzyPipeUse', {
-            exercise: [files.appModule, files.video_video_html],
-            reference: [files.fuzzyPipe_fuzzyPipe,
-              files.contextService,
-              files.contextComponent,
-              files.context_context_html,
+        },
+        {
+          name: 'Use TogglePanelComponent',
+          description: `Now use the component. `,
+          files: diffFilesResolver.resolve('togglePanelComponentUse', {
+            exercise: [files.video_video_html, files.appModule],
+            reference: [
               files.video_video_component,
               files.toggle_panel_toggle_panel,
               files.toggle_panel_toggle_panel_html,
@@ -841,15 +640,217 @@ Up< / button > <button>Thumbs Down</button>
             test: [files.test],
             bootstrap: [files.main]
           })
-        }]
-      }
-      ,
-      {
-        name: 'Survey',
-        exercises: [{
-          slide: true,
-          name: 'All done!',
-          description: `
+        }
+      ]
+    },
+    /*
+     {
+     name: 'Parent-container',
+     exercises: [{
+     name: 'Intro',
+     slide: true,
+     description: polyglot.t(`
+     < h1 > Let
+     's inject parent component!</h1>
+     < p > In
+     this
+     milestone
+     we
+     'll create create a ContextAdComponent. </p>
+     < p > This
+     component
+     will
+     not
+     use
+     inputs.Instead
+     it
+     will
+     require
+     parent(Video)
+     component
+     and
+     directly
+     look
+     at
+     it
+     's properties. </p>
+     < p > It
+     will
+     display
+     different
+     text
+     depending
+     of
+     if there's a word '
+     music
+     ' in the description. </p>
+
+     < div
+     class
+     = "inBrowser" >
+     <div class = "smaller" >
+     <div>
+     <h2>Cute
+     kitten
+     dancing < / h2 >
+     <img  src = "/assets/images/cat-0.png" >
+     <div>Decription
+     :
+     music < / div >
+     <button>Show
+     meta < / button >
+     <button>Thumbs
+     Up < / button > <button>Thumbs
+     Down < / button >
+     <div>Context
+     ad: Turn
+     up
+     your
+     speakers < / div >
+     < / div >
+     <div>
+     <h2>Cute
+     kitten
+     sleeping < / h2 >
+     <img  src = "/assets/images/cat-0.png" >
+     <div>Decription
+     :
+     sleeping < / div >
+     <button>Show
+     meta < / button >
+     <button>Thumbs
+     Up < / button > <button>Thumbs
+     Down < / button >
+     <div>Context
+     ad: Check
+     out
+     our
+     web
+     site. < / div >
+     < / div >
+     < / div >
+     < / div >
+
+     <p>Note, we
+     are
+     actually
+     calling
+     it
+     ContextComponent, because
+     when
+     it
+     was
+     called
+     ContextAdComponent, adblock
+     blocked
+     it, and
+     I
+     spent
+     2
+     hours
+     debugging. < / p >
+
+
+     `),
+     },
+     {
+     name: 'Inject parent component',
+     description: polyglot.t(` < p > Create
+     a
+     Context(Ad)
+     Component < / p >
+     <p>Which
+     will
+     inject
+     it
+     's parent component, see what thedescription, and display the value accordingly.</p>
+     < p > Note
+     :
+     We
+     had
+     to
+     get
+     rid
+     of
+     the
+     'Ad'
+     part
+     of
+     the
+     component, because
+     AdBlock
+     blocked
+     the
+     template. < / p > `),
+     files: diffFilesResolver.resolve('bootstrap', {
+     exercise: [files.contextComponent, files.context_context_html],
+     reference: [
+
+     files.contextService,
+     files.video_video_html,
+     files.appModule,
+     files.video_video_component,
+     files.toggle_panel_toggle_panel,
+     files.toggle_panel_toggle_panel_html,
+     files.thumbs_thumbs_component,
+     files.thumbs_thumbs_html,
+     files.appHtml,
+     files.appComponent,
+     files.video_videoService,
+     files.video_videoItem,
+     files.apiService,
+     files.main
+     ],
+     test: [files.test],
+     bootstrap: [files.main]
+     }),
+     }]
+     },
+     */
+    {
+      name: 'Pipes (bonus)',
+      exercises: [{
+        name: 'Create a pipe',
+        description: 'Create a fuzzy pipe, which takes a date in YYYY-MM-DD format, and returns how many days ago this was.',
+        files: diffFilesResolver.resolve('fuzzyPipeCreate', {
+          exercise: [files.fuzzyPipe_fuzzyPipe],
+          test: [files.test],
+          bootstrap: [files.main]
+        })
+      }, {
+
+        name: 'Use the pipe',
+        description: 'Now include the app in the module and use in the app.',
+        files: diffFilesResolver.resolve('fuzzyPipeUse', {
+          exercise: [files.appModule, files.video_video_html],
+          reference: [files.fuzzyPipe_fuzzyPipe,
+            files.contextService,
+            files.contextComponent,
+            files.context_context_html,
+            files.video_video_component,
+            files.toggle_panel_toggle_panel,
+            files.toggle_panel_toggle_panel_html,
+            files.thumbs_thumbs_component,
+            files.thumbs_thumbs_html,
+            files.appHtml,
+            files.appComponent,
+            files.video_videoService,
+            files.video_videoItem,
+            files.apiService,
+            files.main
+          ],
+          test: [files.test],
+          bootstrap: [files.main]
+        })
+      }]
+    }
+    ,
+    {
+      name: 'Survey',
+      exercises: [{
+        slide: true,
+        name: 'All done!',
+        description: `
 < h1 > ${'This is it for now!'}< / h1 >
 <p>This
 codelab
@@ -861,8 +862,14 @@ new. We
 <p>${'This codelab is written in Angular! <a href = "https://github.com/kirjs/ng2-codelab">Check out the code at this git repo</a>'}
   <p>${'If you want to learn more about angular check out <a href = "https://angular.io/">angular.io</a>'}
     `
-        }]
-      }
-    ]
+      }]
+    }
+  ]
+};
+
+@Injectable()
+export class Ng2TsExercises {
+  getExercises(milestoneId: number, exerciseId: number) {
+    return ng2tsConfig.milestones[milestoneId].exercises[exerciseId];
   }
-;
+}

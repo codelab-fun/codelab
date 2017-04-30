@@ -44,3 +44,7 @@ app-editors {
   display: flex;
   height: 100%;
 }
+
+app-runner {
+  margin-top: 20px;
+}

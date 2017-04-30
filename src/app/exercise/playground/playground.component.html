@@ -4,9 +4,8 @@
               [fontSize]="20"
               [app-focus-highlight-match]="highlightMatches"
   ></app-editor>
-  <app-browser-window>
-    <app-runner [files]="config.files" style="flex: 50%"
-                [runnerType]="config.runner || 'Angular'"
-    ></app-runner>
-  </app-browser-window>
+  <app-runner [files]="config.files" style="flex: 50%"
+              [runnerType]="config.runner || 'Angular'"
+              (onTestUpdate)="onTestUpdate($event)"
+  ></app-runner>
 </div>
