@@ -1,3 +1,4 @@
+// tslint:disable:max-line-length TODO: Clean up this file and remove this comment.
 //  TODO: This should be done using require.context
 import {DiffFilesResolver} from '../src/app/differ/diffFilesResolver';
 import {Injectable} from '@angular/core';
@@ -442,7 +443,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           name: 'Use VideoComponent',
           description: 'Use the VideoComponent in the app.',
           files: diffFilesResolver.resolve('videoComponentUse', {
-            exercise: [files.appModule, files.appHtml,],
+            exercise: [files.appModule, files.appHtml],
             reference: [
               files.video_video_html,
               files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
@@ -493,7 +494,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           name: 'Use ThumbsComponent',
           description: `Use the 'ThumbsComponent' in the app.`,
           files: diffFilesResolver.resolve('thumbsComponentUse', {
-            exercise: [files.video_video_component, files.video_video_html, files.appModule,],
+            exercise: [files.video_video_component, files.video_video_html, files.appModule],
             reference: [
               files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
             ],
