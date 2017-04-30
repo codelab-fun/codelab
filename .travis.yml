@@ -15,7 +15,7 @@ before_install:
 
 script:
   - npm run lint
-  - npm test
+  - npm test -- --single-run
 
 notifications:
   email: false
