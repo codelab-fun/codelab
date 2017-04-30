@@ -19,3 +19,8 @@ script:
 
 notifications:
   email: false
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
