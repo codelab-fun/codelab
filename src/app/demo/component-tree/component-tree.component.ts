@@ -9,13 +9,14 @@ import {ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate} from '../../../..
 })
 export class ComponentTreeComponent {
   exercise: ExerciseConfigTemplate | SlideTemplate;
-  //exercise2: ExerciseConfigTemplate | SlideTemplate;
+  exercise2: ExerciseConfigTemplate | SlideTemplate;
   title = 'Component Tree';
   description = '';
   prereqs = '';
 
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(4, 1);
+    this.exercise2 = exercises.getExercises(4, 2);
   }
 
   code = {
