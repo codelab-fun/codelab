@@ -139,6 +139,10 @@ h1, h2 {
   margin-top: 40px
 }
 
+.slide [column-5] {
+  width: 40%;
+}
+
 .slide [column-4] {
   width: 40%;
 }

@@ -54,13 +54,13 @@
 
   <app-slide id="parent-child-component">
     <h2>Generate your components</h2>
-    <div style="display: flex; flex-direction: row;">
-      <div style="width: 50%">
-        <h3 style="text-align: justify;">Parent Component</h3>
+    <div row>
+      <div column-5>
+        <h3>Parent Component</h3>
         <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
       </div>
-      <div style="width: 50%">
-        <h3 style="text-align: justify;">Child Component</h3>
+      <div column-5>
+        <h3>Child Component</h3>
         <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
       </div>
     </div>
@@ -73,10 +73,10 @@
     <div class="content-container">
       <div row>
         <div class="col-6">
-          <h3 style="text-align: justify;">Parent Component</h3>
+          <h3>Parent Component</h3>
           <app-code-editor [fontSize]="15" [code]="code.parentComponent.code"></app-code-editor>
         </div>
-        <div class="col-6" style="margin-left: 10px;">
+        <div class="col-6">
           <h3>Child Component</h3>
           <app-code-editor [fontSize]="15" [code]="code.childComponent.code"></app-code-editor>
         </div>

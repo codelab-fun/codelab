@@ -18,7 +18,6 @@ export const af = AngularFireModule.initializeApp(firebaseConfig);
     CommonModule,
     ReactiveFormsModule,
     af,
-    AngularFireModule.initializeApp(firebaseConfig),
     FormsModule
   ],
   providers: [
