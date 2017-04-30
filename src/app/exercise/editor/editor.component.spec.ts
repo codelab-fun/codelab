@@ -1,7 +1,6 @@
-/* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {EditorComponent} from './editor.component';
-import {MonacoConfigService} from '../services/monaco-config.service';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { EditorComponent } from './editor.component';
+import { MonacoConfigService } from '../services/monaco-config.service';
 
 
 // TODO: Fix this failing test suite.
@@ -20,9 +19,9 @@ xdescribe('EditorComponent', () => {
               create: () => ({
                 getModel: () => ({
                   getValue: () => 'hi',
-                  onDidChangeContent: ()=>{},
+                  onDidChangeContent: () => {},
                 }),
-                layout: ()=>{}
+                layout: () => {}
               }),
               getModel: () => {}
             }

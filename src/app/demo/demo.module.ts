@@ -53,7 +53,7 @@ export const routes = [
 ];
 
 export function monacoReady() {
-  return MonacoConfigService.monacoReady
+  return MonacoConfigService.monacoReady;
 }
 
 @NgModule({

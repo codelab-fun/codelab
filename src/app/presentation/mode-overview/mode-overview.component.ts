@@ -11,14 +11,13 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./mode-overview.css']
 })
 export class ModeOverviewComponent {
-  
-  private previousMode:Mode;
+  private previousMode: Mode;
   modeEnum = Mode;
 
   constructor(
-    private presentation:PresentationComponent,
+    private presentation: PresentationComponent,
     private router: Router,
-    private activatedRoute:ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) { }
 
   get buttonLabel(): string {
     switch (this.presentation.mode) {
@@ -28,9 +27,9 @@ export class ModeOverviewComponent {
         return 'Overview';
     }
   }
-  
-  // Show print button when in overview mode
-  get shouldShowPrintButton():boolean {
+
+  /* Returns true if in presentation is in overview mode */
+  get shouldShowPrintButton(): boolean {
     return this.presentation.mode === Mode.overview;
   }
 

@@ -6,7 +6,7 @@ class Person {
   }
 
   fullName() {
-    return this.firstName + " " + this.lastName;
+    return `${this.firstName} ${this.lastName}`;
   }
 }
 
