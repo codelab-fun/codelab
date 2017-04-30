@@ -5,7 +5,6 @@ import {SlidesRoutes} from '../../presentation/slide-routes';
 import {FeedbackModule} from "../../feedback/feedback.module";
 import {ExerciseModule} from '../../exercise/exersice.module';
 import {PresentationModule} from '../../presentation/presentation.module';
-import {Ng2TsModule} from '../../../../ng2ts/ng2ts.module';
 import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 
 

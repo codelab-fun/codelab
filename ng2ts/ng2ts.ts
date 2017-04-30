@@ -869,7 +869,7 @@ new. We
 
 @Injectable()
 export class Ng2TsExercises {
-  getExercises(milestoneId, exerciseId: number) {
+  getExercises(milestoneId: number, exerciseId: number) {
     return ng2tsConfig.milestones[milestoneId].exercises[exerciseId];
   }
 }
