@@ -13,7 +13,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 export class SlideComponent implements OnInit {
   private slideId: number;
   private activeSubject = new BehaviorSubject<boolean>(false);
-  
+
   public onActive: Observable<boolean>;
 
   @Input()

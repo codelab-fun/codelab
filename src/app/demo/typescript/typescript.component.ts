@@ -67,8 +67,9 @@ console.log(new Hello('World').hello())
     `),
     tsExerciseMatch: /'.*'/
   };
+
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
-  ]
+  ];
 }
 
