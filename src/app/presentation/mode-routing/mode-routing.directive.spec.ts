@@ -2,17 +2,17 @@ import { Component, HostListener, Output, EventEmitter, DebugElement } from '@an
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
+
 import { ModeRoutingDirective } from './mode-routing.directive';
 import { Mode } from './../mode.enum';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-test-component',
   template: '<div app-mode-routing></div>'
 })
-class TestComponent {
-  @Output() onModeChange: EventEmitter<Mode> = new EventEmitter();
-}
+class TestComponent {}
 
 describe('ModeRoutingDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
