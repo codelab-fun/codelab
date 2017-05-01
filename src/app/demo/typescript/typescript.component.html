@@ -1,0 +1,181 @@
+<app-presentation
+  app-slides-routing
+  app-mode-routing>
+  <div class="btn-bar">
+    <app-mode-overview></app-mode-overview>
+    <app-feedback-widget></app-feedback-widget>
+    <app-menu-shortcut></app-menu-shortcut>
+  </div>
+  <app-progress-bar></app-progress-bar>
+  <app-arrows></app-arrows>
+
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      title="TypeScript"
+      description="Angular is written in TypeScript! Learn more about the language and the best features!"
+      prereqs="Basic understanding of JavaScript is required."
+    ></app-title-slide>
+  </app-slide>
+
+  <!-- TYPES IN TYPESCRIPT-->
+  <app-slide id="types">
+    <h1><span style="color: #0e70c0;">TypeScript</span> has different types for different units of data. These types
+      are:</h1>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+      <div style="width: 30%;">
+        <ul>
+          <li>Boolean</li>
+          <li>Number</li>
+          <li>String</li>
+          <li>Array</li>
+          <li>Tuple</li>
+        </ul>
+      </div>
+      <div style="width: 30%;">
+        <ul>
+          <li>Enum</li>
+          <li>Any</li>
+          <li>Void</li>
+          <li>Null/Undefined</li>
+          <li>Never</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info"> We would describe 'number', 'string', and 'any'.</div>
+  </app-slide>
+  <!--  NUMBER-TYPE  -->
+  <app-slide id="number_type">
+    <h1 style="color: coral; margin-bottom: 5px;">:number</h1>
+    <p> In typescript all numbers are floating point values. TypeScript supports binary and octal literals.</p>
+    <h3>The add function should return 5. Can you find the issue?</h3>
+    <h2 *ngIf="tsexercises.solved" style="color: green">You solved the exercise!!</h2>
+    <app-playground [config]="code.tsExercise"
+                    [focus-highlight-match]="[code.tsExerciseMatch]"
+                    #tsexercises
+    ></app-playground>
+    <div class="info"> Plain JavaScript will run the function returning a string.</div>
+  </app-slide>
+  <!--  STRING-TYPE  -->
+  <app-slide id="string_type">
+    <h1 style="color: coral; margin-bottom: 5px;">:string</h1>
+    <p style="margin-bottom: 20px;">String is used to refer to textual datatype.</p>
+    <app-code-editor [fontSize]="30" [code]="code.stringType.code"></app-code-editor>
+    <p>This is the same as:</p>
+    <app-code-editor [fontSize]="30" [code]="code.stringType2.code"></app-code-editor>
+  </app-slide>
+  <!--  ANY-TYPE  -->
+  <app-slide id="any_type">
+    <h1 style="color: coral; margin-bottom: 5px;">:any</h1>
+    <p style="margin-bottom: 20px;">
+      For when need to describe the type of variables that we do not know when we are writing an application.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.anyType.code"></app-code-editor>
+  </app-slide>
+
+  <!--  CLASSES  -->
+  <app-slide id="classes">
+    <h1 style="color: coral; margin-bottom: 5px;">Classes</h1>
+    <p style="margin-bottom: 20px;">
+      Starting with ECMAScript 2015, also known as ECMAScript 6, JavaScript programmers will be able to
+      build their applications using this object-oriented class-based approach.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.class]"></app-code-editor>
+  </app-slide>
+
+  <!--  EXPORT  -->
+  <app-slide id="export">
+    <h1 style="color: coral; margin-bottom: 5px;">Export</h1>
+    <p style="margin-bottom: 20px;">
+      Any declaration (such as a variable, function, class, type alias, or interface) can be exported by
+      adding the export keyword.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.export]"></app-code-editor>
+  </app-slide>
+
+  <!--  IMPORT  -->
+  <app-slide id="import">
+    <h1 style="color: coral; margin-bottom: 5px;">Import</h1>
+    <p style="margin-bottom: 20px;">
+      Importing is just about as easy as exporting from a module.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.import]"></app-code-editor>
+  </app-slide>
+
+  <!--  CONSTANTS  -->
+  <app-slide id="const">
+    <h1 style="color: coral; margin-bottom: 5px;">Constants - <span style="color: red;">const</span></h1>
+    <p style="margin-bottom: 20px;">
+      As its name implies, their value cannot be changed once they are bound. In other words, you can’t
+      re-assign to them.
+    </p>
+    <app-code-editor [fontSize]="25" [code]="code.classDescription.code"
+                     [focus-highlight-match]="[code.classDescription.matches.constants]"></app-code-editor>
+  </app-slide>
+
+  <app-slide id="hello">
+    <h1 i18n>Also</h1>
+    <ul>
+      <li>Interfaces</li>
+      <li>Enums</li>
+      <li>Async/await</li>
+      <li>Getters/setters</li>
+      <li>Desctructuring</li>
+      <li>Arrow functions</li>
+      <li>And more!</li>
+    </ul>
+  </app-slide>
+
+  <app-slide id="why">
+    <div style="text-align: center;">
+      <h1 i18n>Why TypeScript?</h1>
+
+      <svg width="460" height="460" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
+        <g>
+          <ellipse stroke="#000" ry="227.013155" rx="229.499997" id="svg_3" cy="227.986845" cx="228.999988"
+                   st roke-width="1.5" fill="#09bcd3"></ellipse>
+          <ellipse stroke="#000" ry="120.786392" rx="125.000014" id="svg_4" cy="314.213608" cx="286.499992"
+                   stroke-width="1.5" fill="#b060b0"></ellipse>
+          <ellipse stroke="#000" ry="57.866101" rx="58.500002" id="svg_5" cy="356.133899" cx="335" stroke-width="1.5"
+                   fill="#7baaf7"></ellipse>
+          <text stroke="#000" transform="matrix(13.140515327453613,0,0,2.8643743991851807,-3943.7705259025097,-461.11222444847226) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_6" y="272" x="342.016307" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"></text>
+          <text stroke="#000" transform="matrix(18.086650848388672,0,0,3.8073328758437137,-6947.660337984561,-421.3642402462918) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_7" y="162" x="393.328125" stroke-opacity="null" stroke-width="0" fill="#000000"></text>
+          <text xml:space="preserve" text-anchor="start" font-size="24" id="svg_9" y="129" x="84.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000" i18n>ES7</text>
+          <text xml:space="preserve" text-anchor="start" font-size="24" id="svg_10" y="173" x="83.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000" i18n>Decorators</text>
+          <text xml:space="preserve" text-anchor="start" font-size="24" id="svg_11" y="214.593269" x="83.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000" i18n>Types</text>
+          <text xml:space="preserve" text-anchor="start" font-size="33" id="svg_12" y="81" x="83.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000" i18n>TypeScript</text>
+          <text xml:space="preserve" text-anchor="start" font-size="20" id="svg_13" y="293" x="188.5"
+                stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000" i18n>Classes
+          </text>
+          <text xml:space="preserve" text-anchor="start" font-size="20" id="svg_14" y="315" x="188.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000" i18n>Modules</text>
+          <text xml:space="preserve" text-anchor="start" font-size="20" id="svg_15" y="339.593269" x="189.5"
+                stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000" i18n>More...
+          </text>
+          <text xml:space="preserve" text-anchor="start" font-size="25"
+                id="svg_16" y="262" x="188.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">ES6
+          </text>
+          <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="33"
+                id="svg_17" y="371" x="306.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">ES5
+          </text>
+        </g>
+      </svg>
+    </div>
+  </app-slide>
+  <app-slide id="exercise">
+    <app-exercise [config]="exercises[0]">
+      <div class="description">
+        <p>We created a TypeScript file for you, now let's add our first TS class
+          called Codelab.</p>
+        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people
+          who're
+          coming.</p>
+        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute
+          change
+          of plans, so only 3 people should be returned.</p>
+      </div>
+    </app-exercise>
+  </app-slide>
+</app-presentation>

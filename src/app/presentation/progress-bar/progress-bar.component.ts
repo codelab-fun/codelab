@@ -8,7 +8,7 @@ import {PresentationComponent} from '../presentation/presentation.component';
 })
 export class ProgressBarComponent {
   get progress() {
-    return 100 * (this.presentation.activeSlideId + 1) / this.presentation.totalSlides;
+    return 100 * (this.presentation.activeSlideIndex + 1) / this.presentation.totalSlides;
   }
 
   constructor(public presentation: PresentationComponent) {

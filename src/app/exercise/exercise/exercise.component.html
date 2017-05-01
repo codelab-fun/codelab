@@ -14,6 +14,12 @@
 
     <div class="side">
       <ng-content select=".description"></ng-content>
+      <div *ngIf="solved">
+        <!--TODO: Find a nicer workflow-->
+        <div style="color: green">
+          <h2>This exercise is solved!</h2>
+        </div>
+      </div>
       <app-tests [tests]="config.tests"></app-tests>
       <app-runner (onTestUpdate)="onTestUpdate($event)"
                   [files]="config.files" style="flex: 50%"

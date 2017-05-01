@@ -1,0 +1,94 @@
+<app-presentation
+  app-slides-routing
+  app-mode-routing>
+  <app-progress-bar></app-progress-bar>
+
+  <div class="btn-bar">
+    <app-mode-overview></app-mode-overview>
+    <app-feedback-widget></app-feedback-widget>
+    <app-menu-shortcut></app-menu-shortcut>
+  </div>
+
+  <app-arrows></app-arrows>
+  <app-mode-overview></app-mode-overview>
+
+  <!--  MILESTONE #3  Dependency Injection  -->
+  <!-- RECAP -->
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      title="Component tree"
+      description="Combine components together"
+      [prereqs]="prereqs"
+    ></app-title-slide>
+  </app-slide>
+
+  <app-slide id="component">
+    <h1>Recap: Component</h1>
+    <h2>
+      Component is the main building block of your app.<br>
+      You define a set of components for every UI element, screen, and route.
+    </h2>
+  </app-slide>
+
+  <!--  COMPONENT TREE  -->
+  <app-slide id="component-tree">
+    <h1>Component Tree</h1>
+    <p>
+      Every application has a root component which contains all other components.
+      In other words, the application will have a component tree.
+    </p>
+    <br>
+    <p>
+      Any Component can be a parent, a child or both.
+    </p>
+    <div>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+    </div>
+  </app-slide>
+
+  <app-slide id="parent-child-component">
+    <h2>Generate your components</h2>
+    <div row>
+      <div column-5>
+        <h3>Parent Component</h3>
+        <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
+      </div>
+      <div column-5>
+        <h3>Child Component</h3>
+        <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
+      </div>
+    </div>
+    <h2>Do not forget add your components to the declarations array in your module.</h2>
+    <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
+  </app-slide>
+
+  <app-slide id="passing-data">
+    <h1>Passing data from parent to child</h1>
+    <div class="content-container">
+      <div row>
+        <div class="col-6">
+          <h3>Parent Component</h3>
+          <app-code-editor [fontSize]="15" [code]="code.parentComponent.code"></app-code-editor>
+        </div>
+        <div class="col-6">
+          <h3>Child Component</h3>
+          <app-code-editor [fontSize]="15" [code]="code.childComponent.code"></app-code-editor>
+        </div>
+      </div>
+    </div>
+  </app-slide>
+
+  <app-slide>
+    <app-exercise [config]="exercise">
+      <div class="description">
+        <p>Component tree, TODO</p>
+      </div>
+    </app-exercise>
+  </app-slide>
+</app-presentation>

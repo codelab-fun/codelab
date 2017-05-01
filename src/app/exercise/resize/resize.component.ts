@@ -1,11 +1,11 @@
-import {Component, ElementRef, HostListener, Input} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit,  Input} from '@angular/core';
 
 @Component({
   selector: 'app-resize',
   templateUrl: './resize.component.html',
   styleUrls: ['./resize.component.css']
 })
-export class ResizeComponent {
+export class ResizeComponent implements OnInit {
   @Input() isVertical: boolean;
   private MIN_WIDTH = 400;
   private MIN_HEIGHT = 200;
@@ -17,7 +17,7 @@ export class ResizeComponent {
 
   constructor(private elementRef: ElementRef) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.isVertical) {
       this.minSize = this.MIN_HEIGHT;
       this.size = Math.max(this.minSize, this.elementRef.nativeElement.clientHeight);
@@ -28,7 +28,7 @@ export class ResizeComponent {
     }
   }
 
-  calcWidth(currentOffset) {
+  calcWidth(currentOffset:number) {
      return this.initSize + currentOffset - this.initOffset;
   }
 
@@ -68,7 +68,6 @@ export class ResizeComponent {
       } else {
         this.initOffset = e.clientY;
       }
-
     }
   }
 

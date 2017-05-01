@@ -1,3 +1,4 @@
 <div class="slide" *ngIf="active" [style.width.px]="presentation.width" [style.height.px]="presentation.height">
   <ng-content></ng-content>
+  <span class="page-number" *ngIf="presentation.mode===modeEnum.overview">{{slideId+1}}</span>
 </div>

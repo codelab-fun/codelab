@@ -1,21 +1,21 @@
-import {differ} from "./differ";
+import {differ} from './differ';
 
 describe('differ', () => {
   it('returns the text the way it is, if there are no special tags.', () => {
-    let commits = differ('hi', ['first', 'second']);
+    const commits = differ('hi', ['first', 'second']);
     expect(commits['initial']).toEqual('hi');
     expect(commits['first']).toEqual('hi');
     expect(commits['second']).toEqual('hi');
   });
 
   it('Progressively adds the text for a single commit.', () => {
-    let commits = differ('hi/*d:first*/, world!/*/d*/', ['first']);
+    const commits = differ('hi/*d:first*/, world!/*/d*/', ['first']);
     expect(commits['initial']).toEqual('hi');
     expect(commits['first']).toEqual('hi, world!');
   });
 
   it('Works for multiline strings', () => {
-    let commits = differ(`hi/*d:first*/, wor
+    const commits = differ(`hi/*d:first*/, wor
   ld!/*/d*/`, ['first']);
     expect(commits['initial']).toEqual('hi');
     expect(commits['first']).toEqual(`hi, wor
@@ -23,7 +23,7 @@ describe('differ', () => {
   });
 
   it('Progressively adds the text for multiple commits.', () => {
-    let commits = differ(`/*d:first*/bu/*/d*//*d:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+    const commits = differ(`/*d:first*/bu/*/d*//*d:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
       ['first', 'second', 'third', 'forth']);
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');
@@ -35,7 +35,7 @@ describe('differ', () => {
 
   // TODO(kirjs): Nested diffs sound like a fun idea, maybe I'll implement them later.
   xit('Disallows nested diffs, and throws if they are present', () => {
-    let commits = differ(`/*d:first*/AA/*d:second*/OO/*/d*/AA/*/d*/`,
+    const commits = differ(`/*d:first*/AA/*d:second*/OO/*/d*/AA/*/d*/`,
       ['first', 'second']);
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('AAAA');
@@ -49,7 +49,7 @@ describe('differ', () => {
   });
 
   it('Allows multi-line tags for nicer formatting', () => {
-    let commits = differ(`hi/*
+    const commits = differ(`hi/*
     d:first
     */, world!/*/d*/`, ['first']);
     expect(commits['initial']).toEqual('hi');
@@ -58,7 +58,7 @@ describe('differ', () => {
 
 
   it('Allows to specify a range of commits.', () => {
-    let commits = differ(`/*d:first*/bu/*/d*//*d:second:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+    const commits = differ(`/*d:first*/bu/*/d*//*d:second:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
       ['first', 'second', 'third', 'forth']);
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');
@@ -68,7 +68,7 @@ describe('differ', () => {
   });
 
   it('Allows to specify a range of commits for initial', () => {
-    let commits = differ(`/*d:initial:initial*/hi/*/d*//*d:last*/bye/*/d*/`,
+    const commits = differ(`/*d:initial:initial*/hi/*/d*//*d:last*/bye/*/d*/`,
       ['first', 'second', 'third', 'last']);
     expect(commits['initial']).toEqual('hi');
     expect(commits['second']).toEqual('');
@@ -77,7 +77,7 @@ describe('differ', () => {
   });
 
   it('Allows to specify a wider range of commits.', () => {
-    let commits = differ(`/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+    const commits = differ(`/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
       ['first', 'second', 'third', 'forth']);
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');
@@ -87,7 +87,7 @@ describe('differ', () => {
   });
 
   it('Keeps existing version for the unknown commits.', () => {
-    let commits = differ(`/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+    const commits = differ(`/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
       ['first', 'second', 'secondandahalf', 'third', 'forth']);
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');

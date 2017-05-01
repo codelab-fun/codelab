@@ -1,33 +1,48 @@
-import {OnInit, Directive, HostListener, Input, ElementRef, Output, EventEmitter} from '@angular/core';
-import {Router, ActivatedRoute} from "@angular/router";
-import {PresentationComponent} from "../presentation/presentation.component";
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output
+  } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Directive({
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[app-slides-routing]'
 })
 export class SlidesRoutingDirective implements OnInit {
-  @Input() activeSlideId;
+  activeSlideId: string;
+
+  private ids: { [index: number]: string } = {};
+
+
   @Output() change = new EventEmitter();
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private pres: PresentationComponent){}
+  constructor(private router: Router, private route: ActivatedRoute, private  presentation: PresentationComponent){}
 
-  @HostListener('onSlideChange', ['$event']) slideChange(newId){
-    let milestone = this.route.snapshot.params['milestone'];
+  @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {
+    // Add url mapping
+    this.ids[value.index] = value.id;
 
-    if (milestone) {
-      this.router.navigate(['milestone', milestone, newId], {skipLocationChange: false});
-    } else {
-      this.router.navigate(['', newId]);
+
+    if (this.activeSlideId === value.index.toString() || value.id === this.activeSlideId) {
+      // Maybe update route here
+      this.slideChange(value.index);
+      this.presentation.activeSlideIndex = value.index;
     }
   }
 
+  @HostListener('onSlideChange', ['$event']) slideChange(index) {
+    const url = this.ids[index] || index;
+    this.router.navigate(['../' + url], {relativeTo: this.route, preserveQueryParams: true});
+  }
+
   ngOnInit() {
-    let id = Number(this.route.snapshot.params['id']);
-    if(id){
-      this.pres.activeSlideId = id;
-    }
+    const id = this.route.snapshot.params['id'];
+
+    this.activeSlideId = id || '0';
+
   }
 }

@@ -1,2 +1,2 @@
-<div class="arrow-left" (click)="goToPreviousSlide()">&lt;</div>
-<div class="arrow-right" (click)="goToNextSlide()">&gt;</div>
+<div *ngIf="canGoPrevious()" class="arrow-left" (click)="goToPreviousSlide()">◀</div>
+<div *ngIf="canGoNext()"  class="arrow-right" (click)="goToNextSlide()">▶</div>

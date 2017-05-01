@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 
 @Component({
@@ -6,7 +6,7 @@ import {FileConfig} from '../interfaces/file-config';
   templateUrl: './editors.component.html',
   styleUrls: ['./editors.component.scss']
 })
-export class EditorsComponent {
+export class EditorsComponent implements OnInit {
   @Input() public files: Array<any>;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
@@ -24,8 +24,8 @@ export class EditorsComponent {
     this.onChanges.emit(change);
   }
 
-  ngOnInit() {
-    this.currentFile = this.visibleFiles[0]
+  ngOnInit(): void {
+    this.currentFile = this.visibleFiles[0];
   }
 
   get visibleFiles() {
@@ -42,10 +42,10 @@ export class EditorsComponent {
 
   isOpenFile(file) {
     if (!file || !this.currentFile) { return; }
-    return file.path == this.currentFile.path;
+    return file.path === this.currentFile.path;
   }
 
-  showFile(file) {
+  showFile(file): void {
     this.currentFile = file;
   }
 
@@ -53,7 +53,7 @@ export class EditorsComponent {
     return file.path;
   }
 
-  loadSolution(file: FileConfig) {
+  loadSolution(file: FileConfig): void {
     this.onLoadSolution.next(file);
   }
 }

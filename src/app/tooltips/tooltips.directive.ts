@@ -1,60 +1,65 @@
-import {Directive, Input, ElementRef} from '@angular/core';
-import {EditorComponent} from "../exercise/editor/editor.component";
+import {Directive, ElementRef, Input, AfterViewInit} from '@angular/core';
+import {EditorComponent} from '../exercise/editor/editor.component';
+import {findPosition} from './utils';
+import 'rxjs/add/operator/filter';
 
 /*
-This directive adds tooltips to the provided text
+ This directive adds tooltips to the provided text
 
-Usage in template:
-<app-slide [ng-tooltips]="tooltips">
+ Usage in template:
+ <app-slide [ng-tooltips]="tooltips">
 
-...
-tooltips = [
+ ...
+ tooltips = [
  {
-  match:'Angular',
-  text:'This is Angular',
-  fontSize: 40 ---optional
+ match:'Angular',
+ text:'This is Angular',
+ fontSize: 40 ---optional
  }
-];
+ ];
 
  */
 
 @Directive({
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[ng-tooltips]'
 })
-export class TooltipsDirective {
-  @Input('ng-tooltips') tooltips : Array<any> = [];
-  constructor(private el: ElementRef, private component:EditorComponent) {
+export class TooltipsDirective implements AfterViewInit {
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
+  @Input('ng-tooltips') tooltips: Array<any> = [];
+
+  constructor(private el: ElementRef, private editorComponent: EditorComponent) {
   }
 
-  ngAfterViewInit(){
-    this.component.slide.onActive.filter(a => a).subscribe(() => { //only generate tooltip when the slide is active
-      let decorations = this.tooltips.map((tooltip,i) => {
-        let textBeforeMatch = this.component.code.slice(0,this.component.code.indexOf(tooltip.match));
-        let lineBreaks = textBeforeMatch.match(/(\r\n|\n|\r)/g);
-        let lineNumber = (lineBreaks ? lineBreaks.length : 0) + 1;
-
-        let lineStart = textBeforeMatch.lastIndexOf('\n');
-        let indexStart = this.component.code.slice(lineStart, this.component.code.length - 1).indexOf(tooltip.match);
-        let indexEnd = indexStart+tooltip.match.length;
-        return { range: new this.component.monacoConfigService.monaco.Range(lineNumber,indexStart,lineNumber,indexEnd), options: { inlineClassName: 'tooltip-text-'+i }};
+  ngAfterViewInit(): void {
+    this.editorComponent.slide.onActive.filter(a => a).subscribe(() => { // only generate tooltip when the slide is active
+      const decorations = this.tooltips.map((tooltip, i) => {
+        const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, tooltip.match);
+        return {
+          range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
+          options: {
+            inlineClassName: 'tooltip-text-' + i
+          }
+        };
       });
-      let a = this.component._editor.deltaDecorations([], decorations);
+
+      this.editorComponent._editor.deltaDecorations([], decorations);
 
       setTimeout(() => {
         this.tooltips.forEach((item, i) => {
-          let text = this.el.nativeElement.querySelector('.tooltip-text-' + i);
-          if (!text){
+          const text = this.el.nativeElement.querySelector('.tooltip-text-' + i);
+          if (!text) {
             return;
           }
-          let newPopup = document.createElement('div');
+          const newPopup = document.createElement('div');
           newPopup.className = 'popup';
 
-          let popupMessage = document.createElement('div');
-          let popupArrow = document.createElement('div');
+          const popupMessage = document.createElement('div');
+          const popupArrow = document.createElement('div');
           popupMessage.className = 'popup-message';
           popupArrow.className = 'popup-arrow';
           popupMessage.innerHTML = item.text;
-          if (item.fontSize){
+          if (item.fontSize) {
             popupMessage.style['font-size'] = item.fontSize + 'px';
           }
 
@@ -63,13 +68,13 @@ export class TooltipsDirective {
 
           let offsetTop = 0;
           let currentNode = text;
-          while(currentNode.nodeName != 'BODY'){
+          while (currentNode.nodeName !== 'BODY') {
             offsetTop += currentNode.offsetTop;
             currentNode = currentNode.offsetParent;
           }
           let offsetLeft = 0;
           currentNode = text;
-          while(currentNode.nodeName != 'BODY'){
+          while (currentNode.nodeName !== 'BODY') {
             offsetLeft += currentNode.offsetLeft;
             currentNode = currentNode.offsetParent;
           }
@@ -78,7 +83,7 @@ export class TooltipsDirective {
           newPopup.style.top = offsetTop - (newPopup.offsetHeight) + 5 + 'px';
           newPopup.style.left = offsetLeft + (text.offsetWidth) + 'px';
         });
-      },500);
+      }, 500);
     });
 
   }

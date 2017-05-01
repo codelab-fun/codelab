@@ -1,72 +1,86 @@
-import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {PresentationService} from './presentation.service'
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+  } from '@angular/core';
+import { Mode } from './../mode.enum';
+import { SlideComponent } from './../slide/slide.component';
+import { Subscription } from 'rxjs/Subscription';
+import {PresentationService} from './presentation.service';
 
 export interface SlideConfig {
-  resize: boolean,
-  shortcuts: boolean
+  resize: boolean;
+  shortcuts: boolean;
 }
+
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent {
-  @Input() activeSlideId : number = 0;
+export class PresentationComponent  {
+  private generatedSlideIndex = 0;
+  private activeMode: Mode = Mode.none;
+
+  @Input() activeSlideIndex = 0;
   @Input() public width = 1280;
   @Input() public height = 720;
   @Input() public zoom = 1;
-  @Output() onSlideChange = new EventEmitter<number>();
-  areShortcutsEnabled = true;
 
-  private generatedSlideId = 0;
-  private currentIndex = 0;
+  @Output() onSlideChange = new EventEmitter<number>();
+  @Output() onSlideAdded = new EventEmitter<{ index: number, id: string}>();
+  @Output() onModeChange = new EventEmitter<Mode>();
+  areShortcutsEnabled = true;
+  // Expose enum to template
+  modeEnum = Mode;
+
+  get mode(): Mode {
+    return this.activeMode;
+  }
+  set mode(value: Mode)  {
+    this.activeMode = value;
+    this.onModeChange.next(value);
+  }
+
 
   constructor(
-    private route: ActivatedRoute,
     private presentationService: PresentationService) {}
 
+
   get totalSlides() {
-    return this.generatedSlideId;
+    return this.generatedSlideIndex;
   }
 
-  registerSlide(milestone?) {
-    if (milestone) {
-      return this.presentationService.getSetMilestoneSlides()[0];
-    }
-    return this.generatedSlideId++;
-  }
-
-  getNextSlideId() {
-    let slides = this.presentationService.getSetMilestoneSlides();
-
-    if (this.currentIndex >= slides.length) {
-      this.currentIndex = 0;
-    }
-    return this.presentationService.getSetMilestoneSlides()[this.currentIndex]
+  registerSlide(id:string) {
+    const index = this.generatedSlideIndex++;
+    this.onSlideAdded.next({index, id});
+    return index;
   }
 
   nextSlide(isTriggeredByShortcut: boolean = false) {
-    let milestone = this.route.snapshot.params['milestone'];
-
-    if (milestone) {
-      this.currentIndex++;
-      this.activeSlideId = this.getNextSlideId();
-      this.onSlideChange.next(this.activeSlideId);
-    }
-    else if ((this.activeSlideId + 1 < this.generatedSlideId) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+    if (this.canGoNext() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
-      this.activeSlideId++;
-      this.onSlideChange.next(this.activeSlideId);
+      this.activeSlideIndex++;
+      this.onSlideChange.next(this.activeSlideIndex);
     }
   }
 
+
   previousSlide(isTriggeredByShortcut: boolean = false) {
-    if ((this.activeSlideId > 0) && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+    if (this.canGoPrevious() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
       this.enableShortcuts();
-      this.activeSlideId--;
-      this.onSlideChange.next(this.activeSlideId);
+      this.activeSlideIndex--;
+      this.onSlideChange.next(this.activeSlideIndex);
     }
+  }
+
+  canGoNext(): boolean {
+    return this.activeSlideIndex + 1 < this.generatedSlideIndex;
+  }
+
+  canGoPrevious(): boolean {
+    return this.activeSlideIndex > 0;
   }
 
   disableShortcuts() {
@@ -80,4 +94,5 @@ export class PresentationComponent {
   disableResize() {
     // TODO
   }
+
 }

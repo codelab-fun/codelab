@@ -8,17 +8,20 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
-  ViewChild
+  ViewChild,
+  OnDestroy
 } from '@angular/core';
 
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import {Subject} from 'rxjs';
-import {FileConfig} from '../interfaces/file-config';
-import {MonacoConfigService} from '../services/monaco-config.service';
+import {Subject} from 'rxjs/Subject';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Subscription} from 'rxjs/Subscription';
-import {SlideComponent} from "../../presentation/slide/slide.component";
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/publish';
+import {FileConfig} from '../interfaces/file-config';
+import {MonacoConfigService} from '../services/monaco-config.service';
+import {SlideComponent} from '../../presentation/slide/slide.component';
 declare const monaco: any;
 declare const require: any;
 
@@ -36,13 +39,7 @@ declare const require: any;
     }
   ],
 })
-export class EditorComponent implements AfterViewInit, OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.file.currentValue.code !== this.code) {
-      this.loadCode(changes.file.currentValue.code);
-    }
-  }
-
+export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   editSubscription: Subscription;
   public _editor: any;
   @Input() public file: FileConfig;
@@ -50,12 +47,18 @@ export class EditorComponent implements AfterViewInit, OnChanges {
   @ViewChild('editor') editorContent: ElementRef;
   @Output() onCodeChange = new EventEmitter();
   private editSub: Subject<String> = new Subject<String>();
-  autorun = new BehaviorSubject<boolean>(true);
+  autorun: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   height = 0;
   public code = '';
 
-  calcHeight(lines) {
-    let lineHeight = this.fontSize + 6;
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.file.currentValue.code !== this.code) {
+      this.loadCode(changes.file.currentValue.code);
+    }
+  }
+
+  calcHeight(lines): number {
+    const lineHeight = this.fontSize + 20;
     return Math.max(lines * lineHeight, lineHeight * 6);
   }
 
@@ -69,16 +72,20 @@ export class EditorComponent implements AfterViewInit, OnChanges {
     this.code = code;
     if (this._editor) {
       this._editor.getModel().setValue(code);
-      this.updateHeight(code)
+      this.updateHeight(code);
     }
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
+    if (!this.code) {
+      // tslint:disable-next-line:no-debugger
+      debugger;
+    }
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
-
     let model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
-    if(!model){
+    if (!model) {
       model = this.monacoConfigService.monaco.editor.createModel(this.file.code, this.file.type, this.file.path);
+      model.isSingleEditorModel = true;
     }
 
     this.code = this.file.code;
@@ -99,9 +106,9 @@ export class EditorComponent implements AfterViewInit, OnChanges {
     });
 
 
-    //Re-running the code on Ctrl + Enter
+    // Re-running the code on Ctrl + Enter
     // TODO
-    //this._editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => this.state.run());
+    // this._editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => this.state.run());
 
     this.updateHeight(this.file.code);
 
@@ -109,7 +116,7 @@ export class EditorComponent implements AfterViewInit, OnChanges {
 
   updateHeight(value: string) {
     const height = this.calcHeight(value.split('\n').length);
-    if (this.height != height) {
+    if (this.height !== height) {
       this.height = height;
       this.editorContent.nativeElement.style.height = height + 'px';
       this._editor.layout();
@@ -123,7 +130,7 @@ export class EditorComponent implements AfterViewInit, OnChanges {
   }
 
   updateValue(value: string) {
-    if (this.code != value) {
+    if (this.code !== value) {
       this.code = value;
       this.updateHeight(value);
       this.editSub.next(value);
@@ -132,7 +139,7 @@ export class EditorComponent implements AfterViewInit, OnChanges {
 
   ping() {
     // TODO: Find a better way.
-    let model = this._editor.getModel();
+    const model = this._editor.getModel();
     const oldFullModelRange = model.getFullModelRange();
     const oldModelValueLength = model.getValueLengthInRange(oldFullModelRange);
     const endLineNumber = model.getLineCount();

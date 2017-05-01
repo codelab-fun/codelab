@@ -1,6 +1,6 @@
+import {TooltipsModule} from '../tooltips/tooltips.module';
 import {NgModule} from '@angular/core';
 import {ExerciseComponent} from './exercise/exercise.component';
-import {BrowserModule} from '@angular/platform-browser';
 import {EditorsComponent} from './editors/editors.component';
 import {AutorunComponent} from './autorun/autorun.component';
 import {TestsComponent} from './tests/tests.component';
@@ -13,15 +13,22 @@ import {LoopProtectionService} from './services/loop-protection.service';
 import {ScriptLoaderService} from './services/script-loader.service';
 import {MonacoConfigService} from './services/monaco-config.service';
 import {PlaygroundComponent} from './playground/playground.component';
+import {CodeEditorComponent} from './code-editor/code-editor.component';
+import {CommonModule} from '@angular/common';
+import {BrowserWindowModule} from '../browser-window/browser-window.module';
 
 
 @NgModule({
   declarations: [
     ExerciseComponent,
-    EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent, InfoComponent, ResizeComponent, PlaygroundComponent,],
-  imports: [BrowserModule, FormsModule],
-  providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
-  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent, InfoComponent, RunnerComponent]
+    EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent,InfoComponent, ResizeComponent, PlaygroundComponent,
+  CodeEditorComponent
+  ],imports: [CommonModule, FormsModule,
+  TooltipsModule,
+    BrowserWindowModule
+  ],providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
+  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent,InfoComponent, RunnerComponent,
+    CodeEditorComponent]
 })
 export class ExerciseModule {
 }
