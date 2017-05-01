@@ -6,7 +6,6 @@ import {AutorunComponent} from './autorun/autorun.component';
 import {TestsComponent} from './tests/tests.component';
 import {RunnerComponent} from './runner/runner.component';
 import {EditorComponent} from './editor/editor.component';
-import {InfoComponent} from './info/info.component';
 import {FormsModule} from '@angular/forms';
 import {LoopProtectionService} from './services/loop-protection.service';
 import {ScriptLoaderService} from './services/script-loader.service';
@@ -16,6 +15,7 @@ import {CodeEditorComponent} from './code-editor/code-editor.component';
 import {CommonModule} from '@angular/common';
 import {BrowserWindowModule} from '../browser-window/browser-window.module';
 import {ResizeModule} from '../resize/resize.module';
+import {SlidesPreviewComponent} from './slides-preview/slides-preview.component';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import {ResizeModule} from '../resize/resize.module';
     TestsComponent,
     RunnerComponent,
     EditorComponent,
-    InfoComponent,
+    SlidesPreviewComponent,
     PlaygroundComponent,
     CodeEditorComponent
   ], imports: [
@@ -36,7 +36,7 @@ import {ResizeModule} from '../resize/resize.module';
     TooltipsModule,
     BrowserWindowModule
   ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
-  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent, InfoComponent, RunnerComponent,
+  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent, SlidesPreviewComponent, RunnerComponent,
     CodeEditorComponent]
 })
 export class ExerciseModule {
