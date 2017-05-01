@@ -1,0 +1,31 @@
+<app-presentation 
+  app-slides-routing
+  app-mode-routing>>
+
+  <app-slide class="no-padding">
+    <div id="main">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Comment</th>
+          <th>href</th>
+          <th>Header</th>
+        </tr>
+        <tr *ngFor="let feedbackItem of currentFeedbackList">
+          <td>{{feedbackItem.name}}</td>
+          <td>{{feedbackItem.comment}}</td>
+          <td>{{feedbackItem.href}}</td>
+          <td>{{feedbackItem.header}}</td>
+        </tr>
+      </table>
+
+      <ul>
+        <li *ngFor="let feedbacker of feedbackersNames">
+          <b>{{feedbacker}}</b> Number of feedback: {{feedbackersCount[feedbacker]}}
+        </li>
+      </ul>
+    </div>
+
+  </app-slide>
+
+</app-presentation>
