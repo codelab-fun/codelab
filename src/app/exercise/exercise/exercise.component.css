@@ -32,11 +32,11 @@
 app-editors {
   display: flex;
   flex-direction: column;
-  flex: 1;
   overflow: auto;
+  height: auto;
 }
 
-info {
+app-info {
   display: flex;
   flex: 1;
 }

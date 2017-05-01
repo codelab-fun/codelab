@@ -1,4 +1,4 @@
-import {HostListener, Directive, AfterViewInit} from '@angular/core';
+import {HostListener, Directive} from '@angular/core';
 import {PresentationComponent} from '../presentation/presentation.component';
 
 interface Size {

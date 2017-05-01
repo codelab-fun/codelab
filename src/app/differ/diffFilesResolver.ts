@@ -6,7 +6,7 @@ interface Override {
   [key: string]: {
     [key: string]: string;
   };
-};
+}
 interface Overrides {
   file: Override;
   stage: Override;

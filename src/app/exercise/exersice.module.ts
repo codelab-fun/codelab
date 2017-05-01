@@ -21,13 +21,20 @@ import {BrowserWindowModule} from '../browser-window/browser-window.module';
 @NgModule({
   declarations: [
     ExerciseComponent,
-    EditorsComponent, AutorunComponent, TestsComponent, RunnerComponent, EditorComponent,InfoComponent, ResizeComponent, PlaygroundComponent,
-  CodeEditorComponent
-  ],imports: [CommonModule, FormsModule,
-  TooltipsModule,
+    EditorsComponent,
+    AutorunComponent,
+    TestsComponent,
+    RunnerComponent,
+    EditorComponent,
+    InfoComponent,
+    ResizeComponent,
+    PlaygroundComponent,
+    CodeEditorComponent
+  ], imports: [CommonModule, FormsModule,
+    TooltipsModule,
     BrowserWindowModule
-  ],providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
-  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent,InfoComponent, RunnerComponent,
+  ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
+  exports: [ExerciseComponent, PlaygroundComponent, EditorComponent, InfoComponent, RunnerComponent,
     CodeEditorComponent]
 })
 export class ExerciseModule {

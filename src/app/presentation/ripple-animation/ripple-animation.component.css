@@ -14,8 +14,8 @@
 	border: 1vw solid rgba(255, 89, 75, 0.1);
 	border-radius: 50%;
 	position: absolute;
-	left: 0%;
-	top: 0%;
+	left: 0;
+	top: 0;
 }
 
 .one {

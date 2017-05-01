@@ -13,7 +13,6 @@ export class EditorsComponent implements OnInit {
   @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
   private debug: boolean;
   private currentFile;
-  private isExpanded
 
   constructor() {
     // TODO
