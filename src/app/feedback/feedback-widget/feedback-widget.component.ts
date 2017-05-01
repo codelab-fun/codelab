@@ -1,11 +1,11 @@
 import {Component, ElementRef, HostListener, OnDestroy, OnInit} from '@angular/core';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 import {Subscription} from 'rxjs/Subscription';
 import {Message} from '../message';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-
 
 @Component({
   selector: 'app-feedback-widget',
@@ -37,12 +37,11 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     return this.isOpen;
   }
 
-  constructor(private angularFire: AngularFire,
+  constructor(private database: AngularFireDatabase,
               private el: ElementRef,
               private fb: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
-
     this.activatedRoute.url.subscribe(() => {
       if (this.initialized) {
         // Get new data for route
@@ -68,7 +67,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   }
 
   initData() {
-    this.repo$ = this.angularFire.database.list('/feedback');
+    this.repo$ = this.database.list('/feedback');
     // Get all feedback for this url, sorted by date, newest first
     this.repoSubscription = this.repo$.subscribe(values => {
       this.items = values.map(m => m as Message)
