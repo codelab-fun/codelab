@@ -9,6 +9,7 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
 
+  <!--  INTRO -->
   <app-slide id="intro" class="no-padding">
     <app-title-slide
       [title]="title"
@@ -17,6 +18,7 @@
     ></app-title-slide>
   </app-slide>
 
+  <!--  COMPONENT -->
   <app-slide id="component">
     <h1>Angular Templates</h1>
     <h2>Angular has a very expressive template system.</h2>
@@ -24,12 +26,14 @@
     <app-playground [config]="code.template.intro"></app-playground>
   </app-slide>
 
+  <!--  INTERPOLATION-->
   <app-slide id="interpolation">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
     <app-playground [config]="code.template.interpolation"></app-playground>
   </app-slide>
 
+  <!--INTERPOLATION-METHOD-->
   <app-slide id="interpolation-method">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
@@ -37,19 +41,21 @@
     <app-playground [config]="code.template.interpolationMethod"></app-playground>
   </app-slide>
 
+  <!--  PRE DATA BINDING-->
   <app-slide id="data-binding-pre">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies can be used anywhere in the templates, even in properties</h2>
     <app-playground [config]="code.template.dataBindingPre"></app-playground>
   </app-slide>
 
+  <!--  DATA BINDING  -->
   <app-slide id="data-binding">
     <h1>Angular Templates - Data binding</h1>
     <h2>There is a special way to bind the data to the properties using [ and ]</h2>
     <app-playground [config]="code.template.dataBinding"></app-playground>
   </app-slide>
 
-
+  <!--  DATA BINDING EXTRAS-->
   <app-slide id="data-binding-extras">
     <h1>Angular Templates - Data binding extras</h1>
     <h2>Angular supports more advanced bindings than just attribute name.</h2>
@@ -59,7 +65,7 @@
     </app-code-editor>
   </app-slide>
 
-
+  <!--  BINDING EVENT -->
   <app-slide id="event-binding">
     <h2 ngNonBindable>Event binding ( (event) )</h2>
     <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
@@ -72,6 +78,7 @@
     </app-code-editor>
   </app-slide>
 
+  <!--  EVENT BINGING PROPERTY-->
   <app-slide id="event-binding-property">
     <h1>Event binding Exercise</h1>
     <p>Using event binding display a button that when gets clicked it should call onButtonClick method with some
@@ -81,6 +88,7 @@
     </app-playground>
   </app-slide>
 
+  <!--  REFERENCE BINDING -->
   <app-slide id="reference-binding">
     <h2>Reference binding ( #var )</h2>
     <p>A template reference variable is often a reference to a DOM element within a template. It can also be a reference
@@ -104,6 +112,7 @@
     </app-playground>
   </app-slide>
 
+  <!--  CONDITIONAL DISPLAY-->
   <app-slide id="conditional-display-ngif">
     <h2>Conditional Display (*ngIf)</h2>
     <p>
@@ -118,6 +127,7 @@
     </app-code-editor>
   </app-slide>
 
+  <!--  CONDITIONAL NGIF EXERCISE-->
   <app-slide id="conditional-display-ngif-exercise">
     <h1>Conditional Display Exercise</h1>
     <p>Using ngIf display the user picture and toggle button which shows and hides the pricure when clicked</p>
@@ -126,6 +136,7 @@
     </app-playground>
   </app-slide>
 
+  <!--  CONDITIONAL NGFOR-->
   <app-slide id="conditional-display-ngfor">
     <h2>Conditional Display (*ngFor)</h2>
     <p>
@@ -141,6 +152,7 @@
     </app-code-editor>
   </app-slide>
 
+  <!--  CONDITIONAL EXERCISE NGFOR-->
   <app-slide id="conditional-display-ngfor-exercise">
     <h1>Conditional Display Exercise</h1>
     <p>Using ngFor display the user picture and toggle button which shows and hides the pricure when clicked</p>
