@@ -65,7 +65,7 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3, li {
   margin: 0;
   padding: 0;
   font-weight: 300;
@@ -82,14 +82,14 @@ h1, h2 {
 
 /* Hide all elements that are not slides when in overview mode */
 .presentation.overview > *:not(app-slide) {
-  visibility:hidden;
+  visibility: hidden;
 }
 
-.presentation.overview .slide{
+.presentation.overview .slide {
   pointer-events: none;
   margin: 2% auto;
   zoom: 0.7;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .presentation.overview .slide .page-number {
@@ -98,7 +98,7 @@ h1, h2 {
   bottom: 4%;
 }
 
-.presentation.overview .overview-buttons{
+.presentation.overview .overview-buttons {
   position: fixed;
   visibility: visible;
 }
@@ -225,25 +225,29 @@ p {
 
 /* Slide/presentation printing styles */
 @media print {
-    @page {
-      size: A4 landscape;
-    }
-    .slide {
-      zoom: 1;
-      font-size: 12pt;
-      page-break-after: always;
-    }
-    .slide .page-number {
-      display: none;
-    }
-    .presentation.overview {
-      width: auto !important;
-      height: auto !important;
-      zoom: 1 !important;
-    }
-    .presentation.overview .overview-buttons {
-      display: none;
-    }
+  @page {
+    size: A4 landscape;
+  }
+
+  .slide {
+    zoom: 1;
+    font-size: 12pt;
+    page-break-after: always;
+  }
+
+  .slide .page-number {
+    display: none;
+  }
+
+  .presentation.overview {
+    width: auto !important;
+    height: auto !important;
+    zoom: 1 !important;
+  }
+
+  .presentation.overview .overview-buttons {
+    display: none;
+  }
 }
 
 /*  BUTTONS BAR CONTAINER  */
@@ -255,15 +259,39 @@ p {
   display: flex;
   flex-direction: row;
 }
+
 /*  BUTTONS BAR   */
 .menu-bar-btn {
   width: 45px;
   height: 45px;
   border-radius: 50%;
   background: no-repeat center;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-left: 10px;
 }
+
 .menu-bar-btn:hover {
   cursor: pointer;
 }
+
+.exercise {
+  background: #dddddd;
+  font-size: 30px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.exercise:before {
+  content: "?";
+  margin-right: 20px;
+}
+
+.exercise.solved {
+  background: #45dd1d;
+}
+
+.exercise.solved:before {
+  content: "✔";
+  margin-right: 20px;
+}
+
