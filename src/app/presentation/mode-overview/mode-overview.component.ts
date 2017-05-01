@@ -10,7 +10,7 @@ import { PresentationComponent } from './../presentation/presentation.component'
 })
 export class ModeOverviewComponent {
 
-  private previousMode:Mode;
+  private previousMode: Mode;
   modeEnum = Mode;
   onOverview = false;
 

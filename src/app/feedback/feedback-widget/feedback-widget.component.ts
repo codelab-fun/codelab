@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener, OnDestroy, OnInit} from '@angular/core';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 import {Subscription} from 'rxjs/Subscription';
 import {Message} from '../message';
@@ -7,7 +8,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {combineLatest} from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
-
 
 @Component({
   selector: 'app-feedback-widget',
@@ -28,18 +28,20 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
   repo$: FirebaseListObservable<any>;
 
-  constructor(private angularFire: AngularFire,
+  constructor(private database: AngularFireDatabase,
               private el: ElementRef,
               private fb: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
+
     this.repo$ = this.angularFire.database.list('/feedback');
 
-    combineLatest(this.activatedRoute.url, this.repo$)
-      .map(([_, messages]) => {
+    combineLatest(this.activatedRoute.url,this.repo$)
+        .map(([_, messages]) => {
         return (messages as Array<Message>)
-          .filter(m => m.href.toLowerCase() === this.router.url.toLowerCase()).sort()
-      }).subscribe(messages => this.messages = messages);
+        .filter(m => m.href.toLowerCase() ===this.router.url.toLowerCase()).sort()
+      }
+    ).subscribe(messages => this.messages = messages);
   }
 
   ngOnInit() {
