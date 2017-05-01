@@ -142,16 +142,20 @@ export function pureJavascript(code, bootstrapCode, testCode) {
       bootstrap('main.ts', bootstrapCode, bootstrapCode),
       test('test.ts', testCode)
     ]
-  }
+  };
 }
 
-export function typeScriptWithConsoleLog(code, bootstrapCode, testCode) {
+export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "app.ts";', testCode = '', otherCode = '') {
+  const files = [
+    exerciseWithConsoleLog('app.ts', code, code),
+    bootstrap('main.ts', bootstrapCode, bootstrapCode),
+    test('test.ts', testCode)
+  ];
+  if (otherCode !== '') {
+    files.push(exercise('puppy.ts', otherCode, otherCode));
+  }
   return {
-    files: [
-      exerciseWithConsoleLog('app.ts', code, code),
-      bootstrap('main.ts', bootstrapCode, bootstrapCode),
-      test('test.ts', testCode)
-    ]
+    files
   };
 }
 
