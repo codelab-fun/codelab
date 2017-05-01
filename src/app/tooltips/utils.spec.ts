@@ -1,6 +1,6 @@
 import {findPosition} from './utils';
 describe('Utils', () => {
-  fdescribe('findPosition', () => {
+  describe('findPosition', () => {
     it('Whole string is matched', () => {
       expect(findPosition('Hello', 'Hello')).toEqual({lineStart: 1, indexStart: 1, indexEnd: 6, lineEnd: 1});
     });
