@@ -4,15 +4,15 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { FeedbackService } from './feedback.service';
 import { inject, TestBed } from '@angular/core/testing';
 
-const router = {
+const mockRouter = {
   url: 'abc123'
 };
 
-const activatedRoute = {
+const mockActivatedRoute = {
   url: new BehaviorSubject<string>('')
 };
 
-const messages = [
+const mockMessages = [
   {
     name: 'a',
     href: 'def456',
@@ -33,38 +33,34 @@ const messages = [
   }
 ];
 
-let messageStream: any = new BehaviorSubject(messages);
-messageStream = Object.assign(messageStream, { push: jasmine.createSpy('push') });
+let mockMessageStream: any = new BehaviorSubject(mockMessages);
+mockMessageStream = Object.assign(mockMessageStream, { push: jasmine.createSpy('push') });
 
-const fire = {
-  list: jasmine.createSpy('list').and.returnValue(messageStream)
+const mockDb = {
+  list: jasmine.createSpy('list').and.returnValue(mockMessageStream)
 };
 
-fdescribe('FeedbackService', () => {
+describe('FeedbackService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         FeedbackService,
         {
           provide: AngularFireDatabase,
-          useValue: fire
+          useValue: mockDb
         },
-        { provide: Router, useValue: router },
-        { provide: ActivatedRoute, useValue: activatedRoute }
+        { provide: Router, useValue: mockRouter },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     });
   });
 
-  it('should exist', inject([FeedbackService], (service: FeedbackService) => {
-    expect(service).toBeTruthy();
-  }));
-
   it('should initialize data source when created', inject([FeedbackService], (service: FeedbackService) => {
-    expect(fire.list).toHaveBeenCalled();
+    expect(mockDb.list).toHaveBeenCalledWith('/feedback');
   }));
 
-  it('should list messages filtered by the router url', inject([FeedbackService, ActivatedRoute, Router],
-    (service: FeedbackService, _activatedRoute: ActivatedRoute, _router: any) => {
+  it('should list messages filtered by the router url', inject([FeedbackService, ActivatedRoute],
+    (service: FeedbackService, _activatedRoute: ActivatedRoute) => {
       const stream = service.getMessages(_activatedRoute);
       stream.subscribe(values => {
         expect(values.length).toEqual(2);
@@ -84,13 +80,13 @@ fdescribe('FeedbackService', () => {
         }
       });
       _router.url = 'def456';
-      activatedRoute.url.next('');
+      mockActivatedRoute.url.next('');
     }));
 
-  it('should add a message from the current url', inject([FeedbackService, Router], (service: FeedbackService, _router: any) => {
+  it('should add a message from the current url', inject([FeedbackService], (service: FeedbackService) => {
     service.addMessage('a', 'b', 'c', 'header');
-    expect(messageStream.push).toHaveBeenCalled();
-    const call: jasmine.Spy = messageStream.push;
+    expect(mockMessageStream.push).toHaveBeenCalled();
+    const call: jasmine.Spy = mockMessageStream.push;
     const obj = call.calls.mostRecent().args[0];
     expect(obj.href).toEqual('abc123');
   }));
