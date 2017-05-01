@@ -1,32 +1,45 @@
-<div id="main">
-  <div id="buttonContainer" title="Feedback">
-    <div (click)="buttonClicked()" id="feedbackButton">
-      <img src="assets/images/icon.png" id="icon">
+<!--  FEEDBACK BUTTON-->
+<div (click)="buttonClicked()"
+     class="feedback-container feedback-button menu-bar-btn"
+     title="Feedback">
+  <span *ngIf="messages.length" class="messages-count">
+    {{messages.length}}
+  </span>
+</div>
+<!--  FEEDBACK FORM -->
+<div *ngIf="open" class="feedback-form feedback-container">
+  <div class="form-container" *ngIf="open">
+    <div class="feedback-items">
+      <div class="feedback-item" *ngFor="let item of messages">
+        <div class="header">
+          <span class="name">{{item.name}}</span>
+          <span class="date">{{item.timestamp|date}}</span>
+        </div>
+        <div>{{item.comment}}</div>
+      </div>
     </div>
-  </div>
-  <div *ngIf="open" id="form">
-    <div>
-      <input type="text"
-             [(ngModel)]="name"
-             [ngModelOptions]="{standalone: true}"
-             placeholder="Enter your name (optional)"
-             name="name"/>
-    </div>
-    <div>
-      <input type="email"
-             [(ngModel)]="email"
-             [ngModelOptions]="{standalone: true}"
-             placeholder="Enter your email"
-             name="email"/>
-    </div>
-    <div>
-      <textarea [(ngModel)]="comment" placeholder="Describe your issue or share your ideas" name="comment"></textarea>
-    </div>
-    <div>
-      <button (click)="send()" id="submit">Send</button>
-    </div>
-    <div id="message" [class.error]="error">
-      {{statusMessage}}
-    </div>
+    <form [formGroup]="formGroup" novalidate (submit)="submit()">
+      <div>
+        <input type="text" placeholder="Enter your name"
+               formControlName="name"/>
+      </div>
+      <div class="email">
+        <input type="email" placeholder="Enter your email (optional)"
+               formControlName="email"/>
+        <label>Email is optional and, will not displayed</label>
+      </div>
+      <div>
+          <textarea placeholder="Describe your issue or share your ideas"
+                    formControlName="comment" (keydown.control.enter)="submit()"></textarea>
+      </div>
+      <div>
+        <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
+                type="submit">Send
+        </button>
+      </div>
+      <div [class.error]="error">
+        {{statusMessage}}
+      </div>
+    </form>
   </div>
 </div>

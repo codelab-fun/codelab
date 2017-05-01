@@ -1,29 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { displayAngularComponentWithHtml } from '../../exercise/helpers/helpers';
+import {Component, OnInit} from '@angular/core';
+import {displayAngularComponent, displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
 
-class Person {
-  constructor(public firstName: string, public lastName: string, public photoUrl: string) { }
-  fullName() { return this.firstName + " " + this.lastName; }
-}
 
-const baseCode = `
-import {Component} from '@angular/core';
-class Person {
-  constructor(public firstName: string, public lastName: string, public pic: string) { }
-  fullName() { return this.firstName + " " + this.lastName; }
-}
-@Component({
-  selector: 'my-app', 
-  templateUrl: './app/app.html'
-})
-export class AppComponent {
-  user=new Person('John','Smith','https://www.gravatar.com/avatar');
-  displayUser=true;
-  heros=["Celeritas","Magneta","Dynama"];
-  onButtonClick(input){
-    alert('You typed:'+input);
-  }  
-}`;
+const x = {
+  a: 1, b: 2
+};
+
+const baseCode = 'TODO';
 
 @Component({
   selector: 'app-templates',
@@ -31,10 +14,86 @@ export class AppComponent {
   styleUrls: ['./templates.component.css']
 })
 export class TemplatesComponent implements OnInit {
+  title = 'Templates';
+  description = 'Learn more about Angular templates!';
+  prereqs = '';
 
   code = {
-    appComponent: baseCode,
-    appComponentMatch: /AppComponent/,
+    template: {
+      intro: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app', 
+  template: '<h1>Hello World!</h1>'
+})
+export class AppComponent {
+}`),
+      interpolation: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app', 
+  template: \`<h1>
+    Hello {{firstName}}!
+    </h1>\`
+})
+export class AppComponent {
+  firstName = 'Pierre-Auguste';
+  lastName = 'Renoir';
+}`),
+      interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app', 
+  template: \`<h1>Hello {{fullName()}}!</h1>\`
+})
+export class AppComponent {
+  firstName = 'Pierre-Auguste';
+  lastName = 'Renoir';
+  fullName(){ 
+     return this.firstName + this.lastName
+  }
+}`),
+      dataBindingPre: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app', 
+  template: \`<h1>Hello {{fullName()}}!</h1>
+    <img src="{{avatar}}">
+  \`
+})
+export class AppComponent {
+  firstName = 'Pierre-Auguste';
+  lastName = 'Renoir';
+  avatar = 'assets/images/renoir.jpg';
+  fullName(){  return this.firstName + this.lastName }
+}`),
+      dataBinding: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app', 
+  template: \`<h1>Hello {{fullName()}}!</h1>
+    <img [src]="avatar">
+  \`
+})
+export class AppComponent {
+  firstName = 'Pierre-Auguste';
+  lastName = 'Renoir';
+  avatar = 'assets/images/renoir.jpg';
+  fullName(){  return this.firstName + this.lastName }
+}`),
+      dataBindingExtra: `
+<!-- This is valid HTML syntax. -->
+<input [value]="person.emailAddress">
+<!-- It works on attribute syntax. -->
+<button [attr.aria-label]="help">help</button>
+<!-- It allows to conditionally bind a class-->
+<div [class.special]="isSpecial">Special</div>
+<!-- Or style properties -->
+<button [style.color]="isSpecial ? 'red' : 'green'">
+<!-- And work with custom components! -->
+<birthday-card [date]="person.birthday"> `,
+    },
+
     templateInterpolation: `
       <!-- Use property value from person object from component instance. -->
       <h2>Profile for {{person.name}}</h2>
@@ -43,13 +102,13 @@ export class TemplatesComponent implements OnInit {
       <h2>Profile for {{person.getBiography()}}</h2>
 
       <!-- Use property on person object from component instance. -->
-      <img src="{{person.pic}}" alt="Photo of {{person.name}}" ...>
+      <img src="{{person.pic}}" alt="Photo of {{person.name}}">
     `,
     templateInterpolationMatch: /{{person.name}}/,
     templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
     templateInterpolationExerciseMatch: /user.firstName/,
     bindingProp: `<!-- Bind [property] to the template express property. -->
-<img [src]="person.photoUrl" ...>
+<img [src]="person.photoUrl">
 <!-- Yes, this is valid HTML syntax. -->
 <input [value]="person.emailAddress">
 <!-- Yes, it works on attribute syntax. -->
@@ -107,7 +166,7 @@ export class TemplatesComponent implements OnInit {
       </li>
     </ul>`,
     conditionalDisplayForMatch: /ngFor/,
-    conditionalDisplayForExercise:displayAngularComponentWithHtml(baseCode, `<!--Type your template here heros -->`),
+    conditionalDisplayForExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here heros -->`),
 
   };
 

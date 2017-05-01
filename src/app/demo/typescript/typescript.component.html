@@ -1,26 +1,27 @@
-<app-presentation 
-  app-slides-routing 
+<app-presentation
+  app-slides-routing
   app-mode-routing>
-  <app-menu-shortcut></app-menu-shortcut>
+  <div class="btn-bar">
+    <app-mode-overview></app-mode-overview>
+    <app-feedback-widget></app-feedback-widget>
+    <app-menu-shortcut></app-menu-shortcut>
+  </div>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
-  <app-mode-overview></app-mode-overview>
-  <app-feedback-widget></app-feedback-widget>  
 
-  <!-- Intro -->
-  <app-slide id="intro">
-    <div style="text-align: center; display: flex; height: 100%; justify-content: center;">
-      <div style="align-self: center">
-        <h1 style="color: #0e70c0; margin: 0;">TypeScript</h1>
-        <h3 style="color: #000; margin: 0;">is a language compiled to</h3>
-        <h2 style="color: #f7df1e; margin: 0;">JavaScript</h2>
-      </div>
-    </div>
+
+  <app-slide id="intro" class="no-padding" milestone="TypeScript">
+    <app-title-slide
+      title="TypeScript"
+      description="Angular is written in TypeScript! Learn more about the language and the best features!"
+      prereqs="Basic understanding of JavaScript is required."
+    ></app-title-slide>
   </app-slide>
 
-   <!-- TYPES IN TYPESCRIPT-->
-  <app-slide id="types">
-    <h1><span style="color: #0e70c0;">TypeScript</span> has different types for different units of data. These types are:</h1>
+  <!-- TYPES IN TYPESCRIPT-->
+  <app-slide id="types" milestone="TypeScript">
+    <h1><span style="color: #0e70c0;">TypeScript</span> has different types for different units of data. These types
+      are:</h1>
     <div style="display: flex; flex-direction: row; justify-content: center;">
       <div style="width: 30%;">
         <ul>
@@ -44,24 +45,28 @@
     <div class="info"> We would describe 'number', 'string', and 'any'.</div>
   </app-slide>
   <!--  NUMBER-TYPE  -->
-  <app-slide id="number_type">
+  <app-slide id="number_type" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">:number</h1>
     <p> In typescript all numbers are floating point values. TypeScript supports binary and octal literals.</p>
     <h3>The add function should return 5. Can you find the issue?</h3>
+    <h2 *ngIf="tsexercises.solved" style="color: green">You solved the exercise!!</h2>
     <app-playground [config]="code.tsExercise"
-                    [focus-highlight-match]="[code.tsExerciseMatch]"></app-playground>
+                    [focus-highlight-match]="[code.tsExerciseMatch]"
+                    #tsexercises
+    ></app-playground>
     <div class="info"> Plain JavaScript will run the function returning a string.</div>
   </app-slide>
   <!--  STRING-TYPE  -->
-  <app-slide id="string_type">
+  <app-slide id="string_type" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">:string</h1>
     <p style="margin-bottom: 20px;">String is used to refer to textual datatype.</p>
     <app-code-editor [fontSize]="30" [code]="code.stringType.code"></app-code-editor>
     <p>This is the same as:</p>
     <app-code-editor [fontSize]="30" [code]="code.stringType2.code"></app-code-editor>
   </app-slide>
+
   <!--  ANY-TYPE  -->
-  <app-slide id="any_type">
+  <app-slide id="any_type" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">:any</h1>
     <p style="margin-bottom: 20px;">
       For when need to describe the type of variables that we do not know when we are writing an application.
@@ -70,7 +75,7 @@
   </app-slide>
 
   <!--  CLASSES  -->
-  <app-slide id="classes">
+  <app-slide id="classes" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Classes</h1>
     <p style="margin-bottom: 20px;">
       Starting with ECMAScript 2015, also known as ECMAScript 6, JavaScript programmers will be able to
@@ -81,7 +86,7 @@
   </app-slide>
 
   <!--  EXPORT  -->
-  <app-slide id="export">
+  <app-slide id="export" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Export</h1>
     <p style="margin-bottom: 20px;">
       Any declaration (such as a variable, function, class, type alias, or interface) can be exported by
@@ -92,7 +97,7 @@
   </app-slide>
 
   <!--  IMPORT  -->
-  <app-slide id="import">
+  <app-slide id="import" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Import</h1>
     <p style="margin-bottom: 20px;">
       Importing is just about as easy as exporting from a module.
@@ -102,7 +107,7 @@
   </app-slide>
 
   <!--  CONSTANTS  -->
-  <app-slide id="const">
+  <app-slide id="const" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Constants - <span style="color: red;">const</span></h1>
     <p style="margin-bottom: 20px;">
       As its name implies, their value cannot be changed once they are bound. In other words, you can’t
@@ -112,7 +117,7 @@
                      [focus-highlight-match]="[code.classDescription.matches.constants]"></app-code-editor>
   </app-slide>
 
-  <app-slide id="hello">
+  <app-slide id="hello" milestone="TypeScript">
     <h1 i18n>Also</h1>
     <ul>
       <li>Interfaces</li>
@@ -125,14 +130,14 @@
     </ul>
   </app-slide>
 
-  <app-slide id="why">
+  <app-slide id="why" milestone="TypeScript">
     <div style="text-align: center;">
       <h1 i18n>Why TypeScript?</h1>
 
       <svg width="460" height="460" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
         <g>
           <ellipse stroke="#000" ry="227.013155" rx="229.499997" id="svg_3" cy="227.986845" cx="228.999988"
-                   stroke-width="1.5" fill="#09bcd3"></ellipse>
+                   st roke-width="1.5" fill="#09bcd3"></ellipse>
           <ellipse stroke="#000" ry="120.786392" rx="125.000014" id="svg_4" cy="314.213608" cx="286.499992"
                    stroke-width="1.5" fill="#b060b0"></ellipse>
           <ellipse stroke="#000" ry="57.866101" rx="58.500002" id="svg_5" cy="356.133899" cx="335" stroke-width="1.5"
@@ -161,7 +166,7 @@
     </div>
   </app-slide>
   <app-slide id="exercise">
-    <app-exercise [config]="exercises[0]">
+    <app-exercise [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
           called Codelab.</p>

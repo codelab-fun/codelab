@@ -1,4 +1,4 @@
-import {HostListener, Directive, AfterViewInit} from '@angular/core';
+import {Directive, HostListener} from '@angular/core';
 import {PresentationComponent} from '../presentation/presentation.component';
 
 interface Size {
@@ -7,9 +7,10 @@ interface Size {
 }
 
 @Directive({
-  selector: 'app-resize'
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
+  selector: '[app-auto-resize]'
 })
-export class ResizeDirective  {
+export class ResizeDirective {
   @HostListener('window:resize')
   static getZoomFactor(slideSize: Size, windowSize: Size) {
     return Math.min(windowSize.width / slideSize.width, windowSize.height / slideSize.height);

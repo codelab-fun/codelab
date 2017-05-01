@@ -2,9 +2,10 @@ import {NgModule} from '@angular/core';
 import {DependencyInjectionComponent} from './dependency-injection.component';
 import {RouterModule} from '@angular/router';
 import {SlidesRoutes} from '../../presentation/slide-routes';
-import {FeedbackModule} from "../../feedback/feedback.module";
-import {ExerciseModule} from '../../exercise/exersice.module';
+import {FeedbackModule} from '../../feedback/feedback.module';
+import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from '../../presentation/presentation.module';
+import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 
 
 const routes = RouterModule.forChild(
@@ -13,6 +14,7 @@ const routes = RouterModule.forChild(
 
 @NgModule({
   imports: [routes, PresentationModule, ExerciseModule, FeedbackModule],
+  providers: [Ng2TsExercises],
   declarations: [DependencyInjectionComponent],
   exports: [DependencyInjectionComponent]
 })

@@ -1,5 +1,5 @@
 import {Component, ContentChild, Input, OnInit} from '@angular/core';
-import {FileConfig} from './../interfaces/file-config';
+import {FileConfig} from '../interfaces/file-config';
 
 @Component({
   selector: 'app-code-editor',
@@ -9,11 +9,13 @@ import {FileConfig} from './../interfaces/file-config';
   `,
 })
 export class CodeEditorComponent implements OnInit {
-  @Input('type') type: string = 'typescript';
-  @Input() fontSize: number = 30;
-  @Input() readonly: boolean = true;
-  @Input('code') code: string = '';
+  @Input('type') type = 'typescript';
+  @Input() fontSize = 30;
+  @Input() readonly = true;
+  @Input('code') code = '';
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('tooltips') ngTooltips: any[] = [];
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlight: any[] = [];
   @ContentChild('code') textarea;
   file: FileConfig;
@@ -25,7 +27,7 @@ export class CodeEditorComponent implements OnInit {
     const code = this.textarea && this.textarea.nativeElement.value.trim() || this.code;
     if (this.highlight[0] && !(this.highlight[0] instanceof RegExp) ) {
       // Has to be a regex
-      // tslint:disable-next-line:no-debugger
+      // tslint:disable-next-line:no-debugger TODO: Remove debugger
       debugger;
     }
     if (!code) {

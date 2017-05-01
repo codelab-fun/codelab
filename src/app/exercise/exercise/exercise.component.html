@@ -1,12 +1,25 @@
 <div *ngIf="slide.active">
   <div class="exercise-panel">
-    <app-editors [files]="config.files"
-                 (onChanges)="onCodeChanges($event)"
-                 (onToggle)="toggleFile($event)"
-                 (onLoadSolution)="loadSolution($event)"
-    ></app-editors>
+    <app-resize>
+      <app-editors [files]="config.files"
+                   (onChanges)="onCodeChanges($event)"
+                   (onToggle)="toggleFile($event)"
+                   (onLoadSolution)="loadSolution($event)">
+      </app-editors>
+      <app-resize [isVertical]="true">
+        <app-slides-preview [milestone]="milestone">
+        </app-slides-preview>
+      </app-resize>
+    </app-resize>
+
     <div class="side">
       <ng-content select=".description"></ng-content>
+      <div *ngIf="solved">
+        <!--TODO: Find a nicer workflow-->
+        <div style="color: green">
+          <h2>This exercise is solved!</h2>
+        </div>
+      </div>
       <app-tests [tests]="config.tests"></app-tests>
       <app-runner (onTestUpdate)="onTestUpdate($event)"
                   [files]="config.files" style="flex: 50%"

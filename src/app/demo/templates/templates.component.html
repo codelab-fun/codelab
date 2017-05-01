@@ -1,66 +1,64 @@
-<app-presentation 
-  app-slides-routing 
+<app-presentation
+  app-slides-routing
   app-mode-routing>
-  <app-menu-shortcut></app-menu-shortcut>
+  <div class="btn-bar">
+    <app-mode-overview></app-mode-overview>
+    <app-feedback-widget></app-feedback-widget>
+    <app-menu-shortcut></app-menu-shortcut>
+  </div>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
-  <app-mode-overview></app-mode-overview>
-  <app-feedback-widget></app-feedback-widget>
+
+  <app-slide id="intro" class="no-padding">
+    <app-title-slide
+      [title]="title"
+      [description]="description"
+      [prereqs]="prereqs"
+    ></app-title-slide>
+  </app-slide>
+
   <app-slide id="component">
     <h1>Angular Templates</h1>
-    <h3>For the following slides we are going to use this AppComponent Example</h3>
-    <app-code-editor
-      [code]="code.appComponent"
-      [fontSize]="25"
-      [readonly]="true"
-      [focus-highlight-match]="[code.appComponentMatch]"
-      type="html">
-    </app-code-editor>
+    <h2>Angular has a very expressive template system.</h2>
+    <h2>It supports HTML</h2>
+    <app-playground [config]="code.template.intro"></app-playground>
   </app-slide>
 
   <app-slide id="interpolation">
-    <h2 ngNonBindable>Text Interpolation ({{property}}) </h2>
-    <p>You met the double-curly braces of interpolation, early in your AngularJS.
-      Compiles a string with markup into an interpolation function
-    </p>
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Double curlies allow you to include properties from the component</h2>
+    <app-playground [config]="code.template.interpolation"></app-playground>
+  </app-slide>
+
+  <app-slide id="interpolation-method">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
+    </h2>
+    <app-playground [config]="code.template.interpolationMethod"></app-playground>
+  </app-slide>
+
+  <app-slide id="data-binding-pre">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Double curlies can be used anywhere in the templates, even in properties</h2>
+    <app-playground [config]="code.template.dataBindingPre"></app-playground>
+  </app-slide>
+
+  <app-slide id="data-binding">
+    <h1>Angular Templates - Data binding</h1>
+    <h2>There is a special way to bind the data to the properties using [ and ]</h2>
+    <app-playground [config]="code.template.dataBinding"></app-playground>
+  </app-slide>
+
+
+  <app-slide id="data-binding-extras">
+    <h1>Angular Templates - Data binding extras</h1>
+    <h2>Angular supports more advanced bindings than just attribute name.</h2>
     <app-code-editor
-      [code]="code.templateInterpolation"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.templateInterpolationMatch]"
-      [readonly]="true"
+      [code]="code.template.dataBindingExtra"
       type="html">
     </app-code-editor>
   </app-slide>
 
-  <app-slide id="interpolation-exercise">
-    <h1>Templates - Text Interpolation Exercise</h1>
-    <p>Using template interpolation try to display the full name and the pic of the user from the appComponent
-      example.</p>
-    <app-playground vertical
-                    [config]="code.templateInterpolationExercise"
-                    [focus-highlight-match]="[code.templateInterpolationExerciseMatch]">
-    </app-playground>
-  </app-slide>
-
-  <app-slide id="property-binding">
-    <h2 ngNonBindable>Property Binding one-way with Square Brackets ([...])</h2>
-    <p>We can specify one-way bindings to DOM properties using square brackets </p>
-    <app-code-editor
-      [code]="code.bindingProp"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.bindingPropMatch]"
-      [readonly]="true"
-      type="html">
-    </app-code-editor>
-  </app-slide>
-  <app-slide id="property-binding-exercise">
-    <h1>Property Binding Exercise</h1>
-    <h3>Using property binding try to display the full name and the pic of the user from the appComponent example. </h3>
-    <app-playground vertical
-                    [config]="code.bindingPropExercise"
-                    [focus-highlight-match]="[code.bindingPropExerciseMatch]">
-    </app-playground>
-  </app-slide>
 
   <app-slide id="event-binding">
     <h2 ngNonBindable>Event binding ( (event) )</h2>

@@ -31,6 +31,14 @@
 
 app-editors {
   display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: auto;
+}
+
+app-slides-preview {
+  display: flex;
+  flex: 1;
 }
 
 .side {
@@ -43,4 +51,8 @@ app-editors {
 .exercise-panel {
   display: flex;
   height: 100%;
+}
+
+app-runner {
+  margin-top: 20px;
 }

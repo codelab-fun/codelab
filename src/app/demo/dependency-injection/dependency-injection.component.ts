@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 
 
 @Component({
@@ -7,6 +8,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./dependency-injection.component.css']
 })
 export class DependencyInjectionComponent {
+  exercise;
 
   code = {
     withOutDI: {
@@ -79,12 +81,16 @@ import { UnitConverterService } from '../services/unit-converter.service';
 
 @Component({...})
 export class UnitConversionComponent {
-  constructor(converter: UnitConverterService) {}
+  constructor(private converter: UnitConverterService) {}
 }`,
       matches: {
         constructor: /constructor.*/
       }
     }
   };
+
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(3, 1);
+  }
 
 }

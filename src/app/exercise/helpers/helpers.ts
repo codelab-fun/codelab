@@ -1,16 +1,17 @@
 import {FileConfig} from '../interfaces/file-config';
 
 
-
 function exercise_with_display(moduleName: string, code: any, code2: any) {
-  return {...exercise(moduleName, code, code2), before: `
+  return {
+    ...exercise(moduleName, code, code2), before: `
   
     export const value = {};
     function display( newValue ){
       value.value = newValue; 
     }
     
-  `};
+  `
+  };
 }
 
 
@@ -32,6 +33,7 @@ export function test(moduleName: string, template: string): FileConfig {
     path: moduleName + '/' + moduleName + '/test.ts',
     type: 'typescript',
     template,
+    code: template,
     moduleName: moduleName + 'Test',
     excludeFromTesting: false,
     test: true,
@@ -57,6 +59,7 @@ export function bootstrap(moduleName: string, template: string, solution: string
 }
 
 export function displayAngularComponent(componentCode: string) {
+  // tslint:disable-next-line:max-line-length TODO: Clean up next line and remove this comment.
   const moduleCode = 'import {BrowserModule} from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport {AppComponent} from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n';
   const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app.module';
@@ -113,13 +116,14 @@ platform.bootstrapModule(AppModule, {
   };
 }
 
-export function pureJavascript(code, bootstrapCode){
+export function pureJavascript(code, bootstrapCode, testCode) {
   return {
     files: [
       exercise_with_display('app.ts', code, code),
-      bootstrap('main.ts', bootstrapCode, bootstrapCode)
+      bootstrap('main.ts', bootstrapCode, bootstrapCode),
+      test('test.ts', testCode)
     ]
-  }
+  };
 }
 
 export function displayAngularComponentWithHtml(componentCode: string, html: string) {

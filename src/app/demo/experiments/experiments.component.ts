@@ -98,4 +98,8 @@ export class Child {
     },
   };
 
+  title = 'Experiments';
+  description = '';
+  prereqs = '';
+
 }
