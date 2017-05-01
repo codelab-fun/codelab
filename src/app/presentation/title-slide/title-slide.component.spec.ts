@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { RippleAnimationComponent } from '../ripple-animation/ripple-animation.component';
 import { TitleSlideComponent } from './title-slide.component';
@@ -24,4 +25,33 @@ describe('TitleSlideComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render a title', () => {
+    component.title = 'awesome title';
+    fixture.detectChanges();
+    const el = fixture.debugElement.query(By.css('div.slide-title'));
+    expect(el.nativeElement.textContent).toContain('awesome title');
+  });
+
+  it('should render a description', () => {
+    component.description = 'hello world!';
+    fixture.detectChanges();
+    const el = fixture.debugElement.query(By.css('p.slide-title-description'));
+    expect(el.nativeElement.textContent).toContain('hello world!');
+  });
+
+  it('should render prerequisites', () => {
+    component.prereqs = 'do this first';
+    fixture.detectChanges();
+    const el = fixture.debugElement.query(By.css('p.slide-title-prereqs'));
+    expect(el.nativeElement.textContent).toContain('do this first');
+    expect(el.nativeElement.textContent).toContain('Prerequisites');
+  });
+
+  it('should not show "Prerequisites" if undefined', () => {
+    component.prereqs = undefined;
+    fixture.detectChanges();
+    const el = fixture.debugElement.query(By.css('p.slide-title-prereqs'));
+    expect(el.nativeElement.textContent).not.toContain('Prerequisites');
+  })
 });
