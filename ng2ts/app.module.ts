@@ -34,5 +34,5 @@ export class AppModule {
 
 /*/d*//*d:neverShow*/
 // Needed for type checking
-export function evalJs(param){ return param;}
+export function evalJs(param) { return param; }
 /*/d*/

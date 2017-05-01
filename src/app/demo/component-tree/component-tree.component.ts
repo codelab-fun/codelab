@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-
-import {ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate} from '../../../../ng2ts/ng2ts';
+import { Component} from '@angular/core';
+import { ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate } from '../../../../ng2ts/ng2ts';
 
 @Component({
   selector: 'app-component-tree',
@@ -13,11 +12,6 @@ export class ComponentTreeComponent {
   title = 'Component Tree';
   description = '';
   prereqs = '';
-
-  constructor(private exercises: Ng2TsExercises) {
-    this.exercise = exercises.getExercises(4, 1);
-    this.exercise2 = exercises.getExercises(4, 2);
-  }
 
   code = {
     parentComponentSkeleton: {
@@ -86,4 +80,9 @@ export class Child {
       type: 'typescript',
     },
   };
+
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(4, 1);
+    this.exercise2 = exercises.getExercises(4, 2);
+  }
 }

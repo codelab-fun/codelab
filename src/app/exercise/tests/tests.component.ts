@@ -11,6 +11,6 @@ export class TestsComponent {
   @Input() tests: Array<TestInfo>;
 
   isFirstUnsolved(test) {
-    return this.tests.find(test => !test.pass) === test;
+    return this.tests.find(t => !t.pass) === test;
   }
 }

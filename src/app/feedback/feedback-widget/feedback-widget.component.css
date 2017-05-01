@@ -1,81 +1,115 @@
+.feedback-button {
+  background-image: url("../../../assets/images/chat.png");;
+  background-color: #3498db;
+  border-radius: 100%;
+  text-align: right;
+  display: inline-block;
+}
+
+.feedback-button .messages-count {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  text-align: center;
+  font-size: 13px
+}
+
+.feedback-form {
+  width: 320px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 10px;
+  border: thin solid #c0c0c0;
+  position: fixed;
+  z-index: 2;
+  bottom: 10%;
+  right: 8%;
+}
+
+.form-container {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background: white;
+}
+
 textarea {
-    margin: 10px 0;
-    height: 100px;
+  margin: 10px 0;
+  height: 100px;
 }
 
 input,
 textarea {
-    width: 100%;
-    border: 1px #ddd solid;
-    padding: 4px;
-}
-
-.feedback-button {
-    width: 70px;
-    height: 70px;
-    background: #3498db;
-    border-radius: 100%;
-    text-align: center;
-    display: inline-block;
-}
-
-.icon {
-    height: 50%;
-    width: 50%;
-    margin-top: 25%;
-}
-
-.form-container {
-    display: block;
-    margin-top: 10px;
-    padding: 10%;
-    background: white;
-    border: 1px solid silver;
+  width: 100%;
+  border: 1px #ddd solid;
+  padding: 4px;
+  margin-top: 10px;
 }
 
 .main {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    width: 300px;
-    z-index: 99;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 300px;
+  z-index: 99;
 }
 
 .button-container {
-    width: 100%;
-    text-align: right;
+  width: 100%;
+  text-align: right;
 }
 
 .feedback-items {
-    max-height: 300px;
-    overflow-y: auto;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .feedback-item {
-    background: #ececec;
-    border: 1px solid #dcdcdc;
-    padding: 8px;
-    margin: 5px 0;
+  padding: 8px;
+  margin: 5px 0;
 }
 
 button {
-    color: #fff;
-    background: #3e8e01;
-    display: inline-block;
-    cursor: pointer;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-    border-radius: 3px;
-    line-height: 25px;
-    white-space: nowrap;
-    text-align: center;
-    text-decoration: none;
-    border: 0 solid;
+  color: #fff;
+  background: #3e8e01;
+  border: none;
+  cursor: pointer;
+}
+
+.feedback-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.feedback-item {
+  border-bottom: 1px solid #dcdcdc;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+.feedback-item .header {
+  font-size: 12px;
+}
+
+.feedback-item .name {
+  color: #ff594b;
+}
+
+.messages-count {
+  background: #ff594b;
+  color: white;
+  border-radius: 50%;
 }
 
 #message {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .error {
-    color: red;
+  color: red;
+}
+
+.email label {
+  color: #999;
+  font-size: 12px;
 }

@@ -1,14 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {displayAngularComponent, displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
 
-class Person {
-  constructor(public firstName: string, public lastName: string, public photoUrl: string) {
-  }
-
-  fullName() {
-    return this.firstName + " " + this.lastName;
-  }
-}
 
 const x = {
   a: 1, b: 2
@@ -110,13 +102,13 @@ export class AppComponent {
       <h2>Profile for {{person.getBiography()}}</h2>
 
       <!-- Use property on person object from component instance. -->
-      <img src="{{person.pic}}" alt="Photo of {{person.name}}" ...>
+      <img src="{{person.pic}}" alt="Photo of {{person.name}}">
     `,
     templateInterpolationMatch: /{{person.name}}/,
     templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
     templateInterpolationExerciseMatch: /user.firstName/,
     bindingProp: `<!-- Bind [property] to the template express property. -->
-<img [src]="person.photoUrl" ...>
+<img [src]="person.photoUrl">
 <!-- Yes, this is valid HTML syntax. -->
 <input [value]="person.emailAddress">
 <!-- Yes, it works on attribute syntax. -->

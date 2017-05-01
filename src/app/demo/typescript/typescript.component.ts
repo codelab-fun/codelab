@@ -36,18 +36,15 @@ x = 2;`
     stringType: {
       code: `let fullName: string = 'Bob Bobbington';
 let sentence: string = \`Hello, my name is \${ fullName }.\`;`
-    }
-    ,
+    },
     stringType2: {
       code: `let sentence: string = "Hello, my name is " + fullName + "."`
-    }
-    ,
+    },
     anyType: {
       code: `let notSure: any = 4;
 notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean`
-    }
-    ,
+    },
     classDescription: {
       code: `export class Hello {
   constructor(private name: string){}
@@ -66,10 +63,8 @@ console.log(new Hello('World').hello())
         import: /import/,
         constants: /const /
       }
-    }
-    ,
-    tsExercise: pureJavascript
-    (`
+    },
+    tsExercise: pureJavascript(`
       function add(a: number, b: number){
         return a+b
       };
@@ -81,7 +76,7 @@ console.log(new Hello('World').hello())
     document.write('<h1>' + value.value + '</h1>');`,
       `
     import {value} from 'app.ts';
-
+    
     describe('value', ()=>{
       it('equals 5', ()=>{
         chai.expect(value.value).equals(4);
@@ -89,10 +84,9 @@ console.log(new Hello('World').hello())
     })
     `),
     tsExerciseMatch: /'.*'/
-  }
-  ;
+  };
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
-  ]
+  ];
 }
 

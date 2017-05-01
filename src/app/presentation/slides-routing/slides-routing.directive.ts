@@ -1,14 +1,9 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  OnInit,
-  Output
-  } from '@angular/core';
-import { PresentationComponent } from '../presentation/presentation.component';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Directive, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
+import {PresentationComponent} from '../presentation/presentation.component';
 
 @Directive({
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[app-slides-routing]'
 })
 export class SlidesRoutingDirective implements OnInit {
@@ -20,6 +15,7 @@ export class SlidesRoutingDirective implements OnInit {
   @Output() change = new EventEmitter();
 
   constructor(private router: Router, private route: ActivatedRoute, private  presentation: PresentationComponent) {
+
   }
 
   @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {

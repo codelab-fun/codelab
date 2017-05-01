@@ -50,6 +50,10 @@
   margin-bottom: 10px;
   z-index: 100;
 
+  &.is-hidden {
+    display: none;
+  }
+
   span {
     height: 100%;
     cursor: pointer;

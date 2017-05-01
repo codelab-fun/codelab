@@ -1,0 +1,13 @@
+<div
+  class="presentation"
+  [class.presentation--expanded]="isExpanded">
+  <div class="presentation-header">
+    <button
+      class="button-expand"
+      (click)="expandToggle()">
+    </button>
+  </div>
+  <div class="presentation-body">
+    <iframe *ngIf="milestone" [src]="iframeSource"></iframe>
+  </div>
+</div>

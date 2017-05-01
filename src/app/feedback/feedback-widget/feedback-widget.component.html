@@ -1,45 +1,45 @@
-<div class="main" [style.width.percent]="getWidth()">
-  <div class="button-container" title="Feedback">
-    <div (click)="open = !open" class="feedback-button">
-      <img src="assets/images/icon.png" class="icon">
-    </div>
-  </div>
+<!--  FEEDBACK BUTTON-->
+<div (click)="buttonClicked()"
+     class="feedback-container feedback-button menu-bar-btn"
+     title="Feedback">
+  <span *ngIf="messages.length" class="messages-count">
+    {{messages.length}}
+  </span>
+</div>
+<!--  FEEDBACK FORM -->
+<div *ngIf="open" class="feedback-form feedback-container">
   <div class="form-container" *ngIf="open">
+    <div class="feedback-items">
+      <div class="feedback-item" *ngFor="let item of messages">
+        <div class="header">
+          <span class="name">{{item.name}}</span>
+          <span class="date">{{item.timestamp|date}}</span>
+        </div>
+        <div>{{item.comment}}</div>
+      </div>
+    </div>
     <form [formGroup]="formGroup" novalidate (submit)="submit()">
       <div>
-        <input type="text" placeholder="Enter your name (optional)"
-          formControlName="name" />
+        <input type="text" placeholder="Enter your name"
+               formControlName="name"/>
+      </div>
+      <div class="email">
+        <input type="email" placeholder="Enter your email (optional)"
+               formControlName="email"/>
+        <label>Email is optional and, will not displayed</label>
       </div>
       <div>
-        <input type="email" placeholder="Enter your email"
-          formControlName="email" />
-        <div class="error" *ngIf="formGroup.get('email').touched && formGroup.get('email').hasError('email')">
-          Valid email is required
-        </div>
-      </div>
-      <div>
-        <textarea placeholder="Describe your issue or share your ideas"
-          formControlName="comment" (keydown.enter)="submit()"></textarea>
+          <textarea placeholder="Describe your issue or share your ideas"
+                    formControlName="comment" (keydown.control.enter)="submit()"></textarea>
       </div>
       <div>
         <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
-          type="submit">Send</button>
+                type="submit">Send
+        </button>
       </div>
       <div [class.error]="error">
         {{statusMessage}}
       </div>
     </form>
-    <div *ngIf="!!items && items.length">
-      <h4>Feedback</h4>
-      <div class="feedback-items">
-        <div class="feedback-item" *ngFor="let item of items">
-          <div>{{item.timestamp}}</div>
-          <div>
-            <span>{{item.name}} <span>({{item.email}})</span></span>
-          </div>
-          <p>{{item.comment}}</p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
