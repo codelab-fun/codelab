@@ -5,15 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './title-slide.component.html',
   styleUrls: ['./title-slide.component.css']
 })
-export class TitleSlideComponent implements OnInit {
-
+export class TitleSlideComponent {
   @Input() title: string;
   @Input() description: string;
   @Input() prereqs: string;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
