@@ -11,7 +11,7 @@ import {Location} from '@angular/common';
 
 export class SlidesPreviewComponent implements OnInit {
   @Input() milestone;
-  private isExpanded: boolean;
+  public isExpanded: boolean;
   private iframeSource;
 
   constructor(private sanitizer: DomSanitizer, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {

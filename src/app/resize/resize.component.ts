@@ -9,7 +9,7 @@ export class ResizeComponent implements OnInit {
   @Input() isVertical: boolean;
   private MIN_WIDTH = 400;
   private MIN_HEIGHT = 350;
-  private isMouseDown: boolean;
+  public isMouseDown: boolean;
   private initOffset;
   private initSize;
   private minSize;
