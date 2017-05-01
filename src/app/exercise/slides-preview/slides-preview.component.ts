@@ -4,12 +4,12 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 @Component({
-  selector: 'app-info',
-  templateUrl: './info.component.html',
-  styleUrls: ['./info.component.scss']
+  selector: 'app-slides-preview',
+  templateUrl: './slides-preview.component.html',
+  styleUrls: ['./slides-preview.component.scss']
 })
 
-export class InfoComponent implements OnInit {
+export class SlidesPreviewComponent implements OnInit {
   @Input() milestone;
   private isExpanded: boolean;
   private iframeSource;
@@ -20,7 +20,7 @@ export class InfoComponent implements OnInit {
   ngOnInit() {
     const url = this.location.prepareExternalUrl(this.router.createUrlTree(['.'], {
       relativeTo: this.activatedRoute,
-      queryParams: {milestone: this.milestone},
+      queryParams: {milestone: this.milestone, disableArrowsForCode: false},
       queryParamsHandling: 'merge'
     }).toString());
 
