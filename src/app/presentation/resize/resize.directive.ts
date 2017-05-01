@@ -29,7 +29,7 @@ export class ResizeDirective {
       height: document.documentElement.clientHeight
     };
 
-    //this.presentation.zoom = ResizeDirective.getZoomFactor(this.presentation, windowSize);
+    // this.presentation.zoom = ResizeDirective.getZoomFactor(this.presentation, windowSize);
   }
 
 }
