@@ -7,7 +7,6 @@ import {TestsComponent} from './tests/tests.component';
 import {RunnerComponent} from './runner/runner.component';
 import {EditorComponent} from './editor/editor.component';
 import {InfoComponent} from './info/info.component';
-import {ResizeComponent} from './resize/resize.component';
 import {FormsModule} from '@angular/forms';
 import {LoopProtectionService} from './services/loop-protection.service';
 import {ScriptLoaderService} from './services/script-loader.service';
@@ -16,6 +15,7 @@ import {PlaygroundComponent} from './playground/playground.component';
 import {CodeEditorComponent} from './code-editor/code-editor.component';
 import {CommonModule} from '@angular/common';
 import {BrowserWindowModule} from '../browser-window/browser-window.module';
+import {ResizeModule} from '../resize/resize.module';
 
 
 @NgModule({
@@ -27,10 +27,12 @@ import {BrowserWindowModule} from '../browser-window/browser-window.module';
     RunnerComponent,
     EditorComponent,
     InfoComponent,
-    ResizeComponent,
     PlaygroundComponent,
     CodeEditorComponent
-  ], imports: [CommonModule, FormsModule,
+  ], imports: [
+    ResizeModule,
+    CommonModule,
+    FormsModule,
     TooltipsModule,
     BrowserWindowModule
   ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],

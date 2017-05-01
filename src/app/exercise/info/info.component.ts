@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-info',
@@ -13,12 +14,17 @@ export class InfoComponent implements OnInit {
   private isExpanded: boolean;
   private iframeSource;
 
-  constructor(private sanitizer: DomSanitizer, private router: Router) {
+  constructor(private sanitizer: DomSanitizer, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {
   }
 
   ngOnInit() {
-    const href = `${window.location.origin}/milestone/${this.milestone}/0`;
-    this.iframeSource = this.sanitizer.bypassSecurityTrustResourceUrl(href);
+    const url = this.location.prepareExternalUrl(this.router.createUrlTree(['.'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {milestone: this.milestone},
+      queryParamsHandling: 'merge'
+    }).toString());
+
+    this.iframeSource = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 
