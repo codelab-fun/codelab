@@ -1,18 +1,13 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
- OnInit, Output
-  ,
-  HostListener} from '@angular/core';import { ActivatedRoute } from '@angular/router';
-import { Mode } from '../mode.enum';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Mode} from '../mode.enum';
 
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent  implements OnInit{
+export class PresentationComponent {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
 
@@ -29,12 +24,11 @@ export class PresentationComponent  implements OnInit{
   // Expose enum to template
   modeEnum = Mode;
 
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
+  constructor(private route: ActivatedRoute) {
     if (!!this.route.snapshot.queryParams['mode']) {
       this.mode = this.route.snapshot.queryParams['mode'];
     }
+    this.milestone = this.route.snapshot.queryParams['milestone'];
   }
 
   get mode(): Mode {
@@ -52,9 +46,7 @@ export class PresentationComponent  implements OnInit{
   }
 
   registerSlide(id: string, milestone: string) {
-    console.log(this.milestone);
     if (this.milestone && milestone !== this.milestone) {
-      console.log(id);
       return;
     }
     const index = this.generatedSlideIndex++;

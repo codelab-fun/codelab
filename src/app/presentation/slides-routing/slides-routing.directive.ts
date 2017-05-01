@@ -15,7 +15,7 @@ export class SlidesRoutingDirective implements OnInit {
   @Output() change = new EventEmitter();
 
   constructor(private router: Router, private route: ActivatedRoute, private  presentation: PresentationComponent) {
-    presentation.milestone = route.snapshot.queryParams['milestone'];
+
   }
 
   @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {
