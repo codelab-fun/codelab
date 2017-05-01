@@ -1,5 +1,5 @@
 import {Component, ContentChild, Input, OnInit} from '@angular/core';
-import {FileConfig} from './../interfaces/file-config';
+import {FileConfig} from '../interfaces/file-config';
 
 @Component({
   selector: 'app-code-editor',

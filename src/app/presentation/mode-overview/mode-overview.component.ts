@@ -1,7 +1,6 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Mode } from './../mode.enum';
-import { PresentationComponent } from './../presentation/presentation.component';
+import {Component} from '@angular/core';
+import {Mode} from '../mode.enum';
+import {PresentationComponent} from '../presentation/presentation.component';
 
 @Component({
   selector: 'app-mode-overview',
@@ -14,10 +13,8 @@ export class ModeOverviewComponent {
   modeEnum = Mode;
   onOverview = false;
 
-  constructor(
-    private presentation: PresentationComponent,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+  constructor(private presentation: PresentationComponent) {
+  }
 
   get buttonLabel(): string {
     switch (this.presentation.mode) {

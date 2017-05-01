@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 
-
 @Component({
   selector: 'app-editors',
   templateUrl: './editors.component.html',

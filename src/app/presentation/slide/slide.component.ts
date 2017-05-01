@@ -1,8 +1,8 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Component, Input, OnInit } from '@angular/core';
-import { Mode } from '../mode.enum';
-import { Observable } from 'rxjs/Observable';
-import { PresentationComponent } from '../presentation/presentation.component';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Component, Input, OnInit} from '@angular/core';
+import {Mode} from '../mode.enum';
+import {Observable} from 'rxjs/Observable';
+import {PresentationComponent} from '../presentation/presentation.component';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
@@ -16,8 +16,8 @@ export class SlideComponent implements OnInit {
 
   public onActive: Observable<boolean>;
 
-  @Input()
-  id: string;
+  @Input() milestone?: string;
+  @Input() id: string;
   modeEnum = Mode;
 
   constructor(public presentation: PresentationComponent) {
@@ -30,7 +30,7 @@ export class SlideComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.slideId = this.presentation.registerSlide(this.id);
+    this.slideId = this.presentation.registerSlide(this.id, this.milestone);
   }
 
   disableShortcuts() {

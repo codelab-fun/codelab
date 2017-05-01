@@ -10,7 +10,7 @@
   <app-arrows></app-arrows>
 
 
-  <app-slide id="intro" class="no-padding">
+  <app-slide id="intro" class="no-padding" milestone="TypeScript">
     <app-title-slide
       title="TypeScript"
       description="Angular is written in TypeScript! Learn more about the language and the best features!"
@@ -19,7 +19,7 @@
   </app-slide>
 
   <!-- TYPES IN TYPESCRIPT-->
-  <app-slide id="types">
+  <app-slide id="types" milestone="TypeScript">
     <h1><span style="color: #0e70c0;">TypeScript</span> has different types for different units of data. These types
       are:</h1>
     <div style="display: flex; flex-direction: row; justify-content: center;">
@@ -45,7 +45,7 @@
     <div class="info"> We would describe 'number', 'string', and 'any'.</div>
   </app-slide>
   <!--  NUMBER-TYPE  -->
-  <app-slide id="number_type">
+  <app-slide id="number_type" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">:number</h1>
     <p> In typescript all numbers are floating point values. TypeScript supports binary and octal literals.</p>
     <h3>The add function should return 5. Can you find the issue?</h3>
@@ -57,15 +57,16 @@
     <div class="info"> Plain JavaScript will run the function returning a string.</div>
   </app-slide>
   <!--  STRING-TYPE  -->
-  <app-slide id="string_type">
+  <app-slide id="string_type" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">:string</h1>
     <p style="margin-bottom: 20px;">String is used to refer to textual datatype.</p>
     <app-code-editor [fontSize]="30" [code]="code.stringType.code"></app-code-editor>
     <p>This is the same as:</p>
     <app-code-editor [fontSize]="30" [code]="code.stringType2.code"></app-code-editor>
   </app-slide>
+
   <!--  ANY-TYPE  -->
-  <app-slide id="any_type">
+  <app-slide id="any_type" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">:any</h1>
     <p style="margin-bottom: 20px;">
       For when need to describe the type of variables that we do not know when we are writing an application.
@@ -74,7 +75,7 @@
   </app-slide>
 
   <!--  CLASSES  -->
-  <app-slide id="classes">
+  <app-slide id="classes" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Classes</h1>
     <p style="margin-bottom: 20px;">
       Starting with ECMAScript 2015, also known as ECMAScript 6, JavaScript programmers will be able to
@@ -85,7 +86,7 @@
   </app-slide>
 
   <!--  EXPORT  -->
-  <app-slide id="export">
+  <app-slide id="export" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Export</h1>
     <p style="margin-bottom: 20px;">
       Any declaration (such as a variable, function, class, type alias, or interface) can be exported by
@@ -96,7 +97,7 @@
   </app-slide>
 
   <!--  IMPORT  -->
-  <app-slide id="import">
+  <app-slide id="import" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Import</h1>
     <p style="margin-bottom: 20px;">
       Importing is just about as easy as exporting from a module.
@@ -106,7 +107,7 @@
   </app-slide>
 
   <!--  CONSTANTS  -->
-  <app-slide id="const">
+  <app-slide id="const" milestone="TypeScript">
     <h1 style="color: coral; margin-bottom: 5px;">Constants - <span style="color: red;">const</span></h1>
     <p style="margin-bottom: 20px;">
       As its name implies, their value cannot be changed once they are bound. In other words, you can’t
@@ -116,7 +117,7 @@
                      [focus-highlight-match]="[code.classDescription.matches.constants]"></app-code-editor>
   </app-slide>
 
-  <app-slide id="hello">
+  <app-slide id="hello" milestone="TypeScript">
     <h1 i18n>Also</h1>
     <ul>
       <li>Interfaces</li>
@@ -129,7 +130,7 @@
     </ul>
   </app-slide>
 
-  <app-slide id="why">
+  <app-slide id="why" milestone="TypeScript">
     <div style="text-align: center;">
       <h1 i18n>Why TypeScript?</h1>
 
@@ -165,7 +166,7 @@
     </div>
   </app-slide>
   <app-slide id="exercise">
-    <app-exercise [config]="exercises[0]">
+    <app-exercise [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
         <p>We created a TypeScript file for you, now let's add our first TS class
           called Codelab.</p>
