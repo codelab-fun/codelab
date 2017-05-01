@@ -1,6 +1,4 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>
+<app-presentation app-slides-routing app-mode-routing>
   <app-progress-bar></app-progress-bar>
 
   <div class="btn-bar">
@@ -10,24 +8,20 @@
   </div>
 
   <app-arrows></app-arrows>
-  <app-mode-overview></app-mode-overview>
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
 
   <app-slide id="intro" class="no-padding">
-    <app-title-slide
-      title="Component tree"
-      description="Combine components together"
-      [prereqs]="prereqs"
-    ></app-title-slide>
+    <app-title-slide title="Component tree" description="Combine components together"
+      [prereqs]="prereqs"></app-title-slide>
   </app-slide>
 
   <app-slide id="component">
     <h1>Recap: Component</h1>
     <h2>
-      Component is the main building block of your app.<br>
-      You define a set of components for every UI element, screen, and route.
+      Component is the main building block of your app.<br>      You define a set of components for every
+      UI element, screen, and route.
     </h2>
   </app-slide>
 
@@ -35,8 +29,9 @@
   <app-slide id="component-tree">
     <h1>Component Tree</h1>
     <p>
-      Every application has a root component which contains all other components.
-      In other words, the application will have a component tree.
+      Every application has a root component which contains
+      all other components. In other words, the
+      application will have a component tree.
     </p>
     <br>
     <p>
@@ -64,7 +59,8 @@
         <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
       </div>
     </div>
-    <h2>Do not forget add your components to the declarations array in your module.</h2>
+    <h2>Do not forget add your components to the declarations
+      array in your module.</h2>
     <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
   </app-slide>
 
