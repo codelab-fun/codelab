@@ -1,13 +1,11 @@
 import {Component, ElementRef, HostListener, OnDestroy, OnInit} from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
-import {Subscription} from 'rxjs/Subscription';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {Message} from '../message';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {combineLatest} from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-feedback-widget',
@@ -15,10 +13,8 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./feedback-widget.component.css']
 })
 export class FeedbackWidgetComponent implements OnInit, OnDestroy {
+  repoSubscription: Subscription;
   messages: Array<Message> = [];
-
-  private repoSubscription: Subscription;
-  private routeSubscription: Subscription;
 
 
   statusMessage = '';
@@ -34,14 +30,14 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
               private router: Router,
               private activatedRoute: ActivatedRoute) {
 
-    this.repo$ = this.angularFire.database.list('/feedback');
+    this.repo$ = this.database.list('/feedback');
 
-    combineLatest(this.activatedRoute.url,this.repo$)
-        .map(([_, messages]) => {
+    this.repoSubscription = combineLatest(this.activatedRoute.url, this.repo$)
+      .map(([_, messages]) => {
         return (messages as Array<Message>)
-        .filter(m => m.href.toLowerCase() ===this.router.url.toLowerCase()).sort()
-      }
-    ).subscribe(messages => this.messages = messages);
+          .filter(m => m.href.toLowerCase() === this.router.url.toLowerCase()).sort();
+        }
+      ).subscribe(messages => this.messages = messages);
   }
 
   ngOnInit() {
@@ -50,15 +46,10 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
       name: [localStorage.getItem('userName') || '', Validators.required],
       email: [localStorage.getItem('userEmail') || '', []]
     });
-
-
   }
 
   ngOnDestroy() {
-    if (!!this.repoSubscription) {
-      this.repoSubscription.unsubscribe();
-    }
-    this.routeSubscription.unsubscribe();
+    this.repoSubscription.unsubscribe();
   }
 
   @HostListener('window:mousedown')
@@ -87,7 +78,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     localStorage.setItem('userEmail', message.email);
     this.repo$.push(message)
       .then(() => {
-        this.formGroup.get('comment').reset()
+        this.formGroup.get('comment').reset();
       }).catch(() => {
       this.statusMessage = 'Error while sending feedback';
       this.error = true;
