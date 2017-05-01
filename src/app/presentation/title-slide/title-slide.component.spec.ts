@@ -53,5 +53,5 @@ describe('TitleSlideComponent', () => {
     fixture.detectChanges();
     const el = fixture.debugElement.query(By.css('p.slide-title-prereqs'));
     expect(el.nativeElement.textContent).not.toContain('Prerequisites');
-  })
+  });
 });
