@@ -2,8 +2,11 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
-  } from '@angular/core';
+  OnInit,
+  Output,
+  HostListener
+} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Mode } from './../mode.enum';
 import { SlideComponent } from './../slide/slide.component';
 import { Subscription } from 'rxjs/Subscription';
@@ -18,7 +21,7 @@ export interface SlideConfig {
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent  {
+export class PresentationComponent implements OnInit {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
 
@@ -33,6 +36,14 @@ export class PresentationComponent  {
   areShortcutsEnabled = true;
   // Expose enum to template
   modeEnum = Mode;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    if (!!this.route.snapshot.queryParams['mode']) {
+      this.mode = this.route.snapshot.queryParams['mode'];
+    }
+  }
 
   get mode(): Mode {
     return this.activeMode;
