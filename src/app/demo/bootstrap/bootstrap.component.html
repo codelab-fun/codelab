@@ -18,16 +18,8 @@
     ></app-title-slide>
   </app-slide>
 
-  <app-slide id="intro" class="no-padding">
-    <app-title-slide
-      [title]="title"
-      [description]="description"
-      [prereqs]="prereqs"
-    ></app-title-slide>
-  </app-slide>
-
   <!-- WHAT IS ANGULAR  -->
-  <app-slide>
+  <app-slide id="angular-description">
     <h1 i18n>What is Angular?</h1>
     <div class="centered-vertically" i18n>
       <h2>
@@ -40,17 +32,16 @@
     </div>
   </app-slide>
 
-
   <!--  index.html -->
-  <app-slide>
+  <app-slide id="indexHtml">
     <h1>Given an HTML file</h1>
     <app-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.indexHTML"></app-code-editor>
     <h2>Let's create an Angular app which replaces &lt;hello-world> element with the application contents.</h2>
     <h2>This can be done with 3 simple steps.</h2>
   </app-slide>
 
-  <!--  3 steps -->
-  <app-slide>
+  <!--  Steps to create an Angular app -->
+  <app-slide id="angular-app">
     <h1>Creating angular app</h1>
     <ol>
       <li>Create an angular component</li>
@@ -59,8 +50,8 @@
     </ol>
   </app-slide>
 
-  <!--  COMPONENT ANATOMY -->
-  <app-slide>
+  <!--  COMPONENT -->
+  <app-slide id="component">
     <h1>Step 1: Create component</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></app-code-editor>
@@ -68,7 +59,7 @@
   </app-slide>
 
   <!--  @-Decorator -->
-  <app-slide>
+  <app-slide id="decorator">
     <h1>Component Anatomy - Inline Template</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></app-code-editor>
@@ -81,16 +72,18 @@
     </div>
     <h2></h2>
   </app-slide>
+
   <!--  Selector  -->
-  <app-slide>
+  <app-slide id="selector">
     <h1>Component Anatomy - Inline Template</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.selector]"></app-code-editor>
     <h2>Selector defines the location of the component. When Angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
       HTML element in the document and will render the component on top of it.</h2>
   </app-slide>
+
   <!--  Template  -->
-  <app-slide>
+  <app-slide id="template">
     <h1>Component Anatomy - Inline Template</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.template]"></app-code-editor>
@@ -103,8 +96,8 @@
     </div>
   </app-slide>
 
-
-  <app-slide>
+  <!--  Angular app exercise-->
+  <app-slide id="exercise">
     <app-exercise [config]="exercises[0]">
       <div class="description">
         <p>Create first Angular component!</p>
@@ -113,13 +106,13 @@
   </app-slide>
 
   <!--  ngModule intro  -->
-  <app-slide>
+  <app-slide id="module">
     <h1>Now our component is ready to go!</h1>
     <h2>We need to put it in an <b>NgModule</b></h2>
   </app-slide>
 
   <!--  MODULE ANATOMY -->
-  <app-slide>
+  <app-slide id="module-exercise">
     <h1>Module Anatomy test</h1>
     <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
                      [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></app-code-editor>
@@ -129,7 +122,7 @@
   </app-slide>
 
   <!--  Imports  -->
-  <app-slide>
+  <app-slide id="imports">
     <h1>Module Anatomy</h1>
     <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
                      [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></app-code-editor>
@@ -141,7 +134,7 @@
     </div>
   </app-slide>
   <!--  Declarations  -->
-  <app-slide>
+  <app-slide id="declarations">
     <h1>Module Anatomy</h1>
     <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
                      [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></app-code-editor>
@@ -152,7 +145,7 @@
   </app-slide>
 
   <!--  Bootstrap -->
-  <app-slide>
+  <app-slide id="bootstrap">
     <h1>Module Anatomy</h1>
 
     <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
@@ -162,15 +155,14 @@
     </h2>
   </app-slide>
 
-
   <!--  Bootstrap  intro  -->
-  <app-slide>
+  <app-slide id="bootstrap-the-module">
     <h1>Step 3</h1>
     <h2>Bootstrap the module!</h2>
   </app-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <app-slide>
+  <app-slide id="bootstrapping">
     <h1>Module Bootstrapping</h1>
     <app-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.mainTs"></app-code-editor>
     <h2>
@@ -181,7 +173,7 @@
   </app-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <app-slide>
+  <app-slide id="bootstrapping-results">
     <h1>Result</h1>
     <app-browser-window><h1>Hello World!</h1></app-browser-window>
     <h2>Amazing! We just bootstraped our first component and learned about Angular on the way.</h2>
@@ -189,7 +181,7 @@
   </app-slide>
 
   <!--  Whole picture -->
-  <app-slide>
+  <app-slide id="overview">
     <h1>Overview</h1>
     <div row>
       <app-code-editor class="col-6" [fontSize]="18" [focus-highlight-match]="code.moduleBootstrapping.matches.index"
@@ -204,7 +196,8 @@
     </div>
   </app-slide>
 
-  <app-slide>
+  <!--  DESCRIPTION 1 -->
+  <app-slide id="description-one">
     <app-exercise [config]="exercises[1]">
       <div class="description">
         <p>Now we got the component, we need to pass it to a NgModule.</p>
@@ -212,7 +205,8 @@
     </app-exercise>
   </app-slide>
 
-  <app-slide>
+  <!--  DESCRIPTION 2-->
+  <app-slide id="description-two">
     <app-exercise [config]="exercises[2]">
       <div class="description">
         <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
@@ -220,6 +214,5 @@
       </div>
     </app-exercise>
   </app-slide>
-
 
 </app-presentation>
