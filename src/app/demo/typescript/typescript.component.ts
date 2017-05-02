@@ -84,7 +84,7 @@ console.log(oscar.bark());
   bark(){
     return 'Gav! my name is ' + this.name;
   }
-}`), codeImport: typeScriptWithConsoleLog(`import {Puppy} from './puppy'
+}`), codeImport: typeScriptWithConsoleLog(`import {Puppy} from './puppy.ts';
 
 var hotdog = new Puppy('Édouard');
 console.log(hotdog.bark());
