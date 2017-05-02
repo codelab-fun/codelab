@@ -27,7 +27,7 @@ export const angularFire = AngularFireModule.initializeApp(firebaseConfig);
 @NgModule({
   imports: [routes, BrowserWindowModule, PresentationModule, angularFire, FormsModule, CommonModule],
   declarations: [FeedbackPageComponent],
-  providers:[AngularFireDatabaseProvider],
+  providers: [AngularFireDatabaseProvider],
   exports: [FeedbackPageComponent]
 })
 export class FeedbackPageModule {
