@@ -48,9 +48,7 @@ export const routes = [
   },
   {
     path: 'feedback-page',
-    loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule',
-    name: 'Feedback',
-    description: 'Here you will find the code-lab feedback.'
+    loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule'
   },
   {
     path: '',
