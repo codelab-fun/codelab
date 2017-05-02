@@ -27,7 +27,6 @@ export class AppComponent {
   styleUrls: ['./experiments.component.css']
 })
 export class ExperimentsComponent {
-
   code = {
     templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
 

@@ -14,10 +14,6 @@ const baseCode = 'TODO';
   styleUrls: ['./templates.component.css']
 })
 export class TemplatesComponent implements OnInit {
-  title = 'Templates';
-  description = 'Learn more about Angular templates!';
-  prereqs = '';
-
   code = {
     template: {
       intro: displayAngularComponent(`import {Component} from '@angular/core';
