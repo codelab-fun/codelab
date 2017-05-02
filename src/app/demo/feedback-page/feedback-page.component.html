@@ -1,44 +1,39 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>>
+<app-presentation app-slides-routing app-mode-routing>>
 
   <app-slide class="no-padding">
     <div>
       <label>Feedback</label>
-      <select (change)="onFilterChange($event)">
-        <option>All</option>
-        <option>Done</option>
-        <option>Undone</option>
+      <select [value]="filter$|async" (change)="filter$.next($event.target.value)">
+        <option value='all'>All</option>
+        <option value='done'>Done</option>
+        <option value='notDone'>Undone</option>
+      </select>
+      <select  [value]="group$|async" (change)="group$.next($event.target.value)">
+        <option value='nothing'>Do not group</option>        
+        <option value='href'>Slide URL</option>        
+        <option value='name'>Name</option>
       </select>
     </div>
     <div id="main">
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Comment</th>
-          <th>href</th>
-          <th>Header</th>
-          <th>Done</th>
-        </tr>
-        <tr *ngFor="let feedbackItem of currentFeedbackList"
-            [class.hidden]="!isShown(feedbackItem.isDone)">
-          <td>{{feedbackItem.name}}</td>
-          <td>{{feedbackItem.comment}}</td>
-          <td>{{feedbackItem.href}}</td>
-          <td>{{feedbackItem.header}}</td>
-          <td>
-            <input type="checkbox" [checked]="feedbackItem.isDone" (change)="isDone(feedbackItem.$key, $event)">
-          </td>
-        </tr>
-      </table>
 
-      <ul>
-        <li *ngFor="let feedbacker of feedbackersNames">
-          <b>{{feedbacker}}</b> : {{feedbackersCount[feedbacker]}}
-        </li>
-      </ul>
+
+      <div *ngFor="let item of (this.messages$ | async)" class="group">
+        <h2 class="header">{{item.key}}</h2>
+
+        <div *ngFor="let message of item.value" class="card">
+          <div>
+            <b (click)="group$.next('name')">{{message.name}}</b>
+            <span class="link">
+            (<a [routerLink]="message.href">{{message.header||'No header'}}</a>)
+            </span>
+            <input type="checkbox" [checked]="message.isDone" (change)="isDone(message.$key, $event)">
+          </div>
+          <div>{{message.comment}}</div>
+
+          
+        </div>
+      </div>
     </div>
-
   </app-slide>
 
 </app-presentation>

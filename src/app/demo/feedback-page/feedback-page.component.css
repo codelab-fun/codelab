@@ -23,3 +23,27 @@ table {
 li {
     font-size: 22px;
 }
+
+
+h2 {
+    clear: both;
+    grid-column: 1/5;
+}
+
+.card {
+  padding: 20px;
+}
+.group {
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-gap: 10px;  
+}
+
+input {
+    float: right;
+}
+
+.link, .link a {
+    color: #aaa;
+    font-size: 80%;
+}
