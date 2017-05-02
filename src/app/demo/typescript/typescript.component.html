@@ -92,7 +92,7 @@
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily typescript allows us to add types which allows to
       detect the issue early.</h2>
     <div class="exercise" [class.solved]="tsexercises.solved">
-      Exercise: See if you can fix the issue below
+      Exercise: Try to get the desired output by changing the inputs
     </div>
     <app-playground [config]="code.tsExercise"
                     [focus-highlight-match]="[code.tsExerciseMatch]"
@@ -123,10 +123,13 @@
         </ul>
       </div>
     </div>
-    <div class="info"> We would describe 'number', 'string', and 'any'.</div>
   </app-slide>
 
-
+  <app-slide id="types-more" milestone="TypeScript">
+    <h1>Some examples</h1>
+    <app-code-editor [fontSize]="25" [readonly]="false" [code]="code.moreTypes.code"></app-code-editor>
+    <div class="info">This code is editable, try exerimenting with assigning wrong types.</div>
+  </app-slide>
 
   <!--  CLASSES  -->
   <app-slide id="classes" milestone="TypeScript">
@@ -146,7 +149,7 @@
 
   <app-slide id="export" milestone="TypeScript">
     <h1>Classes - export</h1>
-    <h2>By the way did you notice export before class? This is used to share information between files. We're going to
+    <h2>By the way, did you notice export before class? This is used to share information between files. We're going to
       import and use this in the next slide (for higher effect)</h2>
     <app-playground [config]="code.classDescription.codeExport"
                     [focus-highlight-match]="[code.classDescription.matches.exportMatch]"></app-playground>
@@ -187,67 +190,68 @@
   <!--[focus-highlight-match]="[code.classDescription.matches.constants]"></app-code-editor>-->
   <!--</app-slide>-->
 
-  <app-slide id="types-more" milestone="TypeScript">
-    <h1>Last thing - types!</h1>
-    <app-code-editor [fontSize]="25" [code]="code.moreTypes.code"></app-code-editor>
 
+  <app-slide id="more" milestone="TypeScript">
+    <h1 i18n>TypeScript supports lots of other cool features such as: </h1>
+    <ul>
+      <li>Interfaces</li>
+      <li>Enums</li>
+      <li>Async/await</li>
+      <li>Getters/setters</li>
+      <li>Desctructuring</li>
+      <li>Arrow functions</li>
+      <li>And more!</li>
+    </ul>
+    <h2>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/">TypeScript</a> website!
+    </h2>
+  </app-slide>
 
-    </app-slide>
-    <app-slide id="more" milestone="TypeScript">
-      <h1 i18n>TypeScript supports lots of other cool features such as: </h1>
+  <app-slide id="exercise-info" milestone="TypeScript">
+    <h1 i18n>Exercise</h1>
+    <h2>In the next slide we have a TypeScript exercise.</h2>
+    <h3>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
+      the ones who are coming.</h3>
+    <h3>The result will be as follows:</h3>
+    <app-browser-window>
       <ul>
-        <li>Interfaces</li>
-        <li>Enums</li>
-        <li>Async/await</li>
-        <li>Getters/setters</li>
-        <li>Desctructuring</li>
-        <li>Arrow functions</li>
-        <li>And more!</li>
+        <li>Sir Isaac Newton</li>
+        <li>Marie Curie</li>
+        <li>Albert Einstein</li>
       </ul>
-      <h2>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/">TypeScript</a> website!
-      </h2>
-    </app-slide>
-
-    <app-slide id="exercise-info" milestone="TypeScript">
-      <h1 i18n>Exercise</h1>
-      <h2>In the next slide we have a TypeScript exercise.</h2>
-      <h3>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
-        the ones who are coming.</h3>
-      <h3>The result will be as follows:</h3>
-      <app-browser-window>
-        <ul>
-          <li>Sir Isaac Newton</li>
-          <li>Marie Curie</li>
-          <li>Albert Einstein</li>
-        </ul>
-      </app-browser-window>
-    </app-slide>
+    </app-browser-window>
+  </app-slide>
 
 
-    <app-slide id="exercise">
-      <app-exercise [config]="exercises[0]" milestone="TypeScript">
-        <div class="description">
-          <p>We created a TypeScript file for you, now let's add our first TS class
-            called Codelab.</p>
-          <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people
-            who're
-            coming.</p>
-          <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute
-            change
-            of plans, so only 3 people should be returned.</p>
-        </div>
-      </app-exercise>
-    </app-slide>
+  <app-slide id="exercise">
+    <app-exercise [config]="exercises[0]" milestone="TypeScript">
+      <div class="description">
+        <p>We created a TypeScript file for you, now let's add our first TS class
+          called Codelab.</p>
+        <p>It will take a list of guests, and will have a 'getGuestsComing' method, which will only return people
+          who're
+          coming.</p>
+        <p>As you can see in the 'Main.ts' file we have 4 people signed up, but Charles Darwin had a last minute
+          change
+          of plans, so only 3 people should be returned.</p>
+      </div>
+    </app-exercise>
+  </app-slide>
 
 
-    <app-slide id="end" milestone="TypeScript">
-      <h1 i18n>This is the end of the TypeScript milestone!</h1>
-      <h2>Please leave your thoughts using the feedback button below!</h2>
-      <ul>
-        <li><a href="http://www.typescriptlang.org/">TypeScript web site</a></li>
-      </ul>
-
-    </app-slide>
+  <app-slide id="end" milestone="TypeScript">
+    <h1 i18n>This is the end of the TypeScript milestone!</h1>
+    <h2>Please leave your thoughts using the feedback button below!</h2>
+    <ul>
+      <li><a href="http://www.typescriptlang.org/">TypeScript web site</a></li>
+    </ul>
 
 
-  </app-presentation>
+    <h2>
+      <a routerLink="/">Go to Index</a>
+      <a routerLink="/bootstrap">Go to the next Milestone</a>
+    </h2>
+
+  </app-slide>
+
+
+</app-presentation>
