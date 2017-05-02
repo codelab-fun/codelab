@@ -1,6 +1,7 @@
 <app-presentation
   app-slides-routing
   app-mode-routing>
+
   <div class="btn-bar">
     <app-mode-overview></app-mode-overview>
     <app-feedback-widget></app-feedback-widget>
@@ -9,19 +10,21 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
 
+  <!--  INTRO -->
   <app-slide id="intro" class="no-padding">
     <app-title-slide
-      [title]="title"
-      [description]="description"
-      [prereqs]="prereqs"
+      title="Experiments"
+      description=""
+      prereqs=""
     ></app-title-slide>
   </app-slide>
 
-  <app-slide>
+  <app-slide id="dev-one">
     <h1>This is dev only experiments presentation</h1>
     <h2>Here you can see how some of the things are done</h2>
   </app-slide>
-  <app-slide>
+
+  <app-slide id="dev-2">
     <h1>This is dev only experiments presentation</h1>
     <h2>Here you can see how some of the things are done</h2>
   </app-slide>

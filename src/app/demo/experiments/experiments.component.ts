@@ -7,8 +7,4 @@ import {Component} from '@angular/core';
   styleUrls: ['./experiments.component.css']
 })
 export class ExperimentsComponent {
-  title = 'Experiments';
-  description = '';
-  prereqs = '';
-
 }

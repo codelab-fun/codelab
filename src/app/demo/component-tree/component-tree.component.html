@@ -14,78 +14,91 @@
 
   <app-slide id="intro" class="no-padding">
     <app-title-slide title="Component tree" description="Combine components together"
-      [prereqs]="prereqs"></app-title-slide>
-  </app-slide>
+      prereqs=""></app-title-slide>
 
-  <app-slide id="component">
-    <h1>Recap: Component</h1>
-    <h2>
-      Component is the main building block of your app.
-      <br> You define a set of components for
-      every UI element, screen, and route.
-    </h2>
-  </app-slide>
+    <!--  COMPONENT -->
+    <app-slide id="component">
+      <h1>Recap: Component</h1>
+      <h2>
+        Component is the main building block of your app.
+        <br> You define a set of components for
+        every UI element, screen, and route.
+      </h2>
+    </app-slide>
 
-  <!--  COMPONENT TREE  -->
-  <app-slide id="component-tree">
-    <h1>Component Tree</h1>
-    <p>
-      Every application has a root component which contains
-      all other components. In other words, the
-      application will have a component tree.
-    </p>
-    <br>
-    <p>
-      Any Component can be a parent, a child or both.
-    </p>
-    <div>
+    <!--  COMPONENT TREE  -->
+    <app-slide id="description">
+      <h1>Component Tree</h1>
+      <p>
+        Every application has a root component which contains
+        all other components. In other words,
+        the application will have a component
+        tree.
+      </p>
+      <br>
+      <p>
+        Any Component can be a parent, a child or both.
+      </p>
       <div>
+        <div>
 
-      </div>
-      <div>
+        </div>
+        <div>
 
+        </div>
       </div>
-    </div>
-  </app-slide>
+    </app-slide>
 
-  <app-slide id="parent-child-component">
-    <h2>Generate your components</h2>
-    <div row>
-      <div column-5>
-        <h3>Parent Component</h3>
-        <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
-      </div>
-      <div column-5>
-        <h3>Child Component</h3>
-        <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
-      </div>
-    </div>
-    <h2>Do not forget add your components to the declarations
-      array in your module.</h2>
-    <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
-  </app-slide>
-
-  <app-slide id="passing-data">
-    <h1>Passing data from parent to child</h1>
-    <div class="content-container">
+    <!--  GENERATE COMPONENTS-->
+    <app-slide id="parent-child-component">
+      <h2>Generate your components</h2>
       <div row>
-        <div class="col-6">
+        <div column-5>
           <h3>Parent Component</h3>
-          <app-code-editor [fontSize]="15" [code]="code.parentComponent.code"></app-code-editor>
+          <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
         </div>
-        <div class="col-6">
+        <div column-5>
           <h3>Child Component</h3>
-          <app-code-editor [fontSize]="15" [code]="code.childComponent.code"></app-code-editor>
+          <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
         </div>
       </div>
-    </div>
-  </app-slide>
+      <h2>Do not forget add your components to the
+        declarations array in your module.</h2>
+      <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
+    </app-slide>
 
-  <app-slide>
-    <app-exercise [config]="exercise">
-      <div class="description">
-        <p>Component tree, TODO</p>
+    <!--  PASSING DATA  -->
+    <app-slide id="passing-data">
+      <h1>Passing data from parent to child</h1>
+      <div class="content-container">
+        <div row>
+          <div class="col-6">
+            <h3>Parent Component</h3>
+            <app-code-editor [fontSize]="15" [code]="code.parentComponent.code"></app-code-editor>
+          </div>
+          <div class="col-6">
+            <h3>Child Component</h3>
+            <app-code-editor [fontSize]="15" [code]="code.childComponent.code"></app-code-editor>
+          </div>
+        </div>
       </div>
-    </app-exercise>
-  </app-slide>
+    </app-slide>
+
+    <!--  COMPONENT TREE EXERCISE 2 -->
+    <app-slide id="exercise-1">
+      <app-exercise [config]="exercise">
+        <div class="description">
+          Create a video component.
+        </div>
+      </app-exercise>
+    </app-slide>
+
+    <!--  COMPONENT TREE EXERCISE 2-->
+    <app-slide id="exercise-2">
+      <app-exercise [config]="exercise2">
+        <div class="description">
+          Use the component.
+        </div>
+      </app-exercise>
+    </app-slide>
 </app-presentation>

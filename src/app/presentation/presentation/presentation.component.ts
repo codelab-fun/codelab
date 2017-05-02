@@ -21,6 +21,7 @@ export class PresentationComponent {
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
   areShortcutsEnabled = true;
+  disableArrowsForCode = true;
   // Expose enum to template
   modeEnum = Mode;
 
@@ -29,6 +30,8 @@ export class PresentationComponent {
       this.mode = this.route.snapshot.queryParams['mode'];
     }
     this.milestone = this.route.snapshot.queryParams['milestone'];
+    this.areShortcutsEnabled = !(this.route.snapshot.queryParams['shortcuts'] === 'false');
+    this.disableArrowsForCode = !(this.route.snapshot.queryParams['disableArrowsForCode'] === 'false');
   }
 
   get mode(): Mode {
@@ -80,7 +83,9 @@ export class PresentationComponent {
   }
 
   disableShortcuts() {
-    this.areShortcutsEnabled = false;
+    if (this.disableArrowsForCode) {
+      this.areShortcutsEnabled = false;
+    }
   }
 
   enableShortcuts() {

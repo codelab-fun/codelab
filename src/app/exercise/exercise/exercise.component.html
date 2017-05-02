@@ -7,8 +7,8 @@
                    (onLoadSolution)="loadSolution($event)">
       </app-editors>
       <app-resize [isVertical]="true">
-        <app-info [milestone]="milestone">
-        </app-info>
+        <app-slides-preview [milestone]="milestone">
+        </app-slides-preview>
       </app-resize>
     </app-resize>
 
@@ -17,7 +17,7 @@
       <div *ngIf="solved">
         <!--TODO: Find a nicer workflow-->
         <div style="color: green">
-          <h2>This exercise is solved!</h2>
+          <h2>Nice! Go to the next slide</h2>
         </div>
       </div>
       <app-tests [tests]="config.tests"></app-tests>

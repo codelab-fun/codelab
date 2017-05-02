@@ -7,9 +7,9 @@ import {Component, ElementRef, HostListener, Input, OnInit} from '@angular/core'
 })
 export class ResizeComponent implements OnInit {
   @Input() isVertical: boolean;
+  public isMouseDown: boolean;
   private MIN_WIDTH = 400;
-  private MIN_HEIGHT = 200;
-  private isMouseDown: boolean;
+  private MIN_HEIGHT = 350;
   private initOffset;
   private initSize;
   private minSize;
