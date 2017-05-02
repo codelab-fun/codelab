@@ -1,9 +1,23 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { async, inject, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Component } from '@angular/core';
+import { DemoModule, routes } from './../demo/demo.module';
 import { FeedbackService } from './feedback.service';
-import { inject, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
+@Component({
+  template: `
+    <router-outlet></router-outlet>
+  `
+})
+class RoutingComponent { }
+
+@Component({
+  template: ''
+})
+class DummyComponent { }
 const mockRouter = {
   url: 'abc123'
 };
@@ -15,19 +29,19 @@ const mockActivatedRoute = {
 const mockMessages = [
   {
     name: 'a',
-    href: 'def456',
+    href: '/typescript/1',
     comment: 'blah',
     email: 'dan@dan.com'
   },
   {
     name: 'b',
-    href: 'abc123',
+    href: '/typescript/1',
     comment: 'blah',
     email: 'dan@dan.com'
   },
   {
     name: 'c',
-    href: 'abc123',
+    href: '/typescript/2',
     comment: 'blah',
     email: 'dan@dan.com'
   }
@@ -40,6 +54,8 @@ const mockDb = {
   list: jasmine.createSpy('list').and.returnValue(mockMessageStream)
 };
 
+let fixture;
+
 describe('FeedbackService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -49,46 +65,62 @@ describe('FeedbackService', () => {
           provide: AngularFireDatabase,
           useValue: mockDb
         },
-        { provide: Router, useValue: mockRouter },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute }
-      ]
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+      ],
+      imports: [RouterTestingModule.withRoutes([
+        { path: 'typescript/1', component: DummyComponent }, { path: 'typescript/2', component: DummyComponent }
+      ])],
+      declarations: [RoutingComponent, DummyComponent]
     });
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(RoutingComponent);
+    fixture.detectChanges();
   });
 
   it('should initialize data source when created', inject([FeedbackService], (service: FeedbackService) => {
     expect(mockDb.list).toHaveBeenCalledWith('/feedback');
   }));
 
-  it('should list messages filtered by the router url', inject([FeedbackService, ActivatedRoute],
-    (service: FeedbackService, _activatedRoute: ActivatedRoute) => {
-      const stream = service.getMessages(_activatedRoute);
-      stream.subscribe(values => {
-        expect(values.length).toEqual(2);
-      });
-    }));
-
-  it('should list messages filtered by the router url when the activated route changes', inject([FeedbackService, ActivatedRoute, Router],
-    (service: FeedbackService, _activatedRoute: ActivatedRoute, _router: any) => {
-      const stream = service.getMessages(_activatedRoute);
-      let first = false;
-      stream.subscribe(values => {
-        if (!first) {
+  it('should list messages filtered by the router url', async(inject([FeedbackService, ActivatedRoute, Router],
+    (service: FeedbackService, _activatedRoute: ActivatedRoute, router: Router) => {
+      router.navigateByUrl('typescript/1').then(() => {
+        const stream = service.getMessages(_activatedRoute).subscribe((values) => {
           expect(values.length).toEqual(2);
-          first = true;
-        } else {
-          expect(values.length).toEqual(1);
-        }
+        });
       });
-      _router.url = 'def456';
-      mockActivatedRoute.url.next('');
-    }));
+    })));
 
-  it('should add a message from the current url', inject([FeedbackService], (service: FeedbackService) => {
-    service.addMessage('a', 'b', 'c', 'header');
-    expect(mockMessageStream.push).toHaveBeenCalled();
-    const call: jasmine.Spy = mockMessageStream.push;
-    const obj = call.calls.mostRecent().args[0];
-    expect(obj.href).toEqual('abc123');
-  }));
+  it('should list messages filtered by the router url when the activated route changes',
+    async(inject([FeedbackService, ActivatedRoute, Router],
+      (service: FeedbackService, _activatedRoute: ActivatedRoute, router: any) => {
+        let calls = 0;
+        router.navigateByUrl('typescript/1').then(() => {
+          service.getMessages(_activatedRoute).subscribe(values => {
+            if (calls === 0) {
+              expect(values.length).toEqual(2);
+            }
+            if (calls === 1) {
+              expect(values.length).toEqual(1);
+            }
+            calls++;
+          });
+          router.navigateByUrl('typescript/2').then(() => {
+            mockActivatedRoute.url.next('');
+          });
+        });
+      })));
+
+  it('should add a message from the current url', async(inject([FeedbackService, Router], (service: FeedbackService, router: Router) => {
+    router.navigateByUrl('typescript/1').then(() => {
+      service.addMessage('a', 'b', 'c', 'header');
+      expect(mockMessageStream.push).toHaveBeenCalled();
+      const call: jasmine.Spy = mockMessageStream.push;
+      const obj = call.calls.mostRecent().args[0];
+      expect(obj.href).toEqual('/typescript/1');
+    });
+
+  })));
 
 });
