@@ -15,7 +15,7 @@
       <table>
         <tr>
           <th>Name</th>
-          <th class="comment-col">Comment</th>
+          <th>Comment</th>
           <th>href</th>
           <th>Header</th>
           <th>Done</th>
@@ -34,7 +34,7 @@
 
       <ul>
         <li *ngFor="let feedbacker of feedbackersNames">
-          <b>{{feedbacker}}</b> Number of feedback: {{feedbackersCount[feedbacker]}}
+          <b>{{feedbacker}}</b> : {{feedbackersCount[feedbacker]}}
         </li>
       </ul>
     </div>

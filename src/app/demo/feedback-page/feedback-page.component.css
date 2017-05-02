@@ -1,23 +1,25 @@
-#main{
+#main {
     overflow: scroll;
     height: 100%;
 }
 
-td{
+td {
     padding: 10px;
     border-bottom: 1px solid silver;
 }
 
-th{
+th {
     font-size: 20px;
-}
-.comment-col{
-    width:30%;
+    width: 25%;
 }
 
-table{
+table {
     text-align: center;
 }
 .hidden {
-  display: none;
+    display: none;
+}
+
+li {
+    font-size: 22px;
 }
