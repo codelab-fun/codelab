@@ -5,4 +5,5 @@ export class Message {
   timestamp?: string;
   href?: string;
   header?: string;
+  isDone?: boolean;
 }
