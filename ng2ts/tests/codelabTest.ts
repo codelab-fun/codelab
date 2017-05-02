@@ -21,7 +21,6 @@ import {ts, typescript_intro_Codelab_ts_AST} from '../code';
 import {Codelab, evalJs} from '../typescript-intro/Codelab';
 
 
-
 const guests = [
   {name: 'me', coming: true},
   {name: 'notme', coming: false},
@@ -87,22 +86,33 @@ describe('Component', () => {
 
   it(`Make constructor take a parameter 'guests'`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
+    chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
+    chai.expect(constructorNode.parameters.length, `Codelab's constructor should take a parameter`).to.equal(1);
+    chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
+  });
+
+  it(`Specify the type for the guests`, () => {
+    const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
 
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
     chai.expect(constructorNode.parameters.length, `Codelab's constructor should take a parameter`).to.equal(1);
     chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
 
-    let type = constructorNode.parameters[0].type;
-    const isArrayOfGuest = /* Array<Guest> */(type.kind === ts.SyntaxKind.TypeReference && type.typeName.text === 'Array' &&
+    const type = constructorNode.parameters[0].type;
+    const isArrayOfGuest = /* Array<Guest> */(type.kind === ts.SyntaxKind.TypeReference &&
+      type.typeName.text === 'Array' &&
       type.typeArguments.length === 1 && type.typeArguments[0].typeName.text === 'Guest') ||
-      /* Guest[] */ (type.kind === ts.SyntaxKind.ArrayType && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
+      /* Guest[] */ (type.kind === ts.SyntaxKind.ArrayType
+      && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
 
-    chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest (hint: Guest[] is one way of doing it.)`).to.be.ok;
+    chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest 
+    (hint: Guest[] is one way of doing it.)`).to.be.ok;
+
   });
 
   it('Make the parameter public (note that now you can access it anywhere in the class using this.guests)', () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
-    let parameter = constructorNode.parameters[0];
+    const parameter = constructorNode.parameters[0];
     chai.expect(parameter.modifiers.length === 1 && parameter.modifiers[0].kind === ts.SyntaxKind.PublicKeyword,
       `'guests' constructor parameter should have 'public' visibility.`).to.be.ok;
 

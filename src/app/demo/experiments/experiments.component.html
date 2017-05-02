@@ -1,6 +1,7 @@
 <app-presentation
   app-slides-routing
   app-mode-routing>
+
   <div class="btn-bar">
     <app-mode-overview></app-mode-overview>
     <app-feedback-widget></app-feedback-widget>
@@ -9,6 +10,7 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
 
+  <!--  INTRO -->
   <app-slide id="intro" class="no-padding">
     <app-title-slide
       title="Experiments"
@@ -16,7 +18,7 @@
       prereqs=""
     ></app-title-slide>
   </app-slide>
-
+  
   <app-slide>
     <h2>How to use angular-presentation</h2>
     <pre>
@@ -69,6 +71,7 @@
         <h3 style="text-align: justify;">Parent Component</h3>
         <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
       </div>
+
 
   </app-slide>
 

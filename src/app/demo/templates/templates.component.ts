@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {displayAngularComponent, displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
+import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 
 const x = {
@@ -14,6 +15,11 @@ const baseCode = 'TODO';
   styleUrls: ['./templates.component.css']
 })
 export class TemplatesComponent implements OnInit {
+  exercises = [
+    ng2tsConfig.milestones[2].exercises[1],
+    ng2tsConfig.milestones[2].exercises[2],
+    ng2tsConfig.milestones[2].exercises[3],
+  ];
   code = {
     template: {
       intro: displayAngularComponent(`import {Component} from '@angular/core';
@@ -24,6 +30,12 @@ export class TemplatesComponent implements OnInit {
 })
 export class AppComponent {
 }`),
+
+      matches: {
+        curlies: /\{\{.*\}\}/,
+        firstName: 'firstName',
+        squares: /\[.*\]/
+      },
       interpolation: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
@@ -77,8 +89,7 @@ export class AppComponent {
   avatar = 'assets/images/renoir.jpg';
   fullName(){  return this.firstName + this.lastName }
 }`),
-      dataBindingExtra: `
-<!-- This is valid HTML syntax. -->
+      dataBindingExtra: `<!-- This is valid HTML syntax. -->
 <input [value]="person.emailAddress">
 <!-- It works on attribute syntax. -->
 <button [attr.aria-label]="help">help</button>
