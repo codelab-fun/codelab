@@ -1,8 +1,16 @@
-<app-presentation 
+<app-presentation
   app-slides-routing
   app-mode-routing>>
 
   <app-slide class="no-padding">
+    <div>
+      <label>Feedback</label>
+      <select (change)="onFilterChange($event)">
+        <option>All</option>
+        <option>Done</option>
+        <option>Undone</option>
+      </select>
+    </div>
     <div id="main">
       <table>
         <tr>
@@ -10,12 +18,17 @@
           <th class="comment-col">Comment</th>
           <th>href</th>
           <th>Header</th>
+          <th>Done</th>
         </tr>
-        <tr *ngFor="let feedbackItem of currentFeedbackList">
+        <tr *ngFor="let feedbackItem of currentFeedbackList"
+            [class.hidden]="!isShown(feedbackItem.isDone)">
           <td>{{feedbackItem.name}}</td>
           <td>{{feedbackItem.comment}}</td>
           <td>{{feedbackItem.href}}</td>
           <td>{{feedbackItem.header}}</td>
+          <td>
+            <input type="checkbox" [checked]="feedbackItem.isDone" (change)="isDone(feedbackItem.$key, $event)">
+          </td>
         </tr>
       </table>
 

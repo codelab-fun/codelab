@@ -49,8 +49,8 @@ export const routes = [
   {
     path: 'feedback-page',
     loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule',
-    name: 'Experiments',
-    description: 'This is a place for experiments, dev only'
+    name: 'Feedback',
+    description: 'Here you will find the code-lab feedback.'
   },
   {
     path: '',
