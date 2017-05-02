@@ -31,30 +31,48 @@
     <h1>Comparison</h1>
     <div class="content-container">
       <div class="col-6">
-        <h3 style="text-align: justify;">Without Dependency Injection</h3>
         <app-code-editor [fontSize]="15" [code]="code.withOutDI.code"
                          [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></app-code-editor>
-        <ul style="margin-top: 10px; text-align: justify;">
-          <li>The Person class creates everything it needs inside its constructor.</li>
-          <li>The Person class is brittle, inflexible, and hard to test.</li>
-          <li>This Person needs a profession. Instead of asking for it, the Person constructor
-            instantiates its own copy from the very specific class Profession.
-          </li>
-          <li>If the Profession class evolve and requires a parameter, we will break the Person class.</li>
-          <li>You have no control over the person's hidden dependencies.</li>
-        </ul>
+        <h2>Without Dependency injection Profession has to be instantiated in the Person class</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
-        <h3 style="text-align: center;">With Dependency Injection</h3>
         <app-code-editor [fontSize]="15" [code]="code.withDI.code"
                          [focus-highlight-match]="[code.withDI.matches.constructor]"></app-code-editor>
-        <ul style="margin-top: 10px; text-align: justify;">
-          <li>The Person class no longer creates a profession. It just consumes it.</li>
-          <li>If someone extends the Profession class, it is not a Person's problem.</li>
-          <li>You have complete control of Person's dependencies.</li>
-        </ul>
+        <h2>With Dependency Injection Person class just "requires" an instance of Profession in the constructor, and
+          Angular takes care of instantiating it.</h2>
       </div>
     </div>
+  </app-slide>
+
+  <app-slide id="comparison-2">
+    <h1>Comparison - Parametrs</h1>
+    <div class="content-container">
+      <div class="col-6">
+        <app-code-editor [fontSize]="15" [code]="code.withOutDI.code2"
+                         [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></app-code-editor>
+        <h2>Without Dependency injection you have to figure out all the parameters yourself</h2>
+      </div>
+      <div class="col-6" style="margin-left: 10px;">
+        <app-code-editor [fontSize]="15" [code]="code.withDI.code"
+                         [focus-highlight-match]="[code.withDI.matches.constructor]"></app-code-editor>
+        <h2>With Dependency Injection Angular takes care of it.</h2>
+      </div>
+    </div>
+  </app-slide>
+
+  <app-slide id="comparison-3">
+    <h1>Comparison - Parametrs</h1>
+    <h2>Also testing is harder without DI, but I'll have to create a slide about it (TODO).</h2>
+  </app-slide>
+
+  <!--  Steps to create an Angular app -->
+  <app-slide id="angular-app">
+    <h1>Providing dependencies with Angular takes 3 simple steps:</h1>
+    <ol>
+      <li>Mark dependency as @Injectable()</li>
+      <li>Provide in the module</li>
+      <li>Require in the component</li>
+    </ol>
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #1  -->
@@ -68,17 +86,79 @@
   <!--  IMPLEMENTATION STEP #2  -->
   <app-slide id="provide-injectable">
     <h1>Implementation Step #2</h1>
-    <h2>Provide the injectable</h2>
-    <app-code-editor [fontSize]="15" [code]="code.provideInjectable.code"
+    <h2>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
+    <app-code-editor [fontSize]="20" [code]="code.provideInjectable.code"
                      [focus-highlight-match]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></app-code-editor>
+    <div class="info">Now this service becomes available for every <b>Component</b> and other service in the Module.
+    </div>
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #3  -->
   <app-slide id="consume-injectable">
     <h1>Implementation Step #3</h1>
-    <h2>Consume the Injectable</h2>
-    <app-code-editor [fontSize]="15" [code]="code.consumeInjectable.code"
+    <h2>Consume the Injectable in the component</h2>
+    <app-code-editor [fontSize]="20" [code]="code.consumeInjectable.code"
                      [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></app-code-editor>
+    <div class="info">Because of the <b>private</b> access modifier the service becomes accessible across the class as
+      <b>this.converter</b></div>
+  </app-slide>
+
+
+  <app-slide id="exercise-pre">
+    <h1>Exercise</h1>
+    <h2>In the next slide you'll use videoService which has even more cats!!! The result will look like this: </h2>
+
+    <app-browser-window>
+      <div>
+        <h1>CatTube</h1>
+        <input placeholder="video" type="text">
+        <button>Search!</button>
+
+        <!--bindings={
+        "ng-reflect-ng-if": "false"
+      }-->
+
+        <!--bindings={
+        "ng-reflect-ng-for-of": "[object Object],[object Object"
+      }-->
+        <div>
+          <h2>Cute kitten</h2>
+          <img src="/assets/images/cat-0.png">
+        </div>
+        <div>
+          <h2>Kitten on the tree</h2>
+          <img src="/assets/images/cat-1.jpg">
+        </div>
+        <div>
+          <h2>More kitten</h2>
+          <img src="/assets/images/cat-2.jpg">
+        </div>
+        <div>
+          <h2>Another kitten</h2>
+          <img src="/assets/images/cat-3.jpg">
+        </div>
+        <div>
+          <h2>Serouis cat</h2>
+          <img src="/assets/images/cat-4.jpg">
+        </div>
+        <div>
+          <h2>Serouis cat</h2>
+          <img src="/assets/images/cat-5.jpg">
+        </div>
+        <div>
+          <h2>Serouis cat</h2>
+          <img src="/assets/images/cat-5.jpg">
+        </div>
+        <div>
+          <h2>Opps, looks like a bug!</h2>
+          <img src="/assets/images/dog.jpg">
+        </div>
+        <div>
+          <h2>Serouis cat</h2>
+          <img src="/assets/images/cat-6.jpg">
+        </div>
+      </div>
+    </app-browser-window>
   </app-slide>
 
   <!--  CREATE FIRST ANGULAR COMPONENT EXERCISE-->

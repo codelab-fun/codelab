@@ -13,13 +13,24 @@ export class DependencyInjectionComponent {
   code = {
     withOutDI: {
       code: `export class Person {
-  profession: Profession;
+  profession: Job;
 
   constructor() {
-    this.profession = new Profession();
+    this.profession = new Job();
   }
 
 }`,
+        code2: `import {ProfessionsEnum} from professions;
+        
+export class Person {
+  profession: Job;
+
+  constructor() {
+    const Schedule = new Schedule(ProfessionsEnum.ENGINEER);
+    this.profession = new Job(ProfessionsEnum.ENGINEER, Schedule, /* TODO: Find how to inject salary*/);
+  }
+}`,
+
       matches: {
         noDI: /this.*/
       },
@@ -34,7 +45,7 @@ export class DependencyInjectionComponent {
    * Typescript shorthand makes 'profession'
    * available to component instance.
    */
-  constructor(public profession: Profession) {}
+  constructor(public profession: Job) {}
 }`,
       matches: {
         constructor: /constructor.*/
@@ -48,7 +59,7 @@ export class DependencyInjectionComponent {
       code: `import { Injectable } from '@angular/core';
 
 @Injectable()
-export class MyService {
+export class UnitConverterService {
   ...
 }`,
       matches: {
