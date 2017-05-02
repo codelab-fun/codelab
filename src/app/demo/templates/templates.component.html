@@ -27,6 +27,14 @@
     <app-playground [config]="code.template.intro"></app-playground>
   </app-slide>
 
+  <!--  INTERPOLATION-->
+  <app-slide id="interpolation">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Double curlies allow you to include properties from the component</h2>
+    <app-playground [config]="code.template.interpolation"
+                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+  </app-slide>
+
   <app-slide id="exercise-pre">
     <h1>Exercise</h1>
     <h2>In the next slide you'll edit component template to create a simple header and search form which will look like
@@ -45,14 +53,6 @@
       <div class="description">
       </div>
     </app-exercise>
-  </app-slide>
-
-  <!--  INTERPOLATION-->
-  <app-slide id="interpolation">
-    <h1>Angular Templates - Interpolation</h1>
-    <h2>Double curlies allow you to include properties from the component</h2>
-    <app-playground [config]="code.template.interpolation"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
   </app-slide>
 
   <!--INTERPOLATION-METHOD-->
