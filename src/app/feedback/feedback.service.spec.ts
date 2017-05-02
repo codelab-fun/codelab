@@ -3,7 +3,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { async, inject, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component } from '@angular/core';
-import { DemoModule, routes } from './../demo/demo.module';
 import { FeedbackService } from './feedback.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -18,9 +17,6 @@ class RoutingComponent { }
   template: ''
 })
 class DummyComponent { }
-const mockRouter = {
-  url: 'abc123'
-};
 
 const mockActivatedRoute = {
   url: new BehaviorSubject<string>('')
