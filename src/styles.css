@@ -85,6 +85,10 @@ h1, h2, h3, li {
   visibility: hidden;
 }
 
+.presentation.overview app-ripple-animation {
+  visibility: hidden;
+}
+
 .presentation.overview .slide {
   pointer-events: none;
   margin: 2% auto;
