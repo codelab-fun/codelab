@@ -10,10 +10,6 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 })
 
 export class TypescriptComponent {
-  title = 'TypeScript';
-  description = '';
-  prereqs = '';
-
   code = {
     moreTypes: {
       code: `var number: number = 1;
