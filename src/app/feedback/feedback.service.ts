@@ -2,8 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Message } from './message';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/Observable/of';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class FeedbackService {
@@ -19,7 +18,7 @@ export class FeedbackService {
   getMessages(activatedRoute: ActivatedRoute): Observable<Message[]> {
     const stream$ = this.repo$
       .switchMap((results: Message[]) =>
-        of(results.filter(m => m.href === this.router.url).sort())
+        Observable.of(results.filter(m => m.href === this.router.url).sort())
       );
     return activatedRoute.url.switchMap(urls => stream$);
   }
