@@ -2,3 +2,19 @@
     overflow: scroll;
     height: 100%;
 }
+
+td{
+    padding: 10px;
+    border-bottom: 1px solid silver;
+}
+
+th{
+    font-size: 20px;
+}
+.comment-col{
+    width:30%;
+}
+
+table{
+    text-align: center;
+}
