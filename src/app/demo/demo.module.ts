@@ -47,6 +47,12 @@ export const routes = [
     description: 'This is a place for experiments, dev only'
   },
   {
+    path: 'feedback-page',
+    loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule',
+    name: 'Feedback',
+    description: 'Here you will find the code-lab feedback.'
+  },
+  {
     path: '',
     component: IndexComponent
   }
