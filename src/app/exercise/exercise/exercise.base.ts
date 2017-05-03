@@ -72,7 +72,8 @@ export class ExerciseBase implements OnDestroy {
   constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService) {
     this.onActiveUsubscribe = slide.onActive.filter(a => a).subscribe(() => {
       console.log('ACTIVE');
-      slide.disableShortcuts();
+
+      // slide.disableShortcuts();
       slide.disableResize();
       this.loadModels();
     });
