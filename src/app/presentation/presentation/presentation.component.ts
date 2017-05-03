@@ -43,7 +43,6 @@ export class PresentationComponent {
     this.onModeChange.next(value);
   }
 
-
   get totalSlides() {
     return this.generatedSlideIndex;
   }
@@ -59,16 +58,13 @@ export class PresentationComponent {
 
   nextSlide(isTriggeredByShortcut: boolean = false) {
     if (this.canGoNext() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
-      this.enableShortcuts();
       this.activeSlideIndex++;
       this.onSlideChange.next(this.activeSlideIndex);
     }
   }
 
-
   previousSlide(isTriggeredByShortcut: boolean = false) {
     if (this.canGoPrevious() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
-      this.enableShortcuts();
       this.activeSlideIndex--;
       this.onSlideChange.next(this.activeSlideIndex);
     }
@@ -80,16 +76,6 @@ export class PresentationComponent {
 
   canGoPrevious(): boolean {
     return this.activeSlideIndex > 0;
-  }
-
-  disableShortcuts() {
-    if (this.disableArrowsForCode) {
-      this.areShortcutsEnabled = false;
-    }
-  }
-
-  enableShortcuts() {
-    this.areShortcutsEnabled = true;
   }
 
   disableResize() {
