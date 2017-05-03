@@ -9,7 +9,7 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
 
-  <app-slide id="intro" class="no-padding">
+  <app-slide id="intro" class="no-padding" milestone="DependencyInjection">
     <app-title-slide
       title="Dependency injection"
       description="Angular has a powerful dependency injection system"
@@ -19,7 +19,7 @@
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
-  <app-slide id="recap">
+  <app-slide id="recap" milestone="DependencyInjection">
     <h1 style="text-align: center;">Recap</h1>
     <h2>
       <b>Dependency Injection</b> is a way to provide dependencies to your code instead of hard-coding them.
@@ -27,7 +27,7 @@
   </app-slide>
 
   <!--  COMPARISON -->
-  <app-slide id="comparison">
+  <app-slide id="comparison" milestone="DependencyInjection">
     <h1>Comparison</h1>
     <div class="content-container">
       <div class="col-6">
@@ -44,7 +44,7 @@
     </div>
   </app-slide>
 
-  <app-slide id="comparison-2">
+  <app-slide id="comparison-2" milestone="DependencyInjection">
     <h1>Comparison - Parametrs</h1>
     <div class="content-container">
       <div class="col-6">
@@ -60,13 +60,13 @@
     </div>
   </app-slide>
 
-  <app-slide id="comparison-3">
+  <app-slide id="comparison-3" milestone="DependencyInjection">
     <h1>Comparison - Parametrs</h1>
     <h2>Also testing is harder without DI, but I'll have to create a slide about it (TODO).</h2>
   </app-slide>
 
   <!--  Steps to create an Angular app -->
-  <app-slide id="angular-app">
+  <app-slide id="angular-app" milestone="DependencyInjection">
     <h1>Providing dependencies with Angular takes 3 simple steps:</h1>
     <ol>
       <li>Mark dependency as @Injectable()</li>
@@ -76,7 +76,7 @@
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #1  -->
-  <app-slide id="make-injectable">
+  <app-slide id="make-injectable" milestone="DependencyInjection">
     <h1>Implementation Step #1</h1>
     <h2>Mark a class as Injectable</h2>
     <app-code-editor [fontSize]="15" [code]="code.classAsInjectable.code"
@@ -84,7 +84,7 @@
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #2  -->
-  <app-slide id="provide-injectable">
+  <app-slide id="provide-injectable" milestone="DependencyInjection">
     <h1>Implementation Step #2</h1>
     <h2>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
     <app-code-editor [fontSize]="20" [code]="code.provideInjectable.code"
@@ -94,7 +94,7 @@
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #3  -->
-  <app-slide id="consume-injectable">
+  <app-slide id="consume-injectable" milestone="DependencyInjection">
     <h1>Implementation Step #3</h1>
     <h2>Consume the Injectable in the component</h2>
     <app-code-editor [fontSize]="20" [code]="code.consumeInjectable.code"
@@ -169,19 +169,19 @@
       </div>
     </app-exercise>
   </app-slide>
-  
-  <app-slide id="end" milestone="Dependecy Injection">
+
+  <app-slide id="end" milestone="DependecyInjection">
     <app-closing-slide>
-      <div class="header" header><h1 i18n>End of Dependency Injection Section</h1></div>      
+      <div class="header" header><h1 i18n>End of Dependency Injection Section</h1></div>
       <div class="body" body>
         <h2>Please leave your thoughts using the feedback button below!</h2>
-      </div>   
+      </div>
       <div class="footer" footer>
         <h2>
             <a routerLink="/">Go to Index</a>
             <a routerLink="/component-tree/0">Go to the next Milestone</a>
         </h2>
-      </div> 
+      </div>
     </app-closing-slide>
   </app-slide>
 </app-presentation>

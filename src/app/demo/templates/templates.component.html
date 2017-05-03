@@ -10,7 +10,7 @@
   <app-arrows></app-arrows>
 
   <!--  INTRO -->
-  <app-slide id="intro" class="no-padding">
+  <app-slide id="intro" class="no-padding" milestone="Templates">
     <app-title-slide
       title="Templates"
       description="Learn more about Angular templates!"
@@ -20,7 +20,7 @@
 
 
   <!--  COMPONENT -->
-  <app-slide id="component">
+  <app-slide id="component" milestone="Templates">
     <h1>Angular Templates</h1>
     <h2>Angular has a very expressive template system.</h2>
     <h2>It supports HTML</h2>
@@ -48,7 +48,7 @@
   </app-slide>
 
   <!--  INTERPOLATION-->
-  <app-slide id="interpolation">
+  <app-slide id="interpolation" milestone="Templates">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
     <app-playground [config]="code.template.interpolation"
@@ -56,7 +56,7 @@
   </app-slide>
 
   <!--INTERPOLATION-METHOD-->
-  <app-slide id="interpolation-method">
+  <app-slide id="interpolation-method" milestone="Templates">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
     </h2>
@@ -65,7 +65,7 @@
   </app-slide>
 
   <!--  PRE DATA BINDING-->
-  <app-slide id="data-binding-pre">
+  <app-slide id="data-binding-pre" milestone="Templates">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies can be used anywhere in the templates, even in properties</h2>
     <app-playground [config]="code.template.dataBindingPre"
@@ -73,7 +73,7 @@
   </app-slide>
 
   <!--  DATA BINDING  -->
-  <app-slide id="data-binding">
+  <app-slide id="data-binding" milestone="Templates">
     <h1>Angular Templates - Data binding</h1>
     <h2>There is a special way to bind the data to the properties using [ and ]</h2>
     <app-playground [config]="code.template.dataBinding"
@@ -81,7 +81,7 @@
   </app-slide>
 
   <!--  DATA BINDING EXTRAS-->
-  <app-slide id="data-binding-extras">
+  <app-slide id="data-binding-extras" milestone="Templates">
     <h1>Angular Templates - Data binding extras</h1>
     <h2>Angular supports more advanced bindings than just attribute name.</h2>
     <app-code-editor
@@ -92,7 +92,7 @@
 
 
   <!--  BINDING EVENT -->
-  <app-slide id="event-binding">
+  <app-slide id="event-binding" milestone="Templates">
     <h2 ngNonBindable>Event binding ( (event) )</h2>
     <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
     <app-code-editor
@@ -106,7 +106,7 @@
 
 
   <!--  CONDITIONAL DISPLAY-->
-  <app-slide id="conditional-display-ngif">
+  <app-slide id="conditional-display-ngif" milestone="Templates">
     <h2>Conditional Display (*ngIf)</h2>
     <p>
       Conditionally includes a template based on the value of an expression.
@@ -144,7 +144,7 @@
 
 
   <!--  REFERENCE BINDING -->
-  <app-slide id="reference-binding">
+  <app-slide id="reference-binding" milestone="Templates">
     <h2>Reference binding ( #var )</h2>
     <p>A template reference variable is often a reference to a DOM element within a template. It can also be a reference
       to an Angular component or directive or a web component.</p>
@@ -158,7 +158,7 @@
   </app-slide>
 
   <!--  CONDITIONAL NGFOR-->
-  <app-slide id="conditional-display-ngfor">
+  <app-slide id="conditional-display-ngfor" milestone="Templates">
     <h2>Conditional Display (*ngFor)</h2>
     <p>
       The ngFor directive instantiates a template once per item from an iterable. The context for each instantiated
@@ -211,16 +211,16 @@
 
   <app-slide id="end" milestone="Templates">
     <app-closing-slide>
-      <div class="header" header><h1 i18n>End of Templates Section</h1></div>      
+      <div class="header" header><h1 i18n>End of Templates Section</h1></div>
       <div class="body" body>
         <h2>Please leave your thoughts using the feedback button below!</h2>
-      </div>   
+      </div>
       <div class="footer" footer>
         <h2>
             <a routerLink="/">Go to Index</a>
             <a routerLink="/dependency-injection/intro">Go to the next Milestone</a>
         </h2>
-      </div> 
+      </div>
     </app-closing-slide>
   </app-slide>
 
