@@ -13,6 +13,7 @@ import {TitleSlideComponent} from './title-slide/title-slide.component';
 import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
 import { ModeOverviewComponent } from 'app/presentation/mode-overview/mode-overview.component';
 import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing.directive';
+//import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 
 
 @NgModule({

@@ -72,7 +72,7 @@ export function monacoReady() {
     PresentationModule,
     ExerciseModule,
     RouterModule.forRoot(routes),
-    TooltipsModule
+    TooltipsModule    
   ],
   providers: [
     {
