@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
-import { ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate } from '../../../../ng2ts/ng2ts';
+import {Component} from '@angular/core';
+import {ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate} from '../../../../ng2ts/ng2ts';
+import {boxAndCircle, circleAndBox} from '../../exercise/helpers/helpers';
 
 @Component({
   selector: 'app-component-tree',
@@ -15,13 +16,14 @@ export class ComponentTreeComponent {
 
   code = {
     parentComponentSkeleton: {
+      match: /app-world/,
       code: `import { Component } from '@angular/core';
 
 @Component({
-  selector: 'parent',
-  template: '<child>...</child>'
+  selector: 'app-hello',
+  template: \`<h1>Hello</h1><app-world></app-world>\`
 })
-export class ParentComponent {}
+export class HelloComponent {}
 `,
       path: 'parent.component.ts',
       type: 'typescript',
@@ -30,15 +32,16 @@ export class ParentComponent {}
       code: `import { Component } from '@angular/core';
 
 @Component({
-  selector: 'child',
-  template: '<p>I'm a child!</p>'
+  selector: 'app-world',
+  template: '<h1>World</h1>'
 })
-export class ChildComponent {}
+export class WorldComponent {}
 `,
       path: 'child.component.ts',
       type: 'typescript',
     },
     appModule: {
+      match: /decla.*/,
       code: `import { NgModule } from '@angular/core';
 import { ChildComponent } from './child.component';
 import { ParentComponent } from './parent.component';
@@ -79,6 +82,9 @@ export class Child {
       path: 'child.component.ts',
       type: 'typescript',
     },
+
+    boxAndCircle: boxAndCircle(),
+    circleAndBox: circleAndBox()
   };
 
   constructor(private exercises: Ng2TsExercises) {
