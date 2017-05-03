@@ -7,7 +7,6 @@ import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
-import {ClosingSlideComponent} from '../../presentation/closing-slide/closing-slide.component';
 
 
 const routes = RouterModule.forChild(
@@ -17,7 +16,7 @@ const routes = RouterModule.forChild(
 @NgModule({
   imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserWindowModule],
   providers: [Ng2TsExercises],
-  declarations: [DependencyInjectionComponent, ClosingSlideComponent],
+  declarations: [DependencyInjectionComponent],
   exports: [DependencyInjectionComponent]
 })
 export class DependencyInjectionModule {
