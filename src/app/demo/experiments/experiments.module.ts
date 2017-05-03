@@ -6,7 +6,6 @@ import {FeedbackModule} from '../../feedback/feedback.module';
 import {ExperimentsComponent} from './experiments.component';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {ExerciseModule} from '../../exercise/exercise.module';
-import {ClosingSlideComponent} from '../../presentation/closing-slide/closing-slide.component';
 
 
 const routes = RouterModule.forChild(
@@ -15,7 +14,7 @@ const routes = RouterModule.forChild(
 
 @NgModule({
   imports: [routes, PresentationModule, FeedbackModule, ExerciseModule],
-  declarations: [ExperimentsComponent, ClosingSlideComponent],
+  declarations: [ExperimentsComponent],
   exports: [ExperimentsComponent]
 })
 export class ExperimentsModule {
