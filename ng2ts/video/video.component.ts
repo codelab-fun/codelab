@@ -5,7 +5,7 @@ import {Thumbs} from '../thumbs/thumbs.component';
 /*/d*//*d:videoComponentCreateSolved/trimTrailing*/
 @Component({
   selector: 'my-video',
-  templateUrl: 'video.html'
+  templateUrl: './video.html'
 })
 /*/d*/
 export class VideoComponent {
