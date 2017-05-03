@@ -5,4 +5,5 @@ export interface Message {
   timestamp?: string;
   href?: string;
   header?: string;
+  isDone?: boolean;
 }
