@@ -16,7 +16,8 @@ beforeEach(() => {
     });
     TestBed.overrideComponent(VideoComponent, {
       set: {
-        template: video_video_html
+        template: video_video_html,
+        templateUrl: undefined
       }
     });
     TestBed.compileComponents();
@@ -52,11 +53,12 @@ describe('Component tree', () => {
     let fixture;
     beforeEach(() => {
       try {
+        
         fixture = TestBed.createComponent(VideoComponent);
         fixture.componentInstance.video = video;
         fixture.detectChanges();
       } catch (e) {
-
+    
       }
     });
 
@@ -66,8 +68,8 @@ describe('Component tree', () => {
 
     it(`Video.html: Display the video thumbnail`, () => {
       const image = fixture.nativeElement.querySelector('img');
-      chai.expect(image, `Can't find the thumbnal`).is.not.null;
-      chai.expect(image.getAttribute('ng-reflect-src')).equals(video.src);
+      chai.expect(image, `Can't find the thumbnail`).is.not.null;
+      chai.expect(image.getAttribute('src')).equals(video.src);
     });
 
     it(`Video.html: Display the video description`, () => {
