@@ -82,6 +82,7 @@
   to {
     top: 10vh;
     opacity: 0;
+    transform: scale(2);
   }
 }
 .fadeOutUp {
