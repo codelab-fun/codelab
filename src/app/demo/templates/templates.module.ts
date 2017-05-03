@@ -7,6 +7,7 @@ import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
+import {ClosingSlideComponent} from '../../presentation/closing-slide/closing-slide.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(TemplatesComponent)
@@ -14,7 +15,7 @@ const routes = RouterModule.forChild(
 
 @NgModule({
   imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserWindowModule],
-  declarations: [TemplatesComponent],
+  declarations: [TemplatesComponent, ClosingSlideComponent],
   exports: [TemplatesComponent]
 })
 export class TemplatesModule {
