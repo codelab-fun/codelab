@@ -10,9 +10,9 @@ export class ClosingSlideComponent implements OnInit {
   @Input() header: String;
   @Input() body: String;
   @Input() footer: String;
-  
-  constructor( ) { 
-    
+
+  constructor( ) {
+
   }
 
   ngOnInit() {
