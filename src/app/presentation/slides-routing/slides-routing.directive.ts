@@ -1,6 +1,12 @@
-import {ActivatedRoute, Router} from '@angular/router';
-import {Directive, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output
+  } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
@@ -14,7 +20,7 @@ export class SlidesRoutingDirective implements OnInit {
 
   @Output() change = new EventEmitter();
 
-  constructor(private router: Router, private route: ActivatedRoute, private  presentation: PresentationComponent) {
+  constructor(private router: Router, private route: ActivatedRoute, private presentation: PresentationComponent) {
 
   }
 
@@ -32,7 +38,7 @@ export class SlidesRoutingDirective implements OnInit {
 
   @HostListener('onSlideChange', ['$event']) slideChange(index) {
     const url = this.ids[index] || index;
-    this.router.navigate(['../' + url], {relativeTo: this.route, preserveQueryParams: true});
+    this.router.navigate(['../' + url], { relativeTo: this.route, queryParamsHandling: 'merge' });
   }
 
   ngOnInit() {

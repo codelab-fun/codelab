@@ -1,115 +1,34 @@
 .feedback-button {
-  background-image: url("../../../assets/images/chat.png");;
-  background-color: #3498db;
-  border-radius: 100%;
-  text-align: right;
-  display: inline-block;
+    background-image: url("../../../assets/images/chat.png");
+    ;
+    background-color: #3498db;
+    border-radius: 100%;
+    text-align: right;
+    display: inline-block;
 }
 
 .feedback-button .messages-count {
-  width: 15px;
-  height: 15px;
-  display: inline-block;
-  text-align: center;
-  font-size: 13px
-}
-
-.feedback-form {
-  width: 320px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  padding: 10px;
-  border: thin solid #c0c0c0;
-  position: fixed;
-  z-index: 2;
-  bottom: 10%;
-  right: 8%;
-}
-
-.form-container {
-  display: block;
-  margin-top: 10px;
-  padding: 10px;
-  background: white;
-}
-
-textarea {
-  margin: 10px 0;
-  height: 100px;
-}
-
-input,
-textarea {
-  width: 100%;
-  border: 1px #ddd solid;
-  padding: 4px;
-  margin-top: 10px;
-}
-
-.main {
-  position: fixed;
-  top: 30px;
-  right: 30px;
-  width: 300px;
-  z-index: 99;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
 }
 
 .button-container {
-  width: 100%;
-  text-align: right;
-}
-
-.feedback-items {
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.feedback-item {
-  padding: 8px;
-  margin: 5px 0;
+    width: 100%;
+    text-align: right;
 }
 
 button {
-  color: #fff;
-  background: #3e8e01;
-  border: none;
-  cursor: pointer;
-}
-
-.feedback-items {
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.feedback-item {
-  border-bottom: 1px solid #dcdcdc;
-  padding: 8px;
-  margin: 5px 0;
-}
-
-.feedback-item .header {
-  font-size: 12px;
-}
-
-.feedback-item .name {
-  color: #ff594b;
+    color: #fff;
+    background: #3e8e01;
+    border: none;
+    cursor: pointer;
 }
 
 .messages-count {
-  background: #ff594b;
-  color: white;
-  border-radius: 50%;
-}
-
-#message {
-  margin-top: 15px;
-}
-
-.error {
-  color: red;
-}
-
-.email label {
-  color: #999;
-  font-size: 12px;
+    background: #ff594b;
+    color: white;
+    border-radius: 50%;
 }

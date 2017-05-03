@@ -1,6 +1,4 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>
+<app-presentation app-slides-routing app-mode-routing>
   <app-progress-bar></app-progress-bar>
 
   <div class="btn-bar">
@@ -15,19 +13,16 @@
   <!-- RECAP -->
 
   <app-slide id="intro" class="no-padding">
-    <app-title-slide
-      title="Component tree"
-      description="Combine components together"
-      prereqs=""
-    ></app-title-slide>
+    <app-title-slide title="Component tree" description="Combine components together"
+      prereqs=""></app-title-slide>
   </app-slide>
 
   <!--  COMPONENT -->
   <app-slide id="component">
     <h1>Recap: Component</h1>
     <h2>
-      Component is the main building block of your app.<br>
-      You define a set of components for every UI element, screen, and route.
+      Component is the main building block of your app.<br>      You define a set of components for every
+      UI element, screen, and route.
     </h2>
   </app-slide>
 
@@ -35,8 +30,9 @@
   <app-slide id="description">
     <h1>Component Tree</h1>
     <p>
-      Every application has a root component which contains all other components.
-      In other words, the application will have a component tree.
+      Every application has a root component which contains
+      all other components. In other words, the
+      application will have a component tree.
     </p>
     <br>
     <p>
@@ -65,7 +61,8 @@
         <app-code-editor [fontSize]="15" [code]="code.childComponentSkeleton.code"></app-code-editor>
       </div>
     </div>
-    <h2>Do not forget add your components to the declarations array in your module.</h2>
+    <h2>Do not forget add your components to the declarations
+      array in your module.</h2>
     <app-code-editor [fontSize]="15" [code]="code.appModule.code"></app-code-editor>
   </app-slide>
 
@@ -103,19 +100,22 @@
       </div>
     </app-exercise>
   </app-slide>
-  
+
   <app-slide id="end" milestone="Component Tree">
     <app-closing-slide>
-      <div class="header" header><h1 i18n>End of Component Tree Section</h1></div>      
+      <div class="header" header>
+        <h1 i18n>End of Component Tree Section</h1>
+      </div>
       <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
-      </div>   
+        <h2>Please leave your thoughts using the feedback
+          button below!</h2>
+      </div>
       <div class="footer" footer>
         <h2>
-            <a routerLink="/">Go to Index</a>
-            <a routerLink="/experiments/0">Go to the next Milestone</a>
+          <a routerLink="/">Go to Index</a>
+          <a routerLink="/experiments/0">Go to the next Milestone</a>
         </h2>
-      </div> 
+      </div>
     </app-closing-slide>
   </app-slide>
 </app-presentation>
