@@ -8,6 +8,7 @@ import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
 import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
+import {ClosingSlideComponent} from '../../presentation/closing-slide/closing-slide.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(ComponentTreeComponent)
@@ -16,7 +17,7 @@ const routes = RouterModule.forChild(
 @NgModule({
   imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule, FeedbackModule],
   providers: [Ng2TsExercises],
-  declarations: [ComponentTreeComponent],
+  declarations: [ComponentTreeComponent, ClosingSlideComponent],
   exports: [ComponentTreeComponent]
 })
 export class ComponentTreeModule {
