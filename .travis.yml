@@ -16,6 +16,7 @@ before_install:
 script:
   - npm run lint
   - npm test -- --single-run
+  - npm run ng build -- --aot --prod
 
 notifications:
   email: false
