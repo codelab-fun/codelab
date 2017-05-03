@@ -13,6 +13,7 @@ import {TitleSlideComponent} from './title-slide/title-slide.component';
 import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
 import { ModeOverviewComponent } from 'app/presentation/mode-overview/mode-overview.component';
 import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing.directive';
+import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing
     TitleSlideComponent,
     RippleAnimationComponent,
     ModeOverviewComponent,
-    ModeRoutingDirective
+    ModeRoutingDirective,
+    FeedbackSlideComponent
   ],
 
   exports: [
@@ -42,7 +44,8 @@ import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing
     TitleSlideComponent,
     ModeOverviewComponent,
     MenuShortcutComponent,
-    ModeRoutingDirective
+    ModeRoutingDirective,
+    FeedbackSlideComponent
   ],
   imports: [
     CommonModule
