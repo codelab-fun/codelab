@@ -10,13 +10,17 @@ export class ShortcutsDirective {
   @HostListener('window:keydown.ArrowRight', ['$event.target'])
   @HostListener('window:keydown.PageDown', ['$event.target'])
   next(target) {
-    if(target === document.body) this.presentation.nextSlide(true);
+    if (target === document.body) {
+      this.presentation.nextSlide(true);
+    }
   }
 
   @HostListener('window:keydown.ArrowLeft', ['$event.target'])
   @HostListener('window:keydown.PageUp', ['$event.target'])
   previous(target) {
-    if(target === document.body) this.presentation.previousSlide(true);
+    if (target === document.body) {
+      this.presentation.previousSlide(true);
+    }
   }
 
   constructor(private presentation: PresentationComponent) {
