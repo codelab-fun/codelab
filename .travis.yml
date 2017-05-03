@@ -27,6 +27,7 @@ cache:
 
 deploy:
   provider: firebase
+  project: "angular-presentation"
   token:
     secure: ***REMOVED***
   before_deploy:
