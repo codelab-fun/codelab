@@ -1,0 +1,11 @@
+a:not([href]) {
+    cursor: pointer;
+    text-decoration: underline;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+.active {
+    color: green;
+}
