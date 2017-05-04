@@ -33,10 +33,6 @@ export class SlideComponent implements OnInit {
     this.slideId = this.presentation.registerSlide(this.id, this.milestone);
   }
 
-  disableShortcuts() {
-    this.presentation.disableShortcuts();
-  }
-
   disableResize() {
     this.presentation.disableResize();
   }
