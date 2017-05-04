@@ -1,7 +1,7 @@
 import {Directive, HostListener} from '@angular/core';
-import {PresentationComponent} from "../presentation/presentation/presentation.component";
-import {AuthMethods, AuthProviders, AngularFire} from "angularfire2";
-import {differ} from "../differ/differ";
+import {AngularFireDatabase} from "angularfire2/database";
+import {AngularFireAuth} from 'angularfire2/auth';
+import {Router} from "@angular/router";
 
 @Directive({
   selector: '[app-tracking]'
@@ -9,24 +9,24 @@ import {differ} from "../differ/differ";
 export class TrackingDirective {
   auth;
   lastSlideChange;
-  history:Array<any> = [];
-  constructor(private angularFire:AngularFire) {
-    this.angularFire.auth.login({
-      provider: AuthProviders.Anonymous,
-      method: AuthMethods.Anonymous
-    }).then(authData => {
+  history: Array<any> = [];
+
+
+  constructor(private afDb: AngularFireDatabase, private afAuth: AngularFireAuth, private router: Router) {
+    afAuth.auth.signInAnonymously();
+    afAuth.authState.subscribe(authData => {
       this.auth = authData;
-    }).catch(() => { console.log('Authorization failed. Try refreshing the page.') });
+    });
     this.lastSlideChange = Date.now();
   }
 
   @HostListener('onSlideChange', ['$event']) onSlideChange(index) {
-    if (this.auth){
+    if (this.auth) {
       let diffMinutes = Date.now() - this.lastSlideChange;
       this.lastSlideChange = Date.now();
-      let user_progress = this.angularFire.database.object('/user_progress/' + this.auth.uid);
-      let history = this.angularFire.database.list('/user_progress/' + this.auth.uid + '/history');
-      history.push({slideId:index, timeStamp: Date.now(), msDiff: diffMinutes});
+      let user_progress = this.afDb.object('/user_progress/' + this.auth.uid);
+      let history = this.afDb.list('/user_progress/' + this.auth.uid + '/history');
+      history.push({slideId: index, timeStamp: Date.now(), msDiff: diffMinutes, route: this.router.url});
       user_progress.update({currentSlide: index});
     }
   }

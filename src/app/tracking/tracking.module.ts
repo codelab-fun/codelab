@@ -1,22 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TrackingDirective } from './tracking.directive';
-import { AngularFireModule, AuthProviders, AuthMethods, AngularFire } from 'angularfire2';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TrackingDirective} from './tracking.directive';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseProvider} from 'angularfire2/database';
+import {AngularFireAuthProvider} from 'angularfire2/auth';
+import {environment} from "../../environments/environment";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA",
-  authDomain: "ng2-codelab.firebaseapp.com",
-  databaseURL: "https://ng2-codelab.firebaseio.com",
-  storageBucket: "ng2-codelab.appspot.com"
-};
+export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
 
 @NgModule({
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    angularFire
   ],
   declarations: [TrackingDirective],
-  providers:[AngularFire],
-  exports:[TrackingDirective]
+  providers: [AngularFireDatabaseProvider, AngularFireAuthProvider],
+  exports: [TrackingDirective]
 })
-export class TrackingModule { }
+export class TrackingModule {
+}
