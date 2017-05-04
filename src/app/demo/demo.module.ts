@@ -47,6 +47,12 @@ export const routes = [
     description: 'This is a place for experiments, dev only'
   },
   {
+    path: 'visual-studio-code',
+    loadChildren: './visual-studio-code/visual-studio-code.module#VisualStudioCodeModule',
+    name: 'Visual-Studio-Code (Optional)',
+    description: 'Visual Studio Code is your friend'
+  },
+  {
     path: 'feedback-page',
     loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule'
   },
