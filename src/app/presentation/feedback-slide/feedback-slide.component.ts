@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
@@ -6,6 +6,7 @@ import { PresentationComponent } from '../presentation/presentation.component';
   templateUrl: './feedback-slide.component.html',
   styleUrls: ['./feedback-slide.component.css']
 })
+
 export class FeedbackSlideComponent implements OnInit {
 
   constructor(private presentation: PresentationComponent) { }
@@ -15,6 +16,11 @@ export class FeedbackSlideComponent implements OnInit {
 
   closeSlide() {
     this.presentation.nextSlide();
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    this.closeSlide();
   }
 
 }
