@@ -57,7 +57,7 @@ export class FileTreeComponent implements OnChanges {
       const parts = f.path.split('/').slice(0, -1);
       parts.unshift('app');
       // String representation of path
-      const path = parts[parts.length - 1];//.join('/');
+      const path = parts[parts.length - 1];
       // Initialize slot in map for path at depth
       if (!paths[path]) {
         paths[path] = { path, depth: parts.length, files: [] };
