@@ -5,11 +5,11 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 @Component({
   selector: 'app-typescript',
-  templateUrl: './typescript.component.html',
-  styleUrls: ['./typescript.component.css']
+  templateUrl: './slides-typescript.component.html',
+  styleUrls: ['./slides-typescript.component.css']
 })
 
-export class TypescriptComponent {
+export class SlidesTypescriptComponent {
   code = {
     moreTypes: {
       code: `var number: number = 1;
@@ -24,7 +24,7 @@ var names: string[] = ['Camille', 'Edgar'];
     },
     varDeclaration: {
       code: `// Var is still allowed but not recommended.
-var v = 1;         
+var v = 1;
 
 // Let should be used instead of var.
 let l = 1;
@@ -32,7 +32,7 @@ let l = 1;
 if(true){
   let ll = 1; // Unlike var let is unavailable outside of this if.
 }
-console.log(ll); // undefined       
+console.log(ll); // undefined
 
 
 // Const is like let, but if you try to change it, TS will give you an error.
@@ -53,7 +53,7 @@ notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean`
     },
     classDescription: {
-      code: typeScriptWithConsoleLog(`// We define the class 
+      code: typeScriptWithConsoleLog(`// We define the class
 export class Puppy {
   bark(){
     // That's how russian dogs talk.
@@ -61,7 +61,7 @@ export class Puppy {
   }
 }
 
-// Now we can instantiate (create) it 
+// Now we can instantiate (create) it
 var hotdog = new Puppy();
 // And use it's methods
 console.log(hotdog.bark());
@@ -117,7 +117,7 @@ display(add('2', 2));`, `
     document.write('<h1>' + value.value + '</h1>');`,
       `
     import {value} from 'app.ts';
-    
+
     describe('value', ()=>{
       it('equals 5', ()=>{
         chai.expect(value.value).equals(4);

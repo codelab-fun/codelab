@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TypescriptComponent } from './typescript.component';
+import { SlidesIndexComponent } from './slides-index.component';
 
 // TODO: Fix this test suite.
-xdescribe('TypescriptComponent', () => {
-  let component: TypescriptComponent;
-  let fixture: ComponentFixture<TypescriptComponent>;
+xdescribe('SlidesIndexComponent', () => {
+  let component: SlidesIndexComponent;
+  let fixture: ComponentFixture<SlidesIndexComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypescriptComponent ]
+      declarations: [ SlidesIndexComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TypescriptComponent);
+    fixture = TestBed.createComponent(SlidesIndexComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

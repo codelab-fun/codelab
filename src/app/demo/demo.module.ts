@@ -7,7 +7,7 @@ import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
 import {ExerciseModule} from '../exercise/exercise.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
-import {IndexComponent} from './index/index.component';
+import {SlidesIndexComponent} from './slides-index/slides-index.component';
 import {PresentationModule} from '../presentation/presentation.module';
 
 export const routes = [
@@ -18,7 +18,7 @@ export const routes = [
     description: 'Angular is using TypeScript which is an improved version with JavaScript. Learn more about it in this codelab'
   }, {
     path: 'bootstrap',
-    loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
+    loadChildren: './bootstrap/bootstrap.module#SlidesBootstrapModule',
     name: 'Bootstrap',
     description: 'Learn how create and bootstrap your first Angular application'
   },
@@ -42,7 +42,7 @@ export const routes = [
   },
   {
     path: 'experiments',
-    loadChildren: './experiments/experiments.module#ExperimentsModule',
+    loadChildren: './experiments/experiments.module#SlidesExperimentsModule',
     name: 'Experiments',
     description: 'This is a place for experiments, dev only'
   },
@@ -52,7 +52,7 @@ export const routes = [
   },
   {
     path: '',
-    component: IndexComponent
+    component: SlidesIndexComponent
   }
 ];
 
@@ -63,7 +63,7 @@ export function monacoReady() {
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    SlidesIndexComponent
   ],
   imports: [
     BrowserModule,

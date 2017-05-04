@@ -2,10 +2,10 @@ import {Component, Inject, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  templateUrl: './slides-index.component.html',
+  styleUrls: ['./slides-index.component.css']
 })
-export class IndexComponent implements OnInit {
+export class SlidesIndexComponent implements OnInit {
   routes: { name: string, description: string };
 
 

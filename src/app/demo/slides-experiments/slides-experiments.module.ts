@@ -3,20 +3,20 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {SlidesRoutes} from '../../presentation/slide-routes';
 import {FeedbackModule} from '../../feedback/feedback.module';
-import {ExperimentsComponent} from './experiments.component';
+import {SlidesExperimentsComponent} from './slides-experiments.component';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {ExerciseModule} from '../../exercise/exercise.module';
 
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(ExperimentsComponent)
+  SlidesRoutes.get(SlidesExperimentsComponent)
 );
 
 @NgModule({
   imports: [routes, PresentationModule, FeedbackModule, ExerciseModule],
-  declarations: [ExperimentsComponent],
-  exports: [ExperimentsComponent]
+  declarations: [SlidesExperimentsComponent],
+  exports: [SlidesExperimentsComponent]
 })
-export class ExperimentsModule {
+export class SlidesExperimentsModule {
 
 }

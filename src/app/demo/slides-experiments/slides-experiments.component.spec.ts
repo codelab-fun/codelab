@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExperimentsComponent } from './experiments.component';
+import { SlidesExperimentsComponent } from './slides-experiments.component';
 
 // TODO: Fix this test suite.
-xdescribe('ExperimentsComponent', () => {
-  let component: ExperimentsComponent;
-  let fixture: ComponentFixture<ExperimentsComponent>;
+xdescribe('SlidesExperimentsComponent', () => {
+  let component: SlidesExperimentsComponent;
+  let fixture: ComponentFixture<SlidesExperimentsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExperimentsComponent ]
+      declarations: [ SlidesExperimentsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExperimentsComponent);
+    fixture = TestBed.createComponent(SlidesExperimentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

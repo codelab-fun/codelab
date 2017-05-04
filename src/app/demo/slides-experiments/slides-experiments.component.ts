@@ -9,7 +9,7 @@ class Person {
   fullName() { return this.firstName + " " + this.lastName; }
 }
 @Component({
-  selector: 'my-app', 
+  selector: 'my-app',
   templateUrl: './app/app.html'
 })
 export class AppComponent {
@@ -18,15 +18,15 @@ export class AppComponent {
   heros=["Celeritas","Magneta","Dynama"];
   onButtonClick(input){
     alert('You typed:'+input);
-  }  
+  }
 }`;
 
 @Component({
   selector: 'app-experiments',
-  templateUrl: './experiments.component.html',
-  styleUrls: ['./experiments.component.css']
+  templateUrl: './slides-experiments.component.html',
+  styleUrls: ['./slides-experiments.component.css']
 })
-export class ExperimentsComponent {
+export class SlidesExperimentsComponent {
   code = {
     templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
 
