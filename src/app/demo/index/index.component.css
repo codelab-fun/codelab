@@ -29,3 +29,7 @@
   right: 107px;
   bottom: 1vh;
 }
+
+.btn-bar {
+  z-index: 110;
+}
