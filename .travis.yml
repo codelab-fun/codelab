@@ -25,3 +25,13 @@ cache:
   yarn: true
   directories:
     - node_modules
+
+deploy:
+  provider: firebase
+  project: "angular-presentation"
+  token:
+    secure: ***REMOVED***
+  before_deploy:
+    - npm run ng build -- --aot --prod
+  on:
+    branch: master
