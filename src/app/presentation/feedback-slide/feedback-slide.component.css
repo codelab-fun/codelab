@@ -67,7 +67,7 @@
 
 .feedback-button-title {
   position: absolute;
-  right: calc(100% - (5% + 30vh));
+  right: 18%;
   top: 90vh;
   font-size: 9vh;
   font-weight: bolder;
