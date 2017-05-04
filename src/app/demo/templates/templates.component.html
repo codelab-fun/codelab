@@ -27,6 +27,23 @@
     <app-playground [config]="code.template.intro"></app-playground>
   </app-slide>
 
+  <!--  INTERPOLATION-->
+  <app-slide id="interpolation" milestone="Templates">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Double curlies allow you to include properties from the component</h2>
+    <app-playground [config]="code.template.interpolation"
+                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+  </app-slide>
+
+  <!--INTERPOLATION-METHOD-->
+  <app-slide id="interpolation-method" milestone="Templates">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
+    </h2>
+    <app-playground [config]="code.template.interpolationMethod"
+                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+  </app-slide>
+
   <app-slide id="exercise-pre" milestone="Templates">
     <h1>Exercise</h1>
     <h2>In the next slide you'll edit component template to create a simple header and search form which will look like
@@ -45,23 +62,6 @@
       <div class="description">
       </div>
     </app-exercise>
-  </app-slide>
-
-  <!--  INTERPOLATION-->
-  <app-slide id="interpolation" milestone="Templates2">
-    <h1>Angular Templates - Interpolation</h1>
-    <h2>Double curlies allow you to include properties from the component</h2>
-    <app-playground [config]="code.template.interpolation"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
-  </app-slide>
-
-  <!--INTERPOLATION-METHOD-->
-  <app-slide id="interpolation-method" milestone="Templates2">
-    <h1>Angular Templates - Interpolation</h1>
-    <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
-    </h2>
-    <app-playground [config]="code.template.interpolationMethod"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
   </app-slide>
 
   <!--  PRE DATA BINDING-->
