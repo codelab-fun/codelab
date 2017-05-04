@@ -6,17 +6,11 @@ import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA',
-  authDomain: 'ng2-codelab.firebaseapp.com',
-  databaseURL: 'https://ng2-codelab.firebaseio.com',
-  storageBucket: 'ng2-codelab.appspot.com'
-};
+import { environment } from '../../environments/environment';
 
 // Note! We are using AngularFire2 v4. There are a lot of breaking changes.
 // See: https://github.com/angular/angularfire2/issues/854
-export const angularFire = AngularFireModule.initializeApp(firebaseConfig);
+export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
 
 @NgModule({
   imports: [

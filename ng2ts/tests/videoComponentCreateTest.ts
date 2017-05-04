@@ -52,6 +52,7 @@ describe('Component tree', () => {
     let fixture;
     beforeEach(() => {
       try {
+
         fixture = TestBed.createComponent(VideoComponent);
         fixture.componentInstance.video = video;
         fixture.detectChanges();
@@ -66,7 +67,7 @@ describe('Component tree', () => {
 
     it(`Video.html: Display the video thumbnail`, () => {
       const image = fixture.nativeElement.querySelector('img');
-      chai.expect(image, `Can't find the thumbnal`).is.not.null;
+      chai.expect(image, `Can't find the thumbnail`).is.not.null;
       chai.expect(image.getAttribute('src')).equals(video.src);
     });
 
