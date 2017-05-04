@@ -130,6 +130,17 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 `;
 
   return {
+    other: {
+      boxNoParams: `import { Component, Input } from '@angular/core';
+
+  @Component({
+    selector: 'app-box',
+    template: \`<div><app-circle></app-circle></div>\`
+  })
+  export class BoxComponent {
+    circleColor="green"    
+  }`
+    },
     files: [
       exercise('box.component', boxCode, boxCode),
       exercise('circle.component', circleCode, circleCode),
@@ -139,6 +150,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
         type: 'css',
         path: 'styles.css',
         code: `
+         my-app > div {
+           width: 300px;
+           height: 200px;
+           border: 1px #ddd solid;
+         }
          .circle {
            margin-left: 100px;
            margin-top: 50px;

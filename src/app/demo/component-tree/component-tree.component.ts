@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate} from '../../../../ng2ts/ng2ts';
 import {boxAndCircle, circleAndBox} from '../../exercise/helpers/helpers';
 
+const circleAndBoxCode = circleAndBox();
+
 @Component({
   selector: 'app-component-tree',
   templateUrl: './component-tree.component.html',
@@ -16,7 +18,7 @@ export class ComponentTreeComponent {
 
   code = {
     parentComponentSkeleton: {
-      match: /app-world/,
+      match: /app-circle/,
       code: `import { Component } from '@angular/core';
 
 @Component({
@@ -84,7 +86,7 @@ export class Child {
     },
 
     boxAndCircle: boxAndCircle(),
-    circleAndBox: circleAndBox()
+    circleAndBox: circleAndBoxCode
   };
 
   constructor(private exercises: Ng2TsExercises) {
