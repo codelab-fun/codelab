@@ -34,4 +34,4 @@ deploy:
   before_deploy:
     - npm run ng build -- --aot --prod
   on:
-    branch: master
+    branch: release
