@@ -7,5 +7,5 @@ a:not([href]) {
 }
 
 .active {
-    color: green;
+    color: blue;
 }

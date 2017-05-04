@@ -1,4 +1,4 @@
-<div *ngFor="let node of nodes" [style.padding-left.px]="node.depth * 15">
+<div *ngFor="let node of nodes" [style.padding-left.px]="(node.depth - 1) * 15">
   <strong>{{node.path}}</strong>
   <div [style.padding-left.px]="node.depth * 15"
     *ngFor="let file of node.files">

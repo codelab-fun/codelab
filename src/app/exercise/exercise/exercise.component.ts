@@ -14,6 +14,8 @@ export class ExerciseComponent extends ExerciseBase {
 
   currentFile: FileConfig;
 
+  showFileTree = false;
+
   constructor(
     slide: SlideComponent,
     monacoConfig: MonacoConfigService) {
@@ -23,4 +25,9 @@ export class ExerciseComponent extends ExerciseBase {
   currentFileChanged(fileConfig: FileConfig): void {
     this.currentFile = fileConfig;
   }
+
+  toggleTree(): void {
+    this.showFileTree = !this.showFileTree;
+  }
+
 }
