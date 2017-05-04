@@ -5,7 +5,7 @@ import {Thumbs} from '../thumbs/thumbs.component';
 /*/d*//*d:videoComponentCreateSolved/trimTrailing*/
 @Component({
   selector: 'my-video',
-  templateUrl: 'video.html'
+  templateUrl: './video.html'
 })
 /*/d*/
 export class VideoComponent {
@@ -14,10 +14,10 @@ export class VideoComponent {
   /*/d*//*d:thumbsComponentUseSolved/trimTrailing*/
 
   onThumbs(thumbs: Thumbs) {
-    if (thumbs == Thumbs.UP) {
+    if (thumbs === Thumbs.UP) {
       this.video.likes++;
     }
-    if (thumbs == Thumbs.DOWN) {
+    if (thumbs === Thumbs.DOWN) {
       this.video.likes--;
     }
   }

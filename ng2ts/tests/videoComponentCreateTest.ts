@@ -1,4 +1,3 @@
-
 import {TestBed} from '@angular/core/testing';
 import 'initTestBed';
 import {VideoService} from '../video/video.service';
@@ -16,7 +15,8 @@ beforeEach(() => {
     });
     TestBed.overrideComponent(VideoComponent, {
       set: {
-        template: video_video_html
+        template: video_video_html,
+        templateUrl: undefined
       }
     });
     TestBed.compileComponents();
@@ -30,13 +30,13 @@ describe('Component tree', () => {
     it(`VideoComponent.ts: Set the selector property to 'my-video'.`, () => {
       const metadata = Reflect.getMetadata('annotations', VideoComponent);
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].selector, `VideoComponent's selector has to be 'my-video'.`).equals('my-video')
+      chai.expect(metadata[0].selector, `VideoComponent's selector has to be 'my-video'.`).equals('my-video');
     });
 
     it(`VideoComponent.ts: Set the templateUrl to load the appropriate html file`, () => {
       const metadata = Reflect.getMetadata('annotations', VideoComponent);
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].templateUrl, `VideoComponent's templateUrl should be set to './video.html'`).matches(/\.\/video\.html/)
+      chai.expect(metadata[0].templateUrl, `VideoComponent's templateUrl should be set to './video.html'`).matches(/\.\/video\.html/);
     });
 
     it(`VideoComponent.ts: Add a video property and decorate it with @Input()`, () => {
@@ -67,7 +67,7 @@ describe('Component tree', () => {
     it(`Video.html: Display the video thumbnail`, () => {
       const image = fixture.nativeElement.querySelector('img');
       chai.expect(image, `Can't find the thumbnal`).is.not.null;
-      chai.expect(image.getAttribute('ng-reflect-src')).equals(video.src);
+      chai.expect(image.getAttribute('src')).equals(video.src);
     });
 
     it(`Video.html: Display the video description`, () => {

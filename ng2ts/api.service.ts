@@ -1,6 +1,6 @@
 import {VideoItem} from './video/video-item';
 
-let FAKE_VIDEOS = [
+const FAKE_VIDEOS = [
   {
     title: `Cute kitten`,
     src: '/assets/images/cat-0.png',
@@ -76,7 +76,7 @@ let FAKE_VIDEOS = [
 export const Api = {
   fetch(searchString: string): Array<VideoItem> {
     return FAKE_VIDEOS.filter((video) =>
-      video.title.indexOf(searchString) >= 0
+      video.title.toLowerCase().indexOf(searchString.toLowerCase()) >= 0
     );
   }
 };

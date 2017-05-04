@@ -56,15 +56,13 @@
   <!--  Parent/Child COMPONENTS-->
   <app-slide id="parent-child-component">
     <h1>Parent and Child component</h1>
-    <h2>Any component can render another one by using HTML element matchin the selector of the other component.</h2>
+    <h2>Any component can render another one by using HTML element matching the selector of the other component.</h2>
     <div row>
       <div column-5>
-        <h3>Child Component</h3>
         <app-code-editor [fontSize]="15" [code]="code.circleAndBox.other.boxNoParams"
                          [focus-highlight-match]="code.parentComponentSkeleton.match"></app-code-editor>
       </div>
       <div column-5>
-        <h3>Parent Component</h3>
         <app-code-editor [fontSize]="15" [code]="code.circleAndBox.files[0].code"
                          [focus-highlight-match]="code.parentComponentSkeleton.match"></app-code-editor>
       </div>

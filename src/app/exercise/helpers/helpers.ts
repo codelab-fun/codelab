@@ -13,9 +13,7 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   };
 }
 
-function twoComponentsAndModule(componentCode, component2Code, moduleCode) {
 
-}
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
@@ -112,7 +110,7 @@ export function boxAndCircle() {
     @Input() color: string;
   }`;
 
-  const boxCode = `import { Component, Input } from '@angular/core';
+  const boxCode = `import { Component } from '@angular/core';
 
   @Component({
     selector: 'my-app',
@@ -131,7 +129,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
   return {
     other: {
-      boxNoParams: `import { Component, Input } from '@angular/core';
+      boxNoParams: `import { Component } from '@angular/core';
 
   @Component({
     selector: 'app-box',
