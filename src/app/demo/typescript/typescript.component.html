@@ -112,9 +112,11 @@
     <h2>TypeScript has classes, and Angular makes heavy use of them.</h2>
     <h2>They work similar to classes in other languages, and serve for grouping methods and properties belonging to
       one object together.</h2>
-    <app-playground [config]="code.classDescription.code"></app-playground>
+    <app-playground [config]="code.classDescription.code"
+                    [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.classPuppyMatch]"></app-playground>
   </app-slide>
-  <app-slide id="classes-constructor" milestone="TypeScript">
+  <app-slide id=" classes-constructor
+    " milestone="TypeScript">
     <h1>Classes - constructor</h1>
     <h2>There's a special method on the class called constructor. It's run when the class is created and allows the
       class to take parameters</h2>

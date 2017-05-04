@@ -53,8 +53,8 @@ notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean`
     },
     classDescription: {
-      code: typeScriptWithConsoleLog(`// We define the class 
-export class Puppy {
+      code: typeScriptWithConsoleLog(`export class Puppy {
+  // This is a method.    
   bark(){
     // That's how russian dogs talk.
     return 'Gav gav!!';
@@ -98,6 +98,7 @@ console.log(oscar.bark());
   }
 }`),
       matches: {
+        classPuppyMatch: /class Puppy/,
         classMatch: /class/,
         exportMatch: /export/,
         importMatch: /import/,
