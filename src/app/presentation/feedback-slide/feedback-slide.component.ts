@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
   selector: 'app-feedback-slide',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackSlideComponent implements OnInit {
 
-  constructor() { }
+  constructor(private presentation: PresentationComponent) { }
 
   ngOnInit() {
+  }
+
+  closeSlide() {
+    this.presentation.nextSlide();
   }
 
 }
