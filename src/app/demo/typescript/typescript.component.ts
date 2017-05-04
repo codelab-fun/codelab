@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {pureJavascript, typeScriptWithConsoleLog} from '../../exercise/helpers/helpers';
+import {typeScriptWithConsoleLog} from '../../exercise/helpers/helpers';
 import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 
@@ -109,14 +109,12 @@ console.log(oscar.bark());
         oscarMatch: /Oscar-Claude/,
       }
     },
-    tsExercise: pureJavascript(
+    tsExercise: typeScriptWithConsoleLog(
       `function add(a: number, b: number){
-  return a+b
+  return a+b;
 };
 
-display(add('2', 2));`, `
-    import {value} from 'app.ts';
-    document.write('<h1>' + value.value + '</h1>');`,
+console.log(add('2', 2));`, undefined,
       `
     import {value} from 'app.ts';
     

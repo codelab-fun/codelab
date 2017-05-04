@@ -18,6 +18,8 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
   
+    export const value = {};
+    
     function wrap(context, prop, callback){
       const originalMethod = context[prop];
        
@@ -27,8 +29,9 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
        }
     }
     
-    wrap(console, 'log', (value)=>{
-      document.write('<h3>&gt; ' + value + '<h3><hr>')
+    wrap(console, 'log', (v)=>{     
+      value.value = v;
+      document.write('<h3>&gt; ' + v + '<h3><hr>')
     })
   `
   };
