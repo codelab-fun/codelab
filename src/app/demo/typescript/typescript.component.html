@@ -221,33 +221,31 @@
     </app-browser-window>
   </app-slide>
 
+  <app-slide id="exercise">
+    <app-exercise [config]="exercises[0]" milestone="TypeScript">
+      <div class="description">
+        <p>We created all the files for you.</p>
+        <p>&lt;-- Add your code on the left</p>
+      </div>
+    </app-exercise>
+  </app-slide>
 
-    <app-slide id="exercise">
-      <app-exercise [config]="exercises[0]" milestone="TypeScript">
-        <div class="description">
-          <p>We created all the files for you.</p>
-          <p>&lt;-- Add your code on the left</p>
-        </div>
-      </app-exercise>
-    </app-slide>
+  <app-slide id="end">
+    <app-closing-slide>
+      <div class="header" header><h1 i18n>End of TypeScript Section</h1></div>
+      <div class="body" body>
+        <h2>Please leave your thoughts using the feedback button below!</h2>
+        <ul>
+          <li><a href="http://www.typescriptlang.org/">TypeScript web site</a></li>
+        </ul>
+      </div>
+      <div class="footer" footer>
+        <h2>
+            <a routerLink="/">Go to Index</a>
+            <a routerLink="/bootstrap/0">Go to the next Milestone</a>
+        </h2>
+      </div>
+    </app-closing-slide>
+  </app-slide>
 
-    <app-slide  id="end" milestone="TypeScript">
-      <app-closing-slide>
-        <div class="header" header><h1 i18n>End of TypeScript Section</h1></div>
-        <div class="body" body>
-          <h2>Please leave your thoughts using the feedback button below!</h2>
-          <ul>
-            <li><a href="http://www.typescriptlang.org/">TypeScript web site</a></li>
-          </ul>
-        </div>
-        <div class="footer" footer>
-          <h2>
-              <a routerLink="/">Go to Index</a>
-              <a routerLink="/bootstrap/0">Go to the next Milestone</a>
-          </h2>
-        </div>
-      </app-closing-slide>
-    </app-slide>
-
-
-  </app-presentation>
+</app-presentation>

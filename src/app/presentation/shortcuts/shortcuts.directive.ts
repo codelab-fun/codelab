@@ -7,16 +7,20 @@ import {PresentationComponent} from '../presentation/presentation.component';
 })
 export class ShortcutsDirective {
 
-  @HostListener('window:keydown.ArrowRight')
-  @HostListener('window:keydown.PageDown')
-  next() {
-    this.presentation.nextSlide(true);
+  @HostListener('window:keydown.ArrowRight', ['$event.target'])
+  @HostListener('window:keydown.PageDown', ['$event.target'])
+  next(target) {
+    if (target === document.body) {
+      this.presentation.nextSlide(true);
+    }
   }
 
-  @HostListener('window:keydown.ArrowLeft')
-  @HostListener('window:keydown.PageUp')
-  previous() {
-    this.presentation.previousSlide(true);
+  @HostListener('window:keydown.ArrowLeft', ['$event.target'])
+  @HostListener('window:keydown.PageUp', ['$event.target'])
+  previous(target) {
+    if (target === document.body) {
+      this.presentation.previousSlide(true);
+    }
   }
 
   constructor(private presentation: PresentationComponent) {
