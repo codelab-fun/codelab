@@ -1,0 +1,37 @@
+dist: trusty
+language: node_js
+node_js:
+  - 7
+  - 6
+
+before_install:
+  # Install & start Chrome for Karma
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - npm run lint
+  - npm test -- --single-run
+  - npm run ng build -- --aot --prod
+
+notifications:
+  email: false
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+deploy:
+  provider: firebase
+  project: "angular-presentation"
+  token:
+    secure: "pg8mO/ZIAaxOiHJ327mSLdISC4UpT7jioZCJMMOl/Ut9OIp7t9KY9fA73cAHe+f/TPKZTxzWclvfE2pNBEMc6JwT4SLwSDHKHRHKS/rNwEFUw7ejh223PZz2kadBliYryytDJvRAxISxcQqWWHVDv6ru/dNTOrAl7Cg5xgKr58NLpB3xPAIxDXJySPReDcqF0lEpH4BrOLeuHU7Cu6WQcOhIKJprcAUwCjo7ayHIzDwUvenxzmGXgkhIuzhhOt084uTTwB+P8H84dqFygSeT0uZCjTnaQHi22fa4Sp/4ZKO0rw9vBqf7XIT7Ve4OWDLs8IK+1DHWCqiHUs5OkO2Zgv5WjpwBv714NT4xKGjvN/pmDtNqoyHus3+jL2Xx9VFQuZUbZEd44XGD+SCBzU3GTyUnud4hPaLnH5K6utRjuDUD2rFiQGSyEYwhPAC8sdxyJIko1vhj+Sf2mFbwM7AJZOjp+AdHCm2FX4EU7Nn+uE7kS8jQmegyBRC9A5scClfLSG2LFvkMThh4a+/ecigZdzar+IYfHBR8V9eRwkEzUwucsBe5HRN+AMo4JPmqnUhzO4tf0kNXFXUNhnaO3INqM6nPctG+hY8CFS2UQfQ12n30npNkSkyGFWqSu5Vaqbpo6Tdwqx4SLoqFFvvMGcTSn19c+q655RMJ0r3nYY34w5A="
+  before_deploy:
+    - npm run ng build -- --aot --prod
+  on:
+    branch: master

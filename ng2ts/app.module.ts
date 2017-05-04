@@ -30,4 +30,9 @@ import {FuzzyPipe} from './fuzzy-pipe/fuzzy.pipe';
 })
 export class AppModule {
   /*/d*//*d:createModuleSolved*/
-}/*/d*/
+}
+
+/*/d*//*d:neverShow*/
+// Needed for type checking
+export function evalJs(param) { return param; }
+/*/d*/

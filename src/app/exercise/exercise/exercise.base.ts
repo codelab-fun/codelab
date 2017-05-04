@@ -7,6 +7,7 @@ import {Subscription} from 'rxjs/Subscription';
 export class ExerciseBase implements OnDestroy {
   @Input() public config: ExerciseConfig;
   running = false;
+  solved = false;
   private onActiveUsubscribe: Subscription;
 
 
@@ -30,6 +31,9 @@ export class ExerciseBase implements OnDestroy {
     }
 
     if (event.data.type === 'testEnd') {
+      if (this.config.tests.length && this.config.tests.every(test => test.pass)) {
+        this.solved = true;
+      }
       this.running = false;
     }
 
@@ -68,7 +72,6 @@ export class ExerciseBase implements OnDestroy {
   constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService) {
     this.onActiveUsubscribe = slide.onActive.filter(a => a).subscribe(() => {
       console.log('ACTIVE');
-      slide.disableShortcuts();
       slide.disableResize();
       this.loadModels();
     });

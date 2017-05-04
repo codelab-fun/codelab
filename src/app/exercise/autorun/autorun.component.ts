@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-autorun',
   templateUrl: 'autorun.component.html',
   styleUrls: ['autorun.component.css']
 })
-export class AutorunComponent {
+export class AutorunComponent implements OnInit, OnDestroy {
   autorun: boolean;
   running: boolean;
   private stateSubscription: Subscription;
@@ -15,7 +15,7 @@ export class AutorunComponent {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     /*
      this.stateSubscription = this.state.update
      .map(d => d.local.autorun)
@@ -34,22 +34,22 @@ export class AutorunComponent {
 
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.stateSubscription.unsubscribe();
   }
 
 
-  endRun() {
+  endRun(): void {
     // TODO
-    //this.state.endTests();
+    // this.state.endTests();
   }
 
-  toggleAutorun() {
+  toggleAutorun(): void {
     // TODO
-    //this.state.toggleAutorun();
+    // this.state.toggleAutorun();
   }
 
-  run() {
+  run(): void {
     // TODO
     // if (!this.running) {
     //   this.state.run();

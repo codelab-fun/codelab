@@ -1,74 +1,41 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
-import {AngularFireModule, AuthProviders, AuthMethods, AngularFire} from 'angularfire2';
-import {PresentationComponent} from "../../presentation/presentation/presentation.component";
+import { ActivatedRoute } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FeedbackService } from './../feedback.service';
+import { Message } from '../message';
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-feedback-widget',
   templateUrl: './feedback-widget.component.html',
   styleUrls: ['./feedback-widget.component.css']
 })
 export class FeedbackWidgetComponent implements OnInit {
-  open = false;
-  email: string = '';
-  name:string = '';
-  comment: string = '';
-  statusMessage:string = '';
-  error = false;
-  constructor(private angularFire: AngularFire, private el: ElementRef) {
-  }
+
+  messages$: Observable<Message[]>;
+  open: boolean;
+
+  constructor(
+    private feedbackService: FeedbackService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.messages$ = this.feedbackService.getMessages(this.activatedRoute);
   }
 
-  buttonClicked(){
+  @HostListener('window:mousedown')
+  handleDialogClose() {
+    // TODO: Move out to a directive
+    const belongsToPopup = event['path'].some(item =>
+      item.className && item.className.includes('feedback-container')
+    );
+    if (!belongsToPopup) {
+      this.open = false;
+    }
+  }
+
+  buttonClicked() {
     this.open = !this.open;
-    let mainDiv = this.el.nativeElement.querySelector('#main');
-    if (this.open) {
-      mainDiv.style['width'] = '25%';
-    }
-    else{
-      mainDiv.style.removeProperty('width');
-    }
   }
 
-  send() {
-    if (this.comment && this.email) {
-
-      let comment = this.comment;
-      let email = this.email;
-      let items = this.angularFire.database.list('/feedback');
-      let headerText = document.body.querySelector('h1:not([style*="display:none"]') ? document.body.querySelector('h1:not([style*="display:none"]').innerHTML : '';
-      items.push({
-        comment:this.htmlEscape(comment),
-        name: this.name,
-        email: email,
-        timestamp: new Date().toUTCString(),
-        href:window.location.href,
-        header: headerText
-      }).then(x => {
-        this.statusMessage = 'Successfully sent';
-        setTimeout(() => {
-          this.error = false;
-          this.statusMessage = '';
-          this.open = false;
-          let mainDiv = this.el.nativeElement.querySelector('#main');
-          mainDiv.style.removeProperty('width');
-        }, 2000);
-      }).catch(() => {
-        this.statusMessage = 'Error while sending feedback';
-        this.error = true;
-      });
-
-      this.comment = '';
-      //TODO set username in state.local.user
-    }
-  }
-
-  htmlEscape(str) {
-    return str
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
 }

@@ -1,63 +1,34 @@
-textarea {
-  margin: 10px 0;
-  height: 100px;
+.feedback-button {
+    background-image: url("../../../assets/images/chat.png");
+    ;
+    background-color: #3498db;
+    border-radius: 100%;
+    text-align: right;
+    display: inline-block;
 }
 
-input, textarea {
-  width: 100%;
-  border: 1px #ddd solid;
-  padding: 4px;
+.feedback-button .messages-count {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
 }
 
-#feedbackButton{
-  width: 70px;
-  height:70px;
-  background: #3498db;
-  border-radius: 100%;
-  text-align: center;
-  display: inline-block;
-}
-#icon{
-  height:50%;
-  width: 50%;
-  margin-top: 25%;
-}
-#form {
-  display: block;
-  margin-top: 10px;
-  padding: 10%;
-  background: white;
-  border: 1px solid silver;
+.button-container {
+    width: 100%;
+    text-align: right;
 }
 
-#main{
-  position: fixed;
-  top: 30px;
-  right:30px;
-  z-index: 99;
-}
-
-#buttonContainer{
-  width: 100%;
-  text-align: right;
-}
 button {
-  color: #fff;
-  background: #3e8e01;
-  display: inline-block;
-  cursor: pointer;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-  border-radius: 3px;
-  line-height: 25px;
-  white-space: nowrap;
-  text-align: center;
-  text-decoration: none;
-  border: 0 solid;
+    color: #fff;
+    background: #3e8e01;
+    border: none;
+    cursor: pointer;
 }
 
-#message{
-  margin-top: 15px;
-}
-.error{
-  color: red;
+.messages-count {
+    background: #ff594b;
+    color: white;
+    border-radius: 50%;
 }

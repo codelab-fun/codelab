@@ -1,8 +1,15 @@
-import {ActivatedRoute, Router} from '@angular/router';
-import {Directive, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output
+  } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Directive({
+  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[app-slides-routing]'
 })
 export class SlidesRoutingDirective implements OnInit {
@@ -13,7 +20,8 @@ export class SlidesRoutingDirective implements OnInit {
 
   @Output() change = new EventEmitter();
 
-  constructor(private router: Router, private route: ActivatedRoute, private  presentation: PresentationComponent) {
+  constructor(private router: Router, private route: ActivatedRoute, private presentation: PresentationComponent) {
+
   }
 
   @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {
@@ -21,7 +29,7 @@ export class SlidesRoutingDirective implements OnInit {
     this.ids[value.index] = value.id;
 
 
-    if (this.activeSlideId == value.index.toString() || value.id == this.activeSlideId) {
+    if (this.activeSlideId === value.index.toString() || value.id === this.activeSlideId) {
       // Maybe update route here
       this.slideChange(value.index);
       this.presentation.activeSlideIndex = value.index;
@@ -30,11 +38,11 @@ export class SlidesRoutingDirective implements OnInit {
 
   @HostListener('onSlideChange', ['$event']) slideChange(index) {
     const url = this.ids[index] || index;
-    this.router.navigate(['../' + url], {relativeTo: this.route});
+    this.router.navigate(['../' + url], { relativeTo: this.route, queryParamsHandling: 'merge' });
   }
 
   ngOnInit() {
-    let id = this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params['id'];
 
     this.activeSlideId = id || '0';
 

@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   Output,
   SimpleChanges,
   ViewChild
@@ -15,31 +16,31 @@ import {FileConfig} from '../interfaces/file-config';
 import {LoopProtectionService} from '../services/loop-protection.service';
 import {ScriptLoaderService} from '../services/script-loader.service';
 
-let cachedIframes = {};
+const cachedIframes = {};
 
 function jsScriptInjector(iframe) {
   return function (code) {
     const script = document.createElement('script');
-    script.type = "text/javascript";
+    script.type = 'text/javascript';
     script.innerHTML = code;
     iframe.contentWindow.document.head.appendChild(script);
-  }
+  };
 }
 
 
 function cssInjector(iframe) {
   return function (css) {
-    const s = iframe.contentDocument.createElement("style");
+    const s = iframe.contentDocument.createElement('style');
     s.innerHTML = css;
-    iframe.contentDocument.getElementsByTagName("head")[0].appendChild(s);
-  }
+    iframe.contentDocument.getElementsByTagName('head')[0].appendChild(s);
+  };
 }
 
 interface IframeConfig {
-  id: string,
-  url: string,
-  restart?: boolean,
-  hidden?: boolean
+  id: string;
+  url: string;
+  restart?: boolean;
+  hidden?: boolean;
 }
 
 
@@ -49,7 +50,6 @@ function createIframe(config: IframeConfig) {
   iframe.setAttribute('frameBorder', '0');
   iframe.setAttribute('src', config.url);
   iframe.setAttribute('class', config.id);
-  iframe.setAttribute('style', 'width: 500px; height: 100%');
   return iframe;
 }
 
@@ -95,7 +95,9 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
         const escaped = (document.createElement('a').appendChild(
           document.createTextNode(error)).parentNode as any).innerHTML;
         setHtml(`
-            <div style = "border-top: 1px #888 dotted; padding-top: 4px; margin-top: 4px">Check out your browser console to see the full error!</div>
+            <div style = "border-top: 1px #888 dotted; padding-top: 4px; margin-top: 4px">
+              Check out your browser console to see the full error!
+            </div>
             <pre>${escaped}</pre>`);
       };
 
@@ -111,7 +113,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
             execute: function () {
               exports(code);
             }
-          }
+          };
         });
       }
 
@@ -130,7 +132,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               body: document.body,
               documentElement: document.documentElement,
               createElement: document.createElement.bind(document),
-              baseURI: '${document.baseURI}'                        
+              baseURI: '${document.baseURI}'
             }));
           `;
           jsScriptInjector(iframe)(wrappedSystemCode);
@@ -155,18 +157,19 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
                   exports(file.path.replace(/[\/\.-]/gi, '_') + '_AST', ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5));
                 });
               }
-            }
+            };
           });
 
 
           files.map(file => {
             if (!file.path) {
-              debugger
+              // tslint:disable-next-line:no-debugger
+              debugger;
             }
           });
 
           files.filter(file => file.path.indexOf('index.html') >= 0).map((file => {
-            setHtml(file.code)
+            setHtml(file.code);
           }));
 
           files.filter(file => file.type === 'css').map((file) => {
@@ -236,35 +239,36 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   templateUrl: './runner.component.html',
   styleUrls: ['./runner.component.css']
 })
-export class RunnerComponent implements AfterViewInit, OnChanges {
+export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
   html = `<my-app></my-app>`;
-  @ViewChild('runner') element: ElementRef;
+  @ViewChild('runner') runnerElement: ElementRef;
   private handleMessageBound: any;
   public System: any;
+
+  constructor(private changeDetectionRef: ChangeDetectorRef,
+              public loopProtectionService: LoopProtectionService,
+              public scriptLoaderService: ScriptLoaderService) {
+    this.handleMessageBound = this.handleMessage.bind(this);
+    window.addEventListener('message', this.handleMessageBound, false);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.runCode(changes.files.currentValue, this.runnerType);
   }
 
-
-  constructor(private changeDetectionRef: ChangeDetectorRef, public loopProtectionService: LoopProtectionService, public scriptLoaderService: ScriptLoaderService) {
-    this.handleMessageBound = this.handleMessage.bind(this);
-    window.addEventListener("message", this.handleMessageBound, false);
-  }
-
-  handleMessage(event) {
+  handleMessage(event): void {
     this.onTestUpdate.emit(event);
   }
 
-  runCode(files: Array<FileConfig>, runner: string) {
+  runCode(files: Array<FileConfig>, runner: string): void {
     const time = (new Date()).getTime();
 
     if (runner === 'Angular') {
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
         sandbox.setHtml(this.html);
@@ -277,7 +281,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges {
         sandbox.runMultipleFiles(files.filter(file => !file.test));
       });
 
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
         sandbox.setHtml(this.html);
@@ -297,14 +301,14 @@ export class RunnerComponent implements AfterViewInit, OnChanges {
         sandbox.runMultipleFiles(testFiles);
       });
     } else if (runner === 'TypeScript') {
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runMultipleFiles(files.filter(file => !file.test));
       });
 
-      injectIframe(this.element.nativeElement, {
+      injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
         console.log('FRAME CREATED', (new Date()).getTime() - time);
@@ -317,13 +321,13 @@ export class RunnerComponent implements AfterViewInit, OnChanges {
         sandbox.runMultipleFiles(testFiles);
       });
     } else {
-      throw new Error("No runner specified")
+      throw new Error('No runner specified');
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     Object.keys(cachedIframes).map(key => cachedIframes[key].remove());
-    window.removeEventListener("message", this.handleMessageBound, false);
+    window.removeEventListener('message', this.handleMessageBound, false);
   }
 
   ngAfterViewInit() {

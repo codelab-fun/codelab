@@ -10,7 +10,8 @@ beforeEach(() => {
 
   TestBed.overrideComponent(AppComponent, {
     set: {
-      template: app_html
+      template: app_html,
+      templateUrl: undefined
     }
   });
   TestBed.compileComponents();
@@ -19,7 +20,7 @@ beforeEach(() => {
 describe('Blabla', () => {
   it(`AppComponent.ts: When 'search' is called, filter videos by the title matching the search string. 
   Assign them to the 'videos' property of the component. Use 'FAKE_VIDEOS' variable as a data source.`, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.search('itten');
     chai.expect(fixture.componentInstance.videos.length, 'Should have 2 kittens').equals(2);
     fixture.componentInstance.search('cat');
@@ -29,7 +30,7 @@ describe('Blabla', () => {
   });
 
   it(`app.html: Iterate over the videos using '*NgFor', and display a title for each`, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.search('itten');
     fixture.detectChanges();
     chai.expect(fixture.nativeElement.innerHTML).contains(fixture.componentInstance.videos[0].title);
@@ -41,7 +42,7 @@ describe('Blabla', () => {
   });
 
   it(`app.html: Also display a thumbnail`, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     fixture.componentInstance.search('itten');
     fixture.detectChanges();
@@ -56,7 +57,7 @@ describe('Blabla', () => {
   // });
 
   it(`#Bonus AppComponent.ts: When the component is created, trigger a search for an empty string. `, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');
     chai.expect(images.length).equals(3);

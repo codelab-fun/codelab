@@ -1,7 +1,9 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { PresentationComponent } from '../presentation/presentation.component';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Component, Input, OnInit} from '@angular/core';
+import {Mode} from '../mode.enum';
+import {Observable} from 'rxjs/Observable';
+import {PresentationComponent} from '../presentation/presentation.component';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
   selector: 'app-slide',
@@ -11,10 +13,12 @@ import { PresentationComponent } from '../presentation/presentation.component';
 export class SlideComponent implements OnInit {
   private slideId: number;
   private activeSubject = new BehaviorSubject<boolean>(false);
+
   public onActive: Observable<boolean>;
 
-  @Input()
-  id: string;
+  @Input() milestone?: string;
+  @Input() id: string;
+  modeEnum = Mode;
 
   constructor(public presentation: PresentationComponent) {
     this.onActive = this.activeSubject.distinctUntilChanged();
@@ -22,15 +26,11 @@ export class SlideComponent implements OnInit {
 
   get active() {
     this.activeSubject.next(this.presentation.activeSlideIndex === this.slideId);
-    return this.presentation.activeSlideIndex === this.slideId;
+    return this.presentation.activeSlideIndex === this.slideId || this.presentation.mode === Mode.overview;
   }
 
   ngOnInit() {
-    this.slideId = this.presentation.registerSlide(this.id);
-  }
-
-  disableShortcuts() {
-    this.presentation.disableShortcuts();
+    this.slideId = this.presentation.registerSlide(this.id, this.milestone);
   }
 
   disableResize() {

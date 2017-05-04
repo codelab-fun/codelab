@@ -5,7 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {MonacoConfigService} from '../exercise/services/monaco-config.service';
-import {ExerciseModule} from '../exercise/exersice.module';
+import {ExerciseModule} from '../exercise/exercise.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
 import {PresentationModule} from '../presentation/presentation.module';
@@ -35,10 +35,20 @@ export const routes = [
     description: 'Learn how to provide dependencies to your code instead of hard-coding them.'
   },
   {
+    path: 'component-tree',
+    loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
+    name: 'Component-Tree',
+    description: 'Learn how to organize your app into reusable components'
+  },
+  {
     path: 'experiments',
     loadChildren: './experiments/experiments.module#ExperimentsModule',
     name: 'Experiments',
     description: 'This is a place for experiments, dev only'
+  },
+  {
+    path: 'feedback-page',
+    loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule'
   },
   {
     path: '',
@@ -47,7 +57,7 @@ export const routes = [
 ];
 
 export function monacoReady() {
-  return MonacoConfigService.monacoReady
+  return MonacoConfigService.monacoReady;
 }
 
 @NgModule({

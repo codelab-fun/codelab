@@ -2,10 +2,14 @@ import {FileConfig} from '../exercise/interfaces/file-config';
 import {differ} from './differ';
 import {evaled, justForReference, hidden, test} from './fileHelpers';
 
-type Override = { [key: string]: { [key: string]: string } };
+interface Override {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
 interface Overrides {
-  file: Override,
-  stage: Override,
+  file: Override;
+  stage: Override;
 }
 
 
@@ -29,18 +33,18 @@ export class DiffFilesResolver {
     if (files.reference) {
       files.reference.forEach(file => {
         result.push(...justForReference(this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)));
-      })
+      });
     }
     if (files.hidden) {
       files.hidden.forEach(file => {
         result.push(...hidden(this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)));
-      })
+      });
     }
 
     if (files.test) {
       files.test.forEach(file => {
         result.push(...test(this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)));
-      })
+      });
     }
     return result;
   }
@@ -63,7 +67,7 @@ export class DiffFilesResolver {
     // TODO: This get broken if files are ind different folders
     const diffs = differ(this.getFileByPath((this.overrides.file[path] && this.overrides.file[path][stage]) || path), this.stages);
 
-    if (type == 'ts') {
+    if (type === 'ts') {
       return {
         bootstrap: bootstrap,
         excludeFromTesting: bootstrap,
@@ -81,7 +85,7 @@ export class DiffFilesResolver {
         code: diffs[stage],
         template: diffs[stage],
         solution: diffs[stage + 'Solved']
-      }
+      };
     }
   }
 }

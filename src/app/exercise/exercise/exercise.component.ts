@@ -1,8 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ExerciseBase} from './exercise.base';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
-
 
 @Component({
   selector: 'app-exercise',
@@ -10,7 +9,11 @@ import {SlideComponent} from '../../presentation/slide/slide.component';
   styleUrls: ['exercise.component.css']
 })
 export class ExerciseComponent extends ExerciseBase {
-  constructor(slide: SlideComponent, monacoConfig: MonacoConfigService) {
+  @Input() milestone;
+
+  constructor(
+    slide: SlideComponent,
+    monacoConfig: MonacoConfigService) {
     super(slide, monacoConfig);
   }
 }

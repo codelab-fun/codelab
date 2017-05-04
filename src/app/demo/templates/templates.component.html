@@ -1,34 +1,227 @@
-<app-presentation app-slides-routing>
-  <app-menu-shortcut></app-menu-shortcut>
+<app-presentation
+  app-slides-routing
+  app-mode-routing>
+  <div class="btn-bar">
+    <app-mode-overview></app-mode-overview>
+    <app-feedback-widget></app-feedback-widget>
+    <app-menu-shortcut></app-menu-shortcut>
+  </div>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
-  <app-slide>Templates module
+
+  <!--  INTRO -->
+  <app-slide id="intro" class="no-padding" milestone="Templates">
+    <app-title-slide
+      title="Templates"
+      description="Learn more about Angular templates!"
+      prereqs=""
+    ></app-title-slide>
   </app-slide>
 
-  <app-slide>
-    <h1>Templates</h1>
-    <h2>Display both firstName and lastName in the header</h2>
-    <app-playground vertical [config]="code.bindingExercise"
-                    [focus-highlight-match]="[code.bindingExerciseMatch]"></app-playground>
+
+  <!--  COMPONENT -->
+  <app-slide id="component" milestone="Templates">
+    <h1>Angular Templates</h1>
+    <h2>Angular has a very expressive template system.</h2>
+    <h2>It supports HTML</h2>
+    <app-playground [config]="code.template.intro"></app-playground>
   </app-slide>
-  <app-slide>
-    <h1>Templates 2</h1>
+
+  <!--  INTERPOLATION-->
+  <app-slide id="interpolation" milestone="Templates">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Double curlies allow you to include properties from the component</h2>
+    <app-playground [config]="code.template.interpolation"
+                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+  </app-slide>
+
+  <!--INTERPOLATION-METHOD-->
+  <app-slide id="interpolation-method" milestone="Templates">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
+    </h2>
+    <app-playground [config]="code.template.interpolationMethod"
+                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+  </app-slide>
+
+  <app-slide id="exercise-pre" milestone="Templates">
+    <h1>Exercise</h1>
+    <h2>In the next slide you'll edit component template to create a simple header and search form which will look like
+      this:</h2>
+
+    <app-browser-window>
+      <div>
+        <h1>CatTube</h1><input placeholder="video" type="text">
+        <button>Search</button>
+      </div>
+    </app-browser-window>
+  </app-slide>
+
+  <app-slide id="exercise">
+    <app-exercise [config]="exercises[0]" milestone="Templates">
+      <div class="description">
+      </div>
+    </app-exercise>
+  </app-slide>
+
+  <!--  PRE DATA BINDING-->
+  <app-slide id="data-binding-pre" milestone="Templates2">
+    <h1>Angular Templates - Interpolation</h1>
+    <h2>Double curlies can be used anywhere in the templates, even in properties</h2>
+    <app-playground [config]="code.template.dataBindingPre"
+                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+  </app-slide>
+
+  <!--  DATA BINDING  -->
+  <app-slide id="data-binding" milestone="Templates2">
+    <h1>Angular Templates - Data binding</h1>
+    <h2>There is a special way to bind the data to the properties using [ and ]</h2>
+    <app-playground [config]="code.template.dataBinding"
+                    [focus-highlight-match]="[code.template.matches.squares]"></app-playground>
+  </app-slide>
+
+  <!--  DATA BINDING EXTRAS-->
+  <app-slide id="data-binding-extras" milestone="Templates2">
+    <h1>Angular Templates - Data binding extras</h1>
+    <h2>Angular supports more advanced bindings than just attribute name.</h2>
     <app-code-editor
-      [code]="code.bindingProp"
-      [fontSize]="30"
-      [focus-highlight-match]="[code.bindingPropMatch]"
-      [readonly]="false"
-      type="html"
-    ></app-code-editor>
+      [code]="code.template.dataBindingExtra"
+      type="html">
+    </app-code-editor>
   </app-slide>
-  <app-slide>
-    <h1>Templates 2</h1>
+
+
+  <!--  BINDING EVENT -->
+  <app-slide id="event-binding" milestone="Templates2">
+    <h2 ngNonBindable>Event binding ( (event) )</h2>
+    <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
     <app-code-editor
-      [code]="code.bindingPropSquare"
-      [focus-highlight-match]="[code.bindingPropMatch]"
-      [fontSize]="30"
-      [readonly]="false"
-      type="html"
-    ></app-code-editor>
+      [code]="code.eventBinding"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.eventBindingMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
   </app-slide>
+
+
+  <!--  CONDITIONAL DISPLAY-->
+  <app-slide id="conditional-display-ngif" milestone="Templates2">
+    <h2>Conditional Display (*ngIf)</h2>
+    <p>
+      Conditionally includes a template based on the value of an expression.
+    </p>
+    <app-code-editor
+      [code]="code.conditionalDisplay"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.conditionalDisplayMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+  </app-slide>
+
+
+  <app-slide id="exercise-2-pre" milestone="Templates2">
+    <h1>Exercise</h1>
+    <h2>In the next slide you'll add a click handler to the search button, and display a message in case there were no
+      videos found. The result will look like this:</h2>
+
+    <app-browser-window>
+      <div>
+        <h1>CatTube</h1><input placeholder="video" type="text">
+        <button>Search</button>
+        <div>No videos</div>
+      </div>
+    </app-browser-window>
+  </app-slide>
+
+  <app-slide id="exercise-2">
+    <app-exercise [config]="exercises[1]" milestone="Templates2">
+      <div class="description">
+      </div>
+    </app-exercise>
+  </app-slide>
+
+
+  <!--  REFERENCE BINDING -->
+  <app-slide id="reference-binding" milestone="Templates3">
+    <h2>Reference binding ( #var )</h2>
+    <p>A template reference variable is often a reference to a DOM element within a template. It can also be a reference
+      to an Angular component or directive or a web component.</p>
+    <app-code-editor
+      [code]="code.bindingRef"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.bindingRefMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+  </app-slide>
+
+  <!--  CONDITIONAL NGFOR-->
+  <app-slide id="conditional-display-ngfor" milestone="Templates3">
+    <h2>Conditional Display (*ngFor)</h2>
+    <p>
+      The ngFor directive instantiates a template once per item from an iterable. The context for each instantiated
+      template inherits from the outer context with the given loop variable set to the current item from the iterable.
+    </p>
+    <app-code-editor
+      [code]="code.conditionalDisplayFor"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.conditionalDisplayForMatch]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+    <div class="info">Not that it's important to keey the star (*) and preserve the case!</div>
+  </app-slide>
+
+
+  <app-slide id="exercise-3-pre" milestone="Templates3">
+    <h1>Exercise</h1>
+    <h2>In the next slide you'll finally display the videos! The result will look like this: </h2>
+
+    <app-browser-window>
+      <div>
+        <h1>CatTube</h1>
+        <input placeholder="video" type="text">
+        <button>Search!</button>
+        <div>
+          <h2>Cute kitten</h2>
+          <img src="/assets/images/cat-1.jpg">
+        </div>
+        <div>
+          <h2>Kitten on the tree</h2>
+          <img src="/assets/images/cat-5.jpg">
+        </div>
+        <div>
+          <h2>Serouis cat</h2>
+          <img src="/assets/images/cat-3.jpg">
+        </div>
+
+      </div>
+    </app-browser-window>
+  </app-slide>
+
+  <app-slide id="exercise-3 ">
+    <app-exercise [config]="exercises[2]" milestone="Templates3">
+      <div class="description">
+      </div>
+    </app-exercise>
+  </app-slide>
+
+
+  <app-slide id="end">
+    <app-closing-slide>
+      <div class="header" header><h1 i18n>End of Templates Section</h1></div>
+      <div class="body" body>
+        <h2>Please leave your thoughts using the feedback button below!</h2>
+      </div>
+      <div class="footer" footer>
+        <h2>
+            <a routerLink="/">Go to Index</a>
+            <a routerLink="/dependency-injection/intro">Go to the next Milestone</a>
+        </h2>
+      </div>
+    </app-closing-slide>
+  </app-slide>
+
 </app-presentation>

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 
 
 @Component({
@@ -7,17 +8,29 @@ import {Component} from '@angular/core';
   styleUrls: ['./dependency-injection.component.css']
 })
 export class DependencyInjectionComponent {
+  exercise;
 
   code = {
     withOutDI: {
       code: `export class Person {
-  profession: Profession;
+  profession: Job;
 
   constructor() {
-    this.profession = new Profession();
+    this.profession = new Job();
   }
 
 }`,
+        code2: `import {ProfessionsEnum} from professions;
+        
+export class Person {
+  profession: Job;
+
+  constructor() {
+    const Schedule = new Schedule(ProfessionsEnum.ENGINEER);
+    this.profession = new Job(ProfessionsEnum.ENGINEER, Schedule, /* TODO: Find how to inject salary*/);
+  }
+}`,
+
       matches: {
         noDI: /this.*/
       },
@@ -32,7 +45,7 @@ export class DependencyInjectionComponent {
    * Typescript shorthand makes 'profession'
    * available to component instance.
    */
-  constructor(public profession: Profession) {}
+  constructor(public profession: Job) {}
 }`,
       matches: {
         constructor: /constructor.*/
@@ -46,7 +59,7 @@ export class DependencyInjectionComponent {
       code: `import { Injectable } from '@angular/core';
 
 @Injectable()
-export class MyService {
+export class UnitConverterService {
   ...
 }`,
       matches: {
@@ -79,12 +92,16 @@ import { UnitConverterService } from '../services/unit-converter.service';
 
 @Component({...})
 export class UnitConversionComponent {
-  constructor(converter: UnitConverterService) {}
+  constructor(private converter: UnitConverterService) {}
 }`,
       matches: {
         constructor: /constructor.*/
       }
     }
   };
+
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(3, 1);
+  }
 
 }

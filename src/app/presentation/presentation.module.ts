@@ -8,7 +8,12 @@ import {ShortcutsDirective} from './shortcuts/shortcuts.directive';
 import {ProgressBarComponent} from './progress-bar/progress-bar.component';
 import {SlidesRoutingDirective} from './slides-routing/slides-routing.directive';
 import {ArrowsComponent} from './arrows/arrows.component';
-import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
+import {MenuShortcutComponent} from './menu-shortcut/menu-shortcut.component';
+import {TitleSlideComponent} from './title-slide/title-slide.component';
+import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
+import { ModeOverviewComponent } from 'app/presentation/mode-overview/mode-overview.component';
+import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing.directive';
+import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 
 
 @NgModule({
@@ -21,7 +26,12 @@ import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
     ProgressBarComponent,
     SlidesRoutingDirective,
     ArrowsComponent,
-    MenuShortcutComponent
+    MenuShortcutComponent,
+    TitleSlideComponent,
+    RippleAnimationComponent,
+    ModeOverviewComponent,
+    ModeRoutingDirective,
+    ClosingSlideComponent
   ],
 
   exports: [
@@ -31,7 +41,11 @@ import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
     ProgressBarComponent,
     ArrowsComponent,
     SlidesRoutingDirective,
-    MenuShortcutComponent
+    TitleSlideComponent,
+    ModeOverviewComponent,
+    MenuShortcutComponent,
+    ModeRoutingDirective,
+    ClosingSlideComponent
   ],
   imports: [
     CommonModule
