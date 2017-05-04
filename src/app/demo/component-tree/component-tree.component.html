@@ -1,6 +1,4 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>
+<app-presentation app-slides-routing app-mode-routing>
   <app-progress-bar></app-progress-bar>
 
   <div class="btn-bar">
@@ -15,20 +13,17 @@
   <!-- RECAP -->
 
   <app-slide id="intro" class="no-padding">
-    <app-title-slide
-      title="Component tree"
-      description="Combine components together"
-      prereqs=""
-    ></app-title-slide>
+    <app-title-slide title="Component tree" description="Combine components together"
+      prereqs=""></app-title-slide>
   </app-slide>
 
 
   <!--  COMPONENT TREE  -->
   <app-slide id="description">
     <h1>Component Tree</h1>
-    <h2>So far we only had 1 component, but as your app grows it will take a form of a tree of components.</h2>
+    <h2>So far we only had 1 component , but as your app grows it will take a form of a treeof components.</h2>
     <img src="assets/images/tree.png" alt="tree" height="400">
-  </app-slide>
+    </app-slide>
 
 
   <app-slide id="exercise-1-pre" milestone="TypeScript">
@@ -86,7 +81,7 @@
   <app-slide id="module">
     <h1>Parent and Child component</h1>
     <h2>However components won't know about each other unless they are declared in the same module.</h2>
-    <app-code-editor [code]="code.appModule.code" [focus-highlight-match]="code.appModule.match"></app-code-editor>
+    <app-code-editor [code]="code.appModule.code"[focus-highlight-match]="code.appModule.match"></app-code-editor>
   </app-slide>
 
   <!--  PASSING DATA  -->
