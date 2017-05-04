@@ -11,14 +11,14 @@
   <app-arrows></app-arrows>
 
   <!--  INTRO -->
-  <app-slide id="intro" class="no-padding">
+  <app-slide id="intro" no-padding>
     <app-title-slide
       title="Experiments"
       description=""
       prereqs=""
     ></app-title-slide>
   </app-slide>
-  
+
   <app-slide>
     <h2>How to use angular-presentation</h2>
     <pre>
@@ -84,19 +84,5 @@
                     [config]="code.templateInterpolationExercise">
     </app-playground>
 
-  </app-slide>
-  
-  <app-slide id="end" milestone="Dependecy Injection">
-    <app-closing-slide>
-      <div class="header" header><h1 i18n>End of Experiments Section</h1></div>      
-      <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
-      </div>   
-      <div class="footer" footer>
-        <h2>
-            <a routerLink="/">Go to Index</a>
-        </h2>
-      </div> 
-    </app-closing-slide>
   </app-slide>
 </app-presentation>

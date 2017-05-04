@@ -10,7 +10,7 @@
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
 
-  <app-slide id="intro" class="no-padding">
+  <app-slide id="intro" no-padding>
     <app-title-slide
       title="Bootstrap"
       description=""
@@ -108,7 +108,7 @@
   </app-slide>
 
   <!--  Angular app exercise-->
-  <app-slide id="exercise-component">
+  <app-slide id="exercise-component" no-padding>
     <app-exercise [config]="exercises[0]">
       <div class="description">
         <p>Create first Angular component!</p>
@@ -187,7 +187,7 @@
 
 
   <!--  DESCRIPTION 1 -->
-  <app-slide id="exercise-module">
+  <app-slide id="exercise-module" no-padding>
     <app-exercise [config]="exercises[1]">
       <div class="description">
         <p>Now we got the component, we need to pass it to a NgModule.</p>
@@ -221,7 +221,7 @@
   </app-slide>
 
   <!--  DESCRIPTION 2-->
-  <app-slide id="exercise-bootstrap">
+  <app-slide id="exercise-bootstrap" no-padding>
     <app-exercise [config]="exercises[2]">
       <div class="description">
         <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
@@ -267,19 +267,18 @@
       </div>
     </div>
   </app-slide>
-    
+
   <app-slide  id="end" milestone="Bootstrap">
     <app-closing-slide>
-      <div class="header" header><h1>End of Bootstrap Section</h1></div>      
+      <div class="header" header><h1>End of Bootstrap Section</h1></div>
       <div class="body" body>
         <h2>Please leave your thoughts using the feedback button below!</h2>
-      </div>   
+      </div>
       <div class="footer" footer>
         <h2>
-            <a routerLink="/">Go to Index</a>
             <a routerLink="/templates/0">Go to the next Milestone</a>
         </h2>
-      </div> 
+      </div>
     </app-closing-slide>
   </app-slide>
 

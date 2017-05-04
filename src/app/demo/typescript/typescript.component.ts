@@ -63,7 +63,7 @@ export class Puppy {
 
 // Now we can instantiate (create) it 
 var hotdog = new Puppy();
-// And use it's methods
+// And use its methods
 console.log(hotdog.bark());
 `),
       codeConstructor: typeScriptWithConsoleLog(`export class Puppy {
@@ -103,6 +103,8 @@ console.log(oscar.bark());
         importMatch: /import/,
         constants: /const /,
         constructorMatch: /constructor/,
+        publicMatch: /public name/,
+        thisMatch: /this.name/,
         edouardMatch: /Édouard/,
         oscarMatch: /Oscar-Claude/,
       }

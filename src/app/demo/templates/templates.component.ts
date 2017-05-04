@@ -129,17 +129,16 @@ export class AppComponent {
     bindingPropMatch: /person.photoUrl/,
     bindingPropExercise: displayAngularComponentWithHtml(baseCode, `<h1 [innerText]="user.fullName()"></h1>`),
     bindingPropExerciseMatch: /user.pic/,
-    bindingRef: `<!-- You can define a variable that points to an element or 
-     Component instance by using a hash. -->
-    <div>
-      <!-- userName variable is available globally in this template. -->
-      <input #userName>
-      <!-- Remember, input elements have a value property. -->
-      <button (click)="isTaken(userName.value)>
-        Check if taken
-      </button>
-    </div>`,
+    bindingRef: `<div>
+  <input #userName>
+  
+  <!-- userName has a reference to the input element -->
+  <button (click)="isTaken(userName.value)">
+    Check if taken
+  </button>
+</div>`,
     bindingRefMatch: /#userName/,
+    bindingRef2Match: /userName.value/,
     bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
     bindingRefExerciseMatch: /#userinput/,
     eventBinding: `<!-- When user clicks the button, call the "saveUser" function on the 
@@ -165,13 +164,11 @@ export class AppComponent {
 `,
     conditionalDisplayMatch: /ngIf/,
     conditionalDisplayExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here displayUser -->`),
-    conditionalDisplayFor: `<!-- ngFor dynamically changes the structure too! 
-     Note again the * and case-sensitivity of the directive. -->
-    <ul>
-      <li *ngFor="let player of team.roster">
-        {{player.name}}
-      </li>
-    </ul>`,
+    conditionalDisplayFor: `<ul>
+  <li *ngFor="let player of puppy">
+    {{puppy.name}}
+  </li>
+</ul>`,
     conditionalDisplayForMatch: /ngFor/,
     conditionalDisplayForExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here heros -->`),
 
