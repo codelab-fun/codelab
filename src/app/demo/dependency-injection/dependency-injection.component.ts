@@ -20,7 +20,7 @@ export class DependencyInjectionComponent {
   }
 
 }`,
-        code2: `import {ProfessionsEnum} from professions;
+        code2: `import {ProfessionsEnum} from './professions';
         
 export class Person {
   profession: Job;

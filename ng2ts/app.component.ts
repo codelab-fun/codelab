@@ -13,7 +13,7 @@ const FAKE_VIDEOS = [{
     src: '/assets/images/cat-5.jpg'
   },
   {
-    title: 'Serouis cat',
+    title: 'Serious cat',
     src: '/assets/images/cat-3.jpg'
   }];
 /*/d*//*d:createComponentSolved*/

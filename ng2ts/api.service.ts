@@ -33,7 +33,7 @@ const FAKE_VIDEOS = [
     date: '2016-09-02'
   },
   {
-    title: 'Serouis cat',
+    title: 'Serious cat',
     src: '/assets/images/cat-4.jpg',
     description: 'todo',
     views: 100,
@@ -41,14 +41,14 @@ const FAKE_VIDEOS = [
     date: '2016-08-02'
   },
   {
-    title: 'Serouis cat',
+    title: 'Serious cat',
     src: '/assets/images/cat-5.jpg',
     description: 'todo',
     views: 100,
     likes: 20,
     date: '2016-08-02'
   }, {
-    title: 'Serouis cat',
+    title: 'Serious cat',
     src: '/assets/images/cat-5.jpg',
     description: 'todo',
     views: 100,
@@ -64,7 +64,7 @@ const FAKE_VIDEOS = [
     date: '2016-08-02'
   },
   {
-    title: 'Serouis cat',
+    title: 'Serious cat',
     src: '/assets/images/cat-6.jpg',
     description: 'todo',
     views: 100,

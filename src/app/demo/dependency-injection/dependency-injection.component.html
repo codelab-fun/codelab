@@ -45,11 +45,11 @@
   </app-slide>
 
   <app-slide id="comparison-2" milestone="DependencyInjection">
-    <h1>Comparison - Parametrs</h1>
+    <h1>Comparison - Parameters</h1>
     <div class="content-container">
       <div class="col-6">
         <app-code-editor [fontSize]="15" [code]="code.withOutDI.code2"
-                         [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></app-code-editor>
+                         [focus-highlight-match]="[code.withOutDI.matches.noDI]"></app-code-editor>
         <h2>Without Dependency Injection you have to figure out all the parameters yourself</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
@@ -61,8 +61,8 @@
   </app-slide>
 
   <app-slide id="comparison-3" milestone="DependencyInjection">
-    <h1>Comparison - Parametrs</h1>
-    <h2>Also testing is harder without DI, but I'll have to create a slide about it (TODO)</h2>
+    <h1>Comparison - Testing</h1>
+    <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies in a constructor parameters.</h2>
   </app-slide>
 
   <!--  Steps to create an Angular app -->
@@ -78,7 +78,7 @@
   <!--  IMPLEMENTATION STEP #1  -->
   <app-slide id="make-injectable" milestone="DependencyInjection">
     <h1>Implementation Step #1</h1>
-    <h2>Mark the class as Injectable. This let's Angular know that this class is part of Angular DI system</h2>
+    <h2>Mark the class as Injectable. This let's Angular know that this class is part of Angular Dependency Injection system</h2>
     <app-code-editor [code]="code.classAsInjectable.code"
                      [focus-highlight-match]="[code.classAsInjectable.matches.injectable]"></app-code-editor>
     <div class="info">
@@ -141,15 +141,15 @@
           <img src="/assets/images/cat-3.jpg">
         </div>
         <div>
-          <h2>Serouis cat</h2>
+          <h2>Serious cat</h2>
           <img src="/assets/images/cat-4.jpg">
         </div>
         <div>
-          <h2>Serouis cat</h2>
+          <h2>Serious cat</h2>
           <img src="/assets/images/cat-5.jpg">
         </div>
         <div>
-          <h2>Serouis cat</h2>
+          <h2>Serious cat</h2>
           <img src="/assets/images/cat-5.jpg">
         </div>
         <div>
@@ -157,7 +157,7 @@
           <img src="/assets/images/dog.jpg">
         </div>
         <div>
-          <h2>Serouis cat</h2>
+          <h2>Serious cat</h2>
           <img src="/assets/images/cat-6.jpg">
         </div>
       </div>
