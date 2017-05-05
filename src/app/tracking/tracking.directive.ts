@@ -23,12 +23,13 @@ export class TrackingDirective {
 
   @HostListener('onSlideChange', ['$event']) onSlideChange(index) {
     if (this.auth) {
-      const diffMinutes = Date.now() - this.lastSlideChange;
-      this.lastSlideChange = Date.now();
+      const dateNow = Date.now();
+      const diffMinutes = dateNow - this.lastSlideChange;
+      this.lastSlideChange = dateNow;
       const userHistory = this.afDb.list('/user_progress/' + this.auth.uid);
       userHistory.push({
         slideId: index,
-        timeStamp: Date.now(),
+        timeStamp: dateNow,
         msDiff: diffMinutes, // time user spent on the prev. slide
         route: this.router.url,
         totalSlides: this.presentation.totalSlides,
