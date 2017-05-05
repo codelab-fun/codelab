@@ -76,7 +76,7 @@ import { UnitConversionComponent } from './unit-conversion.component';
 
 @NgModule({
   declarations: [ UnitConversionComponent ],
-  providers: [ UnitConverterService ],
+  providers: [ UnitConverterService ]
 })
 export class AppModule {}`,
       matches: {

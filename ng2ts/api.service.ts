@@ -56,7 +56,7 @@ const FAKE_VIDEOS = [
     date: '2016-08-02'
   },
   {
-    title: 'Opps, looks like a bug!',
+    title: 'Oops, looks like a bug!',
     src: '/assets/images/dog.jpg',
     description: 'todo',
     views: 100,
