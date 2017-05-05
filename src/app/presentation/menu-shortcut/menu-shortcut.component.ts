@@ -5,6 +5,7 @@ import {Component, HostListener, Inject} from '@angular/core';
   templateUrl: './menu-shortcut.component.html',
   styleUrls: ['./menu-shortcut.component.css']
 })
+
 export class MenuShortcutComponent {
   routes: { name: string, description: string };
   open = false;

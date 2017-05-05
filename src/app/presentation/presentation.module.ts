@@ -14,6 +14,7 @@ import { RippleAnimationComponent } from './ripple-animation/ripple-animation.co
 import { ModeOverviewComponent } from 'app/presentation/mode-overview/mode-overview.component';
 import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing.directive';
 import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
     ClosingSlideComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: []
