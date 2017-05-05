@@ -1,8 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { FeedbackService } from './../feedback.service';
+import { FeedbackService } from '../feedback.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Message } from './../message';
+import { Message } from '../message';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

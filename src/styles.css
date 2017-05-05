@@ -71,7 +71,7 @@ h1, h2, h3, li {
   font-weight: 300;
 }
 
-.no-padding .slide {
+[no-padding] .slide {
   padding: 0;
 }
 

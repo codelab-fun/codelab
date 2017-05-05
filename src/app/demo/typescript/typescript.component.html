@@ -2,14 +2,14 @@
   app-slides-routing
   app-mode-routing>
   <div class="btn-bar">
-    <app-mode-overview></app-mode-overview>
+
     <app-feedback-widget></app-feedback-widget>
     <app-menu-shortcut></app-menu-shortcut>
   </div>
   <app-progress-bar></app-progress-bar>
   <app-arrows></app-arrows>
 
-  <app-slide id="intro" class="no-padding" milestone="TypeScript">
+  <app-slide id="intro" no-padding milestone="TypeScript">
     <app-title-slide
       title="TypeScript"
       description="Angular is written in TypeScript! Learn more about the language and the best features!"
@@ -99,36 +99,10 @@
     ></app-playground>
   </app-slide>
 
-  <!-- TYPES IN TYPESCRIPT-->
-  <app-slide id="types" milestone="TypeScript">
-    <h1><span>TypeScript</span> has different types for different units of data. These types
-      are:</h1>
-    <div row>
-      <div style="width: 30%;">
-        <ul>
-          <li>Boolean</li>
-          <li>Number</li>
-          <li>String</li>
-          <li>Array</li>
-          <li>Tuple</li>
-        </ul>
-      </div>
-      <div style="width: 30%;">
-        <ul>
-          <li>Enum</li>
-          <li>Any</li>
-          <li>Void</li>
-          <li>Null/Undefined</li>
-          <li>Never</li>
-        </ul>
-      </div>
-    </div>
-  </app-slide>
-
   <app-slide id="types-more" milestone="TypeScript">
-    <h1>Some examples</h1>
+    <h1>Quick glance at types</h1>
     <app-code-editor [fontSize]="25" [readonly]="false" [code]="code.moreTypes.code"></app-code-editor>
-    <div class="info">This code is editable, try exerimenting with assigning wrong types.</div>
+    <div class="info">This code is editable, try experimenting with assigning wrong types.</div>
   </app-slide>
 
   <!--  CLASSES  -->
@@ -137,9 +111,11 @@
     <h2>TypeScript has classes, and Angular makes heavy use of them.</h2>
     <h2>They work similar to classes in other languages, and serve for grouping methods and properties belonging to
       one object together.</h2>
-    <app-playground [config]="code.classDescription.code"></app-playground>
+    <app-playground [config]="code.classDescription.code"
+                    [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.classPuppyMatch]"></app-playground>
   </app-slide>
-  <app-slide id="classes-constructor" milestone="TypeScript">
+  <app-slide id=" classes-constructor
+    " milestone="TypeScript">
     <h1>Classes - constructor</h1>
     <h2>There's a special method on the class called constructor. It's run when the class is created and allows the
       class to take parameters</h2>
@@ -147,12 +123,23 @@
                     [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></app-playground>
   </app-slide>
 
+  <app-slide id="classes-access-modifier" milestone="TypeScript">
+    <h1>Classes - Access modifiers</h1>
+    <h2>TypeScript allows you to specify access modifier in the constructor (public, private or protected). This
+      turns parameter in a class property accessible by as this.name</h2>
+    <app-playground [config]="code.classDescription.codeConstructor"
+                    [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></app-playground>
+  </app-slide>
+
   <app-slide id="export" milestone="TypeScript">
     <h1>Classes - export</h1>
-    <h2>By the way, did you notice export before class? This is used to share information between files. We're going to
+    <h2>By the way, did you notice the <b>export</b> keyword before class? This is used to share information between
+      files. We're going to
       import and use this in the next slide (for higher effect)</h2>
-    <app-playground [config]="code.classDescription.codeExport"
-                    [focus-highlight-match]="[code.classDescription.matches.exportMatch]"></app-playground>
+    <app-code-editor
+      [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
+      [code]="code.classDescription.codeExport.files[0].code"></app-code-editor>
+
   </app-slide>
 
   <app-slide id="import" milestone="TypeScript">
@@ -221,7 +208,12 @@
     </app-browser-window>
   </app-slide>
 
+<<<<<<< HEAD
   <app-slide id="exercise">
+=======
+
+  <app-slide id="exercise" no-padding>
+>>>>>>> 396b58caf880a766703d061aaed5f552f186c74c
     <app-exercise [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
         <p>We created all the files for you.</p>
@@ -241,8 +233,7 @@
       </div>
       <div class="footer" footer>
         <h2>
-            <a routerLink="/">Go to Index</a>
-            <a routerLink="/bootstrap/0">Go to the next Milestone</a>
+          <a routerLink="/bootstrap/0">Go to the next Milestone</a>
         </h2>
       </div>
     </app-closing-slide>

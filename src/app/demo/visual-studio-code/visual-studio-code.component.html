@@ -1,0 +1,166 @@
+<app-presentation app-slides-routing app-mode-routing>
+
+  <div class="btn-bar">
+    <app-mode-overview></app-mode-overview>
+    <app-feedback-widget></app-feedback-widget>
+    <app-menu-shortcut></app-menu-shortcut>
+  </div>
+  <app-progress-bar></app-progress-bar>
+  <app-arrows></app-arrows>
+
+
+  <app-slide id="intro" class="no-padding" milestone="TypeScript">
+    <app-title-slide title="Visual Studio Code" description="Another Code Editor?"></app-title-slide>
+  </app-slide>
+
+
+  <app-slide id="about-typescript">
+    <h1>What is Visual Studio Code?</h1>
+    <div row>
+      <div>
+        <h2>Visual Studio Code is a free open source code editor developed by Microsoft</h2>
+        <ul>
+          <li>Built with Github Electron, utilize Web Technology (HTML, CSS, Javascript)</li>
+          <li>Offers a robust extensible architecture and highly customizable </li>
+          <li>Editor has Built in...
+            <ul>
+              <li>Source Control (Ctrl+Shift+G)</li>
+              <li>Extensions Markert (Ctrl+Shift+X)</li>
+              <li>Debugger (Ctrl+Shift+D)</li>
+              <li>Terminal (Ctrl+~)</li>
+            </ul>
+        </ul>
+      </div>
+    </div>
+  </app-slide>
+
+
+  <app-slide>
+    <h1>Why Visual Studio Code</h1>
+    <h2>Awesome tooling support. Works especially well with Typescript.</h2>
+    <h2 class="feature-title">Intellisense is code completion and code info</h2>
+    <div row>
+      <div class="col-6 vscode-gifs">
+        <img src="https://code.visualstudio.com/images/intellisense_intellisense.gif" alt="IntelliSense demo gif">
+      </div>
+      <div class="col-6 vscode-gifs">
+        <img src="https://raw.githubusercontent.com/ionutvmi/path-autocomplete/master/demo/path-autocomplete.gif" alt="IntelliSense demo gif">
+      </div>
+    </div>
+  </app-slide>
+
+
+  <app-slide>
+    <h1>Why Visual Studio Code</h1>
+    <h2>Missing Reference? Syntax Error? No problem!</h2>
+    <h2 class="feature-title">Look for the lightbulb! It can be trigger by (ctrl+space)</h2>
+    <div row>
+      <div class="col-6 vscode-gifs">
+        <img src="https://code.visualstudio.com/images/language-support_quick-fixes.gif" alt="IntelliSense demo gif">
+      </div>
+    </div>
+  </app-slide>
+
+
+  <app-slide>
+    <h1>Install Visaul Studio Code</h1>
+    <div row>
+      <div class="col-6">
+        <h2>Interested? Curious?</h2>
+        <h2>Ready to join the cult?</h2>
+        <ol>
+          <li>Click <a href="">Here</a> to download.</li>
+          <li>Run the installer</li>
+          <li>Enjoy!</li>
+        </ol>
+      </div>
+      <div class="col-6">
+        <img src="http://i.imgur.com/dac74Al.gif">
+      </div>
+    </div>
+  </app-slide>
+
+
+  <app-slide>
+    <h1>Popular extensions</h1>
+    <div row>
+      <ul>
+        <li>There are many extensions within visual studio code. Here are some good ones:
+          <ul>
+            <li> 
+              <a href="https://marketplace.visualstudio.com/itms?itemName=robertohuertasm.vscode-icons">vscode-icons</a> - Icons to your file (ohhhh shiny)</li>
+            <li>
+              <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">Editor Config</a> - Editor Config Plugin for vs code
+            </li>
+            <li>
+              <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a> - JS Linter plugin
+            </li>
+            <li>
+              <a href="https://marketplace.visualstudio.com/items?itemName=eg2.tslint">TSLint</a> - Linter for TS. (Moarrrrr linter)
+            </li>
+            <li>
+              <a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify">Beautify</a> - Beautify code, if you don't like JS-beautify
+            </li>
+            <li>
+              And many many more! check out the <a href="https://marketplace.visualstudio.com/VSCode">offical site</a> and <a href="https://github.com/viatsko/awesome-vscode">Awesome VS Code</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </app-slide>
+
+  <app-slide>
+    <h1>Common keyboard shortcut</h1>
+    <ul>
+      <li>Formats your code (Shift+Alt+F)</li>
+      <li>Open New Window (Ctrl+Shift+N)</li>
+      <li>Open Project Folder (Ctrl+K,Ctrl+O)</li>
+      <li>Go to File (Ctrl+P)</li>
+      <li>Expand Selection (Shift+Alt+Right)</li>
+      <li>Search multiple File (Ctrl+Shift+F)</li>
+      <li>Go to Definition (F12)</li>
+      <li>Rename (F2)</li>
+      <li>Multiple Cursor(Alt+Mouse)</li>
+      <li>See more <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">here</a></li>
+    </ul>
+    <p>
+      Miss your old editor keymap? Try out of one of these
+      <a href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">Vim</a>,
+      <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings">Atom</a>,
+      <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings">Sublime</a>
+    </p>
+  </app-slide>
+
+
+  <app-slide>
+    <h1>What!? you forgot all the shortcuts already?</h1>
+    <h2>No problem, vs code got your back. Try (F1) or (ctrl+shift+p) and type the command you want to perform</h2>
+    <div class="col-6 vscode-gifs">
+      <img src="https://code.visualstudio.com/images/javascript_formatter.gif" alt="IntelliSense demo">
+    </div>
+  </app-slide>
+
+
+  <app-slide id="end" milestone="Visaul-Studio-Code">
+    <app-closing-slide>
+      <div class="header" header>
+        <h1 i18n>End of Visual Studio Code Section</h1>
+      </div>
+      <div class="body" body>
+        <h2>Please leave your thoughts using the feedback button below!</h2>
+        <ul>
+          <li><a href="https://code.visualstudio.com/">Visual Studio Code Offical Site</a></li>
+        </ul>
+      </div>
+      <div class="footer" footer>
+        <h2>
+          <a routerLink="/">Go to Index</a>
+          <a routerLink="/bootstrap/0">Go to the next Milestone</a>
+        </h2>
+      </div>
+    </app-closing-slide>
+  </app-slide>
+
+
+</app-presentation>
