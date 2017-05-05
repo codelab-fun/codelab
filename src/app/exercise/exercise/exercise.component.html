@@ -3,26 +3,26 @@
     <div class="file-tree-column">
       <div class="file-tree-column-toggle" [class.active]="showFileTree"
         (click)="toggleTree()">Explorer</div>
-      <app-resize *ngIf="showFileTree" [startingWidth]="200"
+      <slides-resize *ngIf="showFileTree" [startingWidth]="200"
         [maxWidth]="450" [minWidth]="85">
-        <app-file-tree [files]="config.files" [active]="currentFile"
+        <slides-file-tree [files]="config.files" [active]="currentFile"
           (onCurrentFile)="currentFileChanged($event)">
-        </app-file-tree>
-      </app-resize>
+        </slides-file-tree>
+      </slides-resize>
     </div>
-    <app-resize class="exercise-body" [minWidth]="400"
+    <slides-resize class="exercise-body" [minWidth]="400"
       [maxWidth]="750">
-      <app-resize [isVertical]="true" [startingHeight]="400"
+      <slides-resize [isVertical]="true" [startingHeight]="400"
         [minHeight]="100">
-        <app-editors [files]="config.files" [currentFile]="currentFile"
+        <slides-editors [files]="config.files" [currentFile]="currentFile"
           (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
           (onLoadSolution)="loadSolution($event)"
           (onCurrentFile)="currentFileChanged($event)">
-        </app-editors>
-      </app-resize>
-      <app-slides-preview [milestone]="milestone">
-      </app-slides-preview>
-    </app-resize>
+        </slides-editors>
+      </slides-resize>
+      <slides-slides-preview [milestone]="milestone">
+      </slides-slides-preview>
+    </slides-resize>
 
     <div class="side">
       <ng-content select=".description"></ng-content>
@@ -32,10 +32,10 @@
           <h2>Nice! Go to the next slide</h2>
         </div>
       </div>
-      <app-tests [tests]="config.tests"></app-tests>
-      <app-runner (onTestUpdate)="onTestUpdate($event)"
+      <slides-tests [tests]="config.tests"></slides-tests>
+      <slides-runner (onTestUpdate)="onTestUpdate($event)"
         [files]="config.files" style="flex: 50%"
-        [runnerType]="config.runner || 'Angular'"></app-runner>
+        [runnerType]="config.runner || 'Angular'"></slides-runner>
     </div>
   </div>
 </div>

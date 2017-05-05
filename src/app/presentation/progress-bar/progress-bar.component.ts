@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {PresentationComponent} from '../presentation/presentation.component';
 
 @Component({
-  selector: 'app-progress-bar',
+  selector: 'slides-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.css']
 })

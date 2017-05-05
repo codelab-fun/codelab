@@ -5,7 +5,7 @@ import { MonacoConfigService } from '../services/monaco-config.service';
 import { SlideComponent } from '../../presentation/slide/slide.component';
 
 @Component({
-  selector: 'app-exercise',
+  selector: 'slides-exercise',
   templateUrl: 'exercise.component.html',
   styleUrls: ['exercise.component.css']
 })

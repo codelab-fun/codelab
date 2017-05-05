@@ -9,6 +9,8 @@ import {ExerciseModule} from '../exercise/exercise.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
 import {PresentationModule} from '../presentation/presentation.module';
+import { HahaPlsWorkComponent } from './haha-pls-work/haha-pls-work.component';
+import { TestsdfComponent } from './testsdf/testsdf.component';
 
 export const routes = [
   {
@@ -67,7 +69,9 @@ export function monacoReady() {
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    HahaPlsWorkComponent,
+    TestsdfComponent
   ],
   imports: [
     BrowserModule,

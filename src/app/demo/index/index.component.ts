@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-index',
+  selector: 'slides-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })

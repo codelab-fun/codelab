@@ -1,24 +1,24 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing>
   <div class="btn-bar">
-    <app-feedback-widget></app-feedback-widget>
-    <app-menu-shortcut></app-menu-shortcut>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
   </div>
 
-  <app-progress-bar></app-progress-bar>
-  <app-arrows></app-arrows>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
 
-  <app-slide id="intro" no-padding milestone="Bootstrap">
-    <app-title-slide
+  <slides-slide id="intro" no-padding milestone="Bootstrap">
+    <slides-title-slide
       title="Bootstrap"
       description=""
       prereqs=""
-    ></app-title-slide>
-  </app-slide>
+    ></slides-title-slide>
+  </slides-slide>
 
   <!-- WHAT IS ANGULAR  -->
-  <app-slide id="angular-description" milestone="Bootstrap">
+  <slides-slide id="angular-description" milestone="Bootstrap">
     <h1 i18n>What is Angular?</h1>
     <div class="centered-vertically" i18n>
       <h2>
@@ -29,40 +29,40 @@
         have to write.
       </h2>
     </div>
-  </app-slide>
+  </slides-slide>
 
   <!--  index.html -->
-  <app-slide id="index-html" milestone="Bootstrap">
+  <slides-slide id="index-html" milestone="Bootstrap">
     <h1>Given an HTML file</h1>
-    <app-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.indexHTML"
-                     [focus-highlight-match]="code.moduleBootstrapping.matches.index"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.indexHTML"
+                     [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
     <h2>Let's create an Angular app which replaces &lt;hello-world> element with the application contents.</h2>
     <h2>This can be done with 3 simple steps.</h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  Steps to create an Angular app -->
-  <app-slide id="angular-app" milestone="Bootstrap">
+  <slides-slide id="angular-app" milestone="Bootstrap">
     <h1>Creating angular app</h1>
     <ol>
       <li>Create an angular component</li>
       <li>Create an angular module</li>
       <li>Bootstrap the module</li>
     </ol>
-  </app-slide>
+  </slides-slide>
 
   <!--  COMPONENT -->
-  <app-slide id="component" milestone="Bootstrap">
+  <slides-slide id="component" milestone="Bootstrap">
     <h1>Step 1: Create component</h1>
-    <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
-                     [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
+                     [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></slides-code-editor>
     <h2>Angular component is just a class. Properties and behavior can be added inside.</h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  @-Decorator -->
-  <app-slide id="decorator" milestone="Bootstrap">
+  <slides-slide id="decorator" milestone="Bootstrap">
     <h1>Component Anatomy - Inline Template</h1>
-    <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
-                     [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
+                     [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></slides-code-editor>
     <h2>
       The class is adorned with a <b>@Component</b> decorator providing additional metadata to let the Angular know how
       to
@@ -72,22 +72,22 @@
       Decorators are a new feature of TypeScript. It comes from Python.
     </div>
     <h2></h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  Selector  -->
-  <app-slide id="selector" milestone="Bootstrap">
+  <slides-slide id="selector" milestone="Bootstrap">
     <h1>Component Anatomy - Inline Template</h1>
-    <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
-                     [focus-highlight-match]="[code.componentAnatomy.matches.selector]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
+                     [focus-highlight-match]="[code.componentAnatomy.matches.selector]"></slides-code-editor>
     <h2>Selector defines the location of the component. When Angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
       HTML element in the document and will render the component on top of it.</h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  Template  -->
-  <app-slide id="template" milestone="Bootstrap">
+  <slides-slide id="template" milestone="Bootstrap">
     <h1>Component Anatomy - Inline Template</h1>
-    <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
-                     [focus-highlight-match]="[code.componentAnatomy.matches.template]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
+                     [focus-highlight-match]="[code.componentAnatomy.matches.template]"></slides-code-editor>
 
     <h2>
       Template defines the HTML code that the component generates.
@@ -95,161 +95,161 @@
     <div class="info"> If the amount of HTML grows out of hand, it's possible to use <b>templateUrl</b> instead and
       provide a path to a HTML file.
     </div>
-  </app-slide>
+  </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <app-slide id="exercise-component-pre" milestone="Bootstrap">
+  <slides-slide id="exercise-component-pre" milestone="Bootstrap">
     <h1>Exercise</h1>
     <h2>In the next slide you'll create your first <b>Angular</b> component! We'll do all the wiring for you and the
       result will look like this:</h2>
 
-    <app-browser-window><h1>Hello World!</h1></app-browser-window>
-  </app-slide>
+    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+  </slides-slide>
 
   <!--  Angular app exercise-->
-  <app-slide id="exercise-component" no-padding>
-    <app-exercise [config]="exercises[0]" milestone="Bootstrap">
+  <slides-slide id="exercise-component" no-padding>
+    <slides-exercise [config]="exercises[0]" milestone="Bootstrap">
       <div class="description">
         <p>Create first Angular component!</p>
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
   <!--  ngModule intro  -->
-  <app-slide id="module" milestone="Bootstrap2">
+  <slides-slide id="module" milestone="Bootstrap2">
     <h1>Now our component is ready to go!</h1>
     <h2>We need to put it in an <b>NgModule</b></h2>
     <h2><b>NgModules</b> help organize an application into cohesive blocks of functionality.</h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  MODULE ANATOMY -->
-  <app-slide id="module-exercise" milestone="Bootstrap2">
+  <slides-slide id="module-exercise" milestone="Bootstrap2">
     <h1>Module Anatomy</h1>
-    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
-                     [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></slides-code-editor>
     <h2>
       Like a component, module is just a class.
     </h2>
-  </app-slide>
+  </slides-slide>
   <!--  MODULE ANATOMY -->
-  <app-slide id="module-decorator" milestone="Bootstrap2">
+  <slides-slide id="module-decorator" milestone="Bootstrap2">
     <h1>Module Anatomy test</h1>
-    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
-                     [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></slides-code-editor>
     <h2>
       Like a component, module is adorned with a decorator providing metadata.
     </h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  Imports  -->
-  <app-slide id="imports" milestone="Bootstrap2">
+  <slides-slide id="imports" milestone="Bootstrap2">
     <h1>Module Anatomy</h1>
-    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
-                     [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
     <h2>
       For a browser web app, you need to import BrowserModule.
     </h2>
     <div class="info">Angular is not just for web apps anymore, it allows to create native phone apps and even VR
       scenes.
     </div>
-  </app-slide>
+  </slides-slide>
   <!--  Declarations  -->
-  <app-slide id="declarations" milestone="Bootstrap2">
+  <slides-slide id="declarations" milestone="Bootstrap2">
     <h1>Module Anatomy</h1>
-    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
-                     [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
     <h2>
       In the declarations array, you tell Angular which components belong to the AppModule.
     </h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  Bootstrap -->
-  <app-slide id="bootstrap" milestone="Bootstrap2">
+  <slides-slide id="bootstrap" milestone="Bootstrap2">
     <h1>Module Anatomy</h1>
 
-    <app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
-                     [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+                     [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
     <h2>
       Component passed into the bootstrap section will be created and displayed in your index.html file.
     </h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <app-slide id="exercise-module-pre" milestone="Bootstrap2">
+  <slides-slide id="exercise-module-pre" milestone="Bootstrap2">
     <h1>Exercise</h1>
     <h2>In the next slide you'll create your first <b>Angular</b> module! We'll use the component from the previous
       exercises and will do all the wiring for you and the
       result will look like this:</h2>
 
-    <app-browser-window><h1>Hello World!</h1></app-browser-window>
-  </app-slide>
+    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+  </slides-slide>
 
 
   <!--  DESCRIPTION 1 -->
-  <app-slide id="exercise-module" no-padding>
-    <app-exercise [config]="exercises[1]" milestone="Bootstrap2">
+  <slides-slide id="exercise-module" no-padding>
+    <slides-exercise [config]="exercises[1]" milestone="Bootstrap2">
       <div class="description">
         <p>Now we got the component, we need to pass it to a NgModule.</p>
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
   <!--  Bootstrap  intro  -->
-  <app-slide id="bootstrap-the-module" milestone="Bootstrap3">
+  <slides-slide id="bootstrap-the-module" milestone="Bootstrap3">
     <h1>Step 3</h1>
     <h2>This is the last step. We have everything ready, just need to bootstrap our app!</h2>
 
-  </app-slide>
+  </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <app-slide id="bootstrapping" milestone="Bootstrap3">
+  <slides-slide id="bootstrapping" milestone="Bootstrap3">
     <h1>Module Bootstrapping</h1>
-    <app-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.mainTs"></app-code-editor>
+    <slides-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
     <h2>
       The bootstrapping process sets up the execution environment, digs the root AppComponent out of the module's
       bootstrap array, creates an instance of the component and inserts it within the element tag identified by the
       component's selector.
     </h2>
-  </app-slide>
+  </slides-slide>
 
-  <app-slide id="exercise-bootstrap-pre" milestone="Bootstrap3">
+  <slides-slide id="exercise-bootstrap-pre" milestone="Bootstrap3">
     <h1>Exercise</h1>
     <h2>All set! In the next page you'll bootstrap your first <b>Angular</b> app!</h2>
 
-    <app-browser-window><h1>Hello World!</h1></app-browser-window>
-  </app-slide>
+    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+  </slides-slide>
 
   <!--  DESCRIPTION 2-->
-  <app-slide id="exercise-bootstrap" no-padding>
-    <app-exercise [config]="exercises[2]" milestone="Bootstrap3">
+  <slides-slide id="exercise-bootstrap" no-padding>
+    <slides-exercise [config]="exercises[2]" milestone="Bootstrap3">
       <div class="description">
         <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
         <p>There's no simple way to test it, make sure your app displays: 'Hello CatTube!'</p>`
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
 
   <!--  MODULE BOOTSTRAPPING-->
-  <app-slide id="bootstrapping-results">
+  <slides-slide id="bootstrapping-results">
     <h1>Result</h1>
     <h2>Amazing! We just bootstraped our first component and learned about Angular on the way.</h2>
     <h2>Let's take a look at the whole picture one more time.</h2>
-  </app-slide>
+  </slides-slide>
 
   <!--  Whole picture -->
-  <app-slide id="overview">
+  <slides-slide id="overview">
     <h1>Overview</h1>
     <div row>
       <div class="col-6">
         <div>index.html</div>
-        <app-code-editor [fontSize]="18" [focus-highlight-match]="code.moduleBootstrapping.matches.index"
+        <slides-code-editor [fontSize]="18" [focus-highlight-match]="code.moduleBootstrapping.matches.index"
                          type="html"
-                         [code]="code.moduleBootstrapping.code.indexHTML"></app-code-editor>
+                         [code]="code.moduleBootstrapping.code.indexHTML"></slides-code-editor>
       </div>
       <div class="col-6">
         <div>main.ts</div>
-        <app-code-editor [fontSize]="18" [code]="code.moduleBootstrapping.code.mainTs"></app-code-editor>
+        <slides-code-editor [fontSize]="18" [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
       </div>
     </div>
     <!--TODO: Do it the right way-->
@@ -258,17 +258,17 @@
     <div row>
       <div class="col-6">
         <div>app.module.ts</div>
-        <app-code-editor [fontSize]="18" [code]="code.moduleAnatomy.code"></app-code-editor>
+        <slides-code-editor [fontSize]="18" [code]="code.moduleAnatomy.code"></slides-code-editor>
       </div>
       <div class="col-6">
         <div>app.component.ts</div>
-        <app-code-editor [fontSize]="18" [code]="code.componentAnatomy.code"></app-code-editor>
+        <slides-code-editor [fontSize]="18" [code]="code.componentAnatomy.code"></slides-code-editor>
       </div>
     </div>
-  </app-slide>
+  </slides-slide>
 
-  <app-slide  id="end">
-    <app-closing-slide>
+  <slides-slide  id="end">
+    <slides-closing-slide>
       <div class="header" header><h1>End of Bootstrap Section</h1></div>
       <div class="body" body>
         <h2>Please leave your thoughts using the feedback button below!</h2>
@@ -278,7 +278,7 @@
             <a routerLink="/templates/0">Go to the next Milestone</a>
         </h2>
       </div>
-    </app-closing-slide>
-  </app-slide>
+    </slides-closing-slide>
+  </slides-slide>
 
-</app-presentation>
+</slides-presentation>

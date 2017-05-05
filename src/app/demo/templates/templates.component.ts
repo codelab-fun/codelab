@@ -10,7 +10,7 @@ const x = {
 const baseCode = 'TODO';
 
 @Component({
-  selector: 'app-templates',
+  selector: 'slides-templates',
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.css']
 })
@@ -25,7 +25,7 @@ export class TemplatesComponent implements OnInit {
       intro: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
-  selector: 'my-app', 
+  selector: 'my-app',
   template: '<h1>Hello World!</h1>'
 })
 export class AppComponent {
@@ -39,7 +39,7 @@ export class AppComponent {
       interpolation: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
-  selector: 'my-app', 
+  selector: 'my-app',
   template: \`<h1>
     Hello {{firstName}}!
     </h1>\`
@@ -51,20 +51,20 @@ export class AppComponent {
       interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
-  selector: 'my-app', 
+  selector: 'my-app',
   template: \`<h1>Hello {{fullName()}}!</h1>\`
 })
 export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
-  fullName(){ 
+  fullName(){
      return this.firstName + this.lastName
   }
 }`),
       dataBindingPre: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
-  selector: 'my-app', 
+  selector: 'my-app',
   template: \`<h1>Hello {{fullName()}}!</h1>
     <img src="{{avatar}}">
   \`
@@ -78,7 +78,7 @@ export class AppComponent {
       dataBinding: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
-  selector: 'my-app', 
+  selector: 'my-app',
   template: \`<h1>Hello {{fullName()}}!</h1>
     <img [src]="avatar">
   \`
@@ -131,7 +131,7 @@ export class AppComponent {
     bindingPropExerciseMatch: /user.pic/,
     bindingRef: `<div>
   <input #userName>
-  
+
   <!-- userName has a reference to the input element -->
   <button (click)="isTaken(userName.value)">
     Check if taken
@@ -141,23 +141,23 @@ export class AppComponent {
     bindingRef2Match: /userName.value/,
     bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
     bindingRefExerciseMatch: /#userinput/,
-    eventBinding: `<!-- When user clicks the button, call the "saveUser" function on the 
+    eventBinding: `<!-- When user clicks the button, call the "saveUser" function on the
      component instance and pass the the underlying event. -->
 <button (click)="saveUser($event)">
 
-<!-- You can also create events for custom components. Here we have a 
-     depleted event, and it's going to call the "soundAlarm" function 
+<!-- You can also create events for custom components. Here we have a
+     depleted event, and it's going to call the "soundAlarm" function
      on the component instance when it fires.  -->
 <coffee-maker (depleted)="soundAlarm('loud')">
 
-<!-- There are also shortcut event bindings! The submit function on the 
-     component instance will be called when the user presses control 
+<!-- There are also shortcut event bindings! The submit function on the
+     component instance will be called when the user presses control
      and enter. -->
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
     eventBindingMatch: /(click)/,
     eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
-    conditionalDisplay: `<!-- Some directives change the structure of the component tree. 
+    conditionalDisplay: `<!-- Some directives change the structure of the component tree.
      ngIf conditionally shows/hides a section of the UI. -->
 <section *ngIf="isSectionVisible">Howdy!</section>
 <!-- Note the * and that it is case-sensitive! -->

@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
 
 @Component({
-  selector: 'app-presentation',
+  selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })

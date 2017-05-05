@@ -81,11 +81,11 @@ h1, h2, h3, li {
 }
 
 /* Hide all elements that are not slides when in overview mode */
-.presentation.overview > *:not(app-slide) {
+.presentation.overview > *:not(slides-slide) {
   visibility: hidden;
 }
 
-.presentation.overview app-ripple-animation {
+.presentation.overview slides-ripple-animation {
   visibility: hidden;
 }
 

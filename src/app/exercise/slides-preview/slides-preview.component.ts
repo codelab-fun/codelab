@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 @Component({
-  selector: 'app-slides-preview',
+  selector: 'slides-slides-preview',
   templateUrl: './slides-preview.component.html',
   styleUrls: ['./slides-preview.component.scss']
 })

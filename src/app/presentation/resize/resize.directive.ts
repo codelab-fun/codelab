@@ -8,7 +8,7 @@ interface Size {
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[app-auto-resize]'
+  selector: '[slides-auto-resize]'
 })
 export class ResizeDirective {
   @HostListener('window:resize')

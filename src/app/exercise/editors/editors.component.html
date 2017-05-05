@@ -21,10 +21,10 @@
         [load solution]
       </span>
   </div>
-  <app-editor
+  <slides-editor
     class="editor"
     [class.is-hidden]="!isOpenFile(file)"
     [file]="file"
     (onCodeChange)="onCodeChange({file: file, code: $event})">
-  </app-editor>
+  </slides-editor>
 </div>

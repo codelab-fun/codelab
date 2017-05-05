@@ -9,7 +9,7 @@ class Person {
   fullName() { return this.firstName + " " + this.lastName; }
 }
 @Component({
-  selector: 'my-app', 
+  selector: 'my-app',
   templateUrl: './app/app.html'
 })
 export class AppComponent {
@@ -18,11 +18,11 @@ export class AppComponent {
   heros=["Celeritas","Magneta","Dynama"];
   onButtonClick(input){
     alert('You typed:'+input);
-  }  
+  }
 }`;
 
 @Component({
-  selector: 'app-experiments',
+  selector: 'slides-experiments',
   templateUrl: './experiments.component.html',
   styleUrls: ['./experiments.component.css']
 })

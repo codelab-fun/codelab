@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-closing-slide',
+  selector: 'slides-closing-slide',
   templateUrl: './closing-slide.component.html',
   styleUrls: ['./closing-slide.component.css']
 })

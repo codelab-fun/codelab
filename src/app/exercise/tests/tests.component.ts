@@ -3,7 +3,7 @@ import {TestInfo} from '../interfaces/test-info';
 
 
 @Component({
-  selector: 'app-tests',
+  selector: 'slides-tests',
   templateUrl: './tests.component.html',
   styleUrls: ['./tests.component.css']
 })

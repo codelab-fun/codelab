@@ -14,7 +14,7 @@ interface Node {
 }
 
 @Component({
-  selector: 'app-file-tree',
+  selector: 'slides-file-tree',
   templateUrl: './file-tree.component.html',
   styleUrls: ['./file-tree.component.css']
 })
