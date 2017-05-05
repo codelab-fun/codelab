@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {pureJavascript, typeScriptWithConsoleLog} from '../../exercise/helpers/helpers';
+import {typeScriptWithConsoleLog} from '../../exercise/helpers/helpers';
 import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 
@@ -53,8 +53,8 @@ notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean`
     },
     classDescription: {
-      code: typeScriptWithConsoleLog(`// We define the class 
-export class Puppy {
+      code: typeScriptWithConsoleLog(`export class Puppy {
+  // This is a method.    
   bark(){
     // That's how russian dogs talk.
     return 'Gav gav!!';
@@ -63,7 +63,7 @@ export class Puppy {
 
 // Now we can instantiate (create) it 
 var hotdog = new Puppy();
-// And use it's methods
+// And use its methods
 console.log(hotdog.bark());
 `),
       codeConstructor: typeScriptWithConsoleLog(`export class Puppy {
@@ -98,23 +98,24 @@ console.log(oscar.bark());
   }
 }`),
       matches: {
+        classPuppyMatch: /class Puppy/,
         classMatch: /class/,
         exportMatch: /export/,
         importMatch: /import/,
         constants: /const /,
         constructorMatch: /constructor/,
+        publicMatch: /public name/,
+        thisMatch: /this.name/,
         edouardMatch: /Édouard/,
         oscarMatch: /Oscar-Claude/,
       }
     },
-    tsExercise: pureJavascript(
+    tsExercise: typeScriptWithConsoleLog(
       `function add(a: number, b: number){
-  return a+b
+  return a+b;
 };
 
-display(add('2', 2));`, `
-    import {value} from 'app.ts';
-    document.write('<h1>' + value.value + '</h1>');`,
+console.log(add('2', 2));`, undefined,
       `
     import {value} from 'app.ts';
     

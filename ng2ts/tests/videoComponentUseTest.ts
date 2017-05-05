@@ -16,12 +16,14 @@ beforeEach(() => {
   });
   TestBed.overrideComponent(AppComponent, {
     set: {
-      template: app_html
+      template: app_html,
+      templateUrl: undefined
     }
   });
   TestBed.overrideComponent(VideoComponent, {
     set: {
-      template: video_video_html
+      template: video_video_html,
+      templateUrl: undefined
     }
   });
   TestBed.compileComponents();
@@ -39,8 +41,8 @@ describe('Component tree', () => {
     chai.expect(metadata[0].declarations, `Keep the app component`).contains(AppComponent);
   });
 
-  it(`app.html: Use video component (get rid of the old title/thumbnail)`, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+  it(`app.html: Use video component in the template (get rid of the old title/thumbnail)`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.videos = Api.fetch('');
     // TODO: if the element is added, but the video prop is not present, this test will fail with
     // A useless message. Passing video prop should actually be tested in the next test, and this
@@ -53,7 +55,7 @@ describe('Component tree', () => {
   });
 
   it(`app.html: Use the data binding to pass the video object to the component (don't forget the square brackets)`, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AppComponent);
 
     fixture.componentInstance.videos = Api.fetch('');
 

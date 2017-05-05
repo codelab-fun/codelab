@@ -16,6 +16,7 @@ import {CommonModule} from '@angular/common';
 import {BrowserWindowModule} from '../browser-window/browser-window.module';
 import {ResizeModule} from '../resize/resize.module';
 import {SlidesPreviewComponent} from './slides-preview/slides-preview.component';
+import { FileTreeComponent } from './file-tree/file-tree.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {SlidesPreviewComponent} from './slides-preview/slides-preview.component'
     EditorComponent,
     SlidesPreviewComponent,
     PlaygroundComponent,
-    CodeEditorComponent
+    CodeEditorComponent,
+    FileTreeComponent
   ], imports: [
     ResizeModule,
     CommonModule,

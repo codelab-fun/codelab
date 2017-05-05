@@ -1,5 +1,11 @@
-import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+  } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
 
 @Component({
   selector: 'app-editors',
@@ -8,11 +14,12 @@ import {FileConfig} from '../interfaces/file-config';
 })
 export class EditorsComponent implements OnInit {
   @Input() public files: Array<any>;
+  @Input() public currentFile;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
+  @Output() public onCurrentFile: EventEmitter<any> = new EventEmitter<FileConfig>();
   @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
   private debug: boolean;
-  private currentFile;
 
   constructor() {
     // TODO
@@ -24,7 +31,7 @@ export class EditorsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentFile = this.visibleFiles[0];
+    this.showFile(this.visibleFiles[0]);
   }
 
   get visibleFiles() {
@@ -46,6 +53,7 @@ export class EditorsComponent implements OnInit {
 
   showFile(file): void {
     this.currentFile = file;
+    this.onCurrentFile.emit(file);
   }
 
   trackFile(index, file) {

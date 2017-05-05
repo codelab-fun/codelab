@@ -1,16 +1,15 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { Injectable } from '@angular/core';
-import { Message } from './message';
-import { Observable } from 'rxjs/Rx';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import {Injectable} from '@angular/core';
+import {Message} from './message';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class FeedbackService {
   private repo$: FirebaseListObservable<any>;
 
-  constructor(
-    private database: AngularFireDatabase,
-    private router: Router) {
+  constructor(private database: AngularFireDatabase,
+              private router: Router) {
     this.repo$ = this.database.list('/feedback');
   }
 
@@ -18,7 +17,7 @@ export class FeedbackService {
   getMessages(activatedRoute: ActivatedRoute): Observable<Message[]> {
     const stream$ = this.repo$
       .switchMap((results: Message[]) =>
-        Observable.of(results.filter(m => m.href === this.router.url).sort())
+        Observable.of(results.filter(m => m.href === this.router.url).filter(m => !m.isDone).sort())
       );
     return activatedRoute.url.switchMap(urls => stream$);
   }
