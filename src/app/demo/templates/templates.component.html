@@ -32,7 +32,7 @@
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
     <app-playground [config]="code.template.interpolation"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></app-playground>
   </app-slide>
 
   <!--INTERPOLATION-METHOD-->
@@ -41,7 +41,7 @@
     <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
     </h2>
     <app-playground [config]="code.template.interpolationMethod"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></app-playground>
   </app-slide>
 
   <app-slide id="exercise-pre" milestone="Templates">
@@ -93,7 +93,7 @@
 
   <!--  BINDING EVENT -->
   <app-slide id="event-binding" milestone="Templates2">
-    <h2 ngNonBindable>Event binding ( (event) )</h2>
+    <h2 ngNonBindable>Event binding</h2>
     <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
     <app-code-editor
       [code]="code.eventBinding"
