@@ -37,5 +37,6 @@ export class TrackingDirective {
         milestone: this.router.url.split('\/')[1]
       });
     }
+    // TODO: use observables to preserve all data
   }
 }
