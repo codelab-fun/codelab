@@ -12,6 +12,9 @@ const circleAndBoxCode = circleAndBox();
 export class ComponentTreeComponent {
   exercise: ExerciseConfigTemplate | SlideTemplate;
   exercise2: ExerciseConfigTemplate | SlideTemplate;
+  title = 'Component Tree';
+  description = '';
+  prereqs = '';
 
   code = {
     parentComponentSkeleton: {
