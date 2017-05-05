@@ -42,9 +42,7 @@ export const routes = [
   },
   {
     path: 'experiments',
-    loadChildren: './experiments/experiments.module#ExperimentsModule',
-    name: 'Experiments',
-    description: 'This is a place for experiments, dev only'
+    loadChildren: './experiments/experiments.module#ExperimentsModule'
   },
   {
     path: 'visual-studio-code',
