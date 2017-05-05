@@ -1,7 +1,8 @@
 import {Directive, HostListener} from '@angular/core';
-import {AngularFireDatabase} from "angularfire2/database";
+import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {PresentationComponent} from '../presentation/presentation/presentation.component';
 
 @Directive({
   selector: '[app-tracking]'
@@ -11,8 +12,7 @@ export class TrackingDirective {
   lastSlideChange;
   history: Array<any> = [];
 
-
-  constructor(private afDb: AngularFireDatabase, private afAuth: AngularFireAuth, private router: Router) {
+  constructor(private afDb: AngularFireDatabase, private afAuth: AngularFireAuth, private router: Router, private presentation: PresentationComponent) {
     afAuth.auth.signInAnonymously();
     afAuth.authState.subscribe(authData => {
       this.auth = authData;
@@ -24,10 +24,15 @@ export class TrackingDirective {
     if (this.auth) {
       let diffMinutes = Date.now() - this.lastSlideChange;
       this.lastSlideChange = Date.now();
-      let user_progress = this.afDb.object('/user_progress/' + this.auth.uid);
-      let history = this.afDb.list('/user_progress/' + this.auth.uid + '/history');
-      history.push({slideId: index, timeStamp: Date.now(), msDiff: diffMinutes, route: this.router.url});
-      user_progress.update({currentSlide: index});
+      let userHistory = this.afDb.list('/user_progress/' + this.auth.uid);
+      userHistory.push({
+        slideId: index,
+        timeStamp: Date.now(),
+        msDiff: diffMinutes, //time user spent on the prev. slide
+        route: this.router.url,
+        totalSlides: this.presentation.totalSlides,
+        milestone: this.router.url.split('\/')[1]
+      });
     }
   }
 }
