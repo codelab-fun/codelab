@@ -39579,7 +39579,7 @@ System.registerDynamic('npm:rxjs/Subject.js', ['./Observable', './Subscriber', '
         ApplicationRef_.prototype.bootstrap = function (componentOrFactory) {
             var _this = this;
             if (!this._initStatus.done) {
-                throw new Error('Cannot bootstrap as there are still asynchronous initializers running. slides-bootstrap.components in the `ngDoBootstrap` method of the root module.');
+                throw new Error('Cannot bootstrap as there are still asynchronous initializers running. Bootstrap components in the `ngDoBootstrap` method of the root module.');
             }
             var /** @type {?} */componentFactory;
             if (componentOrFactory instanceof ComponentFactory) {
@@ -47863,7 +47863,7 @@ System.registerDynamic('npm:rxjs/Subject.js', ['./Observable', './Subscriber', '
     }
     /**
      * This module includes the providers of \@angular/core that are needed
-     * to slides-bootstrap.components via `ApplicationRef`.
+     * to bootstrap components via `ApplicationRef`.
      *
      * \@experimental
      */

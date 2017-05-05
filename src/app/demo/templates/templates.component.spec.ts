@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SlidesBootstrapComponent } from './slides-bootstrap.component';
+import { TemplatesComponent } from './templates.component';
 
 // TODO: Fix this test suite.
-xdescribe('SlidesBootstrapComponent', () => {
-  let component: SlidesBootstrapComponent;
-  let fixture: ComponentFixture<SlidesBootstrapComponent>;
+xdescribe('TemplatesComponent', () => {
+  let component: TemplatesComponent;
+  let fixture: ComponentFixture<TemplatesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SlidesBootstrapComponent ]
+      declarations: [ TemplatesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SlidesBootstrapComponent);
+    fixture = TestBed.createComponent(TemplatesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

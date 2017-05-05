@@ -4,10 +4,10 @@ import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 @Component({
   selector: 'app-bootstrap',
-  templateUrl: './slides-bootstrap.component.html',
-  styleUrls: ['./slides-bootstrap.component.css']
+  templateUrl: './bootstrap.component.html',
+  styleUrls: ['./bootstrap.component.css']
 })
-export class SlidesBootstrapComponent {
+export class BootstrapComponent {
 
   code = {
     componentAnatomy: {   // Component Anatomy - Milestone #1

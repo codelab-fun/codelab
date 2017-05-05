@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SlidesTypescriptComponent} from './slides-typescript.component';
+import {TypescriptComponent} from './typescript.component';
 import {RouterModule} from '@angular/router';
 import {SlidesRoutes} from '../../presentation/slide-routes';
 import {ExerciseModule} from '../../exercise/exercise.module';
@@ -10,14 +10,14 @@ import {BrowserWindowModule} from '../../browser-window/browser-window.module';
 
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(SlidesTypescriptComponent)
+  SlidesRoutes.get(TypescriptComponent)
 );
 
 @NgModule({
   imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule],
-  declarations: [SlidesTypescriptComponent],
-  exports: [SlidesTypescriptComponent]
+  declarations: [TypescriptComponent],
+  exports: [TypescriptComponent]
 })
-export class SlidesTypescriptModule {
+export class TypescriptModule {
 
 }
