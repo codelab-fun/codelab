@@ -37,12 +37,14 @@ export class AppComponent {
         pipeOperator: '|'
       }
     },
-      argumentPipes: {
+    argumentPipes: {
       template: `<p>Your budget is {{budget | currency:'AUD'}}</p>
 <p>Your truncated name is {{name | substring:1:4}}</p>
-<!-- Maryanne -> Mary -->`
-      },
-      filterPipes: {
+<!-- Maryanne -> Mary -->`,
+      readonly: true,
+      path: 'argument.pipe.html'
+    },
+    filterPipes: {
       template: `<!-- Here we pipe team.roster through 
   a custom “notInjured” pipe, 
   then render each player that isn't injured. -->
@@ -50,8 +52,10 @@ export class AppComponent {
   <li *ngFor=”let player of (team.roster | notInjured)”>
     {{player.name}}
   </li>
-</ul>`
-      },
+</ul>`,
+      readonly: true,
+      path: 'filter.pipe.html'
+    },
     creatingAPipe: {
       template: `import { Pipe, PipeTransform } from '@angular/core';
 
@@ -66,7 +70,10 @@ export class SubstringPipe implements PipeTransform {
         decorator: /@Pipe/,
         pipeTransform: /PipeTransform/,
         method: /transform[^]*?\)[^]/
-      }
+      },
+      readonly: true,
+      path: 'substring.pipe.ts',
+      type: 'typescript'
     }
   };
   constructor() { }
