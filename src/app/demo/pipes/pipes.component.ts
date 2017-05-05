@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {displayAngularComponent} from '../../exercise/helpers/helpers';
-// import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 @Component({
   selector: 'app-pipes',
