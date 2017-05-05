@@ -53,19 +53,21 @@ app-file-tree {
 .file-tree-column-toggle {
     position: absolute;
     z-index: 1;
-    top: 19px;
-    left: -60px;
+    top: 47px;
+    left: -42px;
     padding: 3px;
     transform: rotate(270deg);
     font-size: 12px;
     width: 62px;
     text-align: center;
     cursor: pointer;
+    background: white;
     border: 1px solid lightgrey;
 }
 
 .file-tree-column-toggle.active {
     color: blue;
+    border-color: white;
 }
 
 app-slides-preview {

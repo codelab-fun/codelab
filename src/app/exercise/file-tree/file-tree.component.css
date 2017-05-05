@@ -6,6 +6,26 @@ a:not([href]) {
     user-select: none
 }
 
-.active {
+a.active {
+    text-decoration: none;
     color: blue;
+}
+
+.folder,
+.file {
+    white-space: nowrap;
+}
+
+.folder img,
+.file img {
+    vertical-align: middle;
+    padding-right: 2px;
+}
+
+.file {
+    padding-right: 4px;
+}
+
+.folder {
+    padding: 7px 0px 2px 2px;
 }
