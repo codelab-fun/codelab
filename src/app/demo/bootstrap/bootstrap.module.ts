@@ -8,7 +8,7 @@ import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
 import {CommonModule} from '@angular/common';
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
-import {TrackingModule} from "../../tracking/tracking.module";
+import {TrackingModule} from '../../tracking/tracking.module';
 
 
 const routes = RouterModule.forChild(
