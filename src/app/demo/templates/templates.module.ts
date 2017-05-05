@@ -7,13 +7,14 @@ import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
+import {TrackingModule} from '../../tracking/tracking.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(TemplatesComponent)
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserWindowModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserWindowModule, TrackingModule],
   declarations: [TemplatesComponent],
   exports: [TemplatesComponent]
 })
