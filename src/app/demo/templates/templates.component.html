@@ -110,7 +110,7 @@
   <app-slide id="conditional-display-ngif" milestone="Templates2">
     <h2>Conditional Display (*ngIf)</h2>
     <p>
-      Conditionally includes a template based on the value of an expression.
+      *ngIf renders a template on the DOM when its assigned expression evaluates to truthy.
     </p>
     <app-code-editor
       [code]="code.conditionalDisplay"
@@ -161,6 +161,9 @@
   <!--  CONDITIONAL NGFOR-->
   <app-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Conditional Display (*ngFor)</h1>
+    <p>
+      Loops over items in a collection and adds a template to the DOM for each item in the collection.
+    </p>
     <h2>
       The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
     </h2>
@@ -171,7 +174,7 @@
       [readonly]="true"
       type="html">
     </app-code-editor>
-    <div class="info">it's important to keep the star (*) and preserve the case!</div>
+    <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
   </app-slide>
 
 
