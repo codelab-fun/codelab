@@ -1,0 +1,306 @@
+.slide-size {
+  width: 1280px;
+  height: 720px;
+}
+
+.feedback-slide-background {
+  background-color: #9c3232;
+  overflow: auto;
+}
+.feedback-slide-background-triangle-top {
+  position: absolute;
+  /*z-index: 50;*/
+  opacity: .99;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 55vw 32vw 0;
+  border-color: transparent #982a2a transparent transparent;
+}
+.feedback-slide-background-triangle-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: .99;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 22vw 0 0 38vw;
+  border-color: transparent transparent transparent #982a2a;
+}
+
+.content{
+  z-index: 100;
+  position: absolute;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.feedback-slide-header {
+  margin-top: 9%;
+}
+.feedback-slide-logo {
+  height: 32vh;
+  margin-left: 3%
+}
+.feedback-slide-title {
+  color: #fff;
+  font-weight: 900;
+  font-size: 24vh;
+  line-height: 20vh;
+  margin-left: 1.5%;
+}
+
+.feedback-slide-description {
+  margin-left: calc(5% + 30vh);
+  width: 63%;
+  text-align: justify;
+  font-size: 4vh;
+  font-weight: lighter;
+  color: white;
+}
+
+.feedback-button-title {
+  position: absolute;
+  right: 18%;
+  top: 90vh;
+  font-size: 9vh;
+  font-weight: bolder;
+  color: white;
+}
+
+@keyframes fadeOutUp {
+  from {
+    top: 91vh;
+    opacity: 1;
+  }
+  to {
+    top: 10vh;
+    opacity: 0;
+  }
+}
+.fadeOutUp {
+  width: 45px;
+  height: calc(45px / 2);
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border: 7px solid #3498db;
+  border-bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.feedback-button-ripple-1 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 0ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-2 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 200ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-3 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 400ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-4 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 600ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-5 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 800ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-6 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 1000ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-7 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 1200ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-8 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 1400ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-9 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 1600ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-10 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 1800ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-11 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 2000ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-12 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 2200ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-13 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 2400ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-14 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 2600ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-15 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 2800ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-16 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 3000ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-17 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 3200ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-18 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 3400ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-19 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 3600ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-20 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 3800ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-21 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 4000ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-22 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 4200ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-23 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 4400ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-23 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 4600ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-23 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 4800ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
+.feedback-button-ripple-24 {
+  position: absolute;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 5000ms;
+  position: fixed;
+  right: 107px;
+  bottom: 30px;
+}
