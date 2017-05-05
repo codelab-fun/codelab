@@ -12,7 +12,8 @@ export class TrackingDirective {
   lastSlideChange;
   history: Array<any> = [];
 
-  constructor(private afDb: AngularFireDatabase, private afAuth: AngularFireAuth, private router: Router, private presentation: PresentationComponent) {
+  constructor(private afDb: AngularFireDatabase, private afAuth: AngularFireAuth,
+              private router: Router, private presentation: PresentationComponent) {
     afAuth.auth.signInAnonymously();
     afAuth.authState.subscribe(authData => {
       this.auth = authData;
@@ -22,13 +23,13 @@ export class TrackingDirective {
 
   @HostListener('onSlideChange', ['$event']) onSlideChange(index) {
     if (this.auth) {
-      let diffMinutes = Date.now() - this.lastSlideChange;
+      const diffMinutes = Date.now() - this.lastSlideChange;
       this.lastSlideChange = Date.now();
-      let userHistory = this.afDb.list('/user_progress/' + this.auth.uid);
+      const userHistory = this.afDb.list('/user_progress/' + this.auth.uid);
       userHistory.push({
         slideId: index,
         timeStamp: Date.now(),
-        msDiff: diffMinutes, //time user spent on the prev. slide
+        msDiff: diffMinutes, // time user spent on the prev. slide
         route: this.router.url,
         totalSlides: this.presentation.totalSlides,
         milestone: this.router.url.split('\/')[1]
