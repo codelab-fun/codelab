@@ -22,8 +22,8 @@
   <!--  COMPONENT -->
   <app-slide id="component" milestone="Templates">
     <h1>Angular Templates</h1>
-    <h2>Angular has a very expressive template system.</h2>
-    <h2>It supports HTML</h2>
+    <h2>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
+      elements</h2>
     <app-playground [config]="code.template.intro"></app-playground>
   </app-slide>
 
@@ -83,7 +83,7 @@
   <!--  DATA BINDING EXTRAS-->
   <app-slide id="data-binding-extras" milestone="Templates2">
     <h1>Angular Templates - Data binding extras</h1>
-    <h2>Angular supports more advanced bindings than just attribute name.</h2>
+    <h2>Angular supports more advanced bindings than just attribute name</h2>
     <app-code-editor
       [code]="code.template.dataBindingExtra"
       type="html">
@@ -93,8 +93,8 @@
 
   <!--  BINDING EVENT -->
   <app-slide id="event-binding" milestone="Templates2">
-    <h2 ngNonBindable>Event binding</h2>
-    <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
+    <h2 ngNonBindable>Event binding: (event)</h2>
+    <p>The bindings directives you've met so far flow data in one direction: from a component to an element</p>
     <app-code-editor
       [code]="code.eventBinding"
       [fontSize]="25"
@@ -147,7 +147,7 @@
   <app-slide id="reference-binding" milestone="Templates3">
     <h1>Reference binding ( #var )</h1>
     <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it because
-      available as <b>name</b> everywhere in the template.</h2>
+      available as <b>name</b> everywhere in the template</h2>
     <app-code-editor
       [code]="code.bindingRef"
       [fontSize]="25"
