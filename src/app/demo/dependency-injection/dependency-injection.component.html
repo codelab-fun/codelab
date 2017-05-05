@@ -78,16 +78,19 @@
   <!--  IMPLEMENTATION STEP #1  -->
   <app-slide id="make-injectable" milestone="DependencyInjection">
     <h1>Implementation Step #1</h1>
-    <h2>Mark a class as Injectable</h2>
-    <app-code-editor [fontSize]="15" [code]="code.classAsInjectable.code"
+    <h2>Mark the class as Injectable. This let's Angular know that this class is part of Angular DI system.</h2>
+    <app-code-editor [code]="code.classAsInjectable.code"
                      [focus-highlight-match]="[code.classAsInjectable.matches.injectable]"></app-code-editor>
+    <div class="info">
+      If a service class is marked as injectable, it can require other services in it's consturctor.
+    </div>
   </app-slide>
 
   <!--  IMPLEMENTATION STEP #2  -->
   <app-slide id="provide-injectable" milestone="DependencyInjection">
     <h1>Implementation Step #2</h1>
     <h2>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
-    <app-code-editor [fontSize]="20" [code]="code.provideInjectable.code"
+    <app-code-editor [code]="code.provideInjectable.code"
                      [focus-highlight-match]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></app-code-editor>
     <div class="info">Now this service becomes available for every <b>Component</b> and other service in the Module.
     </div>
@@ -97,7 +100,7 @@
   <app-slide id="consume-injectable" milestone="DependencyInjection">
     <h1>Implementation Step #3</h1>
     <h2>Consume the Injectable in the component</h2>
-    <app-code-editor [fontSize]="20" [code]="code.consumeInjectable.code"
+    <app-code-editor [code]="code.consumeInjectable.code"
                      [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></app-code-editor>
     <div class="info">Because of the <b>private</b> access modifier the service becomes accessible across the class as
       <b>this.converter</b></div>
@@ -178,7 +181,7 @@
       </div>
       <div class="footer" footer>
         <h2>
-            <a routerLink="/component-tree/0">Go to the next Milestone</a>
+          <a routerLink="/component-tree/0">Go to the next Milestone</a>
         </h2>
       </div>
     </app-closing-slide>
