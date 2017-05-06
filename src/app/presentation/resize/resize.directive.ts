@@ -29,7 +29,9 @@ export class ResizeDirective {
       height: document.documentElement.clientHeight
     };
 
-    // this.presentation.zoom = ResizeDirective.getZoomFactor(this.presentation, windowSize);
+    if (this.presentation.config.resize) {
+      this.presentation.zoom = ResizeDirective.getZoomFactor(this.presentation, windowSize);
+    }
   }
 
 }
