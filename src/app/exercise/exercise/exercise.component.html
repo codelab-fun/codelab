@@ -11,7 +11,7 @@
             [files]="config.files" [currentFile]="currentFile || config.files[0]"
             (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
             (onLoadSolution)="loadSolution($event)"
-            (onCurrentFile)="onSelectFile($event)">
+            (onSelectFile)="onSelectFile($event)">
           </app-editors>
         </div>
       </app-resize>
@@ -28,7 +28,7 @@
         </div>
       </div>
       <app-tests [tests]="config.tests" [files]="config.files"
-                 (onCurrentFile)="onSelectFile($event)"></app-tests>
+                 (onSelectFile)="onSelectFile($event)"></app-tests>
       <app-runner (onTestUpdate)="onTestUpdate($event)"
                   [files]="config.files" style="flex: 50%"
                   [runnerType]="config.runner || 'Angular'"></app-runner>

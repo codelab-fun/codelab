@@ -18,6 +18,7 @@ import { SlidesPreviewComponent } from './slides-preview/slides-preview.componen
 import { TestsComponent } from './tests/tests.component';
 import { TooltipsModule } from '../tooltips/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
+import { TestDescriptionComponent } from './test-description/test-description.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FileStructureComponent } from './file-structure/file-structure.componen
     PlaygroundComponent,
     CodeEditorComponent,
     FileTreeComponent,
-    FileStructureComponent
+    FileStructureComponent,
+    TestDescriptionComponent
   ], imports: [
     ResizeModule,
     CommonModule,

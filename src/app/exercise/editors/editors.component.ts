@@ -17,7 +17,7 @@ export class EditorsComponent {
   @Input() public currentFile;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
-  @Output() public onCurrentFile: EventEmitter<any> = new EventEmitter<FileConfig>();
+  @Output() public onSelectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
   @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
   private debug: boolean;
 
@@ -49,7 +49,7 @@ export class EditorsComponent {
 
   showFile(file): void {
     this.currentFile = file;
-    this.onCurrentFile.emit(file);
+    this.onSelectFile.emit(file);
   }
 
   trackFile(index, file) {

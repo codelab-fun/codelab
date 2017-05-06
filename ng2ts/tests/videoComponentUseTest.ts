@@ -30,7 +30,7 @@ beforeEach(() => {
 });
 
 describe('Component tree', () => {
-  it(`App.Module.ts: Add the VideoComponent to the AppModule 'declarations'.`, () => {
+  it(`app.module.ts: Add the VideoComponent to the AppModule 'declarations'.`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);

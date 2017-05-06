@@ -30,7 +30,7 @@ beforeEach(() => {
 });
 
 describe('Component tree', () => {
-  it(`App.Module.ts: Add the TogglePanelComponent to the App.Module.ts declarations.`, () => {
+  it(`app.module.ts: Add the TogglePanelComponent to the declarations.`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);

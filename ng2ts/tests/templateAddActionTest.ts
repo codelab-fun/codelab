@@ -17,14 +17,14 @@ beforeEach(() => {
 });
 
 describe('Blabla', () => {
-  it(`App.Component.ts: Add a 'videos' property, set the value as empty array.`, () => {
+  it(`app.component.ts: Add a 'videos' property, set the value as empty array.`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     chai.expect(fixture.componentInstance.videos, `No videos property on the component`).is.not.undefined;
     chai.expect(fixture.componentInstance.videos, `Videos property on the component is not an array.`).is.an('array');
   });
 
-  it(`App.Component.ts: Add a 'search' method on the component, that takes a 'searchString' parameter.`, () => {
+  it(`app.component.ts: Add a 'search' method on the component, that takes a 'searchString' parameter.`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     chai.expect(fixture.componentInstance.search, `Search should be a function`).is.a('function');

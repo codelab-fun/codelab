@@ -27,7 +27,7 @@ beforeEach(() => {
 });
 
 describe('Component tree', () => {
-  it(`App.Module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
+  it(`app.module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
