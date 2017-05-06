@@ -1,25 +1,25 @@
-<div *ngIf="slide.active">
-  <div class="exercise-panel">
-    <app-resize class="exercise-body" [minWidth]="400"
-                [maxWidth]="750">
-      <app-resize [isVertical]="true" [startingHeight]="400"
-                  [minHeight]="100">
-        <div style="display: flex;height: 100%;width: 100%;">
-          <app-file-structure (onSelectFile)="onSelectFile($event)" [files]="config.files"
-                              [currentFile]="currentFile || config.files[0]"></app-file-structure>
-          <app-editors
-            [files]="config.files" [currentFile]="currentFile || config.files[0]"
-            (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
-            (onLoadSolution)="loadSolution($event)"
-            (onSelectFile)="onSelectFile($event)">
-          </app-editors>
-        </div>
-      </app-resize>
-      <app-slides-preview [milestone]="milestone">
-      </app-slides-preview>
+<div class="exercise-panel" *ngIf="slide.active">
+  <app-resize class="exercise-body" [minWidth]="400"
+              [maxWidth]="750">
+    <app-resize [isVertical]="true" [startingHeight]="400"
+                [minHeight]="100">
+      <div style="display: flex;height: 100%;width: 100%;">
+        <app-file-structure (onSelectFile)="onSelectFile($event)" [files]="config.files"
+                            [currentFile]="currentFile || config.files[0]"></app-file-structure>
+        <app-editors
+          [files]="config.files" [currentFile]="currentFile || config.files[0]"
+          (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
+          (onLoadSolution)="loadSolution($event)"
+          (onSelectFile)="onSelectFile($event)">
+        </app-editors>
+      </div>
     </app-resize>
+    <app-slides-preview [milestone]="milestone">
+    </app-slides-preview>
+  </app-resize>
 
-    <div class="side">
+  <div class="side">
+    <div>
       <ng-content select=".description"></ng-content>
       <div *ngIf="solved">
         <!--TODO: Find a nicer workflow-->
@@ -29,9 +29,10 @@
       </div>
       <app-tests [tests]="config.tests" [files]="config.files"
                  (onSelectFile)="onSelectFile($event)"></app-tests>
-      <app-runner (onTestUpdate)="onTestUpdate($event)"
-                  [files]="config.files" style="flex: 50%"
-                  [runnerType]="config.runner || 'Angular'"></app-runner>
     </div>
+    <app-runner (onTestUpdate)="onTestUpdate($event)"
+                [files]="config.files"
+                [runnerType]="config.runner || 'Angular'">
+    </app-runner>
   </div>
 </div>

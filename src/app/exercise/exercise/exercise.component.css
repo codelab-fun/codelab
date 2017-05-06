@@ -1,3 +1,7 @@
+:host {
+  height: 100%;
+}
+
 app-editors {
   width: 100%;
 }
@@ -39,7 +43,6 @@ app-editors {
   height: auto;
 }
 
-
 app-slides-preview {
   display: flex;
   flex: 1;
@@ -49,12 +52,12 @@ app-slide > div {
   padding: 20px 5px;
 }
 
-
 .side {
   padding: 10px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .exercise-body {
@@ -67,5 +70,6 @@ app-slide > div {
 }
 
 app-runner {
-  margin-top: 20px;
+  margin-top: 10px;
+  align-self: flex-end;
 }

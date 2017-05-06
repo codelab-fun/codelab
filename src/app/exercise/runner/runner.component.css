@@ -4,7 +4,7 @@
 
 :host /deep/ .frame iframe {
   width: 496px;
-  height: 300px;
+  height: 200px;
 }
 
 :host /deep/ .frame {
