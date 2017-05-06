@@ -302,7 +302,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
                   <h2>Kitten on the tree</h2>
                   <img src="/assets/images/cat-1.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img src="/assets/images/cat-2.jpg">
                 </div>
               </div></my-app>
@@ -374,13 +374,13 @@ export const ng2tsConfig: CodelabConfigTemplate = {
                   <h2>Another kitten</h2>
                   <img src="/assets/images/cat-3.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img src="/assets/images/cat-4.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img  src="/assets/images/cat-5.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img  src="/assets/images/cat-6.jpg">
                 </div>
               </div></my-app>
