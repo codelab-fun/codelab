@@ -17,6 +17,7 @@ import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
 import { TestsComponent } from './tests/tests.component';
 import { TooltipsModule } from '../tooltips/tooltips.module';
+import { FileStructureComponent } from './file-structure/file-structure.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TooltipsModule } from '../tooltips/tooltips.module';
     SlidesPreviewComponent,
     PlaygroundComponent,
     CodeEditorComponent,
-    FileTreeComponent
+    FileTreeComponent,
+    FileStructureComponent
   ], imports: [
     ResizeModule,
     CommonModule,

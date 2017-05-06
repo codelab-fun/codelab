@@ -11,10 +11,7 @@ import { SlideComponent } from '../../presentation/slide/slide.component';
 })
 export class ExerciseComponent extends ExerciseBase {
   @Input() milestone;
-
   currentFile: FileConfig;
-
-  showFileTree = false;
 
   constructor(
     slide: SlideComponent,
@@ -22,12 +19,7 @@ export class ExerciseComponent extends ExerciseBase {
     super(slide, monacoConfig);
   }
 
-  currentFileChanged(fileConfig: FileConfig): void {
+  onSelectFile(fileConfig: FileConfig): void {
     this.currentFile = fileConfig;
   }
-
-  toggleTree(): void {
-    this.showFileTree = !this.showFileTree;
-  }
-
 }

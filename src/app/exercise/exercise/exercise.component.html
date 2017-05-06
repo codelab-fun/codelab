@@ -4,12 +4,15 @@
                 [maxWidth]="750">
       <app-resize [isVertical]="true" [startingHeight]="400"
                   [minHeight]="100">
-        <app-editors
-          [files]="config.files" [currentFile]="currentFile"
-          (onChanges)="onCodeChanges($event)"
-          (onToggle)="toggleFile($event)"
-          (onLoadSolution)="loadSolution($event)">
-        </app-editors>
+        <div style="display: flex;height: 100%;width: 100%;">
+          <app-file-structure [files]="config.files"></app-file-structure>
+          <app-editors
+            [files]="config.files" [currentFile]="currentFile"
+            (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
+            (onLoadSolution)="loadSolution($event)"
+            (onCurrentFile)="onSelectFile($event)">
+          </app-editors>
+        </div>
       </app-resize>
       <app-slides-preview [milestone]="milestone">
       </app-slides-preview>
@@ -24,7 +27,7 @@
         </div>
       </div>
       <app-tests [tests]="config.tests" [files]="config.files"
-        (onCurrentFile)="currentFileChanged($event)"></app-tests>
+                 (onCurrentFile)="onSelectFile($event)"></app-tests>
       <app-runner (onTestUpdate)="onTestUpdate($event)"
                   [files]="config.files" style="flex: 50%"
                   [runnerType]="config.runner || 'Angular'"></app-runner>

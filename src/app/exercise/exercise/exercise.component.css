@@ -39,12 +39,6 @@ app-editors {
   height: auto;
 }
 
-app-file-tree {
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 
 app-slides-preview {
   display: flex;
@@ -55,12 +49,6 @@ app-slide > div {
   padding: 20px 5px;
 }
 
-.file-structure-button {
-  transform: rotate(270deg);
-  margin-top: 100px;
-  white-space: nowrap;
-  width: 20px;
-}
 
 .side {
   padding: 10px 20px;
