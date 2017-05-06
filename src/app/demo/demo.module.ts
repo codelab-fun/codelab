@@ -16,7 +16,8 @@ export const routes = [
     loadChildren: './typescript/typescript.module#TypescriptModule',
     name: 'Typescript (Optional)',
     description: 'Angular is using TypeScript which is an improved version with JavaScript. Learn more about it in this codelab'
-  }, {
+  },
+  {
     path: 'bootstrap',
     loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
     name: 'Bootstrap',
@@ -39,6 +40,12 @@ export const routes = [
     loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
     name: 'Component-Tree',
     description: 'Learn how to organize your app into reusable components'
+  },
+  {
+    path: 'pipes',
+    loadChildren: './pipes/pipes.module#PipesModule',
+    name: 'Pipes',
+    description: 'Learn how pipes transforms input values to output values for display in a view.'
   },
   {
     path: 'experiments',
