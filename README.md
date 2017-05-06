@@ -1,4 +1,6 @@
 # AngularPresentation
+
+[![Join the chat at https://gitter.im/AngularNYC/angular-presentation](https://badges.gitter.im/AngularNYC/angular-presentation.svg)](https://gitter.im/AngularNYC/angular-presentation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Demo: [Demo](https://angular-presentation.firebaseapp.com/)
 
 ## Project structure
