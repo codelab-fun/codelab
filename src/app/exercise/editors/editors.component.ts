@@ -12,7 +12,7 @@ import { FileConfig } from '../interfaces/file-config';
   templateUrl: './editors.component.html',
   styleUrls: ['./editors.component.scss']
 })
-export class EditorsComponent implements OnInit {
+export class EditorsComponent {
   @Input() public files: Array<any>;
   @Input() public currentFile;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
@@ -28,10 +28,6 @@ export class EditorsComponent implements OnInit {
 
   onCodeChange(change) {
     this.onChanges.emit(change);
-  }
-
-  ngOnInit(): void {
-    this.showFile(this.visibleFiles[0]);
   }
 
   get visibleFiles() {

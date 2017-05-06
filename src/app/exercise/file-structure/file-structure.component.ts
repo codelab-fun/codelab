@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 
 @Component({
@@ -9,6 +9,8 @@ import {FileConfig} from '../interfaces/file-config';
 export class FileStructureComponent implements OnInit {
   showFileTree = true;
   @Input() files: Array<FileConfig>;
+  @Input() currentFile: FileConfig;
+  @Output() onSelectFile = new EventEmitter<string>();
 
   constructor() {
   }

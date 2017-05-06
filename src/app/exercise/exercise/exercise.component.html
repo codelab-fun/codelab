@@ -5,9 +5,10 @@
       <app-resize [isVertical]="true" [startingHeight]="400"
                   [minHeight]="100">
         <div style="display: flex;height: 100%;width: 100%;">
-          <app-file-structure [files]="config.files"></app-file-structure>
+          <app-file-structure (onSelectFile)="onSelectFile($event)" [files]="config.files"
+                              [currentFile]="currentFile || config.files[0]"></app-file-structure>
           <app-editors
-            [files]="config.files" [currentFile]="currentFile"
+            [files]="config.files" [currentFile]="currentFile || config.files[0]"
             (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
             (onLoadSolution)="loadSolution($event)"
             (onCurrentFile)="onSelectFile($event)">
