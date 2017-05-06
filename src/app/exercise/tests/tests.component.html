@@ -1,5 +1,5 @@
 <div *ngFor="let test of tests; trackBy: trackTest" class="test-panel" title="{{test.result}}">
-  <app-test-description [title]="test.title"
+  <app-test-description [title]="getTitle(test)"
                         [file]="getTestFile(test)"
                         [pass]="test.pass"
                         (onSelectFile)="onSelectFile.emit($event)"

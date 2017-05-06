@@ -7,7 +7,7 @@ import {FileConfig} from '../interfaces/file-config';
   styleUrls: ['./file-structure.component.css']
 })
 export class FileStructureComponent implements OnInit {
-  showFileTree = true;
+  showFileTree = false;
   @Input() files: Array<FileConfig>;
   @Input() currentFile: FileConfig;
   @Output() onSelectFile = new EventEmitter<string>();
