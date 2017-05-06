@@ -34,7 +34,8 @@
           <h2>Nice! Go to the next slide</h2>
         </div>
       </div>
-      <app-tests [tests]="config.tests"></app-tests>
+      <app-tests [tests]="config.tests" [files]="config.files"
+        (onCurrentFile)="currentFileChanged($event)"></app-tests>
       <app-runner (onTestUpdate)="onTestUpdate($event)"
                   [files]="config.files" style="flex: 50%"
                   [runnerType]="config.runner || 'Angular'"></app-runner>

@@ -1,10 +1,10 @@
-import {TestBed} from '@angular/core/testing';
+import { Api } from '../api.service';
+import { AppModule } from '../app.module';
+import { TestBed } from '@angular/core/testing';
+import { thumbs_thumbs_html, video_video_html } from '../code';
+import { ThumbsComponent } from '../thumbs/thumbs.component';
+import { VideoComponent } from '../video/video.component';
 import 'initTestBed';
-import {thumbs_thumbs_html, video_video_html} from '../code';
-import {AppModule} from '../app.module';
-import {Api} from '../api.service';
-import {ThumbsComponent} from '../thumbs/thumbs.component';
-import {VideoComponent} from '../video/video.component';
 
 beforeEach(() => {
   TestBed.resetTestingModule();
@@ -27,7 +27,7 @@ beforeEach(() => {
 });
 
 describe('Component tree', () => {
-  it(`AppModule: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
+  it(`App.Module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
