@@ -1,4 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
+import {AnalyticsService} from '../../presentation/analytics.service';
 
 @Component({
   selector: 'app-index',

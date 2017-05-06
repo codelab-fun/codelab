@@ -10,10 +10,11 @@ import {SlidesRoutingDirective} from './slides-routing/slides-routing.directive'
 import {ArrowsComponent} from './arrows/arrows.component';
 import {MenuShortcutComponent} from './menu-shortcut/menu-shortcut.component';
 import {TitleSlideComponent} from './title-slide/title-slide.component';
-import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
-import { ModeOverviewComponent } from 'app/presentation/mode-overview/mode-overview.component';
-import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing.directive';
-import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
+import {RippleAnimationComponent} from './ripple-animation/ripple-animation.component';
+import {ModeOverviewComponent} from 'app/presentation/mode-overview/mode-overview.component';
+import {ModeRoutingDirective} from 'app/presentation/mode-routing/mode-routing.directive';
+import {ClosingSlideComponent} from './closing-slide/closing-slide.component';
+import {AnalyticsService} from './analytics.service';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
   imports: [
     CommonModule
   ],
-  providers: [],
+  providers: [AnalyticsService],
   bootstrap: []
 })
 export class PresentationModule {

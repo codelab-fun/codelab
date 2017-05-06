@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
+import {AnalyticsService} from '../analytics.service';
 
 @Component({
   selector: 'app-presentation',
@@ -25,7 +26,7 @@ export class PresentationComponent {
   // Expose enum to template
   modeEnum = Mode;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, analytics: AnalyticsService) {
     if (!!this.route.snapshot.queryParams['mode']) {
       this.mode = this.route.snapshot.queryParams['mode'];
     }
