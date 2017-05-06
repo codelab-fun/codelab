@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import 'initTestBed';
-import {AppComponent} from '../app.component';
+import {AppComponent, evalJs} from '../app.component';
 import {VideoService} from '../video/video.service';
 import {AppModule} from '../app.module';
 import {app_component_ts, app_html} from '../code';
@@ -22,7 +22,7 @@ beforeEach(() => {
 });
 
 describe('Blabla', () => {
-  it(`VideoService.ts: Add @Injectable() decorator to the classs`, () => {
+  it(`VideoService.ts: Add @Injectable() decorator to the class`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', VideoService);
@@ -39,6 +39,11 @@ describe('Blabla', () => {
       // Do nothing, we have assertions below for this case
     }
     chai.expect(metadata[0].providers[0]).equals(VideoService);
+  });
+
+  it(`AppComponent.ts: Get rid of FAKE_VIDEOS`, () => {
+
+    chai.expect(evalJs('typeof FAKE_VIDEOS;')).equals('undefined');
   });
 
   it(`AppComponent.ts: Inject videoService in the component constructor`, () => {

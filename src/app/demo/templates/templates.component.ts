@@ -33,7 +33,8 @@ export class AppComponent {
 
       matches: {
         curlies: /\{\{.*\}\}/,
-        firstName: 'firstName',
+        firstName: /firstName = .*/,
+        fullName: /fullName\(\)\{/,
         squares: /\[.*\]/
       },
       interpolation: displayAngularComponent(`import {Component} from '@angular/core';
