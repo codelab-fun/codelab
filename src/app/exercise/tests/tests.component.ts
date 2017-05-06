@@ -39,7 +39,7 @@ export class TestsComponent {
       // Replace instance of filename with link.  Inline styles here due to the nature of
       // injecting html.  Needs pointer-events:none or click will no propagate.
       title = title.replace(new RegExp(file, 'ig'),
-        `<span style="color:blue;text-decoration:underline;pointer-events:none">${file}</span>`);
+        `<span style="text-decoration:underline;cursor: pointer;pointer-events:none">${file}</span>`);
     });
 
     return this.sanitizer.bypassSecurityTrustHtml(title);
