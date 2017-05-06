@@ -23,8 +23,8 @@
   <!--  COMPONENT -->
   <app-slide id="component" milestone="Templates">
     <h1>Angular Templates</h1>
-    <h2>Angular has a very expressive template system.</h2>
-    <h2>It supports HTML</h2>
+    <h2>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
+      elements</h2>
     <app-playground [config]="code.template.intro"></app-playground>
   </app-slide>
 
@@ -33,16 +33,16 @@
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
     <app-playground [config]="code.template.interpolation"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></app-playground>
   </app-slide>
 
   <!--INTERPOLATION-METHOD-->
   <app-slide id="interpolation-method" milestone="Templates">
     <h1>Angular Templates - Interpolation</h1>
-    <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
+    <h2>Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
     </h2>
     <app-playground [config]="code.template.interpolationMethod"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></app-playground>
   </app-slide>
 
   <app-slide id="exercise-pre" milestone="Templates">
@@ -84,7 +84,7 @@
   <!--  DATA BINDING EXTRAS-->
   <app-slide id="data-binding-extras" milestone="Templates2">
     <h1>Angular Templates - Data binding extras</h1>
-    <h2>Angular supports more advanced bindings than just attribute name.</h2>
+    <h2>Angular supports more advanced bindings than just attribute name</h2>
     <app-code-editor
       [code]="code.template.dataBindingExtra"
       type="html">
@@ -94,8 +94,8 @@
 
   <!--  BINDING EVENT -->
   <app-slide id="event-binding" milestone="Templates2">
-    <h2 ngNonBindable>Event binding ( (event) )</h2>
-    <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
+    <h2 ngNonBindable>Event binding: (event)</h2>
+    <p>The bindings directives you've met so far flow data in one direction: from a component to an element</p>
     <app-code-editor
       [code]="code.eventBinding"
       [fontSize]="25"
@@ -148,7 +148,7 @@
   <app-slide id="reference-binding" milestone="Templates3">
     <h1>Reference binding ( #var )</h1>
     <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it because
-      available as <b>name</b> everywhere in the template.</h2>
+      available as <b>name</b> everywhere in the template</h2>
     <app-code-editor
       [code]="code.bindingRef"
       [fontSize]="25"
@@ -196,7 +196,7 @@
           <img src="/assets/images/cat-5.jpg">
         </div>
         <div>
-          <h2>Serouis cat</h2>
+          <h2>Serious cat</h2>
           <img src="/assets/images/cat-3.jpg">
         </div>
 

@@ -48,8 +48,8 @@ describe('Blabla', () => {
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');
     chai.expect(images.length).equals(2);
-    chai.expect(images[1].getAttribute('ng-reflect-src')).equals(fixture.componentInstance.videos[1].src);
-    chai.expect(images[0].getAttribute('ng-reflect-src')).equals(fixture.componentInstance.videos[0].src);
+    chai.expect(images[1].getAttribute('src')).equals(fixture.componentInstance.videos[1].src);
+    chai.expect(images[0].getAttribute('src')).equals(fixture.componentInstance.videos[0].src);
   });
 
   // it(`#Bonus app.html: Make hitting enter work in the input trigger the search`, () => {

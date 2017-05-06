@@ -1,98 +1,83 @@
-:host<.slide {
-    padding: 0;
+app-editors {
+  width: 100%;
 }
 
 .next {
-    color: #fff;
-    background: #3e8e01;
-    display: inline-block;
-    cursor: pointer;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-    border-radius: 3px;
-    margin: 1em;
-    line-height: 25px;
-    padding: 6px;
-    white-space: nowrap;
-    text-align: center;
-    text-decoration: none;
+  color: #fff;
+  background: #3e8e01;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  border-radius: 3px;
+  margin: 1em;
+  line-height: 25px;
+  padding: 6px;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
 }
 
 .main.description {
-    width: 800px;
-    margin: 0 auto;
-    padding: 10px;
+  width: 800px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .description p {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .description {
-    max-width: 500px;
-    padding: 0 0 10px 0;
+  max-width: 500px;
+  padding: 0 0 10px 0;
 }
 
 app-editors {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: auto;
 }
 
 app-file-tree {
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.file-tree-column {
-    position: relative;
-}
-
-.file-tree-column-toggle {
-    position: absolute;
-    z-index: 1;
-    top: 19px;
-    left: -60px;
-    padding: 3px;
-    transform: rotate(270deg);
-    font-size: 12px;
-    width: 62px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid lightgrey;
-}
-
-.file-tree-column-toggle.active {
-    color: blue;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 app-slides-preview {
-    display: flex;
-    flex: 1;
+  display: flex;
+  flex: 1;
 }
 
-app-slide>div {
-    padding: 20px 5px;
+app-slide > div {
+  padding: 20px 5px;
+}
+
+.file-structure-button {
+  transform: rotate(270deg);
+  margin-top: 100px;
+  white-space: nowrap;
+  width: 20px;
 }
 
 .side {
-    padding: 10px 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  padding: 10px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .exercise-body {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .exercise-panel {
-    display: flex;
-    height: 100%;
+  display: flex;
+  height: 100%;
 }
 
 app-runner {
-    margin-top: 20px;
+  margin-top: 20px;
 }

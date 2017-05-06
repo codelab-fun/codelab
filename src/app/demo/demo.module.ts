@@ -47,8 +47,9 @@ export const routes = [
   {
     path: 'visual-studio-code',
     loadChildren: './visual-studio-code/visual-studio-code.module#VisualStudioCodeModule',
-    name: 'Visual-Studio-Code (Optional)',
-    description: 'Visual Studio Code is your friend'
+    // Need to hide before the event tonight
+    // name: 'Visual-Studio-Code (Optional)',
+    // description: 'Visual Studio Code is your friend'
   },
   {
     path: 'feedback-page',
