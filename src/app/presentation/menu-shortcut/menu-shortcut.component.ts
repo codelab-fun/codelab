@@ -1,7 +1,7 @@
 import {Component, HostListener, Inject} from '@angular/core';
 
 @Component({
-  selector: 'app-menu-shortcut',
+  selector: 'slides-menu-shortcut',
   templateUrl: './menu-shortcut.component.html',
   styleUrls: ['./menu-shortcut.component.css']
 })

@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {TestsComponent} from './tests.component';
+import {TestDescriptionComponent} from '../test-description/test-description.component';
 
 describe('TestsComponent', () => {
   let component: TestsComponent;
@@ -8,7 +9,7 @@ describe('TestsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestsComponent]
+      declarations: [TestsComponent, TestDescriptionComponent]
     })
       .compileComponents();
   }));

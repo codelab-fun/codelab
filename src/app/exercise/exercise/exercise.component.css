@@ -2,7 +2,7 @@
   height: 100%;
 }
 
-app-editors {
+slides {
   width: 100%;
 }
 
@@ -36,19 +36,19 @@ app-editors {
   padding: 0 0 10px 0;
 }
 
-app-editors {
+slides-editors {
   display: flex;
   flex-direction: column;
   overflow: auto;
   height: auto;
 }
 
-app-slides-preview {
+slides-slides-preview {
   display: flex;
   flex: 1;
 }
 
-app-slide > div {
+slides-slide > div {
   padding: 20px 5px;
 }
 
@@ -69,7 +69,7 @@ app-slide > div {
   height: 100%;
 }
 
-app-runner {
+slides-runner {
   margin-top: 10px;
   align-self: flex-end;
 }

@@ -1,6 +1,6 @@
-<app-presentation app-slides-routing app-mode-routing>>
+<slides-presentation slides-slides-routing slides-mode-routing>>
 
-  <app-slide no-padding>
+  <slides-slide no-padding>
     <div>
       <label>Feedback</label>
       <select [value]="filter$|async" (change)="filter$.next($event.target.value)">
@@ -34,6 +34,6 @@
         </div>
       </div>
     </div>
-  </app-slide>
+  </slides-slide>
 
-</app-presentation>
+</slides-presentation>

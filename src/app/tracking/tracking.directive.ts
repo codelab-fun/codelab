@@ -6,7 +6,7 @@ import {PresentationComponent} from '../presentation/presentation/presentation.c
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[app-tracking]'
+  selector: '[slides-tracking]'
 })
 export class TrackingDirective {
   auth;

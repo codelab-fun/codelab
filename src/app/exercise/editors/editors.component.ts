@@ -8,7 +8,7 @@ import {
 import { FileConfig } from '../interfaces/file-config';
 
 @Component({
-  selector: 'app-editors',
+  selector: 'slides-editors',
   templateUrl: './editors.component.html',
   styleUrls: ['./editors.component.scss']
 })

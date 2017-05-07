@@ -6,7 +6,7 @@ import {PresentationComponent} from '../presentation/presentation.component';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
-  selector: 'app-slide',
+  selector: 'slides-slide',
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.css']
 })

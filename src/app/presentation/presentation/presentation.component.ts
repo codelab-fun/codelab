@@ -4,7 +4,7 @@ import {Mode} from '../mode.enum';
 import {AnalyticsService} from '../analytics.service';
 
 @Component({
-  selector: 'app-presentation',
+  selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })

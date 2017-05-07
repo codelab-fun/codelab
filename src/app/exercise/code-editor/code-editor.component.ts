@@ -2,7 +2,7 @@ import {Component, ContentChild, Input, OnInit} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 
 @Component({
-  selector: 'app-code-editor',
+  selector: 'slides-code-editor',
   templateUrl: './code-editor.component.html',
   styleUrls: ['./code-editor.component.css']
 })
@@ -29,16 +29,16 @@ export class CodeEditorComponent implements OnInit {
       // tslint:disable-next-line:no-debugger TODO: Remove debugger
       debugger;
     }
-    if (!code) {
-      throw new Error(`No code was provided for the app-code-editor component.
+    if (code === undefined) {
+      throw new Error(`No code was provided for the slides-code-editor component.
 
       Ether pass it to the code property:
-      <app-code-editor [code]="code"></app-code-editor>
+      <slides-code-editor [code]="code"></slides-code-editor>
 
       Or use a textarea with #code:
-      <app-code-editor><textarea #code>
+      <slides-code-editor><textarea #code>
         Your code goes here!!!
-      </textarea></app-code-editor>`);
+      </textarea></slides-code-editor>`);
     }
 
     this.file = {

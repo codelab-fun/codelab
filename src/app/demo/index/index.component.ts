@@ -7,7 +7,7 @@ interface IndexPageRoute {
   page?: string;
 }
 @Component({
-  selector: 'app-index',
+  selector: 'slides-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })

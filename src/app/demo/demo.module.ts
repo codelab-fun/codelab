@@ -8,8 +8,8 @@ import {MonacoConfigService} from '../exercise/services/monaco-config.service';
 import {ExerciseModule} from '../exercise/exercise.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
-import { PresentationModule } from '../presentation/presentation.module';
-import { FeedbackModule } from 'app/feedback/feedback.module';
+import {PresentationModule} from '../presentation/presentation.module';
+import {FeedbackModule} from 'app/feedback/feedback.module';
 
 export const routes = [
   {
@@ -83,7 +83,7 @@ export function monacoReady() {
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ function getFileName(file: FileConfig) {
 }
 
 @Component({
-  selector: 'app-tests',
+  selector: 'slides-tests',
   templateUrl: './tests.component.html',
   styleUrls: ['./tests.component.css']
 })

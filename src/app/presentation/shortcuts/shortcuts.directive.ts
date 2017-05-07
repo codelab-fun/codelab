@@ -3,7 +3,7 @@ import {PresentationComponent} from '../presentation/presentation.component';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[app-shortcuts]'
+  selector: '[slides-shortcuts]'
 })
 export class ShortcutsDirective {
 

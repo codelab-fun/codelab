@@ -18,10 +18,10 @@
     [class.is-hidden]="!isOpenFile(file) || file.readonly"
     *ngIf="debug && !file.readonly">
   </div>
-  <app-editor
+  <slides-editor
     class="editor"
     [class.is-hidden]="!isOpenFile(file)"
     [file]="file"
     (onCodeChange)="onCodeChange({file: file, code: $event})">
-  </app-editor>
+  </slides-editor>
 </div>
