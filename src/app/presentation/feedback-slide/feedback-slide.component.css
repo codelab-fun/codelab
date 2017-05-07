@@ -43,7 +43,7 @@
 
 .feedback-slide-header {
   position: fixed;
-  margin-top: 25vh;
+  margin-top: 34vh;
 }
 .feedback-slide-logo {
   height: 32vh;
@@ -61,7 +61,7 @@
 .feedback-slide-description {
   position: fixed;
   margin-left: calc(5% + 30vh);
-  margin-top: 40vh;
+  margin-top: 48vh;
   margin-right: 12%;
   text-align: justify;
   font-size: 4vh;
@@ -71,7 +71,7 @@
 
 .feedback-button-title {
   position: fixed;
-  margin-right: 12%;
+  margin-right: 11.7%;
   right: 0;
   top: 90vh;
   font-size: 9vh;
