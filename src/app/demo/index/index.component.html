@@ -1,4 +1,16 @@
-<app-presentation>
+<app-presentation
+  app-slides-routing
+  app-mode-routing>
+  <div class="btn-bar">
+    <app-mode-overview></app-mode-overview>
+    <app-feedback-widget></app-feedback-widget>
+    <app-menu-shortcut></app-menu-shortcut>
+  </div>
+
+  <app-slide no-padding>
+    <app-feedback-slide></app-feedback-slide>
+  </app-slide>
+
   <app-slide  id="index">
     <h1>Angular codelab</h1>
     <h2>Welcome! Chose the topic below to learn</h2>
