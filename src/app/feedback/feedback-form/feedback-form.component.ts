@@ -50,9 +50,8 @@ export class FeedbackFormComponent implements OnInit {
   }
 
   private getHeaderText(): string {
-    // const el = this.el.element.nativeElement.querySelector('h1:not([style*="display:none"]');
-    // return el ? el.innerHTML : '';
-    return '';
+    const el = document.body.querySelector('h1');
+    return el ? el.innerHTML : '';
   }
 
 }
