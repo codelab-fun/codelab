@@ -11,6 +11,17 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 export class TypescriptComponent {
   code = {
+    filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
+
+console.log(numbers.filter(function(number){ 
+  return number > 30;
+}));
+
+// Or use shorthand function notation.
+// (Also called arrow function)
+console.log(
+  numbers.filter(number=>number > 30)
+);`),
     moreTypes: {
       codeInterfaces: `interface Puppy {
   name: string;
@@ -25,19 +36,21 @@ const realPuppy: Puppy = {
 const notRealPuppy: Puppy = {
   type: 'cat' // Error: this is clearly not a puppy
 }`,
-      codeArrays: `// Array<Type> is one way of defining an array.
-const fruit: Array<string> = ['Banana', 'Mango'];  
+      codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
+const fruit: Array<string> = ['kiwi', 'fig'];  
 // Type[] does the same thing.
-const moreFruit: string[] = ['Banana', 'Mango']; 
+const moreFruit: string[] = ['kiwi', 'fig']; 
 
 interface Fruit { 
   name: string,
   sweet: boolean
 }
 
-const betterFruit: Array<Fruit> = [{name: 'banana', sweet: true}];
- 
-`,
+const betterFruit: Array<Fruit> = [
+  {name: 'kiwi', sweet: true}
+];
+
+console.log(betterFruit);`),
       code: `const price: number = 100; // This is a number.
 const tax = 20; // Actually TypeScript can infer number here;      
 const productName = 'pikachu'; // TypeScript can infer it's a string.

@@ -11,7 +11,7 @@
 }
 
 app-editor {
-  width: 600px;
+  width: 700px;
   /* To compensate for hidden line numbers */
   margin-left: -30px;
 }

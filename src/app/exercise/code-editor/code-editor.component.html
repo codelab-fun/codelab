@@ -1,0 +1,4 @@
+<div class="filename">{{path}}</div>
+<span *ngIf="!readonly">The code below is not an exercise, but it's editable if you want to play with it.</span>
+<app-editor [file]="file" [fontSize]="fontSize" [app-focus-highlight-match]="highlight"
+            [ng-tooltips]="ngTooltips"></app-editor>
