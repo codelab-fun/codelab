@@ -1,28 +1,30 @@
-import {Injectable} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
+import { Injectable } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
 declare const require;
-const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/min/vs/loader');
-
+const monacoLoaderCode = require('!raw-loader!../../../../node_modules/monaco-editor/min/vs/loader');
 const win = window as any;
 declare const monaco;
-
 
 @Injectable()
 export class MonacoConfigService {
 
+  /**
+   * Injects Monaco into the document as a script tag. 
+   */
   public static monacoReady = new Promise((resolve) => {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({paths: {'vs': 'assets/monaco/min/vs'}});
+    win.require.config({ paths: { 'vs': '../../../../node_modules/monaco-editor/min/vs' }});
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
       resolve(monaco);
     });
   });
+
   public monaco: any;
 
   static configureMonaco() {

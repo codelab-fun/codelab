@@ -29,6 +29,7 @@
     "core-js": "^2.4.1",
     "firebase": "^3.9.0",
     "highlight.js": "^9.10.0",
+    "monaco-editor": "^0.8.3",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
