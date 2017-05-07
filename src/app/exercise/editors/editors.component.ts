@@ -8,16 +8,16 @@ import {
 import { FileConfig } from '../interfaces/file-config';
 
 @Component({
-  selector: 'app-editors',
+  selector: 'slides-editors',
   templateUrl: './editors.component.html',
   styleUrls: ['./editors.component.scss']
 })
-export class EditorsComponent implements OnInit {
+export class EditorsComponent {
   @Input() public files: Array<any>;
   @Input() public currentFile;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
-  @Output() public onCurrentFile: EventEmitter<any> = new EventEmitter<FileConfig>();
+  @Output() public onSelectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
   @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
   private debug: boolean;
 
@@ -28,10 +28,6 @@ export class EditorsComponent implements OnInit {
 
   onCodeChange(change) {
     this.onChanges.emit(change);
-  }
-
-  ngOnInit(): void {
-    this.showFile(this.visibleFiles[0]);
   }
 
   get visibleFiles() {
@@ -53,7 +49,7 @@ export class EditorsComponent implements OnInit {
 
   showFile(file): void {
     this.currentFile = file;
-    this.onCurrentFile.emit(file);
+    this.onSelectFile.emit(file);
   }
 
   trackFile(index, file) {

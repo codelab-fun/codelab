@@ -1,168 +1,168 @@
-<app-presentation
+<slides-presentation
   app-slides-routing
   app-mode-routing
   app-tracking>
   <div class="btn-bar">
 
-    <app-feedback-widget></app-feedback-widget>
-    <app-menu-shortcut></app-menu-shortcut>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
   </div>
-  <app-progress-bar></app-progress-bar>
-  <app-arrows></app-arrows>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
 
   <!--  INTRO -->
-  <app-slide id="intro" no-padding milestone="Templates">
-    <app-title-slide
+  <slides-slide id="intro" no-padding milestone="Templates">
+    <slides-title-slide
       title="Templates"
       description="Learn more about Angular templates!"
       prereqs=""
-    ></app-title-slide>
-  </app-slide>
+    ></slides-title-slide>
+  </slides-slide>
 
 
   <!--  COMPONENT -->
-  <app-slide id="component" milestone="Templates">
+  <slides-slide id="component" milestone="Templates">
     <h1>Angular Templates</h1>
     <h2>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
       elements</h2>
-    <app-playground [config]="code.template.intro"></app-playground>
-  </app-slide>
+    <slides-playground [config]="code.template.intro"></slides-playground>
+  </slides-slide>
 
   <!--  INTERPOLATION-->
-  <app-slide id="interpolation" milestone="Templates">
+  <slides-slide id="interpolation" milestone="Templates">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
-    <app-playground [config]="code.template.interpolation"
-                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></app-playground>
+    <slides-playground [config]="code.template.interpolation"
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;">
       You can use back ticks <b>` `</b> on your template to be able to use single or double quotes.
     </div>
-  </app-slide>
+  </slides-slide>
 
 
   <!--INTERPOLATION-METHOD-->
-  <app-slide id="interpolation-method" milestone="Templates">
+  <slides-slide id="interpolation-method" milestone="Templates">
     <h1>Angular Templates - Interpolation</h1>
     <h2>Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
     </h2>
-    <app-playground [config]="code.template.interpolationMethod"
-                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></app-playground>
-  </app-slide>
+    <slides-playground [config]="code.template.interpolationMethod"
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
+  </slides-slide>
 
-  <app-slide id="exercise-pre" milestone="Templates">
+  <slides-slide id="exercise-pre" milestone="Templates">
     <h1>Exercise</h1>
     <h2>In the next slide you'll edit component template to create a simple header and search form which will look like
       this:</h2>
 
-    <app-browser-window>
+    <slides-browser-window>
       <div>
         <h1>CatTube</h1><input placeholder="video" type="text">
         <button>Search</button>
       </div>
-    </app-browser-window>
-  </app-slide>
+    </slides-browser-window>
+  </slides-slide>
 
-  <app-slide id="exercise" no-padding>
-    <app-exercise [config]="exercises[0]" milestone="Templates">
+  <slides-slide id="exercise" no-padding>
+    <slides-exercise [config]="exercises[0]" milestone="Templates">
       <div class="description">
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
   <!--  PRE DATA BINDING-->
-  <app-slide id="data-binding-pre" milestone="Templates2">
+  <slides-slide id="data-binding-pre" milestone="Templates2">
     <h1>Angular Templates - Interpolation in properties</h1>
     <h2>When giving values to element's properties, you can use String Interpolation <b>{{ curlies }}</b></h2>
     <app-playground [config]="code.template.dataBindingPre"
                     [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
-  </app-slide>
+  </slides-slide>
 
   <!--  DATA BINDING  -->
-  <app-slide id="data-binding" milestone="Templates2">
+  <slides-slide id="data-binding" milestone="Templates2">
     <h1>Angular Templates - Property Binding</h1>
     <h2>An other option is to use property binding <b>[attribute] = property</b></h2>
-    <app-playground [config]="code.template.dataBinding"
-                    [focus-highlight-match]="[code.template.matches.squares]"></app-playground>
+    <slides-playground [config]="code.template.dataBinding"
+                    [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;">
-       By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property.
+      By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property.
     </div>
-  </app-slide>
+  </slides-slide>
 
   <!--  DATA BINDING EXTRAS-->
-  <app-slide id="data-binding-extras" milestone="Templates2">
+  <slides-slide id="data-binding-extras" milestone="Templates2">
     <h1>Angular Templates - Data binding extras</h1>
     <h2>Angular supports more advanced bindings than just attribute name</h2>
-    <app-code-editor
+    <slides-code-editor
       [code]="code.template.dataBindingExtra"
       type="html">
-    </app-code-editor>
-  </app-slide>
+    </slides-code-editor>
+  </slides-slide>
 
 
   <!--  BINDING EVENT -->
-  <app-slide id="event-binding" milestone="Templates2">
+  <slides-slide id="event-binding" milestone="Templates2">
     <h2 ngNonBindable>Event binding: (event)</h2>
     <p>The bindings directives you've met so far flow data in one direction: from a component to an element</p>
-    <app-code-editor
+    <slides-code-editor
       [code]="code.eventBinding"
       [fontSize]="25"
       [focus-highlight-match]="[code.eventBindingMatch]"
       [readonly]="true"
       type="html">
-    </app-code-editor>
-  </app-slide>
+    </slides-code-editor>
+  </slides-slide>
 
   <!--  REFERENCE BINDING -->
-  <app-slide id="reference-binding" milestone="Templates3">
+  <slides-slide id="reference-binding" milestone="Templates3">
     <h1>Reference binding ( #var )</h1>
     <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it becomes
       available as <b>name</b> everywhere in the template</h2>
-    <app-code-editor
+    <slides-code-editor
       [code]="code.bindingRef"
       [fontSize]="25"
       [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
       [readonly]="true"
       type="html">
-    </app-code-editor>
-  </app-slide>
+    </slides-code-editor>
+  </slides-slide>
 
   <!--  CONDITIONAL DISPLAY-->
-  <app-slide id="conditional-display-ngif" milestone="Templates2">
+  <slides-slide id="conditional-display-ngif" milestone="Templates2">
     <h2>Conditional Display (*ngIf)</h2>
     <p>
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy.
     </p>
-    <app-playground [config]="code.ngIfDirective.template"
-                    [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></app-playground>
+    <slides-playground [config]="code.ngIfDirective.template"
+                    [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
     <div class="info">
-       Add <b>!</b> before the onDisplay() function, to get a truthy result.
+      Add <b>!</b> before the onDisplay() function, to get a truthy result.
     </div>
-  </app-slide>
+  </slides-slide>
 
 
-  <app-slide id="exercise-2-pre" milestone="Templates2">
+  <slides-slide id="exercise-2-pre" milestone="Templates2">
     <h1>Exercise</h1>
     <h2>In the next slide you'll add a click handler to the search button, and display a message in case there were no
       videos found. The result will look like this:</h2>
 
-    <app-browser-window>
+    <slides-browser-window>
       <div>
         <h1>CatTube</h1><input placeholder="video" type="text">
         <button>Search</button>
         <div>No videos</div>
       </div>
-    </app-browser-window>
-  </app-slide>
+    </slides-browser-window>
+  </slides-slide>
 
-  <app-slide id="exercise-2" no-padding>
-    <app-exercise [config]="exercises[1]" milestone="Templates2">
+  <slides-slide id="exercise-2" no-padding>
+    <slides-exercise [config]="exercises[1]" milestone="Templates2">
       <div class="description">
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
   <!--  CONDITIONAL NGFOR-->
-  <app-slide id="conditional-display-ngfor" milestone="Templates3">
+  <slides-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Conditional Display (*ngFor)</h1>
     <p>
       Loops over items in a collection and adds a template to the DOM for each item in the collection.
@@ -170,13 +170,13 @@
     <h2>
       The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
     </h2>
-    <app-playground [config]="code.ngForDirective.template"
-                    [focus-highlight-match]="[code.ngForDirective]"></app-playground>
+    <slides-playground [config]="code.ngForDirective.template"
+                    [focus-highlight-match]="[code.ngForDirective]"></slides-playground>
     <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
-  </app-slide>
+  </slides-slide>
 
 
-  <app-slide id="exercise-3-pre" milestone="Templates3">
+  <slides-slide id="exercise-3-pre" milestone="Templates3">
     <div style="width: 100%; display: flex; flex-direction: row;">
       <div style="width: 50%;">
         <h1>Exercise</h1>
@@ -185,7 +185,7 @@
         </h2>
       </div>
       <div style="width: 50%;">
-        <app-browser-window>
+        <slides-browser-window>
           <div>
             <h1>CatTube</h1>
             <input placeholder="video" type="text">
@@ -204,21 +204,21 @@
             </div>
 
           </div>
-        </app-browser-window>
+        </slides-browser-window>
       </div>
     </div>
-  </app-slide>
+  </slides-slide>
 
-  <app-slide id="exercise-3" no-padding>
-    <app-exercise [config]="exercises[2]" milestone="Templates3">
+  <slides-slide id="exercise-3" no-padding>
+    <slides-exercise [config]="exercises[2]" milestone="Templates3">
       <div class="description">
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
 
-  <app-slide id="end">
-    <app-closing-slide>
+  <slides-slide id="end">
+    <slides-closing-slide>
       <div class="header" header><h1 i18n>End of Templates Section</h1></div>
       <div class="body" body>
         <h2>Please leave your thoughts using the feedback button below!</h2>
@@ -228,7 +228,7 @@
           <a routerLink="/dependency-injection/intro">Go to the next Milestone</a>
         </h2>
       </div>
-    </app-closing-slide>
-  </app-slide>
+    </slides-closing-slide>
+  </slides-slide>
 
-</app-presentation>
+</slides-presentation>

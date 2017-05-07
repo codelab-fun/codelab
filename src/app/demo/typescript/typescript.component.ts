@@ -4,16 +4,27 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 
 @Component({
-  selector: 'app-typescript',
+  selector: 'slides-typescript',
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })
 
 export class TypescriptComponent {
   code = {
+    filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
+
+console.log(numbers.filter(function(number){ 
+  return number > 30;
+}));
+
+// Or use shorthand function notation.
+// (Also called arrow function)
+console.log(
+  numbers.filter(number=>number > 30)
+);`),
     moreTypes: {
       codeInterfaces: `interface Puppy {
-  name: string,
+  name: string;
   age: number;
 };
  
@@ -25,19 +36,21 @@ const realPuppy: Puppy = {
 const notRealPuppy: Puppy = {
   type: 'cat' // Error: this is clearly not a puppy
 }`,
-      codeArrays: `// Array<Type> is one way of defining an array.
-const fruit: Array<string> = ['Banana', 'Mango'];  
+      codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
+const fruit: Array<string> = ['kiwi', 'fig'];  
 // Type[] does the same thing.
-const moreFruit: string[] = ['Banana', 'Mango']; 
+const moreFruit: string[] = ['kiwi', 'fig']; 
 
 interface Fruit { 
   name: string,
   sweet: boolean
 }
 
-const betterFruit: Array<Fruit> = [{name: 'banana', sweet: true}];
- 
-`,
+const betterFruit: Array<Fruit> = [
+  {name: 'kiwi', sweet: true}
+];
+
+console.log(betterFruit);`),
       code: `const price: number = 100; // This is a number.
 const tax = 20; // Actually TypeScript can infer number here;      
 const productName = 'pikachu'; // TypeScript can infer it's a string.
@@ -50,7 +63,7 @@ const total = price + tax; // Works!`
     },
     varDeclaration: {
       code: `// Var is still allowed but not recommended.
-var v = 1;         
+var v = 1;
 
 // Let should be used instead of var.
 let l = 1;
@@ -58,7 +71,7 @@ let l = 1;
 if(true){
   let ll = 1; // Unlike var let is unavailable outside of this if.
 }
-console.log(ll); // undefined       
+console.log(ll); // undefined
 
 
 // Const is like let, but if you try to change it, TS will give you an error.
@@ -80,20 +93,22 @@ notSure = false; // okay, definitely a boolean`
     },
     classDescription: {
       code: typeScriptWithConsoleLog(`export class Puppy {
-  // This is a method.    
+  // This is a method.
   bark(){
     // That's how russian dogs talk.
     return 'Gav gav!!';
   }
 }
 
-// Now we can instantiate (create) it 
+// Now we can instantiate (create) it
 var hotdog = new Puppy();
 // And use its methods
 console.log(hotdog.bark());
 `),
       codeConstructor: typeScriptWithConsoleLog(`export class Puppy {
-  constructor(public name: string){}
+  constructor(public name: string){
+    // Later we'll have code here
+  }
   bark(){
     return 'Gav! my name is ' + this.name;
   }
@@ -141,7 +156,7 @@ console.log(oscar.bark());`, 'import "app.ts";', undefined, `export class Puppy 
 console.log(add('2', 2));`, undefined,
       `
     import {value} from 'app.ts';
-    
+
     describe('value', ()=>{
       it('equals 5', ()=>{
         chai.expect(value.value).equals(4);

@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-autorun',
+  selector: 'slides-autorun',
   templateUrl: 'autorun.component.html',
   styleUrls: ['autorun.component.css']
 })

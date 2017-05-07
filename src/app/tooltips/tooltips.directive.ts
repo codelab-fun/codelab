@@ -7,7 +7,7 @@ import 'rxjs/add/operator/filter';
  This directive adds tooltips to the provided text
 
  Usage in template:
- <app-slide [ng-tooltips]="tooltips">
+ <slides-slide [ng-tooltips]="tooltips">
 
  ...
  tooltips = [

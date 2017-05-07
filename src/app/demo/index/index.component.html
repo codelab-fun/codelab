@@ -1,27 +1,39 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>
+<slides-presentation>
   <div class="btn-bar">
-    <app-mode-overview></app-mode-overview>
-    <app-feedback-widget></app-feedback-widget>
-    <app-menu-shortcut></app-menu-shortcut>
+    <slides-feedback-widget></slides-feedback-widget>
   </div>
 
-  <app-slide no-padding>
-    <app-feedback-slide></app-feedback-slide>
-  </app-slide>
+  <slides-slide no-padding>
+    <slides-feedback-slide></slides-feedback-slide>
+  </slides-slide>
 
-  <app-slide  id="index">
+  <slides-slide id="index">
     <h1>Angular codelab</h1>
     <h2>Welcome! Chose the topic below to learn</h2>
 
+    <div class="intro" row>
+      <ol>
+        <li *ngFor="let route of getMainPageRoutes()">
+          <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
+          <div>{{route.description}}</div>
+        </li>
+      </ol>
+      <div column-2>
+        <img src="/assets/images/angular.svg" alt="">
+      </div>
+    </div>
+  </slides-slide>
+  <slides-slide id="bonus">
+    <h1>Bonus slides</h1>
+    <h1></h1>
+
     <div class="intro">
-      <ul *ngFor="let route of routes">
-        <li>
+      <ul>
+        <li *ngFor="let route of getBonusPageRoutes()">
           <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
           <div>{{route.description}}</div>
         </li>
       </ul>
     </div>
-  </app-slide>
-</app-presentation>
+  </slides-slide>
+</slides-presentation>

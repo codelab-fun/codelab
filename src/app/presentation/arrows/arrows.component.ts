@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
-  selector: 'app-arrows',
+  selector: 'slides-arrows',
   templateUrl: './arrows.component.html',
   styleUrls: ['./arrows.component.css']
 })

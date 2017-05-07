@@ -1,0 +1,14 @@
+.file-tree-column {
+  display: flex;
+}
+
+.file-tree-column-toggle {
+  position: relative;
+}
+
+.file-tree-column-toggle .file-structure-button {
+  transform: rotate(270deg);
+  margin-top: 100px;
+  white-space: nowrap;
+  width: 20px;
+}

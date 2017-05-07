@@ -10,7 +10,7 @@ const x = {
 const baseCode = 'TODO';
 
 @Component({
-  selector: 'app-templates',
+  selector: 'slides-templates',
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.css']
 })

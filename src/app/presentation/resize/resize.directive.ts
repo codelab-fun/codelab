@@ -8,10 +8,10 @@ interface Size {
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[app-auto-resize]'
+  selector: '[slides-auto-resize]'
 })
 export class ResizeDirective {
-  @HostListener('window:resize')
+
   static getZoomFactor(slideSize: Size, windowSize: Size) {
     return Math.min(windowSize.width / slideSize.width, windowSize.height / slideSize.height);
   }
@@ -20,6 +20,7 @@ export class ResizeDirective {
     this.resize();
   }
 
+  @HostListener('window:resize')
   resize() {
     // TODO(kirjs): Is there a way to make this component more generic?
     // Resize any component?
@@ -29,7 +30,9 @@ export class ResizeDirective {
       height: document.documentElement.clientHeight
     };
 
-    // this.presentation.zoom = ResizeDirective.getZoomFactor(this.presentation, windowSize);
+    if (this.presentation.config.resize) {
+      this.presentation.zoom = ResizeDirective.getZoomFactor(this.presentation, windowSize);
+    }
   }
 
 }

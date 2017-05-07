@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-browser-window',
+  selector: 'slides-browser-window',
   templateUrl: './browser-window.component.html',
   styleUrls: ['./browser-window.component.css']
 })

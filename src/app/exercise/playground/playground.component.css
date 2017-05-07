@@ -10,8 +10,8 @@
   margin-top: 20px;
 }
 
-app-editor {
-  width: 600px;
+slides-editor {
+  width: 700px;
   /* To compensate for hidden line numbers */
   margin-left: -30px;
 }
@@ -29,6 +29,10 @@ app-editor {
   width: 100%;
 }
 
-:host /deep/ .current-line {
+:host /deep/ .decorationsOverviewRuler {
   display: none;
+}
+:host /deep/ .current-line {
+  border: none;
+  background-color: #ffffee;
 }

@@ -5,7 +5,7 @@ import {SlideComponent} from '../../presentation/slide/slide.component';
 
 
 @Component({
-  selector: 'app-playground',
+  selector: 'slides-playground',
   templateUrl: './playground.component.html',
   styleUrls: ['./playground.component.css']
 })

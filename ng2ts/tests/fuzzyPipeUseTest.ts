@@ -46,7 +46,7 @@ function sampleFuzzy(value) {
 describe('Pipes', () => {
 
 
-  it(`App.Module.ts: Add the FuzzyPipe to the AppModule declarations`, () => {
+  it(`app.module.ts: Add the FuzzyPipe to the AppModule declarations`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);

@@ -27,7 +27,7 @@ declare const require: any;
 
 
 @Component({
-  selector: 'app-editor',
+  selector: 'slides-editor',
   template: `
     <div #editor class="monaco-editor"></div>`,
   styleUrls: ['editor.component.css'],

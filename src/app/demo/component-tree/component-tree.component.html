@@ -1,37 +1,37 @@
-<app-presentation app-slides-routing app-mode-routing app-tracking>
-  <app-progress-bar></app-progress-bar>
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+  <slides-progress-bar></slides-progress-bar>
 
   <div class="btn-bar">
 
-    <app-feedback-widget></app-feedback-widget>
-    <app-menu-shortcut></app-menu-shortcut>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
   </div>
 
-  <app-arrows></app-arrows>
+  <slides-arrows></slides-arrows>
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
 
-  <app-slide id="intro" no-padding milestone="Component Tree">
-    <app-title-slide title="Component tree" description="Combine components together"
-                     prereqs=""></app-title-slide>
-  </app-slide>
+  <slides-slide id="intro" no-padding>
+    <slides-title-slide title="Component tree" description="Combine components together"
+                     prereqs=""></slides-title-slide>
+  </slides-slide>
 
 
   <!--  COMPONENT TREE  -->
-  <app-slide id="description" milestone="Component Tree">
+  <slides-slide id="description" milestone="component-tree">
     <h1>Component Tree</h1>
     <h2>So far we only had 1 component , but as your app grows it will take a form of a treeof components</h2>
     <img src="assets/images/tree.png" alt="tree" height="400">
-  </app-slide>
+  </slides-slide>
 
 
-  <app-slide id="exercise-1-pre" milestone="TypeScript">
+  <slides-slide id="exercise-1-pre" milestone="TypeScript">
     <h1 i18n>Exercise</h1>
     <h2>We already know how to create a component. Let's move out all the video-related information into a separate
       component</h2>
     <h3>The result will be as follows:</h3>
-    <app-browser-window>
+    <slides-browser-window>
       <div ng-reflect-video="[object Object]"><h2>Cute kitten</h2>
         <img src="/assets/images/cat-0.png">
         <div>Date 2016-11-25</div>
@@ -39,120 +39,146 @@
         <div>Likes 49329</div>
         <div>Description todo</div>
       </div>
-    </app-browser-window>
-  </app-slide>
+    </slides-browser-window>
+  </slides-slide>
 
 
   <!--  COMPONENT TREE EXERCISE 2 -->
-  <app-slide id="exercise-1" no-padding>
-    <app-exercise [config]="exercise">
+  <slides-slide id="exercise-1" no-padding>
+    <slides-exercise [config]="exercise">
       <div class="description">
         Create a video component.
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
 
   <!--  Parent/Child COMPONENTS-->
-  <app-slide id="parent-child-component" milestone="Component Tree">
+  <slides-slide id="parent-child-component" milestone="Component Tree">
     <h1>Parent and Child component</h1>
     <h2>Any component can render another one by using HTML element matching the selector of the other component</h2>
     <div row>
       <div column-5>
-        <app-code-editor [fontSize]="15" [code]="code.circleAndBox.other.boxNoParams"
-                         [focus-highlight-match]="code.parentComponentSkeleton.match"></app-code-editor>
+        <slides-code-editor [fontSize]="15" [code]="code.circleAndBox.other.boxNoParams"
+                         [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
       </div>
       <div column-5>
-        <app-code-editor [fontSize]="15" [code]="code.circleAndBox.files[0].code"
-                         [focus-highlight-match]="code.parentComponentSkeleton.match"></app-code-editor>
+        <slides-code-editor [fontSize]="15" [code]="code.circleAndBox.files[0].code"
+                         [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
       </div>
     </div>
-    <app-browser-window>
+    <slides-browser-window>
       <div style="border: 1px #ddd solid; width: 100px">
         <div style="width: 100px;height: 100px;background-color: #000;border-radius: 50%"></div>
       </div>
-    </app-browser-window>
-  </app-slide>
-
-
-  <!-- NgModule -->
-  <app-slide id="module">
-    <h1>Parent and Child component</h1>
-    <h2>However components won't know about each other unless they are declared in the same module</h2>
-    <app-code-editor [code]="code.appModule.code" [focus-highlight-match]="code.appModule.match"></app-code-editor>
-  </app-slide>
+    </slides-browser-window>
+  </slides-slide>
 
   <!--  PASSING DATA  -->
-  <app-slide id="passing-data" milestone="Component Tree">
+  <slides-slide id="passing-data" milestone="component-tree">
     <h1>Passing data from parent to child</h1>
     <h2>Parent component passes their data to the child using properties</h2>
     <div class="exercise">Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to get kinda japanese flag
     </div>
-    <app-playground [config]="code.boxAndCircle"></app-playground>
-  </app-slide>
+    <slides-playground [config]="code.boxAndCircle"></slides-playground>
+  </slides-slide>
 
 
   <!--  PASSING DATA  -->
-  <app-slide id="passing-data-child">
+  <slides-slide id="passing-data-child" milestone="component-tree">
     <h1>Passing data from parent to child</h1>
     <h2>But child class has to decorate their properties with a special <b>@Input()</b> decorator</h2>
-    <app-playground [config]="code.circleAndBox"></app-playground>
-  </app-slide>
+    <slides-playground [config]="code.circleAndBox"></slides-playground>
+  </slides-slide>
 
-  <app-slide id="recap">
-    <h1>Recap</h1>
+
+  <slides-slide id="exercise-1-pre" milestone="component-tree">
+    <h1 i18n>Exercise</h1>
+    <h2>We already know how to create a component. Let's move out all the video-related information into a separate
+      component</h2>
+    <h3>The result will be as follows:</h3>
+    <slides-browser-window>
+      <div ng-reflect-video="[object Object]"><h2>Cute kitten</h2>
+        <img src="/assets/images/cat-0.png">
+        <div>Date 2016-11-25</div>
+        <div>Views 100</div>
+        <div>Likes 49329</div>
+        <div>Description todo</div>
+      </div>
+    </slides-browser-window>
+  </slides-slide>
+
+
+  <!--  COMPONENT TREE EXERCISE 1 -->
+  <slides-slide id="exercise-1" no-padding>
+    <slides-exercise [config]="exercise" milestone="component-tree">
+      <div class="description">
+        Create a video component.
+      </div>
+    </slides-exercise>
+  </slides-slide>
+
+  <!-- NgModule -->
+  <slides-slide id="module" milestone="component-tree-2">
+    <h1>Parent and Child component</h1>
+    <h2>However components won't know about each other unless they are declared in the same module</h2>
+    <slides-code-editor [code]="code.appModule.code" [focus-highlight-match]="code.appModule.match"></slides-code-editor>
+  </slides-slide>
+
+  <slides-slide id="recap" milestone="component-tree-2">
+    <h1>Whole picture</h1>
     <div row>
       <div column-5>
         <h3>Child Component</h3>
-        <app-code-editor [fontSize]="15" [code]="code.circleAndBox.files[1].code"
-                         [focus-highlight-match]="code.parentComponentSkeleton.match"></app-code-editor>
+        <slides-code-editor [fontSize]="15" [code]="code.circleAndBox.files[1].code"
+                         [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
       </div>
       <div column-5>
         <h3>Parent Component</h3>
-        <app-code-editor [fontSize]="15" [code]="code.circleAndBox.files[0].code"
-                         [focus-highlight-match]="code.parentComponentSkeleton.match"></app-code-editor>
+        <slides-code-editor [fontSize]="15" [code]="code.circleAndBox.files[0].code"
+                         [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
       </div>
     </div>
     <div row>
       <div column-5>
         <h3>Module</h3>
-        <app-code-editor [fontSize]="15" [code]="code.circleAndBox.files[2].code"
-                         [focus-highlight-match]="code.appModule.match"></app-code-editor>
+        <slides-code-editor [fontSize]="15" [code]="code.circleAndBox.files[2].code"
+                         [focus-highlight-match]="code.appModule.match"></slides-code-editor>
       </div>
-      <app-browser-window>
+      <slides-browser-window>
         <div style="border: 1px #ddd solid; width: 100px">
           <div style="width: 100px;height: 100px;background-color: #000;border-radius: 50%"></div>
         </div>
-      </app-browser-window>
+      </slides-browser-window>
     </div>
-  </app-slide>
+  </slides-slide>
 
 
-  <app-slide id="exercise-2-pre" milestone="ComponentTree2">
+  <slides-slide id="exercise-2-pre" milestone="component-tree-2">
     <h1 i18n>Exercise</h1>
     <h2>In the next slide there's an exercise. You will finally use the component. </h2>
-    <app-browser-window>
-      <div ng-reflect-video="[object Object]"><h2>Cute kitten</h2>
+    <slides-browser-window>
+      <div><h2>Cute kitten</h2>
         <img src="/assets/images/cat-0.png">
         <div>Date 2016-11-25</div>
         <div>Views 100</div>
         <div>Likes 49329</div>
         <div>Description todo</div>
       </div>
-    </app-browser-window>
-  </app-slide>
+    </slides-browser-window>
+  </slides-slide>
 
   <!--  COMPONENT TREE EXERCISE 2-->
-  <app-slide id="exercise-2" no-padding="">
-    <app-exercise [config]="exercise2" milestone="ComponentTree2">
+  <slides-slide id="exercise-2">
+    <slides-exercise [config]="exercise2" milestone="component-tree-2">
       <div class="description">
         Use the component.
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
   <!--  COMPONENT TREE EXERCISE 2-->
-  <app-slide id="end">
+  <slides-slide id="end">
     <h1>That's it!</h1>
     <h2>We found that a lot of people who learned angular </h2>
     <ul>
@@ -165,5 +191,5 @@
       <li>Ping <a href="https://twitter.com/kirjs">@kirjs</a> with any questions</li>
       <li>Follow the <a href="https://www.meetup.com/AngularNYC/">Angular meetup</a> to see fun things</li>
     </ul>
-  </app-slide>
-</app-presentation>
+  </slides-slide>
+</slides-presentation>

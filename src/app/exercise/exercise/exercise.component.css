@@ -1,4 +1,8 @@
-app-editors {
+:host {
+  height: 100%;
+}
+
+slides {
   width: 100%;
 }
 
@@ -32,34 +36,20 @@ app-editors {
   padding: 0 0 10px 0;
 }
 
-app-editors {
+slides-editors {
   display: flex;
   flex-direction: column;
   overflow: auto;
   height: auto;
 }
 
-app-file-tree {
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-app-slides-preview {
+slides-slides-preview {
   display: flex;
   flex: 1;
 }
 
-app-slide > div {
+slides-slide > div {
   padding: 20px 5px;
-}
-
-.file-structure-button {
-  transform: rotate(270deg);
-  margin-top: 100px;
-  white-space: nowrap;
-  width: 20px;
 }
 
 .side {
@@ -67,6 +57,7 @@ app-slide > div {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .exercise-body {
@@ -78,6 +69,7 @@ app-slide > div {
   height: 100%;
 }
 
-app-runner {
-  margin-top: 20px;
+slides-runner {
+  margin-top: 10px;
+  align-self: flex-end;
 }

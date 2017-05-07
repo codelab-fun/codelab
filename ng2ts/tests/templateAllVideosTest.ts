@@ -18,7 +18,7 @@ beforeEach(() => {
 });
 
 describe('Blabla', () => {
-  it(`App.Component.ts: When 'search' is called, filter videos by the title matching the search string. 
+  it(`app.component.ts: When 'search' is called, filter videos by the title matching the search string. 
   Assign them to the 'videos' property of the component. Use 'FAKE_VIDEOS' variable as a data source.`, () => {
       const fixture = TestBed.createComponent(AppComponent);
       fixture.componentInstance.search('itten');
@@ -56,7 +56,7 @@ describe('Blabla', () => {
   //   //TODO
   // });
 
-  it(`#Bonus App.Component.ts: When the component is created, trigger a search for an empty string. `, () => {
+  it(`#Bonus app.component.ts: When the component is created, trigger a search for an empty string. `, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');

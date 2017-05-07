@@ -5,7 +5,7 @@ import {boxAndCircle, circleAndBox} from '../../exercise/helpers/helpers';
 const circleAndBoxCode = circleAndBox();
 
 @Component({
-  selector: 'app-component-tree',
+  selector: 'slides-component-tree',
   templateUrl: './component-tree.component.html',
   styleUrls: ['./component-tree.component.css']
 })
@@ -18,12 +18,12 @@ export class ComponentTreeComponent {
 
   code = {
     parentComponentSkeleton: {
-      match: /app-circle/,
+      match: /slides-circle/,
       code: `import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-hello',
-  template: \`<h1>Hello</h1><app-world></app-world>\`
+  selector: 'slides-hello',
+  template: \`<h1>Hello</h1><slides-world></slides-world>\`
 })
 export class HelloComponent {}
 `,
@@ -34,7 +34,7 @@ export class HelloComponent {}
       code: `import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-world',
+  selector: 'slides-world',
   template: '<h1>World</h1>'
 })
 export class WorldComponent {}

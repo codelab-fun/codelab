@@ -6,7 +6,7 @@ import { Message } from '../message';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-feedback-form',
+  selector: 'slides-feedback-form',
   templateUrl: './feedback-form.component.html',
   styleUrls: ['./feedback-form.component.css']
 })
