@@ -106,7 +106,7 @@ describe('Component', () => {
       && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
 
     chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest 
-    (hint: Guest[] is one way of doing it.)`).to.be.ok;
+    (hint: Array<Guest> is one way of doing it.)`).to.be.ok;
 
   });
 

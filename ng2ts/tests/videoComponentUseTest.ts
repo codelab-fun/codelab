@@ -1,11 +1,11 @@
-import {TestBed} from '@angular/core/testing';
+import { Api } from '../api.service';
+import { app_html, video_video_html } from '../code';
+import { AppComponent } from '../app.component';
+import { AppModule } from '../app.module';
+import { TestBed } from '@angular/core/testing';
+import { VideoComponent } from '../video/video.component';
+import { VideoService } from '../video/video.service';
 import 'initTestBed';
-import {AppComponent} from '../app.component';
-import {VideoService} from '../video/video.service';
-import {app_html, video_video_html} from '../code';
-import {AppModule} from '../app.module';
-import {VideoComponent} from '../video/video.component';
-import {Api} from '../api.service';
 
 
 beforeEach(() => {
@@ -30,7 +30,7 @@ beforeEach(() => {
 });
 
 describe('Component tree', () => {
-  it(`AppModule: Add the VideoComponent to the AppModule 'declarations'.`, () => {
+  it(`App.Module.ts: Add the VideoComponent to the AppModule 'declarations'.`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);

@@ -41,6 +41,18 @@ export class FileTreeComponent implements OnChanges {
     return fileConfig.path.split('/').pop();
   }
 
+  getIcon(fileConfig: FileConfig): string {
+    const ext = fileConfig.path.slice(fileConfig.path.lastIndexOf('.')).toLowerCase();
+    switch (ext) {
+      case '.ts':
+        return '/assets/images/file-ts.png';
+      case '.html':
+        return '/assets/images/file-html.png';
+      default:
+        return '/assets/images/file.png';
+    }
+
+  }
   isActive(fileConfig: FileConfig): boolean {
     return this.active === fileConfig;
   }

@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 /*d:templateAddAction/trimLeading*/
 import {VideoItem} from './video/video-item';
-/*/d*//*d:diInjectServiceSolved/trimLeading*/
+/*/d*//*d:diInjectService/trimLeading*/
 import {VideoService} from './video/video.service';
-/*/d*//*d:templateAllVideos*/
+/*/d*//*d:templateAllVideos:diInjectService*/
 const FAKE_VIDEOS = [{
     title: 'Cute kitten',
     src: '/assets/images/cat-1.jpg'
@@ -13,7 +13,7 @@ const FAKE_VIDEOS = [{
     src: '/assets/images/cat-5.jpg'
   },
   {
-    title: 'Serouis cat',
+    title: 'Serious cat',
     src: '/assets/images/cat-3.jpg'
   }];
 /*/d*//*d:createComponentSolved*/
