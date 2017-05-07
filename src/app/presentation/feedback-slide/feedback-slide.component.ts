@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
-  selector: 'app-feedback-slide',
+  selector: 'slides-feedback-slide',
   templateUrl: './feedback-slide.component.html',
   styleUrls: ['./feedback-slide.component.css']
 })
