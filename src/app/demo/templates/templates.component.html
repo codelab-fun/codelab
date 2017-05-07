@@ -34,7 +34,11 @@
     <h2>Double curlies allow you to include properties from the component</h2>
     <app-playground [config]="code.template.interpolation"
                     [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></app-playground>
+    <div class="info" milestone="Templates" style="margin-top: -8px;">
+      You can use back ticks <b>` `</b> on your template to be able to use single or double quotes.
+    </div>
   </app-slide>
+
 
   <!--INTERPOLATION-METHOD-->
   <app-slide id="interpolation-method" milestone="Templates">
@@ -68,17 +72,20 @@
   <!--  PRE DATA BINDING-->
   <app-slide id="data-binding-pre" milestone="Templates2">
     <h1>Angular Templates - Interpolation in properties</h1>
-    <h2>Double curlies can be used anywhere in the templates, even in properties</h2>
+    <h2>When giving values to element's properties, you can use String Interpolation <b>{{ curlies }}</b></h2>
     <app-playground [config]="code.template.dataBindingPre"
                     [focus-highlight-match]="[code.template.matches.curlies]"></app-playground>
   </app-slide>
 
   <!--  DATA BINDING  -->
   <app-slide id="data-binding" milestone="Templates2">
-    <h1>Angular Templates - Data binding</h1>
-    <h2>There is a special way to bind the data to the properties using [ and ]</h2>
+    <h1>Angular Templates - Property Binding</h1>
+    <h2>An other option is to use property binding <b>[attribute] = property</b></h2>
     <app-playground [config]="code.template.dataBinding"
                     [focus-highlight-match]="[code.template.matches.squares]"></app-playground>
+    <div class="info" style="margin-top: -10px; z-index: 2;">
+       By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property.
+    </div>
   </app-slide>
 
   <!--  DATA BINDING EXTRAS-->
@@ -105,20 +112,31 @@
     </app-code-editor>
   </app-slide>
 
+  <!--  REFERENCE BINDING -->
+  <app-slide id="reference-binding" milestone="Templates3">
+    <h1>Reference binding ( #var )</h1>
+    <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it becomes
+      available as <b>name</b> everywhere in the template</h2>
+    <app-code-editor
+      [code]="code.bindingRef"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
+      [readonly]="true"
+      type="html">
+    </app-code-editor>
+  </app-slide>
 
   <!--  CONDITIONAL DISPLAY-->
   <app-slide id="conditional-display-ngif" milestone="Templates2">
     <h2>Conditional Display (*ngIf)</h2>
     <p>
-      *ngIf renders a template on the DOM when its assigned expression evaluates to truthy.
+      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy.
     </p>
-    <app-code-editor
-      [code]="code.conditionalDisplay"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.conditionalDisplayMatch]"
-      [readonly]="true"
-      type="html">
-    </app-code-editor>
+    <app-playground [config]="code.ngIfDirective.template"
+                    [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></app-playground>
+    <div class="info">
+       Add <b>!</b> before the onDisplay() function, to get a truthy result.
+    </div>
   </app-slide>
 
 
@@ -143,21 +161,6 @@
     </app-exercise>
   </app-slide>
 
-
-  <!--  REFERENCE BINDING -->
-  <app-slide id="reference-binding" milestone="Templates3">
-    <h1>Reference binding ( #var )</h1>
-    <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it because
-      available as <b>name</b> everywhere in the template</h2>
-    <app-code-editor
-      [code]="code.bindingRef"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
-      [readonly]="true"
-      type="html">
-    </app-code-editor>
-  </app-slide>
-
   <!--  CONDITIONAL NGFOR-->
   <app-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Conditional Display (*ngFor)</h1>
@@ -167,41 +170,43 @@
     <h2>
       The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
     </h2>
-    <app-code-editor
-      [code]="code.conditionalDisplayFor"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.conditionalDisplayForMatch]"
-      [readonly]="true"
-      type="html">
-    </app-code-editor>
+    <app-playground [config]="code.ngForDirective.template"
+                    [focus-highlight-match]="[code.ngForDirective]"></app-playground>
     <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
   </app-slide>
 
 
   <app-slide id="exercise-3-pre" milestone="Templates3">
-    <h1>Exercise</h1>
-    <h2>In the next slide you'll finally display the videos! The result will look like this: </h2>
-
-    <app-browser-window>
-      <div>
-        <h1>CatTube</h1>
-        <input placeholder="video" type="text">
-        <button>Search!</button>
-        <div>
-          <h2>Cute kitten</h2>
-          <img src="/assets/images/cat-1.jpg">
-        </div>
-        <div>
-          <h2>Kitten on the tree</h2>
-          <img src="/assets/images/cat-5.jpg">
-        </div>
-        <div>
-          <h2>Serious cat</h2>
-          <img src="/assets/images/cat-3.jpg">
-        </div>
-
+    <div style="width: 100%; display: flex; flex-direction: row;">
+      <div style="width: 50%;">
+        <h1>Exercise</h1>
+        <h2 style="text-align: left;">
+          In the next slide you'll finally display the videos! The result will look like this:
+        </h2>
       </div>
-    </app-browser-window>
+      <div style="width: 50%;">
+        <app-browser-window>
+          <div>
+            <h1>CatTube</h1>
+            <input placeholder="video" type="text">
+            <button>Search!</button>
+            <div>
+              <h2>Cute kitten</h2>
+              <img src="/assets/images/cat-1.jpg">
+            </div>
+            <div>
+              <h2>Kitten on the tree</h2>
+              <img src="/assets/images/cat-5.jpg">
+            </div>
+            <div>
+              <h2>Serious cat</h2>
+              <img src="/assets/images/cat-3.jpg">
+            </div>
+
+          </div>
+        </app-browser-window>
+      </div>
+    </div>
   </app-slide>
 
   <app-slide id="exercise-3" no-padding>
