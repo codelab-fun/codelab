@@ -27,7 +27,7 @@ beforeEach(() => {
 });
 
 describe('Component tree', () => {
-  it(`App.Module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
+  it(`app.module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
@@ -38,7 +38,7 @@ describe('Component tree', () => {
     chai.expect(metadata[0].declarations, `Keep the app component`).contains(VideoComponent);
   });
 
-  it(`video.html: Use the thumbs component in the template`, () => {
+  it(`video.component.html: Use the thumbs component in the template`, () => {
     let fixture = TestBed.createComponent(VideoComponent);
     fixture.componentInstance.video = Api.fetch('')[0];
     fixture.detectChanges();

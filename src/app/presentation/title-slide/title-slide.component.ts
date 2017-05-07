@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-title-slide',
+  selector: 'slides-title-slide',
   templateUrl: './title-slide.component.html',
   styleUrls: ['./title-slide.component.css']
 })

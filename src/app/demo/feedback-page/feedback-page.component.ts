@@ -48,7 +48,7 @@ function filter([feedback, filter]) {
 }
 
 @Component({
-  selector: 'app-feedback-page',
+  selector: 'slides-feedback-page',
   templateUrl: './feedback-page.component.html',
   styleUrls: ['./feedback-page.component.css']
 })

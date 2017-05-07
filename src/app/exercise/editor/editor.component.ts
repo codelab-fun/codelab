@@ -6,10 +6,10 @@ import {
   forwardRef,
   Input,
   OnChanges,
+  OnDestroy,
   Output,
   SimpleChanges,
-  ViewChild,
-  OnDestroy
+  ViewChild
 } from '@angular/core';
 
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
@@ -27,7 +27,7 @@ declare const require: any;
 
 
 @Component({
-  selector: 'app-editor',
+  selector: 'slides-editor',
   template: `
     <div #editor class="monaco-editor"></div>`,
   styleUrls: ['editor.component.css'],
@@ -82,11 +82,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
       debugger;
     }
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
-    let model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
-    if (!model) {
-      model = this.monacoConfigService.monaco.editor.createModel(this.file.code, this.file.type, this.file.path);
-      model.isSingleEditorModel = true;
-    }
+    const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
 
     this.code = this.file.code;
     this._editor = this.monacoConfigService.monaco.editor.create(myDiv,

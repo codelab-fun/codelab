@@ -1,30 +1,24 @@
 <div class="tabs">
-  <div
-    class="tab"
+  <div class="tab"
     *ngFor="let file of visibleFiles; trackBy: trackFile"
     [class.is-active]="isOpenFile(file)"
     (click)="showFile(file)">
     {{ getFileName(file) }}
-    <span
-      class="readonlyIcon"
-      *ngIf="file.readonly">
+    <span class="readonlyIcon" *ngIf="file.readonly">
     </span>
   </div>
 </div>
 
 <div *ngFor="let file of visibleFiles; trackBy: trackFile">
-  <div
-     class="solution"
-     [class.is-hidden]="!isOpenFile(file) || file.readonly"
-     *ngIf="debug && !file.readonly">
-      <span (click)="onLoadSolution.emit(file)">
-        [load solution]
-      </span>
+  <div class="solution" [class.is-hidden]="!isOpenFile(file) || file.readonly"
+       *ngIf="debug && !file.readonly"
+  (click)="loadSolution(file)" >
+    [Load solution]
   </div>
-  <app-editor
+  <slides-editor
     class="editor"
     [class.is-hidden]="!isOpenFile(file)"
     [file]="file"
     (onCodeChange)="onCodeChange({file: file, code: $event})">
-  </app-editor>
+  </slides-editor>
 </div>

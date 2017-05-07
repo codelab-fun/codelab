@@ -3,7 +3,7 @@ import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 
 
 @Component({
-  selector: 'app-dependency-injection',
+  selector: 'slides-dependency-injection',
   templateUrl: './dependency-injection.component.html',
   styleUrls: ['./dependency-injection.component.css']
 })
@@ -21,7 +21,7 @@ export class DependencyInjectionComponent {
 
 }`,
         code2: `import {ProfessionsEnum} from './professions';
-        
+
 export class Person {
   profession: Job;
 
@@ -41,7 +41,7 @@ export class Person {
 
     withDI: {
       code: `export class Person {
-  /** 
+  /**
    * Typescript shorthand makes 'profession'
    * available to component instance.
    */

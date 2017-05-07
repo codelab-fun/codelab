@@ -5,7 +5,7 @@ import { Mode } from '../mode.enum';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[app-mode-routing]'
+  selector: '[slides-mode-routing]'
 })
 export class ModeRoutingDirective {
   constructor(private router: Router, private route: ActivatedRoute) {}

@@ -4,11 +4,11 @@ import {FileConfig} from '../interfaces/file-config';
 function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
-  
+
     export const value = {};
     function display( newValue ){
-      value.value = newValue; 
-    }    
+      value.value = newValue;
+    }
   `
   };
 }
@@ -17,21 +17,21 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
-  
+
     export const value = {};
-    
+
     function wrap(context, prop, callback){
       const originalMethod = context[prop];
-       
+
        context[prop] = function(...args){
         callback(...args);
-        return originalMethod.apply(context, args); 
+        return originalMethod.apply(context, args);
        }
     }
-    
-    wrap(console, 'log', (v)=>{     
+
+    wrap(console, 'log', (v)=>{
       value.value = v;
-      document.write('<h3>&gt; ' + v + '<h3><hr>')
+      document.write('<h3>&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `
   };
@@ -95,7 +95,7 @@ export function boxAndCircle() {
   import {NgModule} from '@angular/core';
   import {BoxComponent} from './box.component';
   import {CircleComponent} from './circle.component';
-  
+
   @NgModule({
     imports: [BrowserModule],
     declarations: [CircleComponent, BoxComponent],
@@ -103,9 +103,9 @@ export function boxAndCircle() {
   })
   export class AppModule {}`;
   const circleCode = `import { Component, Input } from '@angular/core';
-  
+
   @Component({
-    selector: 'app-circle',
+    selector: 'slides-circle',
     template: '<div class="circle" [style.width]="size" [style.height]="size" [style.background]="color"></div>'
   })
   export class CircleComponent {
@@ -117,12 +117,12 @@ export function boxAndCircle() {
 
   @Component({
     selector: 'my-app',
-    template: \`<div><app-circle 
-      [size]="5" 
-      [color]="circleColor"></app-circle></div>\`
+    template: \`<div><slides-circle
+      [size]="5"
+      [color]="circleColor"></slides-circle></div>\`
   })
   export class BoxComponent {
-    circleColor="green"    
+    circleColor="green"
   }`;
 
   const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
@@ -135,11 +135,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       boxNoParams: `import { Component } from '@angular/core';
 
   @Component({
-    selector: 'app-box',
-    template: \`<div><app-circle></app-circle></div>\`
+    selector: 'slides-box',
+    template: \`<div><slides-circle></slides-circle></div>\`
   })
   export class BoxComponent {
-    circleColor="green"    
+    circleColor="green"
   }`
     },
     files: [

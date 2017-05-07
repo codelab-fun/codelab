@@ -9,54 +9,62 @@ import {ExerciseModule} from '../exercise/exercise.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
 import {PresentationModule} from '../presentation/presentation.module';
+import {FeedbackModule} from 'app/feedback/feedback.module';
 
 export const routes = [
   {
     path: 'typescript',
     loadChildren: './typescript/typescript.module#TypescriptModule',
-    name: 'Typescript (Optional)',
-    description: 'Angular is using TypeScript which is an improved version with JavaScript. Learn more about it in this codelab'
+    name: 'Typescript',
+    description: 'Angular is built with TypeScript. A languge extending JavaScript.',
+    page: 'main'
   },
   {
-    path: 'bootstrap',
+    path: 'create-first-app',
     loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
-    name: 'Bootstrap',
-    description: 'Learn how create and bootstrap your first Angular application'
+    name: 'Create your first angular app',
+    description: 'Learn how create and bootstrap your first Angular application',
+    page: 'main'
   },
   {
     path: 'templates',
     loadChildren: './templates/templates.module#TemplatesModule',
     name: 'Templates',
-    description: 'See how you can use angular templates'
+    description: 'See how you can use angular templates',
+    page: 'main'
   },
   {
     path: 'dependency-injection',
     loadChildren: './dependency-injection/dependency-injection.module#DependencyInjectionModule',
     name: 'Dependency-Injection',
-    description: 'Learn how to provide dependencies to your code instead of hard-coding them.'
+    description: 'Learn how to provide dependencies to your code instead of hard-coding them.',
+    page: 'main'
   },
   {
     path: 'component-tree',
     loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
     name: 'Component-Tree',
-    description: 'Learn how to organize your app into reusable components'
+    description: 'Learn how to organize your app into reusable components',
+    page: 'main'
   },
   {
     path: 'pipes',
     loadChildren: './pipes/pipes.module#PipesModule',
     name: 'Pipes',
-    description: 'Learn how pipes transforms input values to output values for display in a view.'
+    description: 'Learn how pipes transforms input values to output values for display in a view.',
+    page: 'bonus'
   },
   {
     path: 'experiments',
-    loadChildren: './experiments/experiments.module#ExperimentsModule'
+    loadChildren: './experiments/experiments.module#ExperimentsModule',
+    page: 'bonus'
   },
   {
     path: 'visual-studio-code',
     loadChildren: './visual-studio-code/visual-studio-code.module#VisualStudioCodeModule',
-    // Need to hide before the event tonight
-    // name: 'Visual-Studio-Code (Optional)',
-    // description: 'Visual Studio Code is your friend'
+    name: 'Visual-Studio-Code (Optional)',
+    description: 'Visual Studio Code is your friend',
+    page: 'bonus'
   },
   {
     path: 'feedback-page',
@@ -75,7 +83,7 @@ export function monacoReady() {
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +92,8 @@ export function monacoReady() {
     PresentationModule,
     ExerciseModule,
     RouterModule.forRoot(routes),
-    TooltipsModule
+    TooltipsModule,
+    FeedbackModule
   ],
   providers: [
     {

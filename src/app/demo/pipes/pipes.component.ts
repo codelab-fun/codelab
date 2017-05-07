@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {displayAngularComponent} from '../../exercise/helpers/helpers';
 
 @Component({
-  selector: 'app-pipes',
+  selector: 'slides-pipes',
   templateUrl: './pipes.component.html',
   styleUrls: ['./pipes.component.css']
 })
@@ -44,8 +44,8 @@ export class AppComponent {
       path: 'argument.pipe.html'
     },
     filterPipes: {
-      template: `<!-- Here we pipe team.roster through 
-  a custom “notInjured” pipe, 
+      template: `<!-- Here we pipe team.roster through
+  a custom “notInjured” pipe,
   then render each player that isn't injured. -->
 <ul>
   <li *ngFor=”let player of (team.roster | notInjured)”>

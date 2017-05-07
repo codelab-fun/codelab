@@ -90,7 +90,7 @@ describe('Children', () => {
     chai.expect(fixture.nativeElement.innerHTML).to.contain('Check out our web site');
   });
 
-  it(`App.Module.ts: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
+  it(`app.module.ts: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
@@ -100,7 +100,7 @@ describe('Children', () => {
     chai.expect(metadata[0].declarations, `Video component not found`).contains(ContextComponent);
   });
 
-  it(`video.html: Actually display the ad (We actually also did it for you).`, () => {
+  it(`video.component.html: Actually display the ad (We actually also did it for you).`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     // TODO: Actually write a test

@@ -3,7 +3,7 @@ import {Mode} from '../mode.enum';
 import {PresentationComponent} from '../presentation/presentation.component';
 
 @Component({
-  selector: 'app-mode-overview',
+  selector: 'slides-mode-overview',
   templateUrl: './mode-overview.component.html',
   styleUrls: ['./mode-overview.css']
 })
