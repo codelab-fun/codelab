@@ -1,9 +1,10 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from '../message';
 import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'slides-feedback-form',
@@ -49,7 +50,7 @@ export class FeedbackFormComponent implements OnInit {
   }
 
   private getHeaderText(): string {
-    const el = this.el.element.nativeElement.querySelector('h1:not([style*="display:none"]');
+    const el = document.body.querySelector('h1');
     return el ? el.innerHTML : '';
   }
 
