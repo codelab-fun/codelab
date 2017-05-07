@@ -29,6 +29,10 @@ app-editor {
   width: 100%;
 }
 
-:host /deep/ .current-line {
+:host /deep/ .decorationsOverviewRuler {
   display: none;
+}
+:host /deep/ .current-line {
+  border: none;
+  background-color: #ffffee;
 }

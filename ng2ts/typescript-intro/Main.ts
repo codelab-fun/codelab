@@ -23,7 +23,7 @@ const guests = [
 
 const codelab = new Codelab(guests);
 
-// Angular2 is so much better than this:
+// Angular is so much better than this:
 document.body.innerHTML = '<ul>' +
   codelab.getGuestsComing().map((guest: Guest) => `<li>${guest.name}</li>`).join('') +
   '</ul>';

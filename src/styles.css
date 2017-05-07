@@ -306,3 +306,9 @@ p {
   background: none;
 }
 
+/* context: https://github.com/Microsoft/monaco-editor/issues/113 */
+.monaco-editor .inputarea {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
