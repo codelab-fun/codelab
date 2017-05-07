@@ -27,8 +27,10 @@ export class FeedbackWidgetComponent implements OnInit {
   handleDialogClose() {
     // TODO: Move out to a directive
     function findMatchingDOMAncestor(element) {
-      while(element.parentNode) {
-        if (element.className && element.className.indexOf('feedback-container') >= 0) return true;
+      while (element.parentNode) {
+        if (element.className && element.className.indexOf('feedback-container') >= 0) {
+          return true;
+        }
         element = element.parentNode;
       }
     }
