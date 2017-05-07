@@ -13,7 +13,7 @@ export class TypescriptComponent {
   code = {
     moreTypes: {
       codeInterfaces: `interface Puppy {
-  name: string,
+  name: string;
   age: number;
 };
  

@@ -127,7 +127,7 @@
 
   <app-slide id="types-more" milestone="TypeScript">
     <h1>Types: Interfaces</h1>
-    <h2>TypeScript allows to define more complex objects using intefaces:</h2>
+    <h2>TypeScript allows to define more complex objects using interfaces:</h2>
     <app-code-editor [fontSize]="25" [readonly]="false" [code]="code.moreTypes.codeInterfaces"></app-code-editor>
   </app-slide>
 
@@ -155,10 +155,11 @@
 
   <app-slide id="classes-access-modifier" milestone="TypeScript">
     <h1>Classes - Access modifiers</h1>
-    <h2>TypeScript allows you to specify access modifier in the constructor (public, private or protected). This
-      turns parameter in a class property accessible by as this.name</h2>
+    <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
+      accessible as <b>this.name</b></h2>
     <app-playground [config]="code.classDescription.codeConstructor"
                     [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></app-playground>
+    <div class="info">private or protected properties are not visible outside of the class.</div>
   </app-slide>
 
   <app-slide id="export" milestone="TypeScript">
