@@ -3,7 +3,6 @@
   app-mode-routing
   app-tracking>
   <div class="btn-bar">
-
     <app-feedback-widget></app-feedback-widget>
     <app-menu-shortcut></app-menu-shortcut>
   </div>
@@ -106,21 +105,22 @@
   <!--  NUMBER-TYPE  -->
   <app-slide id="type-mini-exercise">
     <h1>TypeSystem</h1>
-    <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily typescript allows us to add types which allows to
-      detect the issue early</h2>
+    <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
+      early</h2>
     <div class="exercise" [class.solved]="tsexercises.solved">
-      Exercise: Try to get the desired output by changing the inputs below:
+      Exercise: Try to get the desired output by changing the function inputs below:
     </div>
     <app-playground [config]="code.tsExercise"
                     [focus-highlight-match]="[code.tsExerciseMatch]"
                     #tsexercises
     ></app-playground>
+    <div class="info">The code above is editable!</div>
   </app-slide>
 
   <app-slide id="types-primitives" milestone="TypeScript">
     <h1>Types: Primitives (strings, numbers, etc...)</h1>
-    <h2>Types are defined in a format <b>variableName: type</b></h2>
-    <app-code-editor [fontSize]="25" [readonly]="false" [code]="code.moreTypes.code"></app-code-editor>
+    <h2>Types are defined as <b>variableName: type</b></h2>
+    <app-code-editor path="types.ts" [fontSize]="25" [readonly]="false" [code]="code.moreTypes.code"></app-code-editor>
     <div class="info"><b>const</b> is a new way to declare variables (introduced in <b>ES6</b>). Similar to <b>var</b>
       but assumes the value will never change.
     </div>
@@ -128,13 +128,14 @@
 
   <app-slide id="types-more" milestone="TypeScript">
     <h1>Types: Interfaces</h1>
-    <h2>TypeScript allows to define more complex objects using intefaces:</h2>
-    <app-code-editor [fontSize]="25" [readonly]="false" [code]="code.moreTypes.codeInterfaces"></app-code-editor>
+    <h2>TypeScript allows to define more complex objects using interfaces:</h2>
+    <app-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"
+                     [code]="code.moreTypes.codeInterfaces"></app-code-editor>
   </app-slide>
 
   <app-slide id="types-arrays" milestone="TypeScript">
     <h1>Types: Arrays</h1>
-    <app-code-editor [fontSize]="25" [readonly]="false" [code]="code.moreTypes.codeArrays"></app-code-editor>
+    <app-playground [config]="code.moreTypes.codeArrays"></app-playground>
   </app-slide>
 
   <!--  CLASSES  -->
@@ -148,7 +149,8 @@
   </app-slide>
   <app-slide id="classes-constructor" milestone="TypeScript">
     <h1>Classes - constructor</h1>
-    <h2>There's a special method on the class called constructor. It's run when the class is created and allows the
+    <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is created and allows
+      the
       class to take parameters</h2>
     <app-playground [config]="code.classDescription.codeConstructor"
                     [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></app-playground>
@@ -156,10 +158,11 @@
 
   <app-slide id="classes-access-modifier" milestone="TypeScript">
     <h1>Classes - Access modifiers</h1>
-    <h2>TypeScript allows you to specify access modifier in the constructor (public, private or protected). This
-      turns parameter in a class property accessible by as this.name</h2>
+    <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
+      accessible as <b>this.name</b></h2>
     <app-playground [config]="code.classDescription.codeConstructor"
                     [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></app-playground>
+    <div class="info">private or protected properties are not visible outside of the class.</div>
   </app-slide>
 
   <app-slide id="export" milestone="TypeScript">
@@ -168,13 +171,14 @@
       files. We're going to
       import and use this in the next slide (for higher effect)</h2>
     <app-code-editor
+      path="puppy.ts"
       [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
       [code]="code.classDescription.codeExport.files[0].code"></app-code-editor>
-
   </app-slide>
 
   <app-slide id="import" milestone="TypeScript">
     <h1>Classes - import</h1>
+    <h2>Now we can use the <b>Puppy</b> class for the other file.</h2>
     <app-playground [config]="code.classDescription.codeImport"
                     [focus-highlight-match]="[code.classDescription.matches.importMatch]"></app-playground>
     <div class="info">Imports and exports are not just for classes. They work with variables, functions and other
@@ -208,6 +212,12 @@
   <!--[focus-highlight-match]="[code.classDescription.matches.constants]"></app-code-editor>-->
   <!--</app-slide>-->
 
+  <app-slide id="filter" milestone="TypeScript">
+    <h1>Filter (One last thing)</h1>
+    <h2>Filter is an Array method which allows you to generate a new array keeping only the values that provided
+      callback returns truethy values for.</h2>
+    <app-playground [config]="code.filter"></app-playground>
+  </app-slide>
 
   <app-slide id="more" milestone="TypeScript">
     <h1 i18n>TypeScript supports lots of other cool features such as: </h1>
@@ -216,11 +226,11 @@
       <li>Enums</li>
       <li>Async/await</li>
       <li>Getters/setters</li>
-      <li>Desctructuring</li>
+      <li>Desstructuring</li>
       <li>Arrow functions</li>
       <li>And more!</li>
     </ul>
-    <h2>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/">TypeScript</a> website!
+    <h2>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> website!
     </h2>
   </app-slide>
 
@@ -259,7 +269,7 @@
       </div>
       <div class="footer" footer>
         <h2>
-          <a routerLink="/bootstrap/0">Go to the next Milestone</a>
+          <a routerLink="/create-first-app/0">Go to the next Milestone</a>
         </h2>
       </div>
     </app-closing-slide>

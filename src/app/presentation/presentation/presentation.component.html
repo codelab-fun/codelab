@@ -1,9 +1,10 @@
-<div app-auto-resize class="presentation"
-    [class.overview]="mode===modeEnum.overview"
-    [style.zoom]="zoom"
-    [style.width.px]="width"
-    [style.height.px]="height"
-    app-shortcuts
-    >
+<div app-auto-resize
+     [class.overview]="mode===modeEnum.overview"
+     [style.zoom]="zoom"
+     [style.width.px]="width"
+     [style.height.px]="height"
+     [class.presentation]="true"
+     [class.presentation-hide-controls]="config.hideControls"
+     app-shortcuts>
   <ng-content></ng-content>
 </div>

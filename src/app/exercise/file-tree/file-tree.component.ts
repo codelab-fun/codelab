@@ -1,11 +1,5 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output
-  } from '@angular/core';
-import { FileConfig } from './../interfaces/file-config';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import {FileConfig} from './../interfaces/file-config';
 
 interface Node {
   depth: number;
@@ -25,11 +19,12 @@ export class FileTreeComponent implements OnChanges {
   @Input()
   public active: FileConfig;
   @Output()
-  public onCurrentFile: EventEmitter<any> = new EventEmitter<FileConfig>();
+  public onSelectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
 
   nodes: Node[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnChanges() {
     if (!!this.files) {
@@ -53,18 +48,19 @@ export class FileTreeComponent implements OnChanges {
     }
 
   }
+
   isActive(fileConfig: FileConfig): boolean {
     return this.active === fileConfig;
   }
 
   clickFile(fileConfig: FileConfig): void {
-    this.onCurrentFile.emit(fileConfig);
+    this.onSelectFile.emit(fileConfig);
     this.active = fileConfig;
   }
 
-  private fileConfigsToNodes(fileConfigs: FileConfig[]): Node[] {
+  private fileConfigsToNodes(files: FileConfig[]): Node[] {
     const paths: { [path: string]: Node } = {};
-    fileConfigs.forEach(f => {
+    files.filter(f => !f.hidden).forEach(f => {
       // Parts of the path up to the file level
       const parts = f.path.split('/').slice(0, -1);
       parts.unshift('app');
@@ -72,7 +68,7 @@ export class FileTreeComponent implements OnChanges {
       const path = parts[parts.length - 1];
       // Initialize slot in map for path at depth
       if (!paths[path]) {
-        paths[path] = { path, depth: parts.length, files: [] };
+        paths[path] = {path, depth: parts.length, files: []};
       }
       // Add file configs to existing path
       paths[path].files.push(f);

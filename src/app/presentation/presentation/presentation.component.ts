@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
+import {AnalyticsService} from '../analytics.service';
 
 @Component({
   selector: 'app-presentation',
@@ -10,6 +11,10 @@ import {Mode} from '../mode.enum';
 export class PresentationComponent {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
+  public config = {
+    resize: false,
+    hideControls: false
+  };
 
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
@@ -20,18 +25,15 @@ export class PresentationComponent {
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
-  areShortcutsEnabled = true;
-  disableArrowsForCode = true;
+
   // Expose enum to template
   modeEnum = Mode;
 
-  constructor(private route: ActivatedRoute) {
-    if (!!this.route.snapshot.queryParams['mode']) {
-      this.mode = this.route.snapshot.queryParams['mode'];
-    }
+  constructor(private route: ActivatedRoute, analytics: AnalyticsService) {
+    this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
     this.milestone = this.route.snapshot.queryParams['milestone'];
-    this.areShortcutsEnabled = !(this.route.snapshot.queryParams['shortcuts'] === 'false');
-    this.disableArrowsForCode = !(this.route.snapshot.queryParams['disableArrowsForCode'] === 'false');
+    this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
+    this.config.resize = this.route.snapshot.queryParams['resize'] || this.config.resize;
   }
 
   get mode(): Mode {
@@ -56,15 +58,15 @@ export class PresentationComponent {
     return index;
   }
 
-  nextSlide(isTriggeredByShortcut: boolean = false) {
-    if (this.canGoNext() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+  nextSlide() {
+    if (this.canGoNext()) {
       this.activeSlideIndex++;
       this.onSlideChange.next(this.activeSlideIndex);
     }
   }
 
-  previousSlide(isTriggeredByShortcut: boolean = false) {
-    if (this.canGoPrevious() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+  previousSlide() {
+    if (this.canGoPrevious()) {
       this.activeSlideIndex--;
       this.onSlideChange.next(this.activeSlideIndex);
     }

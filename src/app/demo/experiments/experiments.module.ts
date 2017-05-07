@@ -13,7 +13,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, FeedbackModule, ExerciseModule, TrackingModule],
+  imports: [routes, PresentationModule, FeedbackModule, ExerciseModule],
   declarations: [ExperimentsComponent],
   exports: [ExperimentsComponent]
 })
