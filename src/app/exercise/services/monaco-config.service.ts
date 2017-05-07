@@ -1,28 +1,27 @@
-import {Injectable} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
+import { Injectable } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
 declare const require;
-const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/min/vs/loader');
-
 const win = window as any;
 declare const monaco;
-
 
 @Injectable()
 export class MonacoConfigService {
 
+  /**
+   * Bootstraps Monaco code editor.
+   *
+   * This depends on monaco loader script tag in index.html having the same version as line 17.
+   * <script type="text/javascript" src="https://unpkg.com/monaco-editor@0.8.3/min/vs/loader.js"></script>
+   */
   public static monacoReady = new Promise((resolve) => {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.innerHTML = monacoLoaderCode;
-    document.head.appendChild(script);
-
-    win.require.config({paths: {'vs': 'assets/monaco/min/vs'}});
+    win.require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.8.3/min/vs' }});
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
       resolve(monaco);
     });
   });
+
   public monaco: any;
 
   static configureMonaco() {
