@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 
 @Component({
-  selector: 'app-file-structure',
+  selector: 'slides-file-structure',
   templateUrl: './file-structure.component.html',
   styleUrls: ['./file-structure.component.css']
 })

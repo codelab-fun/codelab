@@ -3,7 +3,7 @@
        (click)="toggleTree()">
     <div class="file-structure-button"><img src="/assets/images/folder.png" />File structure</div>
   </div>
-  <app-file-tree *ngIf="showFileTree" [files]="files" [active]="currentFile"
+  <slides-file-tree *ngIf="showFileTree" [files]="files" [active]="currentFile"
                  (onSelectFile)="onSelectFile.emit($event)">
-  </app-file-tree>
+  </slides-file-tree>
 </div>

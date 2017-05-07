@@ -29,7 +29,7 @@ export class CodeEditorComponent implements OnInit {
       // tslint:disable-next-line:no-debugger TODO: Remove debugger
       debugger;
     }
-    if (!code) {
+    if (code === undefined) {
       throw new Error(`No code was provided for the slides-code-editor component.
 
       Ether pass it to the code property:

@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 
 @Component({
-  selector: 'app-test-description',
+  selector: 'slides-test-description',
   templateUrl: './test-description.component.html',
   styleUrls: ['./test-description.component.css']
 })
