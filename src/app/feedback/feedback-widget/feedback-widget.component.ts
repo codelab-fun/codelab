@@ -26,9 +26,12 @@ export class FeedbackWidgetComponent implements OnInit {
   @HostListener('window:mousedown')
   handleDialogClose() {
     // TODO: Move out to a directive
-    const belongsToPopup = event['path'].some(item =>
-      item.className && item.className.includes('feedback-container')
-    );
+    const belongsToPopup = event.srcElement.className.indexOf('feedback-container') >= 0;
+
+    // TODO: Find out why clicking still works in Safari on the deployed version even thoug there's no `path` prop
+    // const belongsToPopup = event['path'].some(item =>
+    //   item.className && item.className.includes('feedback-container')
+    // );
     if (!belongsToPopup) {
       this.open = false;
     }
@@ -36,6 +39,7 @@ export class FeedbackWidgetComponent implements OnInit {
 
   buttonClicked() {
     this.open = !this.open;
+    window.alert('I was pressed!')
   }
 
 }
