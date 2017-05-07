@@ -34,6 +34,7 @@ export class AppComponent {
 
       matches: {
         curlies: /\{\{.*\}\}/,
+        curliesAttribute: /"\{\{.*\}\}"/,
         firstName: /firstName = .*/,
         fullName: /fullName\(\)\{/,
         squares: /\[.*\]/
