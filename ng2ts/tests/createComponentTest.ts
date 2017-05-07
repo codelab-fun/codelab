@@ -25,10 +25,10 @@ describe('Component', () => {
   });
 
   it(`Add a Component decorator for the class`, () => {
-    chai.expect(metadata).is.not.undefined
+    chai.expect(metadata).is.not.undefined;
   });
 
-  it(`Add a selector to the component decorator`, () => {
+  it(`Add a selector to the component decorator (should be my-app)`, () => {
     chai.expect(metadata[0].selector).equals('my-app');
   });
 
