@@ -27,7 +27,7 @@ declare const require: any;
 
 
 @Component({
-  selector: 'app-editor',
+  selector: 'slides-editor',
   template: `
     <div #editor class="monaco-editor"></div>`,
   styleUrls: ['editor.component.css'],
@@ -58,7 +58,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   calcHeight(lines): number {
-    const lineHeight = this.fontSize + 20;
+    const lineHeight = this.fontSize * 1.6;
     return Math.max(lines * lineHeight, lineHeight * 6);
   }
 

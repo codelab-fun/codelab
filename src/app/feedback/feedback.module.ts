@@ -21,7 +21,7 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
   ],
   providers: [AngularFireDatabaseProvider, FeedbackService],
   declarations: [FeedbackWidgetComponent, FeedbackFormComponent],
-  exports: [FeedbackWidgetComponent]
+  exports: [FeedbackWidgetComponent, FeedbackFormComponent]
 })
 export class FeedbackModule {
 

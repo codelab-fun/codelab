@@ -1,21 +1,24 @@
-import {TooltipsModule} from '../tooltips/tooltips.module';
-import {NgModule} from '@angular/core';
-import {ExerciseComponent} from './exercise/exercise.component';
-import {EditorsComponent} from './editors/editors.component';
-import {AutorunComponent} from './autorun/autorun.component';
-import {TestsComponent} from './tests/tests.component';
-import {RunnerComponent} from './runner/runner.component';
-import {EditorComponent} from './editor/editor.component';
-import {FormsModule} from '@angular/forms';
-import {LoopProtectionService} from './services/loop-protection.service';
-import {ScriptLoaderService} from './services/script-loader.service';
-import {MonacoConfigService} from './services/monaco-config.service';
-import {PlaygroundComponent} from './playground/playground.component';
-import {CodeEditorComponent} from './code-editor/code-editor.component';
-import {CommonModule} from '@angular/common';
-import {BrowserWindowModule} from '../browser-window/browser-window.module';
-import {ResizeModule} from '../resize/resize.module';
-import {SlidesPreviewComponent} from './slides-preview/slides-preview.component';
+import { AutorunComponent } from './autorun/autorun.component';
+import { BrowserWindowModule } from '../browser-window/browser-window.module';
+import { CodeEditorComponent } from './code-editor/code-editor.component';
+import { CommonModule } from '@angular/common';
+import { EditorComponent } from './editor/editor.component';
+import { EditorsComponent } from './editors/editors.component';
+import { ExerciseComponent } from './exercise/exercise.component';
+import { FileTreeComponent } from './file-tree/file-tree.component';
+import { FormsModule } from '@angular/forms';
+import { LoopProtectionService } from './services/loop-protection.service';
+import { MonacoConfigService } from './services/monaco-config.service';
+import { NgModule } from '@angular/core';
+import { PlaygroundComponent } from './playground/playground.component';
+import { ResizeModule } from '../resize/resize.module';
+import { RunnerComponent } from './runner/runner.component';
+import { ScriptLoaderService } from './services/script-loader.service';
+import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
+import { TestsComponent } from './tests/tests.component';
+import { TooltipsModule } from '../tooltips/tooltips.module';
+import { FileStructureComponent } from './file-structure/file-structure.component';
+import { TestDescriptionComponent } from './test-description/test-description.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import {SlidesPreviewComponent} from './slides-preview/slides-preview.component'
     EditorComponent,
     SlidesPreviewComponent,
     PlaygroundComponent,
-    CodeEditorComponent
+    CodeEditorComponent,
+    FileTreeComponent,
+    FileStructureComponent,
+    TestDescriptionComponent
   ], imports: [
     ResizeModule,
     CommonModule,

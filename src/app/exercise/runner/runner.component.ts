@@ -235,7 +235,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
 
 
 @Component({
-  selector: 'app-runner',
+  selector: 'slides-runner',
   templateUrl: './runner.component.html',
   styleUrls: ['./runner.component.css']
 })

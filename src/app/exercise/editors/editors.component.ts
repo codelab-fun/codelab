@@ -1,18 +1,25 @@
-import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+  } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
 
 @Component({
-  selector: 'app-editors',
+  selector: 'slides-editors',
   templateUrl: './editors.component.html',
   styleUrls: ['./editors.component.scss']
 })
-export class EditorsComponent implements OnInit {
+export class EditorsComponent {
   @Input() public files: Array<any>;
+  @Input() public currentFile;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
+  @Output() public onSelectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
   @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
   private debug: boolean;
-  private currentFile;
 
   constructor() {
     // TODO
@@ -21,10 +28,6 @@ export class EditorsComponent implements OnInit {
 
   onCodeChange(change) {
     this.onChanges.emit(change);
-  }
-
-  ngOnInit(): void {
-    this.currentFile = this.visibleFiles[0];
   }
 
   get visibleFiles() {
@@ -46,6 +49,7 @@ export class EditorsComponent implements OnInit {
 
   showFile(file): void {
     this.currentFile = file;
+    this.onSelectFile.emit(file);
   }
 
   trackFile(index, file) {

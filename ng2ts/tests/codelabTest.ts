@@ -91,7 +91,7 @@ describe('Component', () => {
     chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
   });
 
-  it(`Specify the type for the guests`, () => {
+  it(`Specify the type for the guests (hint: it's an array)`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
 
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
@@ -106,7 +106,7 @@ describe('Component', () => {
       && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
 
     chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest 
-    (hint: Guest[] is one way of doing it.)`).to.be.ok;
+    (hint: Array<Guest> is one way of doing it.)`).to.be.ok;
 
   });
 

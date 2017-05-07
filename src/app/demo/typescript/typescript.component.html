@@ -1,24 +1,24 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
   <div class="btn-bar">
-    <app-mode-overview></app-mode-overview>
-    <app-feedback-widget></app-feedback-widget>
-    <app-menu-shortcut></app-menu-shortcut>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
   </div>
-  <app-progress-bar></app-progress-bar>
-  <app-arrows></app-arrows>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
 
 
-  <app-slide id="intro" class="no-padding" milestone="TypeScript">
-    <app-title-slide
+  <slides-slide id="intro" no-padding milestone="TypeScript">
+    <slides-title-slide
       title="TypeScript"
       description="Angular is written in TypeScript! Learn more about the language and the best features!"
       prereqs="Basic understanding of JavaScript is required."
-    ></app-title-slide>
-  </app-slide>
+    ></slides-title-slide>
+  </slides-slide>
 
-  <app-slide id="about-typescript">
+  <slides-slide id="about-typescript">
     <h1>TypeScript</h1>
     <div row>
       <div>
@@ -30,10 +30,26 @@
               href="https://en.wikipedia.org/wiki/Delphi_(programming_language)">Delphi</a> and later <a
               href="https://en.wikipedia.org/wiki/C-sharp">C#</a>
           </li>
-          <li>Rather than try to replace JavaScript, TypeScript embraces and extends it.</li>
-          <li>TypeScript adds an optional Type System as well as features from the latest versions of JavaScript not yet
-            supported in all browsers otherwise
+          <li>Rather than try to replace JavaScript, TypeScript embraces and extends it</li>
+        </ul>
+      </div>
+
+    </div>
+  </slides-slide>
+  <slides-slide id="about-typescript-2">
+    <h1>TypeScript</h1>
+    <div row>
+      <div>
+
+        <ul>
+          <li>TypeScript is Based on EcmaScript 5 (<b>ES5</b>) which is the current version of JavaScript standard,
+            supported in
+            most of the modern browsers.
           </li>
+          <li>Adds features from the next JavaScript version (<b>ES6</b>), which is not supported well by other browsers
+            otherwise.
+          </li>
+          <li>On top of it adds an optional Type System and some other features like decorators</li>
         </ul>
       </div>
       <div>
@@ -84,156 +100,166 @@
         </svg>
       </div>
     </div>
-  </app-slide>
+  </slides-slide>
 
   <!--  NUMBER-TYPE  -->
-  <app-slide id="type-mini-exercise">
+  <slides-slide id="type-mini-exercise">
     <h1>TypeSystem</h1>
-    <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily typescript allows us to add types which allows to
-      detect the issue early.</h2>
+    <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
+      early</h2>
     <div class="exercise" [class.solved]="tsexercises.solved">
-      Exercise: Try to get the desired output by changing the inputs
+      Exercise: Try to get the desired output by changing the function inputs below:
     </div>
-    <app-playground [config]="code.tsExercise"
+    <slides-playground [config]="code.tsExercise"
                     [focus-highlight-match]="[code.tsExerciseMatch]"
                     #tsexercises
-    ></app-playground>
-  </app-slide>
+    ></slides-playground>
+    <div class="info">The code above is editable!</div>
+  </slides-slide>
 
-  <!-- TYPES IN TYPESCRIPT-->
-  <app-slide id="types" milestone="TypeScript">
-    <h1><span>TypeScript</span> has different types for different units of data. These types
-      are:</h1>
-    <div row>
-      <div style="width: 30%;">
-        <ul>
-          <li>Boolean</li>
-          <li>Number</li>
-          <li>String</li>
-          <li>Array</li>
-          <li>Tuple</li>
-        </ul>
-      </div>
-      <div style="width: 30%;">
-        <ul>
-          <li>Enum</li>
-          <li>Any</li>
-          <li>Void</li>
-          <li>Null/Undefined</li>
-          <li>Never</li>
-        </ul>
-      </div>
+  <slides-slide id="types-primitives" milestone="TypeScript">
+    <h1>Types: Primitives (strings, numbers, etc...)</h1>
+    <h2>Types are defined as <b>variableName: type</b></h2>
+    <slides-code-editor path="types.ts" [fontSize]="25" [readonly]="false" [code]="code.moreTypes.code"></slides-code-editor>
+    <div class="info"><b>const</b> is a new way to declare variables (introduced in <b>ES6</b>). Similar to <b>var</b>
+      but assumes the value will never change.
     </div>
-  </app-slide>
+  </slides-slide>
 
-  <app-slide id="types-more" milestone="TypeScript">
-    <h1>Some examples</h1>
-    <app-code-editor [fontSize]="25" [readonly]="false" [code]="code.moreTypes.code"></app-code-editor>
-    <div class="info">This code is editable, try exerimenting with assigning wrong types.</div>
-  </app-slide>
+  <slides-slide id="types-more" milestone="TypeScript">
+    <h1>Types: Interfaces</h1>
+    <h2>TypeScript allows to define more complex objects using interfaces:</h2>
+    <slides-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"
+                     [code]="code.moreTypes.codeInterfaces"></slides-code-editor>
+  </slides-slide>
+
+  <slides-slide id="types-arrays" milestone="TypeScript">
+    <h1>Types: Arrays</h1>
+    <slides-playground [config]="code.moreTypes.codeArrays"></slides-playground>
+  </slides-slide>
 
   <!--  CLASSES  -->
-  <app-slide id="classes" milestone="TypeScript">
+  <slides-slide id="classes" milestone="TypeScript">
     <h1>Classes</h1>
-    <h2>TypeScript has classes, and Angular makes heavy use of them.</h2>
+    <h2>TypeScript has classes, and Angular makes heavy use of them</h2>
     <h2>They work similar to classes in other languages, and serve for grouping methods and properties belonging to
-      one object together.</h2>
-    <app-playground [config]="code.classDescription.code"></app-playground>
-  </app-slide>
-  <app-slide id="classes-constructor" milestone="TypeScript">
+      one object together</h2>
+    <slides-playground [config]="code.classDescription.code"
+                    [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
+  </slides-slide>
+  <slides-slide id="classes-constructor" milestone="TypeScript">
     <h1>Classes - constructor</h1>
-    <h2>There's a special method on the class called constructor. It's run when the class is created and allows the
+    <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is created and allows
+      the
       class to take parameters</h2>
-    <app-playground [config]="code.classDescription.codeConstructor"
-                    [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></app-playground>
-  </app-slide>
+    <slides-playground [config]="code.classDescription.codeConstructor"
+                    [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
+  </slides-slide>
 
-  <app-slide id="export" milestone="TypeScript">
+  <slides-slide id="classes-access-modifier" milestone="TypeScript">
+    <h1>Classes - Access modifiers</h1>
+    <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
+      accessible as <b>this.name</b></h2>
+    <slides-playground [config]="code.classDescription.codeConstructor"
+                    [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
+    <div class="info">private or protected properties are not visible outside of the class.</div>
+  </slides-slide>
+
+  <slides-slide id="export" milestone="TypeScript">
     <h1>Classes - export</h1>
-    <h2>By the way, did you notice export before class? This is used to share information between files. We're going to
+    <h2>By the way, did you notice the <b>export</b> keyword before class? This is used to share information between
+      files. We're going to
       import and use this in the next slide (for higher effect)</h2>
-    <app-playground [config]="code.classDescription.codeExport"
-                    [focus-highlight-match]="[code.classDescription.matches.exportMatch]"></app-playground>
-  </app-slide>
+    <slides-code-editor
+      path="puppy.ts"
+      [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
+      [code]="code.classDescription.codeExport.files[0].code"></slides-code-editor>
+  </slides-slide>
 
-  <app-slide id="import" milestone="TypeScript">
+  <slides-slide id="import" milestone="TypeScript">
     <h1>Classes - import</h1>
-    <app-playground [config]="code.classDescription.codeImport"
-                    [focus-highlight-match]="[code.classDescription.matches.importMatch]"></app-playground>
+    <h2>Now we can use the <b>Puppy</b> class for the other file.</h2>
+    <slides-playground [config]="code.classDescription.codeImport"
+                    [focus-highlight-match]="[code.classDescription.matches.importMatch]"></slides-playground>
     <div class="info">Imports and exports are not just for classes. They work with variables, functions and other
       things!
     </div>
-  </app-slide>
+  </slides-slide>
 
   <!--&lt;!&ndash;  STRING-TYPE  &ndash;&gt;-->
-  <!--<app-slide id="string_type" milestone="TypeScript">-->
+  <!--<slides-slide id="string_type" milestone="TypeScript">-->
   <!--<h1>var vs let vs const</h1>-->
-  <!--<h2>Latest version of JS introduces new ways to declare variables.</h2>-->
-  <!--<app-code-editor [fontSize]="25" [code]="code.varDeclaration.code"></app-code-editor>-->
-  <!--</app-slide>-->
+  <!--<h2>Latest version of JS introduces new ways to declare variables</h2>-->
+  <!--<slides-code-editor [fontSize]="25" [code]="code.varDeclaration.code"></slides-code-editor>-->
+  <!--</slides-slide>-->
 
   <!--&lt;!&ndash;  ANY-TYPE  &ndash;&gt;-->
-  <!--<app-slide id="any_type" milestone="TypeScript">-->
+  <!--<slides-slide id="any_type" milestone="TypeScript">-->
   <!--<h1>:any</h1>-->
   <!--<p style="margin-bottom: 20px;">-->
   <!--For when need to describe the type of variables that we do not know when we are writing an application.-->
   <!--</p>-->
-  <!--<app-code-editor [fontSize]="25" [code]="code.anyType.code"></app-code-editor>-->
-  <!--</app-slide>-->
+  <!--<slides-code-editor [fontSize]="25" [code]="code.anyType.code"></slides-code-editor>-->
+  <!--</slides-slide>-->
   <!--&lt;!&ndash;  CONSTANTS  &ndash;&gt;-->
-  <!--<app-slide id="const" milestone="TypeScript">-->
+  <!--<slides-slide id="const" milestone="TypeScript">-->
   <!--<h1>Constants - <span style="color: red;">const</span></h1>-->
   <!--<p style="margin-bottom: 20px;">-->
   <!--As its name implies, their value cannot be changed once they are bound. In other words, you can’t-->
   <!--re-assign to them.-->
   <!--</p>-->
-  <!--<app-code-editor [fontSize]="25" [code]="code.classDescription.code"-->
-  <!--[focus-highlight-match]="[code.classDescription.matches.constants]"></app-code-editor>-->
-  <!--</app-slide>-->
+  <!--<slides-code-editor [fontSize]="25" [code]="code.classDescription.code"-->
+  <!--[focus-highlight-match]="[code.classDescription.matches.constants]"></slides-code-editor>-->
+  <!--</slides-slide>-->
 
+  <slides-slide id="filter" milestone="TypeScript">
+    <h1>Filter (One last thing)</h1>
+    <h2>Filter is an Array method which allows you to generate a new array keeping only the values that provided
+      callback returns truethy values for.</h2>
+    <slides-playground [config]="code.filter"></slides-playground>
+  </slides-slide>
 
-  <app-slide id="more" milestone="TypeScript">
+  <slides-slide id="more" milestone="TypeScript">
     <h1 i18n>TypeScript supports lots of other cool features such as: </h1>
     <ul>
       <li>Interfaces</li>
       <li>Enums</li>
       <li>Async/await</li>
       <li>Getters/setters</li>
-      <li>Desctructuring</li>
+      <li>Desstructuring</li>
       <li>Arrow functions</li>
       <li>And more!</li>
     </ul>
-    <h2>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/">TypeScript</a> website!
+    <h2>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> website!
     </h2>
-  </app-slide>
+  </slides-slide>
 
-  <app-slide id="exercise-info" milestone="TypeScript">
+  <slides-slide id="exercise-info" milestone="TypeScript">
     <h1 i18n>Exercise</h1>
-    <h2>In the next slide we have a TypeScript exercise.</h2>
+    <h2>In the next slide we have a TypeScript exercise</h2>
     <h3>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
-      the ones who are coming.</h3>
+      the ones who are coming</h3>
     <h3>The result will be as follows:</h3>
-    <app-browser-window>
+    <slides-browser-window>
       <ul>
         <li>Sir Isaac Newton</li>
         <li>Marie Curie</li>
         <li>Albert Einstein</li>
       </ul>
-    </app-browser-window>
-  </app-slide>
+    </slides-browser-window>
+  </slides-slide>
 
-
-  <app-slide id="exercise">
-    <app-exercise [config]="exercises[0]" milestone="TypeScript">
+  <slides-slide id="exercise" no-padding>
+    <slides-exercise [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
-        <p>We created all the files for you.</p>
+        <p>We created all the files for you</p>
         <p>&lt;-- Add your code on the left</p>
       </div>
-    </app-exercise>
-  </app-slide>
+    </slides-exercise>
+  </slides-slide>
 
-  <app-slide id="end">
-    <app-closing-slide>
+  <slides-slide id="end">
+    <slides-closing-slide>
       <div class="header" header><h1 i18n>End of TypeScript Section</h1></div>
       <div class="body" body>
         <h2>Please leave your thoughts using the feedback button below!</h2>
@@ -243,12 +269,10 @@
       </div>
       <div class="footer" footer>
         <h2>
-            <a routerLink="/">Go to Index</a>
-            <a routerLink="/bootstrap/0">Go to the next Milestone</a>
+          <a routerLink="/create-first-app/0">Go to the next Milestone</a>
         </h2>
       </div>
-    </app-closing-slide>
-  </app-slide>
+    </slides-closing-slide>
+  </slides-slide>
 
-
-</app-presentation>
+</slides-presentation>

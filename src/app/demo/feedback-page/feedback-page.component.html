@@ -1,6 +1,6 @@
-<app-presentation app-slides-routing app-mode-routing>>
+<slides-presentation slides-slides-routing slides-mode-routing>>
 
-  <app-slide class="no-padding">
+  <slides-slide no-padding>
     <div>
       <label>Feedback</label>
       <select [value]="filter$|async" (change)="filter$.next($event.target.value)">
@@ -9,8 +9,8 @@
         <option value='notDone'>Undone</option>
       </select>
       <select  [value]="group$|async" (change)="group$.next($event.target.value)">
-        <option value='nothing'>Do not group</option>        
-        <option value='href'>Slide URL</option>        
+        <option value='nothing'>Do not group</option>
+        <option value='href'>Slide URL</option>
         <option value='name'>Name</option>
       </select>
     </div>
@@ -26,14 +26,14 @@
             <span class="link">
             (<a [routerLink]="message.href">{{message.header||'No header'}}</a>)
             </span>
-            <input type="checkbox" [checked]="message.isDone" (change)="isDone(message.$key, $event)">
+            <input type="checkbox" [checked]="message.isDone" (change)="isDone(message)">
           </div>
           <div>{{message.comment}}</div>
 
-          
+
         </div>
       </div>
     </div>
-  </app-slide>
+  </slides-slide>
 
-</app-presentation>
+</slides-presentation>

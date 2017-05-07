@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {Message} from '../../feedback/message';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {combineLatest} from 'rxjs/observable/combineLatest';
@@ -48,7 +48,7 @@ function filter([feedback, filter]) {
 }
 
 @Component({
-  selector: 'app-feedback-page',
+  selector: 'slides-feedback-page',
   templateUrl: './feedback-page.component.html',
   styleUrls: ['./feedback-page.component.css']
 })
@@ -56,13 +56,19 @@ export class FeedbackPageComponent implements OnInit {
   messages$: Observable<{ key: string; value: Message; }[]>;
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
+  private feedback$: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
   }
 
+  isDone(message) {
+    this.database.object(`feedback/${message.$key}`).update({isDone: !message.isDone});
+
+  }
+
   ngOnInit() {
-    const feedback$ = this.database.list('/feedback');
-    const filteredMessages$ = combineLatest(feedback$, this.filter$).map(filter);
+    this.feedback$ = this.database.list('/feedback');
+    const filteredMessages$ = combineLatest(this.feedback$, this.filter$).map(filter);
     this.messages$ = combineLatest(filteredMessages$, this.group$).map(group);
   }
 

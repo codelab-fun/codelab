@@ -8,6 +8,7 @@ import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
 import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
+import {TrackingModule} from '../../tracking/tracking.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(ComponentTreeComponent)

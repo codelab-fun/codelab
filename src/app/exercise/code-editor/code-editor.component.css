@@ -1,0 +1,20 @@
+.filename {
+  background: #444;
+  color: #dddddd;
+  display: inline-block;
+  padding: 4px 40px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+.readonly {
+  color: #999999;
+}
+:host {
+  border: 1px solid #eeeeee;
+}
+
+:host /deep/ .current-line {
+  border: none;
+  background-color: #ffffee;
+}
+

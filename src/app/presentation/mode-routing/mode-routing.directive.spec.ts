@@ -9,8 +9,8 @@ import { Mode } from './../mode.enum';
 
 
 @Component({
-  selector: 'app-test-component',
-  template: '<div app-mode-routing></div>'
+  selector: 'slides-test-component',
+  template: '<div slides-mode-routing></div>'
 })
 class TestComponent {}
 

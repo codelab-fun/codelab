@@ -1,3 +1,10 @@
+:host {
+  height: 100%;
+}
+
+slides {
+  width: 100%;
+}
 
 .next {
   color: #fff;
@@ -29,16 +36,20 @@
   padding: 0 0 10px 0;
 }
 
-app-editors {
+slides-editors {
   display: flex;
   flex-direction: column;
   overflow: auto;
   height: auto;
 }
 
-app-slides-preview {
+slides-slides-preview {
   display: flex;
   flex: 1;
+}
+
+slides-slide > div {
+  padding: 20px 5px;
 }
 
 .side {
@@ -46,6 +57,11 @@ app-slides-preview {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.exercise-body {
+  flex-direction: row;
 }
 
 .exercise-panel {
@@ -53,6 +69,7 @@ app-slides-preview {
   height: 100%;
 }
 
-app-runner {
-  margin-top: 20px;
+slides-runner {
+  margin-top: 10px;
+  align-self: flex-end;
 }

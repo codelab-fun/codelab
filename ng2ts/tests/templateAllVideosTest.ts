@@ -1,12 +1,12 @@
-
-import {TestBed} from '@angular/core/testing';
-import {AppComponent} from '../app.component';
+import { app_html } from '../code';
+import { AppComponent } from '../app.component';
+import { TestBed } from '@angular/core/testing';
 import 'initTestBed';
-import {app_html} from '../code';
+
 
 beforeEach(() => {
   TestBed.resetTestingModule();
-  TestBed.configureTestingModule({declarations: [AppComponent]});
+  TestBed.configureTestingModule({ declarations: [AppComponent] });
 
   TestBed.overrideComponent(AppComponent, {
     set: {
@@ -18,16 +18,16 @@ beforeEach(() => {
 });
 
 describe('Blabla', () => {
-  it(`AppComponent.ts: When 'search' is called, filter videos by the title matching the search string. 
+  it(`app.component.ts: When 'search' is called, filter videos by the title matching the search string. 
   Assign them to the 'videos' property of the component. Use 'FAKE_VIDEOS' variable as a data source.`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.componentInstance.search('itten');
-    chai.expect(fixture.componentInstance.videos.length, 'Should have 2 kittens').equals(2);
-    fixture.componentInstance.search('cat');
-    chai.expect(fixture.componentInstance.videos.length, 'Should have 1 cat').equals(1);
-    fixture.componentInstance.search('dog');
-    chai.expect(fixture.componentInstance.videos.length, 'Should have no dogs').equals(0);
-  });
+      const fixture = TestBed.createComponent(AppComponent);
+      fixture.componentInstance.search('itten');
+      chai.expect(fixture.componentInstance.videos.length, 'Should have 2 kittens').equals(2);
+      fixture.componentInstance.search('cat');
+      chai.expect(fixture.componentInstance.videos.length, 'Should have 1 cat').equals(1);
+      fixture.componentInstance.search('dog');
+      chai.expect(fixture.componentInstance.videos.length, 'Should have no dogs').equals(0);
+    });
 
   it(`app.html: Iterate over the videos using '*NgFor', and display a title for each`, () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -48,15 +48,15 @@ describe('Blabla', () => {
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');
     chai.expect(images.length).equals(2);
-    chai.expect(images[1].getAttribute('ng-reflect-src')).equals(fixture.componentInstance.videos[1].src);
-    chai.expect(images[0].getAttribute('ng-reflect-src')).equals(fixture.componentInstance.videos[0].src);
+    chai.expect(images[1].getAttribute('src')).equals(fixture.componentInstance.videos[1].src);
+    chai.expect(images[0].getAttribute('src')).equals(fixture.componentInstance.videos[0].src);
   });
 
   // it(`#Bonus app.html: Make hitting enter work in the input trigger the search`, () => {
   //   //TODO
   // });
 
-  it(`#Bonus AppComponent.ts: When the component is created, trigger a search for an empty string. `, () => {
+  it(`#Bonus app.component.ts: When the component is created, trigger a search for an empty string. `, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');

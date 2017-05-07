@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ripple-animation',
+  selector: 'slides-ripple-animation',
   templateUrl: './ripple-animation.component.html',
   styleUrls: ['./ripple-animation.component.css']
 })

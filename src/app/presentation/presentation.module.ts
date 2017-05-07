@@ -15,6 +15,8 @@ import { ModeOverviewComponent } from 'app/presentation/mode-overview/mode-overv
 import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing.directive';
 import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 import { RouterModule } from '@angular/router';
+import {FeedbackSlideComponent} from './feedback-slide/feedback-slide.component';
+import {AnalyticsService} from './analytics.service';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { RouterModule } from '@angular/router';
     RippleAnimationComponent,
     ModeOverviewComponent,
     ModeRoutingDirective,
+    FeedbackSlideComponent,
     ClosingSlideComponent
   ],
 
@@ -46,13 +49,14 @@ import { RouterModule } from '@angular/router';
     ModeOverviewComponent,
     MenuShortcutComponent,
     ModeRoutingDirective,
+    FeedbackSlideComponent,
     ClosingSlideComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  providers: [],
+  providers: [AnalyticsService],
   bootstrap: []
 })
 export class PresentationModule {

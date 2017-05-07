@@ -1,41 +1,42 @@
-<app-presentation
-  app-slides-routing
-  app-mode-routing>
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
 
   <div class="btn-bar">
-    <app-mode-overview></app-mode-overview>
-    <app-feedback-widget></app-feedback-widget>
-    <app-menu-shortcut></app-menu-shortcut>
+
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
   </div>
-  <app-progress-bar></app-progress-bar>
-  <app-arrows></app-arrows>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
 
   <!--  INTRO -->
-  <app-slide id="intro" class="no-padding">
-    <app-title-slide
+  <slides-slide id="intro" no-padding>
+    <slides-title-slide
       title="Experiments"
       description=""
       prereqs=""
-    ></app-title-slide>
-  </app-slide>
-  
-  <app-slide>
+    ></slides-title-slide>
+  </slides-slide>
+
+  <slides-slide>
     <h2>How to use angular-presentation</h2>
     <pre>
     first you create the slide with
 
-    &lt;app-slide&gt;
+    &lt;slides-slide&gt;
       ...
-    &lt;/app-slide&gt;
+    &lt;/slides-slide&gt;
 
     this component creates new empty separate slide for presentation
     </pre>
 
     <div class="empty-slide"></div>
 
-  </app-slide>
+  </slides-slide>
 
-  <app-slide>
+  <slides-slide>
     <h2>HTML tags in slide component</h2>
 
     <p class="html-elements">Inside this component you can use regular html tags like h1, h2, p, ol, li and others.</p>
@@ -55,48 +56,34 @@
       <li>lists item 2</li>
     </ol>
 
-  </app-slide>
+  </slides-slide>
 
-  <app-slide>
-    <h2>app-code-editor</h2>
+  <slides-slide>
+    <h2>slides-code-editor</h2>
     <pre>
     This component lets you to display code in the slide.
 
-    &lt;app-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+    &lt;slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
            [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"&gt;
-    &lt;/app-code-editor&gt;
+    &lt;/slides-code-editor&gt;
     </pre>
 
       <div class="col-6">
         <h3 style="text-align: justify;">Parent Component</h3>
-        <app-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></app-code-editor>
+        <slides-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></slides-code-editor>
       </div>
 
 
-  </app-slide>
+  </slides-slide>
 
 
-  <app-slide>
-    <h2>app-playground</h2>
+  <slides-slide>
+    <h2>slides-playground</h2>
 
 
-    <app-playground vertical
+    <slides-playground vertical
                     [config]="code.templateInterpolationExercise">
-    </app-playground>
+    </slides-playground>
 
-  </app-slide>
-  
-  <app-slide id="end" milestone="Dependecy Injection">
-    <app-closing-slide>
-      <div class="header" header><h1 i18n>End of Experiments Section</h1></div>      
-      <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
-      </div>   
-      <div class="footer" footer>
-        <h2>
-            <a routerLink="/">Go to Index</a>
-        </h2>
-      </div> 
-    </app-closing-slide>
-  </app-slide>
-</app-presentation>
+  </slides-slide>
+</slides-presentation>

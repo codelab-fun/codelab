@@ -1,14 +1,19 @@
-
-import {TestBed} from '@angular/core/testing';
+import { Api } from '../api.service';
+import {
+  app_html,
+  thumbs_thumbs_html,
+  toggle_panel_toggle_panel_html,
+  video_video_html
+  } from '../code';
+import { AppComponent } from '../app.component';
+import { AppModule } from '../app.module';
+import { TestBed } from '@angular/core/testing';
+import { ThumbsComponent } from '../thumbs/thumbs.component';
+import { TogglePanelComponent } from '../toggle-panel/toggle-panel.component';
+import { VideoComponent } from '../video/video.component';
+import { VideoService } from '../video/video.service';
 import 'initTestBed';
-import {AppComponent} from '../app.component';
-import {app_html, video_video_html, toggle_panel_toggle_panel_html, thumbs_thumbs_html} from '../code';
-import {AppModule} from '../app.module';
-import {VideoComponent} from '../video/video.component';
-import {VideoService} from '../video/video.service';
-import {TogglePanelComponent} from '../toggle-panel/toggle-panel.component';
-import {ThumbsComponent} from '../thumbs/thumbs.component';
-import {Api} from '../api.service';
+
 const video = Api.fetch('')[0];
 
 beforeEach(() => {
@@ -17,15 +22,15 @@ beforeEach(() => {
     providers: [VideoService],
     declarations: [AppComponent, VideoComponent, TogglePanelComponent, ThumbsComponent]
   });
-  TestBed.overrideComponent(AppComponent, {set: {template: app_html}});
-  TestBed.overrideComponent(ThumbsComponent, {set: {template: thumbs_thumbs_html}});
-  TestBed.overrideComponent(VideoComponent, {set: {template: video_video_html}});
-  TestBed.overrideComponent(TogglePanelComponent, {set: {template: toggle_panel_toggle_panel_html}});
+  TestBed.overrideComponent(AppComponent, { set: { template: app_html } });
+  TestBed.overrideComponent(ThumbsComponent, { set: { template: thumbs_thumbs_html } });
+  TestBed.overrideComponent(VideoComponent, { set: { template: video_video_html } });
+  TestBed.overrideComponent(TogglePanelComponent, { set: { template: toggle_panel_toggle_panel_html } });
   TestBed.compileComponents();
 });
 
 describe('Component tree', () => {
-  it(`AppModule: Add the TogglePanelComponent to the AppModule declarations.`, () => {
+  it(`app.module.ts: Add the TogglePanelComponent to the declarations.`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);

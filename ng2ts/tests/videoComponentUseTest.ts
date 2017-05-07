@@ -1,11 +1,11 @@
-import {TestBed} from '@angular/core/testing';
+import { Api } from '../api.service';
+import { app_html, video_video_html } from '../code';
+import { AppComponent } from '../app.component';
+import { AppModule } from '../app.module';
+import { TestBed } from '@angular/core/testing';
+import { VideoComponent } from '../video/video.component';
+import { VideoService } from '../video/video.service';
 import 'initTestBed';
-import {AppComponent} from '../app.component';
-import {VideoService} from '../video/video.service';
-import {app_html, video_video_html} from '../code';
-import {AppModule} from '../app.module';
-import {VideoComponent} from '../video/video.component';
-import {Api} from '../api.service';
 
 
 beforeEach(() => {
@@ -16,19 +16,21 @@ beforeEach(() => {
   });
   TestBed.overrideComponent(AppComponent, {
     set: {
-      template: app_html
+      template: app_html,
+      templateUrl: undefined
     }
   });
   TestBed.overrideComponent(VideoComponent, {
     set: {
-      template: video_video_html
+      template: video_video_html,
+      templateUrl: undefined
     }
   });
   TestBed.compileComponents();
 });
 
 describe('Component tree', () => {
-  it(`AppModule: Add the VideoComponent to the AppModule 'declarations'.`, () => {
+  it(`app.module.ts: Add the VideoComponent to the AppModule 'declarations'.`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
@@ -39,8 +41,8 @@ describe('Component tree', () => {
     chai.expect(metadata[0].declarations, `Keep the app component`).contains(AppComponent);
   });
 
-  it(`app.html: Use video component (get rid of the old title/thumbnail)`, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+  it(`app.html: Use video component in the template (get rid of the old title/thumbnail)`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.videos = Api.fetch('');
     // TODO: if the element is added, but the video prop is not present, this test will fail with
     // A useless message. Passing video prop should actually be tested in the next test, and this
@@ -53,7 +55,7 @@ describe('Component tree', () => {
   });
 
   it(`app.html: Use the data binding to pass the video object to the component (don't forget the square brackets)`, () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AppComponent);
 
     fixture.componentInstance.videos = Api.fetch('');
 
