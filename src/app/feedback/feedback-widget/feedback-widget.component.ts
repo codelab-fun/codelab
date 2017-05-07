@@ -35,11 +35,6 @@ export class FeedbackWidgetComponent implements OnInit {
       }
     }
     const belongsToPopup = event.srcElement && findMatchingDOMAncestor(event.srcElement);
-
-    // TODO: Find out why clicking still works in Safari on the deployed version even thoug there's no `path` prop
-    // const belongsToPopup = event['path'].some(item =>
-    //   item.className && item.className.includes('feedback-container')
-    // );
     if (!belongsToPopup) {
       this.open = false;
     }
