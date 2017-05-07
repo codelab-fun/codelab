@@ -1,6 +1,7 @@
 <slides-presentation
   slides-slides-routing
-  slides-mode-routing>
+  slides-mode-routing
+  slides-tracking>
   <div class="btn-bar">
 
     <slides-feedback-widget></slides-feedback-widget>
@@ -22,8 +23,8 @@
   <!--  COMPONENT -->
   <slides-slide id="component" milestone="Templates">
     <h1>Angular Templates</h1>
-    <h2>Angular has a very expressive template system.</h2>
-    <h2>It supports HTML</h2>
+    <h2>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
+      elements</h2>
     <slides-playground [config]="code.template.intro"></slides-playground>
   </slides-slide>
 
@@ -32,16 +33,16 @@
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></slides-playground>
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
   </slides-slide>
 
   <!--INTERPOLATION-METHOD-->
   <slides-slide id="interpolation-method" milestone="Templates">
     <h1>Angular Templates - Interpolation</h1>
-    <h2>Simple expression are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
+    <h2>Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
     </h2>
     <slides-playground [config]="code.template.interpolationMethod"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></slides-playground>
+                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
   </slides-slide>
 
   <slides-slide id="exercise-pre" milestone="Templates">
@@ -83,7 +84,7 @@
   <!--  DATA BINDING EXTRAS-->
   <slides-slide id="data-binding-extras" milestone="Templates2">
     <h1>Angular Templates - Data binding extras</h1>
-    <h2>Angular supports more advanced bindings than just attribute name.</h2>
+    <h2>Angular supports more advanced bindings than just attribute name</h2>
     <slides-code-editor
       [code]="code.template.dataBindingExtra"
       type="html">
@@ -93,8 +94,8 @@
 
   <!--  BINDING EVENT -->
   <slides-slide id="event-binding" milestone="Templates2">
-    <h2 ngNonBindable>Event binding ( (event) )</h2>
-    <p>The bindings directives you've met so far flow data in one direction: from a component to an element.</p>
+    <h2 ngNonBindable>Event binding: (event)</h2>
+    <p>The bindings directives you've met so far flow data in one direction: from a component to an element</p>
     <slides-code-editor
       [code]="code.eventBinding"
       [fontSize]="25"
@@ -109,7 +110,7 @@
   <slides-slide id="conditional-display-ngif" milestone="Templates2">
     <h2>Conditional Display (*ngIf)</h2>
     <p>
-      Conditionally includes a template based on the value of an expression.
+      *ngIf renders a template on the DOM when its assigned expression evaluates to truthy.
     </p>
     <slides-code-editor
       [code]="code.conditionalDisplay"
@@ -147,7 +148,7 @@
   <slides-slide id="reference-binding" milestone="Templates3">
     <h1>Reference binding ( #var )</h1>
     <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it because
-      available as <b>name</b> everywhere in the template.</h2>
+      available as <b>name</b> everywhere in the template</h2>
     <slides-code-editor
       [code]="code.bindingRef"
       [fontSize]="25"
@@ -160,6 +161,9 @@
   <!--  CONDITIONAL NGFOR-->
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Conditional Display (*ngFor)</h1>
+    <p>
+      Loops over items in a collection and adds a template to the DOM for each item in the collection.
+    </p>
     <h2>
       The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
     </h2>
@@ -170,7 +174,7 @@
       [readonly]="true"
       type="html">
     </slides-code-editor>
-    <div class="info">it's important to keep the star (*) and preserve the case!</div>
+    <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
   </slides-slide>
 
 
@@ -192,7 +196,7 @@
           <img src="/assets/images/cat-5.jpg">
         </div>
         <div>
-          <h2>Serouis cat</h2>
+          <h2>Serious cat</h2>
           <img src="/assets/images/cat-3.jpg">
         </div>
 

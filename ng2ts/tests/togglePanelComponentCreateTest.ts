@@ -1,10 +1,10 @@
-
-import {TestBed} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
+import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
+import { toggle_panel_toggle_panel_html } from '../code';
+import { TogglePanelComponent } from '../toggle-panel/toggle-panel.component';
+import { WrapperComponent } from '../wrapper.component';
 import 'initTestBed';
-import {toggle_panel_toggle_panel_html} from '../code';
-import {TogglePanelComponent} from '../toggle-panel/toggle-panel.component';
-import {WrapperComponent} from '../wrapper.component';
+
 
 beforeEach(() => {
   TestBed.resetTestingModule();
@@ -22,10 +22,10 @@ beforeEach(() => {
 });
 
 describe('Content projection', () => {
-  it(`TogglePanelComponent.ts: We added the template and the selector for you, enjoy!`, () => {
+  it(`TogglePanel.Component.ts: We added the template and the selector for you, enjoy!`, () => {
   });
 
-  it(`TogglePanelComponent.ts: Add a boolean property to the component. The property can have any name, and must have a default value.`, () => {
+  it(`TogglePanel.Component.ts: Add a boolean property to the component. The property can have any name, and must have a default value.`, () => {
     let fixture = TestBed.createComponent(TogglePanelComponent);
     // the intent is to let them come up with the property name, so we assume there will be one.
     const props = Object.keys(fixture.componentInstance);

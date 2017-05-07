@@ -33,7 +33,8 @@ export class AppComponent {
 
       matches: {
         curlies: /\{\{.*\}\}/,
-        firstName: 'firstName',
+        firstName: /firstName = .*/,
+        fullName: /fullName\(\)\{/,
         squares: /\[.*\]/
       },
       interpolation: displayAngularComponent(`import {Component} from '@angular/core';
@@ -157,10 +158,10 @@ export class AppComponent {
 `,
     eventBindingMatch: /(click)/,
     eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
-    conditionalDisplay: `<!-- Some directives change the structure of the component tree.
-     ngIf conditionally shows/hides a section of the UI. -->
-<section *ngIf="isSectionVisible">Howdy!</section>
-<!-- Note the * and that it is case-sensitive! -->
+    conditionalDisplay: `<!-- ngIf conditionally toggles the visibility of a section of the UI. -->
+<section *ngIf="showSection">Howdy!</section>
+<!-- The '*' means this directive alters the component tree's structure. -->
+<!-- Note also that *ngIf is case-sensitive! -->
 `,
     conditionalDisplayMatch: /ngIf/,
     conditionalDisplayExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here displayUser -->`),

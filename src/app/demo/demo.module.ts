@@ -9,8 +9,7 @@ import {ExerciseModule} from '../exercise/exercise.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
 import {PresentationModule} from '../presentation/presentation.module';
-import { HahaPlsWorkComponent } from './haha-pls-work/haha-pls-work.component';
-import { TestsdfComponent } from './testsdf/testsdf.component';
+import {FeedbackModule} from 'app/feedback/feedback.module';
 
 export const routes = [
   {
@@ -18,7 +17,8 @@ export const routes = [
     loadChildren: './typescript/typescript.module#TypescriptModule',
     name: 'Typescript (Optional)',
     description: 'Angular is using TypeScript which is an improved version with JavaScript. Learn more about it in this codelab'
-  }, {
+  },
+  {
     path: 'bootstrap',
     loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
     name: 'Bootstrap',
@@ -43,14 +43,21 @@ export const routes = [
     description: 'Learn how to organize your app into reusable components'
   },
   {
+    path: 'pipes',
+    loadChildren: './pipes/pipes.module#PipesModule',
+    name: 'Pipes',
+    description: 'Learn how pipes transforms input values to output values for display in a view.'
+  },
+  {
     path: 'experiments',
     loadChildren: './experiments/experiments.module#ExperimentsModule'
   },
   {
     path: 'visual-studio-code',
     loadChildren: './visual-studio-code/visual-studio-code.module#VisualStudioCodeModule',
-    name: 'Visual-Studio-Code (Optional)',
-    description: 'Visual Studio Code is your friend'
+    // Need to hide before the event tonight
+    // name: 'Visual-Studio-Code (Optional)',
+    // description: 'Visual Studio Code is your friend'
   },
   {
     path: 'feedback-page',
@@ -70,8 +77,6 @@ export function monacoReady() {
   declarations: [
     AppComponent,
     IndexComponent,
-    HahaPlsWorkComponent,
-    TestsdfComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +85,8 @@ export function monacoReady() {
     PresentationModule,
     ExerciseModule,
     RouterModule.forRoot(routes),
-    TooltipsModule
+    TooltipsModule,
+    FeedbackModule
   ],
   providers: [
     {

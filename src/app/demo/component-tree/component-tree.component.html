@@ -1,4 +1,4 @@
-<slides-presentation slides-slides-routing slides-mode-routing>
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
   <slides-progress-bar></slides-progress-bar>
 
   <div class="btn-bar">
@@ -21,7 +21,7 @@
   <!--  COMPONENT TREE  -->
   <slides-slide id="description" milestone="Component Tree">
     <h1>Component Tree</h1>
-    <h2>So far we only had 1 component , but as your app grows it will take a form of a treeof components.</h2>
+    <h2>So far we only had 1 component , but as your app grows it will take a form of a treeof components</h2>
     <img src="assets/images/tree.png" alt="tree" height="400">
   </slides-slide>
 
@@ -29,7 +29,7 @@
   <slides-slide id="exercise-1-pre" milestone="TypeScript">
     <h1 i18n>Exercise</h1>
     <h2>We already know how to create a component. Let's move out all the video-related information into a separate
-      component.</h2>
+      component</h2>
     <h3>The result will be as follows:</h3>
     <slides-browser-window>
       <div ng-reflect-video="[object Object]"><h2>Cute kitten</h2>
@@ -56,7 +56,7 @@
   <!--  Parent/Child COMPONENTS-->
   <slides-slide id="parent-child-component" milestone="Component Tree">
     <h1>Parent and Child component</h1>
-    <h2>Any component can render another one by using HTML element matching the selector of the other component.</h2>
+    <h2>Any component can render another one by using HTML element matching the selector of the other component</h2>
     <div row>
       <div column-5>
         <slides-code-editor [fontSize]="15" [code]="code.circleAndBox.other.boxNoParams"
@@ -78,14 +78,14 @@
   <!-- NgModule -->
   <slides-slide id="module">
     <h1>Parent and Child component</h1>
-    <h2>However components won't know about each other unless they are declared in the same module.</h2>
+    <h2>However components won't know about each other unless they are declared in the same module</h2>
     <slides-code-editor [code]="code.appModule.code" [focus-highlight-match]="code.appModule.match"></slides-code-editor>
   </slides-slide>
 
   <!--  PASSING DATA  -->
   <slides-slide id="passing-data" milestone="Component Tree">
     <h1>Passing data from parent to child</h1>
-    <h2>Parent component passes their data to the child using properties.</h2>
+    <h2>Parent component passes their data to the child using properties</h2>
     <div class="exercise">Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to get kinda japanese flag
     </div>
     <slides-playground [config]="code.boxAndCircle"></slides-playground>
@@ -95,7 +95,7 @@
   <!--  PASSING DATA  -->
   <slides-slide id="passing-data-child">
     <h1>Passing data from parent to child</h1>
-    <h2>But child class has to decorate their properties with a special <b>@Input()</b> decorator.</h2>
+    <h2>But child class has to decorate their properties with a special <b>@Input()</b> decorator</h2>
     <slides-playground [config]="code.circleAndBox"></slides-playground>
   </slides-slide>
 
