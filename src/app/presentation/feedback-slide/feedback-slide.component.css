@@ -57,8 +57,9 @@
 }
 
 .feedback-slide-description {
+  position: fixed;
   margin-left: calc(5% + 30vh);
-  width: 63%;
+  margin-right: 12%;
   text-align: justify;
   font-size: 4vh;
   font-weight: lighter;
@@ -66,8 +67,9 @@
 }
 
 .feedback-button-title {
-  position: absolute;
-  right: 18%;
+  position: fixed;
+  margin-right: 12%;
+  right: 0;
   top: 90vh;
   font-size: 9vh;
   font-weight: bolder;
