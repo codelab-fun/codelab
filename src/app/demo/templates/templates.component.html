@@ -33,7 +33,7 @@
     <h1>Angular Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
-                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
+                       [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;">
       You can use back ticks <b>` `</b> on your template to be able to use single or double quotes.
     </div>
@@ -46,7 +46,7 @@
     <h2>Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
     </h2>
     <slides-playground [config]="code.template.interpolationMethod"
-                    [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
+                       [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
   </slides-slide>
 
   <slides-slide id="exercise-pre" milestone="Templates">
@@ -74,7 +74,7 @@
     <h1>Angular Templates - Interpolation in properties</h1>
     <h2>When giving values to element's properties, you can use String Interpolation <b>{{ curlies }}</b></h2>
     <slides-playground [config]="code.template.dataBindingPre"
-                    [focus-highlight-match]="[code.template.matches.curlies]"></slides-playground>
+                       [focus-highlight-match]="[code.template.matches.curlies]"></slides-playground>
   </slides-slide>
 
   <!--  DATA BINDING  -->
@@ -82,7 +82,7 @@
     <h1>Angular Templates - Property Binding</h1>
     <h2>An other option is to use property binding <b>[attribute] = property</b></h2>
     <slides-playground [config]="code.template.dataBinding"
-                    [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
+                       [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;">
       By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property.
     </div>
@@ -133,7 +133,7 @@
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy.
     </p>
     <slides-playground [config]="code.ngIfDirective.template"
-                    [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
+                       [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
     <div class="info">
       Add <b>!</b> before the onDisplay() function, to get a truthy result.
     </div>
@@ -171,7 +171,7 @@
       The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
     </h2>
     <slides-playground [config]="code.ngForDirective.template"
-                    [focus-highlight-match]="[code.ngForDirective]"></slides-playground>
+                       [focus-highlight-match]="[code.ngForDirective]"></slides-playground>
     <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
   </slides-slide>
 
