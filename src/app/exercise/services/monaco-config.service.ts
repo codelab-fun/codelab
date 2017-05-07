@@ -102,7 +102,7 @@ export class MonacoConfigService {
     const models = monaco.editor.getModels();
 
     if (models.length) {
-      models.filter(model => !model.isSingleEditorModel).forEach(model => model.dispose());
+      models.forEach(model => model.dispose());
     }
 
     files.map(file => {

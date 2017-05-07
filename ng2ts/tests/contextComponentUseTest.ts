@@ -100,7 +100,7 @@ describe('Children', () => {
     chai.expect(metadata[0].declarations, `Video component not found`).contains(ContextComponent);
   });
 
-  it(`video.html: Actually display the ad (We actually also did it for you).`, () => {
+  it(`video.component.html: Actually display the ad (We actually also did it for you).`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     // TODO: Actually write a test
