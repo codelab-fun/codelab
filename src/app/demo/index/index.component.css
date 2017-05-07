@@ -24,3 +24,13 @@
 .intro li h2{
   font-size: 22px;
 }
+
+.feedback-shift {
+  position: fixed;
+  right: 107px;
+  bottom: 1vh;
+}
+
+.btn-bar {
+  z-index: 110;
+}

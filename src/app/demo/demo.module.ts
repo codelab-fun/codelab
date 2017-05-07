@@ -8,7 +8,8 @@ import {MonacoConfigService} from '../exercise/services/monaco-config.service';
 import {ExerciseModule} from '../exercise/exercise.module';
 import {TooltipsModule} from '../tooltips/tooltips.module';
 import {IndexComponent} from './index/index.component';
-import {PresentationModule} from '../presentation/presentation.module';
+import { PresentationModule } from '../presentation/presentation.module';
+import { FeedbackModule } from 'app/feedback/feedback.module';
 
 export const routes = [
   {
@@ -91,7 +92,8 @@ export function monacoReady() {
     PresentationModule,
     ExerciseModule,
     RouterModule.forRoot(routes),
-    TooltipsModule
+    TooltipsModule,
+    FeedbackModule
   ],
   providers: [
     {
