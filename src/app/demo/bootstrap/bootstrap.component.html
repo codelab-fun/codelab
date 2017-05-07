@@ -60,8 +60,8 @@
   </app-slide>
 
   <!--  @-Decorator -->
-  <app-slide id="decorator" milestone="Bootstrap">
-    <h1>Component Anatomy - Inline Template</h1>
+  <app-slide id="component-decorator" milestone="Bootstrap">
+    <h1>Component Anatomy / Decorators</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></app-code-editor>
     <h2>
@@ -69,15 +69,28 @@
       to
       use it.
     </h2>
-    <div class="info" milestone="Bootstrap">
-      Decorators are a new feature of TypeScript. It comes from Python.
+    <h2></h2>
+  </app-slide>
+
+
+  <!--  @-Decorator -->
+  <app-slide id="decorator" milestone="Bootstrap">
+    <h1>Decorators</h1>
+    <h2>
+      Decorators are a new feature of TypeScript, inspired by python. It can be used by
+    </h2>
+    <app-code-editor [fontSize]="30" [code]="code.decorators.code"></app-code-editor>
+
+    <div class="info">
+      Decorators are a new feature of TypeScript, they are inspired by Python decorators.
     </div>
     <h2></h2>
   </app-slide>
 
+
   <!--  Selector  -->
   <app-slide id="selector" milestone="Bootstrap">
-    <h1>Component Anatomy - Inline Template</h1>
+    <h1>Component Anatomy / Selector</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.selector]"></app-code-editor>
     <h2>Selector defines the location of the component. When Angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
@@ -86,7 +99,7 @@
 
   <!--  Template  -->
   <app-slide id="template" milestone="Bootstrap">
-    <h1>Component Anatomy - Inline Template</h1>
+    <h1>Component Anatomy / Inline Template</h1>
     <app-code-editor [fontSize]="30" [code]="code.componentAnatomy.code"
                      [focus-highlight-match]="[code.componentAnatomy.matches.template]"></app-code-editor>
 
