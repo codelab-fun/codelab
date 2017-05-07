@@ -42,18 +42,22 @@
 }
 
 .feedback-slide-header {
-  margin-top: 9%;
 }
 .feedback-slide-logo {
+  positon: fixed;
+  margin-top: 9%;
   height: 32vh;
   margin-left: 3%
 }
 .feedback-slide-title {
+  position: fixed;
+  margin-top: 5%;
+  margin-left: calc(5% + 29vh);
+  z-index: 100;
   color: #fff;
   font-weight: 900;
   font-size: 24vh;
-  line-height: 20vh;
-  margin-left: 1.5%;
+  /*line-height: 20vh;*/
 }
 
 .feedback-slide-description {
