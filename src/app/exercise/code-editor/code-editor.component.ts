@@ -1,5 +1,8 @@
 import {Component, ContentChild, Input, OnInit} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
+import {MonacoConfigService} from '../services/monaco-config.service';
+import {SlideComponent} from '../../presentation/slide/slide.component';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'slides-code-editor',
@@ -7,6 +10,7 @@ import {FileConfig} from '../interfaces/file-config';
   styleUrls: ['./code-editor.component.css']
 })
 export class CodeEditorComponent implements OnInit {
+  onActiveUsubscribe: Subscription;
   @Input() type = 'typescript';
   @Input() fontSize = 30;
   @Input() readonly = true;
@@ -19,7 +23,11 @@ export class CodeEditorComponent implements OnInit {
   @ContentChild('code') textarea;
   file: FileConfig;
 
-  constructor() {
+  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService) {
+    this.onActiveUsubscribe = slide.onActive.filter(a => a).subscribe(() => {
+      slide.disableResize();
+      this.monacoConfig.createFileModels([this.file]);
+    });
   }
 
   ngOnInit(): void {
@@ -49,5 +57,4 @@ export class CodeEditorComponent implements OnInit {
       template: ''
     };
   }
-
 }
