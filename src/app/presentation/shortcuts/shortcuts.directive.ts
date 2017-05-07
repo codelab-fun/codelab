@@ -11,7 +11,7 @@ export class ShortcutsDirective {
   @HostListener('window:keydown.PageDown', ['$event.target'])
   next(target) {
     if (target === document.body) {
-      this.presentation.nextSlide(true);
+      this.presentation.nextSlide();
     }
   }
 
@@ -19,7 +19,7 @@ export class ShortcutsDirective {
   @HostListener('window:keydown.PageUp', ['$event.target'])
   previous(target) {
     if (target === document.body) {
-      this.presentation.previousSlide(true);
+      this.presentation.previousSlide();
     }
   }
 

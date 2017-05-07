@@ -1,32 +1,25 @@
-<div *ngIf="slide.active">
-  <div class="exercise-panel">
-    <slides-resize class="exercise-body" [minWidth]="400"
-                [maxWidth]="750">
-      <slides-resize [isVertical]="true" [startingHeight]="400"
-                  [minHeight]="100">
-        <div style="display: flex;height: 100%;width: 100%;">
-          <div class="file-tree-column">
-            <div class="file-tree-column-toggle" [class.active]="showFileTree"
-                 (click)="toggleTree()">
-              <div class="file-structure-button">File structure</div>
-            </div>
-            <slides-file-tree *ngIf="showFileTree" [files]="config.files" [active]="currentFile"
-                           (onCurrentFile)="currentFileChanged($event)">
-            </slides-file-tree>
-          </div>
-          <slides-editors
-            [files]="config.files" [currentFile]="currentFile"
-                       (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
-                       (onLoadSolution)="loadSolution($event)"
-                       (onCurrentFile)="currentFileChanged($event)">
-          </slides-editors>
-        </div>
-      </slides-resize>
-      <slides-slides-preview [milestone]="milestone">
-      </slides-slides-preview>
+<div class="exercise-panel" *ngIf="slide.active">
+  <slides-resize class="exercise-body" [minWidth]="400"
+              [maxWidth]="750">
+    <slides-resize [isVertical]="true" [startingHeight]="400"
+                [minHeight]="100">
+      <div style="display: flex;height: 100%;width: 100%;">
+        <slides-file-structure (onSelectFile)="onSelectFile($event)" [files]="config.files"
+                            [currentFile]="currentFile || config.files[0]"></slides-file-structure>
+        <slides-editors
+          [files]="config.files" [currentFile]="currentFile || config.files[0]"
+          (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
+          (onLoadSolution)="loadSolution($event)"
+          (onSelectFile)="onSelectFile($event)">
+        </slides-editors>
+      </div>
     </slides-resize>
+    <slides-slides-preview [milestone]="milestone">
+    </slides-slides-preview>
+  </slides-resize>
 
-    <div class="side">
+  <div class="side">
+    <div>
       <ng-content select=".description"></ng-content>
       <div *ngIf="solved">
         <!--TODO: Find a nicer workflow-->
@@ -35,10 +28,11 @@
         </div>
       </div>
       <slides-tests [tests]="config.tests" [files]="config.files"
-        (onCurrentFile)="currentFileChanged($event)"></slides-tests>
-      <slides-runner (onTestUpdate)="onTestUpdate($event)"
-                  [files]="config.files" style="flex: 50%"
-                  [runnerType]="config.runner || 'Angular'"></slides-runner>
+                 (onSelectFile)="onSelectFile($event)"></slides-tests>
     </div>
+    <slides-runner (onTestUpdate)="onTestUpdate($event)"
+                [files]="config.files"
+                [runnerType]="config.runner || 'Angular'">
+    </slides-runner>
   </div>
 </div>

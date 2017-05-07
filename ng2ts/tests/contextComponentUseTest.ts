@@ -90,7 +90,7 @@ describe('Children', () => {
     chai.expect(fixture.nativeElement.innerHTML).to.contain('Check out our web site');
   });
 
-  it(`App.Module.ts: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
+  it(`app.module.ts: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);

@@ -8,7 +8,7 @@ a:not([href]) {
 
 a.active {
     text-decoration: none;
-    color: blue;
+    color: #c04e22;;
 }
 
 .folder,
@@ -27,5 +27,5 @@ a.active {
 }
 
 .folder {
-    padding: 7px 0px 2px 2px;
+    padding: 0px 0px 2px 2px;
 }

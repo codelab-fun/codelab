@@ -14,12 +14,9 @@
 
 <div *ngFor="let file of visibleFiles; trackBy: trackFile">
   <div
-     class="solution"
-     [class.is-hidden]="!isOpenFile(file) || file.readonly"
-     *ngIf="debug && !file.readonly">
-      <span (click)="onLoadSolution.emit(file)">
-        [load solution]
-      </span>
+    class="solution"
+    [class.is-hidden]="!isOpenFile(file) || file.readonly"
+    *ngIf="debug && !file.readonly">
   </div>
   <slides-editor
     class="editor"

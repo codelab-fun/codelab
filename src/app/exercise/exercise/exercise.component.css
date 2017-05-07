@@ -1,4 +1,8 @@
-slides-editors {
+:host {
+  height: 100%;
+}
+
+slides {
   width: 100%;
 }
 
@@ -39,13 +43,6 @@ slides-editors {
   height: auto;
 }
 
-slides-file-tree {
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 slides-slides-preview {
   display: flex;
   flex: 1;
@@ -55,18 +52,12 @@ slides-slide > div {
   padding: 20px 5px;
 }
 
-.file-structure-button {
-  transform: rotate(270deg);
-  margin-top: 100px;
-  white-space: nowrap;
-  width: 20px;
-}
-
 .side {
   padding: 10px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .exercise-body {
@@ -79,5 +70,6 @@ slides-slide > div {
 }
 
 slides-runner {
-  margin-top: 20px;
+  margin-top: 10px;
+  align-self: flex-end;
 }

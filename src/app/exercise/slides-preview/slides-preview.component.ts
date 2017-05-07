@@ -20,7 +20,11 @@ export class SlidesPreviewComponent implements OnInit {
   ngOnInit() {
     const url = this.location.prepareExternalUrl(this.router.createUrlTree(['.'], {
       relativeTo: this.activatedRoute,
-      queryParams: {milestone: this.milestone, disableArrowsForCode: false},
+      queryParams: {
+        milestone: this.milestone,
+        hideControls: true,
+        resize: true
+      },
       queryParamsHandling: 'merge'
     }).toString());
 

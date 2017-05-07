@@ -31,7 +31,7 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
 
     wrap(console, 'log', (v)=>{
       value.value = v;
-      document.write('<h3>&gt; ' + v + '<h3><hr>')
+      document.write('<h3>&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `
   };
