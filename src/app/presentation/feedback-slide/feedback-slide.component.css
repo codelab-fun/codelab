@@ -42,15 +42,14 @@
 }
 
 .feedback-slide-header {
+  position: fixed;
   margin-top: 25vh;
 }
 .feedback-slide-logo {
-  position: fixed;
   height: 32vh;
   margin-left: 3%
 }
 .feedback-slide-title {
-  position: fixed;
   margin-left: calc(5% + 29vh);
   z-index: 100;
   color: #fff;
