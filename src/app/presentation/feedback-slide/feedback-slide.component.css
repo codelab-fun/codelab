@@ -98,10 +98,10 @@
 }
 
 .feedback-button-ripple {
-  position: absolute;
+  position: fixed;
   animation: fadeOutUp 4s infinite linear;
   animation-delay: 0ms;
   position: fixed;
-  right: 107px;
+  right: 51px;
   bottom: 31px;
 }
