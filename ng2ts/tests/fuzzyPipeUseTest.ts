@@ -56,7 +56,7 @@ describe('Pipes', () => {
     chai.expect(metadata[0].declarations, `Fuzzy pipe not found`).contains(FuzzyPipe);
   });
 
-  it(`video.html: Use the pipe on the date.`, () => {
+  it(`video.component.html: Use the pipe on the date.`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     fixture.nativeElement.querySelector('button').click();

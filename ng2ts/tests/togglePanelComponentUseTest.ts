@@ -42,7 +42,7 @@ describe('Component tree', () => {
     chai.expect(metadata[0].declarations, `Add TogglePanelComponent`).contains(TogglePanelComponent);
   });
 
-  it(`video.html: Use the TogglePanel component in the template`, () => {
+  it(`video.component.html: Use the TogglePanel component in the template`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let panel = fixture.nativeElement.querySelector('my-toggle-panel');
@@ -50,7 +50,7 @@ describe('Component tree', () => {
   });
 
 
-  it(`video.html: Add .description as TogglePanel's content`, () => {
+  it(`video.component.html: Add .description as TogglePanel's content`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let panel = fixture.nativeElement.querySelector('my-toggle-panel');
@@ -62,7 +62,7 @@ describe('Component tree', () => {
     chai.expect(fixture.nativeElement.querySelector('my-video').innerHTML, `Should not display likes `).not.contains(video.likes);
   });
 
-  it(`video.html: Add .extra as TogglePanel's content`, () => {
+  it(`video.component.html: Add .extra as TogglePanel's content`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let panel = fixture.nativeElement.querySelector('my-toggle-panel');

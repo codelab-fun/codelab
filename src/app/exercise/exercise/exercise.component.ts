@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ExerciseBase} from './exercise.base';
-import {FileConfig} from './../interfaces/file-config';
+import {FileConfig} from '../interfaces/file-config';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
 

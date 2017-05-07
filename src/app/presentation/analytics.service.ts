@@ -10,7 +10,8 @@ export class AnalyticsService {
     router.events.subscribe((a) => {
 
       if (a instanceof NavigationError) {
-        throw new Error('Router is broken');
+        console.log(a);
+        throw new Error('Navigation error');
       }
     });
     router.events.distinctUntilChanged((previous: any, current: RouterEvent) => {
