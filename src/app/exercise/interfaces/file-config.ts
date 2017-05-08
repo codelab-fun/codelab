@@ -64,4 +64,9 @@ export interface FileConfig {
    * If this is true; the file will be hidden.
    */
   hidden?: boolean;
+
+  /**
+   * File dependencies, need for proper highlighting in monaco.
+   */
+  deps?: Array<string>;
 }

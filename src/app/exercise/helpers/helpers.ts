@@ -4,7 +4,6 @@ import {FileConfig} from '../interfaces/file-config';
 function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
-
     export const value = {};
     function display( newValue ){
       value.value = newValue;
@@ -13,6 +12,17 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   };
 }
 
+export function withDeps(config: { files: Array<FileConfig> }, moduleName: string, depName: string) {
+  return {
+    files: config.files.map((file) => {
+      if (file.moduleName === moduleName) {
+        file.deps = file.deps || [];
+        file.deps.push(depName);
+      }
+      return file;
+    })
+  };
+}
 
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
