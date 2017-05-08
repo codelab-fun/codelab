@@ -3,7 +3,7 @@ import {
   app_html,
   thumbs_thumbs_html,
   toggle_panel_toggle_panel_html,
-  video_video_html
+  video_video_component_html
   } from '../code';
 import { AppComponent } from '../app.component';
 import { AppModule } from '../app.module';
@@ -24,7 +24,7 @@ beforeEach(() => {
   });
   TestBed.overrideComponent(AppComponent, { set: { template: app_html } });
   TestBed.overrideComponent(ThumbsComponent, { set: { template: thumbs_thumbs_html } });
-  TestBed.overrideComponent(VideoComponent, { set: { template: video_video_html } });
+  TestBed.overrideComponent(VideoComponent, { set: { template: video_video_component_html } });
   TestBed.overrideComponent(TogglePanelComponent, { set: { template: toggle_panel_toggle_panel_html } });
   TestBed.compileComponents();
 });
@@ -45,15 +45,15 @@ describe('Component tree', () => {
   it(`video.component.html: Use the TogglePanel component in the template`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    let panel = fixture.nativeElement.querySelector('my-toggle-panel');
-    chai.expect(panel).is.not.null
+    const panel = fixture.nativeElement.querySelector('my-toggle-panel');
+    chai.expect(panel).is.not.null;
   });
 
 
   it(`video.component.html: Add .description as TogglePanel's content`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    let panel = fixture.nativeElement.querySelector('my-toggle-panel');
+    const panel = fixture.nativeElement.querySelector('my-toggle-panel');
 
     chai.expect(panel.querySelector('.description')).is.not.null;
     chai.expect(panel.querySelector('.extra')).is.null;
@@ -65,7 +65,7 @@ describe('Component tree', () => {
   it(`video.component.html: Add .extra as TogglePanel's content`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    let panel = fixture.nativeElement.querySelector('my-toggle-panel');
+    const panel = fixture.nativeElement.querySelector('my-toggle-panel');
 
     panel.querySelector('button').click();
     fixture.detectChanges();

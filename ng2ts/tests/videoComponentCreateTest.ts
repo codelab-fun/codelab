@@ -1,6 +1,6 @@
 import {Api} from '../api.service';
 import {TestBed} from '@angular/core/testing';
-import {video_video_html} from '../code';
+import {video_video_component_html} from '../code';
 import {VideoComponent} from '../video/video.component';
 import {VideoService} from '../video/video.service';
 import 'initTestBed';
@@ -15,7 +15,7 @@ beforeEach(() => {
     });
     TestBed.overrideComponent(VideoComponent, {
       set: {
-        template: video_video_html,
+        template: video_video_component_html,
         templateUrl: undefined
       }
     });
@@ -36,7 +36,8 @@ describe('Component tree', () => {
     it(`video.component.ts: Set the templateUrl to load the appropriate html file`, () => {
       const metadata = Reflect.getMetadata('annotations', VideoComponent);
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].templateUrl, `VideoComponent's templateUrl should be set to './video.component.html'`).matches(/\.\/video\.component\.html/);
+      chai.expect(metadata[0].templateUrl, `VideoComponent's templateUrl should be set to './video.component.html'`)
+        .matches(/\.\/video\.component\.html/);
     });
 
     it(`video.component.ts: Add a video property and decorate it with @Input()`, () => {
