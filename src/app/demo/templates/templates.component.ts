@@ -20,6 +20,7 @@ export class TemplatesComponent implements OnInit {
     ng2tsConfig.milestones[2].exercises[2],
     ng2tsConfig.milestones[2].exercises[3],
   ];
+  curlies = '{{ property }}';
   code = {
     template: {
       intro: displayAngularComponent(`import {Component} from '@angular/core';
@@ -33,6 +34,7 @@ export class AppComponent {
 
       matches: {
         curlies: /\{\{.*\}\}/,
+        curliesAttribute: /"\{\{.*\}\}"/,
         firstName: /firstName = .*/,
         fullName: /fullName\(\)\{/,
         squares: /\[.*\]/
@@ -101,6 +103,43 @@ export class AppComponent {
 <!-- And work with custom components! -->
 <birthday-card [date]="person.birthday"> `,
     },
+    ngIfDirective: {
+      template: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: \`<h1>Hello {{firstName}}!</h1>
+    <img 
+      src="{{avatar}}" 
+      *ngIf="onDisplay()">
+  \`
+})
+export class AppComponent {
+  firstName = 'Pierre-Auguste';
+  avatar = 'assets/images/renoir.jpg';
+  onDisplay(){  return false }
+}`),
+      matches: {
+        ngIf: '*ngIf'
+      }
+    },
+    ngForDirective: {
+      template: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: \`<h1>Puppies names:</h1>
+  <ul>
+    <li *ngFor="let puppy of puppies">
+      {{puppy}}
+    </li>
+  </ul>
+  \`
+})
+export class AppComponent {
+  puppies = ['Rex', 'Apple', 'Vivaldi'];
+}`)
+    },
 
     templateInterpolation: `
       <!-- Use property value from person object from component instance. -->
@@ -166,7 +205,7 @@ export class AppComponent {
     conditionalDisplayMatch: /ngIf/,
     conditionalDisplayExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here displayUser -->`),
     conditionalDisplayFor: `<ul>
-  <li *ngFor="let player of puppy">
+  <li *ngFor="let puppy of puppies">
     {{puppy.name}}
   </li>
 </ul>`,

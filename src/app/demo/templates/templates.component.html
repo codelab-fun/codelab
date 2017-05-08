@@ -34,7 +34,11 @@
     <h2>Double curlies allow you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
+    <div class="info" milestone="Templates" style="margin-top: -8px;">
+      You can use back ticks <b>` `</b> on your template to be able to use single or double quotes.
+    </div>
   </slides-slide>
+
 
   <!--INTERPOLATION-METHOD-->
   <slides-slide id="interpolation-method" milestone="Templates">
@@ -68,17 +72,20 @@
   <!--  PRE DATA BINDING-->
   <slides-slide id="data-binding-pre" milestone="Templates2">
     <h1>Templates / Interpolation / Properties</h1>
-    <h2>Double curlies can be used anywhere in the templates, even in properties</h2>
+    <p>When giving a value to the element's attribute, you can use String Interpolation <b>{{ curlies }}</b></p>
     <slides-playground [config]="code.template.dataBindingPre"
-                       [focus-highlight-match]="[code.template.matches.curlies]"></slides-playground>
+                       [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
   </slides-slide>
 
   <!--  DATA BINDING  -->
   <slides-slide id="data-binding" milestone="Templates2">
-    <h1>Templates - Data binding</h1>
-    <h2>There is a special way to bind the data to the properties using [ and ]</h2>
+    <h1>Templates - Property Binding</h1>
+    <h2>An other option is to use property binding <b>[attribute] = property</b></h2>
     <slides-playground [config]="code.template.dataBinding"
                        [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
+    <div class="info" style="margin-top: -10px; z-index: 2;">
+      By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property.
+    </div>
   </slides-slide>
 
   <!--  DATA BINDING EXTRAS-->
@@ -105,20 +112,31 @@
     </slides-code-editor>
   </slides-slide>
 
+  <!--  REFERENCE BINDING -->
+  <slides-slide id="reference-binding" milestone="Templates3">
+    <h1>Reference binding ( #var )</h1>
+    <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it becomes
+      available as <b>name</b> everywhere in the template</h2>
+    <slides-code-editor
+      [code]="code.bindingRef"
+      [fontSize]="25"
+      [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
+      [readonly]="true"
+      type="html">
+    </slides-code-editor>
+  </slides-slide>
 
   <!--  CONDITIONAL DISPLAY-->
   <slides-slide id="conditional-display-ngif" milestone="Templates2">
     <h2>Conditional Display (*ngIf)</h2>
     <p>
-      *ngIf renders a template on the DOM when its assigned expression evaluates to truthy.
+      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy.
     </p>
-    <slides-code-editor
-      [code]="code.conditionalDisplay"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.conditionalDisplayMatch]"
-      [readonly]="true"
-      type="html">
-    </slides-code-editor>
+    <slides-playground [config]="code.ngIfDirective.template"
+                       [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
+    <div class="info">
+      Add <b>!</b> before the onDisplay() function, to get a truthy result.
+    </div>
   </slides-slide>
 
 
@@ -143,21 +161,6 @@
     </slides-exercise>
   </slides-slide>
 
-
-  <!--  REFERENCE BINDING -->
-  <slides-slide id="reference-binding" milestone="Templates3">
-    <h1>Reference binding ( #var )</h1>
-    <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it because
-      available as <b>name</b> everywhere in the template</h2>
-    <slides-code-editor
-      [code]="code.bindingRef"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
-      [readonly]="true"
-      type="html">
-    </slides-code-editor>
-  </slides-slide>
-
   <!--  CONDITIONAL NGFOR-->
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Conditional Display (*ngFor)</h1>
@@ -167,41 +170,43 @@
     <h2>
       The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
     </h2>
-    <slides-code-editor
-      [code]="code.conditionalDisplayFor"
-      [fontSize]="25"
-      [focus-highlight-match]="[code.conditionalDisplayForMatch]"
-      [readonly]="true"
-      type="html">
-    </slides-code-editor>
+    <slides-playground [config]="code.ngForDirective.template"
+                       [focus-highlight-match]="[code.ngForDirective]"></slides-playground>
     <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
   </slides-slide>
 
 
   <slides-slide id="exercise-3-pre" milestone="Templates3">
-    <h1>Exercise</h1>
-    <h2>In the next slide you'll finally display the videos! The result will look like this: </h2>
-
-    <slides-browser-window>
-      <div>
-        <h1>CatTube</h1>
-        <input placeholder="video" type="text">
-        <button>Search!</button>
-        <div>
-          <h2>Cute kitten</h2>
-          <img src="/assets/images/cat-1.jpg">
-        </div>
-        <div>
-          <h2>Kitten on the tree</h2>
-          <img src="/assets/images/cat-5.jpg">
-        </div>
-        <div>
-          <h2>Serious cat</h2>
-          <img src="/assets/images/cat-3.jpg">
-        </div>
-
+    <div style="width: 100%; display: flex; flex-direction: row;">
+      <div style="width: 50%;">
+        <h1>Exercise</h1>
+        <h2 style="text-align: left;">
+          In the next slide you'll finally display the videos! The result will look like this:
+        </h2>
       </div>
-    </slides-browser-window>
+      <div style="width: 50%;">
+        <slides-browser-window>
+          <div>
+            <h1>CatTube</h1>
+            <input placeholder="video" type="text">
+            <button>Search!</button>
+            <div>
+              <h2>Cute kitten</h2>
+              <img src="/assets/images/cat-1.jpg">
+            </div>
+            <div>
+              <h2>Kitten on the tree</h2>
+              <img src="/assets/images/cat-5.jpg">
+            </div>
+            <div>
+              <h2>Serious cat</h2>
+              <img src="/assets/images/cat-3.jpg">
+            </div>
+
+          </div>
+        </slides-browser-window>
+      </div>
+    </div>
   </slides-slide>
 
   <slides-slide id="exercise-3" no-padding>
