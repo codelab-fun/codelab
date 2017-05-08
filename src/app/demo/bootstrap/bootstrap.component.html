@@ -177,7 +177,8 @@
   <!--  Bootstrap -->
   <slides-slide id="bootstrap" milestone="Bootstrap2">
     <h1>Module Anatomy / Bootstrap</h1>
-    <h2>Component passed into the <b>bootstrap</b> array will be created and displayed in your <b>index.html</b> file.</h2>
+    <h2>Component passed into the <b>bootstrap</b> array will be created and displayed in your <b>index.html</b> file.
+    </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
   </slides-slide>
@@ -212,12 +213,13 @@
   <!--  MODULE BOOTSTRAPPING-->
   <slides-slide id="bootstrapping" milestone="Bootstrap3">
     <h1>Module Bootstrapping</h1>
-    <slides-code-editor [fontSize]="30" [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
     <h2>
-      The bootstrapping process sets up the execution environment, digs the root AppComponent out of the module's
-      bootstrap array, creates an instance of the component and inserts it within the element tag identified by the
-      component's selector.
+      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will, start up all the components in that
+      module's bootstrap section.
     </h2>
+    <slides-code-editor path="app.module.ts" [fontSize]="30"
+                        [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
+    <div class="info">For most of the simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
   <slides-slide id="exercise-bootstrap-pre" milestone="Bootstrap3">
@@ -248,31 +250,30 @@
   <!--  Whole picture -->
   <slides-slide id="overview">
     <h1>Overview</h1>
-    <div row>
-      <div class="col-6">
-        <div>index.html</div>
-        <slides-code-editor [fontSize]="18" [focus-highlight-match]="code.moduleBootstrapping.matches.index"
-                            type="html"
-                            [code]="code.moduleBootstrapping.code.indexHTML"></slides-code-editor>
+    <slides-code-group>
+      <div row>
+        <div class="col-6">
+          <slides-code-editor path="index.html" [fontSize]="18"
+                              [focus-highlight-match]="code.moduleBootstrapping.matches.index"
+                              type="html"
+                              [code]="code.moduleBootstrapping.code.indexHTML"></slides-code-editor>
+        </div>
+        <div class="col-6">
+          <slides-code-editor path="main.ts" [fontSize]="18"
+                              [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
+        </div>
       </div>
-      <div class="col-6">
-        <div>main.ts</div>
-        <slides-code-editor [fontSize]="18" [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
+      <div row>
+        <div class="col-6">
+          <slides-code-editor path="app.module.ts" [fontSize]="18"
+                              [code]="code.moduleAnatomy.code"></slides-code-editor>
+        </div>
+        <div class="col-6">
+          <slides-code-editor path="app.component.ts" [fontSize]="18"
+                              [code]="code.componentAnatomy.code"></slides-code-editor>
+        </div>
       </div>
-    </div>
-    <!--TODO: Do it the right way-->
-    <br>
-    <br>
-    <div row>
-      <div class="col-6">
-        <div>app.module.ts</div>
-        <slides-code-editor [fontSize]="18" [code]="code.moduleAnatomy.code"></slides-code-editor>
-      </div>
-      <div class="col-6">
-        <div>app.component.ts</div>
-        <slides-code-editor [fontSize]="18" [code]="code.componentAnatomy.code"></slides-code-editor>
-      </div>
-    </div>
+    </slides-code-group>
   </slides-slide>
 
   <slides-slide id="end">
