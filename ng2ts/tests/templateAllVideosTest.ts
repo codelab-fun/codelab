@@ -29,7 +29,7 @@ describe('Blabla', () => {
       chai.expect(fixture.componentInstance.videos.length, 'Should have no dogs').equals(0);
     });
 
-  it(`app.html: Iterate over the videos using '*NgFor', and display a title for each`, () => {
+  it(`app.html: Iterate over the videos using '*ngFor', and display a title for each`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.search('itten');
     fixture.detectChanges();
