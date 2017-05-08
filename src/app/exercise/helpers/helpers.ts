@@ -12,8 +12,9 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   };
 }
 
-export function withDeps(config: { files: Array<FileConfig> }, moduleName: string, depName: string) {
+export function withDeps(config: any, moduleName: string, depName: string) {
   return {
+    ...config,
     files: config.files.map((file) => {
       if (file.moduleName === moduleName) {
         file.deps = file.deps || [];

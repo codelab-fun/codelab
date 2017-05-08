@@ -2,6 +2,7 @@
 //  TODO: This should be done using require.context
 import {DiffFilesResolver} from '../src/app/differ/diffFilesResolver';
 import {Injectable} from '@angular/core';
+import {withDeps} from '../src/app/exercise/helpers/helpers';
 declare const require;
 
 const preloadedFiles = {
@@ -173,7 +174,6 @@ export interface MilestoneConfigTemplate {
   exercises: Array<ExerciseConfigTemplate | SlideTemplate>;
 }
 
-
 export const ng2tsConfig: CodelabConfigTemplate = {
   name: 'Angular 101 Codelab (beta)',
   id: 'ng2ts',
@@ -195,7 +195,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <a href = "https://docs.google.com/presentation/d/1Wh4ZwTKG1h66f3mTD4GQO8rKwGDEJeBSvUDJ3udU1LA/edit?usp=sharing">this link</a>.</p>                 
         `
         },
-        {
+        withDeps({
           name: 'TypeScript',
           runner: 'TypeScript',
           description: `
@@ -217,7 +217,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               files.typescript_intro_Main_ts
             ]
           }),
-        }
+        }, 'typescript-intro/Codelab', 'typescript-intro/Guest')
       ]
     },
     {

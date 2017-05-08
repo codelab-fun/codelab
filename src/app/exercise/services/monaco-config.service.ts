@@ -99,6 +99,7 @@ export class MonacoConfigService {
   }
 
   sortFiles(files: FileConfig[]) {
+    console.log(files);
     // Build a set of all files that are declared as deps.
     const deps = files.filter(file => file.deps)
       .reduce((set, file) => file.deps.reduce((result, dep) => result.add(dep), set), new Set());
