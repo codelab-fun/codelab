@@ -312,3 +312,8 @@ p {
   top: 0 !important;
   left: 0 !important;
 }
+
+b {
+  font-weight: 300;
+  background-color: #ffe;
+}
