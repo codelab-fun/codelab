@@ -386,7 +386,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             </div>
           </div>
         `,
-      }, {
+      }, withDeps(withDeps({
         name: 'Service injection',
         description: 'Fetch the videos using a service, instead of having them hardcoded.',
         files: diffFilesResolver.resolve('diInjectService', {
@@ -395,7 +395,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           test: [files.test],
           bootstrap: [files.main]
         })
-      }]
+      }, 'video/video.service', 'api.service'), 'app.module', 'app.component')]
     }
     ,
     {
