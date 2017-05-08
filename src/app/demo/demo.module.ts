@@ -16,7 +16,7 @@ export const routes = [
     path: 'typescript',
     loadChildren: './typescript/typescript.module#TypescriptModule',
     name: 'Typescript',
-    description: 'Angular is built with TypeScript. A languge extending JavaScript.',
+    description: 'Learn TypeScript: A language that extends JavaScript, which angular is built with.',
     page: 'main'
   },
   {
@@ -30,7 +30,7 @@ export const routes = [
     path: 'templates',
     loadChildren: './templates/templates.module#TemplatesModule',
     name: 'Templates',
-    description: 'See how you can use angular templates',
+    description: 'Learn how to use angular templates',
     page: 'main'
   },
   {
@@ -44,7 +44,7 @@ export const routes = [
     path: 'component-tree',
     loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
     name: 'Component-Tree',
-    description: 'Learn how to organize your app into reusable components',
+    description: 'Learn how to structure your app with reusable components',
     page: 'main'
   },
   {
