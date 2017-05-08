@@ -25,7 +25,7 @@
       </div>
       <div>
         <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
-                type="submit">Send
+                type="button" (click)="submit()">Send
         </button>
       </div>
       <div [class.error]="error">

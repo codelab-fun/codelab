@@ -1,12 +1,4 @@
-import {
-  AfterContentInit,
-  Component,
-  ElementRef,
-  HostListener,
-  Input,
-  OnChanges,
-  OnInit
-  } from '@angular/core';
+import {Component, ElementRef, HostListener, Input, OnChanges, OnInit} from '@angular/core';
 @Component({
   selector: 'slides-resize', templateUrl: './resize.component.html', styleUrls: ['./resize.component.css']
 })
@@ -26,7 +18,8 @@ export class ResizeComponent implements OnInit, OnChanges {
   private minSize;
   private size;
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef) {
+  }
 
   ngOnInit(): void {
     this.update(this.isVertical ? this.startingHeight : this.startingWidth);
