@@ -11,7 +11,14 @@ export class BootstrapComponent {
 
   code = {
     decorators: {
-      code: ``
+      code: `// @Component is a decorator
+@Component({
+  metadata
+})
+export class AppComponent {
+  // Decorator goes directly above the decorated entity (class in this case)
+  // Component name is the class name (AppComponent).
+}`
     },
     componentAnatomy: {   // Component Anatomy - Milestone #1
       code: `import { Component } from '@angular/core';

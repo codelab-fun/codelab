@@ -222,7 +222,6 @@ export const ng2tsConfig: CodelabConfigTemplate = {
     },
     {
       name: 'Bootstrapping your app',
-
       exercises: [
         {
           name: 'Intro',
@@ -254,7 +253,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             test: [files.test],
           })
         },
-        {
+        withDeps({
           name: 'Create a NgModule',
           description: 'Now we got the component, we need to pass it to a NgModule.',
           files: diffFilesResolver.resolve('createModule', {
@@ -264,7 +263,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             test: [files.test],
             bootstrap: [files.main]
           })
-        },
+        }, 'app.module', 'app.component'),
         {
           name: 'Bootstrap the module',
           skipTests: true,
