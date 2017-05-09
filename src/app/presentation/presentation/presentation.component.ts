@@ -1,14 +1,15 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
 import {AnalyticsService} from '../analytics.service';
+declare const ga;
 
 @Component({
   selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent {
+export class PresentationComponent implements OnInit {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
   public config = {
@@ -49,6 +50,11 @@ export class PresentationComponent {
     return this.generatedSlideIndex;
   }
 
+  ngOnInit(): void {
+    this.trackProgress();
+  }
+
+
   registerSlide(id: string, milestone: string) {
     if (this.milestone && milestone !== this.milestone) {
       return;
@@ -58,10 +64,39 @@ export class PresentationComponent {
     return index;
   }
 
+  // TODO: Move out to a separate module;
+  trackProgress() {
+    const path = this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
+
+    if (this.activeSlideIndex === 0) {
+      const key = `been-here-mileston-start-${path}`;
+      const beenHere = localStorage.getItem(key);
+      const time = Math.floor(Date.now() / 1000);
+      if (!beenHere) {
+        localStorage.setItem(key, time.toString());
+        ga('send', 'event', 'milestone', path, 'start');
+      }
+    }
+
+    if (this.generatedSlideIndex > 0 && this.activeSlideIndex === this.generatedSlideIndex - 1) {
+      const key = `been-here-mileston-end-${path}`;
+      const beenHere = localStorage.getItem(key);
+
+      if (!beenHere) {
+        const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10);
+        const time = Math.floor(Date.now() / 1000) - startTime;
+        localStorage.setItem(key, 'yes');
+        ga('send', 'event', 'milestone', path, 'end');
+        ga('send', 'timing', 'milestone', 'complete', time);
+      }
+    }
+  }
+
   nextSlide() {
     if (this.canGoNext()) {
       this.activeSlideIndex++;
       this.onSlideChange.next(this.activeSlideIndex);
+      this.trackProgress();
     }
   }
 
@@ -69,6 +104,7 @@ export class PresentationComponent {
     if (this.canGoPrevious()) {
       this.activeSlideIndex--;
       this.onSlideChange.next(this.activeSlideIndex);
+      this.trackProgress();
     }
   }
 
