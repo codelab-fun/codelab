@@ -1,8 +1,8 @@
 // tslint:disable:max-line-length TODO: Clean up this file and remove this comment.
 //  TODO: This should be done using require.context
-import {DiffFilesResolver} from '../src/app/differ/diffFilesResolver';
-import {Injectable} from '@angular/core';
-import {withDeps} from '../src/app/exercise/helpers/helpers';
+import { DiffFilesResolver } from '../src/app/differ/diffFilesResolver';
+import { Injectable } from '@angular/core';
+import { withDeps } from '../src/app/exercise/helpers/helpers';
 declare const require;
 
 const preloadedFiles = {
@@ -46,7 +46,8 @@ const preloadedFiles = {
   'tests/fuzzyPipeUseTest.ts': require('!raw-loader!./tests/fuzzyPipeUseTest.ts'),
   'thumbs.app.module.ts': require('!raw-loader!./thumbs.app.module.ts'),
   'toggle-panel.app.module.ts': require('!raw-loader!./toggle-panel.app.module.ts'),
-  'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
+  'index.html': '<my-app></my-app>'
+  // 'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
 };
 
 
@@ -248,7 +249,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           description: `<p>Create first Angular component!</p>`,
           files: diffFilesResolver.resolve('createComponent', {
             exercise: [files.appComponent],
-            reference: [files.appModule, files.main],
+            reference: [files.appModule, files.main, files.indexHtml],
             bootstrap: [files.main],
             test: [files.test],
           })
@@ -314,21 +315,21 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           description: 'Setup a header, a search box, and a search button in the app component!',
           files: diffFilesResolver.resolve('templatePageSetup', {
             exercise: [files.appHtml],
-            reference: [files.appComponent, files.appModule, files.main],
+            reference: [files.appComponent, files.appModule, files.main, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
         }, {
           name: 'Add some action',
           description: `
-              <ul>
-                 <li>Add a search method to the AppComponent</li>
-                 <li>Display a message when there are no videos.</li>
-               </ul>
-            `,
+                        <ul>
+                          <li>Add a search method to the AppComponent</li>
+                          <li>Display a message when there are no videos.</li>
+                         </ul>
+                       `,
           files: diffFilesResolver.resolve('templateAddAction', {
             exercise: [files.appComponent, files.appHtml],
-            reference: [files.appModule, files.main, files.video_videoItem],
+            reference: [files.appModule, files.main, files.video_videoItem, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main],
           })
@@ -338,7 +339,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           description: `Finally  iterate over the videos.`,
           files: diffFilesResolver.resolve('templateAllVideos', {
             exercise: [files.appComponent, files.appHtml],
-            reference: [files.appModule, files.main, files.video_videoItem],
+            reference: [files.appModule, files.main, files.video_videoItem, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -391,7 +392,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
         description: 'Fetch the videos using a service, instead of having them hardcoded.',
         files: diffFilesResolver.resolve('diInjectService', {
           exercise: [files.video_videoService, files.appModule, files.appComponent],
-          reference: [files.appHtml, files.apiService, files.video_videoItem, files.main],
+          reference: [files.appHtml, files.apiService, files.video_videoItem, files.main, files.indexHtml],
           test: [files.test],
           bootstrap: [files.main]
         })
@@ -432,7 +433,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               files.appModule,
               files.video_videoService, files.appHtml,
               files.appComponent, files.video_videoItem,
-              files.apiService, files.main
+              files.apiService, files.main, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -444,8 +445,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           files: diffFilesResolver.resolve('videoComponentUse', {
             exercise: [files.appModule, files.appHtml],
             reference: [
-              files.video_video_component_html,
-              files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
+              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -495,7 +495,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           files: diffFilesResolver.resolve('thumbsComponentUse', {
             exercise: [files.video_video_component, files.video_video_component_html, files.appModule],
             reference: [
-              files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
+              files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -635,7 +635,8 @@ Up< / button > <button>Thumbs Down</button>
               files.video_videoService,
               files.video_videoItem,
               files.apiService,
-              files.main
+              files.main,
+              files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -785,7 +786,6 @@ Up< / button > <button>Thumbs Down</button>
      files: diffFilesResolver.resolve('bootstrap', {
      exercise: [files.contextComponent, files.context_context_html],
      reference: [
-
      files.contextService,
      files.video_video_component_html,
      files.appModule,
@@ -799,7 +799,8 @@ Up< / button > <button>Thumbs Down</button>
      files.video_videoService,
      files.video_videoItem,
      files.apiService,
-     files.main
+     files.main,
+     files.indexHtml
      ],
      test: [files.test],
      bootstrap: [files.main]
@@ -824,20 +825,21 @@ Up< / button > <button>Thumbs Down</button>
         files: diffFilesResolver.resolve('fuzzyPipeUse', {
           exercise: [files.appModule, files.video_video_component_html],
           reference: [files.fuzzyPipe_fuzzyPipe,
-            files.contextService,
-            files.contextComponent,
-            files.context_context_html,
-            files.video_video_component,
-            files.toggle_panel_toggle_panel,
-            files.toggle_panel_toggle_panel_html,
-            files.thumbs_thumbs_component,
-            files.thumbs_thumbs_html,
-            files.appHtml,
-            files.appComponent,
-            files.video_videoService,
-            files.video_videoItem,
-            files.apiService,
-            files.main
+          files.contextService,
+          files.contextComponent,
+          files.context_context_html,
+          files.video_video_component,
+          files.toggle_panel_toggle_panel,
+          files.toggle_panel_toggle_panel_html,
+          files.thumbs_thumbs_component,
+          files.thumbs_thumbs_html,
+          files.appHtml,
+          files.appComponent,
+          files.video_videoService,
+          files.video_videoItem,
+          files.apiService,
+          files.main,
+          files.indexHtml
           ],
           test: [files.test],
           bootstrap: [files.main]
