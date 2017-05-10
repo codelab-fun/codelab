@@ -30,40 +30,41 @@
   <!--  COMPARISON -->
   <slides-slide id="comparison" milestone="DependencyInjection">
     <h1>Comparison</h1>
-    <div class="content-container">
+    <slides-code-group class="content-container">
       <div class="col-6">
-        <slides-code-editor [fontSize]="15" [code]="code.withOutDI.code"
-                         [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></slides-code-editor>
+        <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code"
+                            [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></slides-code-editor>
         <h2>Without Dependency Injection Profession has to be instantiated in the Person class</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
-        <slides-code-editor [fontSize]="15" [code]="code.withDI.code"
-                         [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
+        <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"
+                            [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
         <h2>With Dependency Injection Person class just "requires" an instance of Profession in the constructor, and
           Angular takes care of instantiating it</h2>
       </div>
-    </div>
+    </slides-code-group>
   </slides-slide>
 
   <slides-slide id="comparison-2" milestone="DependencyInjection">
-    <h1>Comparison - Parameters</h1>
-    <div class="content-container">
+    <h1>Dependency Injection / Comparison / Parameters</h1>
+    <slides-code-group class="content-container">
       <div class="col-6">
-        <slides-code-editor [fontSize]="15" [code]="code.withOutDI.code2"
-                         [focus-highlight-match]="[code.withOutDI.matches.noDI]"></slides-code-editor>
+        <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code2"
+                            [focus-highlight-match]="[code.withOutDI.matches.noDI]"></slides-code-editor>
         <h2>Without Dependency Injection you have to figure out all the parameters yourself</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
-        <slides-code-editor [fontSize]="15" [code]="code.withDI.code"
-                         [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
+        <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"
+                            [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
         <h2>With Dependency Injection Angular takes care of it</h2>
       </div>
-    </div>
+    </slides-code-group>
   </slides-slide>
 
   <slides-slide id="comparison-3" milestone="DependencyInjection">
-    <h1>Comparison - Testing</h1>
-    <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies in a constructor parameters.</h2>
+    <h1>Dependency Injection / Comparison / Testing</h1>
+    <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies in a constructor
+      parameters.</h2>
   </slides-slide>
 
   <!--  Steps to create an Angular app -->
@@ -78,10 +79,11 @@
 
   <!--  IMPLEMENTATION STEP #1  -->
   <slides-slide id="make-injectable" milestone="DependencyInjection">
-    <h1>Dependency Injection: Step #1</h1>
-    <h2>Mark the class as Injectable. This lets Angular know that this class is part of Angular Dependency Injection system</h2>
-    <slides-code-editor [code]="code.classAsInjectable.code"
-                     [focus-highlight-match]="[code.classAsInjectable.matches.injectable]"></slides-code-editor>
+    <h1>Dependency Injection / Step #1</h1>
+    <h2>Mark the class as <b>@Injectable()</b>.
+      This lets Angular know that this class is part of Angular Dependency Injection system</h2>
+    <slides-code-editor path="unit-converter-service.ts" [code]="code.classAsInjectable.code"
+                        [focus-highlight-match]="[code.classAsInjectable.matches.injectable]"></slides-code-editor>
     <div class="info">
       If a service class is marked as injectable, it can require other services in it's constructor.
     </div>
@@ -89,20 +91,20 @@
 
   <!--  IMPLEMENTATION STEP #2  -->
   <slides-slide id="provide-injectable" milestone="DependencyInjection">
-    <h1>Dependency Injection:  Step #2</h1>
+    <h1>Dependency Injection / Step #2</h1>
     <h2>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
-    <slides-code-editor [code]="code.provideInjectable.code"
-                     [focus-highlight-match]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></slides-code-editor>
+    <slides-code-editor path="app.module.ts" [code]="code.provideInjectable.code"
+                        [focus-highlight-match]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></slides-code-editor>
     <div class="info">Now this service becomes available for every <b>Component</b> and other service in the Module.
     </div>
   </slides-slide>
 
   <!--  IMPLEMENTATION STEP #3  -->
   <slides-slide id="consume-injectable" milestone="DependencyInjection">
-    <h1>Dependency Injection: Step #3</h1>
+    <h1>Dependency Injection / Step #3</h1>
     <h2>Consume the Injectable in the component</h2>
-    <slides-code-editor [code]="code.consumeInjectable.code"
-                     [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></slides-code-editor>
+    <slides-code-editor path="unit-conversion.component.ts" [code]="code.consumeInjectable.code"
+                        [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></slides-code-editor>
     <div class="info">Because of the <b>private</b> access modifier the service becomes accessible across the class as
       <b>this.converter</b></div>
   </slides-slide>

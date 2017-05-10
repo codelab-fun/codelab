@@ -1,8 +1,9 @@
-import {Component, ContentChild, Input, OnInit} from '@angular/core';
+import {Component, ContentChild, Input, OnInit, Optional} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
 import {Subscription} from 'rxjs/Subscription';
+import {CodeGroupComponent} from '../code-group/code-group.component';
 
 @Component({
   selector: 'slides-code-editor',
@@ -21,12 +22,24 @@ export class CodeEditorComponent implements OnInit {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlight: any[] = [];
   @ContentChild('code') textarea;
-  file: FileConfig;
+  public file: FileConfig;
+  public active = false;
 
-  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService) {
-    this.onActiveUsubscribe = slide.onActive.filter(a => a).subscribe(() => {
-      slide.disableResize();
-      this.monacoConfig.createFileModels([this.file]);
+  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService, @Optional() group: CodeGroupComponent) {
+
+    if (group) {
+      group.register(this);
+    }
+    this.onActiveUsubscribe = slide.onActive.subscribe((active) => {
+      if (active) {
+        slide.disableResize();
+        if (!group) {
+          this.monacoConfig.createFileModels([this.file]);
+          this.active = true;
+        }
+      } else {
+        this.active = active;
+      }
     });
   }
 

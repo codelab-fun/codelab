@@ -91,7 +91,7 @@ describe('Component', () => {
     chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
   });
 
-  it(`Specify the type for the guests (hint: it's an array)`, () => {
+  it(`Specify the type for the guests (hint: it's an array of a type Guest)`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
 
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;

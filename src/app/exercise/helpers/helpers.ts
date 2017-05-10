@@ -4,7 +4,6 @@ import {FileConfig} from '../interfaces/file-config';
 function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
-
     export const value = {};
     function display( newValue ){
       value.value = newValue;
@@ -13,6 +12,18 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   };
 }
 
+export function withDeps(config: any, moduleName: string, depName: string) {
+  return {
+    ...config,
+    files: config.files.map((file) => {
+      if (file.moduleName === moduleName) {
+        file.deps = file.deps || [];
+        file.deps.push(depName);
+      }
+      return file;
+    })
+  };
+}
 
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
@@ -43,7 +54,7 @@ export function exercise(moduleName: string, template: string, solution: string)
     bootstrap: false,
     excludeFromTesting: false,
     type: 'typescript',
-    path: moduleName + '/' + moduleName + '.ts',
+    path: moduleName + '.ts',
     template,
     code: template,
     moduleName: moduleName,
@@ -53,7 +64,7 @@ export function exercise(moduleName: string, template: string, solution: string)
 }
 export function test(moduleName: string, template: string): FileConfig {
   return {
-    path: moduleName + '/' + moduleName + '/test.ts',
+    path: moduleName + 'Test.ts',
     type: 'typescript',
     template,
     code: template,
@@ -73,7 +84,7 @@ export function bootstrap(moduleName: string, template: string, solution: string
     bootstrap: true,
     excludeFromTesting: true,
     type: 'typescript',
-    path: moduleName + '/' + moduleName + '.ts',
+    path: moduleName + '.ts',
     template,
     code: template,
     moduleName: moduleName,
@@ -230,21 +241,21 @@ platform.bootstrapModule(AppModule, {
 export function pureJavascript(code, bootstrapCode, testCode) {
   return {
     files: [
-      exerciseWithDisplay('app.ts', code, code),
-      bootstrap('main.ts', bootstrapCode, bootstrapCode),
-      test('test.ts', testCode)
+      exerciseWithDisplay('app', code, code),
+      bootstrap('main', bootstrapCode, bootstrapCode),
+      test('test', testCode)
     ]
   };
 }
 
-export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "app.ts";', testCode = '', otherCode = '') {
+export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
   const files = [
-    exerciseWithConsoleLog('app.ts', code, code),
-    bootstrap('main.ts', bootstrapCode, bootstrapCode),
-    test('test.ts', testCode)
+    exerciseWithConsoleLog('app', code, code),
+    bootstrap('main', bootstrapCode, bootstrapCode),
+    test('test', testCode)
   ];
   if (otherCode !== '') {
-    files.push(exercise('puppy.ts', otherCode, otherCode));
+    files.push(exercise('puppy', otherCode, otherCode));
   }
   return {
     files

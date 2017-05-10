@@ -141,7 +141,7 @@ h1, h2, h3, li {
 }
 
 .slide [column-5] {
-  width: 40%;
+  width: 50%;
 }
 
 .slide [column-4] {
@@ -311,4 +311,9 @@ p {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
+}
+
+b {
+  font-weight: 300;
+  background-color: #ffe;
 }

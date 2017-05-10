@@ -1,4 +1,5 @@
 import {Component, HostListener, Inject} from '@angular/core';
+import {IndexPageRoute} from '../../demo/index/index.component';
 
 @Component({
   selector: 'slides-menu-shortcut',
@@ -6,11 +7,11 @@ import {Component, HostListener, Inject} from '@angular/core';
   styleUrls: ['./menu-shortcut.component.css']
 })
 export class MenuShortcutComponent {
-  routes: { name: string, description: string };
+  routes: IndexPageRoute[];
   open = false;
 
-  constructor(@Inject('ROUTES') routes) {
-    this.routes = routes.filter(route => route.name);
+  constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
+    this.routes = routes.filter(route => route.page === 'main').filter(route => route.name);
   }
 
   @HostListener('window:click')

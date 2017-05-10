@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { PresentationComponent } from '../presentation/presentation.component';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {PresentationComponent} from '../presentation/presentation.component';
+import {SlideComponent} from '../slide/slide.component';
 
 @Component({
   selector: 'slides-feedback-slide',
@@ -9,7 +10,8 @@ import { PresentationComponent } from '../presentation/presentation.component';
 
 export class FeedbackSlideComponent implements OnInit {
 
-  constructor(private presentation: PresentationComponent) { }
+  constructor(private presentation: PresentationComponent, private slide: SlideComponent) {
+  }
 
   ngOnInit() {
   }
@@ -20,7 +22,9 @@ export class FeedbackSlideComponent implements OnInit {
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    this.closeSlide();
+    if (this.slide.active) {
+      this.closeSlide();
+    }
   }
 
 }

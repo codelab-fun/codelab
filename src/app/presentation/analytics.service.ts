@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Event as RouterEvent, NavigationEnd, NavigationError, Router} from '@angular/router';
 
-declare const ga;
+export declare const ga;
 @Injectable()
 export class AnalyticsService {
 

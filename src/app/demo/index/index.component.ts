@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
 
-interface IndexPageRoute {
+export interface IndexPageRoute {
   name: string;
   description: string;
   page?: string;

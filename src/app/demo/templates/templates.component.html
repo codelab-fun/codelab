@@ -22,7 +22,7 @@
 
   <!--  COMPONENT -->
   <slides-slide id="component" milestone="Templates">
-    <h1>Angular Templates</h1>
+    <h1>Templates</h1>
     <h2>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
       elements</h2>
     <slides-playground [config]="code.template.intro"></slides-playground>
@@ -30,7 +30,7 @@
 
   <!--  INTERPOLATION-->
   <slides-slide id="interpolation" milestone="Templates">
-    <h1>Angular Templates - Interpolation</h1>
+    <h1>Templates - Interpolation</h1>
     <h2>Double curlies allow you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
@@ -42,7 +42,7 @@
 
   <!--INTERPOLATION-METHOD-->
   <slides-slide id="interpolation-method" milestone="Templates">
-    <h1>Angular Templates - Interpolation</h1>
+    <h1>Templates - Interpolation</h1>
     <h2>Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
     </h2>
     <slides-playground [config]="code.template.interpolationMethod"
@@ -71,7 +71,7 @@
 
   <!--  PRE DATA BINDING-->
   <slides-slide id="data-binding-pre" milestone="Templates2">
-    <h1>Angular Templates - Interpolation in properties</h1>
+    <h1>Templates / Interpolation / Properties</h1>
     <p>When giving a value to the element's attribute, you can use String Interpolation <b>{{ curlies }}</b></p>
     <slides-playground [config]="code.template.dataBindingPre"
                        [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
@@ -79,7 +79,7 @@
 
   <!--  DATA BINDING  -->
   <slides-slide id="data-binding" milestone="Templates2">
-    <h1>Angular Templates - Property Binding</h1>
+    <h1>Templates - Property Binding</h1>
     <h2>An other option is to use property binding <b>[attribute] = property</b></h2>
     <slides-playground [config]="code.template.dataBinding"
                        [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
@@ -90,7 +90,7 @@
 
   <!--  DATA BINDING EXTRAS-->
   <slides-slide id="data-binding-extras" milestone="Templates2">
-    <h1>Angular Templates - Data binding extras</h1>
+    <h1>Templates / Data binding extras</h1>
     <h2>Angular supports more advanced bindings than just attribute name</h2>
     <slides-code-editor
       [code]="code.template.dataBindingExtra"
