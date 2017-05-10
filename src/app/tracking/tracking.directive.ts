@@ -36,6 +36,7 @@ export class TrackingDirective {
         totalSlides: this.presentation.totalSlides,
         milestone: this.router.url.split('\/')[1]
       });
+      console.log('https://console.firebase.google.com/project/ng2-codelab/database/data/user_progress/' + this.auth.uid);
     }
     // TODO: use observables to preserve all data
   }

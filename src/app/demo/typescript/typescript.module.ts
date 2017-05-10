@@ -14,7 +14,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule, TrackingModule],
   declarations: [TypescriptComponent],
   exports: [TypescriptComponent]
 })
