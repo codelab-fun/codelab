@@ -281,6 +281,15 @@ p {
   cursor: pointer;
 }
 
+.github-icon {
+  background: white;
+}
+
+.github-icon img {
+  width:100%;
+  height:100%;
+}
+
 .exercise {
   font-size: 30px;
   padding: 10px;
