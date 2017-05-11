@@ -24,7 +24,7 @@
       <div *ngIf="solved">
         <!--TODO: Find a nicer workflow-->
         <div style="color: green">
-          <h2>Nice! Go to the next slide</h2>
+          <h2>Nice! <a class="next-button" (click)="tryGoToNextSlide()">Go to the next slide</a></h2>
         </div>
       </div>
       <slides-tests [tests]="config.tests" [files]="config.files"

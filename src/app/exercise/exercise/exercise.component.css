@@ -74,3 +74,9 @@ slides-runner {
   margin-top: 10px;
   align-self: flex-end;
 }
+
+.next-button {
+  text-decoration: underline;
+  color: green;
+  cursor: pointer;
+}
