@@ -11,7 +11,11 @@ import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 import {TrackingModule} from '../../tracking/tracking.module';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(ComponentTreeComponent)
+  [{
+    path: '',
+    redirectTo: '/component-tree/intro',
+    pathMatch: 'full'
+  }, ...SlidesRoutes.get(ComponentTreeComponent)]
 );
 
 @NgModule({
