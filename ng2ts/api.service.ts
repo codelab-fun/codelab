@@ -128,7 +128,7 @@ const FAKE_VIDEOS = [
     date: '2016-09-23'
   },
   {
-    title: 'Thunder Scared Of Lightening',
+    title: 'Thunder Scared Of Lightning',
     src: '/assets/images/cat-15.jpg',
     description: 'Thunder scared to meet the new member of our family.',
     views: 132,
