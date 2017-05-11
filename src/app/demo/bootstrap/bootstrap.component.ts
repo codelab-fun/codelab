@@ -65,7 +65,7 @@ import { AppModule } from './app.module';
 platformBrowserDynamic().bootstrapModule(AppModule);`,
         indexHTML: `<body>
   <hello-world>
-    Loading...
+    <!-- App Content -->
   </hello-world>
 </body>`
       },
