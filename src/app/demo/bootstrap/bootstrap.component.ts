@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
+import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 
 @Component({
-  selector: 'app-bootstrap',
+  selector: 'slides-bootstrap',
   templateUrl: './bootstrap.component.html',
   styleUrls: ['./bootstrap.component.css']
 })
 export class BootstrapComponent {
 
   code = {
+    decorators: {
+      code: `// @Component is a decorator
+@Component({
+  metadata
+})
+export class AppComponent {
+  // Decorator goes directly above the decorated entity (class in this case)
+  // Component name is the class name (AppComponent).
+}`
+    },
     componentAnatomy: {   // Component Anatomy - Milestone #1
       code: `import { Component } from '@angular/core';
 @Component({

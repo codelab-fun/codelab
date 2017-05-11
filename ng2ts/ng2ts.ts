@@ -1,7 +1,8 @@
 // tslint:disable:max-line-length TODO: Clean up this file and remove this comment.
 //  TODO: This should be done using require.context
-import {DiffFilesResolver} from '../src/app/differ/diffFilesResolver';
-import {Injectable} from '@angular/core';
+import { DiffFilesResolver } from '../src/app/differ/diffFilesResolver';
+import { Injectable } from '@angular/core';
+import { withDeps } from '../src/app/exercise/helpers/helpers';
 declare const require;
 
 const preloadedFiles = {
@@ -12,7 +13,9 @@ const preloadedFiles = {
   'video/video-item.ts': require('!raw-loader!./video/video-item.ts'),
   'api.service.ts': require('!raw-loader!./api.service.ts'),
   'video/video.service.ts': require('!raw-loader!./video/video.service.ts'),
-  'video/video.html': require('!raw-loader!./video/video.html'),
+  'video/video.component.html': require('!raw-loader!./video/video.component.html'),
+  'video/video.index.html': require('!raw-loader!./video/video.index.html'),
+  'video/video-wrapper.component.ts': require('!raw-loader!./video/video-wrapper.component.ts'),
   'video/video.component.ts': require('!raw-loader!./video/video.component.ts'),
   'thumbs/thumbs.component.ts': require('!raw-loader!./thumbs/thumbs.component.ts'),
   'thumbs/thumbs.html': require('!raw-loader!./thumbs/thumbs.html'),
@@ -44,10 +47,11 @@ const preloadedFiles = {
   'tests/fuzzyPipeCreateTest.ts': require('!raw-loader!./tests/fuzzyPipeCreateTest.ts'),
   'tests/fuzzyPipeUseTest.ts': require('!raw-loader!./tests/fuzzyPipeUseTest.ts'),
   'thumbs.app.module.ts': require('!raw-loader!./thumbs.app.module.ts'),
+  'video.app.module.ts': require('!raw-loader!./video.app.module.ts'),
   'toggle-panel.app.module.ts': require('!raw-loader!./toggle-panel.app.module.ts'),
-  'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
+  'index.html': '<my-app></my-app>'
+  // 'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
 };
-
 
 const files = {
   appComponent: 'app.component.ts',
@@ -57,8 +61,10 @@ const files = {
   video_videoItem: 'video/video-item.ts',
   apiService: 'api.service.ts',
   video_videoService: 'video/video.service.ts',
-  video_video_html: 'video/video.html',
+  video_video_component_html: 'video/video.component.html',
   video_video_component: 'video/video.component.ts',
+  video_video_wrapper_component: 'video/video-wrapper.component.ts',
+  video_video_index_html: 'video/video.index.html',
   thumbs_thumbs_component: 'thumbs/thumbs.component.ts',
   thumbs_thumbs_html: 'thumbs/thumbs.html',
   toggle_panel_toggle_panel_html: 'toggle-panel/toggle-panel.html',
@@ -77,7 +83,11 @@ const files = {
 
 
 const fileOverrides = {
+  'index.html': {
+    videoComponentCreate: 'video/video.index.html'
+  },
   'app.module.ts': {
+    videoComponentCreate: 'video.app.module.ts',
     thumbsComponentCreate: 'thumbs.app.module.ts',
     togglePanelComponentCreate: 'toggle-panel.app.module.ts'
   },
@@ -173,7 +183,6 @@ export interface MilestoneConfigTemplate {
   exercises: Array<ExerciseConfigTemplate | SlideTemplate>;
 }
 
-
 export const ng2tsConfig: CodelabConfigTemplate = {
   name: 'Angular 101 Codelab (beta)',
   id: 'ng2ts',
@@ -195,7 +204,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <a href = "https://docs.google.com/presentation/d/1Wh4ZwTKG1h66f3mTD4GQO8rKwGDEJeBSvUDJ3udU1LA/edit?usp=sharing">this link</a>.</p>                 
         `
         },
-        {
+        withDeps({
           name: 'TypeScript',
           runner: 'TypeScript',
           description: `
@@ -217,12 +226,11 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               files.typescript_intro_Main_ts
             ]
           }),
-        }
+        }, 'typescript-intro/Codelab', 'typescript-intro/Guest')
       ]
     },
     {
       name: 'Bootstrapping your app',
-
       exercises: [
         {
           name: 'Intro',
@@ -249,12 +257,12 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           description: `<p>Create first Angular component!</p>`,
           files: diffFilesResolver.resolve('createComponent', {
             exercise: [files.appComponent],
-            reference: [files.appModule, files.main],
+            reference: [files.appModule, files.main, files.indexHtml],
             bootstrap: [files.main],
             test: [files.test],
           })
         },
-        {
+        withDeps({
           name: 'Create a NgModule',
           description: 'Now we got the component, we need to pass it to a NgModule.',
           files: diffFilesResolver.resolve('createModule', {
@@ -264,7 +272,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             test: [files.test],
             bootstrap: [files.main]
           })
-        },
+        }, 'app.module', 'app.component'),
         {
           name: 'Bootstrap the module',
           skipTests: true,
@@ -302,7 +310,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
                   <h2>Kitten on the tree</h2>
                   <img src="/assets/images/cat-1.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img src="/assets/images/cat-2.jpg">
                 </div>
               </div></my-app>
@@ -315,21 +323,21 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           description: 'Setup a header, a search box, and a search button in the app component!',
           files: diffFilesResolver.resolve('templatePageSetup', {
             exercise: [files.appHtml],
-            reference: [files.appComponent, files.appModule, files.main],
+            reference: [files.appComponent, files.appModule, files.main, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
         }, {
           name: 'Add some action',
           description: `
-              <ul>
-                 <li>Add a search method to the AppComponent</li>
-                 <li>Display a message when there are no videos.</li>
-               </ul>
-            `,
+                        <ul>
+                          <li>Add a search method to the AppComponent</li>
+                          <li>Display a message when there are no videos.</li>
+                         </ul>
+                       `,
           files: diffFilesResolver.resolve('templateAddAction', {
             exercise: [files.appComponent, files.appHtml],
-            reference: [files.appModule, files.main, files.video_videoItem],
+            reference: [files.appModule, files.main, files.video_videoItem, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main],
           })
@@ -339,7 +347,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           description: `Finally  iterate over the videos.`,
           files: diffFilesResolver.resolve('templateAllVideos', {
             exercise: [files.appComponent, files.appHtml],
-            reference: [files.appModule, files.main, files.video_videoItem],
+            reference: [files.appModule, files.main, files.video_videoItem, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -374,29 +382,29 @@ export const ng2tsConfig: CodelabConfigTemplate = {
                   <h2>Another kitten</h2>
                   <img src="/assets/images/cat-3.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img src="/assets/images/cat-4.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img  src="/assets/images/cat-5.jpg">
                 </div><div>
-                  <h2>Serouis cat</h2>
+                  <h2>Serious cat</h2>
                   <img  src="/assets/images/cat-6.jpg">
                 </div>
               </div></my-app>
             </div>
           </div>
         `,
-      }, {
+      }, withDeps(withDeps({
         name: 'Service injection',
         description: 'Fetch the videos using a service, instead of having them hardcoded.',
         files: diffFilesResolver.resolve('diInjectService', {
           exercise: [files.video_videoService, files.appModule, files.appComponent],
-          reference: [files.appHtml, files.apiService, files.video_videoItem, files.main],
+          reference: [files.appHtml, files.apiService, files.video_videoItem, files.main, files.indexHtml],
           test: [files.test],
           bootstrap: [files.main]
         })
-      }]
+      }, 'video/video.service', 'api.service'), 'app.module', 'app.component')]
     }
     ,
     {
@@ -424,34 +432,34 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             </div>
         `,
         },
-        {
+        withDeps({
           name: 'Create VideoComponent',
           description: 'Create a video component.',
           files: diffFilesResolver.resolve('videoComponentCreate', {
-            exercise: [files.video_video_component, files.video_video_html],
+            exercise: [files.video_video_component, files.video_video_component_html],
             reference: [
               files.appModule,
+              files.video_video_wrapper_component,
               files.video_videoService, files.appHtml,
               files.appComponent, files.video_videoItem,
-              files.apiService, files.main
+              files.apiService, files.main, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
           })
-        },
-        {
+        }, 'video/video.component', 'video/video-item'),
+        withDeps(withDeps(withDeps({
           name: 'Use VideoComponent',
           description: 'Use the VideoComponent in the app.',
           files: diffFilesResolver.resolve('videoComponentUse', {
             exercise: [files.appModule, files.appHtml],
             reference: [
-              files.video_video_html,
-              files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
+              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
           })
-        }]
+        }, 'app.module', 'app.component'), 'app.module', 'video/video.service'), 'app.module', 'video/video.component')]
     }
     ,
     {
@@ -494,9 +502,9 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           name: 'Use ThumbsComponent',
           description: `Use the 'ThumbsComponent' in the app.`,
           files: diffFilesResolver.resolve('thumbsComponentUse', {
-            exercise: [files.video_video_component, files.video_video_html, files.appModule],
+            exercise: [files.video_video_component, files.video_video_component_html, files.appModule],
             reference: [
-              files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main
+              files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -624,7 +632,7 @@ Up< / button > <button>Thumbs Down</button>
           name: 'Use TogglePanelComponent',
           description: `Now use the component. `,
           files: diffFilesResolver.resolve('togglePanelComponentUse', {
-            exercise: [files.video_video_html, files.appModule],
+            exercise: [files.video_video_component_html, files.appModule],
             reference: [
               files.video_video_component,
               files.toggle_panel_toggle_panel,
@@ -636,7 +644,8 @@ Up< / button > <button>Thumbs Down</button>
               files.video_videoService,
               files.video_videoItem,
               files.apiService,
-              files.main
+              files.main,
+              files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -786,9 +795,8 @@ Up< / button > <button>Thumbs Down</button>
      files: diffFilesResolver.resolve('bootstrap', {
      exercise: [files.contextComponent, files.context_context_html],
      reference: [
-
      files.contextService,
-     files.video_video_html,
+     files.video_video_component_html,
      files.appModule,
      files.video_video_component,
      files.toggle_panel_toggle_panel,
@@ -800,7 +808,8 @@ Up< / button > <button>Thumbs Down</button>
      files.video_videoService,
      files.video_videoItem,
      files.apiService,
-     files.main
+     files.main,
+     files.indexHtml
      ],
      test: [files.test],
      bootstrap: [files.main]
@@ -823,22 +832,23 @@ Up< / button > <button>Thumbs Down</button>
         name: 'Use the pipe',
         description: 'Now include the app in the module and use in the app.',
         files: diffFilesResolver.resolve('fuzzyPipeUse', {
-          exercise: [files.appModule, files.video_video_html],
+          exercise: [files.appModule, files.video_video_component_html],
           reference: [files.fuzzyPipe_fuzzyPipe,
-            files.contextService,
-            files.contextComponent,
-            files.context_context_html,
-            files.video_video_component,
-            files.toggle_panel_toggle_panel,
-            files.toggle_panel_toggle_panel_html,
-            files.thumbs_thumbs_component,
-            files.thumbs_thumbs_html,
-            files.appHtml,
-            files.appComponent,
-            files.video_videoService,
-            files.video_videoItem,
-            files.apiService,
-            files.main
+          files.contextService,
+          files.contextComponent,
+          files.context_context_html,
+          files.video_video_component,
+          files.toggle_panel_toggle_panel,
+          files.toggle_panel_toggle_panel_html,
+          files.thumbs_thumbs_component,
+          files.thumbs_thumbs_html,
+          files.appHtml,
+          files.appComponent,
+          files.video_videoService,
+          files.video_videoItem,
+          files.apiService,
+          files.main,
+          files.indexHtml
           ],
           test: [files.test],
           bootstrap: [files.main]

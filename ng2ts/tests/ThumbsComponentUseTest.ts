@@ -1,10 +1,10 @@
-import {TestBed} from '@angular/core/testing';
+import { Api } from '../api.service';
+import { AppModule } from '../app.module';
+import { TestBed } from '@angular/core/testing';
+import { thumbs_thumbs_html, video_video_component_html } from '../code';
+import { ThumbsComponent } from '../thumbs/thumbs.component';
+import { VideoComponent } from '../video/video.component';
 import 'initTestBed';
-import {thumbs_thumbs_html, video_video_html} from '../code';
-import {AppModule} from '../app.module';
-import {Api} from '../api.service';
-import {ThumbsComponent} from '../thumbs/thumbs.component';
-import {VideoComponent} from '../video/video.component';
 
 beforeEach(() => {
   TestBed.resetTestingModule();
@@ -15,7 +15,7 @@ beforeEach(() => {
 
   TestBed.overrideComponent(VideoComponent, {
     set: {
-      template: video_video_html
+      template: video_video_component_html
     }
   });
   TestBed.overrideComponent(ThumbsComponent, {
@@ -27,7 +27,7 @@ beforeEach(() => {
 });
 
 describe('Component tree', () => {
-  it(`AppModule: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
+  it(`app.module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
@@ -38,8 +38,8 @@ describe('Component tree', () => {
     chai.expect(metadata[0].declarations, `Keep the app component`).contains(VideoComponent);
   });
 
-  it(`video.html: Use the thumbs component in the template`, () => {
-    let fixture = TestBed.createComponent(VideoComponent);
+  it(`video.component.html: Use the thumbs component in the template`, () => {
+    const fixture = TestBed.createComponent(VideoComponent);
     fixture.componentInstance.video = Api.fetch('')[0];
     fixture.detectChanges();
     chai.expect(fixture.nativeElement.querySelector('.thumbs-up')).is.ok;
@@ -47,7 +47,7 @@ describe('Component tree', () => {
   });
 
   it(`VideoComponent: Listen to the thumbs component onThumbs event, and update the amount of likes accordingly`, () => {
-    let fixture = TestBed.createComponent(VideoComponent);
+    const fixture = TestBed.createComponent(VideoComponent);
     fixture.componentInstance.video = Api.fetch('')[0];
     fixture.detectChanges();
     const likes = fixture.componentInstance.video.likes;

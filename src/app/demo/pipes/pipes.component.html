@@ -1,0 +1,171 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <slides-mode-overview></slides-mode-overview>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" no-padding milestone="Pipes">
+    <slides-title-slide
+      title="Pipes"
+      description="Learn how pipes transforms input values to output values for display in a view."
+      prereqs="Interpolation expressions"
+    ></slides-title-slide>
+  </slides-slide>
+
+  <!-- WHAT ARE PIPES  -->
+  <slides-slide id="pipes-description" milestone="Pipes">
+    <h1 i18n>Introduction</h1>
+    <div class="centered-vertically" i18n>
+      <h2>
+        Every application starts out with what seems like a simple task: get data, transform them, and show them to
+        users. Getting data could be as simple as creating a local variable or as complex as streaming data
+        over a WebSocket.<br><br>
+        An Angular pipe is a <b>function</b> that transforms input values to output values for display in a view.
+        Let's see how it works.
+      </h2>
+    </div>
+  </slides-slide>
+
+  <!--  HOW DO PIPES WORK -->
+  <slides-slide id="how-pipes-work" milestone="Pipes">
+    <h1 i18n>How do pipes work?</h1>
+    <h2>
+      A pipe takes in data as input and transforms it to a desired output.</h2>
+    <h3>
+      Inside the interpolation expression, we flow the component's dob value through the pipe operator
+      <b>( &#124; )</b> to the Date pipe function on the right. Finally we get a more human friendly output.
+      All pipes work this way.
+      <slides-playground [config]="code.workingPipes.template"
+                      [focus-highlight-match]="[code.workingPipes.matches.pipeOperator]"></slides-playground>
+    </h3>
+  </slides-slide>
+
+  <!--  BUILT-IN PIPES -->
+  <slides-slide id="built-in-pipes" milestone="Pipes">
+    <h1 i18n>Built-in Pipes</h1>
+    <div class="centered-vertically" i18n>
+      <h2>
+        Angular comes with a stock of pipes which are available for use in any template or binding expression.
+        Some of these pipes are:
+      </h2>
+      <ul>
+        <li>DatePipe</li>
+        <li>UpperCasePipe</li>
+        <li>LowerCasePipe</li>
+        <li>CurrencyPipe</li>
+        <li>PercentPie</li>
+      </ul>
+      <h2>Find more built-in pipes by following the link.
+        <a href="https://angular.io/docs/ts/latest/api/#!?query=pipe">more pipes</a>
+      </h2>
+    </div>
+  </slides-slide>
+
+  <!--  CHAINED PIPES -->
+  <slides-slide id="chained-pipes" milestone="Pipes">
+    <h1>Chained Pipes</h1>
+    <h2>Display Dali's birthday in a human friendly view and in uppercase.</h2>
+    <slides-playground [config]="code.chainedPipesExample.template"></slides-playground>
+    <div class="info" milestone="Pipes">
+       Hint: dob ... date ... uppercase
+    </div>
+  </slides-slide>
+
+  <!--  PIPES WITH ARGUMENT -->
+  <slides-slide id="argument-pipes" milestone="Pipes">
+    <h1>Pipes with arguments:</h1>
+    <slides-code-editor
+      [code]="code.argumentPipes.template"
+      type="html">
+    </slides-code-editor>
+    <div class="info" milestone="Pipes">
+      To add parameters to a pipe, follow the pipe name with a colon ( : ) and then the parameter value
+      such as - currency:'AUD'
+    </div>
+  </slides-slide>
+
+  <!--  PIPES AS FILTERS  -->
+  <slides-slide id="pipes-as-filters" milestone="Pipes">
+    <h1>Pipes as filters</h1>
+    <slides-code-editor
+      [code]="code.filterPipes.template"
+      type="html">
+    </slides-code-editor>
+  </slides-slide>
+
+  <!--  CREATING A PIPE  -->
+  <slides-slide id="crating-pipe" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <slides-code-editor
+      [fontSize]="25"
+      [code]="code.creatingAPipe.template"
+      [focus-highlight-match]="code.creatingAPipe.matches.exportClass">
+    </slides-code-editor>
+    <h2>A pipe is a class decorated with pipe metadata.</h2>
+  </slides-slide>
+
+  <!--  PIPE TRANSFORM  -->
+  <slides-slide id="pipeTransform" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <slides-code-editor
+      [fontSize]="25"
+      [code]="code.creatingAPipe.template"
+      [focus-highlight-match]="code.creatingAPipe.matches.pipeTransform">
+    </slides-code-editor>
+    <h2>
+      The pipe class implements the PipeTransform interface.
+    </h2>
+  </slides-slide>
+
+  <!--  PIPE TRANSFORM METHOD  -->
+  <slides-slide id="pipe-transform-method" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <slides-code-editor
+      [fontSize]="25"
+      [code]="code.creatingAPipe.template"
+      [focus-highlight-match]="code.creatingAPipe.matches.method">
+    </slides-code-editor>
+    <h2>
+      The transform method  accepts an input value followed by optional parameters and returns the transformed value.
+    </h2>
+  </slides-slide>
+
+  <!--  PIPE DECORATOR  -->
+  <slides-slide id="pipe-decorator" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <slides-code-editor
+      [fontSize]="25"
+      [code]="code.creatingAPipe.template"
+      [focus-highlight-match]="code.creatingAPipe.matches.decorator">
+    </slides-code-editor>
+    <h2>
+      The @Pipe decorator allows you to define the pipe name that you'll use within template expressions.
+    </h2>
+    <div class="info" milestone="Pipes">
+      @Pipe decorator is imported from the core Angular library.
+    </div>
+  </slides-slide>
+
+  <!--  END -->
+  <slides-slide  id="end">
+    <slides-closing-slide>
+      <div class="header" header><h1>End of the Pipes Section</h1></div>
+      <div class="body" body>
+        <h2>Please leave your thoughts using the feedback button below!</h2>
+      </div>
+      <div class="footer" footer>
+        <h2>
+          <a routerLink="/templates/0">Go to the next Milestone</a>
+        </h2>
+      </div>
+    </slides-closing-slide>
+  </slides-slide>
+
+</slides-presentation>

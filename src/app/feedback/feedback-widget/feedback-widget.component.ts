@@ -5,7 +5,7 @@ import { Message } from '../message';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-feedback-widget',
+  selector: 'slides-feedback-widget',
   templateUrl: './feedback-widget.component.html',
   styleUrls: ['./feedback-widget.component.css']
 })
@@ -26,9 +26,15 @@ export class FeedbackWidgetComponent implements OnInit {
   @HostListener('window:mousedown')
   handleDialogClose() {
     // TODO: Move out to a directive
-    const belongsToPopup = event['path'].some(item =>
-      item.className && item.className.includes('feedback-container')
-    );
+    function findMatchingDOMAncestor(element) {
+      while (element.parentNode) {
+        if (element.className && element.className.indexOf('feedback-container') >= 0) {
+          return true;
+        }
+        element = element.parentNode;
+      }
+    }
+    const belongsToPopup = event.srcElement && findMatchingDOMAncestor(event.srcElement);
     if (!belongsToPopup) {
       this.open = false;
     }

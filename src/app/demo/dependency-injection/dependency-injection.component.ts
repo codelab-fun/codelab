@@ -3,7 +3,7 @@ import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 
 
 @Component({
-  selector: 'app-dependency-injection',
+  selector: 'slides-dependency-injection',
   templateUrl: './dependency-injection.component.html',
   styleUrls: ['./dependency-injection.component.css']
 })
@@ -20,8 +20,8 @@ export class DependencyInjectionComponent {
   }
 
 }`,
-        code2: `import {ProfessionsEnum} from professions;
-        
+        code2: `import {ProfessionsEnum} from './professions';
+
 export class Person {
   profession: Job;
 
@@ -41,7 +41,7 @@ export class Person {
 
     withDI: {
       code: `export class Person {
-  /** 
+  /**
    * Typescript shorthand makes 'profession'
    * available to component instance.
    */
@@ -52,6 +52,22 @@ export class Person {
       },
       readonly: true,
       path: 'personDI.ts',
+      type: 'typescript'
+    },
+    withDITesting: {
+      code: `const mockProfession = new Job('lawyer');
+  
+  it('should create a Person with the right profession', () => {
+    const person = new Person(mockProfession);
+    // assuming Job has property '.title'
+    expect(person.profession.title).toEqual('lawyer');
+  });
+}`,
+      matches: {
+        constructor: /constructor.*/
+      },
+      readonly: true,
+      path: 'personDI.spec.ts',
       type: 'typescript'
     },
 
@@ -76,7 +92,7 @@ import { UnitConversionComponent } from './unit-conversion.component';
 
 @NgModule({
   declarations: [ UnitConversionComponent ],
-  providers: [ UnitConverterService ],
+  providers: [ UnitConverterService ]
 })
 export class AppModule {}`,
       matches: {

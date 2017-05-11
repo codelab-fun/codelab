@@ -1,15 +1,21 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
+import {AnalyticsService} from '../analytics.service';
+declare const ga;
 
 @Component({
-  selector: 'app-presentation',
+  selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent {
+export class PresentationComponent implements OnInit {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
+  public config = {
+    resize: false,
+    hideControls: false
+  };
 
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
@@ -20,18 +26,15 @@ export class PresentationComponent {
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
-  areShortcutsEnabled = true;
-  disableArrowsForCode = true;
+
   // Expose enum to template
   modeEnum = Mode;
 
-  constructor(private route: ActivatedRoute) {
-    if (!!this.route.snapshot.queryParams['mode']) {
-      this.mode = this.route.snapshot.queryParams['mode'];
-    }
+  constructor(private route: ActivatedRoute, analytics: AnalyticsService) {
+    this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
     this.milestone = this.route.snapshot.queryParams['milestone'];
-    this.areShortcutsEnabled = !(this.route.snapshot.queryParams['shortcuts'] === 'false');
-    this.disableArrowsForCode = !(this.route.snapshot.queryParams['disableArrowsForCode'] === 'false');
+    this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
+    this.config.resize = this.route.snapshot.queryParams['resize'] || this.config.resize;
   }
 
   get mode(): Mode {
@@ -47,6 +50,11 @@ export class PresentationComponent {
     return this.generatedSlideIndex;
   }
 
+  ngOnInit(): void {
+    this.trackProgress();
+  }
+
+
   registerSlide(id: string, milestone: string) {
     if (this.milestone && milestone !== this.milestone) {
       return;
@@ -56,17 +64,47 @@ export class PresentationComponent {
     return index;
   }
 
-  nextSlide(isTriggeredByShortcut: boolean = false) {
-    if (this.canGoNext() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
-      this.activeSlideIndex++;
-      this.onSlideChange.next(this.activeSlideIndex);
+  // TODO: Move out to a separate module;
+  trackProgress() {
+    const path = this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
+
+    if (this.activeSlideIndex === 0) {
+      const key = `been-here-mileston-start-${path}`;
+      const beenHere = localStorage.getItem(key);
+      const time = Math.floor(Date.now() / 1000);
+      if (!beenHere) {
+        localStorage.setItem(key, time.toString());
+        ga('send', 'event', 'milestone', path, 'start');
+      }
+    }
+
+    if (this.generatedSlideIndex > 0 && this.activeSlideIndex === this.generatedSlideIndex - 1) {
+      const key = `been-here-mileston-end-${path}`;
+      const beenHere = localStorage.getItem(key);
+
+      if (!beenHere) {
+        const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10);
+        const time = Math.floor(Date.now() / 1000) - startTime;
+        localStorage.setItem(key, 'yes');
+        ga('send', 'event', 'milestone', path, 'end');
+        ga('send', 'timing', 'milestone', 'complete', time);
+      }
     }
   }
 
-  previousSlide(isTriggeredByShortcut: boolean = false) {
-    if (this.canGoPrevious() && (this.areShortcutsEnabled || !isTriggeredByShortcut)) {
+  nextSlide() {
+    if (this.canGoNext()) {
+      this.activeSlideIndex++;
+      this.onSlideChange.next(this.activeSlideIndex);
+      this.trackProgress();
+    }
+  }
+
+  previousSlide() {
+    if (this.canGoPrevious()) {
       this.activeSlideIndex--;
       this.onSlideChange.next(this.activeSlideIndex);
+      this.trackProgress();
     }
   }
 

@@ -12,20 +12,20 @@
     <form [formGroup]="formGroup" novalidate (submit)="submit()">
       <div>
         <input type="text" placeholder="Enter your name"
-          formControlName="name" />
+               formControlName="name"/>
       </div>
       <div class="email">
         <input type="email" placeholder="Enter your email (optional)"
-          formControlName="email" />
+               formControlName="email"/>
         <label>Email is optional and, will not displayed</label>
       </div>
       <div>
         <textarea placeholder="Describe your issue or share your ideas"
-          formControlName="comment" (keydown.control.enter)="submit()"></textarea>
+                  formControlName="comment" (keydown.control.enter)="submit()"></textarea>
       </div>
       <div>
         <button [disabled]="formGroup.invalid" [style.opacity]="formGroup.invalid ? 0.5 : 1"
-          type="submit">Send
+                type="button" (click)="submit()">Send
         </button>
       </div>
       <div [class.error]="error">

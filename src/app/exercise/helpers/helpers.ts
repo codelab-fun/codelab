@@ -4,30 +4,45 @@ import {FileConfig} from '../interfaces/file-config';
 function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
-  
     export const value = {};
     function display( newValue ){
-      value.value = newValue; 
-    }    
+      value.value = newValue;
+    }
   `
+  };
+}
+
+export function withDeps(config: any, moduleName: string, depName: string) {
+  return {
+    ...config,
+    files: config.files.map((file) => {
+      if (file.moduleName === moduleName) {
+        file.deps = file.deps || [];
+        file.deps.push(depName);
+      }
+      return file;
+    })
   };
 }
 
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
-  
+
+    export const value = {};
+
     function wrap(context, prop, callback){
       const originalMethod = context[prop];
-       
+
        context[prop] = function(...args){
         callback(...args);
-        return originalMethod.apply(context, args); 
+        return originalMethod.apply(context, args);
        }
     }
-    
-    wrap(console, 'log', (value)=>{
-      document.write('<h3>&gt; ' + value + '<h3><hr>')
+
+    wrap(console, 'log', (v)=>{
+      value.value = v;
+      document.write('<h3>&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `
   };
@@ -39,7 +54,7 @@ export function exercise(moduleName: string, template: string, solution: string)
     bootstrap: false,
     excludeFromTesting: false,
     type: 'typescript',
-    path: moduleName + '/' + moduleName + '.ts',
+    path: moduleName + '.ts',
     template,
     code: template,
     moduleName: moduleName,
@@ -49,7 +64,7 @@ export function exercise(moduleName: string, template: string, solution: string)
 }
 export function test(moduleName: string, template: string): FileConfig {
   return {
-    path: moduleName + '/' + moduleName + '/test.ts',
+    path: moduleName + 'Test.ts',
     type: 'typescript',
     template,
     code: template,
@@ -69,12 +84,100 @@ export function bootstrap(moduleName: string, template: string, solution: string
     bootstrap: true,
     excludeFromTesting: true,
     type: 'typescript',
-    path: moduleName + '/' + moduleName + '.ts',
+    path: moduleName + '.ts',
     template,
     code: template,
     moduleName: moduleName,
     solution
   };
+}
+
+
+export function circleAndBox() {
+  const result = boxAndCircle();
+  const temp = result.files[0];
+  result.files[0] = result.files[1];
+  result.files[1] = temp;
+  return result;
+}
+// That's me being plain lazy, we need
+export function boxAndCircle() {
+  const moduleCode = `import {BrowserModule} from \'@angular/platform-browser\';
+  import {NgModule} from '@angular/core';
+  import {BoxComponent} from './box.component';
+  import {CircleComponent} from './circle.component';
+
+  @NgModule({
+    imports: [BrowserModule],
+    declarations: [CircleComponent, BoxComponent],
+    bootstrap: [BoxComponent]
+  })
+  export class AppModule {}`;
+  const circleCode = `import { Component, Input } from '@angular/core';
+
+  @Component({
+    selector: 'slides-circle',
+    template: '<div class="circle" [style.width]="size" [style.height]="size" [style.background]="color"></div>'
+  })
+  export class CircleComponent {
+    @Input() size: number;
+    @Input() color: string;
+  }`;
+
+  const boxCode = `import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'my-app',
+    template: \`<div><slides-circle
+      [size]="5"
+      [color]="circleColor"></slides-circle></div>\`
+  })
+  export class BoxComponent {
+    circleColor="green"
+  }`;
+
+  const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {AppModule} from './app.module';
+platformBrowserDynamic().bootstrapModule(AppModule)
+`;
+
+  return {
+    other: {
+      boxNoParams: `import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'slides-box',
+    template: \`<div><slides-circle></slides-circle></div>\`
+  })
+  export class BoxComponent {
+    circleColor="green"
+  }`
+    },
+    files: [
+      exercise('box.component', boxCode, boxCode),
+      exercise('circle.component', circleCode, circleCode),
+      exercise('app.module', moduleCode, moduleCode),
+      bootstrap('main', bootstrapCode, bootstrapCode),
+      {
+        type: 'css',
+        path: 'styles.css',
+        code: `
+         my-app > div {
+           width: 300px;
+           height: 200px;
+           border: 1px #ddd solid;
+         }
+         .circle {
+           margin-left: 100px;
+           margin-top: 50px;
+           border-radius: 50%;
+         }
+        `
+      }
+    ]
+  };
+
+
 }
 
 export function displayAngularComponent(componentCode: string) {
@@ -138,21 +241,21 @@ platform.bootstrapModule(AppModule, {
 export function pureJavascript(code, bootstrapCode, testCode) {
   return {
     files: [
-      exerciseWithDisplay('app.ts', code, code),
-      bootstrap('main.ts', bootstrapCode, bootstrapCode),
-      test('test.ts', testCode)
+      exerciseWithDisplay('app', code, code),
+      bootstrap('main', bootstrapCode, bootstrapCode),
+      test('test', testCode)
     ]
   };
 }
 
-export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "app.ts";', testCode = '', otherCode = '') {
+export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
   const files = [
-    exerciseWithConsoleLog('app.ts', code, code),
-    bootstrap('main.ts', bootstrapCode, bootstrapCode),
-    test('test.ts', testCode)
+    exerciseWithConsoleLog('app', code, code),
+    bootstrap('main', bootstrapCode, bootstrapCode),
+    test('test', testCode)
   ];
   if (otherCode !== '') {
-    files.push(exercise('puppy.ts', otherCode, otherCode));
+    files.push(exercise('puppy', otherCode, otherCode));
   }
   return {
     files

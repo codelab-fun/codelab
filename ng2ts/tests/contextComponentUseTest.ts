@@ -1,16 +1,21 @@
-
-import {TestBed} from '@angular/core/testing';
-import 'initTestBed';
+import {Api} from '../api.service';
+import {
+  app_html,
+  context_context_html,
+  thumbs_thumbs_html,
+  toggle_panel_toggle_panel_html,
+  video_video_component_html
+} from '../code';
 import {AppComponent} from '../app.component';
-import {app_html, video_video_html, toggle_panel_toggle_panel_html, context_context_html, thumbs_thumbs_html} from '../code';
 import {AppModule} from '../app.module';
-import {VideoComponent} from '../video/video.component';
-import {VideoService} from '../video/video.service';
-import {TogglePanelComponent} from '../toggle-panel/toggle-panel.component';
 import {ContextComponent} from '../context/context.component';
 import {ContextService} from '../context/context.service';
-import {Api} from '../api.service';
+import {TestBed} from '@angular/core/testing';
 import {ThumbsComponent} from '../thumbs/thumbs.component';
+import {TogglePanelComponent} from '../toggle-panel/toggle-panel.component';
+import {VideoComponent} from '../video/video.component';
+import {VideoService} from '../video/video.service';
+import 'initTestBed';
 
 function objectValues(object) {
   return Object.keys(object).reduce((result, key) => {
@@ -21,13 +26,18 @@ function objectValues(object) {
 
 function objectFindPropOfType(object, Type) {
   return Object.keys(object).reduce((prop, key) => {
-    if (prop) return prop;
-    if (object[key] instanceof Type) return key;
+    if (prop) {
+      return prop;
+    }
+
+    if (object[key] instanceof Type) {
+      return key;
+    }
   }, undefined);
 }
 
 function objectHasAn(object, Type) {
-  return objectValues(object).some(val => val instanceof Type)
+  return objectValues(object).some(val => val instanceof Type);
 }
 
 const sampleVideo = Api.fetch('')[0];
@@ -39,7 +49,7 @@ beforeEach(() => {
     declarations: [AppComponent, VideoComponent, TogglePanelComponent, ContextComponent, ThumbsComponent]
   });
   TestBed.overrideComponent(AppComponent, {set: {template: app_html}});
-  TestBed.overrideComponent(VideoComponent, {set: {template: video_video_html}});
+  TestBed.overrideComponent(VideoComponent, {set: {template: video_video_component_html}});
   TestBed.overrideComponent(TogglePanelComponent, {set: {template: toggle_panel_toggle_panel_html}});
   TestBed.overrideComponent(ContextComponent, {set: {template: context_context_html}});
   TestBed.overrideComponent(ThumbsComponent, {set: {template: thumbs_thumbs_html}});
@@ -58,16 +68,19 @@ describe('Children', () => {
     chai.expect(objectHasAn(fixture.componentInstance, VideoComponent)).to.be.true;
   });
 
-  it(`ContextComponent: Add an ngOnInit method to the component. (It's a special method angular will call when the component is created).`, () => {
+  it(`ContextComponent: Add an ngOnInit method to the component. 
+      (It's a special method angular will call when the component is created).`, () => {
     const fixture = TestBed.createComponent(ContextComponent);
     chai.expect(fixture.componentInstance.ngOnInit).is.a('function');
   });
 
-  it(`ContextComponent: In the onOnInit method Call 'getAdText' on the service, and pass it the video 'description' provided by the injected video component. Assign the result to the declared text property.`, () => {
+  it(`ContextComponent: In the onOnInit method Call 'getAdText' on the service, 
+      and pass it the video 'description' provided by the injected video component.
+      Assign the result to the declared text property.`, () => {
     const fixture = TestBed.createComponent(ContextComponent);
-    let componentInstance = fixture.componentInstance;
+    const componentInstance = fixture.componentInstance;
 
-    let vcProp = objectFindPropOfType(componentInstance, VideoComponent);
+    const vcProp = objectFindPropOfType(componentInstance, VideoComponent);
     chai.expect(vcProp, `'VideoComponent' was not injected.`).to.not.be.undefined;
 
     componentInstance[vcProp].video = sampleVideo;
@@ -84,7 +97,7 @@ describe('Children', () => {
     chai.expect(fixture.nativeElement.innerHTML).to.contain('Check out our web site');
   });
 
-  it(`AppModule: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
+  it(`app.module.ts: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
@@ -94,11 +107,11 @@ describe('Children', () => {
     chai.expect(metadata[0].declarations, `Video component not found`).contains(ContextComponent);
   });
 
-  it(`video.html: Actually display the ad (We actually also did it for you).`, () => {
+  it(`video.component.html: Actually display the ad (We actually also did it for you).`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     // TODO: Actually write a test
-    //chai.expect(fixture.nativeElement.querySelector('my-ad')).to.be.ok
+    // chai.expect(fixture.nativeElement.querySelector('my-ad')).to.be.ok
   });
 });
 

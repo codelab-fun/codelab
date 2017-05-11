@@ -3,16 +3,12 @@
 }
 
 .intro li a {
-  color: #ff594b;
   text-decoration: none;
+  color: #888;
 }
 
-.intro li:hover {
-  padding-left: 21px;
-}
 
 .intro ul {
-  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -22,4 +18,19 @@
   padding: 0;
   padding-left: 21px;
   font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.intro li h2{
+  font-size: 22px;
+}
+
+.feedback-shift {
+  position: fixed;
+  right: 107px;
+  bottom: 1vh;
+}
+
+.btn-bar {
+  z-index: 110;
 }

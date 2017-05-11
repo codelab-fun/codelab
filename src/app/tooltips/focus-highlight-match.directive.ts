@@ -5,11 +5,11 @@ import 'rxjs/add/operator/first';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[app-focus-highlight-match]'
+  selector: '[slides-focus-highlight-match]'
 })
 export class FocusHighlightDirective implements AfterViewInit {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
-  @Input('app-focus-highlight-match') matches: Array<string> | string = [];
+  @Input('slides-focus-highlight-match') matches: Array<string> | string = [];
 
   constructor(private editorComponent: EditorComponent) {
   }

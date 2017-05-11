@@ -1,0 +1,112 @@
+.slide-size {
+  width: 1280px;
+  height: 720px;
+}
+
+.feedback-slide-background {
+  background-color: #9c3232;
+  overflow: auto;
+}
+.feedback-slide-background-triangle-top {
+  position: absolute;
+  /*z-index: 50;*/
+  opacity: .99;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 55vw 32vw 0;
+  border-color: transparent #982a2a transparent transparent;
+}
+.feedback-slide-background-triangle-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: .99;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 22vw 0 0 38vw;
+  border-color: transparent transparent transparent #982a2a;
+}
+
+.content{
+  z-index: 100;
+  position: absolute;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.feedback-slide-header {
+  position: fixed;
+  margin-top: 31vh;
+}
+.feedback-slide-logo {
+  height: 32vh;
+  margin-left: 3%
+}
+.feedback-slide-title {
+  margin-left: calc(5% + 29vh);
+  z-index: 100;
+  color: #fff;
+  font-weight: 900;
+  font-size: 24vh;
+  line-height: 20vh;
+}
+
+.feedback-slide-description {
+  position: fixed;
+  margin-left: calc(5% + 30vh);
+  margin-top: 48vh;
+  margin-right: 12%;
+  text-align: justify;
+  font-size: 4vh;
+  font-weight: lighter;
+  color: white;
+}
+
+.feedback-button-title {
+  position: fixed;
+  margin-right: 11.7%;
+  right: 0;
+  top: 90vh;
+  font-size: 9vh;
+  font-weight: bolder;
+  color: white;
+}
+
+@keyframes fadeOutUp {
+  from {
+    top: 91vh;
+    opacity: 1;
+  }
+  to {
+    top: 10vh;
+    opacity: 0;
+    transform: scale(2); /*alt: try 0.5*/
+  }
+}
+.fadeOutUp {
+  width: 45px;
+  height: calc(45px / 2);
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border: 7px solid #3498db;
+  border-bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.feedback-button-ripple {
+  position: fixed;
+  animation: fadeOutUp 4s infinite linear;
+  animation-delay: 0ms;
+  position: fixed;
+  right: 4%;
+  bottom: 31px;
+}

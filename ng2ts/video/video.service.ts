@@ -5,7 +5,7 @@ import {Api} from '../api.service';
 /*/d*//*d:initial*/
 export class VideoService {
   search(searchString: string) {
-    return Api.fetch(searchString)
+    return Api.fetch(searchString);
   }
 }
 /*/d*/

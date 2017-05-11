@@ -98,14 +98,24 @@ export class MonacoConfigService {
     this.monaco = monaco;
   }
 
+  sortFiles(files: FileConfig[]) {
+    // Build a set of all files that are declared as deps.
+    const deps = files.filter(file => file.deps)
+      .reduce((set, file) => file.deps.reduce((result, dep) => result.add(dep), set), new Set());
+
+    // Put files that are in deps first, and others in the end.
+    // TODO: Write a better implementation to allow multi-level deps.
+    return files.filter(file => deps.has(file.moduleName)).concat(files.filter(file => !deps.has(file.moduleName)));
+  }
+
   createFileModels(files: FileConfig[]) {
     const models = monaco.editor.getModels();
 
     if (models.length) {
-      models.filter(model => !model.isSingleEditorModel).forEach(model => model.dispose());
+      models.forEach(model => model.dispose());
     }
 
-    files.map(file => {
+    this.sortFiles([...files]).map(file => {
       monaco.editor.createModel(file.code, file.type, file.path);
     });
   }

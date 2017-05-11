@@ -43,7 +43,6 @@ interface IframeConfig {
   hidden?: boolean;
 }
 
-
 function createIframe(config: IframeConfig) {
   const iframe = document.createElement('iframe');
   iframe.setAttribute('sandbox', 'allow-modals allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts');
@@ -63,12 +62,14 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   injectSystemJs: Function
 }> {
   if (cachedIframes[config.id]) {
-    cachedIframes[config.id].remove();
+    cachedIframes[config.id].iframe.remove();
     delete cachedIframes[config.id];
   }
 
   const iframe = createIframe(config);
-  cachedIframes[config.id] = iframe;
+  cachedIframes[config.id] = {
+    iframe: iframe
+  };
   element.appendChild(iframe);
   const runJs = jsScriptInjector(iframe);
   const runCss = cssInjector(iframe);
@@ -235,7 +236,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
 
 
 @Component({
-  selector: 'app-runner',
+  selector: 'slides-runner',
   templateUrl: './runner.component.html',
   styleUrls: ['./runner.component.css']
 })
@@ -326,7 +327,11 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    Object.keys(cachedIframes).map(key => cachedIframes[key].remove());
+    Object.keys(cachedIframes).map(key => {
+      if (cachedIframes[key].canBeDeleted) {
+        delete cachedIframes[key];
+      }
+    });
     window.removeEventListener('message', this.handleMessageBound, false);
   }
 

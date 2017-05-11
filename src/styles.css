@@ -71,7 +71,7 @@ h1, h2, h3, li {
   font-weight: 300;
 }
 
-.no-padding .slide {
+[no-padding] .slide {
   padding: 0;
 }
 
@@ -81,11 +81,11 @@ h1, h2, h3, li {
 }
 
 /* Hide all elements that are not slides when in overview mode */
-.presentation.overview > *:not(app-slide) {
+.presentation.overview > *:not(slides-slide) {
   visibility: hidden;
 }
 
-.presentation.overview app-ripple-animation {
+.presentation.overview slides-ripple-animation {
   visibility: hidden;
 }
 
@@ -141,7 +141,7 @@ h1, h2, h3, li {
 }
 
 .slide [column-5] {
-  width: 40%;
+  width: 50%;
 }
 
 .slide [column-4] {
@@ -178,12 +178,13 @@ b {
 
 h1 {
   font-size: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 li,
 h2 {
   font-size: 40px;
+  margin-bottom: 10px;
 }
 
 .popup-message {
@@ -218,12 +219,14 @@ p {
 
 .info:before {
   content: "ⓘ";
+  margin-right: 10px;
 }
 
 .info {
+  font-weight: 300;
   margin-top: 20px;
   background: #d3fffd;
-  padding: 20px;
+  padding: 12px;
   font-size: 30px;
 }
 
@@ -278,24 +281,48 @@ p {
   cursor: pointer;
 }
 
+.github-icon {
+  background: white;
+}
+
+.github-icon img {
+  width:100%;
+  height:100%;
+}
+
 .exercise {
-  background: #dddddd;
   font-size: 30px;
   padding: 10px;
   margin-top: 20px;
+  font-weight: 300;
+  border: 1px #ddd solid
 }
 
 .exercise:before {
-  content: "?";
-  margin-right: 20px;
+  content: "💡";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 .exercise.solved {
-  background: #45dd1d;
+  color: #90dd59;
 }
 
 .exercise.solved:before {
   content: "✔";
-  margin-right: 20px;
+  background: none;
 }
 
+/* context: https://github.com/Microsoft/monaco-editor/issues/113 */
+.monaco-editor .inputarea {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+b {
+  font-weight: 300;
+  background-color: #ffe;
+}

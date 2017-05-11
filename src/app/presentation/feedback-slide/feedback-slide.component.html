@@ -1,0 +1,28 @@
+<div class="slide-size feedback-slide-background" (click)="closeSlide()" (keydown)="closeSlide()">
+
+  <div class="content">
+    <div class="flex-container">
+      <img class="feedback-slide-header feedback-slide-logo" src="/assets/images/angular-notice.png">
+      <span class="feedback-slide-header feedback-slide-title">NOTICE</span>
+    </div>
+
+    <br>
+
+    <div class="feedback-slide-description">
+      Welcome to the Angular codelab! Please note that this project is still in a very early stage of development and may have a lot
+      of bugs and broken features. If you run into any issues or have any suggestions please let us know by clicking the
+    </div>
+
+    <div class="feedback-button-title">
+      FEEDBACK BUTTON
+    </div>
+
+    <div *ngFor="let ripple of [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]" [style.animation-delay.ms]="ripple * 200" class="feedback-button-ripple">
+      <div class="fadeOutUp"></div>
+    </div>
+
+  </div>
+
+  <div class="feedback-slide-background-triangle-top"></div>
+  <div class="feedback-slide-background-triangle-bottom"></div>
+</div>
