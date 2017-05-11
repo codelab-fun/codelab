@@ -55,10 +55,10 @@ export class Person {
       type: 'typescript'
     },
     withDITesting: {
-      code: `let mockProfession = new Job('lawyer');
+      code: `const mockProfession = new Job('lawyer');
   
   it('should create a Person with the right profession', () => {
-    let person = new Person(mockProfession);
+    const person = new Person(mockProfession);
     // assuming Job has property '.title'
     expect(person.profession.title).toEqual('lawyer');
   });
