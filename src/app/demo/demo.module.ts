@@ -16,13 +16,13 @@ export const routes = [
     path: 'typescript',
     loadChildren: './typescript/typescript.module#TypescriptModule',
     name: 'Typescript',
-    description: 'Learn TypeScript: A language that extends JavaScript, which angular is built with.',
+    description: 'Learn TypeScript: A language that extends JavaScript, which Angular is built with.',
     page: 'main'
   },
   {
     path: 'create-first-app',
     loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
-    name: 'Create your first angular app',
+    name: 'Create your first Angular app',
     description: 'Learn how create and bootstrap your first Angular application',
     page: 'main'
   },
@@ -30,7 +30,7 @@ export const routes = [
     path: 'templates',
     loadChildren: './templates/templates.module#TemplatesModule',
     name: 'Templates',
-    description: 'Learn how to use angular templates',
+    description: 'Learn how to use Angular templates',
     page: 'main'
   },
   {
