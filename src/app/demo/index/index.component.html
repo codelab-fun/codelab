@@ -1,44 +1,44 @@
 <slides-presentation>
-  <div class="btn-bar">
-    <div class="menu-bar-btn github-icon">
-      <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png">
-      </a>
+    <div class="btn-bar">
+        <div class="menu-bar-btn github-icon">
+            <a href="https://github.com/AngularNYC/angular-presentation">
+                <img src="/assets/images/github-icon.png">
+            </a>
+        </div>
+        <slides-feedback-widget></slides-feedback-widget>
     </div>
-    <slides-feedback-widget></slides-feedback-widget>
-  </div>
 
-  <slides-slide no-padding>
-    <slides-feedback-slide></slides-feedback-slide>
-  </slides-slide>
+    <slides-slide no-padding>
+        <slides-feedback-slide></slides-feedback-slide>
+    </slides-slide>
 
-  <slides-slide id="index">
-    <h1>Angular codelab</h1>
-    <h2>Welcome! Chose the topic below to learn</h2>
+    <slides-slide id="index">
+        <h1>Angular Codelab</h1>
+        <h2>Welcome! Chose the topic below to learn</h2>
 
-    <div class="intro" row>
-      <ol>
-        <li *ngFor="let route of getMainPageRoutes()">
-          <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
-          <div>{{route.description}}</div>
-        </li>
-      </ol>
-      <div column-2>
-        <img src="/assets/images/angular.svg" alt="">
-      </div>
-    </div>
-  </slides-slide>
-  <slides-slide id="bonus">
-    <h1>Bonus slides</h1>
-    <h1></h1>
+        <div class="intro" row>
+            <ol>
+                <li *ngFor="let route of getMainPageRoutes()">
+                    <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
+                    <div>{{route.description}}</div>
+                </li>
+            </ol>
+            <div column-2>
+                <img src="/assets/images/angular.svg" alt="">
+            </div>
+        </div>
+    </slides-slide>
+    <slides-slide id="bonus">
+        <h1>Bonus slides</h1>
+        <h1></h1>
 
-    <div class="intro">
-      <ul>
-        <li *ngFor="let route of getBonusPageRoutes()">
-          <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
-          <div>{{route.description}}</div>
-        </li>
-      </ul>
-    </div>
-  </slides-slide>
+        <div class="intro">
+            <ul>
+                <li *ngFor="let route of getBonusPageRoutes()">
+                    <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
+                    <div>{{route.description}}</div>
+                </li>
+            </ul>
+        </div>
+    </slides-slide>
 </slides-presentation>
