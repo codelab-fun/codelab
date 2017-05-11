@@ -11,7 +11,7 @@
   height: 25px;
 }
 
-.slide-block.expanded {
+.points-container:hover .slide-block {
   transition-duration: 0.5s;
   height: 15px;
 }

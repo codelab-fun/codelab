@@ -9,7 +9,6 @@ import {PresentationComponent} from '../presentation/presentation.component';
 export class ProgressBarComponent implements AfterViewInit {
   slides = [];
   currentSlideId = 0;
-  isHovered = false;
 
   constructor(public presentation: PresentationComponent) {
   }
