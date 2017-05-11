@@ -1,3 +1,6 @@
-<slides-browser-window>
+<slides-browser-window *ngIf="!isConsole">
   <div #runner class="runner"></div>
 </slides-browser-window>
+<slides-console-window *ngIf="isConsole">
+  <div #runnerConsole class="runner"></div>
+</slides-console-window>

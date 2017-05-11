@@ -241,12 +241,14 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   styleUrls: ['./runner.component.css']
 })
 export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
+  @Input() isConsole: boolean;
 
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
   html = `<my-app></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
+  @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
   private handleMessageBound: any;
   public System: any;
 
@@ -258,7 +260,9 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.runCode(changes.files.currentValue, this.runnerType);
+    if(this.runnerElement!=null || this.runnerConsoleElement!=null){
+      this.runCode(changes.files.currentValue, this.runnerType);
+    }
   }
 
   handleMessage(event): void {
@@ -336,6 +340,10 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngAfterViewInit() {
+    if(this.runnerElement==null && this.runnerConsoleElement!=null){
+      this.runnerElement = this.runnerConsoleElement;
+      this.runCode(this.files, this.runnerType);
+    }
 
   }
 }

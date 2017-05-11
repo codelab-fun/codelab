@@ -10,6 +10,7 @@ import {SlideComponent} from '../../presentation/slide/slide.component';
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent extends ExerciseBase {
+  @Input() isConsole: boolean;
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlightMatches = [];
 
