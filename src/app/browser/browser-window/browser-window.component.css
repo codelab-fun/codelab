@@ -1,0 +1,19 @@
+.frame {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  margin-top: -6px;
+  width: 496px;
+  background-color: #fff;
+}
+
+.consoleWindow {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  margin-top: -6px;
+  width: 496px;
+  background-color: #fff;
+  font-size: smaller;
+  font-weight: normal;
+  color: darkgray;
+}
+
