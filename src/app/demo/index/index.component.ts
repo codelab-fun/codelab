@@ -1,4 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
+import {introJs} from 'intro.js/minified/intro.min.js';
 
 
 export interface IndexPageRoute {
@@ -12,6 +13,7 @@ export interface IndexPageRoute {
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+
   routes: Array<IndexPageRoute>;
 
   getMainPageRoutes() {
@@ -31,6 +33,8 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    debugger;
+    introJs().start();
   }
 
 }

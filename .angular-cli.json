@@ -19,9 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "slides",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "intro.js/minified/introjs.min.css"
       ],
-      "scripts": [],
+      "scripts": ["intro.js/minified/intro.min.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
