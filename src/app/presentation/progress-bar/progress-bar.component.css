@@ -6,9 +6,42 @@
   z-index: 1;
 }
 
-.progress-bar .progress {
-  height: 4px;
-  width: 50%;
-  background-color: #cc5900;
-  border-bottom-right-radius: 10px;
+.points-container {
+  display:flex;
+  height: 25px;
+}
+
+.slide-block.expanded {
+  transition-duration: 0.5s;
+  height: 15px;
+}
+
+.slide-block {
+  flex-grow: 1;
+  height:3px;
+  transition-duration: 0.5s;
+  background: #ABB7B7;
+}
+
+.slide-block:hover {
+  background: #DADFE1;
+}
+
+.exercise-block {
+  background: #D35400;
+}
+.exercise-block:hover {
+  background: #F9690E;
+}
+
+.completed-slide {
+  background: #F89406;
+}
+
+.completed-slide:hover {
+  background: #E9D460;
+}
+
+.completed-slide.exercise-block {
+  background: #E67E22;
 }

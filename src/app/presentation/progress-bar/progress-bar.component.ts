@@ -7,10 +7,20 @@ import {PresentationComponent} from '../presentation/presentation.component';
   styleUrls: ['./progress-bar.component.css']
 })
 export class ProgressBarComponent {
-  get progress() {
-    return 100 * (this.presentation.activeSlideIndex + 1) / this.presentation.totalSlides;
-  }
+  slides = [];
+  currentSlideId = 0;
+  isHovered = false;
 
   constructor(public presentation: PresentationComponent) {
+  }
+  ngAfterViewInit() {
+    this.slides = this.presentation.slides.toArray();
+    this.presentation.onSlideChange.subscribe(() => {
+      this.currentSlideId = this.presentation.activeSlideIndex;
+    });
+  }
+
+  goToSlide(index){
+    this.presentation.goToSlide(index);
   }
 }
