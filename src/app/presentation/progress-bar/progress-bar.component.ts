@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 import {PresentationComponent} from '../presentation/presentation.component';
 
 @Component({
@@ -6,7 +6,7 @@ import {PresentationComponent} from '../presentation/presentation.component';
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.css']
 })
-export class ProgressBarComponent {
+export class ProgressBarComponent implements AfterViewInit {
   slides = [];
   currentSlideId = 0;
   isHovered = false;
@@ -20,7 +20,7 @@ export class ProgressBarComponent {
     });
   }
 
-  goToSlide(index){
+  goToSlide(index) {
     this.presentation.goToSlide(index);
   }
 }

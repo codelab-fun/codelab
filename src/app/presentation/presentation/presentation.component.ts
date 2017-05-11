@@ -29,7 +29,7 @@ export class PresentationComponent implements OnInit {
   @Output() onModeChange = new EventEmitter<Mode>();
 
   @ContentChildren(forwardRef(() =>
- SlideComponent)) slides:QueryList<SlideComponent>;
+ SlideComponent)) slides: QueryList<SlideComponent>;
 
   // Expose enum to template
   modeEnum = Mode;
