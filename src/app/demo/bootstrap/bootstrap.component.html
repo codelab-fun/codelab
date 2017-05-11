@@ -139,13 +139,13 @@
   <slides-slide id="module" milestone="Bootstrap2">
     <h1>Now our component is ready to go!</h1>
     <h2>We need to put it in an <b>NgModule</b></h2>
-    <h2><b>NgModules</b> help organize an application into cohesive blocks of functionality.</h2>
+    <h2><b>NgModules</b> helps us organize an application into cohesive blocks of functionality.</h2>
   </slides-slide>
 
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-exercise" milestone="Bootstrap2">
     <h1>Module Anatomy / Class</h1>
-    <h2>Like a component, module is just a class.</h2>
+    <h2>Like a component, a module is just a class.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></slides-code-editor>
 
@@ -153,36 +153,36 @@
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-decorator" milestone="Bootstrap2">
     <h1>Module Anatomy / Decorator</h1>
-    <h2>Like a component, module is adorned with a decorator providing metadata.</h2>
+    <h2>What separates this class from others is the use of the <b>NgModule</b> decorator, which attaches important metadata to the class.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></slides-code-editor>
-
+     <div class="info">Metadata describes expected behavior and properties of a class.</div>
   </slides-slide>
 
   <!--  Imports  -->
   <slides-slide id="imports" milestone="Bootstrap2">
     <h1>Module Anatomy / Browser Module</h1>
-    <h2>Because we're building a browser web app, we need to pass <b>BrowserModule</b> to the <b>imports</b> array.</h2>
+    <h2>Because we're viewing the app in a browser we pass <b>BrowserModule</b> into the <b>imports</b> array. The <b>BrowserModule</b> is responsible for rendering components!</h2>
+
+
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
 
-    <div class="info">Angular is not just for web apps anymore, it allows to create native phone apps and even VR
-      scenes.
-    </div>
+    <div class="info">Angular abstracts the view from the controller; this let's us write code for web, VR and mobile application.</div>
   </slides-slide>
   <!--  Declarations  -->
   <slides-slide id="declarations" milestone="Bootstrap2">
     <h1>Module Anatomy / Declarations</h1>
-    <h2><b>Declarations array</b>, specifis components belonging to the AppModule.</h2>
+    <h2>The <b>Declarations array</b>, specifies all components belonging to the AppModule.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
-
+    <div class="info">All the components live in the same <i>room</i> and can easily communicate and know each other exist.</div>
   </slides-slide>
 
   <!--  Bootstrap -->
   <slides-slide id="bootstrap" milestone="Bootstrap2">
     <h1>Module Anatomy / Bootstrap</h1>
-    <h2>Component passed into the <b>bootstrap</b> array will be created and displayed in your <b>index.html</b> file.
+    <h2>The component passed into the <b>bootstrap</b> array will be the entry point (the first thing you see) and is loaded into your <b>index.html</b> file.
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
