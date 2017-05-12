@@ -31,7 +31,7 @@
                   (onSelectFile)="onSelectFile($event)"></slides-tests>
     </div>
     <slides-runner
-                data-step="5" data-intro="The live preview of your work will show up here."
+                data-step="5" data-intro="The live preview of your work will show up here." data-position="top"
                 (onTestUpdate)="onTestUpdate($event)"
                 [files]="config.files"
                 [runnerType]="config.runner || 'Angular'">
