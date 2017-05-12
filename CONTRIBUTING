@@ -33,7 +33,7 @@ Below you'll find our guidelines for contributing to further development of this
 
 ### Code of Conduct
 
-This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md).
+This project adheres to the [Contributor Covenant Code of Conduct](http://contributor-covenant.org/version/1/4/).
 So that everyone can feel welcome we ask you to please uphold this code should you decide to contribute to this project.
 
 
@@ -114,6 +114,25 @@ If you want to work on something there isn't yet an issue for, consider submitti
 
 * Use the present tense
 * If applicable, reference the issue being resolved
+
+For example:
+💯 [Redirect user to the requested page after login](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
+😱 [HAAAAAAAAANDS](https://xkcd.com/1296)
+
+Extended example:
+```
+Change bears' entrypoint
+
+This entrypoint ensures that coala discovers
+the bears correctly.
+It helps not writing more functions inside
+``coalib`` for this.
+
+Closes #5861 // this will automatically link it to the issue and close it when merged
+```
+
+You can read more about git commit style [here](http://api.coala.io/en/latest/Developers/Writing_Good_Commits.html)
+not [here](https://xkcd.com/1296/)
 
 
 ### Code Style
