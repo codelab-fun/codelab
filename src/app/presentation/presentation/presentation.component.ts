@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ContentChildren, QueryList, forwardRef} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
 import {AnalyticsService} from '../analytics.service';
+import {SlideComponent} from '../slide/slide.component';
 declare const ga;
 
 @Component({
@@ -26,6 +27,8 @@ export class PresentationComponent implements OnInit {
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
+
+  @ContentChildren(forwardRef(() => SlideComponent)) slides: QueryList<SlideComponent>;
 
   // Expose enum to template
   modeEnum = Mode;
@@ -110,6 +113,12 @@ export class PresentationComponent implements OnInit {
 
   canGoNext(): boolean {
     return this.activeSlideIndex + 1 < this.generatedSlideIndex;
+  }
+
+  goToSlide(index) {
+    this.activeSlideIndex = index;
+    this.onSlideChange.next(index);
+    this.trackProgress();
   }
 
   canGoPrevious(): boolean {
