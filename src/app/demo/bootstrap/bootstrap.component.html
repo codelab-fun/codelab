@@ -162,33 +162,24 @@
   <!--  Imports  -->
   <slides-slide id="imports" milestone="Bootstrap2">
     <h1>Module Anatomy / Browser Module</h1>
-    <h2>Because we're viewing the app in a browser we pass <b>BrowserModule</b> into the <b>imports</b> array. The <b>BrowserModule</b> is responsible for rendering components!</h2>
+    <h2>Because we're viewing the app in a browser, we pass <b>BrowserModule</b> into the <b>imports</b> array. The <b>BrowserModule</b> provides our module with functionality necessary for a browser environment!</h2>
 
 
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
 
-    <div class="info">Angular abstracts the view from the controller; this let's us write code for web, VR and mobile application.</div>
+    <div class="info">Angular abstracts the view from the controller; this let's us write code for different environments, such as web browsers, nodejs, and native mobile apps.</div>
   </slides-slide>
   <!--  Declarations  -->
   <slides-slide id="declarations" milestone="Bootstrap2">
     <h1>Module Anatomy / Declarations</h1>
-    <h2>The <b>Declarations array</b>, specifies all components belonging to the AppModule.</h2>
+    <h2>The <b>Declarations array</b> specifies all components to be included in the module.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
-    <div class="info">All the components live in the same <i>room</i> and can easily communicate and know each other exist.</div>
+    <div class="info">Components included in the same module live in the same <i>room</i> and can easily communicate and know each other exist.</div>
   </slides-slide>
 
-  <!--  Bootstrap -->
-  <slides-slide id="bootstrap" milestone="Bootstrap2">
-    <h1>Module Anatomy / Bootstrap</h1>
-    <h2>The component passed into the <b>bootstrap</b> array will be the entry point (the first thing you see) and is loaded into your <b>index.html</b> file.
-    </h2>
-    <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                        [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
-  </slides-slide>
-
-  <!--  MODULE BOOTSTRAPPING-->
+  <!-- MODULE BOOTSTRAPPING -->
   <slides-slide id="exercise-module-pre" milestone="Bootstrap2">
     <h1>Exercise</h1>
     <h2>In the next slide you'll create your first <b>Angular</b> module! We'll use the component from the previous
@@ -198,12 +189,11 @@
     <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
   </slides-slide>
 
-
   <!--  DESCRIPTION 1 -->
   <slides-slide id="exercise-module" no-padding>
     <slides-exercise [config]="exercises[1]" milestone="Bootstrap2">
       <div class="description">
-        <p>Now we got the component, we need to pass it to a NgModule.</p>
+        <p>Now that we have a functional component, we need to pass it to a NgModule.</p>
       </div>
     </slides-exercise>
   </slides-slide>
@@ -211,15 +201,24 @@
   <!--  Bootstrap  intro  -->
   <slides-slide id="bootstrap-the-module" milestone="Bootstrap3">
     <h1>Step 3</h1>
-    <h2>This is the last step. We have everything ready, just need to bootstrap our app!</h2>
+    <h2>The last step! We need to update our module so that we can <b>bootstrap</b> it!</h2>
 
+  </slides-slide>
+
+  <!--  Bootstrap -->
+  <slides-slide id="bootstrap" milestone="Bootstrap3">
+    <h1>Module Anatomy / Bootstrap</h1>
+    <h2>The <b>bootstrap</b> array defines components to create when our application starts. For the below example, when our module is bootstrapped, it will
+    attempt to find a DOM element matching the selector <b>'hello-world'</b> (<b>HelloWorldComponent</b>'s selector) and insert that component's template inside that element.</h2>
+    <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
+                        [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
   </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
   <slides-slide id="bootstrapping" milestone="Bootstrap3">
     <h1>Module Bootstrapping</h1>
     <h2>
-      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will, start up all the components in that
+      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will start up all the components in that
       module's bootstrap section.
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30"
