@@ -24,9 +24,6 @@ Below you'll find our guidelines for contributing to further development of this
   * [Git Commit Messages](#git-commit-messages)
   * [Code Style](#code-style)
 
-[Additional Notes](#additional-notes)
-  * [Issue and Pull Request Labels](#issue-and-pull-request-labels)
-
 
 -----
 
@@ -63,7 +60,7 @@ If you find a bug while going the codelab as a student, you can submit feedback 
 Please check out the previous comments to ensure this problem hasn't already been reported!
 
 
-#### Reporting Bugs
+#### Submitting a Report
 
 Feedback form submissions are magically converted to [GitHub issues](https://guides.github.com/features/issues/).
 
