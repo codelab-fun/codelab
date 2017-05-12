@@ -29,9 +29,9 @@
           </div>
           <div>{{message.comment}}</div>
           <div *ngIf="!message.url">
-            <button (click)="makeAnIssue(message)">Take</button>
+            <button (click)="createAnIssue(message)">Take</button>
             <button (click)="createDuplicateIssue(message)">Duplicate</button>
-            <button (click)="createWorkInProgressIssue(message)">Work in progress</button>
+            <button (click)="createNoFixIssue(message)">No fix</button>
           </div>
           <div *ngIf="message.url">
             <a [href]="message.url">Issue</a>
