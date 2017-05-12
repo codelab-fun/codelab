@@ -1,196 +1,182 @@
-<slides-presentation
-  slides-slides-routing
-  slides-mode-routing
-  slides-tracking>
-  <div class="btn-bar">
-    <div class="menu-bar-btn github-icon">
-      <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png">
-      </a>
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+    <div class="btn-bar">
+        <div class="menu-bar-btn github-icon">
+            <a href="https://github.com/AngularNYC/angular-presentation">
+                <img src="/assets/images/github-icon.png">
+            </a>
+        </div>
+        <slides-feedback-widget></slides-feedback-widget>
+        <slides-menu-shortcut></slides-menu-shortcut>
     </div>
-    <slides-feedback-widget></slides-feedback-widget>
-    <slides-menu-shortcut></slides-menu-shortcut>
-  </div>
-  <slides-progress-bar></slides-progress-bar>
-  <slides-arrows></slides-arrows>
+    <slides-progress-bar></slides-progress-bar>
+    <slides-arrows></slides-arrows>
 
-  <slides-slide id="intro" no-padding milestone="DependencyInjection">
-    <slides-title-slide
-      title="Dependency Injection"
-      description="Angular has a powerful Dependency Injection system"
-      prereqs=""
-    ></slides-title-slide>
-  </slides-slide>
+    <slides-slide id="intro" no-padding milestone="DependencyInjection">
+        <slides-title-slide title="Dependency Injection" description="Angular has a powerful Dependency Injection system" prereqs=""></slides-title-slide>
+    </slides-slide>
 
-  <!--  MILESTONE #3  Dependency Injection  -->
-  <!-- RECAP -->
-  <slides-slide id="recap" milestone="DependencyInjection">
-    <h1 style="text-align: center;">Recap</h1>
-    <h2>
-      <b>Dependency Injection</b> is a way to provide dependencies to your code instead of hard-coding them.
-    </h2>
-  </slides-slide>
+    <!--  MILESTONE #3  Dependency Injection  -->
+    <!-- RECAP -->
+    <slides-slide id="recap" milestone="DependencyInjection">
+        <h1 style="text-align: center;">Recap</h1>
+        <h2>
+            <b>Dependency Injection</b> is a way to provide dependencies to your code instead of hard-coding them.
+        </h2>
+    </slides-slide>
 
-  <!--  COMPARISON -->
-  <slides-slide id="comparison" milestone="DependencyInjection">
-    <h1>Comparison</h1>
-    <slides-code-group class="content-container">
-      <div class="col-6">
-        <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code"
-                            [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></slides-code-editor>
-        <h2>Without Dependency Injection Profession has to be instantiated in the Person class</h2>
-      </div>
-      <div class="col-6" style="margin-left: 10px;">
-        <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"
-                            [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
-        <h2>With Dependency Injection Person class just "requires" an instance of Profession in the constructor, and
-          Angular takes care of instantiating it</h2>
-      </div>
-    </slides-code-group>
-  </slides-slide>
+    <!--  COMPARISON -->
+    <slides-slide id="comparison" milestone="DependencyInjection">
+        <h1>Comparison</h1>
+        <slides-code-group class="content-container">
+            <div class="col-6">
+                <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code" [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></slides-code-editor>
+                <h2>Without Dependency Injection <strong>Profession</strong> has to be instantiated in the <strong>Person</strong> class</h2>
+            </div>
+            <div class="col-6" style="margin-left: 10px;">
+                <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code" [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
+                <h2>With Dependency Injection <strong>Person</strong> class just "requires" an instance of <strong>Profession</strong> in the constructor, and Angular takes care of instantiating it</h2>
+            </div>
+        </slides-code-group>
+    </slides-slide>
 
-  <slides-slide id="comparison-2" milestone="DependencyInjection">
-    <h1>Dependency Injection / Comparison / Parameters</h1>
-    <slides-code-group class="content-container">
-      <div class="col-6">
-        <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code2"
-                            [focus-highlight-match]="[code.withOutDI.matches.noDI]"></slides-code-editor>
-        <h2>Without Dependency Injection you have to figure out all the parameters yourself</h2>
-      </div>
-      <div class="col-6" style="margin-left: 10px;">
-        <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"
-                            [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
-        <h2>With Dependency Injection Angular takes care of it</h2>
-      </div>
-    </slides-code-group>
-  </slides-slide>
+    <slides-slide id="comparison-2" milestone="DependencyInjection">
+        <h1>Dependency Injection / Comparison / Parameters</h1>
+        <slides-code-group class="content-container">
+            <div class="col-6">
+                <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code2" [focus-highlight-match]="[code.withOutDI.matches.noDI]"></slides-code-editor>
+                <h2>Without Dependency Injection you have to figure out all the parameters yourself</h2>
+            </div>
+            <div class="col-6" style="margin-left: 10px;">
+                <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code" [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
+                <h2>With Dependency Injection Angular takes care of it</h2>
+            </div>
+        </slides-code-group>
+    </slides-slide>
 
-  <slides-slide id="comparison-3" milestone="DependencyInjection">
-    <h1>Dependency Injection / Comparison / Testing</h1>
-    <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies in a constructor
-      parameters.</h2>
-  </slides-slide>
+    <slides-slide id="comparison-3" milestone="DependencyInjection">
+        <h1>Dependency Injection / Comparison / Testing</h1>
+        <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies in a constructor parameters.
+        </h2>
+    </slides-slide>
 
-  <!--  Steps to create an Angular app -->
-  <slides-slide id="angular-app" milestone="DependencyInjection">
-    <h1>Providing dependencies with Angular in 3 simple steps:</h1>
-    <ol>
-      <li>Mark dependency as @Injectable()</li>
-      <li>Provide in the module</li>
-      <li>Require in the component</li>
-    </ol>
-  </slides-slide>
+    <!--  Steps to create an Angular app -->
+    <slides-slide id="angular-app" milestone="DependencyInjection">
+        <h1>Providing dependencies with Angular in 3 simple steps:</h1>
+        <ol>
+            <li>Mark dependency as @Injectable()</li>
+            <li>Provide in the module</li>
+            <li>Require in the component via the constructor</li>
+        </ol>
+    </slides-slide>
 
-  <!--  IMPLEMENTATION STEP #1  -->
-  <slides-slide id="make-injectable" milestone="DependencyInjection">
-    <h1>Dependency Injection / Step #1</h1>
-    <h2>Mark the class as <b>@Injectable()</b>.
-      This lets Angular know that this class is part of Angular Dependency Injection system</h2>
-    <slides-code-editor path="unit-converter-service.ts" [code]="code.classAsInjectable.code"
-                        [focus-highlight-match]="[code.classAsInjectable.matches.injectable]"></slides-code-editor>
-    <div class="info">
-      If a service class is marked as injectable, it can require other services in it's constructor.
-    </div>
-  </slides-slide>
+    <!--  IMPLEMENTATION STEP #1  -->
+    <slides-slide id="make-injectable" milestone="DependencyInjection">
+        <h1>Dependency Injection / Step #1</h1>
+        <h2>Mark the class as <b>@Injectable()</b>. This lets Angular know that this class is part of Angular Dependency Injection system</h2>
+        <slides-code-editor path="unit-converter-service.ts" [code]="code.classAsInjectable.code" [focus-highlight-match]="[code.classAsInjectable.matches.injectable]"></slides-code-editor>
+        <div class="info">
+            If a service class is marked as injectable, it can require other services in it's constructor.
+        </div>
+    </slides-slide>
 
-  <!--  IMPLEMENTATION STEP #2  -->
-  <slides-slide id="provide-injectable" milestone="DependencyInjection">
-    <h1>Dependency Injection / Step #2</h1>
-    <h2>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
-    <slides-code-editor path="app.module.ts" [code]="code.provideInjectable.code"
-                        [focus-highlight-match]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></slides-code-editor>
-    <div class="info">Now this service becomes available for every <b>Component</b> and other service in the Module.
-    </div>
-  </slides-slide>
+    <!--  IMPLEMENTATION STEP #2  -->
+    <slides-slide id="provide-injectable" milestone="DependencyInjection">
+        <h1>Dependency Injection / Step #2</h1>
+        <h2>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
+        <slides-code-editor path="app.module.ts" [code]="code.provideInjectable.code" [focus-highlight-match]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></slides-code-editor>
+        <div class="info">Now this service becomes available for every <b>Component</b> and other service in the Module.
+        </div>
+    </slides-slide>
 
-  <!--  IMPLEMENTATION STEP #3  -->
-  <slides-slide id="consume-injectable" milestone="DependencyInjection">
-    <h1>Dependency Injection / Step #3</h1>
-    <h2>Consume the Injectable in the component</h2>
-    <slides-code-editor path="unit-conversion.component.ts" [code]="code.consumeInjectable.code"
-                        [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></slides-code-editor>
-    <div class="info">Because of the <b>private</b> access modifier the service becomes accessible across the class as
-      <b>this.converter</b></div>
-  </slides-slide>
+    <!--  IMPLEMENTATION STEP #3  -->
+    <slides-slide id="consume-injectable" milestone="DependencyInjection">
+        <h1>Dependency Injection / Step #3</h1>
+        <h2>Consume the Injectable in the component</h2>
+        <slides-code-editor path="unit-conversion.component.ts" [code]="code.consumeInjectable.code" [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></slides-code-editor>
+        <div class="info">Because of the <b>private</b> access modifier the service becomes accessible across the class as
+            <b>this.converter</b></div>
+    </slides-slide>
 
 
-  <slides-slide id="exercise-pre" milestone="DependencyInjection">
-    <h1>Exercise</h1>
-    <h2>In the next slide you'll use videoService which has even more cats!!! The result will look like this: </h2>
+    <slides-slide id="exercise-pre" milestone="DependencyInjection">
+        <h1>Exercise</h1>
+        <h2>In the next slide you'll use videoService which has even more cats!!! The result will look like this: </h2>
 
-    <slides-browser-window>
-      <div>
-        <h1>CatTube</h1>
-        <input placeholder="video" type="text">
-        <button>Search!</button>
+        <slides-browser-window>
+            <div>
+                <h1>CatTube</h1>
+                <input placeholder="video" type="text">
+                <button>Search!</button>
 
-        <!--bindings={
+                <!--bindings={
         "ng-reflect-ng-if": "false"
       }-->
 
-        <!--bindings={
+                <!--bindings={
         "ng-reflect-ng-for-of": "[object Object],[object Object"
       }-->
-        <div>
-          <h2>Cute kitten</h2>
-          <img src="/assets/images/cat-0.png">
-        </div>
-        <div>
-          <h2>Kitten on the tree</h2>
-          <img src="/assets/images/cat-1.jpg">
-        </div>
-        <div>
-          <h2>More kitten</h2>
-          <img src="/assets/images/cat-2.jpg">
-        </div>
-        <div>
-          <h2>Another kitten</h2>
-          <img src="/assets/images/cat-3.jpg">
-        </div>
-        <div>
-          <h2>Serious cat</h2>
-          <img src="/assets/images/cat-4.jpg">
-        </div>
-        <div>
-          <h2>Serious cat</h2>
-          <img src="/assets/images/cat-5.jpg">
-        </div>
-        <div>
-          <h2>Serious cat</h2>
-          <img src="/assets/images/cat-5.jpg">
-        </div>
-        <div>
-          <h2>Oops, looks like a bug!</h2>
-          <img src="/assets/images/dog.jpg">
-        </div>
-        <div>
-          <h2>Serious cat</h2>
-          <img src="/assets/images/cat-6.jpg">
-        </div>
-      </div>
-    </slides-browser-window>
-  </slides-slide>
+                <div>
+                    <h2>Cute kitten</h2>
+                    <img src="/assets/images/cat-0.png">
+                </div>
+                <div>
+                    <h2>Kitten on the tree</h2>
+                    <img src="/assets/images/cat-1.jpg">
+                </div>
+                <div>
+                    <h2>More kitten</h2>
+                    <img src="/assets/images/cat-2.jpg">
+                </div>
+                <div>
+                    <h2>Another kitten</h2>
+                    <img src="/assets/images/cat-3.jpg">
+                </div>
+                <div>
+                    <h2>Serious cat</h2>
+                    <img src="/assets/images/cat-4.jpg">
+                </div>
+                <div>
+                    <h2>Serious cat</h2>
+                    <img src="/assets/images/cat-5.jpg">
+                </div>
+                <div>
+                    <h2>Serious cat</h2>
+                    <img src="/assets/images/cat-5.jpg">
+                </div>
+                <div>
+                    <h2>Oops, looks like a bug!</h2>
+                    <img src="/assets/images/dog.jpg">
+                </div>
+                <div>
+                    <h2>Serious cat</h2>
+                    <img src="/assets/images/cat-6.jpg">
+                </div>
+            </div>
+        </slides-browser-window>
+    </slides-slide>
 
-  <!--  CREATE FIRST ANGULAR COMPONENT EXERCISE-->
-  <slides-slide id="exercise" no-padding>
-    <slides-exercise [config]="exercise" milestone="DependencyInjection">
-      <div class="description">
-        <p>Create first Angular component!</p>
-      </div>
-    </slides-exercise>
-  </slides-slide>
+    <!--  CREATE FIRST ANGULAR COMPONENT EXERCISE-->
+    <slides-slide id="exercise" no-padding>
+        <slides-exercise [config]="exercise" milestone="DependencyInjection">
+            <div class="description">
+                <p>Create first Angular component!</p>
+            </div>
+        </slides-exercise>
+    </slides-slide>
 
-  <slides-slide id="end">
-    <slides-closing-slide>
-      <div class="header" header><h1 i18n>End of Dependency Injection Section</h1></div>
-      <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
-      </div>
-      <div class="footer" footer>
-        <h2>
-          <a routerLink="/component-tree/0">Go to the next Milestone</a>
-        </h2>
-      </div>
-    </slides-closing-slide>
-  </slides-slide>
+    <slides-slide id="end">
+        <slides-closing-slide>
+            <div class="header" header>
+                <h1 i18n>End of Dependency Injection Section</h1>
+            </div>
+            <div class="body" body>
+                <h2>Please leave your thoughts using the feedback button below!</h2>
+            </div>
+            <div class="footer" footer>
+                <h2>
+                    <a routerLink="/component-tree/0">Go to the next Milestone</a>
+                </h2>
+            </div>
+        </slides-closing-slide>
+    </slides-slide>
 </slides-presentation>
