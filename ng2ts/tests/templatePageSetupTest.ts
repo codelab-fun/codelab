@@ -23,7 +23,7 @@ describe('Blabla', () => {
     fixture.detectChanges();
     const header = fixture.nativeElement.querySelector('h1');
     chai.expect(header, `Can't find any h1 headers`).is.not.null;
-    chai.expect(header.innerHTML).contains('CatTube');
+    chai.expect(header.innerHTML).contains('MewTube');
     fixture.componentInstance.title = 'SomethingElse';
     fixture.detectChanges();
 
@@ -40,7 +40,7 @@ describe('Blabla', () => {
     chai.expect(input.placeholder, `Input placeholder should contain word 'video'`).contains('video');
   });
 
-  it(`app.html: Add a <button> labeled 'search'`, () => {
+  it(`app.html: Add a <button> named 'search'`, () => {
     TestBed.compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
