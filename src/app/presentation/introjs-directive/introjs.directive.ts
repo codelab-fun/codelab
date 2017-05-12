@@ -5,15 +5,18 @@ import {introJs} from 'intro.js/intro.js';
 @Directive({
   selector: '[slidesIntrojsDirective]'
 })
-export class IntrojsDirective implements AfterViewInit {
+export class IntrojsDirective implements OnInit {
 
   constructor(public slide: SlideComponent) {
   }
 
-
-  ngAfterViewInit(): void {
-    this.slide.onActive.subscribe((active) => {
-      active ? introJs().start() : introJs().exit();
-    });
+  ngOnInit() {
+    setTimeout(() => introJs().start(), 2000);
   }
+
+  // ngAfterViewInit(): void {
+  //   this.slide.onActive.subscribe((active) => {
+  //     active ? introJs().start() : introJs().exit();
+  //   });
+  // }
 }
