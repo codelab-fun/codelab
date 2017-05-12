@@ -40,7 +40,7 @@ describe('Blabla', () => {
     chai.expect(input.placeholder, `Input placeholder should contain word 'video'`).contains('video');
   });
 
-  it(`app.html: Add a <button> labeled 'search'`, () => {
+  it(`app.html: Add a <button> named 'search'`, () => {
     TestBed.compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

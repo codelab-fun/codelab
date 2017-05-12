@@ -17,7 +17,7 @@
   <!-- RECAP -->
 
   <slides-slide id="intro" no-padding>
-    <slides-title-slide title="Component tree" description="Combine components together"
+    <slides-title-slide title="Component Tree" description="Combine components together"
                         prereqs=""></slides-title-slide>
   </slides-slide>
 
@@ -54,7 +54,7 @@
   <slides-slide id="passing-data" milestone="component-tree">
     <h1>Passing data from parent to child</h1>
     <h2>Parent component passes their data to the child using properties</h2>
-    <div class="exercise">Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to get kinda japanese flag
+    <div class="exercise">Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to recreate the Japanese flag.
     </div>
     <slides-playground [config]="code.boxAndCircle"></slides-playground>
   </slides-slide>
@@ -66,7 +66,7 @@
     <h2>But child class has to decorate their properties with a special <b>@Input()</b> decorator</h2>
     <slides-playground [config]="code.circleAndBox"
                        [focus-highlight-match]="['@Input() size','@Input() color']"></slides-playground>
-    <div class="info">This is the first time when we're applying decorators to properties, not classes.</div>
+    <div class="info">This is the first time we're applying decorators to properties, not classes.</div>
   </slides-slide>
 
 
