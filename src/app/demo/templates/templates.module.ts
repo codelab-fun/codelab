@@ -9,7 +9,11 @@ import {FeedbackModule} from '../../feedback/feedback.module';
 import {BrowserWindowModule} from '../../browser-window/browser-window.module';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(TemplatesComponent)
+  [{
+      path: '',
+      redirectTo: '/templates/intro',
+      pathMatch: 'full'
+    }, ...SlidesRoutes.get(TemplatesComponent)]
 );
 
 @NgModule({

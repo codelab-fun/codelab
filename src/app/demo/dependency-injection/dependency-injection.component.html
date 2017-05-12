@@ -3,7 +3,11 @@
   slides-mode-routing
   slides-tracking>
   <div class="btn-bar">
-
+    <div class="menu-bar-btn github-icon">
+      <a href="https://github.com/AngularNYC/angular-presentation">
+        <img src="/assets/images/github-icon.png">
+      </a>
+    </div>
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
@@ -65,6 +69,14 @@
     <h1>Dependency Injection / Comparison / Testing</h1>
     <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies in a constructor
       parameters.</h2>
+    <slides-code-group class="content-container">
+      <div class="col-6">
+        <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor path="person-di.spec.ts" [fontSize]="15" [code]="code.withDITesting.code"></slides-code-editor>
+      </div>
+    </slides-code-group>
   </slides-slide>
 
   <!--  Steps to create an Angular app -->

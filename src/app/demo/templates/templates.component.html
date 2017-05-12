@@ -3,7 +3,11 @@
   slides-mode-routing
   slides-tracking>
   <div class="btn-bar">
-
+    <div class="menu-bar-btn github-icon">
+      <a href="https://github.com/AngularNYC/angular-presentation">
+        <img src="/assets/images/github-icon.png">
+      </a>
+    </div>
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
@@ -171,7 +175,7 @@
       The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
     </h2>
     <slides-playground [config]="code.ngForDirective.template"
-                       [focus-highlight-match]="[code.ngForDirective]"></slides-playground>
+                       [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
     <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
   </slides-slide>
 
