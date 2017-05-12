@@ -88,6 +88,7 @@ export class FeedbackPageComponent implements OnInit {
         const responseData = response.json();
         this.isDone(message);
         this.database.object(`feedback/${message.$key}`).update({ url: responseData.html_url });
+        window.open(responseData.html_url);
       }
     });
   }
