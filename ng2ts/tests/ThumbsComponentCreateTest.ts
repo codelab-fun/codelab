@@ -26,7 +26,7 @@ beforeEach(() => {
   }
 });
 
-describe('Component tree', () => {
+describe('Component Tree', () => {
   describe('Make sure things are displayed properly', () => {
     let fixture;
     beforeEach(() => {
