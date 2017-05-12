@@ -305,13 +305,13 @@ export const ng2tsConfig: CodelabConfigTemplate = {
                 <button>Search!</button>
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                 </div><div>
                   <h2>Kitten on the tree</h2>
-                  <img src="/assets/images/cat-1.jpg">
+                  <img src="/assets/images/cat-01.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img src="/assets/images/cat-2.jpg">
+                  <img src="/assets/images/cat-02.jpg">
                 </div>
               </div></my-app>
             </div>
@@ -371,25 +371,25 @@ export const ng2tsConfig: CodelabConfigTemplate = {
                 <button>Search!</button>
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                 </div><div>
                   <h2>Kitten on the tree</h2>
-                  <img src="/assets/images/cat-1.jpg">
+                  <img src="/assets/images/cat-01.jpg">
                 </div><div>
                   <h2>More kitten</h2>
-                  <img src="/assets/images/cat-2.jpg">
+                  <img src="/assets/images/cat-02.jpg">
                 </div><div>
                   <h2>Another kitten</h2>
-                  <img src="/assets/images/cat-3.jpg">
+                  <img src="/assets/images/cat-03.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img src="/assets/images/cat-4.jpg">
+                  <img src="/assets/images/cat-04.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img  src="/assets/images/cat-5.jpg">
+                  <img  src="/assets/images/cat-05.png">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img  src="/assets/images/cat-6.jpg">
+                  <img  src="/assets/images/cat-06.jpg">
                 </div>
               </div></my-app>
             </div>
