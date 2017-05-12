@@ -1,4 +1,4 @@
-import { Directive, Input, AfterViewInit, OnInit, AfterContentInit } from '@angular/core';
+import { Directive, Input, OnInit, AfterViewInit, AfterContentInit, HostListener } from '@angular/core';
 import {SlideComponent} from '../../presentation/slide/slide.component';
 import {introJs} from 'intro.js/intro.js';
 
@@ -13,8 +13,10 @@ export class IntrojsDirective implements OnInit {
   ngOnInit() {
     this.slide.onActive.subscribe((active) => {
       if (active) {
-        this.slide.disableShortcuts();
         setTimeout(() => introJs().start(), 2000);
+        // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
+        //   alert("eventData");
+        // }
       }
     });
   }
