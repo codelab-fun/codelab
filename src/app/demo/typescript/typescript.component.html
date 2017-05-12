@@ -128,8 +128,8 @@
     <h2>Types are defined as <b>variableName: type</b></h2>
     <slides-code-editor path="types.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.code"></slides-code-editor>
-    <div class="info"><b>const</b> is a new way to declare variables (introduced in <b>ES6</b>). Similar to <b>var</b>
-      but assumes the value will never change.
+    <div class="info"><b>const</b> is a new way to declare variables (introduced in <b>ES6</b>). Similar to <b>var</b>,
+      but has block scope, and throws an exception if an operation would reassign the value.
     </div>
   </slides-slide>
 
@@ -138,11 +138,13 @@
     <h2>TypeScript allows to define more complex objects using interfaces:</h2>
     <slides-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.codeInterfaces"></slides-code-editor>
+  <div class="info">Here, <b>realPuppy</b> is an instance of the <b>Puppy</b> Interface.</div>
   </slides-slide>
 
   <slides-slide id="types-arrays" milestone="TypeScript">
     <h1>Types: Arrays</h1>
     <slides-playground [config]="code.moreTypes.codeArrays"></slides-playground>
+  <div class="info">Here, <b>betterFruit</b> is an instance of the <b>Fruit</b> Interface.</div>
   </slides-slide>
 
   <!--  CLASSES  -->
