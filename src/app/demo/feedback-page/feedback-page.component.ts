@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import {AngularFireAuth} from 'angularfire2/auth';
+import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import {Message} from '../../feedback/message';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {combineLatest} from 'rxjs/observable/combineLatest';
+import { Message } from '../../feedback/message';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { combineLatest } from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import { GithubService } from "app/github.service";
+import { GithubService } from 'app/github.service';
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';
@@ -20,7 +20,7 @@ function groupBy(feedback: Array<Message>, grouping: Grouping) {
     return comment;
   }, {});
 
-  return Object.keys(result).map(key => ({key, value: result[key]}));
+  return Object.keys(result).map(key => ({ key, value: result[key] }));
 }
 
 function group([feedback, grouping]) {
@@ -63,7 +63,7 @@ export class FeedbackPageComponent implements OnInit {
   githubAuth;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
-    var provider = new firebase.auth.GithubAuthProvider();
+    const provider = new firebase.auth.GithubAuthProvider();
     provider.addScope('repo');
     afAuth.auth.signInWithPopup(provider).then(authData => {
       this.githubAuth = authData;
@@ -72,60 +72,60 @@ export class FeedbackPageComponent implements OnInit {
   }
 
   isDone(message) {
-    this.database.object(`feedback/${message.$key}`).update({isDone: !message.isDone});
+    this.database.object(`feedback/${message.$key}`).update({ isDone: !message.isDone });
   }
 
-  generateIssueBody(message){
+  generateIssueBody(message) {
     return `${message.comment} \nAuthor: ${message.name}\n[Slide](${message.href})`;
   }
 
-  makeAnIssue(message){
+  makeAnIssue(message) {
     this.ghService.createIssue({
-      title: message.comment.substring(0,150),
+      title: message.comment.substring(0, 150),
       body: this.generateIssueBody(message)
-      }, this.githubAuth.credential.accessToken).subscribe(response => {
-        if(response.ok){
-          let responseData = response.json();
-          this.isDone(message);
-          this.database.object(`feedback/${message.$key}`).update({url: responseData.html_url});
-        }
-      });
+    }, this.githubAuth.credential.accessToken).subscribe(response => {
+      if (response.ok) {
+        const responseData = response.json();
+        this.isDone(message);
+        this.database.object(`feedback/${message.$key}`).update({ url: responseData.html_url });
+      }
+    });
   }
 
-  createDuplicateIssue(message){
+  createDuplicateIssue(message) {
     this.ghService.createIssue({
-      title: 'DUPLICATE ' + message.comment.substring(0,150),
+      title: 'DUPLICATE ' + message.comment.substring(0, 150),
       body: this.generateIssueBody(message),
-      }, this.githubAuth.credential.accessToken).subscribe(response => {
-        if(response.ok){
-          let responseData = response.json();
-          this.database.object(`feedback/${message.$key}`).update({url: responseData.html_url});
-          this.ghService.closeIssue({state:'closed'}, responseData.number, this.githubAuth.credential.accessToken)
-          .subscribe((response) => {
-            if(response.ok) {
+    }, this.githubAuth.credential.accessToken).subscribe(response => {
+      if (response.ok) {
+        const responseData = response.json();
+        this.database.object(`feedback/${message.$key}`).update({ url: responseData.html_url });
+        this.ghService.closeIssue({ state: 'closed' }, responseData.number, this.githubAuth.credential.accessToken)
+          .subscribe((res) => {
+            if (res.ok) {
               this.isDone(message);
             }
           });
-        }
-      });
+      }
+    });
   }
 
-  createWorkInProgressIssue(message){
+  createWorkInProgressIssue(message) {
     this.ghService.createIssue({
-      title: 'WORK-IN-PROGRESS ' + message.comment.substring(0,150),
+      title: 'WORK-IN-PROGRESS ' + message.comment.substring(0, 150),
       body: this.generateIssueBody(message),
-      }, this.githubAuth.credential.accessToken).subscribe(response => {
-        if(response.ok){
-          let responseData = response.json();
-          this.database.object(`feedback/${message.$key}`).update({url: responseData.html_url});
-          this.ghService.closeIssue({state:'closed'}, responseData.number, this.githubAuth.credential.accessToken)
-          .subscribe((response) => {
-            if(response.ok) {
+    }, this.githubAuth.credential.accessToken).subscribe(response => {
+      if (response.ok) {
+        const responseData = response.json();
+        this.database.object(`feedback/${message.$key}`).update({ url: responseData.html_url });
+        this.ghService.closeIssue({ state: 'closed' }, responseData.number, this.githubAuth.credential.accessToken)
+          .subscribe((res) => {
+            if (res.ok) {
               this.isDone(message);
             }
           });
-        }
-      });
+      }
+    });
   }
 
   ngOnInit() {

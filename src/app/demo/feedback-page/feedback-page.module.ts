@@ -10,8 +10,8 @@ import {BrowserWindowModule} from '../../browser-window/browser-window.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../environments/environment';
-import { GithubService } from "app/github.service";
-import { HttpModule }    from '@angular/http';
+import { GithubService } from 'app/github.service';
+import { HttpModule } from '@angular/http';
 
 
 const routes = RouterModule.forChild(
