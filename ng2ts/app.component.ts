@@ -20,14 +20,14 @@ const FAKE_VIDEOS = [{
 @Component({
   selector: 'my-app',
   /*/d*//*d:createComponentSolved:bootstrapSolved/trimBoth*/
-  template: '<h1>Hello CatTube!</h1>',
+  template: '<h1>Hello MewTube!</h1>',
   /*/d*//*d:templatePageSetup/trimBoth*/
   templateUrl: 'app.html'
   /*/d*//*d:createComponentSolved/trimTrailing*/
 })
 export class AppComponent {
 /*/d*//*d:templatePageSetup/trimTrailing*/
-  title = 'CatTube';
+  title = 'MewTube';
 /*/d*//*d:diInjectServiceSolved*/
   constructor(public videoService: VideoService) {
   }

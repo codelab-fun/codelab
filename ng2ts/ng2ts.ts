@@ -241,7 +241,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
 
           <div class = "inBrowser">
             <div class="smaller">
-              <h1>Hello CatTube!</h1>
+              <h1>Hello MewTube!</h1>
             </div>
           </div>
           <p>3 simple steps:</p>
@@ -278,7 +278,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           skipTests: true,
           description: `
           <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
-          <p>There's no  simple way to test it,  make sure your app displays: 'Hello CatTube!'</p>`,
+          <p>There's no  simple way to test it,  make sure your app displays: 'Hello MewTube!'</p>`,
           files: diffFilesResolver.resolve('bootstrap', {
             exercise: [files.main],
             reference: [files.appComponent, files.appModule],
@@ -301,7 +301,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <div class = "inBrowser">
             <div class="smaller">
               <my-app><div>
-                <h1>CatTube</h1>
+                <h1>MewTube</h1>
                 <button>Search!</button>
                 <div>
                   <h2>Cute kitten</h2>
@@ -366,7 +366,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <div class = "inBrowser">
             <div class="smaller">
               <my-app><div>
-                <h1>CatTube</h1>
+                <h1>MewTube</h1>
                 <input placeholder="video" type="text">
                 <button>Search!</button>
                 <div>
