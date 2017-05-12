@@ -11,7 +11,11 @@ export class IntrojsDirective implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => introJs().start(), 2000);
+    this.slide.onActive.subscribe((active) => {
+      if (active) {
+        setTimeout(() => introJs().start(), 2000);
+      }
+    });
   }
 
   // ngAfterViewInit(): void {

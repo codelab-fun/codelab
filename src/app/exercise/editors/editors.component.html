@@ -1,4 +1,4 @@
-<div class="tabs">
+<div data-step="1" data-intro="From now on you may need to write code in multiple files; you can tab through them here." class="tabs">
   <div class="tab"
     *ngFor="let file of visibleFiles; trackBy: trackFile"
     [class.is-active]="isOpenFile(file)"
@@ -9,16 +9,18 @@
   </div>
 </div>
 
-<div *ngFor="let file of visibleFiles; trackBy: trackFile">
-  <div class="solution" [class.is-hidden]="!isOpenFile(file) || file.readonly"
-       *ngIf="debug && !file.readonly"
-  (click)="loadSolution(file)" >
-    [Load solution]
+<span data-step="2" data-intro="You know what to do here 👍">
+  <div *ngFor="let file of visibleFiles; trackBy: trackFile">
+    <div class="solution" [class.is-hidden]="!isOpenFile(file) || file.readonly"
+        *ngIf="debug && !file.readonly"
+    (click)="loadSolution(file)" >
+      [Load solution]
+    </div>
+    <slides-editor
+      class="editor"
+      [class.is-hidden]="!isOpenFile(file)"
+      [file]="file"
+      (onCodeChange)="onCodeChange({file: file, code: $event})">
+    </slides-editor>
   </div>
-  <slides-editor
-    class="editor"
-    [class.is-hidden]="!isOpenFile(file)"
-    [file]="file"
-    (onCodeChange)="onCodeChange({file: file, code: $event})">
-  </slides-editor>
-</div>
+</span>

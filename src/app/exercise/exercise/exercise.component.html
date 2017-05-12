@@ -27,10 +27,12 @@
           <h2>Nice! Go to the next slide</h2>
         </div>
       </div>
-      <slides-tests [tests]="config.tests" [files]="config.files"
-                 (onSelectFile)="onSelectFile($event)"></slides-tests>
+        <slides-tests data-step="4" data-intro="This is a list of the tests your program should pass at the end."[tests]="config.tests" [files]="config.files"
+                  (onSelectFile)="onSelectFile($event)"></slides-tests>
     </div>
-    <slides-runner (onTestUpdate)="onTestUpdate($event)"
+    <slides-runner
+                data-step="5" data-intro="The live preview of your work will show up here."
+                (onTestUpdate)="onTestUpdate($event)"
                 [files]="config.files"
                 [runnerType]="config.runner || 'Angular'">
     </slides-runner>

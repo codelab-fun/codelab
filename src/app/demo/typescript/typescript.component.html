@@ -110,17 +110,17 @@
 
   <!--  NUMBER-TYPE  -->
   <slides-slide slidesIntrojsDirective id="type-mini-exercise">
-    <h1>TypeSystem</h1>
+    <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeSystem</h1>
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
       early</h2>
-    <div class="exercise" [class.solved]="tsexercises.solved" data-intro='Hello step one!'>
+    <div data-step="2" data-intro="These are the exercise instructions." class="exercise" [class.solved]="tsexercises.solved">
       Exercise: Try to get the desired output by changing the function inputs below:
     </div>
     <slides-playground [config]="code.tsExercise"
                        [focus-highlight-match]="[code.tsExerciseMatch]"
                        #tsexercises
     ></slides-playground>
-    <div class="info">The code above is editable!</div>
+    <div data-step="4" data-intro="Sometimes there are helpful hints down here! 🕵🏻‍♀️" class="info">The code above is editable!</div>
   </slides-slide>
 
   <slides-slide id="types-primitives" milestone="TypeScript">
@@ -260,7 +260,7 @@
   <slides-slide id="exercise" no-padding>
     <slides-exercise slidesIntrojsDirective [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
-        <p data-intro="yoyo">We created all the files for you</p>
+        <p>We created all the files for you</p>
       </div>
     </slides-exercise>
   </slides-slide>
