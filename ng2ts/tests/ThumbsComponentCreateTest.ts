@@ -48,7 +48,7 @@ describe('Component Tree', () => {
   });
 
   describe('Make sure things work', () => {
-    it(`Thumbs.Component.ts: Set the selector to be 'my-thumbs'.`, () => {
+    it(`Thumbs.Component.ts: Add the '@Component' decorator and set its selector to be 'my-thumbs'.`, () => {
       const metadata = Reflect.getMetadata('annotations', ThumbsComponent);
       chai.expect(metadata, `ThumbsComponent doesn't have a @Component() annotation`).is.not.undefined;
       chai.expect(metadata[0].selector, `ThumbsComponent's selector has to be 'my-thumbs'.`).equals('my-thumbs')

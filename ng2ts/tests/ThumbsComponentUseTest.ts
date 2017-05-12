@@ -26,7 +26,7 @@ beforeEach(() => {
   TestBed.compileComponents();
 });
 
-describe('Component tree', () => {
+describe('Component Tree', () => {
   it(`app.module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
     let metadata;
     try {
