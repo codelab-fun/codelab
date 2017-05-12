@@ -121,7 +121,7 @@ const FAKE_VIDEOS = [
   },
   {
     title: 'Nikki\'s First Feast',
-    src: '/assets/images/cat-14.jpg',
+    src: '/assets/images/cat-14.png',
     description: 'Nikki tries fancy cat food.',
     views: 99,
     likes: 1,

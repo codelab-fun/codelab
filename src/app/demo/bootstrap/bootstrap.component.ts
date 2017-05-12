@@ -100,12 +100,12 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
 
 @Component({
   selector: 'my-app',
-  template: '<h1>Hello CatTube!</h1>',
+  template: '<h1>Hello MewTube!</h1>',
 })
 export class AppComponent {
 }
 `,
-          'solution': 'import { Component } from \'@angular/core\';\n\n@Component({\n  selector: \'my-app\',\n  template: \'<h1>Hello CatTube!</h1>\',\n})\nexport class AppComponent {\n}\n',
+          'solution': 'import { Component } from \'@angular/core\';\n\n@Component({\n  selector: \'my-app\',\n  template: \'<h1>Hello MewTube!</h1>\',\n})\nexport class AppComponent {\n}\n',
           'after': 'export export function evalJs( js ){ return eval(js);}'
         },
         {

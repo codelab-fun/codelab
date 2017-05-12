@@ -241,7 +241,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
 
           <div class = "inBrowser">
             <div class="smaller">
-              <h1>Hello CatTube!</h1>
+              <h1>Hello MewTube!</h1>
             </div>
           </div>
           <p>3 simple steps:</p>
@@ -278,7 +278,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           skipTests: true,
           description: `
           <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
-          <p>There's no  simple way to test it,  make sure your app displays: 'Hello CatTube!'</p>`,
+          <p>There's no  simple way to test it,  make sure your app displays: 'Hello MewTube!'</p>`,
           files: diffFilesResolver.resolve('bootstrap', {
             exercise: [files.main],
             reference: [files.appComponent, files.appModule],
@@ -301,17 +301,17 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <div class = "inBrowser">
             <div class="smaller">
               <my-app><div>
-                <h1>CatTube</h1>
+                <h1>MewTube</h1>
                 <button>Search!</button>
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                 </div><div>
                   <h2>Kitten on the tree</h2>
-                  <img src="/assets/images/cat-1.jpg">
+                  <img src="/assets/images/cat-01.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img src="/assets/images/cat-2.jpg">
+                  <img src="/assets/images/cat-02.jpg">
                 </div>
               </div></my-app>
             </div>
@@ -366,30 +366,30 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <div class = "inBrowser">
             <div class="smaller">
               <my-app><div>
-                <h1>CatTube</h1>
+                <h1>MewTube</h1>
                 <input placeholder="video" type="text">
                 <button>Search!</button>
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                 </div><div>
                   <h2>Kitten on the tree</h2>
-                  <img src="/assets/images/cat-1.jpg">
+                  <img src="/assets/images/cat-01.jpg">
                 </div><div>
                   <h2>More kitten</h2>
-                  <img src="/assets/images/cat-2.jpg">
+                  <img src="/assets/images/cat-02.jpg">
                 </div><div>
                   <h2>Another kitten</h2>
-                  <img src="/assets/images/cat-3.jpg">
+                  <img src="/assets/images/cat-03.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img src="/assets/images/cat-4.jpg">
+                  <img src="/assets/images/cat-04.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img  src="/assets/images/cat-5.jpg">
+                  <img  src="/assets/images/cat-05.png">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img  src="/assets/images/cat-6.jpg">
+                  <img  src="/assets/images/cat-06.jpg">
                 </div>
               </div></my-app>
             </div>
