@@ -1,7 +1,7 @@
 /**
  * In the test it's possible to get access to sourcecode, as well as to the code AST.
  */
-import {ts, typescript_intro_Codelab_ts_AST} from '../code';
+import { ts, typescript_intro_Codelab_ts_AST } from '../code';
 /**
  * This is a good sample sample of a codelab exercise.
  *
@@ -18,12 +18,12 @@ import {ts, typescript_intro_Codelab_ts_AST} from '../code';
  * It will be stripped during runtime, and the Codelab module
  * will be loaded.
  */
-import {Codelab, evalJs} from '../typescript-intro/Codelab';
+import { Codelab, evalJs } from '../typescript-intro/Codelab';
 
 
 const guests = [
-  {name: 'me', coming: true},
-  {name: 'notme', coming: false},
+  { name: 'me', coming: true },
+  { name: 'notme', coming: false },
 ];
 
 function getConstructorNode(code) {
@@ -56,6 +56,11 @@ describe('Component', () => {
      * e.g. if the user created teh class, but haven't exported it this
      * test will still pass.
      */
+
+    const codeString = typescript_intro_Codelab_ts_AST.text;
+    const regEx = RegExp(/(Codelab) *\(\)/g);
+    const noParentheses = codeString.search(regEx) === -1;
+    chai.expect(noParentheses).equals(true);
     chai.expect(typeof evalJs('Codelab')).equals('function');
   });
 
@@ -103,14 +108,15 @@ describe('Component', () => {
       type.typeName.text === 'Array' &&
       type.typeArguments.length === 1 && type.typeArguments[0].typeName.text === 'Guest') ||
       /* Guest[] */ (type.kind === ts.SyntaxKind.ArrayType
-      && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
+        && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
 
-    chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest 
+    chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest
     (hint: Array<Guest> is one way of doing it.)`).to.be.ok;
 
   });
 
   it('Make the parameter public (note that now you can access it anywhere in the class using this.guests)', () => {
+
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
     const parameter = constructorNode.parameters[0];
     chai.expect(parameter.modifiers.length === 1 && parameter.modifiers[0].kind === ts.SyntaxKind.PublicKeyword,
@@ -122,10 +128,10 @@ describe('Component', () => {
     chai.expect(typeof (new Codelab(guests).getGuestsComing)).equals('function');
   });
 
-  it(`Modify getGuestsComing to filter the guests array and only return guests with the 'coming' 
+  it(`Modify getGuestsComing to filter the guests array and only return guests with the 'coming'
       property set to true.`, () => {
-    chai.expect(new Codelab(guests).getGuestsComing().length).equals(1);
-  });
+      chai.expect(new Codelab(guests).getGuestsComing().length).equals(1);
+    });
 
   /*
    xit(`Let's debug the app! You'll need this if something goes wrong.
