@@ -198,6 +198,23 @@ export class AppComponent {
      and enter. -->
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
+    eventBinding2: `<button (click)="saveUser($event)">
+  <!--In the example above, the event variable being passed in 
+  contains metadata about the click "action" or "event" that
+  took place.-->
+
+  <!--This is not to be confused with the process of getting
+  user input data. -->
+
+  <!-- If you want to pass in the users' input as an argument
+  to your function, that can be done by giving your input a 
+  specific reference using the '#' symbol followed by the reference
+  name.-->
+
+  <!--The next slide will display this concept in more detail. --> 
+`,
+    eventBinding2Match1: /(click)/,
+    eventBinding2Match2: /(\$event)/,
     eventBindingMatch: /(click)/,
     eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
     conditionalDisplay: `<!-- ngIf conditionally toggles the visibility of a section of the UI. -->
