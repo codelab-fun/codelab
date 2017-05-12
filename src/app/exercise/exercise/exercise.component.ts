@@ -3,7 +3,7 @@ import {ExerciseBase} from './exercise.base';
 import {FileConfig} from '../interfaces/file-config';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
-import {AnalyticsService} from "../../presentation/analytics.service";
+import {AnalyticsService} from '../../presentation/analytics.service';
 
 @Component({
   selector: 'slides-exercise',
