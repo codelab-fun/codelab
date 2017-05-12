@@ -54,6 +54,22 @@ export class Person {
       path: 'personDI.ts',
       type: 'typescript'
     },
+    withDITesting: {
+      code: `const mockProfession = new Job('lawyer');
+  
+  it('should create a Person with the right profession', () => {
+    const person = new Person(mockProfession);
+    // assuming Job has property '.title'
+    expect(person.profession.title).toEqual('lawyer');
+  });
+}`,
+      matches: {
+        constructor: /constructor.*/
+      },
+      readonly: true,
+      path: 'personDI.spec.ts',
+      type: 'typescript'
+    },
 
     classAsInjectable: {
       code: `import { Injectable } from '@angular/core';

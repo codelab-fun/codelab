@@ -138,7 +138,10 @@ export class AppComponent {
 })
 export class AppComponent {
   puppies = ['Rex', 'Apple', 'Vivaldi'];
-}`)
+}`),
+    matches: {
+        ngFor: '*ngFor'
+      }
     },
 
     templateInterpolation: `

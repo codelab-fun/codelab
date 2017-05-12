@@ -14,6 +14,8 @@ const preloadedFiles = {
   'api.service.ts': require('!raw-loader!./api.service.ts'),
   'video/video.service.ts': require('!raw-loader!./video/video.service.ts'),
   'video/video.component.html': require('!raw-loader!./video/video.component.html'),
+  'video/video.index.html': require('!raw-loader!./video/video.index.html'),
+  'video/video-wrapper.component.ts': require('!raw-loader!./video/video-wrapper.component.ts'),
   'video/video.component.ts': require('!raw-loader!./video/video.component.ts'),
   'thumbs/thumbs.component.ts': require('!raw-loader!./thumbs/thumbs.component.ts'),
   'thumbs/thumbs.html': require('!raw-loader!./thumbs/thumbs.html'),
@@ -45,11 +47,11 @@ const preloadedFiles = {
   'tests/fuzzyPipeCreateTest.ts': require('!raw-loader!./tests/fuzzyPipeCreateTest.ts'),
   'tests/fuzzyPipeUseTest.ts': require('!raw-loader!./tests/fuzzyPipeUseTest.ts'),
   'thumbs.app.module.ts': require('!raw-loader!./thumbs.app.module.ts'),
+  'video.app.module.ts': require('!raw-loader!./video.app.module.ts'),
   'toggle-panel.app.module.ts': require('!raw-loader!./toggle-panel.app.module.ts'),
   'index.html': '<my-app></my-app>'
   // 'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
 };
-
 
 const files = {
   appComponent: 'app.component.ts',
@@ -61,6 +63,8 @@ const files = {
   video_videoService: 'video/video.service.ts',
   video_video_component_html: 'video/video.component.html',
   video_video_component: 'video/video.component.ts',
+  video_video_wrapper_component: 'video/video-wrapper.component.ts',
+  video_video_index_html: 'video/video.index.html',
   thumbs_thumbs_component: 'thumbs/thumbs.component.ts',
   thumbs_thumbs_html: 'thumbs/thumbs.html',
   toggle_panel_toggle_panel_html: 'toggle-panel/toggle-panel.html',
@@ -79,7 +83,11 @@ const files = {
 
 
 const fileOverrides = {
+  'index.html': {
+    videoComponentCreate: 'video/video.index.html'
+  },
   'app.module.ts': {
+    videoComponentCreate: 'video.app.module.ts',
     thumbsComponentCreate: 'thumbs.app.module.ts',
     togglePanelComponentCreate: 'toggle-panel.app.module.ts'
   },
@@ -431,6 +439,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             exercise: [files.video_video_component, files.video_video_component_html],
             reference: [
               files.appModule,
+              files.video_video_wrapper_component,
               files.video_videoService, files.appHtml,
               files.appComponent, files.video_videoItem,
               files.apiService, files.main, files.indexHtml
