@@ -8,7 +8,7 @@ export class ExerciseBase implements OnDestroy {
   @Input() public config: ExerciseConfig;
   running = false;
   solved = false;
-  private onActiveUsubscribe: Subscription;
+  private onActiveUnsubscribe: Subscription;
 
 
   loadModels() {
@@ -16,7 +16,7 @@ export class ExerciseBase implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.onActiveUsubscribe.unsubscribe();
+    this.onActiveUnsubscribe.unsubscribe();
   }
 
   onTestUpdate(event) {
@@ -70,7 +70,7 @@ export class ExerciseBase implements OnDestroy {
   }
 
   constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService) {
-    this.onActiveUsubscribe = slide.onActive.filter(a => a).subscribe(() => {
+    this.onActiveUnsubscribe = slide.onActive.filter(a => a).subscribe(() => {
       console.log('ACTIVE');
       slide.disableResize();
       this.loadModels();

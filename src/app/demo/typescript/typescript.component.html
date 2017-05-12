@@ -90,18 +90,25 @@
   </slides-slide>
 
   <!--  NUMBER-TYPE  -->
-  <slides-slide id="type-mini-exercise">
-    <h1>TypeSystem</h1>
+  <slides-slide slidesIntrojsDirective id="type-mini-exercise">
+    <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeSystem</h1>
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
       early</h2>
-    <div class="exercise" [class.solved]="tsexercises.solved">
+    <div data-step="2" data-intro="These are the exercise instructions." class="exercise" [class.solved]="tsexercises.solved">
       Exercise: Try to get the desired output by changing the function inputs below:
     </div>
     <slides-playground [config]="code.tsExercise"
-                       [focus-highlight-match]="[code.tsExerciseMatch]"
-                       #tsexercises
+                    [focus-highlight-match]="[code.tsExerciseMatch]"
+                    [browserUseConsole]="true"
+                    #tsexercises
     ></slides-playground>
-    <div class="info">The code above is editable!</div>
+    <div
+      data-step="4"
+      data-intro="Sometimes there are helpful hints down here! 🕵🏻‍♀️"
+      data-position="top"
+      class="info">
+      The code above is editable!
+    </div>
   </slides-slide>
 
   <slides-slide id="types-primitives" milestone="TypeScript">
@@ -123,7 +130,7 @@
 
   <slides-slide id="types-arrays" milestone="TypeScript">
     <h1>Types: Arrays</h1>
-    <slides-playground [config]="code.moreTypes.codeArrays"></slides-playground>
+    <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
   <!--  CLASSES  -->
@@ -132,7 +139,7 @@
     <h2>TypeScript has classes, and Angular makes heavy use of them</h2>
     <h2>They work similar to classes in other languages, and serve for grouping methods and properties belonging to
       one object together</h2>
-    <slides-playground [config]="code.classDescription.code"
+    <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
   <slides-slide id="classes-constructor" milestone="TypeScript">
@@ -140,7 +147,7 @@
     <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is created and allows
       the
       class to take parameters</h2>
-    <slides-playground [config]="code.classDescription.codeConstructor"
+    <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
   </slides-slide>
 
@@ -148,7 +155,7 @@
     <h1>Classes - Access modifiers</h1>
     <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
       accessible as <b>this.name</b></h2>
-    <slides-playground [config]="code.classDescription.codeConstructor"
+    <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
     <div class="info">private or protected properties are not visible outside of the class.</div>
   </slides-slide>
@@ -166,7 +173,7 @@
   <slides-slide id="import" milestone="TypeScript">
     <h1>Classes - import</h1>
     <h2>Now we can use the <b>Puppy</b> class for the other file.</h2>
-    <slides-playground [config]="code.classDescription.codeImport"
+    <slides-playground [config]="code.classDescription.codeImport" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.importMatch]"></slides-playground>
     <div class="info">Imports and exports are not just for classes. They work with variables, functions and other
       things!
@@ -219,8 +226,8 @@
   <slides-slide id="filter" milestone="TypeScript">
     <h1>Filter (One last thing)</h1>
     <h2>Filter is an Array method which allows you to generate a new array keeping only the values that provided
-      callback returns truthy values for.</h2>
-    <slides-playground [config]="code.filter"></slides-playground>
+      callback returns truethy values for.</h2>
+    <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
   <slides-slide id="exercise-info" milestone="TypeScript">
@@ -229,7 +236,7 @@
     <h3>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
       the ones who are coming</h3>
     <h3>The result will be as follows:</h3>
-    <slides-browser-window>
+    <slides-browser-window width="100%">
       <ul>
         <li>Sir Isaac Newton</li>
         <li>Marie Curie</li>
@@ -239,10 +246,9 @@
   </slides-slide>
 
   <slides-slide id="exercise" no-padding>
-    <slides-exercise [config]="exercises[0]" milestone="TypeScript">
+    <slides-exercise slidesIntrojsDirective [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
         <p>We created all the files for you</p>
-        <p>&lt;-- Add your code on the left</p>
       </div>
     </slides-exercise>
   </slides-slide>

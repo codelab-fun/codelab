@@ -18,12 +18,12 @@ beforeEach(() => {
 });
 
 describe('Blabla', () => {
-  it(`app.component.ts: When 'search' is called, filter videos by the title containing the search string. 
-  Assign them to the 'videos' property of the component. Use 'FAKE_VIDEOS' variable as a data source. 
+  it(`app.component.ts: When 'search' is called, filter the 'FAKE_VIDEOS' by the title containing the search string
+  and assign them to the 'videos' property you made earlier.
   (hint: don't use exact match )`, () => {
       const fixture = TestBed.createComponent(AppComponent);
       fixture.componentInstance.search('itten');
-      chai.expect(fixture.componentInstance.videos.length, 'Should have 2 kittens').equals(2);
+      chai.expect(fixture.componentInstance.videos.length, 'Should have 2 kitten videos').equals(2);
       fixture.componentInstance.search('cat');
       chai.expect(fixture.componentInstance.videos.length, 'Should have 1 cat').equals(1);
       fixture.componentInstance.search('dog');

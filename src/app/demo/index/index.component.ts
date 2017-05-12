@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
-
 export interface IndexPageRoute {
   name: string;
   description: string;
@@ -12,6 +11,7 @@ export interface IndexPageRoute {
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+
   routes: Array<IndexPageRoute>;
 
   getMainPageRoutes() {
