@@ -17,6 +17,7 @@ export class ExerciseComponent extends ExerciseBase {
   constructor(slide: SlideComponent,
               monacoConfig: MonacoConfigService) {
     super(slide, monacoConfig);
+    this.slide.isExercise = true;
   }
 
   onSelectFile(fileConfig: FileConfig): void {

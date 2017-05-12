@@ -5,12 +5,13 @@
         <p><a href="/">Index</a></p>
       </li>
       <li class="menu-item" *ngFor="let route of routes">
-        <p><a [href]="route.path + '/0'">{{route.name}}</a></p>
+        <p><a [href]="route.path">{{route.name}}</a></p>
       </li>
     </ul>
 
+  <div class="tri-box"></div>
 </div>
-<div *ngIf="open" class="tri-box"></div>
+
 <div (click)="onDisplay($event)" class="menu-btn menu-bar-btn"></div>
 
 

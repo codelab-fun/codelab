@@ -11,7 +11,11 @@ import {BrowserModule} from '../../browser/browser.module';
 
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(BootstrapComponent)
+  [{
+    path: '',
+    redirectTo: '/create-first-app/intro',
+    pathMatch: 'full'
+  }, ...SlidesRoutes.get(BootstrapComponent)]
 );
 
 @NgModule({

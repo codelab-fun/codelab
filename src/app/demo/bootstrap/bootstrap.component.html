@@ -227,6 +227,63 @@
     <div class="info">For most of the simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
+  <slides-slide id="bootstrapping" class="bootstrapping-more-info" milestone="Bootstrap3">
+    <h1>Bootstrapping: More Info (BONUS)</h1>
+    <h2>
+      How does bootstrapping work in Angular?
+    </h2>
+    <br>
+    <h2>
+      1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells Angular that we are operating in the browser.
+    </h2>
+    <slides-code-editor path="app.module.ts" [fontSize]="25"
+                        [code]="code.moduleBootstrapping.code.mainTs"
+                        [focus-highlight-match]="code.moduleBootstrapping.matches.bootstrap"></slides-code-editor>
+
+    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+       target="_blank">
+      Read more about root module and bootstrapping in Angular
+    </a>
+  </slides-slide>
+
+  <slides-slide id="bootstrapping" class="bootstrapping-more-info" milestone="Bootstrap3">
+    <h1>Bootstrapping: More Info (BONUS)</h1>
+    <h2>
+      How does bootstrapping work in Angular?
+    </h2>
+    <br>
+    <h2>
+      2. Fetches component from <b>bootstrap</b> array in <b>app.module.ts</b>
+      (<b>HelloWorldComponent</b> in this case) and initializes it.
+    </h2>
+    <slides-code-editor path="app.module.ts" [fontSize]="25" [code]="code.moduleAnatomy.code"
+                        [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
+
+    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+       target="_blank">
+      Read more about root module and bootstrapping in Angular
+    </a>
+  </slides-slide>
+
+  <slides-slide id="bootstrapping" class="bootstrapping-more-info" milestone="Bootstrap3">
+    <h1>Bootstrapping: More Info (BONUS)</h1>
+    <h2>
+      How does bootstrapping work in Angular?
+    </h2>
+    <br>
+    <h2>
+      3. Looks for the element matching the selector defined in <b>HelloWorldComponent</b>
+      (<b>'hello-world'</b> in our case) and inserts the component inside that element.
+    </h2>
+    <slides-code-editor path="index.html" [fontSize]="25" [code]="code.moduleBootstrapping.code.indexHTML"
+                        [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
+
+    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+       target="_blank">
+      Read more about root module and bootstrapping in Angular
+    </a>
+  </slides-slide>
+
   <slides-slide id="exercise-bootstrap-pre" milestone="Bootstrap3">
     <h1>Exercise</h1>
     <h2>All set! In the next page you'll bootstrap your first <b>Angular</b> app!</h2>
@@ -239,7 +296,7 @@
     <slides-exercise [config]="exercises[2]" milestone="Bootstrap3">
       <div class="description">
         <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
-        <p>There's no simple way to test it, make sure your app displays: 'Hello CatTube!'</p>`
+        <p>There's no simple way to test it, make sure your app displays: 'Hello MewTube!'</p>`
       </div>
     </slides-exercise>
   </slides-slide>

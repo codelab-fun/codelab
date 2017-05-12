@@ -19,6 +19,7 @@ export class SlideComponent implements OnInit {
   @Input() milestone?: string;
   @Input() id: string;
   modeEnum = Mode;
+  isExercise = false;
 
   constructor(public presentation: PresentationComponent) {
     this.onActive = this.activeSubject.distinctUntilChanged();

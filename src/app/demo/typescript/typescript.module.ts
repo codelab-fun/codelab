@@ -10,7 +10,11 @@ import {BrowserModule} from '../../browser/browser.module';
 import {TrackingModule} from '../../tracking/tracking.module';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(TypescriptComponent)
+  [{
+    path: '',
+    redirectTo: '/typescript/intro',
+    pathMatch: 'full'
+  }, ...SlidesRoutes.get(TypescriptComponent)]
 );
 
 @NgModule({
