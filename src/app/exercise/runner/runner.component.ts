@@ -241,7 +241,9 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   styleUrls: ['./runner.component.css']
 })
 export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
-  @Input() isConsole: boolean;
+  @Input() browserUseConsole: boolean;
+  @Input() browserWidth: string;
+  @Input() browserHeight: string;
 
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
@@ -260,7 +262,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.runnerElement!=null || this.runnerConsoleElement!=null){
+    if (this.runnerElement != null || this.runnerConsoleElement != null) {
       this.runCode(changes.files.currentValue, this.runnerType);
     }
   }
@@ -340,8 +342,10 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngAfterViewInit() {
-    if(this.runnerElement==null && this.runnerConsoleElement!=null){
+    if (this.runnerElement == null && this.runnerConsoleElement != null) {
       this.runnerElement = this.runnerConsoleElement;
+    }
+    if (this.runnerElement != null) {
       this.runCode(this.files, this.runnerType);
     }
 

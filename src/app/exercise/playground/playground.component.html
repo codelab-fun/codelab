@@ -7,6 +7,8 @@
   <slides-runner [files]="config.files" style="flex: 50%"
               [runnerType]="config.runner || 'Angular'"
               (onTestUpdate)="onTestUpdate($event)"
-              [isConsole]="isConsole"
+              [browserUseConsole]="browserUseConsole"
+              [browserWidth]="browserWidth"
+              [browserHeight]="browserHeight"
   ></slides-runner>
 </div>

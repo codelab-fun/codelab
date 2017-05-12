@@ -5,7 +5,7 @@ import { ConsoleWindowComponent } from './console-window/console-window.componen
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [BrowserWindowComponent,ConsoleWindowComponent],
+  declarations: [BrowserWindowComponent, ConsoleWindowComponent],
   exports: [BrowserWindowComponent, ConsoleWindowComponent]
 })
 export class BrowserModule {
