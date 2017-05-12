@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy} from '@angular/core';
 
 
 export interface IndexPageRoute {
@@ -11,8 +11,9 @@ export interface IndexPageRoute {
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnDestroy {
   routes: Array<IndexPageRoute>;
+  firstVisit: boolean = true;
 
   getMainPageRoutes() {
     return this.getPageRoutes('main');
@@ -28,9 +29,11 @@ export class IndexComponent implements OnInit {
 
   constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
     this.routes = routes.filter(route => route.name);
+    this.firstVisit = !localStorage.getItem("vistedBefore");
   }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    localStorage.setItem("visitedBefore", "yes");
   }
 
 }
