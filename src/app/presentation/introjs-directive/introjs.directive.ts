@@ -13,6 +13,7 @@ export class IntrojsDirective implements OnInit {
   ngOnInit() {
     this.slide.onActive.subscribe((active) => {
       if (active) {
+        this.slide.disableShortcuts();
         setTimeout(() => introJs().start(), 2000);
       }
     });
