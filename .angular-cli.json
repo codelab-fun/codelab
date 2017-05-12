@@ -20,9 +20,9 @@
       "prefix": "slides",
       "styles": [
         "styles.css",
-        "intro.js/minified/introjs.min.css"
+        "../node_modules/intro.js/introjs.css"
       ],
-      "scripts": ["intro.js/minified/intro.min.js"],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
