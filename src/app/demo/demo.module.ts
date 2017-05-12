@@ -51,7 +51,7 @@ export const routes = [
     path: 'pipes',
     loadChildren: './pipes/pipes.module#PipesModule',
     name: 'Pipes',
-    description: 'Learn how pipes transforms input values to output values for display in a view.',
+    description: 'Learn how pipes transform input values to output values for display in a view.',
     page: 'bonus'
   },
   {

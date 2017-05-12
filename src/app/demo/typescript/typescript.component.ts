@@ -13,7 +13,7 @@ export class TypescriptComponent {
   code = {
     filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
 
-console.log(numbers.filter(function(number){ 
+console.log(numbers.filter(function(number){
   return number > 30;
 }));
 
@@ -27,21 +27,21 @@ console.log(
   name: string;
   age: number;
 };
- 
+
 const realPuppy: Puppy = {
-  name: 'Pickachu',
+  name: 'Pikachu',
   age: 1
-}; 
+};
 
 const notRealPuppy: Puppy = {
   type: 'cat' // Error: this is clearly not a puppy
 }`,
       codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
-const fruit: Array<string> = ['kiwi', 'fig'];  
+const fruit: Array<string> = ['kiwi', 'fig'];
 // Type[] does the same thing.
-const moreFruit: string[] = ['kiwi', 'fig']; 
+const moreFruit: string[] = ['kiwi', 'fig'];
 
-interface Fruit { 
+interface Fruit {
   name: string,
   sweet: boolean
 }
@@ -52,7 +52,7 @@ const betterFruit: Array<Fruit> = [
 
 console.log(betterFruit);`),
       code: `const price: number = 100; // This is a number.
-const tax = 20; // Actually TypeScript can infer number here;      
+const tax = 20; // Actually TypeScript can infer number here;
 const productName = 'pikachu'; // TypeScript can infer it's a string.
 const isHungry = true; // Boolean
 
