@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { FeedbackModule } from './../../feedback/feedback.module';
 import { PresentationModule } from './../../presentation/presentation.module';
-import { BrowserWindowModule } from './../../browser-window/browser-window.module';
+import { BrowserModule } from './../../browser/browser.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VisualStudioCodeComponent } from './visual-studio-code.component';
