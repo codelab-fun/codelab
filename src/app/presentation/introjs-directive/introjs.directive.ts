@@ -8,12 +8,12 @@ import {introJs} from 'intro.js/intro.js';
 export class IntrojsDirective implements AfterViewInit {
 
   constructor(public slide: SlideComponent) {
-    // console.log(slide);
   }
+
 
   ngAfterViewInit(): void {
     this.slide.onActive.subscribe((active) => {
-      introJs().start();
+      active ? introJs().start() : introJs().exit();
     });
   }
 }
