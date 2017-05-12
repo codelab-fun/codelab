@@ -79,7 +79,7 @@ export class FeedbackPageComponent implements OnInit {
     return `${message.comment} \nAuthor: ${message.name}\n[Slide](${message.href})`;
   }
 
-  makeAnIssue(message) {
+  createAnIssue(message) {
     this.ghService.createIssue({
       title: message.comment.substring(0, 150),
       body: this.generateIssueBody(message)
@@ -111,9 +111,9 @@ export class FeedbackPageComponent implements OnInit {
     });
   }
 
-  createWorkInProgressIssue(message) {
+  createNoFixIssue(message) {
     this.ghService.createIssue({
-      title: 'WORK-IN-PROGRESS ' + message.comment.substring(0, 150),
+      title: 'NO FIX: ' + message.comment.substring(0, 150),
       body: this.generateIssueBody(message),
     }, this.githubAuth.credential.accessToken).subscribe(response => {
       if (response.ok) {

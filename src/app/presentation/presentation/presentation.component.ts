@@ -18,6 +18,7 @@ export class PresentationComponent implements OnInit {
     hideControls: false
   };
 
+
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
   @Input() public width = 1280;
