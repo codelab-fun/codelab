@@ -7,12 +7,18 @@ import {introJs} from 'intro.js/intro.js';
 })
 export class IntrojsDirective implements OnInit {
 
+  private numTours = 0;
+
   constructor(public slide: SlideComponent) {
+    ++this.numTours;
   }
 
   ngOnInit() {
     this.slide.onActive.subscribe((active) => {
-      if (active) {
+      if (this.numTours > 2) {
+        localStorage.setItem('touristLevel', 'expert');
+      }
+      if (active && !localStorage.getItem('touristLevel')) {
         setTimeout(() => introJs().start(), 2000);
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");
