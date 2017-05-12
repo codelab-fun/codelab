@@ -11,7 +11,7 @@ import {CodeGroupComponent} from '../code-group/code-group.component';
   styleUrls: ['./code-editor.component.css']
 })
 export class CodeEditorComponent implements OnInit {
-  onActiveUsubscribe: Subscription;
+  onActiveUnsubscribe: Subscription;
   @Input() type = 'typescript';
   @Input() fontSize = 30;
   @Input() readonly = true;
@@ -30,7 +30,7 @@ export class CodeEditorComponent implements OnInit {
     if (group) {
       group.register(this);
     }
-    this.onActiveUsubscribe = slide.onActive.subscribe((active) => {
+    this.onActiveUnsubscribe = slide.onActive.subscribe((active) => {
       if (active) {
         slide.disableResize();
         if (!group) {

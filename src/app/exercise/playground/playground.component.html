@@ -3,9 +3,11 @@
               (onCodeChange)="onCodeChange($event)"
               [fontSize]="20"
               [slides-focus-highlight-match]="highlightMatches"
+              data-step="2" data-intro="You can enter your code in the editor window on the left." data-position="top"
   ></slides-editor>
   <slides-runner [files]="config.files" style="flex: 50%"
               [runnerType]="config.runner || 'Angular'"
               (onTestUpdate)="onTestUpdate($event)"
+              data-step="3" data-intro="See the output in a live preview on the right!" data-position="top"
   ></slides-runner>
 </div>
