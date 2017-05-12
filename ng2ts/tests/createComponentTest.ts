@@ -32,8 +32,8 @@ describe('Component', () => {
     chai.expect(metadata[0].selector).equals('my-app');
   });
 
-  it(`Add a template that contains: '<h1>Hello CatTube!</h1>'`, () => {
-    chai.expect(metadata[0].template).equals('<h1>Hello CatTube!</h1>');
+  it(`Add a template that contains: '<h1>Hello MewTube!</h1>'`, () => {
+    chai.expect(metadata[0].template).equals('<h1>Hello MewTube!</h1>');
   });
 });
 
