@@ -26,11 +26,16 @@
             <span class="link">
             (<a [routerLink]="message.href">{{message.header||'No header'}}</a>)
             </span>
-            <input type="checkbox" [checked]="message.isDone" (change)="isDone(message)">
           </div>
           <div>{{message.comment}}</div>
-
-
+          <div *ngIf="!message.url">
+            <button (click)="makeAnIssue(message)">Take</button>
+            <button (click)="createDuplicateIssue(message)">Duplicate</button>
+            <button (click)="createWorkInProgressIssue(message)">Work in progress</button>
+          </div>
+          <div *ngIf="message.url">
+            <a [href]="message.url">Issue</a>
+          </div>
         </div>
       </div>
     </div>
