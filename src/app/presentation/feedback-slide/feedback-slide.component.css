@@ -1,6 +1,6 @@
 .slide-size {
-  width: 1280px;
-  height: 720px;
+  width: 100vw;
+  height: 100vh;
 }
 
 .feedback-slide-background {
@@ -8,7 +8,7 @@
   overflow: auto;
 }
 .feedback-slide-background-triangle-top {
-  position: absolute;
+  position: fixed;
   /*z-index: 50;*/
   opacity: .99;
   top: 0;
@@ -20,9 +20,9 @@
   border-color: transparent #982a2a transparent transparent;
 }
 .feedback-slide-background-triangle-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: fixed;
+  top: calc(100vh - 22vw);
+  right: 62vw;
   opacity: .99;
   width: 0;
   height: 0;

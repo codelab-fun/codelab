@@ -31,6 +31,8 @@
   background-color: #ddd;
   white-space: nowrap;
   overflow: hidden;
+  // Above the progress bar.
+  z-index: 2;
 
   &.is-active {
     position: relative;
