@@ -6,6 +6,7 @@ import {IndexPageRoute} from '../../demo/index/index.component';
   templateUrl: './menu-shortcut.component.html',
   styleUrls: ['./menu-shortcut.component.css']
 })
+
 export class MenuShortcutComponent {
   routes: IndexPageRoute[];
   open = false;
