@@ -1,6 +1,5 @@
 import {Component, Inject, OnDestroy} from '@angular/core';
 
-
 export interface IndexPageRoute {
   name: string;
   description: string;
@@ -11,7 +10,9 @@ export interface IndexPageRoute {
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnDestroy {
+
+export class IndexComponent implements OnInit, OnDestroy {
+
   routes: Array<IndexPageRoute>;
   firstVisit: boolean = true;
 

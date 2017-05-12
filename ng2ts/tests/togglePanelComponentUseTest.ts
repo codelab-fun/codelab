@@ -29,7 +29,7 @@ beforeEach(() => {
   TestBed.compileComponents();
 });
 
-describe('Component tree', () => {
+describe('Component Tree', () => {
   it(`app.module.ts: Add the TogglePanelComponent to the declarations.`, () => {
     let metadata;
     try {

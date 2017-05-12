@@ -6,7 +6,7 @@ import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from 'app/presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
 import {CommonModule} from '@angular/common';
-import {BrowserWindowModule} from '../../browser-window/browser-window.module';
+import {BrowserModule} from '../../browser/browser.module';
 import {TrackingModule} from '../../tracking/tracking.module';
 
 const routes = RouterModule.forChild(
@@ -18,7 +18,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserModule],
   declarations: [TypescriptComponent],
   exports: [TypescriptComponent]
 })
