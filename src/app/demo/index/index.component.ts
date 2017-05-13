@@ -14,7 +14,7 @@ export interface IndexPageRoute {
 export class IndexComponent implements OnDestroy {
 
   routes: Array<IndexPageRoute>;
-  private firstVisit: boolean = true;
+  private firstVisit: boolean;
 
   getMainPageRoutes() {
     return this.getPageRoutes('main');
@@ -30,12 +30,12 @@ export class IndexComponent implements OnDestroy {
 
   constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
     this.routes = routes.filter(route => route.name);
-    // this.firstVisit = !localStorage.getItem("vistedBefore");
-    console.log(this.firstVisit);
+    let bool: boolean = !!localStorage.getItem('visitedBefore'); // can't set directly fsr
+    this.firstVisit = !bool;
   }
 
   ngOnDestroy() {
-    localStorage.setItem("visitedBefore", "yes");
+    localStorage.setItem('visitedBefore', 'yes');
   }
 
 }
