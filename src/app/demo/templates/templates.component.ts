@@ -195,7 +195,7 @@ export class AppComponent {
 
 <!-- There are also shortcut event bindings! The submit function on the
      component instance will be called when the user presses control
-     and enter. -->
+     and enter (this is an Angular feature). -->
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
     eventBindingMatch: /(click)/,
