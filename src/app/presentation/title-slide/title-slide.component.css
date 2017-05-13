@@ -1,58 +1,60 @@
-.slide-size {
-  width: 1280px;
-  height: 720px;
-}
+   :host,
+  .wrapper {
+    height: 100%;
+    width: 100%;
+  }
 
-.slide-title-header {
-  height: 50%;
-  color: #222;
-}
+  .wrapper h1 {
+    flex: 1;
+    align-self: flex-end;
+    margin-left: 5%;
+    font-size: 100px;
+  }
 
-.slide-title {
-  position: absolute;
-  left: 5vw;
-  bottom: 50%;
-  font-size: 20vh;
-}
+  .wrapper .header {
+    display: flex;
+    flex: 1
+  }
 
-.slide-title-background {
-  height: 50%;
-  background-color: #982a2a;
-}
+  .meta {
+    flex: 1;
+    color: white;
+    background-color: #982a2a;
+  }
 
-.slide-title-description {
-  width: 75%;
-  position: relative;
-  top: 15%;
-  left: 5vw;
-  font-weight: lighter;
-  font-size: 4vh;
-  color: white;
-}
+  .slide-title-description {
+    flex: 1;
+    font-size: 40px;
+    height: 20vh;
+    margin-top: 20px;
+    margin-left: 5%;
+  }
 
-.slide-title-prereqs {
-  position: absolute;
-  left: 5vw;
-  top: calc(98% - 3vh);
-  font-size: 3vh;
-  font-weight: lighter;
-  color: white;
-}
+  .slide-title-instructions {
+    height: 10vh;
+    font-size: 4vh;
+    margin-left: 5%;
+  }
 
-.slide-title-instructions {
-  position: relative;
-  left: 5vw;
-  top: calc(78% - 12vh);
-  font-size: 4vh;
-  color: white;
-}
+  .slide-title-prereqs {
+    flex: 1;
+    margin-left: 5%;
+  }
 
-.left-half-ripple {
-  overflow: hidden;
-  margin: 0;
-  height: 25vw;
-  width: calc(25vw / 2 + 2vw);
-  position: absolute;
-  top: calc(50% - 25vw / 2);
-  right: 0;
-}
+  .left-half-ripple {
+    overflow: hidden;
+    margin: 0;
+    height: 25vw;
+    width: calc(25vw / 2 + 2vw);
+    position: absolute;
+    top: calc(50% - 25vw / 2);
+    right: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+/*
+  @media only screen and (min-device-width: 1920px) {
+  }*/
