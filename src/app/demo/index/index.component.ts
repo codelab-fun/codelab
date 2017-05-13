@@ -11,10 +11,10 @@ export interface IndexPageRoute {
   styleUrls: ['./index.component.css']
 })
 
-export class IndexComponent implements OnInit, OnDestroy {
+export class IndexComponent implements OnDestroy {
 
   routes: Array<IndexPageRoute>;
-  firstVisit: boolean = true;
+  private firstVisit: boolean = true;
 
   getMainPageRoutes() {
     return this.getPageRoutes('main');
@@ -30,7 +30,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
     this.routes = routes.filter(route => route.name);
-    this.firstVisit = !localStorage.getItem("vistedBefore");
+    // this.firstVisit = !localStorage.getItem("vistedBefore");
   }
 
   ngOnDestroy() {
