@@ -31,6 +31,7 @@ export class IndexComponent implements OnDestroy {
   constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
     this.routes = routes.filter(route => route.name);
     // this.firstVisit = !localStorage.getItem("vistedBefore");
+    console.log(this.firstVisit);
   }
 
   ngOnDestroy() {
