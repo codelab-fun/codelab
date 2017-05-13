@@ -8,7 +8,7 @@
     <slides-feedback-widget></slides-feedback-widget>
   </div>
 
-  <slides-slide [hidden]="firstVisit === false" no-padding>
+  <slides-slide *ngIf="firstVisit === true" no-padding>
     <slides-feedback-slide></slides-feedback-slide>
   </slides-slide>
 
