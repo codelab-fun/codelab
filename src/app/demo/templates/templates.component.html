@@ -97,6 +97,7 @@
     <h1>Templates / Data binding extras</h1>
     <h2>Angular supports more advanced bindings than just attribute name</h2>
     <slides-code-editor
+      path="app.component.html"
       [code]="code.template.dataBindingExtra"
       type="html">
     </slides-code-editor>
@@ -108,6 +109,7 @@
     <h1> Templates / Event binding: (event)</h1>
     <h2>The bindings directives you've met so far flow data in one direction: from a component to an element</h2>
     <slides-code-editor
+      path="app.component.html"
       [code]="code.eventBinding"
       [fontSize]="25"
       [focus-highlight-match]="[code.eventBindingMatch]"
@@ -119,9 +121,10 @@
   <!--  REFERENCE BINDING -->
   <slides-slide id="reference-binding" milestone="Templates2">
     <h1>Templates / Reference binding ( #var )</h1>
-    <h2>Sometimes we need to access a component from the template. We can mark it with <b>#name</b>, and it becomes
-      available as <b>name</b> everywhere in the template</h2>
+    <h2>Sometimes we need to access HTML element or Angular component from the template. We can mark it with <b>#userName</b>, and it becomes
+      available as <b>userName</b> everywhere in the template</h2>
     <slides-code-editor
+      path="app.component.html"
       [code]="code.bindingRef"
       [fontSize]="25"
       [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"

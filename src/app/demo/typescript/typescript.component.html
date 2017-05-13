@@ -138,8 +138,8 @@
   <!--  CLASSES  -->
   <slides-slide id="classes" milestone="TypeScript">
     <h1>TypeScript / Classes</h1>
-    <h2>TypeScript has classes, and Angular makes heavy use of them</h2>
-    <h2>They work similar to classes in other languages, and serve for grouping methods and properties belonging to
+    <h2>TypeScript has classes, and Angular uses them heavily</h2>
+    <h2>They are similar to classes in other languages. Used to group methods and properties belonging to
       one object together</h2>
     <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
@@ -156,7 +156,7 @@
   <slides-slide id="classes-access-modifier" milestone="TypeScript">
     <h1>TypeScript / Classes / Access Modifiers</h1>
     <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
-      accessible as <b>this.name</b></h2>
+      accessible as <b>this.name</b> within the class</h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
     <div class="info">private or protected properties are not visible outside of the class.</div>

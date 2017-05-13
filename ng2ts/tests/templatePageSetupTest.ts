@@ -31,7 +31,7 @@ describe('Blabla', () => {
     chai.expect(header2.innerHTML, `Use the curly braces to put component title property in the header`).contains('SomethingElse');
   });
 
-  it(`app.html: Add an <input> with a 'placeholder' set to 'video' (hint: 'placeholder' is just an attribute of an input tag) `, () => {
+  it(`app.html: Add an <input> with a 'placeholder' atribute set to 'video'`, () => {
     TestBed.compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
@@ -40,13 +40,13 @@ describe('Blabla', () => {
     chai.expect(input.placeholder, `Input placeholder should contain word 'video'`).contains('video');
   });
 
-  it(`app.html: Add a <button> named 'search'`, () => {
+  it(`app.html: Add a <button> with a text 'search'`, () => {
     TestBed.compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const button = fixture.nativeElement.querySelector('button');
     chai.expect(button, `Can't find any buttons`).is.not.null;
-    chai.expect(button.innerHTML.toLowerCase()).contains('search')
+    chai.expect(button.innerHTML.toLowerCase()).contains('search');
   });
 
 
