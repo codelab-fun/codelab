@@ -68,7 +68,6 @@ export class FeedbackPageComponent implements OnInit {
     afAuth.auth.signInWithPopup(provider).then(authData => {
       this.githubAuth = authData;
     });
-
   }
 
   isDone(message) {
@@ -76,7 +75,9 @@ export class FeedbackPageComponent implements OnInit {
   }
 
   generateIssueBody(message) {
-    return `${message.comment} \nAuthor: ${message.name}\nSlide: [Local](http://localhost:4200${message.href}),  [Public](https://angular-presentation.firebaseapp.com${message.href})`;
+    return `${message.comment}
+Author: ${message.name}
+Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
   }
 
   createAnIssue(message) {
@@ -93,13 +94,15 @@ export class FeedbackPageComponent implements OnInit {
     });
   }
 
-  createDuplicateIssue(message) {
+
+  createClosedIssue(message, reason) {
     this.ghService.createIssue({
-      title: 'DUPLICATE ' + message.comment.substring(0, 150),
+      title: reason + ' ' + message.comment.substring(0, 150),
       body: this.generateIssueBody(message),
     }, this.githubAuth.credential.accessToken).subscribe(response => {
       if (response.ok) {
         const responseData = response.json();
+        console.log(responseData.html_url);
         this.database.object(`feedback/${message.$key}`).update({url: responseData.html_url});
         this.ghService.closeIssue({state: 'closed'}, responseData.number, this.githubAuth.credential.accessToken)
           .subscribe((res) => {
@@ -111,41 +114,6 @@ export class FeedbackPageComponent implements OnInit {
     });
   }
 
-  createNoFixIssue(message) {
-    this.ghService.createIssue({
-      title: 'NO FIX: ' + message.comment.substring(0, 150),
-      body: this.generateIssueBody(message),
-    }, this.githubAuth.credential.accessToken).subscribe(response => {
-      if (response.ok) {
-        const responseData = response.json();
-        this.database.object(`feedback/${message.$key}`).update({url: responseData.html_url});
-        this.ghService.closeIssue({state: 'closed'}, responseData.number, this.githubAuth.credential.accessToken)
-          .subscribe((res) => {
-            if (res.ok) {
-              this.isDone(message);
-            }
-          });
-      }
-    });
-  }
-
-  createDoneIssue(message) {
-    this.ghService.createIssue({
-      title: message.comment.substring(0, 150),
-      body: this.generateIssueBody(message),
-    }, this.githubAuth.credential.accessToken).subscribe(response => {
-      if (response.ok) {
-        const responseData = response.json();
-        this.database.object(`feedback/${message.$key}`).update({url: responseData.html_url});
-        this.ghService.closeIssue({state: 'closed'}, responseData.number, this.githubAuth.credential.accessToken)
-          .subscribe((res) => {
-            if (res.ok) {
-              this.isDone(message);
-            }
-          });
-      }
-    });
-  }
 
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');

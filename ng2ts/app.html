@@ -6,7 +6,7 @@
   /*/d*//*d:templateAddActionSolved*/<input type='text' placeholder='video' #searchString>
   <button (click)='search(searchString.value)'>Search!</button>
   /*/d*//*d:templateAddActionSolved*/
-  <div *ngIf='!videos?.length'>
+  <div *ngIf='videos.length == 0'>
     No videos!
   </div>
   /*/d*//*d:templateAllVideosSolved:videoComponentUse*/
