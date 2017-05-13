@@ -14,7 +14,7 @@ export class PresentationComponent implements OnInit {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
   public config = {
-    resize: false,
+    resize: true,
     hideControls: false
   };
 

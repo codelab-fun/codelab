@@ -93,13 +93,14 @@
     <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeSystem</h1>
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
       early</h2>
-    <div data-step="2" data-intro="These are the exercise instructions." class="exercise" [class.solved]="tsexercises.solved">
+    <div data-step="2" data-intro="These are the exercise instructions." class="exercise"
+         [class.solved]="tsexercises.solved">
       Exercise: Try to get the desired output by changing the function inputs below:
     </div>
     <slides-playground [config]="code.tsExercise"
-                    [focus-highlight-match]="[code.tsExerciseMatch]"
-                    [browserUseConsole]="true"
-                    #tsexercises
+                       [focus-highlight-match]="[code.tsExerciseMatch]"
+                       [browserUseConsole]="true"
+                       #tsexercises
     ></slides-playground>
     <div
       data-step="4"
@@ -125,7 +126,7 @@
     <h2>TypeScript allows to define more complex objects using interfaces:</h2>
     <slides-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.codeInterfaces"></slides-code-editor>
-  <div class="info">Here, <b>realPuppy</b> is an instance of the <b>Puppy</b> Interface.</div>
+    <div class="info">Here, <b>realPuppy</b> is an instance of the <b>Puppy</b> Interface.</div>
   </slides-slide>
 
   <slides-slide id="types-arrays" milestone="TypeScript">
@@ -136,7 +137,7 @@
 
   <!--  CLASSES  -->
   <slides-slide id="classes" milestone="TypeScript">
-    <h1>Classes</h1>
+    <h1>TypeScript / Classes</h1>
     <h2>TypeScript has classes, and Angular makes heavy use of them</h2>
     <h2>They work similar to classes in other languages, and serve for grouping methods and properties belonging to
       one object together</h2>
@@ -144,7 +145,7 @@
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
   <slides-slide id="classes-constructor" milestone="TypeScript">
-    <h1>Classes - constructor</h1>
+    <h1>TypeScript / Classes / Constructor</h1>
     <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is created and allows
       the
       class to take parameters</h2>
@@ -153,7 +154,7 @@
   </slides-slide>
 
   <slides-slide id="classes-access-modifier" milestone="TypeScript">
-    <h1>Classes - Access modifiers</h1>
+    <h1>TypeScript / Classes / Access Modifiers</h1>
     <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
       accessible as <b>this.name</b></h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
@@ -162,7 +163,7 @@
   </slides-slide>
 
   <slides-slide id="export" milestone="TypeScript">
-    <h1>Classes - export</h1>
+    <h1>TypeScript / Export</h1>
     <h2>By the way, did you notice the <b>export</b> keyword before class? It is used to share information between
       files. Next slide will show how to export and use this class in a different file.</h2>
     <slides-code-editor
@@ -172,7 +173,7 @@
   </slides-slide>
 
   <slides-slide id="import" milestone="TypeScript">
-    <h1>Classes - import</h1>
+    <h1>TypeScript / Import</h1>
     <h2>Now we can use the <b>Puppy</b> class for the other file.</h2>
     <slides-playground [config]="code.classDescription.codeImport" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.importMatch]"></slides-playground>
@@ -181,35 +182,9 @@
     </div>
   </slides-slide>
 
-  <!--&lt;!&ndash;  STRING-TYPE  &ndash;&gt;-->
-  <!--<slides-slide id="string_type" milestone="TypeScript">-->
-  <!--<h1>var vs let vs const</h1>-->
-  <!--<h2>Latest version of JS introduces new ways to declare variables</h2>-->
-  <!--<slides-code-editor [fontSize]="25" [code]="code.varDeclaration.code"></slides-code-editor>-->
-  <!--</slides-slide>-->
-
-  <!--&lt;!&ndash;  ANY-TYPE  &ndash;&gt;-->
-  <!--<slides-slide id="any_type" milestone="TypeScript">-->
-  <!--<h1>:any</h1>-->
-  <!--<p style="margin-bottom: 20px;">-->
-  <!--For when need to describe the type of variables that we do not know when we are writing an application.-->
-  <!--</p>-->
-  <!--<slides-code-editor [fontSize]="25" [code]="code.anyType.code"></slides-code-editor>-->
-  <!--</slides-slide>-->
-  <!--&lt;!&ndash;  CONSTANTS  &ndash;&gt;-->
-  <!--<slides-slide id="const" milestone="TypeScript">-->
-  <!--<h1>Constants - <span style="color: red;">const</span></h1>-->
-  <!--<p style="margin-bottom: 20px;">-->
-  <!--As its name implies, their value cannot be changed once they are bound. In other words, you can’t-->
-  <!--re-assign to them.-->
-  <!--</p>-->
-  <!--<slides-code-editor [fontSize]="25" [code]="code.classDescription.code"-->
-  <!--[focus-highlight-match]="[code.classDescription.matches.constants]"></slides-code-editor>-->
-  <!--</slides-slide>-->
-
-
   <slides-slide id="more" milestone="TypeScript">
-    <h1 i18n>TypeScript supports lots of other cool features such as: </h1>
+    <h1 i18n>TypeScript / More</h1>
+    <h2 i18n>TypeScript supports lots of other cool features such as: </h2>
     <ul>
       <li>Interfaces</li>
       <li>Enums</li>
@@ -225,14 +200,14 @@
   </slides-slide>
 
   <slides-slide id="filter" milestone="TypeScript">
-    <h1>Filter (One last thing)</h1>
+    <h1>TypeScript / Filter (One last thing)</h1>
     <h2>Filter is an Array method which allows you to generate a new array keeping only the values that provided
       callback returns truethy values for.</h2>
     <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
   <slides-slide id="exercise-info" milestone="TypeScript">
-    <h1 i18n>Exercise</h1>
+    <h1 i18n>TypeScript / Exercise</h1>
     <h2>In the next slide we have a TypeScript exercise</h2>
     <h3>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
       the ones who are coming</h3>
@@ -256,14 +231,13 @@
 
   <slides-slide id="end">
     <slides-closing-slide>
-      <div class="header" header><h1 i18n>End of TypeScript Section</h1></div>
-      <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
-        <ul>
-          <li><a href="http://www.typescriptlang.org/">TypeScript web site</a></li>
-        </ul>
+      <div header><h1 i18n>TypeScript / Milestone Completed</h1></div>
+      <div body>
+        <h2></h2>
+
+        <a href="http://www.typescriptlang.org/">TypeScript web site</a>
       </div>
-      <div class="footer" footer>
+      <div footer>
         <h2>
           <a routerLink="/create-first-app/0">Go to the next Milestone</a>
         </h2>
