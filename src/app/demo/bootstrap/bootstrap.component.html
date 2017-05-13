@@ -48,10 +48,11 @@
 
   <!--  Steps to create an Angular app -->
   <slides-slide id="angular-app" milestone="Bootstrap">
-    <h1>Creating angular app</h1>
+    <h1>Creating Angular app</h1>
+    <h2>Takes 3 steps:</h2>
     <ol>
-      <li>Create an angular component</li>
-      <li>Create an angular module</li>
+      <li>Create an Angular component</li>
+      <li>Create an Angular module</li>
       <li>Bootstrap the module</li>
     </ol>
   </slides-slide>
@@ -83,7 +84,7 @@
     <h1>Decorators</h1>
     <h2>
       Decorators are a new feature of TypeScript.
-      <!--TODO:work in progress-->
+      <!--TODO: work in progress-->
     </h2>
     <slides-code-editor [fontSize]="30" [code]="code.decorators.code"></slides-code-editor>
 
@@ -174,7 +175,7 @@
   <!--  Declarations  -->
   <slides-slide id="declarations" milestone="Bootstrap2">
     <h1>Module Anatomy / Declarations</h1>
-    <h2><b>Declarations array</b>, specifis components belonging to the AppModule.</h2>
+    <h2><b>Declarations array</b>, specifies components belonging to the AppModule.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
 
@@ -228,14 +229,15 @@
     <div class="info">For most of the simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
-  <slides-slide id="bootstrapping" class="bootstrapping-more-info" milestone="Bootstrap3">
+  <slides-slide id="bootstrapping-more" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1>Bootstrapping: More Info (BONUS)</h1>
     <h2>
       How does bootstrapping work in Angular?
     </h2>
     <br>
     <h2>
-      1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells Angular that we are operating in the browser.
+      1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells Angular that we are operating in the
+      browser.
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="25"
                         [code]="code.moduleBootstrapping.code.mainTs"
@@ -247,15 +249,15 @@
     </a>
   </slides-slide>
 
-  <slides-slide id="bootstrapping" class="bootstrapping-more-info" milestone="Bootstrap3">
+  <slides-slide id="bootstrapping-more-2" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1>Bootstrapping: More Info (BONUS)</h1>
     <h2>
       How does bootstrapping work in Angular?
     </h2>
     <br>
     <h2>
-      2. Fetches component from <b>bootstrap</b> array in <b>app.module.ts</b>
-      (<b>HelloWorldComponent</b> in this case) and initializes it.
+      2. Initializes the component from <b>bootstrap</b> array in <b>app.module.ts</b>
+      (<b>HelloWorldComponent</b> in this case)
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="25" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
@@ -266,7 +268,7 @@
     </a>
   </slides-slide>
 
-  <slides-slide id="bootstrapping" class="bootstrapping-more-info" milestone="Bootstrap3">
+  <slides-slide id="bootstrapping-more-3" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1>Bootstrapping: More Info (BONUS)</h1>
     <h2>
       How does bootstrapping work in Angular?
