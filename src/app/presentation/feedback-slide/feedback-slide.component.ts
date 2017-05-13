@@ -17,7 +17,7 @@ export class FeedbackSlideComponent implements OnInit {
   }
 
   ngOnInit() {
-  localStorage.setItem("visitedBefore", "yes");
+  localStorage.setItem('visitedBefore', 'yes');
   }
 
   closeSlide() {

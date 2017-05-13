@@ -30,7 +30,7 @@ export class IndexComponent implements OnDestroy {
 
   constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
     this.routes = routes.filter(route => route.name);
-    let bool: boolean = !!localStorage.getItem('visitedBefore'); // can't set directly fsr
+    const bool: boolean = !!localStorage.getItem('visitedBefore'); // can't set directly fsr
     this.firstVisit = !bool;
   }
 
