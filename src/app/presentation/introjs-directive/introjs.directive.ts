@@ -15,9 +15,9 @@ export class IntrojsDirective implements OnInit {
 
   ngOnInit() {
     this.slide.onActive.subscribe((active) => {
-      localStorage.numTours = +localStorage.numTours + 1;
       if (active && localStorage.numTours <= 2) {
         setTimeout(() => introJs().start(), 2000);
+        localStorage.numTours = +localStorage.numTours + 1;
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");
         // }
