@@ -422,7 +422,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               <div class="smaller">
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                   <div>Date 2016-11-25</div>
                   <div>Views 100</div>
                   <div>Likes 20</div>
@@ -477,7 +477,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               <div class="smaller">
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                   <div>Date 2016-11-25</div>
                   <div>Views 100</div>
                   <div>Likes 20</div>
@@ -546,7 +546,7 @@ time. < / p >
   <div>
     <h2>Cute
 kitten < / h2 >
-<img src = "/assets/images/cat-0.png" >
+<img src = "/assets/images/cat-00.png" >
   <div>This
 is
 the
@@ -595,7 +595,7 @@ instead. < / p >
   <div>
     <h2>Cute
 kitten < / h2 >
-<img  src = "/assets/images/cat-0.png" >
+<img  src = "/assets/images/cat-00.png" >
   <div>Views
 100 < / div >
 <div>Likes

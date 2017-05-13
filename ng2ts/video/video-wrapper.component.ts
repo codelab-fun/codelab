@@ -6,8 +6,8 @@ import {Component, Input} from '@angular/core';
 })
 export class VideoWrapperComponent {
   private video = {
-    title: 'my fake title',
-    src: '',
+    title: 'Cute Cat',
+    src: '/assets/images/cat-00.png',
     description: 'here is the descr',
     views: 10,
     likes: 9
