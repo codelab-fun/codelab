@@ -14,7 +14,7 @@ export interface IndexPageRoute {
 export class IndexComponent implements OnDestroy {
 
   routes: Array<IndexPageRoute>;
-  private firstVisit: boolean = true;
+  private firstVisit: boolean = false;
 
   getMainPageRoutes() {
     return this.getPageRoutes('main');
@@ -30,7 +30,7 @@ export class IndexComponent implements OnDestroy {
 
   constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
     this.routes = routes.filter(route => route.name);
-    // this.firstVisit = !localStorage.getItem("vistedBefore");
+    this.firstVisit = !localStorage.getItem("vistedBefore");
     console.log(this.firstVisit);
   }
 
