@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ContentChildren, QueryList, forwardRef} from '@angular/core';
+import {Component, ContentChildren, EventEmitter, forwardRef, Input, OnInit, Output, QueryList} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
 import {AnalyticsService} from '../analytics.service';
@@ -91,7 +91,7 @@ export class PresentationComponent implements OnInit {
         const time = Math.floor(Date.now() / 1000) - startTime;
         localStorage.setItem(key, 'yes');
         ga('send', 'event', 'milestone', path, 'end');
-        ga('send', 'timing', 'milestone', 'complete', time);
+        ga('send', 'timing', 'milestone', 'complete', time, path);
       }
     }
   }
