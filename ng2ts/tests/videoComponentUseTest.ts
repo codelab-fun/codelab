@@ -28,7 +28,7 @@ beforeEach(() => {
   TestBed.compileComponents();
 });
 
-describe('Component tree', () => {
+describe('Component Tree', () => {
   it(`app.module.ts: Add the VideoComponent to the AppModule 'declarations'.`, () => {
     let metadata;
     try {
@@ -44,8 +44,8 @@ describe('Component tree', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.videos = Api.fetch('');
     // TODO: if the element is added, but the video prop is not present, this test will fail with
-    // A useless message. Passing video prop should actually be tested in the next test, and this
-    // Ane should pass.
+    // a useless message. Passing video prop should actually be tested in the next test, and this
+    // one should pass.
     fixture.detectChanges();
 
     const myVideos = fixture.nativeElement.querySelectorAll('my-video');
