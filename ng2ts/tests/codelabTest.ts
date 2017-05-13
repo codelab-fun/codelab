@@ -56,6 +56,11 @@ describe('Component', () => {
      * e.g. if the user created teh class, but haven't exported it this
      * test will still pass.
      */
+
+    const codeString = typescript_intro_Codelab_ts_AST.text;
+    const regEx = RegExp(/(Codelab) *\(\)/g);
+    const noParentheses = codeString.search(regEx) === -1;
+    chai.expect(noParentheses).equals(true);
     chai.expect(typeof evalJs('Codelab')).equals('function');
   });
 
@@ -105,7 +110,7 @@ describe('Component', () => {
       /* Guest[] */ (type.kind === ts.SyntaxKind.ArrayType
       && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
 
-    chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest 
+    chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest
     (hint: Array<Guest> is one way of doing it.)`).to.be.ok;
 
   });
@@ -122,7 +127,7 @@ describe('Component', () => {
     chai.expect(typeof (new Codelab(guests).getGuestsComing)).equals('function');
   });
 
-  it(`Modify getGuestsComing to filter the guests array and only return guests with the 'coming' 
+  it(`Modify getGuestsComing to filter the guests array and only return guests with the 'coming'
       property set to true.`, () => {
     chai.expect(new Codelab(guests).getGuestsComing().length).equals(1);
   });
