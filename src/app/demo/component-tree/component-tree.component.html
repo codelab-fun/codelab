@@ -31,7 +31,7 @@
 
   <!--  Parent/Child COMPONENTS-->
   <slides-slide id="parent-child-component" milestone="Component Tree">
-    <h1>Parent and Child component</h1>
+    <h1>Component Tree / Parent and Child</h1>
     <h2>Any component can render another one by using HTML element matching the selector of the other component</h2>
     <slides-code-group row>
       <div column-5>
@@ -52,9 +52,10 @@
 
   <!--  PASSING DATA  -->
   <slides-slide id="passing-data" milestone="component-tree">
-    <h1>Passing data from parent to child</h1>
+    <h1>Component Tree / Passing Data Parent -> Child</h1>
     <h2>Parent component passes their data to the child using properties</h2>
-    <div class="exercise">Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to recreate the Japanese flag.
+    <div class="exercise">Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to recreate the Japanese
+      flag.
     </div>
     <slides-playground [config]="code.boxAndCircle"></slides-playground>
   </slides-slide>
@@ -62,7 +63,7 @@
 
   <!--  PASSING DATA  -->
   <slides-slide id="passing-data-child" milestone="component-tree">
-    <h1>Passing data from parent to child</h1>
+    <h1>Component Tree / Passing Data Parent -> Child</h1>
     <h2>The child class has to decorate their properties with a special <b>@Input()</b> decorator</h2>
     <slides-playground [config]="code.circleAndBox"
                        [focus-highlight-match]="['@Input() size','@Input() color']"></slides-playground>
@@ -71,7 +72,7 @@
 
 
   <slides-slide id="exercise-1-pre" milestone="component-tree">
-    <h1 i18n>Exercise</h1>
+    <h1 i18n>Component Tree / Exercise 1</h1>
     <h2>We already know how to create a component. Let's move out all the video-related information into a separate
       component</h2>
     <h3>The result will be as follows:</h3>
@@ -98,14 +99,14 @@
 
   <!-- NgModule -->
   <slides-slide id="module" milestone="component-tree-2">
-    <h1>Parent and Child component</h1>
-    <h2>However components won't know about each other unless they are declared in the same module</h2>
+    <h1>Component Tree / Parent and Child component</h1>
+    <h2>Components won't know about each other unless they are declared in the same module</h2>
     <slides-code-editor path="app.module.ts" [code]="code.appModule.code"
                         [focus-highlight-match]="code.appModule.match"></slides-code-editor>
   </slides-slide>
 
   <slides-slide id="recap" milestone="component-tree-2">
-    <h1>The whole picture</h1>
+    <h1>Component Tree / Review</h1>
     <slides-code-group>
       <div row>
         <div column-5>
@@ -134,7 +135,7 @@
 
 
   <slides-slide id="exercise-2-pre" milestone="component-tree-2">
-    <h1 i18n>Exercise</h1>
+    <h1 i18n>Component Tree / Exercise 2</h1>
     <h2>In the next slide there's an exercise. You will finally use the component. </h2>
     <slides-browser-window>
       <div><h2>Cute kitten</h2>
@@ -156,41 +157,24 @@
     </slides-exercise>
   </slides-slide>
 
-  <!--  COMPONENT TREE LINK TO ANGULAR-CLI -->
-  <slides-slide id="info-angular-cli">
-       <h1>Great work!</h1>
-       <h2>Now that you've learned about Angular you can find additional information to explore on the links below: </h2>
-       <ul>
-           <li><a href="https://angular.io/" target="_blank">Angular.io</a>
-                <span>Find features, docs and events listed here.</span>
-            </li>
-            <li><a href="https://cli.angular.io/" target="_blank">Angular CLI</a>
-                <span>The Angular CLI makes it easy to create an application that already works,
-                    right out of the box. Plus it follows best practices!</span>
-            </li>
-        </ul>
-  </slides-slide>
 
   <!--  COMPONENT TREE EXERCISE 2-->
   <slides-slide id="end">
     <slides-closing-slide>
-      <div class="header" header><h1 i18n>End of Self-paced Tutorial!</h1></div>
-      <div class="body" body>
+      <div header><h1 i18n>Angular basics codelab completed!</h1></div>
+      <div body>
         <h2>This is just a beginning of the Angular Journey</h2>
         <ul>
-          <li>This Codelab is just an Angular App! Check out our <a
-            href="https://github.com/AngularNYC/angular-presentation">github repository</a> (don't forget to <b>★</b> it if
-            you
-            enjoyed the Codelab)
+          <li><a href="https://angular.io/" target="_blank">Angular.io</a>
+            <span>Find features, docs and events listed here.</span>
           </li>
-          <li>Found an issue? Try fixing it yourself and have some Angular experience!</li>
-          <li>Ping <a href="https://twitter.com/kirjs">@kirjs</a> with any questions</li>
-          <li>Follow the <a href="https://www.meetup.com/AngularNYC/">Angular meetup</a> for Angular events and more
-            advanced cources
+          <li><a href="https://cli.angular.io/" target="_blank">Angular CLI</a>
+            <span>makes it easy to create an application that already works,
+                    right out of the box and generate new components! It also takes care of the build system for you.</span>
           </li>
         </ul>
       </div>
-      <div class="footer" footer>
+      <div footer>
       </div>
     </slides-closing-slide>
   </slides-slide>
