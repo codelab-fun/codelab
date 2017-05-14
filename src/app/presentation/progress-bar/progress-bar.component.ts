@@ -24,6 +24,7 @@ export class ProgressBarComponent implements AfterViewInit {
       this.currentSlideId = this.presentation.activeSlideIndex;
     });
   }
+  // TODO: Move the logic out of the progress bar.
   addProgressBarExplanation() {
     this.el.nativeElement.setAttribute('data-step', '5');
     this.el.nativeElement.setAttribute(
