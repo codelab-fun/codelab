@@ -21,8 +21,8 @@ export class PresentationComponent implements OnInit {
 
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
-  @Input() public width = 1280;
-  @Input() public height = 720;
+  @Input() public width = 1800;
+  @Input() public height = 1000;
   @Input() public zoom = 1;
 
   @Output() onSlideChange = new EventEmitter<number>();

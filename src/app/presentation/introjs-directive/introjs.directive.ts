@@ -13,7 +13,7 @@ export class IntrojsDirective implements OnInit {
   ngOnInit() {
     this.slide.onActive.subscribe((active) => {
       if (active) {
-        setTimeout(() => introJs().start(), 2000);
+        setTimeout(() => introJs().start(), 1000);
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");
         // }

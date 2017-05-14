@@ -1,7 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
+@media only screen and (min-width: 1800px) {
+  .presentation .slide {
+    padding: 80px;
+  }
+  .presentation h2 , .presentation li {
+    font-size: 60px;
+  }
+  .presentation li {
+    margin-bottom: 40px;
+  }
+  .presentation .space-left {
+    margin-left: 50px;
+  }
+}
+
 * {
   box-sizing: border-box;
+}
+
+.space-left {
+  margin-left: 20px;
 }
 
 [row] {
@@ -201,6 +220,8 @@ h2 {
   border-right: 20px solid transparent;
   border-top: 8px solid black;
 }
+
+
 
 .monaco-editor.vs .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
 
