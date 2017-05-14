@@ -102,6 +102,7 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
     }, this.githubAuth.credential.accessToken).subscribe(response => {
       if (response.ok) {
         const responseData = response.json();
+        // Until we get a better UI
         console.log(responseData.html_url);
         this.database.object(`feedback/${message.$key}`).update({url: responseData.html_url});
         this.ghService.closeIssue({state: 'closed'}, responseData.number, this.githubAuth.credential.accessToken)

@@ -75,7 +75,7 @@ export class PresentationComponent implements OnInit {
     if (this.activeSlideIndex === 0) {
       const key = `been-here-mileston-start-${path}`;
       const beenHere = localStorage.getItem(key);
-      const time = Math.floor(+Date.now());
+      const time = +Date.now();
       if (!beenHere) {
         localStorage.setItem(key, time.toString());
         ga('send', 'event', 'milestone', path, 'start');
@@ -88,11 +88,10 @@ export class PresentationComponent implements OnInit {
 
       if (!beenHere) {
         const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10);
-        const time = Math.floor(+Date.now()) - startTime;
+        const time = (+Date.now()) - startTime;
         localStorage.setItem(key, 'yes');
         ga('send', 'event', 'milestone', path, 'end');
         ga('send', 'timing', 'milestone', 'complete', time, path);
-        console.log('milestone-complete', time);
       }
     }
   }
