@@ -121,7 +121,8 @@
   <!--  REFERENCE BINDING -->
   <slides-slide id="reference-binding" milestone="Templates2">
     <h1>Templates / Reference binding ( #var )</h1>
-    <h2>Sometimes we need to access HTML element or Angular component from the template. We can mark it with <b>#userName</b>, and it becomes
+    <h2>Sometimes we need to access HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
+      and it becomes
       available as <b>userName</b> everywhere in the template</h2>
     <slides-code-editor
       path="app.component.html"
@@ -141,9 +142,6 @@
     </p>
     <slides-playground [config]="code.ngIfDirective.template"
                        [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
-    <div class="info">
-      Add <b>!</b> before the onDisplay() function, to get a truthy result.
-    </div>
   </slides-slide>
 
 
@@ -171,15 +169,12 @@
   <!--  CONDITIONAL NGFOR-->
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Templates / Repeating elements (*ngFor)</h1>
-    <p>
-      Loops over items in a collection and adds a template to the DOM for each item in the collection.
-    </p>
     <h2>
-      The <b>*ngFor</b> directive will display one puppy name for every puppy in the list.
+      <b>*ngFor</b> loops over an array and displays HTML Element for each item.
     </h2>
     <slides-playground [config]="code.ngForDirective.template"
                        [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
-    <div class="info">Note the * that identifies a <em>DOM structure-altering</em> directive and the camelCase!</div>
+    <div class="info">Html attributes in <b>Angular</b> are case sensitive</div>
   </slides-slide>
 
 
