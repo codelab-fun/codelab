@@ -103,7 +103,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
       };
 
       iframe.contentWindow.console.error = function (error, message) {
-        // handle angular error 1/3
+        // handle Angular error 1/3
         displayError(error, 'Angular Error');
       };
 
