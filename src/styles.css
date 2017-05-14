@@ -162,7 +162,7 @@ h1, h2, h3, li {
 
 /* TODO(kirjs): Support themes */
 .slide h1 {
-  font-size: 60px;
+  font-size: 20px;
 }
 
 .centered-vertically {
