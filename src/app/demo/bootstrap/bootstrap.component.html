@@ -3,11 +3,7 @@
   slides-mode-routing
   slides-tracking>
   <div class="btn-bar">
-    <div class="menu-bar-btn github-icon">
-      <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png">
-      </a>
-    </div>
+
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
@@ -71,11 +67,10 @@
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></slides-code-editor>
     <h2>
-      The class is adorned with a <b>@Component</b> decorator providing additional metadata to let the Angular know how
-      to
-      use it.
+      The class is adorned with a <b>@Component</b> decorator. Decorators allow to specify <b>Angular</b>-specific
+      information without altering the actual class.
     </h2>
-    <h2></h2>
+
   </slides-slide>
 
 
@@ -89,7 +84,7 @@
     <slides-code-editor [fontSize]="30" [code]="code.decorators.code"></slides-code-editor>
 
     <div class="info">
-      Decorators were inspired by a similar feature in Python language.
+      Decorators are inspired by a similar feature in Python language.
     </div>
     <h2></h2>
   </slides-slide>
@@ -122,10 +117,10 @@
   <!--  MODULE BOOTSTRAPPING-->
   <slides-slide id="exercise-component-pre" milestone="Bootstrap">
     <h1>Exercise</h1>
-    <h2>In the next slide you'll create your first <b>Angular</b> component! We'll do all the wiring for you and the
+    <h2>In the next slide you'll create your first <b>Angular</b> component! We'll do all the wiring for you. The
       result will look like this:</h2>
 
-    <slides-browser-window width="100%" height="300px"><h1>Hello World!</h1></slides-browser-window>
+    <slides-browser-window width="100%" height="300px"><h1>Hello MewTube!</h1></slides-browser-window>
   </slides-slide>
 
   <!--  Angular app exercise-->
@@ -147,7 +142,7 @@
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-exercise" milestone="Bootstrap2">
     <h1>Module Anatomy / Class</h1>
-    <h2>Like a component, module is just a class.</h2>
+    <h2>Like a component, <b>Angular</b> module is just a class.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></slides-code-editor>
 
@@ -155,7 +150,7 @@
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-decorator" milestone="Bootstrap2">
     <h1>Module Anatomy / Decorator</h1>
-    <h2>Like a component, module is adorned with a decorator providing metadata.</h2>
+    <h2>Like a component, <b>Angular</b> module is adorned with a decorator providing metadata.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></slides-code-editor>
 
@@ -194,10 +189,10 @@
   <slides-slide id="exercise-module-pre" milestone="Bootstrap2">
     <h1>Exercise</h1>
     <h2>In the next slide you'll create your first <b>Angular</b> module! We'll use the component from the previous
-      exercises and will do all the wiring for you and the
+      exercises and will do all the wiring for you. The
       result will look like this:</h2>
 
-    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+    <slides-browser-window><h1>Hello MewTube!</h1></slides-browser-window>
   </slides-slide>
 
 
@@ -221,7 +216,7 @@
   <slides-slide id="bootstrapping" milestone="Bootstrap3">
     <h1>Module Bootstrapping</h1>
     <h2>
-      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will, start up all the components in that
+      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will start up all the components in that
       module's bootstrap section.
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30"
@@ -230,7 +225,7 @@
   </slides-slide>
 
   <slides-slide id="bootstrapping-more" class="bootstrapping-more-info" milestone="Bootstrap3">
-    <h1>Bootstrapping: More Info (BONUS)</h1>
+    <h1>Bootstrapping / Step 1 </h1>
     <h2>
       How does bootstrapping work in Angular?
     </h2>
@@ -250,7 +245,7 @@
   </slides-slide>
 
   <slides-slide id="bootstrapping-more-2" class="bootstrapping-more-info" milestone="Bootstrap3">
-    <h1>Bootstrapping: More Info (BONUS)</h1>
+    <h1>Bootstrapping / Step 2</h1>
     <h2>
       How does bootstrapping work in Angular?
     </h2>
@@ -269,7 +264,7 @@
   </slides-slide>
 
   <slides-slide id="bootstrapping-more-3" class="bootstrapping-more-info" milestone="Bootstrap3">
-    <h1>Bootstrapping: More Info (BONUS)</h1>
+    <h1>Bootstrapping / Step 3</h1>
     <h2>
       How does bootstrapping work in Angular?
     </h2>
@@ -291,7 +286,7 @@
     <h1>Exercise</h1>
     <h2>All set! In the next page you'll bootstrap your first <b>Angular</b> app!</h2>
 
-    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+    <slides-browser-window><h1>Hello MewTube!</h1></slides-browser-window>
   </slides-slide>
 
   <!--  DESCRIPTION 2-->
