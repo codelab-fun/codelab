@@ -25,7 +25,7 @@
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
   <slides-slide id="recap" milestone="DependencyInjection">
-    <h1 style="text-align: center;">Recap</h1>
+    <h1>Dependency injection</h1>
     <h2>
       <b>Dependency Injection</b> is a way to provide dependencies to your code instead of hard-coding them.
     </h2>
@@ -33,7 +33,7 @@
 
   <!--  COMPARISON -->
   <slides-slide id="comparison" milestone="DependencyInjection">
-    <h1>Comparison</h1>
+    <h1>Dependency injection / Comparison</h1>
     <slides-code-group class="content-container">
       <div class="col-6">
         <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code"
@@ -43,7 +43,8 @@
       <div class="col-6" style="margin-left: 10px;">
         <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"
                             [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
-        <h2>With Dependency Injection <b>Person</b> class just "requires" an instance of <b>Profession</b> in the constructor, and
+        <h2>With Dependency Injection <b>Person</b> class just "requires" an instance of <b>Profession</b> in the
+          constructor, and
           Angular takes care of instantiating it</h2>
       </div>
     </slides-code-group>
@@ -74,14 +75,18 @@
         <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"></slides-code-editor>
       </div>
       <div class="col-6">
-        <slides-code-editor path="person-di.spec.ts" [fontSize]="15" [code]="code.withDITesting.code"></slides-code-editor>
+        <slides-code-editor path="person-di.spec.ts" [fontSize]="15"
+                            [code]="code.withDITesting.code"></slides-code-editor>
       </div>
     </slides-code-group>
   </slides-slide>
 
   <!--  Steps to create an Angular app -->
   <slides-slide id="angular-app" milestone="DependencyInjection">
-    <h1>Providing dependencies with Angular in 3 simple steps:</h1>
+    <h1>Dependency injection / Example</h1>
+    <h2>Let's say we have an existing <b>UnitConverterService</b> and we want to start using it in <b>UnitConversionComponent</b>.
+      It will take 3 simple steps:
+    </h2>
     <ol>
       <li>Mark dependency as @Injectable()</li>
       <li>Provide in the module</li>
@@ -123,7 +128,7 @@
 
 
   <slides-slide id="exercise-pre" milestone="DependencyInjection">
-    <h1>Exercise</h1>
+    <h1>Dependency Injection / Exercise</h1>
     <h2>In the next slide you'll use videoService which has even more cats!!! The result will look like this: </h2>
 
     <slides-browser-window class="center-preview">
@@ -190,13 +195,12 @@
 
   <slides-slide id="end">
     <slides-closing-slide>
-      <div class="header" header><h1 i18n>End of Dependency Injection Section</h1></div>
+      <div class="header" header><h1 i18n>Dependency Injection / Milestone Completed!</h1></div>
       <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
       </div>
       <div class="footer" footer>
         <h2>
-          <a routerLink="/component-tree/0">Go to the next Milestone</a>
+         Next: <a routerLink="/component-tree/0">Learn how to combine components together</a>
         </h2>
       </div>
     </slides-closing-slide>
