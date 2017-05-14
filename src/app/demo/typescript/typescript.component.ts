@@ -34,7 +34,7 @@ const realPuppy: Puppy = {
 };
 
 const notRealPuppy: Puppy = {
-  type: 'cat' // Error: this is clearly not a puppy
+  says: 'meow' // Error: this is clearly not a puppy
 }`,
       codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
 const fruit: Array<string> = ['kiwi', 'fig'];
