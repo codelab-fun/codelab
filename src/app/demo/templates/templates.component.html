@@ -84,7 +84,7 @@
     <slides-playground [config]="code.template.dataBinding"
                        [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;">
-      By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property.
+      By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property. Also, while brackets are used for attribute binding: <b>[attribute]</b>, "bind-" can also be used: <b>bind-attribute</b>.
     </div>
   </slides-slide>
 
@@ -112,6 +112,9 @@
       [readonly]="true"
       type="html">
     </slides-code-editor>
+    <div class="info">
+      While Parentheses are used for event binding: <b>(event)</b>, "on-" can also be used: <b>on-event</b>.
+    </div>
   </slides-slide>
 
   <!--  REFERENCE BINDING -->
