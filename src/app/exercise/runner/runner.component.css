@@ -3,7 +3,7 @@
 }
 
 :host /deep/ .frame iframe {
-  width: 496px;
+  width: 100%;
   height: 200px;
 }
 

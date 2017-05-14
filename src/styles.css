@@ -4,11 +4,16 @@
   .presentation .slide {
     padding: 80px;
   }
-  .presentation h2 , .presentation li {
+  .presentation h2 {
     font-size: 60px;
   }
+
+
+
+
   .presentation li {
-    margin-bottom: 40px;
+    font-size: 45px;
+    margin-bottom: 20px;
   }
   .presentation .space-left {
     margin-left: 50px;

@@ -1,6 +1,6 @@
-<slides-browser-window *ngIf="!browserUseConsole" [width]="browserWidth" [height]="browserHeight">
+<slides-browser-window *ngIf="!browserUseConsole" [height]="browserHeight">
   <div #runner class="runner"></div>
 </slides-browser-window>
-<slides-console-window *ngIf="browserUseConsole" [width]="browserWidth" [height]="browserHeight">
+<slides-console-window *ngIf="browserUseConsole" [height]="browserHeight">
   <div #runnerConsole class="runner"></div>
 </slides-console-window>
