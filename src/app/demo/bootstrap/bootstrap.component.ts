@@ -11,10 +11,10 @@ export class BootstrapComponent {
 
   code = {
     decorators: {
-      code: `// @Component is a decorator
+      code: `// @Component is an Angular decorator
 @Component({
   metadata
-})
+}) // No semicolon here!
 export class AppComponent {
   // Decorator goes directly above the decorated entity (class in this case)
   // Component name is the class name (AppComponent).

@@ -51,7 +51,7 @@
 
   <slides-slide id="exercise-pre" milestone="Templates">
     <h1>Templates / Exercise</h1>
-    <h2>In the next slide you'll edit component template to create a simple header and search form which will look like
+    <h2>In the next slide you'll edit component template to create a simple header and search form. Ther result will look like
       this:</h2>
 
     <slides-browser-window>
@@ -72,7 +72,7 @@
   <!--  PRE DATA BINDING-->
   <slides-slide id="data-binding-pre" milestone="Templates2">
     <h1>Templates / Interpolation / Properties</h1>
-    <p>When giving a value to the element's attribute, you can use String Interpolation <b>{{ curlies }}</b></p>
+    <h2>String interpolation <b>{{ curlies }}</b> can also be used to pass value to a child element's attribute.</h2>
     <slides-playground [config]="code.template.dataBindingPre"
                        [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
   </slides-slide>
@@ -84,14 +84,14 @@
     <slides-playground [config]="code.template.dataBinding"
                        [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;">
-      By doing property binding you do not need <b>"{{ curlies }}"</b> to specify your property.
+      You can use arbitrary expressions in the binding
     </div>
   </slides-slide>
 
   <!--  DATA BINDING EXTRAS-->
   <slides-slide id="data-binding-extras" milestone="Templates2">
     <h1>Templates / Data binding extras</h1>
-    <h2>Angular supports more advanced bindings than just attribute name</h2>
+    <h2>Angular supports more advanced property bindings than just attribute name</h2>
     <slides-code-editor
       path="app.component.html"
       [code]="code.template.dataBindingExtra"
@@ -143,8 +143,8 @@
 
   <slides-slide id="exercise-2-pre" milestone="Templates2">
     <h1>Templates / Exercise 2</h1>
-    <h2>In the next slide you'll add a click handler to the search button, and display a message in case there were no
-      videos found. The result will look like this:</h2>
+    <h2>In the next slide you'll add a click handler to the search button, and display a message for the case where no
+      videos were found. The result will look like this:</h2>
 
     <slides-browser-window>
       <div>

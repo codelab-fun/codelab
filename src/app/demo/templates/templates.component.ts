@@ -117,7 +117,7 @@ export class AppComponent {
 export class AppComponent {
   firstName = 'Pierre-Auguste';
   avatar = 'assets/images/renoir.jpg';
-  onDisplay(){  return false }
+  onDisplay(){  return false } // Try changing to true!
 }`),
       matches: {
         ngIf: '*ngIf'
@@ -186,7 +186,7 @@ export class AppComponent {
     bindingRefExerciseMatch: /#userinput/,
     eventBinding: `<!-- When user clicks the button, call the "saveUser" function on the
      component instance and pass the the underlying event. -->
-<button (click)="saveUser($event)">
+<button (click)="saveUser()">
 
 <!-- You can also create events for custom components. Here we have a
      depleted event, and it's going to call the "soundAlarm" function

@@ -1,21 +1,19 @@
-<div class="slide-size">
-  <div class="slide-title-header">
-    <div class="slide-title">{{ title }}</div>
-  </div>
-
-  <slides-ripple-animation class="left-half-ripple"></slides-ripple-animation>
-
-  <div class="slide-title-background">
-    <p class="slide-title-description">
+<div class="title-slide">
+  <div class="header">{{title}}</div>
+  <div class="contents">
+    <div class="description">
       {{ description }}
-    </p>
+    </div>
 
-    <p class="slide-title-prereqs">
+    <div class="instructions">
+      Use <b>←</b> and <b>→</b> on your keyboard to navigate the slides.
+    </div>
+
+    <div class="prereqs">
       <strong *ngIf="prereqs">Prerequisites:</strong> {{ prereqs }}
-    </p>
+    </div>
 
-    <p class="slide-title-instructions">
-      Use ← and → on your keyboard to navigate the slides
-    </p>
   </div>
+
 </div>
+<slides-ripple-animation class="left-half-ripple"></slides-ripple-animation>

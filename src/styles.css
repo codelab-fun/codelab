@@ -4,17 +4,16 @@
   .presentation .slide {
     padding: 80px;
   }
+
   .presentation h2 {
     font-size: 60px;
   }
-
-
-
 
   .presentation li {
     font-size: 45px;
     margin-bottom: 20px;
   }
+
   .presentation .space-left {
     margin-left: 50px;
   }
@@ -184,6 +183,13 @@ h1, h2, h3, li {
   display: flex;
 }
 
+.slide .browser-frame h1 {
+  font-size: 60px;
+}
+.slide .browser-frame h2 {
+  font-size: 20px;
+}
+
 /* TODO(kirjs): Support themes */
 .slide h1 {
   font-size: 20px;
@@ -225,8 +231,6 @@ h2 {
   border-right: 20px solid transparent;
   border-top: 8px solid black;
 }
-
-
 
 .monaco-editor.vs .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
 
@@ -312,8 +316,8 @@ p {
 }
 
 .github-icon img {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
 .exercise {

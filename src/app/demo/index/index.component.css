@@ -34,3 +34,18 @@
 .btn-bar {
   z-index: 110;
 }
+
+
+@media only screen and (min-width: 1800px) {
+  .intro.intro li h2 {
+    font-size: 45px;
+  }
+
+  .intro.intro li div {
+    font-size: 25px;
+  }
+  img {
+    width: 600px;
+    margin-left: 50px;
+  }
+}

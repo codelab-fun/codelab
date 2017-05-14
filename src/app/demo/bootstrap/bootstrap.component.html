@@ -13,9 +13,9 @@
 
   <slides-slide id="intro" no-padding milestone="Bootstrap">
     <slides-title-slide
-      title="Create your first Angular app!"
+      title="Create your first Angular app"
       description="You will learn how to create your first Angular component, put it in a module, and bootstrap the app."
-      prereqs=""
+      prereqs="Knowing TypeScript basics would help a lot"
     ></slides-title-slide>
   </slides-slide>
 
@@ -39,7 +39,8 @@
     <h2>Given an HTML file:</h2>
     <slides-code-editor [fontSize]="30" path="index.html" [code]="code.moduleBootstrapping.code.indexHTML"
                         [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
-    <h2>Let's create an Angular app which replaces &lt;hello-world> element with the application contents.</h2>
+    <h2>Let's create an Angular app which replaces the <b>&lt;hello-world></b> HTML element with the application
+      contents.</h2>
     <h2>This can be done with 3 simple steps.</h2>
   </slides-slide>
 
@@ -57,7 +58,8 @@
   <!--  COMPONENT -->
   <slides-slide id="component" milestone="Bootstrap">
     <h1>First Angular App / Step 1</h1>
-    <h2>Create component</h2>
+    <h2>Start with creating an angular <b>Component</b>. Components in Angular is responsible for the visual part of the
+      app.</h2>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></slides-code-editor>
     <h2>Angular component is just a class. Properties and behavior can be added inside.</h2>
@@ -68,10 +70,9 @@
     <h1>First Angular App / Step 1 / Decorators</h1>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></slides-code-editor>
-    <h2>
-      The class is adorned with a <b>@Component</b> decorator. Decorators allow to specify <b>Angular</b>-specific
-      information without altering the actual class.
-    </h2>
+    <h2>The class is adorned with a <b>@Component</b> decorator.</h2>
+    <div class="info">Decorators attach <b>Angular</b>-specific information to the class without modifying it.
+    </div>
 
   </slides-slide>
 
@@ -138,8 +139,10 @@
   <!--  ngModule intro  -->
   <slides-slide id="module" milestone="Bootstrap2">
     <h1>First Angular App / Step 2 </h1>
-    <h2>Next step is to add component in an <b>NgModule</b>. This helps organize an application into cohesive blocks of
-      functionality. We will learn more about <b>NgModules</b> in future milestones.</h2>
+    <h2>Next step is to declare component in an <b>NgModule</b>.</h2>
+    <h2><b>NgModule</b> does not have any visual representation and is used exclusively for grouping Angular building
+      blocks together.</h2>
+    <div class="info">We will learn more about NgModules in the future milestones</div>
 
   </slides-slide>
 
@@ -251,11 +254,7 @@
   <slides-slide id="bootstrapping-more-2" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1>First Angular App / Step 3 / Bootstrapping 2</h1>
     <h2>
-      How does bootstrapping work in Angular?
-    </h2>
-    <br>
-    <h2>
-      2. Initializes the component from <b>bootstrap</b> array in <b>app.module.ts</b>
+      2. Angular initializes the component from <b>bootstrap</b> array in <b>app.module.ts</b>
       (<b>HelloWorldComponent</b> in this case)
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="25" [code]="code.moduleAnatomy.code"
@@ -270,11 +269,7 @@
   <slides-slide id="bootstrapping-more-3" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1>First Angular App / Step 3 / Bootstrapping 3</h1>
     <h2>
-      How does bootstrapping work in Angular?
-    </h2>
-    <br>
-    <h2>
-      3. Looks for the element matching the selector defined in <b>HelloWorldComponent</b>
+      3. Angular looks in the document for an element matching the selector defined in <b>HelloWorldComponent</b>
       (<b>'hello-world'</b> in our case) and inserts the component inside that element.
     </h2>
     <slides-code-editor path="index.html" [fontSize]="25" [code]="code.moduleBootstrapping.code.indexHTML"
@@ -333,7 +328,7 @@
       </div>
     </slides-code-group>
     <div class="info">
-      The <b>main</b> can be used to bootstrap alternative (non-browser) platforms.
+      While Angular is loading, the contents of the element will stay the same (<b>Loading...</b>) in this case
     </div>
   </slides-slide>
 
@@ -341,11 +336,11 @@
     <slides-closing-slide>
       <div class="header" header><h1>End of Bootstrap Section</h1></div>
       <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
+        <h2>Well done! This is the end of the milestone!</h2>
       </div>
       <div class="footer" footer>
         <h2>
-          <a routerLink="/templates/0">Go to the next Milestone</a>
+         Next <a routerLink="/templates/0">Go to the templates Milestone</a>
         </h2>
       </div>
     </slides-closing-slide>
