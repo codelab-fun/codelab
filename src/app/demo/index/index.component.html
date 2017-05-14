@@ -8,10 +8,6 @@
     <slides-feedback-widget></slides-feedback-widget>
   </div>
 
-  <slides-slide no-padding>
-    <slides-feedback-slide></slides-feedback-slide>
-  </slides-slide>
-
   <slides-slide id="index">
     <h1>Angular Codelab</h1>
     <h2>Welcome! Choose the topic below to learn</h2>
@@ -26,19 +22,6 @@
       <div column-2>
         <img src="/assets/images/angular.svg" alt="">
       </div>
-    </div>
-  </slides-slide>
-  <slides-slide id="bonus">
-    <h1>Bonus slides</h1>
-    <h1></h1>
-
-    <div class="intro">
-      <ul>
-        <li *ngFor="let route of getBonusPageRoutes()">
-          <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
-          <div>{{route.description}}</div>
-        </li>
-      </ul>
     </div>
   </slides-slide>
 </slides-presentation>
