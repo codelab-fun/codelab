@@ -95,7 +95,7 @@ export class PresentationComponent implements OnInit {
         const time = (+Date.now()) - startTime;
         localStorage.setItem(key, 'yes');
         this.analytics.sendEvent('milestone', 'end', path);
-        this.analytics.sendTiming('milestone', 'complete', time, path);
+        this.analytics.sendTiming('milestone', 'complete', time);
       }
     }
   }
