@@ -33,7 +33,7 @@ export class MonacoConfigService {
     });
 
 
-    // Some fake angular deps, good for catching silly errors.
+    // Some fake Angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
     const core = `
         declare module '@angular/core' {

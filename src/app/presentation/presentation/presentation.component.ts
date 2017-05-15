@@ -34,7 +34,7 @@ export class PresentationComponent implements OnInit {
   // Expose enum to template
   modeEnum = Mode;
 
-  constructor(private route: ActivatedRoute, analytics: AnalyticsService) {
+  constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
     this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
     if (this.route.snapshot.queryParams['mini']) {
       this.width = 1280;
@@ -82,7 +82,7 @@ export class PresentationComponent implements OnInit {
       const time = +Date.now();
       if (!beenHere) {
         localStorage.setItem(key, time.toString());
-        ga('send', 'event', 'milestone', path, 'start');
+        this.analytics.sendEvent('milestone', 'start', path);
       }
     }
 
@@ -94,8 +94,8 @@ export class PresentationComponent implements OnInit {
         const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10);
         const time = (+Date.now()) - startTime;
         localStorage.setItem(key, 'yes');
-        ga('send', 'event', 'milestone', path, 'end');
-        ga('send', 'timing', 'milestone', 'complete', time, path);
+        this.analytics.sendEvent('milestone', 'end', path);
+        this.analytics.sendTiming('milestone', 'complete', time, path);
       }
     }
   }
