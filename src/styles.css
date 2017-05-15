@@ -205,6 +205,8 @@ h1, h2, h3, li {
 
 b {
   color: #c04e22;
+  font-weight: 300;
+  background-color: #ffe;
 }
 
 h1 {
@@ -353,7 +355,3 @@ p {
   left: 0 !important;
 }
 
-b {
-  font-weight: 300;
-  background-color: #ffe;
-}
