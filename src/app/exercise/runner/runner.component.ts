@@ -254,8 +254,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   private handleMessageBound: any;
   public System: any;
 
-  constructor(private changeDetectionRef: ChangeDetectorRef,
-              public loopProtectionService: LoopProtectionService,
+  constructor(public loopProtectionService: LoopProtectionService,
               public scriptLoaderService: ScriptLoaderService) {
     this.handleMessageBound = this.handleMessage.bind(this);
     window.addEventListener('message', this.handleMessageBound, false);

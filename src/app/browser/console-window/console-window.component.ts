@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./console-window.component.css']
 })
 export class ConsoleWindowComponent implements OnInit {
-  @Input() width = '496px';
   @Input() height = '';
   constructor() { }
 

@@ -1,50 +1,39 @@
-.slide-size {
-  width: 1280px;
-  height: 720px;
+:host {
+  height: 100%;
 }
 
-.slide-title-header {
-  height: 50%;
-  color: #222;
+.title-slide {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.slide-title {
-  position: absolute;
-  left: 5vw;
-  bottom: 50%;
-  font-size: 100px;
-}
-
-.slide-title-background {
-  height: 50%;
-  background-color: #982a2a;
-}
-
-.slide-title-description {
-  width: 75%;
-  position: relative;
-  top: 15%;
-  left: 5vw;
-  font-weight: lighter;
-  font-size: 4vh;
+.header {
+  flex: 0.5;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background: #982a2a;
   color: white;
+  font-size: 120px;
+  padding: 40px;
 }
 
-.slide-title-prereqs {
-  position: absolute;
-  left: 5vw;
-  top: calc(98% - 3vh);
-  font-size: 3vh;
-  font-weight: lighter;
-  color: white;
+.contents {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
 }
 
-.slide-title-instructions {
-  position: relative;
-  left: 5vw;
-  top: calc(78% - 12vh);
-  font-size: 4vh;
-  color: white;
+.description {
+  font-size: 60px;
+}
+.instructions {
+  flex-grow: 1;
+  font-size: 40px;
+  color: #666;
+  margin-top: 20px;
 }
 
 .left-half-ripple {

@@ -36,14 +36,15 @@ function flattenTests(suite) {
 }
 
 function mochaAfter(runId) {
-  window.top.postMessage({
+  var parentFrame = window.parent;
+  parentFrame.postMessage({
     type: 'testList',
     tests: flattenTests(mocha.suite)
   }, '*');
 
   mocha.run()
     .on('pass', function (test, result) {
-      window.top.postMessage({
+      parentFrame.postMessage({
         type: 'testResult',
         test: {
           title: test.title
@@ -54,7 +55,7 @@ function mochaAfter(runId) {
       }, '*');
     })
     .on('fail', function (test, error) {
-      window.top.postMessage({
+      parentFrame.postMessage({
         type: 'testResult',
         test: {
           title: test.title
@@ -65,7 +66,7 @@ function mochaAfter(runId) {
       }, '*');
     })
     .on('end', function () {
-      window.top.postMessage({
+      parentFrame.postMessage({
         type: 'testEnd'
       }, '*');
     });

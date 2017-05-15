@@ -14,18 +14,17 @@
   <slides-slide id="intro" no-padding milestone="TypeScript">
     <slides-title-slide
       title="TypeScript"
-      description="Angular is written in TypeScript! Learn more about the language and the best features!"
+      description="Angular is written in TypeScript. Learn more about the language basics."
       prereqs="Basic understanding of JavaScript is required."
     ></slides-title-slide>
   </slides-slide>
 
-  <slides-slide id="about-typescript-2">
+  <slides-slide id="about-typescript-2" milestone="TypeScript">
     <h1>TypeScript</h1>
     <div row>
       <div>
-
         <ul>
-          <li><b>TypeScript</b> a language transpiled to JavaScript. It's extends <b>ES5</b> standard (current
+          <li><b>TypeScript</b> a language transpiled to JavaScript. It extends <b>ES5</b> standard (current
             version of JavaScript supported by modern browsers.)
           </li>
           <li>Adds features from the next version - (<b>ES6</b>)
@@ -34,7 +33,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="space-left">
         <svg width="460" height="460" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
           <g>
             <ellipse stroke="#000" ry="227.013155" rx="229.499997" cy="227.986845" cx="228.999988"
@@ -85,8 +84,8 @@
   </slides-slide>
 
   <!--  NUMBER-TYPE  -->
-  <slides-slide slidesIntrojsDirective id="type-mini-exercise">
-    <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeSystem</h1>
+  <slides-slide slidesIntrojsDirective id="type-mini-exercise" milestone="TypeScript">
+    <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeScript / Type System</h1>
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
       early</h2>
     <div data-step="2" data-intro="These are the exercise instructions." class="exercise"
@@ -108,7 +107,7 @@
   </slides-slide>
 
   <slides-slide id="types-primitives" milestone="TypeScript">
-    <h1>Types: Primitives (strings, numbers, etc...)</h1>
+    <h1>TypeScript / Types / Primitives (strings, numbers, etc...)</h1>
     <h2>Types are defined as <b>variableName: type</b></h2>
     <slides-code-editor path="types.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.code"></slides-code-editor>
@@ -118,7 +117,7 @@
   </slides-slide>
 
   <slides-slide id="types-more" milestone="TypeScript">
-    <h1>Types: Interfaces</h1>
+    <h1>TypeScript / Types / Interfaces</h1>
     <h2>TypeScript allows to define more complex objects using interfaces:</h2>
     <slides-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.codeInterfaces"></slides-code-editor>
@@ -126,8 +125,8 @@
   </slides-slide>
 
   <slides-slide id="types-arrays" milestone="TypeScript">
-    <h1>Types: Arrays</h1>
-    <div class="info">Here, <b>betterFruit</b> is an instance of the <b>Fruit</b> Interface.</div>
+    <h1>TypeScript / Types / Arrays</h1>
+    <h2>Arrays are defined as <b>Array&lt;Type&gt;</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 

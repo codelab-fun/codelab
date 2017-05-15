@@ -31,7 +31,7 @@ export class AnalyticsService {
     ga('send', 'event', eventCategory, eventAction, eventLabel);
   }
 
-  public sendTiming(eventCategory: string, eventAction: string, timing: number) {
-    ga('send', 'timing', eventCategory, eventAction, timing);
+  public sendTiming(eventCategory: string, eventAction: string, timing: number, path: string) {
+    ga('send', 'timing', eventCategory, eventAction, timing, path);
   }
 }

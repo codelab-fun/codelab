@@ -1,11 +1,5 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-  } from '@angular/core';
-import { FileConfig } from '../interfaces/file-config';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {FileConfig} from '../interfaces/file-config';
 
 @Component({
   selector: 'slides-editors',
@@ -43,7 +37,9 @@ export class EditorsComponent {
   }
 
   isOpenFile(file) {
-    if (!file || !this.currentFile) { return; }
+    if (!file || !this.currentFile) {
+      return;
+    }
     return file.path === this.currentFile.path;
   }
 

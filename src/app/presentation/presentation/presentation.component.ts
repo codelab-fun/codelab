@@ -21,8 +21,8 @@ export class PresentationComponent implements OnInit {
 
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
-  @Input() public width = 1280;
-  @Input() public height = 720;
+  @Input() public width = 1800;
+  @Input() public height = 1000;
   @Input() public zoom = 1;
 
   @Output() onSlideChange = new EventEmitter<number>();
@@ -36,6 +36,10 @@ export class PresentationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
     this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
+    if (this.route.snapshot.queryParams['mini']) {
+      this.width = 1280;
+      this.height = 720;
+    }
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
     this.config.resize = this.route.snapshot.queryParams['resize'] || this.config.resize;
@@ -74,47 +78,46 @@ export class PresentationComponent implements OnInit {
 
     if (this.activeSlideIndex === 0) {
       const key = `been-here-mileston-start-${path}`;
-      const beenHere = localStorage.getItem(key);
-      const time = Math.floor(+Date.now());
-      if (!beenHere) {
-        localStorage.setItem(key, time.toString());
-        this.analytics.sendEvent('milestone', 'start', path);
-      }
+      const time = +Date.now();
+      localStorage.setItem(key, time.toString());
+      this.analytics.sendEvent('milestone', 'start', path);
+
     }
 
     if (this.generatedSlideIndex > 0 && this.activeSlideIndex === this.generatedSlideIndex - 1) {
       const key = `been-here-mileston-end-${path}`;
-      const beenHere = localStorage.getItem(key);
-
-      if (!beenHere) {
-        const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10);
-        const time = Math.floor(+Date.now()) - startTime;
-        localStorage.setItem(key, 'yes');
-        this.analytics.sendEvent('milestone', 'end', path);
-        this.analytics.sendTiming('milestone', 'complete', time);
-        console.log('milestone-complete', time);
-      }
+      const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10) || (+Date.now());
+      const time = (+Date.now()) - startTime;
+      localStorage.setItem(key, 'yes');
+      this.analytics.sendEvent('milestone', 'end', path);
+      this.analytics.sendTiming('milestone', 'complete', time, path);
     }
+  }
+
+
+// TODO: This is a hack, need a proper way!
+  isIntroJsOpen() {
+    return !!document.querySelector('.introjs-overlay');
   }
 
   nextSlide() {
     if (this.canGoNext()) {
-      this.activeSlideIndex++;
-      this.onSlideChange.next(this.activeSlideIndex);
-      this.trackProgress();
+      this.goToSlide(this.activeSlideIndex + 1);
     }
   }
 
   previousSlide() {
     if (this.canGoPrevious()) {
-      this.activeSlideIndex--;
-      this.onSlideChange.next(this.activeSlideIndex);
-      this.trackProgress();
+      this.goToSlide(this.activeSlideIndex - 1);
     }
   }
 
   canGoNext(): boolean {
-    return this.activeSlideIndex + 1 < this.generatedSlideIndex;
+    return this.activeSlideIndex + 1 < this.generatedSlideIndex && !this.isIntroJsOpen();
+  }
+
+  canGoPrevious(): boolean {
+    return this.activeSlideIndex > 0 && !this.isIntroJsOpen();
   }
 
   goToSlide(index) {
@@ -123,9 +126,6 @@ export class PresentationComponent implements OnInit {
     this.trackProgress();
   }
 
-  canGoPrevious(): boolean {
-    return this.activeSlideIndex > 0;
-  }
 
   disableResize() {
     // TODO

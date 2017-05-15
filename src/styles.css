@@ -1,7 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
+@media only screen and (min-width: 1800px) {
+  .presentation .slide {
+    padding: 80px;
+  }
+
+  .presentation h2 {
+    font-size: 60px;
+  }
+
+  .presentation li {
+    font-size: 45px;
+    margin-bottom: 20px;
+  }
+
+  .presentation .space-left {
+    margin-left: 50px;
+  }
+}
+
 * {
   box-sizing: border-box;
+}
+
+.space-left {
+  margin-left: 20px;
 }
 
 [row] {
@@ -61,7 +84,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background-color: #fff;
   font-family: Roboto, sans-serif;
 }
 
@@ -158,6 +181,14 @@ h1, h2, h3, li {
 
 .slide [flex] {
   display: flex;
+}
+
+.slide .browser-frame h1 {
+  font-size: 60px;
+}
+
+.slide .browser-frame h2 {
+  font-size: 20px;
 }
 
 /* TODO(kirjs): Support themes */
@@ -286,8 +317,8 @@ p {
 }
 
 .github-icon img {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
 .exercise {

@@ -17,7 +17,7 @@ export class IntrojsDirective implements OnInit {
     this.slide.onActive.subscribe((active) => {
       // check if both tours ran TODO: unhardcode this check
       if (active && localStorage.numTours <= 2) {
-        setTimeout(() => introJs().start(), 2000);
+        setTimeout(() => introJs().start(), 1000);
         localStorage.numTours = +localStorage.numTours + 1;
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");

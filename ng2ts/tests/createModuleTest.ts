@@ -33,7 +33,7 @@ describe('Component', () => {
   });
 
   it(`Add a NgModule decorator for the class`, () => {
-    chai.expect(metadata).is.not.undefined
+    chai.expect(metadata).is.not.undefined;
   });
 
   it(`Add 'BrowserModule' to the NgModule decorator imports`, () => {

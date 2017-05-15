@@ -4,6 +4,7 @@ import {MonacoConfigService} from 'app/exercise/services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
 import {Subscription} from 'rxjs/Subscription';
 import {AnalyticsService} from '../../presentation/analytics.service';
+import {ActivatedRoute} from '@angular/router';
 
 export class ExerciseBase implements OnDestroy {
   @Input() public config: ExerciseConfig;
@@ -33,7 +34,8 @@ export class ExerciseBase implements OnDestroy {
 
     if (event.data.type === 'testEnd') {
       if (this.config.tests.length && this.config.tests.every(test => test.pass)) {
-        this.analyticsService.sendEvent('exercise', 'end', 'solved');
+        const path = this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
+        this.analyticsService.sendEvent('exercise', 'solved', path);
         this.solved = true;
       }
       this.running = false;
@@ -71,7 +73,10 @@ export class ExerciseBase implements OnDestroy {
     };
   }
 
-  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService, private analyticsService: AnalyticsService) {
+  constructor(public slide: SlideComponent,
+              private monacoConfig: MonacoConfigService,
+              private analyticsService: AnalyticsService,
+              private route: ActivatedRoute) {
     this.onActiveUnsubscribe = slide.onActive.filter(a => a).subscribe(() => {
       console.log('ACTIVE');
       slide.disableResize();

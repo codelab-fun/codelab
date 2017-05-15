@@ -3,7 +3,7 @@
 }
 
 .editor.is-hidden {
-    display: none;
+  display: none;
 }
 
 .tabs {
@@ -14,7 +14,6 @@
   min-height: 26px;
   margin-bottom: 12px;
   border-bottom: 1px solid #2d2d30;
-  background-color: #eee;
   cursor: pointer;
 }
 
@@ -26,14 +25,17 @@
   line-height: 24px;
   list-style-type: none;
   cursor: pointer;
-  border: 1px solid #444;
+  border: 1px solid #ddd;
   border-bottom: 0;
-  background-color: #ddd;
+  background-color: #eee;
   white-space: nowrap;
   overflow: hidden;
   // Above the progress bar.
   z-index: 2;
 
+  &:hover {
+    background-color: #ddd;
+  }
   &.is-active {
     position: relative;
     height: 26px;
@@ -44,22 +46,24 @@
   }
 }
 
-.solution {
+.content {
   position: relative;
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  min-height: 15px;
-  margin-bottom: 10px;
-  z-index: 100;
+}
 
+.solution {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  z-index: 1;
+  background: #fff;
+  border: 1px #ddd solid;
+  padding: 4px;
+
+  &:hover {
+    background-color: #dddddd;
+  }
   &.is-hidden {
     display: none;
-  }
-
-  span {
-    height: 100%;
-    cursor: pointer;
   }
 }
 
@@ -81,10 +85,18 @@
   border: 1px solid #000;
   margin-bottom: 2px;
 }
+
 .file-ts {
   background: #1a67bf;
   color: white;
 }
-.file-html{
+
+.file-html {
   background: #9cff7d;
 }
+
+:host /deep/ .current-line {
+   /* TODO */
+  display: none !important;
+}
+

@@ -35,7 +35,8 @@ const FAKE_VIDEOS = [
   {
     title: 'SINGLE SUNSHINE',
     src: '/assets/images/cat-04.jpg',
-    description: 'It was cat for at least an hour. It was incredible. The camera could not capture the vivid intensity and brightness. Look into the mirror, look into your soul! What it means.',
+    description: 'It was cat for at least an hour. It was incredible. The camera could not capture the vivid intensity ' +
+    'and brightness. Look into the mirror, look into your soul! What it means.',
     views: 100,
     likes: 20,
     date: '2016-08-02'
@@ -50,7 +51,8 @@ const FAKE_VIDEOS = [
   }, {
     title: 'Cinco de Gato',
     src: '/assets/images/cat-06.jpg',
-    description: 'To be totally fair, we also wound up celebrating Moewloween, Purrster, Scratching Day, Good Kitty Day, All Cates Day, and various bank holidays in the exact same way.',
+    description: 'To be totally fair, we also wound up celebrating Moewloween, Purrster, Scratching Day, Good Kitty ' +
+    'Day, All Cats Day, and various bank holidays in the exact same way.',
     views: 5,
     likes: 5,
     date: '2017-05-05'
@@ -121,7 +123,7 @@ const FAKE_VIDEOS = [
   },
   {
     title: 'Nikki\'s First Feast',
-    src: '/assets/images/cat-14.png',
+    src: '/assets/images/cat-14.jpg',
     description: 'Nikki tries fancy cat food.',
     views: 99,
     likes: 1,
