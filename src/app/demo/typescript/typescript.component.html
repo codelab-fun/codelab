@@ -133,15 +133,15 @@
   <!--  CLASSES  -->
   <slides-slide id="classes" milestone="TypeScript">
     <h1>TypeScript / Classes</h1>
-    <h2>TypeScript has classes, and Angular uses them heavily</h2>
-    <h2>They are similar to classes in other languages. Used to group methods and properties belonging to
-      one object together</h2>
+    <h2>TypeScript has classes, and Angular uses them heavily.</h2>
+    <h2>They are similar to classes in other languages, and are used to group methods and properties together</h2>
     <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
   <slides-slide id="classes-constructor" milestone="TypeScript">
     <h1>TypeScript / Classes / Constructor</h1>
-    <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is instantiated and allows
+    <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is instantiated and
+      allows
       the
       class to take parameters</h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
@@ -150,8 +150,10 @@
 
   <slides-slide id="classes-access-modifier" milestone="TypeScript">
     <h1>TypeScript / Classes / Access Modifiers</h1>
-    <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
-      accessible as <b>this.name</b> within the class</h2>
+    <h2>
+      Constructor parameters marked as <b>public</b> (or private, or protected), become class properties accessible as
+      <b>this.&lt;parameter name&gt;</b> within the class
+    </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
     <div class="info">private or protected properties are not visible outside of the class.</div>
@@ -159,8 +161,8 @@
 
   <slides-slide id="export" milestone="TypeScript">
     <h1>TypeScript / Export</h1>
-    <h2>By the way, did you notice the <b>export</b> keyword before class? It is used to share information between
-      files. Next slide will show how to export and use this class in a different file.</h2>
+    <h2>By the way,By the way, did you notice the <b>export</b> keyword before class? It is used to share information
+      between files. In the next slide, we'll show you how to export and use this class in a different file</h2>
     <slides-code-editor
       path="puppy.ts"
       [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
@@ -175,6 +177,14 @@
     <div class="info">Imports and exports are not just for classes. They work with variables, functions and other
       things!
     </div>
+  </slides-slide>
+
+  <slides-slide id="filter" milestone="TypeScript">
+    <h1>TypeScript / Filter (One last thing)</h1>
+    <h2>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
+      provided
+      from the returning callback.</h2>
+    <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
   <slides-slide id="more" milestone="TypeScript">
@@ -192,13 +202,6 @@
     <h2>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/"
                                                         target="_blank">TypeScript</a> website!
     </h2>
-  </slides-slide>
-
-  <slides-slide id="filter" milestone="TypeScript">
-    <h1>TypeScript / Filter (One last thing)</h1>
-    <h2>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are provided
-      from the returning callback.</h2>
-    <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
   <slides-slide id="exercise-info" milestone="TypeScript">
