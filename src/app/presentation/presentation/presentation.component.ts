@@ -36,6 +36,10 @@ export class PresentationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, analytics: AnalyticsService) {
     this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
+    if (this.route.snapshot.queryParams['mini']) {
+      this.width = 1280;
+      this.height = 720;
+    }
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
     this.config.resize = this.route.snapshot.queryParams['resize'] || this.config.resize;
