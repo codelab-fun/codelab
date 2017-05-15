@@ -1,22 +1,20 @@
 <div class="exercise-panel" *ngIf="slide.active">
-  <slides-resize class="exercise-body" [minWidth]="400"
-              [maxWidth]="750">
-    <slides-resize [isVertical]="true" [startingHeight]="400"
-                [minHeight]="100">
-      <div style="display: flex;height: 100%;width: 100%;">
-        <slides-file-structure (onSelectFile)="onSelectFile($event)" [files]="config.files"
-                            [currentFile]="currentFile || config.files[0]"></slides-file-structure>
-        <slides-editors
-          [files]="config.files" [currentFile]="currentFile || config.files[0]"
-          (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
-          (onLoadSolution)="loadSolution($event)"
-          (onSelectFile)="onSelectFile($event)">
-        </slides-editors>
-      </div>
-    </slides-resize>
+
+  <div class="main">
+    <div class="files">
+      <slides-file-structure (onSelectFile)="onSelectFile($event)" [files]="config.files"
+                             [currentFile]="currentFile || config.files[0]"></slides-file-structure>
+      <slides-editors
+        [files]="config.files" [currentFile]="currentFile || config.files[0]"
+        (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
+        (onLoadSolution)="loadSolution($event)"
+        (onSelectFile)="onSelectFile($event)">
+      </slides-editors>
+    </div>
+
     <slides-slides-preview [milestone]="milestone">
     </slides-slides-preview>
-  </slides-resize>
+  </div>
 
   <div class="side">
     <div>
@@ -27,14 +25,15 @@
           <h2>Nice! Go to the next slide</h2>
         </div>
       </div>
-        <slides-tests data-step="4" data-intro="This is a list of the tests your program should pass at the end."[tests]="config.tests" [files]="config.files"
-                  (onSelectFile)="onSelectFile($event)"></slides-tests>
+      <slides-tests data-step="4" data-intro="This is a list of the tests your program should pass at the end."
+                    [tests]="config.tests" [files]="config.files"
+                    (onSelectFile)="onSelectFile($event)"></slides-tests>
     </div>
     <slides-runner
-                data-step="5" data-intro="The live preview of your work will show up here." data-position="top"
-                (onTestUpdate)="onTestUpdate($event)"
-                [files]="config.files"
-                [runnerType]="config.runner || 'Angular'">
+      data-step="5" data-intro="The live preview of your work will show up here." data-position="top"
+      (onTestUpdate)="onTestUpdate($event)"
+      [files]="config.files"
+      [runnerType]="config.runner || 'Angular'">
     </slides-runner>
   </div>
 </div>

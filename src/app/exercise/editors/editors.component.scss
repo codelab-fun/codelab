@@ -14,7 +14,6 @@
   min-height: 26px;
   margin-bottom: 12px;
   border-bottom: 1px solid #2d2d30;
-  background-color: #eee;
   cursor: pointer;
 }
 
@@ -26,14 +25,17 @@
   line-height: 24px;
   list-style-type: none;
   cursor: pointer;
-  border: 1px solid #444;
+  border: 1px solid #ddd;
   border-bottom: 0;
-  background-color: #ddd;
+  background-color: #eee;
   white-space: nowrap;
   overflow: hidden;
   // Above the progress bar.
   z-index: 2;
 
+  &:hover {
+    background-color: #ddd;
+  }
   &.is-active {
     position: relative;
     height: 26px;
@@ -88,3 +90,5 @@
 .file-html{
   background: #9cff7d;
 }
+
+

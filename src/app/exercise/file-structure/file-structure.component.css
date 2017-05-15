@@ -1,5 +1,6 @@
 .file-tree-column {
   display: flex;
+  border: 1px solid #dddddd;
 }
 
 .file-tree-column-toggle {

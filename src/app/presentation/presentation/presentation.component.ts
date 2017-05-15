@@ -96,24 +96,30 @@ export class PresentationComponent implements OnInit {
     }
   }
 
+
+  // TODO: This is a hack, need a proper way!
+  isIntroJsOpen() {
+    return !!document.querySelector('.introjs-overlay');
+  }
+
   nextSlide() {
     if (this.canGoNext()) {
-      this.activeSlideIndex++;
-      this.onSlideChange.next(this.activeSlideIndex);
-      this.trackProgress();
+      this.goToSlide(this.activeSlideIndex + 1);
     }
   }
 
   previousSlide() {
     if (this.canGoPrevious()) {
-      this.activeSlideIndex--;
-      this.onSlideChange.next(this.activeSlideIndex);
-      this.trackProgress();
+      this.goToSlide(this.activeSlideIndex - 1);
     }
   }
 
   canGoNext(): boolean {
-    return this.activeSlideIndex + 1 < this.generatedSlideIndex;
+    return this.activeSlideIndex + 1 < this.generatedSlideIndex && !this.isIntroJsOpen();
+  }
+
+  canGoPrevious(): boolean {
+    return this.activeSlideIndex > 0 && !this.isIntroJsOpen();
   }
 
   goToSlide(index) {
@@ -122,9 +128,6 @@ export class PresentationComponent implements OnInit {
     this.trackProgress();
   }
 
-  canGoPrevious(): boolean {
-    return this.activeSlideIndex > 0;
-  }
 
   disableResize() {
     // TODO

@@ -6,6 +6,17 @@ slides {
   width: 100%;
 }
 
+.files {
+  display: flex;
+  height: 50%;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+}
+
 .next {
   color: #fff;
   background: #3e8e01;
@@ -46,7 +57,7 @@ slides-editors {
 
 slides-slides-preview {
   display: flex;
-  flex: 1;
+  height: 50%;
 }
 
 slides-slide > div {
@@ -72,9 +83,16 @@ slides-slide > div {
 
 slides-runner {
   margin-top: 10px;
+  height: 50%;
+  width: 100%;
   align-self: flex-end;
 }
 
 slides-tests {
   display: block;
+}
+
+
+:host /deep/ .browser-frame , :host /deep/ .frame {
+  height: 100%;
 }
