@@ -116,7 +116,6 @@ export class MonacoConfigService {
     }
 
     this.sortFiles([...files]).map(file => {
-      console.log(file.code, file.path);
       monaco.editor.createModel(file.code, file.type, file.path);
     });
   }
