@@ -23,8 +23,8 @@
       <ng-content select=".description"></ng-content>
       <div *ngIf="solved">
         <!--TODO: Find a nicer workflow-->
-        <div style="color: green">
-          <h2>Nice! <a class="next-button" (click)="tryGoToNextSlide()">Go to the next slide</a></h2>
+        <div class="exercise-complete">
+          Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>
         </div>
       </div>
         <slides-tests data-step="4" data-intro="This is a list of the tests your program should pass at the end."[tests]="config.tests" [files]="config.files"

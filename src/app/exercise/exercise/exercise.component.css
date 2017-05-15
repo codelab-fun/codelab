@@ -77,10 +77,15 @@ slides-runner {
 
 .next-button {
   text-decoration: underline;
-  color: green;
   cursor: pointer;
 }
 
 slides-tests {
   display: block;
+}
+
+.exercise-complete {
+  background: #dfffde;
+  border: 1px solid #000;
+  padding: 10px;
 }

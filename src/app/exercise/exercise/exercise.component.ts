@@ -27,7 +27,7 @@ export class ExerciseComponent extends ExerciseBase {
     this.currentFile = fileConfig;
   }
 
-  tryGoToNextSlide() {
-      this.presentation.nextSlide();
+  goToNextSlide() {
+    this.presentation.nextSlide();
   }
 }
