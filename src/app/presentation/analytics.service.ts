@@ -28,10 +28,12 @@ export class AnalyticsService {
   }
 
   public sendEvent(eventCategory: string, eventAction: string, eventLabel: string) {
+    console.log('send, event', arguments);
     ga('send', 'event', eventCategory, eventAction, eventLabel);
   }
 
-  public sendTiming(eventCategory: string, eventAction: string, timing: number) {
-    ga('send', 'timing', eventCategory, eventAction, timing);
+  public sendTiming(eventCategory: string, eventAction: string, timing: number, path: string) {
+    console.log('send, timing', arguments);
+    ga('send', 'timing', eventCategory, eventAction, timing, path);
   }
 }
