@@ -8,12 +8,17 @@ import {introJs} from 'intro.js/intro.js';
 export class IntrojsDirective implements OnInit {
 
   constructor(public slide: SlideComponent) {
+    if (!localStorage.numTours) {
+      localStorage.numTours = 0;
+    }
   }
 
   ngOnInit() {
     this.slide.onActive.subscribe((active) => {
-      if (active) {
+      // check if both tours ran TODO: unhardcode this check
+      if (active && localStorage.numTours <= 2) {
         setTimeout(() => introJs().start(), 2000);
+        localStorage.numTours = +localStorage.numTours + 1;
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");
         // }
