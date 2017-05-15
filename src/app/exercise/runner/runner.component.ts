@@ -195,7 +195,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
             const moduleName = file.moduleName;
 
             // TODO(kirjs): Add source maps.
-            const result = ts.transpileModule(code, {
+            return ts.transpileModule(code, {
               compilerOptions: {
                 module: ts.ModuleKind.System,
                 target: ts.ScriptTarget.ES5,
@@ -211,8 +211,6 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               moduleName: moduleName,
               reportDiagnostics: true
             });
-
-            return result;
           });
 
 
@@ -238,7 +236,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               }
             `);
             const diagnosticsHtml = diagnostics.map(diagnostic => `<li>Error in file <b>${diagnostic.file.fileName}</b>: 
-            ` + diagnostic.messageText + '</li>').join('')
+            ` + diagnostic.messageText + '</li>').join('');
             setHtml(`
 <h2>Errors when compiling</h2>
  <div>Look in the editor for hints to fix it.</div>
