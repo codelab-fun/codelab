@@ -16,7 +16,7 @@ export class BootstrapComponent {
   metadata
 }) // No semicolon here (as it attaches itself to the class below)
 export class AppComponent {
-  // Decorator goes directly above the decorated entity (class in this case)
+  // The Decorator goes directly above the decorated entity (class in this case)
   // Component name is the class name (AppComponent).
 }`
     },

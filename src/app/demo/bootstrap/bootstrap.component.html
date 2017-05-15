@@ -39,7 +39,7 @@
     <h2>Given an HTML file:</h2>
     <slides-code-editor [fontSize]="30" path="index.html" [code]="code.moduleBootstrapping.code.indexHTML"
                         [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
-    <h2>Let's create an Angular app which replaces the <b>&lt;hello-world></b> HTML element with the application
+    <h2>Let's create an Angular app which replaces the <b>&lt;hello-world></b> HTML element with the app's
       contents.</h2>
     <h2>This can be done with 3 simple steps.</h2>
   </slides-slide>
@@ -58,7 +58,7 @@
   <!--  COMPONENT -->
   <slides-slide id="component" milestone="Bootstrap">
     <h1>First Angular App / Step 1</h1>
-    <h2>Start with creating an angular <b>Component</b>. Components in Angular is responsible for the visual part of the
+    <h2>Start with creating an angular <b>Component</b>. Components in Angular are responsible for the visual part of the
       app.</h2>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></slides-code-editor>
@@ -81,13 +81,13 @@
   <slides-slide id="decorator" milestone="Bootstrap">
     <h1>First Angular App / Step 1 / Decorators</h1>
     <h2>
-      Decorators are a new feature of TypeScript. They allow to attach metadata to a class, function, property or
+      Decorators are a new feature of TypeScript. They attach metadata to a class, function, property or
       variable.
     </h2>
     <slides-code-editor [fontSize]="30" [code]="code.decorators.code"></slides-code-editor>
 
     <div class="info">
-      Decorators are inspired by a similar feature in Python language.
+      Decorators are inspired by a similar feature in the Python language.
     </div>
     <h2></h2>
   </slides-slide>
@@ -96,8 +96,8 @@
   <!--  Selector  -->
   <slides-slide id="selector" milestone="Bootstrap">
     <h1>First Angular App / Step 1 / Selector</h1>
-    <h2>Selector defines the location of the component. When Angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
-      HTML element in the document and will render the component inside of it.</h2>
+    <h2>Selectors define the location of the component. When Angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
+      HTML element in the document and render the component inside of it.</h2>
 
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.selector]"></slides-code-editor>
@@ -112,7 +112,7 @@
     </h2>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.template]"></slides-code-editor>
-    <div class="info"> If the amount of HTML grows out of hand, it's possible (and recommended) to use
+    <div class="info"> If the amount of HTML grows out of hand, it's possible (and recommended) to use a
       <b>templateUrl</b> instead and
       provide a path to a HTML file.
     </div>
@@ -139,7 +139,7 @@
   <!--  ngModule intro  -->
   <slides-slide id="module" milestone="Bootstrap2">
     <h1>First Angular App / Step 2 </h1>
-    <h2>Next step is to declare component in an <b>NgModule</b>.</h2>
+    <h2>Next step is to declare a component in an <b>NgModule</b>.</h2>
     <h2><b>NgModule</b> does not have any visual representation and is used exclusively for grouping Angular building
       blocks together.</h2>
     <div class="info">We will learn more about NgModules in the future milestones</div>
@@ -149,7 +149,7 @@
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-exercise" milestone="Bootstrap2">
     <h1>First Angular App / Step 2 / Module Class</h1>
-    <h2>Like a component, <b>Angular</b> module is just a class.</h2>
+    <h2>Like a component, the <b>Angular</b> module is just a class.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></slides-code-editor>
 
@@ -157,7 +157,7 @@
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-decorator" milestone="Bootstrap2">
     <h1>First Angular App / Step 2 / NgModule Decorator</h1>
-    <h2>Like a component, <b>Angular</b> module is adorned with a decorator providing metadata.</h2>
+    <h2>Like a component, the <b>Angular</b> module is adorned with a decorator providing metadata.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></slides-code-editor>
 
@@ -170,14 +170,14 @@
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
 
-    <div class="info">Angular is not just for web apps anymore, it allows to create native phone apps and even VR
+    <div class="info">Angular is not just for web apps anymore; you can also use it to create native phone apps and even VR
       scenes.
     </div>
   </slides-slide>
   <!--  Declarations  -->
   <slides-slide id="declarations" milestone="Bootstrap2">
     <h1>First Angular App / Step 2 / Declarations</h1>
-    <h2><b>Declarations array</b>, specifies components belonging to the AppModule.</h2>
+    <h2>The <b>Declarations array</b> specifies components belonging to the AppModule.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
 
@@ -186,7 +186,7 @@
   <!--  Bootstrap -->
   <slides-slide id="bootstrap" milestone="Bootstrap2">
     <h1>First Angular App / Step 2 / Bootstrap</h1>
-    <h2>Component passed into the <b>bootstrap</b> array will be created and displayed in your <b>index.html</b> file.
+    <h2>The component passed into the <b>bootstrap</b> array will be created and displayed in your <b>index.html</b> file.
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
@@ -207,7 +207,7 @@
   <slides-slide id="exercise-module" no-padding>
     <slides-exercise [config]="exercises[1]" milestone="Bootstrap2">
       <div class="description">
-        <p>Now we got the component, we need to pass it to a NgModule.</p>
+        <p>Now that we've got the component, we need to pass it to a NgModule.</p>
       </div>
     </slides-exercise>
   </slides-slide>
@@ -228,7 +228,7 @@
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30"
                         [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
-    <div class="info">For most of the simple apps, you can just copy/paste the code above "as is"</div>
+    <div class="info">For most simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
   <slides-slide id="bootstrapping-more" class="bootstrapping-more-info" milestone="Bootstrap3">
@@ -254,7 +254,7 @@
   <slides-slide id="bootstrapping-more-2" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1>First Angular App / Step 3 / Bootstrapping 2</h1>
     <h2>
-      2. Angular initializes the component from <b>bootstrap</b> array in <b>app.module.ts</b>
+      2. Angular initializes the component from the <b>bootstrap</b> array in <b>app.module.ts</b>
       (<b>HelloWorldComponent</b> in this case)
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="25" [code]="code.moduleAnatomy.code"
@@ -292,8 +292,8 @@
   <slides-slide id="exercise-bootstrap" no-padding>
     <slides-exercise [config]="exercises[2]" milestone="Bootstrap3">
       <div class="description">
-        <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
-        <p>There's no simple way to test it, make sure your app displays: 'Hello MewTube!'</p>`
+        <p>Now that we've got both NgModule and the component ready, let's bootstrap the app!</p>
+        <p>There's no simple way to test it; just make sure your app displays: 'Hello MewTube!'</p>`
       </div>
     </slides-exercise>
   </slides-slide>
