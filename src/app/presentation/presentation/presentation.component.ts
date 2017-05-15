@@ -78,30 +78,24 @@ export class PresentationComponent implements OnInit {
 
     if (this.activeSlideIndex === 0) {
       const key = `been-here-mileston-start-${path}`;
-      const beenHere = localStorage.getItem(key);
       const time = +Date.now();
-      if (!beenHere) {
-        localStorage.setItem(key, time.toString());
-        this.analytics.sendEvent('milestone', 'start', path);
-      }
+      localStorage.setItem(key, time.toString());
+      this.analytics.sendEvent('milestone', 'start', path);
+
     }
 
     if (this.generatedSlideIndex > 0 && this.activeSlideIndex === this.generatedSlideIndex - 1) {
       const key = `been-here-mileston-end-${path}`;
-      const beenHere = localStorage.getItem(key);
-
-      if (!beenHere) {
-        const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10);
-        const time = (+Date.now()) - startTime;
-        localStorage.setItem(key, 'yes');
-        this.analytics.sendEvent('milestone', 'end', path);
-        this.analytics.sendTiming('milestone', 'complete', time, path);
-      }
+      const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10) || (+Date.now());
+      const time = (+Date.now()) - startTime;
+      localStorage.setItem(key, 'yes');
+      this.analytics.sendEvent('milestone', 'end', path);
+      this.analytics.sendTiming('milestone', 'complete', time, path);
     }
   }
 
 
-  // TODO: This is a hack, need a proper way!
+// TODO: This is a hack, need a proper way!
   isIntroJsOpen() {
     return !!document.querySelector('.introjs-overlay');
   }

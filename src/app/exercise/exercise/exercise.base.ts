@@ -35,13 +35,7 @@ export class ExerciseBase implements OnDestroy {
     if (event.data.type === 'testEnd') {
       if (this.config.tests.length && this.config.tests.every(test => test.pass)) {
         const path = this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
-        const key = `been-here-exersize-solved-${path}`;
-        const beenHere = localStorage.getItem(key);
-        if (!beenHere) {
-          localStorage.setItem(key, 'true');
-          this.analyticsService.sendEvent('exercise', 'solved', path);
-        }
-
+        this.analyticsService.sendEvent('exercise', 'solved', path);
         this.solved = true;
       }
       this.running = false;
