@@ -1,21 +1,22 @@
-<div data-step="1" data-intro="From now on you may need to write code in multiple files; you can tab through them here." class="tabs">
+<div data-step="1" data-intro="From now on you may need to write code in multiple files; you can tab through them here."
+     class="tabs">
   <div class="tab"
-    *ngFor="let file of visibleFiles; trackBy: trackFile"
-    [class.is-active]="isOpenFile(file)"
-    (click)="showFile(file)">
+       *ngFor="let file of visibleFiles; trackBy: trackFile"
+       [class.is-active]="isOpenFile(file)"
+       (click)="showFile(file)">
     {{ getFileName(file) }}
     <span class="readonlyIcon" *ngIf="file.readonly">
     </span>
   </div>
 </div>
 
-<span data-step="2" data-intro="You know what to do here 👍">
+<span data-step="2" data-intro="You know what to do here 👍" class="content">
   <div *ngFor="let file of visibleFiles; trackBy: trackFile">
     <div
-      class="solution" [class.is-hidden]="!isOpenFile(file) || file.readonly"
-      *ngIf="debug && !file.readonly"
+      class="solution"
+      *ngIf="isOpenFile(file) && !file.readonly"
       (click)="loadSolution(file)">
-      [Load solution]
+      Load solution
     </div>
     <slides-editor
       class="editor"

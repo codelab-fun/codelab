@@ -1,3 +1,7 @@
+slides-file-tree {
+  padding: 20px 20px 20px 0;
+}
+
 .file-tree-column {
   display: flex;
   border: 1px solid #dddddd;
@@ -13,3 +17,4 @@
   white-space: nowrap;
   width: 20px;
 }
+
