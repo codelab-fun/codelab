@@ -115,9 +115,9 @@ If you want to work on something there isn't yet an issue for, consider submitti
 * Use the present tense
 * If applicable, reference the issue being resolved
 
-For example:
-💯 [Redirect user to the requested page after login](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
-😱 [HAAAAAAAAANDS](https://xkcd.com/1296)
+#### For example:
+* 💯:  [Redirect user to the requested page after login](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
+* 😱:  [HAAAAAAAAANDS](https://xkcd.com/1296)
 
 Extended example:
 ```
