@@ -1,8 +1,8 @@
-import { app_component_ts, app_html } from '../code';
-import { AppComponent } from '../app.component';
-import { AppModule } from '../app.module';
-import { TestBed } from '@angular/core/testing';
-import { VideoService } from '../video/video.service';
+import {app_component_ts, app_html} from '../code';
+import {AppComponent, evalJs} from '../app.component';
+import {AppModule} from '../app.module';
+import {TestBed} from '@angular/core/testing';
+import {VideoService} from '../video/video.service';
 import 'initTestBed';
 
 
@@ -46,15 +46,15 @@ describe('Blabla', () => {
     chai.expect(evalJs('typeof FAKE_VIDEOS;')).equals('undefined');
   });
 
-  it(`app.component.ts: Inject videoService in the component constructor`, () => {
+  it(`app.component.ts: Inject 'VideoService' in the component constructor as 'videoService'`, () => {
     chai.expect(AppComponent.length, `App component constructor doesn't take any parameters`).to.equal(1);
     chai.expect(app_component_ts).matches(/VideoService/);
   });
 
-  it(`app.component.ts: When searching assign videoService.search results to the videos property of the class`, () => {
+  it(`app.component.ts: Update the app component's search method to use videoService's search method`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.componentInstance.search('itten');
-    chai.expect(fixture.componentInstance.videos.length).to.equal(4);
+    fixture.componentInstance.search('Itty');
+    chai.expect(fixture.componentInstance.videos.length).to.equal(3);
   });
 });
 

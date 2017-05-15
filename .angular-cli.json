@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "slides",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/intro.js/introjs.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

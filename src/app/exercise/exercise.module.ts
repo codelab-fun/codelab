@@ -1,5 +1,5 @@
 import {AutorunComponent} from './autorun/autorun.component';
-import {BrowserWindowModule} from '../browser-window/browser-window.module';
+import { BrowserModule } from '../browser/browser.module';
 import {CodeEditorComponent} from './code-editor/code-editor.component';
 import {CommonModule} from '@angular/common';
 import {EditorComponent} from './editor/editor.component';
@@ -42,7 +42,7 @@ import {CodeGroupComponent} from './code-group/code-group.component';
     CommonModule,
     FormsModule,
     TooltipsModule,
-    BrowserWindowModule
+    BrowserModule
   ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
   exports: [ExerciseComponent,
     PlaygroundComponent,

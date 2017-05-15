@@ -57,7 +57,7 @@ describe('Blabla', () => {
       testSearch('Other value');
     });
 
-  it(`app.html: Add a message saying 'No videos' which is displayed only when the videos array is empty`, () => {
+  it(`app.html: Add a message saying 'no videos' which is displayed only when the videos array is empty`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     fixture.componentInstance.videos = [];

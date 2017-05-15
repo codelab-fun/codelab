@@ -3,11 +3,7 @@
   slides-mode-routing
   slides-tracking>
   <div class="btn-bar">
-    <div class="menu-bar-btn github-icon">
-      <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png">
-      </a>
-    </div>
+
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
@@ -48,10 +44,11 @@
 
   <!--  Steps to create an Angular app -->
   <slides-slide id="angular-app" milestone="Bootstrap">
-    <h1>Creating angular app</h1>
+    <h1>Creating Angular app</h1>
+    <h2>Takes 3 steps:</h2>
     <ol>
-      <li>Create an angular component</li>
-      <li>Create an angular module</li>
+      <li>Create an Angular component</li>
+      <li>Create an Angular module</li>
       <li>Bootstrap the module</li>
     </ol>
   </slides-slide>
@@ -70,11 +67,10 @@
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></slides-code-editor>
     <h2>
-      The class is adorned with a <b>@Component</b> decorator providing additional metadata to let the Angular know how
-      to
-      use it.
+      The class is adorned with a <b>@Component</b> decorator. Decorators allow to specify <b>Angular</b>-specific
+      information without altering the actual class.
     </h2>
-    <h2></h2>
+
   </slides-slide>
 
 
@@ -82,12 +78,13 @@
   <slides-slide id="decorator" milestone="Bootstrap">
     <h1>Decorators</h1>
     <h2>
-      Decorators are a new feature of TypeScript. (TODO:work in progress).
+      Decorators are a new feature of TypeScript.
+      <!--TODO: work in progress-->
     </h2>
     <slides-code-editor [fontSize]="30" [code]="code.decorators.code"></slides-code-editor>
 
     <div class="info">
-      Decorators were inspired by a similar feature in Python language.
+      Decorators are inspired by a similar feature in Python language.
     </div>
     <h2></h2>
   </slides-slide>
@@ -120,10 +117,10 @@
   <!--  MODULE BOOTSTRAPPING-->
   <slides-slide id="exercise-component-pre" milestone="Bootstrap">
     <h1>Exercise</h1>
-    <h2>In the next slide you'll create your first <b>Angular</b> component! We'll do all the wiring for you and the
+    <h2>In the next slide you'll create your first <b>Angular</b> component! We'll do all the wiring for you. The
       result will look like this:</h2>
 
-    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+    <slides-browser-window width="100%" height="300px"><h1>Hello MewTube!</h1></slides-browser-window>
   </slides-slide>
 
   <!--  Angular app exercise-->
@@ -145,7 +142,7 @@
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-exercise" milestone="Bootstrap2">
     <h1>Module Anatomy / Class</h1>
-    <h2>Like a component, module is just a class.</h2>
+    <h2>Like a component, <b>Angular</b> module is just a class.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></slides-code-editor>
 
@@ -153,7 +150,7 @@
   <!--  MODULE ANATOMY -->
   <slides-slide id="module-decorator" milestone="Bootstrap2">
     <h1>Module Anatomy / Decorator</h1>
-    <h2>Like a component, module is adorned with a decorator providing metadata.</h2>
+    <h2>Like a component, <b>Angular</b> module is adorned with a decorator providing metadata.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></slides-code-editor>
 
@@ -173,7 +170,7 @@
   <!--  Declarations  -->
   <slides-slide id="declarations" milestone="Bootstrap2">
     <h1>Module Anatomy / Declarations</h1>
-    <h2><b>Declarations array</b>, specifis components belonging to the AppModule.</h2>
+    <h2><b>Declarations array</b>, specifies components belonging to the AppModule.</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
 
@@ -192,10 +189,10 @@
   <slides-slide id="exercise-module-pre" milestone="Bootstrap2">
     <h1>Exercise</h1>
     <h2>In the next slide you'll create your first <b>Angular</b> module! We'll use the component from the previous
-      exercises and will do all the wiring for you and the
+      exercises and will do all the wiring for you. The
       result will look like this:</h2>
 
-    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+    <slides-browser-window><h1>Hello MewTube!</h1></slides-browser-window>
   </slides-slide>
 
 
@@ -219,7 +216,7 @@
   <slides-slide id="bootstrapping" milestone="Bootstrap3">
     <h1>Module Bootstrapping</h1>
     <h2>
-      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will, start up all the components in that
+      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will start up all the components in that
       module's bootstrap section.
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30"
@@ -227,11 +224,69 @@
     <div class="info">For most of the simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
+  <slides-slide id="bootstrapping-more" class="bootstrapping-more-info" milestone="Bootstrap3">
+    <h1>Bootstrapping / Step 1 </h1>
+    <h2>
+      How does bootstrapping work in Angular?
+    </h2>
+    <br>
+    <h2>
+      1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells Angular that we are operating in the
+      browser.
+    </h2>
+    <slides-code-editor path="app.module.ts" [fontSize]="25"
+                        [code]="code.moduleBootstrapping.code.mainTs"
+                        [focus-highlight-match]="code.moduleBootstrapping.matches.bootstrap"></slides-code-editor>
+
+    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+       target="_blank">
+      Read more about root module and bootstrapping in Angular
+    </a>
+  </slides-slide>
+
+  <slides-slide id="bootstrapping-more-2" class="bootstrapping-more-info" milestone="Bootstrap3">
+    <h1>Bootstrapping / Step 2</h1>
+    <h2>
+      How does bootstrapping work in Angular?
+    </h2>
+    <br>
+    <h2>
+      2. Initializes the component from <b>bootstrap</b> array in <b>app.module.ts</b>
+      (<b>HelloWorldComponent</b> in this case)
+    </h2>
+    <slides-code-editor path="app.module.ts" [fontSize]="25" [code]="code.moduleAnatomy.code"
+                        [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
+
+    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+       target="_blank">
+      Read more about root module and bootstrapping in Angular
+    </a>
+  </slides-slide>
+
+  <slides-slide id="bootstrapping-more-3" class="bootstrapping-more-info" milestone="Bootstrap3">
+    <h1>Bootstrapping / Step 3</h1>
+    <h2>
+      How does bootstrapping work in Angular?
+    </h2>
+    <br>
+    <h2>
+      3. Looks for the element matching the selector defined in <b>HelloWorldComponent</b>
+      (<b>'hello-world'</b> in our case) and inserts the component inside that element.
+    </h2>
+    <slides-code-editor path="index.html" [fontSize]="25" [code]="code.moduleBootstrapping.code.indexHTML"
+                        [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
+
+    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+       target="_blank">
+      Read more about root module and bootstrapping in Angular
+    </a>
+  </slides-slide>
+
   <slides-slide id="exercise-bootstrap-pre" milestone="Bootstrap3">
     <h1>Exercise</h1>
     <h2>All set! In the next page you'll bootstrap your first <b>Angular</b> app!</h2>
 
-    <slides-browser-window><h1>Hello World!</h1></slides-browser-window>
+    <slides-browser-window><h1>Hello MewTube!</h1></slides-browser-window>
   </slides-slide>
 
   <!--  DESCRIPTION 2-->
@@ -239,7 +294,7 @@
     <slides-exercise [config]="exercises[2]" milestone="Bootstrap3">
       <div class="description">
         <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
-        <p>There's no simple way to test it, make sure your app displays: 'Hello CatTube!'</p>`
+        <p>There's no simple way to test it, make sure your app displays: 'Hello MewTube!'</p>`
       </div>
     </slides-exercise>
   </slides-slide>
@@ -254,7 +309,8 @@
 
   <!--  Whole picture -->
   <slides-slide id="overview">
-    <h1>Overview</h1>
+    <h1>Review</h1>
+     <h2>Loading order: index -> main -> app.module -> app.component</h2>
     <slides-code-group>
       <div row>
         <div class="col-6">
@@ -279,6 +335,9 @@
         </div>
       </div>
     </slides-code-group>
+      <div class="info">
+            The <b>main</b> can be used to bootstrap alternative (non-browser) platforms.
+      </div>
   </slides-slide>
 
   <slides-slide id="end">

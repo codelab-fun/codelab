@@ -3,11 +3,7 @@
   slides-mode-routing
   slides-tracking>
   <div class="btn-bar">
-    <div class="menu-bar-btn github-icon">
-      <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png">
-      </a>
-    </div>
+
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
@@ -25,7 +21,7 @@
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
   <slides-slide id="recap" milestone="DependencyInjection">
-    <h1 style="text-align: center;">Recap</h1>
+    <h1>Dependency injection</h1>
     <h2>
       <b>Dependency Injection</b> is a way to provide dependencies to your code instead of hard-coding them.
     </h2>
@@ -33,17 +29,18 @@
 
   <!--  COMPARISON -->
   <slides-slide id="comparison" milestone="DependencyInjection">
-    <h1>Comparison</h1>
+    <h1>Dependency injection / Comparison</h1>
     <slides-code-group class="content-container">
       <div class="col-6">
         <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code"
                             [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></slides-code-editor>
-        <h2>Without Dependency Injection Profession has to be instantiated in the Person class</h2>
+        <h2>Without Dependency Injection <b>Profession</b> has to be instantiated in the <b>Person</b> class</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
         <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"
                             [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
-        <h2>With Dependency Injection Person class just "requires" an instance of Profession in the constructor, and
+        <h2>With Dependency Injection <b>Person</b> class just "requires" an instance of <b>Profession</b> in the
+          constructor, and
           Angular takes care of instantiating it</h2>
       </div>
     </slides-code-group>
@@ -67,21 +64,25 @@
 
   <slides-slide id="comparison-3" milestone="DependencyInjection">
     <h1>Dependency Injection / Comparison / Testing</h1>
-    <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies in a constructor
+    <h2>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies as constructor
       parameters.</h2>
     <slides-code-group class="content-container">
       <div class="col-6">
         <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"></slides-code-editor>
       </div>
       <div class="col-6">
-        <slides-code-editor path="person-di.spec.ts" [fontSize]="15" [code]="code.withDITesting.code"></slides-code-editor>
+        <slides-code-editor path="person-di.spec.ts" [fontSize]="15"
+                            [code]="code.withDITesting.code"></slides-code-editor>
       </div>
     </slides-code-group>
   </slides-slide>
 
   <!--  Steps to create an Angular app -->
   <slides-slide id="angular-app" milestone="DependencyInjection">
-    <h1>Providing dependencies with Angular in 3 simple steps:</h1>
+    <h1>Dependency injection / Example</h1>
+    <h2>Let's say we have an existing <b>UnitConverterService</b> and we want to start using it in <b>UnitConversionComponent</b>.
+      It will take 3 simple steps:
+    </h2>
     <ol>
       <li>Mark dependency as @Injectable()</li>
       <li>Provide in the module</li>
@@ -97,7 +98,7 @@
     <slides-code-editor path="unit-converter-service.ts" [code]="code.classAsInjectable.code"
                         [focus-highlight-match]="[code.classAsInjectable.matches.injectable]"></slides-code-editor>
     <div class="info">
-      If a service class is marked as injectable, it can require other services in it's constructor.
+      If a service class is marked as injectable, it can require other services in its constructor.
     </div>
   </slides-slide>
 
@@ -123,12 +124,12 @@
 
 
   <slides-slide id="exercise-pre" milestone="DependencyInjection">
-    <h1>Exercise</h1>
+    <h1>Dependency Injection / Exercise</h1>
     <h2>In the next slide you'll use videoService which has even more cats!!! The result will look like this: </h2>
 
-    <slides-browser-window>
-      <div>
-        <h1>CatTube</h1>
+    <slides-browser-window class="center-preview">
+      <div class="mewtube-preview">
+        <h1>MewTube</h1>
         <input placeholder="video" type="text">
         <button>Search!</button>
 
@@ -141,39 +142,39 @@
       }-->
         <div>
           <h2>Cute kitten</h2>
-          <img src="/assets/images/cat-0.png">
+          <img src="/assets/images/cat-00.png">
         </div>
         <div>
           <h2>Kitten on the tree</h2>
-          <img src="/assets/images/cat-1.jpg">
+          <img src="/assets/images/cat-01.jpg">
         </div>
         <div>
           <h2>More kitten</h2>
-          <img src="/assets/images/cat-2.jpg">
+          <img src="/assets/images/cat-02.jpg">
         </div>
         <div>
           <h2>Another kitten</h2>
-          <img src="/assets/images/cat-3.jpg">
+          <img src="/assets/images/cat-03.jpg">
         </div>
         <div>
           <h2>Serious cat</h2>
-          <img src="/assets/images/cat-4.jpg">
+          <img src="/assets/images/cat-04.jpg">
         </div>
         <div>
           <h2>Serious cat</h2>
-          <img src="/assets/images/cat-5.jpg">
+          <img src="/assets/images/cat-05.png">
         </div>
         <div>
           <h2>Serious cat</h2>
-          <img src="/assets/images/cat-5.jpg">
+          <img src="/assets/images/cat-06.jpg">
         </div>
         <div>
           <h2>Oops, looks like a bug!</h2>
-          <img src="/assets/images/dog.jpg">
+          <img src="/assets/images/cat-00.png">
         </div>
         <div>
           <h2>Serious cat</h2>
-          <img src="/assets/images/cat-6.jpg">
+          <img src="/assets/images/cat-06.jpg">
         </div>
       </div>
     </slides-browser-window>
@@ -190,13 +191,12 @@
 
   <slides-slide id="end">
     <slides-closing-slide>
-      <div class="header" header><h1 i18n>End of Dependency Injection Section</h1></div>
+      <div class="header" header><h1 i18n>Dependency Injection / Milestone Completed!</h1></div>
       <div class="body" body>
-        <h2>Please leave your thoughts using the feedback button below!</h2>
       </div>
       <div class="footer" footer>
         <h2>
-          <a routerLink="/component-tree/0">Go to the next Milestone</a>
+         Next: <a routerLink="/component-tree/0">Learn how to combine components together</a>
         </h2>
       </div>
     </slides-closing-slide>
