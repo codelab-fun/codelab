@@ -52,7 +52,7 @@ const FAKE_VIDEOS = [
     title: 'Cinco de Gato',
     src: '/assets/images/cat-06.jpg',
     description: 'To be totally fair, we also wound up celebrating Moewloween, Purrster, Scratching Day, Good Kitty ' +
-    'Day, All Cates Day, and various bank holidays in the exact same way.',
+    'Day, All Cats Day, and various bank holidays in the exact same way.',
     views: 5,
     likes: 5,
     date: '2017-05-05'
