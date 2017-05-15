@@ -25,9 +25,9 @@ beforeEach(() => {
   }
 });
 
-describe('Component tree', () => {
+describe('Component Tree', () => {
   describe('Make sure metadata is in place', () => {
-    it(`video.component.ts: Set the selector property to 'my-video'.`, () => {
+    it(`video.component.ts: Add the '@Component' decorator and set its selector  property to 'my-video'.`, () => {
       const metadata = Reflect.getMetadata('annotations', VideoComponent);
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
       chai.expect(metadata[0].selector, `VideoComponent's selector has to be 'my-video'.`).equals('my-video');

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'slides-browser-window',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./browser-window.component.css']
 })
 export class BrowserWindowComponent implements OnInit {
-
+  @Input() width = '496px';
+  @Input() height = '';
   constructor() { }
 
   ngOnInit() {

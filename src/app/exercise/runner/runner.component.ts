@@ -103,7 +103,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
       };
 
       iframe.contentWindow.console.error = function (error, message) {
-        // handle angular error 1/3
+        // handle Angular error 1/3
         displayError(error, 'Angular Error');
       };
 
@@ -241,12 +241,16 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   styleUrls: ['./runner.component.css']
 })
 export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
+  @Input() browserUseConsole: boolean;
+  @Input() browserWidth: string;
+  @Input() browserHeight: string;
 
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
   html = `<my-app></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
+  @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
   private handleMessageBound: any;
   public System: any;
 
@@ -258,7 +262,9 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.runCode(changes.files.currentValue, this.runnerType);
+    if (this.runnerElement != null || this.runnerConsoleElement != null) {
+      this.runCode(changes.files.currentValue, this.runnerType);
+    }
   }
 
   handleMessage(event): void {
@@ -336,6 +342,12 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngAfterViewInit() {
+    if (this.runnerElement == null && this.runnerConsoleElement != null) {
+      this.runnerElement = this.runnerConsoleElement;
+    }
+    if (this.runnerElement != null) {
+      this.runCode(this.files, this.runnerType);
+    }
 
   }
 }

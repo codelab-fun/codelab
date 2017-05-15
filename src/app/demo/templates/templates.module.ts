@@ -6,14 +6,18 @@ import {TemplatesComponent} from './templates.component';
 import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
-import {BrowserWindowModule} from '../../browser-window/browser-window.module';
+import {BrowserModule} from '../../browser/browser.module';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(TemplatesComponent)
+  [{
+      path: '',
+      redirectTo: '/templates/intro',
+      pathMatch: 'full'
+    }, ...SlidesRoutes.get(TemplatesComponent)]
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserWindowModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserModule],
   declarations: [TemplatesComponent],
   exports: [TemplatesComponent]
 })

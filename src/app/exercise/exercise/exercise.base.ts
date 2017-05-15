@@ -3,12 +3,13 @@ import {ExerciseConfig} from '../interfaces/exercise-config';
 import {MonacoConfigService} from 'app/exercise/services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
 import {Subscription} from 'rxjs/Subscription';
+import {AnalyticsService} from '../../presentation/analytics.service';
 
 export class ExerciseBase implements OnDestroy {
   @Input() public config: ExerciseConfig;
   running = false;
   solved = false;
-  private onActiveUsubscribe: Subscription;
+  private onActiveUnsubscribe: Subscription;
 
 
   loadModels() {
@@ -16,7 +17,7 @@ export class ExerciseBase implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.onActiveUsubscribe.unsubscribe();
+    this.onActiveUnsubscribe.unsubscribe();
   }
 
   onTestUpdate(event) {
@@ -32,6 +33,7 @@ export class ExerciseBase implements OnDestroy {
 
     if (event.data.type === 'testEnd') {
       if (this.config.tests.length && this.config.tests.every(test => test.pass)) {
+        this.analyticsService.sendEvent('exercise', 'end', 'solved');
         this.solved = true;
       }
       this.running = false;
@@ -69,8 +71,8 @@ export class ExerciseBase implements OnDestroy {
     };
   }
 
-  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService) {
-    this.onActiveUsubscribe = slide.onActive.filter(a => a).subscribe(() => {
+  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService, private analyticsService: AnalyticsService) {
+    this.onActiveUnsubscribe = slide.onActive.filter(a => a).subscribe(() => {
       console.log('ACTIVE');
       slide.disableResize();
       this.loadModels();

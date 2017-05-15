@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FileConfig} from '../interfaces/file-config';
 declare const require;
-const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/min/vs/loader');
+const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/dev/vs/loader');
 
 const win = window as any;
 declare const monaco;
@@ -16,7 +16,7 @@ export class MonacoConfigService {
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({paths: {'vs': 'assets/monaco/min/vs'}});
+    win.require.config({paths: {'vs': 'assets/monaco/dev/vs'}});
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
@@ -33,7 +33,7 @@ export class MonacoConfigService {
     });
 
 
-    // Some fake angular deps, good for catching silly errors.
+    // Some fake Angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
     const core = `
         declare module '@angular/core' {

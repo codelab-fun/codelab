@@ -80,3 +80,7 @@ slides-runner {
   color: green;
   cursor: pointer;
 }
+
+slides-tests {
+  display: block;
+}

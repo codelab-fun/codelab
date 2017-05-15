@@ -8,7 +8,7 @@
         <option value='done'>Done</option>
         <option value='notDone'>Undone</option>
       </select>
-      <select  [value]="group$|async" (change)="group$.next($event.target.value)">
+      <select [value]="group$|async" (change)="group$.next($event.target.value)">
         <option value='nothing'>Do not group</option>
         <option value='href'>Slide URL</option>
         <option value='name'>Name</option>
@@ -26,11 +26,20 @@
             <span class="link">
             (<a [routerLink]="message.href">{{message.header||'No header'}}</a>)
             </span>
-            <input type="checkbox" [checked]="message.isDone" (change)="isDone(message)">
           </div>
           <div>{{message.comment}}</div>
-
-
+          <div *ngIf="!message.url">
+            <button (click)="createAnIssue(message)">Take</button>
+            <button (click)="createClosedIssue(message, '[Duplicate]')">Close [Duplicate]</button>
+            <button (click)="createClosedIssue(message, '[No fix]')">Close [No fix]</button>
+            <button (click)="createClosedIssue(message, '[Done]')">Close [Done]</button>
+            <button (click)="createClosedIssue(message, '[Nice message, though not a real bug]')">Close [Nice message]
+            </button>
+            <button (click)="createClosedIssue(message, '[Can\'t repcoduce]')">Close [Can't reproduce]</button>
+          </div>
+          <div *ngIf="message.url">
+            <a [href]="message.url">Issue</a>
+          </div>
         </div>
       </div>
     </div>

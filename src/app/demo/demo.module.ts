@@ -16,28 +16,28 @@ export const routes = [
     path: 'typescript',
     loadChildren: './typescript/typescript.module#TypescriptModule',
     name: 'Typescript',
-    description: 'Learn TypeScript: A language that extends JavaScript, which angular is built with.',
+    description: 'Learn TypeScript: A superset of JavaScript, which Angular is written in',
     page: 'main'
   },
   {
     path: 'create-first-app',
     loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
-    name: 'Create your first angular app',
-    description: 'Learn how create and bootstrap your first Angular application',
+    name: 'Create your first Angular app',
+    description: 'Learn how to create and bootstrap your first Angular application',
     page: 'main'
   },
   {
     path: 'templates',
     loadChildren: './templates/templates.module#TemplatesModule',
     name: 'Templates',
-    description: 'Learn how to use angular templates',
+    description: 'Learn how to use Angular templates',
     page: 'main'
   },
   {
     path: 'dependency-injection',
     loadChildren: './dependency-injection/dependency-injection.module#DependencyInjectionModule',
     name: 'Dependency-Injection',
-    description: 'Learn how to provide dependencies to your code instead of hard-coding them.',
+    description: 'Learn how to provide dependencies to your code instead of hard-coding them',
     page: 'main'
   },
   {
@@ -51,7 +51,7 @@ export const routes = [
     path: 'pipes',
     loadChildren: './pipes/pipes.module#PipesModule',
     name: 'Pipes',
-    description: 'Learn how pipes transforms input values to output values for display in a view.',
+    description: 'Learn how pipes transform input values to output values for display in a view',
     page: 'bonus'
   },
   {
@@ -63,7 +63,7 @@ export const routes = [
     path: 'visual-studio-code',
     loadChildren: './visual-studio-code/visual-studio-code.module#VisualStudioCodeModule',
     name: 'Visual-Studio-Code (Optional)',
-    description: 'Visual Studio Code is your friend',
+    description: 'Find out why Visual Studio Code is your friend',
     page: 'bonus'
   },
   {

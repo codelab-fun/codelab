@@ -6,15 +6,19 @@ import {FeedbackModule} from '../../feedback/feedback.module';
 import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
-import {BrowserWindowModule} from '../../browser-window/browser-window.module';
+import {BrowserModule} from '../../browser/browser.module';
 import {TrackingModule} from '../../tracking/tracking.module';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(DependencyInjectionComponent)
+  [{
+    path: '',
+    redirectTo: '/dependency-injection/intro',
+    pathMatch: 'full'
+  }, ...SlidesRoutes.get(DependencyInjectionComponent)]
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserWindowModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, BrowserModule],
   providers: [Ng2TsExercises],
   declarations: [DependencyInjectionComponent],
   exports: [DependencyInjectionComponent]

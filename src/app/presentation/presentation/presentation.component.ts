@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ContentChildren, EventEmitter, forwardRef, Input, OnInit, Output, QueryList} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Mode} from '../mode.enum';
 import {AnalyticsService} from '../analytics.service';
+import {SlideComponent} from '../slide/slide.component';
 declare const ga;
 
 @Component({
@@ -17,6 +18,7 @@ export class PresentationComponent implements OnInit {
     hideControls: false
   };
 
+
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
   @Input() public width = 1280;
@@ -27,10 +29,12 @@ export class PresentationComponent implements OnInit {
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
 
+  @ContentChildren(forwardRef(() => SlideComponent)) slides: QueryList<SlideComponent>;
+
   // Expose enum to template
   modeEnum = Mode;
 
-  constructor(private route: ActivatedRoute, analytics: AnalyticsService) {
+  constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
     this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
@@ -71,10 +75,10 @@ export class PresentationComponent implements OnInit {
     if (this.activeSlideIndex === 0) {
       const key = `been-here-mileston-start-${path}`;
       const beenHere = localStorage.getItem(key);
-      const time = Math.floor(Date.now() / 1000);
+      const time = Math.floor(+Date.now());
       if (!beenHere) {
         localStorage.setItem(key, time.toString());
-        ga('send', 'event', 'milestone', path, 'start');
+        this.analytics.sendEvent('milestone', 'start', path);
       }
     }
 
@@ -84,10 +88,11 @@ export class PresentationComponent implements OnInit {
 
       if (!beenHere) {
         const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10);
-        const time = Math.floor(Date.now() / 1000) - startTime;
+        const time = Math.floor(+Date.now()) - startTime;
         localStorage.setItem(key, 'yes');
-        ga('send', 'event', 'milestone', path, 'end');
-        ga('send', 'timing', 'milestone', 'complete', time);
+        this.analytics.sendEvent('milestone', 'end', path);
+        this.analytics.sendTiming('milestone', 'complete', time, path);
+        console.log('milestone-complete', time);
       }
     }
   }
@@ -110,6 +115,12 @@ export class PresentationComponent implements OnInit {
 
   canGoNext(): boolean {
     return this.activeSlideIndex + 1 < this.generatedSlideIndex;
+  }
+
+  goToSlide(index) {
+    this.activeSlideIndex = index;
+    this.onSlideChange.next(index);
+    this.trackProgress();
   }
 
   canGoPrevious(): boolean {

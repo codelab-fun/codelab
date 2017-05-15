@@ -6,16 +6,20 @@ import {SlidesRoutes} from '../../presentation/slide-routes';
 import {ExerciseModule} from '../../exercise/exercise.module';
 import {PresentationModule} from '../../presentation/presentation.module';
 import {FeedbackModule} from '../../feedback/feedback.module';
-import {BrowserWindowModule} from '../../browser-window/browser-window.module';
+import {BrowserModule} from '../../browser/browser.module';
 import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
 import {TrackingModule} from '../../tracking/tracking.module';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(ComponentTreeComponent)
+  [{
+    path: '',
+    redirectTo: '/component-tree/intro',
+    pathMatch: 'full'
+  }, ...SlidesRoutes.get(ComponentTreeComponent)]
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule, FeedbackModule],
+  imports: [routes, PresentationModule, ExerciseModule, BrowserModule, FeedbackModule],
   providers: [Ng2TsExercises],
   declarations: [ComponentTreeComponent],
   exports: [ComponentTreeComponent]

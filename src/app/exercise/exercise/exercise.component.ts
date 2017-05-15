@@ -3,6 +3,7 @@ import {ExerciseBase} from './exercise.base';
 import {FileConfig} from '../interfaces/file-config';
 import {MonacoConfigService} from '../services/monaco-config.service';
 import {SlideComponent} from '../../presentation/slide/slide.component';
+import {AnalyticsService} from '../../presentation/analytics.service';
 import {PresentationComponent} from '../../presentation/presentation/presentation.component';
 
 @Component({
@@ -17,8 +18,9 @@ export class ExerciseComponent extends ExerciseBase {
 
   constructor(private presentation: PresentationComponent,
               slide: SlideComponent,
-              monacoConfig: MonacoConfigService) {
-    super(slide, monacoConfig);
+              monacoConfig: MonacoConfigService, analyticsService: AnalyticsService) {
+    super(slide, monacoConfig, analyticsService);
+    this.slide.isExercise = true;
   }
 
   onSelectFile(fileConfig: FileConfig): void {
@@ -26,7 +28,6 @@ export class ExerciseComponent extends ExerciseBase {
   }
 
   tryGoToNextSlide() {
-    if (this.presentation.canGoNext())
       this.presentation.nextSlide();
   }
 }

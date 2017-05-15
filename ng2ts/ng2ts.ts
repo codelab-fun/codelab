@@ -14,6 +14,8 @@ const preloadedFiles = {
   'api.service.ts': require('!raw-loader!./api.service.ts'),
   'video/video.service.ts': require('!raw-loader!./video/video.service.ts'),
   'video/video.component.html': require('!raw-loader!./video/video.component.html'),
+  'video/video.index.html': require('!raw-loader!./video/video.index.html'),
+  'video/video-wrapper.component.ts': require('!raw-loader!./video/video-wrapper.component.ts'),
   'video/video.component.ts': require('!raw-loader!./video/video.component.ts'),
   'thumbs/thumbs.component.ts': require('!raw-loader!./thumbs/thumbs.component.ts'),
   'thumbs/thumbs.html': require('!raw-loader!./thumbs/thumbs.html'),
@@ -45,11 +47,11 @@ const preloadedFiles = {
   'tests/fuzzyPipeCreateTest.ts': require('!raw-loader!./tests/fuzzyPipeCreateTest.ts'),
   'tests/fuzzyPipeUseTest.ts': require('!raw-loader!./tests/fuzzyPipeUseTest.ts'),
   'thumbs.app.module.ts': require('!raw-loader!./thumbs.app.module.ts'),
+  'video.app.module.ts': require('!raw-loader!./video.app.module.ts'),
   'toggle-panel.app.module.ts': require('!raw-loader!./toggle-panel.app.module.ts'),
   'index.html': '<my-app></my-app>'
   // 'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
 };
-
 
 const files = {
   appComponent: 'app.component.ts',
@@ -61,6 +63,8 @@ const files = {
   video_videoService: 'video/video.service.ts',
   video_video_component_html: 'video/video.component.html',
   video_video_component: 'video/video.component.ts',
+  video_video_wrapper_component: 'video/video-wrapper.component.ts',
+  video_video_index_html: 'video/video.index.html',
   thumbs_thumbs_component: 'thumbs/thumbs.component.ts',
   thumbs_thumbs_html: 'thumbs/thumbs.html',
   toggle_panel_toggle_panel_html: 'toggle-panel/toggle-panel.html',
@@ -79,7 +83,11 @@ const files = {
 
 
 const fileOverrides = {
+  'index.html': {
+    videoComponentCreate: 'video/video.index.html'
+  },
   'app.module.ts': {
+    videoComponentCreate: 'video.app.module.ts',
     thumbsComponentCreate: 'thumbs.app.module.ts',
     togglePanelComponentCreate: 'toggle-panel.app.module.ts'
   },
@@ -233,7 +241,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
 
           <div class = "inBrowser">
             <div class="smaller">
-              <h1>Hello CatTube!</h1>
+              <h1>Hello MewTube!</h1>
             </div>
           </div>
           <p>3 simple steps:</p>
@@ -270,7 +278,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           skipTests: true,
           description: `
           <p>Now we got both NgModule and component ready, let's bootstrap the app!</p>
-          <p>There's no  simple way to test it,  make sure your app displays: 'Hello CatTube!'</p>`,
+          <p>There's no  simple way to test it,  make sure your app displays: 'Hello MewTube!'</p>`,
           files: diffFilesResolver.resolve('bootstrap', {
             exercise: [files.main],
             reference: [files.appComponent, files.appModule],
@@ -293,17 +301,17 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <div class = "inBrowser">
             <div class="smaller">
               <my-app><div>
-                <h1>CatTube</h1>
+                <h1>MewTube</h1>
                 <button>Search!</button>
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                 </div><div>
                   <h2>Kitten on the tree</h2>
-                  <img src="/assets/images/cat-1.jpg">
+                  <img src="/assets/images/cat-01.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img src="/assets/images/cat-2.jpg">
+                  <img src="/assets/images/cat-02.jpg">
                 </div>
               </div></my-app>
             </div>
@@ -358,30 +366,30 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <div class = "inBrowser">
             <div class="smaller">
               <my-app><div>
-                <h1>CatTube</h1>
+                <h1>MewTube</h1>
                 <input placeholder="video" type="text">
                 <button>Search!</button>
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                 </div><div>
                   <h2>Kitten on the tree</h2>
-                  <img src="/assets/images/cat-1.jpg">
+                  <img src="/assets/images/cat-01.jpg">
                 </div><div>
                   <h2>More kitten</h2>
-                  <img src="/assets/images/cat-2.jpg">
+                  <img src="/assets/images/cat-02.jpg">
                 </div><div>
                   <h2>Another kitten</h2>
-                  <img src="/assets/images/cat-3.jpg">
+                  <img src="/assets/images/cat-03.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img src="/assets/images/cat-4.jpg">
+                  <img src="/assets/images/cat-04.jpg">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img  src="/assets/images/cat-5.jpg">
+                  <img  src="/assets/images/cat-05.png">
                 </div><div>
                   <h2>Serious cat</h2>
-                  <img  src="/assets/images/cat-6.jpg">
+                  <img  src="/assets/images/cat-06.jpg">
                 </div>
               </div></my-app>
             </div>
@@ -414,7 +422,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               <div class="smaller">
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                   <div>Date 2016-11-25</div>
                   <div>Views 100</div>
                   <div>Likes 20</div>
@@ -431,6 +439,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
             exercise: [files.video_video_component, files.video_video_component_html],
             reference: [
               files.appModule,
+              files.video_video_wrapper_component,
               files.video_videoService, files.appHtml,
               files.appComponent, files.video_videoItem,
               files.apiService, files.main, files.indexHtml
@@ -468,7 +477,7 @@ export const ng2tsConfig: CodelabConfigTemplate = {
               <div class="smaller">
                 <div>
                   <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-0.png">
+                  <img src="/assets/images/cat-00.png">
                   <div>Date 2016-11-25</div>
                   <div>Views 100</div>
                   <div>Likes 20</div>
@@ -537,7 +546,7 @@ time. < / p >
   <div>
     <h2>Cute
 kitten < / h2 >
-<img src = "/assets/images/cat-0.png" >
+<img src = "/assets/images/cat-00.png" >
   <div>This
 is
 the
@@ -586,7 +595,7 @@ instead. < / p >
   <div>
     <h2>Cute
 kitten < / h2 >
-<img  src = "/assets/images/cat-0.png" >
+<img  src = "/assets/images/cat-00.png" >
   <div>Views
 100 < / div >
 <div>Likes
