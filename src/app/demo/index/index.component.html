@@ -4,24 +4,26 @@
     <slides-feedback-widget></slides-feedback-widget>
   </div>
 
-  <slides-slide *ngIf="firstVisit === true" no-padding>
-    <slides-feedback-slide></slides-feedback-slide>
-  </slides-slide>
+  <div [ngSwitch]="firstVisit">
+    <slides-slide *ngSwitchCase="true">
+      <slides-feedback-slide></slides-feedback-slide>
+    </slides-slide>
 
-  <slides-slide id="index">
-    <h1>Angular Codelab</h1>
-    <h2>Welcome! Choose a topic below to start learning:</h2>
+    <slides-slide id="index" *ngSwitchDefault>
+      <h1>Angular Codelab</h1>
+      <h2>Welcome! Choose a topic below to start learning:</h2>
 
-    <div class="intro" row>
-      <ol>
-        <li *ngFor="let route of getMainPageRoutes()">
-          <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
-          <div>{{route.description}}</div>
-        </li>
-      </ol>
-      <div column-2>
-        <img src="/assets/images/angular.svg" alt="">
+      <div class="intro" row>
+        <ol>
+          <li *ngFor="let route of getMainPageRoutes()">
+            <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
+            <div>{{route.description}}</div>
+          </li>
+        </ol>
+        <div column-2>
+          <img src="/assets/images/angular.svg" alt="">
+        </div>
       </div>
-    </div>
-  </slides-slide>
+    </slides-slide>
+  </div>
 </slides-presentation>
