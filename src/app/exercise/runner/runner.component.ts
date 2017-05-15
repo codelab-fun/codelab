@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -178,7 +177,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
 
           });
 
-          files.filter(file => file.type === 'typescript').map((file) => {
+          const compiled = files.filter(file => file.type === 'typescript').map((file) => {
             // Update module names
             let code = file.code;
 
@@ -206,8 +205,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
                 declaration: true,
                 // TODO: figure out why this doesn't work
                 inlineSourceMap: true,
-                inlineSources: true,
-                sourceMap: true
+                inlineSources: true
               },
               fileName: moduleName,
               moduleName: moduleName,
@@ -215,15 +213,48 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
             });
 
             return result;
-          }).map((compiled) => {
-            runJs(compiled.outputText);
           });
 
 
-          files.filter((file) => file.bootstrap).map((file) => {
-            const moduleName = file.moduleName;
-            runJs(`System.import('${moduleName}')`);
-          });
+          const diagnostics = compiled.reduce((result, file) => {
+            return result.concat(file.diagnostics);
+          }, []);
+
+          if (diagnostics.length) {
+            runCss(`
+              body {
+                font-family: Roboto, sans-serif;               
+              }
+              h2 {
+                font-size: 50px;
+                background-color: red;
+                color: white;
+                margin-bottom: 0;
+              }
+              b {
+                color: #c04e22;
+                font-weight: 300;
+                background-color: #ffe;
+              }
+            `);
+            const diagnosticsHtml = diagnostics.map(diagnostic => `<li>Error in file <b>${diagnostic.file.fileName}</b>: 
+            ` + diagnostic.messageText + '</li>').join('')
+            setHtml(`
+<h2>Errors when compiling</h2>
+ <div>Look in the editor for hints to fix it.</div>
+ <ul>
+  ${diagnosticsHtml}
+ </ul>`);
+          } else {
+            compiled.map((result) => {
+              runJs(result.outputText);
+            });
+
+            files.filter((file) => file.bootstrap).map((file) => {
+              runJs(`System.import('${file.moduleName}')`);
+            });
+          }
+
         }
       });
     };
