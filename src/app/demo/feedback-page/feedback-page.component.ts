@@ -50,6 +50,29 @@ function filter([feedback, filter]) {
   }
 }
 
+function filterByDate([feedbackList, dateFilter]){
+  if(dateFilter){
+    return feedbackList.filter(msg => {
+      return (new Date(msg.timestamp).toDateString() == dateFilter);
+    });
+  }
+  return feedbackList;
+}
+
+function getDatesList(list: Array<Message>){
+  let datesList = list.reduce((acc, elem) => {
+    let dateString = new Date(elem.timestamp).toDateString();
+    if (!acc.includes(dateString)){
+      acc.push(dateString);
+    }
+    return acc;
+  }, []);
+
+  datesList.sort((a,b) => {
+    return new Date(b).getTime() - new Date(a).getTime();
+  });
+  return datesList;
+}
 @Component({
   selector: 'slides-feedback-page',
   templateUrl: './feedback-page.component.html',
@@ -60,6 +83,8 @@ export class FeedbackPageComponent implements OnInit {
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
   private feedback$: FirebaseListObservable<any[]>;
+  dates$: Observable<any[]>;
+  dateFilter$ = new BehaviorSubject<any>('');
   githubAuth;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
@@ -119,7 +144,10 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');
     const filteredMessages$ = combineLatest(this.feedback$, this.filter$).map(filter);
-    this.messages$ = combineLatest(filteredMessages$, this.group$).map(group);
+    const filteredByDate$ = combineLatest(filteredMessages$, this.dateFilter$).map(filterByDate);
+    this.messages$ = combineLatest(filteredByDate$, this.group$).map(group);
+
+    this.dates$ = filteredMessages$.map(getDatesList);
   }
 
 

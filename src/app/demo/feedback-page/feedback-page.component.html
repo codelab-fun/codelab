@@ -13,11 +13,15 @@
         <option value='href'>Slide URL</option>
         <option value='name'>Name</option>
       </select>
+      <select  (change)="dateFilter$.next($event.target.value)">
+        <option value=''>None</option>
+        <option *ngFor="let date of dates$ | async" [value]="date">{{date}}</option>
+      </select>
     </div>
     <div id="main">
 
 
-      <div *ngFor="let item of (this.messages$ | async)" class="group">
+      <div *ngFor="let item of messages$ | async" class="group">
         <h2 class="header">{{item.key}}</h2>
 
         <div *ngFor="let message of item.value" class="card">
