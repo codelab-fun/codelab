@@ -23,28 +23,28 @@ export const routes = [
     path: 'create-first-app',
     loadChildren: './bootstrap/bootstrap.module#BootstrapModule',
     name: 'Create your first Angular app',
-    description: 'Learn how to create and bootstrap your first Angular application',
+    description: 'Learn how to create and bootstrap your first Angular application.',
     page: 'main'
   },
   {
     path: 'templates',
     loadChildren: './templates/templates.module#TemplatesModule',
     name: 'Templates',
-    description: 'Learn how to use Angular templates',
+    description: 'Learn how to use Angular templates.',
     page: 'main'
   },
   {
     path: 'dependency-injection',
     loadChildren: './dependency-injection/dependency-injection.module#DependencyInjectionModule',
     name: 'Dependency-Injection',
-    description: 'Learn how to provide dependencies to your code instead of hard-coding them',
+    description: 'Learn how to provide dependencies to your code instead of hard-coding them.',
     page: 'main'
   },
   {
     path: 'component-tree',
     loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
     name: 'Component-Tree',
-    description: 'Learn how to structure your app with reusable components',
+    description: 'Learn how to structure your app with reusable components.',
     page: 'main'
   },
   {
