@@ -36,3 +36,7 @@
 									   color-stop(0.86, rgb(248,148,6)),
 									   color-stop(0.44, rgb(156,50,50)));
 }
+
+.comparision {
+  padding: 0.5em;
+}
