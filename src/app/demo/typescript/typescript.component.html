@@ -24,12 +24,12 @@
     <div row>
       <div>
         <ul>
-          <li><b>TypeScript</b> a language that transpiles to JavaScript. It extends <b>ES5</b> standard (current
-            version of JavaScript supported by modern browsers.)
+          <li><b>TypeScript</b> is a language that transpiles to JavaScript. It extends <b>ES5</b> standard (current
+            version of JavaScript supported by modern browsers)
           </li>
-          <li>Adds features from the next version - <b>ES6</b> (mostly supported by modern browsers)
+          <li>It adds features from the next version - <b>ES6</b> (mostly supported by modern browsers)
           </li>
-          <li>On top of it adds an optional Type System and decorators (we'll learn about them later)
+          <li>On top of it, it adds an optional Type System and decorators (we'll learn about them later)
           </li>
         </ul>
       </div>
@@ -87,7 +87,7 @@
   <slides-slide slidesIntrojsDirective id="type-mini-exercise" milestone="TypeScript">
     <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeScript / Type System</h1>
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
-      early</h2>
+      early.</h2>
     <div data-step="2" data-intro="These are the exercise instructions." class="exercise"
          [class.solved]="tsexercises.solved">
       Exercise: Try to get the desired output by changing the function inputs below:
@@ -134,7 +134,7 @@
   <slides-slide id="classes" milestone="TypeScript">
     <h1>TypeScript / Classes</h1>
     <h2>TypeScript has classes, and Angular uses them heavily.</h2>
-    <h2>They are similar to classes in other languages, and are used to group methods and properties together</h2>
+    <h2>They are similar to classes in other languages, and are used to group methods and properties together.</h2>
     <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
@@ -143,7 +143,7 @@
     <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is instantiated and
       allows
       the
-      class to take parameters</h2>
+      class to take parameters.</h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
   </slides-slide>
@@ -152,7 +152,7 @@
     <h1>TypeScript / Classes / Access Modifiers</h1>
     <h2>
       Constructor parameters marked as <b>public</b> (or private, or protected), become class properties accessible as
-      <b>this.&lt;parameter name&gt;</b> within the class
+      <b>this.&lt;parameter name&gt;</b> within the class.
     </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
@@ -161,8 +161,8 @@
 
   <slides-slide id="export" milestone="TypeScript">
     <h1>TypeScript / Export</h1>
-    <h2>By the way,By the way, did you notice the <b>export</b> keyword before class? It is used to share information
-      between files. In the next slide, we'll show you how to export and use this class in a different file</h2>
+    <h2>By the way, did you notice the <b>export</b> keyword before class? It is used to share information
+      between files. In the next slide, we'll show you how to export and use this class in a different file.</h2>
     <slides-code-editor
       path="puppy.ts"
       [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
@@ -193,8 +193,8 @@
     <ul>
       <li>Interfaces</li>
       <li>Enums</li>
-      <li>Async/await</li>
-      <li>Getters/setters</li>
+      <li>Async / Await</li>
+      <li>Getters / Setters</li>
       <li>Destructuring</li>
       <li>Arrow functions</li>
       <li>And more!</li>
@@ -206,9 +206,9 @@
 
   <slides-slide id="exercise-info" milestone="TypeScript">
     <h1 i18n>TypeScript / Exercise</h1>
-    <h2>In the next slide we have a TypeScript exercise</h2>
+    <h2>In the next slide we have a TypeScript exercise.</h2>
     <h3>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
-      the ones who are coming</h3>
+      the ones who are coming.</h3>
     <h3>The result will be as follows:</h3>
     <slides-browser-window width="100%">
       <ul>
