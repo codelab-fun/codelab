@@ -52,7 +52,7 @@ function filter([feedback, filter]) {
 
 function filterByDate([feedbackList, dateFilter]) {
   if (dateFilter) {
-    return feedbackList.filter(msg => {
+    return feedbackList.filter((msg: Message) => {
       return (new Date(msg.timestamp).toDateString() === dateFilter);
     });
   }
@@ -60,7 +60,7 @@ function filterByDate([feedbackList, dateFilter]) {
 }
 
 function getDatesList(list: Array<Message>) {
-  const datesList = list.reduce((acc, elem) => {
+  const datesList = list.reduce((acc: Array<string>, elem: Message) => {
     const dateString = new Date(elem.timestamp).toDateString();
     if (!acc.includes(dateString)) {
       acc.push(dateString);
@@ -68,7 +68,7 @@ function getDatesList(list: Array<Message>) {
     return acc;
   }, []);
 
-  datesList.sort((a, b) => {
+  datesList.sort((a: string, b: string) => {
     return new Date(b).getTime() - new Date(a).getTime();
   });
   return datesList;
@@ -83,8 +83,8 @@ export class FeedbackPageComponent implements OnInit {
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
   private feedback$: FirebaseListObservable<any[]>;
-  dates$: Observable<any[]>;
-  dateFilter$ = new BehaviorSubject<any>('');
+  dates$: Observable<string[]>;
+  dateFilter$ = new BehaviorSubject<string>('');
   githubAuth;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
