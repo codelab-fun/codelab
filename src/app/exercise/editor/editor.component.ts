@@ -3,7 +3,8 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  forwardRef, HostListener,
+  forwardRef,
+  HostListener,
   Input,
   OnChanges,
   OnDestroy,
@@ -42,9 +43,10 @@ declare const require: any;
 })
 export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   editSubscription: Subscription;
-  public _editor: any;
+  public editor: any;
   @Input() public file: FileConfig;
   @Input() fontSize = 12;
+  private actialFontSize = 12;
   @ViewChild('editor') editorContent: ElementRef;
   @Output() onCodeChange = new EventEmitter();
   private editSub: Subject<String> = new Subject<String>();
@@ -59,7 +61,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   calcHeight(lines): number {
-    const lineHeight = this.fontSize * 1.6;
+    const lineHeight = this.actialFontSize * 1.6;
     return Math.max(lines * lineHeight, lineHeight * 6);
   }
 
@@ -71,23 +73,27 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   loadCode(code: string) {
     this.code = code;
-    if (this._editor) {
-      this._editor.getModel().setValue(code);
+    if (this.editor) {
+      this.editor.getModel().setValue(code);
       this.updateHeight(code);
     }
   }
 
   @HostListener('window:resize')
   resize() {
-    console.log(document.documentElement.clientWidth);
-    // TODO: Maybe get this back
+    this.calcActualFontSize();
+    this.editor.updateOptions({fontSize: this.actialFontSize});
+    this.updateHeight(this.code);
   }
 
+  calcActualFontSize() {
+    this.actialFontSize = this.fontSize * document.documentElement.clientWidth / 1800;
+  }
 
 
   ngAfterViewInit(): void {
     // TODO: This will not work on resize
-
+    this.calcActualFontSize();
     if (!this.code) {
       // tslint:disable-next-line:no-debugger
       debugger;
@@ -96,7 +102,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
 
     this.code = this.file.code;
-    this._editor = this.monacoConfigService.monaco.editor.create(myDiv,
+    this.editor = this.monacoConfigService.monaco.editor.create(myDiv,
       {
         model: model,
         scrollBeyondLastLine: false,
@@ -105,17 +111,18 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
         wordBasedSuggestions: true,
         lineNumbersMinChars: 3,
         automaticLayout: true,
-        fontSize: this.fontSize
+        fontSize: this.actialFontSize,
+        lineNumbers: 'off'
       });
 
-    this._editor.getModel().onDidChangeContent(() => {
-      this.updateValue(this._editor.getModel().getValue());
+    this.editor.getModel().onDidChangeContent(() => {
+      this.updateValue(this.editor.getModel().getValue());
     });
 
 
     // Re-running the code on Ctrl + Enter
     // TODO
-    // this._editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => this.state.run());
+    // this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => this.state.run());
 
     this.updateHeight(this.file.code);
 
@@ -126,7 +133,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (this.height !== height) {
       this.height = height;
       this.editorContent.nativeElement.style.height = height + 'px';
-      this._editor.layout();
+      this.editor.layout();
     }
   }
 
@@ -146,7 +153,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   ping() {
     // TODO: Find a better way.
-    const model = this._editor.getModel();
+    const model = this.editor.getModel();
     const oldFullModelRange = model.getFullModelRange();
     const oldModelValueLength = model.getValueLengthInRange(oldFullModelRange);
     const endLineNumber = model.getLineCount();
