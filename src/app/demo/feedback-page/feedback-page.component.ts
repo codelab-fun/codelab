@@ -50,25 +50,25 @@ function filter([feedback, filter]) {
   }
 }
 
-function filterByDate([feedbackList, dateFilter]){
-  if(dateFilter){
+function filterByDate([feedbackList, dateFilter]) {
+  if (dateFilter) {
     return feedbackList.filter(msg => {
-      return (new Date(msg.timestamp).toDateString() == dateFilter);
+      return (new Date(msg.timestamp).toDateString() === dateFilter);
     });
   }
   return feedbackList;
 }
 
-function getDatesList(list: Array<Message>){
-  let datesList = list.reduce((acc, elem) => {
-    let dateString = new Date(elem.timestamp).toDateString();
-    if (!acc.includes(dateString)){
+function getDatesList(list: Array<Message>) {
+  const datesList = list.reduce((acc, elem) => {
+    const dateString = new Date(elem.timestamp).toDateString();
+    if (!acc.includes(dateString)) {
       acc.push(dateString);
     }
     return acc;
   }, []);
 
-  datesList.sort((a,b) => {
+  datesList.sort((a, b) => {
     return new Date(b).getTime() - new Date(a).getTime();
   });
   return datesList;
@@ -79,7 +79,7 @@ function getDatesList(list: Array<Message>){
   styleUrls: ['./feedback-page.component.css']
 })
 export class FeedbackPageComponent implements OnInit {
-  messages$: Observable<{ key: string; value: Message; }[]>;
+  messages$: Observable<{key: string; value: Message; }[]>;
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
   private feedback$: FirebaseListObservable<any[]>;
