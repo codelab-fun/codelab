@@ -21,14 +21,14 @@
   <!--  COMPONENT TREE  -->
   <slides-slide id="description" milestone="component-tree">
     <h1>Component Tree</h1>
-    <h2>So far we have only one component, but as your app grows it will form a tree of components.</h2>
+    <h2>So far we have only one component, but as your app grows it will form a tree of components</h2>
     <img src="assets/images/tree.png" alt="tree" height="400">
   </slides-slide>
 
   <!--  Parent/Child COMPONENTS-->
   <slides-slide id="parent-child-component" milestone="Component Tree">
     <h1>Component Tree / Parent and Child</h1>
-    <h2>Any component can render another one by using a HTML element that matches the selector of the other component.</h2>
+    <h2>Any component can render another one by using a HTML element that matches the selector of the other component</h2>
     <slides-code-group row>
       <div column-5>
         <slides-code-editor path="box.ts" [fontSize]="15" [code]="code.circleAndBox.other.boxNoParams"
@@ -49,7 +49,7 @@
   <!--  PASSING DATA  -->
   <slides-slide id="passing-data" milestone="component-tree">
     <h1>Component Tree / Passing Data Parent -> Child</h1>
-    <h2>Parent component passes their data to the child component by properties.</h2>
+    <h2>Parent component passes their data to the child component by properties</h2>
     <div class="exercise">Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to recreate the Japanese
       flag.
     </div>
@@ -60,7 +60,7 @@
   <!--  PASSING DATA  -->
   <slides-slide id="passing-data-child" milestone="component-tree">
     <h1>Component Tree / Passing Data Parent -> Child</h1>
-    <h2>The child class has to decorate their properties with a special <b>@Input()</b> decorator.</h2>
+    <h2>The child class has to decorate their properties with a special <b>@Input()</b> decorator</h2>
     <slides-playground [config]="code.circleAndBox"
                        [focus-highlight-match]="['@Input() size','@Input() color']"></slides-playground>
     <div class="info">This is the first time we're applying decorators to properties, not classes.</div>
@@ -70,7 +70,7 @@
   <slides-slide id="exercise-1-pre" milestone="component-tree">
     <h1 i18n>Component Tree / Exercise 1</h1>
     <h2>We already know how to create a component. Let's move out all the video-related information into a separate
-      component.</h2>
+      component</h2>
     <h3>The result will be as follows:</h3>
     <slides-browser-window>
       <div><h2>Cute kitten</h2>
@@ -96,7 +96,7 @@
   <!-- NgModule -->
   <slides-slide id="module" milestone="component-tree-2">
     <h1>Component Tree / Parent and Child component</h1>
-    <h2>Components won't know about each other unless they are declared in the same module.</h2>
+    <h2>Components won't know about each other unless they are declared in the same module</h2>
     <slides-code-editor path="app.module.ts" [code]="code.appModule.code"
                         [focus-highlight-match]="code.appModule.match"></slides-code-editor>
   </slides-slide>
@@ -132,7 +132,7 @@
 
   <slides-slide id="exercise-2-pre" milestone="component-tree-2">
     <h1 i18n>Component Tree / Exercise 2</h1>
-    <h2>In the next slide there's an exercise. You will finally use the component. </h2>
+    <h2>In the next slide there's an exercise. You will finally use the component</h2>
     <slides-browser-window>
       <div><h2>Cute kitten</h2>
         <img src="/assets/images/cat-00.png">
@@ -159,14 +159,14 @@
     <slides-closing-slide>
       <div header><h1 i18n>Angular Basics Codelab Completed!</h1></div>
       <div body>
-        <h2>This is the end of the codelab, but just a beginning of the Angular Journey.</h2>
+        <h2>This is the end of the codelab, but just a beginning of the Angular Journey</h2>
         <ul>
           <li><a href="https://angular.io/" target="_blank">Angular.io</a>
-            <span>Find features, docs and events listed here.</span>
+            <span>Find features, docs and events listed here</span>
           </li>
           <li><a href="https://cli.angular.io/" target="_blank">Angular CLI</a>
             <span>makes it easy to create an application that already works,
-                    right out of the box and generate new components! It also takes care of the build system for you.</span>
+                    right out of the box and generate new components! It also takes care of the build system for you</span>
           </li>
         </ul>
       </div>

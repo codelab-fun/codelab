@@ -24,14 +24,14 @@
   <slides-slide id="component" milestone="Templates">
     <h1>Templates / Intro</h1>
     <h2>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
-      elements.</h2>
+      elements</h2>
     <slides-playground [config]="code.template.intro"></slides-playground>
   </slides-slide>
 
   <!--  INTERPOLATION-->
   <slides-slide id="interpolation" milestone="Templates">
     <h1>Templates / Interpolation</h1>
-    <h2>Double curlies allows you to include properties from the component.</h2>
+    <h2>Double curlies allows you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;">
@@ -72,7 +72,7 @@
   <!--  PRE DATA BINDING-->
   <slides-slide id="data-binding-pre" milestone="Templates2">
     <h1>Templates / Interpolation / Properties</h1>
-    <h2>String interpolation <b>{{ curlies }}</b> can also be used to pass a value to a child element's attribute.</h2>
+    <h2>String interpolation <b>{{ curlies }}</b> can also be used to pass a value to a child element's attribute</h2>
     <slides-playground [config]="code.template.dataBindingPre"
                        [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
   </slides-slide>
@@ -91,7 +91,7 @@
   <!--  DATA BINDING EXTRAS-->
   <slides-slide id="data-binding-extras" milestone="Templates2">
     <h1>Templates / Data binding extras</h1>
-    <h2>Angular supports more advanced property bindings than just attribute name.</h2>
+    <h2>Angular supports more advanced property bindings than just attribute name</h2>
     <slides-code-editor
       path="app.component.html"
       [code]="code.template.dataBindingExtra"
@@ -103,7 +103,7 @@
   <!--  BINDING EVENT -->
   <slides-slide id="event-binding" milestone="Templates2">
     <h1>Templates / Event binding: (event)</h1>
-    <h2>The bindings directives you've met so far flow data in one direction: from a component to an element.</h2>
+    <h2>The bindings directives you've met so far flow data in one direction: from a component to an element</h2>
     <slides-code-editor
       path="app.component.html"
       [code]="code.eventBinding"
@@ -122,7 +122,7 @@
     <h1>Templates / Reference binding ( #var )</h1>
     <h2>Sometimes we need to access a HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
       and it becomes
-      available as <b>userName</b> everywhere in the template.</h2>
+      available as <b>userName</b> everywhere in the template</h2>
     <slides-code-editor
       path="app.component.html"
       [code]="code.bindingRef"
@@ -137,7 +137,7 @@
   <slides-slide id="conditional-display-ngif" milestone="Templates2">
     <h2>Templates / Conditional Display (*ngIf)</h2>
     <p>
-      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy.
+      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
     </p>
     <slides-playground [config]="code.ngIfDirective.template"
                        [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
@@ -169,7 +169,7 @@
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Templates / Repeating elements (*ngFor)</h1>
     <h2>
-      <b>*ngFor</b> loops over an array and displays a HTML Element for each item.
+      <b>*ngFor</b> loops over an array and displays a HTML Element for each item
     </h2>
     <slides-playground [config]="code.ngForDirective.template"
                        [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
