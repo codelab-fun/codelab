@@ -91,9 +91,13 @@ If opening an issue, please include:
 
 ### Contributing Code
 
-If you don't know where to start, you can peruse issues marked by `help-wanted` tags
+If you don't know where to start, try perusing issues marked by `help-wanted` tags!
 
-If you want to work on something there isn't yet an issue for, consider submitting an issue so that multiple contributers aren't _unknowingly_ working on solving the same problem in parallel
+If you want to work on something there isn't yet an issue for, consider submitting an issue so that multiple contributers aren't _unknowingly_ working on solving the same problem in parallel.
+
+If you're new to Git check out this awesome [free Udacity class](https://www.udacity.com/course/how-to-use-git-and-github--ud775) by [Caroline Buckey](https://github.com/cbuckey-uda) and [Sarah Spikes](https://github.com/salogel42) 📚
+
+And if you're new to just GitHub check out [this cool tutorial series](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github) by [Kent C. Dodds](https://github.com/kentcdodds) 📝
 
 
 ### Making a Pull Request
