@@ -29,9 +29,9 @@ export class TypescriptComponent {
 
     document.body.appendChild(shadowSquiggly);
 
-    shadowSquiggly.setAttribute('data-step', '3');
-    shadowSquiggly.setAttribute('data-intro', 'Code errors will be underscored by a squiggly red line.');
-    shadowSquiggly.setAttribute('data-position', 'top');
+    shadowSquiggly.setAttribute('data-hint', 'Code errors will be underscored by a squiggly red line.');
+    // shadowSquiggly.setAttribute('data-intro', '');
+    // shadowSquiggly.setAttribute('data-position', 'top');
   }
 
   introJsAfter() {

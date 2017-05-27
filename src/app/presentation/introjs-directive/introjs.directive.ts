@@ -26,7 +26,12 @@ export class IntrojsDirective implements OnInit {
           if (this.introJsBefore) {
             this.introJsBefore();
           }
-          introJs().start();
+
+          const tour = introJs();
+          tour.start();
+          tour.oncomplete(function () {
+            tour.addHints();
+          });
         }, 1000);
 
         // localStorage.numTours = +localStorage.numTours + 1;
