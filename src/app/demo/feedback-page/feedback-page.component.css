@@ -25,9 +25,10 @@ li {
   font-size: 22px;
 }
 
-h2 {
+h2.feedback-header.feedback-header.feedback-header {
   clear: both;
   grid-column: 1/5;
+  font-size: 20px;
 }
 
 .card {
