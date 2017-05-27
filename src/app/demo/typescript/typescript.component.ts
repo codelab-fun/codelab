@@ -11,6 +11,36 @@ import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 export class TypescriptComponent {
 
+  introJsBefore() {
+    let squiggly;
+
+    squiggly = document.querySelector('.highlighted-code');
+    console.log(document);
+
+    const squigglysBoundingBox = squiggly.getBoundingClientRect();
+
+    console.log("logo's left pos.:", squigglysBoundingBox.left);
+    console.log("logo's top pos.:", squigglysBoundingBox.top);
+
+    const shadowSquiggly = document.createElement('div');
+    shadowSquiggly.style.position = 'absolute';
+    shadowSquiggly.style.left = squigglysBoundingBox.left + 'px';
+    shadowSquiggly.style.top = squigglysBoundingBox.top + 'px';
+
+    document.body.appendChild(shadowSquiggly);
+
+    shadowSquiggly.setAttribute('data-hint', 'Code errors will be underscored by a squiggly red line.');
+    // shadowSquiggly.setAttribute('data-intro', '');
+    // shadowSquiggly.setAttribute('data-position', 'top');
+  }
+
+  introJsAfter() {
+    // if (squiggly) {
+    //   squiggly.removeAttribute('data-step');
+    //   squiggly.removeAttribute('data-intro');
+    // }
+  }
+
   constructor() { }
 
   code = {
