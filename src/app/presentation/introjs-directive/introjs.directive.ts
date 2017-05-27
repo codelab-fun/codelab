@@ -27,7 +27,8 @@ export class IntrojsDirective implements OnInit {
         //   alert("eventData");
         // }
       };
-    }
+    });
+  }
 
   // ngAfterViewInit(): void {
   //   this.slide.onActive.subscribe((active) => {
