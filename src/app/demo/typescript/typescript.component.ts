@@ -10,10 +10,7 @@ import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
 })
 
 export class TypescriptComponent {
-  constructor() {
-    @HostBinding('document.querySelector(".highlighted-code").dataStep') dataStep = '3';
-    @HostBinding('document.querySelector(".highlighted-code").dataIntro') dataIntro = 'Code errors will be underscored by a squiggly red line.';
-  }
+  constructor() {}
 
   code = {
     filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
