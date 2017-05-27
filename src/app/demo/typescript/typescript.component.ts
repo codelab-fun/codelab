@@ -26,13 +26,9 @@ export class TypescriptComponent {
     shadowSquiggly.style.position = 'absolute';
     shadowSquiggly.style.left = squigglysBoundingBox.left + 'px';
     shadowSquiggly.style.top = squigglysBoundingBox.top + 'px';
-    shadowSquiggly.id = 'FINDME';
 
     document.body.appendChild(shadowSquiggly);
 
-
-    console.log('I\'m running!');
-    console.log(shadowSquiggly);
     shadowSquiggly.setAttribute('data-step', '3');
     shadowSquiggly.setAttribute('data-intro', 'Code errors will be underscored by a squiggly red line.');
     shadowSquiggly.setAttribute('data-position', 'top');
