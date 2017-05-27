@@ -1,4 +1,4 @@
-<slides-presentation slides-slides-routing slides-mode-routing>>
+<slides-presentation slides-slides-routing slides-mode-routing>
 
   <slides-slide no-padding>
     <div>
@@ -18,7 +18,7 @@
 
 
       <div *ngFor="let item of (this.messages$ | async)" class="group">
-        <h2 class="header">{{item.key}}</h2>
+        <h2 class="feedback-header">{{item.key}}</h2>
 
         <div *ngFor="let message of item.value" class="card">
           <div>
