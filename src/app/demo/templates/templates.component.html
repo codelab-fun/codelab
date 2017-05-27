@@ -22,19 +22,19 @@
 
   <!--  COMPONENT -->
   <slides-slide id="component" milestone="Templates">
-    <h1>Templates / Intro</h1>
-    <h2>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
+    <h1 i18n>Templates / Intro</h1>
+    <h2 i18n>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
       elements</h2>
     <slides-playground [config]="code.template.intro"></slides-playground>
   </slides-slide>
 
   <!--  INTERPOLATION-->
   <slides-slide id="interpolation" milestone="Templates">
-    <h1>Templates / Interpolation</h1>
-    <h2>Double curlies allow you to include properties from the component</h2>
+    <h1 i18n>Templates / Interpolation</h1>
+    <h2 i18n>Double curlies allow you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
-    <div class="info" milestone="Templates" style="margin-top: -8px;">
+    <div class="info" milestone="Templates" style="margin-top: -8px;" i18n>
       Backticks <b>` `</b>, are magic quotes that allow multi-line strings and text interpolation.
     </div>
   </slides-slide>
@@ -42,21 +42,24 @@
 
   <!--INTERPOLATION-METHOD-->
   <slides-slide id="interpolation-method" milestone="Templates">
-    <h1>Templates / Interpolation</h1>
-    <h2>Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate <code>323213+34234</code>
+    <h1 i18n>Templates / Interpolation</h1>
+    <h2 i18n>
+      Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate
+      <code>323213+34234</code>
     </h2>
     <slides-playground [config]="code.template.interpolationMethod"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
   </slides-slide>
 
   <slides-slide id="exercise-pre" milestone="Templates">
-    <h1>Templates / Exercise</h1>
-    <h2>In the next slide you'll edit component template to create a simple header and search form. Ther result will look like
+    <h1 i18n>Templates / Exercise</h1>
+    <h2 i18n>In the next slide you'll edit component template to create a simple header and search form. Ther result will look like
       this:</h2>
 
     <slides-browser-window>
       <div>
-        <h1>MewTube</h1><input placeholder="video" type="text">
+        <h1 i18n>MewTube</h1>
+        <input placeholder="video" type="text">
         <button>Search</button>
       </div>
     </slides-browser-window>
@@ -71,27 +74,29 @@
 
   <!--  PRE DATA BINDING-->
   <slides-slide id="data-binding-pre" milestone="Templates2">
-    <h1>Templates / Interpolation / Properties</h1>
-    <h2>String interpolation <b>{{ curlies }}</b> can also be used to pass value to a child element's attribute.</h2>
+    <h1 i18n>Templates / Interpolation / Properties</h1>
+    <h2 i18n>
+      String interpolation <b>{{ curlies }}</b> can also be used to pass value to a child element's attribute.
+    </h2>
     <slides-playground [config]="code.template.dataBindingPre"
                        [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
   </slides-slide>
 
   <!--  DATA BINDING  -->
   <slides-slide id="data-binding" milestone="Templates2">
-    <h1>Templates / Property Binding</h1>
-    <h2>Another option is to use property binding <b>[attribute] = property</b></h2>
+    <h1 i18n>Templates / Property Binding</h1>
+    <h2 i18n>Another option is to use property binding <b>[attribute] = property</b></h2>
     <slides-playground [config]="code.template.dataBinding"
                        [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
-    <div class="info" style="margin-top: -10px; z-index: 2;">
+    <div class="info" style="margin-top: -10px; z-index: 2;" i18n>
       You can use arbitrary expressions in the binding
     </div>
   </slides-slide>
 
   <!--  DATA BINDING EXTRAS-->
   <slides-slide id="data-binding-extras" milestone="Templates2">
-    <h1>Templates / Data binding extras</h1>
-    <h2>Angular supports more advanced property bindings than just attribute name</h2>
+    <h1 i18n>Templates / Data binding extras</h1>
+    <h2 i18n>Angular supports more advanced property bindings than just attribute name</h2>
     <slides-code-editor
       path="app.component.html"
       [code]="code.template.dataBindingExtra"
@@ -102,8 +107,8 @@
 
   <!--  BINDING EVENT -->
   <slides-slide id="event-binding" milestone="Templates2">
-    <h1>Templates / Event binding: (event)</h1>
-    <h2>The bindings directives you've met so far flow data in one direction: from a component to an element</h2>
+    <h1 i18n>Templates / Event binding: (event)</h1>
+    <h2 i18n>The bindings directives you've met so far flow data in one direction: from a component to an element</h2>
     <slides-code-editor
       path="app.component.html"
       [code]="code.eventBinding"
@@ -112,17 +117,17 @@
       [readonly]="true"
       type="html">
     </slides-code-editor>
-    <div class="info">
+    <div class="info" i18n>
       While Parentheses are used for event binding: <b>(event)</b>, "on-" can also be used: <b>on-event</b>.
     </div>
   </slides-slide>
 
   <!--  REFERENCE BINDING -->
   <slides-slide id="reference-binding" milestone="Templates2">
-    <h1>Templates / Reference binding ( #var )</h1>
-    <h2>Sometimes we need to access HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
-      and it becomes
-      available as <b>userName</b> everywhere in the template</h2>
+    <h1 i18n>Templates / Reference binding ( #var )</h1>
+    <h2 i18n>
+      Sometimes we need to access HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
+      and it becomes available as <b>userName</b> everywhere in the template</h2>
     <slides-code-editor
       path="app.component.html"
       [code]="code.bindingRef"
@@ -135,8 +140,8 @@
 
   <!--  CONDITIONAL DISPLAY-->
   <slides-slide id="conditional-display-ngif" milestone="Templates2">
-    <h2>Templates / Conditional Display (*ngIf)</h2>
-    <p>
+    <h2 i18n>Templates / Conditional Display (*ngIf)</h2>
+    <p i18n>
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy.
     </p>
     <slides-playground [config]="code.ngIfDirective.template"
@@ -145,15 +150,15 @@
 
 
   <slides-slide id="exercise-2-pre" milestone="Templates2">
-    <h1>Templates / Exercise 2</h1>
-    <h2>In the next slide you'll add a click handler to the search button, and display a message for the case where no
+    <h1 i18n>Templates / Exercise 2</h1>
+    <h2 i18n>In the next slide you'll add a click handler to the search button, and display a message for the case where no
       videos were found. The result will look like this:</h2>
 
     <slides-browser-window>
       <div>
-        <h1>MewTube</h1><input placeholder="video" type="text">
-        <button>Search</button>
-        <div>no videos</div>
+        <h1 i18n>MewTube</h1><input placeholder="video" type="text">
+        <button i18n>Search</button>
+        <div i18n>no videos</div>
       </div>
     </slides-browser-window>
   </slides-slide>
@@ -167,40 +172,40 @@
 
   <!--  CONDITIONAL NGFOR-->
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
-    <h1>Templates / Repeating elements (*ngFor)</h1>
-    <h2>
+    <h1 i18n>Templates / Repeating elements (*ngFor)</h1>
+    <h2 i18n>
       <b>*ngFor</b> loops over an array and displays HTML Element for each item.
     </h2>
     <slides-playground [config]="code.ngForDirective.template"
                        [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
-    <div class="info">Html attributes in <b>Angular</b> are case sensitive</div>
+    <div class="info" i18n>Html attributes in <b>Angular</b> are case sensitive</div>
   </slides-slide>
 
 
   <slides-slide id="exercise-3-pre" milestone="Templates3">
-    <h1>Templates / Exercise 3</h1>
+    <h1 i18n>Templates / Exercise 3</h1>
     <div flex>
       <div column-5>
-        <h2>
+        <h2 i18n>
           In the next slide you'll finally display the videos! The result will look like this:
         </h2>
       </div>
       <div column-5>
         <slides-browser-window>
           <div>
-            <h1>MewTube</h1>
+            <h1 i18n>MewTube</h1>
             <input placeholder="video" type="text">
-            <button>Search!</button>
+            <button i18n>Search!</button>
             <div>
-              <h2>Cute kitten</h2>
+              <h2 i18n>Cute kitten</h2>
               <img src="/assets/images/cat-01.jpg">
             </div>
             <div>
-              <h2>Kitten on the tree</h2>
+              <h2 i18n>Kitten on the tree</h2>
               <img src="/assets/images/cat-05.png">
             </div>
             <div>
-              <h2>Serious cat</h2>
+              <h2 i18n>Serious cat</h2>
               <img src="/assets/images/cat-03.jpg">
             </div>
           </div>
@@ -219,11 +224,13 @@
 
   <slides-slide id="end">
     <slides-closing-slide>
-      <div class="header" header><h1 i18n>Templates / Milestone Completed!</h1></div>
+      <div class="header" header>
+        <h1 i18n>Templates / Milestone Completed!</h1>
+      </div>
       <div class="body" body>
       </div>
       <div class="footer" footer>
-        <h2>
+        <h2 i18n>
           Next: <a routerLink="/dependency-injection/intro">Learn how to use Angular Dependency Injection</a>
         </h2>
       </div>
