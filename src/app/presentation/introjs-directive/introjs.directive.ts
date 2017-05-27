@@ -7,9 +7,6 @@ import { introJs } from 'intro.js/intro.js';
 })
 export class IntrojsDirective implements OnInit {
 
-  @Input() introJsBefore: Function;
-  @Input() introJsAfter: Function;
-
   constructor(public slide: SlideComponent) {
     // TODO: add check back in after google i/o
     // if (!localStorage.numTours) {
