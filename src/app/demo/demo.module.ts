@@ -16,7 +16,7 @@ export const routes = [
     path: 'typescript',
     loadChildren: './typescript/typescript.module#TypescriptModule',
     name: 'Typescript',
-    description: 'Learn TypeScript: A superset of JavaScript, which Angular is written in',
+    description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.',
     page: 'main'
   },
   {

@@ -137,7 +137,7 @@ export class AppComponent {
   \`
 })
 export class AppComponent {
-  puppies = ['Rex', 'Apple', 'Vivaldi'];
+  puppies = ['Vivaldi', 'Haydn', 'Bach'];
 }`),
     matches: {
         ngFor: '*ngFor'
@@ -184,9 +184,9 @@ export class AppComponent {
     bindingRef2Match: /userName.value/,
     bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
     bindingRefExerciseMatch: /#userinput/,
-    eventBinding: `<!-- When user clicks the button, call the "saveUser" function on the
-     component instance and pass the the underlying event. -->
-<button (click)="saveUser()">
+    eventBinding: `<!-- When user clicks the button, it calls the "saveUser" function on the
+     component instance and passes the underlying event. -->
+<button (click)="saveUser($event)">
 
 <!-- You can also create events for custom components. Here we have a
      depleted event, and it's going to call the "soundAlarm" function
@@ -198,7 +198,7 @@ export class AppComponent {
      and enter (this is an Angular feature). -->
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
-    eventBindingMatch: /(click)/,
+    eventBindingMatch: /\(click\)/,
     eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
     conditionalDisplay: `<!-- ngIf conditionally toggles the visibility of a section of the UI. -->
 <section *ngIf="showSection">Howdy!</section>

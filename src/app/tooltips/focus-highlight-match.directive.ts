@@ -1,4 +1,4 @@
-import {Directive, Input, AfterViewInit} from '@angular/core';
+import {AfterViewInit, Directive, Input} from '@angular/core';
 import {EditorComponent} from '../exercise/editor/editor.component';
 import {findPosition} from './utils';
 import 'rxjs/add/operator/first';
@@ -23,7 +23,6 @@ export class FocusHighlightDirective implements AfterViewInit {
       const decorations = this.matches.reduce((ranges, match) => {
         const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, match);
 
-
         ranges.push({
           range: new this.editorComponent.monacoConfigService.monaco.Range(1, 1, lineStart, indexStart),
           options: {inlineClassName: 'grayed-out-code'}
@@ -39,13 +38,11 @@ export class FocusHighlightDirective implements AfterViewInit {
           options: {inlineClassName: 'highlighted-code'}
         });
 
-
         return ranges;
-
       }, []);
 
 
-      this.editorComponent._editor.deltaDecorations([], decorations);
+      this.editorComponent.editor.deltaDecorations([], decorations);
     });
   }
 }

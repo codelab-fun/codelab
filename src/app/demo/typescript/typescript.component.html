@@ -24,12 +24,12 @@
     <div row>
       <div>
         <ul>
-          <li i18n><b>TypeScript</b> a language that transpiles to JavaScript. It extends <b>ES5</b> standard (current
-            version of JavaScript supported by modern browsers.)
+          <li i18n><b>TypeScript</b> is a language that transpiles to JavaScript. It extends <b>ES5</b> standard (current
+            version of JavaScript supported by modern browsers)
           </li>
-          <li i18n>Adds features from the next version - <b>ES6</b> (mostly supported by modern browsers)
+          <li i18n>It adds features from the next version - <b>ES6</b> (mostly supported by modern browsers)
           </li>
-          <li i18n>On top of it adds an optional Type System and decorators (we'll learn about them later)
+          <li i18n>On top of it, it adds an optional Type System and decorators (we'll learn about them later)
           </li>
         </ul>
       </div>
@@ -137,16 +137,16 @@
   <!--  CLASSES  -->
   <slides-slide id="classes" milestone="TypeScript">
     <h1 i18n>TypeScript / Classes</h1>
-    <h2 i18n>TypeScript has classes, and Angular uses them heavily</h2>
-    <h2 i18n>They are similar to classes in other languages. Used to group methods and properties belonging to
-      one object together</h2>
+    <h2 i18n>TypeScript has <b>classes</b>, and Angular uses them heavily.</h2>
+    <h2 i18n>They are similar to classes in other languages, and are used to group methods and properties together</h2>
     <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
   <slides-slide id="classes-constructor" milestone="TypeScript">
     <h1 i18n>TypeScript / Classes / Constructor</h1>
     <h2 i18n>
-      There's a special method on the class called <b>constructor</b>. It's run when the class is instantiated and allows
+      There's a special method on the class called <b>constructor</b>. It's run when the class is instantiated and
+      allows
       the class to take parameters
     </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
@@ -155,8 +155,10 @@
 
   <slides-slide id="classes-access-modifier" milestone="TypeScript">
     <h1 i18n>TypeScript / Classes / Access Modifiers</h1>
-    <h2 i18n>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
-      accessible as <b>this.name</b> within the class</h2>
+    <h2 i18n>
+      Constructor parameters marked as <b>public</b> (or private, or protected), become class properties accessible as
+      <b>this.&lt;parameter name&gt;</b> within the class
+    </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
     <div class="info" i18n>private or protected properties are not visible outside of the class.</div>
@@ -164,8 +166,8 @@
 
   <slides-slide id="export" milestone="TypeScript">
     <h1 i18n>TypeScript / Export</h1>
-    <h2 i18n>By the way, did you notice the <b>export</b> keyword before class? It is used to share information between
-      files. Next slide will show how to export and use this class in a different file.</h2>
+    <h2 i18n>By the way, did you notice the <b>export</b> keyword before class? It is used to share information
+      between files. In the next slide, we'll show you how to export and use this class in a different file</h2>
     <slides-code-editor
       path="puppy.ts"
       [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
@@ -174,12 +176,20 @@
 
   <slides-slide id="import" milestone="TypeScript">
     <h1 i18n>TypeScript / Import</h1>
-    <h2 i18n>Now we can use the <b>Puppy</b> class in the other file.</h2>
+    <h2 i18n>Now we can use the <b>Puppy</b> class in the other file</h2>
     <slides-playground [config]="code.classDescription.codeImport" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.importMatch]"></slides-playground>
     <div class="info" i18n>Imports and exports are not just for classes. They work with variables, functions and other
       things!
     </div>
+  </slides-slide>
+
+  <slides-slide id="filter" milestone="TypeScript">
+    <h1 i18n>TypeScript / Filter (One last thing)</h1>
+    <h2 i18n>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
+      provided
+      from the returning callback</h2>
+    <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
   <slides-slide id="more" milestone="TypeScript">
@@ -188,8 +198,8 @@
     <ul>
       <li i18n>Interfaces</li>
       <li i18n>Enums</li>
-      <li i18n>Async/await</li>
-      <li i18n>Getters/setters</li>
+      <li i18n>Async / Await</li>
+      <li i18n>Getters / Setters</li>
       <li i18n>Destructuring</li>
       <li i18n>Arrow functions</li>
       <li i18n>And more!</li>
@@ -199,18 +209,11 @@
     </h2>
   </slides-slide>
 
-  <slides-slide id="filter" milestone="TypeScript">
-    <h1 i18n>TypeScript / Filter (One last thing)</h1>
-    <h2 i18n>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are provided
-      from the returning callback.</h2>
-    <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
-  </slides-slide>
-
   <slides-slide id="exercise-info" milestone="TypeScript">
     <h1 i18n>TypeScript / Exercise</h1>
     <h2 i18n>In the next slide we have a TypeScript exercise</h2>
     <h3 i18n>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
-      the ones who are coming</h3>
+      the ones who are coming.</h3>
     <h3 i18n>The result will be as follows:</h3>
     <slides-browser-window width="100%">
       <ul>

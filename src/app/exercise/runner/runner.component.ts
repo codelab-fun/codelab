@@ -14,7 +14,7 @@ import * as ts from 'typescript';
 import {FileConfig} from '../interfaces/file-config';
 import {LoopProtectionService} from '../services/loop-protection.service';
 import {ScriptLoaderService} from '../services/script-loader.service';
-
+declare const require;
 const cachedIframes = {};
 
 function jsScriptInjector(iframe) {
@@ -53,6 +53,7 @@ function createIframe(config: IframeConfig) {
 
 function injectIframe(element: any, config: IframeConfig, runner: RunnerComponent): Promise<{
   setHtml: Function,
+  runCss: Function,
   register: Function,
   runMultipleFiles: Function,
   runSingleFile: Function,
@@ -144,6 +145,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
         loadSystemJS: (name) => {
           (iframe.contentWindow as any).loadSystemModule(name, runner.scriptLoaderService.getScript(name));
         },
+        runCss: runCss,
         runMultipleFiles: (files: Array<FileConfig>) => {
           index++;
 
@@ -174,7 +176,6 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
 
           files.filter(file => file.type === 'css').map((file) => {
             runCss(file.code);
-
           });
 
           const compiled = files.filter(file => file.type === 'typescript').map((file) => {
@@ -306,6 +307,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
         sandbox.runSingleFile(this.scriptLoaderService.getScript('shim'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('zone'));
@@ -319,6 +321,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
         sandbox.runSingleFile(this.scriptLoaderService.getScript('shim'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('zone'));
@@ -339,6 +342,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         sandbox.injectSystemJs();
         sandbox.runMultipleFiles(files.filter(file => !file.test));
       });
@@ -346,6 +350,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         console.log('FRAME CREATED', (new Date()).getTime() - time);
         sandbox.injectSystemJs();
         sandbox.runSingleScriptFile(this.scriptLoaderService.getScript('mocha'));

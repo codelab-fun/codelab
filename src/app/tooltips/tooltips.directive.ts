@@ -43,7 +43,7 @@ export class TooltipsDirective implements AfterViewInit {
         };
       });
 
-      this.editorComponent._editor.deltaDecorations([], decorations);
+      this.editorComponent.editor.deltaDecorations([], decorations);
 
       setTimeout(() => {
         this.tooltips.forEach((item, i) => {
