@@ -70,6 +70,7 @@ slides-slide > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-size: 1.1vw;
 }
 
 .exercise-body {
@@ -99,9 +100,6 @@ slides-tests {
   display: block;
 }
 
-:host /deep/ .browser-frame , :host /deep/ .frame {
-  height: 100%;
-}
 
 .exercise-complete {
   background: #dfffde;

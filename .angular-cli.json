@@ -20,7 +20,7 @@
       "prefix": "slides",
       "styles": [
         "styles.css",
-        "../node_modules/intro.js/introjs.css",
+        "../node_modules/intro.js/minified/introjs.min.css",
         "../node_modules/themes/introjs-nassim.css"
       ],
       "scripts": [],

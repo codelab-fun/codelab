@@ -5,14 +5,14 @@
   </div>
 
   <slides-slide id="index">
-    <h1>Angular Codelab</h1>
-    <h2>Welcome! Choose a topic below to start learning:</h2>
+    <h1 i18n>Angular Codelab</h1>
+    <h2 i18n>Welcome! Choose a topic below to start learning:</h2>
 
     <div class="intro" row>
       <ol>
         <li *ngFor="let route of getMainPageRoutes()">
-          <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
-          <div>{{route.description}}</div>
+          <h2 i18n><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
+          <div i18n>{{route.description}}</div>
         </li>
       </ol>
       <div column-2>

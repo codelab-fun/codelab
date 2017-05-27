@@ -40,9 +40,10 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
        }
     }
 
+    /* TODO: Get rid of the CSS hack */
     wrap(console, 'log', (v)=>{
       value.value = v;
-      document.write('<h3>&gt; ' + JSON.stringify(v) + '<h3><hr>')
+      document.write('<h3 style="font-family: roboto, sans-serif;font-size: 2vw; font-weight: 300">&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `
   };
@@ -221,7 +222,7 @@ platform.bootstrapModule(AppModule, {
         code: `
           body, html {
             margin: 0;
-            padding: 0;
+            padding: 2vw;
             font-family: sans-serif;
           }
 
@@ -230,8 +231,8 @@ platform.bootstrapModule(AppModule, {
             padding: 0;
           }
 
-          h1 {font-size: 20px;}
-          h2 {font-size: 16px;}
+          h1 {font-size: 6vw;}
+          h2 {font-size: 4vw;}
         `
       }
     ]
@@ -252,7 +253,12 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
   const files = [
     exerciseWithConsoleLog('app', code, code),
     bootstrap('main', bootstrapCode, bootstrapCode),
-    test('test', testCode)
+    test('test', testCode),
+    {
+      path: 'main.css',
+      type: 'css',
+      code: `body {background: red}`
+    }
   ];
   if (otherCode !== '') {
     files.push(exercise('puppy', otherCode, otherCode));
