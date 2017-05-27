@@ -39,7 +39,12 @@ export class IntrojsDirective implements OnInit {
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");
         // }
-      };
+      } else {
+        if (this.introJsAfter) {
+          this.introJsAfter();
+        }
+      }
+
     });
   }
 
