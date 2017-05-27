@@ -11,7 +11,7 @@
 }
 
 slides-editor {
-  width: 700px;
+  width: 50vw;
   /* To compensate for hidden line numbers */
   margin-left: -30px;
   margin-right: 20px;

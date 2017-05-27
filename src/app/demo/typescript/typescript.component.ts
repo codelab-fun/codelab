@@ -20,7 +20,7 @@ console.log(numbers.filter(function(number){
 // Or use shorthand function notation.
 // (Also called arrow function)
 console.log(
-  numbers.filter(number=>number > 30)
+  numbers.filter(number => number > 30)
 );`),
     moreTypes: {
       codeInterfaces: `interface Puppy {

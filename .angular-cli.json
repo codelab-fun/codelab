@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "slides",
       "styles": [
-        "styles.css",
+        "styles.scss",
         "../node_modules/intro.js/introjs.css"
       ],
       "scripts": [],

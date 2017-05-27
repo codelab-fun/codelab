@@ -1,5 +1,6 @@
 .console-frame {
   width: 100%;
+  height: 100%;
   border: 1px solid #dddddd;
 }
 
@@ -12,16 +13,14 @@
 }
 
 .img-full {
-    width: 100%;
-    height: 75px;
-    background-image: url(/assets/images/consoletop-middle.png);
-    background-repeat: repeat;
+  width: 100%;
+  height: 2vw;
+  background-image: url(/assets/images/consoletop-middle.png);
+  background-repeat: repeat;
+  display: flex;
+  justify-content: space-between;
 }
 
-.img-left {
-    float:left;
-}
-
-.img-right {
-    float:right;
+.img-full img {
+  height: 2vw;
 }

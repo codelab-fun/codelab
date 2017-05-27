@@ -31,7 +31,7 @@
   <!--  INTERPOLATION-->
   <slides-slide id="interpolation" milestone="Templates">
     <h1>Templates / Interpolation</h1>
-    <h2>Double curlies allow you to include properties from the component</h2>
+    <h2>Double curlies allows you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;">
@@ -51,7 +51,7 @@
 
   <slides-slide id="exercise-pre" milestone="Templates">
     <h1>Templates / Exercise</h1>
-    <h2>In the next slide you'll edit component template to create a simple header and search form. Ther result will look like
+    <h2>In the next slide you'll edit component template to create a simple header and search form. The result will look like
       this:</h2>
 
     <slides-browser-window>
@@ -72,7 +72,7 @@
   <!--  PRE DATA BINDING-->
   <slides-slide id="data-binding-pre" milestone="Templates2">
     <h1>Templates / Interpolation / Properties</h1>
-    <h2>String interpolation <b>{{ curlies }}</b> can also be used to pass value to a child element's attribute.</h2>
+    <h2>String interpolation <b>{{ curlies }}</b> can also be used to pass a value to a child element's attribute</h2>
     <slides-playground [config]="code.template.dataBindingPre"
                        [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
   </slides-slide>
@@ -84,7 +84,7 @@
     <slides-playground [config]="code.template.dataBinding"
                        [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;">
-      You can use arbitrary expressions in the binding
+      You can use arbitrary expressions in the binding.
     </div>
   </slides-slide>
 
@@ -120,7 +120,7 @@
   <!--  REFERENCE BINDING -->
   <slides-slide id="reference-binding" milestone="Templates2">
     <h1>Templates / Reference binding ( #var )</h1>
-    <h2>Sometimes we need to access HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
+    <h2>Sometimes we need to access a HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
       and it becomes
       available as <b>userName</b> everywhere in the template</h2>
     <slides-code-editor
@@ -137,7 +137,7 @@
   <slides-slide id="conditional-display-ngif" milestone="Templates2">
     <h2>Templates / Conditional Display (*ngIf)</h2>
     <p>
-      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy.
+      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
     </p>
     <slides-playground [config]="code.ngIfDirective.template"
                        [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
@@ -169,11 +169,11 @@
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>Templates / Repeating elements (*ngFor)</h1>
     <h2>
-      <b>*ngFor</b> loops over an array and displays HTML Element for each item.
+      <b>*ngFor</b> loops over an array and displays a HTML Element for each item
     </h2>
     <slides-playground [config]="code.ngForDirective.template"
                        [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
-    <div class="info">Html attributes in <b>Angular</b> are case sensitive</div>
+    <div class="info">HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work</div>
   </slides-slide>
 
 
