@@ -84,7 +84,7 @@
   </slides-slide>
 
   <!--  NUMBER-TYPE  -->
-  <slides-slide slidesTourLinterWarningDirective slidesIntrojsDirective id="type-mini-exercise" milestone="TypeScript">
+  <slides-slide slidesIntroJs [introJsBefore] = "introJsBefore" [introJsAfter]="introJsAfter" id="type-mini-exercise" milestone="TypeScript">
     <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeScript / Type System</h1>
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
       early</h2>
@@ -217,7 +217,7 @@
   </slides-slide>
 
   <slides-slide id="exercise" no-padding>
-    <slides-exercise slidesIntrojsDirective [config]="exercises[0]" milestone="TypeScript">
+    <slides-exercise slidesIntroJs [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
         <p>We created all the files for you</p>
       </div>

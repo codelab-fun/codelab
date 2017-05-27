@@ -18,7 +18,6 @@ import { RouterModule } from '@angular/router';
 import {FeedbackSlideComponent} from './feedback-slide/feedback-slide.component';
 import {AnalyticsService} from './analytics.service';
 import {IntrojsDirective} from './introjs-directive/introjs.directive';
-import { TourLinterWarningDirective } from './tour-linter-warning-directive/tour-linter-warning.directive';
 
 
 @NgModule({
@@ -39,7 +38,6 @@ import { TourLinterWarningDirective } from './tour-linter-warning-directive/tour
     FeedbackSlideComponent,
     ClosingSlideComponent,
     IntrojsDirective,
-    TourLinterWarningDirective
   ],
 
   exports: [
@@ -55,8 +53,7 @@ import { TourLinterWarningDirective } from './tour-linter-warning-directive/tour
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective,
-    TourLinterWarningDirective
+    IntrojsDirective
   ],
   imports: [
     CommonModule,
