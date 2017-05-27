@@ -19,7 +19,17 @@ export class IntrojsDirective implements OnInit {
       // check if both tours ran TODO: unhardcode this check
       // if (active && localStorage.numTours <= 2) {
       if (active) {
-        setTimeout(() => introJs().start(), 1000);
+        setTimeout(() => {
+          if (this.introJsBefore) {
+            this.introJsBefore();
+          }
+
+          const tour = introJs();
+          tour.start();
+          tour.oncomplete(function () {
+            tour.addHints();
+          });
+        }, 1000);
 
         // localStorage.numTours = +localStorage.numTours + 1;
 
