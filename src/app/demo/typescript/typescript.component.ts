@@ -15,12 +15,8 @@ export class TypescriptComponent {
     let squiggly;
 
     squiggly = document.querySelector('.highlighted-code');
-    console.log(document);
 
     const squigglysBoundingBox = squiggly.getBoundingClientRect();
-
-    console.log("logo's left pos.:", squigglysBoundingBox.left);
-    console.log("logo's top pos.:", squigglysBoundingBox.top);
 
     const shadowSquiggly = document.createElement('div');
     shadowSquiggly.style.position = 'absolute';
