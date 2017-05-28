@@ -1,6 +1,6 @@
-import {AfterViewInit, Directive, Input} from '@angular/core';
-import {EditorComponent} from '../exercise/editor/editor.component';
-import {findPosition} from './utils';
+import { AfterViewInit, Directive, Input } from '@angular/core';
+import { EditorComponent } from '../exercise/editor/editor.component';
+import { findPosition } from './utils';
 import 'rxjs/add/operator/first';
 
 @Directive({

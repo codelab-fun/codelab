@@ -1,7 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { FeedbackModule } from './../../feedback/feedback.module';
 import { PresentationModule } from './../../presentation/presentation.module';
-import { BrowserModule } from './../../browser/browser.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VisualStudioCodeComponent } from './visual-studio-code.component';
@@ -17,4 +16,5 @@ const routes = RouterModule.forChild(
   declarations: [VisualStudioCodeComponent],
   exports: [VisualStudioCodeComponent]
 })
-export class VisualStudioCodeModule { }
+export class VisualStudioCodeModule {
+}

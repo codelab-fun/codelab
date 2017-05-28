@@ -34,12 +34,14 @@
       <div class="col-6">
         <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code"
                             [focus-highlight-match]="[code.withOutDI.matches.noDI, 'profession']"></slides-code-editor>
-        <h2 class="comparision" i18n>Without Dependency Injection, <b>Profession</b> has to be instantiated in the <b>Person</b> class</h2>
+        <h2 class="comparision" i18n>Without Dependency Injection, <b>Profession</b> has to be instantiated in the <b>Person</b>
+          class</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
         <slides-code-editor path="person-di.ts" [fontSize]="15" [code]="code.withDI.code"
                             [focus-highlight-match]="[code.withDI.matches.constructor]"></slides-code-editor>
-        <h2 class="comparision" i18n>With Dependency Injection, <b>Person</b> class just "requires" an instance of <b>Profession</b> in the
+        <h2 class="comparision" i18n>With Dependency Injection, <b>Person</b> class just "requires" an instance of <b>Profession</b>
+          in the
           constructor, and
           Angular takes care of instantiating it</h2>
       </div>
@@ -64,7 +66,8 @@
 
   <slides-slide id="comparison-3" milestone="DependencyInjection">
     <h1 i18n>Dependency Injection / Comparison / Testing</h1>
-    <h2 i18n>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies as constructor
+    <h2 i18n>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies as
+      constructor
       parameters</h2>
     <slides-code-group class="content-container">
       <div class="col-6">
@@ -118,8 +121,10 @@
     <h2 i18n>Consume the Injectable in the component</h2>
     <slides-code-editor path="unit-conversion.component.ts" [code]="code.consumeInjectable.code"
                         [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></slides-code-editor>
-    <div class="info" i18n>Because of the <b>private</b> access modifier the service becomes accessible across the class as
-      <b>this.converter</b>.</div>
+    <div class="info" i18n>Because of the <b>private</b> access modifier the service becomes accessible across the class
+      as
+      <b>this.converter</b>.
+    </div>
   </slides-slide>
 
 

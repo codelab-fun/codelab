@@ -1,64 +1,63 @@
 .resize {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 100%;
-    padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  padding-right: 15px;
 }
 
 .spacer {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    padding: 0 8px;
-    cursor: col-resize;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 8px;
+  cursor: col-resize;
 }
 
 .handle {
-    height: 100%;
-    border-right: 1px dashed rgba(128, 128, 128, 0.5);
+  height: 100%;
+  border-right: 1px dashed rgba(128, 128, 128, 0.5);
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 200;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
 }
-
 
 /* VERTICAL RESIZE */
 
 .resize--vertical {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    bottom: 0;
-    overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  bottom: 0;
+  overflow-x: hidden;
 }
 
 .spacer--vertical {
-    top: 100%;
-    margin-top: -10px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    cursor: row-resize;
-    background-color: white;
+  top: 100%;
+  margin-top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  cursor: row-resize;
+  background-color: white;
 }
 
 .spacer--vertical .handle {
-    width: 100%;
-    height: 10px;
-    border: 0;
-    border-top: 1px dashed #888;
+  width: 100%;
+  height: 10px;
+  border: 0;
+  border-top: 1px dashed #888;
 }
 
 .spacer--collapsed {
-    display: none;
+  display: none;
 }

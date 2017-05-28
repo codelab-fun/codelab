@@ -11,9 +11,9 @@ import {
   ViewChild
 } from '@angular/core';
 import * as ts from 'typescript';
-import {FileConfig} from '../interfaces/file-config';
-import {LoopProtectionService} from '../services/loop-protection.service';
-import {ScriptLoaderService} from '../services/script-loader.service';
+import { FileConfig } from '../interfaces/file-config';
+import { LoopProtectionService } from '../services/loop-protection.service';
+import { ScriptLoaderService } from '../services/script-loader.service';
 declare const require;
 
 

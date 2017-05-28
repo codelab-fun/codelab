@@ -1,6 +1,6 @@
 <!--  FEEDBACK BUTTON-->
 <div (click)="buttonClicked()" class="feedback-container feedback-button menu-bar-btn"
-  title="Feedback">
+     title="Feedback">
   <span *ngIf="(messages$|async)?.length" class="messages-count">
     {{(messages$|async).length}}
   </span>

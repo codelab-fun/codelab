@@ -1,8 +1,8 @@
-import {ActivatedRoute, Router} from '@angular/router';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import {Injectable} from '@angular/core';
-import {Message} from './message';
-import {Observable} from 'rxjs/Rx';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Injectable } from '@angular/core';
+import { Message } from './message';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class FeedbackService {

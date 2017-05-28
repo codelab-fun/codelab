@@ -7,7 +7,7 @@
 }
 
 .points-container {
-  display:flex;
+  display: flex;
   height: 25px;
 }
 
@@ -18,7 +18,7 @@
 
 .slide-block {
   flex-grow: 1;
-  height:3px;
+  height: 3px;
   transition-duration: 0.5s;
   background: #ABB7B7;
 }
@@ -30,6 +30,7 @@
 .exercise-block {
   background: #D35400;
 }
+
 .exercise-block:hover {
   background: #F9690E;
 }

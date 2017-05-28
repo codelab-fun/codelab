@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Input, OnChanges, OnInit} from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnInit } from '@angular/core';
 @Component({
   selector: 'slides-resize', templateUrl: './resize.component.html', styleUrls: ['./resize.component.css']
 })

@@ -1,5 +1,5 @@
-import {Directive, HostListener} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { Directive, HostListener } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 interface Size {
   width: number;

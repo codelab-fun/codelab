@@ -13,7 +13,7 @@ export function differ(file, commits) {
   }, []).reduce((result, commit, index, arr) => {
     // tslint:disable-next-line:max-line-length TODO: Can this regex be shortened and this comment removed?
     result[commit] = file.replace(/\/\*[\r\n\s]*d:([a-z]+)(:[a-z]+)?(?:\/(trimBoth|trimLeading|trimTrailing))?[\r\n\s]*\*\/([\n\s]*)((?:.|\n|\r)*?)([\r\n\s]*)\/\*\/d\*\//gi,
-      function (match, from, to, trim: 'trimBoth'|'trimLeading'|'trimTrailing', spaceLeading, value, spaceTrailing) {
+      function (match, from, to, trim: 'trimBoth' | 'trimLeading' | 'trimTrailing', spaceLeading, value, spaceTrailing) {
         if (trim === 'trimBoth' || trim === 'trimLeading') {
           spaceLeading = '';
         }

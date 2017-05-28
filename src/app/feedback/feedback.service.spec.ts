@@ -11,12 +11,14 @@ import { RouterTestingModule } from '@angular/router/testing';
     <router-outlet></router-outlet>
   `
 })
-class RoutingComponent { }
+class RoutingComponent {
+}
 
 @Component({
   template: ''
 })
-class DummyComponent { }
+class DummyComponent {
+}
 
 const mockActivatedRoute = {
   url: new BehaviorSubject<string>('')
@@ -44,7 +46,7 @@ const mockMessages = [
 ];
 
 let mockMessageStream: any = new BehaviorSubject(mockMessages);
-mockMessageStream = Object.assign(mockMessageStream, { push: jasmine.createSpy('push') });
+mockMessageStream = Object.assign(mockMessageStream, {push: jasmine.createSpy('push')});
 
 const mockDb = {
   list: jasmine.createSpy('list').and.returnValue(mockMessageStream)
@@ -61,10 +63,10 @@ describe('FeedbackService', () => {
           provide: AngularFireDatabase,
           useValue: mockDb
         },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+        {provide: ActivatedRoute, useValue: mockActivatedRoute},
       ],
       imports: [RouterTestingModule.withRoutes([
-        { path: 'typescript/1', component: DummyComponent }, { path: 'typescript/2', component: DummyComponent }
+        {path: 'typescript/1', component: DummyComponent}, {path: 'typescript/2', component: DummyComponent}
       ])],
       declarations: [RoutingComponent, DummyComponent]
     });
