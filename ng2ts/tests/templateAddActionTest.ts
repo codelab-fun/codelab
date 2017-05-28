@@ -26,12 +26,14 @@ describe('Blabla', () => {
 
   it(`app.component.ts: Add a 'search' method on the component, that takes a 'searchString' parameter.`, () => {
     const fixture = TestBed.createComponent(AppComponent);
+    const paramName = fixture.componentInstance.search.toString();
     fixture.detectChanges();
     chai.expect(fixture.componentInstance.search, `Search should be a function`).is.a('function');
     chai.expect(fixture.componentInstance.search.length, `Search should take one parameter`).equals(1);
+    chai.expect(paramName.toString().slice(paramName.indexOf('(') + 1, paramName.indexOf(')'))).equals('searchString');
   });
 
-  it(`app.html: Add a click handler to the button, call 'search' method and pass the input value 
+  it(`app.html: Add a click handler to the button, call 'search' method and pass the input value
       (Actual search functionality will be implemented in the next exercise)`, () => {
       const fixture = TestBed.createComponent(AppComponent);
       fixture.detectChanges();
