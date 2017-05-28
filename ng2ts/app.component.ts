@@ -28,8 +28,10 @@ const FAKE_VIDEOS = [{
 export class AppComponent {
 /*/d*//*d:templatePageSetup/trimTrailing*/
   title = 'MewTube';
+
 /*/d*//*d:diInjectServiceSolved*/
   constructor(public videoService: VideoService) {
+    this.search('');
   }
 /*/d*//*d:templateAddActionSolved/trimTrailing*/
   videos: VideoItem[] = [];
@@ -40,7 +42,7 @@ export class AppComponent {
     /*/d*//*d:templateAllVideosSolved:diInjectService*/
     this.videos = FAKE_VIDEOS.filter(video => video.title.indexOf(searchString) >= 0);
   /*/d*//*d:templateAddActionSolved/trimBoth*/}
-  /*/d*//*d:templateAllVideosSolved/trimTrailing*/
+  /*/d*//*d:templateAllVideosSolved:templateAllVideosSolved/trimTrailing*/
 
   ngOnInit(){
     this.search('');
