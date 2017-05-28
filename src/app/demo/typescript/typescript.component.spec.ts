@@ -9,9 +9,9 @@ xdescribe('TypescriptComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypescriptComponent ]
+      declarations: [TypescriptComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

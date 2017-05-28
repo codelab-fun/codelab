@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {Mode} from '../mode.enum';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { Component } from '@angular/core';
+import { Mode } from '../mode.enum';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
   selector: 'slides-mode-overview',

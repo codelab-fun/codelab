@@ -1,4 +1,4 @@
-import {FileConfig} from '../interfaces/file-config';
+import { FileConfig } from '../interfaces/file-config';
 
 
 function exerciseWithDisplay(moduleName: string, code: any, code2: any) {

@@ -1,4 +1,4 @@
-import {differ} from './differ';
+import { differ } from './differ';
 
 describe('differ', () => {
   it('returns the text the way it is, if there are no special tags.', () => {

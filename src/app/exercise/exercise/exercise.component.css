@@ -10,6 +10,7 @@ slides {
   display: flex;
   height: 50%;
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -99,7 +100,6 @@ slides-runner {
 slides-tests {
   display: block;
 }
-
 
 .exercise-complete {
   background: #dfffde;

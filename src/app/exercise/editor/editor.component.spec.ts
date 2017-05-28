@@ -19,11 +19,14 @@ xdescribe('EditorComponent', () => {
               create: () => ({
                 getModel: () => ({
                   getValue: () => 'hi',
-                  onDidChangeContent: () => {},
+                  onDidChangeContent: () => {
+                  },
                 }),
-                layout: () => {}
+                layout: () => {
+                }
               }),
-              getModel: () => {}
+              getModel: () => {
+              }
             }
           }
         }

@@ -1,31 +1,31 @@
 a:not([href]) {
-    cursor: pointer;
-    text-decoration: underline;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none
+  cursor: pointer;
+  text-decoration: underline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none
 }
 
 a.active {
-    text-decoration: none;
-    color: #c04e22;;
+  text-decoration: none;
+  color: #c04e22;;
 }
 
 .folder,
 .file {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .folder img,
 .file img {
-    vertical-align: middle;
-    padding-right: 2px;
+  vertical-align: middle;
+  padding-right: 2px;
 }
 
 .file {
-    padding-right: 4px;
+  padding-right: 4px;
 }
 
 .folder {
-    padding: 0px 0px 2px 2px;
+  padding: 0px 0px 2px 2px;
 }

@@ -7,6 +7,7 @@
   background-color: #9c3232;
   overflow: auto;
 }
+
 .feedback-slide-background-triangle-top {
   position: fixed;
   /*z-index: 50;*/
@@ -19,6 +20,7 @@
   border-width: 0 55vw 32vw 0;
   border-color: transparent #982a2a transparent transparent;
 }
+
 .feedback-slide-background-triangle-bottom {
   position: fixed;
   top: calc(100vh - 22vw);
@@ -31,7 +33,7 @@
   border-color: transparent transparent transparent #982a2a;
 }
 
-.content{
+.content {
   z-index: 100;
   position: absolute;
 }
@@ -45,10 +47,12 @@
   position: fixed;
   margin-top: 31vh;
 }
+
 .feedback-slide-logo {
   height: 32vh;
   margin-left: 3%
 }
+
 .feedback-slide-title {
   margin-left: calc(5% + 29vh);
   z-index: 100;
@@ -90,6 +94,7 @@
     transform: scale(2); /*alt: try 0.5*/
   }
 }
+
 .fadeOutUp {
   width: 45px;
   height: calc(45px / 2);

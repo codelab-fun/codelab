@@ -1,34 +1,33 @@
 .feedback-button {
-    background-image: url("../../../assets/images/chat.png");
-    ;
-    background-color: #3498db;
-    border-radius: 100%;
-    text-align: right;
-    display: inline-block;
+  background-image: url("../../../assets/images/chat.png");;
+  background-color: #3498db;
+  border-radius: 100%;
+  text-align: right;
+  display: inline-block;
 }
 
 .feedback-button .messages-count {
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    text-align: center;
-    font-size: 13px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  text-align: center;
+  font-size: 13px;
 }
 
 .button-container {
-    width: 100%;
-    text-align: right;
+  width: 100%;
+  text-align: right;
 }
 
 button {
-    color: #fff;
-    background: #3e8e01;
-    border: none;
-    cursor: pointer;
+  color: #fff;
+  background: #3e8e01;
+  border: none;
+  cursor: pointer;
 }
 
 .messages-count {
-    background: #ff594b;
-    color: white;
-    border-radius: 50%;
+  background: #ff594b;
+  color: white;
+  border-radius: 50%;
 }

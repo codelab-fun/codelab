@@ -8,7 +8,8 @@ import { Mode } from '../mode.enum';
   selector: '[slides-mode-routing]'
 })
 export class ModeRoutingDirective {
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) {
+  }
 
   // Update url based on mode
   @HostListener('onModeChange', ['$event']) modeChange(mode: Mode) {
@@ -19,8 +20,8 @@ export class ModeRoutingDirective {
     }
 
     this.router.navigate([], {
-       relativeTo: this.route,
-       queryParams
+      relativeTo: this.route,
+      queryParams
     });
   }
 }

@@ -23,6 +23,7 @@ export class ArrowsComponent implements OnInit {
   canGoPrevious(): boolean {
     return this.presentation.canGoPrevious();
   }
+
   constructor(private presentation: PresentationComponent) {
 
   }

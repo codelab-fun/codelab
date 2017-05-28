@@ -8,9 +8,9 @@ xdescribe('ModeOverviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModeOverviewComponent ]
+      declarations: [ModeOverviewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

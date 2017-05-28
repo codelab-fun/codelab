@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {ResizeComponent} from './resize.component';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ResizeComponent } from './resize.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [CommonModule],

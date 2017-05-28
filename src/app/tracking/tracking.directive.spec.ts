@@ -1,4 +1,4 @@
-import {TrackingDirective} from './tracking.directive';
+import { TrackingDirective } from './tracking.directive';
 
 xdescribe('TrackingDirective', () => {
   it('should create an instance', () => {

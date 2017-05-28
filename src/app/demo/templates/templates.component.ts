@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {displayAngularComponent, displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
-import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
+import { Component, OnInit } from '@angular/core';
+import { displayAngularComponent, displayAngularComponentWithHtml } from '../../exercise/helpers/helpers';
+import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 
 const x = {
@@ -139,7 +139,7 @@ export class AppComponent {
 export class AppComponent {
   puppies = ['Vivaldi', 'Haydn', 'Bach'];
 }`),
-    matches: {
+      matches: {
         ngFor: '*ngFor'
       }
     },

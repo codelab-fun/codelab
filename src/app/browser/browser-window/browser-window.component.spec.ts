@@ -8,9 +8,9 @@ describe('BrowserWindowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BrowserWindowComponent ]
+      declarations: [BrowserWindowComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

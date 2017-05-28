@@ -8,9 +8,9 @@ describe('ClosingSlideComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClosingSlideComponent ]
+      declarations: [ClosingSlideComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
