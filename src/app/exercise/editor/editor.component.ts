@@ -13,17 +13,17 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {Subject} from 'rxjs/Subject';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Subscription} from 'rxjs/Subscription';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/publish';
-import {FileConfig} from '../interfaces/file-config';
-import {MonacoConfigService} from '../services/monaco-config.service';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {PresentationComponent} from '../../presentation/presentation/presentation.component';
+import { FileConfig } from '../interfaces/file-config';
+import { MonacoConfigService } from '../services/monaco-config.service';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 declare const monaco: any;
 declare const require: any;
 

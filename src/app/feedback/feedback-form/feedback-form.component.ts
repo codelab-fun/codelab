@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
-import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from '../message';
 import { Observable } from 'rxjs/Observable';
 
@@ -18,11 +18,10 @@ export class FeedbackFormComponent implements OnInit {
   statusMessage = '';
   error = false;
 
-  constructor(
-    private el: ViewContainerRef,
-    private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute,
-    private feedbackService: FeedbackService) {
+  constructor(private el: ViewContainerRef,
+              private fb: FormBuilder,
+              private activatedRoute: ActivatedRoute,
+              private feedbackService: FeedbackService) {
   }
 
   ngOnInit() {
@@ -44,9 +43,9 @@ export class FeedbackFormComponent implements OnInit {
         // Reset comment field
         this.formGroup.get('comment').reset();
       }).catch(() => {
-        this.statusMessage = 'Error while sending feedback';
-        this.error = true;
-      });
+      this.statusMessage = 'Error while sending feedback';
+      this.error = true;
+    });
   }
 
   private getHeaderText(): string {

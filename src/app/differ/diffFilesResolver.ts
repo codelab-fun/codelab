@@ -1,6 +1,6 @@
-import {FileConfig} from '../exercise/interfaces/file-config';
-import {differ} from './differ';
-import {evaled, justForReference, hidden, test} from './fileHelpers';
+import { FileConfig } from '../exercise/interfaces/file-config';
+import { differ } from './differ';
+import { evaled, hidden, justForReference, test } from './fileHelpers';
 
 interface Override {
   [key: string]: {

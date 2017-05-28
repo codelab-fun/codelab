@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { TestBed, inject } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 import { LoopProtectionService } from './loop-protection.service';
 
 describe('LoopProtectionService', () => {

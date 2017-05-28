@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {TooltipsDirective} from './tooltips.directive';
-import {FocusHighlightDirective} from './focus-highlight-match.directive';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TooltipsDirective } from './tooltips.directive';
+import { FocusHighlightDirective } from './focus-highlight-match.directive';
 
 
 @NgModule({

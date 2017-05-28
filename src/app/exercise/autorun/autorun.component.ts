@@ -1,5 +1,5 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'slides-autorun',

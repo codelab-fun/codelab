@@ -1,6 +1,6 @@
-import {inject, TestBed} from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import {AnalyticsService} from './analytics.service';
+import { AnalyticsService } from './analytics.service';
 
 // TODO(kirjs): Uncomment
 xdescribe('AnalyticsService', () => {

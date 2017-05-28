@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'slides-closing-slide',
@@ -11,7 +11,7 @@ export class ClosingSlideComponent implements OnInit {
   @Input() body: String;
   @Input() footer: String;
 
-  constructor( ) {
+  constructor() {
 
   }
 

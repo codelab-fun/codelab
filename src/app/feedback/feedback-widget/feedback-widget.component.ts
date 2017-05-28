@@ -14,10 +14,9 @@ export class FeedbackWidgetComponent implements OnInit {
   messages$: Observable<Message[]>;
   open: boolean;
 
-  constructor(
-    private feedbackService: FeedbackService,
-    private activatedRoute: ActivatedRoute
-  ) { }
+  constructor(private feedbackService: FeedbackService,
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.messages$ = this.feedbackService.getMessages(this.activatedRoute);
@@ -34,6 +33,7 @@ export class FeedbackWidgetComponent implements OnInit {
         element = element.parentNode;
       }
     }
+
     const belongsToPopup = event.srcElement && findMatchingDOMAncestor(event.srcElement);
     if (!belongsToPopup) {
       this.open = false;

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
+import { Component } from '@angular/core';
+import { Ng2TsExercises } from '../../../../ng2ts/ng2ts';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class DependencyInjectionComponent {
   }
 
 }`,
-        code2: `import {ProfessionsEnum} from './professions';
+      code2: `import {ProfessionsEnum} from './professions';
 
 export class Person {
   profession: Job;

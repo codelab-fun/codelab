@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
 
 @Component({
   selector: 'slides-editors',

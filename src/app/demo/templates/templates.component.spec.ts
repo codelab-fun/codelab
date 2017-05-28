@@ -9,9 +9,9 @@ xdescribe('TemplatesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TemplatesComponent ]
+      declarations: [TemplatesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

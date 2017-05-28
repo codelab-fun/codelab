@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {RunnerComponent} from './runner.component';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RunnerComponent } from './runner.component';
 
 xdescribe('RunnerComponent', () => {
   let component: RunnerComponent;

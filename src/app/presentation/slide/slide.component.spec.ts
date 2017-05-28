@@ -9,9 +9,9 @@ xdescribe('SlideComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SlideComponent ]
+      declarations: [SlideComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

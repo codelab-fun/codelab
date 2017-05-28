@@ -1,11 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  OnInit,
-  Output
-  } from '@angular/core';
+import { Directive, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
 
 @Directive({
@@ -38,7 +32,7 @@ export class SlidesRoutingDirective implements OnInit {
 
   @HostListener('onSlideChange', ['$event']) slideChange(index) {
     const url = this.ids[index] || index;
-    this.router.navigate(['../' + url], { relativeTo: this.route, queryParamsHandling: 'merge' });
+    this.router.navigate(['../' + url], {relativeTo: this.route, queryParamsHandling: 'merge'});
   }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
-import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
   selector: 'slides-progress-bar',
@@ -13,6 +13,7 @@ export class ProgressBarComponent implements AfterViewInit {
 
   constructor(public presentation: PresentationComponent) {
   }
+
   ngAfterViewInit() {
     this.slides = this.presentation.slides.toArray();
     this.presentation.onSlideChange.subscribe(() => {
@@ -24,6 +25,7 @@ export class ProgressBarComponent implements AfterViewInit {
       this.currentSlideId = this.presentation.activeSlideIndex;
     });
   }
+
   // TODO: Move the logic out of the progress bar.
   addProgressBarExplanation() {
     this.el.nativeElement.setAttribute('data-step', '5');
@@ -32,10 +34,12 @@ export class ProgressBarComponent implements AfterViewInit {
       'By the way...the progress bar can help you navigate through any section.'
     );
   }
+
   removeProgressBarExplanation() {
     this.el.nativeElement.removeAttribute('data-step');
     this.el.nativeElement.removeAttribute('data-intro');
   }
+
   goToSlide(index) {
     this.presentation.goToSlide(index);
   }

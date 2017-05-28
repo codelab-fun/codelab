@@ -1,5 +1,5 @@
-import {Component, HostListener, Inject} from '@angular/core';
-import {IndexPageRoute} from '../../demo/index/index.component';
+import { Component, HostListener, Inject } from '@angular/core';
+import { IndexPageRoute } from '../../demo/index/index.component';
 
 @Component({
   selector: 'slides-menu-shortcut',

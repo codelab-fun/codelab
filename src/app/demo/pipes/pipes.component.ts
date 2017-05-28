@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {displayAngularComponent} from '../../exercise/helpers/helpers';
+import { Component } from '@angular/core';
+import { displayAngularComponent } from '../../exercise/helpers/helpers';
 
 @Component({
   selector: 'slides-pipes',
@@ -19,7 +19,8 @@ export class PipesComponent {
 })
 export class AppComponent {
   dob = new Date(1904, 4, 11);
-}`)},
+}`)
+    },
     workingPipes: {
       template: displayAngularComponent(`import {Component} from '@angular/core';
 
@@ -75,6 +76,8 @@ export class SubstringPipe implements PipeTransform {
       type: 'typescript'
     }
   };
-  constructor() { }
+
+  constructor() {
+  }
 
 }

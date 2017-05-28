@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Location} from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'slides-slides-preview',

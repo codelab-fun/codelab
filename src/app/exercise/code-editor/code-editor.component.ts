@@ -1,9 +1,9 @@
-import {Component, ContentChild, Input, OnInit, Optional} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
-import {MonacoConfigService} from '../services/monaco-config.service';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {Subscription} from 'rxjs/Subscription';
-import {CodeGroupComponent} from '../code-group/code-group.component';
+import { Component, ContentChild, Input, OnInit, Optional } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
+import { MonacoConfigService } from '../services/monaco-config.service';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { Subscription } from 'rxjs/Subscription';
+import { CodeGroupComponent } from '../code-group/code-group.component';
 
 @Component({
   selector: 'slides-code-editor',

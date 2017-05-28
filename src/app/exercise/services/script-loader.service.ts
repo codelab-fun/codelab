@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
-import {assert} from './utils';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { assert } from './utils';
 declare var require;
 
 @Injectable()

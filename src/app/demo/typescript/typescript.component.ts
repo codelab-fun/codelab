@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {typeScriptWithConsoleLog, withDeps} from '../../exercise/helpers/helpers';
-import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
+import { Component } from '@angular/core';
+import { typeScriptWithConsoleLog, withDeps } from '../../exercise/helpers/helpers';
+import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 
 @Component({
