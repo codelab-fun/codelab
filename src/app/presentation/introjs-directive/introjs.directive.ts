@@ -1,11 +1,14 @@
 import { Directive, Input, OnInit, AfterViewInit, AfterContentInit, HostListener } from '@angular/core';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {introJs} from 'intro.js/intro.js';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { introJs } from 'intro.js/intro.js';
 
 @Directive({
-  selector: '[slidesIntrojsDirective]'
+  selector: '[slidesIntroJs]'
 })
 export class IntrojsDirective implements OnInit {
+
+  @Input() introJsBefore: Function;
+  @Input() introJsAfter: Function;
 
   constructor(public slide: SlideComponent) {
     // TODO: add check back in after google i/o
@@ -19,13 +22,29 @@ export class IntrojsDirective implements OnInit {
       // check if both tours ran TODO: unhardcode this check
       // if (active && localStorage.numTours <= 2) {
       if (active) {
-        setTimeout(() => introJs().start(), 1000);
+        setTimeout(() => {
+          if (this.introJsBefore) {
+            this.introJsBefore();
+          }
+
+          const tour = introJs();
+          tour.start();
+          tour.oncomplete(function () {
+            tour.addHints();
+          });
+        }, 1000);
+
         // localStorage.numTours = +localStorage.numTours + 1;
 
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");
         // }
+      } else {
+        if (this.introJsAfter) {
+          this.introJsAfter();
+        }
       }
+
     });
   }
 
