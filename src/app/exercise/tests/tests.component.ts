@@ -15,6 +15,7 @@ function getFileName(file: FileConfig) {
 export class TestsComponent {
   @Input() tests: Array<TestInfo>;
   @Input() files: Array<FileConfig>;
+  @Input() descriptions: string[];
   @Output()
   public onSelectFile: EventEmitter<FileConfig> = new EventEmitter<FileConfig>();
 
@@ -23,6 +24,11 @@ export class TestsComponent {
 
   trackTest(index, test: TestInfo) {
     return test.title;
+  }
+
+  getFilePath(test: TestInfo) {
+    const file = this.getTestFile(test);
+    return file ? file.path : null;
   }
 
   getTestFile(test: TestInfo): FileConfig {

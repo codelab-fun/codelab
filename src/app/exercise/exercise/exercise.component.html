@@ -18,6 +18,7 @@
   <div class="side">
     <div>
       <ng-content select=".description"></ng-content>
+      <ng-content select=".tests"></ng-content>
       <div *ngIf="solved">
         <!--TODO: Find a nicer workflow-->
         <div class="exercise-complete">
@@ -25,7 +26,9 @@
         </div>
       </div>
       <slides-tests data-step="4" data-intro="This is a list of the tests your program should pass at the end."
-                    [tests]="config.tests" [files]="config.files"
+                    [tests]="config.tests"
+                    [files]="config.files"
+                    [descriptions]="testDescriptions"
                     (onSelectFile)="onSelectFile($event)"></slides-tests>
     </div>
     <slides-runner

@@ -8,7 +8,7 @@ import {FileConfig} from '../interfaces/file-config';
 })
 export class TestDescriptionComponent {
   @Input() title: string;
-  @Input() file: FileConfig;
+  @Input() filePath: string;
   @Input() pass: boolean;
   @Output() onSelectFile = new EventEmitter<FileConfig>();
 
