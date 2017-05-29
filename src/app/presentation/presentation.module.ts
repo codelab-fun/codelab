@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import {FeedbackSlideComponent} from './feedback-slide/feedback-slide.component';
 import {AnalyticsService} from './analytics.service';
 import {IntrojsDirective} from './introjs-directive/introjs.directive';
+import { SlideIfDirective } from './slide-if/slide-if.directive';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {IntrojsDirective} from './introjs-directive/introjs.directive';
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective
+    IntrojsDirective,
+    SlideIfDirective
   ],
 
   exports: [
@@ -53,7 +55,8 @@ import {IntrojsDirective} from './introjs-directive/introjs.directive';
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective
+    IntrojsDirective,
+    SlideIfDirective
   ],
   imports: [
     CommonModule,

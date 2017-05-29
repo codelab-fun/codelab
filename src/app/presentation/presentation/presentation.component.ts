@@ -1,5 +1,6 @@
 import {Component, ContentChildren, EventEmitter, forwardRef, Input, OnInit, Output, QueryList} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {BehaviorSubject} from 'rxjs';
 import {Mode} from '../mode.enum';
 import {AnalyticsService} from '../analytics.service';
 import {SlideComponent} from '../slide/slide.component';
@@ -17,7 +18,7 @@ export class PresentationComponent implements OnInit {
     resize: false,
     hideControls: false
   };
-
+  public index: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
@@ -123,6 +124,7 @@ export class PresentationComponent implements OnInit {
   goToSlide(index) {
     this.activeSlideIndex = index;
     this.onSlideChange.next(index);
+    this.index.next(index);
     this.trackProgress();
   }
 

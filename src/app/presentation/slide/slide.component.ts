@@ -25,13 +25,14 @@ export class SlideComponent implements OnInit {
     this.onActive = this.activeSubject.distinctUntilChanged();
   }
 
-  get active() {
-    this.activeSubject.next(this.presentation.activeSlideIndex === this.slideId);
-    return this.presentation.activeSlideIndex === this.slideId || this.presentation.mode === Mode.overview;
+  get active(): boolean {
+    // this.activeSubject.next(this.presentation.activeSlideIndex === this.slideId);
+    // return this.presentation.activeSlideIndex === this.slideId || this.presentation.mode === Mode.overview;
+    return false;
   }
 
   ngOnInit() {
-    this.slideId = this.presentation.registerSlide(this.id, this.milestone);
+    // this.slideId = this.presentation.registerSlide(this.id, this.milestone);
   }
 
   disableResize() {

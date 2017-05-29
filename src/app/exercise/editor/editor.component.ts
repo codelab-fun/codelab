@@ -97,9 +97,9 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
         fontSize: this.fontSize
       });
 
-    this._editor.getModel().onDidChangeContent(() => {
-      this.updateValue(this._editor.getModel().getValue());
-    });
+    // this._editor.getModel().onDidChangeContent(() => {
+    //   this.updateValue(this._editor.getModel().getValue());
+    // });
 
 
     // Re-running the code on Ctrl + Enter

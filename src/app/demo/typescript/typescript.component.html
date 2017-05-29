@@ -11,7 +11,7 @@
   <slides-arrows></slides-arrows>
 
 
-  <slides-slide id="intro" no-padding milestone="TypeScript">
+  <slides-slide *slideIf="'intro'; milestone: 'TypeScript'" id="intro" no-padding milestone="TypeScript">
     <slides-title-slide
       title="TypeScript"
       description="Angular is written in TypeScript. Learn more about the language basics."
@@ -19,7 +19,7 @@
     ></slides-title-slide>
   </slides-slide>
 
-  <slides-slide id="about-typescript-2" milestone="TypeScript">
+  <slides-slide *slideIf="'about-typescript-2'; milestone: 'TypeScript'" id="about-typescript-2" milestone="TypeScript">
     <h1>TypeScript</h1>
     <div row>
       <div>
@@ -84,7 +84,7 @@
   </slides-slide>
 
   <!--  NUMBER-TYPE  -->
-  <slides-slide slidesIntrojsDirective id="type-mini-exercise" milestone="TypeScript">
+  <slides-slide slidesIntrojsDirective *slideIf="'type-mini-exercise'; milestone: 'TypeScript'" id="type-mini-exercise" milestone="TypeScript">
     <h1 data-step="1" data-intro="Welcome to the first coding exercise!">TypeScript / Type System</h1>
     <h2>2 + 2 = 4? Not always the case in JavaScript. Luckily TypeScript allows us to add types and detect the issue
       early</h2>
@@ -106,7 +106,7 @@
     </div>
   </slides-slide>
 
-  <slides-slide id="types-primitives" milestone="TypeScript">
+  <slides-slide *slideIf="'types-primitives'; milestone: 'TypeScript'" id="types-primitives" milestone="TypeScript">
     <h1>TypeScript / Types / Primitives (strings, numbers, etc...)</h1>
     <h2>Types are defined as <b>variableName: type</b></h2>
     <slides-code-editor path="types.ts" [fontSize]="25" [readonly]="false"
@@ -116,7 +116,7 @@
     </div>
   </slides-slide>
 
-  <slides-slide id="types-more" milestone="TypeScript">
+  <slides-slide *slideIf="'types-more'; milestone: 'TypeScript'" id="types-more" milestone="TypeScript">
     <h1>TypeScript / Types / Interfaces</h1>
     <h2>TypeScript allows to define more complex objects using interfaces:</h2>
     <slides-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"
@@ -124,14 +124,14 @@
     <div class="info">Here, <b>realPuppy</b> is an instance of the <b>Puppy</b> Interface.</div>
   </slides-slide>
 
-  <slides-slide id="types-arrays" milestone="TypeScript">
+  <slides-slide *slideIf="'types-arrays'; milestone: 'TypeScript'" id="types-arrays" milestone="TypeScript">
     <h1>TypeScript / Types / Arrays</h1>
     <h2>Arrays are defined as <b>Array&lt;Type&gt;</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
   <!--  CLASSES  -->
-  <slides-slide id="classes" milestone="TypeScript">
+  <slides-slide *slideIf="'classes'; milestone: 'TypeScript'" id="classes" milestone="TypeScript">
     <h1>TypeScript / Classes</h1>
     <h2>TypeScript has classes, and Angular uses them heavily</h2>
     <h2>They are similar to classes in other languages. Used to group methods and properties belonging to
@@ -139,7 +139,7 @@
     <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
-  <slides-slide id="classes-constructor" milestone="TypeScript">
+  <slides-slide *slideIf="'classes-constructor'; milestone: 'TypeScript'" id="classes-constructor" milestone="TypeScript">
     <h1>TypeScript / Classes / Constructor</h1>
     <h2>There's a special method on the class called <b>constructor</b>. It's run when the class is instantiated and allows
       the
@@ -148,7 +148,7 @@
                        [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="classes-access-modifier" milestone="TypeScript">
+  <slides-slide *slideIf="'classes-access-modifier'; milestone: 'TypeScript'" id="classes-access-modifier" milestone="TypeScript">
     <h1>TypeScript / Classes / Access Modifiers</h1>
     <h2>Constructor parameter marked as <b>public</b> (or private, or protected), becomes a class property
       accessible as <b>this.name</b> within the class</h2>
@@ -157,7 +157,7 @@
     <div class="info">private or protected properties are not visible outside of the class.</div>
   </slides-slide>
 
-  <slides-slide id="export" milestone="TypeScript">
+  <slides-slide *slideIf="'export'; milestone: 'TypeScript'" id="export" milestone="TypeScript">
     <h1>TypeScript / Export</h1>
     <h2>By the way, did you notice the <b>export</b> keyword before class? It is used to share information between
       files. Next slide will show how to export and use this class in a different file.</h2>
@@ -167,7 +167,7 @@
       [code]="code.classDescription.codeExport.files[0].code"></slides-code-editor>
   </slides-slide>
 
-  <slides-slide id="import" milestone="TypeScript">
+  <slides-slide *slideIf="'import'; milestone: 'TypeScript'" id="import" milestone="TypeScript">
     <h1>TypeScript / Import</h1>
     <h2>Now we can use the <b>Puppy</b> class in the other file.</h2>
     <slides-playground [config]="code.classDescription.codeImport" [browserUseConsole]="true"
@@ -177,7 +177,7 @@
     </div>
   </slides-slide>
 
-  <slides-slide id="more" milestone="TypeScript">
+  <slides-slide *slideIf="'more'; milestone: 'TypeScript'" id="more" milestone="TypeScript">
     <h1 i18n>TypeScript / More</h1>
     <h2 i18n>TypeScript supports lots of other cool features such as: </h2>
     <ul>
@@ -194,14 +194,14 @@
     </h2>
   </slides-slide>
 
-  <slides-slide id="filter" milestone="TypeScript">
+  <slides-slide *slideIf="'filter'; milestone: 'TypeScript'" id="filter" milestone="TypeScript">
     <h1>TypeScript / Filter (One last thing)</h1>
     <h2>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are provided
       from the returning callback.</h2>
     <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="exercise-info" milestone="TypeScript">
+  <slides-slide *slideIf="'exercise-info'; milestone: 'TypeScript'" id="exercise-info" milestone="TypeScript">
     <h1 i18n>TypeScript / Exercise</h1>
     <h2>In the next slide we have a TypeScript exercise</h2>
     <h3>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output only
@@ -216,7 +216,7 @@
     </slides-browser-window>
   </slides-slide>
 
-  <slides-slide id="exercise" no-padding>
+  <slides-slide *slideIf="'exercise'; milestone: 'TypeScript'" id="exercise" no-padding>
     <slides-exercise slidesIntrojsDirective [config]="exercises[0]" milestone="TypeScript">
       <div class="description">
         <p>We created all the files for you</p>
@@ -224,7 +224,7 @@
     </slides-exercise>
   </slides-slide>
 
-  <slides-slide id="end">
+  <slides-slide *slideIf="'end'; milestone: 'TypeScript'" id="end">
     <slides-closing-slide>
       <div header><h1 i18n>TypeScript / Milestone Completed</h1></div>
       <div body>
