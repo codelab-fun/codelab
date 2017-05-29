@@ -181,9 +181,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 }
 
-export function displayAngularComponent(componentCode: string) {
+export function displayAngularComponent(componentCode: string, testCode?: string) {
   // tslint:disable-next-line:max-line-length TODO: Clean up next line and remove this comment.
-  const moduleCode = 'import {BrowserModule} from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport {AppComponent} from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n';
+  const moduleCode = `import {BrowserModule} from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport {AppComponent} from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n`;
   const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app.module';
 import {ResourceLoader} from '@angular/compiler';
@@ -234,7 +234,8 @@ platform.bootstrapModule(AppModule, {
           h1 {font-size: 6vw;}
           h2 {font-size: 4vw;}
         `
-      }
+      },
+      ...(testCode ? [test('test', testCode)] : [])
     ]
   };
 }
