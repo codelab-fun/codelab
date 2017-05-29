@@ -1,20 +1,20 @@
 <div>/*d:templatePageSetupSolved*/
   <h1>{{title}}</h1>
   /*/d*//*d:templatePageSetupSolved:templateAddAction/trimLeading*/
-  <input type='text' placeholder='video'>
+  <input type="text" placeholder="video">
   <button>Search</button>
-  /*/d*//*d:templateAddActionSolved*/<input type='text' placeholder='video' #searchTerm>
-  <button (click)='search(searchTerm.value)'>Search!</button>
+  /*/d*//*d:templateAddActionSolved*/<input type="text" placeholder="video" #searchTerm>
+  <button (click)="search(searchTerm.value)">Search!</button>
   /*/d*//*d:templateAddActionSolved*/
-  <div *ngIf='videos.length == 0'>
+  <div *ngIf="videos.length == 0">
     No videos!
   </div>
   /*/d*//*d:templateAllVideosSolved:videoComponentUse*/
-  <div *ngFor='let video of videos'>
+  <div *ngFor="let video of videos">
     <h2>{{video.title}}</h2>
-    <img [src]='video.src'>
+    <img [src]="video.src">
   </div>
   /*/d*//*d:videoComponentUseSolved*/
-  <my-video *ngFor='let video of videos' [video]='video'></my-video>
+  <my-video *ngFor="let video of videos" [video]="video"></my-video>
   /*/d*/
 </div>
