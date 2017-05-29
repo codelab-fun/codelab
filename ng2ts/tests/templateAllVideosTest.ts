@@ -62,7 +62,7 @@ describe('Blabla', () => {
   //   //TODO
   // });
 
-  it(`#Bonus app.component.ts: Display all cats by default`, () => {
+  it(`#Bonus app.component.ts: Right now it takes pressing a search button to display the videos. Instead display all videos by default.`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');
