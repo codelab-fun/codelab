@@ -35,9 +35,10 @@ export class TestsComponent {
     return this.files.find(file => test.title.includes(getFileName(file)));
   }
 
-  getTitle(test: TestInfo) {
+  getTitle(test: TestInfo, i: number) {
+    const title = this.descriptions[i];
     const file = this.getTestFile(test);
-    return file ? test.title.replace(getFileName(file), '') : test.title;
+    return file ? title.replace(getFileName(file), '') : title;
   }
 
   isFirstUnsolved(test) {

@@ -1,5 +1,5 @@
-<div *ngFor="let test of tests; trackBy: trackTest" class="test-panel" title="{{test.result}}">
-  <slides-test-description [title]="getTitle(test)"
+<div *ngFor="let test of tests; let i = index; trackBy: trackTest" class="test-panel" title="{{test.result}}">
+  <slides-test-description [title]="getTitle(test, i)"
                         [filePath] = "getFilePath(test)"
                         [pass]="test.pass"
                         (onSelectFile)="onSelectFile.emit(getTestFile(test))"
