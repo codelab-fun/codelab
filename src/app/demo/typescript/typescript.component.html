@@ -226,8 +226,16 @@
 
   <slides-slide id="exercise" no-padding>
     <slides-exercise slidesIntrojsDirective [config]="exercises[0]" milestone="TypeScript">
+      <div class="tests">
+        <slides-translate-test-description i18n
+                                           description="Create a clss called 'Codelab'"></slides-translate-test-description>
+        <slides-translate-test-description i18n
+                                           description="Export the class"></slides-translate-test-description>
+        <slides-translate-test-description i18n
+                                           description="Add a constructor"></slides-translate-test-description>
+      </div>
       <div class="description">
-        <p i18n>We created all the files for you</p>
+        <!--<whatever-test-decription i18n-text text="We created all the files for you"></whatever-test-decription>-->
       </div>
     </slides-exercise>
   </slides-slide>

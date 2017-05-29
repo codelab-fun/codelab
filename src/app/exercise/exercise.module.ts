@@ -20,6 +20,7 @@ import {TooltipsModule} from '../tooltips/tooltips.module';
 import {FileStructureComponent} from './file-structure/file-structure.component';
 import {TestDescriptionComponent} from './test-description/test-description.component';
 import {CodeGroupComponent} from './code-group/code-group.component';
+import { TranslateTestDescriptionComponent } from './translate-test-description/translate-test-description.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {CodeGroupComponent} from './code-group/code-group.component';
     FileTreeComponent,
     FileStructureComponent,
     TestDescriptionComponent,
-    CodeGroupComponent
+    CodeGroupComponent,
+    TranslateTestDescriptionComponent
   ], imports: [
     ResizeModule,
     CommonModule,
@@ -50,6 +52,7 @@ import {CodeGroupComponent} from './code-group/code-group.component';
     SlidesPreviewComponent,
     RunnerComponent,
     CodeEditorComponent,
+    TranslateTestDescriptionComponent,
     CodeGroupComponent]
 })
 export class ExerciseModule {
