@@ -15,23 +15,24 @@
   flex-direction: column;
   background: #982a2a;
   color: white;
-  font-size: 120px;
-  padding: 40px;
+  font-size: 10vw;
+  padding: 2vw;
 }
 
 .contents {
-  padding: 40px;
+  padding: 2vw;
   display: flex;
   flex-direction: column;
   flex: 0.5;
 }
 
 .description {
-  font-size: 60px;
+  font-size: 5vw
 }
+
 .instructions {
   flex-grow: 1;
-  font-size: 40px;
+  font-size: 4vw;
   color: #666;
   margin-top: 20px;
 }

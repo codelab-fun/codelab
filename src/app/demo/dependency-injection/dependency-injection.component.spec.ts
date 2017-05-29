@@ -9,9 +9,9 @@ xdescribe('DependencyInjectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DependencyInjectionComponent ]
+      declarations: [DependencyInjectionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

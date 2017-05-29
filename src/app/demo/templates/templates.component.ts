@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {displayAngularComponent, displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
-import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
+import { Component, OnInit } from '@angular/core';
+import { displayAngularComponent, displayAngularComponentWithHtml } from '../../exercise/helpers/helpers';
+import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 
 const x = {
@@ -123,7 +123,20 @@ export class AppComponent {
         ngIf: '*ngIf'
       }
     },
-    ngForDirective: {
+    ngForDirectivePre: {
+      template: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: \`<h1>Puppies names:</h1>
+    ??? <!-- Need to repeat puppies here -->
+  \`
+})
+export class AppComponent {
+  puppies = ['Schumann', 'Mendelssohn', 'Bach'];
+}`),
+      matches: ['???', /puppies.*;/]
+    }, ngForDirective: {
       template: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
@@ -137,9 +150,19 @@ export class AppComponent {
   \`
 })
 export class AppComponent {
-  puppies = ['Rex', 'Apple', 'Vivaldi'];
-}`),
-    matches: {
+  puppies = ['Schumann', 'Mendelssohn', 'Bach'];
+}`, `
+import {AppComponent} from './app.component';
+
+describe('AppComponent', ()=>{
+  it('has 4 puppies', ()=>{
+    const app = new AppComponent();
+    chai.expect(app.puppies.length).equals(4);
+  })
+})
+
+`),
+      matches: {
         ngFor: '*ngFor'
       }
     },
@@ -184,9 +207,9 @@ export class AppComponent {
     bindingRef2Match: /userName.value/,
     bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
     bindingRefExerciseMatch: /#userinput/,
-    eventBinding: `<!-- When user clicks the button, call the "saveUser" function on the
-     component instance and pass the the underlying event. -->
-<button (click)="saveUser()">
+    eventBinding: `<!-- When user clicks the button, it calls the "saveUser" function on the
+     component instance and passes the underlying event. -->
+<button (click)="saveUser($event)">
 
 <!-- You can also create events for custom components. Here we have a
      depleted event, and it's going to call the "soundAlarm" function
@@ -198,7 +221,7 @@ export class AppComponent {
      and enter (this is an Angular feature). -->
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
-    eventBindingMatch: /(click)/,
+    eventBindingMatch: /\(click\)/,
     eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
     conditionalDisplay: `<!-- ngIf conditionally toggles the visibility of a section of the UI. -->
 <section *ngIf="showSection">Howdy!</section>

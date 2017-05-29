@@ -1,5 +1,5 @@
-import {FileConfig} from './file-config';
-import {TestInfo} from './test-info';
+import { FileConfig } from './file-config';
+import { TestInfo } from './test-info';
 
 export interface ExerciseConfig {
   name: string;

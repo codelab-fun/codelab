@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {typeScriptWithConsoleLog, withDeps} from '../../exercise/helpers/helpers';
-import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
+import { Component } from '@angular/core';
+import { typeScriptWithConsoleLog, withDeps } from '../../exercise/helpers/helpers';
+import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 
 @Component({
@@ -20,7 +20,7 @@ console.log(numbers.filter(function(number){
 // Or use shorthand function notation.
 // (Also called arrow function)
 console.log(
-  numbers.filter(number=>number > 30)
+  numbers.filter(number => number > 30)
 );`),
     moreTypes: {
       codeInterfaces: `interface Puppy {

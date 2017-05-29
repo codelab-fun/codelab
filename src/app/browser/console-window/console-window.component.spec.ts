@@ -8,9 +8,9 @@ describe('ConsoleWindowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConsoleWindowComponent ]
+      declarations: [ConsoleWindowComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

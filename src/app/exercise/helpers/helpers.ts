@@ -1,4 +1,4 @@
-import {FileConfig} from '../interfaces/file-config';
+import { FileConfig } from '../interfaces/file-config';
 
 
 function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
@@ -40,9 +40,10 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
        }
     }
 
+    /* TODO: Get rid of the CSS hack */
     wrap(console, 'log', (v)=>{
-      value.value = v;
-      document.write('<h3>&gt; ' + JSON.stringify(v) + '<h3><hr>')
+      value.value = v;     
+      document.write('<h3 style="font-family: roboto, sans-serif;font-size: 2vw; font-weight: 300">&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `
   };
@@ -180,9 +181,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 }
 
-export function displayAngularComponent(componentCode: string) {
+export function displayAngularComponent(componentCode: string, testCode?: string) {
   // tslint:disable-next-line:max-line-length TODO: Clean up next line and remove this comment.
-  const moduleCode = 'import {BrowserModule} from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport {AppComponent} from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n';
+  const moduleCode = `import {BrowserModule} from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport {AppComponent} from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n`;
   const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app.module';
 import {ResourceLoader} from '@angular/compiler';
@@ -221,7 +222,7 @@ platform.bootstrapModule(AppModule, {
         code: `
           body, html {
             margin: 0;
-            padding: 0;
+            padding: 2vw;
             font-family: sans-serif;
           }
 
@@ -230,10 +231,11 @@ platform.bootstrapModule(AppModule, {
             padding: 0;
           }
 
-          h1 {font-size: 20px;}
-          h2 {font-size: 16px;}
+          h1 {font-size: 6vw;}
+          h2 {font-size: 4vw;}
         `
-      }
+      },
+      ...(testCode ? [test('test', testCode)] : [])
     ]
   };
 }
@@ -252,7 +254,12 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
   const files = [
     exerciseWithConsoleLog('app', code, code),
     bootstrap('main', bootstrapCode, bootstrapCode),
-    test('test', testCode)
+    test('test', testCode),
+    {
+      path: 'main.css',
+      type: 'css',
+      code: `body {background: red}`
+    }
   ];
   if (otherCode !== '') {
     files.push(exercise('puppy', otherCode, otherCode));

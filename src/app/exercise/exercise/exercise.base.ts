@@ -1,10 +1,10 @@
-import {Input, OnDestroy} from '@angular/core';
-import {ExerciseConfig} from '../interfaces/exercise-config';
-import {MonacoConfigService} from 'app/exercise/services/monaco-config.service';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {Subscription} from 'rxjs/Subscription';
-import {AnalyticsService} from '../../presentation/analytics.service';
-import {ActivatedRoute} from '@angular/router';
+import { Input, OnDestroy } from '@angular/core';
+import { ExerciseConfig } from '../interfaces/exercise-config';
+import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { Subscription } from 'rxjs/Subscription';
+import { AnalyticsService } from '../../presentation/analytics.service';
+import { ActivatedRoute } from '@angular/router';
 
 export class ExerciseBase implements OnDestroy {
   @Input() public config: ExerciseConfig;

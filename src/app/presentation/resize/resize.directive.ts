@@ -1,5 +1,5 @@
-import {Directive, HostListener} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { Directive, HostListener } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 interface Size {
   width: number;
@@ -22,17 +22,7 @@ export class ResizeDirective {
 
   @HostListener('window:resize')
   resize() {
-    // TODO(kirjs): Is there a way to make this component more generic?
-    // Resize any component?
-    // Rely on something better than global window size?
-    const windowSize = {
-      width: document.documentElement.clientWidth,
-      height: document.documentElement.clientHeight
-    };
-
-    if (this.presentation.config.resize) {
-      this.presentation.zoom = ResizeDirective.getZoomFactor(this.presentation, windowSize);
-    }
+    // TODO: Maybe get this back
   }
 
 }

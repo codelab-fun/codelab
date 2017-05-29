@@ -1,5 +1,5 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {EditorsComponent} from './editors.component';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { EditorsComponent } from './editors.component';
 
 // TODO: Fix this test suite.
 xdescribe('EditorsComponent', () => {

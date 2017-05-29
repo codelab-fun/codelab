@@ -1,6 +1,6 @@
-import { Component, HostListener, Output, EventEmitter, DebugElement } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,8 @@ import { Mode } from './../mode.enum';
   selector: 'slides-test-component',
   template: '<div slides-mode-routing></div>'
 })
-class TestComponent {}
+class TestComponent {
+}
 
 describe('ModeRoutingDirective', () => {
   let fixture: ComponentFixture<TestComponent>;

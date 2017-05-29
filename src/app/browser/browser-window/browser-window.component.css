@@ -6,18 +6,16 @@
   background-color: #fff;
 }
 
+.img-full img {
+  height: 2vw;
+}
+
 .img-full {
-    width: 100%;
-    height: 75px;
-    background-image: url(/assets/images/browsertop-middle.png);
-    background-repeat: repeat;
+  width: 100%;
+  height: 2vw;
+  background-image: url(/assets/images/browsertop-middle.png);
+  background-repeat: repeat;
+  background-size: 2vw 2vw;
+  display: flex;
+  justify-content: space-between;
 }
-
-.img-left {
-    float:left;
-}
-
-.img-right {
-    float:right;
-}
-

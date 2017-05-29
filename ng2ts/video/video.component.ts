@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {VideoItem} from './video-item';
+import { Component, Input } from '@angular/core';
+import { VideoItem } from './video-item';
 /*d:thumbsComponentUse*/
-import {Thumbs} from '../thumbs/thumbs.component';
+import { Thumbs } from '../thumbs/thumbs.component';
 /*/d*//*d:videoComponentCreateSolved/trimTrailing*/
 @Component({
   selector: 'my-video',

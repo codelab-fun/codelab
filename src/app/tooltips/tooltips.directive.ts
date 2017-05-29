@@ -1,6 +1,6 @@
-import {Directive, ElementRef, Input, AfterViewInit} from '@angular/core';
-import {EditorComponent} from '../exercise/editor/editor.component';
-import {findPosition} from './utils';
+import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import { EditorComponent } from '../exercise/editor/editor.component';
+import { findPosition } from './utils';
 import 'rxjs/add/operator/filter';
 
 /*
@@ -43,7 +43,7 @@ export class TooltipsDirective implements AfterViewInit {
         };
       });
 
-      this.editorComponent._editor.deltaDecorations([], decorations);
+      this.editorComponent.editor.deltaDecorations([], decorations);
 
       setTimeout(() => {
         this.tooltips.forEach((item, i) => {

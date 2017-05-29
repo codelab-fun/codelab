@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {MonacoConfigService} from 'app/exercise/services/monaco-config.service';
-import {CodeEditorComponent} from '../code-editor/code-editor.component';
+import { Component } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
+import { CodeEditorComponent } from '../code-editor/code-editor.component';
 
 /**
  * this is meant to wrap multiple instances of CodeEditor components, and aggregate files to pass to monaco.

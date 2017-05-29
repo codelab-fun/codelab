@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'slides-console-window',
@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ConsoleWindowComponent implements OnInit {
   @Input() height = '';
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
