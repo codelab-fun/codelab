@@ -176,10 +176,6 @@
       Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case) for every single puppy in the puppies
       array
     </h2>
-    <div data-step="2" data-intro="These are the exercise instructions." class="exercise"
-         [class.solved]="forExercise.solved" i18n>
-      Exercise: Add one more puppy to the list
-    </div>
     <slides-playground #forExercise [config]="code.ngForDirective.template"
                        [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
     <div class="info" i18n>HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work, <b>*ngFor</b>
