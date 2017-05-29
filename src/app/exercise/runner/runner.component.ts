@@ -155,6 +155,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               execute: function () {
                 exports('ts', ts);
                 files.forEach((file) => {
+                  console.log(file.path.replace(/[\/\.-]/gi, '_'));
                   exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);
                   exports(file.path.replace(/[\/\.-]/gi, '_') + '_AST', ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5));
                 });

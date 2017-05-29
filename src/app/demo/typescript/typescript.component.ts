@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { typeScriptWithConsoleLog, withDeps } from '../../exercise/helpers/helpers';
+import { javaScriptWithConsoleLog, typeScriptWithConsoleLog, withDeps } from '../../exercise/helpers/helpers';
 import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
-
+declare const require;
 
 @Component({
   selector: 'slides-typescript',
@@ -150,20 +150,18 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
       }
     },
     tsExercise: typeScriptWithConsoleLog(
-      `function add(a: number, b: number){
+      `function add(a: number, b){
   return a+b;
 };
 
-console.log(add('2', 2));`, undefined,
-      `
-    import {value} from './app';
+console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise-test.ts`)),
 
-    describe('value', ()=>{
-      it('equals 5', ()=>{
-        chai.expect(value.value).equals(4);
-      })
-    })
-    `),
+    js2And2: javaScriptWithConsoleLog(
+      `function add(a, b){
+  return a+b;
+};
+
+console.log(add(2, '2'));`),
     tsExerciseMatch: /'.*'/
   };
   exercises = [
