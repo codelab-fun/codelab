@@ -1,7 +1,7 @@
 /**
  * In the test it's possible to get access to sourcecode, as well as to the code AST.
  */
-import {ts, typescript_intro_Codelab_ts_AST} from '../code';
+import { ts, typescript_intro_Codelab_ts_AST } from '../code';
 /**
  * This is a good sample sample of a codelab exercise.
  *
@@ -18,7 +18,7 @@ import {ts, typescript_intro_Codelab_ts_AST} from '../code';
  * It will be stripped during runtime, and the Codelab module
  * will be loaded.
  */
-import {Codelab, evalJs} from '../typescript-intro/Codelab';
+import { Codelab, evalJs } from '../typescript-intro/Codelab';
 
 
 const guests = [
@@ -122,9 +122,11 @@ describe('Component', () => {
     chai.expect(typeof (new Codelab(guests).getGuestsComing)).equals('function');
   });
 
-  it(`Modify getGuestsComing to filter the guests array and only return guests with the 'coming' 
+  it(`Modify getGuestsComing to filter the guests array return an array of guests with the 'coming' 
       property set to true.`, () => {
-    chai.expect(new Codelab(guests).getGuestsComing().length).equals(1);
+    const guestsComing = new Codelab(guests).getGuestsComing();
+    chai.assert(Array.isArray(guestsComing), 'getGuestsComing must return an Array, current value: ' + guestsComing);
+    chai.expect(guestsComing.length).equals(1);
   });
 
   /*
