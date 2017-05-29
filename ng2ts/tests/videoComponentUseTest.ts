@@ -6,12 +6,13 @@ import { TestBed } from '@angular/core/testing';
 import { VideoComponent } from '../video/video.component';
 import { VideoService } from '../video/video.service';
 import 'initTestBed';
+import { Component, Input } from '@angular/core';
 
-beforeEach(() => {
+function prepareTestingModule(videoComponent: any = VideoComponent) {
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({
     providers: [VideoService],
-    declarations: [AppComponent, VideoComponent]
+    declarations: [AppComponent, videoComponent]
   });
   TestBed.overrideComponent(AppComponent, {
     set: {
@@ -19,17 +20,18 @@ beforeEach(() => {
       templateUrl: undefined
     }
   });
-  TestBed.overrideComponent(VideoComponent, {
+  TestBed.overrideComponent(videoComponent, {
     set: {
       template: video_video_component_html,
       templateUrl: undefined
     }
   });
   TestBed.compileComponents();
-});
+}
 
 describe('Component Tree', () => {
   it(`app.module.ts: Add the VideoComponent to the AppModule 'declarations'.`, () => {
+    prepareTestingModule();
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
@@ -40,20 +42,34 @@ describe('Component Tree', () => {
     chai.expect(metadata[0].declarations, `Keep the app component`).contains(AppComponent);
   });
 
-  it(`app.html: Use video component in the template (get rid of the old title/thumbnail)`, () => {
+  it(`app.html: Replace existing title and thumbnail with our shiny new my-video component`, () => {
+    @Component({
+      selector: '' + 'my-video',
+      template: 'v'
+    })
+    class MockVideoComponent {
+      @Input() video = {
+        title: 'Kittens coming soon!!!'
+      };
+    }
+
+    prepareTestingModule(MockVideoComponent);
+
     const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.videos = Api.fetch('');
     // TODO: if the element is added, but the video prop is not present, this test will fail with
     // a useless message. Passing video prop should actually be tested in the next test, and this
     // one should pass.
+
     fixture.detectChanges();
 
     const myVideos = fixture.nativeElement.querySelectorAll('my-video');
     chai.expect(myVideos.length, `can't find any <my-video> elements in the app component`).is.greaterThan(0);
-    chai.expect(myVideos.length, `There should be one my-video element for each element`).equals(fixture.componentInstance.videos.length);
+    chai.expect(myVideos.length, `There should be one <my-video> element for each video`).equals(fixture.componentInstance.videos.length);
   });
 
   it(`app.html: Use the data binding to pass the video object to the component (don't forget the square brackets)`, () => {
+    prepareTestingModule();
     const fixture = TestBed.createComponent(AppComponent);
 
     fixture.componentInstance.videos = Api.fetch('');
