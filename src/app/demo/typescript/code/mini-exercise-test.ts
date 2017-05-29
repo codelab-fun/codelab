@@ -1,6 +1,8 @@
 import { value } from './app';
 import { app_ts_AST, ts } from './code';
 
+declare const it, describe;
+
 
 function getFunctionNode(code) {
   let functionNode = undefined;
