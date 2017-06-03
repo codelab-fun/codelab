@@ -4,5 +4,8 @@
        *ngFor="let file of node.files">
     <img src="{{getIcon(file)}}"/><a [class.active]="isActive(file)"
                                      (click)="clickFile(file)">{{getFile(file)}}</a>
+    <span class="readonlyIcon">
+      <img *ngIf="file.readonly==true" src="/assets/images/lock.png" style="width: 12px;" />
+    </span>
   </div>
 </div>
