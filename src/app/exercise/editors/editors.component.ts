@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 
 @Component({
@@ -6,7 +6,7 @@ import { FileConfig } from '../interfaces/file-config';
   templateUrl: './editors.component.html',
   styleUrls: ['./editors.component.scss']
 })
-export class EditorsComponent {
+export class EditorsComponent implements OnInit {
   @Input() public files: Array<any>;
   @Input() public currentFile;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
@@ -34,8 +34,8 @@ export class EditorsComponent {
         this.visibleFiles
           .concat()
           .reverse()
-          .find( file => !file.collapsed)
-      )
+          .find( f => !f.collapsed)
+      );
     }
   }
 
