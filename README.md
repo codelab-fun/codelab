@@ -11,7 +11,7 @@ There are 2 folders in the `src/app` folder:
 
 
 ## How to: 
-- clone: `git clone https://github.com/kirjs/angular-presentation.git`
+- clone: `git clone https://github.com/AngularNYC/angular-presentation.git`
 - [Install npm](https://nodejs.org/en/download/). Test with `npm -v`
 - install: `npm install`
 - start: `npm start`
