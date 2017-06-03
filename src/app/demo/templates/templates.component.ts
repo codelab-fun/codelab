@@ -155,7 +155,7 @@ export class AppComponent {
 import {AppComponent} from './app.component';
 
 describe('AppComponent', ()=>{
-  it('has 4 puppies', ()=>{
+  it('Add one more puppy to the list', ()=>{
     const app = new AppComponent();
     chai.expect(app.puppies.length).equals(4);
   })
