@@ -20,6 +20,29 @@ export class EditorsComponent {
     this.debug = true;
   }
 
+  ngOnInit() {
+    this.files.map( file => {
+      file.collapsed = !!file.readonly;
+    });
+  }
+
+  closeTab(file) {
+    file.collapsed = true;
+
+    if (file === this.currentFile) {
+      this.showFile(
+        this.visibleFiles
+          .concat()
+          .reverse()
+          .find( file => !file.collapsed)
+      )
+    }
+  }
+
+  isTabVisible(file) {
+    return file.collapsed !== false;
+  }
+
   onCodeChange(change) {
     this.onChanges.emit(change);
   }
@@ -37,10 +60,8 @@ export class EditorsComponent {
   }
 
   isOpenFile(file) {
-    if (!file || !this.currentFile) {
-      return;
-    }
-    return file.path === this.currentFile.path;
+    if (!file) { return; }
+    return file === this.currentFile;
   }
 
   showFile(file): void {

@@ -46,6 +46,16 @@
   }
 }
 
+.tab-title {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.hiddenContent {
+  display: none;
+}
+
 .content {
   position: relative;
 }
