@@ -1,6 +1,8 @@
-import { Directive, OnInit } from '@angular/core';
+import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
 import { SlideComponent } from '../../presentation/slide/slide.component';
 import { introJs } from 'intro.js/intro.js';
+
+declare const require;
 
 @Directive({
   selector: '[slidesIntroJs]'
@@ -18,6 +20,9 @@ export class IntrojsDirective implements OnInit, OnDestroy {
     // if (!localStorage.numTours) {
     //   localStorage.numTours = 0;
     // }
+
+    require('style-loader!../node_modules/intro.js/minified/introjs.min.css');
+    require('style-loader!../node_modules/intro.js/themes/introjs-nassim.css');
   }
 
   ngOnInit() {
