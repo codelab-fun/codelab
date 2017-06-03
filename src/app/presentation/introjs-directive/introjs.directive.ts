@@ -1,11 +1,14 @@
-import {Directive, Input, OnInit, AfterViewInit, AfterContentInit, HostListener} from '@angular/core';
+import {Directive, Input, OnInit, AfterViewInit, AfterContentInit, HostListener, OnDestroy} from '@angular/core';
 import {SlideComponent} from '../../presentation/slide/slide.component';
 import {introJs} from 'intro.js/intro.js';
 
 @Directive({
   selector: '[slidesIntroJs]'
 })
-export class IntrojsDirective implements OnInit {
+export class IntrojsDirective implements OnInit, OnDestroy {
+  ngOnDestroy(): void {
+    throw new Error("Method not implemented.");
+  }
 
   @Input() introJsBefore: Function;
   @Input() introJsAfter: Function;
@@ -29,7 +32,8 @@ export class IntrojsDirective implements OnInit {
 
           const tour = introJs();
           tour.start();
-          tour.oncomplete(function () {
+          tour.oncomplete(() => {
+            this.introJsAfter();
             tour.addHints();
           });
         }, 1000);
@@ -39,10 +43,6 @@ export class IntrojsDirective implements OnInit {
         // @HostListener('keydown') handleKeyboardEvent(eventData: Event) {
         //   alert("eventData");
         // }
-      } else {
-        if (this.introJsAfter) {
-          this.introJsAfter();
-        }
       }
 
     });
