@@ -8,9 +8,9 @@ describe('RippleAnimationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RippleAnimationComponent ]
+      declarations: [RippleAnimationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

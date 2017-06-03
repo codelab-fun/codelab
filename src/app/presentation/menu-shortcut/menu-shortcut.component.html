@@ -1,13 +1,13 @@
 <div *ngIf="open" class="menu-index">
 
-    <ul class="menu-list">
-      <li class="menu-item">
-        <p><a href="/">Index</a></p>
-      </li>
-      <li class="menu-item" *ngFor="let route of routes">
-        <p><a [href]="route.path">{{route.name}}</a></p>
-      </li>
-    </ul>
+  <ul class="menu-list">
+    <li class="menu-item">
+      <p><a href="/">Index</a></p>
+    </li>
+    <li class="menu-item" *ngFor="let route of routes">
+      <p><a [href]="route.path">{{route.name}}</a></p>
+    </li>
+  </ul>
 
   <div class="tri-box"></div>
 </div>

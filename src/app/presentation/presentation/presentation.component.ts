@@ -1,8 +1,8 @@
-import {Component, ContentChildren, EventEmitter, forwardRef, Input, OnInit, Output, QueryList} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Mode} from '../mode.enum';
-import {AnalyticsService} from '../analytics.service';
-import {SlideComponent} from '../slide/slide.component';
+import { Component, ContentChildren, EventEmitter, forwardRef, Input, OnInit, Output, QueryList } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Mode } from '../mode.enum';
+import { AnalyticsService } from '../analytics.service';
+import { SlideComponent } from '../slide/slide.component';
 declare const ga;
 
 @Component({

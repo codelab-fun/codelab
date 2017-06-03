@@ -14,6 +14,7 @@
     "forin": true,
     "import-blacklist": [true, "rxjs"],
     "import-spacing": true,
+    "import-destructuring-spacing": true,
     "indent": [
       true,
       "spaces"

@@ -11,9 +11,9 @@ describe('TitleSlideComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RippleAnimationComponent, TitleSlideComponent ]
+      declarations: [RippleAnimationComponent, TitleSlideComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

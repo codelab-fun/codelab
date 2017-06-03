@@ -1,6 +1,7 @@
 h2 {
   font-weight: 800;
 }
+
 pre {
   font-size: 24px;
 }
@@ -11,10 +12,11 @@ pre {
   border: 1px solid #000;
   margin-left: 300px;
   margin-top: 10px;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(181,172,181,1);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(181,172,181,1);
-  box-shadow: 10px 10px 5px 0px rgba(181,172,181,1);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(181, 172, 181, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(181, 172, 181, 1);
+  box-shadow: 10px 10px 5px 0px rgba(181, 172, 181, 1);
 }
+
 .html-elements {
   font-size: 28px;
   margin-top: 20px;

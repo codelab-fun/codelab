@@ -33,6 +33,7 @@ slides-editor {
 :host /deep/ .decorationsOverviewRuler {
   display: none;
 }
+
 :host /deep/ .current-line {
   border: none;
   background-color: #ffffee;

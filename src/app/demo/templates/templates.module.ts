@@ -1,19 +1,19 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import {RouterModule} from '@angular/router';
-import {SlidesRoutes} from '../../presentation/slide-routes';
-import {TemplatesComponent} from './templates.component';
-import {ExerciseModule} from '../../exercise/exercise.module';
-import {PresentationModule} from '../../presentation/presentation.module';
-import {FeedbackModule} from '../../feedback/feedback.module';
-import {BrowserModule} from '../../browser/browser.module';
+import { RouterModule } from '@angular/router';
+import { SlidesRoutes } from '../../presentation/slide-routes';
+import { TemplatesComponent } from './templates.component';
+import { ExerciseModule } from '../../exercise/exercise.module';
+import { PresentationModule } from '../../presentation/presentation.module';
+import { FeedbackModule } from '../../feedback/feedback.module';
+import { BrowserModule } from '../../browser/browser.module';
 
 const routes = RouterModule.forChild(
   [{
-      path: '',
-      redirectTo: '/templates/intro',
-      pathMatch: 'full'
-    }, ...SlidesRoutes.get(TemplatesComponent)]
+    path: '',
+    redirectTo: '/templates/intro',
+    pathMatch: 'full'
+  }, ...SlidesRoutes.get(TemplatesComponent)]
 );
 
 @NgModule({

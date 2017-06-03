@@ -10,9 +10,9 @@ xdescribe('FileStructureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FileStructureComponent ]
+      declarations: [FileStructureComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -26,26 +26,23 @@ const FAKE_VIDEOS = [{
   /*/d*//*d:createComponentSolved/trimTrailing*/
 })
 export class AppComponent {
+  /*/d*//*d:templateAddActionSolved/trimTrailing*/
+  videos: VideoItem[] = /*/d*//*d:templateAddActionSolved:templateAllVideos/trimTrailing*/ [] /*/d*//*d:neverShow*/ &&
+    /*/d*//*d:templateAllVideosSolved:templateAllVideosSolved/trimTrailing*/ FAKE_VIDEOS /*/d*//*d:neverShow*/ &&
+    /*/d*//*d:diInjectService/trimTrailing*/ [] /*/d*//*d:templateAddActionSolved*/;
 /*/d*//*d:templatePageSetup/trimTrailing*/
   title = 'MewTube';
 /*/d*//*d:diInjectServiceSolved*/
   constructor(public videoService: VideoService) {
   }
 /*/d*//*d:templateAddActionSolved/trimTrailing*/
-  videos: VideoItem[] = [];
-
   search(searchString: string) {
     /*/d*//*d:diInjectServiceSolved*/
     this.videos = this.videoService.search(searchString);
     /*/d*//*d:templateAllVideosSolved:diInjectService*/
     this.videos = FAKE_VIDEOS.filter(video => video.title.indexOf(searchString) >= 0);
   /*/d*//*d:templateAddActionSolved/trimBoth*/}
-  /*/d*//*d:templateAllVideosSolved/trimTrailing*/
-
-  ngOnInit(){
-    this.search('');
-  }
-/*/d*//*d:createComponentSolved/trimTrailing*/
+  /*/d*//*d:createComponentSolved/trimTrailing*/
 }
 /*/d*//*d:neverShow*/
 // Please ignore

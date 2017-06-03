@@ -53,7 +53,8 @@
 
   <slides-slide id="exercise-pre" milestone="Templates">
     <h1 i18n>Templates / Exercise</h1>
-    <h2 i18n>In the next slide you'll edit component template to create a simple header and search form. The result will look like
+    <h2 i18n>In the next slide you'll edit component template to create a simple header and search form. The result will
+      look like
       this:</h2>
 
     <slides-browser-window>
@@ -75,7 +76,8 @@
   <!--  PRE DATA BINDING-->
   <slides-slide id="data-binding-pre" milestone="Templates2">
     <h1 i18n>Templates / Interpolation / Properties</h1>
-    <h2 i18n>String interpolation <b>{{ curlies }}</b> can also be used to pass avalue to a child element's attribute</h2>
+    <h2 i18n>String interpolation <b>{{ curlies }}</b> can also be used to pass avalue to a child element's attribute
+    </h2>
     <slides-playground [config]="code.template.dataBindingPre"
                        [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
   </slides-slide>
@@ -149,7 +151,8 @@
 
   <slides-slide id="exercise-2-pre" milestone="Templates2">
     <h1 i18n>Templates / Exercise 2</h1>
-    <h2 i18n>In the next slide you'll add a click handler to the search button, and display a message for the case where no
+    <h2 i18n>In the next slide you'll add a click handler to the search button, and display a message for the case where
+      no
       videos were found. The result will look like this:</h2>
 
     <slides-browser-window>
@@ -168,15 +171,32 @@
     </slides-exercise>
   </slides-slide>
 
-  <!--  CONDITIONAL NGFOR-->
+
+  <slides-slide id="repeating" milestone="Templates3">
+    <h1 i18n>Templates / Repeating elements</h1>
+    <h2 i18n>
+      Let's say you have an array of puppies, and want to display all of them on them page. Angular has a special syntax
+      for that called <b>*ngFor</b>, let's see how it works on the next slide
+    </h2>
+    <slides-playground [config]="code.ngForDirectivePre.template"
+                       [focus-highlight-match]="code.ngForDirectivePre.matches"></slides-playground>
+  </slides-slide>
+
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
     <h1 i18n>Templates / Repeating elements (*ngFor)</h1>
     <h2 i18n>
-      <b>*ngFor</b> loops over an array and displays a HTML Element for each item
+      Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case) for every single puppy in the puppies
+      array
     </h2>
-    <slides-playground [config]="code.ngForDirective.template"
+    <div data-step="2" data-intro="These are the exercise instructions." class="exercise"
+         [class.solved]="forExercise.solved" i18n>
+      Exercise: Add one more puppy to the list
+    </div>
+    <slides-playground #forExercise [config]="code.ngForDirective.template"
                        [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
-    <div class="info" i18n>HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work</div>
+    <div class="info" i18n>HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work, <b>*ngFor</b>
+      will
+    </div>
   </slides-slide>
 
 

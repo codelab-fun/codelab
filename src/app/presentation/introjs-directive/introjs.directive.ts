@@ -1,6 +1,6 @@
-import {Directive, Input, OnInit, AfterViewInit, AfterContentInit, HostListener, OnDestroy} from '@angular/core';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {introJs} from 'intro.js/intro.js';
+import { Directive, OnInit } from '@angular/core';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { introJs } from 'intro.js/intro.js';
 
 @Directive({
   selector: '[slidesIntroJs]'

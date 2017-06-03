@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
+import { Injectable } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
 declare const require;
 const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/dev/vs/loader');
 

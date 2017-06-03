@@ -8,9 +8,9 @@ xdescribe('CodeGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CodeGroupComponent ]
+      declarations: [CodeGroupComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

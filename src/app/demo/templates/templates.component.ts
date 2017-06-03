@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {displayAngularComponent, displayAngularComponentWithHtml} from '../../exercise/helpers/helpers';
-import {ng2tsConfig} from '../../../../ng2ts/ng2ts';
+import { Component, OnInit } from '@angular/core';
+import { displayAngularComponent, displayAngularComponentWithHtml } from '../../exercise/helpers/helpers';
+import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 
 
 const x = {
@@ -123,7 +123,20 @@ export class AppComponent {
         ngIf: '*ngIf'
       }
     },
-    ngForDirective: {
+    ngForDirectivePre: {
+      template: displayAngularComponent(`import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: \`<h1>Puppies names:</h1>
+    ??? <!-- Need to repeat puppies here -->
+  \`
+})
+export class AppComponent {
+  puppies = ['Schumann', 'Mendelssohn', 'Bach'];
+}`),
+      matches: ['???', /puppies.*;/]
+    }, ngForDirective: {
       template: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
@@ -137,9 +150,19 @@ export class AppComponent {
   \`
 })
 export class AppComponent {
-  puppies = ['Vivaldi', 'Haydn', 'Bach'];
-}`),
-    matches: {
+  puppies = ['Schumann', 'Mendelssohn', 'Bach'];
+}`, `
+import {AppComponent} from './app.component';
+
+describe('AppComponent', ()=>{
+  it('has 4 puppies', ()=>{
+    const app = new AppComponent();
+    chai.expect(app.puppies.length).equals(4);
+  })
+})
+
+`),
+      matches: {
         ngFor: '*ngFor'
       }
     },

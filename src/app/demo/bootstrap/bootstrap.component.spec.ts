@@ -9,9 +9,9 @@ xdescribe('BootstrapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BootstrapComponent ]
+      declarations: [BootstrapComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
