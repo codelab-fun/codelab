@@ -98,7 +98,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
         setHtml(`
             <div style = "border-top: 1px #888 dotted; padding-top: 4px; margin-top: 4px">
               Check out your browser console to see the full error!
-            </div>
+           </div>
             <pre>${escaped}</pre>`);
       };
 
@@ -235,15 +235,50 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
                 font-weight: 300;
                 background-color: #ffe;
               }
+              .mainerror {
+                color: black; 
+                font-size: larger;
+              }
+              .othererrors {
+                color: black; 
+                font-size: larger;
+              }
             `);
-            const diagnosticsHtml = diagnostics.map(diagnostic => `<li>Error in file <b>${diagnostic.file.fileName}</b>: 
-            ` + diagnostic.messageText + '</li>').join('');
-            setHtml(`
-<h2>Errors when compiling</h2>
- <div>Look in the editor for hints to fix it.</div>
- <ul>
-  ${diagnosticsHtml}
- </ul>`);
+            console.log(diagnostics);
+
+            const errList = diagnostics.map( (diagnostic, i) => {
+              if (i === 0) {
+                return `<li style="margin-bottom: 10px;"><div class="mainerror">Error in <b>${diagnostic.file.fileName}</b><br />` +
+                `${diagnostic.messageText}</div></li>`;
+              }
+
+              return `<li><div class="othererrors"><b>${diagnostic.file.fileName}</b> - ${diagnostic.messageText}</li>`;
+            });
+            const jsClick = ' onclick="document.getElementById(\'moreErrors\').style.display=\'block\'; ' +
+            'document.getElementById(\'showAll\').style.display=\'none\'; ' +
+            'event.preventDefault(); return false;"';
+            const sb = [];
+            sb.push('<h2>Errors when compiling</h2>');
+            sb.push('<div style="margin-top:10px;">Look for hints in editor to fix.</div>');
+            sb.push('<div id="showAll">');
+            sb.push('<ul>');
+            for (let i = 0; i < errList.length; i++) {
+              if (i === 1) {
+                 sb.push('</ul>');
+                 sb.push('<div style="margin-top: 10px;">');
+                 sb.push('<span style="padding-right: 10px;">showing 1 of ' + errList.length + '</span>');
+                 sb.push('<a href="#" ' + jsClick + '>show all</a>');
+                 sb.push('</div>');
+                 sb.push('</div>');
+                 sb.push('<div>');
+                 sb.push('<ul id="moreErrors" style="display: none;">');
+                sb.push(errList[0]);
+              }
+              sb.push(errList[i]);
+            }
+            sb.push('</ul>');
+            sb.push('</div>');
+            setHtml(sb.join(''));
           } else {
             compiled.map((result) => {
               runJs(result.outputText);
