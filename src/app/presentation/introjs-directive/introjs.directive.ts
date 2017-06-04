@@ -8,13 +8,9 @@ declare const require;
   selector: '[slidesIntroJs]'
 })
 export class IntrojsDirective implements OnInit, OnDestroy {
-  ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
-  }
-
   @Input() introJsBefore: Function;
-  @Input() introJsAfter: Function;
 
+  @Input() introJsAfter: Function;
   constructor(public slide: SlideComponent) {
     // TODO: add check back in after google i/o
     // if (!localStorage.numTours) {
@@ -52,6 +48,13 @@ export class IntrojsDirective implements OnInit, OnDestroy {
 
     });
   }
+
+  ngOnDestroy(): void {
+    if (this.introJsAfter) {
+      this.introJsAfter();
+    }
+  }
+
 
   // ngAfterViewInit(): void {
   //   this.slide.onActive.subscribe((active) => {
