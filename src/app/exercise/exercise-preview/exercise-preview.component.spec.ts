@@ -1,0 +1,26 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ExercisePreviewComponent } from './exercise-preview.component';
+
+/* TODO(kirjs): Uncomment */
+xdescribe('ExercisePreviewComponent', () => {
+  let component: ExercisePreviewComponent;
+  let fixture: ComponentFixture<ExercisePreviewComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ ExercisePreviewComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ExercisePreviewComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

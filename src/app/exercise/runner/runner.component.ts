@@ -15,7 +15,7 @@ import { FileConfig } from '../interfaces/file-config';
 import { LoopProtectionService } from '../services/loop-protection.service';
 import { ScriptLoaderService } from '../services/script-loader.service';
 declare const require;
-const cachedIframes = {};
+
 
 function jsScriptInjector(iframe) {
   return function (code) {
@@ -61,13 +61,13 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   loadSystemJS: Function,
   injectSystemJs: Function
 }> {
-  if (cachedIframes[config.id]) {
-    cachedIframes[config.id].iframe.remove();
-    delete cachedIframes[config.id];
+  if (runner.cachedIframes[config.id]) {
+    runner.cachedIframes[config.id].iframe.remove();
+    delete runner.cachedIframes[config.id];
   }
 
   const iframe = createIframe(config);
-  cachedIframes[config.id] = {
+  runner.cachedIframes[config.id] = {
     iframe: iframe
   };
   element.appendChild(iframe);
@@ -275,10 +275,10 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() browserUseConsole: boolean;
   @Input() browserWidth: string;
   @Input() browserHeight: string;
-
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
+  cachedIframes = {};
   html = `<my-app></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
   @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
@@ -367,9 +367,9 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    Object.keys(cachedIframes).map(key => {
-      if (cachedIframes[key].canBeDeleted) {
-        delete cachedIframes[key];
+    Object.keys(this.cachedIframes).map(key => {
+      if (this.cachedIframes[key].canBeDeleted) {
+        delete this.cachedIframes[key];
       }
     });
     window.removeEventListener('message', this.handleMessageBound, false);
