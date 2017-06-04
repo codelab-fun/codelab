@@ -10,7 +10,7 @@ import {RunnerComponent} from '../runner/runner.component';
 })
 export class ExercisePreviewComponent implements OnInit {
   @Input() config;
-  private files: Array<FileConfig>;
+  public files: Array<FileConfig>;
 
   @ViewChild(RunnerComponent) runner;
 
