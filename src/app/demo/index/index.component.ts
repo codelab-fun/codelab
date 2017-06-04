@@ -14,7 +14,7 @@ export interface IndexPageRoute {
 export class IndexComponent implements OnDestroy {
 
   routes: Array<IndexPageRoute>;
-  private firstVisit: boolean;
+  public firstVisit: boolean;
 
   getMainPageRoutes() {
     return this.getPageRoutes('main');
