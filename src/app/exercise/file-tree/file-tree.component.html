@@ -2,7 +2,12 @@
   <div class="folder"><img src="/assets/images/folder.png"/>{{node.path}}</div>
   <div class="file" [style.padding-left.px]="node.depth * 15"
        *ngFor="let file of node.files">
-    <img src="{{getIcon(file)}}"/><a [class.active]="isActive(file)"
-                                     (click)="clickFile(file)">{{getFile(file)}}</a>
+    <img src="{{getIcon(file)}}"/>
+    <a
+      [class.active]="isActive(file)"
+      [class.opened]="file.opened"
+      (click)="clickFile(file)">
+      {{getFile(file)}}
+    </a>
   </div>
 </div>

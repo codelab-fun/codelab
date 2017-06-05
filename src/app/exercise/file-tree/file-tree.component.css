@@ -6,9 +6,13 @@ a:not([href]) {
   user-select: none
 }
 
+a.opened {
+  color: #c04e22;
+}
+
 a.active {
   text-decoration: none;
-  color: #c04e22;;
+  color: blue;
 }
 
 .folder,

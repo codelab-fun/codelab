@@ -44,7 +44,20 @@
     background-color: white;
     overflow: initial;
     z-index: 1;
+
+    .tab-close {
+      background: white;
+    }
   }
+}
+
+.tab-close {
+  position: absolute;
+  right: 0;
+  border: 0;
+  font-weight: bold;
+  background: #eee;
+  font-size: 20px;
 }
 
 .tab-title {
@@ -81,7 +94,7 @@
 .readonlyIcon {
   width: 14px;
   height: 14px;
-  margin: 0 3px 0 5px;
+  margin: 5px 20px 0 5px;
   background-image: url("/assets/images/lock.png");
   background-size: contain;
 }
