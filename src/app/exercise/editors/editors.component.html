@@ -3,7 +3,7 @@
   <div class="tab"
     *ngFor="let file of visibleFiles; trackBy: trackFile"
     [class.is-active]="isOpenFile(file)"
-    [class.hiddenContent]="file.collapsed">
+    [class.hidden]="!file.opened">
     <div
       class="tab-title"
       (click)="showFile(file)">
@@ -15,8 +15,9 @@
     </div>
     <button
       *ngIf="file.readonly"
+      class="tab-close"
       (click)="closeTab(file)">
-      x
+      &times;
     </button>
   </div>
 </div>
@@ -24,7 +25,7 @@
 <span data-step="2" data-intro="You know what to do here 👍" class="content">
   <div
     *ngFor="let file of visibleFiles; trackBy: trackFile"
-    [class.hiddenContent]="file.collapsed">
+    [class.hidden]="!file.opened">
     <div
       class="solution"
       *ngIf="isOpenFile(file) && !file.readonly"

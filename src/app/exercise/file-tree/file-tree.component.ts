@@ -54,7 +54,7 @@ export class FileTreeComponent implements OnChanges {
   }
 
   clickFile(fileConfig: FileConfig): void {
-    fileConfig.collapsed = false;
+    fileConfig.opened = true;
     this.onSelectFile.emit(fileConfig);
     this.active = fileConfig;
   }

@@ -22,25 +22,25 @@ export class EditorsComponent implements OnInit {
 
   ngOnInit() {
     this.files.map( file => {
-      file.collapsed = !!file.readonly;
+      file.opened = !file.readonly;
     });
   }
 
   closeTab(file) {
-    file.collapsed = true;
+    file.opened = false;
 
     if (file === this.currentFile) {
       this.showFile(
         this.visibleFiles
           .concat()
           .reverse()
-          .find( f => !f.collapsed)
+          .find( f => f.opened)
       );
     }
   }
 
   isTabVisible(file) {
-    return file.collapsed !== false;
+    return file.opened !== false;
   }
 
   onCodeChange(change) {

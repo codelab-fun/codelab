@@ -18,6 +18,7 @@
 }
 
 .tab {
+  position: relative;
   display: inline-flex;
   align-items: center;
   height: 24px;
@@ -52,7 +53,7 @@
   height: 100%;
 }
 
-.hiddenContent {
+.hidden {
   display: none;
 }
 

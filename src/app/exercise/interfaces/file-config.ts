@@ -1,5 +1,5 @@
 export interface FileConfig {
-  collapsed?: boolean;
+  opened?: boolean;
   /**
    * typescript or html.
    */
