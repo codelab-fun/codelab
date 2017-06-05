@@ -55,7 +55,7 @@ export class ExerciseBase implements OnDestroy {
   toggleFile(toggledFile) {
     this.config = {
       ...this.config,
-      files: this.config.files.map(file => file === toggledFile ? {...file, collapsed: !file.collapsed} : file)
+      files: this.config.files.map(file => file === toggledFile ? {...file, opened: !file.opened} : file)
     };
   }
 
