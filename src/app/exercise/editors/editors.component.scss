@@ -55,9 +55,10 @@
   position: absolute;
   right: 0;
   border: 0;
-  font-weight: bold;
-  background: #eee;
+  padding: 0px 2px 2px 0px;
   font-size: 20px;
+  font-weight: 300;
+  background: #eee;
 }
 
 .tab-title {
@@ -95,7 +96,7 @@
 .readonlyIcon {
   width: 14px;
   height: 14px;
-  margin: 5px 20px 0 5px;
+  margin: 5px 12px 0 5px;
   background-image: url("/assets/images/lock.png");
   background-size: contain;
 }
