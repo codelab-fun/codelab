@@ -17,18 +17,14 @@ export class ExerciseComponent extends ExerciseBase {
   @Input() config;
   currentFile: FileConfig;
 
-  constructor(private presentation: PresentationComponent,
+  constructor(presentation: PresentationComponent,
               slide: SlideComponent,
               monacoConfig: MonacoConfigService, analyticsService: AnalyticsService, route: ActivatedRoute) {
-    super(slide, monacoConfig, analyticsService, route);
+    super(slide, monacoConfig, analyticsService, route, presentation);
     this.slide.isExercise = true;
   }
 
   onSelectFile(fileConfig: FileConfig): void {
     this.currentFile = fileConfig;
-  }
-
-  goToNextSlide() {
-    this.presentation.nextSlide();
   }
 }

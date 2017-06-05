@@ -2,6 +2,7 @@
   <slides-test-description [title]="getTitle(test)"
                            [file]="getTestFile(test)"
                            [pass]="test.pass"
+                           [class.first-unsolved]="isFirstUnsolved(test)"
                            (onSelectFile)="onSelectFile.emit($event)"
   ></slides-test-description>
   <div class="result" *ngIf="isFirstUnsolved(test)">{{test.result}}</div>
