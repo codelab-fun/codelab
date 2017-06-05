@@ -2,7 +2,7 @@
      class="tabs">
   <div class="tab"
     *ngFor="let file of visibleFiles; trackBy: trackFile"
-    [class.is-active]="isOpenFile(file)"
+    [class.is-active]="isActiveFile(file)"
     [class.hidden]="!file.opened">
     <div
       class="tab-title"
@@ -28,14 +28,14 @@
     [class.hidden]="!file.opened">
     <div
       class="solution"
-      *ngIf="isOpenFile(file) && !file.readonly"
+      *ngIf="isActiveFile(file) && !file.readonly"
       (click)="loadSolution(file)">
       Load solution
     </div>
     <slides-editor
       [fontSize]="16"
       class="editor"
-      [class.is-hidden]="!isOpenFile(file)"
+      [class.is-hidden]="!isActiveFile(file)"
       [file]="file"
       (onCodeChange)="onCodeChange({file: file, code: $event})">
     </slides-editor>

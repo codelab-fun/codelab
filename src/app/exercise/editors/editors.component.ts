@@ -59,8 +59,7 @@ export class EditorsComponent implements OnInit {
     return this.currentFile;
   }
 
-  isOpenFile(file) {
-    if (!file) { return; }
+  isActiveFile(file) {
     return file === this.currentFile;
   }
 
