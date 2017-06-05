@@ -57,13 +57,7 @@
       look like
       this:</h2>
 
-    <slides-browser-window>
-      <div>
-        <h1 i18n>MewTube</h1>
-        <input placeholder="video" type="text">
-        <button>Search</button>
-      </div>
-    </slides-browser-window>
+    <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
   </slides-slide>
 
   <slides-slide id="exercise" no-padding>
@@ -155,13 +149,7 @@
       no
       videos were found. The result will look like this:</h2>
 
-    <slides-browser-window>
-      <div>
-        <h1 i18n>MewTube</h1><input placeholder="video" type="text">
-        <button i18n>Search</button>
-        <div i18n>no videos</div>
-      </div>
-    </slides-browser-window>
+    <slides-exercise-preview column-5 [config]="exercises[1]"></slides-exercise-preview>
   </slides-slide>
 
   <slides-slide id="exercise-2" no-padding>
@@ -188,10 +176,6 @@
       Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case) for every single puppy in the puppies
       array
     </h2>
-    <div data-step="2" data-intro="These are the exercise instructions." class="exercise"
-         [class.solved]="forExercise.solved" i18n>
-      Exercise: Add one more puppy to the list
-    </div>
     <slides-playground #forExercise [config]="code.ngForDirective.template"
                        [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
     <div class="info" i18n>HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work, <b>*ngFor</b>
@@ -208,27 +192,7 @@
           In the next slide you'll finally display the videos! The result will look like this:
         </h2>
       </div>
-      <div column-5>
-        <slides-browser-window>
-          <div>
-            <h1 i18n>MewTube</h1>
-            <input placeholder="video" type="text">
-            <button i18n>Search!</button>
-            <div>
-              <h2 i18n>Cute kitten</h2>
-              <img src="/assets/images/cat-01.jpg">
-            </div>
-            <div>
-              <h2 i18n>Kitten on the tree</h2>
-              <img src="/assets/images/cat-05.png">
-            </div>
-            <div>
-              <h2 i18n>Serious cat</h2>
-              <img src="/assets/images/cat-03.jpg">
-            </div>
-          </div>
-        </slides-browser-window>
-      </div>
+      <slides-exercise-preview column-5 [config]="exercises[2]"></slides-exercise-preview>
     </div>
   </slides-slide>
 

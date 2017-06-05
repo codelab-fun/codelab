@@ -2,6 +2,8 @@
      [class.overview]="mode===modeEnum.overview"
      [class.presentation]="true"
      [class.presentation-hide-controls]="config.hideControls"
-     slides-shortcuts>
+     slides-shortcuts
+     (swiperight)="previousSlide()"
+     (swipeleft)="nextSlide()">
   <ng-content></ng-content>
 </div>
