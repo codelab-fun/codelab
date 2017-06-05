@@ -3,7 +3,11 @@
   slides-mode-routing
   slides-tracking>
   <div class="btn-bar">
-
+    <div class="menu-bar-btn github-icon">
+      <a href="https://github.com/AngularNYC/angular-presentation">
+        <img src="/assets/images/github-icon.png">
+      </a>
+    </div>
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
@@ -120,8 +124,8 @@
                        #tsexercises
     ></slides-playground>
     <div data-position="top"
-      class="info"
-      i18n>
+         class="info"
+         i18n>
       The code above is editable!
     </div>
   </slides-slide>
@@ -151,7 +155,8 @@
     <h1 i18n>TypeScript / Types / Arrays</h1>
     <h2 i18n>Arrays are defined as <b>Array&lt;Type&gt;</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
-    <div class="info">Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.</div>
+    <div class="info">Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
+    </div>
   </slides-slide>
 
   <!--  CLASSES  -->
@@ -173,7 +178,7 @@
                        [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="classes-access-modifier" milestone="TypeScript" >
+  <slides-slide id="classes-access-modifier" milestone="TypeScript">
     <h1 i18n>TypeScript / Classes / Access Modifiers</h1>
     <h2 i18n>
       Constructor parameters marked as <b>public</b> (or private, or protected), become class properties accessible as
