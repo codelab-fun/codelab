@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AllExercisesComponent } from './all-exercises.component';
 
 // TODO: Fix this test suite.
-xdescribe('DependencyInjectionComponent', () => {
+xdescribe('All exercise Component', () => {
   let component: AllExercisesComponent;
   let fixture: ComponentFixture<AllExercisesComponent>;
 

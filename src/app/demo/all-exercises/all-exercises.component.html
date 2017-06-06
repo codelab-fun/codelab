@@ -11,23 +11,48 @@
   </slides-slide>
 
   <slides-slide id="selection" no-padding milestone="select exercise">
+    <h1>All Exercise</h1>
+
+    <div *ngFor="let filesinfo of allFiles; let i = index">
+      <h2>{{filesinfo.name}}</h2>
+      <table style="display:inline-block" >
+        <thead>
+          <tr>
+            <td *ngFor="let milestone of filesinfo.milestones let o = index">
+              {{milestone}}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <td *ngFor="let file of filesinfo.files let o = index">
+              <textarea class="code-file">{{file.code}}</textarea>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </slides-slide>
+
+ <!--<slides-slide id="selection" no-padding milestone="select exercise">
     <h1>Select Exercise</h1>
+
     <div *ngFor="let milestone of milestones; let i = index">
-      <h2>{{milestone.name}}</h2>
+      <h3>{{milestone.name}}</h3>
       <ol>
         <li *ngFor="let exercise of milestone.exercises; let ii = index">
           <button (click)="selectExercise(i, exercise.index)">{{exercise.name}}</button>
         </li>
       </ol>
     </div>
-  </slides-slide>
+  </slides-slide>-->
 
-  <slides-slide id="exercise-2" no-padding>
+  <!--<slides-slide id="exercise-2" no-padding>
     <slides-exercise [config]="exercise" milestone="component-tree-2">
       <div class="description" i18n>
         Use the component.
       </div>
     </slides-exercise>
-  </slides-slide>
-
+  </slides-slide>-->
 </slides-presentation>

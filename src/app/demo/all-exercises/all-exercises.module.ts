@@ -24,5 +24,6 @@ const routes = RouterModule.forChild(
   exports: [AllExercisesComponent]
 })
 export class AllExercisesModule {
+  
 }
 
