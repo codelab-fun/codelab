@@ -20,6 +20,7 @@ import { TooltipsModule } from '../tooltips/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { TestDescriptionComponent } from './test-description/test-description.component';
 import { CodeGroupComponent } from './code-group/code-group.component';
+import { DepsService } from './services/deps-order.service';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { CodeGroupComponent } from './code-group/code-group.component';
     FormsModule,
     TooltipsModule,
     BrowserModule
-  ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
+  ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
   exports: [ExerciseComponent,
     PlaygroundComponent,
     EditorComponent,

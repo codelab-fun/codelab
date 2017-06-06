@@ -1,10 +1,11 @@
 import { inject, TestBed } from '@angular/core/testing';
 import { MonacoConfigService } from './monaco-config.service';
+import { DepsService } from './deps-order.service';
 
 describe('Service: MonacoConfig', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MonacoConfigService]
+      providers: [MonacoConfigService, DepsService]
     });
     (window as any).monaco = {};
   });

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
+import { DepsService } from './deps-order.service';
 declare const require;
 const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/dev/vs/loader');
 
@@ -94,21 +95,12 @@ export class MonacoConfigService {
     monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
   }
 
-  constructor() {
+  constructor(private depsService: DepsService) {
     this.monaco = monaco;
   }
 
   sortFiles(files: FileConfig[]) {
-
-
-
-    // Build a set of all files that are declared as deps.
-    const deps = files.filter(file => file.deps)
-      .reduce((set, file) => file.deps.reduce((result, dep) => result.add(dep), set), new Set());
-
-    // Put files that are in deps first, and others in the end.
-    // TODO: Write a better implementation to allow multi-level deps.
-    return files.filter(file => deps.has(file.moduleName)).concat(files.filter(file => !deps.has(file.moduleName)));
+    return this.depsService.order(files);
   }
 
   createFileModels(files: FileConfig[]) {

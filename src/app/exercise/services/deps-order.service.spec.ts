@@ -5,12 +5,12 @@ import { DepsService } from './deps-order.service';
 const deps = {
   componentA: {
     path: 'component.ts',
-    code: 'import {a} from "./depA.ts"',
+    code: 'import {a} from "./depA"',
     template: ''
   },
   componentABC: {
     path: 'component.ts',
-    code: 'import {a} from "./depA.ts";import {a} from "./depB.ts";import {a} from "./depC.ts";',
+    code: 'import {a} from "./depA";import {a} from "./depB";import {a} from "./depC";',
     template: ''
   },
   depA: {
@@ -30,17 +30,17 @@ const deps = {
   },
   depAB: {
     path: 'depAB.ts',
-    code: 'import {a} from "./depA.ts";import {a} from "./depB.ts";',
+    code: 'import {a} from "./depA";import {a} from "./depB";',
     template: ''
   },
   depAB_C: {
     path: 'depAB_C.ts',
-    code: 'import {a} from "./depAB.ts";import {a} from "./depC.ts";',
+    code: 'import {a} from "./depAB";import {a} from "./depC";',
     template: ''
   },
   depX_A: {
     path: 'x/a.ts',
-    code: 'import {a} from "../depA.ts";',
+    code: 'import {a} from "../depA";',
     template: ''
   }
 
@@ -55,18 +55,18 @@ describe('DepsService', () => {
 
   describe('Normalizing file name', () => {
     it('should normalize simple path', () => {
-      expect(DepsService.normalizePathRelativeToFile('file.ts', './a.ts')).toEqual('a.ts');
+      expect(DepsService.normalizePathRelativeToFile('file.ts', './a')).toEqual('a');
     });
 
     it('should normalize simple path in a folder', () => {
-      expect(DepsService.normalizePathRelativeToFile('folder/file.ts', './a.ts')).toEqual('folder/a.ts');
+      expect(DepsService.normalizePathRelativeToFile('folder/file.ts', './a')).toEqual('folder/a');
     });
     it('should normalize simple path in a folder with one level up', () => {
-      expect(DepsService.normalizePathRelativeToFile('folder/file.ts', '../a.ts')).toEqual('a.ts');
+      expect(DepsService.normalizePathRelativeToFile('folder/file.ts', '../a')).toEqual('a');
     });
 
     it('should normalize simple path in a folder with multiple levels up', () => {
-      expect(DepsService.normalizePathRelativeToFile('folder/a/b/c/file.ts', '../../../a.ts')).toEqual('folder/a.ts');
+      expect(DepsService.normalizePathRelativeToFile('folder/a/b/c/file.ts', '../../../a')).toEqual('folder/a');
     });
   });
 
@@ -79,7 +79,7 @@ describe('DepsService', () => {
       .toEqual([deps.depA, deps.depB, deps.depC, deps.componentABC]);
   }));
 
-  it('should order files with multiple but 1-level deps ', inject([DepsService], (service: DepsService) => {
+  it('should order files with multiple but 2-level deps ', inject([DepsService], (service: DepsService) => {
     expect(service.order([deps.depB, deps.depC, deps.depAB_C, deps.depAB, deps.depA]))
       .toEqual([deps.depB, deps.depC, deps.depA, deps.depAB, deps.depAB_C]);
   }));

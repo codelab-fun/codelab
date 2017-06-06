@@ -23,11 +23,12 @@ export class DepsService {
       fullPath = fullPath.replace(/\/[^/]*\/\.\./, '');
     }
     fullPath = fullPath.replace(/\/.\//, '/');
+    console.log('normalized', fullPath.replace(/^\//, '').replace(/^\//, ''));
     return fullPath.replace(/^\//, '').replace(/^\//, '');
   }
 
   static isLocalDep(string) {
-    return !!string.match(/^\./);
+    return !string.match(/\/code\b/)  && !!string.match(/^\./);
   }
 
   order(files: Array<FileConfig>) {
@@ -36,7 +37,7 @@ export class DepsService {
       const source = ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5);
       simpleVisitor(source, node => node.kind === ts.SyntaxKind.ImportDeclaration, (node) => {
         if (DepsService.isLocalDep(node.moduleSpecifier.text)) {
-          result[file.path].deps.push(DepsService.normalizePathRelativeToFile(file.path, node.moduleSpecifier.text));
+          result[file.path].deps.push(DepsService.normalizePathRelativeToFile(file.path, node.moduleSpecifier.text + '.ts'));
         }
 
       });
@@ -67,7 +68,6 @@ export class DepsService {
       }, [deps, orderedFiles]);
 
       if (depLen === Object.keys(deps).length) {
-
         throw new Error('cyclic dependencies found, or missing dependencies');
       }
     }
