@@ -100,7 +100,11 @@ export class MonacoConfigService {
   }
 
   sortFiles(files: FileConfig[]) {
-    return this.depsService.order(files);
+    try {
+      return this.depsService.order(files);
+    } catch (e) {
+      return files;
+    }
   }
 
   createFileModels(files: FileConfig[]) {

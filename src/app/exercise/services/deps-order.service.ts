@@ -23,7 +23,6 @@ export class DepsService {
       fullPath = fullPath.replace(/\/[^/]*\/\.\./, '');
     }
     fullPath = fullPath.replace(/\/.\//, '/');
-    console.log('normalized', fullPath.replace(/^\//, '').replace(/^\//, ''));
     return fullPath.replace(/^\//, '').replace(/^\//, '');
   }
 
@@ -53,7 +52,6 @@ export class DepsService {
 
       // Iterate over deps, grab each file with no dependencies, and
       [deps, orderedFiles] = keys.reduce(([result, orderedFiles_]: any, key): [any, Array<FileConfig>] => {
-        console.log(key);
         if (result[key].deps.length === 0) {
           orderedFiles_.push(result[key].file);
 
