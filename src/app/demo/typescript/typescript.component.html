@@ -3,7 +3,11 @@
   slides-mode-routing
   slides-tracking>
   <div class="btn-bar">
-
+    <div class="menu-bar-btn github-icon">
+      <a href="https://github.com/AngularNYC/angular-presentation">
+        <img src="/assets/images/github-icon.png">
+      </a>
+    </div>
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
@@ -40,8 +44,11 @@
     <div row>
       <div>
         <ul>
-          <li i18n>TypeScript extends the latest version of JavaScript (ES6)</li>
-          <li i18n>TypeScript adds some features from the next version (ES7)</li>
+          <li i18n>TypeScript extends the latest
+            version of JavaScript (ES6)
+          </li>
+          <li i18n>TypeScript adds somefeatures from the next version (ES7)
+          </li>
           <li i18n>On top of it, TypeScript adds an optional type system and decorators
           </li>
         </ul>
@@ -114,15 +121,15 @@
   <!--  NUMBER-TYPE  -->
   <slides-slide slidesIntrojsDirective id="type-mini-exercise" milestone="TypeScript">
     <h1 data-step="1" data-intro="Welcome to the first coding exercise!" i18n>TypeScript / Type System</h1>
-    <h2 i18n>TypeScript uses <b>var: Type</b> to specify the type information. Both <b>a</b> and <b>b</b> are should be
-      numbers. We specified the type for <b>a</b>, now it's your turn!</h2>
+    <h2 i18n> TypeScript uses <b>var: Type</b> to specify the type information. Both <b>a</b> and <b>b</b> are should be
+         numbers. We specified the type for <b>a</b>, now it's your turn!</h2>
     <slides-playground [config]="code.tsExercise"
                        [browserUseConsole]="true"
                        #tsexercises
     ></slides-playground>
     <div data-position="top"
-      class="info"
-      i18n>
+         class="info"
+         i18n>
       The code above is editable!
     </div>
   </slides-slide>
@@ -152,7 +159,8 @@
     <h1 i18n>TypeScript / Types / Arrays</h1>
     <h2 i18n>Arrays are defined as <b>Array&lt;Type&gt;</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
-    <div class="info">Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.</div>
+    <div class="info">Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
+    </div>
   </slides-slide>
 
   <!--  CLASSES  -->
@@ -174,7 +182,7 @@
                        [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="classes-access-modifier" milestone="TypeScript" >
+  <slides-slide id="classes-access-modifier" milestone="TypeScript">
     <h1 i18n>TypeScript / Classes / Access Modifiers</h1>
     <h2 i18n>
       Constructor parameters marked as <b>public</b> (or private, or protected), become class properties accessible as
@@ -237,13 +245,7 @@
       only
       the ones who are coming.</h3>
     <h3 i18n>The result will be as follows:</h3>
-    <slides-browser-window>
-      <ul>
-        <li>Sir Isaac Newton</li>
-        <li>Marie Curie</li>
-        <li>Albert Einstein</li>
-      </ul>
-    </slides-browser-window>
+    <slides-exercise-preview  column-5 [config]="exercises[0]"></slides-exercise-preview>
   </slides-slide>
 
   <slides-slide id="exercise" no-padding>
