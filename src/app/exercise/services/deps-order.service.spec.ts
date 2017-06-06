@@ -46,7 +46,7 @@ const deps = {
 
 
 };
-fdescribe('DepsService', () => {
+describe('DepsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [DepsService]
@@ -54,20 +54,20 @@ fdescribe('DepsService', () => {
   });
 
   describe('Normalizing file name', () => {
-    it('should normalize simple path', inject([DepsService], (service: DepsService) => {
-      expect(DepsService.normalizePathRelativeToFile('./file.ts', 'a.ts')).toEqual('a.ts');
-    }));
+    it('should normalize simple path', () => {
+      expect(DepsService.normalizePathRelativeToFile('file.ts', './a.ts')).toEqual('a.ts');
+    });
 
-    it('should normalize simple path in a folder', inject([DepsService], (service: DepsService) => {
-      expect(DepsService.normalizePathRelativeToFile('./folder/file.ts', 'a.ts')).toEqual('folder/a.ts');
-    }));
-    it('should normalize simple path in a folder with one level up', inject([DepsService], (service: DepsService) => {
-      expect(DepsService.normalizePathRelativeToFile('./folder/file.ts', '../a.ts')).toEqual('a.ts');
-    }));
-    it('should normalize simple path in a folder with multiple levels up', inject([DepsService], (service: DepsService) => {
-      expect(DepsService.normalizePathRelativeToFile('./folder/a/b/c/file.ts', '../../../a.ts')).toEqual('folder/a.ts');
-    }));
+    it('should normalize simple path in a folder', () => {
+      expect(DepsService.normalizePathRelativeToFile('folder/file.ts', './a.ts')).toEqual('folder/a.ts');
+    });
+    it('should normalize simple path in a folder with one level up', () => {
+      expect(DepsService.normalizePathRelativeToFile('folder/file.ts', '../a.ts')).toEqual('a.ts');
+    });
 
+    it('should normalize simple path in a folder with multiple levels up', () => {
+      expect(DepsService.normalizePathRelativeToFile('folder/a/b/c/file.ts', '../../../a.ts')).toEqual('folder/a.ts');
+    });
   });
 
   it('should order two simple files', inject([DepsService], (service: DepsService) => {

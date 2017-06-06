@@ -8,12 +8,22 @@ import { simpleVisitor } from './visitor';
 @Injectable()
 export class DepsService {
 
+  /**
+   * Takes a file path, and another path relative to the first one.
+   * Returns the fulle
+   *
+   * @param path
+   * @param file
+   * @returns {string}
+   */
   static normalizePathRelativeToFile(path, file) {
+    // TODO: Simplify
     let fullPath = '/' + path.substr(0, path.lastIndexOf('/')) + '/' + file;
     while (fullPath.match(/\/[^/]*\/\.\./)) {
       fullPath = fullPath.replace(/\/[^/]*\/\.\./, '');
     }
-    return fullPath.replace(/^\/.\//, '');
+    fullPath = fullPath.replace(/\/.\//, '/');
+    return fullPath.replace(/^\//, '').replace(/^\//, '');
   }
 
   static isLocalDep(string) {
@@ -21,7 +31,6 @@ export class DepsService {
   }
 
   order(files: Array<FileConfig>) {
-
     let deps = files.reduce((result, file) => {
       result[file.path] = {file, deps: []};
       const source = ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5);
