@@ -18,6 +18,8 @@ export class TestsComponent {
   @Output()
   public onSelectFile: EventEmitter<FileConfig> = new EventEmitter<FileConfig>();
 
+  seeAll = false;
+
   constructor(private sanitizer: DomSanitizer) {
   };
 
@@ -36,5 +38,14 @@ export class TestsComponent {
 
   isFirstUnsolved(test) {
     return this.tests.find(t => !t.pass) === test;
+  }
+
+  indexOfFirstUnsolved() {
+    return this.tests.findIndex(t => !t.pass);
+  }
+
+  toggleSeeAll(event) {
+    this.seeAll = !this.seeAll;
+    event.preventDefault();
   }
 }
