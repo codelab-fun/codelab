@@ -100,6 +100,7 @@ export class MonacoConfigService {
   }
 
   sortFiles(files: FileConfig[]) {
+    // TODO(kirjs): Find a better way to handle this.
     try {
       return this.depsService.order(files);
     } catch (e) {

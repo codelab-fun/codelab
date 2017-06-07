@@ -1,10 +1,7 @@
 import * as ts from 'typescript';
 
-export function simpleVisitor(code, filter, callback) {
-
-  /**
-   * Fancy: Require the actual source code, and search in it.
-   */
+// TODO(kirjs): Consider adding a test.
+export function simpleVisitor(code: ts.Node, filter: (f: ts.Node) => void, callback: (f: ts.Node) => void) {
   function visit(node) {
     if (filter(node)) {
       callback(node);

@@ -53,6 +53,19 @@ describe('DepsService', () => {
     });
   });
 
+  describe('isLocalDep', () => {
+    it('should return true for local deps', () => {
+      expect(DepsService.isLocalDep('./file')).toBeTruthy();
+
+    });
+    it('should return false for non local deps', () => {
+      expect(DepsService.isLocalDep('file')).toBeFalsy();
+      // special case
+      expect(DepsService.isLocalDep('./code')).toBeFalsy();
+      expect(DepsService.isLocalDep('@angular/core')).toBeFalsy();
+    });
+  });
+
   describe('Normalizing file name', () => {
     it('should normalize simple path', () => {
       expect(DepsService.normalizePathRelativeToFile('file.ts', './a')).toEqual('a');
