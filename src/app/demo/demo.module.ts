@@ -55,6 +55,13 @@ export const routes = [
     page: 'bonus'
   },
   {
+    path: 'vue-intro',
+    loadChildren: './vue/vue.module#VueModule',
+    name: 'vue',
+    description: 'Learn how pipes transform input values to output values for display in a view',
+    page: 'vue'
+  },
+  {
     path: 'experiments',
     loadChildren: './experiments/experiments.module#ExperimentsModule',
     page: 'bonus'
