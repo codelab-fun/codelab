@@ -15,6 +15,7 @@ import { FileConfig } from '../interfaces/file-config';
 import { LoopProtectionService } from '../services/loop-protection.service';
 import { ScriptLoaderService } from '../services/script-loader.service';
 declare const require;
+const tspoon = require('tspoon');
 
 
 function jsScriptInjector(iframe) {
@@ -154,6 +155,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               setters: [],
               execute: function () {
                 exports('ts', ts);
+                exports('tspoon', tspoon);
                 files.forEach((file) => {
                   console.log(file.path.replace(/[\/\.-]/gi, '_'));
                   exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);

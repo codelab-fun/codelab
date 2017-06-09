@@ -57,6 +57,7 @@
     "systemjs-builder": "^0.16.4",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
+    "tspoon": "^1.0.441",
     "typescript": "~2.2.0"
   }
 }

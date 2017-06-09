@@ -6,4 +6,5 @@ export declare const app_component_ts: string;
 export declare const toggle_panel_toggle_panel_html: string;
 export declare const context_context_html: string;
 export declare const ts: any;
+export declare const tspoon: any;
 
