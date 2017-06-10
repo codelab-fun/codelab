@@ -8,9 +8,6 @@ declare const require;
   selector: '[slidesIntroJs]'
 })
 export class IntrojsDirective implements OnInit {
-  @Input() introJsBefore: Function;
-
-  @Input() introJsAfter: Function;
   constructor(public slide: SlideComponent) {
 
     require('style-loader!../node_modules/intro.js/minified/introjs.min.css');
