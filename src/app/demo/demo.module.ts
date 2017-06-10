@@ -48,6 +48,13 @@ export const routes = [
     page: 'main'
   },
   {
+    path: 'custom-events',
+    loadChildren: './custom-events/custom-events.module#CustomEventsModule',
+    name: 'Custom-Events',
+    description: 'Learn to bind to events.',
+    page: 'main'
+  },
+  {
     path: 'pipes',
     loadChildren: './pipes/pipes.module#PipesModule',
     name: 'Pipes',
