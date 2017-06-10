@@ -141,4 +141,9 @@ not [here](https://xkcd.com/1296/)
 
 ### Code Style
 
+## Autoformatting
+If you are using Intellij/Webstorm:
+`Settings -> Code Style -> TypeScript -> Spaces Tab -> Check “ES6 import/export braces”`
+
+# Linter
 Angular Codelab comes with its own linter settings. If you're not sure your linter is picking up on them, please run `ng lint` and fix any styling errors before submitting.
