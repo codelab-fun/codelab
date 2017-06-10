@@ -240,16 +240,6 @@ platform.bootstrapModule(AppModule, {
   };
 }
 
-export function pureJavascript(code, bootstrapCode, testCode) {
-  return {
-    files: [
-      exerciseWithDisplay('app', code, code),
-      bootstrap('main', bootstrapCode, bootstrapCode),
-      test('test', testCode)
-    ]
-  };
-}
-
 export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
   const files = [
     exerciseWithConsoleLog('app', code, code),
@@ -267,6 +257,11 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
   return {
     files
   };
+}
+export function javaScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
+  const result = typeScriptWithConsoleLog(code, bootstrapCode, testCode, otherCode);
+  (result.files[0] as FileConfig).editorType = 'javascript';
+  return result;
 }
 
 
