@@ -39,6 +39,9 @@
     "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
+    "babel-traverse": "^6.25.0",
+    "babel-types": "^6.25.0",
+    "babylon": "^6.17.3",
     "codelyzer": "~2.0.0",
     "firebase-tools": "^3.6.1",
     "github-api": "^3.0.0",
@@ -57,7 +60,6 @@
     "systemjs-builder": "^0.16.4",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "tspoon": "^1.0.441",
     "typescript": "~2.2.0"
   }
 }

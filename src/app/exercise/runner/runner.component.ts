@@ -15,8 +15,9 @@ import { FileConfig } from '../interfaces/file-config';
 import { LoopProtectionService } from '../services/loop-protection.service';
 import { ScriptLoaderService } from '../services/script-loader.service';
 declare const require;
-const tspoon = require('tspoon');
-
+import * as babylon from 'babylon';
+import * as babel_types from 'babel-types';
+import babel_traverse from 'babel-traverse';
 
 function jsScriptInjector(iframe) {
   return function (code) {
@@ -155,7 +156,9 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               setters: [],
               execute: function () {
                 exports('ts', ts);
-                exports('tspoon', tspoon);
+                exports('babylon', babylon);
+                exports('babel_traverse', babel_traverse);
+                exports('babel_types', babel_types);
                 files.forEach((file) => {
                   console.log(file.path.replace(/[\/\.-]/gi, '_'));
                   exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);
