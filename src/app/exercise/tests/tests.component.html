@@ -1,14 +1,32 @@
-<ng-container *ngFor="let test of tests; let i=index; trackBy: trackTest">
+<ng-container *ngFor="let test of tests; trackBy: trackTest; let i = index">
+  <slides-progress *ngIf="i==0" [current]="countSolved()" [max]="tests.length"></slides-progress>
   <div *ngIf="seeAll || i==indexOfFirstUnsolved()" class="test-panel" title="{{test.result}}">
-    <slides-test-description [title]="getTitle(test)"
-                            [file]="getTestFile(test)"
-                            [pass]="test.pass"
-                            [class.first-unsolved]="isFirstUnsolved(test)"
-                            (onSelectFile)="onSelectFile.emit($event)"
-    ></slides-test-description>
-    <div class="result" *ngIf="isFirstUnsolved(test)">{{test.result}}</div>
+    <div *ngIf="i==indexOfFirstUnsolved()" class="current">
+      <slides-test-description [title]="getTitle(test)"
+                               [file]="getTestFile(test)"
+                               [pass]="test.pass"
+                               [class.first-unsolved]="isFirstUnsolved(test)"
+                               (onSelectFile)="onSelectFile.emit($event)"
+      ></slides-test-description>
+
+      <div class="result" *ngIf="isFirstUnsolved(test) && test.result">
+        <span class="result-helper">Test failed with an error: </span>
+        <span>{{test.result}}</span>
+      </div>
+
+    </div>
+    <div *ngIf="i!=indexOfFirstUnsolved()">
+      <slides-test-description [title]="getTitle(test)"
+                               [file]="getTestFile(test)"
+                               [pass]="test.pass"
+                               [class.first-unsolved]="isFirstUnsolved(test)"
+                               (onSelectFile)="onSelectFile.emit($event)"
+      ></slides-test-description>
+    </div>
   </div>
 </ng-container>
-<div *ngIf="tests!=null && tests.length>1" style="margin-top: 10px; margin-left: 20px;">
-  <a href="#" (click)="toggleSeeAll($event)">{{seeAll ? "see only next step": "see all steps"}}</a>
-</div> 
+<div *ngIf="tests && tests.length>1" class="expand">
+  <span *ngIf="tests.length - countSolved() > 1">{{tests.length - countSolved()}} more tests to pass</span> <a class="toggle-tests" (click)="toggleSeeAll($event)">{{seeAll ?
+  "Only show current test": 'Show all tests'
+  }}</a>
+</div>

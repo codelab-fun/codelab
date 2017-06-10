@@ -1,0 +1,10 @@
+.max {
+  width: 100%;
+  height: 6px;
+  background: #ff6144;
+}
+
+.current {
+  height: 6px;
+  background-color: #5ccb5d;
+}

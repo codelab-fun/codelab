@@ -21,6 +21,7 @@ import { FileStructureComponent } from './file-structure/file-structure.componen
 import { TestDescriptionComponent } from './test-description/test-description.component';
 import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
+import { ProgressComponent } from './progress/progress.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.co
     FileStructureComponent,
     TestDescriptionComponent,
     CodeGroupComponent,
-    ExercisePreviewComponent
+    ExercisePreviewComponent,
+    ProgressComponent
   ], imports: [
     ResizeModule,
     CommonModule,

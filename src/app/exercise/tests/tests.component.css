@@ -7,3 +7,36 @@
   color: #444;
   padding-left: 20px;
 }
+
+.toggle-tests {
+  text-decoration: underline;
+  color: #444;
+  cursor: pointer;
+}
+
+.current {
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+
+}
+.current /deep/ .test:before {
+  width: 25px;
+  height: 25px;
+}
+
+.current /deep/ .result {
+  font-size: 1.3vw;
+}
+.current /deep/ .result-helper {
+  color: #dddddd;
+  margin-left: 20px;
+}
+.current /deep/ .title{
+  font-size: 2vw;
+}
+
+.expand {
+  font-size: 1vw;
+  margin-top: 10px;
+  color: #444;
+}

@@ -20,7 +20,7 @@ export class TestsComponent {
 
   seeAll = false;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor() {
   };
 
   trackTest(index, test: TestInfo) {
@@ -34,6 +34,10 @@ export class TestsComponent {
   getTitle(test: TestInfo) {
     const file = this.getTestFile(test);
     return file ? test.title.replace(getFileName(file), '') : test.title;
+  }
+
+  countSolved() {
+    return this.tests.filter(test => test.pass).length;
   }
 
   isFirstUnsolved(test) {
