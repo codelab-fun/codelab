@@ -473,20 +473,20 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           <p>Add a ThumbsComponent which will emit an 'onThumbs' event.</p>
           <p>In the video component listen to the event and change the amount of likes accordingly.</p>
 
-            <div class = "inBrowser">
-              <div class="smaller">
-                <div>
-                  <h2>Cute kitten</h2>
-                  <img src="/assets/images/cat-00.png">
-                  <div>Date 2016-11-25</div>
-                  <div>Views 100</div>
-                  <div>Likes 20</div>
-                  <div>Description todo</div>
-                  <button>Thumbs Up< / button > <button>Thumbs Down</button>
-</div>
-</div>
-</div>
-`,
+          <div class = "inBrowser">
+            <div class="smaller">
+              <div>
+                <h2>Cute kitten</h2>
+                <img src="/assets/images/cat-00.png">
+                <div>Date 2016-11-25</div>
+                <div>Views 100</div>
+                <div>Likes 20</div>
+                <div>Description todo</div>
+                <button>Thumbs Up< / button > <button>Thumbs Down</button>
+              </div>
+            </div>
+          </div>
+        `
         },
         {
           name: 'Create ThumbsComponent',
