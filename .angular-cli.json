@@ -8,6 +8,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
+        "../node_modules/intro.js",
         "assets",
         "favicon.ico"
       ],
