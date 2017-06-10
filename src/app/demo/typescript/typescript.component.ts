@@ -170,28 +170,4 @@ console.log(add(2, '2'));`),
     ng2tsConfig.milestones[0].exercises[1]
   ];
 
-  hintObject;
-
-  introJsBefore() {
-    const squiggly = document.querySelector('.highlighted-code');
-
-    const squigglyBoundingBox = squiggly.getBoundingClientRect();
-
-    const shadowSquiggly = document.createElement('div');
-    shadowSquiggly.style.position = 'absolute';
-    shadowSquiggly.style.left = squigglyBoundingBox.left + 'px';
-    shadowSquiggly.style.top = squigglyBoundingBox.top + 'px';
-
-    document.body.appendChild(shadowSquiggly);
-
-    shadowSquiggly.setAttribute('data-hint', 'Code errors will be underscored by a squiggly red line.');
-  }
-
-  introJsAfter() {
-  }
-
-
-
-
-  constructor() { }
 }
