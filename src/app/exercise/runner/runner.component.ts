@@ -11,11 +11,12 @@ import {
   ViewChild
 } from '@angular/core';
 import * as ts from 'typescript';
-import {FileConfig} from '../interfaces/file-config';
-import {LoopProtectionService} from '../services/loop-protection.service';
-import {ScriptLoaderService} from '../services/script-loader.service';
+import { FileConfig } from '../interfaces/file-config';
+import { LoopProtectionService } from '../services/loop-protection.service';
+import { ScriptLoaderService } from '../services/script-loader.service';
+declare const require;
+const tspoon = require('tspoon');
 
-const cachedIframes = {};
 
 function jsScriptInjector(iframe) {
   return function (code) {
@@ -53,6 +54,7 @@ function createIframe(config: IframeConfig) {
 
 function injectIframe(element: any, config: IframeConfig, runner: RunnerComponent): Promise<{
   setHtml: Function,
+  runCss: Function,
   register: Function,
   runMultipleFiles: Function,
   runSingleFile: Function,
@@ -60,13 +62,13 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   loadSystemJS: Function,
   injectSystemJs: Function
 }> {
-  if (cachedIframes[config.id]) {
-    cachedIframes[config.id].iframe.remove();
-    delete cachedIframes[config.id];
+  if (runner.cachedIframes[config.id]) {
+    runner.cachedIframes[config.id].iframe.remove();
+    delete runner.cachedIframes[config.id];
   }
 
   const iframe = createIframe(config);
-  cachedIframes[config.id] = {
+  runner.cachedIframes[config.id] = {
     iframe: iframe
   };
   element.appendChild(iframe);
@@ -144,6 +146,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
         loadSystemJS: (name) => {
           (iframe.contentWindow as any).loadSystemModule(name, runner.scriptLoaderService.getScript(name));
         },
+        runCss: runCss,
         runMultipleFiles: (files: Array<FileConfig>) => {
           index++;
 
@@ -152,7 +155,9 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               setters: [],
               execute: function () {
                 exports('ts', ts);
+                exports('tspoon', tspoon);
                 files.forEach((file) => {
+                  console.log(file.path.replace(/[\/\.-]/gi, '_'));
                   exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);
                   exports(file.path.replace(/[\/\.-]/gi, '_') + '_AST', ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5));
                 });
@@ -174,7 +179,6 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
 
           files.filter(file => file.type === 'css').map((file) => {
             runCss(file.code);
-
           });
 
           const compiled = files.filter(file => file.type === 'typescript').map((file) => {
@@ -273,10 +277,10 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() browserUseConsole: boolean;
   @Input() browserWidth: string;
   @Input() browserHeight: string;
-
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
+  cachedIframes = {};
   html = `<my-app></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
   @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
@@ -306,6 +310,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
         sandbox.runSingleFile(this.scriptLoaderService.getScript('shim'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('zone'));
@@ -319,6 +324,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
         sandbox.runSingleFile(this.scriptLoaderService.getScript('shim'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('zone'));
@@ -339,6 +345,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         sandbox.injectSystemJs();
         sandbox.runMultipleFiles(files.filter(file => !file.test));
       });
@@ -346,6 +353,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
         console.log('FRAME CREATED', (new Date()).getTime() - time);
         sandbox.injectSystemJs();
         sandbox.runSingleScriptFile(this.scriptLoaderService.getScript('mocha'));
@@ -361,9 +369,9 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    Object.keys(cachedIframes).map(key => {
-      if (cachedIframes[key].canBeDeleted) {
-        delete cachedIframes[key];
+    Object.keys(this.cachedIframes).map(key => {
+      if (this.cachedIframes[key].canBeDeleted) {
+        delete this.cachedIframes[key];
       }
     });
     window.removeEventListener('message', this.handleMessageBound, false);

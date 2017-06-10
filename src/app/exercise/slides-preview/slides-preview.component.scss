@@ -14,7 +14,7 @@
   background-color: #fff;
 }
 
-.header {
+.preview-header {
   position: absolute;
   right: 1px;
   top: 1px;
@@ -39,6 +39,7 @@
 iframe {
   border: 1px #dddddd solid;
 }
+
 .body, iframe {
   width: 100%;
   height: 100%;

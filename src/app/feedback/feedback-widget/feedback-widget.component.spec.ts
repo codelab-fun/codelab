@@ -9,9 +9,9 @@ xdescribe('FeedbackWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeedbackWidgetComponent ]
+      declarations: [FeedbackWidgetComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

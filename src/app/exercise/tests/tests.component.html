@@ -1,8 +1,9 @@
 <div *ngFor="let test of tests; trackBy: trackTest" class="test-panel" title="{{test.result}}">
   <slides-test-description [title]="getTitle(test)"
-                        [file]="getTestFile(test)"
-                        [pass]="test.pass"
-                        (onSelectFile)="onSelectFile.emit($event)"
+                           [file]="getTestFile(test)"
+                           [pass]="test.pass"
+                           [class.first-unsolved]="isFirstUnsolved(test)"
+                           (onSelectFile)="onSelectFile.emit($event)"
   ></slides-test-description>
   <div class="result" *ngIf="isFirstUnsolved(test)">{{test.result}}</div>
 </div>

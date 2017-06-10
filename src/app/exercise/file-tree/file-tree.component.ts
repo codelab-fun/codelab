@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
-import {FileConfig} from './../interfaces/file-config';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { FileConfig } from './../interfaces/file-config';
 
 interface Node {
   depth: number;
@@ -54,6 +54,7 @@ export class FileTreeComponent implements OnChanges {
   }
 
   clickFile(fileConfig: FileConfig): void {
+    fileConfig.opened = true;
     this.onSelectFile.emit(fileConfig);
     this.active = fileConfig;
   }

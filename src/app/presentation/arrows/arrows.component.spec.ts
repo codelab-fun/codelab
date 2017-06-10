@@ -9,9 +9,9 @@ xdescribe('ArrowsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArrowsComponent ]
+      declarations: [ArrowsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

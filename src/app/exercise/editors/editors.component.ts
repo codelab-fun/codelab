@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FileConfig} from '../interfaces/file-config';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FileConfig } from '../interfaces/file-config';
 
 @Component({
   selector: 'slides-editors',
   templateUrl: './editors.component.html',
   styleUrls: ['./editors.component.scss']
 })
-export class EditorsComponent {
+export class EditorsComponent implements OnInit {
   @Input() public files: Array<any>;
   @Input() public currentFile;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
@@ -18,6 +18,29 @@ export class EditorsComponent {
   constructor() {
     // TODO
     this.debug = true;
+  }
+
+  ngOnInit() {
+    this.files.map( file => {
+      file.opened = !file.readonly;
+    });
+  }
+
+  closeTab(file) {
+    file.opened = false;
+
+    if (file === this.currentFile) {
+      this.showFile(
+        this.visibleFiles
+          .concat()
+          .reverse()
+          .find( f => f.opened)
+      );
+    }
+  }
+
+  isTabVisible(file) {
+    return file.opened !== false;
   }
 
   onCodeChange(change) {
@@ -36,11 +59,8 @@ export class EditorsComponent {
     return this.currentFile;
   }
 
-  isOpenFile(file) {
-    if (!file || !this.currentFile) {
-      return;
-    }
-    return file.path === this.currentFile.path;
+  isActiveFile(file) {
+    return file === this.currentFile;
   }
 
   showFile(file): void {

@@ -1,21 +1,21 @@
-.menu-index{
-  min-width: 300px;
+.menu-index {
+  min-width: 350px;
   position: fixed;
   border: thin solid #242424;
   background-color: rgba(244, 244, 244, 0.98);
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 1em;
   font-weight: 300;
   right: 2%;
   bottom: 10%;
 }
 
-.menu-list{
+.menu-list {
   list-style-type: none;
   padding-left: 0;
 }
 
-.menu-list .menu-item a{
+.menu-list .menu-item a {
   display: inline-block;
   padding-left: 1em;
   width: 100%;
@@ -23,12 +23,13 @@
   text-decoration: none;
 }
 
-.menu-list .menu-item a:hover{
+.menu-list .menu-item a:hover {
   color: #fff;
   background-color: #982a2a;
   font-weight: bolder;
 }
-.tri-box{
+
+.tri-box {
   position: fixed;
   z-index: 2;
   transform: rotate(45deg);
@@ -49,7 +50,8 @@
   background-color: #ff594b;
   background-image: url("../../../assets/images/home.png");
 }
-.menu-icon:hover{
+
+.menu-icon:hover {
   cursor: pointer;
 }
 

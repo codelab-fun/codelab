@@ -1,22 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
 
-@media only screen and (min-width: 1800px) {
-  .presentation .slide {
-    padding: 80px;
+.presentation .slide h1 {
+  font-size: 2vw;
+}
+
+.presentation.presentation {
+  h2, li {
+    font-size: 3vw;
+  }
+  .info, .exercise {
+    font-size: 2vw;
   }
 
-  .presentation h2 {
-    font-size: 60px;
+  .header {
+    font-size: 10vw;
   }
 
-  .presentation li {
-    font-size: 45px;
-    margin-bottom: 20px;
+  .description {
+    font-size: 3vw;
   }
 
-  .presentation .space-left {
-    margin-left: 50px;
+  .instructions {
+    font-size: 2vw;
   }
+}
+
+.margin-view-overlays {
+  display: none;
+}
+
+.presentation.size-600 li {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/** end of size-specific styles **/
+.slide {
+  min-width: 600px;
+  min-height: 300px;
+  width: 100vw;
+  height: 100vh;
+  padding: 2vw;
 }
 
 * {
@@ -94,7 +117,7 @@ h1, h2, h3, li {
   font-weight: 300;
 }
 
-[no-padding] .slide {
+.presentation.presentation.presentation [no-padding] .slide {
   padding: 0;
 }
 
@@ -135,6 +158,10 @@ h1, h2, h3, li {
   position: absolute;
   right: 10px;
   top: 15px;
+}
+
+.browser-frame, .frame {
+  height: 100%;
 }
 
 .slide {
@@ -244,7 +271,7 @@ h2 {
 }
 
 p {
-  font-size: 22px;
+  font-size: 1.2vw;
   margin: 0;
   margin-bottom: 10px;
   padding: 0;
@@ -355,3 +382,6 @@ p {
   left: 0 !important;
 }
 
+slides-code-editor {
+  margin: 1vw 0;
+}

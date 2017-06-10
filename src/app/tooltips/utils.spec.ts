@@ -1,4 +1,4 @@
-import {findPosition} from './utils';
+import { findPosition } from './utils';
 describe('Utils', () => {
   describe('findPosition', () => {
     it('Whole string is matched', () => {

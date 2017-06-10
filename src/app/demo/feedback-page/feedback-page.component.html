@@ -22,7 +22,7 @@
 
 
       <div *ngFor="let item of messages$ | async" class="group">
-        <h2 class="header">{{item.key}}</h2>
+        <h2 class="feedback-header">{{item.key}}</h2>
 
         <div *ngFor="let message of item.value" class="card">
           <div>

@@ -1,22 +1,22 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
-import {HttpModule} from '@angular/http';
-import {FormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
-import {AppComponent} from './app.component';
-import {MonacoConfigService} from '../exercise/services/monaco-config.service';
-import {ExerciseModule} from '../exercise/exercise.module';
-import {TooltipsModule} from '../tooltips/tooltips.module';
-import {IndexComponent} from './index/index.component';
-import {PresentationModule} from '../presentation/presentation.module';
-import {FeedbackModule} from 'app/feedback/feedback.module';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { MonacoConfigService } from '../exercise/services/monaco-config.service';
+import { ExerciseModule } from '../exercise/exercise.module';
+import { TooltipsModule } from '../tooltips/tooltips.module';
+import { IndexComponent } from './index/index.component';
+import { PresentationModule } from '../presentation/presentation.module';
+import { FeedbackModule } from 'app/feedback/feedback.module';
 
 export const routes = [
   {
     path: 'typescript',
     loadChildren: './typescript/typescript.module#TypescriptModule',
     name: 'Typescript',
-    description: 'Learn TypeScript: A superset of JavaScript, which Angular is written in',
+    description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.',
     page: 'main'
   },
   {
@@ -45,6 +45,13 @@ export const routes = [
     loadChildren: './component-tree/component-tree.module#ComponentTreeModule',
     name: 'Component-Tree',
     description: 'Learn how to structure your app with reusable components',
+    page: 'main'
+  },
+  {
+    path: 'custom-events',
+    loadChildren: './custom-events/custom-events.module#CustomEventsModule',
+    name: 'Custom-Events',
+    description: 'Learn to bind to events.',
     page: 'main'
   },
   {

@@ -8,9 +8,9 @@ xdescribe('VisualStudioCodeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisualStudioCodeComponent ]
+      declarations: [VisualStudioCodeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

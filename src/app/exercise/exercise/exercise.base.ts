@@ -1,10 +1,11 @@
-import {Input, OnDestroy} from '@angular/core';
-import {ExerciseConfig} from '../interfaces/exercise-config';
-import {MonacoConfigService} from 'app/exercise/services/monaco-config.service';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {Subscription} from 'rxjs/Subscription';
-import {AnalyticsService} from '../../presentation/analytics.service';
-import {ActivatedRoute} from '@angular/router';
+import { Input, OnDestroy } from '@angular/core';
+import { ExerciseConfig } from '../interfaces/exercise-config';
+import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { Subscription } from 'rxjs/Subscription';
+import { AnalyticsService } from '../../presentation/analytics.service';
+import { ActivatedRoute } from '@angular/router';
+import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 
 export class ExerciseBase implements OnDestroy {
   @Input() public config: ExerciseConfig;
@@ -52,10 +53,14 @@ export class ExerciseBase implements OnDestroy {
     }
   }
 
+  goToNextSlide() {
+    this.presentation.nextSlide();
+  }
+
   toggleFile(toggledFile) {
     this.config = {
       ...this.config,
-      files: this.config.files.map(file => file === toggledFile ? {...file, collapsed: !file.collapsed} : file)
+      files: this.config.files.map(file => file === toggledFile ? {...file, opened: !file.opened} : file)
     };
   }
 
@@ -76,7 +81,8 @@ export class ExerciseBase implements OnDestroy {
   constructor(public slide: SlideComponent,
               private monacoConfig: MonacoConfigService,
               private analyticsService: AnalyticsService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private presentation: PresentationComponent) {
     this.onActiveUnsubscribe = slide.onActive.filter(a => a).subscribe(() => {
       console.log('ACTIVE');
       slide.disableResize();

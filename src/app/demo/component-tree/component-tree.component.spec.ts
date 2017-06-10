@@ -9,9 +9,9 @@ xdescribe('ComponentTreeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComponentTreeComponent ]
+      declarations: [ComponentTreeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

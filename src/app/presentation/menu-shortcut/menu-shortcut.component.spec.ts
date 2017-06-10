@@ -9,9 +9,9 @@ xdescribe('MenuShortcutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuShortcutComponent ]
+      declarations: [MenuShortcutComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

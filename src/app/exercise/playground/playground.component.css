@@ -1,17 +1,19 @@
-
-:host([vertical]) .playground {
-  flex-direction: column;
-}
-
 .playground {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   margin-top: 20px;
 }
 
+:host([vertical]) .exercise {
+  flex-direction: column;
+}
+
+.exercise {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 slides-editor {
-  width: 700px;
+  width: 50vw;
   /* To compensate for hidden line numbers */
   margin-left: -30px;
   margin-right: 20px;
@@ -33,7 +35,44 @@ slides-editor {
 :host /deep/ .decorationsOverviewRuler {
   display: none;
 }
+
 :host /deep/ .current-line {
   border: none;
   background-color: #ffffee;
+}
+
+slides-tests {
+  display: block;
+}
+
+slides-tests /deep/ .test:before {
+  width: 1vw;
+  height: 1vw;
+}
+
+slides-tests /deep/ .first-unsolved .title {
+  color: #ff6144;
+}
+
+slides-tests /deep/ .title {
+  font-size: 2vw;
+  font-weight: 300;
+}
+
+slides-tests /deep/ .result {
+  font-size: 1.5vw;
+  font-weight: 300;
+  color: #ccc;
+}
+
+/* TODO: Share those styles with the exercise component. */
+.exercise-complete {
+  background: #dfffde;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.next-button {
+  text-decoration: underline;
+  cursor: pointer;
 }

@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
-import {ExerciseBase} from '../exercise/exercise.base';
-import {MonacoConfigService} from '../services/monaco-config.service';
-import {SlideComponent} from '../../presentation/slide/slide.component';
-import {AnalyticsService} from '../../presentation/analytics.service';
-import {ActivatedRoute} from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { ExerciseBase } from '../exercise/exercise.base';
+import { MonacoConfigService } from '../services/monaco-config.service';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { AnalyticsService } from '../../presentation/analytics.service';
+import { ActivatedRoute } from '@angular/router';
+import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 
 
 @Component({
@@ -19,8 +20,12 @@ export class PlaygroundComponent extends ExerciseBase {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlightMatches = [];
 
-  constructor(slide: SlideComponent, monacoConfig: MonacoConfigService, analyticsService: AnalyticsService,  route: ActivatedRoute) {
-    super(slide, monacoConfig, analyticsService, route);
+  constructor(slide: SlideComponent,
+              monacoConfig: MonacoConfigService,
+              analyticsService: AnalyticsService,
+              route: ActivatedRoute,
+              presentation: PresentationComponent) {
+    super(slide, monacoConfig, analyticsService, route, presentation);
   }
 
   onCodeChange(code) {

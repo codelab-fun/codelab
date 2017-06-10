@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import {AngularFireAuth} from 'angularfire2/auth';
+import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import {Message} from '../../feedback/message';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {combineLatest} from 'rxjs/observable/combineLatest';
+import { Message } from '../../feedback/message';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { combineLatest } from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
-import {GithubService} from 'app/github.service';
+import { Observable } from 'rxjs/Observable';
+import { GithubService } from 'app/github.service';
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';

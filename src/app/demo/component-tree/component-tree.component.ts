@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate} from '../../../../ng2ts/ng2ts';
-import {boxAndCircle, circleAndBox} from '../../exercise/helpers/helpers';
+import { Component } from '@angular/core';
+import { ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate } from '../../../../ng2ts/ng2ts';
+import { boxAndCircle, circleAndBox } from '../../exercise/helpers/helpers';
 
 const circleAndBoxCode = circleAndBox();
 
