@@ -42,7 +42,7 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
 
     /* TODO: Get rid of the CSS hack */
     wrap(console, 'log', (v)=>{
-      value.value = v;     
+      value.value = v;
       document.write('<h3 style="font-family: roboto, sans-serif;font-size: 2vw; font-weight: 300">&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `

@@ -37,7 +37,7 @@ import 'hammerjs';
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective
+    IntrojsDirective,
   ],
 
   exports: [
