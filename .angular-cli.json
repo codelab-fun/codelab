@@ -20,7 +20,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "slides",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/intro.js/minified/introjs.min.css",
+        "../node_modules/intro.js/themes/introjs-nassim.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

@@ -9,9 +9,6 @@ declare const require;
 })
 export class IntrojsDirective implements OnInit {
   constructor(public slide: SlideComponent) {
-
-    require('style-loader!../node_modules/intro.js/minified/introjs.min.css');
-    require('style-loader!../node_modules/intro.js/themes/introjs-nassim.css');
   }
 
   ngOnInit() {
