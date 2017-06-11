@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 import { AnalyticsService } from './analytics.service';
 import { IntrojsDirective } from './introjs-directive/introjs.directive';
-
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { IntrojsDirective } from './introjs-directive/introjs.directive';
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective
+    IntrojsDirective,
   ],
 
   exports: [

@@ -42,7 +42,7 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
 
     /* TODO: Get rid of the CSS hack */
     wrap(console, 'log', (v)=>{
-      value.value = v;     
+      value.value = v;
       document.write('<h3 style="font-family: roboto, sans-serif;font-size: 2vw; font-weight: 300">&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `
@@ -240,16 +240,6 @@ platform.bootstrapModule(AppModule, {
   };
 }
 
-export function pureJavascript(code, bootstrapCode, testCode) {
-  return {
-    files: [
-      exerciseWithDisplay('app', code, code),
-      bootstrap('main', bootstrapCode, bootstrapCode),
-      test('test', testCode)
-    ]
-  };
-}
-
 export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
   const files = [
     exerciseWithConsoleLog('app', code, code),
@@ -267,6 +257,11 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
   return {
     files
   };
+}
+export function javaScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
+  const result = typeScriptWithConsoleLog(code, bootstrapCode, testCode, otherCode);
+  (result.files[0] as FileConfig).editorType = 'javascript';
+  return result;
 }
 
 
