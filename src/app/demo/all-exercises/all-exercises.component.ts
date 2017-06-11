@@ -43,7 +43,6 @@ export class AllExercisesComponent {
     });
 
     this.allFiles = Object.keys(this.allFiles).map((file) => this.allFiles[file]);
-    console.log(this.allFiles);
   }
 
   selectExercise(milestone: number, exercise: number): void {
