@@ -3,12 +3,17 @@ a:not([href]) {
   text-decoration: underline;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none
+  user-select: none;
+  font-size: 12px;
+}
+
+a.opened {
+  color: #c04e22;
 }
 
 a.active {
   text-decoration: none;
-  color: #c04e22;;
+  color: blue;
 }
 
 .folder,
@@ -28,4 +33,10 @@ a.active {
 
 .folder {
   padding: 0px 0px 2px 2px;
+}
+
+
+.readonlyIcon {
+  width: 14px;
+  height: 16px;
 }

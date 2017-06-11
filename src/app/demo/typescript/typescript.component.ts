@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { typeScriptWithConsoleLog, withDeps } from '../../exercise/helpers/helpers';
+import { javaScriptWithConsoleLog, typeScriptWithConsoleLog, withDeps } from '../../exercise/helpers/helpers';
 import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
-
+declare const require;
 
 @Component({
   selector: 'slides-typescript',
@@ -10,6 +10,7 @@ import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 })
 
 export class TypescriptComponent {
+
   code = {
     filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
 
@@ -37,20 +38,21 @@ const notRealPuppy: Puppy = {
   says: 'meow' // Error: this is clearly not a puppy
 }`,
       codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
-const fruit: Array<string> = ['kiwi', 'fig'];
+const cats: Array<string> = ['Simba', 'Aslan'];
 // Type[] does the same thing.
-const moreFruit: string[] = ['kiwi', 'fig'];
+const cats2: string[] = ['Simba', 'Aslan'];
 
-interface Fruit {
+interface Cat {
   name: string,
-  sweet: boolean
+  age: number
 }
 
-const betterFruit: Array<Fruit> = [
-  {name: 'kiwi', sweet: true}
+const betterCats: Array<Cat> = [
+  {name: 'Simba', age: 22},
+  {name: 'Aslan', age: 9999}
 ];
 
-console.log(betterFruit);`),
+console.log(betterCats);`),
       code: `const price: number = 100; // This is a number.
 const tax = 20; // Actually TypeScript can infer number here;
 const productName = 'pikachu'; // TypeScript can infer it's a string.
@@ -149,24 +151,23 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
       }
     },
     tsExercise: typeScriptWithConsoleLog(
-      `function add(a: number, b: number){
+      `function add(a: number, b){
   return a+b;
 };
 
-console.log(add('2', 2));`, undefined,
-      `
-    import {value} from './app';
+console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise-test.ts`)),
 
-    describe('value', ()=>{
-      it('equals 5', ()=>{
-        chai.expect(value.value).equals(4);
-      })
-    })
-    `),
+    js2And2: javaScriptWithConsoleLog(
+      `function add(a, b){
+  return a+b;
+};
+
+console.log(add(2, '2'));`),
     tsExerciseMatch: /'.*'/
   };
+
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ];
-}
 
+}

@@ -18,6 +18,7 @@
 }
 
 .tab {
+  position: relative;
   display: inline-flex;
   align-items: center;
   height: 24px;
@@ -43,7 +44,32 @@
     background-color: white;
     overflow: initial;
     z-index: 1;
+
+    .tab-close {
+      background: white;
+    }
   }
+}
+
+.tab-close {
+  position: absolute;
+  right: 0;
+  border: 0;
+  padding: 0px 2px 2px 0px;
+  font-size: 20px;
+  font-weight: 300;
+  background: #eee;
+}
+
+.tab-title {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none;
 }
 
 .content {
@@ -70,7 +96,7 @@
 .readonlyIcon {
   width: 14px;
   height: 14px;
-  margin: 0 3px 0 5px;
+  margin: 5px 12px 0 5px;
   background-image: url("/assets/images/lock.png");
   background-size: contain;
 }
