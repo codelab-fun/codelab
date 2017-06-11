@@ -15,18 +15,25 @@
 
     <div *ngFor="let filesinfo of allFiles; let i = index">
       <h2>{{filesinfo.name}}</h2>
-      <table style="display:inline-block" >
+      <table style="display:inline-block">
         <thead>
           <tr>
-            <td *ngFor="let milestone of filesinfo.milestones let o = index">
+            <th *ngFor="let milestone of filesinfo.milestones let o = index">
               {{milestone}}
-            </td>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <td *ngFor="let file of filesinfo.files let o = index">
-              <textarea class="code-file">{{file.code}}</textarea>
+          <tr>
+            <td *ngFor="let file of filesinfo.files; let o = index">
+              <div>
+                <h3>Code</h3>
+                <textarea class="code-file">{{file.code}}</textarea>
+              </div>
+              <div>
+                <h3>Solution</h3>
+                <textarea class="code-file">{{file.solution}}</textarea>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -35,7 +42,7 @@
     </div>
   </slides-slide>
 
- <!--<slides-slide id="selection" no-padding milestone="select exercise">
+  <!--<slides-slide id="selection" no-padding milestone="select exercise">
     <h1>Select Exercise</h1>
 
     <div *ngFor="let milestone of milestones; let i = index">
