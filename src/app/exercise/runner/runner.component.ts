@@ -284,7 +284,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
   cachedIframes = {};
-  html = `<my-app></my-app>`;
+  html = `<my-app id="app"></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
   @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
   private handleMessageBound: any;
@@ -365,6 +365,15 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         const testFiles = files
           .filter(file => !file.excludeFromTesting);
         sandbox.runMultipleFiles(testFiles);
+      });
+    } else if (runner === 'Vue') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': 'about:blank'
+      }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
+        sandbox.setHtml('<div id="app"></div>');
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('vue'));
+        sandbox.runSingleFile(files[0].code);
       });
     } else {
       throw new Error('No runner specified');

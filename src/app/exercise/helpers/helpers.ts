@@ -240,6 +240,15 @@ platform.bootstrapModule(AppModule, {
   };
 }
 
+export function vueJsExercise(code: string) {
+  return {
+    runner: 'Vue',
+    files: [
+      exercise('main.ts', code, '')
+    ]
+  };
+}
+
 export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
   const files = [
     exerciseWithConsoleLog('app', code, code),
