@@ -114,5 +114,5 @@ export function monacoReady() {
     }],
   bootstrap: [AppComponent]
 })
-export class DemoModule {
+export class CodelabsModule {
 }
