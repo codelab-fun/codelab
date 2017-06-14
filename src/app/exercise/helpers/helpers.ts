@@ -12,19 +12,6 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   };
 }
 
-export function withDeps(config: any, moduleName: string, depName: string) {
-  return {
-    ...config,
-    files: config.files.map((file) => {
-      if (file.moduleName === moduleName) {
-        file.deps = file.deps || [];
-        file.deps.push(depName);
-      }
-      return file;
-    })
-  };
-}
-
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
@@ -42,7 +29,7 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
 
     /* TODO: Get rid of the CSS hack */
     wrap(console, 'log', (v)=>{
-      value.value = v;     
+      value.value = v;
       document.write('<h3 style="font-family: roboto, sans-serif;font-size: 2vw; font-weight: 300">&gt; ' + JSON.stringify(v) + '<h3><hr>')
     })
   `
@@ -236,6 +223,24 @@ platform.bootstrapModule(AppModule, {
         `
       },
       ...(testCode ? [test('test', testCode)] : [])
+    ]
+  };
+}
+
+export function vueJsExercise(code: string) {
+  return {
+    runner: 'Vue',
+    files: [
+      exercise('main.ts', code, '')
+    ]
+  };
+}
+
+export function reactExercise(code: string) {
+  return {
+    runner: 'React',
+    files: [
+      exercise('main.ts', code, '')
     ]
   };
 }

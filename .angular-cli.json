@@ -8,6 +8,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
+        "../node_modules/intro.js",
         "assets",
         "favicon.ico"
       ],
@@ -20,7 +21,8 @@
       "prefix": "slides",
       "styles": [
         "styles.scss",
-        "../node_modules/intro.js/introjs.css"
+        "../node_modules/intro.js/minified/introjs.min.css",
+        "../node_modules/intro.js/themes/introjs-nassim.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

@@ -15,7 +15,9 @@ import { FileConfig } from '../interfaces/file-config';
 import { LoopProtectionService } from '../services/loop-protection.service';
 import { ScriptLoaderService } from '../services/script-loader.service';
 declare const require;
-
+import * as babylon from 'babylon';
+import * as babel_types from 'babel-types';
+import babel_traverse from 'babel-traverse';
 
 function jsScriptInjector(iframe) {
   return function (code) {
@@ -154,6 +156,9 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               setters: [],
               execute: function () {
                 exports('ts', ts);
+                exports('babylon', babylon);
+                exports('babel_traverse', babel_traverse);
+                exports('babel_types', babel_types);
                 files.forEach((file) => {
                   exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);
                   exports(file.path.replace(/[\/\.-]/gi, '_') + '_AST', ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5));
@@ -278,7 +283,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
   cachedIframes = {};
-  html = `<my-app></my-app>`;
+  html = `<my-app id="app"></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
   @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
   private handleMessageBound: any;
@@ -359,6 +364,25 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         const testFiles = files
           .filter(file => !file.excludeFromTesting);
         sandbox.runMultipleFiles(testFiles);
+      });
+    } else if (runner === 'Vue') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': 'about:blank'
+      }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
+        sandbox.setHtml('<div id="app"></div>');
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('vue'));
+        sandbox.runSingleFile(files[0].code);
+      });
+    } else if (runner === 'React') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': 'about:blank'
+      }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
+        sandbox.setHtml('<div id="app"></div>');
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('react'));
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('react-dom'));
+        sandbox.runSingleFile(files[0].code);
       });
     } else {
       throw new Error('No runner specified');
