@@ -27,7 +27,7 @@ describe('Service: MonacoConfig', () => {
       expect(sorted).toEqual([dep1, dep2]);
     }));
     it('should do simple sorting', inject([MonacoConfigService], (service: MonacoConfigService) => {
-      const dep1 = {moduleName: '1', deps: ['2'], template: '', path: '1'};
+      const dep1 = {moduleName: '1', template: '', path: '1'};
       const dep2 = {moduleName: '2', template: '', path: '2'};
       const files = [dep1, dep2];
 
