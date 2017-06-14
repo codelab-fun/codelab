@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { assert } from './utils';
-declare var require;
+declare const require;
 
 @Injectable()
 export class ScriptLoaderService {
@@ -15,7 +15,10 @@ export class ScriptLoaderService {
     zone: require('!!raw-loader!../../../assets/runner/node_modules/zone.js/dist/zone.js'),
     reflect: require('!!raw-loader!reflect-metadata/Reflect'),
     'system-config': require('!!raw-loader!../../../assets/runner/js/system-config'),
-    'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle')
+    'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle'),
+    'vue': require('!!raw-loader!vue/dist/vue.js'),
+    'react': require('!!raw-loader!react/dist/react.js'),
+    'react-dom': require('!!raw-loader!react-dom/dist/react-dom.js')
   };
 
   getScript(url) {
@@ -23,6 +26,6 @@ export class ScriptLoaderService {
     return this.scripts[url];
   }
 
-  constructor(private http: Http) {
+  constructor() {
   }
 }

@@ -84,7 +84,6 @@ export class ExerciseBase implements OnDestroy {
               private route: ActivatedRoute,
               private presentation: PresentationComponent) {
     this.onActiveUnsubscribe = slide.onActive.filter(a => a).subscribe(() => {
-      console.log('ACTIVE');
       slide.disableResize();
       this.loadModels();
     });

@@ -21,6 +21,7 @@ import { FileStructureComponent } from './file-structure/file-structure.componen
 import { TestDescriptionComponent } from './test-description/test-description.component';
 import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
+import { DepsService } from './services/deps-order.service';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.co
     FormsModule,
     TooltipsModule,
     BrowserModule
-  ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService],
+  ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
   exports: [ExerciseComponent,
     PlaygroundComponent,
     EditorComponent,
