@@ -68,7 +68,6 @@ export interface FileConfig {
   /**
    * File dependencies, need for proper highlighting in monaco.
    */
-  deps?: Array<string>;
 
   editorType?: string;
 }

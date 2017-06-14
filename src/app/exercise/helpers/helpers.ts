@@ -12,19 +12,6 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   };
 }
 
-export function withDeps(config: any, moduleName: string, depName: string) {
-  return {
-    ...config,
-    files: config.files.map((file) => {
-      if (file.moduleName === moduleName) {
-        file.deps = file.deps || [];
-        file.deps.push(depName);
-      }
-      return file;
-    })
-  };
-}
-
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2), before: `
