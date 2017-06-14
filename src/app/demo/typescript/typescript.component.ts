@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { javaScriptWithConsoleLog, typeScriptWithConsoleLog, withDeps } from '../../exercise/helpers/helpers';
+import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../exercise/helpers/helpers';
 import { ng2tsConfig } from '../../../../ng2ts/ng2ts';
 declare const require;
 
@@ -125,7 +125,7 @@ console.log(oscar.bark());`), codeExport: typeScriptWithConsoleLog(`export class
   bark(){
     return 'Gav! my name is ' + this.name;
   }
-}`), codeImport: withDeps(typeScriptWithConsoleLog(`import {Puppy} from './puppy';
+}`), codeImport: typeScriptWithConsoleLog(`import {Puppy} from './puppy';
 
 var hotdog = new Puppy('Édouard');
 console.log(hotdog.bark());
@@ -136,7 +136,7 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
   bark(){
     return 'Gav! my name is ' + this.name;
   }
-}`), 'app', 'puppy'),
+}`),
       matches: {
         classPuppyMatch: /class Puppy/,
         classMatch: /class/,
