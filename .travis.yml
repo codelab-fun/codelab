@@ -1,7 +1,7 @@
 dist: trusty
 language: node_js
 node_js:
-  - 7
+  # - 7 # Node.js v7 is defined in the build matrix below. This line would cause this build to run twice. 
   - 6
   
 matrix:
