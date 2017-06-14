@@ -236,6 +236,15 @@ export function vueJsExercise(code: string) {
   };
 }
 
+export function reactExercise(code: string) {
+  return {
+    runner: 'React',
+    files: [
+      exercise('main.ts', code, '')
+    ]
+  };
+}
+
 export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
   const files = [
     exerciseWithConsoleLog('app', code, code),
