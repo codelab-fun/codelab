@@ -69,6 +69,13 @@ export const routes = [
     page: 'vue'
   },
   {
+    path: 'react-intro',
+    loadChildren: './react/react.module#ReactModule',
+    name: 'react',
+    description: 'Learn some React. It\'s easier than Angular',
+    page: 'react'
+  },
+  {
     path: 'experiments',
     loadChildren: './experiments/experiments.module#ExperimentsModule',
     page: 'bonus'

@@ -375,6 +375,16 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         sandbox.runSingleFile(this.scriptLoaderService.getScript('vue'));
         sandbox.runSingleFile(files[0].code);
       });
+    } else if (runner === 'React') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': 'about:blank'
+      }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
+        sandbox.setHtml('<div id="app"></div>');
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('react'));
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('react-dom'));
+        sandbox.runSingleFile(files[0].code);
+      });
     } else {
       throw new Error('No runner specified');
     }
