@@ -3,6 +3,11 @@ language: node_js
 node_js:
   - 7
   - 6
+  
+matrix:
+  include:
+    - node_js: 7
+      env: REPORT_COVERAGE=true # Only run coverage reporting on one build.
 
 before_install:
   # Install & start Chrome for Karma
@@ -20,7 +25,7 @@ script:
   - npm run lint
   - npm test -- --single-run --code-coverage
   - npm run ng build -- --aot --prod
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - if [ "$REPORT_COVERAGE" == "true" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
 
 notifications:
   email: false
