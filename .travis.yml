@@ -13,13 +13,25 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
+dependencies:
+  post:
+    # Install CodeClimate coverage reporting tool
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+
 script:
   - npm run lint
-  - npm test -- --single-run
+  - npm test -- --single-run --code-coverage
   - npm run ng build -- --aot --prod
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 notifications:
   email: false
+
+env:
+  global:
+    # Non-secure CodeClimate coverage reporting token
+    - CC_TEST_REPORTER_ID=f18ea226d829c54461676c72c0348df1fab06219aeec2d3a6301c6f2859be90c
 
 cache:
   yarn: true
