@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactComponent } from './react.component';
+import { IntroductionComponent } from './introduction/introduction.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../presentation/slide-routes';
 
@@ -10,13 +10,13 @@ import { BrowserModule } from '../../browser/browser.module';
 
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(ReactComponent)
+  SlidesRoutes.get(IntroductionComponent)
 );
 
 @NgModule({
   imports: [routes, PresentationModule, ExerciseModule, BrowserModule, FeedbackModule],
-  declarations: [ReactComponent],
-  exports: [ReactComponent]
+  declarations: [IntroductionComponent],
+  exports: [IntroductionComponent]
 })
 export class ReactModule {
 

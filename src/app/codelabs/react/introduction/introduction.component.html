@@ -1,0 +1,195 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="menu-bar-btn github-icon">
+      <a href="https://github.com/AngularNYC/angular-presentation">
+        <img src="/assets/images/github-icon.png">
+      </a>
+    </div>
+    <slides-mode-overview></slides-mode-overview>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" no-padding milestone="React">
+    <slides-title-slide
+      title="React Fundamentals"
+      description="Let's see what it's all about"
+    ></slides-title-slide>
+  </slides-slide>
+
+  <slides-slide id="what-is-react" milestone="React">
+    <h1 i18n>What is React?</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        React is a library for building <i>user interfaces</i> (UIs).
+      </h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="what-is-react-2" milestone="React">
+    <h1 i18n>What is React?</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        In React, your UI is a <i>tree of components</i>.
+      </h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="what-are-components" milestone="React">
+    <h1 i18n>What are components?</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        Components are stand-alone UI elements that manage their own state.
+      </h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="first-component" milestone="React">
+    <h1 i18n>First component</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        In React, components are written in JavaScript
+      </h2>
+
+      <slides-code-editor path="component.js" [fontSize]="25" [readonly]="true"
+                          [code]="code.jsxComponent"></slides-code-editor>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="first-component-wat" milestone="React">
+    <h1 i18n>First component</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        In React, components are written in JavaScript
+      </h2>
+
+      <slides-code-editor path="component.js" [fontSize]="25" [readonly]="true"
+                          [code]="code.jsxComponent"
+                          [focus-highlight-match]="[highlightMatches.jsx]"></slides-code-editor>
+
+      <div class="info" i18n>
+        But this doesn't look like JavaScript!
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="jsx" milestone="React">
+    <h1 i18n>What is JSX?</h1>
+    <div class="centered-vertically">
+      <slides-code-editor path="component.js" [fontSize]="25" [readonly]="true"
+                          [code]="code.jsxComponent"
+                          [focus-highlight-match]="[highlightMatches.jsx]"></slides-code-editor>
+
+      <h2 i18n>
+        The above syntax is not HTML, it's called JSX. It is an extension for JavaScript, not a template engine.
+        It's transformed to JavaScript with a compiler like <b>babel</b> or <b>TypeScript</b>.
+      </h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="jsx-transformed" milestone="React">
+    <h1 i18n>What is JSX?</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        After you run the previous JSX code through a compiler, here's what you get:
+      </h2>
+
+      <slides-code-editor path="component.js" [fontSize]="25" [readonly]="true"
+                          [code]="code.jsComponent"
+                          [focus-highlight-match]="[highlightMatches.createElement]"></slides-code-editor>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="jsx-explained" milestone="React">
+    <h1 i18n>What is JSX?</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        Fundamentally, JSX just provides syntactic sugar for the <b>React.createElement</b> function. It's important
+        to remember that you are not writing any HTML in React. We will learn about JSX syntax later in this course.
+      </h2>
+
+      <br/>
+
+      <h2 i18n>
+        Now let's render our component to a web page.
+      </h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="renderers" milestone="React">
+    <h1 i18n>Rendering React</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        You can transform React components to DOM elements in browsers, native controls in mobile apps,
+        procedures for hardware, sounds and music, games, whatever. All these tools actually exist.
+      </h2>
+
+      <br/>
+
+      <h2 i18n>
+        A tool that trasnforms (or renders) React components for a specific medium is called <b>renderer</b>.
+      </h2>
+
+      <br/>
+
+      <h2 i18n>
+        To use React in browser we need DOM renderer, which comes as a separate package called <b>ReactDOM</b>.
+      </h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="react-dom" milestone="React">
+    <h1 i18n>ReactDOM</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        ReactDOM provides a <b>render()</b> function which receives a root React component (remember that UI is a tree?)
+        and a DOM element. Then it mounts the component to the element.
+      </h2>
+
+      <slides-code-editor path="app.js" [fontSize]="25" [readonly]="true"
+                          [code]="code.jsxRender"
+                          [focus-highlight-match]="[highlightMatches.ReactDOM]"></slides-code-editor>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="arrow-function" milestone="React">
+    <h1 i18n>ReactDOM</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        We can also use ES2015 <b>arrow functions</b> syntax to make our component look nicer.
+      </h2>
+
+      <slides-code-editor path="app.js" [fontSize]="25" [readonly]="true"
+                          [code]="code.arrowFunctionRender"
+                          [focus-highlight-match]="[highlightMatches.arrowFunction]"></slides-code-editor>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="react-dom-recap" milestone="React">
+    <h1 i18n>ReactDOM</h1>
+    <div class="centered-vertically">
+      <h2 i18n>
+        Now just to recap, this is how the code looks like without JSX (or after it was run through babel):
+      </h2>
+
+      <slides-code-editor path="app.js" [fontSize]="25" [readonly]="true"
+                          [code]="code.jsRender"></slides-code-editor>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="exercise" no-padding>
+    <slides-exercise slidesIntroJs [config]="exercise" milestone="React">
+      <div class="description">
+        <p i18n>Let's recap what we learned</p>
+      </div>
+    </slides-exercise>
+  </slides-slide>
+
+</slides-presentation>
