@@ -1,0 +1,64 @@
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+  <div class="btn-bar">
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" no-padding milestone="all exercises">
+    <slides-title-slide title="Exercises" description="previous chapter exercises"></slides-title-slide>
+  </slides-slide>
+
+  <slides-slide id="selection" no-padding milestone="select exercise">
+    <h1>All Exercise</h1>
+
+    <div *ngFor="let filesinfo of allFiles; let i = index">
+      <h2>{{filesinfo.name}}</h2>
+      <table style="display:inline-block">
+        <thead>
+          <tr>
+            <th *ngFor="let milestone of filesinfo.milestones let o = index">
+              {{milestone}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td *ngFor="let file of filesinfo.files; let o = index">
+              <div>
+                <h3>Code</h3>
+                <textarea class="code-file">{{file.code}}</textarea>
+              </div>
+              <div>
+                <h3>Solution</h3>
+                <textarea class="code-file">{{file.solution}}</textarea>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </slides-slide>
+
+  <!--<slides-slide id="selection" no-padding milestone="select exercise">
+    <h1>Select Exercise</h1>
+
+    <div *ngFor="let milestone of milestones; let i = index">
+      <h3>{{milestone.name}}</h3>
+      <ol>
+        <li *ngFor="let exercise of milestone.exercises; let ii = index">
+          <button (click)="selectExercise(i, exercise.index)">{{exercise.name}}</button>
+        </li>
+      </ol>
+    </div>
+  </slides-slide>-->
+
+  <!--<slides-slide id="exercise-2" no-padding>
+    <slides-exercise [config]="exercise" milestone="component-tree-2">
+      <div class="description" i18n>
+        Use the component.
+      </div>
+    </slides-exercise>
+  </slides-slide>-->
+</slides-presentation>
