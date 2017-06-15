@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { reactExercise } from '../../../exercise/helpers/helpers';
-import tester from './introduction/exercise/test';
+// import tester from './introduction/exercise/test';
 
 const jsxComponent = `
 function HelloWorldComponent() {
@@ -72,6 +72,6 @@ export class IntroductionComponent {
       'introduction/exercise/app.js',
       'introduction/exercise/index.html'
     ],
-    tester: tester
+    // tester: tester
   };
 }
