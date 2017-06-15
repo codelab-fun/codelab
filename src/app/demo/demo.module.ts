@@ -67,6 +67,12 @@ export const routes = [
     name: 'vue',
     description: 'Learn how pipes transform input values to output values for display in a view',
     page: 'vue'
+  },  {
+    path: 'vue-templates',
+    loadChildren: './templates/templates.module#TemplatesModule',
+    name: 'templates',
+    description: 'Learn how to make a template in VueJS',
+    page: 'templates'
   },
   {
     path: 'react-intro',
