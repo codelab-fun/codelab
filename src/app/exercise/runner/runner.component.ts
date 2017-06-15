@@ -14,10 +14,10 @@ import * as ts from 'typescript';
 import { FileConfig } from '../interfaces/file-config';
 import { LoopProtectionService } from '../services/loop-protection.service';
 import { ScriptLoaderService } from '../services/script-loader.service';
-declare const require;
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import babel_traverse from 'babel-traverse';
+declare const require;
 
 function jsScriptInjector(iframe) {
   return function (code) {
