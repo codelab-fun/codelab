@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
 import { displayAngularComponent, displayAngularComponentWithHtml } from '../../../exercise/helpers/helpers';
 
+
+const baseCode = 'TODO';
+
 @Component({
   selector: 'slides-templates',
   templateUrl: './templates.component.html',

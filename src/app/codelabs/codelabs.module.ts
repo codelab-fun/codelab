@@ -95,7 +95,7 @@ export let routes = [
   },
   {
     path: 'feedback-page',
-    loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule'
+    loadChildren: './extra/feedback-page/feedback-page.module#FeedbackPageModule'
   },
   {
     path: '',
