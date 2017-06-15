@@ -25,4 +25,4 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
-  - srcs/assets/**/*
+  - src/assets/**/*
