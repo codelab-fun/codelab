@@ -8,10 +8,12 @@ export default function test(sourceCode) {
   const tests = [
     {
       instruction: `Create a function named App`,
-      condition: ({ node }) =>
-        (T.isFunctionDeclaration(node) && node.id.name === 'App') ||
-        (T.isVariableDeclarator(node) && node.id.name === 'App' && T.isFunctionExpression(node.init)) ||
-        (T.isVariableDeclarator(node) && node.id.name === 'App' && T.ArrowFunctionExpression(node.init))
+      condition: ({ node }) => {
+        const isFunction = T.isFunctionDeclaration(node) && node.id.name === 'App';
+        const isVariable = T.isVariableDeclarator(node) && node.id.name === 'App';
+
+        return isFunction || (isVariable && T.isFunctionExpression(node.init)) || (isVariable && T.ArrowFunctionExpression(node.init))
+      }
     },
     {
       instruction: `Return div with some text using JSX`,
