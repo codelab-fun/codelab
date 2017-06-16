@@ -88,6 +88,13 @@ export const routes = [
     page: 'bonus'
   },
   {
+    path: 'all-exercises',
+    loadChildren: './all-exercises/all-exercises.module#AllExercisesModule',
+    name: 'All Exercises',
+    description: 'Bonus: All Exercises and Solutions',
+    page: 'bonus'
+  },
+  {
     path: 'feedback-page',
     loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule'
   },

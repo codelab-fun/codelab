@@ -1,0 +1,44 @@
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+  <div class="btn-bar">
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" no-padding milestone="all exercises">
+    <slides-title-slide title="Exercises" description="Bonus: All Exercises and Solutions"></slides-title-slide>
+  </slides-slide>
+
+  <slides-slide id="selection" no-padding milestone="select exercise">
+    <h1>All Exercise</h1>
+
+    <div *ngFor="let filesinfo of allFiles">
+      <h2>{{filesinfo.name}}</h2>
+      <table style="display:inline-block">
+        <thead>
+          <tr>
+            <th *ngFor="let milestone of filesinfo.milestones">
+              {{milestone}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td *ngFor="let file of filesinfo.files">
+              <div>
+                <h3>Code</h3>
+                <textarea class="code-file">{{file.code}}</textarea>
+              </div>
+              <div>
+                <h3>Solution</h3>
+                <textarea class="code-file">{{file.solution}}</textarea>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </slides-slide>
+
+</slides-presentation>
