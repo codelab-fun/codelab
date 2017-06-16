@@ -73,7 +73,7 @@ export default function test(sourceCode) {
 
   traverse(ast, {
     enter(path) {
-      tests.forEach((test) => test.result = test.result || test.condition(path));
+      tests.forEach((test) => { test.result = test.result || test.condition(path) });
     }
   });
 
