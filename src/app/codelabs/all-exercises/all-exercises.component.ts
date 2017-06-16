@@ -10,7 +10,7 @@ import { Ng2TsExercises, ng2tsConfig } from '../../../../ng2ts/ng2ts';
 export class AllExercisesComponent {
   private exercise;
   private milestones;
-  private allFiles = {};
+  public allFiles = {};
 
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(1, 1);
