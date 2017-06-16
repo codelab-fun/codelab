@@ -10,6 +10,7 @@ import { TooltipsModule } from '../tooltips/tooltips.module';
 import { IndexComponent } from './index/index.component';
 import { PresentationModule } from '../presentation/presentation.module';
 import { FeedbackModule } from 'app/feedback/feedback.module';
+import { environment } from '../../environments/environment';
 
 export let routes = [
   {
@@ -104,7 +105,7 @@ export let routes = [
   }
 ];
 
-if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+if (environment.production) {
   routes = routes.filter(r => r['prod']);
 }
 
