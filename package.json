@@ -13,6 +13,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
+    "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && npm run sw && firebase deploy",
     "deploy:ru": "npm run build:ru && firebase deploy",
     "i18n": "ng xi18n --output-path src/i18n"
