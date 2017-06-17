@@ -59,6 +59,7 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "live-server": "^1.2.0",
     "plugin-typescript": "^7.0.6",
     "protractor": "~5.1.0",
     "source-map-support": "0.4.3",
