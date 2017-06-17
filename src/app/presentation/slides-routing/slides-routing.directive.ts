@@ -1,6 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Directive, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
+import { values } from  'lodash';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
@@ -15,7 +16,13 @@ export class SlidesRoutingDirective implements OnInit {
   @Output() change = new EventEmitter();
 
   constructor(private router: Router, private route: ActivatedRoute, private presentation: PresentationComponent) {
+    this.route.params.subscribe( params => {
+      let index = values(this.ids).findIndex(id => id === params.id);
 
+      if(index >= 0){
+        presentation.goToSlide(index);
+      }
+    })
   }
 
   @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {
