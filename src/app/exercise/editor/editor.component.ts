@@ -46,7 +46,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   public editor: any;
   @Input() public file: FileConfig;
   @Input() fontSize = 12;
-  private actialFontSize = 12;
+  private actualFontSize = 12;
   @ViewChild('editor') editorContent: ElementRef;
   @Output() onCodeChange = new EventEmitter();
   private editSub: Subject<String> = new Subject<String>();
@@ -61,7 +61,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   calcHeight(lines): number {
-    const lineHeight = this.actialFontSize * 1.6;
+    const lineHeight = this.actualFontSize * 1.6;
     return Math.max(lines * lineHeight, lineHeight * 6);
   }
 
@@ -82,12 +82,12 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @HostListener('window:resize')
   resize() {
     this.calcActualFontSize();
-    this.editor.updateOptions({fontSize: this.actialFontSize});
+    this.editor.updateOptions({fontSize: this.actualFontSize});
     this.updateHeight(this.code);
   }
 
   calcActualFontSize() {
-    this.actialFontSize = this.fontSize * document.documentElement.clientWidth / 1800;
+    this.actualFontSize = this.fontSize * document.documentElement.clientWidth / 1800;
   }
 
 
@@ -111,8 +111,27 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
         wordBasedSuggestions: true,
         lineNumbersMinChars: 3,
         automaticLayout: true,
-        fontSize: this.actialFontSize,
-        lineNumbers: 'off'
+        fontSize: this.actualFontSize,
+        lineNumbers: 'off',
+        scrollbar: {
+          // Subtle shadows to the left & top. Defaults to true.
+          useShadows: false,
+          // Render vertical arrows. Defaults to false.
+          verticalHasArrows: true,
+          // Render horizontal arrows. Defaults to false.
+          horizontalHasArrows: true,
+          // Render vertical scrollbar.
+          // Accepted values: 'auto', 'visible', 'hidden'.
+          // Defaults to 'auto'
+          vertical: 'visible',
+          // Render horizontal scrollbar.
+          // Accepted values: 'auto', 'visible', 'hidden'.
+          // Defaults to 'auto'
+          horizontal: 'visible',
+          verticalScrollbarSize: 17,
+          horizontalScrollbarSize: 17,
+          arrowSize: 30
+        }
       });
 
     this.editor.getModel().onDidChangeContent(() => {
