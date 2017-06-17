@@ -8,31 +8,38 @@ import { Ng2TsExercises, ng2tsConfig } from '../../../../ng2ts/ng2ts';
   styleUrls: ['./all-exercises.component.css']
 })
 export class AllExercisesComponent {
-  private exercise;
-  private milestones;
-  public allFiles = {};
+  public allFiles = [];
 
   constructor(private exercises: Ng2TsExercises) {
-    this.exercise = exercises.getExercises(1, 1);
-    this.milestones = ng2tsConfig.milestones.map((milestone) => {
-      return {
-        name: milestone.name,
-        exercises: milestone.exercises
-          .map((exercise, index) => { return { ...exercise, index }; })
-          .filter((exercise) => {
-            if (exercise['files']) { return true; }
-          })
-      };
-    });
+    const milestones = ng2tsConfig.milestones.map(this.selectMilestoneWithFilesOnly);
+    this.allFiles = this.GroupFilesByFilename(milestones);
+  }
+  /**
+   * Select Milestones that contain exercise files
+   */
+  private selectMilestoneWithFilesOnly(milestone) {
+    return {
+      name: milestone.name,
+      exercises: milestone.exercises
+        .filter((exercise) => {
+          if (exercise['files']) { return true; }
+        })
+    };
+  }
 
-    this.milestones.forEach((milestone) => {
+  /**
+   * Transform files group by milestone to filename
+   */
+  private GroupFilesByFilename(mileStones) {
+    const allFiles = {};
+    mileStones.forEach((milestone) => {
       milestone.exercises.forEach((exerciseFiles) => {
         exerciseFiles.files.forEach((file) => {
           if (this.allFiles[file.path]) {
-            this.allFiles[file.path].files.push(file);
-            this.allFiles[file.path].milestones.push(milestone.name);
+            allFiles[file.path].files.push(file);
+            allFiles[file.path].milestones.push(milestone.name);
           } else {
-            this.allFiles[file.path] = {
+            allFiles[file.path] = {
               files: [file],
               milestones: [milestone.name],
               name: file.path
@@ -41,11 +48,6 @@ export class AllExercisesComponent {
         });
       });
     });
-
-    this.allFiles = Object.keys(this.allFiles).map((file) => this.allFiles[file]);
-  }
-
-  selectExercise(milestone: number, exercise: number): void {
-    this.exercise = this.exercises.getExercises(milestone, exercise);
+    return Object.keys(allFiles).map((file) => allFiles[file]);
   }
 }
