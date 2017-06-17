@@ -19,4 +19,8 @@ There are 2 folders in the `src/app` folder:
 - start: `npm start`
 - test: `npm test`
 
+## Developing for offline mode:
+- `npm run sw-serve`
+- open `localhost:8080`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.

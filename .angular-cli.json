@@ -10,7 +10,8 @@
       "assets": [
         "../node_modules/intro.js",
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "service-worker.js"
       ],
       "index": "index.html",
       "main": "main.ts",
