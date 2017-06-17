@@ -14,7 +14,7 @@
     "e2e": "ng e2e",
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
     "static-serve": "cd dist && live-server --port=4200 --host=localhost --entry-file=/index.html",
-    "deploy": "ng build --prod --aot && firebase deploy",
+    "deploy": "ng build --prod --aot && npm run sw && firebase deploy",
     "deploy:ru": "npm run build:ru && firebase deploy",
     "i18n": "ng xi18n --output-path src/i18n"
   },
