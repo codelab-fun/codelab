@@ -13,7 +13,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
-    "static-serve": "cd dist && live-server --port=4201--prod --aot --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && npm run sw && firebase deploy",
     "deploy:ru": "npm run build:ru && firebase deploy",
     "i18n": "ng xi18n --output-path src/i18n"
@@ -59,7 +58,6 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "live-server": "^1.2.0",
     "plugin-typescript": "^7.0.6",
     "protractor": "~5.1.0",
     "source-map-support": "0.4.3",
