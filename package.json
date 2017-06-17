@@ -11,6 +11,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "sw": "sw-precache --root=dist --config=sw-precache-config.js",
+    "static-serve": "cd dist && live-server --port=4200 --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && firebase deploy",
     "deploy:ru": "npm run build:ru && firebase deploy",
     "i18n": "ng xi18n --output-path src/i18n"
@@ -59,6 +61,7 @@
     "plugin-typescript": "^7.0.6",
     "protractor": "~5.1.0",
     "source-map-support": "0.4.3",
+    "sw-precache": "^5.2.0",
     "systemjs": "^0.20.12",
     "systemjs-builder": "^0.16.4",
     "ts-node": "~2.0.0",
