@@ -16,8 +16,8 @@ import { LoopProtectionService } from '../services/loop-protection.service';
 import { ScriptLoaderService } from '../services/script-loader.service';
 declare const require;
 import * as babylon from 'babylon';
-import * as babel_types from 'babel-types';
 import babel_traverse from 'babel-traverse';
+import esquery from 'esquery';
 
 function jsScriptInjector(iframe) {
   return function (code) {
@@ -157,8 +157,8 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               execute: function () {
                 exports('ts', ts);
                 exports('babylon', babylon);
+                exports('esquery', esquery);
                 exports('babel_traverse', babel_traverse);
-                exports('babel_types', babel_types);
                 files.forEach((file) => {
                   exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);
                   exports(file.path.replace(/[\/\.-]/gi, '_') + '_AST', ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5));

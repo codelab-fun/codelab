@@ -1,79 +1,45 @@
-import {
-  babylon,
-  babel_traverse as traverse,
-  babel_types as T
-} from '../code';
+import { babylon, esquery } from '../code';
 
 export default function test(sourceCode) {
   const tests = [
     {
       instruction: `Create a function named App`,
-      condition: ({ node }) =>
-        (T.isFunctionDeclaration(node) && node.id.name === 'App') ||
-        (T.isVariableDeclarator(node) && node.id.name === 'App' && T.isFunctionExpression(node.init)) ||
-        (T.isVariableDeclarator(node) && node.id.name === 'App' && T.ArrowFunctionExpression(node.init))
+      queries: [
+        'FunctionDeclaration[id.name=App]',
+        'VariableDeclarator[id.name=App] > FunctionExpression',
+        'VariableDeclarator[id.name=App] > ArrowFunctionExpression'
+      ].join(',')
     },
     {
       instruction: `Return div with some text using JSX`,
-      condition: ({ node }) => {
-        const isDiv = (element) =>
-          T.isJSXElement(element)
-          (T.isJSXOpeningElement(element.openingElement) && element.openingElement.name.name === 'div') &&
-          (T.isJSXOpeningElement(element.closingElement) && element.closingElement.name.name === 'div');
-
-        const returnStatement = T.isReturnStatement(node) && isDiv(node.argument);
-        const arrowBodyStatement = T.isArrowFunctionExpression(node) && isDiv(node.body);
-
-        return returnStatement || arrowBodyStatement;
-      }
+      queries: [
+        'ReturnStatement > JSXElement[openingElement.name.name=div][closingElement.name.name=div]',
+        'ArrowFunctionExpression > JSXElement[openingElement.name.name=div][closingElement.name.name=div]'
+      ].join(',')
     },
     {
       instruction: `Switch JSX to JavaScript syntax in ReactDOM.render()`,
-      condition: ({ node, parent }) => {
-        const createElementStatement =
-          T.isMemberExpression(node) &&
-          node.object.name === 'React' &&
-          node.property.name === 'createElement' &&
-          T.isCallExpression(parent.node) &&
-          parent.node.arguments[0].name === 'App' &&
-          T.isNullLiteral(parent.node.arguments[1]) &&
-          T.isNullLiteral(parent.node.arguments[2]);
-
-        const renderStatement =
-          T.isCallExpression(parent.parent.node) &&
-          parent.parent.node.callee.object === 'ReactDOM' &&
-          parent.parent.node.callee.property === 'render';
-
-        return renderStatement && createElementStatement;
-      }
+      queries: [
+        'CallExpression[callee.object.name=ReactDOM][callee.property.name=render] >' +
+        'CallExpression[callee.object.name=React][callee.property.name=createElement][arguments] >' +
+        'Literal[value=App]'
+      ].join('')
     },
     {
       instruction: `Return JavaScript instead of JSX in App component`,
-      condition: (path) => {
-        const isJsDiv = (element) =>
-          T.isMemberExpression(node) &&
-          node.object.name === 'React' &&
-          node.property.name === 'createElement' &&
-          T.isCallExpression(parent.node) &&
-          parent.node.arguments[0].name === 'div' &&
-          T.isNullLiteral(parent.node.arguments[1]) &&
-          T.isStringLiteral(parent.node.arguments[2]);
-
-        const returnStatement = T.isReturnStatement(node) && isJsDiv(node.argument);
-        const arrowBodyStatement = T.isArrowFunctionExpression(node) && isJsDiv(node.body);
-
-        return returnStatement || arrowBodyStatement;
-      }
+      queries: [
+        `ReturnStatement > CallExpression[callee.object.name=React]
+                                         [callee.property.name=createElement]
+                                         [arguments.0.value=div]
+                                         [arguments.2.type=Literal]`
+      ].join('')
     }
   ];
 
-  const ast = babylon.parse(sourceCode, { sourceType: 'module' });
+  const ast = babylon.parse(sourceCode, { sourceType: 'module', plugins: ['estree'] });
 
-  traverse(ast, {
-    enter(path) {
-      tests.forEach((test) => test.result = test.result || test.condition(path));
-    }
-  });
-
-  return tests;
+  return tests.map((test) => ({
+    ...test,
+    result: test.result || !!esquery(ast.program, test.queries).length
+  }));
 }
