@@ -15,13 +15,15 @@ import { ResizeModule } from '../resize/resize.module';
 import { RunnerComponent } from './runner/runner.component';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
-import { TestsComponent } from './tests/tests.component';
 import { TooltipsModule } from '../tooltips/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
-import { TestDescriptionComponent } from './test-description/test-description.component';
 import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { DepsService } from './services/deps-order.service';
+import { NewEditorsComponent } from './new-editors/new-editors.component';
+import { NewExerciseComponent } from './new-exercise/new-exercise.component';
+import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
+import { RunnersModule } from './runners/runners.module';
 
 
 @NgModule({
@@ -29,7 +31,6 @@ import { DepsService } from './services/deps-order.service';
     ExerciseComponent,
     EditorsComponent,
     AutorunComponent,
-    TestsComponent,
     RunnerComponent,
     EditorComponent,
     SlidesPreviewComponent,
@@ -37,24 +38,32 @@ import { DepsService } from './services/deps-order.service';
     CodeEditorComponent,
     FileTreeComponent,
     FileStructureComponent,
-    TestDescriptionComponent,
     CodeGroupComponent,
-    ExercisePreviewComponent
+    ExercisePreviewComponent,
+    NewExerciseComponent,
+    NewEditorsComponent,
+    AngularRunnerComponent,
   ], imports: [
+    RunnersModule,
     ResizeModule,
     CommonModule,
     FormsModule,
     TooltipsModule,
     BrowserModule
   ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
-  exports: [ExerciseComponent,
+  exports: [
+    ExerciseComponent,
     PlaygroundComponent,
     EditorComponent,
     SlidesPreviewComponent,
     RunnerComponent,
     CodeEditorComponent,
     CodeGroupComponent,
-    ExercisePreviewComponent]
+    ExercisePreviewComponent,
+    NewExerciseComponent,
+    NewEditorsComponent,
+    AngularRunnerComponent
+  ]
 })
 export class ExerciseModule {
 }

@@ -1,0 +1,23 @@
+<div class="exercise-panel" *ngIf="slide.active">
+  <div class="main">
+    <ng-content select=".editor"></ng-content>
+    <ng-content select=".slides-preview"></ng-content>
+  </div>
+
+  <div class="side">
+    <div>
+      <ng-content select=".description"></ng-content>
+      <div *ngIf="solved">
+        <!--TODO: Find a nicer workflow-->
+        <div class="exercise-complete">
+          Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>
+        </div>
+      </div>
+      <slides-tests data-step="4" data-intro="This is a list of the tests your program should pass at the end."
+                    [tests]="config.tests" [files]="config.files"
+                    (onSelectFile)="onSelectFile($event)"></slides-tests>
+    </div>
+    <ng-content select=".tests"></ng-content>
+    <ng-content select=".preview"></ng-content>
+  </div>
+</div>

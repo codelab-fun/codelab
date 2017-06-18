@@ -6,7 +6,7 @@ slides {
   width: 100%;
 }
 
-:host /deep/ .files {
+.files {
   display: flex;
   height: 50%;
 }
@@ -43,7 +43,7 @@ slides {
   margin-top: 0;
 }
 
-:host /deep/ .description {
+.description {
   max-width: 500px;
   padding: 0 0 10px 0;
 }
@@ -56,7 +56,7 @@ slides {
   height: auto;
 }
 
-:host /deep/ :host /deep/ slides-slides-preview {
+slides-slides-preview {
   display: flex;
   height: 50%;
 }

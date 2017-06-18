@@ -1,4 +1,4 @@
-<ng-container *ngFor="let test of tests; let i=index; trackBy: trackTest">
+<ng-container *ngFor="let test of tests; trackBy: trackTest; let i=index;">
   <div *ngIf="seeAll || i==indexOfFirstUnsolved()" class="test-panel" title="{{test.result}}">
     <slides-test-description [title]="getTitle(test)"
                             [file]="getTestFile(test)"
@@ -11,4 +11,4 @@
 </ng-container>
 <div *ngIf="tests!=null && tests.length>1" style="margin-top: 10px; margin-left: 20px;">
   <a href="#" (click)="toggleSeeAll($event)">{{seeAll ? "see only next step": "see all steps"}}</a>
-</div> 
+</div>

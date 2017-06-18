@@ -120,8 +120,9 @@
   <!--  NUMBER-TYPE  -->
   <slides-slide slidesIntroJs id="type-mini-exercise" milestone="TypeScript">
     <h1 data-step="1" data-intro="Welcome to the first coding exercise!" i18n>TypeScript / Type System</h1>
-    <h2 i18n> TypeScript uses <b>:</b> to specify the type information (e.g. <b>n: number</b>g). Both <b>a</b> and <b>b</b> should be
-         numbers. We specified the type for <b>a</b>, now it's your turn!</h2>
+    <h2 i18n> TypeScript uses <b>:</b> to specify the type information (e.g. <b>n: number</b>g). Both <b>a</b> and
+      <b>b</b> should be
+      numbers. We specified the type for <b>a</b>, now it's your turn!</h2>
     <slides-playground [config]="code.tsExercise"
                        [browserUseConsole]="true"
                        #tsexercises
@@ -244,15 +245,18 @@
       only
       the ones who are coming.</h3>
     <h3 i18n>The result will be as follows:</h3>
-    <slides-exercise-preview  column-5 [config]="exercises[0]"></slides-exercise-preview>
+    <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
   </slides-slide>
 
   <slides-slide id="exercise" no-padding>
-    <slides-exercise slidesIntroJs [config]="exercises[0]" milestone="TypeScript">
-      <div class="description">
-        <p i18n>We created all the files for you</p>
-      </div>
-    </slides-exercise>
+    <slides-new-exercise [files]="exercises[0].files">
+      <div class="description">Very good description</div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="TypeScript" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+    </slides-new-exercise>
   </slides-slide>
 
   <slides-slide id="end">

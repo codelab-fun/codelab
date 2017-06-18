@@ -133,12 +133,15 @@
   </slides-slide>
 
   <!--  Angular app exercise-->
-  <slides-slide id="exercise-component" no-padding>
-    <slides-exercise [config]="exercises[0]" milestone="Bootstrap">
-      <div class="description">
-        <p i18n>Create first Angular component!</p>
-      </div>
-    </slides-exercise>
+  <slides-slide id="exercise-component" no-padding *slidesQuickHack="'exercise-component'">
+    <slides-new-exercise [files]="exercises[0].files">
+      <div class="description"><p i18n>Create first Angular component!</p></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Bootstrap" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+    </slides-new-exercise>
   </slides-slide>
 
   <!--  ngModule intro  -->

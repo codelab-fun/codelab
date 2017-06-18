@@ -1,0 +1,11 @@
+<div class="files" *ngIf="files">
+  <slides-file-structure (onSelectFile)="onSelectFile($event)" [files]="files"></slides-file-structure>
+  <slides-editors
+    [files]="files"
+    [currentFile]="currentFile || files[0]"
+    (onChanges)="onCodeChanges($event)"
+    (onToggle)="toggleFile($event)"
+    (onLoadSolution)="loadSolution($event)"
+    (onSelectFile)="onSelectFile($event)">
+  </slides-editors>
+</div>

@@ -98,6 +98,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
       // tslint:disable-next-line:no-debugger
       debugger;
     }
+
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
     const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
 

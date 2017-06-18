@@ -19,6 +19,7 @@ import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.componen
 import { AnalyticsService } from './analytics.service';
 import { IntrojsDirective } from './introjs-directive/introjs.directive';
 import 'hammerjs';
+import { QuickHackDirective } from './quick-hack.directive';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import 'hammerjs';
     FeedbackSlideComponent,
     ClosingSlideComponent,
     IntrojsDirective,
+    QuickHackDirective,
   ],
 
   exports: [
@@ -53,7 +55,8 @@ import 'hammerjs';
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective
+    IntrojsDirective,
+    QuickHackDirective
   ],
   imports: [
     CommonModule,

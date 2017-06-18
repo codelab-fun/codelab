@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { AnalyticsService } from '../../presentation/analytics.service';
 import { ActivatedRoute } from '@angular/router';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
+import { FileConfig } from '../interfaces/file-config';
 
 export class ExerciseBase implements OnDestroy {
   @Input() public config: ExerciseConfig;
@@ -14,8 +15,8 @@ export class ExerciseBase implements OnDestroy {
   private onActiveUnsubscribe: Subscription;
 
 
-  loadModels() {
-    this.monacoConfig.createFileModels(this.config.files);
+  loadModels(files: Array<FileConfig>) {
+    this.monacoConfig.createFileModels(files);
   }
 
   ngOnDestroy(): void {
@@ -78,6 +79,7 @@ export class ExerciseBase implements OnDestroy {
     };
   }
 
+
   constructor(public slide: SlideComponent,
               private monacoConfig: MonacoConfigService,
               private analyticsService: AnalyticsService,
@@ -85,7 +87,12 @@ export class ExerciseBase implements OnDestroy {
               private presentation: PresentationComponent) {
     this.onActiveUnsubscribe = slide.onActive.filter(a => a).subscribe(() => {
       slide.disableResize();
-      this.loadModels();
+      // TODO: Remove condition
+      if (this.config.files.length) {
+        this.loadModels(this.config.files);
+      }
     });
   }
 }
+
+

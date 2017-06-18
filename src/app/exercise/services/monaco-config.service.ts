@@ -44,6 +44,7 @@ export class MonacoConfigService {
 
           export interface DirectiveConfig {
             selector: string;
+           
           }
 
           export interface ComponentConfig {
