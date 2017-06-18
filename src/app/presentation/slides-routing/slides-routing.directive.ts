@@ -17,7 +17,7 @@ export class SlidesRoutingDirective implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private presentation: PresentationComponent) {
     this.route.params.subscribe( params => {
-      let index = values(this.ids).findIndex(id => id === params.id);
+      const index = values(this.ids).findIndex(id => id === params.id);
 
       if(index >= 0){
         presentation.goToSlide(index);
