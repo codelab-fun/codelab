@@ -1,4 +1,4 @@
-import { Input, OnDestroy } from '@angular/core';
+import { Input, OnDestroy, OnInit } from '@angular/core';
 import { ExerciseConfig } from '../interfaces/exercise-config';
 import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
 import { SlideComponent } from '../../presentation/slide/slide.component';
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 import { FileConfig } from '../interfaces/file-config';
 
-export class ExerciseBase implements OnDestroy {
+export class ExerciseBase implements OnDestroy, OnInit {
   @Input() public config: ExerciseConfig;
   running = false;
   solved = false;
@@ -79,19 +79,18 @@ export class ExerciseBase implements OnDestroy {
     };
   }
 
+  ngOnInit() {
+    // TODO: Remove condition
+    if (this.config.files.length) {
+      this.loadModels(this.config.files);
+    }
+  }
 
   constructor(public slide: SlideComponent,
               private monacoConfig: MonacoConfigService,
               private analyticsService: AnalyticsService,
               private route: ActivatedRoute,
               private presentation: PresentationComponent) {
-    this.onActiveUnsubscribe = slide.onActive.filter(a => a).subscribe(() => {
-      slide.disableResize();
-      // TODO: Remove condition
-      if (this.config.files.length) {
-        this.loadModels(this.config.files);
-      }
-    });
   }
 }
 

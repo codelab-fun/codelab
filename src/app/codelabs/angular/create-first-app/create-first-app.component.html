@@ -15,7 +15,7 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide id="intro" no-padding milestone="Bootstrap">
+  <slides-slide *slidesIf="'intro'; milestone: 'Bootstrap'" no-padding milestone="Bootstrap">
     <slides-title-slide
       title="Create your first Angular app"
       description="You will learn how to create your first Angular component, put it in a module, and bootstrap the app."
@@ -24,7 +24,7 @@
   </slides-slide>
 
   <!-- WHAT IS ANGULAR  -->
-  <slides-slide id="angular-description" milestone="Bootstrap">
+  <slides-slide *slidesIf="'angular-description'" milestone="Bootstrap">
     <h1 i18n>First Angular App / What is Angular?</h1>
     <div class="centered-vertically">
       <h2 i18n>
@@ -38,7 +38,7 @@
   </slides-slide>
 
   <!--  index.html -->
-  <slides-slide id="index-html" milestone="Bootstrap">
+  <slides-slide *slidesIf="'index-html'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Intro</h1>
     <h2 i18n>Given an HTML file:</h2>
     <slides-code-editor [fontSize]="30" path="index.html" [code]="code.moduleBootstrapping.code.indexHTML"
@@ -49,7 +49,7 @@
   </slides-slide>
 
   <!--  Steps to create an Angular app -->
-  <slides-slide id="angular-app" milestone="Bootstrap">
+  <slides-slide *slidesIf="'angular-app'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Intro</h1>
     <h2 i18n>The 3 steps are:</h2>
     <ol>
@@ -60,7 +60,7 @@
   </slides-slide>
 
   <!--  COMPONENT -->
-  <slides-slide id="component" milestone="Bootstrap">
+  <slides-slide *slidesIf="'component'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Step 1</h1>
     <h2 i18n>Start by creating an angular <b>Component</b>. Components in Angular are responsible for the visual part of
       the
@@ -71,7 +71,7 @@
   </slides-slide>
 
   <!--  @-Decorator -->
-  <slides-slide id="component-decorator" milestone="Bootstrap">
+  <slides-slide *slidesIf="'component-decorator'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Step 1 / Decorators</h1>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
                         [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></slides-code-editor>
@@ -84,7 +84,7 @@
 
 
   <!--  @-Decorator -->
-  <slides-slide id="decorator" milestone="Bootstrap">
+  <slides-slide *slidesIf="'decorator'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Step 1 / Decorators</h1>
     <h2 i18n>
       Decorators are a new feature of TypeScript. They attach metadata to a class, function, property or
@@ -99,7 +99,7 @@
 
 
   <!--  Selector  -->
-  <slides-slide id="selector" milestone="Bootstrap">
+  <slides-slide *slidesIf="'selector'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Step 1 / Selector</h1>
     <h2 i18n>Selectors define the location of the component. When Angular renders this component, it'll find a <b>&lt;hello-world&gt;</b>
       HTML element in the document and render the component inside of it</h2>
@@ -110,7 +110,7 @@
   </slides-slide>
 
   <!--  Template  -->
-  <slides-slide id="template" milestone="Bootstrap">
+  <slides-slide *slidesIf="'template'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Step 1 / Inline Template</h1>
     <h2 i18n>
       Template defines the HTML code that the component generates
@@ -124,7 +124,7 @@
   </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <slides-slide id="exercise-component-pre" milestone="Bootstrap">
+  <slides-slide *slidesIf="'exercise-component-pre'" milestone="Bootstrap">
     <h1 i18n>First Angular App / Step 1 / Exercise</h1>
     <h2 i18n>In the next slide you'll create your first <b>Angular</b> component! We'll do all the wiring for you. The
       result will look like this:</h2>
@@ -133,7 +133,7 @@
   </slides-slide>
 
   <!--  Angular app exercise-->
-  <slides-slide id="exercise-component" no-padding *slidesQuickHack="'exercise-component'">
+  <slides-slide no-padding *slidesIf="'exercise-component'">
     <slides-new-exercise [files]="exercises[0].files">
       <div class="description"><p i18n>Create first Angular component!</p></div>
       <slides-new-editors class="editor">
@@ -146,7 +146,7 @@
   </slides-slide>
 
   <!--  ngModule intro  -->
-  <slides-slide id="module" milestone="Bootstrap2">
+  <slides-slide *slidesIf="'module'" milestone="Bootstrap2">
     <h1 i18n>First Angular App / Step 2 </h1>
     <h2 i18n>Next step is to declare a component in an <b>NgModule</b>.</h2>
     <h2 i18n><b>NgModule</b> does not have any visual representation and is used exclusively for grouping Angular
@@ -157,7 +157,7 @@
   </slides-slide>
 
   <!--  MODULE ANATOMY -->
-  <slides-slide id="module-exercise" milestone="Bootstrap2">
+  <slides-slide *slidesIf="'module-exercise'" milestone="Bootstrap2">
     <h1 i18n>First Angular App / Step 2 / Module Class</h1>
     <h2 i18n>Like a component, the <b>Angular</b> module is just a class</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
@@ -165,7 +165,7 @@
 
   </slides-slide>
   <!--  MODULE ANATOMY -->
-  <slides-slide id="module-decorator" milestone="Bootstrap2">
+  <slides-slide *slidesIf="'module-decorator'" milestone="Bootstrap2">
     <h1 i18n>First Angular App / Step 2 / NgModule Decorator</h1>
     <h2 i18n>Like a component, the <b>Angular</b> module is adorned with a decorator providing metadata</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
@@ -174,7 +174,7 @@
   </slides-slide>
 
   <!--  Imports  -->
-  <slides-slide id="imports" milestone="Bootstrap2">
+  <slides-slide *slidesIf="'imports'" milestone="Bootstrap2">
     <h1 i18n>First Angular App / Step 2 / Browser Module</h1>
     <h2 i18n>Because we're building a browser web app, we need to pass <b>BrowserModule</b> to the <b>imports</b> array
     </h2>
@@ -187,7 +187,7 @@
     </div>
   </slides-slide>
   <!--  Declarations  -->
-  <slides-slide id="declarations" milestone="Bootstrap2">
+  <slides-slide *slidesIf="'declarations'" milestone="Bootstrap2">
     <h1 i18n>First Angular App / Step 2 / Declarations</h1>
     <h2 i18n>The <b>Declarations array</b> specifies components belonging to the AppModule</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
@@ -196,7 +196,7 @@
   </slides-slide>
 
   <!--  Bootstrap -->
-  <slides-slide id="bootstrap" milestone="Bootstrap2">
+  <slides-slide *slidesIf="'bootstrap'" milestone="Bootstrap2">
     <h1 i18n>First Angular App / Step 2 / Bootstrap</h1>
     <h2 i18n>
       The component passed into the <b>bootstrap</b> array will be created and displayed in your <b>index.html</b>
@@ -207,7 +207,7 @@
   </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <slides-slide id="exercise-module-pre" milestone="Bootstrap2">
+  <slides-slide *slidesIf="'exercise-module-pre'" milestone="Bootstrap2">
     <h1 i18n>First Angular App / Step 2 / Exercise</h1>
     <h2 i18n>
       In the next slide you'll create your first <b>Angular</b> module! We'll use the component from the previous
@@ -218,7 +218,7 @@
 
 
   <!--  DESCRIPTION 1 -->
-  <slides-slide id="exercise-module" no-padding>
+  <slides-slide *slidesIf="'exercise-module'" no-padding>
     <slides-exercise [config]="exercises[1]" milestone="Bootstrap2">
       <div class="description">
         <p i18n>Now that we've got the component, we need to pass it to a NgModule.</p>
@@ -227,14 +227,14 @@
   </slides-slide>
 
   <!--  Bootstrap  intro  -->
-  <slides-slide id="bootstrap-the-module" milestone="Bootstrap3">
+  <slides-slide *slidesIf="'bootstrap-the-module'" milestone="Bootstrap3">
     <h1 i18n>First Angular App / Step 3</h1>
     <h2 i18n>This is the last step. We have everything ready, just need to bootstrap our app!</h2>
 
   </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
-  <slides-slide id="bootstrapping" milestone="Bootstrap3">
+  <slides-slide *slidesIf="'bootstrapping'" milestone="Bootstrap3">
     <h1 i18n>First Angular App / Step 3 / Bootstrapping</h1>
     <h2 i18n>We have everything ready, so now it's time to start (bootstrap) the app!</h2>
     <h2>
@@ -246,7 +246,7 @@
     <div class="info">For most simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
-  <slides-slide id="bootstrapping-more" class="bootstrapping-more-info" milestone="Bootstrap3">
+  <slides-slide *slidesIf="'bootstrapping-more'" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1 i18n>First Angular App / Step 3 / Bootstrapping 1 </h1>
     <h2 i18n>
       How does bootstrapping work in Angular?
@@ -266,7 +266,7 @@
     </a>
   </slides-slide>
 
-  <slides-slide id="bootstrapping-more-2" class="bootstrapping-more-info" milestone="Bootstrap3">
+  <slides-slide *slidesIf="'bootstrapping-more-2'" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1 i18n>First Angular App / Step 3 / Bootstrapping 2</h1>
     <h2 i18n>
       2. Angular initializes the component from the <b>bootstrap</b> array in <b>app.module.ts</b>
@@ -281,7 +281,7 @@
     </a>
   </slides-slide>
 
-  <slides-slide id="bootstrapping-more-3" class="bootstrapping-more-info" milestone="Bootstrap3">
+  <slides-slide *slidesIf="'bootstrapping-more-3'" class="bootstrapping-more-info" milestone="Bootstrap3">
     <h1 i18n>First Angular App / Step 3 / Bootstrapping 3</h1>
     <h2 i18n>
       3. Angular looks in the document for an element matching the selector defined in <b>HelloWorldComponent</b>
@@ -296,14 +296,14 @@
     </a>
   </slides-slide>
 
-  <slides-slide id="exercise-bootstrap-pre" milestone="Bootstrap3">
+  <slides-slide *slidesIf="'exercise-bootstrap-pre'" milestone="Bootstrap3">
     <h1 i18n>First Angular App / Step 3 / Exercise</h1>
     <h2 i18n>All set! In the next page you'll bootstrap your first <b>Angular</b> app!</h2>
     <slides-exercise-preview column-5 [config]="exercises[3]"></slides-exercise-preview>
   </slides-slide>
 
   <!--  DESCRIPTION 2-->
-  <slides-slide id="exercise-bootstrap" no-padding>
+  <slides-slide *slidesIf="'exercise-bootstrap'" no-padding>
     <slides-exercise [config]="exercises[2]" milestone="Bootstrap3">
       <div class="description">
         <p i18n>Now that we've got both NgModule and the component ready, let's bootstrap the app!</p>
@@ -314,7 +314,7 @@
 
 
   <!--  Whole picture -->
-  <slides-slide id="overview">
+  <slides-slide *slidesIf="'overview'">
     <h1 i18n>First Angular App / Review</h1>
     <h2 i18n>Loading order: index -> main -> app.module -> app.component</h2>
     <slides-code-group>
@@ -346,7 +346,7 @@
     </div>
   </slides-slide>
 
-  <slides-slide id="end">
+  <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
       <div class="header" header>
         <h1 i18n>End of Bootstrap Section</h1>

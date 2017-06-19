@@ -1,9 +1,8 @@
-import {Component, ContentChildren, EventEmitter, forwardRef, Input, OnInit, Output, QueryList} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {BehaviorSubject} from 'rxjs';
-import {Mode} from '../mode.enum';
-import {AnalyticsService} from '../analytics.service';
-import {SlideComponent} from '../slide/slide.component';
+import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Mode } from '../mode.enum';
+import { AnalyticsService } from '../analytics.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 declare const ga;
 
 @Component({
@@ -11,7 +10,7 @@ declare const ga;
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent implements OnInit {
+export class PresentationComponent implements AfterViewInit {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
   public config = {
@@ -30,7 +29,7 @@ export class PresentationComponent implements OnInit {
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
 
-  @ContentChildren(forwardRef(() => SlideComponent)) slides: QueryList<SlideComponent>;
+  slides = [];
 
   // Expose enum to template
   modeEnum = Mode;
@@ -59,8 +58,9 @@ export class PresentationComponent implements OnInit {
     return this.generatedSlideIndex;
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.trackProgress();
+    this.goToSlide(this.activeSlideIndex);
   }
 
 
@@ -69,6 +69,10 @@ export class PresentationComponent implements OnInit {
       return;
     }
     const index = this.generatedSlideIndex++;
+    if (this.route.snapshot.params.id === id) {
+      this.activeSlideIndex = index;
+    }
+    this.slides.push({id, index});
     this.onSlideAdded.next({index, id});
     return index;
   }

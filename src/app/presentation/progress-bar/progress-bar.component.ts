@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {PresentationComponent} from '../presentation/presentation.component';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
   selector: 'slides-progress-bar',
@@ -15,7 +15,7 @@ export class ProgressBarComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.slides = this.presentation.slides.toArray();
+    this.slides = this.presentation.slides;
     this.presentation.onSlideChange.subscribe(() => {
       try {
         if (this.slides[this.presentation.activeSlideIndex].id === 'type-mini-exercise') {
@@ -23,7 +23,8 @@ export class ProgressBarComponent implements AfterViewInit {
         } else if (this.el.nativeElement.getAttribute('data-intro') !== null) {
           this.removeProgressBarExplanation();
         }
-      } catch (e) { }
+      } catch (e) {
+      }
       this.currentSlideId = this.presentation.activeSlideIndex;
     });
   }

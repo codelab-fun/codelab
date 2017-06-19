@@ -21,7 +21,6 @@ export class ExerciseComponent extends ExerciseBase {
               slide: SlideComponent,
               monacoConfig: MonacoConfigService, analyticsService: AnalyticsService, route: ActivatedRoute) {
     super(slide, monacoConfig, analyticsService, route, presentation);
-    this.slide.isExercise = true;
   }
 
   onSelectFile(fileConfig: FileConfig): void {

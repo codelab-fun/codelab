@@ -1,39 +1,47 @@
-import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+
 
 import { PresentationComponent } from '../presentation/presentation.component';
+import { Subscription } from 'rxjs/Subscription';
 
 @Directive({
-  selector: '[slideIf]'
+  selector: '[slidesIf]'
 })
-export class SlideIfDirective {
-  @Input('slideIf') id: string;
-  @Input('slideIfMilestone') milestone?: string;
+export class SlideIfDirective implements OnInit, OnDestroy {
+  @Input() slidesIf: string;
+  @Input() slidesIfMilestone?: string;
   private _created: boolean;
-  private _index: number;
-  private _watcher: Subscription;
+  private index: number;
+  private slideSubscription: Subscription;
 
-  constructor(private _presentation: PresentationComponent, private _templateRef: TemplateRef<any>, private _viewContainerRef: ViewContainerRef) { }
+  constructor(private _presentation: PresentationComponent,
+              private _templateRef: TemplateRef<any>,
+              private _viewContainerRef: ViewContainerRef) {
+  }
 
   ngOnInit() {
-    this._index = this._presentation.registerSlide(this.id, this.milestone);
-    this._watcher = this._presentation.index.subscribe((index: number) => {
-      (index === this._index) ? this._create() : this._destroy();
+    this.index = this._presentation.registerSlide(this.slidesIf, this.slidesIfMilestone);
+    this.slideSubscription = this._presentation.index.subscribe((index: number) => {
+      (index === this.index) ? this._create() : this._destroy();
     });
   }
 
   ngOnDestroy() {
-    this._watcher.unsubscribe();
+    this.slideSubscription.unsubscribe();
   }
 
   private _create(): void {
-    if (this._created) return;
+    if (this._created) {
+      return;
+    }
     this._viewContainerRef.createEmbeddedView(this._templateRef);
     this._created = true;
   }
 
   private _destroy(): void {
-    if (!this._created) return;
+    if (!this._created) {
+      return;
+    }
     this._viewContainerRef.clear();
     this._created = false;
   }

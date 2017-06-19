@@ -23,24 +23,11 @@ export class CodeEditorComponent implements OnInit {
   @Input('focus-highlight-match') highlight: any[] = [];
   @ContentChild('code') textarea;
   public file: FileConfig;
-  public active = false;
 
-  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService, @Optional() group: CodeGroupComponent) {
 
-    if (group) {
-      group.register(this);
-    }
-    this.onActiveUnsubscribe = slide.onActive.subscribe((active) => {
-      if (active) {
-        slide.disableResize();
-        if (!group) {
-          this.monacoConfig.createFileModels([this.file]);
-          this.active = true;
-        }
-      } else {
-        this.active = active;
-      }
-    });
+  constructor(public slide: SlideComponent,
+              private monacoConfig: MonacoConfigService, @Optional()
+              private group: CodeGroupComponent) {
   }
 
   ngOnInit(): void {
@@ -69,5 +56,14 @@ export class CodeEditorComponent implements OnInit {
       type: this.type,
       template: ''
     };
+
+    if (this.group) {
+      this.group.register(this);
+    }
+
+
+    if (!this.group) {
+      this.monacoConfig.createFileModels([this.file]);
+    }
   }
 }
