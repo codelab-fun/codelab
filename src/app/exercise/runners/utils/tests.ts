@@ -1,4 +1,4 @@
-export function handleTestMessage(message, tests, parent) {
+export function handleTestMessage(message, tests) {
   if (!message.data || !message.data.type) {
     return tests;
   }
@@ -10,12 +10,6 @@ export function handleTestMessage(message, tests, parent) {
   }
 
   if (message.data.type === 'testEnd') {
-    if (tests.length && tests.every(test => test.pass)) {
-      throw new Error('exercise is solved');
-    }
-
-    // TODO: Move out
-    parent.running = false;
     return tests;
   }
 
@@ -29,4 +23,5 @@ export function handleTestMessage(message, tests, parent) {
     });
   }
 
+  return tests;
 }

@@ -1,5 +1,5 @@
 import { AutorunComponent } from './autorun/autorun.component';
-import { BrowserModule } from '../browser/browser.module';
+import { BrowserWindowModule } from '../browser/browser.module';
 import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
@@ -49,7 +49,7 @@ import { RunnersModule } from './runners/runners.module';
     CommonModule,
     FormsModule,
     TooltipsModule,
-    BrowserModule
+    BrowserWindowModule
   ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
   exports: [
     ExerciseComponent,

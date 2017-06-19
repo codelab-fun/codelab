@@ -120,7 +120,7 @@ export function injectIframe(element: any, config: SandboxConfig): Promise<SandB
 
       iframe.contentWindow.console.error = function (error, message) {
         // handle Angular error 1/3
-        throw new Error('Need to handle error');
+        console.log('Need to handle error');
       };
 
       resolve({

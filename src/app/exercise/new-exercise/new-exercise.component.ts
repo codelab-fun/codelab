@@ -25,14 +25,13 @@ export class NewExerciseComponent extends ExerciseBase implements OnInit {
 
   @Input() set files(files) {
     if (!this._files) {
-      this._files = files;
       this.loadModels(files);
     }
-    console.log(files);
+    this._files = files;
     this.files$.next(files);
   }
 
-  get files(){
+  get files() {
     return this._files;
   }
 

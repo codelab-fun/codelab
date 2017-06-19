@@ -32,7 +32,7 @@ const tests = [
   {
     instruction: `Add 'BrowserModule' to the NgModule decorator imports`,
     condition: (path) => {
-      if (!T.isIdentifier(path.node, { name: 'BrowserModule' })) {
+      if (!T.isIdentifier(path.node, { name: 'BrowserWindowModule' })) {
         return false;
       }
 

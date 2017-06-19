@@ -4,9 +4,10 @@ import { AngularTestRunnerComponent } from './angular-test-runner/angular-test-r
 import { CommonModule } from '@angular/common';
 import { TestsComponent } from './tests/tests.component';
 import { TestDescriptionComponent } from './test-description/test-description.component';
+import { BrowserWindowModule } from '../../browser/browser.module';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, BrowserWindowModule],
   declarations: [
     AngularPreviewRunnerComponent,
     AngularTestRunnerComponent,

@@ -25,14 +25,17 @@ export class NewEditorsComponent implements OnInit {
   }
 
   onCodeChanges(change) {
-    this.parent.updateFiles(files => files.map(file => file === change.file ? {
+    this.parent.updateFiles(files => files.map(file => file.path === change.file.path ? {
       ...file, code: change.code
     } : file));
   }
 
-  loadSolution(change) {
-    this.parent.updateFiles(files => this.files = files.map(file => file === change.file ? {
+  loadSolution(changedFile) {
+    this.parent.updateFiles(files => this.files = files.map(file => file.path === changedFile.path ? {
       ...file, code: file.solution
     } : file));
+
   }
+
+
 }

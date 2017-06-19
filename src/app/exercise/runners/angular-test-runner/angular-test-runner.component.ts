@@ -4,6 +4,7 @@ import { FileConfig } from '../../interfaces/file-config';
 import { handleTestMessage } from '../utils/tests';
 import { createSystemJsSandbox } from '../utils/sandbox';
 import { runTypeScriptFiles } from '../utils/typescript';
+import { TestInfo } from '../../interfaces/test-info';
 declare const require;
 
 
@@ -14,7 +15,7 @@ declare const require;
 })
 export class AngularTestRunnerComponent implements AfterViewInit {
   handleMessageBound: any;
-  tests: any;
+  tests: Array<TestInfo> = [];
 
   @ViewChild('runner') runnerElement: ElementRef;
 
@@ -38,7 +39,17 @@ export class AngularTestRunnerComponent implements AfterViewInit {
   }
 
   constructor(public parent: NewExerciseComponent) {
-    this.handleMessageBound = (message) => this.tests = handleTestMessage(message, this.tests, this.parent);
+    this.handleMessageBound = (message) => {
+      this.tests = handleTestMessage(message, this.tests);
+
+      if (message.data.type === 'testEnd') {
+        if (this.tests.length && this.tests.every(test => test.pass)) {
+          this.parent.solved = true;
+        }
+
+        this.parent.running = false;
+      }
+    };
     window.addEventListener('message', this.handleMessageBound, false);
   }
 
