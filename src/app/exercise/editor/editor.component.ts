@@ -116,9 +116,9 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
         lineNumbers: 'off'
       });
 
-    this.editor.getModel().onDidChangeContent(() => {
-      this.updateValue(this.editor.getModel().getValue());
-    });
+    // this.editor.getModel().onDidChangeContent(() => {
+    //   this.updateValue(this.editor.getModel().getValue());
+    // });
 
 
     // Re-running the code on Ctrl + Enter
