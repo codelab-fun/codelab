@@ -16,7 +16,7 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide id="intro" no-padding milestone="StructuralDirectives">
+  <slides-slide *slidesIf="'intro'" no-padding milestone="StructuralDirectives">
     <slides-title-slide
       title="Structural directives"
       description=""
@@ -25,15 +25,15 @@
   </slides-slide>
 
 
-  <slides-slide id="ng-if" no-padding milestone="StructuralDirectives">
+  <slides-slide *slidesIf="'ng-if'" no-padding milestone="StructuralDirectives">
     <slides-playground [config]="code.ngIf" [openFilesIndex]="[0,1]"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="ng-if-solved" no-padding milestone="StructuralDirectives">
+  <slides-slide *slidesIf="'ng-if-solved'" no-padding milestone="StructuralDirectives">
     <slides-playground [config]="code.ngIfSolved" [openFilesIndex]="[0,1]"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="ng-if-test-exercise" no-padding>
+  <slides-slide *slidesIf="'ng-if-test-exercise'" no-padding>
     <slides-new-exercise [files]="code.ngIfSolved.files">
       <div class="description">Very good description</div>
       <slides-new-editors class="editor">

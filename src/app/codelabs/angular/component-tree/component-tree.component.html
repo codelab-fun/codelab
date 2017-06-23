@@ -16,21 +16,21 @@
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
 
-  <slides-slide id="intro" no-padding>
+  <slides-slide *slidesIf="'intro'" no-padding>
     <slides-title-slide title="Component Tree" description="Combine components together"
                         prereqs=""></slides-title-slide>
   </slides-slide>
 
 
   <!--  COMPONENT TREE  -->
-  <slides-slide id="description" milestone="component-tree">
+  <slides-slide *slidesIf="'description'; milestone: 'component-tree'">
     <h1 i18n>Component Tree</h1>
     <h2 i18n>So far we have only one component, but as your app grows it will form a tree of components</h2>
     <img src="assets/images/tree.png" alt="tree" height="400">
   </slides-slide>
 
   <!--  Parent/Child COMPONENTS-->
-  <slides-slide id="parent-child-component" milestone="Component Tree">
+  <slides-slide *slidesIf="'parent-child-component'; milestone: 'Component Tree'">
     <h1 i18n>Component Tree / Parent and Child</h1>
     <h2 i18n>Any component can render another one by using an HTML element that matches the selector of the other
       component</h2>
@@ -52,7 +52,7 @@
   </slides-slide>
 
   <!--  PASSING DATA  -->
-  <slides-slide id="passing-data" milestone="component-tree">
+  <slides-slide *slidesIf="'passing-data'; milestone: 'component-tree'">
     <h1 i18n>Component Tree / Passing Data Parent -> Child</h1>
     <h2 i18n>A parent component passes its data to the child component via properties</h2>
     <div class="exercise" i18n>
@@ -63,7 +63,7 @@
 
 
   <!--  PASSING DATA  -->
-  <slides-slide id="passing-data-child" milestone="component-tree">
+  <slides-slide *slidesIf="'passing-data-child'; milestone: 'component-tree'">
     <h1 i18n>Component Tree / Passing Data Parent -> Child</h1>
     <h2 i18n>The child class must decorate its properties with a special <b>@Input()</b> decorator</h2>
     <slides-playground [config]="code.circleAndBox"
@@ -72,7 +72,7 @@
   </slides-slide>
 
 
-  <slides-slide id="exercise-1-pre" milestone="component-tree">
+  <slides-slide *slidesIf="'exercise-1-pre'; milestone: 'component-tree'">
     <h1 i18n>Component Tree / Exercise 1</h1>
     <h2 i18n>We already know how to create a component. Let's move all the video-related information into a new
       component
@@ -92,7 +92,7 @@
 
 
   <!--  COMPONENT TREE EXERCISE 1 -->
-  <slides-slide id="exercise-1" no-padding>
+  <slides-slide *slidesIf="'exercise-1'" no-padding>
     <slides-exercise [config]="exercise" milestone="component-tree">
       <div class="description" i18n>
         Create a video component.
@@ -101,14 +101,14 @@
   </slides-slide>
 
   <!-- NgModule -->
-  <slides-slide id="module" milestone="component-tree-2">
+  <slides-slide *slidesIf="'module'; milestone: 'component-tree-2'">
     <h1 i18n>Component Tree / Parent and Child component</h1>
     <h2 i18n>Components won't know about each other unless they're declared in the same module</h2>
     <slides-code-editor path="app.module.ts" [code]="code.appModule.code"
                         [focus-highlight-match]="code.appModule.match"></slides-code-editor>
   </slides-slide>
 
-  <slides-slide id="recap" milestone="component-tree-2">
+  <slides-slide *slidesIf="'recap'; milestone: 'component-tree-2'">
     <h1 i18n>Component Tree / Review</h1>
     <slides-code-group>
       <div row>
@@ -137,14 +137,14 @@
   </slides-slide>
 
 
-  <slides-slide id="exercise-2-pre" milestone="component-tree-2">
+  <slides-slide *slidesIf="'exercise-2-pre'; milestone: 'component-tree-2'">
     <h1 i18n>Component Tree / Exercise 2</h1>
     <h2 i18n>In the next exercise you will use the newly created component</h2>
     <slides-exercise-preview column-5 [config]="exercise2"></slides-exercise-preview>
   </slides-slide>
 
   <!--  COMPONENT TREE EXERCISE 2-->
-  <slides-slide id="exercise-2" no-padding>
+  <slides-slide *slidesIf="'exercise-2'" no-padding>
     <slides-exercise [config]="exercise2" milestone="component-tree-2">
       <div class="description" i18n>
         Use the component.
@@ -154,7 +154,7 @@
 
 
   <!--  COMPONENT TREE EXERCISE 2-->
-  <slides-slide id="end">
+  <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
       <div header><h1 i18n>Angular Basics Codelab Completed!</h1></div>
       <div body>

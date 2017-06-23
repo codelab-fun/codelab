@@ -123,7 +123,9 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     // Re-running the code on Ctrl + Enter
     // TODO
-    // this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => this.state.run());
+    //noinspection TsLint
+    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+      () => this.updateValue(this.editor.getModel().getValue()));
 
     this.updateHeight(this.file.code);
 

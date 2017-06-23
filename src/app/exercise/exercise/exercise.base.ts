@@ -1,27 +1,22 @@
-import { Input, OnDestroy, OnInit } from '@angular/core';
+import { Input, OnInit } from '@angular/core';
 import { ExerciseConfig } from '../interfaces/exercise-config';
 import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
 import { SlideComponent } from '../../presentation/slide/slide.component';
-import { Subscription } from 'rxjs/Subscription';
 import { AnalyticsService } from '../../presentation/analytics.service';
 import { ActivatedRoute } from '@angular/router';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 import { FileConfig } from '../interfaces/file-config';
 
-export class ExerciseBase implements OnDestroy, OnInit {
+export class ExerciseBase implements OnInit {
   @Input() public config: ExerciseConfig;
   running = false;
   solved = false;
-  private onActiveUnsubscribe: Subscription;
 
 
   loadModels(files: Array<FileConfig>) {
     this.monacoConfig.createFileModels(files);
   }
 
-  ngOnDestroy(): void {
-    this.onActiveUnsubscribe.unsubscribe();
-  }
 
   onTestUpdate(event) {
     if (!event.data || !event.data.type) {

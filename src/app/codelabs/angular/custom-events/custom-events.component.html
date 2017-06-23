@@ -7,19 +7,19 @@
     <slides-arrows></slides-arrows>
 
     <!--  INTRO -->
-    <slides-slide id="intro" no-padding>
+    <slides-slide *slidesIf="'intro'" no-padding>
         <slides-title-slide title="Custom Events" description="Learn to bind to custom events using @Output()" prereqs="Component-Tree"></slides-title-slide>
     </slides-slide>
 
     <!--  Slide 1-->
-    <slides-slide id="custom-event-slide-1" milestone="CustomEvents">
+    <slides-slide  *slidesIf="'custom-event-slide-1'; milestone: 'CustomEvents'">
         <h1 i18n>Custom Events / Intro</h1>
         <h1>In this milestone, you will learn to use @Output() to communicate from child to parent component and handle custom events.
         </h1>
     </slides-slide>
 
     <!--  Slide 2 -->
-    <slides-slide id="custom-event-slide-2" milestone="CustomEvents">
+    <slides-slide  *slidesIf="'custom-event-slide-2'; milestone: 'CustomEvents'">
         <h1 i18n>Custom Events / Passing data from child to parent</h1>
 
         <slides-code-group row>
@@ -36,7 +36,7 @@
 
 
     <!--  Slide 3 -->
-    <slides-slide id="custom-event-slide-3" milestone="CustomEvents">
+    <slides-slide  *slidesIf="'custom-event-slide-3'; milestone: 'CustomEvents'">
         <h1 i18n>Custom Events / Exercise - Intro</h1>
         <h1 i18n>Let's implement a ThumbsUp and ThumbsDown button for the VideoComponent you worked on before.
         </h1>
@@ -46,7 +46,7 @@
     </slides-slide>
 
     <!--  Slide 4 -->
-    <slides-slide id="custom-event-slide-4" milestone="CustomEvents" no-padding>
+    <slides-slide  *slidesIf="'custom-event-slide-4'; milestone: 'CustomEvents'" no-padding>
         <slides-exercise [config]="exercises[0]" milestone="TypeScript">
             <div class="description">
                 <p i18n>We created all the files for you</p>

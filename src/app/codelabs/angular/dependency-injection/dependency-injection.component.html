@@ -14,7 +14,7 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide id="intro" no-padding milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'intro'" no-padding milestone="DependencyInjection">
     <slides-title-slide
       title="Dependency Injection"
       description="Angular has a powerful Dependency Injection system"
@@ -24,7 +24,7 @@
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
-  <slides-slide id="recap" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'recap'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency injection</h1>
     <h2 i18n>
       <b>Dependency Injection</b> is a way to provide dependencies to your code instead of hard-coding them
@@ -32,7 +32,7 @@
   </slides-slide>
 
   <!--  COMPARISON -->
-  <slides-slide id="comparison" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'comparison'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency injection / Comparison</h1>
     <slides-code-group class="content-container">
       <div class="col-6">
@@ -52,7 +52,7 @@
     </slides-code-group>
   </slides-slide>
 
-  <slides-slide id="comparison-2" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'comparison-2'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency Injection / Comparison / Parameters</h1>
     <slides-code-group class="content-container">
       <div class="col-6">
@@ -68,7 +68,7 @@
     </slides-code-group>
   </slides-slide>
 
-  <slides-slide id="comparison-3" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'comparison-3'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency Injection / Comparison / Testing</h1>
     <h2 i18n>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies as
       constructor
@@ -85,7 +85,7 @@
   </slides-slide>
 
   <!--  Steps to create an Angular app -->
-  <slides-slide id="angular-app" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'angular-app'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency injection / Example</h1>
     <h2 i18n>Let's say we have an existing <b>UnitConverterService</b> and we want to start using it in <b>UnitConversionComponent</b>.
       It will take 3 simple steps:
@@ -98,7 +98,7 @@
   </slides-slide>
 
   <!--  IMPLEMENTATION STEP #1  -->
-  <slides-slide id="make-injectable" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'make-injectable'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency Injection / Step #1</h1>
     <h2 i18n>Mark the class as <b>@Injectable()</b>.
       This lets Angular know that this class is part of Angular Dependency Injection system</h2>
@@ -110,7 +110,7 @@
   </slides-slide>
 
   <!--  IMPLEMENTATION STEP #2  -->
-  <slides-slide id="provide-injectable" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'provide-injectable'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency Injection / Step #2</h1>
     <h2 i18n>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
     <slides-code-editor path="app.module.ts" [code]="code.provideInjectable.code"
@@ -120,7 +120,7 @@
   </slides-slide>
 
   <!--  IMPLEMENTATION STEP #3  -->
-  <slides-slide id="consume-injectable" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'consume-injectable'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency Injection / Step #3</h1>
     <h2 i18n>Consume the Injectable in the component</h2>
     <slides-code-editor path="unit-conversion.component.ts" [code]="code.consumeInjectable.code"
@@ -132,7 +132,7 @@
   </slides-slide>
 
 
-  <slides-slide id="exercise-pre" milestone="DependencyInjection">
+  <slides-slide  *slidesIf="'exercise-pre'; milestone: 'DependencyInjection'">
     <h1 i18n>Dependency Injection / Exercise</h1>
     <h2 i18n>In the next slide you'll use videoService which has even more cats!!! The result will look like this: </h2>
 
@@ -140,7 +140,7 @@
   </slides-slide>
 
   <!--  CREATE FIRST ANGULAR COMPONENT EXERCISE-->
-  <slides-slide id="exercise" no-padding>
+  <slides-slide  *slidesIf="'exercise'" no-padding>
     <slides-exercise [config]="exercise" milestone="DependencyInjection">
       <div class="description">
         <p i18n>Create first Angular component!</p>
@@ -148,7 +148,7 @@
     </slides-exercise>
   </slides-slide>
 
-  <slides-slide id="end">
+  <slides-slide  *slidesIf="'end'">
     <slides-closing-slide>
       <div class="header" header><h1 i18n>Dependency Injection / Milestone Completed!</h1></div>
       <div class="body" body>
