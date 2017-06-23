@@ -8,6 +8,7 @@ import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
   styleUrls: ['./create-first-app.component.css']
 })
 export class CreateFirstAppComponent {
+  currentMode = 'web';
 
   code = {
     decorators: {
@@ -39,13 +40,29 @@ export class HelloWorldComponent {}`,
     },
     moduleAnatomy: {  // Module Anatomy - Milestone #1
       code: `/* Imports */
-
 @NgModule({
   imports: [ BrowserModule ],
   declarations: [ HelloWorldComponent ],
   bootstrap: [ HelloWorldComponent ],
 })
 export class AppModule {}`,
+      codeMobile: `/* Imports */
+
+@NgModule({
+  imports: [ NativeScriptModule ],
+  declarations: [ HelloWorldComponent ],
+  bootstrap: [ HelloWorldComponent ],
+})
+export class AppModule {}`,
+      codeVR: `/* Imports */
+export class VRComponent implements OnInit {
+    aframe: any;
+
+    ngOnInit() {
+        this.aframe = this.elem
+            .querySelector('a-scene');
+    }
+}`,
       matches: {
         exportClass: /export.*/,
         ngModule: /@N[^]*?\)[^]/,
@@ -134,4 +151,13 @@ export class AppComponent {
     }
   ];
   // tslint:enable:max-line-length
+
+  selectMode(event, mode) {
+    event.preventDefault();
+    this.currentMode = mode;
+  }
+
+  getModeClass(mode) {
+    return (mode === this.currentMode ? '' : 'mode-hide');
+  }
 }
