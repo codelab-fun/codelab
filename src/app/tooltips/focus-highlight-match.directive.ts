@@ -20,7 +20,7 @@ export class FocusHighlightDirective implements AfterViewInit {
         this.matches = [this.matches];
       }
 
-      const decorations = this.matches.reduce((ranges, match) => {
+      const decorations = this.matches.reduce((ranges, match, index) => {
         const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, match);
 
         ranges.push({
@@ -35,7 +35,7 @@ export class FocusHighlightDirective implements AfterViewInit {
 
         ranges.push({
           range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
-          options: {inlineClassName: 'highlighted-code'}
+          options: {inlineClassName: 'highlighted-code' + (index + 1)}
         });
 
         return ranges;

@@ -266,8 +266,19 @@ h2 {
 
 }
 
-.monaco-editor.vs .highlighted-code.highlighted-code.highlighted-code.highlighted-code {
-  background: yellow;
+.monaco-editor.vs {
+  .highlighted-code1 {
+    background: yellow;
+  }
+  .highlighted-code2 {
+    background: lime;
+  }
+  .highlighted-code3 {
+    background: pink;
+  }
+  .highlighted-code4 {
+    background: lightblue;
+  }
 }
 
 p {
