@@ -28,6 +28,7 @@ export class AppComponent {
 })
 export class HelloWorldComponent {}`,
       matches: {
+        index: [/'hello-world'/, /HelloWorldComponent/],
         exportClass: /export.*/,
         decorator: /@C[^]*?\)[^]/,
         selector: /selector.*'.*'/,
@@ -47,6 +48,7 @@ export class HelloWorldComponent {}`,
 })
 export class AppModule {}`,
       matches: {
+        index: [/dummy-no-highlight!!!/, /HelloWorldComponent/, /AppModule/],
         exportClass: /export.*/,
         ngModule: /@N[^]*?\)[^]/,
         importsArr: /imports.*/,
@@ -70,8 +72,11 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
 </body>`
       },
       matches: {
-        index: /<hello-[^]*world>/,
+        index: [/<hello-[^]*world>/],
         bootstrap: /platformBrowserDynamic\(\).*/
+      },
+      mainMatches: {
+        index: [/dummy-no-highlight!!!/, /dummy-no-highlight!!!/, /AppModule/]
       },
       readonly: true,
       path: 'main.ts',

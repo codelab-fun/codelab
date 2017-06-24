@@ -323,16 +323,19 @@
         </div>
         <div class="col-6">
           <slides-code-editor path="main.ts" [fontSize]="18"
+                              [slides-focus-highlight-match]="code.moduleBootstrapping.mainMatches.index"
                               [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
         </div>
       </div>
       <div row>
         <div class="col-6">
           <slides-code-editor path="app.module.ts" [fontSize]="18"
+                              [slides-focus-highlight-match]="code.moduleAnatomy.matches.index"
                               [code]="code.moduleAnatomy.code"></slides-code-editor>
         </div>
         <div class="col-6">
           <slides-code-editor path="app.component.ts" [fontSize]="18"
+                              [slides-focus-highlight-match]="code.componentAnatomy.matches.index"
                               [code]="code.componentAnatomy.code"></slides-code-editor>
         </div>
       </div>
