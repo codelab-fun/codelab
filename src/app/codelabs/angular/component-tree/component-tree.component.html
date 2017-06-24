@@ -37,11 +37,11 @@
     <slides-code-group row>
       <div column-5>
         <slides-code-editor path="box.ts" [fontSize]="15" [code]="code.circleAndBox.other.boxNoParams"
-                            [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
+                            [slides-focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
       </div>
       <div column-5>
         <slides-code-editor path="circle.ts" [fontSize]="15" [code]="code.circleAndBox.files[0].code"
-                            [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
+                            [slides-focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
       </div>
     </slides-code-group>
     <slides-browser-window style="margin-top: 280px;">
@@ -67,7 +67,7 @@
     <h1 i18n>Component Tree / Passing Data Parent -> Child</h1>
     <h2 i18n>The child class must decorate its properties with a special <b>@Input()</b> decorator</h2>
     <slides-playground [config]="code.circleAndBox"
-                       [focus-highlight-match]="['@Input() size','@Input() color']"></slides-playground>
+                       [slides-focus-highlight-match]="['@Input() size','@Input() color']"></slides-playground>
     <div class="info" i18n>This is the first time we're applying decorators to properties (as opposed to classes).</div>
   </slides-slide>
 
@@ -105,7 +105,7 @@
     <h1 i18n>Component Tree / Parent and Child component</h1>
     <h2 i18n>Components won't know about each other unless they're declared in the same module</h2>
     <slides-code-editor path="app.module.ts" [code]="code.appModule.code"
-                        [focus-highlight-match]="code.appModule.match"></slides-code-editor>
+                        [slides-focus-highlight-match]="code.appModule.match"></slides-code-editor>
   </slides-slide>
 
   <slides-slide id="recap" milestone="component-tree-2">
@@ -115,17 +115,17 @@
         <div column-5>
 
           <slides-code-editor path="box.ts" [fontSize]="15" [code]="code.circleAndBox.files[1].code"
-                              [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
+                              [slides-focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
         </div>
         <div column-5>
           <slides-code-editor path="circle.ts" [fontSize]="15" [code]="code.circleAndBox.files[0].code"
-                              [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
+                              [slides-focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
         </div>
       </div>
       <div row>
         <div column-5>
           <slides-code-editor path="module.ts" [fontSize]="15" [code]="code.circleAndBox.files[2].code"
-                              [focus-highlight-match]="code.appModule.match"></slides-code-editor>
+                              [slides-focus-highlight-match]="code.appModule.match"></slides-code-editor>
         </div>
         <slides-browser-window>
           <div style="border: 1px #ddd solid; width: 100px">

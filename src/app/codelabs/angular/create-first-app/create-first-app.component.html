@@ -42,7 +42,7 @@
     <h1 i18n>First Angular App / Intro</h1>
     <h2 i18n>Given an HTML file:</h2>
     <slides-code-editor [fontSize]="30" path="index.html" [code]="code.moduleBootstrapping.code.indexHTML"
-                        [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
+                        [slides-focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
     <h2 i18n>Let's create an Angular app which replaces the <b>&lt;hello-world></b> HTML element with the app's
       contents.</h2>
     <h2 i18n>This can be done with 3 simple steps.</h2>
@@ -66,7 +66,7 @@
       the
       app</h2>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
-                        [focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.componentAnatomy.matches.exportClass]"></slides-code-editor>
     <h2 i18n>An Angular component is just a class. Properties and behavior can be added inside.</h2>
   </slides-slide>
 
@@ -74,7 +74,7 @@
   <slides-slide id="component-decorator" milestone="Bootstrap">
     <h1 i18n>First Angular App / Step 1 / Decorators</h1>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
-                        [focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.componentAnatomy.matches.decorator]"></slides-code-editor>
     <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
     <div class="info" i18n>
       Decorators attach <b>Angular</b>-specific information to the class without modifying it.
@@ -105,7 +105,7 @@
       HTML element in the document and render the component inside of it</h2>
 
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
-                        [focus-highlight-match]="[code.componentAnatomy.matches.selector]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.componentAnatomy.matches.selector]"></slides-code-editor>
 
   </slides-slide>
 
@@ -116,7 +116,7 @@
       Template defines the HTML code that the component generates
     </h2>
     <slides-code-editor path="app.component.ts" [fontSize]="30" [code]="code.componentAnatomy.code"
-                        [focus-highlight-match]="[code.componentAnatomy.matches.template]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.componentAnatomy.matches.template]"></slides-code-editor>
     <div class="info" i18n> If the amount of HTML grows out of hand, it's possible (and recommended) to use a
       <b>templateUrl</b> instead and
       provide a path to the HTML file.
@@ -157,7 +157,7 @@
     <h1 i18n>First Angular App / Step 2 / Module Class</h1>
     <h2 i18n>Like a component, the <b>Angular</b> module is just a class</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                        [focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.moduleAnatomy.matches.exportClass]"></slides-code-editor>
 
   </slides-slide>
   <!--  MODULE ANATOMY -->
@@ -165,7 +165,7 @@
     <h1 i18n>First Angular App / Step 2 / NgModule Decorator</h1>
     <h2 i18n>Like a component, the <b>Angular</b> module is adorned with a decorator providing metadata</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                        [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"></slides-code-editor>
 
   </slides-slide>
 
@@ -175,7 +175,7 @@
     <h2 i18n>Because we're building a browser web app, we need to pass <b>BrowserModule</b> to the <b>imports</b> array
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                        [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
 
     <div class="info" i18n>
       Angular is not just for web apps anymore; you can also use it to create native phone apps and even
@@ -187,7 +187,7 @@
     <h1 i18n>First Angular App / Step 2 / Declarations</h1>
     <h2 i18n>The <b>Declarations array</b> specifies components belonging to the AppModule</h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                        [focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.moduleAnatomy.matches.declarationsArr]"></slides-code-editor>
 
   </slides-slide>
 
@@ -199,7 +199,7 @@
       file
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                        [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
   </slides-slide>
 
   <!--  MODULE BOOTSTRAPPING-->
@@ -254,7 +254,7 @@
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="25"
                         [code]="code.moduleBootstrapping.code.mainTs"
-                        [focus-highlight-match]="code.moduleBootstrapping.matches.bootstrap"></slides-code-editor>
+                        [slides-focus-highlight-match]="code.moduleBootstrapping.matches.bootstrap"></slides-code-editor>
 
     <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
        target="_blank" i18n>
@@ -269,7 +269,7 @@
       (<b>HelloWorldComponent</b> in this case)
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="25" [code]="code.moduleAnatomy.code"
-                        [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
+                        [slides-focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
 
     <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
        target="_blank" i18n>
@@ -284,7 +284,7 @@
       (<b>'hello-world'</b> in our case) and inserts the component inside that element
     </h2>
     <slides-code-editor path="index.html" [fontSize]="25" [code]="code.moduleBootstrapping.code.indexHTML"
-                        [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
+                        [slides-focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
 
     <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
        target="_blank" i18n>
@@ -317,7 +317,7 @@
       <div row>
         <div class="col-6">
           <slides-code-editor path="index.html" [fontSize]="18"
-                              [focus-highlight-match]="code.moduleBootstrapping.matches.index"
+                              [slides-focus-highlight-match]="code.moduleBootstrapping.matches.index"
                               type="html"
                               [code]="code.moduleBootstrapping.code.indexHTML"></slides-code-editor>
         </div>

@@ -110,7 +110,7 @@
     </h2>
 
     <slides-playground [config]="code.js2And2"
-                       [focus-highlight-match]="[code.tsExerciseMatch]"
+                       [slides-focus-highlight-match]="[code.tsExerciseMatch]"
                        [browserUseConsole]="true"
     ></slides-playground>
     <h2 i18n>Turns out it's possible to pass a string to this function and we get <b>22</b> instead of <b>4</b>. Let's
@@ -168,7 +168,7 @@
     <h2 i18n>TypeScript has <b>classes</b>, and Angular uses them heavily.</h2>
     <h2 i18n>They are similar to classes in other languages, and are used to group methods and properties together</h2>
     <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
-                       [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
   <slides-slide id="classes-constructor" milestone="TypeScript">
     <h1 i18n>TypeScript / Classes / Constructor</h1>
@@ -178,7 +178,7 @@
       the class to take parameters
     </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
-                       [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
   </slides-slide>
 
   <slides-slide id="classes-access-modifier" milestone="TypeScript">
@@ -188,7 +188,7 @@
       <b>this.&lt;parameter name&gt;</b> within the class
     </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
-                       [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
     <div class="info" i18n>private or protected properties are not visible outside of the class.</div>
   </slides-slide>
 
@@ -198,7 +198,7 @@
       between files. In the next slide, we'll show you how to export and use this class in a different file</h2>
     <slides-code-editor
       path="puppy.ts"
-      [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
+      [slides-focus-highlight-match]="[code.classDescription.matches.exportMatch]"
       [code]="code.classDescription.codeExport.files[0].code"></slides-code-editor>
   </slides-slide>
 
@@ -206,7 +206,7 @@
     <h1 i18n>TypeScript / Import</h1>
     <h2 i18n>Now we can use the <b>Puppy</b> class in the other file</h2>
     <slides-playground [config]="code.classDescription.codeImport" [browserUseConsole]="true"
-                       [focus-highlight-match]="[code.classDescription.matches.importMatch]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.classDescription.matches.importMatch]"></slides-playground>
     <div class="info" i18n>Imports and exports are not just for classes. They work with variables, functions and other
       things!
     </div>

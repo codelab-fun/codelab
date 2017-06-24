@@ -38,7 +38,7 @@
     <h1 i18n>Templates / Interpolation</h1>
     <h2 i18n>Double curlies allows you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
-                       [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;" i18n>
       Backticks <b>` `</b>, are magic quotes that allow multi-line strings and text interpolation.
     </div>
@@ -53,7 +53,7 @@
       <code>323213+34234</code>
     </h2>
     <slides-playground [config]="code.template.interpolationMethod"
-                       [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
   </slides-slide>
 
   <slides-slide id="exercise-pre" milestone="Templates">
@@ -78,7 +78,7 @@
     <h2 i18n>String interpolation <b>{{ curlies }}</b> can also be used to pass avalue to a child element's attribute
     </h2>
     <slides-playground [config]="code.template.dataBindingPre"
-                       [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
   </slides-slide>
 
   <!--  DATA BINDING  -->
@@ -86,7 +86,7 @@
     <h1 i18n>Templates / Property Binding</h1>
     <h2 i18n>Another option is to use property binding <b>[attribute] = property</b></h2>
     <slides-playground [config]="code.template.dataBinding"
-                       [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;" i18n>
       You can use arbitrary expressions in the binding.
     </div>
@@ -112,7 +112,7 @@
       path="app.component.html"
       [code]="code.eventBinding"
       [fontSize]="25"
-      [focus-highlight-match]="[code.eventBindingMatch]"
+      [slides-focus-highlight-match]="[code.eventBindingMatch]"
       [readonly]="true"
       type="html">
     </slides-code-editor>
@@ -131,7 +131,7 @@
       path="app.component.html"
       [code]="code.bindingRef"
       [fontSize]="25"
-      [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
+      [slides-focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
       [readonly]="true"
       type="html">
     </slides-code-editor>
@@ -144,7 +144,7 @@
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
     </p>
     <slides-playground [config]="code.ngIfDirective.template"
-                       [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
   </slides-slide>
 
 
@@ -172,7 +172,7 @@
       for that called <b>*ngFor</b>, let's see how it works on the next slide
     </h2>
     <slides-playground [config]="code.ngForDirectivePre.template"
-                       [focus-highlight-match]="code.ngForDirectivePre.matches"></slides-playground>
+                       [slides-focus-highlight-match]="code.ngForDirectivePre.matches"></slides-playground>
   </slides-slide>
 
   <slides-slide id="conditional-display-ngfor" milestone="Templates3">
@@ -182,7 +182,7 @@
       array
     </h2>
     <slides-playground #forExercise [config]="code.ngForDirective.template"
-                       [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
+                       [slides-focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
     <div class="info" i18n>HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work, <b>*ngFor</b>
       will
     </div>

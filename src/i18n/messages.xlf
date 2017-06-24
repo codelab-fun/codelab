@@ -1292,7 +1292,7 @@
         <source>    This component lets you to display code in the slide.
 
     &lt;slides-code-editor [fontSize]=&quot;30&quot; [code]=&quot;code.moduleAnatomy.code&quot;
-           [focus-highlight-match]=&quot;[code.moduleAnatomy.matches.ngModule]&quot;&gt;
+           [slides-focus-highlight-match]=&quot;[code.moduleAnatomy.matches.ngModule]&quot;&gt;
     &lt;/slides-code-editor&gt;
     </source>
         <target/>

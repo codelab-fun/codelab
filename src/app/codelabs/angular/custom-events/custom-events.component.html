@@ -24,11 +24,11 @@
 
         <slides-code-group row>
             <div column-5>
-                <slides-code-editor path="parent.ts" [fontSize]="15" [code]="code.exercise1a.code" [focus-highlight-match]="code.exercise1a.match"></slides-code-editor>
+                <slides-code-editor path="parent.ts" [fontSize]="15" [code]="code.exercise1a.code" [slides-focus-highlight-match]="code.exercise1a.match"></slides-code-editor>
                 <h1>To 'listen' to a child's event, we bind to the child's event childDidSomething.</h1>
             </div>
             <div column-5>
-                <slides-code-editor path="child.ts" [fontSize]="15" [code]="code.exercise1b.code" [focus-highlight-match]="code.exercise1a.match"></slides-code-editor>
+                <slides-code-editor path="child.ts" [fontSize]="15" [code]="code.exercise1b.code" [slides-focus-highlight-match]="code.exercise1a.match"></slides-code-editor>
                 <h1>To let the parent know that there is an event. We emit an event from the child.</h1>
             </div>
         </slides-code-group>

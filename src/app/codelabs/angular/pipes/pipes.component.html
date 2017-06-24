@@ -48,7 +48,7 @@
       through the the 'date' pipe on the right, transforming a long timestamp into a more human-readable output.
       All pipes follow this signature.
       <slides-playground [config]="code.workingPipes.template"
-                         [focus-highlight-match]="[code.workingPipes.matches.pipeOperator]"></slides-playground>
+                         [slides-focus-highlight-match]="[code.workingPipes.matches.pipeOperator]"></slides-playground>
     </h3>
   </slides-slide>
 
@@ -113,7 +113,7 @@
     <slides-code-editor
       [fontSize]="25"
       [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.exportClass">
+      [slides-focus-highlight-match]="code.creatingAPipe.matches.exportClass">
     </slides-code-editor>
     <h2 i18n>A pipe is a class decorated with pipe metadata.</h2>
   </slides-slide>
@@ -124,7 +124,7 @@
     <slides-code-editor
       [fontSize]="25"
       [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.pipeTransform">
+      [slides-focus-highlight-match]="code.creatingAPipe.matches.pipeTransform">
     </slides-code-editor>
     <h2 i18n>
       The pipe class implements the PipeTransform interface.
@@ -137,7 +137,7 @@
     <slides-code-editor
       [fontSize]="25"
       [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.method">
+      [slides-focus-highlight-match]="code.creatingAPipe.matches.method">
     </slides-code-editor>
     <h2 i18n>
       The transform method accepts an input value followed by optional parameters and returns the transformed value.
@@ -150,7 +150,7 @@
     <slides-code-editor
       [fontSize]="25"
       [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.decorator">
+      [slides-focus-highlight-match]="code.creatingAPipe.matches.decorator">
     </slides-code-editor>
     <h2 i18n>
       The @Pipe decorator allows you to define the pipe name that you'll use within template expressions.

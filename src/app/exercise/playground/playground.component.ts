@@ -18,7 +18,7 @@ export class PlaygroundComponent extends ExerciseBase {
   @Input() browserHeight: string;
 
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
-  @Input('focus-highlight-match') highlightMatches = [];
+  @Input('slides-focus-highlight-match') highlightMatches = [];
 
   constructor(slide: SlideComponent,
               monacoConfig: MonacoConfigService,
