@@ -183,8 +183,18 @@
     </ng-container>
     <slides-code-group>
       <div [ngClass]="getModeClass('web')">
-        <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                 [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
+        <div class="box-row">
+          <div class="box-row-fill">
+            <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
+                    [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
+          </div>
+          <slides-browser-window  style="width: 490px; height: 300px;">
+            <h1>Hello World</h1>
+            <div style="width: 100%; text-align: center;">
+              <img class="angular" src="/assets/images/angular.svg">
+            </div>
+          </slides-browser-window>
+        </div>
       </div>
       <div [ngClass]="getModeClass('mobile')">
         <div class="box-row">
@@ -192,7 +202,7 @@
             <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.codeMobile"
                   [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
           </div>
-          <img style="height: 455px; padding-top: 10px;" src="/assets/images/helloworldapp.png">
+          <img style="height: 340px; padding-top: 10px;" src="/assets/images/helloworldapp.png">
         </div>
       </div>
       <div [ngClass]="getModeClass('vr')">
@@ -200,7 +210,7 @@
           <div class="box-row-fill">
             <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.codeVR"></slides-code-editor>
           </div>
-          <img style="height: 505px; padding-top: 10px;" src="/assets/images/vrhelloworld.png">
+          <img style="width: 680px; padding-top: 10px;" src="/assets/images/vrhelloworld.png">
         </div>
       </div>
     </slides-code-group>
@@ -209,12 +219,12 @@
           Angular is not just for web apps anymore; you can also use it to create native phone apps and even 
           VR scenes.
         </div>
-        <div style="width: 600px;">
-          <a href="#" [ngClass]="'mode '+(currentMode=='web'?'mode-current':'mode-other')" 
+        <div style="width: 740px;">
+          <a href="#" [class]="'mode '+(currentMode=='web'?'mode-current':'mode-other')" 
                       (click)="selectMode($event, 'web')"><img src="/assets/images/browsericon.png" /></a>
-          <a href="#" [ngClass]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')" 
                       (click)="selectMode($event, 'mobile')"><img src="/assets/images/phoneicon.png" /></a>
-          <a href="#" [ngClass]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')" 
                       (click)="selectMode($event, 'vr')"><img src="/assets/images/vricon.png" /></a>
         </div>
     </div>

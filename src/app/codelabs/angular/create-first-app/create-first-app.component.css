@@ -46,3 +46,8 @@
 .box-row-fill {
     flex: auto;
 }
+
+
+.angular {
+  width: 10vw;
+}
