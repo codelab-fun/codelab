@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterContentInit, Component } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { SlideComponent } from '../../presentation/slide/slide.component';
 import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
@@ -13,7 +13,7 @@ import { CodeEditorComponent } from '../code-editor/code-editor.component';
   templateUrl: './code-group.component.html',
   styleUrls: ['./code-group.component.css']
 })
-export class CodeGroupComponent implements AfterViewInit {
+export class CodeGroupComponent implements AfterContentInit {
   components: Array<any> = [];
   files: Array<FileConfig> = [];
 
@@ -25,7 +25,7 @@ export class CodeGroupComponent implements AfterViewInit {
     this.components.push(codeEditorComponent);
   }
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit() {
     const files = this.components.map(component => component.file);
     this.monacoConfig.createFileModels(files);
     this.components.forEach(component => component.active = true);

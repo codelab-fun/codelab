@@ -21,8 +21,6 @@ export class PresentationComponent implements AfterViewInit {
 
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
-  @Input() public width = 1800;
-  @Input() public height = 1000;
   @Input() public zoom = 1;
 
   @Output() onSlideChange = new EventEmitter<number>();
@@ -37,8 +35,7 @@ export class PresentationComponent implements AfterViewInit {
   constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
     this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
     if (this.route.snapshot.queryParams['mini']) {
-      this.width = 1280;
-      this.height = 720;
+
     }
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;

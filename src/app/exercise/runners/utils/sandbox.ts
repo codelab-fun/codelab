@@ -44,6 +44,7 @@ export interface SandBox {
 export interface SandBoxWithLoader extends SandBox {
   addDep: (name: string, dep: any) => {};
   loadSystemJsDep?: (name: string, dep: any) => {};
+  todoFindABetterName?: (name: string, dep: any) => {};
 }
 
 const iframes = new WeakMap();
@@ -85,6 +86,7 @@ export function createSystemJsSandbox(element: any, config: SandboxConfig): Prom
     function loadSystemJsDep(name, code) {
       (sandbox.iframe.contentWindow as any).loadSystemModule(name, code);
     }
+
 
     return {...sandbox, addDep, loadSystemJsDep};
   });

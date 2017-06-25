@@ -21,7 +21,6 @@ import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { DepsService } from './services/deps-order.service';
 import { NewEditorsComponent } from './new-editors/new-editors.component';
-import { NewExerciseComponent } from './new-exercise/new-exercise.component';
 import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
 import { RunnersModule } from './runners/runners.module';
 
@@ -40,7 +39,6 @@ import { RunnersModule } from './runners/runners.module';
     FileStructureComponent,
     CodeGroupComponent,
     ExercisePreviewComponent,
-    NewExerciseComponent,
     NewEditorsComponent,
     AngularRunnerComponent,
   ], imports: [
@@ -60,7 +58,7 @@ import { RunnersModule } from './runners/runners.module';
     CodeEditorComponent,
     CodeGroupComponent,
     ExercisePreviewComponent,
-    NewExerciseComponent,
+    ExerciseComponent,
     NewEditorsComponent,
     AngularRunnerComponent
   ]

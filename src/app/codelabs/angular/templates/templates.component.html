@@ -66,14 +66,15 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'exercise'; " no-padding>
-    <slides-new-exercise [files]="exercises[0].files">
+    <slides-exercise [files]="exercises[0].files">
       <div class="description"></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
       <slides-slides-preview milestone="Templates" class="slides-preview">
       </slides-slides-preview>
       <slides-angular-test-runner class="tests"></slides-angular-test-runner>
-    </slides-new-exercise>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
   </slides-slide>
 
   <!--  PRE DATA BINDING-->
@@ -162,14 +163,15 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'exercise-2-pre'" no-padding>
-    <slides-new-exercise [files]="exercises[1].files">
+    <slides-exercise [files]="exercises[1].files">
       <div class="description"></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
       <slides-slides-preview milestone="Templates" class="slides-preview">
       </slides-slides-preview>
       <slides-angular-test-runner class="tests"></slides-angular-test-runner>
-    </slides-new-exercise>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
   </slides-slide>
 
 
@@ -210,14 +212,15 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'exercise-3'" no-padding>
-    <slides-new-exercise [files]="exercises[2].files">
+    <slides-exercise [files]="exercises[2].files">
       <div class="description"></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
       <slides-slides-preview milestone="Templates" class="slides-preview">
       </slides-slides-preview>
       <slides-angular-test-runner class="tests"></slides-angular-test-runner>
-    </slides-new-exercise>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
   </slides-slide>
 
 

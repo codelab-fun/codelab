@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
-import { NewExerciseComponent } from '../new-exercise/new-exercise.component';
+import { ExerciseComponent } from '../exercise/exercise.component';
 
 @Component({
   selector: 'slides-new-editors',
@@ -16,12 +16,12 @@ export class NewEditorsComponent implements OnInit {
     this.files = this.parent.files;
   }
 
-  constructor(public parent: NewExerciseComponent) {
+  constructor(public parent: ExerciseComponent) {
 
   }
 
   onSelectFile(fileConfig: FileConfig): void {
-    this.currentFile = fileConfig;
+    this.parent.currentFile = fileConfig;
   }
 
   onCodeChanges(change) {
@@ -34,7 +34,6 @@ export class NewEditorsComponent implements OnInit {
     this.parent.updateFiles(files => this.files = files.map(file => file.path === changedFile.path ? {
       ...file, code: file.solution
     } : file));
-
   }
 
 

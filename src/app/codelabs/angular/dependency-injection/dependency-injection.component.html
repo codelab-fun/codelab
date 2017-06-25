@@ -141,10 +141,14 @@
 
   <!--  CREATE FIRST ANGULAR COMPONENT EXERCISE-->
   <slides-slide  *slidesIf="'exercise'" no-padding>
-    <slides-exercise [config]="exercise" milestone="DependencyInjection">
-      <div class="description">
-        <p i18n>Create first Angular component!</p>
-      </div>
+    <slides-exercise [files]="exercise.files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="DependencyInjection" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 

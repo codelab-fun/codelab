@@ -21,7 +21,7 @@ export class EditorsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.files.map( file => {
+    this.files.map(file => {
       file.opened = !file.readonly;
     });
   }
@@ -34,7 +34,7 @@ export class EditorsComponent implements OnInit {
         this.visibleFiles
           .concat()
           .reverse()
-          .find( f => f.opened)
+          .find(f => f.opened)
       );
     }
   }
@@ -60,7 +60,7 @@ export class EditorsComponent implements OnInit {
   }
 
   isActiveFile(file) {
-    return file === this.currentFile;
+    return file.path === this.currentFile.path;
   }
 
   showFile(file): void {

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { NewExerciseComponent } from '../../new-exercise/new-exercise.component';
+import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { createSystemJsSandbox } from '../utils/sandbox';
 import { runTypeScriptFiles } from '../utils/typescript';
@@ -17,7 +17,7 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
   run(files: Array<FileConfig>) {
     createSystemJsSandbox(this.runnerElement.nativeElement, {
       id: 'testing', 'url': 'about:blank'
-    }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep}) => {
+    }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
       // TODO: addCss(require('./inner.css'));
       setHtml('<my-app></my-app>');
       evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/core-js/client/shim.min.js'));
@@ -26,11 +26,12 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
       loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../../assets/runner/ng2/ng-bundle'));
       addDep('reflect-metadata', Reflect);
       const bootstrapFiles = files.filter(file => !file.test);
-      runTypeScriptFiles(bootstrapFiles, {addCss, setHtml, evalJs, addDep});
+
+      runTypeScriptFiles(bootstrapFiles, {addCss, setHtml, evalJs, addDep, iframe});
     });
   }
 
-  constructor(public parent: NewExerciseComponent) {
+  constructor(public parent: ExerciseComponent) {
   }
 
   ngAfterViewInit(): void {

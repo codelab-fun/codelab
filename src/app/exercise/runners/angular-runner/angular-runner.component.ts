@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewExerciseComponent } from '../../new-exercise/new-exercise.component';
+import { ExerciseComponent } from '../../exercise/exercise.component';
 
 @Component({
   selector: 'slides-angular-runner',
@@ -8,7 +8,7 @@ import { NewExerciseComponent } from '../../new-exercise/new-exercise.component'
 })
 export class AngularRunnerComponent implements OnInit {
 
-  constructor(public parent: NewExerciseComponent) {
+  constructor(public parent: ExerciseComponent) {
   }
 
   onTestUpdate(event) {

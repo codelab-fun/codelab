@@ -134,7 +134,7 @@
 
   <!--  Angular app exercise-->
   <slides-slide no-padding *slidesIf="'exercise-component'">
-    <slides-new-exercise [files]="exercises[0].files">
+    <slides-exercise [files]="exercises[0].files">
       <div class="description"><p i18n>Create first Angular component!</p></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
@@ -142,7 +142,7 @@
       </slides-slides-preview>
       <slides-angular-test-runner class="tests"></slides-angular-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-new-exercise>
+    </slides-exercise>
   </slides-slide>
 
   <!--  ngModule intro  -->
@@ -219,10 +219,14 @@
 
   <!--  DESCRIPTION 1 -->
   <slides-slide *slidesIf="'exercise-module'" no-padding>
-    <slides-exercise [config]="exercises[1]" milestone="Bootstrap2">
-      <div class="description">
-        <p i18n>Now that we've got the component, we need to pass it to a NgModule.</p>
-      </div>
+    <slides-exercise [files]="exercises[1].files">
+      <div class="description"><p i18n>Create first Angular component!</p></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Bootstrap" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 
@@ -304,11 +308,17 @@
 
   <!--  DESCRIPTION 2-->
   <slides-slide *slidesIf="'exercise-bootstrap'" no-padding>
-    <slides-exercise [config]="exercises[2]" milestone="Bootstrap3">
+    <slides-exercise [files]="exercises[2].files">
       <div class="description">
         <p i18n>Now that we've got both NgModule and the component ready, let's bootstrap the app!</p>
         <p i18n>There's no simple way to test it; just make sure your app displays: 'Hello MewTube!'</p>
       </div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Bootstrap" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 

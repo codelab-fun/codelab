@@ -93,10 +93,14 @@
 
   <!--  COMPONENT TREE EXERCISE 1 -->
   <slides-slide *slidesIf="'exercise-1'" no-padding>
-    <slides-exercise [config]="exercise" milestone="component-tree">
-      <div class="description" i18n>
-        Create a video component.
-      </div>
+    <slides-exercise [files]="exercise.files">
+      <div class="description">Create a video component.</div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="component-tree" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 
@@ -145,10 +149,14 @@
 
   <!--  COMPONENT TREE EXERCISE 2-->
   <slides-slide *slidesIf="'exercise-2'" no-padding>
-    <slides-exercise [config]="exercise2" milestone="component-tree-2">
-      <div class="description" i18n>
-        Use the component.
-      </div>
+    <slides-exercise [files]="exercise2.files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="component-tree-2" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 
@@ -158,7 +166,7 @@
     <slides-closing-slide>
       <div header><h1 i18n>Angular Basics Codelab Completed!</h1></div>
       <div body>
-        <h2 i18n>This may be<b>the end</b> of the codelab, but it's just the beginning of your Angular journey. Below
+        <h2 i18n>This is <b>the end</b> of the codelab, but it's just the beginning of your Angular journey. Below
           are some links that can help you continue learning.</h2>
         <ul>
           <li><a href="https://angular.io/" target="_blank">Angular.io</a>

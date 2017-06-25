@@ -22,7 +22,6 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/publish';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '../../presentation/slide/slide.component';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 declare const monaco: any;
 declare const require: any;
@@ -66,7 +65,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
 
-  constructor(public monacoConfigService: MonacoConfigService, public slide: SlideComponent, public presentation: PresentationComponent) {
+  constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
     this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1000) : A))
       .subscribe(this.onCodeChange);
   }

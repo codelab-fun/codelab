@@ -3,6 +3,7 @@ import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { SlideComponent } from '../../presentation/slide/slide.component';
 import { CodeGroupComponent } from '../code-group/code-group.component';
+import { register } from 'ts-node/dist';
 
 @Component({
   selector: 'slides-code-editor',

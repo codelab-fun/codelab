@@ -1,4 +1,4 @@
-<div class="files" *ngIf="(parent.files$ | async) as files">
+<div class="preview" *ngIf="(parent.files$ | async) as files">
   <slides-runner
     (onTestUpdate)="onTestUpdate($event)"
     [files]="files"

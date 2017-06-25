@@ -1,8 +1,29 @@
 import { FileConfig } from '../../interfaces/file-config';
 import { SandBoxWithLoader } from './sandbox';
 import * as ts from 'typescript';
+import * as babylon from 'babylon';
+import * as babel_types from 'babel-types';
+import babel_traverse from 'babel-traverse';
 
-export function runTypeScriptFiles(files: Array<FileConfig>, {setHtml, addCss, evalJs}: SandBoxWithLoader) {
+
+export function runTypeScriptFiles(files: Array<FileConfig>, {setHtml, addCss, evalJs, iframe}: SandBoxWithLoader) {
+  (iframe.contentWindow as any).System.register('code', [], function (exports) {
+    return {
+      setters: [],
+      execute: function () {
+        exports('ts', ts);
+        exports('babylon', babylon);
+        exports('babel_traverse', babel_traverse);
+        exports('babel_types', babel_types);
+        files.forEach((file) => {
+          exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);
+          exports(file.path.replace(/[\/\.-]/gi, '_') + '_AST', ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5));
+        });
+      }
+    };
+  });
+
+
   files.map(file => {
     if (!file.path) {
       // tslint:disable-next-line:no-debugger

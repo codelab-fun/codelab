@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { NewExerciseComponent } from '../../new-exercise/new-exercise.component';
+import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { handleTestMessage } from '../utils/tests';
 import { createSystemJsSandbox } from '../utils/sandbox';
@@ -22,7 +22,7 @@ export class AngularTestRunnerComponent implements AfterViewInit {
   run(files: Array<FileConfig>) {
     createSystemJsSandbox(this.runnerElement.nativeElement, {
       id: 'testing', 'url': 'about:blank'
-    }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep}) => {
+    }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
       // TODO: addCss(require('./inner.css'));
       setHtml('<my-app></my-app>');
       evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/core-js/client/shim.min.js'));
@@ -34,11 +34,11 @@ export class AngularTestRunnerComponent implements AfterViewInit {
       loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../../assets/runner/ng2/ng-bundle'));
       addDep('reflect-metadata', Reflect);
       const testFiles = files.filter(file => !file.excludeFromTesting);
-      runTypeScriptFiles(testFiles, {addCss, setHtml, evalJs, addDep});
+      runTypeScriptFiles(testFiles, {addCss, setHtml, evalJs, addDep, iframe});
     });
   }
 
-  constructor(public parent: NewExerciseComponent) {
+  constructor(public parent: ExerciseComponent) {
     this.handleMessageBound = (message) => {
       this.tests = handleTestMessage(message, this.tests);
 
@@ -51,6 +51,11 @@ export class AngularTestRunnerComponent implements AfterViewInit {
       }
     };
     window.addEventListener('message', this.handleMessageBound, false);
+  }
+
+
+  onSelectFile(file: FileConfig) {
+    this.parent.currentFile = file;
   }
 
   ngAfterViewInit(): void {
