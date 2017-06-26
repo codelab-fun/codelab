@@ -5,10 +5,11 @@ import { MdTabsModule } from '@angular/material';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertComponent } from './alert.component';
+import { BreakMyComputerComponent } from './break-my-computer.component';
 
 @NgModule({
   imports: [BrowserModule, MdTabsModule, NoopAnimationsModule],
-  declarations: [AppComponent, AlertComponent],
+  declarations: [AppComponent, AlertComponent, BreakMyComputerComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

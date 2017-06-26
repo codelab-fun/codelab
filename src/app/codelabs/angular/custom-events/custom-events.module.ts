@@ -8,6 +8,7 @@ import { PresentationModule } from 'app/presentation/presentation.module';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '../../../browser/browser.module';
+import { RunnersModule } from '../../../exercise/runners/runners.module';
 
 const routes = RouterModule.forChild(
   [{
@@ -18,7 +19,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule, RunnersModule],
   declarations: [CustomEventsComponent],
   exports: [CustomEventsComponent]
 })

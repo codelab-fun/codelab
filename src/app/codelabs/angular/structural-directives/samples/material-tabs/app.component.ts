@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-
+/* tslint:disable */
 @Component({
-  selector: '' + 'my-app',
+  selector: 'my-app',
   template: `
     <md-tab-group>
       <md-tab label="Tab 1">Content 1</md-tab>

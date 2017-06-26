@@ -7,7 +7,7 @@ import 'rxjs/add/operator/filter';
  This directive adds tooltips to the provided text
 
  Usage in template:
- <slides-slide [ng-tooltips]="tooltips">
+ <slides-slide [slidesTooltips]="tooltips">
 
  ...
  tooltips = [
@@ -21,12 +21,13 @@ import 'rxjs/add/operator/filter';
  */
 
 @Directive({
-  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[ng-tooltips]'
+  // tslint:disable-next-line:all TODO: Fix
+  // linter warnings on the selector and delete this comment.
+  selector: '[slidesTooltips]'
 })
 export class TooltipsDirective implements AfterViewInit {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
-  @Input('ng-tooltips') tooltips: Array<any> = [];
+  @Input('slidesTooltips') tooltips: Array<any> = [];
 
   constructor(private el: ElementRef, private editorComponent: EditorComponent) {
   }
@@ -84,7 +85,7 @@ export class TooltipsDirective implements AfterViewInit {
         newPopup.style.left = offsetLeft + (text.offsetWidth) + 'px';
       });
     }, 500);
-    
+
 
   }
 }

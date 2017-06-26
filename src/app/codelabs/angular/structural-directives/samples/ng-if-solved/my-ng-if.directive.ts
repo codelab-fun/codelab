@@ -1,5 +1,5 @@
 import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-
+/* tslint:disable */
 @Directive({
   selector: '[myNgIf]'
 })

@@ -7,7 +7,7 @@
 
   <slides-tests data-step="2" data-intro="This is a list of the tests your program should pass at the end."
                 [tests]="config.tests" [files]="config.files"
-                (onSelectFile)="onSelectFile($event)" data-step="2"
+                data-step="2"
                 data-intro="Here are the exercise instructions. Start with the first one, and solve them sequentially"></slides-tests>
   <div class="exercise">
     <slides-editor *ngFor="let index of openFilesIndex" [file]="config.files[index]"

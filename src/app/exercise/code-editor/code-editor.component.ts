@@ -17,7 +17,7 @@ export class CodeEditorComponent implements OnInit {
   @Input() code = '';
   @Input() path?;
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
-  @Input('tooltips') ngTooltips: any[] = [];
+  @Input('tooltips') slidesTooltips: any[] = [];
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlight: any[] = [];
   @ContentChild('code') textarea;
