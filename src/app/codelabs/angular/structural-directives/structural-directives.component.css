@@ -1,0 +1,34 @@
+#intro .bg {
+  background: #fff;
+  opacity: .5;
+  padding: 2vw 5vw;
+  margin: 5vw 0;
+}
+
+#intro h1 {
+  font-size: 10vw;
+}
+
+#intro h2 {
+  font-size: 6vw;
+}
+
+:host /deep/ .slide {
+  background: transparent;
+}
+
+#intro {
+  background: url(./pics/bridge-at-villeneuve-la-garenne-1872.jpg) no-repeat;
+  display: inline-block;
+  height: 100vh;
+}
+
+#we-need-tabs {
+  background: url(./pics/alfred-sisley-9485226-1-402.jpg) no-repeat black;
+  display: inline-block;
+  height: 100vh;
+}
+
+#we-need-tabs h1 {
+  color: #ffffee;
+}

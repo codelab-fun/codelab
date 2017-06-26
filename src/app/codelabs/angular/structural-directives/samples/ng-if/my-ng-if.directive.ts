@@ -1,5 +1,9 @@
-import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive } from '@angular/core';
 
+@Directive(
+  {selector: 'myNgIf'}
+)
 export class MyNgIfDirective {
-  constructor() { }
+  constructor() {
+  }
 }

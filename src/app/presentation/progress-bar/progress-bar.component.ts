@@ -15,7 +15,11 @@ export class ProgressBarComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.slides = this.presentation.slides;
+    // Change detection complains if updating it right away.
+    requestAnimationFrame(() => {
+      this.slides = this.presentation.slides;
+    });
+
     this.presentation.onSlideChange.subscribe(() => {
       try {
         if (this.slides[this.presentation.activeSlideIndex].id === 'type-mini-exercise') {
