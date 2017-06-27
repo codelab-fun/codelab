@@ -30,8 +30,8 @@ console.log(numbers.filter(function(number){
   return number > 30;
 }));
 
-// Or use shorthand function notation.
-// (Also called arrow function)
+// ${t.useShorthandNotation}
+// ${t.calledArrowFunction}
 console.log(
   numbers.filter(number => number > 30)
 );`),
