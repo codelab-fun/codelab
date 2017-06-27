@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "serve:ru": "ng serve --aot --i18n-file=src/i18n/messages.ru.xlf --locale=ru --i18n-format=xlf",
-    "build:ru": "ng build --aot --i18n-file=src/i18n/messages.ru.xlf --locale=ru --i18n-format=xlf",
+    "serve:ru": "ng serve --aot --i18n-file=src/i18n/messages.ru.xtb --locale=ru --i18n-format=xtb",
+    "build:ru": "ng build --aot --i18n-file=src/i18n/messages.ru.xtb --locale=ru --i18n-format=xtb",
     "build": "ng build",
     "build:prod": "ng build --prod --aot",
     "test": "ng test",
