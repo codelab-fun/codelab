@@ -16,7 +16,7 @@
     "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && npm run sw && firebase deploy",
     "deploy:ru": "npm run build:ru && firebase deploy",
-    "i18n": "ng xi18n --output-path src/i18n"
+    "i18n": "ng xi18n -f=xmb --output-path src/i18n"
   },
   "public": true,
   "dependencies": {
