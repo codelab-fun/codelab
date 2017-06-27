@@ -1,0 +1,64 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="menu-bar-btn github-icon">
+      <a href="https://github.com/AngularNYC/angular-presentation">
+        <img src="/assets/images/github-icon.png">
+      </a>
+    </div>
+    <slides-mode-overview></slides-mode-overview>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" *slidesIf="'intro'" no-padding>
+    <div class="bg">
+      <h1>Structural directives</h1>
+      <h2>By @kirjs</h2>
+    </div>
+  </slides-slide>
+  <slides-slide id="we-need-tabs" *slidesIf="'we-need-tabs'" no-padding>
+    <h1>We need tabs</h1>
+  </slides-slide>
+  <slides-slide *slidesIf="'intro2'; milestone: 'StructuralDirectives1'" no-padding>
+
+    <slides-exercise [files]="code.materialTabs.files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+  <slides-slide id="bsod" *slidesIf="'bsod'" no-padding>
+    <div class='container'>
+      <div class="msg" align='center'>
+        <p class='highlight'>Windows</p>
+        <p>A fatal exception 0E has occured at 028:C00068F8 in VxD VMM(01) 000059F8. The current application will be
+          terminated.</p>
+        <p>* Press any key to terminate the application.</p>
+        <p>* Press CTRL+ALT+DEL to restart your computer. You will lose any unsaved information in all aplications.</p>
+        <br>
+        <p class="continue">Press any key to continue <span class="blink">_</span></p>
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ng-if'" no-padding milestone="StructuralDirectives3">
+    <slides-exercise [files]="code.ngIf.files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ng-if-solved'" no-padding milestone="StructuralDirectives4">
+    <slides-playground [config]="code.ngIfSolved" [openFilesIndex]="[0,1]"></slides-playground>
+  </slides-slide>
+</slides-presentation>

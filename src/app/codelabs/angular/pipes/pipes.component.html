@@ -16,7 +16,7 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide id="intro" no-padding milestone="Pipes">
+  <slides-slide *slidesIf="'intro'" no-padding milestone="Pipes">
     <slides-title-slide
       title="Pipes"
       description="Learn how pipes transform input values to output values for display in a view."
@@ -25,7 +25,7 @@
   </slides-slide>
 
   <!-- WHAT ARE PIPES  -->
-  <slides-slide id="pipes-description" milestone="Pipes">
+  <slides-slide  *slidesIf="'pipes-description'; milestone: 'Pipes'">
     <h1 i18n>Introduction</h1>
     <div class="centered-vertically">
       <h2 i18n>
@@ -39,7 +39,7 @@
   </slides-slide>
 
   <!--  HOW DO PIPES WORK -->
-  <slides-slide id="how-pipes-work" milestone="Pipes">
+  <slides-slide  *slidesIf="'how-pipes-work'; milestone: 'Pipes'">
     <h1 i18n>How do pipes work?</h1>
     <h2 i18n>
       A pipe takes in data as input and transforms it to a desired output.</h2>
@@ -53,7 +53,7 @@
   </slides-slide>
 
   <!--  BUILT-IN PIPES -->
-  <slides-slide id="built-in-pipes" milestone="Pipes">
+  <slides-slide  *slidesIf="'built-in-pipes'; milestone: 'Pipes'">
     <h1 i18n>Built-in Pipes</h1>
     <div class="centered-vertically">
       <h2 i18n>
@@ -74,7 +74,7 @@
   </slides-slide>
 
   <!--  CHAINED PIPES -->
-  <slides-slide id="chained-pipes" milestone="Pipes">
+  <slides-slide  *slidesIf="'chained-pipes'; milestone: 'Pipes'">
     <h1 i18n>Chained Pipes</h1>
     <h2 i18n>
       Translate Dali's birthday to a more human-friendly format. While you're at it, make his birthday uppercase, too.
@@ -86,7 +86,7 @@
   </slides-slide>
 
   <!--  PIPES WITH ARGUMENT -->
-  <slides-slide id="argument-pipes" milestone="Pipes">
+  <slides-slide  *slidesIf="'argument-pipes'; milestone: 'Pipes'">
     <h1 i18n>Pipes with arguments:</h1>
     <slides-code-editor
       [code]="code.argumentPipes.template"
@@ -99,7 +99,7 @@
   </slides-slide>
 
   <!--  PIPES AS FILTERS  -->
-  <slides-slide id="pipes-as-filters" milestone="Pipes">
+  <slides-slide  *slidesIf="'pipes-as-filters'; milestone: 'Pipes'">
     <h1 i18n>Using custom pipes to filter data</h1>
     <slides-code-editor
       [code]="code.filterPipes.template"
@@ -108,7 +108,7 @@
   </slides-slide>
 
   <!--  CREATING A PIPE  -->
-  <slides-slide id="crating-pipe" milestone="Pipes">
+  <slides-slide  *slidesIf="'crating-pipe'; milestone: 'Pipes'">
     <h1 i18n>Creating a pipe</h1>
     <slides-code-editor
       [fontSize]="25"
@@ -119,7 +119,7 @@
   </slides-slide>
 
   <!--  PIPE TRANSFORM  -->
-  <slides-slide id="pipeTransform" milestone="Pipes">
+  <slides-slide  *slidesIf="'pipeTransform'; milestone: 'Pipes'">
     <h1 i18n>Creating a pipe</h1>
     <slides-code-editor
       [fontSize]="25"
@@ -132,7 +132,7 @@
   </slides-slide>
 
   <!--  PIPE TRANSFORM METHOD  -->
-  <slides-slide id="pipe-transform-method" milestone="Pipes">
+  <slides-slide  *slidesIf="'pipe-transform-method'; milestone: 'Pipes'">
     <h1 i18n>Creating a pipe</h1>
     <slides-code-editor
       [fontSize]="25"
@@ -145,7 +145,7 @@
   </slides-slide>
 
   <!--  PIPE DECORATOR  -->
-  <slides-slide id="pipe-decorator" milestone="Pipes">
+  <slides-slide  *slidesIf="'pipe-decorator'; milestone: 'Pipes'">
     <h1 i18n>Creating a pipe</h1>
     <slides-code-editor
       [fontSize]="25"
@@ -161,7 +161,7 @@
   </slides-slide>
 
   <!--  END -->
-  <slides-slide id="end">
+  <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
       <div class="header" header>
         <h1 i18n>End of the Pipes Section</h1></div>

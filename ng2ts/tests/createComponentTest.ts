@@ -1,8 +1,7 @@
-
-import {TestBed} from '@angular/core/testing';
-// Solution prefix will be stripped-out by the app
-import {AppComponent, evalJs} from '../app.component';
+import { TestBed } from '@angular/core/testing';
+import { AppComponent, evalJs } from '../app.component';
 import 'reflect-metadata';
+
 
 let metadata;
 beforeEach(() => {

@@ -16,7 +16,7 @@
   <slides-arrows></slides-arrows>
 
   <!--  INTRO -->
-  <slides-slide id="intro" no-padding>
+  <slides-slide *slidesIf="'intro'" no-padding>
     <slides-title-slide
       title="Templates"
       description="Learn more about Angular templates!"
@@ -26,7 +26,7 @@
 
 
   <!--  COMPONENT -->
-  <slides-slide id="component" milestone="Templates">
+  <slides-slide *slidesIf="'component'; milestone: 'Templates'">
     <h1 i18n>Templates / Intro</h1>
     <h2 i18n>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
       elements</h2>
@@ -34,9 +34,9 @@
   </slides-slide>
 
   <!--  INTERPOLATION-->
-  <slides-slide id="interpolation" milestone="Templates">
+  <slides-slide *slidesIf="'interpolation'; milestone: 'Templates'">
     <h1 i18n>Templates / Interpolation</h1>
-    <h2 i18n>Double curlies allows you to include properties from the component</h2>
+    <h2 i18n>Double curlies allow you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;" i18n>
@@ -46,7 +46,7 @@
 
 
   <!--INTERPOLATION-METHOD-->
-  <slides-slide id="interpolation-method" milestone="Templates">
+  <slides-slide *slidesIf="'interpolation-method'; milestone: 'Templates'">
     <h1 i18n>Templates / Interpolation</h1>
     <h2 i18n>
       Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate
@@ -56,7 +56,7 @@
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="exercise-pre" milestone="Templates">
+  <slides-slide *slidesIf="'exercise-pre'; milestone: 'Templates'">
     <h1 i18n>Templates / Exercise</h1>
     <h2 i18n>In the next slide you'll edit component template to create a simple header and search form. The result will
       look like
@@ -65,15 +65,20 @@
     <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
   </slides-slide>
 
-  <slides-slide id="exercise" no-padding>
-    <slides-exercise [config]="exercises[0]" milestone="Templates">
-      <div class="description">
-      </div>
+  <slides-slide *slidesIf="'exercise'; " no-padding>
+    <slides-exercise [files]="exercises[0].files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Templates" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 
   <!--  PRE DATA BINDING-->
-  <slides-slide id="data-binding-pre" milestone="Templates2">
+  <slides-slide *slidesIf="'data-binding-pre'; milestone: 'Templates2'">
     <h1 i18n>Templates / Interpolation / Properties</h1>
     <h2 i18n>String interpolation <b>{{ curlies }}</b> can also be used to pass avalue to a child element's attribute
     </h2>
@@ -82,7 +87,7 @@
   </slides-slide>
 
   <!--  DATA BINDING  -->
-  <slides-slide id="data-binding" milestone="Templates2">
+  <slides-slide *slidesIf="'data-binding'; milestone: 'Templates2'">
     <h1 i18n>Templates / Property Binding</h1>
     <h2 i18n>Another option is to use property binding <b>[attribute] = property</b></h2>
     <slides-playground [config]="code.template.dataBinding"
@@ -93,7 +98,7 @@
   </slides-slide>
 
   <!--  DATA BINDING EXTRAS-->
-  <slides-slide id="data-binding-extras" milestone="Templates2">
+  <slides-slide *slidesIf="'data-binding-extras'; milestone: 'Templates2'">
     <h1 i18n>Templates / Data binding extras</h1>
     <h2 i18n>Angular supports more advanced property bindings than just attribute name</h2>
     <slides-code-editor
@@ -105,7 +110,7 @@
 
 
   <!--  BINDING EVENT -->
-  <slides-slide id="event-binding" milestone="Templates2">
+  <slides-slide *slidesIf="'event-binding'; milestone: 'Templates2'">
     <h1 i18n>Templates / Event binding: (event)</h1>
     <h2 i18n>The bindings directives you've met so far flow data in one direction: from a component to an element</h2>
     <slides-code-editor
@@ -122,7 +127,7 @@
   </slides-slide>
 
   <!--  REFERENCE BINDING -->
-  <slides-slide id="reference-binding" milestone="Templates2">
+  <slides-slide *slidesIf="'reference-binding'; milestone: 'Templates2'">
     <h1 i18n>Templates / Reference binding ( #var )</h1>
     <h2 i18n>
       Sometimes we need to access a HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
@@ -138,7 +143,7 @@
   </slides-slide>
 
   <!--  CONDITIONAL DISPLAY-->
-  <slides-slide id="conditional-display-ngif" milestone="Templates2">
+  <slides-slide *slidesIf="'conditional-display-ngif'; milestone: 'Templates2'">
     <h2 i18n>Templates / Conditional Display (*ngIf)</h2>
     <p i18n>
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
@@ -148,7 +153,7 @@
   </slides-slide>
 
 
-  <slides-slide id="exercise-2-pre" milestone="Templates2">
+  <slides-slide *slidesIf="'exercise-2-pre'; milestone: 'Templates2'">
     <h1 i18n>Templates / Exercise 2</h1>
     <h2 i18n>In the next slide you'll add a click handler to the search button, and display a message for the case where
       no
@@ -157,15 +162,20 @@
     <slides-exercise-preview column-5 [config]="exercises[1]"></slides-exercise-preview>
   </slides-slide>
 
-  <slides-slide id="exercise-2" no-padding>
-    <slides-exercise [config]="exercises[1]" milestone="Templates2">
-      <div class="description">
-      </div>
+  <slides-slide *slidesIf="'exercise-2-pre'" no-padding>
+    <slides-exercise [files]="exercises[1].files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Templates" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 
 
-  <slides-slide id="repeating" milestone="Templates3">
+  <slides-slide *slidesIf="'repeating'; milestone: 'Templates3'">
     <h1 i18n>Templates / Repeating elements</h1>
     <h2 i18n>
       Let's say you have an array of puppies, and want to display all of them on them page. Angular has a special syntax
@@ -175,7 +185,7 @@
                        [focus-highlight-match]="code.ngForDirectivePre.matches"></slides-playground>
   </slides-slide>
 
-  <slides-slide id="conditional-display-ngfor" milestone="Templates3">
+  <slides-slide *slidesIf="'conditional-display-ngfor'; milestone: 'Templates3'">
     <h1 i18n>Templates / Repeating elements (*ngFor)</h1>
     <h2 i18n>
       Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case) for every single puppy in the puppies
@@ -189,7 +199,7 @@
   </slides-slide>
 
 
-  <slides-slide id="exercise-3-pre" milestone="Templates3">
+  <slides-slide *slidesIf="'exercise-3-pre'; milestone: 'Templates3'">
     <h1 i18n>Templates / Exercise 3</h1>
     <div flex>
       <div column-5>
@@ -201,15 +211,20 @@
     </div>
   </slides-slide>
 
-  <slides-slide id="exercise-3" no-padding>
-    <slides-exercise [config]="exercises[2]" milestone="Templates3">
-      <div class="description">
-      </div>
+  <slides-slide *slidesIf="'exercise-3'" no-padding>
+    <slides-exercise [files]="exercises[2].files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Templates" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 
 
-  <slides-slide id="end">
+  <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
       <div class="header" header>
         <h1 i18n>Templates / Milestone Completed!</h1>

@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Mode } from '../mode.enum';
 import { Observable } from 'rxjs/Observable';
 import { PresentationComponent } from '../presentation/presentation.component';
@@ -10,7 +10,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.css']
 })
-export class SlideComponent implements OnInit {
+export class SlideComponent {
   private slideId: number;
   private activeSubject = new BehaviorSubject<boolean>(false);
 
@@ -23,15 +23,6 @@ export class SlideComponent implements OnInit {
 
   constructor(public presentation: PresentationComponent) {
     this.onActive = this.activeSubject.distinctUntilChanged();
-  }
-
-  get active() {
-    this.activeSubject.next(this.presentation.activeSlideIndex === this.slideId);
-    return this.presentation.activeSlideIndex === this.slideId || this.presentation.mode === Mode.overview;
-  }
-
-  ngOnInit() {
-    this.slideId = this.presentation.registerSlide(this.id, this.milestone);
   }
 
   disableResize() {

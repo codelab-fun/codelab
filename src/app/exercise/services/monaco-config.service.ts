@@ -42,6 +42,11 @@ export class MonacoConfigService {
             emit: function(param: T);
           }
 
+          export interface DirectiveConfig {
+            selector: string;
+           
+          }
+
           export interface ComponentConfig {
             selector: string;
             template?: string;
@@ -53,6 +58,7 @@ export class MonacoConfigService {
           }
 
           export function Component(config: ComponentConfig);
+          export function Directive(config: DirectiveConfig);
 
           export interface NgModuleConfig {
             imports?: any[];

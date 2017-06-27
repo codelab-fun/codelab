@@ -15,34 +15,33 @@ export class FocusHighlightDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.editorComponent.slide.onActive.filter(a => a).first().subscribe(() => {
-      if (!Array.isArray(this.matches)) {
-        this.matches = [this.matches];
-      }
 
-      const decorations = this.matches.reduce((ranges, match) => {
-        const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, match);
+    if (!Array.isArray(this.matches)) {
+      this.matches = [this.matches];
+    }
 
-        ranges.push({
-          range: new this.editorComponent.monacoConfigService.monaco.Range(1, 1, lineStart, indexStart),
-          options: {inlineClassName: 'grayed-out-code'}
-        });
+    const decorations = this.matches.reduce((ranges, match) => {
+      const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, match);
 
-        ranges.push({
-          range: new this.editorComponent.monacoConfigService.monaco.Range(lineEnd, indexEnd, 10000, 10000),
-          options: {inlineClassName: 'grayed-out-code'}
-        });
+      ranges.push({
+        range: new this.editorComponent.monacoConfigService.monaco.Range(1, 1, lineStart, indexStart),
+        options: {inlineClassName: 'grayed-out-code'}
+      });
 
-        ranges.push({
-          range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
-          options: {inlineClassName: 'highlighted-code'}
-        });
+      ranges.push({
+        range: new this.editorComponent.monacoConfigService.monaco.Range(lineEnd, indexEnd, 10000, 10000),
+        options: {inlineClassName: 'grayed-out-code'}
+      });
 
-        return ranges;
-      }, []);
+      ranges.push({
+        range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
+        options: {inlineClassName: 'highlighted-code'}
+      });
+
+      return ranges;
+    }, []);
 
 
-      this.editorComponent.editor.deltaDecorations([], decorations);
-    });
+    this.editorComponent.editor.deltaDecorations([], decorations);
   }
 }

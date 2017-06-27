@@ -69,6 +69,14 @@ export let routes = [
     page: 'bonus'
   },
   {
+    path: 'structural-directives',
+    loadChildren: './angular/structural-directives/structural-directives.module#StructuralDirectivesModule',
+    name: 'Structural Directives',
+    description: 'Learn how pipes transform input values to output values for display in a view',
+    page: 'bonus',
+    prod: true
+  },
+  {
     path: 'vue-intro',
     loadChildren: './vue/intro/intro.module#VueModule',
     name: 'vue',

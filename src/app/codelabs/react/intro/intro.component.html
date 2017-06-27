@@ -16,14 +16,14 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide id="intro" no-padding milestone="React">
+  <slides-slide *slidesIf="'intro'" no-padding milestone="React">
     <slides-title-slide
       title="React"
       description="Basics of React.js"
     ></slides-title-slide>
   </slides-slide>
 
-  <slides-slide id="react-description" milestone="React">
+  <slides-slide  *slidesIf="'react-description'; milestone: 'React'">
     <h1 i18n>Introduction</h1>
     <div class="centered-vertically">
       <h2>This is React.js!!</h2>

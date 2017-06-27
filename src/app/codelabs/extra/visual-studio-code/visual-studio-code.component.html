@@ -8,11 +8,11 @@
   <slides-arrows></slides-arrows>
 
 
-  <slides-slide id="intro" no-padding milestone="TypeScript">
+  <slides-slide *slidesIf="'intro'" no-padding milestone="TypeScript">
     <slides-title-slide title="Visual Studio Code" description="Another Code Editor?"></slides-title-slide>
   </slides-slide>
 
-  <slides-slide id="about-typescript">
+  <slides-slide *slidesIf="'about-typescript'">
     <h1 i18n>What is Visual Studio Code?</h1>
     <div row>
       <div>
@@ -159,7 +159,7 @@
   </slides-slide>
 
 
-  <slides-slide id="end" milestone="Visaul-Studio-Code">
+  <slides-slide  *slidesIf="'end'; milestone: 'Visaul-Studio-Code'">
     <slides-closing-slide>
       <div class="header" header>
         <h1 i18n>End of Visual Studio Code Section</h1>

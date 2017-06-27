@@ -1,4 +1,4 @@
-<div *ngIf="slide.active" class="playground">
+<div class="playground">
   <div *ngIf="solved">
     <div class="exercise-complete">
       Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>
@@ -7,10 +7,11 @@
 
   <slides-tests data-step="2" data-intro="This is a list of the tests your program should pass at the end."
                 [tests]="config.tests" [files]="config.files"
-                (onSelectFile)="onSelectFile($event)"  data-step="2" data-intro="Here are the exercise instructions. Start with the first one, and solve them sequentially"></slides-tests>
+                data-step="2"
+                data-intro="Here are the exercise instructions. Start with the first one, and solve them sequentially"></slides-tests>
   <div class="exercise">
-    <slides-editor [file]="config.files[0]"
-                   (onCodeChange)="onCodeChange($event)"
+    <slides-editor *ngFor="let index of openFilesIndex" [file]="config.files[index]"
+                   (onCodeChange)="onCodeChange($event, config.files[index])"
                    [fontSize]="20"
                    [slides-focus-highlight-match]="highlightMatches"
                    data-step="3" data-intro="Enter the code here"

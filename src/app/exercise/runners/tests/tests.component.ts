@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { FileConfig } from '../interfaces/file-config';
-import { TestInfo } from '../interfaces/test-info';
+import { FileConfig } from '../../interfaces/file-config';
+import { TestInfo } from '../../interfaces/test-info';
 
 function getFileName(file: FileConfig) {
   return file.path.split('/').pop();

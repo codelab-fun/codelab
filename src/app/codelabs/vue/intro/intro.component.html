@@ -16,14 +16,14 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide id="intro" no-padding milestone="Vue">
+  <slides-slide *slidesIf="'intro'" no-padding milestone="Vue">
     <slides-title-slide
       title="Vue"
       description="Basics of Vue.js"
     ></slides-title-slide>
   </slides-slide>
 
-  <slides-slide id="vue-description" milestone="Vue">
+  <slides-slide  *slidesIf="'vue-description'; milestone: 'Vue'">
     <h1 i18n>Introduction</h1>
     <div class="centered-vertically">
       <h2>This is Vue.js!!</h2>
