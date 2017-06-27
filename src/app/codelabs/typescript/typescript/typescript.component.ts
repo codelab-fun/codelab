@@ -12,17 +12,16 @@ declare const require;
 
 export class TypescriptComponent implements OnInit {
 
+
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ];
 
   @ViewChild('translations') translation;
-  private code: any;
+  private code: any = {};
 
   ngOnInit(): void {
-    const t: { [key: string]: string } = extractMessages(this.translation);
-    console.log(t);
-
+    const t = extractMessages(this.translation);
 
     this.code = {
       filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
@@ -178,6 +177,7 @@ console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise
 console.log(add(2, '2'));`),
       tsExerciseMatch: /'.*'/
     };
+
   }
 
 }
