@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../exercise/helpers/helpers';
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
+import { extractMessages } from '../../../presentation/i18n-tools';
 declare const require;
 
 @Component({
@@ -9,10 +10,22 @@ declare const require;
   styleUrls: ['./typescript.component.css']
 })
 
-export class TypescriptComponent {
+export class TypescriptComponent implements OnInit {
 
-  code = {
-    filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
+  exercises = [
+    ng2tsConfig.milestones[0].exercises[1]
+  ];
+
+  @ViewChild('translations') translation;
+  private code: any;
+
+  ngOnInit(): void {
+    const t: { [key: string]: string } = extractMessages(this.translation);
+    console.log(t);
+
+
+    this.code = {
+      filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
 
 console.log(numbers.filter(function(number){
   return number > 30;
@@ -23,8 +36,8 @@ console.log(numbers.filter(function(number){
 console.log(
   numbers.filter(number => number > 30)
 );`),
-    moreTypes: {
-      codeInterfaces: `interface Puppy {
+      moreTypes: {
+        codeInterfaces: `interface Puppy {
   name: string;
   age: number;
 };
@@ -37,7 +50,7 @@ const realPuppy: Puppy = {
 const notRealPuppy: Puppy = {
   says: 'meow' // Error: this is clearly not a puppy
 }`,
-      codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
+        codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
 const cats: Array<string> = ['Simba', 'Aslan'];
 // Type[] does the same thing.
 const cats2: string[] = ['Simba', 'Aslan'];
@@ -53,7 +66,7 @@ const betterCats: Array<Cat> = [
 ];
 
 console.log(betterCats);`),
-      code: `const price: number = 100; // This is a number.
+        code: `const price: number = 100; // ${t.thisIsNumber}
 const tax = 20; // Actually TypeScript can infer number here;
 const productName = 'pikachu'; // TypeScript can infer it's a string.
 const isHungry = true; // Boolean
@@ -62,9 +75,9 @@ const weird = tax + isHungry; // Can't add number and boolean
 tax.slice(1,5); // Can't slice a number
 productName.slice(1,5); // But can slice a string!
 const total = price + tax; // Works!`
-    },
-    varDeclaration: {
-      code: `// Var is still allowed but not recommended.
+      },
+      varDeclaration: {
+        code: `// Var is still allowed but not recommended.
 var v = 1;
 
 // Let should be used instead of var.
@@ -80,21 +93,21 @@ console.log(ll); // undefined
 const x = 1;
 x = 2;`
 
-    },
-    stringType: {
-      code: `let fullName: string = 'Bob Bobbington';
+      },
+      stringType: {
+        code: `let fullName: string = 'Bob Bobbington';
 let sentence: string = \`Hello, my name is \${ fullName }.\`;`
-    },
-    stringType2: {
-      code: `let sentence: string = "Hello, my name is " + fullName + "."`
-    },
-    anyType: {
-      code: `let notSure: any = 4;
+      },
+      stringType2: {
+        code: `let sentence: string = "Hello, my name is " + fullName + "."`
+      },
+      anyType: {
+        code: `let notSure: any = 4;
 notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean`
-    },
-    classDescription: {
-      code: typeScriptWithConsoleLog(`export class Puppy {
+      },
+      classDescription: {
+        code: typeScriptWithConsoleLog(`export class Puppy {
   // This is a method.
   bark(){
     // That's how russian dogs talk.
@@ -107,7 +120,7 @@ var hotdog = new Puppy();
 // And use its methods
 console.log(hotdog.bark());
 `),
-      codeConstructor: typeScriptWithConsoleLog(`export class Puppy {
+        codeConstructor: typeScriptWithConsoleLog(`export class Puppy {
   constructor(public name: string){
     // Later we'll have code here
   }
@@ -137,37 +150,34 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
     return 'Gav! my name is ' + this.name;
   }
 }`),
-      matches: {
-        classPuppyMatch: /class Puppy/,
-        classMatch: /class/,
-        exportMatch: /export/,
-        importMatch: /import/,
-        constants: /const /,
-        constructorMatch: /constructor/,
-        publicMatch: /public name/,
-        thisMatch: /this.name/,
-        edouardMatch: /Édouard/,
-        oscarMatch: /Oscar-Claude/,
-      }
-    },
-    tsExercise: typeScriptWithConsoleLog(
-      `function add(a: number, b){
+        matches: {
+          classPuppyMatch: /class Puppy/,
+          classMatch: /class/,
+          exportMatch: /export/,
+          importMatch: /import/,
+          constants: /const /,
+          constructorMatch: /constructor/,
+          publicMatch: /public name/,
+          thisMatch: /this.name/,
+          edouardMatch: /Édouard/,
+          oscarMatch: /Oscar-Claude/,
+        }
+      },
+      tsExercise: typeScriptWithConsoleLog(
+        `function add(a: number, b){
   return a+b;
 };
 
 console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise-test.ts`)),
 
-    js2And2: javaScriptWithConsoleLog(
-      `function add(a, b){
+      js2And2: javaScriptWithConsoleLog(
+        `function add(a, b){
   return a+b;
 };
 
 console.log(add(2, '2'));`),
-    tsExerciseMatch: /'.*'/
-  };
-
-  exercises = [
-    ng2tsConfig.milestones[0].exercises[1]
-  ];
+      tsExerciseMatch: /'.*'/
+    };
+  }
 
 }

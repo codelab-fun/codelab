@@ -21,12 +21,8 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <messagebundle>
-  <msg id="2339071718884287683"><source>app/codelabs/index/index.component.ts:12</source>Angular Codelab</msg>
-  <msg id="3544776889283127882"><source>app/codelabs/index/index.component.ts:13</source>Welcome! Choose a topic below to start learning:</msg>
-  <msg id="6613802275357877645"><source>app/codelabs/index/index.component.ts:14</source>Ogogog222o</msg>
-  <msg id="4305884068186552638"><source>app/codelabs/index/index.component.ts:15</source>OLOLLOLO</msg>
-
-  <msg id="919426174175686955"><source>app/codelabs/index/index.component.ts:21</source><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></msg>
+  <msg id="2339071718884287683"><source>app/codelabs/index/index.component.ts:13</source>Angular Codelab</msg>
+  <msg id="3544776889283127882"><source>app/codelabs/index/index.component.ts:14</source>Welcome! Choose a topic below to start learning:</msg>
   <msg id="943157291250853394"><source>app/codelabs/angular/component-tree/component-tree.component.ts:27</source>Component Tree</msg>
   <msg id="1477095887109447756"><source>app/codelabs/angular/component-tree/component-tree.component.ts:28</source>So far we have only one component, but as your app grows it will form a tree of components</msg>
   <msg id="7450174455887155136"><source>app/codelabs/angular/component-tree/component-tree.component.ts:34</source>Component Tree / Parent and Child</msg>
@@ -452,106 +448,109 @@
   <msg id="2044983581446920408"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:170</source><ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Visual Studio Code Offical Site<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></msg>
   <msg id="1263625012416861724"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:174,177</source>
           <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Back to Index<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
-
+          
         </msg>
-  <msg id="6225777299423953966"><source>app/codelabs/typescript/typescript/typescript.component.ts:27</source>Why TypeScript</msg>
-  <msg id="4845793289318766506"><source>app/codelabs/typescript/typescript/typescript.component.ts:41</source>TypeScript</msg>
-  <msg id="1222056232586280725"><source>app/codelabs/typescript/typescript/typescript.component.ts:46,48</source>TypeScript extends the latest
+  <msg id="shorthandFunction"><source>app/codelabs/typescript/typescript/typescript.component.ts:2</source>Or use shorthand function notation.</msg>
+  <msg id="errorNotAPuppy"><source>app/codelabs/typescript/typescript/typescript.component.ts:3</source>Error: this is clearly not a puppy</msg>
+  <msg id="thisIsNumber"><source>app/codelabs/typescript/typescript/typescript.component.ts:4</source>This is a number</msg>
+  <msg id="6225777299423953966"><source>app/codelabs/typescript/typescript/typescript.component.ts:32</source>Why TypeScript</msg>
+  <msg id="4845793289318766506"><source>app/codelabs/typescript/typescript/typescript.component.ts:46</source>TypeScript</msg>
+  <msg id="1222056232586280725"><source>app/codelabs/typescript/typescript/typescript.component.ts:51,53</source>TypeScript extends the latest
             version of JavaScript (ES6)
           </msg>
-  <msg id="6474054376534067382"><source>app/codelabs/typescript/typescript/typescript.component.ts:49,50</source>TypeScript adds somefeatures from the next version (ES7)
+  <msg id="6474054376534067382"><source>app/codelabs/typescript/typescript/typescript.component.ts:54,55</source>TypeScript adds somefeatures from the next version (ES7)
           </msg>
-  <msg id="2918183727702284411"><source>app/codelabs/typescript/typescript/typescript.component.ts:51,52</source>On top of it, TypeScript adds an optional type system and decorators
+  <msg id="2918183727702284411"><source>app/codelabs/typescript/typescript/typescript.component.ts:56,57</source>On top of it, TypeScript adds an optional type system and decorators
           </msg>
-  <msg id="8365510594080665304"><source>app/codelabs/typescript/typescript/typescript.component.ts:73,74</source>ES7
+  <msg id="8365510594080665304"><source>app/codelabs/typescript/typescript/typescript.component.ts:78,79</source>ES7
             </msg>
-  <msg id="5719991225831147952"><source>app/codelabs/typescript/typescript/typescript.component.ts:76,77</source>Decorators
+  <msg id="5719991225831147952"><source>app/codelabs/typescript/typescript/typescript.component.ts:81,82</source>Decorators
             </msg>
-  <msg id="3291065066040545222"><source>app/codelabs/typescript/typescript/typescript.component.ts:79,80</source>Types
+  <msg id="3291065066040545222"><source>app/codelabs/typescript/typescript/typescript.component.ts:84,85</source>Types
             </msg>
-  <msg id="5813815408611692262"><source>app/codelabs/typescript/typescript/typescript.component.ts:82,83</source>TypeScript
+  <msg id="5813815408611692262"><source>app/codelabs/typescript/typescript/typescript.component.ts:87,88</source>TypeScript
             </msg>
-  <msg id="6789285271495262013"><source>app/codelabs/typescript/typescript/typescript.component.ts:85,86</source>Classes
+  <msg id="6789285271495262013"><source>app/codelabs/typescript/typescript/typescript.component.ts:90,91</source>Classes
             </msg>
-  <msg id="1319734933981966500"><source>app/codelabs/typescript/typescript/typescript.component.ts:88,89</source>Modules
+  <msg id="1319734933981966500"><source>app/codelabs/typescript/typescript/typescript.component.ts:93,94</source>Modules
             </msg>
-  <msg id="4240486300768704478"><source>app/codelabs/typescript/typescript/typescript.component.ts:91,92</source>More...
+  <msg id="4240486300768704478"><source>app/codelabs/typescript/typescript/typescript.component.ts:96,97</source>More...
             </msg>
-  <msg id="7112509679553001939"><source>app/codelabs/typescript/typescript/typescript.component.ts:108</source><source>app/codelabs/typescript/typescript/typescript.component.ts:122</source>TypeScript / Type System</msg>
-  <msg id="8897430566941228177"><source>app/codelabs/typescript/typescript/typescript.component.ts:109,110</source>Below we have an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> function, and we&apos;re adding 2 and 2. What could go wrong?
+  <msg id="7112509679553001939"><source>app/codelabs/typescript/typescript/typescript.component.ts:113</source><source>app/codelabs/typescript/typescript/typescript.component.ts:127</source>TypeScript / Type System</msg>
+  <msg id="8897430566941228177"><source>app/codelabs/typescript/typescript/typescript.component.ts:114,115</source>Below we have an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> function, and we&apos;re adding 2 and 2. What could go wrong?
     </msg>
-  <msg id="4895625190709847499"><source>app/codelabs/typescript/typescript/typescript.component.ts:116,117</source>Turns out it&apos;s possible to pass a string to this function and we get <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>22<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> instead of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>4<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. Let&apos;s
+  <msg id="4895625190709847499"><source>app/codelabs/typescript/typescript/typescript.component.ts:121,122</source>Turns out it&apos;s possible to pass a string to this function and we get <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>22<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> instead of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>4<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. Let&apos;s
       see how TypeScript can help address this issue on the next slide</msg>
-  <msg id="2453425375180790120"><source>app/codelabs/typescript/typescript/typescript.component.ts:123,125</source> TypeScript uses <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>:<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to specify the type information (e.g. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>n: number<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>g). Both <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and
+  <msg id="2453425375180790120"><source>app/codelabs/typescript/typescript/typescript.component.ts:128,130</source> TypeScript uses <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>:<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to specify the type information (e.g. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>n: number<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>g). Both <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>b<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> should be
       numbers. We specified the type for <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, now it&apos;s your turn!</msg>
-  <msg id="5379917036245705937"><source>app/codelabs/typescript/typescript/typescript.component.ts:132,134</source>
+  <msg id="5379917036245705937"><source>app/codelabs/typescript/typescript/typescript.component.ts:137,139</source>
       The code above is editable!
     </msg>
-  <msg id="7184902338887675021"><source>app/codelabs/typescript/typescript/typescript.component.ts:138</source>TypeScript / Types / Primitives (strings, numbers, etc...)</msg>
-  <msg id="7773507354148549356"><source>app/codelabs/typescript/typescript/typescript.component.ts:139</source>Types are more types we can use&gt;</msg>
-  <msg id="5973606507353383362"><source>app/codelabs/typescript/typescript/typescript.component.ts:142,145</source>
+  <msg id="7184902338887675021"><source>app/codelabs/typescript/typescript/typescript.component.ts:143</source>TypeScript / Types / Primitives (strings, numbers, etc...)</msg>
+  <msg id="7773507354148549356"><source>app/codelabs/typescript/typescript/typescript.component.ts:144</source>Types are more types we can use&gt;</msg>
+  <msg id="5973606507353383362"><source>app/codelabs/typescript/typescript/typescript.component.ts:147,150</source>
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>const<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a new way to declare variables (introduced in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>ES6<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>). Similar to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>var<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>,
       but is block scoped (only exist inside of curly braces block), and errors out if the value is reassigned.
     </msg>
-  <msg id="8356377481986908648"><source>app/codelabs/typescript/typescript/typescript.component.ts:149</source>TypeScript / Types / Interfaces</msg>
-  <msg id="6027504298282045432"><source>app/codelabs/typescript/typescript/typescript.component.ts:150</source>TypeScript allows to define more complex objects using interfaces:</msg>
-  <msg id="702106966820398853"><source>app/codelabs/typescript/typescript/typescript.component.ts:153,155</source>
+  <msg id="8356377481986908648"><source>app/codelabs/typescript/typescript/typescript.component.ts:154</source>TypeScript / Types / Interfaces</msg>
+  <msg id="6027504298282045432"><source>app/codelabs/typescript/typescript/typescript.component.ts:155</source>TypeScript allows to define more complex objects using interfaces:</msg>
+  <msg id="702106966820398853"><source>app/codelabs/typescript/typescript/typescript.component.ts:158,160</source>
       Here, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>realPuppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is an instance of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> Interface.
     </msg>
-  <msg id="2290415883760227771"><source>app/codelabs/typescript/typescript/typescript.component.ts:159</source>TypeScript / Types / Arrays</msg>
-  <msg id="2672636832952045368"><source>app/codelabs/typescript/typescript/typescript.component.ts:160</source>Arrays are defined as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Array&lt;Type&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> or <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Type[]<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
-  <msg id="2405764712212602026"><source>app/codelabs/typescript/typescript/typescript.component.ts:168</source>TypeScript / Classes</msg>
-  <msg id="4690830357394206486"><source>app/codelabs/typescript/typescript/typescript.component.ts:169</source>TypeScript has <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>classes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, and Angular uses them heavily.</msg>
-  <msg id="4400419948462180614"><source>app/codelabs/typescript/typescript/typescript.component.ts:170</source>They are similar to classes in other languages, and are used to group methods and properties together</msg>
-  <msg id="2241473065319320696"><source>app/codelabs/typescript/typescript/typescript.component.ts:175</source>TypeScript / Classes / Constructor</msg>
-  <msg id="594323862330325791"><source>app/codelabs/typescript/typescript/typescript.component.ts:176,180</source>
+  <msg id="2290415883760227771"><source>app/codelabs/typescript/typescript/typescript.component.ts:164</source>TypeScript / Types / Arrays</msg>
+  <msg id="2672636832952045368"><source>app/codelabs/typescript/typescript/typescript.component.ts:165</source>Arrays are defined as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Array&lt;Type&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> or <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Type[]<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="2405764712212602026"><source>app/codelabs/typescript/typescript/typescript.component.ts:173</source>TypeScript / Classes</msg>
+  <msg id="4690830357394206486"><source>app/codelabs/typescript/typescript/typescript.component.ts:174</source>TypeScript has <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>classes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, and Angular uses them heavily.</msg>
+  <msg id="4400419948462180614"><source>app/codelabs/typescript/typescript/typescript.component.ts:175</source>They are similar to classes in other languages, and are used to group methods and properties together</msg>
+  <msg id="2241473065319320696"><source>app/codelabs/typescript/typescript/typescript.component.ts:180</source>TypeScript / Classes / Constructor</msg>
+  <msg id="594323862330325791"><source>app/codelabs/typescript/typescript/typescript.component.ts:181,185</source>
       There&apos;s a special method on the class called <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>constructor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. It&apos;s run when the class is instantiated and
       allows
       the class to take parameters
     </msg>
-  <msg id="5204240005969151523"><source>app/codelabs/typescript/typescript/typescript.component.ts:186</source>TypeScript / Classes / Access Modifiers</msg>
-  <msg id="1284274927983136600"><source>app/codelabs/typescript/typescript/typescript.component.ts:187,190</source>
+  <msg id="5204240005969151523"><source>app/codelabs/typescript/typescript/typescript.component.ts:191</source>TypeScript / Classes / Access Modifiers</msg>
+  <msg id="1284274927983136600"><source>app/codelabs/typescript/typescript/typescript.component.ts:192,195</source>
       Constructor parameters marked as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>public<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> (or private, or protected), become class properties accessible as
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.&lt;parameter name&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> within the class
     </msg>
-  <msg id="832290230708229550"><source>app/codelabs/typescript/typescript/typescript.component.ts:193</source>private or protected properties are not visible outside of the class.</msg>
-  <msg id="2833299688177134254"><source>app/codelabs/typescript/typescript/typescript.component.ts:197</source>TypeScript / Export</msg>
-  <msg id="3803734535691220713"><source>app/codelabs/typescript/typescript/typescript.component.ts:198,199</source>By the way, did you notice the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>export<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> keyword before class? It is used to share information
+  <msg id="832290230708229550"><source>app/codelabs/typescript/typescript/typescript.component.ts:198</source>private or protected properties are not visible outside of the class.</msg>
+  <msg id="2833299688177134254"><source>app/codelabs/typescript/typescript/typescript.component.ts:202</source>TypeScript / Export</msg>
+  <msg id="3803734535691220713"><source>app/codelabs/typescript/typescript/typescript.component.ts:203,204</source>By the way, did you notice the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>export<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> keyword before class? It is used to share information
       between files. In the next slide, we&apos;ll show you how to export and use this class in a different file</msg>
-  <msg id="85239674128449276"><source>app/codelabs/typescript/typescript/typescript.component.ts:207</source>TypeScript / Import</msg>
-  <msg id="5575767639565396335"><source>app/codelabs/typescript/typescript/typescript.component.ts:208</source>Now we can use the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> class in the other file</msg>
-  <msg id="446543992828107232"><source>app/codelabs/typescript/typescript/typescript.component.ts:211,213</source>Imports and exports are not just for classes. They work with variables, functions and other
+  <msg id="85239674128449276"><source>app/codelabs/typescript/typescript/typescript.component.ts:212</source>TypeScript / Import</msg>
+  <msg id="5575767639565396335"><source>app/codelabs/typescript/typescript/typescript.component.ts:213</source>Now we can use the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> class in the other file</msg>
+  <msg id="446543992828107232"><source>app/codelabs/typescript/typescript/typescript.component.ts:216,218</source>Imports and exports are not just for classes. They work with variables, functions and other
       things!
     </msg>
-  <msg id="2769421710025281"><source>app/codelabs/typescript/typescript/typescript.component.ts:217</source>TypeScript / Filter (One last thing)</msg>
-  <msg id="1938583941517835632"><source>app/codelabs/typescript/typescript/typescript.component.ts:218,220</source>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
+  <msg id="2769421710025281"><source>app/codelabs/typescript/typescript/typescript.component.ts:222</source>TypeScript / Filter (One last thing)</msg>
+  <msg id="1938583941517835632"><source>app/codelabs/typescript/typescript/typescript.component.ts:223,225</source>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
       provided
       from the returning callback</msg>
-  <msg id="7850575608398492210"><source>app/codelabs/typescript/typescript/typescript.component.ts:225</source>TypeScript / More</msg>
-  <msg id="5612117993680767924"><source>app/codelabs/typescript/typescript/typescript.component.ts:226</source>TypeScript supports lots of other cool features such as: </msg>
-  <msg id="3591838911718818191"><source>app/codelabs/typescript/typescript/typescript.component.ts:228</source>Interfaces</msg>
-  <msg id="2778796732744507615"><source>app/codelabs/typescript/typescript/typescript.component.ts:229</source>Enums</msg>
-  <msg id="554505692155626925"><source>app/codelabs/typescript/typescript/typescript.component.ts:230</source>Async / Await</msg>
-  <msg id="328559435378058585"><source>app/codelabs/typescript/typescript/typescript.component.ts:231</source>Getters / Setters</msg>
-  <msg id="2854346138345342774"><source>app/codelabs/typescript/typescript/typescript.component.ts:232</source>Destructuring</msg>
-  <msg id="2824004502397491284"><source>app/codelabs/typescript/typescript/typescript.component.ts:233</source>Arrow functions</msg>
-  <msg id="4818010747810947110"><source>app/codelabs/typescript/typescript/typescript.component.ts:234</source>And more!</msg>
-  <msg id="7824265004931736949"><source>app/codelabs/typescript/typescript/typescript.component.ts:236,238</source>We won&apos;t cover them in detail, check out the <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> website!
+  <msg id="7850575608398492210"><source>app/codelabs/typescript/typescript/typescript.component.ts:230</source>TypeScript / More</msg>
+  <msg id="5612117993680767924"><source>app/codelabs/typescript/typescript/typescript.component.ts:231</source>TypeScript supports lots of other cool features such as: </msg>
+  <msg id="3591838911718818191"><source>app/codelabs/typescript/typescript/typescript.component.ts:233</source>Interfaces</msg>
+  <msg id="2778796732744507615"><source>app/codelabs/typescript/typescript/typescript.component.ts:234</source>Enums</msg>
+  <msg id="554505692155626925"><source>app/codelabs/typescript/typescript/typescript.component.ts:235</source>Async / Await</msg>
+  <msg id="328559435378058585"><source>app/codelabs/typescript/typescript/typescript.component.ts:236</source>Getters / Setters</msg>
+  <msg id="2854346138345342774"><source>app/codelabs/typescript/typescript/typescript.component.ts:237</source>Destructuring</msg>
+  <msg id="2824004502397491284"><source>app/codelabs/typescript/typescript/typescript.component.ts:238</source>Arrow functions</msg>
+  <msg id="4818010747810947110"><source>app/codelabs/typescript/typescript/typescript.component.ts:239</source>And more!</msg>
+  <msg id="7824265004931736949"><source>app/codelabs/typescript/typescript/typescript.component.ts:241,243</source>We won&apos;t cover them in detail, check out the <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> website!
     </msg>
-  <msg id="2099901358858524224"><source>app/codelabs/typescript/typescript/typescript.component.ts:242</source>TypeScript / Exercise</msg>
-  <msg id="1966301836895698534"><source>app/codelabs/typescript/typescript/typescript.component.ts:243</source>In the next slide we have a TypeScript exercise</msg>
-  <msg id="1408750369254023078"><source>app/codelabs/typescript/typescript/typescript.component.ts:244,246</source>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output
+  <msg id="2099901358858524224"><source>app/codelabs/typescript/typescript/typescript.component.ts:247</source>TypeScript / Exercise</msg>
+  <msg id="1966301836895698534"><source>app/codelabs/typescript/typescript/typescript.component.ts:248</source>In the next slide we have a TypeScript exercise</msg>
+  <msg id="1408750369254023078"><source>app/codelabs/typescript/typescript/typescript.component.ts:249,251</source>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output
       only
       the ones who are coming.</msg>
-  <msg id="2921334658251839102"><source>app/codelabs/typescript/typescript/typescript.component.ts:247</source>The result will be as follows:</msg>
-  <msg id="4354089053789898401"><source>app/codelabs/typescript/typescript/typescript.component.ts:265</source>TypeScript / Milestone Completed</msg>
-  <msg id="564343607900892103"><source>app/codelabs/typescript/typescript/typescript.component.ts:267,271</source>
+  <msg id="2921334658251839102"><source>app/codelabs/typescript/typescript/typescript.component.ts:252</source>The result will be as follows:</msg>
+  <msg id="4354089053789898401"><source>app/codelabs/typescript/typescript/typescript.component.ts:270</source>TypeScript / Milestone Completed</msg>
+  <msg id="564343607900892103"><source>app/codelabs/typescript/typescript/typescript.component.ts:272,276</source>
           Now you should know enough <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>TypeScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to learn <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>!
           Read more about TypeScript on
           <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript web site<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
         </msg>
-  <msg id="8996212713515416129"><source>app/codelabs/typescript/typescript/typescript.component.ts:278,280</source>next:
+  <msg id="8996212713515416129"><source>app/codelabs/typescript/typescript/typescript.component.ts:283,285</source>next:
           <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Learn how to create your first Angular app!<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
         </msg>
 </messagebundle>

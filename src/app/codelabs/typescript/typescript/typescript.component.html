@@ -1,3 +1,8 @@
+<div #translations style="display: none">
+  <div i18n="@@shorthandFunction" id="shorthandFunction">Or use shorthand function notation.</div>
+  <div i18n="@@errorNotAPuppy" id="errorNotAPuppy">Error: this is clearly not a puppy</div>
+  <div i18n="@@thisIsNumber" id="thisIsNumber">This is a number</div>
+</div>
 <slides-presentation
   slides-slides-routing
   slides-mode-routing
@@ -248,7 +253,7 @@
     <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
   </slides-slide>
 
-  <slides-slide *slidesIf="'exercise';"no-padding>
+  <slides-slide *slidesIf="'exercise';" no-padding>
     <slides-exercise [files]="exercises[0].files">
       <div class="description"></div>
       <slides-new-editors class="editor">
@@ -281,5 +286,4 @@
       </div>
     </slides-closing-slide>
   </slides-slide>
-
 </slides-presentation>
