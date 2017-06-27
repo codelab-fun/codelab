@@ -21,10 +21,12 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <messagebundle>
-  <msg id="2339071718884287683"><source>app/codelabs/index/index.component.ts:13</source>Angular Codelab</msg>
-  <msg id="3544776889283127882"><source>app/codelabs/index/index.component.ts:14</source>Welcome! Choose a topic below to start learning:</msg>
-  <msg id="3294030937249272480"><source>app/codelabs/index/index.component.ts:19</source><ph name="START_LINK"><ex>&lt;a&gt;</ex></ph><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph><ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></msg>
-  <msg id="919426174175686955"><source>app/codelabs/index/index.component.ts:20</source><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></msg>
+  <msg id="2339071718884287683"><source>app/codelabs/index/index.component.ts:12</source>Angular Codelab</msg>
+  <msg id="3544776889283127882"><source>app/codelabs/index/index.component.ts:13</source>Welcome! Choose a topic below to start learning:</msg>
+  <msg id="6613802275357877645"><source>app/codelabs/index/index.component.ts:14</source>Ogogog222o</msg>
+  <msg id="4305884068186552638"><source>app/codelabs/index/index.component.ts:15</source>OLOLLOLO</msg>
+
+  <msg id="919426174175686955"><source>app/codelabs/index/index.component.ts:21</source><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></msg>
   <msg id="943157291250853394"><source>app/codelabs/angular/component-tree/component-tree.component.ts:27</source>Component Tree</msg>
   <msg id="1477095887109447756"><source>app/codelabs/angular/component-tree/component-tree.component.ts:28</source>So far we have only one component, but as your app grows it will form a tree of components</msg>
   <msg id="7450174455887155136"><source>app/codelabs/angular/component-tree/component-tree.component.ts:34</source>Component Tree / Parent and Child</msg>
@@ -450,7 +452,7 @@
   <msg id="2044983581446920408"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:170</source><ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Visual Studio Code Offical Site<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></msg>
   <msg id="1263625012416861724"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:174,177</source>
           <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Back to Index<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
-          
+
         </msg>
   <msg id="6225777299423953966"><source>app/codelabs/typescript/typescript/typescript.component.ts:27</source>Why TypeScript</msg>
   <msg id="4845793289318766506"><source>app/codelabs/typescript/typescript/typescript.component.ts:41</source>TypeScript</msg>

@@ -15,9 +15,9 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <translationbundle lang="ru">
-  <translation id="2339071718884287683"/>
-  <translation id="3544776889283127882">Добро пожаловать! Выберите тему, чтобы начать обучение</translation>
-  <translation id="3294030937249272480"/>
+  <translation id="2339071718884287683">Angular Codelab</translation>
+  <translation id="3544776889283127882"/>
+  <translation id="3294030937249272480"> <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph><ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></translation>
   <translation id="919426174175686955"/>
   <translation id="943157291250853394"/>
   <translation id="1477095887109447756"/>
@@ -25,7 +25,7 @@
   <translation id="958527444286373588"/>
   <translation id="1044905540185084125"/>
   <translation id="5297563707434504672"/>
-  <translation id="3767405923334084568"/>
+  <translation id="3767405923334084568">Поменяйте значения <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>size<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>100<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> и <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>color<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>red<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> чтобы получить флаг Японии.</translation>
   <translation id="6502697971057653879"/>
   <translation id="242686228345857569"/>
   <translation id="8641651214594920143"/>
@@ -319,4 +319,6 @@
   <translation id="4354089053789898401"/>
   <translation id="564343607900892103"/>
   <translation id="8996212713515416129"/>
+  <translation id="6613802275357877645"/>
+  <translation id="4305884068186552638"/>
 </translationbundle>
