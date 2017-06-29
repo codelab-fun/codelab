@@ -110,7 +110,9 @@ export function runTypeScriptFiles(files: Array<FileConfig>, {setHtml, addCss, e
     });
 
     files.filter((file) => file.bootstrap).map((file) => {
+
       evalJs(`System.import('${file.moduleName}')`);
+
     });
   }
 }

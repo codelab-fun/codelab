@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 /* tslint:disable */
 @Component({
   selector: 'my-app',
-  templateUrl: './app.html'
+  template: `
+    Tab 1
+  `
 })
-export class AppComponent {
+export class TabComponent {
+  tabs = [];
 }

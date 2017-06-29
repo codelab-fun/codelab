@@ -1,0 +1,8 @@
+<md-tab-group #tabs>
+  <md-tab label="Tab 1">
+    <div *ngIf="tabs.selectedIndex===0">Content 1</div>
+  </md-tab>
+  <md-tab label="Tab 2">
+    <div *ngIf="tabs.selectedIndex===1">Content 2<app-alert></app-alert></div>
+  </md-tab>
+</md-tab-group>

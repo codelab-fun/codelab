@@ -129,6 +129,15 @@ platform.bootstrapModule(${module.name}, {
   }
 };
 
+export function html(code, solution = '') {
+  return {
+    code,
+    path: 'app.html',
+    solution: solution,
+    type: 'html'
+  };
+}
+
 export function bootstrap(moduleName: string, template: string, solution?: string) {
   solution = solution || template;
   return {
