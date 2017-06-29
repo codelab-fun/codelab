@@ -64,6 +64,13 @@ export class StructuralDirectivesComponent {
         bootstrap('main', builder.bootstrap()),
       ]
     },
+    structuralDirectives: {
+      ngIfBefore: require('!!raw-loader!./samples/structural-directives/ng-if-before.html'),
+      ngIfAfter: require('!!raw-loader!./samples/structural-directives/ng-if-after.html'),
+      ngForBefore: require('!!raw-loader!./samples/structural-directives/ng-for-after.html'),
+      ngForAfter: require('!!raw-loader!./samples/structural-directives/ng-for-after.html'),
+      microSyntax: require('!!raw-loader!./samples/structural-directives/microsyntax.html')
+    }
   };
 
   constructor() {

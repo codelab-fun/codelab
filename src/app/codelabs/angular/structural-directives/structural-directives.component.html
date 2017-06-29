@@ -76,9 +76,47 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'structural-directives-info'">
-    <h1>Structural directive</h1>
-    <slides-code-editor [code]="'hi'"></slides-code-editor>
+    <h1>Structural directives ngIf</h1>
+    <slides-code-group>
+      <slides-code-editor path="before" [fontSize]="50" [minLines]="3"
+                          [code]="code.structuralDirectives.ngIfBefore"></slides-code-editor>
+      <br><br>
+      <h2>Desugars into</h2>
+      <br><br>
+      <slides-code-editor path="after" [fontSize]="50" [minLines]="3"
+                          [code]="code.structuralDirectives.ngIfAfter"></slides-code-editor>
+    </slides-code-group>
   </slides-slide>
+
+
+
+  <slides-slide *slidesIf="'structural-directives-info'">
+    <h1>Structural directives ngFor</h1>
+    <slides-code-group>
+      <slides-code-editor path="before" [fontSize]="50" [minLines]="3"
+                          [code]="code.structuralDirectives.ngForBefore"></slides-code-editor>
+      <br><br>
+      <h2>Desugars into</h2>
+      <br><br>
+      <slides-code-editor path="after" [fontSize]="50" [minLines]="3"
+                          [code]="code.structuralDirectives.ngForAfter"></slides-code-editor>
+    </slides-code-group>
+  </slides-slide>
+
+
+
+
+  <slides-slide *slidesIf="'structural-directives-info'">
+    <h1>Angular MicroSyntax</h1>
+    <slides-code-group>
+      <slides-code-editor [type]="text" readonly="false" path="before" [fontSize]="50" [minLines]="3"
+                          [code]="code.structuralDirectives.microSyntax"></slides-code-editor>
+      <br><br>
+
+    </slides-code-group>
+  </slides-slide>
+
+
 
   <slides-slide *slidesIf="'play-with-tabs-structural-directive'" no-padding>
     <slides-exercise [files]="code.materialTabsStructuralDirective.files">
@@ -106,10 +144,6 @@
     </slides-exercise>
   </slides-slide>
 
-
-  <slides-slide *slidesIf="'ng-if-solved'" no-padding>
-    <slides-playground [config]="code.ngIfSolved" [openFilesIndex]="[0,1]"></slides-playground>
-  </slides-slide>
 
   <slides-slide *slidesIf="'micro-syntax'" no-padding>
     <slides-exercise [files]="code.microSyntax.files">

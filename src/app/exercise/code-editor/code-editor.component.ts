@@ -16,6 +16,7 @@ export class CodeEditorComponent implements OnInit {
   @Input() readonly = true;
   @Input() code = '';
   @Input() path?;
+  @Input() minLines = 6;
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('tooltips') slidesTooltips: any[] = [];
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.

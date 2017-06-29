@@ -32,3 +32,7 @@
 #we-need-tabs h1 {
   color: #ffffee;
 }
+
+:host /deep/ .side {
+  display: block !important;
+}
