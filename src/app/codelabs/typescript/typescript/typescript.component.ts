@@ -47,11 +47,11 @@ const realPuppy: Puppy = {
 };
 
 const notRealPuppy: Puppy = {
-  says: 'meow' // Error: this is clearly not a puppy
+  says: 'meow' // ${t.errorNotAPuppy}
 }`,
-        codeArrays: typeScriptWithConsoleLog(`// define array as Array<Type>
+        codeArrays: typeScriptWithConsoleLog(`// ${t.defineArrayAsArray}<Type>
 const cats: Array<string> = ['Simba', 'Aslan'];
-// Type[] does the same thing.
+// ${t.typeDoesSameThing}
 const cats2: string[] = ['Simba', 'Aslan'];
 
 interface Cat {
@@ -66,29 +66,29 @@ const betterCats: Array<Cat> = [
 
 console.log(betterCats);`),
         code: `const price: number = 100; // ${t.thisIsNumber}
-const tax = 20; // Actually TypeScript can infer number here;
-const productName = 'pikachu'; // TypeScript can infer it's a string.
+const tax = 20; // ${t.typescriptCanInferNumber}
+const productName = 'pikachu'; // ${t.typescriptCanInferString}
 const isHungry = true; // Boolean
 
-const weird = tax + isHungry; // Can't add number and boolean
-tax.slice(1,5); // Can't slice a number
-productName.slice(1,5); // But can slice a string!
-const total = price + tax; // Works!`
+const weird = tax + isHungry; // ${t.cantAddNumAndBool}
+tax.slice(1,5); // ${t.cantSliceNum}
+productName.slice(1,5); // ${t.canSliceString}
+const total = price + tax; // ${t.works}`
       },
       varDeclaration: {
-        code: `// Var is still allowed but not recommended.
+        code: `// ${t.varAllowedNotRecommended}
 var v = 1;
 
-// Let should be used instead of var.
+// ${t.letInsteadOfVar}
 let l = 1;
 
 if(true){
-  let ll = 1; // Unlike var let is unavailable outside of this if.
+  let ll = 1; // ${t.letUnavailableOutsideIfUnlikeIf}
 }
 console.log(ll); // undefined
 
 
-// Const is like let, but if you try to change it, TS will give you an error.
+// ${t.constLikeLet}
 const x = 1;
 x = 2;`
 
@@ -103,25 +103,25 @@ let sentence: string = \`Hello, my name is \${ fullName }.\`;`
       anyType: {
         code: `let notSure: any = 4;
 notSure = "maybe a string instead";
-notSure = false; // okay, definitely a boolean`
+notSure = false; // ${t.definitelyBoolean}`
       },
       classDescription: {
         code: typeScriptWithConsoleLog(`export class Puppy {
-  // This is a method.
+  // ${t.thisIsMethod}
   bark(){
-    // That's how russian dogs talk.
+    // ${t.thatsHowRussianDogsTalk}
     return 'Gav gav!!';
   }
 }
 
-// Now we can instantiate (create) it
+// ${t.nowWeCanInstantiate}
 var hotdog = new Puppy();
-// And use its methods
+// ${t.andUseItsMethods}
 console.log(hotdog.bark());
 `),
         codeConstructor: typeScriptWithConsoleLog(`export class Puppy {
   constructor(public name: string){
-    // Later we'll have code here
+    // ${t.laterWeWillHaveCode}
   }
   bark(){
     return 'Gav! my name is ' + this.name;
@@ -130,7 +130,7 @@ console.log(hotdog.bark());
 
 var hotdog = new Puppy('Édouard');
 console.log(hotdog.bark());
-// Let's create more puppies
+// ${t.letsCreateMorePuppies}
 var oscar = new Puppy('Oscar-Claude');
 console.log(oscar.bark());`), codeExport: typeScriptWithConsoleLog(`export class Puppy {
   constructor(public name: string){}
@@ -141,7 +141,7 @@ console.log(oscar.bark());`), codeExport: typeScriptWithConsoleLog(`export class
 
 var hotdog = new Puppy('Édouard');
 console.log(hotdog.bark());
-// Let's create more puppies
+// ${t.letsCreateMorePuppies}
 var oscar = new Puppy('Oscar-Claude');
 console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
   constructor(public name: string){}
