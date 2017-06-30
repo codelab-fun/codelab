@@ -138,6 +138,15 @@ export function html(code, solution = '') {
   };
 }
 
+export function stylesheet(code, solution = '') {
+  return {
+    code,
+    path: 'style.css',
+    solution: solution || code,
+    type: 'css'
+  };
+}
+
 export function bootstrap(moduleName: string, template: string, solution?: string) {
   solution = solution || template;
   return {

@@ -17,7 +17,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'intro2'" no-padding>
-    <slides-exercise [files]="code.materialTabs.files">
+    <slides-exercise [files]="code.materialTabs">
       <div class="description"></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
@@ -67,9 +67,9 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'play-with-tabs'" no-padding>
-    <slides-exercise [files]="code.materialTabs.files">
+    <slides-exercise [files]="code.materialTabs">
       <div class="description"></div>
-      <slides-new-editors class="editor">
+      <slides-new-editors [fontSize]="30" class="editor">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
@@ -89,7 +89,6 @@
   </slides-slide>
 
 
-
   <slides-slide *slidesIf="'structural-directives-info'">
     <h1>Structural directives ngFor</h1>
     <slides-code-group>
@@ -104,31 +103,18 @@
   </slides-slide>
 
 
-
-
   <slides-slide *slidesIf="'structural-directives-info'">
     <h1>Angular MicroSyntax</h1>
     <slides-code-group>
       <slides-code-editor [type]="text" readonly="false" path="before" [fontSize]="50" [minLines]="3"
                           [code]="code.structuralDirectives.microSyntax"></slides-code-editor>
-      <br><br>
-
     </slides-code-group>
+    <a href="https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855#file-microsyntax-md">More details</a>
   </slides-slide>
-
 
 
   <slides-slide *slidesIf="'play-with-tabs-structural-directive'" no-padding>
-    <slides-exercise [files]="code.materialTabsStructuralDirective.files">
-      <div class="description"></div>
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'ng-if'" no-padding>
-    <slides-exercise [files]="code.ngIf.files">
+    <slides-exercise [files]="code.materialTabsStructuralDirective">
       <div class="description"></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
@@ -137,7 +123,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'md-tab-nav-bar'" no-padding>
-    <slides-exercise [files]="code.mdTabNavBar.files">
+    <slides-exercise [files]="code.mdTabNavBar">
       <slides-new-editors class="editor">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
@@ -146,11 +132,11 @@
 
 
   <slides-slide *slidesIf="'micro-syntax'" no-padding>
-    <slides-exercise [files]="code.microSyntax.files">
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
+    <h1>Russian pop music</h1>
+    <h2>@kirjs</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/i9AHJkHqkpw" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/et281UHNoOU" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/n3Go8ub9a1k" frameborder="0" allowfullscreen></iframe>
   </slides-slide>
 
 </slides-presentation>
