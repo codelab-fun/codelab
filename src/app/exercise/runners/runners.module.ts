@@ -6,6 +6,8 @@ import { TestsComponent } from './tests/tests.component';
 import { TestDescriptionComponent } from './test-description/test-description.component';
 import { BrowserWindowModule } from '../../browser/browser.module';
 import { TestsProgressComponent } from './tests-progress/tests-progress.component';
+import { BabelTestRunnerComponent } from './ts-code-test-runner/babel-test-runner.component';
+
 
 @NgModule({
   imports: [CommonModule, BrowserWindowModule],
@@ -13,14 +15,17 @@ import { TestsProgressComponent } from './tests-progress/tests-progress.componen
     AngularPreviewRunnerComponent,
     AngularTestRunnerComponent,
     TestsComponent,
+    BabelTestRunnerComponent,
     TestDescriptionComponent,
     TestsProgressComponent
   ],
   exports: [
     AngularPreviewRunnerComponent,
+    BabelTestRunnerComponent,
     AngularTestRunnerComponent,
     TestsComponent,
     TestDescriptionComponent
+
   ]
 })
 export class RunnersModule {

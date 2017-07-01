@@ -69,7 +69,7 @@ declare module '@angular/platform-browser/animations' {
 }
 declare module '@angular/platform-browser-dynamic' {
   export class Platform {
-    bootstrapModule: (module: any, config: any) => void;
+    bootstrapModule: (module: any, config?: any) => void;
   }
   export function platformBrowserDynamic(): Platform;
 }
