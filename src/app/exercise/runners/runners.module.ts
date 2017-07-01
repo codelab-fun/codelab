@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { TestsComponent } from './tests/tests.component';
 import { TestDescriptionComponent } from './test-description/test-description.component';
 import { BrowserWindowModule } from '../../browser/browser.module';
+import { TestsProgressComponent } from './tests-progress/tests-progress.component';
 
 @NgModule({
   imports: [CommonModule, BrowserWindowModule],
@@ -12,7 +13,8 @@ import { BrowserWindowModule } from '../../browser/browser.module';
     AngularPreviewRunnerComponent,
     AngularTestRunnerComponent,
     TestsComponent,
-    TestDescriptionComponent
+    TestDescriptionComponent,
+    TestsProgressComponent
   ],
   exports: [
     AngularPreviewRunnerComponent,
