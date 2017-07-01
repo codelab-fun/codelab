@@ -9,7 +9,7 @@ export class TestsProgressComponent implements OnInit {
   @Input() tests = [];
 
   countPassing() {
-    return this.tests.filter(test => test.pass).length;
+    return (this.tests || []).filter(test => test.pass).length;
   }
 
   constructor() {
