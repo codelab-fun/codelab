@@ -92,7 +92,12 @@ export function createSystemJsSandbox(element: any, config: SandboxConfig): Prom
   });
 }
 
-
+function logError(error, message) {
+  console.groupCollapsed('App error (Note: Some exercises will throw an error in the beginning, and your task would be to fix it): '
+    + ((error && error.message) || '').split('\n')[0]);
+  console.error(error, message);
+  console.groupEnd();
+}
 export function injectIframe(element: any, config: SandboxConfig): Promise<SandBox> {
   if (iframes.has(element)) {
     iframes.get(element).remove();
@@ -127,7 +132,7 @@ export function injectIframe(element: any, config: SandboxConfig): Promise<SandB
       iframe.contentWindow.console.error = function (error, message) {
 
         // handle Angular error 1/3
-        console.log('Need to handle error', error, message);
+        logError(error, message);
       };
 
       resolve({
