@@ -2,6 +2,7 @@
   <slides-file-structure (onSelectFile)="onSelectFile($event)" [files]="files"></slides-file-structure>
 
   <slides-editors
+    [fontSize]="fontSize"
     [files]="files"
     [currentFile]="parent.currentFile || files[0]"
     (onChanges)="onCodeChanges($event)"

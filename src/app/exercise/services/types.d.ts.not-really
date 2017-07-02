@@ -16,6 +16,7 @@ declare module '@angular/core' {
   export interface PipeConfig {
     name: string;
   }
+  export function enableProdMode();
 
   export function Component(config: ComponentConfig);
 
@@ -63,9 +64,12 @@ declare module '@angular/platform-browser' {
   }
 }
 
+declare module '@angular/platform-browser/animations' {
+  export class NoopAnimationsModule {}
+}
 declare module '@angular/platform-browser-dynamic' {
   export class Platform {
-    bootstrapModule: () => void;
+    bootstrapModule: (module: any, config?: any) => void;
   }
   export function platformBrowserDynamic(): Platform;
 }
@@ -75,10 +79,16 @@ declare module '@angular/compiler' {
   }
 }
 
-export class Observable<T> {
+declare class Observable<T> {
   subscribe: (T) => void;
 }
 
+
+declare module '@angular/common' {
+  export class NgIf {
+   constructor(v: any, t: any);
+  }
+}
 
 declare module '@angular/material' {
   export class MdTab {

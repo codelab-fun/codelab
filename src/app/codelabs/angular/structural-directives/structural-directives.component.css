@@ -31,6 +31,15 @@
 
 #we-need-tabs h1 {
   color: #ffffee;
+  font-size: 8vw;
+  background: #000;
+  opacity: 0.5;
+}
+
+:host /deep/ .runner, :host /deep/ .runner iframe {
+  display: block;
+  width: 100%;
+  height: 100%
 }
 
 :host /deep/ .side {

@@ -1,4 +1,6 @@
+import { TestInfo } from './test-info';
 export interface FileConfig {
+
   opened?: boolean;
   /**
    * typescript or html.
@@ -70,4 +72,7 @@ export interface FileConfig {
    */
 
   editorType?: string;
+
+  // TODO
+  execute?: any;
 }
