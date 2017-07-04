@@ -9,11 +9,14 @@ declare const require;
   styleUrls: ['./structural-directives.component.css', './bsod.css']
 })
 export class StructuralDirectivesComponent {
+  fontSize = 18;
+
   code = {
     materialTabs: [
       html(require('!!raw-loader!./samples/material-tabs/app.html'), require('!!raw-loader!./samples/material-tabs/app.solved.html')),
       exercise('app.component', require('!!raw-loader!./samples/material-tabs/app.component.ts')),
       exercise('alert.component', require('!!raw-loader!./samples/material-tabs/alert.component.ts')),
+      exercise('taet-led.component', require('!!raw-loader!./samples/material-tabs/taet-led.component.ts')),
       exercise('app.module', require('!!raw-loader!./samples/material-tabs/app.module.ts')),
       exercise('break-my-computer.component', require('!!raw-loader!./samples/material-tabs/break-my-computer.component.ts')),
       stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
@@ -48,11 +51,15 @@ export class StructuralDirectivesComponent {
     structuralDirectives: {
       ngIfBefore: require('!!raw-loader!./samples/structural-directives/ng-if-before.html'),
       ngIfAfter: require('!!raw-loader!./samples/structural-directives/ng-if-after.html'),
-      ngForBefore: require('!!raw-loader!./samples/structural-directives/ng-for-after.html'),
+      ngForBefore: require('!!raw-loader!./samples/structural-directives/ng-for-before.html'),
       ngForAfter: require('!!raw-loader!./samples/structural-directives/ng-for-after.html'),
       microSyntax: require('!!raw-loader!./samples/structural-directives/microsyntax.html')
     }
   };
+
+  updateFontSize(diff) {
+    this.fontSize += diff;
+  }
 
   constructor() {
 

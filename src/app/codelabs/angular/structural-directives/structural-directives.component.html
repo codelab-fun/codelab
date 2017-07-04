@@ -3,6 +3,11 @@
   slides-mode-routing
   slides-tracking>
 
+  <div class="btn-bar">
+    <div class="increase-font-size font-size" (click)="updateFontSize(2)">+</div>
+    <div class="decrease-font-size font-size" (click)="updateFontSize(-2)">-</div>
+  </div>
+
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
@@ -19,7 +24,7 @@
   <slides-slide *slidesIf="'intro2'" no-padding>
     <slides-exercise [files]="code.materialTabs">
       <div class="description"></div>
-      <slides-new-editors class="editor">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
@@ -69,44 +74,44 @@
   <slides-slide *slidesIf="'play-with-tabs'" no-padding>
     <slides-exercise [files]="code.materialTabs">
       <div class="description"></div>
-      <slides-new-editors [fontSize]="30" class="editor">
+      <slides-new-editors [fontSize]="fontSize" class="editor">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
 
-  <slides-slide *slidesIf="'structural-directives-info'">
+  <slides-slide *slidesIf="'structural-directives-ng-if'">
     <h1>Structural directives ngIf</h1>
     <slides-code-group>
-      <slides-code-editor path="before" [fontSize]="50" [minLines]="3"
+      <slides-code-editor path="before" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
                           [code]="code.structuralDirectives.ngIfBefore"></slides-code-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
-      <slides-code-editor path="after" [fontSize]="50" [minLines]="3"
+      <slides-code-editor path="after" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
                           [code]="code.structuralDirectives.ngIfAfter"></slides-code-editor>
     </slides-code-group>
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'structural-directives-info'">
+  <slides-slide *slidesIf="'structural-directives-ng-for'">
     <h1>Structural directives ngFor</h1>
     <slides-code-group>
-      <slides-code-editor path="before" [fontSize]="50" [minLines]="3"
+      <slides-code-editor path="before" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
                           [code]="code.structuralDirectives.ngForBefore"></slides-code-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
-      <slides-code-editor path="after" [fontSize]="50" [minLines]="3"
+      <slides-code-editor path="after" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
                           [code]="code.structuralDirectives.ngForAfter"></slides-code-editor>
     </slides-code-group>
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'structural-directives-info'">
+  <slides-slide *slidesIf="'structural-directives-microsyntax'">
     <h1>Angular MicroSyntax</h1>
     <slides-code-group>
-      <slides-code-editor [type]="text" readonly="false" path="before" [fontSize]="50" [minLines]="3"
+      <slides-code-editor [type]="text" readonly="false" path="before" [fontSize]="fontSize" [minLines]="3"
                           [code]="code.structuralDirectives.microSyntax"></slides-code-editor>
     </slides-code-group>
     <a href="https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855#file-microsyntax-md">More details</a>
@@ -116,7 +121,7 @@
   <slides-slide *slidesIf="'play-with-tabs-structural-directive'" no-padding>
     <slides-exercise [files]="code.materialTabsStructuralDirective">
       <div class="description"></div>
-      <slides-new-editors class="editor">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
@@ -124,7 +129,7 @@
 
   <slides-slide *slidesIf="'md-tab-nav-bar'" no-padding>
     <slides-exercise [files]="code.mdTabNavBar">
-      <slides-new-editors class="editor">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>

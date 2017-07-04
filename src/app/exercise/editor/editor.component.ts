@@ -55,7 +55,10 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   public code = '';
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.file.currentValue.code !== this.code) {
+    if (changes.fontSize && this.editor) {
+      this.resize();
+    }
+    if (changes.file && changes.file.currentValue.code !== this.code) {
       this.loadCode(changes.file.currentValue.code);
     }
   }
