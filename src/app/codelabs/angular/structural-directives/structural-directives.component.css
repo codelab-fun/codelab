@@ -42,7 +42,8 @@
   height: 100%
 }
 
-:host /deep/ .side {
+/* Specificity */
+:host /deep/ .side.side.side {
   display: block !important;
 }
 

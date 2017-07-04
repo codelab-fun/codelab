@@ -1,4 +1,3 @@
-import { TestInfo } from './test-info';
 export interface FileConfig {
 
   opened?: boolean;
@@ -73,6 +72,7 @@ export interface FileConfig {
 
   editorType?: string;
 
-  // TODO
+  // If this is set, this will be executed as a test.
+  // This is a hack and will be removed.
   execute?: any;
 }
