@@ -93,7 +93,7 @@ export function createSystemJsSandbox(element: any, config: SandboxConfig): Prom
 }
 
 function logError(error, message) {
-  console.groupCollapsed('App error (Note: Some exercises will throw an error in the beginning, and your task would be to fix it): '
+  console.groupCollapsed('ERROR in your app:  '
     + ((error && error.message) || '').split('\n')[0]);
   console.error(error, message);
   console.groupEnd();
@@ -127,7 +127,7 @@ export function injectIframe(element: any, config: SandboxConfig): Promise<SandB
 
 
       iframe.contentWindow.onerror = function (error, message) {
-        debugger;
+        logError(error, message);
       };
       iframe.contentWindow.console.error = function (error, message) {
 

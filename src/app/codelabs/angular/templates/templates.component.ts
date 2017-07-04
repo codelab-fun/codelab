@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
 import { displayAngularComponent, displayAngularComponentWithHtml } from '../../../exercise/helpers/helpers';
-import {extractMessages} from "../../../presentation/i18n-tools";
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 const baseCode = 'TODO';
 
@@ -19,7 +19,7 @@ export class TemplatesComponent implements OnInit {
   curlies = '{{ property }}';
 
   @ViewChild('translations') translation;
-  code : any = {};
+  code: any = {};
 
   constructor() {
   }

@@ -1,5 +1,5 @@
 import { parseTemplate } from './ms';
-fdescribe('micro-syntax', () => {
+describe('micro-syntax', () => {
   it('parses ngIF', () => {
     expect(parseTemplate('<div *ngIf="hero">{{hero.name}}</div>')).toBe(`<ng-template [ngIf]="hero">
   <div>{{hero.name}}</div>
@@ -17,7 +17,7 @@ fdescribe('micro-syntax', () => {
   });
 
 
-   it('parses ngFor', () => {
+  xit('parses ngFor', () => {
     expect(parseTemplate(`<div *ngFor="let x of list">
   {{hero.name}}
   </div>`)).toBe(`<ng-template [ngIf]="hero">
@@ -26,9 +26,6 @@ fdescribe('micro-syntax', () => {
   </div>
 </ng-template>`);
   });
-
-
-
 
 
 });

@@ -1,4 +1,4 @@
-import {VideoItem} from './video/video-item';
+import { VideoItem } from './video/video-item';
 
 const FAKE_VIDEOS = [
   {

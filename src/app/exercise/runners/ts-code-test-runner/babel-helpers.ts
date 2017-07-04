@@ -41,5 +41,5 @@ export function babelTestSuite(filePath, tests) {
     });
 
     return results;
-  }
+  };
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
 import { extractMessages } from '../../../presentation/i18n-tools';
@@ -8,7 +8,7 @@ import { extractMessages } from '../../../presentation/i18n-tools';
   templateUrl: './create-first-app.component.html',
   styleUrls: ['./create-first-app.component.css']
 })
-export class CreateFirstAppComponent {
+export class CreateFirstAppComponent implements OnInit {
 
   @ViewChild('translations') translation;
   private code: any = {};

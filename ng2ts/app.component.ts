@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+
+import { Component } from '@angular/core';
 /*d:templateAddAction/trimLeading*/
-import {VideoItem} from './video/video-item';
+import { VideoItem } from './video/video-item';
 /*/d*//*d:diInjectService/trimLeading*/
-import {VideoService} from './video/video.service';
+import { VideoService } from './video/video.service';
 /*/d*//*d:templateAllVideos:diInjectService*/
 const FAKE_VIDEOS = [{
     title: 'Cute kitten',
@@ -17,6 +18,7 @@ const FAKE_VIDEOS = [{
     src: '/assets/images/cat-03.jpg'
   }];
 /*/d*//*d:createComponentSolved*/
+/* tslint:disable */
 @Component({
   selector: 'my-app',
   /*/d*//*d:createComponentSolved:bootstrapSolved/trimBoth*/

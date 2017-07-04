@@ -1,6 +1,7 @@
 import { AfterViewInit, Directive, TemplateRef, ViewContainerRef } from '@angular/core';
 import { MdTab, MdTabGroup } from '@angular/material';
 
+/* tslint:disable */
 @Directive(
   {selector: '[mdHideMe]'}
 )
