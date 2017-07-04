@@ -50,21 +50,23 @@
   <slides-slide *slidesIf="'intro'; milestone: 'TypeScript'" no-padding>
     <slides-title-slide
       title="TypeScript"
+      i18n-title="@@typescript"
       description="Angular is written in TypeScript. Learn more about the language basics."
+      i18n-description="@@AngularIsWrittenInTypescript"
       prereqs="Basic understanding of JavaScript is required."
     ></slides-title-slide>
   </slides-slide>
 
   <slides-slide *slidesIf="'why-typescript'; milestone: 'TypeScript'">
     <h1 i18n>Why TypeScript</h1>
-    <h2><b>JavaScript</b> is a great language, but there's space for improvement:</h2>
+    <h2 i18n><b>JavaScript</b> is a great language, but there's space for improvement:</h2>
     <ul>
-      <li>JS is not types safe which makes it harder to develop large scale applications</li>
-      <li>New features of the latest versions of JS standards (ES6, ES7) are not supported well across all the
+      <li i18n>JS is not types safe which makes it harder to develop large scale applications</li>
+      <li i18n>New features of the latest versions of JS standards (ES6, ES7) are not supported well across all the
         browsers
       </li>
     </ul>
-    <div class="info"><b>ES</b> stands for <b>EcmaScript</b>, which the name of the JavaScript language specification
+    <div class="info" i18n><b>ES</b> stands for <b>EcmaScript</b>, which the name of the JavaScript language specification
       (standard)
     </div>
   </slides-slide>

@@ -11,8 +11,6 @@ declare const require;
 })
 
 export class TypescriptComponent implements OnInit {
-
-
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ];
