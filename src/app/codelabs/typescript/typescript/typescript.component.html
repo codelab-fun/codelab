@@ -134,11 +134,13 @@
   </slides-slide>
 
   <!--  NUMBER-TYPE  -->
-  <slides-slide slidesIntrojsDirective *slidesIf="'typescript-why-ts'; milestone: 'TypeScript'">
-    <h1 data-step="1" data-intro="Welcome to the first coding exercise!" i18n>TypeScript / Type System</h1>
-    <h2 i18n>Below we have an <b>add</b> function, and we're adding 2 and 2. What could go wrong?
-    </h2>
-
+  <slides-slide *slidesIf="'typescript-why-ts'; milestone: 'TypeScript'">
+    <h1 data-step="1">
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@typeSystem">Type System</ng-container>
+    </h1>
+    <h2 i18n>Below we have an <b>add</b> function, and we're adding 2 and 2. What could go wrong?</h2>
     <slides-playground [config]="code.js2And2"
                        [focus-highlight-match]="[code.tsExerciseMatch]"
                        [browserUseConsole]="true"
@@ -149,7 +151,11 @@
 
   <!--  NUMBER-TYPE  -->
   <slides-slide slidesIntroJs *slidesIf="'typescript-mini-exercise'; milestone: 'TypeScript'">
-    <h1 data-step="1" data-intro="Welcome to the first coding exercise!" i18n>TypeScript / Type System</h1>
+    <h1 data-step="1" data-intro="Welcome to the first coding exercise!" i18n>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@typeSystem">Type System</ng-container>
+    </h1>
     <h2 i18n> TypeScript uses <b>:</b> to specify the type information (e.g. <b>n: number</b>g). Both <b>a</b> and
       <b>b</b> should be
       numbers. We specified the type for <b>a</b>, now it's your turn!</h2>
