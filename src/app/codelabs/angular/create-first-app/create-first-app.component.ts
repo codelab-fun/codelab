@@ -78,7 +78,7 @@ export class AppComponent {
         code: `// ${t.componentIsDecorator}
 @Component({
   metadata
-}) // No semicolon here (as it attaches itself to the class below)
+}) // ${t.noSemicolon}
 export class AppComponent {
   // ${t.decoratorGoesAboveEntity}
   // ${t.componentNameIsClassName}
