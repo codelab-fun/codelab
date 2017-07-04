@@ -1,4 +1,3 @@
-import { AppComponent } from '../app.component';
 import 'reflect-metadata';
 import {
   babelTestSuite,
