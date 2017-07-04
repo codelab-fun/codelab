@@ -1,83 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 @Component({
   selector: 'slides-create-first-app',
   templateUrl: './create-first-app.component.html',
   styleUrls: ['./create-first-app.component.css']
 })
-export class CreateFirstAppComponent {
+export class CreateFirstAppComponent implements OnInit {
 
-  code = {
-    decorators: {
-      code: `// @Component is an Angular decorator
-@Component({
-  metadata
-}) // No semicolon here (as it attaches itself to the class below)
-export class AppComponent {
-  // The Decorator goes directly above the decorated entity (class in this case)
-  // Component name is the class name (AppComponent).
-}`
-    },
-    componentAnatomy: {   // Component Anatomy - Milestone #1
-      code: `import { Component } from '@angular/core';
-@Component({
-  selector: 'hello-world',
-  template: '<h1>Hello World!</h1>',
-})
-export class HelloWorldComponent {}`,
-      matches: {
-        exportClass: /export.*/,
-        decorator: /@C[^]*?\)[^]/,
-        selector: /selector.*'.*'/,
-        template: /template.*'.*'/
-      },
-      readonly: true,
-      path: 'component.anatomy.ts',
-      type: 'typescript'
-    },
-    moduleAnatomy: {  // Module Anatomy - Milestone #1
-      code: `/* Imports */
-
-@NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ HelloWorldComponent ],
-  bootstrap: [ HelloWorldComponent ],
-})
-export class AppModule {}`,
-      matches: {
-        exportClass: /export.*/,
-        ngModule: /@N[^]*?\)[^]/,
-        importsArr: /imports.*/,
-        declarationsArr: /declarations.*/,
-        bootstrapArr: /bootstrap.*/
-      },
-      readonly: true,
-      path: 'module.anatomy.ts',
-      type: 'typescript'
-    },
-    moduleBootstrapping: {  // Module Bootstrapping - Milestone #1
-      code: {
-        mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule);`,
-        indexHTML: `<body>
-  <hello-world>
-    Loading...
-  </hello-world>
-</body>`
-      },
-      matches: {
-        index: /<hello-[^]*world>/,
-        bootstrap: /platformBrowserDynamic\(\).*/
-      },
-      readonly: true,
-      path: 'main.ts',
-      type: 'typescript'
-    }
-  };
+  @ViewChild('translations') translation;
+  private code: any = {};
 
   // tslint:disable:max-line-length TODO: Clean up exercises and remove this comment.
   //  Exercises
@@ -134,4 +68,78 @@ export class AppComponent {
     }
   ];
   // tslint:enable:max-line-length
+
+  ngOnInit() {
+    const t = extractMessages(this.translation);
+
+    this.code = {
+      decorators: {
+        code: `// ${t.componentIsDecorator}
+@Component({
+  metadata
+}) // No semicolon here (as it attaches itself to the class below)
+export class AppComponent {
+  // ${t.decoratorGoesAboveEntity}
+  // ${t.componentNameIsClassName}
+}`
+      },
+      componentAnatomy: {   // Component Anatomy - Milestone #1
+        code: `import { Component } from '@angular/core';
+@Component({
+  selector: 'hello-world',
+  template: '<h1>Hello World!</h1>',
+})
+export class HelloWorldComponent {}`,
+        matches: {
+          exportClass: /export.*/,
+          decorator: /@C[^]*?\)[^]/,
+          selector: /selector.*'.*'/,
+          template: /template.*'.*'/
+        },
+        readonly: true,
+        path: 'component.anatomy.ts',
+        type: 'typescript'
+      },
+      moduleAnatomy: {  // Module Anatomy - Milestone #1
+        code: `/* Imports */
+
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ HelloWorldComponent ],
+  bootstrap: [ HelloWorldComponent ],
+})
+export class AppModule {}`,
+        matches: {
+          exportClass: /export.*/,
+          ngModule: /@N[^]*?\)[^]/,
+          importsArr: /imports.*/,
+          declarationsArr: /declarations.*/,
+          bootstrapArr: /bootstrap.*/
+        },
+        readonly: true,
+        path: 'module.anatomy.ts',
+        type: 'typescript'
+      },
+      moduleBootstrapping: {  // Module Bootstrapping - Milestone #1
+        code: {
+          mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);`,
+          indexHTML: `<body>
+  <hello-world>
+    Loading...
+  </hello-world>
+</body>`
+        },
+        matches: {
+          index: /<hello-[^]*world>/,
+          bootstrap: /platformBrowserDynamic\(\).*/
+        },
+        readonly: true,
+        path: 'main.ts',
+        type: 'typescript'
+      }
+    };
+  }
 }

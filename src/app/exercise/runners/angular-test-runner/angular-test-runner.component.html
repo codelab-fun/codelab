@@ -1,8 +1,5 @@
+<slides-tests [tests]="tests" [files]="parent.files$ | async"
+              (onSelectFile)="onSelectFile($event)"></slides-tests>
 <div #runner class="runner"></div>
-<div class="files" *ngIf="(parent.files$ | async) as files">
-  <slides-tests [tests]="tests" [files]="files"
-                (onSelectFile)="onSelectFile($event)"></slides-tests>
-
-</div>
 
 

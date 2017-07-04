@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-
+/* tslint:disable */
 @Component({
-  selector: '' + 'break-my-computer',
-  template: `Hi ALert`
+  selector: 'break-my-computer',
+  template: `I'll break your computer`
 })
 export class BreakMyComputerComponent {
   constructor() {
-    alert('hi');
+    alert('Congratulations! Your computer has been broken successfully!');
   }
 }

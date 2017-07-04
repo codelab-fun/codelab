@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="2339071718884287683">Angular Codelab</msg>
+  <msg id="3544776889283127882">Welcome! Choose a topic below to start learning:</msg>
+  <msg id="componentTree">Component Tree</msg>
+  <msg id="1477095887109447756">So far we have only one component, but as your app grows it will form a tree of components</msg>
+  <msg id="4420604777002064279">Parent and Child</msg>
+  <msg id="958527444286373588">Any component can render another one by using an HTML element that matches the selector of the other
+      component</msg>
+  <msg id="passingDataParentChild">Passing Data Parent -&gt; Child</msg>
+  <msg id="5297563707434504672">A parent component passes its data to the child component via properties</msg>
+  <msg id="3767405923334084568">
+      Change the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>size<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>100<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>color<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>red<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to recreate the Japanese flag.
+    </msg>
+  <msg id="6502697971057653879">The child class must decorate its properties with a special <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Input()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> decorator</msg>
+  <msg id="242686228345857569">This is the first time we&apos;re applying decorators to properties (as opposed to classes).</msg>
+  <msg id="exercise1">Exercise 1</msg>
+  <msg id="6993248291969541113">We already know how to create a component. Let&apos;s move all the video-related information into a new
+      component
+      called VideoComponent.</msg>
+  <msg id="8535569169237447692">We will bootstrap the component for you; the result will be as follows:</msg>
+  <msg id="1902505859733550335">Cute kitten</msg>
+  <msg id="3260541536331111879">Parent and Child component</msg>
+  <msg id="2676566827453590169">Components won&apos;t know about each other unless they&apos;re declared in the same module</msg>
+  <msg id="7430680760319628492">Review</msg>
+  <msg id="5353140049958069641">Exercise 2</msg>
+  <msg id="1036270088685658131">In the next exercise you will use the newly created component</msg>
+  <msg id="837180588523712471">Angular Basics Codelab Completed!</msg>
+  <msg id="5532839647985128848">This is <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>the end<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> of the codelab, but it&apos;s just the beginning of your Angular journey. Below
+          are some links that can help you continue learning.</msg>
+  <msg id="9154976499052576586">Find features, docs and events listed here</msg>
+  <msg id="8354723802427223197">makes it easy to create an application that already works,
+                    right out of the box and generate new components! It also takes care of the build system for you</msg>
+  <msg id="componentIsDecorator">@Component is an Angular decorator</msg>
+  <msg id="decoratorGoesAboveEntity">The Decorator goes directly above the decorated
+    entity (class in this case)
+  </msg>
+  <msg id="componentNameIsClassName">Component name is the class name
+    (AppComponent).
+  </msg>
+  <msg id="firstAngularApp">First Angular App</msg>
+  <msg id="3420408458155669913">What is Angular?</msg>
+  <msg id="1566812974294525535">
+        Angular is a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>development platform<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> for building mobile and desktop
+        applications. Angular lets you <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>extend HTML&apos;s syntax<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to express your application&apos;s components clearly
+        and
+        succinctly. Angular&apos;s binding and Dependency Injection <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>eliminate much of the code<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> you would otherwise
+        have to write.
+      </msg>
+  <msg id="intro">Intro</msg>
+  <msg id="7127434905431284986">Given an HTML file:</msg>
+  <msg id="8877028649323993081">Let&apos;s create an Angular app which replaces the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>&lt;hello-world&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> HTML element with the app&apos;s
+      contents.</msg>
+  <msg id="5463471054765192731">This can be done with 3 simple steps.</msg>
+  <msg id="7109785117359301161">The 3 steps are:</msg>
+  <msg id="8986953020363470779">Create an Angular component</msg>
+  <msg id="7117530673690701168">Create an Angular module</msg>
+  <msg id="1813487159288766093">Bootstrap the module</msg>
+  <msg id="step1">Step 1</msg>
+  <msg id="4870494266947152785">Start by creating an angular <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. Components in Angular are responsible for the visual part of
+      the
+      app</msg>
+  <msg id="4795937685905293259">An Angular component is just a class. Properties and behavior can be added inside.</msg>
+  <msg id="decorators">Decorators</msg>
+  <msg id="7834786013480490982">The class is adorned with a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> decorator</msg>
+  <msg id="8311779527003716911">
+      Decorators attach <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>-specific information to the class without modifying it.
+    </msg>
+  <msg id="7939755324517272859">
+      Decorators are a new feature of TypeScript. They attach metadata to a class, function, property or
+      variable
+    </msg>
+  <msg id="7184413576755920741">
+      Decorators are inspired by a similar feature in the Python language.
+    </msg>
+  <msg id="3540108566782816830">Selector</msg>
+  <msg id="4579189075323388922">Selectors define the location of the component. When Angular renders this component, it&apos;ll find a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>&lt;hello-world&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      HTML element in the document and render the component inside of it</msg>
+  <msg id="1334525262704836521">Inline Template</msg>
+  <msg id="6417780443340936933">
+      Template defines the HTML code that the component generates
+    </msg>
+  <msg id="2517889020498444165"> If the amount of HTML grows out of hand, it&apos;s possible (and recommended) to use a
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>templateUrl<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> instead and
+      provide a path to the HTML file.
+    </msg>
+  <msg id="exercise">Exercise</msg>
+  <msg id="924140808641999413">In the next slide you&apos;ll create your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> component! We&apos;ll do all the wiring for you. The
+      result will look like this:</msg>
+  <msg id="61555616227480717">Create first Angular component!</msg>
+  <msg id="step2">Step 2</msg>
+  <msg id="8345311668462052343">Next step is to declare a component in an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</msg>
+  <msg id="4493424842585728718"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> does not have any visual representation and is used exclusively for grouping Angular
+      building
+      blocks together</msg>
+  <msg id="5472566057749492330">We will learn more about NgModules in the future milestones</msg>
+  <msg id="8988249734928621313">Module Class</msg>
+  <msg id="5238272395469026108">Like a component, the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> module is just a class</msg>
+  <msg id="8027333466268729668">NgModule Decorator</msg>
+  <msg id="3904962908062507807">Like a component, the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> module is adorned with a decorator providing metadata</msg>
+  <msg id="1434785076190731280">Browser Module</msg>
+  <msg id="6757403404358661906">Because we&apos;re building a browser web app, we need to pass <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>BrowserModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>imports<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> array
+    </msg>
+  <msg id="7056733018236663325">
+      Angular is not just for web apps anymore; you can also use it to create native phone apps and even
+      VR scenes.
+    </msg>
+  <msg id="2046003391679469154">Declarations</msg>
+  <msg id="789632209497668485">The <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Declarations array<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> specifies components belonging to the AppModule</msg>
+  <msg id="1101953121986747707">Bootstrap</msg>
+  <msg id="8368596314185297476">
+      The component passed into the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrap<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> array will be created and displayed in your <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>index.html<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      file
+    </msg>
+  <msg id="4226122571544649251">
+      In the next slide you&apos;ll create your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> module! We&apos;ll use the component from the previous
+      exercises and do all the wiring for you. The result will look like this:
+    </msg>
+  <msg id="4814190538810111436">Create first NgModule.</msg>
+  <msg id="step3">Step 3</msg>
+  <msg id="657343917593444693">This is the last step. We have everything ready, just need to bootstrap our app!</msg>
+  <msg id="7662751436458775011">Bootstrapping</msg>
+  <msg id="9406456874883877">We have everything ready, so now it&apos;s time to start (bootstrap) the app!</msg>
+  <msg id="699691489139693623">Bootstrapping 1</msg>
+  <msg id="7313415582983155780">
+      How does bootstrapping work in Angular?
+    </msg>
+  <msg id="354134427043166608">
+      1. Kicks off execution environment. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>platformBrowserDynamic()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> tells Angular that we are operating in the
+      browser
+    </msg>
+  <msg id="9118446373490710258">
+      Read more about root module and bootstrapping in Angular
+    </msg>
+  <msg id="4470411477201731376">Bootstrapping 2</msg>
+  <msg id="3843563559252369284">
+      2. Angular initializes the component from the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrap<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> array in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>app.module.ts<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>HelloWorldComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> in this case)
+    </msg>
+  <msg id="3263507238146950325">Bootstrapping 3</msg>
+  <msg id="1478913304849792970">
+      3. Angular looks in the document for an element matching the selector defined in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>HelloWorldComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>&apos;hello-world&apos;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> in our case) and inserts the component inside that element
+    </msg>
+  <msg id="6926283110773507163">All set! In the next page you&apos;ll bootstrap your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> app!</msg>
+  <msg id="2268943717929526857">Now that we&apos;ve got both NgModule and the component ready, let&apos;s bootstrap the app!</msg>
+  <msg id="2020897026324644883">There&apos;s no simple way to test it; just make sure your app displays: &apos;Hello MewTube!&apos;</msg>
+  <msg id="8145952131430725333">Loading order: index -&gt; main -&gt; app.module -&gt; app.component</msg>
+  <msg id="6142704255682990541">
+      While Angular is loading, the contents of the element will stay the same (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Loading...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>) in this case
+    </msg>
+  <msg id="4135298275558664404">End of Bootstrap Section</msg>
+  <msg id="470651207723290753">Well done! This is the end of the milestone!</msg>
+  <msg id="7793166881121401916">
+          Next <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Go to the templates Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="shorthandMakesProfessionAvailable">* Typescript shorthand makes
+    &apos;profession&apos;
+    * available to component instance.
+  </msg>
+  <msg id="assumingJobHasPropTitle">assuming Job has property &apos;.title&apos;</msg>
+  <msg id="dependencyInjection">Dependency Injection</msg>
+  <msg id="dependencyInjectionLearnMore">Learn more about Angular&apos;s powerful Dependency Injection system</msg>
+  <msg id="4375448281315274325">
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Dependency Injection<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a way to provide dependencies to your code instead of hard-coding them
+    </msg>
+  <msg id="comparison">Comparison</msg>
+  <msg id="538295435595855313">Without Dependency Injection, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Profession<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> has to be instantiated in the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+          class</msg>
+  <msg id="3330322151462582171">With Dependency Injection, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> class just &quot;requires&quot; an instance of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Profession<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+          in the constructor, and Angular takes care of instantiating it</msg>
+  <msg id="2250922476634643797">Parameters</msg>
+  <msg id="6525744507050405173">With Dependency Injection, Angular takes care of it</msg>
+  <msg id="8985868511640294928">Testing</msg>
+  <msg id="4498809175328528079">Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies as
+      constructor
+      parameters</msg>
+  <msg id="2384026219516877038">Example</msg>
+  <msg id="4400493199164893517">Let&apos;s say we have an existing <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>UnitConverterService<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and we want to start using it in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>UnitConversionComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+      It will take 3 simple steps:
+    </msg>
+  <msg id="3957097669887217853">Mark dependency as @Injectable()</msg>
+  <msg id="5662947366104784178">Provide in the module</msg>
+  <msg id="9143596698887173150">Require in the component</msg>
+  <msg id="1117670596218842167">Mark the class as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Injectable()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+      This lets Angular know that this class is part of Angular Dependency Injection system</msg>
+  <msg id="1349378066640773383">
+      If a service class is marked as injectable, it can require other services in its constructor.
+    </msg>
+  <msg id="2735369781715347846">Provide the injectable to the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>providers<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> section of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="4525370649719280544">Now, this service becomes available for every <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and other service in this <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+    </msg>
+  <msg id="9193697677313937686">Consume the Injectable in the component</msg>
+  <msg id="261676783640894862">Because of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>private<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> access modifier the service becomes accessible across the class
+      as
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.converter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+    </msg>
+  <msg id="2179039829273699885">In the next slide you&apos;ll use videoService which has even more cats!!! The result will look like this: </msg>
+  <msg id="4122311947132294677">Milestone Completed!</msg>
+  <msg id="7541582794652430956">
+          Next: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Learn how to combine components together<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="thisIsValidHTML">This is valid HTML syntax.</msg>
+  <msg id="worksOnAttributeSyntax">It works on attribute syntax.</msg>
+  <msg id="allowsToConditionallyBindClass">It allows to conditionally bind a class</msg>
+  <msg id="orStyleProps">Or style properties</msg>
+  <msg id="worksWithCustomComponents">And work with custom components!</msg>
+  <msg id="whenUserClicksItCallsSaveUser">When user clicks the button, it calls the &quot;saveUser&quot; function on the
+    component instance and passes the underlying event.</msg>
+  <msg id="youCanAlsoCreateEventsForCustomComponents">You can also create events for custom components. Here we have a
+    depleted event, and it&apos;s going to call the &quot;soundAlarm&quot; function
+    on the component instance when it fires.</msg>
+  <msg id="thereAreShortcutEventBindings">There are also shortcut event bindings! The submit function on the
+    component instance will be called when the user presses control
+    and enter (this is an Angular feature).</msg>
+  <msg id="userNameHasRefToInput">userName has a reference to the input element</msg>
+  <msg id="tryChangingToTrue">Try changing to true!</msg>
+  <msg id="needToRepeatPuppiesHere">Need to repeat puppies here</msg>
+  <msg id="5433675495457939071">Templates</msg>
+  <msg id="828579207806918596">Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
+      elements</msg>
+  <msg id="2093245413873276320">Interpolation</msg>
+  <msg id="1167128618662478140">Double curlies allow you to include properties from the component</msg>
+  <msg id="4326093281669549121">
+      Backticks <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>` `<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, are magic quotes that allow multi-line strings and text interpolation.
+    </msg>
+  <msg id="4394745758352985330">
+      Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate
+      <ph name="START_TAG_CODE"><ex>&lt;code&gt;</ex></ph>323213+34234<ph name="CLOSE_TAG_CODE"><ex>&lt;/code&gt;</ex></ph>
+    </msg>
+  <msg id="2296178219868339562">In the next slide you&apos;ll edit component template to create a simple header and search form. The result will
+      look like
+      this:</msg>
+  <msg id="8721861281513890587">Properties</msg>
+  <msg id="9052605393761038321">String interpolation <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> can also be used to pass avalue to a child element&apos;s attribute
+    </msg>
+  <msg id="7255408982840762838">Property Binding</msg>
+  <msg id="1120482935183367001">Another option is to use property binding <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>[attribute] = property<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="6385657961263768030">
+      You can use arbitrary expressions in the binding.
+    </msg>
+  <msg id="2911314034876616874">Data binding extras</msg>
+  <msg id="2604621775941411917">Angular supports more advanced property bindings than just attribute name</msg>
+  <msg id="2009489920751400915">Event binding: (event)</msg>
+  <msg id="1674481147821860289">The bindings directives you&apos;ve met so far flow data in one direction: from a component to an element</msg>
+  <msg id="1414288142928384130">
+      While Parentheses are used for event binding: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>(event)<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, &quot;on-&quot; can also be used: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>on-event<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+    </msg>
+  <msg id="1858930262589535450">Reference binding ( #var )</msg>
+  <msg id="4515379042621635427">
+      Sometimes we need to access a HTML element or Angular component from the template. We can mark it with <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>#userName<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>,
+      and it becomes available as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>userName<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> everywhere in the template</msg>
+  <msg id="2089936986742209282">Templates / Conditional Display (*ngIf)</msg>
+  <msg id="1248112144489322049">
+      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
+    </msg>
+  <msg id="4068857581424650411">In the next slide you&apos;ll add a click handler to the search button, and display a message for the case where
+      no
+      videos were found. The result will look like this:</msg>
+  <msg id="92659757529171106">Repeating elements</msg>
+  <msg id="1048135326031252257">
+      Let&apos;s say you have an array of puppies, and want to display all of them on them page. Angular has a special syntax
+      for that called <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, let&apos;s see how it works on the next slide
+    </msg>
+  <msg id="8944028182505149416">Repeating elements (*ngFor)</msg>
+  <msg id="4741557658120551532">
+      Here <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> repeats HTML element it&apos;s attached to (li in this case) for every single puppy in the puppies
+      array
+    </msg>
+  <msg id="7691190167897559246">HTML attributes in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> are case sensitive: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph><ph name="START_STRIKETHROUGH_TEXT"><ex>&lt;s&gt;</ex></ph>*ngfor<ph name="CLOSE_STRIKETHROUGH_TEXT"><ex>&lt;/s&gt;</ex></ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> won&apos;t work, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      will
+    </msg>
+  <msg id="6964671906994906253">Exercise 3</msg>
+  <msg id="595166160893731252">
+          In the next slide you&apos;ll finally display the videos! The result will look like this:
+        </msg>
+  <msg id="8787586021636577494">
+          Next: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Learn how to use Angular Dependency Injection<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="introduction">Introduction</msg>
+  <msg id="shorthandFunction">Or use shorthand function notation.</msg>
+  <msg id="errorNotAPuppy">Error: this is clearly not a puppy</msg>
+  <msg id="thisIsNumber">This is a number</msg>
+  <msg id="useShorthandNotation">Or use shorthand function notation.</msg>
+  <msg id="calledArrowFunction">(Also called arrow function)</msg>
+  <msg id="typescriptCanInferNumber">Actually TypeScript can infer number here;</msg>
+  <msg id="typescriptCanInferString">TypeScript can infer it&apos;s a string.</msg>
+  <msg id="cantAddNumAndBool">Can&apos;t add number and boolean</msg>
+  <msg id="cantSliceNum">Can&apos;t slice a number</msg>
+  <msg id="canSliceString">But can slice a string!</msg>
+  <msg id="works">Works!</msg>
+  <msg id="defineArrayAsArray">define array as Array</msg>
+  <msg id="typeDoesSameThing">Type[] does the same thing.</msg>
+  <msg id="thisIsMethod">This is a method.</msg>
+  <msg id="thatsHowRussianDogsTalk">That&apos;s how russian dogs talk.</msg>
+  <msg id="nowWeCanInstantiate">Now we can instantiate (create) it</msg>
+  <msg id="andUseItsMethods">And use its methods</msg>
+  <msg id="laterWeWillHaveCode">Later we&apos;ll have code here</msg>
+  <msg id="letsCreateMorePuppies">Let&apos;s create more puppies</msg>
+  <msg id="varAllowedNotRecommended">Var is still allowed but not recommended.</msg>
+  <msg id="letInsteadOfVar">Let should be used instead of var.</msg>
+  <msg id="letUnavailableOutsideIfUnlikeIf">Unlike var let is unavailable
+    outside of this if.
+  </msg>
+  <msg id="constLikeLet">Const is like let, but if you try to change it, TS will give you an
+    error.
+  </msg>
+  <msg id="definitelyBoolean">okay, definitely a boolean</msg>
+  <msg id="6225777299423953966">Why TypeScript</msg>
+  <msg id="4845793289318766506">TypeScript</msg>
+  <msg id="1222056232586280725">TypeScript extends the latest
+            version of JavaScript (ES6)
+          </msg>
+  <msg id="6474054376534067382">TypeScript adds somefeatures from the next version (ES7)
+          </msg>
+  <msg id="2918183727702284411">On top of it, TypeScript adds an optional type system and decorators
+          </msg>
+  <msg id="8365510594080665304">ES7
+            </msg>
+  <msg id="5719991225831147952">Decorators
+            </msg>
+  <msg id="3291065066040545222">Types
+            </msg>
+  <msg id="5813815408611692262">TypeScript
+            </msg>
+  <msg id="6789285271495262013">Classes
+            </msg>
+  <msg id="1319734933981966500">Modules
+            </msg>
+  <msg id="4240486300768704478">More...
+            </msg>
+  <msg id="7112509679553001939">TypeScript / Type System</msg>
+  <msg id="8897430566941228177">Below we have an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> function, and we&apos;re adding 2 and 2. What could go wrong?
+    </msg>
+  <msg id="4895625190709847499">Turns out it&apos;s possible to pass a string to this function and we get <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>22<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> instead of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>4<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. Let&apos;s
+      see how TypeScript can help address this issue on the next slide</msg>
+  <msg id="2453425375180790120"> TypeScript uses <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>:<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to specify the type information (e.g. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>n: number<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>g). Both <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>b<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> should be
+      numbers. We specified the type for <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, now it&apos;s your turn!</msg>
+  <msg id="5379917036245705937">
+      The code above is editable!
+    </msg>
+  <msg id="typescript">TypeScript</msg>
+  <msg id="types">Types</msg>
+  <msg id="2703965223476522347">Primitives (strings, numbers, etc...)</msg>
+  <msg id="7773507354148549356">Types are more types we can use&gt;</msg>
+  <msg id="5973606507353383362">
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>const<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a new way to declare variables (introduced in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>ES6<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>). Similar to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>var<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>,
+      but is block scoped (only exist inside of curly braces block), and errors out if the value is reassigned.
+    </msg>
+  <msg id="3591838911718818191">Interfaces</msg>
+  <msg id="6027504298282045432">TypeScript allows to define more complex objects using interfaces:</msg>
+  <msg id="702106966820398853">
+      Here, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>realPuppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is an instance of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> Interface.
+    </msg>
+  <msg id="3570291272341874994">Arrays</msg>
+  <msg id="2672636832952045368">Arrays are defined as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Array&lt;Type&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> or <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Type[]<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="classes">Classes</msg>
+  <msg id="4690830357394206486">TypeScript has <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>classes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, and Angular uses them heavily.</msg>
+  <msg id="4400419948462180614">They are similar to classes in other languages, and are used to group methods and properties together</msg>
+  <msg id="6104897002627313660">Constructor</msg>
+  <msg id="5126358278110040231">
+      There&apos;s a special method on the class called <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>constructor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. It&apos;s run when the class is instantiated and
+      allows the class to take parameters
+    </msg>
+  <msg id="6722511841825238135">Access Modifiers</msg>
+  <msg id="1284274927983136600">
+      Constructor parameters marked as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>public<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> (or private, or protected), become class properties accessible as
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.&lt;parameter name&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> within the class
+    </msg>
+  <msg id="832290230708229550">private or protected properties are not visible outside of the class.</msg>
+  <msg id="7462301153729425254">Export</msg>
+  <msg id="3803734535691220713">By the way, did you notice the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>export<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> keyword before class? It is used to share information
+      between files. In the next slide, we&apos;ll show you how to export and use this class in a different file</msg>
+  <msg id="1071721880474488785">Import</msg>
+  <msg id="5575767639565396335">Now we can use the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> class in the other file</msg>
+  <msg id="446543992828107232">Imports and exports are not just for classes. They work with variables, functions and other
+      things!
+    </msg>
+  <msg id="1012910011980066980">Filter (One last thing)</msg>
+  <msg id="1938583941517835632">Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
+      provided
+      from the returning callback</msg>
+  <msg id="5937251202465808296">More</msg>
+  <msg id="5612117993680767924">TypeScript supports lots of other cool features such as: </msg>
+  <msg id="2778796732744507615">Enums</msg>
+  <msg id="554505692155626925">Async / Await</msg>
+  <msg id="328559435378058585">Getters / Setters</msg>
+  <msg id="2854346138345342774">Destructuring</msg>
+  <msg id="2824004502397491284">Arrow functions</msg>
+  <msg id="4818010747810947110">And more!</msg>
+  <msg id="7824265004931736949">We won&apos;t cover them in detail, check out the <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> website!
+    </msg>
+  <msg id="1966301836895698534">In the next slide we have a TypeScript exercise</msg>
+  <msg id="1408750369254023078">Your task is to build a TypeScript class which will take a list of guests, and will have a method to output
+      only
+      the ones who are coming.</msg>
+  <msg id="2921334658251839102">The result will be as follows:</msg>
+  <msg id="4985288594861826441">Milestone Completed</msg>
+  <msg id="564343607900892103">
+          Now you should know enough <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>TypeScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to learn <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>!
+          Read more about TypeScript on
+          <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript web site<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="8996212713515416129">next:
+          <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Learn how to create your first Angular app!<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+</messagebundle>

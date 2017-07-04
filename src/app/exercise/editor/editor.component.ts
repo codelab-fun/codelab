@@ -45,6 +45,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   public editor: any;
   @Input() public file: FileConfig;
   @Input() fontSize = 12;
+  @Input() minLines = 6;
   private actialFontSize = 12;
   @ViewChild('editor') editorContent: ElementRef;
   @Output() onCodeChange = new EventEmitter();
@@ -54,14 +55,17 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   public code = '';
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.file.currentValue.code !== this.code) {
+    if (changes.fontSize && this.editor) {
+      this.resize();
+    }
+    if (changes.file && changes.file.currentValue.code !== this.code) {
       this.loadCode(changes.file.currentValue.code);
     }
   }
 
   calcHeight(lines): number {
     const lineHeight = this.actialFontSize * 1.6;
-    return Math.max(lines * lineHeight, lineHeight * 6);
+    return Math.max(lines * lineHeight, lineHeight * this.minLines);
   }
 
 
@@ -105,7 +109,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.editor = this.monacoConfigService.monaco.editor.create(myDiv,
       {
         model: model,
-        scrollBeyondLastLine: false,
+        scrollBeyondLastLine: true,
         readOnly: this.file.readonly,
         tabCompletion: true,
         wordBasedSuggestions: true,
