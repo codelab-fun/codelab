@@ -44,7 +44,7 @@ function getConstructorNode(code) {
 }
 
 describe('Component', () => {
-  it(`Create a class called 'Codelab'`, () => {
+  it(`@@createClassCodelab`, () => {
     /**
      * We can use evalJs to get into the scope of the user's file.
      * Currently evalJs has to be manually added to the `before`

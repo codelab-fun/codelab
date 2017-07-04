@@ -11,6 +11,7 @@ declare const require;
 })
 
 export class TypescriptComponent implements OnInit {
+  t: { [key: string]: string; };
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ];
@@ -19,7 +20,7 @@ export class TypescriptComponent implements OnInit {
   private code: any = {};
 
   ngOnInit(): void {
-    const t = extractMessages(this.translation);
+    this.t = extractMessages(this.translation);
 
     this.code = {
       filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
@@ -28,8 +29,8 @@ console.log(numbers.filter(function(number){
   return number > 30;
 }));
 
-// ${t.useShorthandNotation}
-// ${t.calledArrowFunction}
+// ${this.t.useShorthandNotation}
+// ${this.t.calledArrowFunction}
 console.log(
   numbers.filter(number => number > 30)
 );`),
@@ -45,11 +46,11 @@ const realPuppy: Puppy = {
 };
 
 const notRealPuppy: Puppy = {
-  says: 'meow' // ${t.errorNotAPuppy}
+  says: 'meow' // ${this.t.errorNotAPuppy}
 }`,
-        codeArrays: typeScriptWithConsoleLog(`// ${t.defineArrayAsArray}<Type>
+        codeArrays: typeScriptWithConsoleLog(`// ${this.t.defineArrayAsArray}<Type>
 const cats: Array<string> = ['Simba', 'Aslan'];
-// ${t.typeDoesSameThing}
+// ${this.t.typeDoesSameThing}
 const cats2: string[] = ['Simba', 'Aslan'];
 
 interface Cat {
@@ -63,30 +64,30 @@ const betterCats: Array<Cat> = [
 ];
 
 console.log(betterCats);`),
-        code: `const price: number = 100; // ${t.thisIsNumber}
-const tax = 20; // ${t.typescriptCanInferNumber}
-const productName = 'pikachu'; // ${t.typescriptCanInferString}
+        code: `const price: number = 100; // ${this.t.thisIsNumber}
+const tax = 20; // ${this.t.typescriptCanInferNumber}
+const productName = 'pikachu'; // ${this.t.typescriptCanInferString}
 const isHungry = true; // Boolean
 
-const weird = tax + isHungry; // ${t.cantAddNumAndBool}
-tax.slice(1,5); // ${t.cantSliceNum}
-productName.slice(1,5); // ${t.canSliceString}
-const total = price + tax; // ${t.works}`
+const weird = tax + isHungry; // ${this.t.cantAddNumAndBool}
+tax.slice(1,5); // ${this.t.cantSliceNum}
+productName.slice(1,5); // ${this.t.canSliceString}
+const total = price + tax; // ${this.t.works}`
       },
       varDeclaration: {
-        code: `// ${t.varAllowedNotRecommended}
+        code: `// ${this.t.varAllowedNotRecommended}
 var v = 1;
 
-// ${t.letInsteadOfVar}
+// ${this.t.letInsteadOfVar}
 let l = 1;
 
 if(true){
-  let ll = 1; // ${t.letUnavailableOutsideIfUnlikeIf}
+  let ll = 1; // ${this.t.letUnavailableOutsideIfUnlikeIf}
 }
 console.log(ll); // undefined
 
 
-// ${t.constLikeLet}
+// ${this.t.constLikeLet}
 const x = 1;
 x = 2;`
 
@@ -101,25 +102,25 @@ let sentence: string = \`Hello, my name is \${ fullName }.\`;`
       anyType: {
         code: `let notSure: any = 4;
 notSure = "maybe a string instead";
-notSure = false; // ${t.definitelyBoolean}`
+notSure = false; // ${this.t.definitelyBoolean}`
       },
       classDescription: {
         code: typeScriptWithConsoleLog(`export class Puppy {
-  // ${t.thisIsMethod}
+  // ${this.t.thisIsMethod}
   bark(){
-    // ${t.thatsHowRussianDogsTalk}
+    // ${this.t.thatsHowRussianDogsTalk}
     return 'Gav gav!!';
   }
 }
 
-// ${t.nowWeCanInstantiate}
+// ${this.t.nowWeCanInstantiate}
 var hotdog = new Puppy();
-// ${t.andUseItsMethods}
+// ${this.t.andUseItsMethods}
 console.log(hotdog.bark());
 `),
         codeConstructor: typeScriptWithConsoleLog(`export class Puppy {
   constructor(public name: string){
-    // ${t.laterWeWillHaveCode}
+    // ${this.t.laterWeWillHaveCode}
   }
   bark(){
     return 'Gav! my name is ' + this.name;
@@ -128,7 +129,7 @@ console.log(hotdog.bark());
 
 var hotdog = new Puppy('Édouard');
 console.log(hotdog.bark());
-// ${t.letsCreateMorePuppies}
+// ${this.t.letsCreateMorePuppies}
 var oscar = new Puppy('Oscar-Claude');
 console.log(oscar.bark());`), codeExport: typeScriptWithConsoleLog(`export class Puppy {
   constructor(public name: string){}
@@ -139,7 +140,7 @@ console.log(oscar.bark());`), codeExport: typeScriptWithConsoleLog(`export class
 
 var hotdog = new Puppy('Édouard');
 console.log(hotdog.bark());
-// ${t.letsCreateMorePuppies}
+// ${this.t.letsCreateMorePuppies}
 var oscar = new Puppy('Oscar-Claude');
 console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
   constructor(public name: string){}
