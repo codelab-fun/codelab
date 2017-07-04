@@ -20,8 +20,12 @@
   <div i18n="@@letsCreateMorePuppies" id="letsCreateMorePuppies">Let's create more puppies</div>
   <div i18n="@@varAllowedNotRecommended" id="varAllowedNotRecommended">Var is still allowed but not recommended.</div>
   <div i18n="@@letInsteadOfVar" id="letInsteadOfVar">Let should be used instead of var.</div>
-  <div i18n="@@letUnavailableOutsideIfUnlikeIf" id="letUnavailableOutsideIfUnlikeIf">Unlike var let is unavailable outside of this if.</div>
-  <div i18n="@@constLikeLet" id="constLikeLet">Const is like let, but if you try to change it, TS will give you an error.</div>
+  <div i18n="@@letUnavailableOutsideIfUnlikeIf" id="letUnavailableOutsideIfUnlikeIf">Unlike var let is unavailable
+    outside of this if.
+  </div>
+  <div i18n="@@constLikeLet" id="constLikeLet">Const is like let, but if you try to change it, TS will give you an
+    error.
+  </div>
   <div i18n="@@definitelyBoolean" id="definitelyBoolean">okay, definitely a boolean</div>
 </div>
 <slides-presentation
@@ -161,7 +165,13 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'types-primitives'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Types / Primitives (strings, numbers, etc...)</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@types">Types</ng-container>
+      /
+      <ng-container i18n>Primitives (strings, numbers, etc...)</ng-container>
+    </h1>
     <h2 i18n>Types are more types we can use></h2>
     <slides-code-editor path="types.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.code"></slides-code-editor>
@@ -172,7 +182,13 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'types-more'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Types / Interfaces</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@types">Types</ng-container>
+      /
+      <ng-container i18n>Interfaces</ng-container>
+    </h1>
     <h2 i18n>TypeScript allows to define more complex objects using interfaces:</h2>
     <slides-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.codeInterfaces"></slides-code-editor>
@@ -182,7 +198,13 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'types-arrays'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Types / Arrays</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@types">Types</ng-container>
+      /
+      <ng-container i18n>Arrays</ng-container>
+    </h1>
     <h2 i18n>Arrays are defined as <b>Array&lt;Type&gt;</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
     <div class="info">Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
@@ -191,25 +213,40 @@
 
   <!--  CLASSES  -->
   <slides-slide *slidesIf="'classes'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Classes</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@classes">Classes</ng-container>
+    </h1>
     <h2 i18n>TypeScript has <b>classes</b>, and Angular uses them heavily.</h2>
     <h2 i18n>They are similar to classes in other languages, and are used to group methods and properties together</h2>
     <slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>
   </slides-slide>
   <slides-slide *slidesIf="'classes-constructor'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Classes / Constructor</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@classes">Classes</ng-container>
+      /
+      <ng-container i18n>Constructor</ng-container>
+    </h1>
     <h2 i18n>
       There's a special method on the class called <b>constructor</b>. It's run when the class is instantiated and
-      allows
-      the class to take parameters
+      allows the class to take parameters
     </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>
   </slides-slide>
 
   <slides-slide *slidesIf="'classes-access-modifier'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Classes / Access Modifiers</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@classes">Classes</ng-container>
+      /
+      <ng-container i18n>Access Modifiers</ng-container>
+    </h1>
     <h2 i18n>
       Constructor parameters marked as <b>public</b> (or private, or protected), become class properties accessible as
       <b>this.&lt;parameter name&gt;</b> within the class
@@ -220,7 +257,11 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'export'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Export</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n>Export</ng-container>
+    </h1>
     <h2 i18n>By the way, did you notice the <b>export</b> keyword before class? It is used to share information
       between files. In the next slide, we'll show you how to export and use this class in a different file</h2>
     <slides-code-editor
@@ -230,7 +271,11 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'import'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Import</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n>Import</ng-container>
+    </h1>
     <h2 i18n>Now we can use the <b>Puppy</b> class in the other file</h2>
     <slides-playground [config]="code.classDescription.codeImport" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.importMatch]"></slides-playground>
@@ -240,7 +285,11 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'filter'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Filter (One last thing)</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n>Filter (One last thing)</ng-container>
+    </h1>
     <h2 i18n>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
       provided
       from the returning callback</h2>
@@ -248,7 +297,11 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'more'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / More</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n>More</ng-container>
+    </h1>
     <h2 i18n>TypeScript supports lots of other cool features such as: </h2>
     <ul>
       <li i18n>Interfaces</li>
@@ -265,7 +318,11 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'exercise-pre'; milestone: 'TypeScript'">
-    <h1 i18n>TypeScript / Exercise</h1>
+    <h1>
+      <ng-container i18n="@@typescript">TypeScript</ng-container>
+      /
+      <ng-container i18n="@@exercise">Exercise</ng-container>
+    </h1>
     <h2 i18n>In the next slide we have a TypeScript exercise</h2>
     <h3 i18n>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output
       only
@@ -288,7 +345,13 @@
 
   <slides-slide *slidesIf="'end'; milestone: 'TypeScript'">
     <slides-closing-slide>
-      <div header><h1 i18n>TypeScript / Milestone Completed</h1></div>
+      <div header>
+        <h1>
+          <ng-container i18n="@@typescript">TypeScript</ng-container>
+          /
+          <ng-container i18n>Milestone Completed</ng-container>
+        </h1>
+      </div>
       <div body>
         <h2 i18n>
           Now you should know enough <b>TypeScript</b> to learn <b>Angular</b>!

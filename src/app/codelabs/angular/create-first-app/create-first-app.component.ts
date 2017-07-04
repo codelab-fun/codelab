@@ -1,7 +1,7 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
-import {extractMessages} from "../../../presentation/i18n-tools";
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 @Component({
   selector: 'slides-create-first-app',
@@ -11,7 +11,7 @@ import {extractMessages} from "../../../presentation/i18n-tools";
 export class CreateFirstAppComponent {
 
   @ViewChild('translations') translation;
-  private code : any = {};
+  private code: any = {};
 
   // tslint:disable:max-line-length TODO: Clean up exercises and remove this comment.
   //  Exercises
@@ -69,7 +69,7 @@ export class AppComponent {
   ];
   // tslint:enable:max-line-length
 
-  ngOnInit(){
+  ngOnInit() {
     const t = extractMessages(this.translation);
 
     this.code = {

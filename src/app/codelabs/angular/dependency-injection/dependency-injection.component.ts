@@ -1,6 +1,6 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
-import {extractMessages} from "../../../presentation/i18n-tools";
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 
 @Component({
@@ -8,7 +8,7 @@ import {extractMessages} from "../../../presentation/i18n-tools";
   templateUrl: './dependency-injection.component.html',
   styleUrls: ['./dependency-injection.component.css']
 })
-export class DependencyInjectionComponent {
+export class DependencyInjectionComponent implements OnInit {
   exercise;
 
   @ViewChild('translations') translation;
@@ -18,7 +18,7 @@ export class DependencyInjectionComponent {
     this.exercise = exercises.getExercises(3, 1);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     const t = extractMessages(this.translation);
 
     this.code = {

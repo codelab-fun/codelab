@@ -1,6 +1,8 @@
 <div #translations style="display: none">
-  <div i18n="@@shorthandMakesProfessionAvailable" id="shorthandMakesProfessionAvailable">* Typescript shorthand makes 'profession'
-    * available to component instance.</div>
+  <div i18n="@@shorthandMakesProfessionAvailable" id="shorthandMakesProfessionAvailable">* Typescript shorthand makes
+    'profession'
+    * available to component instance.
+  </div>
   <div i18n="@@assumingJobHasPropTitle" id="assumingJobHasPropTitle">assuming Job has property '.title'</div>
 </div>
 
@@ -39,7 +41,11 @@
 
   <!--  COMPARISON -->
   <slides-slide *slidesIf="'comparison'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency injection / Comparison</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n="@@comparison">Comparison</ng-container>
+    </h1>
     <slides-code-group class="content-container">
       <div class="col-6">
         <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code"
@@ -56,7 +62,13 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'comparison-2'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency Injection / Comparison / Parameters</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n="@@comparison">Comparison</ng-container>
+      /
+      <ng-container i18n>Parameters</ng-container>
+    </h1>
     <slides-code-group class="content-container">
       <div class="col-6">
         <slides-code-editor path="person.ts" [fontSize]="15" [code]="code.withOutDI.code2"
@@ -72,7 +84,13 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'comparison-3'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency Injection / Comparison / Testing</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n="@@comparison">Comparison</ng-container>
+      /
+      <ng-container i18n>Testing</ng-container>
+    </h1>
     <h2 i18n>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies as
       constructor
       parameters</h2>
@@ -89,7 +107,11 @@
 
   <!--  Steps to create an Angular app -->
   <slides-slide *slidesIf="'angular-app'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency injection / Example</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n>Example</ng-container>
+    </h1>
     <h2 i18n>Let's say we have an existing <b>UnitConverterService</b> and we want to start using it in <b>UnitConversionComponent</b>.
       It will take 3 simple steps:
     </h2>
@@ -102,7 +124,11 @@
 
   <!--  IMPLEMENTATION STEP #1  -->
   <slides-slide *slidesIf="'make-injectable'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency Injection / Step #1</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n="@@step1">Step 1</ng-container>
+    </h1>
     <h2 i18n>Mark the class as <b>@Injectable()</b>.
       This lets Angular know that this class is part of Angular Dependency Injection system</h2>
     <slides-code-editor path="unit-converter-service.ts" [code]="code.classAsInjectable.code"
@@ -114,7 +140,11 @@
 
   <!--  IMPLEMENTATION STEP #2  -->
   <slides-slide *slidesIf="'provide-injectable'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency Injection / Step #2</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n="@@step2">Step 2</ng-container>
+    </h1>
     <h2 i18n>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
     <slides-code-editor path="app.module.ts" [code]="code.provideInjectable.code"
                         [focus-highlight-match]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></slides-code-editor>
@@ -124,7 +154,11 @@
 
   <!--  IMPLEMENTATION STEP #3  -->
   <slides-slide *slidesIf="'consume-injectable'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency Injection / Step #3</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n="@@step3">Step 3</ng-container>
+    </h1>
     <h2 i18n>Consume the Injectable in the component</h2>
     <slides-code-editor path="unit-conversion.component.ts" [code]="code.consumeInjectable.code"
                         [focus-highlight-match]="[code.consumeInjectable.matches.constructor]"></slides-code-editor>
@@ -136,7 +170,11 @@
 
 
   <slides-slide *slidesIf="'exercise-pre'; milestone: 'DependencyInjection'">
-    <h1 i18n>Dependency Injection / Exercise</h1>
+    <h1>
+      <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+      /
+      <ng-container i18n="@@exercise">Exercise</ng-container>
+    </h1>
     <h2 i18n>In the next slide you'll use videoService which has even more cats!!! The result will look like this: </h2>
 
     <slides-exercise-preview column-5 [config]="exercise"></slides-exercise-preview>
@@ -157,7 +195,13 @@
 
   <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
-      <div class="header" header><h1 i18n>Dependency Injection / Milestone Completed!</h1></div>
+      <div class="header" header>
+        <h1>
+          <ng-container i18n="@@dependencyInjection">Dependency injection</ng-container>
+          /
+          <ng-container i18n>Milestone Completed!</ng-container>
+        </h1>
+      </div>
       <div class="body" body>
       </div>
       <div class="footer" footer>

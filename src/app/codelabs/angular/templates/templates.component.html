@@ -45,7 +45,7 @@
 
   <!--  COMPONENT -->
   <slides-slide *slidesIf="'component'; milestone: 'Templates'">
-    <h1 i18n>Templates / Intro</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n="@@intro">Intro</ng-container></h1>
     <h2 i18n>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
       elements</h2>
     <slides-playground [config]="code.template.intro"></slides-playground>
@@ -53,7 +53,7 @@
 
   <!--  INTERPOLATION-->
   <slides-slide *slidesIf="'interpolation'; milestone: 'Templates'">
-    <h1 i18n>Templates / Interpolation</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Interpolation</ng-container></h1>
     <h2 i18n>Double curlies allow you to include properties from the component</h2>
     <slides-playground [config]="code.template.interpolation"
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
@@ -65,7 +65,7 @@
 
   <!--INTERPOLATION-METHOD-->
   <slides-slide *slidesIf="'interpolation-method'; milestone: 'Templates'">
-    <h1 i18n>Templates / Interpolation</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Interpolation</ng-container></h1>
     <h2 i18n>
       Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate
       <code>323213+34234</code>
@@ -75,7 +75,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'exercise-pre'; milestone: 'Templates'">
-    <h1 i18n>Templates / Exercise</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n="@@exercise">Exercise</ng-container></h1>
     <h2 i18n>In the next slide you'll edit component template to create a simple header and search form. The result will
       look like
       this:</h2>
@@ -97,7 +97,7 @@
 
   <!--  PRE DATA BINDING-->
   <slides-slide *slidesIf="'data-binding-pre'; milestone: 'Templates2'">
-    <h1 i18n>Templates / Interpolation / Properties</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Interpolation</ng-container> / <ng-container i18n>Properties</ng-container></h1>
     <h2 i18n>String interpolation <b>{{ curlies }}</b> can also be used to pass avalue to a child element's attribute
     </h2>
     <slides-playground [config]="code.template.dataBindingPre"
@@ -106,7 +106,7 @@
 
   <!--  DATA BINDING  -->
   <slides-slide *slidesIf="'data-binding'; milestone: 'Templates2'">
-    <h1 i18n>Templates / Property Binding</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Property Binding</ng-container></h1>
     <h2 i18n>Another option is to use property binding <b>[attribute] = property</b></h2>
     <slides-playground [config]="code.template.dataBinding"
                        [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
@@ -117,7 +117,7 @@
 
   <!--  DATA BINDING EXTRAS-->
   <slides-slide *slidesIf="'data-binding-extras'; milestone: 'Templates2'">
-    <h1 i18n>Templates / Data binding extras</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Data binding extras</ng-container></h1>
     <h2 i18n>Angular supports more advanced property bindings than just attribute name</h2>
     <slides-code-editor
       path="app.component.html"
@@ -129,7 +129,7 @@
 
   <!--  BINDING EVENT -->
   <slides-slide *slidesIf="'event-binding'; milestone: 'Templates2'">
-    <h1 i18n>Templates / Event binding: (event)</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Event binding: (event)</ng-container></h1>
     <h2 i18n>The bindings directives you've met so far flow data in one direction: from a component to an element</h2>
     <slides-code-editor
       path="app.component.html"
@@ -146,7 +146,7 @@
 
   <!--  REFERENCE BINDING -->
   <slides-slide *slidesIf="'reference-binding'; milestone: 'Templates2'">
-    <h1 i18n>Templates / Reference binding ( #var )</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Reference binding ( #var )</ng-container></h1>
     <h2 i18n>
       Sometimes we need to access a HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
       and it becomes available as <b>userName</b> everywhere in the template</h2>
@@ -172,7 +172,7 @@
 
 
   <slides-slide *slidesIf="'exercise-2-pre'; milestone: 'Templates2'">
-    <h1 i18n>Templates / Exercise 2</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Exercise 2</ng-container></h1>
     <h2 i18n>In the next slide you'll add a click handler to the search button, and display a message for the case where
       no
       videos were found. The result will look like this:</h2>
@@ -194,7 +194,7 @@
 
 
   <slides-slide *slidesIf="'repeating'; milestone: 'Templates3'">
-    <h1 i18n>Templates / Repeating elements</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Repeating elements</ng-container></h1>
     <h2 i18n>
       Let's say you have an array of puppies, and want to display all of them on them page. Angular has a special syntax
       for that called <b>*ngFor</b>, let's see how it works on the next slide
@@ -204,7 +204,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'conditional-display-ngfor'; milestone: 'Templates3'">
-    <h1 i18n>Templates / Repeating elements (*ngFor)</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Repeating elements (*ngFor)</ng-container></h1>
     <h2 i18n>
       Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case) for every single puppy in the puppies
       array
@@ -218,7 +218,7 @@
 
 
   <slides-slide *slidesIf="'exercise-3-pre'; milestone: 'Templates3'">
-    <h1 i18n>Templates / Exercise 3</h1>
+    <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Exercise 3</ng-container></h1>
     <div flex>
       <div column-5>
         <h2 i18n>
@@ -245,7 +245,7 @@
   <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
       <div class="header" header>
-        <h1 i18n>Templates / Milestone Completed!</h1>
+        <h1><ng-container i18n>Templates</ng-container> / <ng-container i18n>Milestone Completed!</ng-container></h1>
       </div>
       <div class="body" body>
       </div>
