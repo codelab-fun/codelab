@@ -106,7 +106,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.editor = this.monacoConfigService.monaco.editor.create(myDiv,
       {
         model: model,
-        scrollBeyondLastLine: false,
+        scrollBeyondLastLine: true,
         readOnly: this.file.readonly,
         tabCompletion: true,
         wordBasedSuggestions: true,
