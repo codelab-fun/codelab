@@ -54,6 +54,7 @@
       description="Angular is written in TypeScript. Learn more about the language basics."
       i18n-description="@@AngularIsWrittenInTypescript"
       prereqs="Basic understanding of JavaScript is required."
+      i18n-prereqs
     ></slides-title-slide>
   </slides-slide>
 
@@ -73,7 +74,7 @@
 
   <slides-slide *slidesIf="'about-typescript-2'; milestone: 'TypeScript'">
     <h1 i18n>TypeScript</h1>
-    <h2>This is why <b>TypeScript</b> was created. It transpiles to JavaScript, so it can be used in any browser.</h2>
+    <h2 i18n>This is why <b>TypeScript</b> was created. It transpiles to JavaScript, so it can be used in any browser.</h2>
     <div row>
       <div>
         <ul>
@@ -134,7 +135,7 @@
         </svg>
       </div>
     </div>
-    <div class="info">Decorator looks like @twitter_handles, we'll learn more about them later</div>
+    <div class="info" i18n>Decorator looks like @twitter_handles, we'll learn more about them later</div>
   </slides-slide>
 
   <!--  NUMBER-TYPE  -->
@@ -217,7 +218,7 @@
     </h1>
     <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}&gt;</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
-    <div class="info">Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
+    <div class="info" i18n>Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
     </div>
   </slides-slide>
 
@@ -366,7 +367,7 @@
         <h2 i18n>
           Now you should know enough <b>TypeScript</b> to learn <b>Angular</b>!
           Read more about TypeScript on
-          <a href="http://www.typescriptlang.org/">TypeScript web site</a>
+          <a href="http://www.typescriptlang.org/" i18n>TypeScript web site</a>
         </h2>
 
       </div>
