@@ -44,7 +44,7 @@
 
 /* Specificity */
 :host /deep/ .side.side.side {
-  display: block !important;
+  display: block;
 }
 
 .font-size:hover {
