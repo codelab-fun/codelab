@@ -27,8 +27,11 @@
   <slides-slide *slidesIf="'intro';" no-padding>
     <slides-title-slide
       title="Create your first Angular app"
+      i18n-title="@@CreateYFirstAgApp"
       description="You will learn how to create your first Angular component, put it in a module, and bootstrap the app."
+      i18n-description
       prereqs="Knowing TypeScript basics would help a lot"
+      i18n-prereqs
     ></slides-title-slide>
   </slides-slide>
 
@@ -346,13 +349,13 @@
       <ng-container i18n>Bootstrapping</ng-container>
     </h1>
     <h2 i18n>We have everything ready, so now it's time to start (bootstrap) the app!</h2>
-    <h2>
+    <h2 i18n>
       Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will start up all the components from that
       module's bootstrap section
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30"
                         [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
-    <div class="info">For most simple apps, you can just copy/paste the code above "as is"</div>
+    <div class="info" i18n>For most simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
   <slides-slide *slidesIf="'bootstrapping-more'" class="bootstrapping-more-info; milestone: 'Bootstrap3'">
