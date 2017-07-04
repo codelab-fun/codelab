@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 /* tslint:disable */
 @Directive(
-  {selector: '[myNgIf]'}
+  {selector: '[mdHideMe]'}
 )
-export class MyNgIfDirective {
+export class HideMeDirective {
   constructor() {
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { ExerciseComponent } from '../exercise/exercise.component';
 
@@ -9,6 +9,7 @@ import { ExerciseComponent } from '../exercise/exercise.component';
 })
 export class NewEditorsComponent implements OnInit {
   files: any;
+  @Input() fontSize = 16;
   private currentFile: FileConfig;
 
 

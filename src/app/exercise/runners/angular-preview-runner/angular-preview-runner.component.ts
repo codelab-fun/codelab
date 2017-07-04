@@ -16,7 +16,7 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
 
   run(files: Array<FileConfig>) {
     createSystemJsSandbox(this.runnerElement.nativeElement, {
-      id: 'testing', 'url': 'about:blank'
+      id: 'testing', 'url': '/assets/runner/'
     }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
       // TODO: addCss(require('./inner.css'));
       setHtml('<my-app></my-app>');

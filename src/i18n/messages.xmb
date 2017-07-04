@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="2339071718884287683"><source>app/codelabs/index/index.component.ts:13</source>Angular Codelab</msg>
+  <msg id="3544776889283127882"><source>app/codelabs/index/index.component.ts:14</source>Welcome! Choose a topic below to start learning:</msg>
+  <msg id="943157291250853394"><source>app/codelabs/angular/component-tree/component-tree.component.ts:27</source>Component Tree</msg>
+  <msg id="1477095887109447756"><source>app/codelabs/angular/component-tree/component-tree.component.ts:28</source>So far we have only one component, but as your app grows it will form a tree of components</msg>
+  <msg id="7450174455887155136"><source>app/codelabs/angular/component-tree/component-tree.component.ts:34</source>Component Tree / Parent and Child</msg>
+  <msg id="958527444286373588"><source>app/codelabs/angular/component-tree/component-tree.component.ts:35,36</source>Any component can render another one by using an HTML element that matches the selector of the other
+      component</msg>
+  <msg id="1044905540185084125"><source>app/codelabs/angular/component-tree/component-tree.component.ts:56</source><source>app/codelabs/angular/component-tree/component-tree.component.ts:67</source>Component Tree / Passing Data Parent -&gt; Child</msg>
+  <msg id="5297563707434504672"><source>app/codelabs/angular/component-tree/component-tree.component.ts:57</source>A parent component passes its data to the child component via properties</msg>
+  <msg id="3767405923334084568"><source>app/codelabs/angular/component-tree/component-tree.component.ts:58,60</source>
+      Change the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>size<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>100<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>color<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>red<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to recreate the Japanese flag.
+    </msg>
+  <msg id="6502697971057653879"><source>app/codelabs/angular/component-tree/component-tree.component.ts:68</source>The child class must decorate its properties with a special <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Input()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> decorator</msg>
+  <msg id="242686228345857569"><source>app/codelabs/angular/component-tree/component-tree.component.ts:71</source>This is the first time we&apos;re applying decorators to properties (as opposed to classes).</msg>
+  <msg id="8641651214594920143"><source>app/codelabs/angular/component-tree/component-tree.component.ts:76</source>Component Tree / Exercise 1</msg>
+  <msg id="6993248291969541113"><source>app/codelabs/angular/component-tree/component-tree.component.ts:77,79</source>We already know how to create a component. Let&apos;s move all the video-related information into a new
+      component
+      called VideoComponent.</msg>
+  <msg id="8535569169237447692"><source>app/codelabs/angular/component-tree/component-tree.component.ts:80</source>We will bootstrap the component for you; the result will be as follows:</msg>
+  <msg id="1902505859733550335"><source>app/codelabs/angular/component-tree/component-tree.component.ts:83</source>Cute kitten</msg>
+  <msg id="7264927643275647355"><source>app/codelabs/angular/component-tree/component-tree.component.ts:109</source>Component Tree / Parent and Child component</msg>
+  <msg id="2676566827453590169"><source>app/codelabs/angular/component-tree/component-tree.component.ts:110</source>Components won&apos;t know about each other unless they&apos;re declared in the same module</msg>
+  <msg id="4670181911348887144"><source>app/codelabs/angular/component-tree/component-tree.component.ts:116</source>Component Tree / Review</msg>
+  <msg id="9054658401533974480"><source>app/codelabs/angular/component-tree/component-tree.component.ts:145</source>Component Tree / Exercise 2</msg>
+  <msg id="1036270088685658131"><source>app/codelabs/angular/component-tree/component-tree.component.ts:146</source>In the next exercise you will use the newly created component</msg>
+  <msg id="837180588523712471"><source>app/codelabs/angular/component-tree/component-tree.component.ts:167</source>Angular Basics Codelab Completed!</msg>
+  <msg id="5532839647985128848"><source>app/codelabs/angular/component-tree/component-tree.component.ts:169,170</source>This is <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>the end<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> of the codelab, but it&apos;s just the beginning of your Angular journey. Below
+          are some links that can help you continue learning.</msg>
+  <msg id="9154976499052576586"><source>app/codelabs/angular/component-tree/component-tree.component.ts:173</source>Find features, docs and events listed here</msg>
+  <msg id="8354723802427223197"><source>app/codelabs/angular/component-tree/component-tree.component.ts:176,177</source>makes it easy to create an application that already works,
+                    right out of the box and generate new components! It also takes care of the build system for you</msg>
+  <msg id="5131849958006171982"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:28</source>First Angular App / What is Angular?</msg>
+  <msg id="1566812974294525535"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:30,36</source>
+        Angular is a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>development platform<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> for building mobile and desktop
+        applications. Angular lets you <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>extend HTML&apos;s syntax<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to express your application&apos;s components clearly
+        and
+        succinctly. Angular&apos;s binding and Dependency Injection <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>eliminate much of the code<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> you would otherwise
+        have to write.
+      </msg>
+  <msg id="971187917777803927"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:42</source><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:53</source>First Angular App / Intro</msg>
+  <msg id="7127434905431284986"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:43</source>Given an HTML file:</msg>
+  <msg id="8877028649323993081"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:46,47</source>Let&apos;s create an Angular app which replaces the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>&lt;hello-world&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> HTML element with the app&apos;s
+      contents.</msg>
+  <msg id="5463471054765192731"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:48</source>This can be done with 3 simple steps.</msg>
+  <msg id="7109785117359301161"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:54</source>The 3 steps are:</msg>
+  <msg id="8986953020363470779"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:56</source>Create an Angular component</msg>
+  <msg id="7117530673690701168"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:57</source>Create an Angular module</msg>
+  <msg id="1813487159288766093"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:58</source>Bootstrap the module</msg>
+  <msg id="5355587744995737202"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:64</source>First Angular App / Step 1</msg>
+  <msg id="4870494266947152785"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:65,67</source>Start by creating an angular <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. Components in Angular are responsible for the visual part of
+      the
+      app</msg>
+  <msg id="4795937685905293259"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:70</source>An Angular component is just a class. Properties and behavior can be added inside.</msg>
+  <msg id="8529704691612749093"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:75</source><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:88</source>First Angular App / Step 1 / Decorators</msg>
+  <msg id="7834786013480490982"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:78</source>The class is adorned with a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> decorator</msg>
+  <msg id="8311779527003716911"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:79,81</source>
+      Decorators attach <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>-specific information to the class without modifying it.
+    </msg>
+  <msg id="7939755324517272859"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:89,92</source>
+      Decorators are a new feature of TypeScript. They attach metadata to a class, function, property or
+      variable
+    </msg>
+  <msg id="7184413576755920741"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:95,97</source>
+      Decorators are inspired by a similar feature in the Python language.
+    </msg>
+  <msg id="7238333633989020373"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:103</source>First Angular App / Step 1 / Selector</msg>
+  <msg id="4579189075323388922"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:104,105</source>Selectors define the location of the component. When Angular renders this component, it&apos;ll find a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>&lt;hello-world&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      HTML element in the document and render the component inside of it</msg>
+  <msg id="3320374173103511577"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:114</source>First Angular App / Step 1 / Inline Template</msg>
+  <msg id="6417780443340936933"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:115,117</source>
+      Template defines the HTML code that the component generates
+    </msg>
+  <msg id="2517889020498444165"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:120,123</source> If the amount of HTML grows out of hand, it&apos;s possible (and recommended) to use a
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>templateUrl<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> instead and
+      provide a path to the HTML file.
+    </msg>
+  <msg id="5353952201997564590"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:128</source>First Angular App / Step 1 / Exercise</msg>
+  <msg id="924140808641999413"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:129,130</source>In the next slide you&apos;ll create your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> component! We&apos;ll do all the wiring for you. The
+      result will look like this:</msg>
+  <msg id="61555616227480717"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:138</source><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:223</source>Create first Angular component!</msg>
+  <msg id="6978712952599178441"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:150</source>First Angular App / Step 2 </msg>
+  <msg id="8345311668462052343"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:151</source>Next step is to declare a component in an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</msg>
+  <msg id="4493424842585728718"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:152,154</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> does not have any visual representation and is used exclusively for grouping Angular
+      building
+      blocks together</msg>
+  <msg id="5472566057749492330"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:155</source>We will learn more about NgModules in the future milestones</msg>
+  <msg id="6765186185838138634"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:161</source>First Angular App / Step 2 / Module Class</msg>
+  <msg id="5238272395469026108"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:162</source>Like a component, the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> module is just a class</msg>
+  <msg id="524345341375206370"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:169</source>First Angular App / Step 2 / NgModule Decorator</msg>
+  <msg id="3904962908062507807"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:170</source>Like a component, the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> module is adorned with a decorator providing metadata</msg>
+  <msg id="7980453650106725492"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:178</source>First Angular App / Step 2 / Browser Module</msg>
+  <msg id="6757403404358661906"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:179,180</source>Because we&apos;re building a browser web app, we need to pass <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>BrowserModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>imports<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> array
+    </msg>
+  <msg id="7056733018236663325"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:184,187</source>
+      Angular is not just for web apps anymore; you can also use it to create native phone apps and even
+      VR scenes.
+    </msg>
+  <msg id="4447409663245180859"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:191</source>First Angular App / Step 2 / Declarations</msg>
+  <msg id="789632209497668485"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:192</source>The <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Declarations array<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> specifies components belonging to the AppModule</msg>
+  <msg id="7198648122283423425"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:200</source>First Angular App / Step 2 / Bootstrap</msg>
+  <msg id="8368596314185297476"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:201,204</source>
+      The component passed into the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrap<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> array will be created and displayed in your <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>index.html<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      file
+    </msg>
+  <msg id="187345272329623569"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:211</source>First Angular App / Step 2 / Exercise</msg>
+  <msg id="4226122571544649251"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:212,215</source>
+      In the next slide you&apos;ll create your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> module! We&apos;ll use the component from the previous
+      exercises and do all the wiring for you. The result will look like this:
+    </msg>
+  <msg id="3591485138492557240"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:235</source>First Angular App / Step 3</msg>
+  <msg id="657343917593444693"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:236</source>This is the last step. We have everything ready, just need to bootstrap our app!</msg>
+  <msg id="5681646391036761599"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:242</source>First Angular App / Step 3 / Bootstrapping</msg>
+  <msg id="9406456874883877"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:243</source>We have everything ready, so now it&apos;s time to start (bootstrap) the app!</msg>
+  <msg id="5535586748330792031"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:254</source>First Angular App / Step 3 / Bootstrapping 1 </msg>
+  <msg id="7313415582983155780"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:255,257</source>
+      How does bootstrapping work in Angular?
+    </msg>
+  <msg id="354134427043166608"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:259,262</source>
+      1. Kicks off execution environment. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>platformBrowserDynamic()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> tells Angular that we are operating in the
+      browser
+    </msg>
+  <msg id="9118446373490710258"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:268,270</source><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:283,285</source><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:298,300</source>
+      Read more about root module and bootstrapping in Angular
+    </msg>
+  <msg id="8651872747087210952"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:274</source>First Angular App / Step 3 / Bootstrapping 2</msg>
+  <msg id="3843563559252369284"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:275,278</source>
+      2. Angular initializes the component from the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrap<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> array in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>app.module.ts<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>HelloWorldComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> in this case)
+    </msg>
+  <msg id="5877793003678946133"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:289</source>First Angular App / Step 3 / Bootstrapping 3</msg>
+  <msg id="1478913304849792970"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:290,293</source>
+      3. Angular looks in the document for an element matching the selector defined in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>HelloWorldComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>&apos;hello-world&apos;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> in our case) and inserts the component inside that element
+    </msg>
+  <msg id="8292658066921179926"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:304</source>First Angular App / Step 3 / Exercise</msg>
+  <msg id="6926283110773507163"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:305</source>All set! In the next page you&apos;ll bootstrap your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> app!</msg>
+  <msg id="2268943717929526857"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:313</source>Now that we&apos;ve got both NgModule and the component ready, let&apos;s bootstrap the app!</msg>
+  <msg id="2020897026324644883"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:314</source>There&apos;s no simple way to test it; just make sure your app displays: &apos;Hello MewTube!&apos;</msg>
+  <msg id="3812889520586135802"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:328</source>First Angular App / Review</msg>
+  <msg id="8145952131430725333"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:329</source>Loading order: index -&gt; main -&gt; app.module -&gt; app.component</msg>
+  <msg id="6142704255682990541"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:354,356</source>
+      While Angular is loading, the contents of the element will stay the same (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Loading...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>) in this case
+    </msg>
+  <msg id="4135298275558664404"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:362</source>End of Bootstrap Section</msg>
+  <msg id="470651207723290753"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:365</source><source>app/codelabs/angular/pipes/pipes.component.ts:169</source><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:168</source>Well done! This is the end of the milestone!</msg>
+  <msg id="7793166881121401916"><source>app/codelabs/angular/create-first-app/create-first-app.component.ts:368,370</source>
+          Next <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Go to the templates Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="1125073828436175008"><source>app/codelabs/angular/custom-events/custom-events.component.ts:17</source>Custom Events / Intro</msg>
+  <msg id="9041537339024490158"><source>app/codelabs/angular/custom-events/custom-events.component.ts:25</source>Custom Events / Passing data from child to parent</msg>
+  <msg id="8367833291966837482"><source>app/codelabs/angular/custom-events/custom-events.component.ts:44</source>Custom Events / Exercise - Intro</msg>
+  <msg id="7547935920605925428"><source>app/codelabs/angular/custom-events/custom-events.component.ts:45,46</source>Let&apos;s implement a ThumbsUp and ThumbsDown button for the VideoComponent you worked on before.
+    </msg>
+  <msg id="dependencyInjection"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:19</source><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:28</source>Dependency Injection</msg>
+  <msg id="dependencyInjectionLearnMore"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:20</source>Learn more about Angular&apos;s powerful Dependency Injection system</msg>
+  <msg id="4375448281315274325"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:29,31</source>
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Dependency Injection<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a way to provide dependencies to your code instead of hard-coding them
+    </msg>
+  <msg id="2948920674705889056"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:36</source>Dependency injection / Comparison</msg>
+  <msg id="538295435595855313"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:41,42</source>Without Dependency Injection, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Profession<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> has to be instantiated in the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+          class</msg>
+  <msg id="3330322151462582171"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:47,48</source>With Dependency Injection, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> class just &quot;requires&quot; an instance of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Profession<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+          in the constructor, and Angular takes care of instantiating it</msg>
+  <msg id="8739510397546826882"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:53</source>Dependency Injection / Comparison / Parameters</msg>
+  <msg id="6525744507050405173"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:63</source>With Dependency Injection, Angular takes care of it</msg>
+  <msg id="6734105582673354637"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:69</source>Dependency Injection / Comparison / Testing</msg>
+  <msg id="4498809175328528079"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:70,72</source>Also Dependency Injection simplifies Testing a lot, because you can just pass mock dependencies as
+      constructor
+      parameters</msg>
+  <msg id="3992820654665490519"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:86</source>Dependency injection / Example</msg>
+  <msg id="4400493199164893517"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:87,89</source>Let&apos;s say we have an existing <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>UnitConverterService<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and we want to start using it in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>UnitConversionComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+      It will take 3 simple steps:
+    </msg>
+  <msg id="3957097669887217853"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:91</source>Mark dependency as @Injectable()</msg>
+  <msg id="5662947366104784178"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:92</source>Provide in the module</msg>
+  <msg id="9143596698887173150"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:93</source>Require in the component</msg>
+  <msg id="4682596600899542650"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:99</source>Dependency Injection / Step #1</msg>
+  <msg id="1117670596218842167"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:100,101</source>Mark the class as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Injectable()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+      This lets Angular know that this class is part of Angular Dependency Injection system</msg>
+  <msg id="1349378066640773383"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:104,106</source>
+      If a service class is marked as injectable, it can require other services in its constructor.
+    </msg>
+  <msg id="2536412284482902106"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:111</source>Dependency Injection / Step #2</msg>
+  <msg id="2735369781715347846"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:112</source>Provide the injectable to the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>providers<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> section of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="4525370649719280544"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:115,116</source>Now, this service becomes available for every <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and other service in this <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+    </msg>
+  <msg id="9066545338408844485"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:121</source>Dependency Injection / Step #3</msg>
+  <msg id="9193697677313937686"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:122</source>Consume the Injectable in the component</msg>
+  <msg id="261676783640894862"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:125,128</source>Because of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>private<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> access modifier the service becomes accessible across the class
+      as
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.converter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+    </msg>
+  <msg id="3778805008138573680"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:133</source>Dependency Injection / Exercise</msg>
+  <msg id="2179039829273699885"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:134</source>In the next slide you&apos;ll use videoService which has even more cats!!! The result will look like this: </msg>
+  <msg id="6812988340777103718"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:154</source>Dependency Injection / Milestone Completed!</msg>
+  <msg id="7541582794652430956"><source>app/codelabs/angular/dependency-injection/dependency-injection.component.ts:158,160</source>
+          Next: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Learn how to combine components together<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="2171894153326157864"><source>app/codelabs/angular/pipes/pipes.component.ts:29</source><source>app/codelabs/react/intro/intro.component.ts:27</source><source>app/codelabs/vue/intro/intro.component.ts:27</source>Introduction</msg>
+  <msg id="8872031070141488959"><source>app/codelabs/angular/pipes/pipes.component.ts:31,37</source>
+        Every application starts out with what seems like a simple task: get data, transform it, and show it to
+        users. Getting data could be as simple as creating a local variable or as complex as streaming data
+        over a WebSocket.<ph name="LINE_BREAK"><ex>&lt;br&gt;</ex></ph><ph name="LINE_BREAK"><ex>&lt;br&gt;</ex></ph>
+        An Angular pipe is a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>function<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> that transforms input values to output values for display in a view.
+        Let&apos;s see how it works.
+      </msg>
+  <msg id="322959674647382845"><source>app/codelabs/angular/pipes/pipes.component.ts:43</source>How do pipes work?</msg>
+  <msg id="9084898790310400985"><source>app/codelabs/angular/pipes/pipes.component.ts:44,45</source>
+      A pipe takes in data as input and transforms it to a desired output.</msg>
+  <msg id="3082774764053628202"><source>app/codelabs/angular/pipes/pipes.component.ts:46,52</source>
+      Inside the interpolation expression, we use the pipe <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>( | )<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> operator to pass the App Component&apos;s &apos;dob&apos;
+      through the the &apos;date&apos; pipe on the right, transforming a long timestamp into a more human-readable output.
+      All pipes follow this signature.
+      <ph name="START_TAG_SLIDES_PLAYGROUND"><ex>&lt;slides-playground&gt;</ex></ph><ph name="CLOSE_TAG_SLIDES_PLAYGROUND"><ex>&lt;/slides-playground&gt;</ex></ph>
+    </msg>
+  <msg id="4719882325113008364"><source>app/codelabs/angular/pipes/pipes.component.ts:57</source>Built-in Pipes</msg>
+  <msg id="2613951251890884077"><source>app/codelabs/angular/pipes/pipes.component.ts:59,62</source>
+        Angular comes with a variety of built-in pipes that can be used in any template or binding expression.
+        Some of these pipes are:
+      </msg>
+  <msg id="6133394432646285445"><source>app/codelabs/angular/pipes/pipes.component.ts:64</source>DatePipe</msg>
+  <msg id="5839275777403880743"><source>app/codelabs/angular/pipes/pipes.component.ts:65</source>UpperCasePipe</msg>
+  <msg id="6740342208072194931"><source>app/codelabs/angular/pipes/pipes.component.ts:66</source>LowerCasePipe</msg>
+  <msg id="2266553293959373442"><source>app/codelabs/angular/pipes/pipes.component.ts:67</source>CurrencyPipe</msg>
+  <msg id="8735696714396028134"><source>app/codelabs/angular/pipes/pipes.component.ts:68</source>PercentPipe</msg>
+  <msg id="5149154268006877011"><source>app/codelabs/angular/pipes/pipes.component.ts:70,72</source>
+        You can check out all the pipes <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>in the docs.<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+      </msg>
+  <msg id="4362943119899344352"><source>app/codelabs/angular/pipes/pipes.component.ts:78</source>Chained Pipes</msg>
+  <msg id="3659352117251454836"><source>app/codelabs/angular/pipes/pipes.component.ts:79,81</source>
+      Translate Dali&apos;s birthday to a more human-friendly format. While you&apos;re at it, make his birthday uppercase, too.
+    </msg>
+  <msg id="8503508631471747052"><source>app/codelabs/angular/pipes/pipes.component.ts:83,85</source>
+      Hint: dob ... date ... uppercase
+    </msg>
+  <msg id="7340827717856214479"><source>app/codelabs/angular/pipes/pipes.component.ts:90</source>Pipes with arguments:</msg>
+  <msg id="4967947748637596970"><source>app/codelabs/angular/pipes/pipes.component.ts:95,98</source>
+      To add parameters to a pipe, append a colon ( : ) followed by the parameters&apos; values
+      e.g. currency:&apos;AUD&apos;
+    </msg>
+  <msg id="9037720070499831931"><source>app/codelabs/angular/pipes/pipes.component.ts:103</source>Using custom pipes to filter data</msg>
+  <msg id="9094229337954798264"><source>app/codelabs/angular/pipes/pipes.component.ts:112</source><source>app/codelabs/angular/pipes/pipes.component.ts:123</source><source>app/codelabs/angular/pipes/pipes.component.ts:136</source><source>app/codelabs/angular/pipes/pipes.component.ts:149</source>Creating a pipe</msg>
+  <msg id="58817125336296672"><source>app/codelabs/angular/pipes/pipes.component.ts:118</source>A pipe is a class decorated with pipe metadata.</msg>
+  <msg id="8180559447835807109"><source>app/codelabs/angular/pipes/pipes.component.ts:129,131</source>
+      The pipe class implements the PipeTransform interface.
+    </msg>
+  <msg id="616386071425212652"><source>app/codelabs/angular/pipes/pipes.component.ts:142,144</source>
+      The transform method accepts an input value followed by optional parameters and returns the transformed value.
+    </msg>
+  <msg id="4811132587552415897"><source>app/codelabs/angular/pipes/pipes.component.ts:155,157</source>
+      The @Pipe decorator allows you to define the pipe name that you&apos;ll use within template expressions.
+    </msg>
+  <msg id="4299693920507275879"><source>app/codelabs/angular/pipes/pipes.component.ts:158,160</source>
+      Don&apos;t forget to import the @Pipe decorator from the core Angular library.
+    </msg>
+  <msg id="5329266018439436543"><source>app/codelabs/angular/pipes/pipes.component.ts:167</source>End of the Pipes Section</msg>
+  <msg id="2786292079346742531"><source>app/codelabs/angular/pipes/pipes.component.ts:172,174</source>
+          <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Go to the next Bonus Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="8490135948418907139"><source>app/codelabs/angular/templates/templates.component.ts:30</source>Templates / Intro</msg>
+  <msg id="828579207806918596"><source>app/codelabs/angular/templates/templates.component.ts:31,32</source>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
+      elements</msg>
+  <msg id="5855587435210922238"><source>app/codelabs/angular/templates/templates.component.ts:38</source><source>app/codelabs/angular/templates/templates.component.ts:50</source>Templates / Interpolation</msg>
+  <msg id="1167128618662478140"><source>app/codelabs/angular/templates/templates.component.ts:39</source>Double curlies allow you to include properties from the component</msg>
+  <msg id="4326093281669549121"><source>app/codelabs/angular/templates/templates.component.ts:42,44</source>
+      Backticks <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>` `<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, are magic quotes that allow multi-line strings and text interpolation.
+    </msg>
+  <msg id="4394745758352985330"><source>app/codelabs/angular/templates/templates.component.ts:51,54</source>
+      Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate
+      <ph name="START_TAG_CODE"><ex>&lt;code&gt;</ex></ph>323213+34234<ph name="CLOSE_TAG_CODE"><ex>&lt;/code&gt;</ex></ph>
+    </msg>
+  <msg id="8015328335657625471"><source>app/codelabs/angular/templates/templates.component.ts:60</source>Templates / Exercise</msg>
+  <msg id="2296178219868339562"><source>app/codelabs/angular/templates/templates.component.ts:61,63</source>In the next slide you&apos;ll edit component template to create a simple header and search form. The result will
+      look like
+      this:</msg>
+  <msg id="2342001719559043779"><source>app/codelabs/angular/templates/templates.component.ts:82</source>Templates / Interpolation / Properties</msg>
+  <msg id="9052605393761038321"><source>app/codelabs/angular/templates/templates.component.ts:83,84</source>String interpolation <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> can also be used to pass avalue to a child element&apos;s attribute
+    </msg>
+  <msg id="5484861244461599088"><source>app/codelabs/angular/templates/templates.component.ts:91</source>Templates / Property Binding</msg>
+  <msg id="1120482935183367001"><source>app/codelabs/angular/templates/templates.component.ts:92</source>Another option is to use property binding <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>[attribute] = property<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="6385657961263768030"><source>app/codelabs/angular/templates/templates.component.ts:95,97</source>
+      You can use arbitrary expressions in the binding.
+    </msg>
+  <msg id="676282870769664538"><source>app/codelabs/angular/templates/templates.component.ts:102</source>Templates / Data binding extras</msg>
+  <msg id="2604621775941411917"><source>app/codelabs/angular/templates/templates.component.ts:103</source>Angular supports more advanced property bindings than just attribute name</msg>
+  <msg id="3814966254213724569"><source>app/codelabs/angular/templates/templates.component.ts:114</source>Templates / Event binding: (event)</msg>
+  <msg id="1674481147821860289"><source>app/codelabs/angular/templates/templates.component.ts:115</source>The bindings directives you&apos;ve met so far flow data in one direction: from a component to an element</msg>
+  <msg id="1414288142928384130"><source>app/codelabs/angular/templates/templates.component.ts:124,126</source>
+      While Parentheses are used for event binding: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>(event)<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, &quot;on-&quot; can also be used: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>on-event<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+    </msg>
+  <msg id="1512406520360220055"><source>app/codelabs/angular/templates/templates.component.ts:131</source>Templates / Reference binding ( #var )</msg>
+  <msg id="4515379042621635427"><source>app/codelabs/angular/templates/templates.component.ts:132,134</source>
+      Sometimes we need to access a HTML element or Angular component from the template. We can mark it with <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>#userName<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>,
+      and it becomes available as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>userName<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> everywhere in the template</msg>
+  <msg id="2089936986742209282"><source>app/codelabs/angular/templates/templates.component.ts:147</source>Templates / Conditional Display (*ngIf)</msg>
+  <msg id="1248112144489322049"><source>app/codelabs/angular/templates/templates.component.ts:148,150</source>
+      This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
+    </msg>
+  <msg id="4400739197495272917"><source>app/codelabs/angular/templates/templates.component.ts:157</source>Templates / Exercise 2</msg>
+  <msg id="4068857581424650411"><source>app/codelabs/angular/templates/templates.component.ts:158,160</source>In the next slide you&apos;ll add a click handler to the search button, and display a message for the case where
+      no
+      videos were found. The result will look like this:</msg>
+  <msg id="1815568624652810250"><source>app/codelabs/angular/templates/templates.component.ts:179</source>Templates / Repeating elements</msg>
+  <msg id="1048135326031252257"><source>app/codelabs/angular/templates/templates.component.ts:180,183</source>
+      Let&apos;s say you have an array of puppies, and want to display all of them on them page. Angular has a special syntax
+      for that called <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, let&apos;s see how it works on the next slide
+    </msg>
+  <msg id="7629374025832190389"><source>app/codelabs/angular/templates/templates.component.ts:189</source>Templates / Repeating elements (*ngFor)</msg>
+  <msg id="4741557658120551532"><source>app/codelabs/angular/templates/templates.component.ts:190,193</source>
+      Here <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> repeats HTML element it&apos;s attached to (li in this case) for every single puppy in the puppies
+      array
+    </msg>
+  <msg id="7691190167897559246"><source>app/codelabs/angular/templates/templates.component.ts:196,198</source>HTML attributes in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> are case sensitive: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph><ph name="START_STRIKETHROUGH_TEXT"><ex>&lt;s&gt;</ex></ph>*ngfor<ph name="CLOSE_STRIKETHROUGH_TEXT"><ex>&lt;/s&gt;</ex></ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> won&apos;t work, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      will
+    </msg>
+  <msg id="4576405854188646614"><source>app/codelabs/angular/templates/templates.component.ts:203</source>Templates / Exercise 3</msg>
+  <msg id="595166160893731252"><source>app/codelabs/angular/templates/templates.component.ts:206,208</source>
+          In the next slide you&apos;ll finally display the videos! The result will look like this:
+        </msg>
+  <msg id="6792033736989492320"><source>app/codelabs/angular/templates/templates.component.ts:230</source>Templates / Milestone Completed!</msg>
+  <msg id="8787586021636577494"><source>app/codelabs/angular/templates/templates.component.ts:235,237</source>
+          Next: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Learn how to use Angular Dependency Injection<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="2663473733859988431"><source>app/codelabs/extra/experiments/experiments.component.ts:24</source>How to use angular-presentation</msg>
+  <msg id="968209378344626133"><source>app/codelabs/extra/experiments/experiments.component.ts:25,33</source>    first you create the slide with
+
+    &lt;slides-slide&gt;
+      ...
+    &lt;/slides-slide&gt;
+
+    this component creates new empty separate slide for presentation
+    </msg>
+  <msg id="1456331223922694219"><source>app/codelabs/extra/experiments/experiments.component.ts:40</source>HTML tags in slide component</msg>
+  <msg id="1511197778337781723"><source>app/codelabs/extra/experiments/experiments.component.ts:42,43</source>Inside this component you can use regular html tags like h1, h2, p, ol, li and
+      others.</msg>
+  <msg id="5362921580245875169"><source>app/codelabs/extra/experiments/experiments.component.ts:45</source> &lt;h1&gt; Text of header &lt;/h1&gt;</msg>
+  <msg id="9086034298306100949"><source>app/codelabs/extra/experiments/experiments.component.ts:46</source>Text of header h1</msg>
+  <msg id="1404706758239551347"><source>app/codelabs/extra/experiments/experiments.component.ts:48</source> &lt;h2&gt; Text of header &lt;/h2&gt;</msg>
+  <msg id="641717936183987202"><source>app/codelabs/extra/experiments/experiments.component.ts:49</source>Text of header h2</msg>
+  <msg id="8351444689626304044"><source>app/codelabs/extra/experiments/experiments.component.ts:51</source> &lt;p&gt; Text inside p tag &lt;/p&gt;</msg>
+  <msg id="1932212985599831204"><source>app/codelabs/extra/experiments/experiments.component.ts:52</source>Text inside p tag</msg>
+  <msg id="8939397946054610554"><source>app/codelabs/extra/experiments/experiments.component.ts:54</source>Lists with ol and li tags</msg>
+  <msg id="5206546241274127497"><source>app/codelabs/extra/experiments/experiments.component.ts:56</source>lists item 1</msg>
+  <msg id="4455949665729300715"><source>app/codelabs/extra/experiments/experiments.component.ts:57</source>lists item 2</msg>
+  <msg id="386386164121010551"><source>app/codelabs/extra/experiments/experiments.component.ts:63</source>slides-code-editor</msg>
+  <msg id="7698542289120283415"><source>app/codelabs/extra/experiments/experiments.component.ts:64,70</source>    This component lets you to display code in the slide.
+
+    &lt;slides-code-editor [fontSize]=&quot;30&quot; [code]=&quot;code.moduleAnatomy.code&quot;
+           [focus-highlight-match]=&quot;[code.moduleAnatomy.matches.ngModule]&quot;&gt;
+    &lt;/slides-code-editor&gt;
+    </msg>
+  <msg id="6815726446756844678"><source>app/codelabs/extra/experiments/experiments.component.ts:73</source>Parent Component</msg>
+  <msg id="1255945174637247195"><source>app/codelabs/extra/experiments/experiments.component.ts:82</source>slides-playground</msg>
+  <msg id="6021867366182469615"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:16</source>What is Visual Studio Code?</msg>
+  <msg id="8014454056322104749"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:19</source>Visual Studio Code is a free, open-source code editor developed by Microsoft</msg>
+  <msg id="1877047903896839345"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:21</source>built with Github Electron, and written in HTML, CSS,and Javascript</msg>
+  <msg id="291188724782382488"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:22</source>offers a robust extensible architecture and is highly customizable</msg>
+  <msg id="6864133926792336428"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:23</source>built-in perks include:</msg>
+  <msg id="8213553265817432250"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:25</source>Source Control</msg>
+  <msg id="8119580746915763184"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:26</source>Extensions Marketplace</msg>
+  <msg id="2331099213220829403"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:27</source>Debugger</msg>
+  <msg id="7886182121229259951"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:28</source>Built-in Terminal</msg>
+  <msg id="6960299153168932020"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:37</source>Why Use Visual Studio Code?</msg>
+  <msg id="7768548511854950120"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:38</source>It has awesome tooling support and works especially well with Typescript.</msg>
+  <msg id="5252005428857136386"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:39,41</source>
+      It comes with <ph name="START_EMPHASISED_TEXT"><ex>&lt;em&gt;</ex></ph>Intellisense<ph name="CLOSE_EMPHASISED_TEXT"><ex>&lt;/em&gt;</ex></ph>, which provides code completion and code info.
+    </msg>
+  <msg id="7250298040980145523"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:55</source>No Really, Why Use Visual Studio Code?</msg>
+  <msg id="7554613689566434602"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:56</source>Missing Reference? Syntax Error? No problem!</msg>
+  <msg id="2800956093507511051"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:57,59</source>
+      Look for the lightbulb to shed some light on the issue and maybe even automatically fix it for you.
+    </msg>
+  <msg id="8447051275594548567"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:69</source>OK, How Do I Get VSCode?</msg>
+  <msg id="2075046187507565369"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:72</source>Interested? Curious?</msg>
+  <msg id="2096900865992686129"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:73</source>Ready to join the cult?</msg>
+  <msg id="9200872030921728642"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:75</source>Click <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>here<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> to download.</msg>
+  <msg id="4860141723077790857"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:76</source>Run the installer</msg>
+  <msg id="3551979385787355988"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:77</source>Enjoy!</msg>
+  <msg id="1062817659653323306"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:78</source>Profit???</msg>
+  <msg id="1986266905762586096"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:89</source>Popular extensions</msg>
+  <msg id="6178740038804950295"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:92</source>are many extensions available for VSCode. Some good ones include:</msg>
+  <msg id="4212132968388717597"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:94,97</source>
+              <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>vscode-icons<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> - Adds icons to your file tree (ohhhh shiny)
+            </msg>
+  <msg id="4946645274124983648"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:98,101</source>
+              <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Editor
+                Config<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> - Editor Config Plugin for vs code
+            </msg>
+  <msg id="7690707696109505741"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:102,105</source>
+              <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>ESLint<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+              - JS linter plugin
+            </msg>
+  <msg id="3778634895596197205"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:106,109</source>
+              <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TSLint<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> -
+              TypeScript linter plugin (Moarrrrr linter)
+            </msg>
+  <msg id="4719234180105351202"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:110,113</source>
+              <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Beautify<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> - Beautify code, if you don&apos;t like JS-beautify
+            </msg>
+  <msg id="5313317248244121827"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:114,118</source>
+              And many many more! check out the <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>offical
+              site<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> and <ph name="START_LINK_1"><ex>&lt;a&gt;</ex></ph>Awesome VS Code<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> for
+              more!
+            </msg>
+  <msg id="8182030832859067118"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:127</source>Common Keyboard Shortcuts</msg>
+  <msg id="5366126190859883034"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:129</source>Formats your code (Shift+Alt+F)</msg>
+  <msg id="8215659434096687506"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:130</source>Open New Window (Ctrl+Shift+N)</msg>
+  <msg id="3065788645612743007"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:131</source>Open Project Folder (Ctrl+K,Ctrl+O)</msg>
+  <msg id="6893626355986199542"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:132</source>Go to File (Ctrl+P)</msg>
+  <msg id="995209334155550513"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:133</source>Expand Selection (Shift+Alt+Right)</msg>
+  <msg id="6899626762634692145"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:134</source>Search multiple File (Ctrl+Shift+F)</msg>
+  <msg id="7635525398065863436"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:135</source>Go to Definition (F12)</msg>
+  <msg id="2791331332402381442"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:136</source>Rename (F2)</msg>
+  <msg id="7453317402065379519"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:137</source>Multiple Cursor(Alt+Mouse)</msg>
+  <msg id="8241286558344626850"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:138,139</source>See more <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>here<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></msg>
+  <msg id="3577265566410787513"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:141,148</source>
+      Miss your old editor keymap? Try out of one of these extensions:
+      <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Vim<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>,
+      <ph name="START_LINK_1"><ex>&lt;a&gt;</ex></ph>Atom<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>,
+      <ph name="START_LINK_2"><ex>&lt;a&gt;</ex></ph>Sublime<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+    </msg>
+  <msg id="8584819639123990584"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:154</source>What!? you forgot all the shortcuts already?</msg>
+  <msg id="7069730264349555921"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:155</source>No problem, VSCode has your back. Hit (F1) or (ctrl+shift+p) and type the command you want to perform</msg>
+  <msg id="5575283145257084367"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:165</source>End of Visual Studio Code Section</msg>
+  <msg id="2044983581446920408"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:170</source><ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Visual Studio Code Offical Site<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></msg>
+  <msg id="1263625012416861724"><source>app/codelabs/extra/visual-studio-code/visual-studio-code.component.ts:174,177</source>
+          <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Back to Index<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+          
+        </msg>
+  <msg id="shorthandFunction"><source>app/codelabs/typescript/typescript/typescript.component.ts:2</source>Or use shorthand function notation.</msg>
+  <msg id="errorNotAPuppy"><source>app/codelabs/typescript/typescript/typescript.component.ts:3</source>Error: this is clearly not a puppy</msg>
+  <msg id="thisIsNumber"><source>app/codelabs/typescript/typescript/typescript.component.ts:4</source>This is a number</msg>
+  <msg id="6225777299423953966"><source>app/codelabs/typescript/typescript/typescript.component.ts:32</source>Why TypeScript</msg>
+  <msg id="4845793289318766506"><source>app/codelabs/typescript/typescript/typescript.component.ts:46</source>TypeScript</msg>
+  <msg id="1222056232586280725"><source>app/codelabs/typescript/typescript/typescript.component.ts:51,53</source>TypeScript extends the latest
+            version of JavaScript (ES6)
+          </msg>
+  <msg id="6474054376534067382"><source>app/codelabs/typescript/typescript/typescript.component.ts:54,55</source>TypeScript adds somefeatures from the next version (ES7)
+          </msg>
+  <msg id="2918183727702284411"><source>app/codelabs/typescript/typescript/typescript.component.ts:56,57</source>On top of it, TypeScript adds an optional type system and decorators
+          </msg>
+  <msg id="8365510594080665304"><source>app/codelabs/typescript/typescript/typescript.component.ts:78,79</source>ES7
+            </msg>
+  <msg id="5719991225831147952"><source>app/codelabs/typescript/typescript/typescript.component.ts:81,82</source>Decorators
+            </msg>
+  <msg id="3291065066040545222"><source>app/codelabs/typescript/typescript/typescript.component.ts:84,85</source>Types
+            </msg>
+  <msg id="5813815408611692262"><source>app/codelabs/typescript/typescript/typescript.component.ts:87,88</source>TypeScript
+            </msg>
+  <msg id="6789285271495262013"><source>app/codelabs/typescript/typescript/typescript.component.ts:90,91</source>Classes
+            </msg>
+  <msg id="1319734933981966500"><source>app/codelabs/typescript/typescript/typescript.component.ts:93,94</source>Modules
+            </msg>
+  <msg id="4240486300768704478"><source>app/codelabs/typescript/typescript/typescript.component.ts:96,97</source>More...
+            </msg>
+  <msg id="7112509679553001939"><source>app/codelabs/typescript/typescript/typescript.component.ts:113</source><source>app/codelabs/typescript/typescript/typescript.component.ts:127</source>TypeScript / Type System</msg>
+  <msg id="8897430566941228177"><source>app/codelabs/typescript/typescript/typescript.component.ts:114,115</source>Below we have an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> function, and we&apos;re adding 2 and 2. What could go wrong?
+    </msg>
+  <msg id="4895625190709847499"><source>app/codelabs/typescript/typescript/typescript.component.ts:121,122</source>Turns out it&apos;s possible to pass a string to this function and we get <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>22<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> instead of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>4<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. Let&apos;s
+      see how TypeScript can help address this issue on the next slide</msg>
+  <msg id="2453425375180790120"><source>app/codelabs/typescript/typescript/typescript.component.ts:128,130</source> TypeScript uses <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>:<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to specify the type information (e.g. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>n: number<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>g). Both <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>b<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> should be
+      numbers. We specified the type for <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, now it&apos;s your turn!</msg>
+  <msg id="5379917036245705937"><source>app/codelabs/typescript/typescript/typescript.component.ts:137,139</source>
+      The code above is editable!
+    </msg>
+  <msg id="7184902338887675021"><source>app/codelabs/typescript/typescript/typescript.component.ts:143</source>TypeScript / Types / Primitives (strings, numbers, etc...)</msg>
+  <msg id="7773507354148549356"><source>app/codelabs/typescript/typescript/typescript.component.ts:144</source>Types are more types we can use&gt;</msg>
+  <msg id="5973606507353383362"><source>app/codelabs/typescript/typescript/typescript.component.ts:147,150</source>
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>const<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a new way to declare variables (introduced in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>ES6<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>). Similar to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>var<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>,
+      but is block scoped (only exist inside of curly braces block), and errors out if the value is reassigned.
+    </msg>
+  <msg id="8356377481986908648"><source>app/codelabs/typescript/typescript/typescript.component.ts:154</source>TypeScript / Types / Interfaces</msg>
+  <msg id="6027504298282045432"><source>app/codelabs/typescript/typescript/typescript.component.ts:155</source>TypeScript allows to define more complex objects using interfaces:</msg>
+  <msg id="702106966820398853"><source>app/codelabs/typescript/typescript/typescript.component.ts:158,160</source>
+      Here, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>realPuppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is an instance of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> Interface.
+    </msg>
+  <msg id="2290415883760227771"><source>app/codelabs/typescript/typescript/typescript.component.ts:164</source>TypeScript / Types / Arrays</msg>
+  <msg id="2672636832952045368"><source>app/codelabs/typescript/typescript/typescript.component.ts:165</source>Arrays are defined as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Array&lt;Type&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> or <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Type[]<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="2405764712212602026"><source>app/codelabs/typescript/typescript/typescript.component.ts:173</source>TypeScript / Classes</msg>
+  <msg id="4690830357394206486"><source>app/codelabs/typescript/typescript/typescript.component.ts:174</source>TypeScript has <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>classes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, and Angular uses them heavily.</msg>
+  <msg id="4400419948462180614"><source>app/codelabs/typescript/typescript/typescript.component.ts:175</source>They are similar to classes in other languages, and are used to group methods and properties together</msg>
+  <msg id="2241473065319320696"><source>app/codelabs/typescript/typescript/typescript.component.ts:180</source>TypeScript / Classes / Constructor</msg>
+  <msg id="594323862330325791"><source>app/codelabs/typescript/typescript/typescript.component.ts:181,185</source>
+      There&apos;s a special method on the class called <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>constructor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. It&apos;s run when the class is instantiated and
+      allows
+      the class to take parameters
+    </msg>
+  <msg id="5204240005969151523"><source>app/codelabs/typescript/typescript/typescript.component.ts:191</source>TypeScript / Classes / Access Modifiers</msg>
+  <msg id="1284274927983136600"><source>app/codelabs/typescript/typescript/typescript.component.ts:192,195</source>
+      Constructor parameters marked as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>public<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> (or private, or protected), become class properties accessible as
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.&lt;parameter name&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> within the class
+    </msg>
+  <msg id="832290230708229550"><source>app/codelabs/typescript/typescript/typescript.component.ts:198</source>private or protected properties are not visible outside of the class.</msg>
+  <msg id="2833299688177134254"><source>app/codelabs/typescript/typescript/typescript.component.ts:202</source>TypeScript / Export</msg>
+  <msg id="3803734535691220713"><source>app/codelabs/typescript/typescript/typescript.component.ts:203,204</source>By the way, did you notice the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>export<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> keyword before class? It is used to share information
+      between files. In the next slide, we&apos;ll show you how to export and use this class in a different file</msg>
+  <msg id="85239674128449276"><source>app/codelabs/typescript/typescript/typescript.component.ts:212</source>TypeScript / Import</msg>
+  <msg id="5575767639565396335"><source>app/codelabs/typescript/typescript/typescript.component.ts:213</source>Now we can use the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> class in the other file</msg>
+  <msg id="446543992828107232"><source>app/codelabs/typescript/typescript/typescript.component.ts:216,218</source>Imports and exports are not just for classes. They work with variables, functions and other
+      things!
+    </msg>
+  <msg id="2769421710025281"><source>app/codelabs/typescript/typescript/typescript.component.ts:222</source>TypeScript / Filter (One last thing)</msg>
+  <msg id="1938583941517835632"><source>app/codelabs/typescript/typescript/typescript.component.ts:223,225</source>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
+      provided
+      from the returning callback</msg>
+  <msg id="7850575608398492210"><source>app/codelabs/typescript/typescript/typescript.component.ts:230</source>TypeScript / More</msg>
+  <msg id="5612117993680767924"><source>app/codelabs/typescript/typescript/typescript.component.ts:231</source>TypeScript supports lots of other cool features such as: </msg>
+  <msg id="3591838911718818191"><source>app/codelabs/typescript/typescript/typescript.component.ts:233</source>Interfaces</msg>
+  <msg id="2778796732744507615"><source>app/codelabs/typescript/typescript/typescript.component.ts:234</source>Enums</msg>
+  <msg id="554505692155626925"><source>app/codelabs/typescript/typescript/typescript.component.ts:235</source>Async / Await</msg>
+  <msg id="328559435378058585"><source>app/codelabs/typescript/typescript/typescript.component.ts:236</source>Getters / Setters</msg>
+  <msg id="2854346138345342774"><source>app/codelabs/typescript/typescript/typescript.component.ts:237</source>Destructuring</msg>
+  <msg id="2824004502397491284"><source>app/codelabs/typescript/typescript/typescript.component.ts:238</source>Arrow functions</msg>
+  <msg id="4818010747810947110"><source>app/codelabs/typescript/typescript/typescript.component.ts:239</source>And more!</msg>
+  <msg id="7824265004931736949"><source>app/codelabs/typescript/typescript/typescript.component.ts:241,243</source>We won&apos;t cover them in detail, check out the <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph> website!
+    </msg>
+  <msg id="2099901358858524224"><source>app/codelabs/typescript/typescript/typescript.component.ts:247</source>TypeScript / Exercise</msg>
+  <msg id="1966301836895698534"><source>app/codelabs/typescript/typescript/typescript.component.ts:248</source>In the next slide we have a TypeScript exercise</msg>
+  <msg id="1408750369254023078"><source>app/codelabs/typescript/typescript/typescript.component.ts:249,251</source>Your task is to build a TypeScript class which will take a list of guests, and will have a method to output
+      only
+      the ones who are coming.</msg>
+  <msg id="2921334658251839102"><source>app/codelabs/typescript/typescript/typescript.component.ts:252</source>The result will be as follows:</msg>
+  <msg id="4354089053789898401"><source>app/codelabs/typescript/typescript/typescript.component.ts:270</source>TypeScript / Milestone Completed</msg>
+  <msg id="564343607900892103"><source>app/codelabs/typescript/typescript/typescript.component.ts:272,276</source>
+          Now you should know enough <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>TypeScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to learn <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>!
+          Read more about TypeScript on
+          <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript web site<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+  <msg id="8996212713515416129"><source>app/codelabs/typescript/typescript/typescript.component.ts:283,285</source>next:
+          <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Learn how to create your first Angular app!<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        </msg>
+</messagebundle>

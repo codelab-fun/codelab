@@ -2,6 +2,9 @@
 //  TODO: This should be done using require.context
 import { DiffFilesResolver } from '../src/app/differ/diffFilesResolver';
 import { Injectable } from '@angular/core';
+import { createModuleTest } from './tests/createModuleTest';
+import { createComponentTest } from './tests/createComponentTest';
+import { createBootstrapTest } from './tests/bootstrapTest';
 declare const require;
 
 const preloadedFiles = {
@@ -179,7 +182,14 @@ export interface MilestoneConfigTemplate {
   name: string;
   exercises: Array<ExerciseConfigTemplate | SlideTemplate>;
 }
-
+function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
+  return exercisesFiles.map(file => {
+    if (file.path === path) {
+      file.execute = callback;
+    }
+    return file;
+  });
+}
 export const ng2tsConfig: CodelabConfigTemplate = {
   name: 'Angular 101 Codelab (beta)',
   id: 'ng2ts',
@@ -218,32 +228,32 @@ export const ng2tsConfig: CodelabConfigTemplate = {
         },
         {
           name: 'Create a component',
-          files: diffFilesResolver.resolve('createComponent', {
+          files: patchATestWithAFunctionINAHackyWay(diffFilesResolver.resolve('createComponent', {
             exercise: [files.appComponent],
             reference: [files.appModule, files.main, files.indexHtml],
             bootstrap: [files.main],
             test: [files.test],
-          })
+          }), 'tests/test.ts', createComponentTest)
         },
         {
           name: 'Create a NgModule',
-          files: diffFilesResolver.resolve('createModule', {
+          files: patchATestWithAFunctionINAHackyWay(diffFilesResolver.resolve('createModule', {
             exercise: [files.appModule],
             reference: [files.appComponent],
             hidden: [files.main],
             test: [files.test],
             bootstrap: [files.main]
-          })
+          }), 'tests/test.ts', createModuleTest)
         },
         {
           name: 'Bootstrap the module',
           skipTests: true,
-          files: diffFilesResolver.resolve('bootstrap', {
+          files: patchATestWithAFunctionINAHackyWay(diffFilesResolver.resolve('bootstrap', {
             exercise: [files.main],
             reference: [files.appComponent, files.appModule],
             test: [files.test],
             bootstrap: [files.main]
-          })
+          }), 'tests/test.ts', createBootstrapTest)
         }
       ]
     },
@@ -420,21 +430,21 @@ export const ng2tsConfig: CodelabConfigTemplate = {
         files: diffFilesResolver.resolve('fuzzyPipeUse', {
           exercise: [files.appModule, files.video_video_component_html],
           reference: [files.fuzzyPipe_fuzzyPipe,
-          files.contextService,
-          files.contextComponent,
-          files.context_context_html,
-          files.video_video_component,
-          files.toggle_panel_toggle_panel,
-          files.toggle_panel_toggle_panel_html,
-          files.thumbs_thumbs_component,
-          files.thumbs_thumbs_html,
-          files.appHtml,
-          files.appComponent,
-          files.video_videoService,
-          files.video_videoItem,
-          files.apiService,
-          files.main,
-          files.indexHtml
+            files.contextService,
+            files.contextComponent,
+            files.context_context_html,
+            files.video_video_component,
+            files.toggle_panel_toggle_panel,
+            files.toggle_panel_toggle_panel_html,
+            files.thumbs_thumbs_component,
+            files.thumbs_thumbs_html,
+            files.appHtml,
+            files.appComponent,
+            files.video_videoService,
+            files.video_videoItem,
+            files.apiService,
+            files.main,
+            files.indexHtml
           ],
           test: [files.test],
           bootstrap: [files.main]
