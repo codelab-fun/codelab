@@ -3,7 +3,7 @@ body, html {
   height: 100%;
 }
 
-* {
-  font-family: "Helvetica Neue";
+body, h1, p, div {
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: 300;
 }
