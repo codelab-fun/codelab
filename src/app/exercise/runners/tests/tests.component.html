@@ -12,7 +12,8 @@
 </ng-container>
 
 <div *ngIf="hasTests()" style="margin-top: 10px; margin-left: 20px;">
-  <a href="#" (click)="toggleSeeAll($event)">{{seeAll ? "see only next step": "see all steps"}}</a>
+  <a href="#" (click)="toggleSeeAll($event)" *ngIf="seeAll; else seeAllSteps" i18n>see only next step</a>
+  <a href="#" (click)="toggleSeeAll($event)" #seeAllSteps i18n>see all steps</a>
 </div>
 
 
