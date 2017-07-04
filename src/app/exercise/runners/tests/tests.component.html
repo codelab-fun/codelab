@@ -1,4 +1,4 @@
-<slides-tests-progress [tests]="tests"></slides-tests-progress>
+<slides-tests-progress [tests]="tests" *ngIf="hasTests()"></slides-tests-progress>
 <ng-container *ngFor="let test of tests; trackBy: trackTest; let i=index;">
   <div *ngIf="seeAll || i==indexOfFirstUnsolved()" class="test-panel" title="{{test.result}}">
     <slides-test-description [title]="getTitle(test)"
@@ -11,7 +11,7 @@
   </div>
 </ng-container>
 
-<div *ngIf="tests!=null && tests.length>1" style="margin-top: 10px; margin-left: 20px;">
+<div *ngIf="hasTests()" style="margin-top: 10px; margin-left: 20px;">
   <a href="#" (click)="toggleSeeAll($event)">{{seeAll ? "see only next step": "see all steps"}}</a>
 </div>
 

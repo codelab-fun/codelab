@@ -15,13 +15,19 @@ function getFileName(file: FileConfig) {
 export class TestsComponent {
   @Input() tests: Array<TestInfo>;
   @Input() files: Array<FileConfig>;
+  @Input() translations: { [key: string]: string; } = {};
   @Output()
   public onSelectFile: EventEmitter<FileConfig> = new EventEmitter<FileConfig>();
 
   seeAll = false;
 
+  hasTests() {
+    return this.tests && this.tests.length > 0;
+  }
+
   constructor(private sanitizer: DomSanitizer) {
   };
+
 
   trackTest(index, test: TestInfo) {
     return test.title;
