@@ -31,7 +31,7 @@ function prepareTestingModule(videoComponent: any = VideoComponent) {
 }
 
 describe('Component Tree', () => {
-  it(`app.module.ts: Add the VideoComponent to the AppModule 'declarations'.`, () => {
+  it(`@@addVideoComponentToAppModule`, () => {
     prepareTestingModule();
     let metadata;
     try {
@@ -43,7 +43,7 @@ describe('Component Tree', () => {
     chai.expect(metadata[0].declarations, `Keep the app component`).contains(AppComponent);
   });
 
-  it(`app.html: Replace existing title and thumbnail with our shiny new my-video component`, () => {
+  it(`@@replaceTitleAndThumbnail`, () => {
     @Component({
       selector: '' + 'my-video',
       template: 'v'
@@ -69,14 +69,11 @@ describe('Component Tree', () => {
     chai.expect(myVideos.length, `There should be one <my-video> element for each video`).equals(fixture.componentInstance.videos.length);
   });
 
-  it(`app.html: Use the data binding to pass the video object to the component (don't forget the square brackets)`, () => {
+  it(`@@useDataBindingToPassVideoToComponent`, () => {
     prepareTestingModule();
     const fixture = TestBed.createComponent(AppComponent);
-
     fixture.componentInstance.videos = Api.fetch('');
-
     fixture.detectChanges();
-
     const video = fixture.nativeElement.querySelector('my-video');
     chai.expect(video.getAttribute('ng-reflect-video')).equals('[object Object]');
   });

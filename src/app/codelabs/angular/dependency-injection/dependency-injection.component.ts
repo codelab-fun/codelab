@@ -9,6 +9,7 @@ import { extractMessages } from '../../../presentation/i18n-tools';
   styleUrls: ['./dependency-injection.component.css']
 })
 export class DependencyInjectionComponent implements OnInit {
+  t: { [key: string]: string; };
   exercise;
 
   @ViewChild('translations') translation;
@@ -19,7 +20,7 @@ export class DependencyInjectionComponent implements OnInit {
   }
 
   ngOnInit() {
-    const t = extractMessages(this.translation);
+    this.t = extractMessages(this.translation);
 
     this.code = {
       withOutDI: {
@@ -53,7 +54,7 @@ export class Person {
       withDI: {
         code: `export class Person {
   /**
-   ${t.shorthandMakesProfessionAvailable}
+   ${this.t.shorthandMakesProfessionAvailable}
    */
   constructor(public profession: Job) {}
 }`,
@@ -69,7 +70,7 @@ export class Person {
   
   it('should create a Person with the right profession', () => {
     const person = new Person(mockProfession);
-    // ${t.assumingJobHasPropTitle}
+    // ${this.t.assumingJobHasPropTitle}
     expect(person.profession.title).toEqual('lawyer');
   });
 }`,
