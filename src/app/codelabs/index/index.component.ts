@@ -5,7 +5,7 @@ export interface IndexPageRoute {
   name: string;
   description: string;
   page?: string;
-  translationIds?: string[]
+  translationIds?: string[];
 }
 
 @Component({
@@ -20,11 +20,9 @@ export class IndexComponent implements OnInit {
   getMainPageRoutes() {
     const t = extractMessages(this.translations); // translations from the template
     return this.getPageRoutes('main').map(route => {
-      return {
-        ...route,
-        name: t[route.translationIds[0]] || route.name,
-        description: t[route.translationIds[1]] || route.description
-      };
+      route.name = t[route.translationIds[0]] || route.name;
+      route.description = t[route.translationIds[1]] || route.name;
+      return route;
     });
   }
 
