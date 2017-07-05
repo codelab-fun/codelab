@@ -28,6 +28,23 @@
   </div>
   <div i18n="@@definitelyBoolean" id="definitelyBoolean">okay, definitely a boolean</div>
   <div i18n="@@createClassCodelab" id="createClassCodelab">Create a class called 'Codelab'</div>
+  <div i18n="@@exportClass" id="exportClass">Export the class</div>
+  <div i18n="@@addConstructor" id="addConstructor">Add a constructor</div>
+  <div i18n="@@makeConstructorTakeParamGuests" id="makeConstructorTakeParamGuests">Make constructor take a parameter
+    'guests'
+  </div>
+  <div i18n="@@specifyTheTypeForGuests" id="specifyTheTypeForGuests">Specify the type for the guests parameter (hint:
+    it's an array of a type Guest)
+  </div>
+  <div i18n="@@makeParemeterPublic" id="makeParemeterPublic">Make the parameter public (note that now you can access it
+    anywhere in the class using this.guests)
+  </div>
+  <div i18n="@@createNewMethodGetGuestsComing" id="createNewMethodGetGuestsComing">Create new method 'getGuestsComing'
+  </div>
+  <div i18n="@@modifyGetGuestsComingToFilter" id="modifyGetGuestsComingToFilter">Modify getGuestsComing to filter the
+    guests array return an array of guests with the 'coming'
+    property set to true.
+  </div>
 
 </div>
 <slides-presentation
@@ -67,14 +84,16 @@
         browsers
       </li>
     </ul>
-    <div class="info" i18n><b>ES</b> stands for <b>EcmaScript</b>, which the name of the JavaScript language specification
+    <div class="info" i18n><b>ES</b> stands for <b>EcmaScript</b>, which the name of the JavaScript language
+      specification
       (standard)
     </div>
   </slides-slide>
 
   <slides-slide *slidesIf="'about-typescript-2'; milestone: 'TypeScript'">
     <h1 i18n>TypeScript</h1>
-    <h2 i18n>This is why <b>TypeScript</b> was created. It transpiles to JavaScript, so it can be used in any browser.</h2>
+    <h2 i18n>This is why <b>TypeScript</b> was created. It transpiles to JavaScript, so it can be used in any browser.
+    </h2>
     <div row>
       <div>
         <ul>
@@ -156,7 +175,7 @@
 
   <!--  NUMBER-TYPE  -->
   <slides-slide slidesIntroJs *slidesIf="'typescript-mini-exercise'; milestone: 'TypeScript'">
-    <h1 data-step="1" data-intro="Welcome to the first coding exercise!" i18n>
+    <h1 data-step="1" data-intro="Welcome to the first coding exercise!">
       <ng-container i18n="@@typescript">TypeScript</ng-container>
       /
       <ng-container i18n="@@typeSystem">Type System</ng-container>
@@ -367,7 +386,7 @@
         <h2 i18n>
           Now you should know enough <b>TypeScript</b> to learn <b>Angular</b>!
           Read more about TypeScript on
-          <a href="http://www.typescriptlang.org/" i18n>TypeScript web site</a>
+          <a href="http://www.typescriptlang.org/">TypeScript web site</a>
         </h2>
 
       </div>

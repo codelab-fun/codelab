@@ -1,7 +1,7 @@
-import {TestBed} from '@angular/core/testing';
-import {AppComponent} from '../app.component';
+import { TestBed } from '@angular/core/testing';
+import { AppComponent } from '../app.component';
 import 'initTestBed';
-import {app_html} from '../code';
+import { app_html } from '../code';
 
 beforeEach(() => {
   TestBed.resetTestingModule();
@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 describe('Blabla', () => {
-  it(`app.html: Add a <h1> header, display the 'title' property of the AppComponent inside`, () => {
+  it(`@@addH1HeaderWithATitle`, () => {
     TestBed.compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
@@ -31,7 +31,7 @@ describe('Blabla', () => {
     chai.expect(header2.innerHTML, `Use the curly braces to put component title property in the header`).contains('SomethingElse');
   });
 
-  it(`app.html: Add an <input> with a 'placeholder' attribute set to 'video'`, () => {
+  it(`@@addInputWithPlaceholderVideo`, () => {
     TestBed.compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
@@ -40,7 +40,7 @@ describe('Blabla', () => {
     chai.expect(input.placeholder, `Input placeholder should contain word 'video'`).contains('video');
   });
 
-  it(`app.html: Add a <button> with a text 'search'`, () => {
+  it(`@@addButtonWithtextSearch`, () => {
     TestBed.compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

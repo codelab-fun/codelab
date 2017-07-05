@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { TestInfo } from '../../interfaces/test-info';
@@ -12,8 +12,7 @@ declare const require;
 })
 export class BabelTestRunnerComponent implements AfterViewInit {
   tests: Array<TestInfo> = [];
-
-  @ViewChild('runner') runnerElement: ElementRef;
+  @Input() translations: { [key: string]: string; } = {};
 
   run(files: Array<FileConfig>) {
     try {

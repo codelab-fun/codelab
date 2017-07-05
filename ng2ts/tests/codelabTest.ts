@@ -59,14 +59,14 @@ describe('Component', () => {
     chai.expect(typeof evalJs('Codelab')).equals('function');
   });
 
-  it(`Export the class`, () => {
+  it(`@@exportClass`, () => {
     /**
      * Require the class, assert it's a function (compile target is es5).
      */
     chai.expect(typeof Codelab).equals('function');
   });
 
-  it('Add a constructor', () => {
+  it('@@addConstructor', () => {
     let hasConstructor = false;
 
     /**
@@ -84,14 +84,14 @@ describe('Component', () => {
     chai.expect(hasConstructor, `Codelab doesn't have a constuctor`).is.true;
   });
 
-  it(`Make constructor take a parameter 'guests'`, () => {
+  it(`@@makeConstructorTakeParamGuests`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
     chai.expect(constructorNode.parameters.length, `Codelab's constructor should take a parameter`).to.equal(1);
     chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
   });
 
-  it(`Specify the type for the guests (hint: it's an array of a type Guest)`, () => {
+  it(`@@specifyTheTypeForGuests`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
 
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
@@ -110,7 +110,7 @@ describe('Component', () => {
 
   });
 
-  it('Make the parameter public (note that now you can access it anywhere in the class using this.guests)', () => {
+  it('@@makeParemeterPublic', () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
     const parameter = constructorNode.parameters[0];
     chai.expect(parameter.modifiers.length === 1 && parameter.modifiers[0].kind === ts.SyntaxKind.PublicKeyword,
@@ -118,12 +118,11 @@ describe('Component', () => {
 
   });
 
-  it(`Create new method 'getGuestsComing'`, () => {
+  it(`createNewMethodGetGuestsComing`, () => {
     chai.expect(typeof (new Codelab(guests).getGuestsComing)).equals('function');
   });
 
-  it(`Modify getGuestsComing to filter the guests array return an array of guests with the 'coming' 
-      property set to true.`, () => {
+  it(`@@modifyGetGuestsComingToFilter`, () => {
     const guestsComing = new Codelab(guests).getGuestsComing();
     chai.assert(Array.isArray(guestsComing), 'getGuestsComing must return an Array, current value: ' + guestsComing);
     chai.expect(guestsComing.length).equals(1);
