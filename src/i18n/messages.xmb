@@ -21,6 +21,19 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <messagebundle>
+  <msg id="4201318520171370271">see only next step</msg>
+  <msg id="4167729314672427096">see all steps</msg>
+  <msg id="createFirstNgApp">Create your first Angular app</msg>
+  <msg id="templates">Templates</msg>
+  <msg id="dependencyInjection">Dependency-Injection</msg>
+  <msg id="componentTree">Component-Tree</msg>
+  <msg id="customEvents">Custom-Events</msg>
+  <msg id="angularWrittenInTypescript">Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.</msg>
+  <msg id="learnHowToBootstrapApp">Learn how to create and bootstrap your first Angular application</msg>
+  <msg id="learnUsingTemplates">Learn how to use Angular templates</msg>
+  <msg id="learnToProvideDependencies">Learn how to provide dependencies to your code instead of hard-coding them</msg>
+  <msg id="learnToStructureAppWithReusableComponents">Learn how to structure your app with reusable components</msg>
+  <msg id="learnToBindToEvents">Learn to bind to events.</msg>
   <msg id="2339071718884287683">Angular Codelab</msg>
   <msg id="3544776889283127882">Welcome! Choose a topic below to start learning:</msg>
   <msg id="addComponentDecoratorAndSetSelectorToMyVideo">
@@ -40,7 +53,6 @@
   <msg id="displayNumberOfVideoLikes">video.component.html: Display the number video likes</msg>
   <msg id="replaceTitleAndThumbnail">app.html: Replace existing title and thumbnail with our shiny new my-video component</msg>
   <msg id="useDataBindingToPassVideoToComponent">app.html: Use the data binding to pass the video object to the component (don&apos;t forget the square brackets)</msg>
-  <msg id="componentTree">Component Tree</msg>
   <msg id="1477095887109447756">So far we have only one component, but as your app grows it will form a tree of components</msg>
   <msg id="4420604777002064279">Parent and Child</msg>
   <msg id="958527444286373588">Any component can render another one by using an HTML element that matches the selector of the other
@@ -233,7 +245,6 @@
   <msg id="updateAppComponentSearchmethod">app.component.ts: Update the app
     component&apos;s search method to use videoService&apos;s search method
   </msg>
-  <msg id="dependencyInjection">Dependency Injection</msg>
   <msg id="dependencyInjectionLearnMore">Learn more about Angular&apos;s powerful Dependency Injection system</msg>
   <msg id="4375448281315274325">
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Dependency Injection<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a way to provide dependencies to your code instead of hard-coding them
@@ -322,7 +333,6 @@
   <msg id="IterateWithNgForAndDisplayTitle">app.html: Iterate over the videos using &apos;*ngFor&apos;, and display a title for each</msg>
   <msg id="addButtonWithtextSearch">app.html: Add a button tag with a text &apos;search&apos;</msg>
   <msg id="addInputWithPlaceholderVideo">app.html: Add an input tag with a &apos;placeholder&apos; attribute set to &apos;video&apos;</msg>
-  <msg id="templates">Templates</msg>
   <msg id="6346332284188948979">Learn more about Angular templates!</msg>
   <msg id="5433675495457939071">Templates</msg>
   <msg id="828579207806918596">Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
