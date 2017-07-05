@@ -5,21 +5,8 @@ export interface IndexPageRoute {
   name: string;
   description: string;
   page?: string;
+  translationIds?: string[]
 }
-
-const routesTranslations = {
-  'Create your first Angular app': 'createFirstNgApp',
-  'Templates': 'templates',
-  'Dependency-Injection': 'dependencyInjection',
-  'Component-Tree': 'componentTree',
-  'Custom-Events': 'customEvents',
-  'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.': 'angularWrittenInTypescript',
-  'Learn how to create and bootstrap your first Angular application': 'learnHowToBootstrapApp',
-  'Learn how to use Angular templates': 'learnUsingTemplates',
-  'Learn how to provide dependencies to your code instead of hard-coding them': 'learnToProvideDependencies',
-  'Learn how to structure your app with reusable components': 'learnToStructureAppWithReusableComponents',
-  'Learn to bind to events.': 'learnToBindToEvents'
-};
 
 @Component({
   selector: 'slides-index',
@@ -35,8 +22,8 @@ export class IndexComponent implements OnInit {
     return this.getPageRoutes('main').map(route => {
       return {
         ...route,
-        name: t[routesTranslations[route.name]] || route.name,
-        description: t[routesTranslations[route.description]] || route.description
+        name: t[route.translationIds[0]] || route.name,
+        description: t[route.translationIds[1]] || route.description
       };
     });
   }
