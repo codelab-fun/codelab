@@ -19,6 +19,7 @@ import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.componen
 import { AnalyticsService } from './analytics.service';
 import { IntrojsDirective } from './introjs-directive/introjs.directive';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
+import { MarkdownDirective } from './markdown-directive/markdown.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SlideIfDirective } from './slide-if/slide-if.directive';
     FeedbackSlideComponent,
     ClosingSlideComponent,
     IntrojsDirective,
-    SlideIfDirective
+    SlideIfDirective,
+    MarkdownDirective
   ],
 
   exports: [
@@ -55,7 +57,8 @@ import { SlideIfDirective } from './slide-if/slide-if.directive';
     FeedbackSlideComponent,
     ClosingSlideComponent,
     IntrojsDirective,
-    SlideIfDirective
+    SlideIfDirective,
+    MarkdownDirective
   ],
   imports: [
     CommonModule,
