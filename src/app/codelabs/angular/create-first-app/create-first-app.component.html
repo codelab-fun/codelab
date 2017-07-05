@@ -7,6 +7,24 @@
   <div i18n="@@componentNameIsClassName" id="componentNameIsClassName">Component name is the class name
     (AppComponent).
   </div>
+  <div i18n="@@createClassAppComponent" id="createClassAppComponent">Create a class called 'AppComponent'</div>
+  <div i18n="@@createClassAppModule" id="createClassAppModule">Create a class called 'AppModule'</div>
+  <div i18n="@@allSetBootstrapApp" id="allSetBootstrapApp">All set! Bootstrap your application</div>
+
+  <div i18n="@@exportClass" id="exportClass">Export the class</div>
+  <div i18n="@@addComponentDecorator" id="addComponentDecorator">Add a Component decorator for the class</div>
+  <div i18n="@@addSelectorMyApp" id="addSelectorMyApp">Add a selector to the component decorator and set it to
+    'my-app'
+  </div>
+  <div i18n="@@addTemplateHelloMewTube" id="addTemplateHelloMewTube">Add a template that contains: h1 with a text Hello
+    MewTube!
+  </div>
+  <div i18n="@@addNgModuleDecorator" id="addNgModuleDecorator">Add a NgModule decorator for the class</div>
+  <div i18n="@@addBrowserModuleToNgModule" id="addBrowserModuleToNgModule">Add 'BrowserModule' to the NgModule decorator imports</div>
+  <div i18n="@@addAppComponentToDeclarations" id="addAppComponentToDeclarations">Add 'AppComponent' to the 'declarations' property of the decorator</div>
+  <div i18n="@@addAppComponentToBootstrap" id="addAppComponentToBootstrap">Add 'AppComponent' to the 'bootstrap' property of the decorator</div>
+
+
 </div>
 <slides-presentation
   slides-slides-routing
@@ -199,7 +217,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="Bootstrap" class="slides-preview">
       </slides-slides-preview>
-      <slides-babel-test-runner class="tests"></slides-babel-test-runner>
+      <slides-babel-test-runner [translations]="t" class="tests"></slides-babel-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
@@ -371,7 +389,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="Bootstrap2" class="slides-preview">
       </slides-slides-preview>
-      <slides-babel-test-runner class="tests"></slides-babel-test-runner>
+      <slides-babel-test-runner [translations]="t" class="tests"></slides-babel-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
@@ -491,13 +509,12 @@
     <slides-exercise [files]="exercises[2].files">
       <div class="description">
         <p i18n>Now that we've got both NgModule and the component ready, let's bootstrap the app!</p>
-        <p i18n>There's no simple way to test it; just make sure your app displays: 'Hello MewTube!'</p>
       </div>
       <slides-new-editors class="editor">
       </slides-new-editors>
       <slides-slides-preview milestone="Bootstrap" class="slides-preview">
       </slides-slides-preview>
-      <slides-babel-test-runner class="tests"></slides-babel-test-runner>
+      <slides-babel-test-runner [translations]="t" class="tests"></slides-babel-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>

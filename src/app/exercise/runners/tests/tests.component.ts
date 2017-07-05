@@ -28,6 +28,9 @@ export class TestsComponent {
   constructor(private sanitizer: DomSanitizer) {
   };
 
+  getTranslation(title) {
+    return this.translations[title.replace('@@', '')] || title;
+  }
 
   trackTest(index, test: TestInfo) {
     return test.title;
@@ -39,7 +42,8 @@ export class TestsComponent {
 
   getTitle(test: TestInfo) {
     const file = this.getTestFile(test);
-    return file ? test.title.replace(getFileName(file), '') : test.title;
+    const title = this.getTranslation(test.title);
+    return file ? title.replace(getFileName(file), '') : title;
   }
 
   isFirstUnsolved(test) {

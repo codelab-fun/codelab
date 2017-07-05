@@ -11,6 +11,7 @@ const baseCode = 'TODO';
   styleUrls: ['./templates.component.css']
 })
 export class TemplatesComponent implements OnInit {
+  t: { [key: string]: string; };
   exercises = [
     ng2tsConfig.milestones[2].exercises[1],
     ng2tsConfig.milestones[2].exercises[2],
@@ -25,7 +26,7 @@ export class TemplatesComponent implements OnInit {
   }
 
   ngOnInit() {
-    const t = extractMessages(this.translation);
+    this.t = extractMessages(this.translation);
 
     this.code = {
       template: {
@@ -98,15 +99,15 @@ export class AppComponent {
   avatar = 'assets/images/renoir.jpg';
   fullName(){  return this.firstName + this.lastName }
 }`),
-        dataBindingExtra: `<!-- ${t.thisIsValidHTML} -->
+        dataBindingExtra: `<!-- ${this.t.thisIsValidHTML} -->
 <input [value]="person.emailAddress">
-<!-- ${t.worksOnAttributeSyntax} -->
+<!-- ${this.t.worksOnAttributeSyntax} -->
 <button [attr.aria-label]="help">help</button>
-<!-- ${t.allowsToConditionallyBindClass}-->
+<!-- ${this.t.allowsToConditionallyBindClass}-->
 <div [class.special]="isSpecial">Special</div>
-<!-- ${t.orStyleProps} -->
+<!-- ${this.t.orStyleProps} -->
 <button [style.color]="isSpecial ? 'red' : 'green'">
-<!-- ${t.worksWithCustomComponents} -->
+<!-- ${this.t.worksWithCustomComponents} -->
 <birthday-card [date]="person.birthday"> `,
       },
       ngIfDirective: {
@@ -123,7 +124,7 @@ export class AppComponent {
 export class AppComponent {
   firstName = 'Pierre-Auguste';
   avatar = 'assets/images/renoir.jpg';
-  onDisplay(){  return false } // ${t.tryChangingToTrue}
+  onDisplay(){  return false } // ${this.t.tryChangingToTrue}
 }`),
         matches: {
           ngIf: '*ngIf'
@@ -135,7 +136,7 @@ export class AppComponent {
 @Component({
   selector: 'my-app',
   template: \`<h1>Puppies names:</h1>
-    ??? <!-- ${t.needToRepeatPuppiesHere} -->
+    ??? <!-- ${this.t.needToRepeatPuppiesHere} -->
   \`
 })
 export class AppComponent {
@@ -204,7 +205,7 @@ describe('AppComponent', ()=>{
       bindingRef: `<div>
   <input #userName>
 
-  <!-- ${t.userNameHasRefToInput} -->
+  <!-- ${this.t.userNameHasRefToInput} -->
   <button (click)="isTaken(userName.value)">
     Check if taken
   </button>
@@ -213,13 +214,13 @@ describe('AppComponent', ()=>{
       bindingRef2Match: /userName.value/,
       bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
       bindingRefExerciseMatch: /#userinput/,
-      eventBinding: `<!-- ${t.whenUserClicksItCallsSaveUser} -->
+      eventBinding: `<!-- ${this.t.whenUserClicksItCallsSaveUser} -->
 <button (click)="saveUser($event)">
 
-<!-- ${t.youCanAlsoCreateEventsForCustomComponents}  -->
+<!-- ${this.t.youCanAlsoCreateEventsForCustomComponents}  -->
 <coffee-maker (depleted)="soundAlarm('loud')">
 
-<!-- ${t.thereAreShortcutEventBindings} -->
+<!-- ${this.t.thereAreShortcutEventBindings} -->
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
       eventBindingMatch: /\(click\)/,

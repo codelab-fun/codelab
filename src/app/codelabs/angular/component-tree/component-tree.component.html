@@ -1,3 +1,25 @@
+<div #translations style="display: none">
+  <div i18n="@@addComponentDecoratorAndSetSelectorToMyVideo" id="addComponentDecoratorAndSetSelectorToMyVideo">
+    video.component.ts: Add the '@Component' decorator
+    and set its selector property to 'my-video'.
+  </div>
+  <div i18n="@@addVideoComponentToAppModule" id="addVideoComponentToAppModule">app.module.ts: Add the VideoComponent to
+    the AppModule 'declarations'.
+  </div>
+
+
+  <div i18n="@@setTemplateUrlToLoadAppropriateFile" id="setTemplateUrlToLoadAppropriateFile">video.component.ts: Set the templateUrl to load the appropriate html file</div>
+  <div i18n="@@addVideoPropertyAndDecorateWithInput" id="addVideoPropertyAndDecorateWithInput">video.component.ts: Add a video property and decorate it with @Input()</div>
+  <div i18n="@@displayVideoTitle" id="displayVideoTitle">video.component.html: Display the video title</div>
+  <div i18n="@@displayVideoThumbnail" id="displayVideoThumbnail">video.component.html: Display the video thumbnail</div>
+  <div i18n="@@displayVideoDescription" id="displayVideoDescription">video.component.html: Display the video description</div>
+  <div i18n="@@displayVideoData" id="displayVideoData">video.component.html: Display the video date</div>
+  <div i18n="@@displayNumberOfVideoViews" id="displayNumberOfVideoViews">video.component.html: Display the number of video views</div>
+  <div i18n="@@displayNumberOfVideoLikes" id="displayNumberOfVideoLikes">video.component.html: Display the number video likes</div>
+  <div i18n="@@replaceTitleAndThumbnail" id="replaceTitleAndThumbnail">app.html: Replace existing title and thumbnail with our shiny new my-video component</div>
+  <div i18n="@@useDataBindingToPassVideoToComponent" id="useDataBindingToPassVideoToComponent">app.html: Use the data binding to pass the video object to the component (don't forget the square brackets)</div>
+</div>
+
 <slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
   <slides-progress-bar></slides-progress-bar>
 
@@ -115,7 +137,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="component-tree" class="slides-preview">
       </slides-slides-preview>
-      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
@@ -183,7 +205,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="component-tree-2" class="slides-preview">
       </slides-slides-preview>
-      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
