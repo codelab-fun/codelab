@@ -155,7 +155,7 @@ export function monacoReady() {
     HttpModule,
     PresentationModule,
     ExerciseModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { enableTracing: true }),
     TooltipsModule,
     FeedbackModule
   ],

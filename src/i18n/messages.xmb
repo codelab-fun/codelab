@@ -35,6 +35,8 @@
   <msg id="learnToStructureAppWithReusableComponents">Learn how to structure your app with reusable components</msg>
   <msg id="learnToBindToEvents">Learn to bind to events.</msg>
   <msg id="2339071718884287683">Angular Codelab</msg>
+  <msg id="thisCodelabTranslatedBy">Курс перевели: Виини пух</msg>
+  <msg id="translatedUsingPoeditor">Translated using <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph><ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>POEditor</msg>
   <msg id="3544776889283127882">Welcome! Choose a topic below to start learning:</msg>
   <msg id="addComponentDecoratorAndSetSelectorToMyVideo">
     video.component.ts: Add the &apos;@Component&apos; decorator
@@ -317,7 +319,8 @@
   </msg>
   <msg id="addH1HeaderWithATitle">app.html: Add an H1 header, display the &apos;title&apos;
     property of the AppComponent inside</msg>
-  <msg id="addSearchMethodOnComponent">updateAppComponentSearchmethod
+  <msg id="addSearchMethodOnComponent">
+    app.component.ts: Add a &apos;search&apos; method on the component, that takes a &apos;searchString&apos; parameter.
   </msg>
   <msg id="addClickHandlerToButtonCallSearch">app.html: Add a click handler
     to
