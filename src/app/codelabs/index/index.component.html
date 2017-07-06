@@ -1,3 +1,17 @@
+<div #translations style="display: none">
+  <div i18n="@@createFirstNgApp" id="createFirstNgApp">Create your first Angular app</div>
+  <div i18n="@@templates" id="templates">Templates</div>
+  <div i18n="@@dependencyInjection" id="dependencyInjection">Dependency-Injection</div>
+  <div i18n="@@componentTree" id="componentTree">Component-Tree</div>
+  <div i18n="@@customEvents" id="customEvents">Custom-Events</div>
+  <div i18n="@@angularWrittenInTypescript" id="angularWrittenInTypescript">Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.</div>
+  <div i18n="@@learnHowToBootstrapApp" id="learnHowToBootstrapApp">Learn how to create and bootstrap your first Angular application</div>
+  <div i18n="@@learnUsingTemplates" id="learnUsingTemplates">Learn how to use Angular templates</div>
+  <div i18n="@@learnToProvideDependencies" id="learnToProvideDependencies">Learn how to provide dependencies to your code instead of hard-coding them</div>
+  <div i18n="@@learnToStructureAppWithReusableComponents" id="learnToStructureAppWithReusableComponents">Learn how to structure your app with reusable components</div>
+  <div i18n="@@learnToBindToEvents" id="learnToBindToEvents">Learn to bind to events.</div>
+</div>
+
 <slides-presentation>
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
@@ -11,12 +25,16 @@
 
   <slides-slide *slidesIf="'index'">
     <h1 i18n>Angular Codelab</h1>
+    <div>
+      <div i18n="@@thisCodelabTranslatedBy">Курс перевели: Виини </div>
+      <div i18n="@@translatedUsingPoeditor">Translated using <a href="https://poeditor.com"></a>POEditor</div>
+    </div>
     <h2 i18n>Welcome! Choose a topic below to start learning:</h2>
 
     <div class="intro" row>
       <ol>
         <li *ngFor="let route of getMainPageRoutes()">
-          <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
+          <h2><a [routerLink]="[route.path, '0']">{{route.name}}</a></h2>
           <div>{{route.description}}</div>
         </li>
       </ol>
@@ -24,5 +42,6 @@
         <img src="/assets/images/angular.svg" alt="angular" class="angular">
       </div>
     </div>
+
   </slides-slide>
 </slides-presentation>

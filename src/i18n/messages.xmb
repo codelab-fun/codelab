@@ -21,9 +21,40 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <messagebundle>
+  <msg id="4201318520171370271">see only next step</msg>
+  <msg id="4167729314672427096">see all steps</msg>
+  <msg id="createFirstNgApp">Create your first Angular app</msg>
+  <msg id="templates">Templates</msg>
+  <msg id="dependencyInjection">Dependency-Injection</msg>
+  <msg id="componentTree">Component-Tree</msg>
+  <msg id="customEvents">Custom-Events</msg>
+  <msg id="angularWrittenInTypescript">Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.</msg>
+  <msg id="learnHowToBootstrapApp">Learn how to create and bootstrap your first Angular application</msg>
+  <msg id="learnUsingTemplates">Learn how to use Angular templates</msg>
+  <msg id="learnToProvideDependencies">Learn how to provide dependencies to your code instead of hard-coding them</msg>
+  <msg id="learnToStructureAppWithReusableComponents">Learn how to structure your app with reusable components</msg>
+  <msg id="learnToBindToEvents">Learn to bind to events.</msg>
   <msg id="2339071718884287683">Angular Codelab</msg>
+  <msg id="thisCodelabTranslatedBy">Курс перевели: Виини пух</msg>
+  <msg id="translatedUsingPoeditor">Translated using <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph><ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>POEditor</msg>
   <msg id="3544776889283127882">Welcome! Choose a topic below to start learning:</msg>
-  <msg id="componentTree">Component Tree</msg>
+  <msg id="addComponentDecoratorAndSetSelectorToMyVideo">
+    video.component.ts: Add the &apos;@Component&apos; decorator
+    and set its selector property to &apos;my-video&apos;.
+  </msg>
+  <msg id="addVideoComponentToAppModule">app.module.ts: Add the VideoComponent to
+    the AppModule &apos;declarations&apos;.
+  </msg>
+  <msg id="setTemplateUrlToLoadAppropriateFile">video.component.ts: Set the templateUrl to load the appropriate html file</msg>
+  <msg id="addVideoPropertyAndDecorateWithInput">video.component.ts: Add a video property and decorate it with @Input()</msg>
+  <msg id="displayVideoTitle">video.component.html: Display the video title</msg>
+  <msg id="displayVideoThumbnail">video.component.html: Display the video thumbnail</msg>
+  <msg id="displayVideoDescription">video.component.html: Display the video description</msg>
+  <msg id="displayVideoData">video.component.html: Display the video date</msg>
+  <msg id="displayNumberOfVideoViews">video.component.html: Display the number of video views</msg>
+  <msg id="displayNumberOfVideoLikes">video.component.html: Display the number video likes</msg>
+  <msg id="replaceTitleAndThumbnail">app.html: Replace existing title and thumbnail with our shiny new my-video component</msg>
+  <msg id="useDataBindingToPassVideoToComponent">app.html: Use the data binding to pass the video object to the component (don&apos;t forget the square brackets)</msg>
   <msg id="1477095887109447756">So far we have only one component, but as your app grows it will form a tree of components</msg>
   <msg id="4420604777002064279">Parent and Child</msg>
   <msg id="958527444286373588">Any component can render another one by using an HTML element that matches the selector of the other
@@ -53,12 +84,31 @@
   <msg id="8354723802427223197">makes it easy to create an application that already works,
                     right out of the box and generate new components! It also takes care of the build system for you</msg>
   <msg id="componentIsDecorator">@Component is an Angular decorator</msg>
+  <msg id="noSemicolon">No semicolon here (as it attaches itself to the class below</msg>
   <msg id="decoratorGoesAboveEntity">The Decorator goes directly above the decorated
     entity (class in this case)
   </msg>
   <msg id="componentNameIsClassName">Component name is the class name
     (AppComponent).
   </msg>
+  <msg id="createClassAppComponent">Create a class called &apos;AppComponent&apos;</msg>
+  <msg id="createClassAppModule">Create a class called &apos;AppModule&apos;</msg>
+  <msg id="allSetBootstrapApp">All set! Bootstrap your application</msg>
+  <msg id="exportClass">Export the class</msg>
+  <msg id="addComponentDecorator">Add a Component decorator for the class</msg>
+  <msg id="addSelectorMyApp">Add a selector to the component decorator and set it to
+    &apos;my-app&apos;
+  </msg>
+  <msg id="addTemplateHelloMewTube">Add a template that contains: h1 with a text Hello
+    MewTube!
+  </msg>
+  <msg id="addNgModuleDecorator">Add a NgModule decorator for the class</msg>
+  <msg id="addBrowserModuleToNgModule">Add &apos;BrowserModule&apos; to the NgModule decorator imports</msg>
+  <msg id="addAppComponentToDeclarations">Add &apos;AppComponent&apos; to the &apos;declarations&apos; property of the decorator</msg>
+  <msg id="addAppComponentToBootstrap">Add &apos;AppComponent&apos; to the &apos;bootstrap&apos; property of the decorator</msg>
+  <msg id="CreateYFirstAgApp">Create your first Angular app</msg>
+  <msg id="2628877838206351210">You will learn how to create your first Angular component, put it in a module, and bootstrap the app.</msg>
+  <msg id="3602849743531844327">Knowing TypeScript basics would help a lot</msg>
   <msg id="firstAngularApp">First Angular App</msg>
   <msg id="3420408458155669913">What is Angular?</msg>
   <msg id="1566812974294525535">
@@ -142,6 +192,11 @@
   <msg id="657343917593444693">This is the last step. We have everything ready, just need to bootstrap our app!</msg>
   <msg id="7662751436458775011">Bootstrapping</msg>
   <msg id="9406456874883877">We have everything ready, so now it&apos;s time to start (bootstrap) the app!</msg>
+  <msg id="4175894725989485587">
+      Passing your <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>AppModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrapModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> method will start up all the components from that
+      module&apos;s bootstrap section
+    </msg>
+  <msg id="7616600771060273557">For most simple apps, you can just copy/paste the code above &quot;as is&quot;</msg>
   <msg id="699691489139693623">Bootstrapping 1</msg>
   <msg id="7313415582983155780">
       How does bootstrapping work in Angular?
@@ -165,7 +220,6 @@
     </msg>
   <msg id="6926283110773507163">All set! In the next page you&apos;ll bootstrap your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> app!</msg>
   <msg id="2268943717929526857">Now that we&apos;ve got both NgModule and the component ready, let&apos;s bootstrap the app!</msg>
-  <msg id="2020897026324644883">There&apos;s no simple way to test it; just make sure your app displays: &apos;Hello MewTube!&apos;</msg>
   <msg id="8145952131430725333">Loading order: index -&gt; main -&gt; app.module -&gt; app.component</msg>
   <msg id="6142704255682990541">
       While Angular is loading, the contents of the element will stay the same (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Loading...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>) in this case
@@ -180,7 +234,19 @@
     * available to component instance.
   </msg>
   <msg id="assumingJobHasPropTitle">assuming Job has property &apos;.title&apos;</msg>
-  <msg id="dependencyInjection">Dependency Injection</msg>
+  <msg id="addIjectableDecoraterToClass">video.service.ts: Add @Injectable()
+    decorator to the class
+  </msg>
+  <msg id="addVideoServiceToNgModule">app.module.ts: Add VideoService to the NgModule
+    providers property
+  </msg>
+  <msg id="getRidOfFakeVideos">app.component.ts: Get rid of FAKE_VIDEOS</msg>
+  <msg id="injectVideoService">app.component.ts: Inject &apos;VideoService&apos; in the component
+    constructor as &apos;videoService&apos;
+  </msg>
+  <msg id="updateAppComponentSearchmethod">app.component.ts: Update the app
+    component&apos;s search method to use videoService&apos;s search method
+  </msg>
   <msg id="dependencyInjectionLearnMore">Learn more about Angular&apos;s powerful Dependency Injection system</msg>
   <msg id="4375448281315274325">
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Dependency Injection<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a way to provide dependencies to your code instead of hard-coding them
@@ -223,20 +289,54 @@
         </msg>
   <msg id="thisIsValidHTML">This is valid HTML syntax.</msg>
   <msg id="worksOnAttributeSyntax">It works on attribute syntax.</msg>
-  <msg id="allowsToConditionallyBindClass">It allows to conditionally bind a class</msg>
+  <msg id="allowsToConditionallyBindClass">It allows to conditionally bind a
+    class
+  </msg>
   <msg id="orStyleProps">Or style properties</msg>
   <msg id="worksWithCustomComponents">And work with custom components!</msg>
-  <msg id="whenUserClicksItCallsSaveUser">When user clicks the button, it calls the &quot;saveUser&quot; function on the
-    component instance and passes the underlying event.</msg>
-  <msg id="youCanAlsoCreateEventsForCustomComponents">You can also create events for custom components. Here we have a
+  <msg id="whenUserClicksItCallsSaveUser">When user clicks the button, it calls
+    the &quot;saveUser&quot; function on the
+    component instance and passes the underlying event.
+  </msg>
+  <msg id="youCanAlsoCreateEventsForCustomComponents">You can also
+    create events for custom components. Here we have a
     depleted event, and it&apos;s going to call the &quot;soundAlarm&quot; function
-    on the component instance when it fires.</msg>
-  <msg id="thereAreShortcutEventBindings">There are also shortcut event bindings! The submit function on the
+    on the component instance when it fires.
+  </msg>
+  <msg id="thereAreShortcutEventBindings">There are also shortcut event bindings!
+    The submit function on the
     component instance will be called when the user presses control
-    and enter (this is an Angular feature).</msg>
+    and enter (this is an Angular feature).
+  </msg>
   <msg id="userNameHasRefToInput">userName has a reference to the input element</msg>
   <msg id="tryChangingToTrue">Try changing to true!</msg>
   <msg id="needToRepeatPuppiesHere">Need to repeat puppies here</msg>
+  <msg id="addVideosProperty">app.component.ts: Add a &apos;videos&apos; property, set the value as
+    empty array.
+  </msg>
+  <msg id="assignFakeVideosToComponent">app.component.ts: Inside of the &apos;search&apos;
+    method assign FAKE_VIDEOS, to the component &apos;videos&apos; property.
+  </msg>
+  <msg id="addH1HeaderWithATitle">app.html: Add an H1 header, display the &apos;title&apos;
+    property of the AppComponent inside</msg>
+  <msg id="addSearchMethodOnComponent">
+    app.component.ts: Add a &apos;search&apos; method on the component, that takes a &apos;searchString&apos; parameter.
+  </msg>
+  <msg id="addClickHandlerToButtonCallSearch">app.html: Add a click handler
+    to
+    the button, call &apos;search&apos; method and pass the input value (Actual search functionality will be implemented in the
+    next exercise)
+  </msg>
+  <msg id="addMessageNoVideos">app.html: Add a message saying &apos;no videos&apos; which is displayed
+    only when the videos array is empty
+  </msg>
+  <msg id="bonusDisplayAllVideosByDefault">#Bonus app.component.ts: Right now it takes pressing a search button to display the videos. Instead display all videos by default.</msg>
+  <msg id="insideSearchMethodFilterFakeVideos">app.component.ts: Inside of the &apos;search&apos; method filter FAKE_VIDEOS and only return videos with the title containing searchString. (hint: use .includes or .indexOf string methods)</msg>
+  <msg id="alsoDisplayThumbnail">app.html: Also display a thumbnail</msg>
+  <msg id="IterateWithNgForAndDisplayTitle">app.html: Iterate over the videos using &apos;*ngFor&apos;, and display a title for each</msg>
+  <msg id="addButtonWithtextSearch">app.html: Add a button tag with a text &apos;search&apos;</msg>
+  <msg id="addInputWithPlaceholderVideo">app.html: Add an input tag with a &apos;placeholder&apos; attribute set to &apos;video&apos;</msg>
+  <msg id="6346332284188948979">Learn more about Angular templates!</msg>
   <msg id="5433675495457939071">Templates</msg>
   <msg id="828579207806918596">Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
       elements</msg>
@@ -327,8 +427,39 @@
     error.
   </msg>
   <msg id="definitelyBoolean">okay, definitely a boolean</msg>
+  <msg id="createClassCodelab">Create a class called &apos;Codelab&apos;</msg>
+  <msg id="addConstructor">Add a constructor</msg>
+  <msg id="makeConstructorTakeParamGuests">Make constructor take a parameter
+    &apos;guests&apos;
+  </msg>
+  <msg id="specifyTheTypeForGuests">Specify the type for the guests parameter (hint:
+    it&apos;s an array of a type Guest)
+  </msg>
+  <msg id="makeParemeterPublic">Make the parameter public (note that now you can access it
+    anywhere in the class using this.guests)
+  </msg>
+  <msg id="createNewMethodGetGuestsComing">Create new method &apos;getGuestsComing&apos;
+  </msg>
+  <msg id="modifyGetGuestsComingToFilter">Modify getGuestsComing to filter the
+    guests array return an array of guests with the &apos;coming&apos;
+    property set to true.
+  </msg>
+  <msg id="typescript">TypeScript</msg>
+  <msg id="4358602566659933799">Angular is written in TypeScript. Learn more about the language basics.</msg>
+  <msg id="1425139040251941806">Basic understanding of JavaScript is required.</msg>
   <msg id="6225777299423953966">Why TypeScript</msg>
+  <msg id="599136773381019887"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>JavaScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> is a great language, but there&apos;s space for improvement:</msg>
+  <msg id="6184719411681719003">JS is not types safe which makes it harder to develop large scale applications</msg>
+  <msg id="1567156650998154030">New features of the latest versions of JS standards (ES6, ES7) are not supported well across all the
+        browsers
+      </msg>
+  <msg id="9211708335382797467"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>ES<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> stands for <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>EcmaScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, which the name of the JavaScript language
+      specification
+      (standard)
+    </msg>
   <msg id="4845793289318766506">TypeScript</msg>
+  <msg id="5246563406729441831">This is why <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>TypeScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> was created. It transpiles to JavaScript, so it can be used in any browser.
+    </msg>
   <msg id="1222056232586280725">TypeScript extends the latest
             version of JavaScript (ES6)
           </msg>
@@ -350,9 +481,9 @@
             </msg>
   <msg id="4240486300768704478">More...
             </msg>
-  <msg id="7112509679553001939">TypeScript / Type System</msg>
-  <msg id="8897430566941228177">Below we have an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> function, and we&apos;re adding 2 and 2. What could go wrong?
-    </msg>
+  <msg id="3897582982358500728">Decorator looks like @twitter_handles, we&apos;ll learn more about them later</msg>
+  <msg id="typeSystem">Type System</msg>
+  <msg id="6273594692169782871">Below we have an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> function, and we&apos;re adding 2 and 2. What could go wrong?</msg>
   <msg id="4895625190709847499">Turns out it&apos;s possible to pass a string to this function and we get <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>22<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> instead of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>4<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. Let&apos;s
       see how TypeScript can help address this issue on the next slide</msg>
   <msg id="2453425375180790120"> TypeScript uses <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>:<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> to specify the type information (e.g. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>n: number<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>g). Both <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> and
@@ -361,7 +492,6 @@
   <msg id="5379917036245705937">
       The code above is editable!
     </msg>
-  <msg id="typescript">TypeScript</msg>
   <msg id="types">Types</msg>
   <msg id="2703965223476522347">Primitives (strings, numbers, etc...)</msg>
   <msg id="7773507354148549356">Types are more types we can use&gt;</msg>
@@ -376,6 +506,8 @@
     </msg>
   <msg id="3570291272341874994">Arrays</msg>
   <msg id="2672636832952045368">Arrays are defined as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Array&lt;Type&gt;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> or <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Type[]<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></msg>
+  <msg id="8044092342171414777">Here, each element in the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>betterCats<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> array is an instance of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Cat<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> Interface.
+    </msg>
   <msg id="classes">Classes</msg>
   <msg id="4690830357394206486">TypeScript has <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>classes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, and Angular uses them heavily.</msg>
   <msg id="4400419948462180614">They are similar to classes in other languages, and are used to group methods and properties together</msg>

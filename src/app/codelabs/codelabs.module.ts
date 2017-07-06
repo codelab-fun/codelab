@@ -19,7 +19,8 @@ export let routes = [
     name: 'Typescript',
     description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.',
     page: 'main',
-    prod: true
+    prod: true,
+    translationIds: ['','angularWrittenInTypescript']
   },
   {
     path: 'create-first-app',
@@ -27,7 +28,8 @@ export let routes = [
     name: 'Create your first Angular app',
     description: 'Learn how to create and bootstrap your first Angular application',
     page: 'main',
-    prod: true
+    prod: true,
+    translationIds: ['createFirstNgApp','learnHowToBootstrapApp']
   },
   {
     path: 'templates',
@@ -35,8 +37,8 @@ export let routes = [
     name: 'Templates',
     description: 'Learn how to use Angular templates',
     page: 'main',
-    prod: true
-
+    prod: true,
+    translationIds: ['templates','learnUsingTemplates']
   },
   {
     path: 'dependency-injection',
@@ -44,7 +46,8 @@ export let routes = [
     name: 'Dependency-Injection',
     description: 'Learn how to provide dependencies to your code instead of hard-coding them',
     page: 'main',
-    prod: true
+    prod: true,
+    translationIds: ['dependencyInjection','learnToProvideDependencies']
   },
   {
     path: 'component-tree',
@@ -52,14 +55,16 @@ export let routes = [
     name: 'Component-Tree',
     description: 'Learn how to structure your app with reusable components',
     page: 'main',
-    prod: true
+    prod: true,
+    translationIds: ['componentTree','learnToStructureAppWithReusableComponents']
   },
   {
     path: 'custom-events',
     loadChildren: './angular/custom-events/custom-events.module#CustomEventsModule',
     name: 'Custom-Events',
     description: 'Learn to bind to events.',
-    page: 'main'
+    page: 'main',
+    translationIds: ['customEvents','learnToBindToEvents']
   },
   {
     path: 'pipes',
@@ -132,7 +137,7 @@ export function monacoReady() {
     HttpModule,
     PresentationModule,
     ExerciseModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { enableTracing: true }),
     TooltipsModule,
     FeedbackModule
   ],

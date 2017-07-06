@@ -9,22 +9,22 @@ import {
 
 const tests = [
   {
-    title: `Create a class called 'AppComponent'`,
+    title: `@@createClassAppComponent`,
     condition: expectClass('AppComponent')
   },
   {
-    title: `Export the class`,
+    title: `@@exportClass`,
     condition: expectExportedClass('AppComponent')
   },
   {
-    title: `Add a Component decorator for the class`,
+    title: `@@addComponentDecorator`,
     condition: expectDecorator('Component')
   },
   {
-    title: `Add a selector to the component decorator and set it to 'my-app'`,
+    title: `@@addSelectorMyApp`,
     condition: expectDecoratorPropertyStringValue('Component', 'selector', 'my-app')
   }, {
-    title: `Add a template that contains: '<h1>Hello MewTube!</h1>'`,
+    title: `@@addTemplateHelloMewTube`,
     condition: expectDecoratorPropertyStringValue('Component', 'template', '<h1>Hello MewTube!</h1>')
   },
 ];
