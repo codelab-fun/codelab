@@ -3,7 +3,8 @@ import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { SlideComponent } from '../../presentation/slide/slide.component';
 import { CodeGroupComponent } from '../code-group/code-group.component';
-import { register } from 'ts-node/dist';
+declare const require;
+
 
 @Component({
   selector: 'slides-code-editor',
@@ -17,6 +18,8 @@ export class CodeEditorComponent implements OnInit {
   @Input() code = '';
   @Input() path?;
   @Input() minLines = 6;
+  @Input() lineNumbers = 'off';
+
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('tooltips') slidesTooltips: any[] = [];
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.

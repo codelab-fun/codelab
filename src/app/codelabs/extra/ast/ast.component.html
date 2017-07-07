@@ -1,0 +1,72 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="increase-font-size font-size" (click)="updateFontSize(2)">+</div>
+    <div class="decrease-font-size font-size" (click)="updateFontSize(-2)">-</div>
+  </div>
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" *slidesIf="'intro'" no-padding>
+    <div class="bg">
+      <h1>Abstract Syntax trees</h1>
+      <h2>By @kirjs</h2>
+    </div>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'console-log'">
+    <h1>console.log('hello world');</h1>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'console-log-ast'">
+    <slides-code-group row>
+      <div class="col-6">
+        <slides-code-editor [code]="'console.log(\'Hello world!\')'" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.astExample" type="json" [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'console-log-ast'">
+    <slides-code-group row>
+      <div class="col-6">
+        <slides-code-editor [code]="'console.log(\'Hello world!\')'" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.astExample" type="json" [focus-highlight-match]="code.matches.loc"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <slides-slide id="venok" *slidesIf="'scary-tree'">
+    <img src="assets/images/ast/tree.gif" alt="tree">
+  </slides-slide>
+
+  <slides-slide *slidesIf="'console-log-2'">
+    <h1>console.log('hello world');</h1>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'console-log-3'">
+    <slides-exercise [files]="code.mdTabNavBar">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+
+</slides-presentation>

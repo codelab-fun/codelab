@@ -166,7 +166,10 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
   return a+b;
 };
 
-console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise-test.ts`)),
+console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise-test.ts`)
+          .replace('@@specifyTheTypeForB', this.t.specifyTheTypeForB)
+          .replace('@@typescriptHighlightsErrorFix224', this.t.typescriptHighlightsErrorFix224)
+      ),
 
       js2And2: javaScriptWithConsoleLog(
         `function add(a, b){
