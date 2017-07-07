@@ -20,7 +20,7 @@ export let routes = [
     description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.',
     page: 'main',
     prod: true,
-    translationIds: ['','angularWrittenInTypescript']
+    translationIds: ['', 'angularWrittenInTypescript']
   },
   {
     path: 'create-first-app',
@@ -29,7 +29,7 @@ export let routes = [
     description: 'Learn how to create and bootstrap your first Angular application',
     page: 'main',
     prod: true,
-    translationIds: ['createFirstNgApp','learnHowToBootstrapApp']
+    translationIds: ['createFirstNgApp', 'learnHowToBootstrapApp']
   },
   {
     path: 'templates',
@@ -38,7 +38,7 @@ export let routes = [
     description: 'Learn how to use Angular templates',
     page: 'main',
     prod: true,
-    translationIds: ['templates','learnUsingTemplates']
+    translationIds: ['templates', 'learnUsingTemplates']
   },
   {
     path: 'dependency-injection',
@@ -47,7 +47,7 @@ export let routes = [
     description: 'Learn how to provide dependencies to your code instead of hard-coding them',
     page: 'main',
     prod: true,
-    translationIds: ['dependencyInjection','learnToProvideDependencies']
+    translationIds: ['dependencyInjection', 'learnToProvideDependencies']
   },
   {
     path: 'component-tree',
@@ -56,7 +56,7 @@ export let routes = [
     description: 'Learn how to structure your app with reusable components',
     page: 'main',
     prod: true,
-    translationIds: ['componentTree','learnToStructureAppWithReusableComponents']
+    translationIds: ['componentTree', 'learnToStructureAppWithReusableComponents']
   },
   {
     path: 'custom-events',
@@ -64,7 +64,7 @@ export let routes = [
     name: 'Custom-Events (work in progress)',
     description: 'Learn to bind to events.',
     page: 'main',
-    translationIds: ['customEvents','learnToBindToEvents']
+    translationIds: ['customEvents', 'learnToBindToEvents']
   },
   {
     path: 'router',
@@ -84,7 +84,15 @@ export let routes = [
     path: 'structural-directives',
     loadChildren: './angular/structural-directives/structural-directives.module#StructuralDirectivesModule',
     name: 'Structural Directives',
-    description: 'Learn how pipes transform input values to output values for display in a view',
+    description: 'Learn about structural directives in angular',
+    page: 'bonus',
+    prod: true
+  },
+  {
+    path: 'ast',
+    loadChildren: './extra/ast/ast.module#AstModule',
+    name: 'Abstract Syntax Trees',
+    description: 'Learn about ASTs',
     page: 'bonus',
     prod: true
   }, {
@@ -155,7 +163,7 @@ export function monacoReady() {
     HttpModule,
     PresentationModule,
     ExerciseModule,
-    RouterModule.forRoot(routes, { enableTracing: true }),
+    RouterModule.forRoot(routes),
     TooltipsModule,
     FeedbackModule
   ],

@@ -35,7 +35,7 @@
   <msg id="learnToStructureAppWithReusableComponents">Learn how to structure your app with reusable components</msg>
   <msg id="learnToBindToEvents">Learn to bind to events.</msg>
   <msg id="2339071718884287683">Angular Codelab</msg>
-  <msg id="thisCodelabTranslatedBy">Курс перевели: Виини пух</msg>
+  <msg id="thisCodelabTranslatedBy">Курс перевели: Виини </msg>
   <msg id="translatedUsingPoeditor">Translated using <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph><ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>POEditor</msg>
   <msg id="3544776889283127882">Welcome! Choose a topic below to start learning:</msg>
   <msg id="addComponentDecoratorAndSetSelectorToMyVideo">
@@ -440,6 +440,8 @@
   </msg>
   <msg id="createNewMethodGetGuestsComing">Create new method &apos;getGuestsComing&apos;
   </msg>
+  <msg id="specifyTheTypeForB">&quot;b&quot; in the code below is highlighted, because TypeScript is missing the type. Specify the type for b.</msg>
+  <msg id="typescriptHighlightsErrorFix224">With this information TypeScript can highlight the error. Fix it, make 2 + 2 = 4 again!</msg>
   <msg id="modifyGetGuestsComingToFilter">Modify getGuestsComing to filter the
     guests array return an array of guests with the &apos;coming&apos;
     property set to true.

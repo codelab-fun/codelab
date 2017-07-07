@@ -23,12 +23,12 @@ function getFunctionNode(code) {
 
 
 describe('value', () => {
-  it(`"b" in the code below is highlighted, because TypeScript is missing the type. Specify the type for b.`, () => {
+  it(`@@specifyTheTypeForB`, () => {
     const func = getFunctionNode(app_ts_AST);
     chai.assert(func.parameters[1].type && func.parameters[1].type.kind === ts.SyntaxKind.NumberKeyword, 'Test failed: b is not a number');
   });
 
-  it('With this information TypeScript can highlight the error. Fix it, make 2 + 2 = 4 again!', () => {
+  it('@@typescriptHighlightsErrorFix224', () => {
     chai.expect(value.value).equals(4);
   });
 });

@@ -1,0 +1,35 @@
+#intro .bg {
+  background: #fff;
+  opacity: .7;
+  padding: 2vw 5vw;
+  margin: 5vw 0;
+  border: 1px solid #000;
+}
+
+#intro h1 {
+  font-size: 9vw;
+  font-weight: 100;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+#intro h2 {
+  font-size: 6vw;
+}
+
+:host /deep/ .slide {
+  background: transparent;
+}
+
+#intro {
+  background: url(./pics/landscape-with-trees-1.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+}
+
+#venok img {
+  width: 384px;
+  height: 288px;
+  margin: 0 auto;
+}
+
