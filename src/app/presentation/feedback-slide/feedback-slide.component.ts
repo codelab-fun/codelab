@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
 import { SlideComponent } from '../slide/slide.component';
 
@@ -18,13 +18,6 @@ export class FeedbackSlideComponent implements OnInit {
 
   closeSlide() {
     this.presentation.nextSlide();
-  }
-
-  @HostListener('document:keypress', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if (this.slide.active) {
-      this.closeSlide();
-    }
   }
 
 }

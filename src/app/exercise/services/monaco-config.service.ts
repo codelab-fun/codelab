@@ -36,61 +36,7 @@ export class MonacoConfigService {
 
     // Some fake Angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
-    const core = `
-        declare module '@angular/core' {
-          export class EventEmitter<T> {
-            emit: function(param: T);
-          }
-
-          export interface ComponentConfig {
-            selector: string;
-            template?: string;
-            templateUrl?: string;
-          }
-
-          export interface PipeConfig {
-            name: string;
-          }
-
-          export function Component(config: ComponentConfig);
-
-          export interface NgModuleConfig {
-            imports?: any[];
-            declarations?: any[];
-            providers?: any[];
-            bootstrap?: any[];
-          }
-          export function NgModule(config: NgModuleConfig);
-          export function Injectable();
-          export function Output();
-          export function Input();
-          export function Pipe(config: PipeConfig);
-          export interface PipeTransform {
-            transform(value: string);
-          }
-
-        }
-
-        declare var x = 1;
-
-        declare module '@angular/platform-browser' {
-          export class BrowserModule {}
-        }
-
-        declare module '@angular/platform-browser-dynamic' {
-          export class Platform {
-            bootstrapModule: function();
-          }
-          export function platformBrowserDynamic(): Platform;
-        }
-
-        declare module '@angular/compiler' {
-          export class ResourceLoader {
-          }
-        }
-
-
-        `;
+    const core = require('!!raw-loader!./types.d.ts.not-really');
 
     monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
   }

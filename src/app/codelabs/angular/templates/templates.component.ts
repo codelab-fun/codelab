@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
 import { displayAngularComponent, displayAngularComponentWithHtml } from '../../../exercise/helpers/helpers';
-
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 const baseCode = 'TODO';
 
@@ -17,9 +17,19 @@ export class TemplatesComponent implements OnInit {
     ng2tsConfig.milestones[2].exercises[3],
   ];
   curlies = '{{ property }}';
-  code = {
-    template: {
-      intro: displayAngularComponent(`import {Component} from '@angular/core';
+
+  @ViewChild('translations') translation;
+  code: any = {};
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    const t = extractMessages(this.translation);
+
+    this.code = {
+      template: {
+        intro: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -28,14 +38,14 @@ export class TemplatesComponent implements OnInit {
 export class AppComponent {
 }`),
 
-      matches: {
-        curlies: /\{\{.*\}\}/,
-        curliesAttribute: /"\{\{.*\}\}"/,
-        firstName: /firstName = .*/,
-        fullName: /fullName\(\)\{/,
-        squares: /\[.*\]/
-      },
-      interpolation: displayAngularComponent(`import {Component} from '@angular/core';
+        matches: {
+          curlies: /\{\{.*\}\}/,
+          curliesAttribute: /"\{\{.*\}\}"/,
+          firstName: /firstName = .*/,
+          fullName: /fullName\(\)\{/,
+          squares: /\[.*\]/
+        },
+        interpolation: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -47,7 +57,7 @@ export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
 }`),
-      interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
+        interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -60,7 +70,7 @@ export class AppComponent {
      return this.firstName + this.lastName
   }
 }`),
-      dataBindingPre: displayAngularComponent(`import {Component} from '@angular/core';
+        dataBindingPre: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -74,7 +84,7 @@ export class AppComponent {
   avatar = 'assets/images/renoir.jpg';
   fullName(){  return this.firstName + this.lastName }
 }`),
-      dataBinding: displayAngularComponent(`import {Component} from '@angular/core';
+        dataBinding: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -88,19 +98,19 @@ export class AppComponent {
   avatar = 'assets/images/renoir.jpg';
   fullName(){  return this.firstName + this.lastName }
 }`),
-      dataBindingExtra: `<!-- This is valid HTML syntax. -->
+        dataBindingExtra: `<!-- ${t.thisIsValidHTML} -->
 <input [value]="person.emailAddress">
-<!-- It works on attribute syntax. -->
+<!-- ${t.worksOnAttributeSyntax} -->
 <button [attr.aria-label]="help">help</button>
-<!-- It allows to conditionally bind a class-->
+<!-- ${t.allowsToConditionallyBindClass}-->
 <div [class.special]="isSpecial">Special</div>
-<!-- Or style properties -->
+<!-- ${t.orStyleProps} -->
 <button [style.color]="isSpecial ? 'red' : 'green'">
-<!-- And work with custom components! -->
+<!-- ${t.worksWithCustomComponents} -->
 <birthday-card [date]="person.birthday"> `,
-    },
-    ngIfDirective: {
-      template: displayAngularComponent(`import {Component} from '@angular/core';
+      },
+      ngIfDirective: {
+        template: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -113,27 +123,27 @@ export class AppComponent {
 export class AppComponent {
   firstName = 'Pierre-Auguste';
   avatar = 'assets/images/renoir.jpg';
-  onDisplay(){  return false } // Try changing to true!
+  onDisplay(){  return false } // ${t.tryChangingToTrue}
 }`),
-      matches: {
-        ngIf: '*ngIf'
-      }
-    },
-    ngForDirectivePre: {
-      template: displayAngularComponent(`import {Component} from '@angular/core';
+        matches: {
+          ngIf: '*ngIf'
+        }
+      },
+      ngForDirectivePre: {
+        template: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
   template: \`<h1>Puppies names:</h1>
-    ??? <!-- Need to repeat puppies here -->
+    ??? <!-- ${t.needToRepeatPuppiesHere} -->
   \`
 })
 export class AppComponent {
   puppies = ['Schumann', 'Mendelssohn', 'Bach'];
 }`),
-      matches: ['???', /puppies.*;/]
-    }, ngForDirective: {
-      template: displayAngularComponent(`import {Component} from '@angular/core';
+        matches: ['???', /puppies.*;/]
+      }, ngForDirective: {
+        template: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -158,12 +168,12 @@ describe('AppComponent', ()=>{
 })
 
 `),
-      matches: {
-        ngFor: '*ngFor'
-      }
-    },
+        matches: {
+          ngFor: '*ngFor'
+        }
+      },
 
-    templateInterpolation: `
+      templateInterpolation: `
       <!-- Use property value from person object from component instance. -->
       <h2>Profile for {{person.name}}</h2>
 
@@ -173,10 +183,10 @@ describe('AppComponent', ()=>{
       <!-- Use property on person object from component instance. -->
       <img src="{{person.pic}}" alt="Photo of {{person.name}}">
     `,
-    templateInterpolationMatch: /{{person.name}}/,
-    templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
-    templateInterpolationExerciseMatch: /user.firstName/,
-    bindingProp: `<!-- Bind [property] to the template express property. -->
+      templateInterpolationMatch: /{{person.name}}/,
+      templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
+      templateInterpolationExerciseMatch: /user.firstName/,
+      bindingProp: `<!-- Bind [property] to the template express property. -->
 <img [src]="person.photoUrl">
 <!-- Yes, this is valid HTML syntax. -->
 <input [value]="person.emailAddress">
@@ -188,58 +198,48 @@ describe('AppComponent', ()=>{
 <button [style.color]="isSpecial ? 'red' : 'green'">
 <!-- This also works on your own components! -->
 <birthday-card [date]="person.birthday"> `,
-    bindingPropMatch: /person.photoUrl/,
-    bindingPropExercise: displayAngularComponentWithHtml(baseCode, `<h1 [innerText]="user.fullName()"></h1>`),
-    bindingPropExerciseMatch: /user.pic/,
-    bindingRef: `<div>
+      bindingPropMatch: /person.photoUrl/,
+      bindingPropExercise: displayAngularComponentWithHtml(baseCode, `<h1 [innerText]="user.fullName()"></h1>`),
+      bindingPropExerciseMatch: /user.pic/,
+      bindingRef: `<div>
   <input #userName>
 
-  <!-- userName has a reference to the input element -->
+  <!-- ${t.userNameHasRefToInput} -->
   <button (click)="isTaken(userName.value)">
     Check if taken
   </button>
 </div>`,
-    bindingRefMatch: /#userName/,
-    bindingRef2Match: /userName.value/,
-    bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
-    bindingRefExerciseMatch: /#userinput/,
-    eventBinding: `<!-- When user clicks the button, it calls the "saveUser" function on the
-     component instance and passes the underlying event. -->
+      bindingRefMatch: /#userName/,
+      bindingRef2Match: /userName.value/,
+      bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
+      bindingRefExerciseMatch: /#userinput/,
+      eventBinding: `<!-- ${t.whenUserClicksItCallsSaveUser} -->
 <button (click)="saveUser($event)">
 
-<!-- You can also create events for custom components. Here we have a
-     depleted event, and it's going to call the "soundAlarm" function
-     on the component instance when it fires.  -->
+<!-- ${t.youCanAlsoCreateEventsForCustomComponents}  -->
 <coffee-maker (depleted)="soundAlarm('loud')">
 
-<!-- There are also shortcut event bindings! The submit function on the
-     component instance will be called when the user presses control
-     and enter (this is an Angular feature). -->
+<!-- ${t.thereAreShortcutEventBindings} -->
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
-    eventBindingMatch: /\(click\)/,
-    eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
-    conditionalDisplay: `<!-- ngIf conditionally toggles the visibility of a section of the UI. -->
+      eventBindingMatch: /\(click\)/,
+      eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
+      conditionalDisplay: `<!-- ngIf conditionally toggles the visibility of a section of the UI. -->
 <section *ngIf="showSection">Howdy!</section>
 <!-- The '*' means this directive alters the component tree's structure. -->
 <!-- Note also that *ngIf is case-sensitive! -->
 `,
-    conditionalDisplayMatch: /ngIf/,
-    conditionalDisplayExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here displayUser -->`),
-    conditionalDisplayFor: `<ul>
+      conditionalDisplayMatch: /ngIf/,
+      conditionalDisplayExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here displayUser -->`),
+      conditionalDisplayFor: `<ul>
   <li *ngFor="let puppy of puppies">
     {{puppy.name}}
   </li>
 </ul>`,
-    conditionalDisplayForMatch: /ngFor/,
-    conditionalDisplayForExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here heros -->`),
+      conditionalDisplayForMatch: /ngFor/,
+      conditionalDisplayForExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here heros -->`),
 
-  };
-
-  constructor() {
-  }
-
-  ngOnInit() {
+    };
   }
 
 }

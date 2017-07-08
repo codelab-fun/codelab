@@ -8,5 +8,5 @@ import { ConsoleWindowComponent } from './console-window/console-window.componen
   declarations: [BrowserWindowComponent, ConsoleWindowComponent],
   exports: [BrowserWindowComponent, ConsoleWindowComponent]
 })
-export class BrowserModule {
+export class BrowserWindowModule {
 }

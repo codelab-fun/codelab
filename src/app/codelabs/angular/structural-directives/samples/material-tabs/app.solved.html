@@ -1,0 +1,12 @@
+<h1>Alfred Sisley</h1>
+
+<md-tab-group #tabs>
+  <md-tab label="Art works">
+    <div *ngIf="tabs.selectedIndex===0"><img src="../images/sisley/img1.jpeg" alt=""></div>
+  </md-tab>
+  <md-tab label="TBD">
+    <div *ngIf="tabs.selectedIndex===1">
+      <app-alert></app-alert>
+    </div>
+  </md-tab>
+</md-tab-group>

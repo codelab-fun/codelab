@@ -25,10 +25,6 @@ export class ExercisePreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.slide.onActive.subscribe(active => {
-      if (active) {
-        this.files = this.getFiles();
-      }
-    });
+    this.files = this.getFiles();
   }
 }

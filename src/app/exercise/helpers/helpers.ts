@@ -37,7 +37,9 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
 }
 
 
-export function exercise(moduleName: string, template: string, solution: string): FileConfig {
+export function exercise(moduleName: string, template: string, solution?: string): FileConfig {
+  solution = solution || template;
+
   return {
     bootstrap: false,
     excludeFromTesting: false,
@@ -66,8 +68,87 @@ export function test(moduleName: string, template: string): FileConfig {
   };
 }
 
+interface  SimpleImport {
+  name: string;
+  path: string;
+}
+export const builder = {
+  imports(imports: Array<SimpleImport>) {
+    return imports.map(i => `import {${i.name}} from '${i.path}';`).join('\n');
+  },
+  listOfComponents: (components: Array<SimpleImport>) => {
+    return `[${components.map(c => c.name).join(',')}]`;
+  },
 
-export function bootstrap(moduleName: string, template: string, solution: string) {
+  ngModule(declarations: Array<SimpleImport> = [{
+    name: 'AppComponent',
+    path: './app.component'
+  }], bootstrap?: Array<SimpleImport>) {
+    bootstrap = bootstrap || declarations;
+
+    return `import {BrowserModule} from \'@angular/platform-browser\';
+import {NgModule} from \'@angular/core\';
+${this.imports(declarations)}
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: ${this.listOfComponents(declarations)},
+  bootstrap: ${this.listOfComponents(bootstrap)}
+}) 
+export class AppModule {}`;
+  },
+
+  bootstrap(module: SimpleImport = {name: 'AppModule', path: './app.module'}): string {
+    return `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+${this.imports([module])}
+import {ResourceLoader} from '@angular/compiler';
+import * as code from './code';
+
+// The code below is used to match the Components with the appropriate templates.
+//
+class MyResourceLoader extends ResourceLoader {
+  get(url: string): Promise<string> {
+    const templateId = Object.keys(code).find(key => key.includes(url.replace(/[\/\.-]/gi, '_')));
+    let template = code[templateId];
+    if (!template) {
+      console.log(template);
+      debugger;
+    }
+    return Promise.resolve(template);
+  };
+}
+
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(${module.name}, {
+  providers: [
+    {provide: ResourceLoader, useClass: MyResourceLoader}
+  ]
+});
+
+`;
+  }
+};
+
+export function html(code, solution = '') {
+  return {
+    code,
+    path: 'app.html',
+    solution: solution,
+    type: 'html'
+  };
+}
+
+export function stylesheet(code, solution = '') {
+  return {
+    code,
+    path: 'style.css',
+    solution: solution || code,
+    type: 'css'
+  };
+}
+
+export function bootstrap(moduleName: string, template: string, solution?: string) {
+  solution = solution || template;
   return {
     bootstrap: true,
     excludeFromTesting: true,
@@ -142,9 +223,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   }`
     },
     files: [
-      exercise('box.component', boxCode, boxCode),
-      exercise('circle.component', circleCode, circleCode),
-      exercise('app.module', moduleCode, moduleCode),
+      exercise('box.component', boxCode),
+      exercise('circle.component', circleCode),
+      exercise('app.module', moduleCode),
       bootstrap('main', bootstrapCode, bootstrapCode),
       {
         type: 'css',
@@ -170,38 +251,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 export function displayAngularComponent(componentCode: string, testCode?: string) {
   // tslint:disable-next-line:max-line-length TODO: Clean up next line and remove this comment.
-  const moduleCode = `import {BrowserModule} from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport {AppComponent} from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n`;
-  const bootstrapCode = `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {AppModule} from './app.module';
-import {ResourceLoader} from '@angular/compiler';
-import * as code from './code';
+  const moduleCode = builder.ngModule();
+  const bootstrapCode = builder.bootstrap();
 
-// The code below is used to match the Components with the appropriate templates.
-//
-class MyResourceLoader extends ResourceLoader {
-  get(url: string): Promise<string> {
-    const templateId = Object.keys(code).find(key => key.includes(url.replace(/[\/\.-]/gi, '_')));
-    let template = code[templateId];
-    if (!template) {
-      console.log(template);
-      debugger;
-    }
-    return Promise.resolve(template);
-  };
-}
 
-const platform = platformBrowserDynamic();
-platform.bootstrapModule(AppModule, {
-  providers: [
-    {provide: ResourceLoader, useClass: MyResourceLoader}
-  ]
-});
-
-`;
   return {
     files: [
-      exercise('app.component', componentCode, componentCode),
-      exercise('app.module', moduleCode, moduleCode),
+      exercise('app.component', componentCode),
+      exercise('app.module', moduleCode),
       bootstrap('main', bootstrapCode, bootstrapCode),
       {
         type: 'css',
@@ -231,7 +288,7 @@ export function vueJsExercise(code: string) {
   return {
     runner: 'Vue',
     files: [
-      exercise('main.ts', code, '')
+      exercise('main.ts', code)
     ]
   };
 }
@@ -240,7 +297,7 @@ export function reactExercise(code: string) {
   return {
     runner: 'React',
     files: [
-      exercise('main.ts', code, '')
+      exercise('main.ts', code)
     ]
   };
 }
@@ -257,7 +314,7 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
     }
   ];
   if (otherCode !== '') {
-    files.push(exercise('puppy', otherCode, otherCode));
+    files.push(exercise('puppy', otherCode));
   }
   return {
     files
@@ -284,3 +341,12 @@ export function displayAngularComponentWithHtml(componentCode: string, html: str
     ]
   };
 }
+
+export function solve(exercise) {
+  return {
+    ...exercise, files: exercise.files.map(file => (
+      {...file, code: file.solution || file.code}
+    ))
+  };
+}
+

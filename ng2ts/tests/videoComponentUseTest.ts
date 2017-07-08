@@ -14,6 +14,7 @@ function prepareTestingModule(videoComponent: any = VideoComponent) {
     providers: [VideoService],
     declarations: [AppComponent, videoComponent]
   });
+
   TestBed.overrideComponent(AppComponent, {
     set: {
       template: app_html,

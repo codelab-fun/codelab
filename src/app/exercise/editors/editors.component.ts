@@ -9,6 +9,7 @@ import { FileConfig } from '../interfaces/file-config';
 export class EditorsComponent implements OnInit {
   @Input() public files: Array<any>;
   @Input() public currentFile;
+  @Input() public fontSize = 16;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
   @Output() public onSelectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
@@ -21,7 +22,7 @@ export class EditorsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.files.map( file => {
+    this.files.map(file => {
       file.opened = !file.readonly;
     });
   }
@@ -34,7 +35,7 @@ export class EditorsComponent implements OnInit {
         this.visibleFiles
           .concat()
           .reverse()
-          .find( f => f.opened)
+          .find(f => f.opened)
       );
     }
   }
@@ -60,7 +61,7 @@ export class EditorsComponent implements OnInit {
   }
 
   isActiveFile(file) {
-    return file === this.currentFile;
+    return file.path === this.currentFile.path;
   }
 
   showFile(file): void {

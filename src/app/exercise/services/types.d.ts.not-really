@@ -1,0 +1,105 @@
+declare module '@angular/core' {
+  export class EventEmitter<T> {
+    emit: (param: T) => void;
+  }
+
+  export interface DirectiveConfig {
+    selector: string;
+  }
+
+  export interface ComponentConfig {
+    selector: string;
+    template?: string;
+    templateUrl?: string;
+  }
+
+  export interface PipeConfig {
+    name: string;
+  }
+  export function enableProdMode();
+
+  export function Component(config: ComponentConfig);
+
+  export function Directive(config: DirectiveConfig);
+
+
+  export class TemplateRef<T> {
+  }
+  export class ViewContainerRef {
+    clear: () => void;
+    createEmbeddedView: (ref: TemplateRef<any>) => void;
+  }
+
+  export interface AfterViewInit {
+    ngAfterViewInit: () => void;
+  }
+  export interface OnInit {
+    ngOnInit: () => void;
+  }
+
+
+  export interface NgModuleConfig {
+    imports?: any[];
+    declarations?: any[];
+    providers?: any[];
+    bootstrap?: any[];
+  }
+  export function NgModule(config: NgModuleConfig);
+
+  export function Injectable();
+
+  export function Output();
+
+  export function Input();
+
+  export function Pipe(config: PipeConfig);
+
+  export interface PipeTransform {
+    transform(value: string);
+  }
+}
+
+declare module '@angular/platform-browser' {
+  export class BrowserModule {
+  }
+}
+
+declare module '@angular/platform-browser/animations' {
+  export class NoopAnimationsModule {}
+}
+declare module '@angular/platform-browser-dynamic' {
+  export class Platform {
+    bootstrapModule: (module: any, config?: any) => void;
+  }
+  export function platformBrowserDynamic(): Platform;
+}
+
+declare module '@angular/compiler' {
+  export class ResourceLoader {
+  }
+}
+
+declare class Observable<T> {
+  subscribe: (T) => void;
+}
+
+
+declare module '@angular/common' {
+  export class NgIf {
+   constructor(v: any, t: any);
+  }
+}
+
+declare module '@angular/material' {
+  export class MdTab {
+    position: number;
+  }
+  export class MdTabGroup {
+    selectedIndex: number;
+    selectChange: Observable<any>;
+  }
+  export class MdTabsModule {
+  }
+}
+
+

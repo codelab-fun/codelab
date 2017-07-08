@@ -1,0 +1,64 @@
+#intro .bg {
+  background: #fff;
+  opacity: .5;
+  padding: 2vw 5vw;
+  margin: 5vw 0;
+}
+
+#intro h1 {
+  font-size: 10vw;
+}
+
+#intro h2 {
+  font-size: 6vw;
+}
+
+:host /deep/ .slide {
+  background: transparent;
+}
+
+#intro {
+  background: url(./pics/bridge-at-villeneuve-la-garenne-1872.jpg) no-repeat;
+  display: inline-block;
+  height: 100vh;
+}
+
+#we-need-tabs {
+  background: url(./pics/alfred-sisley-9485226-1-402.jpg) no-repeat black;
+  display: inline-block;
+  height: 100vh;
+}
+
+#we-need-tabs h1 {
+  color: #ffffee;
+  font-size: 8vw;
+  background: #000;
+  opacity: 0.5;
+}
+
+:host /deep/ .runner, :host /deep/ .runner iframe {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+
+/* Specificity */
+:host /deep/ .side.side.side {
+  display: block;
+}
+
+.font-size:hover {
+  opacity: 1;
+}
+
+.font-size {
+  display: block;
+  opacity: 0.1;
+  background-color: #eeeeee;
+  border-radius: 50%;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  text-align: center;
+}

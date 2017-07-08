@@ -1,8 +1,8 @@
-import { Component, ContentChildren, EventEmitter, forwardRef, Input, OnInit, Output, QueryList } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Mode } from '../mode.enum';
 import { AnalyticsService } from '../analytics.service';
-import { SlideComponent } from '../slide/slide.component';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 declare const ga;
 
 @Component({
@@ -10,26 +10,24 @@ declare const ga;
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css']
 })
-export class PresentationComponent implements OnInit {
+export class PresentationComponent implements AfterViewInit {
   private generatedSlideIndex = 0;
   private activeMode: Mode = Mode.none;
   public config = {
     resize: false,
     hideControls: false
   };
-
+  public index: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
-  @Input() public width = 1800;
-  @Input() public height = 1000;
   @Input() public zoom = 1;
 
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
 
-  @ContentChildren(forwardRef(() => SlideComponent)) slides: QueryList<SlideComponent>;
+  slides = [];
 
   // Expose enum to template
   modeEnum = Mode;
@@ -37,8 +35,7 @@ export class PresentationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
     this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
     if (this.route.snapshot.queryParams['mini']) {
-      this.width = 1280;
-      this.height = 720;
+
     }
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
@@ -58,8 +55,9 @@ export class PresentationComponent implements OnInit {
     return this.generatedSlideIndex;
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.trackProgress();
+    this.goToSlide(this.activeSlideIndex);
   }
 
 
@@ -68,6 +66,10 @@ export class PresentationComponent implements OnInit {
       return;
     }
     const index = this.generatedSlideIndex++;
+    if (this.route.snapshot.params.id === id) {
+      this.activeSlideIndex = index;
+    }
+    this.slides.push({id, index});
     this.onSlideAdded.next({index, id});
     return index;
   }
@@ -123,6 +125,7 @@ export class PresentationComponent implements OnInit {
   goToSlide(index) {
     this.activeSlideIndex = index;
     this.onSlideChange.next(index);
+    this.index.next(index);
     this.trackProgress();
   }
 

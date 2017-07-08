@@ -22,7 +22,6 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/publish';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '../../presentation/slide/slide.component';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 declare const monaco: any;
 declare const require: any;
@@ -46,6 +45,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   public editor: any;
   @Input() public file: FileConfig;
   @Input() fontSize = 12;
+  @Input() minLines = 6;
   private actialFontSize = 12;
   @ViewChild('editor') editorContent: ElementRef;
   @Output() onCodeChange = new EventEmitter();
@@ -55,18 +55,21 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   public code = '';
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.file.currentValue.code !== this.code) {
+    if (changes.fontSize && this.editor) {
+      this.resize();
+    }
+    if (changes.file && changes.file.currentValue.code !== this.code) {
       this.loadCode(changes.file.currentValue.code);
     }
   }
 
   calcHeight(lines): number {
     const lineHeight = this.actialFontSize * 1.6;
-    return Math.max(lines * lineHeight, lineHeight * 6);
+    return Math.max(lines * lineHeight, lineHeight * this.minLines);
   }
 
 
-  constructor(public monacoConfigService: MonacoConfigService, public slide: SlideComponent, public presentation: PresentationComponent) {
+  constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
     this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1000) : A))
       .subscribe(this.onCodeChange);
   }
@@ -98,6 +101,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
       // tslint:disable-next-line:no-debugger
       debugger;
     }
+
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
     const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
 
@@ -105,7 +109,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.editor = this.monacoConfigService.monaco.editor.create(myDiv,
       {
         model: model,
-        scrollBeyondLastLine: false,
+        scrollBeyondLastLine: true,
         readOnly: this.file.readonly,
         tabCompletion: true,
         wordBasedSuggestions: true,
@@ -122,8 +126,10 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     // Re-running the code on Ctrl + Enter
     // TODO
-    // this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => this.state.run());
-
+    /* tslint:disable */
+    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+      () => this.updateValue(this.editor.getModel().getValue()));
+    /* tslint:enable */
     this.updateHeight(this.file.code);
 
   }

@@ -14,7 +14,7 @@
         <option value='name'>Name</option>
       </select>
     </div>
-    <div id="main">
+    <div *slidesIf="'main'">
 
 
       <div *ngFor="let item of (this.messages$ | async)" class="group">

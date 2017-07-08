@@ -1,4 +1,5 @@
 export interface FileConfig {
+
   opened?: boolean;
   /**
    * typescript or html.
@@ -70,4 +71,8 @@ export interface FileConfig {
    */
 
   editorType?: string;
+
+  // If this is set, this will be executed as a test.
+  // This is a hack and will be removed.
+  execute?: any;
 }
