@@ -57,7 +57,7 @@ export let routes = [
   {
     path: 'custom-events',
     loadChildren: './angular/custom-events/custom-events.module#CustomEventsModule',
-    name: 'Custom-Events',
+    name: 'Custom-Events (work in progress)',
     description: 'Learn to bind to events.',
     page: 'main'
   },
