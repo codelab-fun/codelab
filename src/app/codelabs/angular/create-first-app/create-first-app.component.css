@@ -1,0 +1,53 @@
+.mode-current {
+    filter: none;
+}
+
+.mode-other {
+    filter: grayscale(100%);
+}
+
+.mode {
+    width: 40px;
+    height: 20px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.mode:hover {
+    border-bottom: 5px solid gray;
+}
+
+.mode img {
+    height: 80px;
+    margin: 10px;
+}
+
+.mode-preview {
+    z-index: 12;
+    padding: 10px;
+}
+
+
+.mode-preview img {
+    height: 426px;
+}
+
+.mode-hide {
+    display: none;
+}
+
+.box-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+}
+
+.box-row-fill {
+    flex: auto;
+}
+
+
+.angular {
+  width: 10vw;
+}

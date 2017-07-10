@@ -8,7 +8,7 @@ import { FeedbackModule } from '../../../feedback/feedback.module';
 import { CommonModule } from '@angular/common';
 import { CreateFirstAppComponent } from './create-first-app.component';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
-
+import { BrowserWindowModule } from '../../../browser/browser.module';
 
 const routes = RouterModule.forChild(
   [{
@@ -19,7 +19,8 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, RunnersModule],
+  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule,
+            RunnersModule, BrowserWindowModule],
   declarations: [CreateFirstAppComponent],
   exports: [CreateFirstAppComponent]
 })

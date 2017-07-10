@@ -11,6 +11,7 @@ import { extractMessages } from '../../../presentation/i18n-tools';
 export class CreateFirstAppComponent implements OnInit {
 
   @ViewChild('translations') translation;
+  currentMode = 'web';
   private code: any = {};
 
   // tslint:disable:max-line-length TODO: Clean up exercises and remove this comment.
@@ -109,6 +110,21 @@ export class HelloWorldComponent {}`,
   bootstrap: [ HelloWorldComponent ],
 })
 export class AppModule {}`,
+      codeMobile: `/* Imports */
+@NgModule({
+  imports: [ NativeScriptModule ],
+  declarations: [ HelloWorldComponent ],
+  bootstrap: [ HelloWorldComponent ],
+})
+export class AppModule {}`,
+      codeVR: `/* Imports */
+export class VRComponent implements OnInit {
+    aframe: any;
+    ngOnInit() {
+        this.aframe = this.elem
+            .querySelector('a-scene');
+    }
+}`,
         matches: {
           exportClass: /export.*/,
           ngModule: /@N[^]*?\)[^]/,
@@ -141,5 +157,14 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
         type: 'typescript'
       }
     };
+  }
+
+  selectMode(event, mode) {
+    event.preventDefault();
+    this.currentMode = mode;
+  }
+
+  getModeClass(mode) {
+    return (mode === this.currentMode ? '' : 'mode-hide');
   }
 }
