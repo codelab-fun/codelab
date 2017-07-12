@@ -7,7 +7,11 @@
 }
 
 .rate:hover {
+  background-image: -ms-linear-gradient(left, #b8e1fc 0%, #90BAE4 25%, #90BCEA 37%, #bdf3fd 100%);
   background-image: -webkit-linear-gradient(left, #b8e1fc 0%, #90BAE4 25%, #90BCEA 37%, #bdf3fd 100%);
+  background-image: -webkit-gradient(left, #b8e1fc 0%, #90BAE4 25%, #90BCEA 37%, #bdf3fd 100%);
+  background-image: -o-linear-gradient(left, #b8e1fc 0%, #90BAE4 25%, #90BCEA 37%, #bdf3fd 100%);
+  background-image: -moz-linear-gradient(left, #b8e1fc 0%, #90BAE4 25%, #90BCEA 37%, #bdf3fd 100%);
   background-image: linear-gradient(to right, #b8e1fc 0%, #90BAE4 25%, #90BCEA 37%, #bdf3fd 100%);
 }
 
@@ -38,12 +42,15 @@
 .slideup {
   animation-name: slideup;
   -webkit-animation-name: slideup;  
+  -moz-animation-name: slideup;  
 
   animation-duration: 1s;  
   -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
 
   animation-timing-function: ease;  
   -webkit-animation-timing-function: ease;
+  -moz-animation-timing-function: ease;
 }
 
 @keyframes slideup {
@@ -70,33 +77,42 @@
 @-webkit-keyframes slideup {
   0% {
     -webkit-transform: translateY(100%);
+    transform: translateY(100%);
   }
   50% {
     -webkit-transform: translateY(8%);
+    transform: translateY(8%);
   }
   65% {
     -webkit-transform: translateY(-4%);
+    transform: translateY(-4%);
   }
   80% {
     -webkit-transform: translateY(4%);
+    transform: translateY(4%);
   }
   95% {
     -webkit-transform: translateY(-2%);
+    transform: translateY(-2%);
   }      
   100% {
     -webkit-transform: translateY(0%);
+    transform: translateY(0%);
   }  
 }
 
 .slidedown {
   animation-name: slidedown;
   -webkit-animation-name: slidedown;  
+  -moz-animation-name: slidedown;  
 
   animation-duration: 2s;  
   -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
 
   animation-timing-function: ease;  
   -webkit-animation-timing-function: ease;
+  -moz-animation-timing-function: ease;
 
   animation-fill-mode: forwards;
 }
@@ -120,15 +136,19 @@
 @-webkit-keyframes slidedown {
   0% {
     -webkit-transform: translateY(0%);
+    transform: translateY(0%);
   }
   50% {
     -webkit-transform: translateY(0%);
+    transform: translateY(0%);
   }
   99% {
     -webkit-transform: translateY(200%);
+    transform: translateY(200%);
   }
   100% {
     -webkit-transform: translateY(200%);
+    transform: translateY(200%);
     visibility: hidden;
   }  
 }
