@@ -107,6 +107,10 @@ export let routes = [
     loadChildren: './extra/feedback-page/feedback-page.module#FeedbackPageModule'
   },
   {
+    path: 'rating-summary',
+    loadChildren: './extra/rating-summary/rating-summary.module#RatingSummaryModule'
+  },
+  {
     path: '',
     component: IndexComponent,
     prod: true
