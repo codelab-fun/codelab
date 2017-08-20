@@ -71,7 +71,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
 
   constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
-    this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1000) : A))
+    this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1500) : A))
       .subscribe(this.onCodeChange);
   }
 

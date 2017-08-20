@@ -8,6 +8,9 @@ import { FeedbackModule } from '../../../feedback/feedback.module';
 import { BrowserWindowModule } from '../../../browser/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { AstComponent } from './ast.component';
+import { TooltipsModule } from '../../../tooltips/tooltips.module';
+import { MatchTypesOnHoverDirective } from './match-types-on-hover.directive';
+import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.model';
 
 
 const routes = RouterModule.forChild(
@@ -15,8 +18,8 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule, FeedbackModule, RunnersModule],
-  declarations: [AstComponent],
+  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule, FeedbackModule, RunnersModule, TooltipsModule, FakeBabelModule],
+  declarations: [AstComponent, MatchTypesOnHoverDirective],
   exports: [AstComponent]
 })
 export class AstModule {

@@ -22,8 +22,9 @@ xdescribe('EditorsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should return visible files', () => {
+  fit('should return visible files', () => {
     component.files = [{hidden: true}, {hidden: false}];
     expect(component.visibleFiles.length).toEqual(1);
   });
 });
+

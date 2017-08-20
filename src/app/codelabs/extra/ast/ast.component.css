@@ -1,4 +1,4 @@
-#intro .bg {
+.bg {
   background: #fff;
   opacity: .7;
   padding: 2vw 5vw;
@@ -12,7 +12,10 @@
   font-family: "Helvetica Neue", sans-serif;
 }
 
-#intro h2 {
+#intro h2, #outro h2 {
+  font-size: 12vw;
+}
+#intro h2, #outro h1 {
   font-size: 6vw;
 }
 
@@ -20,7 +23,97 @@
   background: transparent;
 }
 
-#intro {
+#sausage {
+  background: url(./pics/sausage.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#bonus {
+  background: url(./pics/park.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#babel-traverse .bg, #babel-transform .bg, #renoir .bg {
+  margin: 40vw 0;
+}
+
+#babel-traverse {
+  background: url(./pics/girl-reading-1890.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#babel-transform {
+  background: url(./pics/doggie.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#debugger-pre {
+  background: url(./pics/debugger.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+#renoir {
+  background: url(./pics/renoir.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+#missing-semicolon {
+  background: url(./pics/semicolon-missing.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#babel-fit-by-line {
+  background: url(./pics/cat.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#babel-fit {
+  background: url(./pics/the-garden.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#parser {
+  background: url(./pics/parser.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#eslint {
+  background: url(./pics/debugger.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#intro, #outro {
   background: url(./pics/landscape-with-trees-1.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
@@ -33,3 +126,27 @@
   margin: 0 auto;
 }
 
+.ast-explorer-link:hover {
+  font-size: 5vw;
+}
+.ast-explorer-link {
+  padding-top: 25px;
+  font-size: 10px;
+}
+
+.description.description.description {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  font-size: 0;
+}
+
+#debugger-regex  /deep/ .solution:hover:before {
+  color: red;
+  font-size: 3vw;
+  content: "HELP! HELP! OMG!! PLS STOP, I CAN't DO IT ANYMORE"
+}
+
+:host /deep/ #debugger-regex  .solution {
+
+}
