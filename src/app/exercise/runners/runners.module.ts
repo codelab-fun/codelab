@@ -10,7 +10,9 @@ import { BabelTestRunnerComponent } from './ts-code-test-runner/babel-test-runne
 
 
 @NgModule({
-  imports: [CommonModule, BrowserWindowModule],
+  imports: [
+    CommonModule,
+    BrowserWindowModule],
   declarations: [
     AngularPreviewRunnerComponent,
     AngularTestRunnerComponent,
@@ -25,7 +27,6 @@ import { BabelTestRunnerComponent } from './ts-code-test-runner/babel-test-runne
     AngularTestRunnerComponent,
     TestsComponent,
     TestDescriptionComponent
-
   ]
 })
 export class RunnersModule {

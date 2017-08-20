@@ -58,14 +58,15 @@ export let routes = [
     prod: true,
     translationIds: ['componentTree', 'learnToStructureAppWithReusableComponents']
   },
+  /*
   {
     path: 'custom-events',
     loadChildren: './angular/custom-events/custom-events.module#CustomEventsModule',
     name: 'Custom-Events (work in progress)',
     description: 'Learn to bind to events.',
-    page: 'main',
+    page: 'bonus',
     translationIds: ['customEvents', 'learnToBindToEvents']
-  },
+  },*/
   {
     path: 'router',
     loadChildren: './angular/router/router.module#RouterCodelabModule',

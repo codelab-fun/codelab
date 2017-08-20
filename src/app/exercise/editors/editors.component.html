@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <span data-step="2" data-intro="You know what to do here 👍" class="content">
+  <div data-step="2" data-intro="You know what to do here 👍" class="content">
     <div
       *ngFor="let file of visibleFiles; trackBy: trackFile"
       [class.hidden]="!file.opened">
@@ -42,5 +42,5 @@
         (onCodeChange)="onCodeChange({file: file, code: $event})">
       </slides-editor>
     </div>
-  </span>
+  </div>
 </div>

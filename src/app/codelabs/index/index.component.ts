@@ -20,8 +20,10 @@ export class IndexComponent implements OnInit {
   getMainPageRoutes() {
     const t = extractMessages(this.translations); // translations from the template
     return this.getPageRoutes('main').map(route => {
-      route.name = t[route.translationIds[0]] || route.name;
-      route.description = t[route.translationIds[1]] || route.name;
+      if (route.translationIds) {
+        route.name = t[route.translationIds[0]] || route.name;
+        route.description = t[route.translationIds[1]] || route.name;
+      }
       return route;
     });
   }

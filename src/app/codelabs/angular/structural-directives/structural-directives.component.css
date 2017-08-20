@@ -62,3 +62,16 @@
   cursor: pointer;
   text-align: center;
 }
+
+.twitter {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  color: #400;
+  height: 50px;
+  z-index: 100;
+  font-size: 50px;
+  font-family: Monaco, "Lucida Console", monospace;
+  opacity: 1;
+  width: auto;
+}
