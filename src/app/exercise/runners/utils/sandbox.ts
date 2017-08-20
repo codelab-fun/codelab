@@ -42,9 +42,9 @@ export interface SandBox {
 }
 
 export interface SandBoxWithLoader extends SandBox {
-  addDep: (name: string, dep: any) => {};
-  loadSystemJsDep?: (name: string, dep: any) => {};
-  todoFindABetterName?: (name: string, dep: any) => {};
+  addDep: (name: string, dep: any) => void;
+  loadSystemJsDep?: (name: string, dep: any) => void;
+  todoFindABetterName?: (name: string, dep: any) => void;
 }
 
 const iframes = new WeakMap();

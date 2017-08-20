@@ -53,16 +53,19 @@ function createIframe(config: IframeConfig) {
   return iframe;
 }
 
-function injectIframe(element: any, config: IframeConfig, runner: RunnerComponent): Promise<{
-  setHtml: Function,
-  runCss: Function,
-  register: Function,
-  runMultipleFiles: Function,
-  runSingleFile: Function,
-  runSingleScriptFile: Function,
-  loadSystemJS: Function,
-  injectSystemJs: Function
-}> {
+interface Sandbox {
+  setHtml: Function;
+  runCss: Function;
+  register: Function;
+  runMultipleFiles: Function;
+  runSingleFile: Function;
+  runSingleCssFile: Function;
+  runSingleScriptFile: Function;
+  loadSystemJS: Function;
+  injectSystemJs: Function;
+}
+
+function injectIframe(element: any, config: IframeConfig, runner: RunnerComponent): Promise<Sandbox> {
   if (runner.cachedIframes[config.id]) {
     runner.cachedIframes[config.id].iframe.remove();
     delete runner.cachedIframes[config.id];
@@ -311,7 +314,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (runner === 'Angular') {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
-      }, this).then((sandbox) => {
+      }, this).then((sandbox: Sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
@@ -325,7 +328,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
 
       injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
-      }, this).then((sandbox) => {
+      }, this).then((sandbox: Sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
@@ -346,7 +349,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     } else if (runner === 'TypeScript') {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
-      }, this).then((sandbox) => {
+      }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.injectSystemJs();
         sandbox.runMultipleFiles(files.filter(file => !file.test));
@@ -354,7 +357,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
 
       injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
-      }, this).then((sandbox) => {
+      }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         console.log('FRAME CREATED', (new Date()).getTime() - time);
         sandbox.injectSystemJs();
@@ -368,7 +371,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     } else if (runner === 'Vue') {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
-      }, this).then((sandbox) => {
+      }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml('<div id="app"></div>');
         sandbox.runSingleFile(this.scriptLoaderService.getScript('vue'));
@@ -377,7 +380,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     } else if (runner === 'React') {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
-      }, this).then((sandbox) => {
+      }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml('<div id="app"></div>');
         sandbox.runSingleFile(this.scriptLoaderService.getScript('react'));

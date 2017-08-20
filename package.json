@@ -20,15 +20,15 @@
   },
   "public": true,
   "dependencies": {
-    "@angular/animations": "^4.2.0",
-    "@angular/common": "^4.2.0",
-    "@angular/compiler": "^4.2.0",
-    "@angular/core": "^4.2.0",
-    "@angular/forms": "^4.2.0",
-    "@angular/http": "^4.2.0",
-    "@angular/platform-browser": "^4.2.0",
-    "@angular/platform-browser-dynamic": "^4.2.0",
-    "@angular/router": "^4.2.0",
+    "@angular/animations": "^4.3.5",
+    "@angular/common": "^4.3.5",
+    "@angular/compiler": "^4.3.5",
+    "@angular/core": "^4.3.5",
+    "@angular/forms": "^4.3.5",
+    "@angular/http": "^4.3.5",
+    "@angular/platform-browser": "^4.3.5",
+    "@angular/platform-browser-dynamic": "^4.3.5",
+    "@angular/router": "^4.3.5",
     "core-js": "^2.4.1",
     "hammerjs": "^2.0.8",
     "highlight.js": "^9.10.0",
@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "@angular/cdk": "^2.0.0-beta.8",
-    "@angular/cli": "^1.1.3",
-    "@angular/compiler-cli": "^4.2.0",
+    "@angular/cli": "^1.3.1",
+    "@angular/compiler-cli": "^4.3.5",
     "@angular/material": "^2.0.0-beta.7",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
@@ -70,6 +70,6 @@
     "systemjs-builder": "^0.16.4",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "typescript": "^2.4.2"
   }
 }

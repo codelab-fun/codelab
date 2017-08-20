@@ -190,7 +190,7 @@ function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
     return file;
   });
 }
-export const ng2tsConfig: CodelabConfigTemplate = {
+export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */any = {
   name: 'Angular 101 Codelab (beta)',
   id: 'ng2ts',
   defaultRunner: 'Angular',
