@@ -16,6 +16,7 @@ export class PlaygroundComponent extends ExerciseBase {
   @Input() browserUseConsole: boolean;
   @Input() browserWidth: string;
   @Input() browserHeight: string;
+  @Input() openFilesIndex = [0];
 
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlightMatches = [];
@@ -28,7 +29,7 @@ export class PlaygroundComponent extends ExerciseBase {
     super(slide, monacoConfig, analyticsService, route, presentation);
   }
 
-  onCodeChange(code) {
-    this.onCodeChanges({file: this.config.files[0], code});
+  onCodeChange(code, file) {
+    this.onCodeChanges({file, code});
   }
 }

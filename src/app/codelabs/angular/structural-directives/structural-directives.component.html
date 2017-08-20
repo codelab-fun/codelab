@@ -1,0 +1,147 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="increase-font-size font-size" (click)="updateFontSize(2)">+</div>
+    <div class="decrease-font-size font-size" (click)="updateFontSize(-2)">-</div>
+  </div>
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" *slidesIf="'intro'" no-padding>
+    <div class="bg">
+      <h1>Structural directives</h1>
+      <h2>By @kirjs</h2>
+    </div>
+  </slides-slide>
+  <slides-slide id="we-need-tabs" *slidesIf="'we-need-tabs'" no-padding>
+    <h1>We need tabs</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'intro2'" no-padding>
+    <slides-exercise [files]="code.materialTabs">
+      <div class="description"></div>
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide id="bsod" *slidesIf="'bsod'" no-padding>
+    <div class='container'>
+      <div class="msg" align='center'>
+        <p class='highlight'>Windows</p>
+        <p>A fatal exception 0E has occured at 028:C00068F8 in VxD VMM(01) 000059F8. The current application will be
+          terminated.</p>
+        <p>* Press any key to terminate the application.</p>
+        <p>* Press CTRL+ALT+DEL to restart your computer. You will lose any unsaved information in all aplications.</p>
+        <br>
+        <p class="continue">Press any key to continue <span class="blink">_</span></p>
+      </div>
+    </div>
+  </slides-slide>
+  <slides-slide id="bsod-2" *slidesIf="'bsod-2'" no-padding>
+    <div class="alfred-upset"></div>
+    <div class='container'>
+      <div class="msg" align='center'>
+        <p class='highlight'>Windows</p>
+        <p>A fatal exception 0E has occured at 028:C00068F8 in VxD VMM(01) 000059F8. The current application will be
+          terminated.</p>
+        <p>* Press any key to terminate the application.</p>
+        <p>* Press CTRL+ALT+DEL to restart your computer. You will lose any unsaved information in all aplications.</p>
+        <br>
+        <p class="continue">Press any key to continue <span class="blink">_</span></p>
+      </div>
+    </div>
+  </slides-slide>
+  <slides-slide id="bsod-beautiful" *slidesIf="'bsod-beautiful  '" no-padding>
+    <div class='container'>
+      <div class="msg" align='center'>
+        <p class='highlight'>Windows</p>
+        <p>A fatal exception 0E has occured at 028:C00068F8 in VxD VMM(01) 000059F8. The current application will be
+          terminated.</p>
+        <p>* Press any key to terminate the application.</p>
+        <p>* Press CTRL+ALT+DEL to restart your computer. You will lose any unsaved information in all aplications.</p>
+        <br>
+        <p class="continue">Press any key to continue <span class="blink">_</span></p>
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'play-with-tabs'" no-padding>
+    <slides-exercise [files]="code.materialTabs">
+      <div class="description"></div>
+      <slides-new-editors [fontSize]="fontSize" class="editor">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'structural-directives-ng-if'">
+    <h1>Structural directives ngIf</h1>
+    <slides-code-group>
+      <slides-code-editor path="before" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
+                          [code]="code.structuralDirectives.ngIfBefore"></slides-code-editor>
+      <br><br>
+      <h2>Desugars into</h2>
+      <br><br>
+      <slides-code-editor path="after" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
+                          [code]="code.structuralDirectives.ngIfAfter"></slides-code-editor>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'structural-directives-ng-for'">
+    <h1>Structural directives ngFor</h1>
+    <slides-code-group>
+      <slides-code-editor path="before" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
+                          [code]="code.structuralDirectives.ngForBefore"></slides-code-editor>
+      <br><br>
+      <h2>Desugars into</h2>
+      <br><br>
+      <slides-code-editor path="after" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
+                          [code]="code.structuralDirectives.ngForAfter"></slides-code-editor>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'structural-directives-microsyntax'">
+    <h1>Angular MicroSyntax</h1>
+    <slides-code-group>
+      <slides-code-editor [type]="text" readonly="false" path="before" [fontSize]="fontSize" [minLines]="3"
+                          [code]="code.structuralDirectives.microSyntax"></slides-code-editor>
+    </slides-code-group>
+    <a href="https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855#file-microsyntax-md">More details</a>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'play-with-tabs-structural-directive'" no-padding>
+    <slides-exercise [files]="code.materialTabsStructuralDirective">
+      <div class="description"></div>
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'md-tab-nav-bar'" no-padding>
+    <slides-exercise [files]="code.mdTabNavBar">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'micro-syntax'" no-padding>
+    <h1>Russian pop music</h1>
+    <h2>@kirjs</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/i9AHJkHqkpw" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/et281UHNoOU" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/n3Go8ub9a1k" frameborder="0" allowfullscreen></iframe>
+  </slides-slide>
+
+</slides-presentation>

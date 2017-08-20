@@ -1,38 +1,18 @@
-<div class="exercise-panel" *ngIf="slide.active">
+<div class="exercise-panel">
   <div class="main">
-    <div class="files">
-      <slides-file-structure (onSelectFile)="onSelectFile($event)" [files]="config.files"
-                             [currentFile]="currentFile || config.files[0]"></slides-file-structure>
-      <slides-editors
-        [files]="config.files" [currentFile]="currentFile || config.files[0]"
-        (onChanges)="onCodeChanges($event)" (onToggle)="toggleFile($event)"
-        (onLoadSolution)="loadSolution($event)"
-        (onSelectFile)="onSelectFile($event)">
-      </slides-editors>
-    </div>
-
-    <slides-slides-preview [milestone]="milestone">
-    </slides-slides-preview>
+    <ng-content select=".editor"></ng-content>
+    <ng-content select=".slides-preview"></ng-content>
   </div>
 
   <div class="side">
     <div>
       <ng-content select=".description"></ng-content>
-      <div *ngIf="solved">
-        <!--TODO: Find a nicer workflow-->
-        <div class="exercise-complete">
-          Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>
-        </div>
+      <div class="exercise-complete" *ngIf="solved">
+        Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>
       </div>
-      <slides-tests data-step="4" data-intro="This is a list of the tests your program should pass at the end."
-                    [tests]="config.tests" [files]="config.files"
-                    (onSelectFile)="onSelectFile($event)"></slides-tests>
+      <ng-content select=".tests"></ng-content>
     </div>
-    <slides-runner
-      data-step="5" data-intro="The live preview of your work will show up here." data-position="top"
-      (onTestUpdate)="onTestUpdate($event)"
-      [files]="config.files"
-      [runnerType]="config.runner || 'Angular'">
-    </slides-runner>
+
+    <ng-content select=".preview"></ng-content>
   </div>
 </div>

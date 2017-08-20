@@ -1,0 +1,65 @@
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+  <div class="btn-bar">
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <!--  INTRO -->
+  <slides-slide *slidesIf="'intro'" no-padding>
+    <slides-title-slide title="Custom Events" description="Learn to bind to custom events using @Output()"
+                        prereqs="Component-Tree"></slides-title-slide>
+  </slides-slide>
+
+  <!--  Slide 1-->
+  <slides-slide *slidesIf="'custom-event-slide-1'; milestone: 'CustomEvents'">
+    <h1>Custom Events / Intro</h1>
+    <h1>In this milestone, you will learn to use @Output() to communicate from child to parent component and handle
+      custom events.
+    </h1>
+  </slides-slide>
+
+  <!--  Slide 2 -->
+  <slides-slide *slidesIf="'custom-event-slide-2'; milestone: 'CustomEvents'">
+    <h1>Custom Events / Passing data from child to parent</h1>
+
+    <slides-code-group row>
+      <div column-5>
+        <slides-code-editor path="parent.ts" [fontSize]="15" [code]="code.exercise1a.code"
+                            [focus-highlight-match]="code.exercise1a.match"></slides-code-editor>
+        <h1>To 'listen' to a child's event, we bind to the child's event childDidSomething.</h1>
+      </div>
+      <div column-5>
+        <slides-code-editor path="child.ts" [fontSize]="15" [code]="code.exercise1b.code"
+                            [focus-highlight-match]="code.exercise1a.match"></slides-code-editor>
+        <h1>To let the parent know that there is an event. We emit an event from the child.</h1>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <!--  Slide 3 -->
+  <slides-slide *slidesIf="'custom-event-slide-3'; milestone: 'CustomEvents'">
+    <h1>Custom Events / Exercise - Intro</h1>
+    <h1>Let's implement a ThumbsUp and ThumbsDown button for the VideoComponent you worked on before.
+    </h1>
+
+    <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
+
+  </slides-slide>
+
+  <!--  Slide 4 -->
+  <slides-slide *slidesIf="'custom-event-slide-4';" no-padding>
+    <slides-exercise [files]="exercises[0].files">
+      <div class="description">Create a video component.</div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="CustomEvents" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+</slides-presentation>

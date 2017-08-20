@@ -1,4 +1,5 @@
 export interface FileConfig {
+
   opened?: boolean;
   /**
    * typescript or html.
@@ -68,7 +69,10 @@ export interface FileConfig {
   /**
    * File dependencies, need for proper highlighting in monaco.
    */
-  deps?: Array<string>;
 
   editorType?: string;
+
+  // If this is set, this will be executed as a test.
+  // This is a hack and will be removed.
+  execute?: any;
 }

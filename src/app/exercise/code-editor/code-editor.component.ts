@@ -2,8 +2,8 @@ import { Component, ContentChild, Input, OnInit, Optional } from '@angular/core'
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { SlideComponent } from '../../presentation/slide/slide.component';
-import { Subscription } from 'rxjs/Subscription';
 import { CodeGroupComponent } from '../code-group/code-group.component';
+import { register } from 'ts-node/dist';
 
 @Component({
   selector: 'slides-code-editor',
@@ -11,36 +11,23 @@ import { CodeGroupComponent } from '../code-group/code-group.component';
   styleUrls: ['./code-editor.component.css']
 })
 export class CodeEditorComponent implements OnInit {
-  onActiveUnsubscribe: Subscription;
   @Input() type = 'typescript';
   @Input() fontSize = 30;
   @Input() readonly = true;
   @Input() code = '';
   @Input() path?;
+  @Input() minLines = 6;
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
-  @Input('tooltips') ngTooltips: any[] = [];
+  @Input('tooltips') slidesTooltips: any[] = [];
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlight: any[] = [];
   @ContentChild('code') textarea;
   public file: FileConfig;
-  public active = false;
 
-  constructor(public slide: SlideComponent, private monacoConfig: MonacoConfigService, @Optional() group: CodeGroupComponent) {
 
-    if (group) {
-      group.register(this);
-    }
-    this.onActiveUnsubscribe = slide.onActive.subscribe((active) => {
-      if (active) {
-        slide.disableResize();
-        if (!group) {
-          this.monacoConfig.createFileModels([this.file]);
-          this.active = true;
-        }
-      } else {
-        this.active = active;
-      }
-    });
+  constructor(public slide: SlideComponent,
+              private monacoConfig: MonacoConfigService, @Optional()
+              private group: CodeGroupComponent) {
   }
 
   ngOnInit(): void {
@@ -69,5 +56,14 @@ export class CodeEditorComponent implements OnInit {
       type: this.type,
       template: ''
     };
+
+    if (this.group) {
+      this.group.register(this);
+    }
+
+
+    if (!this.group) {
+      this.monacoConfig.createFileModels([this.file]);
+    }
   }
 }

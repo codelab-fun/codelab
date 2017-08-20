@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 import { AnalyticsService } from './analytics.service';
 import { IntrojsDirective } from './introjs-directive/introjs.directive';
-import 'hammerjs';
+import { SlideIfDirective } from './slide-if/slide-if.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import 'hammerjs';
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective
+    IntrojsDirective,
+    SlideIfDirective
   ],
 
   exports: [
@@ -53,7 +54,8 @@ import 'hammerjs';
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective
+    IntrojsDirective,
+    SlideIfDirective
   ],
   imports: [
     CommonModule,

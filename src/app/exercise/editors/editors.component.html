@@ -1,43 +1,46 @@
-<div data-step="1" data-intro="From now on you may need to write code in multiple files; you can tab through them here."
-     class="tabs">
-  <div class="tab"
-    *ngFor="let file of visibleFiles; trackBy: trackFile"
-    [class.is-active]="isActiveFile(file)"
-    [class.hidden]="!file.opened">
-    <div
-      class="tab-title"
-      (click)="showFile(file)">
-      {{ getFileName(file) }}
-      <span
-        class="readonlyIcon"
-        *ngIf="file.readonly">
+<div>
+  <div data-step="1"
+       data-intro="From now on you may need to write code in multiple files; you can tab through them here."
+       class="tabs">
+    <div class="tab"
+         *ngFor="let file of visibleFiles; trackBy: trackFile"
+         [class.is-active]="isActiveFile(file)"
+         [class.hidden]="!file.opened">
+      <div
+        class="tab-title"
+        (click)="showFile(file)">
+        {{ getFileName(file) }}
+        <span
+          class="readonlyIcon"
+          *ngIf="file.readonly">
       </span>
+      </div>
+      <button
+        *ngIf="file.readonly"
+        class="tab-close"
+        (click)="closeTab(file)">
+        &times;
+      </button>
     </div>
-    <button
-      *ngIf="file.readonly"
-      class="tab-close"
-      (click)="closeTab(file)">
-      &times;
-    </button>
   </div>
-</div>
 
-<span data-step="2" data-intro="You know what to do here 👍" class="content">
-  <div
-    *ngFor="let file of visibleFiles; trackBy: trackFile"
-    [class.hidden]="!file.opened">
+  <span data-step="2" data-intro="You know what to do here 👍" class="content">
     <div
-      class="solution"
-      *ngIf="isActiveFile(file) && !file.readonly"
-      (click)="loadSolution(file)">
-      Load solution
+      *ngFor="let file of visibleFiles; trackBy: trackFile"
+      [class.hidden]="!file.opened">
+      <div
+        class="solution"
+        *ngIf="isActiveFile(file) && !file.readonly"
+        (click)="loadSolution(file)">
+        Load solution
+      </div>
+      <slides-editor
+        [fontSize]="fontSize"
+        class="editor"
+        [class.is-hidden]="!isActiveFile(file)"
+        [file]="file"
+        (onCodeChange)="onCodeChange({file: file, code: $event})">
+      </slides-editor>
     </div>
-    <slides-editor
-      [fontSize]="16"
-      class="editor"
-      [class.is-hidden]="!isActiveFile(file)"
-      [file]="file"
-      (onCodeChange)="onCodeChange({file: file, code: $event})">
-    </slides-editor>
-  </div>
-</span>
+  </span>
+</div>

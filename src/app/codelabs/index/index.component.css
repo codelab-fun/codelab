@@ -1,0 +1,41 @@
+.intro li a:hover {
+  text-decoration: underline;
+}
+
+.intro li a {
+  text-decoration: none;
+  color: #888;
+}
+
+.intro ul {
+  margin: 0;
+  padding: 0;
+}
+
+.intro li {
+  margin: 0;
+  padding: 0;
+  padding-left: 21px;
+  font-size: 1.3vw;
+  margin-bottom: 16px;
+}
+
+.intro li h2 {
+  font-size: 2vw;
+}
+
+.feedback-shift {
+  position: fixed;
+  right: 107px;
+  bottom: 1vh;
+}
+
+.btn-bar {
+  z-index: 110;
+}
+
+img .angular {
+  width: 30vw;
+}
+
+

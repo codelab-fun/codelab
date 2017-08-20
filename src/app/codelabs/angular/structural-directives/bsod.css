@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+.container {
+  display: flex;
+  font-family: 'Press Start 2P', cursive;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.msg {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+p {
+  text-align: left;
+}
+
+.continue {
+  text-align: center;
+}
+
+.highlight {
+  color: rgb(1, 2, 172);
+  background-color: rgb(172, 173, 168);
+  padding: 3px;
+  text-align: center;
+  width: 150px;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+#bsod, #bsod-2, #bsod-beautiful {
+  color: white;
+  background: #084fdd;
+  display: inline-block;
+  height: 100vh;
+}
+
+
+#bsod-2 .alfred-upset {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 263px;
+  height: 420px;
+  background: url(./pics/Alfred_Sisley_photo_full.jpg);
+}
+#bsod-beautiful {
+  background: url(./pics/bebbf81f5402fbbec1cff6eb687aa90a.jpg) no-repeat center center fixed;
+  background-size: 100%;
+  color: black;
+}

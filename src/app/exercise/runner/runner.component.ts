@@ -14,9 +14,10 @@ import * as ts from 'typescript';
 import { FileConfig } from '../interfaces/file-config';
 import { LoopProtectionService } from '../services/loop-protection.service';
 import { ScriptLoaderService } from '../services/script-loader.service';
+import * as babylon from 'babylon';
+import * as babel_types from 'babel-types';
+import babel_traverse from 'babel-traverse';
 declare const require;
-const tspoon = require('tspoon');
-
 
 function jsScriptInjector(iframe) {
   return function (code) {
@@ -155,9 +156,10 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
               setters: [],
               execute: function () {
                 exports('ts', ts);
-                exports('tspoon', tspoon);
+                exports('babylon', babylon);
+                exports('babel_traverse', babel_traverse);
+                exports('babel_types', babel_types);
                 files.forEach((file) => {
-                  console.log(file.path.replace(/[\/\.-]/gi, '_'));
                   exports(file.path.replace(/[\/\.-]/gi, '_'), file.code);
                   exports(file.path.replace(/[\/\.-]/gi, '_') + '_AST', ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5));
                 });
@@ -281,7 +283,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() runnerType: string;
   @Output() onTestUpdate = new EventEmitter<any>();
   cachedIframes = {};
-  html = `<my-app></my-app>`;
+  html = `<my-app id="app"></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
   @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
   private handleMessageBound: any;
@@ -310,11 +312,11 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
         sandbox.runSingleFile(this.scriptLoaderService.getScript('shim'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('zone'));
-        sandbox.injectSystemJs();
         sandbox.runSingleScriptFile(this.scriptLoaderService.getScript('system-config'));
         sandbox.loadSystemJS('ng-bundle');
         sandbox.register('reflect-metadata', Reflect);
@@ -324,12 +326,12 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'testing', 'url': 'about:blank'
       }, this).then((sandbox) => {
+        sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml(this.html);
         sandbox.runSingleFile(this.scriptLoaderService.getScript('shim'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('zone'));
         sandbox.runSingleScriptFile(this.scriptLoaderService.getScript('chai'));
-        sandbox.injectSystemJs();
         sandbox.runSingleScriptFile(this.scriptLoaderService.getScript('system-config'));
         sandbox.runSingleScriptFile(this.scriptLoaderService.getScript('mocha'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('test-bootstrap'));
@@ -363,6 +365,25 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
           .filter(file => !file.excludeFromTesting);
         sandbox.runMultipleFiles(testFiles);
       });
+    } else if (runner === 'Vue') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': 'about:blank'
+      }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
+        sandbox.setHtml('<div id="app"></div>');
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('vue'));
+        sandbox.runSingleFile(files[0].code);
+      });
+    } else if (runner === 'React') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': 'about:blank'
+      }, this).then((sandbox) => {
+        sandbox.runCss(require('./inner.css'));
+        sandbox.setHtml('<div id="app"></div>');
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('react'));
+        sandbox.runSingleFile(this.scriptLoaderService.getScript('react-dom'));
+        sandbox.runSingleFile(files[0].code);
+      });
     } else {
       throw new Error('No runner specified');
     }
@@ -387,5 +408,4 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   }
 }
-
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
+import { DepsService } from './deps-order.service';
 declare const require;
 const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/dev/vs/loader');
 
@@ -35,77 +36,22 @@ export class MonacoConfigService {
 
     // Some fake Angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
-    const core = `
-        declare module '@angular/core' {
-          export class EventEmitter<T> {
-            emit: function(param: T);
-          }
-
-          export interface ComponentConfig {
-            selector: string;
-            template?: string;
-            templateUrl?: string;
-          }
-
-          export interface PipeConfig {
-            name: string;
-          }
-
-          export function Component(config: ComponentConfig);
-
-          export interface NgModuleConfig {
-            imports?: any[];
-            declarations?: any[];
-            providers?: any[];
-            bootstrap?: any[];
-          }
-          export function NgModule(config: NgModuleConfig);
-          export function Injectable();
-          export function Output();
-          export function Input();
-          export function Pipe(config: PipeConfig);
-          export interface PipeTransform {
-            transform(value: string);
-          }
-
-        }
-
-        declare var x = 1;
-
-        declare module '@angular/platform-browser' {
-          export class BrowserModule {}
-        }
-
-        declare module '@angular/platform-browser-dynamic' {
-          export class Platform {
-            bootstrapModule: function();
-          }
-          export function platformBrowserDynamic(): Platform;
-        }
-
-        declare module '@angular/compiler' {
-          export class ResourceLoader {
-          }
-        }
-
-
-        `;
+    const core = require('!!raw-loader!./types.d.ts.not-really');
 
     monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
   }
 
-  constructor() {
+  constructor(private depsService: DepsService) {
     this.monaco = monaco;
   }
 
   sortFiles(files: FileConfig[]) {
-    // Build a set of all files that are declared as deps.
-    const deps = files.filter(file => file.deps)
-      .reduce((set, file) => file.deps.reduce((result, dep) => result.add(dep), set), new Set());
-
-    // Put files that are in deps first, and others in the end.
-    // TODO: Write a better implementation to allow multi-level deps.
-    return files.filter(file => deps.has(file.moduleName)).concat(files.filter(file => !deps.has(file.moduleName)));
+    // TODO(kirjs): Find a better way to handle this.
+    try {
+      return this.depsService.order(files);
+    } catch (e) {
+      return files;
+    }
   }
 
   createFileModels(files: FileConfig[]) {

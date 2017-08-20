@@ -1,7 +1,7 @@
-<div class="progress-bar">
+<div class="progress-bar" *ngIf="slides.length">
   <div class="points-container" #progressBarDiv>
     <div class="slide-block" *ngFor="let slide of slides" [class.exercise-block]="slide.isExercise"
-         [class.completed-slide]="slide.slideId <= currentSlideId" (click)="goToSlide(slide.slideId)">
+         [class.completed-slide]="slide.index <= currentSlideId" (click)="goToSlide(slide.index)">
     </div>
   </div>
 </div>
