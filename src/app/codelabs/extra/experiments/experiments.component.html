@@ -1,0 +1,90 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <!--  INTRO -->
+  <slides-slide *slidesIf="'intro'" no-padding>
+    <slides-title-slide
+      title="Experiments"
+      description=""
+      prereqs=""
+    ></slides-title-slide>
+  </slides-slide>
+
+  <slides-slide>
+    <h2>How to use angular-presentation</h2>
+    <pre>
+    first you create the slide with
+
+    &lt;slides-slide&gt;
+      ...
+    &lt;/slides-slide&gt;
+
+    this component creates new empty separate slide for presentation
+    </pre>
+
+    <div class="empty-slide"></div>
+
+  </slides-slide>
+
+  <slides-slide>
+    <h2>HTML tags in slide component</h2>
+
+    <p class="html-elements">Inside this component you can use regular html tags like h1, h2, p, ol, li and
+      others.</p>
+
+    <p> &lt;h1&gt; Text of header &lt;/h1&gt;</p>
+    <h1>Text of header h1</h1>
+
+    <p> &lt;h2&gt; Text of header &lt;/h2&gt;</p>
+    <h2>Text of header h2</h2>
+
+    <h3> &lt;p&gt; Text inside p tag &lt;/p&gt;</h3>
+    <p>Text inside p tag</p>
+
+    <h3>Lists with ol and li tags</h3>
+    <ol>
+      <li>lists item 1</li>
+      <li>lists item 2</li>
+    </ol>
+
+  </slides-slide>
+
+  <slides-slide>
+    <h2>slides-code-editor</h2>
+    <pre>
+    This component lets you to display code in the slide.
+
+    &lt;slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.code"
+           [focus-highlight-match]="[code.moduleAnatomy.matches.ngModule]"&gt;
+    &lt;/slides-code-editor&gt;
+    </pre>
+
+    <div class="col-6">
+      <h3 style="text-align: justify;">Parent Component</h3>
+      <slides-code-editor [fontSize]="15" [code]="code.parentComponentSkeleton.code"></slides-code-editor>
+    </div>
+
+
+  </slides-slide>
+
+
+  <slides-slide>
+    <h2>slides-playground</h2>
+
+
+    <slides-playground vertical
+                       [config]="code.templateInterpolationExercise">
+    </slides-playground>
+
+  </slides-slide>
+</slides-presentation>
