@@ -1,0 +1,34 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="menu-bar-btn github-icon">
+      <a href="https://github.com/AngularNYC/angular-presentation">
+        <img src="/assets/images/github-icon.png">
+      </a>
+    </div>
+    <slides-mode-overview></slides-mode-overview>
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide *slidesIf="'intro'" no-padding milestone="React">
+    <slides-title-slide
+      title="React"
+      description="Basics of React.js"
+    ></slides-title-slide>
+  </slides-slide>
+
+  <slides-slide  *slidesIf="'react-description'; milestone: 'React'">
+    <h1 i18n="@@introduction">Introduction</h1>
+    <div class="centered-vertically">
+      <h2>This is React.js!!</h2>
+      <slides-playground [config]="code.basic"></slides-playground>
+    </div>
+  </slides-slide>
+
+</slides-presentation>
