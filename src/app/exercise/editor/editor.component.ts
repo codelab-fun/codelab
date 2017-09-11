@@ -46,6 +46,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() public file: FileConfig;
   @Input() fontSize = 12;
   @Input() minLines = 6;
+  @Input() lineNumbers = 'off';
   private actialFontSize = 12;
   @ViewChild('editor') editorContent: ElementRef;
   @Output() onCodeChange = new EventEmitter();
@@ -70,7 +71,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
 
   constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
-    this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1000) : A))
+    this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1500) : A))
       .subscribe(this.onCodeChange);
   }
 
@@ -116,7 +117,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
         lineNumbersMinChars: 3,
         automaticLayout: true,
         fontSize: this.actialFontSize,
-        lineNumbers: 'off'
+        lineNumbers: this.lineNumbers
       });
 
     this.editor.getModel().onDidChangeContent(() => {

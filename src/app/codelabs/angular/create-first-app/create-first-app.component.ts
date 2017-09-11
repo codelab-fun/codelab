@@ -9,6 +9,7 @@ import { extractMessages } from '../../../presentation/i18n-tools';
   styleUrls: ['./create-first-app.component.css']
 })
 export class CreateFirstAppComponent implements OnInit {
+  t: { [key: string]: string; };
 
   @ViewChild('translations') translation;
   currentMode = 'web';
@@ -71,17 +72,17 @@ export class AppComponent {
   // tslint:enable:max-line-length
 
   ngOnInit() {
-    const t = extractMessages(this.translation);
+    this.t = extractMessages(this.translation);
 
     this.code = {
       decorators: {
-        code: `// ${t.componentIsDecorator}
+        code: `// ${this.t.componentIsDecorator}
 @Component({
   metadata
-}) // No semicolon here (as it attaches itself to the class below)
+}) // ${this.t.noSemicolon}
 export class AppComponent {
-  // ${t.decoratorGoesAboveEntity}
-  // ${t.componentNameIsClassName}
+  // ${this.t.decoratorGoesAboveEntity}
+  // ${this.t.componentNameIsClassName}
 }`
       },
       componentAnatomy: {   // Component Anatomy - Milestone #1

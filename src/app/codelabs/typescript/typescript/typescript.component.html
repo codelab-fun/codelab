@@ -28,6 +28,28 @@
   </div>
   <div i18n="@@definitelyBoolean" id="definitelyBoolean">okay, definitely a boolean</div>
   <div i18n="@@createClassCodelab" id="createClassCodelab">Create a class called 'Codelab'</div>
+  <div i18n="@@exportClass" id="exportClass">Export the class</div>
+  <div i18n="@@addConstructor" id="addConstructor">Add a constructor</div>
+  <div i18n="@@makeConstructorTakeParamGuests" id="makeConstructorTakeParamGuests">Make constructor take a parameter
+    'guests'
+  </div>
+  <div i18n="@@specifyTheTypeForGuests" id="specifyTheTypeForGuests">Specify the type for the guests parameter (hint:
+    it's an array of a type Guest)
+  </div>
+  <div i18n="@@makeParemeterPublic" id="makeParemeterPublic">Make the parameter public (note that now you can access it
+    anywhere in the class using this.guests)
+  </div>
+  <div i18n="@@createNewMethodGetGuestsComing" id="createNewMethodGetGuestsComing">Create new method 'getGuestsComing'
+  </div>
+
+  <div i18n="@@specifyTheTypeForB" id="specifyTheTypeForB">"b" in the code below is highlighted, because TypeScript is missing the type. Specify the type for b.</div>
+  <div i18n="@@typescriptHighlightsErrorFix224" id="typescriptHighlightsErrorFix224">With this information TypeScript can highlight the error. Fix it, make 2 + 2 = 4 again!</div>
+
+
+  <div i18n="@@modifyGetGuestsComingToFilter" id="modifyGetGuestsComingToFilter">Modify getGuestsComing to filter the
+    guests array return an array of guests with the 'coming'
+    property set to true.
+  </div>
 
 </div>
 <slides-presentation
@@ -50,28 +72,33 @@
   <slides-slide *slidesIf="'intro'; milestone: 'TypeScript'" no-padding>
     <slides-title-slide
       title="TypeScript"
+      i18n-title="@@typescript"
       description="Angular is written in TypeScript. Learn more about the language basics."
+      i18n-description="@@AngularIsWrittenInTypescript"
       prereqs="Basic understanding of JavaScript is required."
+      i18n-prereqs=""
     ></slides-title-slide>
   </slides-slide>
 
   <slides-slide *slidesIf="'why-typescript'; milestone: 'TypeScript'">
     <h1 i18n>Why TypeScript</h1>
-    <h2><b>JavaScript</b> is a great language, but there's space for improvement:</h2>
+    <h2 i18n><b>JavaScript</b> is a great language, but there's space for improvement:</h2>
     <ul>
-      <li>JS is not types safe which makes it harder to develop large scale applications</li>
-      <li>New features of the latest versions of JS standards (ES6, ES7) are not supported well across all the
+      <li i18n>JS is not types safe which makes it harder to develop large scale applications</li>
+      <li i18n>New features of the latest versions of JS standards (ES6, ES7) are not supported well across all the
         browsers
       </li>
     </ul>
-    <div class="info"><b>ES</b> stands for <b>EcmaScript</b>, which the name of the JavaScript language specification
+    <div class="info" i18n><b>ES</b> stands for <b>EcmaScript</b>, which the name of the JavaScript language
+      specification
       (standard)
     </div>
   </slides-slide>
 
   <slides-slide *slidesIf="'about-typescript-2'; milestone: 'TypeScript'">
     <h1 i18n>TypeScript</h1>
-    <h2>This is why <b>TypeScript</b> was created. It transpiles to JavaScript, so it can be used in any browser.</h2>
+    <h2 i18n>This is why <b>TypeScript</b> was created. It transpiles to JavaScript, so it can be used in any browser.
+    </h2>
     <div row>
       <div>
         <ul>
@@ -132,7 +159,7 @@
         </svg>
       </div>
     </div>
-    <div class="info">Decorator looks like @twitter_handles, we'll learn more about them later</div>
+    <div class="info" i18n>Decorator looks like @twitter_handles, we'll learn more about them later</div>
   </slides-slide>
 
   <!--  NUMBER-TYPE  -->
@@ -153,7 +180,7 @@
 
   <!--  NUMBER-TYPE  -->
   <slides-slide slidesIntroJs *slidesIf="'typescript-mini-exercise'; milestone: 'TypeScript'">
-    <h1 data-step="1" data-intro="Welcome to the first coding exercise!" i18n>
+    <h1 data-step="1" data-intro="Welcome to the first coding exercise!">
       <ng-container i18n="@@typescript">TypeScript</ng-container>
       /
       <ng-container i18n="@@typeSystem">Type System</ng-container>
@@ -215,7 +242,7 @@
     </h1>
     <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}&gt;</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
-    <div class="info">Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
+    <div class="info" i18n>Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
     </div>
   </slides-slide>
 
@@ -257,7 +284,7 @@
     </h1>
     <h2 i18n>
       Constructor parameters marked as <b>public</b> (or private, or protected), become class properties accessible as
-      <b>this.{{'<'}}parameter name{{'>'}}</b> within the class
+      <b>this.ParameterName</b> within the class
     </h2>
     <slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"
                        [focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>
@@ -346,7 +373,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="TypeScript" class="slides-preview">
       </slides-slides-preview>
-      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-test-runner class="tests" [translations]="t"></slides-angular-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>

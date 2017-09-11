@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { handleTestMessage } from '../utils/tests';
@@ -15,6 +15,7 @@ declare const require;
 })
 export class AngularTestRunnerComponent implements AfterViewInit {
   handleMessageBound: any;
+  @Input() translations: { [key: string]: string; } = {};
   tests: Array<TestInfo> = [];
 
   @ViewChild('runner') runnerElement: ElementRef;

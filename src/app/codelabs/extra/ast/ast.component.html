@@ -1,0 +1,251 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="increase-font-size font-size" (click)="updateFontSize(2)">+</div>
+    <div class="decrease-font-size font-size" (click)="updateFontSize(-2)">-</div>
+  </div>
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" *slidesIf="'intro'" no-padding>
+    <div class="bg">
+      <h1>Breaking <b>JavaScript</b><br> into Pieces</h1>
+      <h2>By @kirjs</h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'linting'">
+    <h1>Bin to dec</h1>
+    <h2>Why do we need to break JavaScript into pieces?</h2>
+    <slides-code-editor [code]="code.decToBin" [fontSize]="36"></slides-code-editor>
+  </slides-slide>
+
+  <slides-slide id="missing-semicolon" *slidesIf="'missing-semicolon'" no-padding>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'linting-fixed'">
+    <h1>Bin to dec - fixed</h1>
+    <slides-code-editor [code]="code.decToBinFixed" [fontSize]="36"></slides-code-editor>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'why-break'">
+    <h1>Why do we need to break JavaScript into pieces?</h1>
+    <ul>
+      <li>Building tools</li>
+      <li>Getting more control of your code/better refactoring/codemods</li>
+      <li>Make robots do their job/More peaceful code reviews</li>
+      <li>Creating educational projects</li>
+      <li>Curiousity/Inspiration</li>
+    </ul>
+  </slides-slide>
+
+
+  <slides-slide id="debugger-pre" *slidesIf="'debugger-pre'" no-padding>
+    <div class="bg">
+      <h1>Let's solve some real issue</h1>
+      <h2>There's a <b>debugger</b> statement in our code, can we get rid of it?</h2>
+    </div>
+  </slides-slide>
+
+
+  <slides-slide id="debugger-regex" *slidesIf="'debugger-regex'" no-padding>
+    <slides-exercise [files]="code.findDebugger">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide id="sausage" *slidesIf="'not-like-sausage'" no-padding>
+    <div class="bg"><b>JavaScript</b> is not like sausage!</div>
+  </slides-slide>
+
+
+  <slides-slide id="parser" *slidesIf="'parser'" no-padding>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'debugger-ast'">
+    <h1>Abstract Syntax Tree Example</h1>
+    <slides-code-group row>
+      <div class="col-6">
+        <slides-code-editor [code]="code.consoleLog" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.astExampleFull" type="json" [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+  <slides-slide id="venok" *slidesIf="'scary-tree'">
+    <img src="assets/images/ast/tree.gif" alt="tree">
+  </slides-slide>
+
+  <slides-slide *slidesIf="'console-log-ast-highlight-loc'">
+    <slides-code-group row>
+      <div class="col-6">
+        <slides-code-editor [code]="code.consoleLog" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.astExampleFull" [babelHighlightMatch]="matchTreePartsLoc" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'console-log-ast-no-loc'">
+    <slides-code-group row>
+      <div class="col-6">
+        <slides-code-editor [code]="code.consoleLog" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.astExample" type="json" [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'console-log-ast-no-loc-highlight-body'">
+    <slides-code-group row>
+      <div class="col-6">
+        <slides-code-editor [code]="code.consoleLog" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.astExample" type="json" [babelHighlightMatch]="matchTreePartsBody"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'console-log-ast-no-loc-no-body'">
+    <slides-code-group row slidesMatchTypesOnHover>
+      <div class="col-6">
+        <slides-code-editor [code]="code.consoleLog" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.astExampleNoBody" type="json" [babelHighlightMatch]="matchTreePartsBody"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'console-log-ast-no-loc-no-body-console-log'">
+    <slides-code-group row slidesMatchTypesOnHover>
+      <div class="col-6">
+        <slides-code-editor [code]="code.debuggerAndConsoleLog" type="json"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+      <div class="col-6">
+        <slides-code-editor [code]="code.debuggerAndConsoleLogAst" type="json"
+                            [babelHighlightMatch]="matchTreePartsType"
+                            [lineNumbers]="'on'"></slides-code-editor>
+      </div>
+    </slides-code-group>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'debugger-babel'" no-padding>
+    <slides-exercise [files]="code.findDebuggerBabel">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
+    </slides-exercise>
+  </slides-slide>
+
+
+  <slides-slide id="babel-traverse" *slidesIf="'babel-traverse'" no-padding>
+    <div class="bg">Traversing AST with <b>babel-traverse</b></div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'debugger-babel-traverse'" no-padding>
+    <slides-exercise [files]="code.traverseDebuggerBabel">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
+    </slides-exercise>
+  </slides-slide>
+
+
+  <slides-slide id="babel-transform" *slidesIf="'babel-transform'" no-padding>
+    <div class="bg">Transforming AST <b>babel-traverse</b></div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'debugger-babel-transform'" no-padding>
+    <slides-exercise [files]="code.removeDebuggerBabel">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide id="babel-fit" *slidesIf="'babel-autofix-focus-tests'" no-padding>
+    <div class="bg">Autofixing <b>fit</b> (focused tests)</div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'fit-babel'" no-padding>
+    <slides-exercise [files]="code.findfIt">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <div class="description">
+        <a class="ast-explorer-link" href="http://astexplorer.net">astexplorer.net</a>
+      </div>
+      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide id="babel-fit-by-line" *slidesIf="'babel-fit-tests-by-lines-pre'" no-padding>
+    <div class="bg">Focusing a test by line number</div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'babel-fit-tests-by-lines'" no-padding>
+    <slides-exercise [files]="code.itLines">
+      <slides-new-editors class="editor" [fontSize]="fontSize">
+      </slides-new-editors>
+      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide id="eslint" *slidesIf="'eslint'" no-padding>
+    <div class="bg">Making this work with all files with <b>ESLint</b> (on <a href="http://astexplorer.net">AstExplorer</a>)</div>
+  </slides-slide>
+
+  <slides-slide id="ast-links" *slidesIf="'ast-links'">
+    <h1>More links</h1>
+    <ul>
+      <li><h2><a href="https://github.com/eslint/eslint/tree/master/lib/rules">All ESLint rules are available here</a>
+      </h2></li>
+      <li><h2><a href="https://github.com/facebook/jscodeshift">JsCodeShift</a></h2></li>
+      <li><h2><a href="https://git.io/babel-handbook">Babel handbook</a></h2></li>
+      <li><h2><a href="https://www.youtube.com/watch?v=Tar4WgAfMr4">Building a compiler talk</a></h2></li>
+    </ul>
+  </slides-slide>
+
+
+  <slides-slide id="bonus" *slidesIf="'bonus'" no-padding>
+    <div class="bg">Bonus?</div>
+  </slides-slide>
+
+
+  <slides-slide id="renoir" *slidesIf="'renoir'" no-padding>
+    <div class="bg">
+      <h1>Thanks Pierre-Auguste for pics!</h1>
+      <h2>Follow him: <a href="https://twitter.com/artist_renoir">@artist_renoir</a></h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="outro" *slidesIf="'outro'" no-padding>
+    <div class="bg">
+      <h1>Thank you!</h1>
+      <h2>@kirjs</h2>
+    </div>
+  </slides-slide>
+</slides-presentation>

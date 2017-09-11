@@ -1,0 +1,30 @@
+.runner {
+  display: none;
+}
+
+.test {
+  margin-bottom: 5px;
+  background: #ff9a86;
+  padding: 5px 10px;
+  font-size: 3vw;
+}
+
+.test.pass {
+  background: #b2ff37;
+}
+.mini {
+  font-size: 30%;
+  display: block;
+}
+pre {
+  margin: 0;
+}
+
+.test.future.future {
+  background: #e8e8e8;
+  color: #ddd;
+}
+
+.wrapper {
+  display: flex;
+}

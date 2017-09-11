@@ -9,19 +9,19 @@ import {
 
 const tests = [
   {
-    title: `Create a class called 'AppModule'`,
+    title: `@@createClassAppModule`,
     condition: expectClass('AppModule')
   },
   {
-    title: `Export the class`,
+    title: `@@exportClass`,
     condition: expectExportedClass('AppModule')
   },
   {
-    title: `Add a NgModule decorator for the class`,
+    title: `@@addNgModuleDecorator`,
     condition: expectDecorator('NgModule')
   },
   {
-    title: `Add 'BrowserModule' to the NgModule decorator imports`,
+    title: `@@addBrowserModuleToNgModule`,
     condition: (path) => {
       if (!isIdentifier(path.node, {name: 'BrowserModule'})) {
         return false;
@@ -37,7 +37,7 @@ const tests = [
     }
   },
   {
-    title: `Add 'AppComponent' to the 'declarations' property of the decorator`,
+    title: `@@addAppComponentToDeclarations`,
     condition: (path) => {
       if (!isIdentifier(path.node, {name: 'AppComponent'})) {
         return false;
@@ -53,7 +53,7 @@ const tests = [
     }
   },
   {
-    title: `Add 'AppComponent' to the 'bootstrap' property of the decorator`,
+    title: `@@addAppComponentToBootstrap`,
     condition: (path) => {
       if (!isIdentifier(path.node, {name: 'AppComponent'})) {
         return false;

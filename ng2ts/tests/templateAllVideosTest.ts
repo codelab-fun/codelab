@@ -18,13 +18,13 @@ beforeEach(() => {
 });
 
 describe('Blabla', () => {
-  it(`app.component.ts: Inside of the 'search' method assign FAKE_VIDEOS, to the component 'videos' property.`, () => {
+  it(`@@assignFakeVideosToComponent`, () => {
       const fixture = TestBed.createComponent(AppComponent);
       fixture.componentInstance.search('');
     chai.expect(fixture.componentInstance.videos.length, 'Should have no dogs').equals(3);
     });
 
-  it(`app.html: Iterate over the videos using '*ngFor', and display a title for each`, () => {
+  it(`@@IterateWithNgForAndDisplayTitle`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.search('itten');
     fixture.detectChanges();
@@ -36,7 +36,7 @@ describe('Blabla', () => {
     chai.expect(fixture.nativeElement.innerHTML).contains(fixture.componentInstance.videos[0].title);
   });
 
-  it(`app.html: Also display a thumbnail`, () => {
+  it(`@@alsoDisplayThumbnail`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     fixture.componentInstance.search('');
@@ -47,8 +47,7 @@ describe('Blabla', () => {
     chai.expect(images[0].getAttribute('src')).equals(fixture.componentInstance.videos[0].src);
   });
 
-  it(`app.component.ts: Inside of the 'search' method filter FAKE_VIDEOS and only return videos with the title containing searchString. 
-  (hint: use .includes or .indexOf string methods)`, () => {
+  it(`@@insideSearchMethodFilterFakeVideos`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.componentInstance.search('itten');
     chai.expect(fixture.componentInstance.videos.length, 'Should have 2 kitten videos').equals(2);
@@ -62,7 +61,7 @@ describe('Blabla', () => {
   //   //TODO
   // });
 
-  it(`#Bonus app.component.ts: Right now it takes pressing a search button to display the videos. Instead display all videos by default.`, () => {
+  it(`@@bonusDisplayAllVideosByDefault`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');

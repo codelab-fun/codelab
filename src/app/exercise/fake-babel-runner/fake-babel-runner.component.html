@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div *ngIf="logs.length">
+    <div *ngFor="let log of logs">
+      <pre>{{log|json}}</pre>
+      <hr>
+    </div>
+  </div>
+  <div>
+    <div *ngFor="let test of tests; let i = index" [class.pass]="test.pass" [class.test]="true"
+         [class.compeleted]="i < firstFailingIndex()" [class.current]="i ===firstFailingIndex()"
+         [class.future]="i > firstFailingIndex()">
+      <div class="mini">{{(test.shouldPass === true || test.shouldPass === false) ? (test.shouldPass ? ' (Should match)' : '(Should NOT match)') : ''}}</div>
+      <pre>{{test.title}}</pre>
+
+
+    </div>
+  </div>
+</div>

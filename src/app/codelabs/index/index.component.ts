@@ -1,21 +1,31 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { extractMessages } from '../../presentation/i18n-tools';
 
 export interface IndexPageRoute {
   name: string;
   description: string;
   page?: string;
+  translationIds?: string[];
 }
+
 @Component({
   selector: 'slides-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
   routes: Array<IndexPageRoute>;
+  @ViewChild('translations') translations;
 
   getMainPageRoutes() {
-    return this.getPageRoutes('main');
+    const t = extractMessages(this.translations); // translations from the template
+    return this.getPageRoutes('main').map(route => {
+      if (route.translationIds) {
+        route.name = t[route.translationIds[0]] || route.name;
+        route.description = t[route.translationIds[1]] || route.name;
+      }
+      return route;
+    });
   }
 
   getBonusPageRoutes() {

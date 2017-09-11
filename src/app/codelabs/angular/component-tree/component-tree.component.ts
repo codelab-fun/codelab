@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate } from '../../../../../ng2ts/ng2ts';
 import { boxAndCircle, circleAndBox } from '../../../exercise/helpers/helpers';
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 const circleAndBoxCode = circleAndBox();
 
@@ -9,7 +10,12 @@ const circleAndBoxCode = circleAndBox();
   templateUrl: './component-tree.component.html',
   styleUrls: ['./component-tree.component.css']
 })
-export class ComponentTreeComponent {
+export class ComponentTreeComponent implements OnInit {
+  t: { [key: string]: string; };
+
+  @ViewChild('translations') translation;
+
+
   exercise: ExerciseConfigTemplate | SlideTemplate;
   exercise2: ExerciseConfigTemplate | SlideTemplate;
   title = 'Component Tree';
@@ -72,7 +78,7 @@ export class Parent {
     },
     childComponent: {
       code: `import { Component, Input } from '@angular/core';
-import { Result }from './result.model';
+import { Result } from './result.model';
 
 @Component({
   selector: 'child',
@@ -92,5 +98,9 @@ export class Child {
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(4, 1);
     this.exercise2 = exercises.getExercises(4, 2);
+  }
+
+  ngOnInit() {
+    this.t = extractMessages(this.translation);
   }
 }

@@ -1,11 +1,30 @@
 <div #translations style="display: none">
   <div i18n="@@componentIsDecorator" id="componentIsDecorator">@Component is an Angular decorator</div>
+  <div i18n="@@noSemicolon" id="noSemicolon">No semicolon here (as it attaches itself to the class below</div>
   <div i18n="@@decoratorGoesAboveEntity" id="decoratorGoesAboveEntity">The Decorator goes directly above the decorated
     entity (class in this case)
   </div>
   <div i18n="@@componentNameIsClassName" id="componentNameIsClassName">Component name is the class name
     (AppComponent).
   </div>
+  <div i18n="@@createClassAppComponent" id="createClassAppComponent">Create a class called 'AppComponent'</div>
+  <div i18n="@@createClassAppModule" id="createClassAppModule">Create a class called 'AppModule'</div>
+  <div i18n="@@allSetBootstrapApp" id="allSetBootstrapApp">All set! Bootstrap your application</div>
+
+  <div i18n="@@exportClass" id="exportClass">Export the class</div>
+  <div i18n="@@addComponentDecorator" id="addComponentDecorator">Add a Component decorator for the class</div>
+  <div i18n="@@addSelectorMyApp" id="addSelectorMyApp">Add a selector to the component decorator and set it to
+    'my-app'
+  </div>
+  <div i18n="@@addTemplateHelloMewTube" id="addTemplateHelloMewTube">Add a template that contains: h1 with a text Hello
+    MewTube!
+  </div>
+  <div i18n="@@addNgModuleDecorator" id="addNgModuleDecorator">Add a NgModule decorator for the class</div>
+  <div i18n="@@addBrowserModuleToNgModule" id="addBrowserModuleToNgModule">Add 'BrowserModule' to the NgModule decorator imports</div>
+  <div i18n="@@addAppComponentToDeclarations" id="addAppComponentToDeclarations">Add 'AppComponent' to the 'declarations' property of the decorator</div>
+  <div i18n="@@addAppComponentToBootstrap" id="addAppComponentToBootstrap">Add 'AppComponent' to the 'bootstrap' property of the decorator</div>
+
+
 </div>
 <slides-presentation
   slides-slides-routing
@@ -27,8 +46,11 @@
   <slides-slide *slidesIf="'intro';" no-padding>
     <slides-title-slide
       title="Create your first Angular app"
+      i18n-title="@@CreateYFirstAgApp"
       description="You will learn how to create your first Angular component, put it in a module, and bootstrap the app."
+      i18n-description
       prereqs="Knowing TypeScript basics would help a lot"
+      i18n-prereqs
     ></slides-title-slide>
   </slides-slide>
 
@@ -195,7 +217,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="Bootstrap" class="slides-preview">
       </slides-slides-preview>
-      <slides-babel-test-runner class="tests"></slides-babel-test-runner>
+      <slides-babel-test-runner [translations]="t" class="tests"></slides-babel-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
@@ -297,15 +319,15 @@
     </slides-code-group>
     <div class="info box-row" i18n>
         <div class="box-row-fill">
-          Angular is not just for web apps anymore; you can also use it to create native phone apps and even 
+          Angular is not just for web apps anymore; you can also use it to create native phone apps and even
           VR scenes.
         </div>
         <div style="width: 740px;">
-          <a href="#" [class]="'mode '+(currentMode=='web'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='web'?'mode-current':'mode-other')"
                       (click)="selectMode($event, 'web')"><img src="/assets/images/browsericon.png" /></a>
-          <a href="#" [class]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')"
                       (click)="selectMode($event, 'mobile')"><img src="/assets/images/phoneicon.png" /></a>
-          <a href="#" [class]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')"
                       (click)="selectMode($event, 'vr')"><img src="/assets/images/vricon.png" /></a>
         </div>
     </div>
@@ -367,7 +389,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="Bootstrap2" class="slides-preview">
       </slides-slides-preview>
-      <slides-babel-test-runner class="tests"></slides-babel-test-runner>
+      <slides-babel-test-runner [translations]="t" class="tests"></slides-babel-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>
@@ -393,13 +415,13 @@
       <ng-container i18n>Bootstrapping</ng-container>
     </h1>
     <h2 i18n>We have everything ready, so now it's time to start (bootstrap) the app!</h2>
-    <h2>
+    <h2 i18n>
       Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will start up all the components from that
       module's bootstrap section
     </h2>
     <slides-code-editor path="app.module.ts" [fontSize]="30"
                         [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
-    <div class="info">For most simple apps, you can just copy/paste the code above "as is"</div>
+    <div class="info" i18n>For most simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
 
   <slides-slide *slidesIf="'bootstrapping-more'" class="bootstrapping-more-info; milestone: 'Bootstrap3'">
@@ -487,13 +509,12 @@
     <slides-exercise [files]="exercises[2].files">
       <div class="description">
         <p i18n>Now that we've got both NgModule and the component ready, let's bootstrap the app!</p>
-        <p i18n>There's no simple way to test it; just make sure your app displays: 'Hello MewTube!'</p>
       </div>
       <slides-new-editors class="editor">
       </slides-new-editors>
-      <slides-slides-preview milestone="Bootstrap" class="slides-preview">
+      <slides-slides-preview milestone="Bootstrap3" class="slides-preview">
       </slides-slides-preview>
-      <slides-babel-test-runner class="tests"></slides-babel-test-runner>
+      <slides-babel-test-runner [translations]="t" class="tests"></slides-babel-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>

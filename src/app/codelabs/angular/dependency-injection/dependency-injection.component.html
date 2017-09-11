@@ -4,6 +4,20 @@
     * available to component instance.
   </div>
   <div i18n="@@assumingJobHasPropTitle" id="assumingJobHasPropTitle">assuming Job has property '.title'</div>
+  <div i18n="@@addIjectableDecoraterToClass" id="addIjectableDecoraterToClass">video.service.ts: Add @Injectable()
+    decorator to the class
+  </div>
+
+  <div i18n="@@addVideoServiceToNgModule" id="addVideoServiceToNgModule">app.module.ts: Add VideoService to the NgModule
+    providers property
+  </div>
+  <div i18n="@@getRidOfFakeVideos" id="getRidOfFakeVideos">app.component.ts: Get rid of FAKE_VIDEOS</div>
+  <div i18n="@@injectVideoService" id="injectVideoService">app.component.ts: Inject 'VideoService' in the component
+    constructor as 'videoService'
+  </div>
+  <div i18n="@@updateAppComponentSearchmethod" id="updateAppComponentSearchmethod">app.component.ts: Update the app
+    component's search method to use videoService's search method
+  </div>
 </div>
 
 <slides-presentation
@@ -188,7 +202,7 @@
       </slides-new-editors>
       <slides-slides-preview milestone="DependencyInjection" class="slides-preview">
       </slides-slides-preview>
-      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
   </slides-slide>

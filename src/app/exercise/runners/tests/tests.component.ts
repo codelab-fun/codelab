@@ -15,13 +15,22 @@ function getFileName(file: FileConfig) {
 export class TestsComponent {
   @Input() tests: Array<TestInfo>;
   @Input() files: Array<FileConfig>;
+  @Input() translations: { [key: string]: string; } = {};
   @Output()
   public onSelectFile: EventEmitter<FileConfig> = new EventEmitter<FileConfig>();
 
   seeAll = false;
 
+  hasTests() {
+    return this.tests && this.tests.length > 0;
+  }
+
   constructor(private sanitizer: DomSanitizer) {
   };
+
+  getTranslation(title) {
+    return this.translations[title.replace('@@', '')] || title;
+  }
 
   trackTest(index, test: TestInfo) {
     return test.title;
@@ -33,7 +42,8 @@ export class TestsComponent {
 
   getTitle(test: TestInfo) {
     const file = this.getTestFile(test);
-    return file ? test.title.replace(getFileName(file), '') : test.title;
+    const title = this.getTranslation(test.title);
+    return file ? title.replace(getFileName(file), '') : title;
   }
 
   isFirstUnsolved(test) {
