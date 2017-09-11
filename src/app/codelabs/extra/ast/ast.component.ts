@@ -22,13 +22,15 @@ const helloWorld = JSON.parse(require('!!raw-loader!./samples/hello-world.json')
 function jsify(program) {
   return 'const ast = ' + JSON.stringify(program, null, '  ');
 }
+
 const helloWorldCodePre = jsify(helloWorld);
 
 
 const debuggerCode = `debugger`;
 const debuggerAndConsoleLog = 'debugger;\nconsole.log("Hello world!");';
 const debuggerAndConsoleLogAst =
-  removeDoubleWhiteLines(processCode(jsify(parseCode(debuggerAndConsoleLog).program.body), {remove: [removeLoc]}));
+  removeDoubleWhiteLines(processCode(jsify(parseCode(debuggerAndConsoleLog).program.body),
+    {remove: [removeLoc]}));
 
 @Component({
   selector: 'slides-ast',
@@ -42,7 +44,8 @@ export class AstComponent {
     matches: {loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/},
     astExampleFull: processCode(helloWorldCodePre, {remove: []}),
     astExample: removeDoubleWhiteLines(processCode(helloWorldCodePre, {remove: [removeLoc]})),
-    astExampleNoBody: removeDoubleWhiteLines(processCode(jsify(helloWorld.program.body), {remove: [removeLoc]})),
+    astExampleNoBody: removeDoubleWhiteLines(processCode(jsify(helloWorld.program.body),
+      {remove: [removeLoc]})),
     consoleLog: debuggerCode,
     debuggerAndConsoleLog,
     debuggerAndConsoleLogAst,
@@ -52,7 +55,9 @@ export class AstComponent {
       exercise('find-debugger.test', require('!!raw-loader!./samples/find-debugger/find-debugger.test.js'))
     ],
     findDebuggerBabel: [
-      exercise('find-debugger-babel', require('!!raw-loader!./samples/find-debugger/find-debugger-babel.ts'), require('!!raw-loader!./samples/find-debugger/find-debugger-babel.solved.ts')),
+      exercise('find-debugger-babel',
+        require('!!raw-loader!./samples/find-debugger/find-debugger-babel.ts'),
+        require('!!raw-loader!./samples/find-debugger/find-debugger-babel.solved.ts')),
       exercise('find-debugger.test', require('!!raw-loader!./samples/find-debugger/find-debugger.test.js')),
     ],
     traverseDebuggerBabel: [
