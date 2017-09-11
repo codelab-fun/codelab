@@ -18,7 +18,16 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule, FeedbackModule, RunnersModule, TooltipsModule, FakeBabelModule],
+  imports: [
+    routes,
+    PresentationModule,
+    ExerciseModule,
+    BrowserWindowModule,
+    FeedbackModule,
+    RunnersModule,
+    TooltipsModule,
+    FakeBabelModule,
+  ],
   declarations: [AstComponent, MatchTypesOnHoverDirective],
   exports: [AstComponent]
 })

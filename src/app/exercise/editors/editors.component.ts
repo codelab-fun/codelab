@@ -21,10 +21,6 @@ export class EditorsComponent implements OnInit {
     this.debug = true;
   }
 
-  ngOnChanges(a){
-    console.log(a);
-  }
-
   ngOnInit() {
     this.files.map(file => {
       file.opened = !file.readonly;
