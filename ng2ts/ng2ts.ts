@@ -37,6 +37,7 @@ const preloadedFiles = {
   'tests/createModuleTest.ts': require('!raw-loader!./tests/createModuleTest.ts'),
   'tests/bootstrapTest.ts': require('!raw-loader!./tests/bootstrapTest.ts'),
   'tests/templatePageSetupTest.ts': require('!raw-loader!./tests/templatePageSetupTest.ts'),
+  'tests/routerTest.ts': require('!raw-loader!./tests/routerTest.ts'),
   'tests/templateAddActionTest.ts': require('!raw-loader!./tests/templateAddActionTest.ts'),
   'tests/templateAllVideosTest.ts': require('!raw-loader!./tests/templateAllVideosTest.ts'),
   'tests/diInjectServiceTest.ts': require('!raw-loader!./tests/diInjectServiceTest.ts'),
@@ -112,6 +113,7 @@ const fileOverrides = {
     contextComponentUse: 'tests/contextComponentUseTest.ts',
     fuzzyPipeCreate: 'tests/fuzzyPipeCreateTest.ts',
     fuzzyPipeUse: 'tests/fuzzyPipeUseTest.ts',
+    routing: 'tests/routerTest.ts'
   }
 };
 
