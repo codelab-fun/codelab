@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { createModuleTest } from './tests/createModuleTest';
 import { createComponentTest } from './tests/createComponentTest';
 import { createBootstrapTest } from './tests/bootstrapTest';
+
 declare const require;
 
 const preloadedFiles = {
@@ -182,6 +183,7 @@ export interface MilestoneConfigTemplate {
   name: string;
   exercises: Array<ExerciseConfigTemplate | SlideTemplate>;
 }
+
 function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
   return exercisesFiles.map(file => {
     if (file.path === path) {
@@ -190,7 +192,8 @@ function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
     return file;
   });
 }
-export const ng2tsConfig: CodelabConfigTemplate = {
+
+export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */any = {
   name: 'Angular 101 Codelab (beta)',
   id: 'ng2ts',
   defaultRunner: 'Angular',
@@ -345,8 +348,21 @@ export const ng2tsConfig: CodelabConfigTemplate = {
           })
         }
       ]
-    }
-    ,
+    },
+    {
+      name: 'Routing',
+      exercises: [
+        {
+          name: 'Routing',
+          files: diffFilesResolver.resolve('routing', {
+            exercise: [files.thumbs_thumbs_component, files.thumbs_thumbs_html],
+            reference: [files.apiService, files.appModule, files.main, files.indexHtml],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        },
+      ]
+    },
     {
       name: 'Custom events',
       exercises: [

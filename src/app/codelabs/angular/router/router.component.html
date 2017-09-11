@@ -1,0 +1,35 @@
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+  <div class="btn-bar">
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <!--  INTRO -->
+  <slides-slide *slidesIf="'intro'" no-padding>
+    <slides-title-slide title="Routing" description="Learn how to add routing to your app"></slides-title-slide>
+  </slides-slide>
+
+  <!--  Slide 1-->
+  <slides-slide *slidesIf="'custom-event-slide-1'; milestone: 'Router'">
+    <h1>Custom Events / Intro</h1>
+    <h1>In this milestone, you will learn to add Routes to your application<!----></h1>
+  </slides-slide>
+
+  <!--  Slide 4 -->
+  <slides-slide *slidesIf="'custom-event-slide-4';" no-padding>
+      <slides-exercise [files]="exercises[2].files">
+      <div class="description">
+        <p i18n>Now let's add routing to our app!</p>
+      </div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Bootstrap" class="slides-preview">
+      </slides-slides-preview>
+      <slides-babel-test-runner class="tests"></slides-babel-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+</slides-presentation>

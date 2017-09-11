@@ -62,6 +62,13 @@ export let routes = [
     page: 'main'
   },
   {
+    path: 'router',
+    loadChildren: './angular/router/router.module#RouterCodelabModule',
+    name: 'Angular Router',
+    description: 'Learn how to add routes to your Angular application',
+    page: 'main',
+    prod: true
+  }, {
     path: 'pipes',
     loadChildren: './angular/pipes/pipes.module#PipesModule',
     name: 'Pipes',
@@ -73,6 +80,13 @@ export let routes = [
     loadChildren: './angular/structural-directives/structural-directives.module#StructuralDirectivesModule',
     name: 'Structural Directives',
     description: 'Learn how pipes transform input values to output values for display in a view',
+    page: 'bonus',
+    prod: true
+  }, {
+    path: 'cellular-automation',
+    loadChildren: './extra/cellular-automation/cellular-automation.module#CellularAutomationModule',
+    name: 'cellular-automation',
+    description: 'Cellular automation',
     page: 'bonus',
     prod: true
   },
