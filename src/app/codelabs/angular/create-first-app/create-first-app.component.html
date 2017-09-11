@@ -319,15 +319,15 @@
     </slides-code-group>
     <div class="info box-row" i18n>
         <div class="box-row-fill">
-          Angular is not just for web apps anymore; you can also use it to create native phone apps and even 
+          Angular is not just for web apps anymore; you can also use it to create native phone apps and even
           VR scenes.
         </div>
         <div style="width: 740px;">
-          <a href="#" [class]="'mode '+(currentMode=='web'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='web'?'mode-current':'mode-other')"
                       (click)="selectMode($event, 'web')"><img src="/assets/images/browsericon.png" /></a>
-          <a href="#" [class]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')"
                       (click)="selectMode($event, 'mobile')"><img src="/assets/images/phoneicon.png" /></a>
-          <a href="#" [class]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')" 
+          <a href="#" [class]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')"
                       (click)="selectMode($event, 'vr')"><img src="/assets/images/vricon.png" /></a>
         </div>
     </div>
