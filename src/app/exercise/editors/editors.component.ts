@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 
 @Component({
   selector: 'slides-editors',
   templateUrl: './editors.component.html',
-  styleUrls: ['./editors.component.scss']
+  styleUrls: ['./editors.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorsComponent implements OnInit {
   @Input() public files: Array<any>;

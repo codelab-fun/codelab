@@ -1,12 +1,9 @@
-/**
- * Created by kirjs on 11/25/16.
- */
-export function assert(x) {
+export function assert(x, message = '') {
   if (x !== undefined) {
     return x;
   } else {
     // tslint:disable-next-line:no-debugger
     debugger;
-    throw new Error('Assertion failed');
+    throw new Error('Assertion failed! ' + message);
   }
 }

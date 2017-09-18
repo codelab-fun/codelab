@@ -13,7 +13,8 @@ export class StructuralDirectivesComponent {
 
   code = {
     materialTabs: [
-      html(require('!!raw-loader!./samples/material-tabs/app.html'), require('!!raw-loader!./samples/material-tabs/app.solved.html')),
+      html('app', require('!!raw-loader!./samples/material-tabs/app.html'),
+        require('!!raw-loader!./samples/material-tabs/app.solved.html')),
       exercise('app.component', require('!!raw-loader!./samples/material-tabs/app.component.ts')),
       exercise('alert.component', require('!!raw-loader!./samples/material-tabs/alert.component.ts')),
       exercise('taet-led.component', require('!!raw-loader!./samples/material-tabs/taet-led.component.ts')),
@@ -23,7 +24,7 @@ export class StructuralDirectivesComponent {
       bootstrap('main', builder.bootstrap()),
     ],
     materialTabsStructuralDirective: [
-      html(require('!!raw-loader!./samples/material-tabs-structural-directive/app.html'),
+      html('app', require('!!raw-loader!./samples/material-tabs-structural-directive/app.html'),
         require('!!raw-loader!./samples/material-tabs-structural-directive/app.solved.html')),
       exercise('app.component', require('!!raw-loader!./samples/material-tabs-structural-directive/app.component.ts')),
       exercise('hideme.directive', require('!!raw-loader!./samples/material-tabs-structural-directive/hideme.directive.ts'),
@@ -35,7 +36,7 @@ export class StructuralDirectivesComponent {
     ]
     ,
     microSyntax: [
-      html(`<div *ngFor="let x of 122"></div>`),
+      html('app', `<div *ngFor="let x of 122"></div>`),
       bootstrap('main', require('!!raw-loader!./samples/micro-syntax/ms.ts'))
     ],
 

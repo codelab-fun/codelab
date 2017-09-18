@@ -18,8 +18,7 @@ import { ExerciseBase } from './exercise.base';
 export class ExerciseComponent extends ExerciseBase implements OnInit {
   @Input() milestone;
   @Input() config = {files: []} as any;
-
-  currentFile: FileConfig;
+  @Input() currentFile: FileConfig;
 
   public readonly files$ = new BehaviorSubject<Array<FileConfig>>([]);
   private _files: any;

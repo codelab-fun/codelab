@@ -1,3 +1,8 @@
+interface RouteConfig {
+  path: string,
+  component: any
+}
+
 declare module '@angular/core' {
   export class EventEmitter<T> {
     emit: (param: T) => void;
@@ -43,6 +48,7 @@ declare module '@angular/core' {
     declarations?: any[];
     providers?: any[];
     bootstrap?: any[];
+    exports?: any[];
   }
   export function NgModule(config: NgModuleConfig);
 
@@ -83,6 +89,14 @@ declare class Observable<T> {
   subscribe: (T) => void;
 }
 
+
+declare module '@angular/router' {
+
+  export type Routes = Array<RouteConfig>;
+  export class RouterModule {
+    static forRoot(routes: Routes){}
+  }
+}
 
 declare module '@angular/common' {
   export class NgIf {
