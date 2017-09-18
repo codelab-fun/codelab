@@ -1,7 +1,7 @@
 .frame {
   border: 1px solid #dddddd;
   padding: 10px;
-  margin-top: 0px;
+  margin-top: 0;
   width: 100%;
   background-color: #fff;
 }
@@ -18,4 +18,16 @@
   background-size: 2vw 2vw;
   display: flex;
   justify-content: space-between;
+}
+
+.browser-frame {
+  position: relative;
+}
+
+.browser-frame .url {
+  position: absolute;
+  left: 50px;
+  top: 23px;
+  font-size: 10px;
+  background-color: #fff;
 }
