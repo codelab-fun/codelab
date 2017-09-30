@@ -15,6 +15,7 @@ const fileConfig = {
 };
 
 export class CodelabFile implements FileConfig {
+  highlight: RegExp;
   after: string;
   public code: string;
   public template: string;
@@ -52,6 +53,10 @@ export class CodelabFile implements FileConfig {
     return this;
   }
 
+  public clone(): CodelabFile {
+    return Object.assign(Object.create(CodelabFile), this);
+  }
+
   public makeBootstrappable(): CodelabFile {
     this.bootstrap = true;
     return this;
@@ -74,6 +79,11 @@ export class CodelabFile implements FileConfig {
 
   public setSolution(solution: string): CodelabFile {
     this.solution = solution;
+    return this;
+  }
+
+  public withHighlight(highlight: RegExp) {
+    this.highlight = highlight;
     return this;
   }
 

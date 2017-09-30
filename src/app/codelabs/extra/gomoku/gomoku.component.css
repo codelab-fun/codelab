@@ -1,0 +1,7 @@
+
+#intro, #outro {
+/*  background: url(./pics/landscape-with-trees-1.jpg) no-repeat; */
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+}

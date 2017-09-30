@@ -35,6 +35,7 @@
         Load solution
       </div>
       <slides-editor
+        [slides-focus-highlight-match]="file.highlight"
         [fontSize]="fontSize"
         class="editor"
         [class.is-hidden]="!isActiveFile(file)"

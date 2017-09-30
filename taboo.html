@@ -1,0 +1,270 @@
+<script>
+  const taboo = [
+    {
+      "word": "Render",
+      "tw1": "Life Cycle",
+      "tw2": "Draw",
+      "tw3": "Output",
+      "tw4": "component",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "React",
+      "tw1": "Facebook",
+      "tw2": "JSX",
+      "tw3": "angular",
+      "tw4": "library",
+      "tw5": "interface",
+      "tw6": "component"
+    },
+    {
+      "word": "React Native",
+      "tw1": "Android",
+      "tw2": "iOS",
+      "tw3": "Native",
+      "tw4": "",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "Component",
+      "tw1": "html",
+      "tw2": "css",
+      "tw3": "javascript",
+      "tw4": "template",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "State",
+      "tw1": "component",
+      "tw2": "set",
+      "tw3": "parent",
+      "tw4": "prop",
+      "tw5": "data",
+      "tw6": ""
+    },
+    {
+      "word": "Props",
+      "tw1": "pass",
+      "tw2": "child",
+      "tw3": "attribute",
+      "tw4": "dom",
+      "tw5": "element",
+      "tw6": ""
+    },
+    {
+      "word": "styled-components",
+      "tw1": "JS",
+      "tw2": "CSS",
+      "tw3": "Style",
+      "tw4": "",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "Redux",
+      "tw1": "connect",
+      "tw2": "state",
+      "tw3": "flux",
+      "tw4": "library",
+      "tw5": "Dan Abramov",
+      "tw6": "Data"
+    },
+    {
+      "word": "HTTP",
+      "tw1": "protocol",
+      "tw2": "text",
+      "tw3": "transfer",
+      "tw4": "headers",
+      "tw5": "cors",
+      "tw6": "network"
+    },
+    {
+      "word": "Expo",
+      "tw1": "React",
+      "tw2": "Native",
+      "tw3": "platform",
+      "tw4": "application",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "Router",
+      "tw1": "Switching",
+      "tw2": "Url",
+      "tw3": "Transition",
+      "tw4": "Navigation",
+      "tw5": "Address",
+      "tw6": ""
+    },
+    {
+      "word": "Form",
+      "tw1": "input",
+      "tw2": "field",
+      "tw3": "submit",
+      "tw4": "validation",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "Unit Testing",
+      "tw1": "try",
+      "tw2": "function",
+      "tw3": "fail",
+      "tw4": "succeed",
+      "tw5": "pass",
+      "tw6": ""
+    },
+    {
+      "word": "Fiber",
+      "tw1": "reconcile",
+      "tw2": "algorithm",
+      "tw3": "react",
+      "tw4": "stack",
+      "tw5": "async",
+      "tw6": "engine"
+    },
+    {
+      "word": "Jest",
+      "tw1": "unit test",
+      "tw2": "funny",
+      "tw3": "snapshot",
+      "tw4": "test",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "JSX",
+      "tw1": "react",
+      "tw2": "html",
+      "tw3": "element",
+      "tw4": "dom",
+      "tw5": "javascript",
+      "tw6": "language"
+    },
+    {
+      "word": "higher-order component",
+      "tw1": "wrap",
+      "tw2": "compose",
+      "tw3": "child",
+      "tw4": "function",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "shallow render",
+      "tw1": "test",
+      "tw2": "enzyme",
+      "tw3": "react",
+      "tw4": "components",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "server-side rendering",
+      "tw1": "backend",
+      "tw2": "SEO",
+      "tw3": "renderToString",
+      "tw4": "",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "virtual dom",
+      "tw1": "Abstraction",
+      "tw2": "DOM",
+      "tw3": "Code",
+      "tw4": "Functional",
+      "tw5": "speed",
+      "tw6": "updates"
+    },
+    {
+      "word": "controlled component",
+      "tw1": "input",
+      "tw2": "form",
+      "tw3": "2 way data binding",
+      "tw4": "",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "GraphQL",
+      "tw1": "protocol",
+      "tw2": "server",
+      "tw3": "request",
+      "tw4": "query",
+      "tw5": "schema",
+      "tw6": ""
+    },
+    {
+      "word": "Apollo",
+      "tw1": "GraphQL",
+      "tw2": "Query",
+      "tw3": "Meteor",
+      "tw4": "Relay",
+      "tw5": "API",
+      "tw6": ""
+    },
+    {
+      "word": "Relay",
+      "tw1": "Facebook",
+      "tw2": "Appollo",
+      "tw3": "Query",
+      "tw4": "GraphQL",
+      "tw5": "",
+      "tw6": ""
+    },
+    {
+      "word": "pure component",
+      "tw1": "function",
+      "tw2": "stateless",
+      "tw3": "shallowEqual",
+      "tw4": "shouldComponentUpdate",
+      "tw5": "",
+      "tw6": ""
+    }
+  ];
+
+
+</script>
+<style>
+  body {
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    padding: 100px;
+  }
+
+  #word {
+    text-align: center;
+    font-size: 200px;
+  }
+
+  #taboo {
+    color: #f00;
+    font-size: 100px;
+    text-align: center;
+  }
+</style>
+<div onclick="next()">Next</div>
+<div id="word"></div>
+<div id="taboo"></div>
+<img src="https://media.giphy.com/media/14ivBLRRRmyQw0/giphy.gif" alt="">
+
+
+<script>
+  let index = 0;
+
+  function next() {
+    index++;
+
+    const item = taboo[index];
+    const taboos = [item.tw1, item.tw2, item.tw3, item.tw4, item.tw5, item.tw6].filter(a => a);
+
+    document.getElementById('word').innerHTML = item.word;
+    document.getElementById('taboo').innerHTML = taboos.join('<br>');
+  }
+
+  next();
+</script>

@@ -15,6 +15,9 @@ export class FocusHighlightDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    if (!this.matches) {
+      return;
+    }
 
     if (!Array.isArray(this.matches)) {
       this.matches = [this.matches];

@@ -122,6 +122,10 @@ export let routes = [
     path: 'experiments',
     loadChildren: './extra/experiments/experiments.module#ExperimentsModule',
     page: 'bonus'
+  }, {
+    path: 'gomoku',
+    loadChildren: './extra/gomoku/gomoku.module#GomokuModule',
+    page: 'bonus'
   },
   {
     path: 'visual-studio-code',
