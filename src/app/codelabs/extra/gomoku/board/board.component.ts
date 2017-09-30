@@ -10,7 +10,8 @@ import { Highlights } from '../highlights';
 })
 export class BoardComponent {
   @Input() theme = 'gomoku';
-  @Input() game = new Gomoku().moveTo('H8', 'I8', 'H9', 'H7', 'J9', 'I9', 'I10', 'H11', 'J11', 'K12', 'J10', 'J12', 'G10', 'H10', 'G8', 'F7', 'G9', 'G7', 'I7', 'J6', 'H12');
+  @Input() game = new Gomoku().moveTo('H8', 'I8', 'H9', 'H7', 'J9', 'I9', 'I10', 'H11', 'J11', 'K12', 'J10', 'J12',
+    'G10', 'H10', 'G8', 'F7', 'G9', 'G7', 'I7', 'J6', 'H12');
   @Input() highlights = new Highlights();
 
 

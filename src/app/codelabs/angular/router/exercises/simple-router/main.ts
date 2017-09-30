@@ -8,8 +8,8 @@ class MyResourceLoader extends ResourceLoader {
     const templateId = Object.keys(code).find(key => key.includes(url.replace(/[\/\.-]/gi, '_')));
     const template = code[templateId];
     if (!template) {
-
       console.log(template);
+      // tslint:disable-next-line:no-debugger
       debugger;
     }
     return Promise.resolve(template);
