@@ -13,14 +13,69 @@
     <h1>Gomoku NYC</h1>
   </slides-slide>
 
-  <slides-slide *slidesIf="'start'">
-
-    <slides-board></slides-board>
-  </slides-slide>
-
   <slides-slide *slidesIf="'tic-tac-toe'">
     <slides-board theme="xo" [game]="games.ticTacToe"></slides-board>
   </slides-slide>
 
+  <slides-slide *slidesIf="'start'">
+    <h1>Open 3</h1>
+    <slides-board [game]="games.openThree"></slides-board>
+  </slides-slide>
 
+  <slides-slide *slidesIf="'open-3-space'">
+    <h1>Broken Open 3</h1>
+    <slides-board [game]="games.openThreeSpaced"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'closed-4'">
+    <h1>Closed 4</h1>
+    <slides-board [game]="games.closedFour"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'closed-broken-4'">
+    <h1>Closed Broken 4</h1>
+    <slides-board [game]="games.closedBrokenFour"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'more-4s'">
+    <h1>Only more 4s example!</h1>
+    <slides-board [game]="games.moreFours"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'closed-broken-4-why'">
+    <h1>Only place 4s if you know why!</h1>
+    <slides-board [game]="games.closedBrokenFour"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'fork33'">
+    <h1>Fork 3x3</h1>
+    <slides-board [game]="games.fork33"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'fork43'">
+    <h1>Fork 4x3</h1>
+    <slides-board [game]="games.fork43"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'fork44'">
+    <h1>Fork 4x4</h1>
+    <slides-board [game]="games.fork44"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'defend-from-4s'">
+    <h1>Very Advanced - Defend from 4s</h1>
+    <slides-board [game]="games.defendFrom4s"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'defend-from-4s-solution'">
+    <h1>Very Advanced - Defend from 4s - Solution</h1>
+    <slides-board [game]="games.defendFrom4sSolved"></slides-board>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'4s'">
+    <h1>Hardcore</h1>
+    <p>Black:	Okabe Hiroshi, White: Maruyama Yasushi	</p>
+    <slides-board [game]="games.many4s"></slides-board>
+  </slides-slide>
 </slides-presentation>

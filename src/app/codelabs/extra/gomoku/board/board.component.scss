@@ -54,14 +54,18 @@
 .theme-xo {
   .cell-1:before {
     content: "x";
+    color: red;
+
   }
 
   .cell-2:before {
     content: "o";
+    color: blue;
   }
 
   .cell-1:before,
   .cell-2:before {
+    font-size: 30vh;
 
   }
 }
