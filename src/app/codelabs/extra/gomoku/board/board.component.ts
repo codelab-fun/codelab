@@ -32,6 +32,7 @@ export class BoardComponent {
 
   log() {
     console.log(this.game.getHistory());
+    console.log(this.game.getHistory().length);
     console.log(this.highlights.highlights);
   }
 }
