@@ -5,7 +5,7 @@
 }
 
 .board {
-  width: 90vh;
+  width: 100%;
   height: 90vh;
   border-left: 1px #999 solid;
   border-top: 1px #999 solid;
@@ -35,6 +35,22 @@
   position: relative;
 }
 
+.theme-print {
+  .cell-1:before {
+    content: "⚫";
+    color: red;
+  }
+
+  .cell-2:before {
+    content: "⚫";
+    color: #666;
+  }
+  .cell-1:before,
+  .cell-2:before {
+    font-size: 14px;
+  }
+}
+
 .theme-gomoku {
   .cell-1:before {
     content: "⚫";
@@ -46,9 +62,7 @@
   .cell-1:before,
   .cell-2:before {
     font-size: 4vh;
-
   }
-
 }
 
 .theme-xo {

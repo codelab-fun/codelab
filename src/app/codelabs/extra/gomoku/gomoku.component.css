@@ -5,3 +5,11 @@
   display: inline-block;
   height: 100vh;
 }
+
+.hb {
+  width: 200px;
+  height: 200px;
+  background: url('print/hb.jpg');
+  background-size: 200px;
+  background-repeat: no-repeat;
+}

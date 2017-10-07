@@ -10,9 +10,9 @@ import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { GomokuComponent } from './gomoku.component';
 import { TooltipsModule } from '../../../tooltips/tooltips.module';
 import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.model';
-import { BoardComponent } from './board/board.component';
 import { CommonModule } from '@angular/common';
 import { ToolsComponent } from './tools/tools.component';
+import { GomokuBoardModule } from "./board/board.module";
 
 
 const routes = RouterModule.forChild(
@@ -29,9 +29,10 @@ const routes = RouterModule.forChild(
     RunnersModule,
     CommonModule,
     TooltipsModule,
-    FakeBabelModule
+    FakeBabelModule,
+    GomokuBoardModule
   ],
-  declarations: [GomokuComponent, BoardComponent, ToolsComponent],
+  declarations: [GomokuComponent],
   exports: [GomokuComponent]
 })
 export class GomokuModule {

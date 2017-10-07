@@ -126,6 +126,10 @@ export let routes = [
     path: 'gomoku',
     loadChildren: './extra/gomoku/gomoku.module#GomokuModule',
     page: 'bonus'
+  },{
+    path: 'gomoku-print',
+    loadChildren: './extra/gomoku-print/gomoku-print.module#GomokuPrintModule',
+    page: 'bonus'
   },
   {
     path: 'visual-studio-code',

@@ -10,7 +10,7 @@
   <slides-arrows></slides-arrows>
 
   <slides-slide id="intro" *slidesIf="'intro'" no-padding>
-    <h1>Gomoku NYC</h1>
+    <h1>Gomoku NYC!</h1>
   </slides-slide>
 
   <slides-slide *slidesIf="'tic-tac-toe'">
@@ -77,10 +77,33 @@
     <slides-board [game]="games.defendFrom4sSolved"></slides-board>
   </slides-slide>
 
+  <slides-slide *slidesIf="'print'">
+    <div>
+      <h1>Hi, I'm Gomoku!</h1>
+      <div style="display: flex">
+        <div>
+          <p> I'm an awesome board game coming from ancient Asia!></p>
+          <b>My Rules are super simple:</b>
+          <ol>
+            <li>First player puts X in a cell on the board below</li>
+            <li>Second player puts O</li>
+            <li>Players go in turns until someone puts 5 items in a row on the board (that person wins!)</li>
+            <li>Putting more than 5 items in a row is not a win</li>
+          </ol>
+        </div>
+        <div>
+          <div class="hb"></div>
+        </div>
+      </div>
+
+      <slides-board></slides-board>
+    </div>
+  </slides-slide>
+
 
   <slides-slide *slidesIf="'4s'">
     <h1>Hardcore</h1>
-    <p>Black:	Okabe Hiroshi, White: Maruyama Yasushi	</p>
+    <p>Black: Okabe Hiroshi, White: Maruyama Yasushi </p>
     <slides-board [game]="games.many4s"></slides-board>
   </slides-slide>
 </slides-presentation>

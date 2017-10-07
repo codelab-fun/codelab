@@ -5,6 +5,7 @@
     </div>
   </div>
 </div>
-<slides-tools #tools [game]="game" [highlights]="highlights"></slides-tools>
-<div (click)="log()">log</div>
-
+<div *ngIf="showTools">
+  <slides-tools #tools [game]="game" [highlights]="highlights"></slides-tools>
+  <div (click)="log()">log</div>
+</div>
