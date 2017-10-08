@@ -1,30 +1,32 @@
 <div class="playground">
-<div class="playground">
-  <div *ngIf="solved">
-    <div class="exercise-complete">
-      Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>
+  <div class="playground">
+    <div *ngIf="solved">
+      <div class="exercise-complete">
+        Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>
+      </div>
+    </div>
+
+    <slides-tests data-step="2" data-intro="This is a list of the tests your program should pass at the end."
+                  [tests]="config.tests" [files]="config.files"
+                  data-step="2"
+                  data-intro="Here are the exercise instructions. Start with the first one, and solve them sequentially"></slides-tests>
+    <div class="exercise">
+      <slides-editor *ngFor="let index of openFilesIndex"
+                     [file]="config.files[index]"
+                     (onCodeChange)="onCodeChange($event, config.files[index])"
+                     [fontSize]="20"
+                     [slides-focus-highlight-match]="config.files[index].highlight || highlightMatches"
+                     data-step="3" data-intro="Enter the code here"
+                     data-position="top"
+      ></slides-editor>
+      <slides-runner [files]="config.files" style="flex: 50%"
+                     [runnerType]="config.runner || 'Angular'"
+                     (onTestUpdate)="onTestUpdate($event)"
+                     [browserUseConsole]="browserUseConsole"
+                     [browserWidth]="browserWidth"
+                     [browserHeight]="browserHeight"
+                     data-step="4"
+                     data-intro="See the output in a live preview on the right!" data-position="top"
+      ></slides-runner>
     </div>
   </div>
-
-  <slides-tests data-step="2" data-intro="This is a list of the tests your program should pass at the end."
-                [tests]="config.tests" [files]="config.files"
-                data-step="2"
-                data-intro="Here are the exercise instructions. Start with the first one, and solve them sequentially"></slides-tests>
-  <div class="exercise">
-    <slides-editor *ngFor="let index of openFilesIndex" [file]="config.files[index]"
-                   (onCodeChange)="onCodeChange($event, config.files[index])"
-                   [fontSize]="20"
-                   [slides-focus-highlight-match]="highlightMatches"
-                   data-step="3" data-intro="Enter the code here"
-                   data-position="top"
-    ></slides-editor>
-    <slides-runner [files]="config.files" style="flex: 50%"
-                   [runnerType]="config.runner || 'Angular'"
-                   (onTestUpdate)="onTestUpdate($event)"
-                   [browserUseConsole]="browserUseConsole"
-                   [browserWidth]="browserWidth"
-                   [browserHeight]="browserHeight"
-                   data-step="4" data-intro="See the output in a live preview on the right!" data-position="top"
-    ></slides-runner>
-  </div>
-</div>

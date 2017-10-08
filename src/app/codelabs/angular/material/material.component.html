@@ -15,42 +15,94 @@
     <h2>Angular material provides you with a set of styled components.</h2>
     <slides-code-group>
 
-    <table class="examples">
-      <tr>
-        <td>
-          <slides-code-editor [code]="code.samples.button"></slides-code-editor>
-        </td>
-        <td>
-          <button md-button md-raised-button>I'm a button</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <slides-code-editor [code]="code.samples.card"></slides-code-editor>
-        </td>
-        <td>
-          <md-card>
-            I'm material card
-          </md-card>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <slides-code-editor [code]="code.samples.input"></slides-code-editor>
-        </td>
-        <td>
-          <md-form-field>
-            <input mdInput placeholder="All your secrets">
-          </md-form-field>
-        </td>
-      </tr>
-    </table>
+      <table class="examples">
+        <tr>
+          <td>
+            <slides-code-editor [code]="code.samples.button"></slides-code-editor>
+          </td>
+          <td>
+            <button md-button md-raised-button>I'm a button</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <slides-code-editor [code]="code.samples.card"></slides-code-editor>
+          </td>
+          <td>
+            <md-card>
+              I'm material card
+            </md-card>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <slides-code-editor [code]="code.samples.input"></slides-code-editor>
+          </td>
+          <td>
+            <md-form-field>
+              <input mdInput placeholder="All your secrets">
+            </md-form-field>
+          </td>
+        </tr>
+      </table>
     </slides-code-group>
   </slides-slide>
 
-  <slides-slide *slidesIf="'demo'">
-    <slides-playground [config]="code.material.examples"></slides-playground>
+  <slides-slide *slidesIf="'toolbar'">
+    <h1>Material / NavBar</h1>
+    <h2>Let's start with adding a Navigation Bar with 2 simple steps:</h2>
+    <ul>
+      <li>add <b>MatToolbarModule</b> to the imports</li>
+      <li>Add the component to the template</li>
+    </ul>
+    <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step1"></slides-playground>
+  </slides-slide>
 
+  <slides-slide *slidesIf="'card'">
+    <h1>Material / Card</h1>
+    <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step2"></slides-playground>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'header'">
+    <h1>Material / Card Header</h1>
+    <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step3"></slides-playground>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'buttons'">
+    <h1>Material / Buttons</h1>
+    <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step4"></slides-playground>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'themes'">
+    <h1>Material / Themes</h1>
+    <h2>All material components are also themable, try different themes by clicking the buttons below:</h2>
+    <div>
+      <button mat-button [color]="theme === 'indigo' ? 'primary' : 'secondary'" (click)="setTheme('indigo');">Indigo
+      </button>
+      <button mat-button [color]="theme === 'deeppurple' ? 'primary' : 'secondary'" (click)="setTheme('deeppurple')">
+        Deep purple
+      </button>
+      <button mat-button [color]="theme === 'pink' ? 'primary' : 'secondary'" (click)="setTheme('pink')">Pink</button>
+      <button mat-button [color]="theme === 'purple' ? 'primary' : 'secondary'" (click)="setTheme('purple')">Purple
+      </button>
+    </div>
+    <slides-playground #themePlayground [openFilesIndex]="[0,1]" [config]="code.material.step4"></slides-playground>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'themes'">
+    <h1>Material / Themes</h1>
+    <h2>All material components are also themable, try different themes by clicking the buttons below:</h2>
+    <div>
+      <button mat-button mat-raised-button [color]="theme === 'indigo' ? 'primary' : 'secondary'" (click)="setTheme('indigo');">Indigo
+      </button>
+      <button mat-button mat-raised-button [color]="theme === 'deeppurple' ? 'primary' : 'secondary'" (click)="setTheme('deeppurple')">
+        Deep purple
+      </button>
+      <button mat-button mat-raised-button [color]="theme === 'pink' ? 'primary' : 'secondary'" (click)="setTheme('pink')">Pink</button>
+      <button mat-button mat-raised-button [color]="theme === 'purple' ? 'primary' : 'secondary'" (click)="setTheme('purple')">Purple
+      </button>
+    </div>
+    <slides-playground #themePlayground [openFilesIndex]="[0,1]" [config]="code.material.theme"></slides-playground>
   </slides-slide>
 
 </slides-presentation>

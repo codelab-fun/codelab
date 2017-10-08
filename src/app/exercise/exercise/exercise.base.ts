@@ -70,7 +70,7 @@ export class ExerciseBase implements OnInit {
   onCodeChanges(change) {
     this.config = {
       ...this.config,
-      files: this.config.files.map(file => file === change.file ? {...file, code: change.code} : file)
+      files: this.config.files.map(file => file.path === change.file.path ? {...file, code: change.code} : file)
     };
   }
 
