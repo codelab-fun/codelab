@@ -2,7 +2,8 @@ import { FileConfig } from '../interfaces/file-config';
 
 export enum FileType {
   TypeScript = 'typescript',
-  Html = 'html'
+  Html = 'html',
+  Css = 'css'
 }
 
 const fileConfig = {
@@ -11,6 +12,9 @@ const fileConfig = {
   },
   [FileType.Html]: {
     extension: '.html'
+  },
+  [FileType.Css]: {
+    extension: '.css'
   }
 };
 
@@ -39,6 +43,10 @@ export class CodelabFile implements FileConfig {
 
   static Html(name: string): CodelabFile {
     return new CodelabFile(FileType.Html, name);
+  }
+
+  static Css(name: string): CodelabFile {
+    return new CodelabFile(FileType.Css, name);
   }
 
   constructor(public readonly type: FileType,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Message } from '../../../feedback/message';
@@ -8,6 +8,8 @@ import { combineLatest } from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { GithubService } from 'app/github.service';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';
@@ -59,7 +61,7 @@ export class FeedbackPageComponent implements OnInit {
   messages$: Observable<{ key: string; value: Message; }[]>;
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
-  private feedback$: FirebaseListObservable<any[]>;
+  private feedback$: AngularFireList<any[]>;
   githubAuth;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
@@ -118,7 +120,7 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
 
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');
-    const filteredMessages$ = combineLatest(this.feedback$, this.filter$).map(filter);
+    const filteredMessages$ = combineLatest(this.feedback$.valueChanges(), this.filter$).map(filter);
     this.messages$ = combineLatest(filteredMessages$, this.group$).map(group);
   }
 

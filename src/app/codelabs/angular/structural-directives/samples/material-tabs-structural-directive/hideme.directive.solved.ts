@@ -1,16 +1,16 @@
 import { AfterViewInit, Directive, TemplateRef, ViewContainerRef } from '@angular/core';
-import { MdTab, MdTabGroup } from '@angular/material';
+import { MatTab, MatTabGroup } from '@angular/material';
 
 /* tslint:disable */
 @Directive(
   {selector: '[mdHideMe]'}
 )
 export class HideMeDirective implements AfterViewInit {
-  constructor(private parentTab: MdTab,
-              private tabs: MdTabGroup,
+  constructor(private parentTab: MatTab,
+              private tabs: MatTabGroup,
               private viewContainer: ViewContainerRef,
               private templateRef: TemplateRef<any>) {
-    tabs.selectChange.subscribe(({tab}: { tab: MdTab }) => {
+    tabs.selectChange.subscribe(({tab}: { tab: MatTab }) => {
       this.toggleContentDisplay(tab === parentTab);
     });
   }

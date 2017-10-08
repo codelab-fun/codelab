@@ -8,6 +8,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '../../../browser/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
+
+
 
 const routes = RouterModule.forChild(
   [{
@@ -18,7 +21,18 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule, RunnersModule],
+  imports: [
+    routes,
+    PresentationModule,
+    ExerciseModule,
+    FeedbackModule,
+    CommonModule,
+    BrowserWindowModule,
+    RunnersModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule
+  ],
   declarations: [MaterialComponent],
   exports: [MaterialComponent]
 })

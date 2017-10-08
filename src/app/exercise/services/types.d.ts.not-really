@@ -105,14 +105,14 @@ declare module '@angular/common' {
 }
 
 declare module '@angular/material' {
-  export class MdTab {
+  export class MatTab {
     position: number;
   }
-  export class MdTabGroup {
+  export class MatTabGroup {
     selectedIndex: number;
     selectChange: Observable<any>;
   }
-  export class MdTabsModule {
+  export class MatTabsModule {
   }
 }
 

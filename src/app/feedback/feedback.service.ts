@@ -1,13 +1,15 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Message } from './message';
 import { Observable } from 'rxjs/Rx';
+import { getRef } from 'angularfire2/database/utils';
+
 
 @Injectable()
 export class FeedbackService {
-  private repo$: FirebaseListObservable<any>;
-  private ratings$: FirebaseListObservable<any>;
+  private repo$: AngularFireList<any>;
+  private ratings$: AngularFireList<any>;
 
   constructor(private database: AngularFireDatabase,
               private router: Router) {
@@ -17,7 +19,7 @@ export class FeedbackService {
 
   // Get a stream of messages filtered by href (of a message)
   getMessages(activatedRoute: ActivatedRoute): Observable<Message[]> {
-    const stream$ = this.repo$
+    const stream$ = this.repo$.valueChanges()
       .switchMap((results: Message[]) =>
         Observable.of(results.filter(m => m.href === this.router.url).filter(m => !m.isDone).sort())
       );
@@ -37,14 +39,12 @@ export class FeedbackService {
   }
 
   getRatings(): Observable<any[]> {
-    return this.ratings$;
+    return this.ratings$.valueChanges();
   }
 
   addRating(lesson: string, rating: string) {
     const path = 'ratings/' + lesson;
-    const lessonrating = this.database.object(path);
-    const ratingRef = lessonrating.$ref;
-    ratingRef.transaction(ratings => {
+    getRef(this.database.app, path).transaction(ratings => {
       if (ratings == null) {
         ratings = {
           lesson: lesson

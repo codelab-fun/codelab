@@ -5,7 +5,7 @@ import { AlertComponent } from './alert.component';
 import { TabComponent } from './tab.component';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
-import { MdTabsModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material';
 
 
 const routes = [
@@ -14,7 +14,7 @@ const routes = [
 ];
 
 @NgModule({
-  imports: [BrowserModule, MdTabsModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, MatTabsModule, RouterModule.forRoot(routes)],
   declarations: [AppComponent, AlertComponent, TabComponent],
   bootstrap: [AppComponent],
   providers: [{provide: APP_BASE_HREF, useValue : '/assets/runner/' }]

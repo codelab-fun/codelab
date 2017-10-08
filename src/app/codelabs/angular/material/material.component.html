@@ -11,12 +11,47 @@
     <slides-title-slide title="Material design" description="Learn how to use Angular Material"></slides-title-slide>
   </slides-slide>
   <!--  INTRO -->
-  <slides-slide *slidesIf="'todo'" no-padding>
-    TODO
+  <slides-slide *slidesIf="'components'">
+    <h2>Angular material provides you with a set of styled components.</h2>
+    <slides-code-group>
+
+    <table class="examples">
+      <tr>
+        <td>
+          <slides-code-editor [code]="code.samples.button"></slides-code-editor>
+        </td>
+        <td>
+          <button md-button md-raised-button>I'm a button</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <slides-code-editor [code]="code.samples.card"></slides-code-editor>
+        </td>
+        <td>
+          <md-card>
+            I'm material card
+          </md-card>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <slides-code-editor [code]="code.samples.input"></slides-code-editor>
+        </td>
+        <td>
+          <md-form-field>
+            <input mdInput placeholder="All your secrets">
+          </md-form-field>
+        </td>
+      </tr>
+    </table>
+    </slides-code-group>
   </slides-slide>
 
+  <slides-slide *slidesIf="'demo'">
+    <slides-playground [config]="code.material.examples"></slides-playground>
 
-
+  </slides-slide>
 
 </slides-presentation>
 
