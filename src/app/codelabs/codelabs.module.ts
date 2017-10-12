@@ -71,20 +71,23 @@ export let routes = [
     path: 'router',
     loadChildren: './angular/router/router.module#RouterCodelabModule',
     name: 'Angular Router',
-    description: 'Learn how to add routes to your Angular application',
+    description: '[🚧 Work In Progress] Learn how to add routes to your Angular application',
     page: 'main',
+    prod: true
   }, {
     path: 'material',
     loadChildren: './angular/material/material.module#MaterialCodelabModule',
     name: 'Angular Material',
-    description: 'Learn how to use Angular Material',
+    description: '[🚧 Work In Progress] Learn how to use Angular Material',
     page: 'main',
+    prod: true
   }, {
     path: 'forms',
     loadChildren: './angular/forms/forms.module#FormsCodelabModule',
     name: 'Forms',
-    description: 'Learn how to add Forms to your app',
+    description: '[🚧 Work In Progress] Learn how to add Forms to your app',
     page: 'main',
+    prod: true
   },
   {
     path: 'pipes',

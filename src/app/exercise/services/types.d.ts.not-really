@@ -65,6 +65,10 @@ declare module '@angular/core' {
   }
 }
 
+declare module '@angular/forms' {
+  export class FormsModule {
+  }
+}
 declare module '@angular/platform-browser' {
   export class BrowserModule {
   }

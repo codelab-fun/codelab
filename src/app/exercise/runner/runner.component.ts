@@ -17,6 +17,7 @@ import { ScriptLoaderService } from '../services/script-loader.service';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import babel_traverse from 'babel-traverse';
+
 declare const require;
 
 function jsScriptInjector(iframe) {
@@ -110,6 +111,10 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
       iframe.contentWindow.console.error = function (error, message) {
         // handle Angular error 1/3
         displayError(error, 'Angular Error');
+
+        if (message) {
+          console.log(message);
+        }
       };
 
       function register(name, code) {
@@ -284,6 +289,8 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() browserHeight: string;
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
+  @Input() url = 'about:blank';
+
   @Output() onTestUpdate = new EventEmitter<any>();
   cachedIframes = {};
   html = `<my-app id="app"></my-app>`;
@@ -313,7 +320,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     if (runner === 'Angular') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
@@ -327,7 +334,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
 
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'testing', 'url': 'about:blank'
+        id: 'testing', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
@@ -348,7 +355,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
     } else if (runner === 'TypeScript') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.injectSystemJs();
@@ -356,7 +363,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
 
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'testing', 'url': 'about:blank'
+        id: 'testing', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         console.log('FRAME CREATED', (new Date()).getTime() - time);
@@ -370,7 +377,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
     } else if (runner === 'Vue') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml('<div id="app"></div>');
@@ -379,7 +386,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
     } else if (runner === 'React') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml('<div id="app"></div>');

@@ -6,6 +6,7 @@ import { AnalyticsService } from '../../presentation/analytics.service';
 import { ActivatedRoute } from '@angular/router';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 import { FileConfig } from '../interfaces/file-config';
+import * as assert from 'assert';
 
 export class ExerciseBase implements OnInit {
   @Input() public config: ExerciseConfig;
@@ -75,6 +76,7 @@ export class ExerciseBase implements OnInit {
   }
 
   ngOnInit() {
+    assert(this.config, 'Playground config is not defined');
     // TODO: Remove condition
     if (this.config.files.length) {
       this.loadModels(this.config.files);

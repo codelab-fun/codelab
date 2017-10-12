@@ -19,7 +19,9 @@
                      data-step="3" data-intro="Enter the code here"
                      data-position="top"
       ></slides-editor>
-      <slides-runner [files]="config.files" style="flex: 50%"
+      <slides-runner [files]="config.files"
+                     style="flex: 50%"
+                     [url]="url"
                      [runnerType]="config.runner || 'Angular'"
                      (onTestUpdate)="onTestUpdate($event)"
                      [browserUseConsole]="browserUseConsole"

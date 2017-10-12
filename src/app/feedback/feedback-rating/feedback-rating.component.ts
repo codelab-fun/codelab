@@ -19,7 +19,7 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
     {
       src: 'ng-smile.svg',
       value: '"perfect',
-      text: '"Perfect !'
+      text: 'Perfect!'
     },
     {
       src: 'ng-sad.svg',

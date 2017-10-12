@@ -17,6 +17,7 @@ export class PlaygroundComponent extends ExerciseBase {
   @Input() browserWidth: string;
   @Input() browserHeight: string;
   @Input() openFilesIndex = [0];
+  @Input() url = 'about:blank';
 
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('focus-highlight-match') highlightMatches = [];

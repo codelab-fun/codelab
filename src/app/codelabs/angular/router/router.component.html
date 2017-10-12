@@ -12,26 +12,67 @@
   </slides-slide>
 
   <!--  Slide 2-->
-  <slides-slide *slidesIf="'custom-event-slide-2'; milestone: 'Router'">
-    <h1>It takes 3 simple steps</h1>
+  <slides-slide *slidesIf="'intro'; milestone: 'Router'">
+    <h1>Router - intro</h1>
+    <h2>Router is used to give <b>URLs</b> to different parts of your app.</h2>
+    <h2>It takes 3 simple steps to set up routing in Angular.</h2>
     <ol>
-      <li>Configure the routes</li>
+      <li>Configure the mapping and specify which component to display for which URL</li>
       <li>Create the menu</li>
       <li>Find a place for where to display selected component</li>
     </ol>
   </slides-slide>
 
-
   <slides-slide *slidesIf="'router-config'; milestone: 'Router'">
     <h1>Router - configuration</h1>
     <h2>Routes are configured by defining an array of mapping between URL path and a component</h2>
-
-    <slides-exercise [files]="code.config" [currentFile]="code.config[1]">
-      <slides-new-editors class="editor"></slides-new-editors>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
+    <slides-playground [url]="'/assets/runner'" [config]="code.routerConfig"></slides-playground>
   </slides-slide>
 
+  <slides-slide *slidesIf="'router-config-pass-to-module'; milestone: 'Router'">
+    <h1>Router - configuration</h1>
+    <h2>Then we have to pass the config to our module.</h2>
+    <slides-playground [url]="'/assets/runner'" [config]="code.routerConfigPass"></slides-playground>
+    <div class="info">Note that we're using <b>RouterModule.forRoot</b> which creates an Angular Module out of our
+      configuration.
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'router-outlet'; milestone: 'Router'">
+    <h1>Router - Outlet</h1>
+    <h2>Now we have to find a place where the router would display selected component.</h2>
+    <h2>It can be marked by placing <b>router-outlet tag</b></h2>
+    <slides-playground [url]="'/assets/runner'" [openFilesIndex]="[1]"
+                       [config]="code.routerOutlet"></slides-playground>
+  </slides-slide>
+ <slides-slide *slidesIf="'menu'; milestone: 'Router'">
+    <h1>Router - Menu</h1>
+    <h2>The last part is creating the menu.</h2>
+    <h2>Use  <b>routerLink</b> directive to provide the URL</h2>
+    <slides-playground [url]="'/assets/runner'" [openFilesIndex]="[1]"
+                       [config]="code.menu"></slides-playground>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'end'">
+    <slides-closing-slide>
+      <div class="header" header>
+        <h1 i18n>End of The Routing Milestone</h1>
+      </div>
+      <div class="body" body>
+        <h2 i18n>Well done! This is the end of the milestone!</h2>
+        <h2>Check out <a href="https://angular.io/guide/router">Angular Router Guide</a>
+          for more fun and advanced techniques.</h2>
+      </div>
+      <div class="footer" footer>
+        <h2 i18n>
+          Next <a routerLink="/material/intro">Go to the Material Milestone</a>
+        </h2>
+        <slides-feedback-rating lesson="FirstAngularApp">
+        </slides-feedback-rating>
+      </div>
+    </slides-closing-slide>
+  </slides-slide>
 </slides-presentation>
 
 

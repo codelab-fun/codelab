@@ -5,6 +5,30 @@ import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
 declare const require;
 
 
+interface FileHighlights {
+  appModule?: RegExp | RegExp[];
+  appHtml?: RegExp | RegExp[];
+}
+
+
+function routeExercise(highlights: FileHighlights) {
+  return {
+    files: [
+      CodelabFile.TypeScriptFile('app.module')
+        .setCode(require('!!raw-loader!./samples/simple-router/app.module.ts'))
+        .withHighlight(highlights.appModule),
+      CodelabFile.Html('app.component')
+        .setCode(require('!!raw-loader!./samples/simple-router/app.component.html'))
+        .withHighlight(highlights.appHtml),
+      CodelabFile.TypeScriptFile('app.component').setCode(require('!!raw-loader!./samples/simple-router/app.component.ts')),
+      CodelabFile.TypeScriptFile('components/kitten').setCode(require('!!raw-loader!./samples/simple-router/components/kitten.ts')),
+      CodelabFile.TypeScriptFile('components/puppy').setCode(require('!!raw-loader!./samples/simple-router/components/puppy.ts')),
+      CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./samples/simple-router/main.ts')).makeBootstrappable(),
+      CodelabFile.Html('index').setCode(require('!!raw-loader!./samples/simple-router/index.html'))]
+  };
+}
+
+
 @Component({
   selector: 'slides-router',
   templateUrl: './router.component.html',
@@ -12,36 +36,19 @@ declare const require;
 })
 export class RouterComponent {
   code = {
-    config: [
-      CodelabFile.TypeScriptFile('app.component').setCode(require('!!raw-loader!./exercises/simple-router/app.component.ts')),
-      CodelabFile.TypeScriptFile('app.module')
-        .setCode(require('!!raw-loader!./exercises/simple-router/app.module.ts'))
-        .withHighlight(/const routes[\s\S]*?];[\s\S]/),
-      CodelabFile.TypeScriptFile('components/kitten').setCode(require('!!raw-loader!./exercises/simple-router/components/kitten.ts')),
-      CodelabFile.TypeScriptFile('components/puppy').setCode(require('!!raw-loader!./exercises/simple-router/components/puppy.ts')),
-      CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./exercises/simple-router/main.ts')).makeBootstrappable(),
-      CodelabFile.Html('app.component').setCode(require('!!raw-loader!./exercises/simple-router/app.component.html')),
-      CodelabFile.Html('index').setCode(require('!!raw-loader!./exercises/simple-router/index.html'))
-    ],
-    config2: [
-      CodelabFile.TypeScriptFile('app.component').setCode(require('!!raw-loader!./exercises/simple-router/app.component.ts')),
-      CodelabFile.TypeScriptFile('app.module')
-        .setCode(require('!!raw-loader!./exercises/simple-router/app.module.ts'))
-        .withHighlight(/const/),
-      CodelabFile.TypeScriptFile('components/kitten').setCode(require('!!raw-loader!./exercises/simple-router/components/kitten.ts')),
-      CodelabFile.TypeScriptFile('components/puppy').setCode(require('!!raw-loader!./exercises/simple-router/components/puppy.ts')),
-      CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./exercises/simple-router/main.ts')).makeBootstrappable(),
-      CodelabFile.Html('app.component').setCode(require('!!raw-loader!./exercises/simple-router/app.component.html')),
-      CodelabFile.Html('index').setCode(require('!!raw-loader!./exercises/simple-router/index.html'))
-    ],
+    routerConfig: routeExercise({
+      appModule: /const routes[\s\S]*?];[\s\S]/
+    }),
+    routerConfigPass: routeExercise({
+      appModule: /RouterModule.forRoot\(routes\)/
+    }),
+    routerOutlet: routeExercise({
+      appHtml: /<router-outlet><\/router-outlet>/
+    }),
+    menu: routeExercise({
+      appHtml: /<a[\s\S]*\/a>/
+    })
   };
 
-  exercises = [
-    ng2tsConfig.milestones[6].exercises[0]
-  ];
 
-//   constructor(private exercises: Ng2TsExercises) {
-//     // this.exercise = exercises.getExercises(4, 1);
-//     // this.exercise2 = exercises.getExercises(4, 2);
-//   }
 }

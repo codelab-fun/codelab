@@ -6,17 +6,20 @@ import { KittenComponent } from './components/kitten';
 import { BrowserModule } from '@angular/platform-browser';
 
 
+
 const routes: Routes = [
   {path: '', component: PuppyComponent},
   {path: 'kittens', component: KittenComponent},
 ];
 
-const config = RouterModule.forRoot(routes);
-
 @NgModule({
   declarations: [AppComponent, PuppyComponent, KittenComponent],
-  imports: [config, BrowserModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes)
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
 

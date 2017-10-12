@@ -80,7 +80,7 @@ export class ToolsComponent implements OnInit {
       }
     },
   ];
-  private selectedTool: any;
+  selectedTool: any;
 
 
   @HostListener('window:keydown', ['$event.keyCode'])

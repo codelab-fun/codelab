@@ -19,7 +19,7 @@ const fileConfig = {
 };
 
 export class CodelabFile implements FileConfig {
-  highlight?: RegExp;
+  highlight?: RegExp | RegExp[];
   after: string;
   public code: string;
   public template: string;
@@ -90,7 +90,7 @@ export class CodelabFile implements FileConfig {
     return this;
   }
 
-  public withHighlight(highlight: RegExp) {
+  public withHighlight(highlight: RegExp|RegExp[]) {
     this.highlight = highlight;
     return this;
   }
