@@ -88,6 +88,13 @@ export let routes = [
     description: '[🚧 Work In Progress] Learn how to add Forms to your app',
     page: 'main',
     prod: true
+  },{
+    path: 'angular-cli',
+    loadChildren: './angular/angular-cli/angular-cli.module#AngularCliModule',
+    name: 'angular-cli',
+    description: '[🚧 Work In Progress] Learn how to quickly start working with angular',
+    page: 'main',
+    prod: true
   },
   {
     path: 'pipes',

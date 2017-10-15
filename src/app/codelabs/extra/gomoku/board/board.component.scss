@@ -6,7 +6,7 @@
 
 .board {
   width: 100%;
-  height: 90vh;
+  height: 100%;
   border-left: 1px #999 solid;
   border-top: 1px #999 solid;
   display: flex;
@@ -37,17 +37,17 @@
 
 .theme-print {
   .cell-1:before {
-    content: "⚫";
-    color: red;
+    content: "x";
+    color: #c53a00;
   }
 
   .cell-2:before {
-    content: "⚫";
+    content: "o";
     color: #666;
   }
   .cell-1:before,
   .cell-2:before {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
@@ -58,6 +58,15 @@
 
   .cell-2:before {
     content: "🔴";
+  }
+  .cell-3:before {
+    content: "⚫";
+    opacity: 0.5;
+  }
+
+  .cell-4:before {
+    content: "🔴";
+    opacity: 0.5;
   }
   .cell-1:before,
   .cell-2:before {

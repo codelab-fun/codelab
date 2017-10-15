@@ -6,8 +6,8 @@
         <p>I'm an awesome board game coming from ancient Asia!</p>
         <b>My Rules are super simple:</b>
         <ol>
-          <li>First player puts X in a cell on the board below</li>
-          <li>Second player puts O</li>
+          <li>First player puts <x></x> in a cell on the board below</li>
+          <li>Second player puts <o></o></li>
           <li>Players go in turns until someone puts 5 items in a row on the board (that person wins!)</li>
           <li>Putting more than 5 items in a row is not a win</li>
         </ol>
@@ -25,10 +25,10 @@
 
     <div class="explanation">
       <div class="text">
-        <p>X’s have an “Open 3” attack.</p>
-        <p>if O’s don’t block it from either side, they lose.</p>
+        <p><x></x>’s have an “Open 3” attack.</p>
+        <p>if <o></o>’s don’t block it from either side, they lose.</p>
       </div>
-      <slides-board   class="board84" [showTools]="false" [game]="examples.open3"></slides-board>
+      <slides-board  theme="print" class="board84" [showTools]="false" [game]="examples.open3"></slides-board>
     </div>
 
 
@@ -43,7 +43,7 @@
 
     <div class="explanation">
       <div class="text">
-        <p>Here O’s have “Open 3”, but X’s went with “Open 4” attack</p>
+        <p>Here <o></o>’s have “Open 3”, but X’s went with “Open 4” attack</p>
         <p>It’s even stronger and must be blocked asap!</p>
       </div>
       <slides-board theme="print" class="board84" [showTools]="false" [game]="examples.close4"></slides-board>
@@ -53,15 +53,12 @@
 
     <div class="explanation">
       <div class="text">
-        <p>And here X has a “3 by 4 fork”. They will win this game!!</p>
-        <p>O’s can’t block both attacks, and will lose.</p>
+        <p>And here <x></x> has a “3 by 4 fork”. They will win this game!!</p>
+        <p><o></o>’s can’t block both attacks, and will lose.</p>
         <p>(despite having an “Open 3” attack)</p>
       </div>
       <slides-board  theme="print" class="board84" [showTools]="false" [game]="examples.close4"></slides-board>
     </div>
-
-
-
 
 
     Enjoy!
@@ -71,9 +68,4 @@
 <div class="back">
   <slides-board class="mini-board" [showTools]="false" [game]="game"></slides-board>
   <slides-board class="mini-board" [showTools]="false" [game]="game"></slides-board>
-  <slides-board class="mini-board" [showTools]="false" [game]="game"></slides-board>
-  <slides-board class="mini-board" [showTools]="false" [game]="game"></slides-board>
-  <slides-board class="mini-board" [showTools]="false" [game]="game"></slides-board>
-  <slides-board class="mini-board" [showTools]="false" [game]="game"></slides-board>
-
 </div>

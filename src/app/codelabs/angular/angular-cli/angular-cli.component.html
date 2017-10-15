@@ -1,0 +1,37 @@
+<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+  <div class="btn-bar">
+    <slides-feedback-widget></slides-feedback-widget>
+    <slides-menu-shortcut></slides-menu-shortcut>
+  </div>
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <!--  INTRO -->
+  <slides-slide *slidesIf="'intro'" no-padding>
+    <slides-title-slide title="angular-cli"
+                        description="Learn how to quickly start working on your Angular app"></slides-title-slide>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'angular-cli'">
+    <h1>Angular CLI / Intro</h1>
+    <h2>Angular CLI is a command line tool that can be used to quickly get up to speed with running your angular
+      app.</h2>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'npm'">
+    <h1>Angular CLI / node</h1>
+    <h2>Before you start, make sure you have node.js on your machine.</h2>
+    <h2>Open terminal and type in: <code>node -v</code></h2>
+    <ul>
+      <li>If there is an error, follow the <a href="https://nodejs.org/en/download/">NodeJS setup instructions</a></li>
+      <li>If the output is a number, you're good, move to the next slide.</li>
+    </ul>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'npm'">
+    <h1>Angular CLI / todo</h1>
+    <h2>More coming soon</h2>
+  </slides-slide>
+
+</slides-presentation>

@@ -17,7 +17,11 @@
     <slides-board theme="xo" [game]="games.ticTacToe"></slides-board>
   </slides-slide>
 
-  <slides-slide *slidesIf="'5-in-row'">
+  <slides-slide *slidesIf="'renlib'">
+    Renlib
+    <slides-board [game]="games.renlib"></slides-board>
+  </slides-slide>
+ <slides-slide *slidesIf="'5-in-row'">
     The one who gets 5 in a row wins
     <slides-board [game]="games.wonGame"></slides-board>
   </slides-slide>

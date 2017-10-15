@@ -1,8 +1,120 @@
 import { Component } from '@angular/core';
 import { parse } from 'babylon';
 import { TicTacToe, Gomoku } from 'gomoku-tools';
+import utils from 'gomoku-tools/src/tools/utils';
 
 declare const require;
+
+const json = require('./renlib/moves.json');
+
+
+class Node {
+  p: string;
+  down: boolean;
+  depth = 0;
+  parent: Node;
+  children: Node[] = [];
+
+  constructor(public position: [number, number]) {
+    this.p = position.join(',');
+  }
+
+  addChild(node: Node) {
+    this.children.push(node);
+    node.parent = this;
+    node.depth = this.depth + 1;
+  }
+}
+
+let i = 0;
+
+function buildTree(moves, index, parent) {
+  i++;
+  const move = moves[index];
+  let node = new Node(move.move);
+  node.down = !!move.down;
+
+  parent.addChild(node);
+
+  if (index + 1 < moves.length) {
+    if (move.down) {
+      node.down = true;
+    }
+
+    if (move.right) {
+      while (node && !node.down) {
+        if (!node) {
+          throw new Error('Weird');
+        }
+
+        node = node.parent;
+      }
+      node = node.parent;
+    }
+    return buildTree(moves, index + 1, node);
+  }
+}
+
+const parent = new Node([2, 2]);
+
+buildTree(json.moves, 0, parent);
+console.log(i);
+debugger
+
+
+class RenlibGame {
+  private current: Node;
+  parent;
+
+  constructor(private start) {
+    this.current = start;
+  }
+
+  back() {
+    if (this.current.parent) {
+      this.current = this.current.parent;
+    }
+  }
+
+  moveTo(point) {
+    let child = this.current.children.find(({position}) => position[0] === point[0] && position[1] === point[1]);
+
+    if (!child) {
+      child = new Node(point);
+      this.current.children.push(child);
+    }
+    this.current = child;
+  }
+
+
+  forward() {
+
+  }
+
+
+  getPosition() {
+    let node = this.current;
+
+    const game = [node.position];
+    while (node = node.parent) {
+      game.push(node.position);
+    }
+
+    const putStones = (stones, move, index) => {
+      stones[move[0]][move[1]] = (index % 2) + 1;
+      return stones;
+    };
+    const position = game.reverse().reduce(putStones, utils.generateEmptyPosition(15, 15));
+
+    this.current.children.map(n => n.position).reduce((stones, move) => {
+      stones[move[0]][move[1]] = (game.length % 2) + 1 + 2;
+      return stones;
+    }, position);
+
+    console.log(position);
+    return position;
+  }
+}
 
 @Component({
   selector: 'slides-gomoku',
@@ -13,6 +125,7 @@ export class GomokuComponent {
   fontSize = 18;
 
   games = {
+    renlib: new RenlibGame(parent),
     ticTacToe: new TicTacToe().moveTo('B2', 'A2', 'A1', 'C3', 'B1', 'B3', 'C1'),
     fork33: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J7', 'I6', 'J6', 'H6'),
     fork43: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J7', 'I6', 'J6', 'H6', 'G8', 'F8'),

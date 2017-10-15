@@ -79,7 +79,7 @@ export class FormsComponent {
     }),
     ngMaterial: formsConfig({
       appHtml: require('!!raw-loader!./samples/basic/app.6.html'),
-      appModule: require('!!raw-loader!./samples/basic/app.module.6.ts')
+      appModule: require('!!raw-loader!./samples/basic/app.module.6.ts').replace('component.5', 'component' /*Stupid hack*/)
     }, {
       appHtml: [/<mat-form-field>/, /<\/mat-form-field>/, /matInput/, /<mat-error>.*<\/mat-error>/]
     })

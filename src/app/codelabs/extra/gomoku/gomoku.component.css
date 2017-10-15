@@ -13,3 +13,8 @@
   background-size: 200px;
   background-repeat: no-repeat;
 }
+
+slides-board {
+  width: 500px;
+  height: 500px;
+}

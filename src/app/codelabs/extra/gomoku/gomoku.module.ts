@@ -11,7 +11,6 @@ import { GomokuComponent } from './gomoku.component';
 import { TooltipsModule } from '../../../tooltips/tooltips.module';
 import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.model';
 import { CommonModule } from '@angular/common';
-import { ToolsComponent } from './tools/tools.component';
 import { GomokuBoardModule } from "./board/board.module";
 
 

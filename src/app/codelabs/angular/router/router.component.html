@@ -12,7 +12,7 @@
   </slides-slide>
 
   <!--  Slide 2-->
-  <slides-slide *slidesIf="'intro'; milestone: 'Router'">
+  <slides-slide *slidesIf="'router-intro'; milestone: 'Router'">
     <h1>Router - intro</h1>
     <h2>Router is used to give <b>URLs</b> to different parts of your app.</h2>
     <h2>It takes 3 simple steps to set up routing in Angular.</h2>
@@ -45,10 +45,11 @@
     <slides-playground [url]="'/assets/runner'" [openFilesIndex]="[1]"
                        [config]="code.routerOutlet"></slides-playground>
   </slides-slide>
- <slides-slide *slidesIf="'menu'; milestone: 'Router'">
+
+  <slides-slide *slidesIf="'menu'; milestone: 'Router'">
     <h1>Router - Menu</h1>
     <h2>The last part is creating the menu.</h2>
-    <h2>Use  <b>routerLink</b> directive to provide the URL</h2>
+    <h2>Use <b>routerLink</b> directive to provide the URL</h2>
     <slides-playground [url]="'/assets/runner'" [openFilesIndex]="[1]"
                        [config]="code.menu"></slides-playground>
   </slides-slide>
