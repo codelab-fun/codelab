@@ -26,8 +26,8 @@
 
 .browser-frame .url {
   position: absolute;
-  left: 50px;
-  top: 23px;
-  font-size: 10px;
+  left: 3.2vw;
+  top: 1.2vw;
+  font-size: 0.5vw;
   background-color: #fff;
 }

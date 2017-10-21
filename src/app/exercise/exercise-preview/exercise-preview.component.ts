@@ -10,6 +10,7 @@ import { RunnerComponent } from '../runner/runner.component';
 })
 export class ExercisePreviewComponent implements OnInit {
   @Input() config;
+  @Input() url = '/assets/runner/';
   public files: Array<FileConfig>;
 
   @ViewChild(RunnerComponent) runner;

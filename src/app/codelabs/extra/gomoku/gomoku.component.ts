@@ -59,7 +59,6 @@ const parent = new Node([2, 2]);
 
 buildTree(json.moves, 0, parent);
 console.log(i);
-debugger
 
 
 class RenlibGame {
@@ -133,6 +132,10 @@ export class GomokuComponent {
     wonGame: new Gomoku().moveTo('H8', 'I10', 'I11', 'H10', 'J10', 'I9', 'J8', 'J9', 'K9', 'L8', 'G9', 'I7', 'I6',
       'I8', 'G8', 'L7', 'K8', 'L9', 'L10', 'J7', 'K7', 'L5', 'L6', 'K6', 'M4', 'H9'),
     openThree: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J8'),
+    old: new Gomoku().moveTo('h8', 'i8', 'h7', 'h9', 'j7', 'i7', 'i6', 'j5', 'h5', 'g4', 'h6', 'h4', 'f6', 'g6', 'g7',
+      'e5', 'f8', 'e9', 'f9', 'f7', 'g8', 'e10', 'j10', 'i9', 'j9', 'i10', 'i11', 'j8', 'e8', 'd8', 'h11', 'g10',
+      'h10', 'j12', 'k9', 'f11', 'e12', 'l8', 'k11', 'k8', 'm8', 'g11', 'h12', 'g13', 'g12', 'f12', 'e11', 'f4',
+      'i4', 'c7', 'f10', 'd6', 'g9', 'g3'),
     moreFours: new Gomoku().moveTo('C14', 'C12', 'D14', 'D12', 'E14', 'F12', 'G14', 'G12', 'C10', 'B10', 'E10', 'O1',
       'F10', 'N1', 'G10', 'H10'),
     openThreeSpaced: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'K8'),

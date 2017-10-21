@@ -23,7 +23,7 @@ const readMove = Parser.start()
   .bit1('mark')
   .bit1('hasComment')
   .bit1('hz2')
-  .bit1('hz1')
+  .bit1('hz1',)
   .bit1('extension')
   .choice('comment', {
       tag: 'hasComment',

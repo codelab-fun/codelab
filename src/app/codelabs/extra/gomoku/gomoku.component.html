@@ -75,6 +75,10 @@
     <h1>Very Advanced - Defend from 4s</h1>
     <slides-board [game]="games.defendFrom4s"></slides-board>
   </slides-slide>
+  <slides-slide *slidesIf="'old'">
+    <h1>Old</h1>
+    <slides-board [game]="games.old"></slides-board>
+  </slides-slide>
 
   <slides-slide *slidesIf="'defend-from-4s-solution'">
     <h1>Very Advanced - Defend from 4s - Solution</h1>
