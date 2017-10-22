@@ -24,7 +24,8 @@ function routeExercise(highlights: FileHighlights) {
       CodelabFile.TypeScriptFile('components/kitten').setCode(require('!!raw-loader!./samples/simple-router/components/kitten.ts')),
       CodelabFile.TypeScriptFile('components/puppy').setCode(require('!!raw-loader!./samples/simple-router/components/puppy.ts')),
       CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./samples/simple-router/main.ts')).makeBootstrappable(),
-      CodelabFile.Html('index').setCode(require('!!raw-loader!./samples/simple-router/index.html'))]
+      CodelabFile.Html('index').setCode(require('!!raw-loader!./samples/simple-router/index.html'))
+    ]
   };
 }
 
@@ -47,7 +48,14 @@ export class RouterComponent {
     }),
     menu: routeExercise({
       appHtml: /<a[\s\S]*\/a>/
-    })
+    }),
+    kittens: {
+      runner: 'html',
+      files: [CodelabFile.Html('index').setCode(`<h1>Kittens</h1>`)]
+    },
+    puppies: {
+      runner: 'html',
+      files: [CodelabFile.Html('index').setCode(`<h1>Puppies</h1>`)]}
   };
 
 

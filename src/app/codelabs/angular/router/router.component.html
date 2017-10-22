@@ -15,6 +15,18 @@
   <slides-slide *slidesIf="'router-intro'; milestone: 'Router'">
     <h1>Router - intro</h1>
     <h2>Router is used to give <b>URLs</b> to different parts of your app.</h2>
+    <div class="router-preview">
+      <slides-exercise-preview column-5
+                               [config]="code.kittens"
+                               fakeUrl="/assets/runner/kittens"
+      ></slides-exercise-preview>
+      <slides-exercise-preview column-5
+                               [config]="code.puppies"
+                               fakeUrl="/assets/runner/puppies"></slides-exercise-preview>
+    </div>
+  </slides-slide>
+  <slides-slide *slidesIf="'router-intro2'; milestone: 'Router'">
+    <h1>Router - intro</h1>
     <h2>It takes 3 simple steps to set up routing in Angular.</h2>
     <ol>
       <li>Configure the mapping and specify which component to display for which URL</li>

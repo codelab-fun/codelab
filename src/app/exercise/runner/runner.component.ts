@@ -290,6 +290,10 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
   @Input() url = 'about:blank';
+  @Input() urlBase = 'http://localhost:4200';
+  @Input() fakeUrl = '';
+  @Input() hiddenUrlPart = '/assets/runner';
+
 
   @Output() onTestUpdate = new EventEmitter<any>();
   cachedIframes = {};
@@ -305,6 +309,11 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     window.addEventListener('message', this.handleMessageBound, false);
   }
 
+
+  fullUrl() {
+    return this.fakeUrl || (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (this.runnerElement != null || this.runnerConsoleElement != null) {
       this.runCode(changes.files.currentValue, this.runnerType);
@@ -317,6 +326,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   runCode(files: Array<FileConfig>, runner: string): void {
     const time = (new Date()).getTime();
+    console.log(this.fakeUrl);
 
     if (runner === 'Angular') {
       injectIframe(this.runnerElement.nativeElement, {
@@ -393,6 +403,12 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         sandbox.runSingleFile(this.scriptLoaderService.getScript('react'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('react-dom'));
         sandbox.runSingleFile(files[0].code);
+      });
+    } else if (runner === 'html') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': this.url
+      }, this).then((sandbox: Sandbox) => {
+        sandbox.setHtml(this.files[0].template);
       });
     } else {
       throw new Error('No runner specified');
