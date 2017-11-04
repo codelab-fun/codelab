@@ -62,6 +62,7 @@ interface Sandbox {
   runSingleFile: Function;
   runSingleCssFile: Function;
   runSingleScriptFile: Function;
+  iframe: any;
   loadSystemJS: Function;
   injectSystemJs: Function;
 }
@@ -155,6 +156,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
         loadSystemJS: (name) => {
           (iframe.contentWindow as any).loadSystemModule(name, runner.scriptLoaderService.getScript(name));
         },
+        iframe,
         runCss: runCss,
         runMultipleFiles: (files: Array<FileConfig>) => {
           index++;
@@ -293,9 +295,8 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() urlBase = 'http://localhost:4200';
   @Input() fakeUrl = '';
   @Input() hiddenUrlPart = '/assets/runner';
-
-
   @Output() onTestUpdate = new EventEmitter<any>();
+
   cachedIframes = {};
   html = `<my-app id="app"></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
@@ -309,6 +310,19 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     window.addEventListener('message', this.handleMessageBound, false);
   }
 
+
+  trackIframeUrl(iframe) {
+    const interval = window.setInterval(() => {
+      if (iframe.contentWindow) {
+        const url = iframe.contentWindow.location.href.replace(this.urlBase, '');
+        if (this.url !== url) {
+          this.url = url;
+        }
+      } else {
+        window.clearInterval(interval);
+      }
+    }, 200);
+  }
 
   fullUrl() {
     return this.fakeUrl || (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
@@ -341,6 +355,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         sandbox.loadSystemJS('ng-bundle');
         sandbox.register('reflect-metadata', Reflect);
         sandbox.runMultipleFiles(files.filter(file => !file.test));
+        this.trackIframeUrl(sandbox.iframe);
       });
 
       injectIframe(this.runnerElement.nativeElement, {

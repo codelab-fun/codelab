@@ -9,7 +9,6 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./feedback-rating.component.css']
 })
 export class FeedbackRatingComponent implements OnInit, AfterViewInit {
-
   @Input() showSummary = false;
   @Input() lesson = '';
   ratings$: Observable<any[]>;
@@ -22,19 +21,19 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
       text: 'Perfect!'
     },
     {
-      src: 'ng-sad.svg',
-      value: 'needmorecontent',
-      text: 'Hoped for more'
+      src: 'ng-ok.svg',
+      value: 'good',
+      text: 'Good'
+    },
+    {
+      src: 'ng-soso.svg',
+      value: 'soso',
+      text: 'ok'
     },
     {
       src: 'ng-sleepy.svg',
-      value: 'boring',
-      text: 'Boring'
-    },
-    {
-      src: 'ng-angry.svg',
-      value: 'wasteoftime',
-      text: 'Waste of time!'
+      value: 'hopedformore',
+      text: 'Hoped for more!'
     },
   ];
 

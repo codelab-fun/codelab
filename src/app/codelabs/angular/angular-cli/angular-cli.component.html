@@ -42,10 +42,10 @@
   <slides-slide *slidesIf="'install'">
     <h1>Angular CLI / installing</h1>
     <h2>
-      Run <code>sudo npm install -g angular-cli</code> to install <b>angular-cli</b> on your machine
+      Run <code>sudo npm install -g @angular/cli</code> to install <b>Angular cli</b> on your machine
     </h2>
     <slides-terminal-window>
-      $ sudo npm install -g angular-cli<span class="skipped">
+      $ sudo npm install -g @angular/cli<span class="skipped">
       &hellip; A bunch of output omitted for brevety &hellip;</span>
       │ ├─┬ strip-ansi@3.0.1
       │ │ └── ansi-regex@2.1.1
@@ -124,7 +124,7 @@
       You can easily generate new components <code>ng generate component my-component</code>
     </h2>
     <slides-terminal-window>
-
+      $ ng generate component my-component
       create src/app/my-component/my-component.component.css (0 bytes)
       create src/app/my-component/my-component.component.html (31 bytes)
       create src/app/my-component/my-component.component.spec.ts (664 bytes)

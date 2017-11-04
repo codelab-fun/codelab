@@ -94,12 +94,13 @@
     <h1>Forms / Material Inputs (Bonus!)</h1>
     <h2>Now let's make our forms beautiful using Material Design inputs! Main building blocks are:</h2>
     <ul>
-      <li><b>mat-form-filed</b> - Wraps the input</li>
+      <li><b>mat-form-field</b> - Wraps the input</li>
       <li><b>matInput</b> - has to be put on the input</li>
       <li><b>mat-error</b> - Smarter error wrapper</li>
     </ul>
 
     <slides-playground [config]="samples.ngMaterial"></slides-playground>
+    <div class="info">Note that we don't need to <b>#name</b> the input anymore.</div>
   </slides-slide>
 
   <slides-slide *slidesIf="'end'">
@@ -109,9 +110,11 @@
       </div>
       <div class="body" body>
         <h2 i18n>Well done! This is the end of the milestone!</h2>
-        <h2>There are more than one way to handle forms in Angular. While <b>Advanced forms</b> milestone is in works, check
+        <h2>There are more than one way to handle forms in Angular. While <b>Advanced forms</b> milestone is in works,
+          check
           out
           <a href="https://angular.io/guide/dynamic-form">Angular docs</a></h2>
+        <h2>Next <a routerLink="/angular-cli/0">⏭️ Learn how to start working on your angular app in the Angular-cli Milestone</a></h2>
       </div>
       <div class="footer" footer>
         <slides-feedback-rating lesson="FirstAngularApp">

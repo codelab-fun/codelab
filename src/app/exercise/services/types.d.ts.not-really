@@ -116,8 +116,13 @@ declare module '@angular/material' {
     selectedIndex: number;
     selectChange: Observable<any>;
   }
-  export class MatTabsModule {
-  }
+  export class MatTabsModule {}
+  export class MatToolbarModule {}
+  export class MatCardModule {}
+  export class MatButtonModule {}
+
+
+
 }
 
 declare class Babylon {

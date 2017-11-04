@@ -1,3 +1,9 @@
 :host /deep/ .frame {
   height: 300px;
 }
+
+::ng-deep .router-preview .url {
+  color: black !important;
+  background: #f8ff15 !important;
+
+}

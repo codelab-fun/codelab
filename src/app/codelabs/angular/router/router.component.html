@@ -18,20 +18,20 @@
     <div class="router-preview">
       <slides-exercise-preview column-5
                                [config]="code.kittens"
-                               fakeUrl="/assets/runner/kittens"
+                               fakeUrl="http://localhost:4200/assets/runner/kittens"
       ></slides-exercise-preview>
       <slides-exercise-preview column-5
                                [config]="code.puppies"
-                               fakeUrl="/assets/runner/puppies"></slides-exercise-preview>
+                               fakeUrl="http://localhost:4200/assets/runner/puppies"></slides-exercise-preview>
     </div>
   </slides-slide>
   <slides-slide *slidesIf="'router-intro2'; milestone: 'Router'">
     <h1>Router - intro</h1>
-    <h2>It takes 3 simple steps to set up routing in Angular.</h2>
+    <h2>It takes 3 simple steps to set up routing in Angular:</h2>
     <ol>
       <li>Configure the mapping and specify which component to display for which URL</li>
       <li>Create the menu</li>
-      <li>Find a place for where to display selected component</li>
+      <li>Find a place to display selected component</li>
     </ol>
   </slides-slide>
 
@@ -79,7 +79,7 @@
       </div>
       <div class="footer" footer>
         <h2 i18n>
-          Next <a routerLink="/material/intro">Go to the Material Milestone</a>
+          Next <a routerLink="/material/intro">⏭️ Go to the Material Milestone</a>
         </h2>
         <slides-feedback-rating lesson="FirstAngularApp">
         </slides-feedback-rating>

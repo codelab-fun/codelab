@@ -12,8 +12,10 @@
   </slides-slide>
   <!--  INTRO -->
   <slides-slide *slidesIf="'components'">
-    <h2>Now let's use <a href="https://material.angular.io">Angular Material</a> to make our app look beautiful ✨</h2>
-    <h2>Angular material provides you with a set of <a href="https://material.io/">Material Design</a> components for
+    <h2>Now let's use <a href="https://material.angular.io" target="_blank">Angular Material</a> to make our app look
+      beautiful ✨</h2>
+    <h2>Angular material provides you with a set of <a href="https://material.io/" target="_blank">Material Design</a>
+      components for
       Angular</h2>
     <ul>
       <li>Fast and Consistent</li>
@@ -23,7 +25,8 @@
       <li>Look great on mobile</li>
     </ul>
 
-    <h2>See the list of components <a href="https://material.angular.io/components/categories">here</a></h2>
+    <h2>See the list of components <a href="https://material.angular.io/components/categories" target="_blank">here</a>
+    </h2>
 
   </slides-slide>
 
@@ -31,25 +34,33 @@
     <h1>Material / NavBar</h1>
     <h2>Let's start with adding a Navigation Bar with 2 simple steps:</h2>
     <ul>
-      <li>add <b>MatToolbarModule</b> to the imports</li>
-      <li>Add the component to the template</li>
+      <li>Add <b>MatToolbarModule</b> to the imports</li>
+      <li>Use the component in the template</li>
     </ul>
     <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step1"></slides-playground>
+    <div class="info">Note that Angular animations come in a separate module. We're including
+      <b>NoopAnimationsModule</b> here, but could have used <b>BrowserAnimationsModule</b> instead, to have full-fledged
+      animations.
+    </div>
   </slides-slide>
 
   <slides-slide *slidesIf="'card'">
     <h1>Material / Card</h1>
+    <h2>Now let's add material card.</h2>
     <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step2"></slides-playground>
   </slides-slide>
 
   <slides-slide *slidesIf="'header'">
     <h1>Material / Card Header</h1>
+    <h2>Header and an image.</h2>
     <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step3"></slides-playground>
   </slides-slide>
 
   <slides-slide *slidesIf="'buttons'">
     <h1>Material / Buttons</h1>
+    <h2>Adding some actions....</h2>
     <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step4"></slides-playground>
+    <div class="info">Note that for the button we're using <b>mat-button</b> attribute instead of a separate tag.</div>
   </slides-slide>
 
 
@@ -72,6 +83,8 @@
       </button>
     </div>
     <slides-playground #themePlayground [openFilesIndex]="[0,1]" [config]="code.material.theme"></slides-playground>
+    <div class="info">Read more on theming Anglar Material <a href="https://material.angular.io/guide/theming">in this
+      guide</a></div>
   </slides-slide>
 
   <slides-slide *slidesIf="'end'">
@@ -81,12 +94,13 @@
       </div>
       <div class="body" body>
         <h2 i18n>Well done! This is the end of the milestone!</h2>
-        <h2>Check out Angular Material <a href="https://material.angular.io/guide/getting-started">"Getting Started"</a>
+        <h2>Check out Angular Material <a href="https://material.angular.io/guide/getting-started" target="_blank">"Getting
+          Started"</a>
           Guide</h2>
       </div>
       <div class="footer" footer>
         <h2 i18n>
-          Next <a routerLink="/forms/0">Go to the Forms Milestone</a>
+          Next <a routerLink="/forms/0">⏭️ Go to the Forms Milestone</a>
         </h2>
         <slides-feedback-rating lesson="FirstAngularApp">
         </slides-feedback-rating>
