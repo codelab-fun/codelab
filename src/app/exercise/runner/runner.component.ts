@@ -292,7 +292,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
   @Input() url = 'about:blank';
-  @Input() urlBase = 'http://localhost:4200';
+  @Input() urlBase = window.location.origin;
   @Input() fakeUrl = '';
   @Input() hiddenUrlPart = '/assets/runner';
   @Output() onTestUpdate = new EventEmitter<any>();
