@@ -325,7 +325,9 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   fullUrl() {
-    return this.fakeUrl || (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
+    return this.fakeUrl || (this.urlBase + this.url)
+      .replace(this.hiddenUrlPart, '')
+      .replace('about:blank', '');
   }
 
   ngOnChanges(changes: SimpleChanges): void {

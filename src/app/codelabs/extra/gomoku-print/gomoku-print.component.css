@@ -84,7 +84,7 @@ li {
 }
 
 .back {
-  margin: 0px auto;
+  margin: 0 auto;
   width: 1024px;
   padding: 0 60px;
   display: flex;

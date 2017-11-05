@@ -38,7 +38,7 @@ const debuggerAndConsoleLogAst =
   styleUrls: ['./ast.component.css']
 })
 export class AstComponent {
-  fontSize = 18;
+  fontSize = 28;
 
   code = {
     matches: {loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/},
