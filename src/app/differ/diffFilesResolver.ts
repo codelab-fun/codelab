@@ -52,7 +52,8 @@ export class DiffFilesResolver {
 
   getFileByPath(path: string) {
     if (!this.files[path]) {
-      throw new Error('Incorrect path');
+      debugger;
+      throw new Error('Incorrect path:' + path);
     }
 
     return this.files[path];

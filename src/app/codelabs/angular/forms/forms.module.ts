@@ -9,6 +9,7 @@ import { BrowserWindowModule } from '../../../browser/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { RouterModule } from '@angular/router';
 import { FormsComponent } from './forms.component';
+import { Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
 
 const routes = RouterModule.forChild(
   [{
@@ -21,7 +22,8 @@ const routes = RouterModule.forChild(
 @NgModule({
   imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule, RunnersModule],
   declarations: [FormsComponent],
-  exports: [FormsComponent]
+  exports: [FormsComponent],
+  providers: [Ng2TsExercises],
 })
 export class FormsCodelabModule {
 }

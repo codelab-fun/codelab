@@ -1,6 +1,6 @@
 import { CodelabFile } from '../../../exercise/helpers/codelabFile';
 import { Component } from '@angular/core';
-import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
+import { ExerciseConfigTemplate, ng2tsConfig, Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
 
 declare const require;
 
@@ -36,6 +36,8 @@ function routeExercise(highlights: FileHighlights) {
   styleUrls: ['./router.component.css']
 })
 export class RouterComponent {
+  exercise: ExerciseConfigTemplate;
+
   code = {
     routerConfig: routeExercise({
       appModule: /const routes[\s\S]*?];[\s\S]/
@@ -58,5 +60,7 @@ export class RouterComponent {
       files: [CodelabFile.Html('index').setCode(`<h1>Puppies</h1>`)]}
   };
 
-
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(5, 0);
+  }
 }

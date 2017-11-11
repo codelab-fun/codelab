@@ -116,6 +116,7 @@ declare module '@angular/material' {
     selectedIndex: number;
     selectChange: Observable<any>;
   }
+  export class MatInputModule {}
   export class MatTabsModule {}
   export class MatToolbarModule {}
   export class MatCardModule {}

@@ -1,11 +1,21 @@
-<div>/*d:templatePageSetupSolved*/
-  <h1>{{title}}</h1>
+<div>/*d:templatePageSetupSolved:materialPre*/
+  <h1>{{title}}</h1> /*/d*//*d:material/trimTrailing*/
+  <mat-toolbar color="primary">
+    <span>{{title}}</span>
+  </mat-toolbar>
+  /*/d*//*d:router*/
+  <ul>
+    <li><a routerLink="/">Search</a></li>
+    <li><a routerLink="/upload">Upload</a></li>
+  </ul>
+  /*/d*//*d:router*/
+  <router-outlet></router-outlet>
   /*/d*//*d:templatePageSetupSolved:templateAddAction/trimLeading*/
   <input type="text" placeholder="video">
   <button>Search</button>
-  /*/d*//*d:templateAddActionSolved*/<input type="text" placeholder="video" #searchTerm>
+  /*/d*//*d:templateAddActionSolved:routerPre*/1<input type="text" placeholder="video" #searchTerm>
   <button (click)="search(searchTerm.value)">Search!</button>
-  /*/d*//*d:templateAddActionSolved*/
+  /*/d*//*d:templateAddActionSolved:routerPre*/
   <div *ngIf="videos.length == 0">
     No videos!
   </div>
@@ -14,7 +24,7 @@
     <h2>{{video.title}}</h2>
     <img [src]="video.src">
   </div>
-  /*/d*//*d:videoComponentUseSolved*/
+  /*/d*//*d:videoComponentUseSolved:routerPre*/
   <my-video *ngFor="let video of videos" [video]="video"></my-video>
   /*/d*/
 </div>

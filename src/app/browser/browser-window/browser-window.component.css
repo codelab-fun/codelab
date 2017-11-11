@@ -1,9 +1,14 @@
 .frame {
   border: 1px solid #dddddd;
-  padding: 10px;
   margin-top: 0;
   width: 100%;
   background-color: #fff;
+}
+
+::ng-deep iframe {
+  display: block;
+  width: 100%;
+  height: 100%
 }
 
 .img-full img {

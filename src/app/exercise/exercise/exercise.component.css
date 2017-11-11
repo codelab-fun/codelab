@@ -109,7 +109,9 @@ slides-tests {
   margin-bottom: 20px;
 }
 
-:host /deep/ .editor, :host /deep/ .slides-preview {
+
+:host /deep/ .editor, :host /deep/ .slides-preview,
+:host /deep/ .preview {
   height: 50%;
 }
 

@@ -1,5 +1,6 @@
 import { CodelabFile } from '../../../exercise/helpers/codelabFile';
 import { Component } from '@angular/core';
+import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
 
 declare const require;
 
@@ -49,6 +50,7 @@ function formsConfig(code,
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent {
+  exercise: ExerciseConfigTemplate;
   samples = {
     basicForm: formsConfig({appHtml: require('!!raw-loader!./samples/basic/app.1.html')}, {
       appModule: /FormsModule\n/
@@ -85,5 +87,8 @@ export class FormsComponent {
     })
   };
 
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(7, 0);
+  }
 
 }

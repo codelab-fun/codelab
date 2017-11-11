@@ -103,6 +103,18 @@
     <div class="info">Note that we don't need to <b>#name</b> the input anymore.</div>
   </slides-slide>
 
+  <slides-slide *slidesIf="'exercise'" no-padding>
+    <slides-exercise [files]="exercise.files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Router" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
   <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
       <div class="header" header>
@@ -111,10 +123,9 @@
       <div class="body" body>
         <h2 i18n>Well done! This is the end of the milestone!</h2>
         <h2>There are more than one way to handle forms in Angular. While <b>Advanced forms</b> milestone is in works,
-          check
-          out
-          <a href="https://angular.io/guide/dynamic-form">Angular docs</a></h2>
-        <h2>Next <a routerLink="/angular-cli/0">⏭️ Learn how to start working on your angular app in the Angular-cli Milestone</a></h2>
+          check out <a href="https://angular.io/guide/dynamic-form">Angular docs</a></h2>
+        <h2>Next <a routerLink="/angular-cli/0">⏭️ Learn how to start working on your angular app in the Angular-cli
+          Milestone</a></h2>
       </div>
       <div class="footer" footer>
         <slides-feedback-rating lesson="FirstAngularApp">

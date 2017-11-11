@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { CodelabFile } from '../../../exercise/helpers/codelabFile';
 import { concatStatic } from 'rxjs/operator/concat';
+import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
 
 declare const require;
 
@@ -32,6 +33,7 @@ function matExercise(modules, html, highlights: FileHighlights = {}, theme = 'pu
   encapsulation: ViewEncapsulation.None
 })
 export class MaterialComponent {
+  exercise: ExerciseConfigTemplate;
   @ViewChild('themePlayground') themePlayground;
 
   themes = {
@@ -101,5 +103,9 @@ export class MaterialComponent {
     this.theme = theme;
     const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
     this.themePlayground.onCodeChange(this.themes[theme], cssFile);
+  }
+
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(6, 0);
   }
 }

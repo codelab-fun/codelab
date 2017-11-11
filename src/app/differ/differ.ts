@@ -7,6 +7,7 @@ function assertPositive(number, error) {
 
 export function differ(file, commits) {
   return ['initial'].concat(commits).concat('neverShow').reduce((result, commit) => {
+    result.push(commit + 'Pre');
     result.push(commit);
     result.push(commit + 'Solved');
     return result;

@@ -9,7 +9,7 @@ import { BrowserWindowModule } from '../../../browser/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
-
+import { Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
 
 
 const routes = RouterModule.forChild(
@@ -34,7 +34,8 @@ const routes = RouterModule.forChild(
     MatInputModule
   ],
   declarations: [MaterialComponent],
-  exports: [MaterialComponent]
+  exports: [MaterialComponent],
+  providers: [Ng2TsExercises],
 })
 export class MaterialCodelabModule {
 }

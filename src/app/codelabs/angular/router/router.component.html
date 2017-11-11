@@ -1,3 +1,7 @@
+<div #translations style="display: none">
+  <div i18n="@@componentIsDecorator" id="componentIsDecorator">@Component is an Angular decorator</div>
+  <div i18n="@@noSemicolon" id="noSemicolon">No semicolon here (as it attaches itself to the class below</div>
+</div>
 <slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
   <div class="btn-bar">
     <slides-feedback-widget></slides-feedback-widget>
@@ -66,6 +70,17 @@
                        [config]="code.menu"></slides-playground>
   </slides-slide>
 
+  <slides-slide *slidesIf="'exercise'" no-padding>
+    <slides-exercise [files]="exercise.files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="Router" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
 
   <slides-slide *slidesIf="'end'">
     <slides-closing-slide>
