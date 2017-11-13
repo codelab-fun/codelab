@@ -1,10 +1,10 @@
-/*d:router:router*/
+/*d:router:forms/trimLeading*/
 <h1>Uploading coming soon!</h1>
-/*/d*//*d:forms/trimBoth*/
+/*/d*//*d:formsSolved/trimBoth*/
 <div>
   <mat-form-field class="example-full-width">
     <input matInput #titleInput="ngModel" placeholder="Title" required [(ngModel)]="title">
-    <mat-error *ngIf="titleInput.errors">
+    <mat-error>
       Title is <strong>required</strong>
     </mat-error>
   </mat-form-field>

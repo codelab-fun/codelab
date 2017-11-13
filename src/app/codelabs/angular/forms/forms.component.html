@@ -7,23 +7,23 @@
   <slides-arrows></slides-arrows>
 
   <!--  INTRO -->
-  <slides-slide *slidesIf="'intro'" no-padding>
+  <slides-slide *slidesIf="'intro'" no-padding milestone="forms">
     <slides-title-slide title="Forms" description="Adding basics forms into your app"></slides-title-slide>
   </slides-slide>
 
-  <slides-slide *slidesIf="'simple-form'">
+  <slides-slide *slidesIf="'simple-form'" milestone="forms">
     <h1>Forms / Simple Form</h1>
     <h2>We have this simple form, let's find out how to map input values with the ones from our Angular component!</h2>
     <slides-playground [config]="samples.basicForm"></slides-playground>
   </slides-slide>
 
-  <slides-slide *slidesIf="'forms-module'">
+  <slides-slide *slidesIf="'forms-module'" milestone="forms">
     <h1>Forms / Simple Form</h1>
     <h2>First we have to add <b>FormsModule</b> to our NgModule.</h2>
     <slides-playground [openFilesIndex]="[1]" [config]="samples.basicForm"></slides-playground>
   </slides-slide>
 
-  <slides-slide *slidesIf="'ng-model'">
+  <slides-slide *slidesIf="'ng-model'" milestone="forms">
     <h1>Forms / NgModel</h1>
     <h2>Now let's use ngModel to bind the inputs to the appropriate fields on the controller.</h2>
     <h2>Try changing the inputs and see the values updated.</h2>
@@ -31,9 +31,9 @@
     <div class="info" i18n>[(NgModel)] - <b>Banana in the box</b> is a simple mnemonic for the braces order.</div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'forms-validation-1'">
+  <slides-slide *slidesIf="'forms-validation-1'" milestone="forms">
     <h1>Forms / Validation</h1>
-    <h2>It's really simple to add validation for your inputs using predefined angular directives.</h2>
+    <h2>It's really easy to add validation for your inputs using predefined angular directives.</h2>
     <h2>Let's make username <b>required</b></h2>
     <slides-playground [config]="samples.ngValidation1"></slides-playground>
     <div class="info">
@@ -42,7 +42,7 @@
     </div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'forms-validation-2'">
+  <slides-slide *slidesIf="'forms-validation-2'" milestone="forms">
     <h1>Forms / Displaying Validation Errors</h1>
     <h2>Now we let's display validation error. It takes 2 steps: </h2>
     <ul>
@@ -52,7 +52,7 @@
     <slides-playground [config]="samples.ngValidation2"></slides-playground>
     <div class="info">Try clearing the username input and see the error displayed.</div>
   </slides-slide>
-  <slides-slide *slidesIf="'built-in'">
+  <slides-slide *slidesIf="'built-in'" milestone="forms">
     <h1>Forms / validators</h1>
     <h2>Here's the list of <a href="https://angular.io/api/forms/Validators#min">built-in validators</a> that Angular
       provides out of the box</h2>
@@ -71,13 +71,13 @@
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'forms-always-required'">
+  <slides-slide *slidesIf="'forms-always-required'" milestone="forms">
     <h1>Forms / Error Always displayed</h1>
     <h2>There's one small issue though, if we don't have initial values, the error is displayed right away.</h2>
     <slides-playground [openFilesIndex]="[0,2]" [config]="samples.touched"></slides-playground>
   </slides-slide>
 
-  <slides-slide *slidesIf="'forms-touched-dirty'">
+  <slides-slide *slidesIf="'forms-touched-dirty'" milestone="forms">
     <h1>Forms / Touched & Dirty</h1>
     <h2>Luckily we can check if the user interacted with an input using <b>touched</b> property.</h2>
     <ul>
@@ -90,7 +90,7 @@
     </div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'forms-material'">
+  <slides-slide *slidesIf="'forms-material'" milestone="forms">
     <h1>Forms / Material Inputs (Bonus!)</h1>
     <h2>Now let's make our forms beautiful using Material Design inputs! Main building blocks are:</h2>
     <ul>
@@ -103,12 +103,12 @@
     <div class="info">Note that we don't need to <b>#name</b> the input anymore.</div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'exercise'" no-padding>
+  <slides-slide *slidesIf="'exercise'" no-padding milestone="forms">
     <slides-exercise [files]="exercise.files">
       <div class="description"></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
-      <slides-slides-preview milestone="Router" class="slides-preview">
+      <slides-slides-preview class="slides-preview">
       </slides-slides-preview>
       <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>

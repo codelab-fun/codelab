@@ -13,6 +13,7 @@ const preloadedFiles = {
   'app.module.ts': require('!raw-loader!./app.module.ts'),
   'app.html': require('!raw-loader!./app.html'),
   'main.ts': require('!raw-loader!./main.ts'),
+  'style.css': require('!raw-loader!./style.css'),
   'video/video-item.ts': require('!raw-loader!./video/video-item.ts'),
   'api.service.ts': require('!raw-loader!./api.service.ts'),
   'search/search.component.html': require('!raw-loader!./search/search.component.html'),
@@ -93,7 +94,8 @@ const files = {
   typescript_intro_Guest_ts: 'typescript-intro/Guest.ts',
   fuzzyPipe_fuzzyPipe: 'fuzzy-pipe/fuzzy.pipe.ts',
   test: 'tests/test.ts',
-  indexHtml: 'index.html'
+  indexHtml: 'index.html',
+  style_css: 'style.css'
 };
 
 
@@ -255,7 +257,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Create a component',
           files: patchATestWithAFunctionINAHackyWay(diffFilesResolver.resolve('createComponent', {
             exercise: [files.appComponent],
-            reference: [files.appModule, files.main, files.indexHtml],
+            reference: [files.appModule, files.main, files.style_css, files.indexHtml],
             bootstrap: [files.main],
             test: [files.test],
           }), 'tests/test.ts', createComponentTest)
@@ -293,7 +295,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Set up the page',
           files: diffFilesResolver.resolve('templatePageSetup', {
             exercise: [files.appHtml],
-            reference: [files.appComponent, files.appModule, files.main, files.indexHtml],
+            reference: [files.appComponent, files.appModule, files.main, files.style_css, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -301,7 +303,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Add some action',
           files: diffFilesResolver.resolve('templateAddAction', {
             exercise: [files.appComponent, files.appHtml],
-            reference: [files.appModule, files.main, files.video_videoItem, files.indexHtml],
+            reference: [files.appModule, files.main, files.video_videoItem, files.style_css, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main],
           })
@@ -310,7 +312,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Display all videos',
           files: diffFilesResolver.resolve('templateAllVideos', {
             exercise: [files.appComponent, files.appHtml],
-            reference: [files.appModule, files.main, files.video_videoItem, files.indexHtml],
+            reference: [files.appModule, files.main, files.video_videoItem, files.style_css, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -328,7 +330,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Service injection',
           files: diffFilesResolver.resolve('diInjectService', {
             exercise: [files.video_videoService, files.appModule, files.appComponent],
-            reference: [files.appHtml, files.apiService, files.video_videoItem, files.main, files.indexHtml],
+            reference: [files.appHtml, files.apiService, files.video_videoItem, files.main, files.style_css, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -352,7 +354,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
               files.video_video_wrapper_component,
               files.video_videoService, files.appHtml,
               files.appComponent, files.video_videoItem,
-              files.apiService, files.main, files.indexHtml
+              files.apiService, files.main, files.style_css, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -363,7 +365,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           files: diffFilesResolver.resolve('videoComponentUse', {
             exercise: [files.appModule, files.appHtml],
             reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
+              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -386,7 +388,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
               files.upload_upload_component_html,
             ],
             reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
+              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -402,14 +404,22 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           files: diffFilesResolver.resolve('material', {
             exercise: [
               files.appModule,
+              files.video_video_component_html,
               files.appHtml,
+            ],
+            reference: [
+              files.video_video_component,
+              files.appComponent,
+              files.video_videoService,
+              files.video_videoItem,
+              files.apiService,
+              files.main,
+              files.style_css,
+              files.indexHtml,
               files.search_search_component,
               files.search_search_component_html,
               files.upload_upload_component,
               files.upload_upload_component_html,
-            ],
-            reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -425,14 +435,14 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           files: diffFilesResolver.resolve('forms', {
             exercise: [
               files.appModule,
+              files.upload_upload_component_html,
+              files.upload_upload_component,
+            ],
+            reference: [
               files.appHtml,
               files.search_search_component,
               files.search_search_component_html,
-              files.upload_upload_component,
-              files.upload_upload_component_html,
-            ],
-            reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
+              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -451,7 +461,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Create ThumbsComponent',
           files: diffFilesResolver.resolve('thumbsComponentCreate', {
             exercise: [files.thumbs_thumbs_component, files.thumbs_thumbs_html],
-            reference: [files.apiService, files.appModule, files.main, files.indexHtml],
+            reference: [files.apiService, files.appModule, files.main, files.style_css, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -461,7 +471,16 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           files: diffFilesResolver.resolve('thumbsComponentUse', {
             exercise: [files.video_video_component, files.video_video_component_html, files.appModule],
             reference: [
-              files.thumbs_thumbs_component, files.thumbs_thumbs_html, files.appHtml, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.indexHtml
+              files.thumbs_thumbs_component,
+              files.thumbs_thumbs_html,
+              files.appHtml,
+              files.appComponent,
+              files.video_videoService,
+              files.video_videoItem,
+              files.apiService,
+              files.main,
+              files.style_css,
+              files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -480,7 +499,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Add TogglePanelComponent',
           files: diffFilesResolver.resolve('togglePanelComponentCreate', {
             exercise: [files.toggle_panel_toggle_panel, files.toggle_panel_toggle_panel_html],
-            reference: [files.wrapperComponent, files.apiService, files.appModule, files.main, files.indexHtml],
+            reference: [files.wrapperComponent, files.apiService, files.appModule, files.main, files.style_css, files.indexHtml],
             test: [files.test],
             bootstrap: [files.main]
           })

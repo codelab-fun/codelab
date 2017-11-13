@@ -1,3 +1,4 @@
+/*d:router/trimleading*/
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,8 +6,9 @@ import { Component } from '@angular/core';
   templateUrl: './upload.component.html'
 })
 export class UploadComponent {
-  /*/d*//*d:forms/trimBoth*/
+  /*/d*//*d:forms/trimboth*/
   title: string;
   description: string;
-  /*/d*//*d:router/trimBoth*/
+  /*/d*//*d:router/trimleading*/
+
 }

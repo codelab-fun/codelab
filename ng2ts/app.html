@@ -1,19 +1,18 @@
-<div>/*d:templatePageSetupSolved:materialPre*/
-  <h1>{{title}}</h1> /*/d*//*d:material/trimTrailing*/
+<div>/*d:templatePageSetupSolved:material*/
+  <h1>{{title}}</h1> /*/d*//*d:materialSolved/trimTrailing*/
   <mat-toolbar color="primary">
     <span>{{title}}</span>
   </mat-toolbar>
-  /*/d*//*d:router*/
+  /*/d*//*d:routerSolved/trimTrailing*/
   <ul>
     <li><a routerLink="/">Search</a></li>
     <li><a routerLink="/upload">Upload</a></li>
   </ul>
-  /*/d*//*d:router*/
   <router-outlet></router-outlet>
   /*/d*//*d:templatePageSetupSolved:templateAddAction/trimLeading*/
   <input type="text" placeholder="video">
   <button>Search</button>
-  /*/d*//*d:templateAddActionSolved:routerPre*/1<input type="text" placeholder="video" #searchTerm>
+  /*/d*//*d:templateAddActionSolved:routerPre*/<input type="text" placeholder="video" #searchTerm>
   <button (click)="search(searchTerm.value)">Search!</button>
   /*/d*//*d:templateAddActionSolved:routerPre*/
   <div *ngIf="videos.length == 0">

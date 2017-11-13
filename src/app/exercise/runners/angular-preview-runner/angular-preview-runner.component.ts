@@ -33,7 +33,6 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
       evalJs(require('!!raw-loader!../../../../assets/runner/js/system-config'));
       loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../../assets/runner/ng2/ng-bundle'));
       addCss(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'));
-
       addDep('reflect-metadata', Reflect);
       const bootstrapFiles = files.filter(file => !file.test);
 

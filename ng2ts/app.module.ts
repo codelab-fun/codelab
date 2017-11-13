@@ -22,24 +22,25 @@ import { MatCardModule, /*/d*//*d:forms*/ MatInputModule, MatButtonModule, /*/d*
 /*/d*//*d:forms/trimLeading*/
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-/*/d*//*d:createModuleSolved/trimTrailing*/
-
+/*/d*//*d:createModuleSolved*/
 @NgModule({
   imports: [
     BrowserModule,
-    /*/d*//*d:material*/
+    /*/d*//*d:materialSolved/trimLeading*/
     MatToolbarModule,
     MatCardModule,
-    /*/d*//*d:forms/trimLeading*/
+    /*/d*//*d:formsSolved/trimLeading*/
     MatButtonModule,
     MatInputModule,
-    NoopAnimationsModule,
     FormsModule,
-    /*/d*//*d:router/trimBoth*/
+    /*/d*//*d:formsPre/trimLeading*/
+    NoopAnimationsModule,
+    /*/d*//*d:routerSolved/trimLeading*/
     RouterModule.forRoot([
-      {path: '', component: UploadComponent},
+      {path: '', component: SearchComponent},
       {path: 'upload', component: UploadComponent}
-    ]) /*/d*//*d:createModuleSolved/trimBoth*/ ],
+  ]) /*/d*//*d:createModuleSolved/trimTrailing*/
+],
   declarations: [AppComponent
     /*/d*//*d:videoComponentUseSolved/trimBoth*/, VideoComponent
     /*/d*//*d:thumbsComponentUseSolved/trimBoth*/, ThumbsComponent
