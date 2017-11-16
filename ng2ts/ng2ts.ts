@@ -16,6 +16,7 @@ const preloadedFiles = {
   'style.css': require('!raw-loader!./style.css'),
   'video/video-item.ts': require('!raw-loader!./video/video-item.ts'),
   'api.service.ts': require('!raw-loader!./api.service.ts'),
+  'material.css': require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
   'search/search.component.html': require('!raw-loader!./search/search.component.html'),
   'search/search.component.ts': require('!raw-loader!./search/search.component.ts'),
   'upload/upload.component.html': require('!raw-loader!./upload/upload.component.html'),
@@ -95,7 +96,8 @@ const files = {
   fuzzyPipe_fuzzyPipe: 'fuzzy-pipe/fuzzy.pipe.ts',
   test: 'tests/test.ts',
   indexHtml: 'index.html',
-  style_css: 'style.css'
+  style_css: 'style.css',
+  material_css: 'material.css'
 };
 
 
@@ -420,6 +422,7 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
               files.search_search_component_html,
               files.upload_upload_component,
               files.upload_upload_component_html,
+              files.material_css
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -442,7 +445,16 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
               files.appHtml,
               files.search_search_component,
               files.search_search_component_html,
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
+              files.video_video_component_html,
+              files.video_video_component,
+              files.appComponent,
+              files.video_videoService,
+              files.video_videoItem,
+              files.apiService,
+              files.main,
+              files.style_css,
+              files.indexHtml,
+              files.material_css
             ],
             test: [files.test],
             bootstrap: [files.main]

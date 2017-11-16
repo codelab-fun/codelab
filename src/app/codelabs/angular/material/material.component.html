@@ -87,6 +87,14 @@
       guide</a></div>
   </slides-slide>
 
+
+  <slides-slide *slidesIf="'exercise-pre'">
+    <h1>Material / Exercise</h1>
+    <h2>In the next slide there is an exercise. We're going to materialize our application</h2>
+    <slides-exercise-preview column-5 [config]="exercise" [url]="'/assets/runner/'"></slides-exercise-preview>
+    <div class="info">Note: the final app won't be super beautiful, we're still working on that.</div>
+  </slides-slide>
+
   <slides-slide *slidesIf="'exercise'" no-padding>
     <slides-exercise [files]="exercise.files">
       <div class="description"></div>
