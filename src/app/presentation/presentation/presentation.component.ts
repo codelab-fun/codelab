@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Mode } from '../mode.enum';
 import { AnalyticsService } from '../analytics.service';
@@ -9,6 +9,7 @@ declare const ga;
   selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css'],
+  // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements AfterViewInit {
   private generatedSlideIndex = 0;

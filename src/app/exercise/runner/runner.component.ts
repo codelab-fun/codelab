@@ -283,7 +283,8 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
 @Component({
   selector: 'slides-runner',
   templateUrl: './runner.component.html',
-  styleUrls: ['./runner.component.css']
+  styleUrls: ['./runner.component.css'],
+ // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() browserUseConsole: boolean;

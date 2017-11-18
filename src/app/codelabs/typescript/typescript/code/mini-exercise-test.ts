@@ -28,7 +28,7 @@ describe('value', () => {
     chai.assert(func.parameters[1].type && func.parameters[1].type.kind === ts.SyntaxKind.NumberKeyword, 'Test failed: b is not a number');
   });
 
-  it('@@typescriptHighlightsErrorFix224', () => {
+  it(`@@typescriptHighlightsErrorFix224`, () => {
     chai.expect(value.value).equals(4);
   });
 });
