@@ -1,9 +1,11 @@
 <!--  FEEDBACK BUTTON-->
 <div (click)="buttonClicked()" class="feedback-container feedback-button menu-bar-btn"
      title="Feedback">
-  <span *ngIf="(messages$|async)?.length" class="messages-count">
-    {{(messages$|async).length}}
+  <ng-container *ngIf="(messages$|async) as msgs" >
+  <span *ngIf="msgs.length" class="messages-count">
+   {{msgs.length}}
   </span>
+  </ng-container>
 </div>
 <!--  FEEDBACK FORM -->
 <slides-feedback-form *ngIf="open"></slides-feedback-form>

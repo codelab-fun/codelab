@@ -8,7 +8,7 @@ declare const ga;
 @Component({
   selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.css']
+  styleUrls: ['./presentation.component.css'],
 })
 export class PresentationComponent implements AfterViewInit {
   private generatedSlideIndex = 0;

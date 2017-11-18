@@ -14,7 +14,7 @@ declare const require;
 export class AngularPreviewRunnerComponent implements AfterViewInit {
   @ViewChild('runner') runnerElement: ElementRef;
   @Input() url = '/assets/runner/';
-  @Input() urlBase = 'http://localhost:4200';
+  @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
 
   fullUrl() {
