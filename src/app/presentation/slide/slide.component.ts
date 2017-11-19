@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Mode } from '../mode.enum';
 import { Observable } from 'rxjs/Observable';
 import { PresentationComponent } from '../presentation/presentation.component';
@@ -8,7 +8,8 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
   selector: 'slides-slide',
   templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.css']
+  styleUrls: ['./slide.component.css'],
+  // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SlideComponent {
   private slideId: number;

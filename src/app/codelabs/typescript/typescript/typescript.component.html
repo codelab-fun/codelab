@@ -244,7 +244,7 @@
       /
       <ng-container i18n>Arrays</ng-container>
     </h1>
-    <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}&gt;</b> or <b>Type[]</b></h2>
+    <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
     <div class="info" i18n>Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
     </div>
@@ -302,7 +302,7 @@
       <ng-container i18n>Export</ng-container>
     </h1>
     <h2 i18n>By the way, did you notice the <b>export</b> keyword before class? It is used to share information
-      between files. In the next slide, we'll show you how to export and use this class in a different file</h2>
+      between files. In the next slide, we'll show you how to import and use this class in a different file</h2>
     <slides-code-editor
       path="puppy.ts"
       [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
@@ -329,9 +329,7 @@
       /
       <ng-container i18n>Filter (One last thing)</ng-container>
     </h1>
-    <h2 i18n>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
-      provided
-      from the returning callback</h2>
+    <h2 i18n>Filter is an Array method that allows you to generate a new array keeping only values that satisfy the condition</h2>
     <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
@@ -343,12 +341,13 @@
     </h1>
     <h2 i18n>TypeScript supports lots of other cool features such as: </h2>
     <ul>
-      <li i18n>Interfaces</li>
-      <li i18n>Enums</li>
-      <li i18n>Async / Await</li>
-      <li i18n>Getters / Setters</li>
-      <li i18n>Destructuring</li>
-      <li i18n>Arrow functions</li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/enums.html">Enums</a></li>
+      <li><a i18n href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+      >Async / Await</a></li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/classes.html">Accessors (Getters / Setters</a>)
+      </li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/variable-declarations.html">Destructuring</a></li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/functions.html">Arrow functions</a></li>
       <li i18n>And more!</li>
     </ul>
     <h2 i18n>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/"

@@ -46,7 +46,7 @@ describe('router', () => {
       .to.be.true;
   });
 
-  it('app.module.ts: Add a route with path of "Upload" to display UploadComponent', () => {
+  it('app.module.ts: Add a route with path of "upload" to display UploadComponent', () => {
     const routes = getRoutes();
     chai.expect(routes.length, 'Empty array was provided, need actual routes.').to.be.above(0);
     const route = routes.find(r => r.path === 'upload');
