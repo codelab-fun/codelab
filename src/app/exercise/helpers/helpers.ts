@@ -129,10 +129,10 @@ platform.bootstrapModule(${module.name}, {
   }
 };
 
-export function html(code, solution = '') {
+export function html(path = 'app', code, solution = '') {
   return {
     code,
-    path: 'app.html',
+    path: path + '.html',
     solution: solution,
     type: 'html'
   };

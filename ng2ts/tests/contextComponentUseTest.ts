@@ -1,4 +1,4 @@
-import {Api} from '../api.service';
+import { Api } from '../api.servie';
 import {
   app_html,
   context_context_html,
@@ -6,15 +6,15 @@ import {
   toggle_panel_toggle_panel_html,
   video_video_component_html
 } from '../code';
-import {AppComponent} from '../app.component';
-import {AppModule} from '../app.module';
-import {ContextComponent} from '../context/context.component';
-import {ContextService} from '../context/context.service';
-import {TestBed} from '@angular/core/testing';
-import {ThumbsComponent} from '../thumbs/thumbs.component';
-import {TogglePanelComponent} from '../toggle-panel/toggle-panel.component';
-import {VideoComponent} from '../video/video.component';
-import {VideoService} from '../video/video.service';
+import { AppComponent } from '../app.component';
+import { AppModule } from '../app.module';
+import { ContextComponent } from '../context/context.component';
+import { ContextService } from '../context/context.service';
+import { TestBed } from '@angular/core/testing';
+import { ThumbsComponent } from '../thumbs/thumbs.component';
+import { TogglePanelComponent } from '../toggle-panel/toggle-panel.component';
+import { VideoComponent } from '../video/video.component';
+import { VideoService } from '../video/video.service';
 import 'initTestBed';
 
 function objectValues(object) {

@@ -71,10 +71,32 @@ export let routes = [
     path: 'router',
     loadChildren: './angular/router/router.module#RouterCodelabModule',
     name: 'Angular Router',
-    description: 'Learn how to add routes to your Angular application',
+    description: '[🚧 Work In Progress] Learn how to add routes to your Angular application',
     page: 'main',
     prod: true
   }, {
+    path: 'material',
+    loadChildren: './angular/material/material.module#MaterialCodelabModule',
+    name: 'Angular Material',
+    description: '[🚧 Work In Progress] Learn how to use Angular Material',
+    page: 'main',
+    prod: true
+  }, {
+    path: 'forms',
+    loadChildren: './angular/forms/forms.module#FormsCodelabModule',
+    name: 'Forms',
+    description: '[🚧 Work In Progress] Learn how to add Forms to your app',
+    page: 'main',
+    prod: true
+  },{
+    path: 'angular-cli',
+    loadChildren: './angular/angular-cli/angular-cli.module#AngularCliModule',
+    name: 'angular-cli',
+    description: '[🚧 Work In Progress] Learn how to quickly start working with angular',
+    page: 'main',
+    prod: true
+  },
+  {
     path: 'pipes',
     loadChildren: './angular/pipes/pipes.module#PipesModule',
     name: 'Pipes',
@@ -121,6 +143,14 @@ export let routes = [
   {
     path: 'experiments',
     loadChildren: './extra/experiments/experiments.module#ExperimentsModule',
+    page: 'bonus'
+  }, {
+    path: 'gomoku',
+    loadChildren: './extra/gomoku/gomoku.module#GomokuModule',
+    page: 'bonus'
+  }, {
+    path: 'gomoku-print',
+    loadChildren: './extra/gomoku-print/gomoku-print.module#GomokuPrintModule',
     page: 'bonus'
   },
   {

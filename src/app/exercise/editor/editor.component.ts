@@ -23,6 +23,8 @@ import 'rxjs/add/operator/publish';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
+import { assert } from '../services/utils';
+
 declare const monaco: any;
 declare const require: any;
 
@@ -98,10 +100,8 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   ngAfterViewInit(): void {
     // TODO: This will not work on resize
     this.calcActualFontSize();
-    if (!this.code) {
-      // tslint:disable-next-line:no-debugger
-      debugger;
-    }
+    assert(this.code, 'Code is undefined for the editor');
+    assert(this.fontSize, 'Incorrect font-size passed');
 
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
     const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
@@ -117,13 +117,13 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
         lineNumbersMinChars: 3,
         automaticLayout: true,
         fontSize: this.actialFontSize,
-        lineNumbers: this.lineNumbers
+        lineNumbers: this.lineNumbers,
+        folding: true,
       });
 
     this.editor.getModel().onDidChangeContent(() => {
       this.updateValue(this.editor.getModel().getValue());
     });
-
 
     // Re-running the code on Ctrl + Enter
     // TODO

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FileConfig } from '../../interfaces/file-config';
 import { TestInfo } from '../../interfaces/test-info';
@@ -12,7 +12,9 @@ function getFileName(file: FileConfig) {
   templateUrl: './tests.component.html',
   styleUrls: ['./tests.component.css']
 })
-export class TestsComponent {
+export class TestsComponent implements OnInit {
+
+
   @Input() tests: Array<TestInfo>;
   @Input() files: Array<FileConfig>;
   @Input() translations: { [key: string]: string; } = {};
@@ -20,6 +22,10 @@ export class TestsComponent {
   public onSelectFile: EventEmitter<FileConfig> = new EventEmitter<FileConfig>();
 
   seeAll = false;
+
+  ngOnInit(): void {
+    this.translations = this.translations || {};
+  }
 
   hasTests() {
     return this.tests && this.tests.length > 0;

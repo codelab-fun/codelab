@@ -1,9 +1,14 @@
 .frame {
   border: 1px solid #dddddd;
-  padding: 10px;
-  margin-top: 0px;
+  margin-top: 0;
   width: 100%;
   background-color: #fff;
+}
+
+::ng-deep iframe {
+  display: block;
+  width: 100%;
+  height: 100%
 }
 
 .img-full img {
@@ -18,4 +23,16 @@
   background-size: 2vw 2vw;
   display: flex;
   justify-content: space-between;
+}
+
+.browser-frame {
+  position: relative;
+}
+
+.browser-frame .url {
+  position: absolute;
+  left: 3.2vw;
+  top: 1.2vw;
+  font-size: 0.5vw;
+  background-color: #fff;
 }

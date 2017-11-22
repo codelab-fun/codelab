@@ -1,28 +1,37 @@
-import { Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  AfterViewInit, ChangeDetectorRef, Directive, Input, OnDestroy, OnInit, TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 
 
 import { PresentationComponent } from '../presentation/presentation.component';
 import { Subscription } from 'rxjs/Subscription';
 
 @Directive({
-  selector: '[slidesIf]'
+  selector: '[slidesIf]',
+
 })
-export class SlideIfDirective implements OnInit, OnDestroy {
+export class SlideIfDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input() slidesIf: string;
   @Input() slidesIfMilestone?: string;
   private _created: boolean;
   private index: number;
   private slideSubscription: Subscription;
 
-  constructor(private _presentation: PresentationComponent,
-              private _templateRef: TemplateRef<any>,
-              private _viewContainerRef: ViewContainerRef) {
+  constructor(private presentation: PresentationComponent,
+              private templateRef: TemplateRef<any>,
+              private viewContainerRef: ViewContainerRef,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
-    this.index = this._presentation.registerSlide(this.slidesIf, this.slidesIfMilestone);
-    this.slideSubscription = this._presentation.index.subscribe((index: number) => {
+    this.index = this.presentation.registerSlide(this.slidesIf, this.slidesIfMilestone);
+  }
+
+  ngAfterViewInit() {
+    this.slideSubscription = this.presentation.index.subscribe((index: number) => {
       (index === this.index) ? this._create() : this._destroy();
+      this.changeDetectorRef.detectChanges();
     });
   }
 
@@ -34,15 +43,16 @@ export class SlideIfDirective implements OnInit, OnDestroy {
     if (this._created) {
       return;
     }
-    this._viewContainerRef.createEmbeddedView(this._templateRef);
+    this.viewContainerRef.createEmbeddedView(this.templateRef);
     this._created = true;
+
   }
 
   private _destroy(): void {
     if (!this._created) {
       return;
     }
-    this._viewContainerRef.clear();
+    this.viewContainerRef.clear();
     this._created = false;
   }
 }

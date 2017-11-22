@@ -17,6 +17,7 @@ import { ScriptLoaderService } from '../services/script-loader.service';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import babel_traverse from 'babel-traverse';
+
 declare const require;
 
 function jsScriptInjector(iframe) {
@@ -61,6 +62,7 @@ interface Sandbox {
   runSingleFile: Function;
   runSingleCssFile: Function;
   runSingleScriptFile: Function;
+  iframe: any;
   loadSystemJS: Function;
   injectSystemJs: Function;
 }
@@ -110,6 +112,10 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
       iframe.contentWindow.console.error = function (error, message) {
         // handle Angular error 1/3
         displayError(error, 'Angular Error');
+
+        if (message) {
+          console.log(message);
+        }
       };
 
       function register(name, code) {
@@ -150,6 +156,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
         loadSystemJS: (name) => {
           (iframe.contentWindow as any).loadSystemModule(name, runner.scriptLoaderService.getScript(name));
         },
+        iframe,
         runCss: runCss,
         runMultipleFiles: (files: Array<FileConfig>) => {
           index++;
@@ -276,7 +283,8 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
 @Component({
   selector: 'slides-runner',
   templateUrl: './runner.component.html',
-  styleUrls: ['./runner.component.css']
+  styleUrls: ['./runner.component.css'],
+ // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() browserUseConsole: boolean;
@@ -284,7 +292,12 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() browserHeight: string;
   @Input() files: Array<FileConfig>;
   @Input() runnerType: string;
+  @Input() url = 'about:blank';
+  @Input() urlBase = window.location.origin;
+  @Input() fakeUrl = '';
+  @Input() hiddenUrlPart = '/assets/runner';
   @Output() onTestUpdate = new EventEmitter<any>();
+
   cachedIframes = {};
   html = `<my-app id="app"></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
@@ -296,6 +309,26 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
               public scriptLoaderService: ScriptLoaderService) {
     this.handleMessageBound = this.handleMessage.bind(this);
     window.addEventListener('message', this.handleMessageBound, false);
+  }
+
+
+  trackIframeUrl(iframe) {
+    const interval = window.setInterval(() => {
+      if (iframe.contentWindow) {
+        const url = iframe.contentWindow.location.href.replace(this.urlBase, '');
+        if (this.url !== url) {
+          this.url = url;
+        }
+      } else {
+        window.clearInterval(interval);
+      }
+    }, 200);
+  }
+
+  fullUrl() {
+    return this.fakeUrl || (this.urlBase + this.url)
+      .replace(this.hiddenUrlPart, '')
+      .replace('about:blank', '');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -310,10 +343,11 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   runCode(files: Array<FileConfig>, runner: string): void {
     const time = (new Date()).getTime();
+    console.log(this.fakeUrl);
 
     if (runner === 'Angular') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
@@ -324,10 +358,11 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         sandbox.loadSystemJS('ng-bundle');
         sandbox.register('reflect-metadata', Reflect);
         sandbox.runMultipleFiles(files.filter(file => !file.test));
+        this.trackIframeUrl(sandbox.iframe);
       });
 
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'testing', 'url': 'about:blank'
+        id: 'testing', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.injectSystemJs();
         sandbox.runCss(require('./inner.css'));
@@ -348,7 +383,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
     } else if (runner === 'TypeScript') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.injectSystemJs();
@@ -356,7 +391,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
 
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'testing', 'url': 'about:blank'
+        id: 'testing', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         console.log('FRAME CREATED', (new Date()).getTime() - time);
@@ -370,7 +405,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
     } else if (runner === 'Vue') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml('<div id="app"></div>');
@@ -379,13 +414,19 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
     } else if (runner === 'React') {
       injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': 'about:blank'
+        id: 'preview', 'url': this.url
       }, this).then((sandbox: Sandbox) => {
         sandbox.runCss(require('./inner.css'));
         sandbox.setHtml('<div id="app"></div>');
         sandbox.runSingleFile(this.scriptLoaderService.getScript('react'));
         sandbox.runSingleFile(this.scriptLoaderService.getScript('react-dom'));
         sandbox.runSingleFile(files[0].code);
+      });
+    } else if (runner === 'html') {
+      injectIframe(this.runnerElement.nativeElement, {
+        id: 'preview', 'url': this.url
+      }, this).then((sandbox: Sandbox) => {
+        sandbox.setHtml(this.files[0].template);
       });
     } else {
       throw new Error('No runner specified');

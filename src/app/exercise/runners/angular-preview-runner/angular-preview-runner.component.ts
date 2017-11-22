@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { createSystemJsSandbox } from '../utils/sandbox';
@@ -13,13 +13,21 @@ declare const require;
 })
 export class AngularPreviewRunnerComponent implements AfterViewInit {
   @ViewChild('runner') runnerElement: ElementRef;
+  @Input() url = '/assets/runner/';
+  @Input() urlBase = location.origin;
+  @Input() hiddenUrlPart = '/assets/runner';
+
+  fullUrl() {
+    return (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
+  }
 
   run(files: Array<FileConfig>) {
     createSystemJsSandbox(this.runnerElement.nativeElement, {
-      id: 'testing', 'url': '/assets/runner/'
+      id: 'testing', 'url': this.url
     }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
       // TODO: addCss(require('./inner.css'));
-      setHtml('<my-app></my-app>');
+      const indexHtml = files.find(file => file.path === 'index.html') || {code: '<my-app></my-app>'};
+      setHtml(indexHtml.code);
       evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/core-js/client/shim.min.js'));
       evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/zone.js/dist/zone.js'));
       evalJs(require('!!raw-loader!../../../../assets/runner/js/system-config'));
@@ -28,8 +36,24 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
       addDep('reflect-metadata', Reflect);
       const bootstrapFiles = files.filter(file => !file.test);
 
+      this.trackIframeUrl(iframe);
+
       runTypeScriptFiles(bootstrapFiles, {addCss, setHtml, evalJs, addDep, iframe});
     });
+  }
+
+
+  trackIframeUrl(iframe) {
+    const interval = window.setInterval(() => {
+      if (iframe.contentWindow) {
+        const url = iframe.contentWindow.location.href.replace(this.urlBase, '');
+        if (this.url !== url) {
+          this.url = url;
+        }
+      } else {
+        window.clearInterval(interval);
+      }
+    }, 200);
   }
 
   constructor(public parent: ExerciseComponent) {

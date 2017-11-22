@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .presentation .slide h1 {
   font-size: 2vw;
@@ -156,6 +157,7 @@ h1, h2, h3, li {
   top: 15px;
 }
 
+.browser-frame, .runner,
 .browser-frame, .frame {
   height: 100%;
 }

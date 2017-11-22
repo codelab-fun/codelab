@@ -1,0 +1,117 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <!--(21) ["H8", "I8", "H9", "H7", "J9", "I9", "I10", "H11", "J11", "K12", "J10", "J12", "G10", "H10", "G8", "F7", "G9", "G7", "I7", "J6", "H12"]0: "H8"1: "I8"2: "H9"3: "H7"4: "J9"5: "I9"6: "I10"7: "H11"8: "J11"9: "K12"10: "J10"11: "J12"12: "G10"13: "H10"14: "G8"15: "F7"16: "G9"17: "G7"18: "I7"19: "J6"20: "H12"length: 21__proto__: Array(0)-->
+  <!--(30) ["H8", "I8", "I9", "H9", "J10", "G7", "H10", "G10", "J7", "G8", "G11", "J8", "I10", "G6", "G9", "G5", "G4", "H7", "J9", "I6", "J5", "H6", "K10", "L10", "J6", "I7", "F4", "I5", "I4", "J4"]0: "H8"1: "I8"2: "I9"3: "H9"4: "J10"5: "G7"6: "H10"7: "G10"8: "J7"9: "G8"10: "G11"11: "J8"12: "I10"13: "G6"14: "G9"15: "G5"16: "G4"17: "H7"18: "J9"19: "I6"20: "J5"21: "H6"22: "K10"23: "L10"24: "J6"25: "I7"26: "F4"27: "I5"28: "I4"29: "J4"length: 30__proto__: Array(0)-->
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide id="intro" *slidesIf="'intro'" no-padding>
+    <h1>Gomoku NYC!</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'tic-tac-toe'">
+    <slides-board theme="xo" [game]="games.ticTacToe"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'renlib'">
+    Renlib
+    <slides-board [game]="games.renlib"></slides-board>
+  </slides-slide>
+ <slides-slide *slidesIf="'5-in-row'">
+    The one who gets 5 in a row wins
+    <slides-board [game]="games.wonGame"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'start'">
+    <h1>Open 3</h1>
+    <slides-board [game]="games.openThree"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'open-3-space'">
+    <h1>Broken Open 3</h1>
+    <slides-board [game]="games.openThreeSpaced"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'closed-4'">
+    <h1>Closed 4</h1>
+    <slides-board [game]="games.closedFour"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'closed-broken-4'">
+    <h1>Closed Broken 4</h1>
+    <slides-board [game]="games.closedBrokenFour"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'more-4s'">
+    <h1>Only more 4s example!</h1>
+    <slides-board [game]="games.moreFours"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'closed-broken-4-why'">
+    <h1>Only place 4s if you know why!</h1>
+    <slides-board [game]="games.closedBrokenFour"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'fork33'">
+    <h1>Fork 3x3</h1>
+    <slides-board [game]="games.fork33"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'fork43'">
+    <h1>Fork 4x3</h1>
+    <slides-board [game]="games.fork43"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'fork44'">
+    <h1>Fork 4x4</h1>
+    <slides-board [game]="games.fork44"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'defend-from-4s'">
+    <h1>Very Advanced - Defend from 4s</h1>
+    <slides-board [game]="games.defendFrom4s"></slides-board>
+  </slides-slide>
+  <slides-slide *slidesIf="'old'">
+    <h1>Old</h1>
+    <slides-board [game]="games.old"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'defend-from-4s-solution'">
+    <h1>Very Advanced - Defend from 4s - Solution</h1>
+    <slides-board [game]="games.defendFrom4sSolved"></slides-board>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'print'">
+    <div>
+      <h1>Hi, I'm Gomoku!</h1>
+      <div style="display: flex">
+        <div>
+          <p> I'm an awesome board game coming from ancient Asia!></p>
+          <b>My Rules are super simple:</b>
+          <ol>
+            <li>First player puts X in a cell on the board below</li>
+            <li>Second player puts O</li>
+            <li>Players go in turns until someone puts 5 items in a row on the board (that person wins!)</li>
+            <li>Putting more than 5 items in a row is not a win</li>
+          </ol>
+        </div>
+        <div>
+          <div class="hb"></div>
+        </div>
+      </div>
+
+      <slides-board></slides-board>
+    </div>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'4s'">
+    <h1>Hardcore</h1>
+    <p>Black: Okabe Hiroshi, White: Maruyama Yasushi </p>
+    <slides-board [game]="games.many4s"></slides-board>
+  </slides-slide>
+</slides-presentation>

@@ -1,67 +1,66 @@
-// import {Ng2TsExercises} from '../../../../ng2ts/ng2ts';
-
+import { CodelabFile } from '../../../exercise/helpers/codelabFile';
 import { Component } from '@angular/core';
-import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
+import { ExerciseConfigTemplate, ng2tsConfig, Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
+
+declare const require;
+
+
+interface FileHighlights {
+  appModule?: RegExp | RegExp[];
+  appHtml?: RegExp | RegExp[];
+}
+
+
+function routeExercise(highlights: FileHighlights) {
+  return {
+    files: [
+      CodelabFile.TypeScriptFile('app.module')
+        .setCode(require('!!raw-loader!./samples/simple-router/app.module.ts'))
+        .withHighlight(highlights.appModule),
+      CodelabFile.Html('app.component')
+        .setCode(require('!!raw-loader!./samples/simple-router/app.component.html'))
+        .withHighlight(highlights.appHtml),
+      CodelabFile.TypeScriptFile('app.component').setCode(require('!!raw-loader!./samples/simple-router/app.component.ts')),
+      CodelabFile.TypeScriptFile('components/kitten').setCode(require('!!raw-loader!./samples/simple-router/components/kitten.ts')),
+      CodelabFile.TypeScriptFile('components/puppy').setCode(require('!!raw-loader!./samples/simple-router/components/puppy.ts')),
+      CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./samples/simple-router/main.ts')).makeBootstrappable(),
+      CodelabFile.Html('index').setCode(require('!!raw-loader!./samples/simple-router/index.html'))
+    ]
+  };
+}
+
 
 @Component({
-    selector: 'slides-router',
-    templateUrl: './router.component.html',
-    styleUrls: ['./router.component.css']
+  selector: 'slides-router',
+  templateUrl: './router.component.html',
+  styleUrls: ['./router.component.css']
 })
 export class RouterComponent {
-    code = {
-        exercise1a: {
-            // parent
-            code: `
-                import { Component } from '@angular/core';
+  exercise: ExerciseConfigTemplate;
 
-                @Component({
-                    selector: 'parent',
-                    template: \`
-                        <child (childDidSomething)="parentDoSomething()"></child>
-                    \`
-                })
-                export class ParentComponent {
-                    parentDoSomething() {
-                        console.log('child did something');
-                    }
-                }
-            `,
-            path: 'test.ts',
-            type: 'typescript',
-            match: /childDidSomething/
-        },
-        exercise1b: {
-            // child
-            code: `
-                import { Component } from '@angular/core';
+  code = {
+    routerConfig: routeExercise({
+      appModule: /const routes[\s\S]*?];[\s\S]/
+    }),
+    routerConfigPass: routeExercise({
+      appModule: /RouterModule.forRoot\(routes\)/
+    }),
+    routerOutlet: routeExercise({
+      appHtml: /<router-outlet><\/router-outlet>/
+    }),
+    menu: routeExercise({
+      appHtml: /<a[\s\S]*\/a>/
+    }),
+    kittens: {
+      runner: 'html',
+      files: [CodelabFile.Html('index').setCode(`<h1>Kittens</h1>`)]
+    },
+    puppies: {
+      runner: 'html',
+      files: [CodelabFile.Html('index').setCode(`<h1>Puppies</h1>`)]}
+  };
 
-                @Component({
-                    selector: 'child',
-                    template: \`
-                        <button (click)="buttonClicked()"></button>
-                    \`
-                })
-                export class ChildComponent {
-                    @Output() childDidSomething = new EventEmitter<any>();
-
-                    buttonClicked() {
-                        this.childDidSomething.emit();
-                    }
-                }
-            `,
-            path: 'test.ts',
-            type: 'typescript',
-            match: ``
-        }
-    };
-
-    exercises = [
-        ng2tsConfig.milestones[6].exercises[0]
-    ];
-
-//   constructor(private exercises: Ng2TsExercises) {
-//     // this.exercise = exercises.getExercises(4, 1);
-//     // this.exercise2 = exercises.getExercises(4, 2);
-//   }
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(5, 0);
+  }
 }

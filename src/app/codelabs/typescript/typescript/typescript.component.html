@@ -42,8 +42,12 @@
   <div i18n="@@createNewMethodGetGuestsComing" id="createNewMethodGetGuestsComing">Create new method 'getGuestsComing'
   </div>
 
-  <div i18n="@@specifyTheTypeForB" id="specifyTheTypeForB">"b" in the code below is highlighted, because TypeScript is missing the type. Specify the type for b.</div>
-  <div i18n="@@typescriptHighlightsErrorFix224" id="typescriptHighlightsErrorFix224">With this information TypeScript can highlight the error. Fix it, make 2 + 2 = 4 again!</div>
+  <div i18n="@@specifyTheTypeForB" id="specifyTheTypeForB">"b" in the code below is highlighted, because TypeScript is
+    missing the type. Specify the type for b.
+  </div>
+  <div i18n="@@typescriptHighlightsErrorFix224" id="typescriptHighlightsErrorFix224">With this information TypeScript
+    can highlight the error. Fix it, make 2 + 2 = 4 again!
+  </div>
 
 
   <div i18n="@@modifyGetGuestsComingToFilter" id="modifyGetGuestsComingToFilter">Modify getGuestsComing to filter the
@@ -105,7 +109,7 @@
           <li i18n>TypeScript extends the latest
             version of JavaScript (ES6)
           </li>
-          <li i18n>TypeScript adds somefeatures from the next version (ES7)
+          <li i18n>TypeScript adds some features from the next version (ES7)
           </li>
           <li i18n>On top of it, TypeScript adds an optional type system and decorators
           </li>
@@ -185,7 +189,7 @@
       /
       <ng-container i18n="@@typeSystem">Type System</ng-container>
     </h1>
-    <h2 i18n> TypeScript uses <b>:</b> to specify the type information (e.g. <b>n: number</b>g). Both <b>a</b> and
+    <h2 i18n> TypeScript uses "<b>:</b>" to specify the type information (e.g. <b>n: number</b>). Both <b>a</b> and
       <b>b</b> should be
       numbers. We specified the type for <b>a</b>, now it's your turn!</h2>
     <slides-playground [config]="code.tsExercise"
@@ -207,7 +211,7 @@
       /
       <ng-container i18n>Primitives (strings, numbers, etc...)</ng-container>
     </h1>
-    <h2 i18n>Types are more types we can use></h2>
+    <h2 i18n>Below are more types we can use</h2>
     <slides-code-editor path="types.ts" [fontSize]="25" [readonly]="false"
                         [code]="code.moreTypes.code"></slides-code-editor>
     <div class="info" i18n>
@@ -240,7 +244,7 @@
       /
       <ng-container i18n>Arrays</ng-container>
     </h1>
-    <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}&gt;</b> or <b>Type[]</b></h2>
+    <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}</b> or <b>Type[]</b></h2>
     <slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>
     <div class="info" i18n>Here, each element in the <b>betterCats</b> array is an instance of the <b>Cat</b> Interface.
     </div>
@@ -298,7 +302,7 @@
       <ng-container i18n>Export</ng-container>
     </h1>
     <h2 i18n>By the way, did you notice the <b>export</b> keyword before class? It is used to share information
-      between files. In the next slide, we'll show you how to export and use this class in a different file</h2>
+      between files. In the next slide, we'll show you how to import and use this class in a different file</h2>
     <slides-code-editor
       path="puppy.ts"
       [focus-highlight-match]="[code.classDescription.matches.exportMatch]"
@@ -325,9 +329,7 @@
       /
       <ng-container i18n>Filter (One last thing)</ng-container>
     </h1>
-    <h2 i18n>Filter is an Array method that allows you to generate a new array keeping only the truthy values that are
-      provided
-      from the returning callback</h2>
+    <h2 i18n>Filter is an Array method that allows you to generate a new array keeping only values that satisfy the condition</h2>
     <slides-playground [config]="code.filter" [browserUseConsole]="true"></slides-playground>
   </slides-slide>
 
@@ -339,12 +341,13 @@
     </h1>
     <h2 i18n>TypeScript supports lots of other cool features such as: </h2>
     <ul>
-      <li i18n>Interfaces</li>
-      <li i18n>Enums</li>
-      <li i18n>Async / Await</li>
-      <li i18n>Getters / Setters</li>
-      <li i18n>Destructuring</li>
-      <li i18n>Arrow functions</li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/enums.html">Enums</a></li>
+      <li><a i18n href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+      >Async / Await</a></li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/classes.html">Accessors (Getters / Setters</a>)
+      </li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/variable-declarations.html">Destructuring</a></li>
+      <li><a i18n href="https://www.typescriptlang.org/docs/handbook/functions.html">Arrow functions</a></li>
       <li i18n>And more!</li>
     </ul>
     <h2 i18n>We won't cover them in detail, check out the <a href="http://www.typescriptlang.org/"

@@ -143,7 +143,7 @@ export class VRComponent implements OnInit {
 import { AppModule } from './app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);`,
-          indexHTML: `<body>
+          indexHTML: `<!DOCTYPE><body>
   <hello-world>
     Loading...
   </hello-world>

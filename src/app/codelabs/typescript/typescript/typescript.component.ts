@@ -25,14 +25,14 @@ export class TypescriptComponent implements OnInit {
     this.code = {
       filter: typeScriptWithConsoleLog(`const numbers = [12,23,62,34,19,40,4,9];
 
-console.log(numbers.filter(function(number){
-  return number > 30;
+console.log(numbers.filter(function(n: number){
+  return n > 30;
 }));
 
 // ${this.t.useShorthandNotation}
 // ${this.t.calledArrowFunction}
 console.log(
-  numbers.filter(number => number > 30)
+  numbers.filter(n => n > 30)
 );`),
       moreTypes: {
         codeInterfaces: `interface Puppy {
