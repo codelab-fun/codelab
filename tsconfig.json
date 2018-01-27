@@ -9,7 +9,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "exclude": ["src/assets"],
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -17,5 +16,6 @@
       "es2016",
       "dom"
     ]
-  }
+  },
+  "exclude": ["src/assets"]
 }

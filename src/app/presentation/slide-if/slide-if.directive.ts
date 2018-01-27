@@ -26,6 +26,9 @@ export class SlideIfDirective implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.index = this.presentation.registerSlide(this.slidesIf, this.slidesIfMilestone);
+    if (this.slidesIf) {
+      this.slidesIf = 'slide-' + this.index;
+    }
   }
 
   ngAfterViewInit() {

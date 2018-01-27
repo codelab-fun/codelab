@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'slides-root',
   template: '<router-outlet></router-outlet>'
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   constructor() {
+    const x =  'hello AngularNYC!';
+    const a = x + 'hey';
   }
 
+  ngAfterViewInit(){
+    console.log('hi');
+  }
   ngOnInit() {
   }
-
 }
+
+
+

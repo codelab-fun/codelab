@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <nav md-tab-nav-bar>
-      <a md-tab-link
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link
          *ngFor="let tab of tabs"
          [routerLink]="tab.link">
         {{ tab.label }}

@@ -17,8 +17,8 @@ class MyResourceLoader extends ResourceLoader {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule, {
-  providers: [
-    {provide: ResourceLoader, useClass: MyResourceLoader}
-  ]
+  // providers: [
+  //   {provide: ResourceLoader, useClass: MyResourceLoader}
+  // ]
 });
 

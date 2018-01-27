@@ -3,7 +3,7 @@ import { MatTab, MatTabGroup } from '@angular/material';
 
 /* tslint:disable */
 @Directive(
-  {selector: '[mdHideMe]'}
+  {selector: '[matHideMe]'}
 )
 export class HideMeDirective implements AfterViewInit {
   constructor(private parentTab: MatTab,
