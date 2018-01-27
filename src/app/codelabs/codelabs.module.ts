@@ -16,7 +16,7 @@ export let routes = [
   {
     path: 'typescript',
     loadChildren: './typescript/typescript/typescript.module#TypescriptModule',
-    name: 'Typescript',
+    name: 'TypeScript',
     description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.',
     page: 'main',
     prod: true,

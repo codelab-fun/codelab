@@ -5,9 +5,12 @@ export declare const ga;
 
 @Injectable()
 export class AnalyticsService {
+  ga: (action: string, type: string, eventCategory?: string,  eventAction?: string, timing?: number|string,  extra?: string) => void;
 
 
   constructor(router: Router) {
+    this.ga = window['ga'];
+
     router.events.subscribe((a) => {
 
       if (a instanceof NavigationError) {
@@ -15,23 +18,23 @@ export class AnalyticsService {
         throw new Error('Navigation error');
       }
     });
+
     router.events.distinctUntilChanged((previous: any, current: RouterEvent) => {
       if (current instanceof NavigationEnd) {
         return previous.url === current.url;
       }
       return true;
     }).subscribe((x: NavigationEnd) => {
-
-      ga('set', 'page', x.url);
-      ga('send', 'pageview');
+      this.ga('set', 'page', x.url);
+      this.ga('send', 'pageview');
     });
   }
 
   public sendEvent(eventCategory: string, eventAction: string, eventLabel: string) {
-    ga('send', 'event', eventCategory, eventAction, eventLabel);
+    this.ga('send', 'event', eventCategory, eventAction, eventLabel);
   }
 
   public sendTiming(eventCategory: string, eventAction: string, timing: number, path: string) {
-    ga('send', 'timing', eventCategory, eventAction, timing, path);
+    this.ga('send', 'timing', eventCategory, eventAction, timing, path);
   }
 }
