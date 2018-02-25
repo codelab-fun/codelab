@@ -112,13 +112,10 @@ export class AppComponent {
       },
       ngIfDirective: {
         template: displayAngularComponent(`import {Component} from '@angular/core';
-
 @Component({
   selector: 'my-app',
   template: \`<h1>Hello {{firstName}}!</h1>
-    <img 
-      src="{{avatar}}" 
-      *ngIf="onDisplay()">
+    <img src="{{avatar}}" *ngIf="onDisplay()">
   \`
 })
 export class AppComponent {

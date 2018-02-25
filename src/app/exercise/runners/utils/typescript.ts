@@ -82,7 +82,7 @@ export function runTypeScriptFiles(files: Array<FileConfig>, {setHtml, addCss, e
   if (diagnostics.length) {
     addCss(`
               body {
-                font-family: Roboto, sans-serif;               
+                font-family: Roboto, sans-serif;
               }
               h2 {
                 font-size: 50px;
@@ -96,8 +96,8 @@ export function runTypeScriptFiles(files: Array<FileConfig>, {setHtml, addCss, e
                 background-color: #ffe;
               }
             `);
-    const diagnosticsHtml = diagnostics.map(diagnostic => `<li>Error in file <b>${diagnostic.file.fileName}</b>: 
-            ` + diagnostic.messageText + '</li>').join('');
+    const diagnosticsHtml = diagnostics.map(diagnostic =>
+      `<li>Error in file <b>${diagnostic.file.fileName}</b>:` + diagnostic.messageText + '</li>').join('');
     setHtml(`
 <h2>Errors when compiling</h2>
  <div>Look in the editor for hints to fix it.</div>

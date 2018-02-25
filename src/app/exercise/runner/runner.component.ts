@@ -237,7 +237,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
           if (diagnostics.length) {
             runCss(`
               body {
-                font-family: Roboto, sans-serif;               
+                font-family: Roboto, sans-serif;
               }
               h2 {
                 font-size: 50px;
@@ -251,7 +251,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
                 background-color: #ffe;
               }
             `);
-            const diagnosticsHtml = diagnostics.map(diagnostic => `<li>Error in file <b>${diagnostic.file.fileName}</b>: 
+            const diagnosticsHtml = diagnostics.map(diagnostic => `<li>Error in file <b>${diagnostic.file.fileName}</b>:
             ` + diagnostic.messageText + '</li>').join('');
             setHtml(`
 <h2>Errors when compiling</h2>
@@ -284,7 +284,7 @@ function injectIframe(element: any, config: IframeConfig, runner: RunnerComponen
   selector: 'slides-runner',
   templateUrl: './runner.component.html',
   styleUrls: ['./runner.component.css'],
- // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
+  // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() browserUseConsole: boolean;
