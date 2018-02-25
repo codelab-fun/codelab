@@ -16,8 +16,6 @@ export class IntroComponent {
   data: {
     name: 'Vue'
   }
-  
-
 })`),
       runner: 'Vue'
     }

@@ -39,3 +39,49 @@ img .angular {
 }
 
 
+.learn-box:hover  {
+  background: #eee;
+}
+
+.title {
+  color: #444;
+}
+
+.hint {
+  color: #999;
+  font-size: 3vw ;
+}
+
+.learn-box.typescript {
+  opacity: 0.8;
+}
+
+.learn-box {
+  display: flex;
+  width: 100%;
+  font-size: 7vw;
+  justify-content: space-between;
+  background: #fafafa;
+  padding: 2vw;
+  margin-bottom: 2vw;
+  cursor: pointer;
+}
+
+.learn-box img {
+  width: 10vw;
+  height: 10vw;
+}
+
+::ng-deep .slide {
+  display: block;
+
+}
+.play {
+  margin: 4vw 0;
+}
+
+.contents {
+  border-bottom: 1px #999 dashed;
+  display: inline-block;
+  cursor: pointer;
+}

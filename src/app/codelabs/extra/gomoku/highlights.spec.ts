@@ -1,6 +1,6 @@
 import { Highlights } from './highlights';
 
-describe('highlightss', () => {
+describe('highlights', () => {
   beforeEach(() => {
     this.highlights = new Highlights();
   });

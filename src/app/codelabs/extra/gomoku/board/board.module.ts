@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { BoardComponent } from "./board.component";
-import { CommonModule } from "@angular/common";
-import { ToolsComponent } from "../tools/tools.component";
+import { NgModule } from '@angular/core';
+import { BoardComponent } from './board.component';
+import { CommonModule } from '@angular/common';
+import { ToolsComponent } from '../tools/tools.component';
 
 @NgModule({
   imports: [CommonModule],

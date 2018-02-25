@@ -1,7 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { CodelabFile } from '../../../exercise/helpers/codelabFile';
-import { concatStatic } from 'rxjs/operator/concat';
 import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../ng2ts/ng2ts';
 
 declare const require;

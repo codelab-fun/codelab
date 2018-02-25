@@ -1,7 +1,9 @@
-import { Directive } from '@angular/core';
+import { AfterViewInit, Directive, TemplateRef, ViewContainerRef } from '@angular/core';
+import { MatTab, MatTabGroup } from '@angular/material';
+
 /* tslint:disable */
 @Directive(
-  {selector: '[mdHideMe]'}
+  {selector: '[matHideMe]'}
 )
 export class HideMeDirective {
   constructor() {

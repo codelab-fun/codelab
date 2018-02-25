@@ -4,12 +4,12 @@ import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
 import { extractMessages } from '../../../presentation/i18n-tools';
 declare const require;
 
+
 @Component({
   selector: 'slides-typescript',
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })
-
 export class TypescriptComponent implements OnInit {
   t: { [key: string]: string; };
   exercises = [

@@ -16,7 +16,7 @@ export let routes = [
   {
     path: 'typescript',
     loadChildren: './typescript/typescript/typescript.module#TypescriptModule',
-    name: 'Typescript',
+    name: 'TypeScript',
     description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.',
     page: 'main',
     prod: true,
@@ -88,7 +88,7 @@ export let routes = [
     description: '[🚧 Work In Progress] Learn how to add Forms to your app',
     page: 'main',
     prod: true
-  },{
+  }, {
     path: 'angular-cli',
     loadChildren: './angular/angular-cli/angular-cli.module#AngularCliModule',
     name: 'angular-cli',
@@ -108,6 +108,14 @@ export let routes = [
     loadChildren: './angular/structural-directives/structural-directives.module#StructuralDirectivesModule',
     name: 'Structural Directives',
     description: 'Learn about structural directives in angular',
+    page: 'bonus',
+    prod: true
+  },
+  {
+    path: 'quiz',
+    loadChildren: './extra/quiz/quiz.module#QuizModule',
+    name: 'Quiz',
+    description: 'Angular Quiz',
     page: 'bonus',
     prod: true
   },

@@ -15,9 +15,9 @@ type Grouping = 'nothing' | 'href' | 'name';
 
 function groupBy(feedback: Array<Message>, grouping: Grouping) {
   const result = feedback.reduce((comment, item) => {
-    const group = item[grouping];
-    comment[group] = comment[group] || [];
-    comment[group].push(item);
+    const groupName = item[grouping];
+    comment[groupName] = comment[groupName] || [];
+    comment[groupName].push(item);
     return comment;
   }, {});
 
@@ -43,16 +43,16 @@ function group([feedback, grouping]) {
   throw new Error('Unknown grouping: ' + grouping);
 }
 
-function filter([feedback, filter]) {
-  if (filter === 'all') {
+function filter([feedback, filterName]) {
+  if (filterName === 'all') {
     return feedback;
   }
 
-  if (filter === 'done') {
+  if (filterName === 'done') {
     return feedback.filter(message => message.isDone);
   }
 
-  if (filter === 'notDone') {
+  if (filterName === 'notDone') {
     return feedback.filter(message => !message.isDone);
   }
 }
@@ -70,7 +70,6 @@ export class FeedbackPageComponent implements OnInit {
   githubAuth;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
-
     afAuth.authState.subscribe(authData => {
       if (authData === null) {
         this.login();
@@ -114,7 +113,6 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
     });
   }
 
-
   async createClosedIssue(message, reason) {
     if (!this.githubAuth.credential) {
       await this.login();
@@ -139,12 +137,9 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
     });
   }
 
-
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');
     const filteredMessages$ = combineLatest(this.feedback$.snapshotChanges().map(normalize), this.filter$).map(filter)
     this.messages$ = combineLatest(filteredMessages$, this.group$).map(group);
   }
-
-
 }

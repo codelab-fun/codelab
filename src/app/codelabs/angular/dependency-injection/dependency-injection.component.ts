@@ -67,7 +67,6 @@ export class Person {
       },
       withDITesting: {
         code: `const mockProfession = new Job('lawyer');
-  
   it('should create a Person with the right profession', () => {
     const person = new Person(mockProfession);
     // ${this.t.assumingJobHasPropTitle}
@@ -127,5 +126,4 @@ export class UnitConversionComponent {
       }
     };
   }
-
 }

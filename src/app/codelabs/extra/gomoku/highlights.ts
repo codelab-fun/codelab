@@ -30,11 +30,13 @@ export class Highlights {
     const oldValue = [...this.highlights[x][y]];
     let newValue;
     if (this.highlights[x][y].includes(type)) {
-      newValue = this.highlights[x][y].filter(a => a !== type);
+      newValue = this.highlights[x][y] = this.highlights[x][y].filter(a => a !== type);
+
     } else {
       this.highlights[x][y].push(type);
       newValue = this.highlights[x][y];
     }
+
 
     this.history = this.history.slice(0, this.historyIndex);
     this.history.push({
@@ -42,6 +44,7 @@ export class Highlights {
       oldValue,
       newValue
     });
+
 
     this.historyIndex++;
 

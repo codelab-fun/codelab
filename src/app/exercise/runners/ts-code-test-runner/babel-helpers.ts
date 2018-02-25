@@ -30,9 +30,9 @@ export function babelTestSuite(filePath, tests) {
 
     babel_traverse(ast, {
       enter(path) {
-        tests.forEach((test, index) => {
+        tests.forEach((testConfig, index) => {
           try {
-            results[index].pass = results[index].pass || test.condition(path);
+            results[index].pass = results[index].pass || testConfig.condition(path);
           } catch (e) {
             console.log(e);
           }

@@ -41,11 +41,11 @@ export class StructuralDirectivesComponent {
     ],
 
     mdTabNavBar: [
-      exercise('app.component', require('!!raw-loader!./samples/md-tab-nav-bar/app.component.ts')),
-      exercise('alert.component', require('!!raw-loader!./samples/md-tab-nav-bar/alert.component.ts')),
-      exercise('tab.component', require('!!raw-loader!./samples/md-tab-nav-bar/tab.component.ts')),
+      exercise('app.component', require('!!raw-loader!./samples/mat-tab-nav-bar/app.component.ts')),
+      exercise('alert.component', require('!!raw-loader!./samples/mat-tab-nav-bar/alert.component.ts')),
+      exercise('tab.component', require('!!raw-loader!./samples/mat-tab-nav-bar/tab.component.ts')),
       stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
-      exercise('app.module', require('!!raw-loader!./samples/md-tab-nav-bar/app.module.ts')),
+      exercise('app.module', require('!!raw-loader!./samples/mat-tab-nav-bar/app.module.ts')),
       bootstrap('main', builder.bootstrap()),
     ],
 

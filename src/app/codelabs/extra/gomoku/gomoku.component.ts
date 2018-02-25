@@ -28,13 +28,13 @@ class Node {
 
 let i = 0;
 
-function buildTree(moves, index, parent) {
+function buildTree(moves, index, parentNode) {
   i++;
   const move = moves[index];
   let node = new Node(move.move);
   node.down = !!move.down;
 
-  parent.addChild(node);
+  parentNode.addChild(node);
 
   if (index + 1 < moves.length) {
     if (move.down) {
@@ -126,6 +126,18 @@ export class GomokuComponent {
   games = {
     renlib: new RenlibGame(parent),
     ticTacToe: new TicTacToe().moveTo('B2', 'A2', 'A1', 'C3', 'B1', 'B3', 'C1'),
+    empty: new Gomoku().moveTo(),
+    start: new Gomoku().moveTo('H8'),
+    start2: new Gomoku().moveTo('H8', 'H7'),
+    swap2: new Gomoku().moveTo('H8', 'E7', 'G8'), // Sure win
+    swap23: new Gomoku().moveTo('H8', 'E7', 'F10'), // Draw
+    swap24: new Gomoku().moveTo('H8', 'H13', 'M10'), // White surewin H11, 10 horizontal
+    swap25: new Gomoku().moveTo('C3', 'L7', 'F8'), // White surewin
+    swap26: new Gomoku().moveTo('H8', 'J8', 'M8'), // Central Draw
+    start5: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J8', 'J7', 'K8', 'K7', 'L8').jumpToMove(2),
+    sample: new Gomoku().moveTo('H8', 'I7', 'H7', 'H6', 'G8', 'I8', 'H9', 'I6').jumpToMove(2),
+    start52: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J8', 'K8', 'J9', 'J7', 'G8', 'F8', 'G7', 'K7', 'L7', 'I6', 'L9',
+      'K5', 'K9', 'H5', 'G4', 'K4', 'K6', 'J5', 'L3', 'I5', 'L5', 'G5'),
     fork33: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J7', 'I6', 'J6', 'H6'),
     fork43: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J7', 'I6', 'J6', 'H6', 'G8', 'F8'),
     fork44: new Gomoku().moveTo('H8', 'H7', 'I8', 'I7', 'J7', 'I6', 'J6', 'H6', 'G8', 'F8', 'J5', 'J4'),

@@ -52,6 +52,7 @@ export function exercise(moduleName: string, template: string, solution?: string
     after: `export export function evalJs( js ){ return eval(js);}`
   };
 }
+
 export function test(moduleName: string, template: string): FileConfig {
   return {
     path: moduleName + 'Test.ts',
@@ -68,10 +69,11 @@ export function test(moduleName: string, template: string): FileConfig {
   };
 }
 
-interface  SimpleImport {
+interface SimpleImport {
   name: string;
   path: string;
 }
+
 export const builder = {
   imports(imports: Array<SimpleImport>) {
     return imports.map(i => `import {${i.name}} from '${i.path}';`).join('\n');
@@ -83,8 +85,8 @@ export const builder = {
   ngModule(declarations: Array<SimpleImport> = [{
     name: 'AppComponent',
     path: './app.component'
-  }], bootstrap?: Array<SimpleImport>) {
-    bootstrap = bootstrap || declarations;
+  }], bootstrapComponent?: Array<SimpleImport>) {
+    bootstrapComponent = bootstrapComponent || declarations;
 
     return `import {BrowserModule} from \'@angular/platform-browser\';
 import {NgModule} from \'@angular/core\';
@@ -93,8 +95,8 @@ ${this.imports(declarations)}
 @NgModule({
   imports: [BrowserModule],
   declarations: ${this.listOfComponents(declarations)},
-  bootstrap: ${this.listOfComponents(bootstrap)}
-}) 
+  bootstrap: ${this.listOfComponents(bootstrapComponent)}
+})
 export class AppModule {}`;
   },
 
@@ -169,6 +171,7 @@ export function circleAndBox() {
   result.files[1] = temp;
   return result;
 }
+
 // That's me being plain lazy, we need
 export function boxAndCircle() {
   const moduleCode = `import {BrowserModule} from \'@angular/platform-browser\';
@@ -320,6 +323,7 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
     files
   };
 }
+
 export function javaScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
   const result = typeScriptWithConsoleLog(code, bootstrapCode, testCode, otherCode);
   (result.files[0] as FileConfig).editorType = 'javascript';
@@ -327,11 +331,11 @@ export function javaScriptWithConsoleLog(code: string, bootstrapCode = 'import "
 }
 
 
-export function displayAngularComponentWithHtml(componentCode: string, html: string) {
+export function displayAngularComponentWithHtml(componentCode: string, code: string) {
   return {
     files: [
       {
-        code: html,
+        code,
         path: 'app/app.html',
         solution: '',
         type: 'html'
@@ -342,9 +346,9 @@ export function displayAngularComponentWithHtml(componentCode: string, html: str
   };
 }
 
-export function solve(exercise) {
+export function solve(exerciseConfig) {
   return {
-    ...exercise, files: exercise.files.map(file => (
+    ...exerciseConfig, files: exerciseConfig.files.map(file => (
       {...file, code: file.solution || file.code}
     ))
   };
