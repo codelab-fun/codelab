@@ -40,20 +40,17 @@ slides-board {
 }
 
 h1 {
-  font-size: 100px !important;
+  font-size: 100px;
 }
 
-[title] h2  {
-  font-size: 50px;
-}
 
 tr:first-child td {
   background: #ff6e00;
 }
 
 td, th {
-  padding: 20px;
   font-size: 40px;
+  padding: 20px;
 }
 
 b {
