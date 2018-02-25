@@ -7,10 +7,10 @@
 }
 
 input[type=checkbox] {
-  -webkit-transform: scale(2);
+  transform: scale(2);
 }
 
-.hb {
+.hb, cake {
   width: 100vw;
   height: 200px;
   background-position: center center;
@@ -19,16 +19,6 @@ input[type=checkbox] {
   background-size: 300px;
   background-repeat: no-repeat;
 }
-.cake {
-  width: 100vw;
-  height: 200px;
-  background-position: center center;
-  background-color: white;
-  background-image: url('print/hb.jpg');
-  background-size: 300px;
-  background-repeat: no-repeat;
-}
-
 slides-board {
   width: 500px;
   height: 500px;
@@ -39,14 +29,14 @@ slides-board {
 }
 
 :host ::ng-deep [title] .slide {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
-  height: 100vh;
   background: #ff6e00;
   color: white;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
 h1 {
