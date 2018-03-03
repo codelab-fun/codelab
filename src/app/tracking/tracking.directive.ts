@@ -15,6 +15,7 @@ export class TrackingDirective {
 
   constructor(private afDb: AngularFireDatabase, private afAuth: AngularFireAuth,
               private router: Router, private presentation: PresentationComponent) {
+    debugger;
     afAuth.auth.signInAnonymously();
     afAuth.authState.subscribe(authData => {
       this.auth = authData;
