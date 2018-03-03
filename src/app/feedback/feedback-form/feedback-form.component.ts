@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,15 +21,20 @@ export class FeedbackFormComponent implements OnInit {
   constructor(private el: ViewContainerRef,
               private fb: FormBuilder,
               private activatedRoute: ActivatedRoute,
-              private feedbackService: FeedbackService) {
+              private feedbackService: FeedbackService,
+              private router: Router) {
   }
 
   ngOnInit() {
     this.messages$ = this.feedbackService.getMessages(this.activatedRoute);
     this.formGroup = this.fb.group({
-      comment: ['', Validators.required],
+      comment: [localStorage[`feedback-${this.router.url}-comment`], Validators.required],
       name: [localStorage.getItem('userName') || '', Validators.required],
       email: [localStorage.getItem('userEmail') || '', []]
+    });
+
+    this.formGroup.valueChanges.debounceTime(500).subscribe((data) => {
+      localStorage[`feedback-${this.router.url}-comment`] = data.comment;
     });
   }
 
