@@ -1,0 +1,72 @@
+import { CodelabFile } from '../../../exercise/helpers/codelabFile';
+import { Component } from '@angular/core';
+import { ExerciseConfigTemplate, ng2tsConfig, Ng2TsExercises } from '@mycurrentapp/ng2ts/src/ng2ts';
+
+declare const require;
+
+interface FileHighlights {
+  appModule?: RegExp | RegExp[];
+  appHtml?: RegExp | RegExp[];
+}
+
+function routeExercise(highlights: FileHighlights) {
+  return {
+    files: [
+      CodelabFile.TypeScriptFile('app.module')
+        .setCode(require('!!raw-loader!./samples/simple-router/modules.module.ts'))
+        .withHighlight(highlights.appModule),
+      CodelabFile.Html('app.component')
+        .setCode(require('!!raw-loader!./samples/simple-router/modules.component.html'))
+        .withHighlight(highlights.appHtml),
+      CodelabFile.TypeScriptFile('app.component').setCode(
+        require('!!raw-loader!./samples/simple-router/modules.component.ts')
+      ),
+      CodelabFile.TypeScriptFile('components/kitten').setCode(
+        require('!!raw-loader!./samples/simple-router/components/kitten.ts')
+      ),
+      CodelabFile.TypeScriptFile('components/puppy').setCode(
+        require('!!raw-loader!./samples/simple-router/components/puppy.ts')
+      ),
+      CodelabFile.TypeScriptFile('bootstrap')
+        .setCode(require('!!raw-loader!./samples/simple-router/main.ts'))
+        .makeBootstrappable(),
+      CodelabFile.Html('index').setCode(require('!!raw-loader!./samples/simple-router/index.html'))
+    ]
+  };
+}
+
+@Component({
+  selector: 'slides-router',
+  templateUrl: './router.component.html',
+  styleUrls: ['./router.component.css']
+})
+export class RouterComponent {
+  exercise: ExerciseConfigTemplate;
+
+  code = {
+    routerConfig: routeExercise({
+      appModule: /const routes[\s\S]*?];[\s\S]/
+    }),
+    routerConfigPass: routeExercise({
+      appModule: /RouterModule.forRoot\(routes\)/
+    }),
+    routerOutlet: routeExercise({
+      appHtml: /<router-outlet><\/router-outlet>/
+    }),
+    menu: routeExercise({
+      appHtml: /<a[\s\S]*\/a>/
+    }),
+    kittens: {
+      runner: 'html',
+      files: [CodelabFile.Html('index').setCode(`<h1>Kittens</h1>`)]
+    },
+    puppies: {
+      runner: 'html',
+      files: [CodelabFile.Html('index').setCode(`<h1>Puppies</h1>`)]
+    }
+  };
+
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(5, 0);
+  }
+}

@@ -3,10 +3,14 @@
 
 const { SpecReporter } = require('jasmine-spec-reporter');
 
+
+const { getAppDirectoryUsingCliConfig } = require('@nrwl/schematics/src/utils/cli-config-utils');
+const appDir = getAppDirectoryUsingCliConfig();
 exports.config = {
+
   allScriptsTimeout: 11000,
   specs: [
-    './e2e/**/*.e2e-spec.ts'
+    appDir + ;'/e2e/**/*.e2e-spec.ts'
   ],
   capabilities: {
     'browserName': 'chrome'
@@ -21,7 +25,7 @@ exports.config = {
   },
   beforeLaunch: function() {
     require('ts-node').register({
-      project: 'e2e/tsconfig.e2e.json'
+      project: appDir + '/e2e/tsconfig.e2e.json'
     });
   },
   onPrepare() {

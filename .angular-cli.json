@@ -1,12 +1,14 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
   "project": {
-    "name": "angular-presentation"
+    "name": "angular-presentation",
+    "npmScope": "mycurrentapp",
+    "latestMigration": "20180227-cleanup-scripts"
   },
   "apps": [
     {
-      "root": "src",
-      "outDir": "dist",
+      "root": "apps/mycurrentapp/src",
+      "outDir": "dist/apps/mycurrentapp",
       "assets": [
         "../node_modules/intro.js",
         "assets",
@@ -16,21 +18,68 @@
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
-      "test": "test.ts",
+      "test": "../../../test.js",
       "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "slides",
       "styles": [
-        "styles.scss",
-        "../node_modules/intro.js/minified/introjs.min.css",
-        "../node_modules/intro.js/themes/introjs-nassim.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      }
+      },
+      "name": "mycurrentapp"
+    },
+    {
+      "name": "browser-window",
+      "root": "libs/browser-window/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "differ",
+      "root": "libs/differ/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "feedback",
+      "root": "libs/feedback/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "ng2ts",
+      "root": "libs/ng2ts/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "presentation",
+      "root": "libs/presentation/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "tool-tips",
+      "root": "libs/tool-tips/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "tracking",
+      "root": "libs/tracking/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "utils",
+      "root": "libs/utils/src",
+      "test": "../../../test.js",
+      "appRoot": ""
     }
   ],
   "e2e": {
@@ -40,13 +89,16 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json"
+      "project": "apps/mycurrentapp/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
     },
     {
-      "project": "src/tsconfig.spec.json"
+      "project": "./tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
     },
     {
-      "project": "e2e/tsconfig.e2e.json"
+      "project": "mycurrentapp/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
     }
   ],
   "test": {
@@ -56,6 +108,14 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {},
+    "schematics": {
+      "collection": "@nrwl/schematics",
+      "postGenerate": "npm run format",
+      "newProject": [
+        "app",
+        "lib"
+      ]
+    }
   }
 }
