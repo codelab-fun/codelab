@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PipesComponent } from './pipes.component';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@mycurrentapp/presentation/src/slide-routes';
+import { SlidesRoutes } from '../../../presentation/slide-routes';
 
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { PresentationModule } from '@mycurrentapp/presentation/src/presentation.module';
-import { FeedbackModule } from '@mycurrentapp/feedback/src/feedback.module';
-import { BrowserWindowModule } from '@mycurrentapp/browser-window/src/browser-window.module';
+import { PresentationModule } from '../../../presentation/presentation.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
+import { BrowserWindowModule } from '../../../../../../../libs/browser-window/src/browser-window.module';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(PipesComponent));
 

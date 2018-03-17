@@ -3,13 +3,13 @@ import { AngularFireDatabaseProvider } from 'angularfire2/database';
 import { AngularFireAuthProvider } from 'angularfire2/auth';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@mycurrentapp/presentation/src/slide-routes';
-import { BrowserWindowModule } from '@mycurrentapp/browser-window/src/browser-window.module';
-import { PresentationModule } from '@mycurrentapp/presentation/src/presentation.module';
+import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { BrowserWindowModule } from '../../../../../../../libs/browser-window/src/browser-window.module';
+import { PresentationModule } from '../../../presentation/presentation.module';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { HttpModule } from '@angular/http';
-import { FeedbackModule } from '@mycurrentapp/feedback/src/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
 import { RatingSummaryComponent } from './rating-summary.component';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(RatingSummaryComponent));

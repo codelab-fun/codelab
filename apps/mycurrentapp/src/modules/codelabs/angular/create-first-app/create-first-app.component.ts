@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { ng2tsConfig } from '@mycurrentapp/ng2ts/src/ng2ts';
-import { extractMessages } from '@mycurrentapp/presentation/src/i18n-tools';
+import { ng2tsConfig } from '@mycurrentapp/ng2ts/ng2ts';
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 @Component({
   selector: 'slides-create-first-app',

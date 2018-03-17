@@ -58,12 +58,6 @@
       "appRoot": ""
     },
     {
-      "name": "presentation",
-      "root": "libs/presentation/src",
-      "test": "../../../test.js",
-      "appRoot": ""
-    },
-    {
       "name": "tool-tips",
       "root": "libs/tool-tips/src",
       "test": "../../../test.js",

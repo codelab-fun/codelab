@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { MonacoConfigService } from '../exercise/services/monaco-config.service';
 import { ExerciseModule } from '../exercise/exercise.module';
 import { IndexComponent } from './index/index.component';
-import { PresentationModule } from '@mycurrentapp/presentation/src/presentation.module';
+import { PresentationModule } from '../presentation/presentation.module';
 import { TooltipsModule } from '@mycurrentapp/tool-tips/src/tooltips.module';
 import { FeedbackModule } from '@mycurrentapp/feedback';
 import { environment } from '../../environments/environment';

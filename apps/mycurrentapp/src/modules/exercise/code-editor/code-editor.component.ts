@@ -1,7 +1,7 @@
 import { Component, ContentChild, Input, OnInit, Optional, ViewChild } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '@mycurrentapp/presentation/src/slide/slide.component';
+import { SlideComponent } from '../../presentation/slide/slide.component';
 import { CodeGroupComponent } from '../code-group/code-group.component';
 import { EditorComponent } from '../editor/editor.component';
 declare const require;

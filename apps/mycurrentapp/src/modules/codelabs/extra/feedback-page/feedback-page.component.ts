@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { Message } from '@mycurrentapp/feedback/src/message';
+import { Message } from '../../../../../../../libs/feedback/src/message';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import { GithubService } from '@mycurrentapp/utils/src/github.service';
+import { GithubService } from '../../../../../../../libs/utils/src/github.service';
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';

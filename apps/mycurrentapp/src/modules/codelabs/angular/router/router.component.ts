@@ -1,6 +1,6 @@
 import { CodelabFile } from '../../../exercise/helpers/codelabFile';
 import { Component } from '@angular/core';
-import { ExerciseConfigTemplate, ng2tsConfig, Ng2TsExercises } from '@mycurrentapp/ng2ts/src/ng2ts';
+import { ExerciseConfigTemplate, ng2tsConfig, Ng2TsExercises } from '@mycurrentapp/ng2ts/ng2ts';
 
 declare const require;
 

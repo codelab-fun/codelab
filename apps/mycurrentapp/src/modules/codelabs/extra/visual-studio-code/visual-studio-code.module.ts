@@ -1,10 +1,10 @@
 import { RouterModule } from '@angular/router';
-import { FeedbackModule } from '@mycurrentapp/feedback/src/feedback.module';
-import { PresentationModule } from '@mycurrentapp/presentation/src/presentation.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
+import { PresentationModule } from '../../../presentation/presentation.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VisualStudioCodeComponent } from './visual-studio-code.component';
-import { SlidesRoutes } from '@mycurrentapp/presentation/src/slide-routes';
+import { SlidesRoutes } from '../../../presentation/slide-routes';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(VisualStudioCodeComponent));
 

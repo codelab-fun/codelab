@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ng2tsConfig } from '@mycurrentapp/ng2ts/src/ng2ts';
+import { ng2tsConfig } from '@mycurrentapp/ng2ts/ng2ts';
 import { displayAngularComponent, displayAngularComponentWithHtml } from '../../../exercise/helpers/helpers';
-import { extractMessages } from '@mycurrentapp/presentation/src/i18n-tools';
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 const baseCode = 'TODO';
 

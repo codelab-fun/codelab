@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Ng2TsExercises } from '@mycurrentapp/ng2ts/src/ng2ts';
-import { extractMessages } from '@mycurrentapp/presentation/src/i18n-tools';
+import { Ng2TsExercises } from '@mycurrentapp/ng2ts/ng2ts';
+import { extractMessages } from '../../../presentation/i18n-tools';
 
 @Component({
   selector: 'slides-dependency-injection',

@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { ExerciseBase } from '../exercise/exercise.base';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '@mycurrentapp/presentation/src/slide/slide.component';
-import { AnalyticsService } from '@mycurrentapp/presentation/src/analytics.service';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { AnalyticsService } from '../../presentation/analytics.service';
 import { ActivatedRoute } from '@angular/router';
-import { PresentationComponent } from '@mycurrentapp/presentation/src/presentation/presentation.component';
+import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 
 @Component({
   selector: 'slides-playground',

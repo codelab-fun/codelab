@@ -1,7 +1,7 @@
-// import {Ng2TsExercises} from '@mycurrentapp/ng2ts/src/ng2ts';
+// import {Ng2TsExercises} from '@mycurrentapp/ng2ts/ng2ts';
 
 import { Component } from '@angular/core';
-import { ng2tsConfig } from '@mycurrentapp/ng2ts/src/ng2ts';
+import { ng2tsConfig } from '@mycurrentapp/ng2ts/ng2ts';
 
 @Component({
   selector: 'slides-custom-events',

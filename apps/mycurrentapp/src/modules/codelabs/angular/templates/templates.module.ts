@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { TemplatesComponent } from './templates.component';
-import { SlidesRoutes } from '@mycurrentapp/presentation/src/slide-routes';
-import { PresentationModule } from '@mycurrentapp/presentation/src/presentation.module';
+import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { PresentationModule } from '../../../presentation/presentation.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { FeedbackModule } from '@mycurrentapp/feedback/src/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 
 const routes = RouterModule.forChild([

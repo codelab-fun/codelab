@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '@mycurrentapp/presentation/src/slide/slide.component';
-import { AnalyticsService } from '@mycurrentapp/presentation/src/analytics.service';
-import { PresentationComponent } from '@mycurrentapp/presentation/src/presentation/presentation.component';
+import { SlideComponent } from '../../presentation/slide/slide.component';
+import { AnalyticsService } from '../../presentation/analytics.service';
+import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 import { ActivatedRoute } from '@angular/router';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';

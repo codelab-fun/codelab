@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { extractMessages } from '@mycurrentapp/presentation/src/i18n-tools';
+import { extractMessages } from '../../presentation/i18n-tools';
 
 export interface IndexPageRoute {
   name: string;

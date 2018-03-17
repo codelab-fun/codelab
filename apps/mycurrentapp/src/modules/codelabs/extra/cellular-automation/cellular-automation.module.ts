@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@mycurrentapp/presentation/src/slide-routes';
-import { FeedbackModule } from '@mycurrentapp/feedback/src/feedback.module';
-import { PresentationModule } from '@mycurrentapp/presentation/src/presentation.module';
+import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
+import { PresentationModule } from '../../../presentation/presentation.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { CellularAutomationComponent } from './cellular-automation.component';
 import { BoardComponent } from './board/board.component';
