@@ -3,7 +3,7 @@ import generate from 'babel-generator';
 import babel_traverse from 'babel-traverse';
 
 export function isLoc(node) {
-  return node.key.value === 'loc' || node.key.value === 'start' || node.key.value === 'end';
+  return node.key.value === 'loc' || node.key.value === 'start' || node.key.value === 'end' || node.key.value === 'extra';
 }
 
 
@@ -17,6 +17,12 @@ export function isBody(node) {
 
 
 export function removeLoc(path) {
+  if (isLoc(path.node)) {
+    path.remove();
+  }
+}
+
+export function removeExtra(path) {
   if (isLoc(path.node)) {
     path.remove();
   }

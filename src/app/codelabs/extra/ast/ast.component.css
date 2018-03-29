@@ -15,6 +15,7 @@
 #intro h2, #outro h2 {
   font-size: 12vw;
 }
+
 #intro h2, #outro h1 {
   font-size: 6vw;
 }
@@ -23,8 +24,17 @@
   background: transparent;
 }
 
+#sausage-pre {
+  background: url(./pics/sausage-pre.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+
 #sausage {
-  background: url(./pics/sausage.jpg) no-repeat;
+  background: url(./pics/sausage2.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -66,6 +76,7 @@
   height: 100vh;
   font-size: 5vw;
 }
+
 #renoir {
   background: url(./pics/renoir.png) no-repeat;
   background-size: 100% auto;
@@ -73,6 +84,7 @@
   height: 100vh;
   font-size: 5vw;
 }
+
 #missing-semicolon {
   background: url(./pics/semicolon-missing.png) no-repeat;
   background-size: 100% auto;
@@ -119,6 +131,12 @@
   display: inline-block;
   height: 100vh;
 }
+.bad-tree {
+  background: url(./pics/tree.gif) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+}
 
 #venok img {
   width: 384px;
@@ -129,6 +147,7 @@
 .ast-explorer-link:hover {
   font-size: 5vw;
 }
+
 .ast-explorer-link {
   padding-top: 25px;
   font-size: 10px;
@@ -141,12 +160,27 @@
   font-size: 0;
 }
 
-#debugger-regex  /deep/ .solution:hover:before {
+#debugger-regex /deep/ .solution:hover:before {
   color: red;
   font-size: 3vw;
-  content: "HELP! HELP! OMG!! PLS STOP, I CAN't DO IT ANYMORE"
 }
 
-:host /deep/ #debugger-regex  .solution {
+:host /deep/ #debugger-regex .solution {
 
+}
+
+.ast-preview-helper-list li:hover {
+  color: #444;
+}
+
+.ast-preview-helper-list li {
+  font-size: 20px;
+  text-decoration: dashed;
+  cursor: pointer;
+  color: #999;
+  border-bottom: 1px #ddd dashed;
+}
+
+.ast-preview {
+  font-size: 30px;
 }

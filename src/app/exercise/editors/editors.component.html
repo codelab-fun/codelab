@@ -32,8 +32,10 @@
         class="solution"
         *ngIf="isActiveFile(file) && !file.readonly"
         (click)="loadSolution(file)">
-        Load solution
+        Load solution2
       </div>
+
+
       <slides-editor
         [slides-focus-highlight-match]="file.highlight"
         [fontSize]="fontSize"

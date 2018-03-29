@@ -3,6 +3,7 @@ import { ExerciseComponent } from '../exercise/exercise.component';
 import { FileConfig } from '../interfaces/file-config';
 import { TestInfo } from '../interfaces/test-info';
 import * as babylon from 'babylon';
+import * as types from 'babel-types';
 import babelTraverse from 'babel-traverse';
 import babelGenerator from 'babel-generator';
 declare const require;
@@ -19,9 +20,13 @@ export class FakeBabelRunnerComponent implements AfterViewInit {
   run(files: Array<FileConfig>) {
     this.logs = [];
     const args = {
-      babylon, babelTraverse, babelGenerator, log: (value) => {
+      babylon,
+      babelTraverse,
+      babelGenerator,
+      types,
+      log: (value) => {
         this.logs.push(value);
-      }
+      },
     };
     const callback = (result) => {
       if (result) {

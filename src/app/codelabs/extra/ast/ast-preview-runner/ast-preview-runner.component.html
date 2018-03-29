@@ -1,0 +1,12 @@
+<div style="margin-top: 20px;">
+  <label>
+    <input type="checkbox" #skipParentInput [(ngModel)]="program" (ngModelChange)="update()">
+    Skip to parent
+  </label>
+</div>
+<div>
+  <div *ngIf="hasError" class = "error">
+    Parsing error
+  </div>
+  <ast-viz  (selectNode)="selectNode($event)" [node]="ast"></ast-viz>
+</div>
