@@ -1,18 +1,19 @@
-function removeConsoleLogSolved(code, {babylon, babelTraverse, types, babelGenerator, log}) {
+function removeConsoleLogSolved(code, {babelGenerator, babylon, babelTraverse, types}) {
   const ast = babylon.parse(code);
 
   babelTraverse(ast, {
-    CallExpression: (path) => {
-      const node = path.node;
+    MemberExpression(path) {
       if (
-        types.isMemberExpression(node.callee)
-        && types.isIdentifier(node.callee.object, {name: 'console'})
-        && types.isIdentifier(node.callee.property, {name: 'log'})
+        types.isIdentifier(path.node.object, { name: 'console'}) &&
+        types.isIdentifier(path.node.property, { name: 'log'}) &&
+        types.isCallExpression(path.parent) &&
+        path.parentKey === 'callee'
       ) {
-        path.remove();
+        path.parentPath.remove();
       }
     }
   });
 
   return babelGenerator(ast).code;
 }
+

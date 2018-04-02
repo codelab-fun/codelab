@@ -4,12 +4,18 @@
   slides-tracking>
 
   <div class="btn-bar">
+    <div class="twitter">
+      @kirjs
+    </div>
     <div class="increase-font-size font-size" (click)="updateFontSize(2)">+</div>
     <div class="decrease-font-size font-size" (click)="updateFontSize(-2)">-</div>
   </div>
 
+
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
+
+
 
   <slides-slide id="intro" *slidesIf="'intro'" no-padding>
     <div class="bg">
@@ -34,32 +40,10 @@
   </slides-slide>
 
 
-  <!--<slides-slide id="tbs" *slidesIf="'tbd'" no-padding>-->
-  <!--<div class="bg">-->
-  <!--https://github.com/olahol/eselement/tree/21993890b8145a7ee1081a2eba187124ba4dfefc-->
-  <!--</div>-->
-  <!--</slides-slide>-->
-
-  <slides-slide id="parser" *slidesIf="'parser'" no-padding>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'consle-log-ast'">
-    <h1>Пример Абстрактного Синтаксического Дерева:</h1>
-    <slides-code-group row>
-      <div class="col-6">
-        <slides-code-editor [code]="code.consoleLog" type="javascript"
-                            [lineNumbers]="'on'"></slides-code-editor>
-      </div>
-      <div class="col-6">
-        <slides-code-editor [code]="code.consoleLogAst" type="javascript" [lineNumbers]="'on'"></slides-code-editor>
-      </div>
-    </slides-code-group>
-  </slides-slide>
-
-
-  <slides-slide no-padding *slidesIf="'console-log-'" >
-    <div class="bg">
-      <h1>Может быть есть способ попроще?</h1>
+  <slides-slide no-padding *slidesIf="'two-buttons'" >
+    <div class="bg two-button">
+    </div>
+    <div class="bg two-button2">
     </div>
   </slides-slide>
 
@@ -72,9 +56,18 @@
   </slides-slide>
 
 
+  <slides-slide no-padding *slidesIf="'two-buttons-push'" >
+    <div class="bg two-button3">
+    </div>
+
+  </slides-slide>
+
   <slides-slide id="sausage-pre" *slidesIf="'sausage-pre'" no-padding></slides-slide>
 
   <slides-slide id="sausage" *slidesIf="'not-like-sausage'" no-padding></slides-slide>
+
+  <slides-slide id="parser" *slidesIf="'parser'" no-padding>
+  </slides-slide>
 
   <slides-slide *slidesIf="'consle-log-ast-again'">
     <h1>Пример Абстрактного Синтаксического Дерева:</h1>
@@ -119,6 +112,7 @@
     </slides-code-group>
   </slides-slide>
 
+  <slides-slide id="panda" *slidesIf="'panda'" no-padding></slides-slide>
 
   <slides-slide *slidesIf="'console-log-ast-just-body-highlight-loc'">
     <slides-code-group row>
@@ -147,7 +141,7 @@
     </slides-code-group>
   </slides-slide>
 
-  <slides-slide id="console-log-structure" *slidesIf="'console-log-structure'" no-padding>
+  <slides-slide  *slidesIf="'console-log-structure'" no-padding>
     <div fxLayout style="height: 200px;flex-shrink: 0">
       <slides-simple-editor [slidesSimpleHighlight]="asthighlight"
                             class="editor"
@@ -169,6 +163,7 @@
     </div>
     <slides-ast-preview-runner (highlight)="asthighlight = $event" #astPreview [code]="code.astPreview"
                                class="ast-preview"></slides-ast-preview-runner>
+    <div class="collie ast-preview"  [class.display]="displayCallee" (click)="displayCallee = !displayCallee "></div>
   </slides-slide>
 
   <slides-slide *slidesIf="'console-log-ast-no-loc2'">
@@ -183,6 +178,31 @@
     </slides-code-group>
   </slides-slide>
 
+
+  <slides-slide id="console-log-structure" *slidesIf="'console-log-structure2'" no-padding>
+    <div fxLayout style="height: 200px;flex-shrink: 0">
+      <slides-simple-editor [slidesSimpleHighlight]="asthighlight"
+                            class="editor"
+                            [(ngModel)]="code.astPreview"
+                            [fontSize]="fontSize"
+                            style="width: 70%;"
+      ></slides-simple-editor>
+      <div class="ast-preview-helper-list">
+        <ul>
+          <li (click)="code.astPreview = 'console.log()\n123'">123</li>
+          <li (click)="code.astPreview = 'console.log()\na.b'">a.b</li>
+          <li (click)="code.astPreview = 'console.log()\nconsole.log'">console.log</li>
+          <li (click)="code.astPreview = 'console.log()\nhello(console.log)'">hello(console.log)</li>
+
+        </ul>
+      </div>
+    </div>
+    <slides-ast-preview-runner (highlight)="asthighlight = $event" #astPreview [code]="code.astPreview"
+                               class="ast-preview"></slides-ast-preview-runner>
+  </slides-slide>
+
+
+
   <slides-slide id="babel-traverse" *slidesIf="'babel-traverse'" no-padding>
     <div class="bg">Обход AST с помощью <b>babel-traverse</b></div>
   </slides-slide>
@@ -192,29 +212,9 @@
       <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
-    </slides-exercise>
-  </slides-slide>
-
-
-  <slides-slide   *slidesIf="'hello-console-log-structure'" no-padding>
-    <div fxLayout style="height: 200px;flex-shrink: 0">
-      <slides-simple-editor [slidesSimpleHighlight]="asthighlight2"
-                            class="editor"
-                            [(ngModel)]="code.astHello"
-                            [fontSize]="fontSize"
-                            style="width: 70%;"
-      ></slides-simple-editor>
-    </div>
-    <slides-ast-preview-runner (highlight)="asthighlight2 = $event" #astPreview [code]="code.astHello"
-                               class="ast-preview"></slides-ast-preview-runner>
-  </slides-slide>
-
-
-  <slides-slide *slidesIf="'console-log-babel-traverse2'" no-padding>
-    <slides-exercise [files]="code.traverseConsoleLogBabel2">
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
+      <slides-ast-preview-runner [style.zoom]="0.5" style="position:  fixed; bottom: 20px" class="slides-preview"
+                                #astPreview [code]="'console.log();'"
+                                 class="ast-preview"></slides-ast-preview-runner>
     </slides-exercise>
   </slides-slide>
 
@@ -223,8 +223,8 @@
     <div class="bg">Упрощаем работу с AST  с помощью <b>babel-types</b></div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'console-log-babel-traverse3'" no-padding>
-    <slides-exercise [files]="code.traverseConsoleLogBabel3">
+  <slides-slide *slidesIf="'console-log-babel-traverse1'" no-padding>
+    <slides-exercise [files]="code.traverseConsoleLogBabel2">
       <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
@@ -232,7 +232,7 @@
   </slides-slide>
 
   <slides-slide id="babel-transform" *slidesIf="'babel-transform'" no-padding>
-    <div class="bg">Transforming AST <b>babel-traverse</b></div>
+    <div class="bg">Трансформируем АСД с помощью <b>babel-traverse</b></div>
   </slides-slide>
 
   <slides-slide *slidesIf="'console-log-babel-transform'" no-padding>
@@ -243,43 +243,32 @@
     </slides-exercise>
   </slides-slide>
 
+  <slides-slide id="babel-remove-debugger" *slidesIf="'eslint'" no-padding>
+    <div class="bg">Давайте найдем в коде <b>debugger</b>
+    </div>
+  </slides-slide>
+
+  <slides-slide id="debugger-structure" *slidesIf="'debugger-structure2'" no-padding>
+    <div fxLayout style="height: 200px;flex-shrink: 0">
+      <slides-simple-editor class="editor"
+                            [(ngModel)]="code.astPreviewDebugger"
+                            [fontSize]="fontSize"
+                            style="width: 70%;"
+      ></slides-simple-editor>
+      <div class="ast-preview-helper-list" style="font-size: 2vw;padding: 20px;">
+        <a href="http://astexplorer.net/">astexplorer.net</a>
+      </div>
+    </div>
+    <slides-ast-preview-runner
+      #astPreview [code]="code.astPreviewDebugger"
+                               class="ast-preview"></slides-ast-preview-runner>
+  </slides-slide>
 
   <slides-slide id="eslint" *slidesIf="'eslint'" no-padding>
     <div class="bg">Давайте напишем плагин для <b>ESLint</b> (на <a
       href="http://astexplorer.net">AstExplorer</a>)
     </div>
   </slides-slide>
-
-
-
-
-  <slides-slide id="angular" *slidesIf="'eslint'" no-padding>
-    <div class="bg">Пишем генератор для <b>Angular</b>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'angular-before'">
-    <h1>Добавляем ControlValueAccessor:</h1>
-        <slides-code-editor [code]="code.angularCodeBefore"></slides-code-editor>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'angular-after'">
-    <h1>Добавляем ControlValueAccessor:</h1>
-        <slides-code-editor [code]="code.angularCodeAfter"
-                            [focus-highlight-match]="[]"></slides-code-editor>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'angular-imports'">
-      <ul>
-        <li>Импортировать ForwardRef из @angular/core</li>
-        <li>Импортировать ControlValueAccessor из @angular/forms</li>
-        <li>Обновления свойства providers </li>
-        <li>Сделать так, чтобы класс имлементировал интерфейс ControlValueAccesspr</li>
-        <li>Добавить функции в класс</li>
-      </ul>
-  </slides-slide>
-
-
 
   <slides-slide *slidesIf="'why-break'">
     <h1>Где еще полезны АСД?</h1>
@@ -292,28 +281,73 @@
   </slides-slide>
 
 
-  <slides-slide id="ast-links" *slidesIf="'ast-links'">
-    <h1>Ссылки</h1>
-    <ul>
-      <li><h2><a href="https://github.com/eslint/eslint/tree/master/lib/rules">Все правила ESLint тут</a>
-      </h2></li>
-      <li><h2><a href="https://github.com/facebook/jscodeshift">JsCodeShift</a></h2></li>
-      <li><h2><a href="https://git.io/babel-handbook">Babel handbook</a></h2></li>
-      <li><h2><a href="https://www.youtube.com/watch?v=Tar4WgAfMr4">Building a compiler talk</a></h2></li>
-    </ul>
+  <slides-slide id="links-5-cool-things" *slidesIf="'ast-links'">
+    <div class="bg">
+      <h2>Когда вы увидите эти 5 ссылок про <b>Babel</b> вы не поверите своим глаза...</h2>
+    </div>
+
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ast-links-2'">
+    <b class="link-number">1</b>
+    <h2>Все все трансформации которые Babel делает в билдах используют этот АПИ</h2>
+    <h2>
+      Все плагины и пресеты можно найти  <a href="https://github.com/babel/babel/tree/master/packages">в этом репозитории</a>
+    </h2>
+    <h2>
+      A еще все новые фишки в EcmaScript должны сначала быть реализованы в виде плагина Babel,  например <a
+      href="https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-logical-assignment-operators">logical-assignment-operator</a>
+    </h2>
+  </slides-slide>
+ <slides-slide *slidesIf="'ast-links-3'">
+   <b class="link-number">2</b>
+    <h2>
+      Сам по себе Babel Generator теряет форматирование при регенерации кода, однако существуют инструменты который используют умные алгоритмы чтобы сохранить структуру кода.
+      <a href="https://www.npmjs.com/package/recast">Recast</a>
+      <a href="https://www.npmjs.com/package/babel-codemod">Babel CodeMod</a>
+    </h2>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ast-links-4'">
+    <b class="link-number">3</b>
+    <h2>
+      Оргомная подборка информации про Babel в репозитории <a href="https://github.com/babel/awesome-babel">Awesome Babel</a>
+    </h2>
+  </slides-slide>
+
+  <slides-slide  *slidesIf="'ast-links-5'">
+    <b class="link-number">4</b>
+    <h2>
+      Babel - проект с открытыми исходниками, над ним трудится команда волонтеров и им не помешала бы помощь :)
+    </h2>
+    <h2>
+      Можно помочь деньгами:
+      <ul>
+        <li><a href="https://www.patreon.com/henryzhu">Henry Zhu Patreon</a></li>
+        <li><a href="https://opencollective.com/babel">Babel Open Collective</a></li>
+      </ul>
+      Или <a href="https://github.com/babel/babel/issues">помочь с кодом</a>
+    </h2>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ast-links-7'">
+    <h2>
+     Эта презентация: <a href="https://codelab.fun/ast/intro">http://localhost:4200</a>
+    </h2>
   </slides-slide>
 
   <slides-slide id="renoir" *slidesIf="'renoir'" no-padding>
     <div class="bg">
-      <h1>Thanks Pierre-Auguste for pics!</h1>
-      <h2>Follow him: <a href="https://twitter.com/artist_renoir">@artist_renoir</a></h2>
+      <h2> Эта презентация: <a href="https://codelab.fun/ast/intro">https://codelab.fun/ast/intro</a></h2>
+      <h2>Картинки: <a href="https://twitter.com/artist_renoir">@artist_renoir</a></h2>
+      <h2>Мой твиттер:  <a href="https://twitter.com/kirjs">@kirjs</a></h2>
     </div>
   </slides-slide>
 
   <slides-slide id="outro" *slidesIf="'outro'" no-padding>
     <div class="bg">
       <h1>Thank you!</h1>
-      <h2>@kirjs</h2>
+
     </div>
   </slides-slide>
 </slides-presentation>

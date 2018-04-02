@@ -12,6 +12,10 @@
   font-family: "Helvetica Neue", sans-serif;
 }
 
+
+a {
+  color: #9c2600;
+}
 #intro h2, #outro h2 {
   font-size: 12vw;
 }
@@ -22,7 +26,9 @@
 
 :host /deep/ .slide {
   background: transparent;
+  padding: 60px;
 }
+
 
 #sausage-pre {
   background: url(./pics/sausage-pre.jpg) no-repeat;
@@ -41,7 +47,7 @@
   font-size: 5vw;
 }
 
-#bonus {
+#babel-types {
   background: url(./pics/park.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
@@ -50,7 +56,7 @@
 }
 
 #babel-traverse .bg, #babel-transform .bg, #renoir .bg {
-  margin: 40vw 0;
+  margin: 30vw 0;
 }
 
 #babel-traverse {
@@ -69,6 +75,8 @@
   font-size: 5vw;
 }
 
+
+
 #debugger-pre {
   background: url(./pics/debugger.jpg) no-repeat;
   background-size: 100% auto;
@@ -85,15 +93,7 @@
   font-size: 5vw;
 }
 
-#missing-semicolon {
-  background: url(./pics/semicolon-missing.png) no-repeat;
-  background-size: 100% auto;
-  display: inline-block;
-  height: 100vh;
-  font-size: 5vw;
-}
-
-#babel-fit-by-line {
+#babel-remove-debugger {
   background: url(./pics/cat.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
@@ -111,6 +111,20 @@
 
 #parser {
   background: url(./pics/parser.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+#links-5-cool-things {
+  background: url(./pics/bg-links.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+#panda {
+  background: url(./pics/panda.webp) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -183,4 +197,75 @@
 
 .ast-preview {
   font-size: 30px;
+}
+
+.two-button {
+  background: url(./pics/button-1.png) no-repeat;
+  background-size: 50% auto;
+  display: inline-block;
+  height: 50vh;
+  font-size: 5vw;
+  border: 0 solid;
+  padding: 0;
+  margin: 0;
+}
+.two-button2 {
+  background: url(./pics/two-button2.gif) no-repeat;
+  background-size: 50% auto;
+  display: inline-block;
+  height: 50vh;
+  font-size: 5vw;
+  border: 0 solid;
+  padding: 0;
+  margin: 0;
+}
+.two-button3 {
+  background: url(./pics/two-button3.gif) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+  border: 0 solid;
+  padding: 0;
+  margin: 0;
+}
+
+.link-number {
+  display: inline-block;
+  font-size: 8vw;
+  border-radius: 50%;
+  width: 10vw;
+  height: 10vw;
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+
+.collie.display {
+  background: url(./pics/collie.webp) no-repeat;
+}
+
+.collie {
+  background-size: 100% auto;
+  display: inline-block;
+  height: 40vh;
+  font-size: 5vw;
+  width: 50vw;
+}
+
+.btn-bar {
+  line-height: 3vw;
+}
+
+.btn-bar:hover .font-size {
+  display: block;
+  font-size: 4vw;
+}
+.btn-bar .font-size {
+  display: none;
+}
+.twitter {
+   color: #444;
+  font-size: 3vw;
+  margin: 2vw;
 }

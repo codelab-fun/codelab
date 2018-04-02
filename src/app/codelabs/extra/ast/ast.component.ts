@@ -80,8 +80,10 @@ const consoleLogNoLocCode = removeDoubleWhiteLines(processCode(consoleLogBodyAst
 export class AstComponent {
   fontSize = 28;
 
+  displayCallee = true;
   code = {
     astPreview: 'log',
+    astPreviewDebugger: 'console.log();\ndebugger\n123',
     astHello: 'hello(console.log)',
     matches: {loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/},
     astExampleFull: processCode(helloWorldCodePre, {remove: []}),
@@ -115,11 +117,6 @@ export class AstComponent {
     traverseConsoleLogBabel2: [
       exercise('traverse-console-log-babel', require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved.ts'),
         require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved2.ts')),
-      exercise('find-console-log.test', require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')),
-    ],
-    traverseConsoleLogBabel3: [
-      exercise('traverse-console-log-babel', require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved2.ts'),
-        require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved3.ts')),
       exercise('find-console-log.test', require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')),
     ],
     removeConsoleLogBabel: [

@@ -1,19 +1,21 @@
-function traverseConsoleLogSolved2(code, {babylon, babelTraverse, types, log}) {
+function traverseConsoleLogSolved2(code, {babylon, babelTraverse, types}) {
   const ast = babylon.parse(code);
-  let hasCode = false;
+  let hasConsoleLog = false;
   babelTraverse(ast, {
-    MemberExpression: ({node, parentPath, parentKey}) => {
+    MemberExpression(path) {
       if (
-        parentPath.isCallExpression()
-        && node.object.type === 'Identifier'
-        && node.object.name === 'console'
-        && node.property.type === 'Identifier'
-        && node.property.name === 'log'
-        && parentKey === 'callee'
+        types.isIdentifier(path.node.object, { name: 'console'}) &&
+        types.isIdentifier(path.node.property, { name: 'log'}) &&
+        types.isCallExpression(path.parent) &&
+        path.parentKey === 'callee'
       ) {
-        hasCode = true;
+        hasConsoleLog = true;
       }
     }
   });
-  return hasCode;
+
+  return hasConsoleLog;
+
+
 }
+
