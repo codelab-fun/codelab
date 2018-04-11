@@ -17,7 +17,14 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-<slides-root>Loading...</slides-root>
+<slides-root>
+  <div class="preload">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</slides-root>
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
