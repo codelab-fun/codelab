@@ -40,6 +40,13 @@
       "test": "../../../test.js",
       "appRoot": "",
       "tags": []
+    },
+    {
+      "name": "slides",
+      "root": "libs/slides/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
     }
   ],
   "e2e": {

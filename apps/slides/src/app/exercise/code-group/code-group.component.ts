@@ -1,6 +1,6 @@
 import { AfterContentInit, Component } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
-import { SlideComponent } from '../../presentation/slide/slide.component';
+import { SlideComponent } from '../../../../../../libs/slides/src/slide/slide.component';
 import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
 import { CodeEditorComponent } from '../code-editor/code-editor.component';
 

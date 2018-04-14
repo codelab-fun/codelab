@@ -2,9 +2,9 @@ import { AngularCliComponent } from './angular-cli.component';
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes';
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { PresentationModule } from 'app/presentation/presentation.module';
+import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '../../../browser/browser.module';
@@ -19,7 +19,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule, RunnersModule],
+  imports: [routes, SlidesModule, ExerciseModule, FeedbackModule, CommonModule, BrowserWindowModule, RunnersModule],
   declarations: [AngularCliComponent],
   exports: [AngularCliComponent]
 })

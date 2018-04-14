@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
-import { PresentationModule } from '../../../presentation/presentation.module';
+import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes';
+import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, FeedbackModule, CommonModule,
+  imports: [routes, SlidesModule, ExerciseModule, FeedbackModule, CommonModule,
             RunnersModule, BrowserWindowModule],
   declarations: [CreateFirstAppComponent],
   exports: [CreateFirstAppComponent]

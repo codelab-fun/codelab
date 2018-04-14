@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 
 import { ModeRoutingDirective } from './mode-routing.directive';
-import { Mode } from './../mode.enum';
+import { Mode } from '../mode.enum';
 
 
 @Component({

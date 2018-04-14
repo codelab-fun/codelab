@@ -11,8 +11,8 @@ import { ArrowsComponent } from './arrows/arrows.component';
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 import { TitleSlideComponent } from './title-slide/title-slide.component';
 import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
-import { ModeOverviewComponent } from 'app/presentation/mode-overview/mode-overview.component';
-import { ModeRoutingDirective } from 'app/presentation/mode-routing/mode-routing.directive';
+import { ModeOverviewComponent } from './mode-overview/mode-overview.component';
+import { ModeRoutingDirective } from './mode-routing/mode-routing.directive';
 import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 import { RouterModule } from '@angular/router';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
@@ -64,6 +64,6 @@ import { SlideIfDirective } from './slide-if/slide-if.directive';
   providers: [AnalyticsService],
   bootstrap: []
 })
-export class PresentationModule {
+export class SlidesModule {
 
 }

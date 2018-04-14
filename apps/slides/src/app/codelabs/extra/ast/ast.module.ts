@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes';
 
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { PresentationModule } from '../../../presentation/presentation.module';
+import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { BrowserWindowModule } from '../../../browser/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
@@ -27,7 +27,7 @@ const routes = RouterModule.forChild(
   imports: [
     routes,
     AstPreviewRunnerModule,
-    PresentationModule,
+    SlidesModule,
     ExerciseModule,
     BrowserWindowModule,
     FeedbackModule,

@@ -1,10 +1,10 @@
 import { NgModule, Pipe } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { SvgComponent } from './svg.component';
-import { PresentationModule } from '../../../presentation/presentation.module';
+import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { SimpleEditorModule } from '../ast/simple-editor/editor.module';
 import { FormsModule } from '@angular/forms';
@@ -35,7 +35,7 @@ export class SafeHtml {
   imports: [
     routes,
     CommonModule,
-    PresentationModule,
+    SlidesModule,
     FeedbackModule,
     ExerciseModule,
     RunnersModule,

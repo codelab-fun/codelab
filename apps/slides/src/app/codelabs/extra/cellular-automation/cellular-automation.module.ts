@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes';
 import { FeedbackModule } from '../../../feedback/feedback.module';
-import { PresentationModule } from '../../../presentation/presentation.module';
+import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { CellularAutomationComponent } from './cellular-automation.component';
 import { BoardComponent } from './board/board.component';
@@ -18,7 +18,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, FeedbackModule, ExerciseModule, CommonModule],
+  imports: [routes, SlidesModule, FeedbackModule, ExerciseModule, CommonModule],
   declarations: [CellularAutomationComponent, BoardComponent, Rule3Component, RuleComponent, Rule8Component, OscilatorsComponent],
   exports: [CellularAutomationComponent]
 })

@@ -8,7 +8,7 @@ import { MonacoConfigService } from '../exercise/services/monaco-config.service'
 import { ExerciseModule } from '../exercise/exercise.module';
 import { TooltipsModule } from '../tooltips/tooltips.module';
 import { IndexComponent } from './index/index.component';
-import { PresentationModule } from '../presentation/presentation.module';
+import { SlidesModule } from '../../../../../libs/slides/src/slides.module';
 import { FeedbackModule } from 'app/feedback/feedback.module';
 import { environment } from '../../environments/environment';
 
@@ -208,7 +208,7 @@ export function monacoReady() {
     BrowserModule,
     FormsModule,
     HttpModule,
-    PresentationModule,
+    SlidesModule,
     ExerciseModule,
     RouterModule.forRoot(routes),
     TooltipsModule,

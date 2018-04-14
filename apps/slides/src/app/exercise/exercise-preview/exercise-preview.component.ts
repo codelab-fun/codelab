@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
-import { SlideComponent } from '../../presentation/slide/slide.component';
+import { SlideComponent } from '../../../../../../libs/slides/src/slide/slide.component';
 import { RunnerComponent } from '../runner/runner.component';
 
 @Component({
