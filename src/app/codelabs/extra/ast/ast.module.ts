@@ -12,11 +12,11 @@ import { TooltipsModule } from '../../../tooltips/tooltips.module';
 import { MatchTypesOnHoverDirective } from './match-types-on-hover.directive';
 import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.model';
 import { AstPreviewRunnerModule } from './ast-preview-runner/ast-preview-runner.module';
-import { SimpleEditorComponent } from './simple-editor/editor.component';
 import { FormsModule } from '@angular/forms';
 import { SimpleHighlightDirective } from './simple-editor/simple-highlight.directive';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DebuggerComponent } from './debugger/debugger.component';
+import { SimpleEditorModule } from './simple-editor/editor.module';
 
 
 const routes = RouterModule.forChild(
@@ -31,6 +31,7 @@ const routes = RouterModule.forChild(
     ExerciseModule,
     BrowserWindowModule,
     FeedbackModule,
+    SimpleEditorModule,
     FlexLayoutModule,
     FormsModule,
     RunnersModule,
@@ -40,7 +41,6 @@ const routes = RouterModule.forChild(
   declarations: [
     AstComponent,
     MatchTypesOnHoverDirective,
-    SimpleEditorComponent,
     SimpleHighlightDirective,
     DebuggerComponent
   ],

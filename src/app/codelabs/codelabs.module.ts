@@ -120,6 +120,14 @@ export let routes = [
     prod: true
   },
   {
+    path: 'svg',
+    loadChildren: './extra/svg/svg.module#SvgModule',
+    name: 'Svg',
+    description: 'Angular Svg',
+    page: 'bonus',
+    prod: true
+  },
+  {
     path: 'ast',
     loadChildren: './extra/ast/ast.module#AstModule',
     name: 'Abstract Syntax Trees',

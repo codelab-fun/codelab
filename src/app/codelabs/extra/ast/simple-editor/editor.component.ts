@@ -41,6 +41,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   editor: any;
   private code: string;
   @Input() fontSize = 12;
+  @Input() lineNumbers = true;
   @Output() change = new EventEmitter();
   @ViewChild('editor') editorEl;
 
@@ -91,7 +92,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
 
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
-    this.model = this.monacoConfigService.monaco.editor.createModel(this.code);
+    this.model = this.monacoConfigService.monaco.editor.createModel(this.code, 'html');
     this.editor = this.monacoConfigService.monaco.editor.create(editor,
       {
         model: this.model,
@@ -99,6 +100,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
         tabCompletion: true,
         wordBasedSuggestions: true,
         lineNumbersMinChars: 3,
+        lineNumbers: this.lineNumbers,
         automaticLayout: true,
         fontSize: this.fontSize,
         folding: true,
