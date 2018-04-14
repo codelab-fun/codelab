@@ -92,3 +92,7 @@ button {
   color: #999;
   font-size: 12px;
 }
+
+.comment {
+  white-space: pre-line;
+}

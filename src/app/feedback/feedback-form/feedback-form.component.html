@@ -6,7 +6,7 @@
           <span class="name">{{item.name}}</span>
           <span class="date">{{item.timestamp|date}}</span>
         </div>
-        <div>{{item.comment}}</div>
+        <div class="comment">{{item.comment}}</div>
       </div>
     </div>
     <form [formGroup]="formGroup" novalidate (submit)="submit()">
