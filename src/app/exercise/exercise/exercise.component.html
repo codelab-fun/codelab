@@ -1,11 +1,11 @@
-<div class="exercise-panel">
+<div class="exercise-panel" [style.height]="'100%'">
   <div class="main">
     <ng-content select=".editor"></ng-content>
     <ng-content select=".slides-preview"></ng-content>
   </div>
 
-  <div class="side">
-    <div>
+  <div class="side" [style.height]="'100%'">
+    <div [style.height]="'100%'">
       <ng-content select=".description"></ng-content>
       <div class="exercise-complete" *ngIf="solved">
         Well done! <a class="next-button" (click)="goToNextSlide()">Go to the next slide</a>

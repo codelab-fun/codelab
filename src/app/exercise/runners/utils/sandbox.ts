@@ -1,4 +1,5 @@
 declare const require;
+
 export function jsScriptInjector(iframe) {
   return function (code) {
     const script = document.createElement('script');
@@ -71,6 +72,7 @@ function injectSystemJs({evalJs}) {
 export function createSystemJsSandbox(element: any, config: SandboxConfig): Promise<SandBoxWithLoader> {
   return injectIframe(element, config).then(sandbox => {
     injectSystemJs(sandbox);
+
     function addDep(name, code) {
       (sandbox.iframe.contentWindow as any).System.register(name, [], function (exports) {
         return {
@@ -98,6 +100,7 @@ function logError(error, message) {
   console.error(error, message);
   console.groupEnd();
 }
+
 export function injectIframe(element: any, config: SandboxConfig): Promise<SandBox> {
   if (iframes.has(element)) {
     iframes.get(element).remove();
@@ -128,11 +131,14 @@ export function injectIframe(element: any, config: SandboxConfig): Promise<SandB
 
       iframe.contentWindow.onerror = function (error, message) {
         logError(error, message);
+
       };
       iframe.contentWindow.console.error = function (error, message) {
 
         // handle Angular error 1/3
         logError(error, message);
+
+        setHtml(`<pre style = "font-size: 3vw;padding: 20px;">${error}</pre>`)
       };
 
       resolve({

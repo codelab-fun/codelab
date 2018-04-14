@@ -24,6 +24,7 @@ import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 import { assert } from '../services/utils';
+import { replay } from './monaco-replay';
 
 declare const monaco: any;
 declare const require: any;
@@ -77,6 +78,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
       .subscribe(this.onCodeChange);
   }
 
+
   loadCode(code: string) {
     this.code = code;
     if (this.editor) {
@@ -124,6 +126,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.editor.getModel().onDidChangeContent(() => {
       this.updateValue(this.editor.getModel().getValue());
     });
+
 
     // Re-running the code on Ctrl + Enter
     // TODO

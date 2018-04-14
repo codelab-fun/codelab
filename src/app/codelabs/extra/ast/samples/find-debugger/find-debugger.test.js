@@ -75,7 +75,16 @@ console.log('hi');`,
       }
     },
     {
-      title: `function hello(){ debugger; }`,
+      title: `function hello(){ debugger; }
+      
+      
+      class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+`,
       test(func, args) {
         return func(this.title, args);
       }
@@ -108,6 +117,7 @@ console.log('hi');`,
 
   callback(results);
 }
+
 /**
 
  return code

@@ -12,26 +12,42 @@
   font-family: "Helvetica Neue", sans-serif;
 }
 
+
+a {
+  color: #9c2600;
+}
 #intro h2, #outro h2 {
   font-size: 12vw;
 }
+
 #intro h2, #outro h1 {
   font-size: 6vw;
 }
 
 :host /deep/ .slide {
   background: transparent;
+  padding: 60px;
 }
 
-#sausage {
-  background: url(./pics/sausage.jpg) no-repeat;
+
+#sausage-pre {
+  background: url(./pics/sausage-pre.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
   font-size: 5vw;
 }
 
-#bonus {
+
+#sausage {
+  background: url(./pics/sausage2.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+
+#babel-types {
   background: url(./pics/park.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
@@ -40,7 +56,7 @@
 }
 
 #babel-traverse .bg, #babel-transform .bg, #renoir .bg {
-  margin: 40vw 0;
+  margin: 30vw 0;
 }
 
 #babel-traverse {
@@ -59,6 +75,8 @@
   font-size: 5vw;
 }
 
+
+
 #debugger-pre {
   background: url(./pics/debugger.jpg) no-repeat;
   background-size: 100% auto;
@@ -66,6 +84,7 @@
   height: 100vh;
   font-size: 5vw;
 }
+
 #renoir {
   background: url(./pics/renoir.png) no-repeat;
   background-size: 100% auto;
@@ -73,15 +92,8 @@
   height: 100vh;
   font-size: 5vw;
 }
-#missing-semicolon {
-  background: url(./pics/semicolon-missing.png) no-repeat;
-  background-size: 100% auto;
-  display: inline-block;
-  height: 100vh;
-  font-size: 5vw;
-}
 
-#babel-fit-by-line {
+#babel-remove-debugger {
   background: url(./pics/cat.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
@@ -104,6 +116,20 @@
   height: 100vh;
   font-size: 5vw;
 }
+#links-5-cool-things {
+  background: url(./pics/bg-links.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
+#panda {
+  background: url(./pics/panda.webp) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+}
 
 #eslint {
   background: url(./pics/debugger.jpg) no-repeat;
@@ -119,6 +145,12 @@
   display: inline-block;
   height: 100vh;
 }
+.bad-tree {
+  background: url(./pics/tree.gif) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+}
 
 #venok img {
   width: 384px;
@@ -129,6 +161,7 @@
 .ast-explorer-link:hover {
   font-size: 5vw;
 }
+
 .ast-explorer-link {
   padding-top: 25px;
   font-size: 10px;
@@ -141,12 +174,99 @@
   font-size: 0;
 }
 
-#debugger-regex  /deep/ .solution:hover:before {
+#debugger-regex /deep/ .solution:hover:before {
   color: red;
   font-size: 3vw;
-  content: "HELP! HELP! OMG!! PLS STOP, I CAN't DO IT ANYMORE"
 }
 
-:host /deep/ #debugger-regex  .solution {
+:host /deep/ #debugger-regex .solution {
 
 }
+
+.ast-preview-helper-list li:hover {
+  color: #444;
+}
+
+.ast-preview-helper-list li {
+  font-size: 20px;
+  text-decoration: dashed;
+  cursor: pointer;
+  color: #999;
+  border-bottom: 1px #ddd dashed;
+}
+
+.ast-preview {
+  font-size: 30px;
+}
+
+.two-button {
+  background: url(./pics/button-1.png) no-repeat;
+  background-size: 50% auto;
+  display: inline-block;
+  height: 50vh;
+  font-size: 5vw;
+  border: 0 solid;
+  padding: 0;
+  margin: 0;
+}
+.two-button2 {
+  background: url(./pics/two-button2.gif) no-repeat;
+  background-size: 50% auto;
+  display: inline-block;
+  height: 50vh;
+  font-size: 5vw;
+  border: 0 solid;
+  padding: 0;
+  margin: 0;
+}
+.two-button3 {
+  background: url(./pics/two-button3.gif) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+  border: 0 solid;
+  padding: 0;
+  margin: 0;
+}
+
+.link-number {
+  display: inline-block;
+  font-size: 8vw;
+  border-radius: 50%;
+  width: 10vw;
+  height: 10vw;
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+
+.collie.display {
+  background: url(./pics/collie.webp) no-repeat;
+}
+
+.collie {
+  background-size: 100% auto;
+  display: inline-block;
+  height: 40vh;
+  font-size: 5vw;
+  width: 50vw;
+}
+
+.btn-bar {
+  line-height: 3vw;
+}
+
+.btn-bar:hover .font-size {
+  display: block;
+  font-size: 4vw;
+}
+.btn-bar .font-size {
+  display: none;
+}
+.twitter {
+   color: #444;
+  font-size: 3vw;
+  margin: 2vw;
+}
+

@@ -1,0 +1,189 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="twitter">
+      @kirjs
+    </div>
+    <div class="increase-font-size font-size" (click)="fontSize = fontSize + 2">+</div>
+    <div class="decrease-font-size font-size" (click)="fontSize = fontSize - 2">-</div>
+  </div>
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <!--  INTRO -->
+  <slides-slide no-padding *slidesIf="'intro'">
+    <div class="bg intro">
+      <h2>Angular ❤️ SVG
+        <br>
+        @kirjs</h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'why-svg'">
+    <h1>Почему SVG?</h1>
+    <ul>
+      <li>Веркторный формат картинок</li>
+      <li>Отлично масштабируется и на всех разрешениях выглядит великолепно</li>
+      <li>Все объекты это просто XML теги</li>
+      <li>Можно использовать в шаблонах Angular</li>
+      <li>Работает с CSS</li>
+
+    </ul>
+  </slides-slide>
+
+  <!--  INTRO -->
+  <slides-slide no-padding *slidesIf="'svg-in-60'">
+    <div class="bg svg-60">
+      <h2>SVG за 180 секунд</h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-circle'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.circle></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-ellipse'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.ellipse></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-rect'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.rect></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-line'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.line></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-text'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.text></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-polygon'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.polygon></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-path'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.path></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-group'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.group></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'cool-stuff'">
+    <h2>Всякие прикольные штуки</h2>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-clip'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.clip></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-path'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.path></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-clip2'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.clip2></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-textPath'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.textPath></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'completed'">
+    <h2>Поздравляю! Вы эксперт по SVG! </h2>
+    <h2>Правда в SVG Есть несколько не совсем очевидных и интуитивных моментов.</h2>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'completed2'" no-padding>
+    <div class="bg dog">
+      <h2>Приходите на мой 80ти часовой курс "SVG - какого хрена?!"</h2></div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'examples'" no-padding>
+    <div class="bg example">
+      <h2>Примеры?</h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'angular'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.angular></slides-svg-demo>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'examples-hc'">
+    <h2><a href="https://www.highcharts.com/demo">Highcharts</a></h2>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'svg-component1'" no-padding>
+    <h1>Привязка к атрибутам</h1>
+    <slides-exercise [files]="code.component1">
+      <div class="description"></div>
+      <slides-new-editors [fontSize]="fontSize" class="editor">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'attr-vs-prop'">
+    <h1>А че так?</h1>
+    <div style="height: 100%;">
+      <slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.attrVsProp"></slides-simple-editor>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'svg-chart'" no-padding>
+    <h1>Давайте запилим график</h1>
+    <slides-exercise [files]="code.chart">
+      <div class="description"></div>
+      <slides-new-editors [fontSize]="fontSize" class="editor">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'svg-chart2'" no-padding>
+    <h1>кастомные SVG Элементы</h1>
+
+    <slides-exercise [files]="code.chart2">
+      <div class="description"></div>
+      <slides-new-editors [fontSize]="fontSize" class="editor">
+      </slides-new-editors>
+      <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'attr-vs-prop'">
+    <h1>А че так?</h1>
+    <div style="height: 100%;">
+      <slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.createElement"></slides-simple-editor>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'links'">
+    <h2>Ссылки</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=ADXX4fmWHbo">SVG Can do that? (eng)</a></li>
+      <li><a href="https://swimlane.github.io/ngx-charts/bar-vertical">NGX Charts</a></li>
+      <li><a href="https://codelab.fun/svg/0">https://codelab.fun/svg/0</a></li>
+    </ul>
+
+
+  </slides-slide>
+
+  <slides-slide *slidesIf="'links'" no-padding>
+    <div class="bg the-end">
+      <h2>@kirjs</h2>
+    </div>
+  </slides-slide>
+
+  <div class="timer" no-padding>
+    <slides-timer></slides-timer>
+  </div>
+
+</slides-presentation>

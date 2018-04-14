@@ -4,6 +4,7 @@ import { MonacoConfigService } from '../services/monaco-config.service';
 import { SlideComponent } from '../../presentation/slide/slide.component';
 import { CodeGroupComponent } from '../code-group/code-group.component';
 import { EditorComponent } from '../editor/editor.component';
+
 declare const require;
 
 
@@ -36,11 +37,12 @@ export class CodeEditorComponent implements OnInit {
   }
 
   @Input('babelHighlightMatch') babelHighlightMatch: any = () => {
-  }
+  };
 
 
   ngOnInit(): void {
     const code = this.textarea && this.textarea.nativeElement.value.trim() || this.code;
+    
     if (this.highlight[0] && !(this.highlight[0] instanceof RegExp)) {
       // Has to be a regex
       // tslint:disable-next-line:no-debugger TODO: Remove debugger
