@@ -33,6 +33,13 @@
       },
       "name": "slides",
       "tags": []
+    },
+    {
+      "name": "differ",
+      "root": "libs/differ/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
     }
   ],
   "e2e": {

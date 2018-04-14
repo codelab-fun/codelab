@@ -1,4 +1,4 @@
-import { FileConfig } from '../exercise/interfaces/file-config';
+import { FileConfig } from '../../../apps/slides/src/app/exercise/interfaces/file-config';
 import { differ } from './differ';
 import { evaled, hidden, justForReference, test } from './fileHelpers';
 

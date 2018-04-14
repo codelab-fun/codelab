@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { createModuleTest } from './tests/createModuleTest';
 import { createComponentTest } from './tests/createComponentTest';
 import { createBootstrapTest } from './tests/bootstrapTest';
-import { DiffFilesResolver } from '../apps/slides/src/app/differ/diffFilesResolver';
+import { DiffFilesResolver } from '../libs/differ/src/diffFilesResolver';
 
 declare const require;
 
