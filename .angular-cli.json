@@ -1,12 +1,14 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
   "project": {
-    "name": "angular-presentation"
+    "name": "angular-presentation",
+    "npmScope": "slides",
+    "latestMigration": "20180405-add-workspace-schematic-command"
   },
   "apps": [
     {
-      "root": "src",
-      "outDir": "dist",
+      "root": "apps/slides/src",
+      "outDir": "dist/apps/slides",
       "assets": [
         "../node_modules/intro.js",
         "assets",
@@ -16,21 +18,21 @@
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
-      "test": "test.ts",
+      "test": "../../../test.js",
       "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "slides",
       "styles": [
-        "styles.scss",
-        "../node_modules/intro.js/minified/introjs.min.css",
-        "../node_modules/intro.js/themes/introjs-nassim.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      }
+      },
+      "name": "slides",
+      "tags": []
     }
   ],
   "e2e": {
@@ -40,13 +42,16 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json"
+      "project": "apps/slides/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
     },
     {
-      "project": "src/tsconfig.spec.json"
+      "project": "./tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
     },
     {
-      "project": "e2e/tsconfig.e2e.json"
+      "project": "apps/slides/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
     }
   ],
   "test": {
@@ -56,6 +61,14 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {},
+    "schematics": {
+      "collection": "@nrwl/schematics",
+      "postGenerate": "npm run format",
+      "newProject": [
+        "app",
+        "lib"
+      ]
+    }
   }
 }

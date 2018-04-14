@@ -4,7 +4,7 @@ import {
   expectClass,
   expectDecorator,
   expectExportedClass
-} from '../../src/app/exercise/runners/ts-code-test-runner/babel-helpers';
+} from '../../apps/slides/src/app/exercise/runners/ts-code-test-runner/babel-helpers';
 
 
 const tests = [

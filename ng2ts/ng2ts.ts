@@ -1,10 +1,11 @@
 // tslint:disable:max-line-length TODO: Clean up this file and remove this comment.
 //  TODO: This should be done using require.context
-import { DiffFilesResolver } from '../src/app/differ/diffFilesResolver';
+
 import { Injectable } from '@angular/core';
 import { createModuleTest } from './tests/createModuleTest';
 import { createComponentTest } from './tests/createComponentTest';
 import { createBootstrapTest } from './tests/bootstrapTest';
+import { DiffFilesResolver } from '../apps/slides/src/app/differ/diffFilesResolver';
 
 declare const require;
 

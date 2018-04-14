@@ -1,5 +1,6 @@
-import { babelTestSuite } from '../../src/app/exercise/runners/ts-code-test-runner/babel-helpers';
+
 import { isCallExpression, isIdentifier } from 'babel-types';
+import { babelTestSuite } from '../../apps/slides/src/app/exercise/runners/ts-code-test-runner/babel-helpers';
 
 const tests = [
   {
