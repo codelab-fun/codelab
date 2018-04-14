@@ -114,15 +114,6 @@ h1, h2, h3, li {
   font-weight: 300;
 }
 
-.presentation.presentation.presentation [no-padding] .slide {
-  padding: 0;
-}
-
-.presentation {
-  position: relative;
-  margin: 0 auto;
-}
-
 /* Hide all elements that are not slides when in overview mode */
 .presentation.overview > *:not(slides-slide) {
   visibility: hidden;

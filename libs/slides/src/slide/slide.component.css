@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  min-width: 600px;
+  min-height: 300px;
+  width: 100vw;
+  height: 100vh;
+  padding: 2vw;
+}
+
+
+:host[no-padding] {
+  padding: 0;
+}

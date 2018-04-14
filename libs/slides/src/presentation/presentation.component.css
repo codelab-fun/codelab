@@ -2,3 +2,17 @@
   display: none;
 }
 
+.presentation {
+  position: relative;
+  margin: 0 auto;
+}
+
+/*TODO: move out*/
+:host ::ng-deep .btn-bar {
+  z-index: 2;
+  position: fixed;
+  bottom: 1%;
+  right: 4%;
+  display: flex;
+  flex-direction: row;
+}

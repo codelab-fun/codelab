@@ -1,8 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Mode } from '../mode.enum';
 import { AnalyticsService } from '../analytics.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 declare const ga;
 
 @Component({
@@ -77,7 +78,7 @@ export class PresentationComponent implements AfterViewInit {
 
   // TODO: Move out to a separate module;
   trackProgress() {
-    const path = this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
+    /*const path = this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
 
     if (this.activeSlideIndex === 0) {
       const key = `been-here-mileston-start-${path}`;
@@ -95,6 +96,7 @@ export class PresentationComponent implements AfterViewInit {
       this.analytics.sendEvent('milestone', 'end', path);
       this.analytics.sendTiming('milestone', 'complete', time, path);
     }
+    */
   }
 
 

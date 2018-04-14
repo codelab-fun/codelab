@@ -21,26 +21,27 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  border: 1px transparent solid;
 }
 
 .intro {
-  background-image: url(./pics/1.jpg);
+  background-image: url(pics/1.jpg);
 }
 
 .svg-60 {
-  background-image: url(./pics/2.jpg);
+  background-image: url(pics/2.jpg);
 }
 
 .example {
-  background-image: url(./pics/3.jpg);
+  background-image: url(pics/3.jpg);
 }
 
 .the-end {
-  background-image: url(./pics/4.jpg);
+  background-image: url(pics/4.jpg);
 }
 
 .dog {
-  background-image: url(./pics/5.gif);
+  background-image: url(pics/5.gif);
 }
 
 .bg.intro h2 {

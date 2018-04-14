@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { bootstrap, builder, exercise, stylesheet } from '../../../exercise/helpers/helpers';
+import { bootstrap, builder, exercise, stylesheet } from '../../slides/src/app/exercise/helpers/helpers';
 
 declare const require;
 

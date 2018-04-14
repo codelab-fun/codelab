@@ -5,11 +5,12 @@ export declare const ga;
 
 @Injectable()
 export class AnalyticsService {
-  ga: (action: string, type: string, eventCategory?: string,  eventAction?: string, timing?: number|string,  extra?: string) => void;
+  ga: (action: string, type: string, eventCategory?: string, eventAction?: string, timing?: number | string, extra?: string) => void;
 
 
   constructor(router: Router) {
-    this.ga = window['ga'];
+    this.ga = window['ga'] || (() => {
+    });
 
     router.events.subscribe((a) => {
 

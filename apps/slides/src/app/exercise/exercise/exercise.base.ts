@@ -1,12 +1,13 @@
 import { Input, OnInit } from '@angular/core';
 import { ExerciseConfig } from '../interfaces/exercise-config';
-import { MonacoConfigService } from 'app/exercise/services/monaco-config.service';
+
 import { SlideComponent } from '../../../../../../libs/slides/src/slide/slide.component';
 import { AnalyticsService } from '../../../../../../libs/slides/src/analytics.service';
 import { ActivatedRoute } from '@angular/router';
 import { PresentationComponent } from '../../../../../../libs/slides/src/presentation/presentation.component';
 import { FileConfig } from '../interfaces/file-config';
 import * as assert from 'assert';
+import { MonacoConfigService } from '../services/monaco-config.service';
 
 export class ExerciseBase implements OnInit {
   @Input() public config: ExerciseConfig;
