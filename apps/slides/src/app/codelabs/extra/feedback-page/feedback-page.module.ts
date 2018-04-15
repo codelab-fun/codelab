@@ -6,7 +6,7 @@ import { FeedbackPageComponent } from './feedback-page.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes';
 import { FormsModule } from '@angular/forms';
-import { BrowserWindowModule } from '../../../browser/browser.module';
+import { BrowserWindowModule } from '../../../../../../../libs/browser-window/src/browser-window.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../environments/environment';

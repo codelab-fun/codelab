@@ -4,7 +4,7 @@ import { AngularTestRunnerComponent } from './angular-test-runner/angular-test-r
 import { CommonModule } from '@angular/common';
 import { TestsComponent } from './tests/tests.component';
 import { TestDescriptionComponent } from './test-description/test-description.component';
-import { BrowserWindowModule } from '../../browser/browser.module';
+import { BrowserWindowModule } from '../../../../../../libs/browser-window/src/browser-window.module';
 import { TestsProgressComponent } from './tests-progress/tests-progress.component';
 import { BabelTestRunnerComponent } from './ts-code-test-runner/babel-test-runner.component';
 
