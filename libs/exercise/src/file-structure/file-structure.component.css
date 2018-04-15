@@ -18,3 +18,15 @@ slides-file-tree {
   width: 20px;
 }
 
+.icon.folder {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('../../assets/images/folder.png') no-repeat center center;
+}
+
+.file-structure-label {
+  color: #444444;
+  margin-top: -12px;
+
+}

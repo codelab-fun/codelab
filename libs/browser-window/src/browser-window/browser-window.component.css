@@ -23,8 +23,7 @@
 .img-full {
   width: 100%;
   height: 2vw;
-  background-image: url(/assets/images/browsertop-middle.png);
-  background-repeat: repeat;
+  background: url(../../assets/browsertop-middle.png) repeat;
   background-size: 2vw 2vw;
   display: flex;
   justify-content: space-between;

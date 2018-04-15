@@ -40,13 +40,12 @@ export class FileTreeComponent implements OnChanges {
     const ext = fileConfig.path.slice(fileConfig.path.lastIndexOf('.')).toLowerCase();
     switch (ext) {
       case '.ts':
-        return '/assets/images/file-ts.png';
+        return 'file-ts';
       case '.html':
-        return '/assets/images/file-html.png';
+        return 'file-html';
       default:
-        return '/assets/images/file.png';
+        return 'file';
     }
-
   }
 
   isActive(fileConfig: FileConfig): boolean {

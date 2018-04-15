@@ -1,8 +1,11 @@
 <div *ngFor="let node of nodes" [style.padding-left.px]="(node.depth - 1) * 15">
-  <div class="folder"><img src="/assets/images/folder.png"/>{{node.path}}</div>
+  <div>
+    <span class="icon folder"></span>
+    {{node.path}}
+  </div>
   <div class="file" [style.padding-left.px]="node.depth * 15"
        *ngFor="let file of node.files">
-    <img src="{{getIcon(file)}}"/>
+    <span [class]="'icon icon-'+getIcon(file)"></span>
     <a
       [class.active]="isActive(file)"
       [class.opened]="file.opened"
@@ -10,7 +13,7 @@
       {{getFile(file)}}
     </a>
     <span class="readonlyIcon">
-      <img *ngIf="file.readonly==true" src="/assets/images/lock.png" style="width: 12px;" />
+      <span *ngIf="file.readonly==true" class="icon icon-lock">lol</span>
     </span>
   </div>
 </div>

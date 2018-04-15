@@ -35,8 +35,35 @@ a.active {
   padding: 0px 0px 2px 2px;
 }
 
-
 .readonlyIcon {
   width: 14px;
   height: 16px;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position-y: center;
+}
+
+.icon.icon-lock {
+  background-image: url('../../assets/images/lock.png');
+}
+
+.icon.icon-file-ts {
+  background-image: url('../../assets/images/file-ts.png');
+}
+
+.icon.icon-file-html {
+  background-image: url('../../assets/images/file-html.png');
+}
+
+.icon.icon-file {
+  background-image: url('../../assets/images/file.png');
+}
+
+.icon.folder {
+  background-image: url('../../assets/images/folder.png');
 }

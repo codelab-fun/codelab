@@ -2,7 +2,7 @@
   <div class="file-tree-column-toggle" [class.active]="showFileTree"
        (click)="toggleTree()">
     <div class="file-structure-button">
-      <div class="wrapper"><img src="/assets/images/folder.png"/>File structure</div>
+      <div class="wrapper"><span class="icon folder"></span><span class="file-structure-label">File structure</span></div>
     </div>
   </div>
   <slides-file-tree *ngIf="showFileTree" [files]="files" [active]="currentFile"
