@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CodelabFile } from '../../../../../../slides/src/app/exercise/helpers/codelabFile';
+import { CodelabFile } from '../../../../../../../libs/exercise/src/helpers/codelabFile';
 
 
 

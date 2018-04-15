@@ -1,8 +1,8 @@
 import { AfterViewInit, Directive, Input } from '@angular/core';
-import { EditorComponent } from '../exercise/editor/editor.component';
+import { EditorComponent } from '../../../../../libs/exercise/src/editor/editor.component';
 import { findPosition } from './utils';
 import 'rxjs/add/operator/first';
-import { MonacoConfigService } from '../exercise/services/monaco-config.service';
+import { MonacoConfigService } from '../../../../../libs/exercise/src/services/monaco-config.service';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.

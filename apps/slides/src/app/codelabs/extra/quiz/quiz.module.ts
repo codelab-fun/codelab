@@ -5,7 +5,7 @@ import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes'
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
 import { QuizComponent } from './quiz.component';
 import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
-import { ExerciseModule } from '../../../exercise/exercise.module';
+import { ExerciseModule } from '../../../../../../../libs/exercise/src/exercise.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(QuizComponent)

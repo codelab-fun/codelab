@@ -6,9 +6,9 @@ import { CommonModule } from '@angular/common';
 import { CreateFirstAppComponent } from './create-first-app.component';
 import { SlidesRoutes } from '@slides/slides/src/slide-routes';
 import { SlidesModule } from '@slides/slides';
-import { ExerciseModule } from '../../../../slides/src/app/exercise/exercise.module';
+import { ExerciseModule } from '../../../../../libs/exercise/src/exercise.module';
 import { FeedbackModule } from '../../../../../libs/feedback/src/feedback.module';
-import { RunnersModule } from '../../../../slides/src/app/exercise/runners/runners.module';
+import { RunnersModule } from '../../../../../libs/exercise/src/runners/runners.module';
 import { BrowserWindowModule } from '../../../../../libs/browser-window/src/browser-window.module';
 
 const routes = RouterModule.forChild(

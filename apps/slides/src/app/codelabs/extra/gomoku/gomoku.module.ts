@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes';
 
-import { ExerciseModule } from '../../../exercise/exercise.module';
+import { ExerciseModule } from '../../../../../../../libs/exercise/src/exercise.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser-window/src/browser-window.module';
-import { RunnersModule } from '../../../exercise/runners/runners.module';
+import { RunnersModule } from '../../../../../../../libs/exercise/src/runners/runners.module';
 import { GomokuComponent } from './gomoku.component';
 import { TooltipsModule } from '../../../tooltips/tooltips.module';
-import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.model';
+import { FakeBabelModule } from '../../../../../../../libs/exercise/src/fake-babel-runner/fake-babel-runner.model';
 import { CommonModule } from '@angular/common';
 import { GomokuBoardModule } from './board/board.module';
 

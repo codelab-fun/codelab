@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { displayAngularComponent } from '../../../../slides/src/app/exercise/helpers/helpers';
+import { displayAngularComponent } from '../../../../../libs/exercise/src/helpers/helpers';
 
 @Component({
   selector: 'slides-pipes',

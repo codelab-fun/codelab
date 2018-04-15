@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { displayAngularComponentWithHtml } from '../../../exercise/helpers/helpers';
+import { displayAngularComponentWithHtml } from '../../../../../../../libs/exercise/src/helpers/helpers';
 
 
 const baseCode = `

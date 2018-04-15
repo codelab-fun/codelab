@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { exercise } from '../../../exercise/helpers/helpers';
+import { exercise } from '../../../../../../../libs/exercise/src/helpers/helpers';
 import { parse } from 'babylon';
 import {
   findHighlightsObjectProp,

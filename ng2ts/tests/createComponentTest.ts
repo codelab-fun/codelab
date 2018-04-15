@@ -5,7 +5,7 @@ import {
   expectDecorator,
   expectDecoratorPropertyStringValue,
   expectExportedClass
-} from '../../apps/slides/src/app/exercise/runners/ts-code-test-runner/babel-helpers';
+} from '../../libs/exercise/src/runners/ts-code-test-runner/babel-helpers';
 
 const tests = [
   {

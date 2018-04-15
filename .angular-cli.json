@@ -17,6 +17,11 @@
           "glob": "**/*",
           "input": "../../../node_modules/monaco-editor",
           "output": "./assets/monaco"
+        },
+        {
+          "glob": "**/*",
+          "input": "../../../libs/exercise/assets/runner",
+          "output": "./assets/runner"
         }
       ],
       "index": "index.html",
@@ -158,6 +163,13 @@
     {
       "name": "differ",
       "root": "libs/differ/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
+      "name": "exercise",
+      "root": "libs/exercise/src",
       "test": "../../../test.js",
       "appRoot": "",
       "tags": []

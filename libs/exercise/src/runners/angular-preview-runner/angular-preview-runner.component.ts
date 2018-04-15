@@ -28,10 +28,10 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
       // TODO: addCss(require('./inner.css'));
       const indexHtml = files.find(file => file.path === 'index.html') || {code: '<my-app></my-app>'};
       setHtml(indexHtml.code);
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/core-js/client/shim.min.js'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/zone.js/dist/zone.js'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/js/system-config'));
-      loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../../assets/runner/ng2/ng-bundle'));
+      evalJs(require('!!raw-loader!../../../assets/runner/node_modules/core-js/client/shim.min.js'));
+      evalJs(require('!!raw-loader!../../../assets/runner/node_modules/zone.js/dist/zone.js'));
+      evalJs(require('!!raw-loader!../../../assets/runner/js/system-config'));
+      loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../assets/runner/ng2/ng-bundle'));
       addCss(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'));
       addDep('reflect-metadata', Reflect);
       const bootstrapFiles = files.filter(file => !file.test);

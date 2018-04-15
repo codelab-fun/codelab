@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { reactExercise } from '../../../exercise/helpers/helpers';
+import { reactExercise } from '../../../../../../../libs/exercise/src/helpers/helpers';
 
 @Component({
   selector: 'slides-react',

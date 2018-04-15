@@ -26,13 +26,13 @@ export class AngularTestRunnerComponent implements AfterViewInit {
     }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
       // TODO: addCss(require('./inner.css'));
       setHtml('<my-app></my-app>');
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/core-js/client/shim.min.js'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/zone.js/dist/zone.js'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/js/chai.min'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/js/system-config'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/js/mocha'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/js/test-bootstrap'));
-      loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../../assets/runner/ng2/ng-bundle'));
+      evalJs(require('!!raw-loader!../../../assets/runner/node_modules/core-js/client/shim.min.js'));
+      evalJs(require('!!raw-loader!../../../assets/runner/node_modules/zone.js/dist/zone.js'));
+      evalJs(require('!!raw-loader!../../../assets/runner/js/chai.min'));
+      evalJs(require('!!raw-loader!../../../assets/runner/js/system-config'));
+      evalJs(require('!!raw-loader!../../../assets/runner/js/mocha'));
+      evalJs(require('!!raw-loader!../../../assets/runner/js/test-bootstrap'));
+      loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../assets/runner/ng2/ng-bundle'));
       addDep('reflect-metadata', Reflect);
       const testFiles = files.filter(file => !file.excludeFromTesting);
       runTypeScriptFiles(testFiles, {addCss, setHtml, evalJs, addDep, iframe});

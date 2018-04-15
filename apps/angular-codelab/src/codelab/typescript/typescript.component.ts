@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../../slides/src/app/exercise/helpers/helpers';
+import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../../../libs/exercise/src/helpers/helpers';
 import { ng2tsConfig } from '../../../../../ng2ts/ng2ts';
 import { extractMessages } from '../../../../../libs/slides/src/i18n-tools';
 declare const require;

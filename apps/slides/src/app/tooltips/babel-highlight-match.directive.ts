@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, Input } from '@angular/core';
-import { EditorComponent } from '../exercise/editor/editor.component';
+import { EditorComponent } from '../../../../../libs/exercise/src/editor/editor.component';
 import 'rxjs/add/operator/first';
 
 @Directive({

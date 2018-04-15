@@ -7,7 +7,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/publish';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { PresentationComponent } from '../../../../../../libs/slides/src/presentation/presentation.component';
+import { PresentationComponent } from '../../../slides/src/presentation/presentation.component';
 import { assert } from '../services/utils';
 import {
   AfterViewInit,

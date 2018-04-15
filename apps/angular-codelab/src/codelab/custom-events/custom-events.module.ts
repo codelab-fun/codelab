@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '@slides/slides/src/slide-routes';
-import { ExerciseModule } from '../../../../slides/src/app/exercise/exercise.module';
+import { ExerciseModule } from '../../../../../libs/exercise/src/exercise.module';
 import { SlidesModule } from '@slides/slides';
 import { FeedbackModule } from '@slides/feedback';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '@slides/browser-window';
-import { RunnersModule } from '../../../../slides/src/app/exercise/runners/runners.module';
+import { RunnersModule } from '../../../../../libs/exercise/src/runners/runners.module';
 
 const routes = RouterModule.forChild(
   [

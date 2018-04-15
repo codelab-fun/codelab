@@ -1,5 +1,5 @@
 import { AutorunComponent } from './autorun/autorun.component';
-import { BrowserWindowModule } from '../../../../../libs/browser-window/src/browser-window.module';
+import { BrowserWindowModule } from '../../browser-window/src/browser-window.module';
 import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
@@ -11,11 +11,10 @@ import { LoopProtectionService } from './services/loop-protection.service';
 import { MonacoConfigService } from './services/monaco-config.service';
 import { NgModule } from '@angular/core';
 import { PlaygroundComponent } from './playground/playground.component';
-import { ResizeModule } from '../resize/resize.module';
 import { RunnerComponent } from './runner/runner.component';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
-import { TooltipsModule } from '../tooltips/tooltips.module';
+import { TooltipsModule } from '../../../apps/slides/src/app/tooltips/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
@@ -43,7 +42,6 @@ import { RunnersModule } from './runners/runners.module';
     AngularRunnerComponent
   ], imports: [
     RunnersModule,
-    ResizeModule,
     CommonModule,
     FormsModule,
     TooltipsModule,

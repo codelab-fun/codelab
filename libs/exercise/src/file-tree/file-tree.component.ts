@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
-import { FileConfig } from './../interfaces/file-config';
+import { FileConfig } from '../interfaces/file-config';
 
 interface Node {
   depth: number;
