@@ -1,7 +1,9 @@
 <div slides-auto-resize
+     [class]="'theme-default'"
      [class.overview]="mode===modeEnum.overview"
      [class.presentation]="true"
      [class.presentation-hide-controls]="config.hideControls"
-     slides-shortcuts>
+     slides-shortcuts
+>
   <ng-content></ng-content>
 </div>

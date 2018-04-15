@@ -1,5 +1,5 @@
 import { NgModule, Pipe } from '@angular/core';
-import { FeedbackModule } from '../../slides/src/app/feedback/feedback.module';
+import { FeedbackModule } from '../../../libs/feedback/src/feedback.module';
 import { SvgComponent } from './svg.component';
 import { SlidesModule } from '@slides/slides/src/slides.module';
 import { ExerciseModule } from '../../slides/src/app/exercise/exercise.module';

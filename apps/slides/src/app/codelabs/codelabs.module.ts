@@ -9,7 +9,7 @@ import { ExerciseModule } from '../exercise/exercise.module';
 import { TooltipsModule } from '../tooltips/tooltips.module';
 import { IndexComponent } from './index/index.component';
 import { SlidesModule } from '../../../../../libs/slides/src/slides.module';
-import { FeedbackModule } from 'app/feedback/feedback.module';
+import { FeedbackModule } from '../../../../../libs/feedback/src/feedback.module';
 import { environment } from '../../environments/environment';
 
 export let routes = [

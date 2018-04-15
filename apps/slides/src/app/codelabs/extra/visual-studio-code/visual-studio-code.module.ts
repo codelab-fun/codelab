@@ -1,5 +1,5 @@
 import { RouterModule } from '@angular/router';
-import { FeedbackModule } from '../../../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

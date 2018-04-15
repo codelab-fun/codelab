@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { DepsService } from './deps-order.service';
+
 declare const require;
 const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/dev/vs/loader');
 
 const win = window as any;
 declare const monaco;
-
 
 @Injectable()
 export class MonacoConfigService {
@@ -42,7 +42,9 @@ export class MonacoConfigService {
   }
 
   constructor(private depsService: DepsService) {
-    this.monaco = monaco;
+    MonacoConfigService.monacoReady.then((m: any) => {
+      this.monaco = m;
+    });
   }
 
   sortFiles(files: FileConfig[]) {

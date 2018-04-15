@@ -1,10 +1,22 @@
+
 .feedback-button {
-  background-image: url("../../../assets/images/chat.png");;
-  background-color: #3498db;
-  border-radius: 100%;
+  background: #3498db url("../../../../apps/slides/src/assets/images/chat.png") no-repeat center;
   text-align: right;
   display: inline-block;
   position: relative;
+
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+  margin-left: 10px;
+}
+
+.feedback-button:hover  {
+  backgroung-position: -2px;
+
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .3);
 }
 
 .feedback-button .messages-count {

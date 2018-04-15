@@ -10,12 +10,14 @@ import { MonacoConfigService } from '../services/monaco-config.service';
 import { PresentationComponent } from '../../../../../../libs/slides/src/presentation/presentation.component';
 import { assert } from '../services/utils';
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
   forwardRef,
   HostListener,
   Input,
+  OnChanges,
   Output,
   SimpleChanges,
   ViewChild
@@ -38,7 +40,7 @@ declare const require: any;
     }
   ],
 })
-export class EditorComponent {
+export class EditorComponent implements OnChanges, AfterViewInit {
   editSubscription: Subscription;
   public editor: any;
   @Input() public file: FileConfig;
@@ -67,12 +69,10 @@ export class EditorComponent {
     return Math.max(lines * lineHeight, lineHeight * this.minLines);
   }
 
-
   constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
     this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1500) : A))
       .subscribe(this.onCodeChange);
   }
-
 
   loadCode(code: string) {
     this.code = code;
@@ -95,42 +95,44 @@ export class EditorComponent {
 
 
   ngAfterViewInit(): void {
-    // TODO: This will not work on resize
-    this.calcActualFontSize();
-    assert(this.code, 'Code is undefined for the editor');
-    assert(this.fontSize, 'Incorrect font-size passed');
+    MonacoConfigService.monacoReady.then(() => {
 
-    const myDiv: HTMLDivElement = this.editorContent.nativeElement;
-    const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
+      // TODO: This will not work on resize
+      this.calcActualFontSize();
+      assert(this.code, 'Code is undefined for the editor');
+      assert(this.fontSize, 'Incorrect font-size passed');
 
-    this.code = this.file.code;
-    this.editor = this.monacoConfigService.monaco.editor.create(myDiv,
-      {
-        model: model,
-        scrollBeyondLastLine: true,
-        readOnly: this.file.readonly,
-        tabCompletion: true,
-        wordBasedSuggestions: true,
-        lineNumbersMinChars: 3,
-        automaticLayout: true,
-        fontSize: this.actialFontSize,
-        lineNumbers: this.lineNumbers,
-        folding: true,
+      const myDiv: HTMLDivElement = this.editorContent.nativeElement;
+      const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
+
+      this.code = this.file.code;
+      this.editor = this.monacoConfigService.monaco.editor.create(myDiv,
+        {
+          model: model,
+          scrollBeyondLastLine: true,
+          readOnly: this.file.readonly,
+          tabCompletion: true,
+          wordBasedSuggestions: true,
+          lineNumbersMinChars: 3,
+          automaticLayout: true,
+          fontSize: this.actialFontSize,
+          lineNumbers: this.lineNumbers,
+          folding: true,
+        });
+
+      this.editor.getModel().onDidChangeContent(() => {
+        this.updateValue(this.editor.getModel().getValue());
       });
 
-    this.editor.getModel().onDidChangeContent(() => {
-      this.updateValue(this.editor.getModel().getValue());
+
+      // Re-running the code on Ctrl + Enter
+      // TODO
+      /* tslint:disable */
+      this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+        () => this.updateValue(this.editor.getModel().getValue()));
+      /* tslint:enable */
+      this.updateHeight(this.file.code);
     });
-
-
-    // Re-running the code on Ctrl + Enter
-    // TODO
-    /* tslint:disable */
-    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-      () => this.updateValue(this.editor.getModel().getValue()));
-    /* tslint:enable */
-    this.updateHeight(this.file.code);
-
   }
 
   updateHeight(value: string) {

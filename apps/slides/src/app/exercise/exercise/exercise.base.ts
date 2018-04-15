@@ -77,11 +77,14 @@ export class ExerciseBase implements OnInit {
   }
 
   ngOnInit() {
-    assert(this.config, 'Playground config is not defined');
-    // TODO: Remove condition
-    if (this.config.files.length) {
-      this.loadModels(this.config.files);
-    }
+    MonacoConfigService.monacoReady.then(() => {
+
+      assert(this.config, 'Playground config is not defined');
+      // TODO: Remove condition
+      if (this.config.files.length) {
+        this.loadModels(this.config.files);
+      }
+    });
   }
 
   constructor(public slide: SlideComponent,

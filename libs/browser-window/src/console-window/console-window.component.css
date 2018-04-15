@@ -5,10 +5,11 @@
 }
 
 .frame {
-  border: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
   padding: 10px;
   margin-top: 0px;
   width: 100%;
+  box-sizing: border-box;
   background-color: #fff;
 }
 
@@ -26,5 +27,13 @@
 }
 
 .img-left {
-  background-image: url(../../assets/consoletop-left.png) norepeat;
+  background: url(../../assets/consoletop-left.png) no-repeat;
+  width: 339px;
+  height: 32px;
+}
+
+.img-right {
+  background: url(../../assets/consoletop-right.png) no-repeat;
+  width: 124px;
+  height: 32px;
 }

@@ -5,7 +5,7 @@ import { SlidesRoutes } from '../../../../../../../libs/slides/src/slide-routes'
 
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src/slides.module';
-import { FeedbackModule } from '../../../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser-window/src/browser-window.module';
 
 

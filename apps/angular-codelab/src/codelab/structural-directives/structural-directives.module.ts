@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '@slides/slides/src/slide-routes';
 
 
-import { FeedbackModule } from '../../../../slides/src/app/feedback/feedback.module';
+import { FeedbackModule } from '../../../../../libs/feedback/src/feedback.module';
 import { BrowserWindowModule } from '../../../../../libs/browser-window/src/browser-window.module';
 import { StructuralDirectivesComponent } from './structural-directives.component';
 import { RunnersModule } from '../../../../slides/src/app/exercise/runners/runners.module';

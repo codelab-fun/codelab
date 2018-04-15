@@ -1,9 +1,9 @@
 import { Component, ContentChild, Input, OnInit, Optional, ViewChild } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '../../../../../../libs/slides/src/slide/slide.component';
 import { CodeGroupComponent } from '../code-group/code-group.component';
 import { EditorComponent } from '../editor/editor.component';
+import { SlideComponent } from '@slides/slides/src/slide/slide.component';
 
 declare const require;
 
@@ -36,8 +36,7 @@ export class CodeEditorComponent implements OnInit {
               private group: CodeGroupComponent) {
   }
 
-  @Input('babelHighlightMatch') babelHighlightMatch: any = () => {
-  };
+  @Input('babelHighlightMatch') babelHighlightMatch: any
 
 
   ngOnInit(): void {
@@ -75,7 +74,10 @@ export class CodeEditorComponent implements OnInit {
 
 
     if (!this.group) {
-      this.monacoConfig.createFileModels([this.file]);
+      MonacoConfigService.monacoReady.then(() => {
+        this.monacoConfig.createFileModels([this.file]);
+      });
+
     }
   }
 }

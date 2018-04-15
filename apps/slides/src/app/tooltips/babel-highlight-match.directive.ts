@@ -14,7 +14,9 @@ export class BabelHighlightDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+
     if (this.callback) {
+      debugger;
       const matches = this.callback(this.editorComponent.code) || [];
 
       const decorations = matches.map(match => {

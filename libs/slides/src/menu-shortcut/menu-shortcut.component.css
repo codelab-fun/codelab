@@ -1,3 +1,17 @@
+.menu-shortcut {
+  background: #ff594b url("../../../../apps/slides/src/assets/images/home.png") no-repeat center;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+  margin-left: 10px;
+}
+
 .menu-index {
   min-width: 350px;
   position: fixed;
@@ -13,6 +27,12 @@
 .menu-list {
   list-style-type: none;
   padding-left: 0;
+}
+
+.menu-list .menu-item {
+  margin-bottom: 1vh;
+  padding: 0;
+  font-size: 3vh;
 }
 
 .menu-list .menu-item a {
@@ -44,11 +64,6 @@
   margin-bottom: 15px;
   bottom: 7%;
   right: 5%;
-}
-
-.menu-btn {
-  background-color: #ff594b;
-  background-image: url("../../../../apps/slides/src/assets/images/home.png");
 }
 
 .menu-icon:hover {

@@ -41,3 +41,15 @@
   font-size: 0.5vw;
   background-color: #fff;
 }
+
+.img-left {
+  background: url(../../assets/browsertop-left.png) no-repeat;
+  width: 339px;
+  height: 32px;
+}
+
+.img-right {
+  background: url(../../assets/browsertop-right.png) no-repeat;
+  width: 124px;
+  height: 32px;
+}

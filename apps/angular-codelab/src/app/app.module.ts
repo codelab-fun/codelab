@@ -3,9 +3,11 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
-import { IndexComponent } from '../../../slides/src/app/codelabs/index/index.component';
-import { FeedbackModule } from '../../../slides/src/app/feedback/feedback.module';
+
+
 import { SlidesModule } from '@slides/slides';
+import { FeedbackModule } from '@slides/feedback';
+import { IndexComponent } from './index.component';
 
 
 export let routes = [

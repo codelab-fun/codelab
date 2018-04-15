@@ -2,20 +2,22 @@ import { CustomEventsComponent } from './custom-events.component';
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../libs/slides/src/slide-routes';
+import { SlidesRoutes } from '@slides/slides/src/slide-routes';
 import { ExerciseModule } from '../../../../slides/src/app/exercise/exercise.module';
-import { SlidesModule } from '../../../../../libs/slides/src/slides.module';
-import { FeedbackModule } from '../../../../slides/src/app/feedback/feedback.module';
+import { SlidesModule } from '@slides/slides';
+import { FeedbackModule } from '@slides/feedback';
 import { CommonModule } from '@angular/common';
-import { BrowserWindowModule } from '../../../../../libs/browser-window/src/browser-window.module';
+import { BrowserWindowModule } from '@slides/browser-window';
 import { RunnersModule } from '../../../../slides/src/app/exercise/runners/runners.module';
 
 const routes = RouterModule.forChild(
-  [{
-    path: '',
-    redirectTo: '/custom-events/intro',
-    pathMatch: 'full'
-  }, ...SlidesRoutes.get(CustomEventsComponent)]
+  [
+    {
+      path: '',
+      redirectTo: '/custom-events/intro',
+      pathMatch: 'full'
+    }, ...SlidesRoutes.get(CustomEventsComponent)
+  ]
 );
 
 @NgModule({
@@ -23,4 +25,5 @@ const routes = RouterModule.forChild(
   declarations: [CustomEventsComponent],
   exports: [CustomEventsComponent]
 })
-export class CustomEventsModule { }
+export class CustomEventsModule {
+}

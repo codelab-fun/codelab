@@ -1,0 +1,46 @@
+::ng-deep body {
+  margin: 0;
+  padding: 0;
+}
+
+:host .theme-default ::ng-deep {
+  font-family: "Helvetica Neue", Roboto, sans-serif;
+  font-weight: 400;
+
+  h1 {
+    font-weight: 300;
+    margin: 0;
+    font-size: 2vh;
+  }
+  h2 {
+    font-weight: 300;
+    font-size: 4vh;
+    color: #444;
+  }
+  h3 {
+    font-weight: 300;
+    font-size: 3vh;
+    color: #444;
+  }
+
+  li {
+    font-weight: 300;
+    font-size: 4vh;
+    margin-bottom: 2vh;
+  }
+
+  .info {
+    font-size: 4vh;
+    font-weight: 300;
+    color: #ff1900;
+    padding: 10px;
+    margin-top: 4vh;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+

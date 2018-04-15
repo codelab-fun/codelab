@@ -163,6 +163,13 @@
       "tags": []
     },
     {
+      "name": "feedback",
+      "root": "libs/feedback/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "slides",
       "root": "libs/slides/src",
       "test": "../../../test.js",

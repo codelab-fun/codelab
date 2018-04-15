@@ -5,8 +5,8 @@
   width: 100vw;
   height: 100vh;
   padding: 2vw;
+  box-sizing: border-box;
 }
-
 
 :host[no-padding] {
   padding: 0;

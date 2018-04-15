@@ -9,7 +9,7 @@ declare const ga;
 @Component({
   selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.css'],
+  styleUrls: ['./presentation.component.css', './theme-default.scss'],
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements AfterViewInit {

@@ -33,6 +33,9 @@ export class TooltipsDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    if (!this.tooltips.length) {
+      return;
+    }
     // only generate tooltip when the slide is active
     const decorations = this.tooltips.map((tooltip, i) => {
       const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, tooltip.match);
