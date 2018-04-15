@@ -3,10 +3,10 @@
     <br/>
     <br/>
     <h1>Rate this lesson ...</h1>
-    <div row>
+    <div class="rate-wrapper">
       <div *ngFor="let rate of rates; let i=index;" class="rateoption">
-        <div [class]="rateClass(i)" (click)="selectRate(i)">
-          <img [src]="'assets/images/'+rate.src"/>
+        <div [class]="rateClass(i)" (click)="selectRate(i)" [class]="'icon icon-' + rate.src">
+
         </div>
         <h1>{{rate.text}}</h1>
       </div>

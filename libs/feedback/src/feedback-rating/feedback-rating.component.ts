@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, AfterViewInit, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -16,22 +16,22 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
   rateSelected = -1;
   rates = [
     {
-      src: 'ng-smile.svg',
-      value: '"perfect',
+      src: 'smile',
+      value: 'perfect',
       text: 'Perfect!'
     },
     {
-      src: 'ng-ok.svg',
+      src: 'ok',
       value: 'good',
       text: 'Good'
     },
     {
-      src: 'ng-soso.svg',
+      src: 'soso',
       value: 'soso',
       text: 'ok'
     },
     {
-      src: 'ng-sleepy.svg',
+      src: 'sleepy',
       value: 'hopedformore',
       text: 'Hoped for more!'
     },
