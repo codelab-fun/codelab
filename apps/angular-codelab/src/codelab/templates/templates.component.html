@@ -82,7 +82,7 @@
   <slides-arrows></slides-arrows>
 
   <!--  INTRO -->
-  <slides-slide *slidesIf="'intro'" no-padding>
+  <ng-template #intro'" no-padding>
     <slides-title-slide
       title="Templates"
       i18n-title="@@templates"
@@ -94,7 +94,7 @@
 
 
   <!--  COMPONENT -->
-  <slides-slide *slidesIf="'component'; milestone: 'Templates'">
+  <ng-template #component'; milestone: 'Templates'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -106,7 +106,7 @@
   </slides-slide>
 
   <!--  INTERPOLATION-->
-  <slides-slide *slidesIf="'interpolation'; milestone: 'Templates'">
+  <ng-template #interpolation'; milestone: 'Templates'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -122,7 +122,7 @@
 
 
   <!--INTERPOLATION-METHOD-->
-  <slides-slide *slidesIf="'interpolation-method'; milestone: 'Templates'">
+  <ng-template #interpolation-method'; milestone: 'Templates'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -136,7 +136,7 @@
                        [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
   </slides-slide>
 
-  <slides-slide *slidesIf="'exercise-pre'; milestone: 'Templates'">
+  <ng-template #exercise-pre'; milestone: 'Templates'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -149,7 +149,7 @@
     <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
   </slides-slide>
 
-  <slides-slide *slidesIf="'exercise'; " no-padding>
+  <ng-template #exercise'; " no-padding>
     <slides-exercise [files]="exercises[0].files">
       <div class="description"></div>
       <slides-new-editors class="editor">
@@ -162,7 +162,7 @@
   </slides-slide>
 
   <!--  PRE DATA BINDING-->
-  <slides-slide *slidesIf="'data-binding-pre'; milestone: 'Templates2'">
+  <ng-template #data-binding-pre'; milestone: 'Templates2'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -177,7 +177,7 @@
   </slides-slide>
 
   <!--  DATA BINDING  -->
-  <slides-slide *slidesIf="'data-binding'; milestone: 'Templates2'">
+  <ng-template #data-binding'; milestone: 'Templates2'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -192,7 +192,7 @@
   </slides-slide>
 
   <!--  DATA BINDING EXTRAS-->
-  <slides-slide *slidesIf="'data-binding-extras'; milestone: 'Templates2'">
+  <ng-template #data-binding-extras'; milestone: 'Templates2'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -208,7 +208,7 @@
 
 
   <!--  BINDING EVENT -->
-  <slides-slide *slidesIf="'event-binding'; milestone: 'Templates2'">
+  <ng-template #event-binding'; milestone: 'Templates2'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -229,7 +229,7 @@
   </slides-slide>
 
   <!--  REFERENCE BINDING -->
-  <slides-slide *slidesIf="'reference-binding'; milestone: 'Templates2'">
+  <ng-template #reference-binding'; milestone: 'Templates2'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -249,7 +249,7 @@
   </slides-slide>
 
   <!--  CONDITIONAL DISPLAY-->
-  <slides-slide *slidesIf="'conditional-display-ngif'; milestone: 'Templates2'">
+  <ng-template #conditional-display-ngif'; milestone: 'Templates2'">
     <h2 i18n>Templates / Conditional Display (*ngIf)</h2>
     <p i18n>
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
@@ -259,7 +259,7 @@
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'exercise-2-pre'; milestone: 'Templates2'">
+  <ng-template #exercise-2-pre'; milestone: 'Templates2'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -272,7 +272,7 @@
     <slides-exercise-preview column-5 [config]="exercises[1]"></slides-exercise-preview>
   </slides-slide>
 
-  <slides-slide *slidesIf="'exercise-2-pre'" no-padding>
+  <ng-template #exercise-2-pre'" no-padding>
     <slides-exercise [files]="exercises[1].files">
       <div class="description"></div>
       <slides-new-editors class="editor">
@@ -285,7 +285,7 @@
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'repeating'; milestone: 'Templates3'">
+  <ng-template #repeating'; milestone: 'Templates3'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -299,7 +299,7 @@
                        [focus-highlight-match]="code.ngForDirectivePre.matches"></slides-playground>
   </slides-slide>
 
-  <slides-slide *slidesIf="'conditional-display-ngfor'; milestone: 'Templates3'">
+  <ng-template #conditional-display-ngfor'; milestone: 'Templates3'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -317,7 +317,7 @@
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'exercise-3-pre'; milestone: 'Templates3'">
+  <ng-template #exercise-3-pre'; milestone: 'Templates3'">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -333,7 +333,7 @@
     </div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'exercise-3'" no-padding>
+  <ng-template #exercise-3'" no-padding>
     <slides-exercise [files]="exercises[2].files">
       <div class="description"></div>
       <slides-new-editors class="editor">
@@ -346,7 +346,7 @@
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'end'">
+  <ng-template #end'">
     <slides-closing-slide>
       <div class="header" header>
         <h1>

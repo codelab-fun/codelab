@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component, ContentChildren,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+  TemplateRef,
+  ViewChildren
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Mode } from '../mode.enum';
 import { AnalyticsService } from '../analytics.service';
@@ -13,26 +22,23 @@ declare const ga;
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements AfterViewInit {
-  private generatedSlideIndex = 0;
-  private activeMode: Mode = Mode.none;
   public config = {
     resize: false,
     hideControls: false
   };
   public index: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
   @Input() public zoom = 1;
-
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @Output() onModeChange = new EventEmitter<Mode>();
-
   slides = [];
-
   // Expose enum to template
   modeEnum = Mode;
+  @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
+  private generatedSlideIndex = 0;
+  private activeMode: Mode = Mode.none;
 
   constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
     this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
@@ -62,6 +68,10 @@ export class PresentationComponent implements AfterViewInit {
     this.goToSlide(this.activeSlideIndex);
   }
 
+  ngAfterContentInit() {
+    console.log(this.templates);
+    debugger
+  }
 
   registerSlide(id: string, milestone: string) {
     if (this.milestone && milestone !== this.milestone) {
