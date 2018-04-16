@@ -23,7 +23,6 @@ import { DepsService } from './services/deps-order.service';
 import { NewEditorsComponent } from './new-editors/new-editors.component';
 import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
 import { RunnersModule } from './runners/runners.module';
-import { StackblitzPreviewComponent } from './stackblitz-preview/stackblitz-preview.component';
 import { StackblitzEmbedModule } from 'angular-stackblitz';
 
 @NgModule({
@@ -42,30 +41,34 @@ import { StackblitzEmbedModule } from 'angular-stackblitz';
     ExercisePreviewComponent,
     NewEditorsComponent,
     AngularRunnerComponent,
-    StackblitzPreviewComponent,
-  ], imports: [
-    RunnersModule,
-    ResizeModule,
-    CommonModule,
-    FormsModule,
-    TooltipsModule,
-    StackblitzEmbedModule,
-    BrowserWindowModule
-  ], providers: [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
-  exports: [
-    ExerciseComponent,
-    PlaygroundComponent,
-    EditorComponent,
-    SlidesPreviewComponent,
-    RunnerComponent,
-    CodeEditorComponent,
-    CodeGroupComponent,
-    ExercisePreviewComponent,
-    StackblitzPreviewComponent,
-    ExerciseComponent,
-    NewEditorsComponent,
-    AngularRunnerComponent
-  ]
+  ],
+  imports:
+    [
+      RunnersModule,
+      ResizeModule,
+      CommonModule,
+      FormsModule,
+      TooltipsModule,
+      StackblitzEmbedModule,
+      BrowserWindowModule
+    ],
+  providers:
+    [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
+  exports:
+    [
+      ExerciseComponent,
+      PlaygroundComponent,
+      EditorComponent,
+      SlidesPreviewComponent,
+      RunnerComponent,
+      CodeEditorComponent,
+      CodeGroupComponent,
+      ExercisePreviewComponent,
+      ExerciseComponent,
+      NewEditorsComponent,
+      AngularRunnerComponent
+    ]
 })
+
 export class ExerciseModule {
 }

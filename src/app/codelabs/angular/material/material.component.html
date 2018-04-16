@@ -96,16 +96,16 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'exercise'" no-padding>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    BRRBRBRB
-    <slides-stackblitz-preview [files]="exercise.files"></slides-stackblitz-preview>
+    <slides-exercise [files]="exercise.files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
   </slides-slide>
-
 
   <slides-slide *slidesIf="'end'">
     <slides-closing-slide>

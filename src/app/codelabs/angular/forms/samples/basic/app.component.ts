@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 /* tslint:disable */
 @Component({
   selector: 'my-app',
-  templateUrl: './app.html'
+  templateUrl: 'app.html'
 })
 export class AppComponent {
   username = 'Pirojok';

@@ -11,7 +11,7 @@ interface FileHighlights {
 }
 
 function matExercise(modules, html, highlights: FileHighlights = {}, theme = 'purple') {
-  const moduleCode = require('!!raw-loader!./samples/basic/app.module.ts').replace(/MatToolbarModule/g, modules);
+  const moduleCode = require('!!raw-loader!./samples/basic/app.module.ts').replace(/MatCardModule, MatToolbarModule/g, modules);
 
   return {
     files: [
@@ -49,7 +49,7 @@ export class MaterialComponent {
         `MatToolbarModule`,
         require('!!raw-loader!./samples/basic/app.1.html'),
         {
-          appModule: /MatToolbarModule(?:\n)/,
+          appModule: /MatToolbarModule/,
           appHtml: /<mat-toolbar[\s\S]*<\/mat-toolbar>/
         }
       ),
@@ -72,7 +72,7 @@ export class MaterialComponent {
         `MatToolbarModule,\n    MatCardModule,\n    MatButtonModule`,
         require('!!raw-loader!./samples/basic/app.4.html'),
         {
-          appModule: /MatButtonModule(?:\n)/,
+          appModule: /MatButtonModule/,
           appHtml: /<mat-card-actions[\s\S]*<\/mat-card-actions>/
         }
       ),
