@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { Message } from '../../../../../../../libs/feedback/src/message';
+import { Message } from '@slides/feedback/src/message';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import { GithubService } from 'app/github.service';
+import { GithubService } from '../../../slides/src/app/github.service';
 
 
 type Filter = 'all' | 'done' | 'notDone';
@@ -32,10 +32,12 @@ function normalize(feedback: Array<any>) {
 
 function group([feedback, grouping]) {
   if (grouping === 'nothing') {
-    return [{
-      key: 'Messages',
-      value: feedback
-    }];
+    return [
+      {
+        key: 'Messages',
+        value: feedback
+      }
+    ];
   }
   if (grouping === 'name' || grouping === 'href') {
     return groupBy(feedback, grouping);
@@ -66,8 +68,8 @@ export class FeedbackPageComponent implements OnInit {
   messages$: Observable<{ key: string; value: Message; }[]>;
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
-  private feedback$: AngularFireList<any[]>;
   githubAuth;
+  private feedback$: AngularFireList<any[]>;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
     afAuth.authState.subscribe(authData => {

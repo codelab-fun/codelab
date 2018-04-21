@@ -1,4 +1,4 @@
-<slides-presentation slides-slides-routing slides-mode-routing>
+<slides-presentation>
 
   <slides-slide no-padding>
     <div>
@@ -24,7 +24,7 @@
           <div>
             <b (click)="group$.next('name')">{{message.name}}</b>
             <span class="link">
-            (<a [routerLink]="message.href">{{message.header||'No header'}}</a>)
+            (<a [href]="message.href">{{message.header||'No header'}}</a>)
             </span>
           </div>
           <div>{{message.comment}}</div>
