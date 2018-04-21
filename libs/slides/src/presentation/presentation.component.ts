@@ -68,11 +68,6 @@ export class PresentationComponent implements AfterViewInit {
     this.goToSlide(this.activeSlideIndex);
   }
 
-  ngAfterContentInit() {
-    console.log(this.templates);
-    debugger
-  }
-
   registerSlide(id: string, milestone: string) {
     if (this.milestone && milestone !== this.milestone) {
       return;
