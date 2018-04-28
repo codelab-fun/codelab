@@ -14,13 +14,6 @@ import { environment } from '../../environments/environment';
 
 export let routes = [
   {
-    path: 'ast',
-    loadChildren: './extra/ast/ast.module#AstModule',
-    name: 'Abstract Syntax Trees',
-    description: 'Learn about ASTs',
-    page: 'bonus',
-    prod: true
-  }, {
     path: 'cellular-automation',
     loadChildren: './extra/cellular-automation/cellular-automation.module#CellularAutomationModule',
     name: 'cellular-automation',
@@ -105,7 +98,8 @@ export function monacoReady() {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
       multi: true
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class CodelabsModule {

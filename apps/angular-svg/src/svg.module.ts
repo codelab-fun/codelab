@@ -3,7 +3,7 @@ import { FeedbackModule } from '../../../libs/feedback/src/feedback.module';
 import { SvgComponent } from './svg.component';
 import { SlidesModule } from '@slides/slides/src/slides.module';
 import { ExerciseModule } from '../../../libs/exercise/src/exercise.module';
-import { SimpleEditorModule } from '../../slides/src/app/codelabs/extra/ast/simple-editor/editor.module';
+import { SimpleEditorModule } from '../../ast/src/simple-editor/editor.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';

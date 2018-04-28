@@ -100,9 +100,9 @@
       "tags": []
     },
     {
-      "name": "svg-cc",
-      "root": "apps/svg-cc/src",
-      "outDir": "dist/apps/svg-cc",
+      "name": "ast",
+      "root": "apps/ast/src",
+      "outDir": "dist/apps/ast",
       "assets": [
         "assets",
         "favicon.ico",
@@ -185,6 +185,37 @@
       "tags": []
     },
     {
+      "name": "svg-cc",
+      "root": "apps/svg-cc/src",
+      "outDir": "dist/apps/svg-cc",
+      "assets": [
+        "assets",
+        "favicon.ico",
+        {
+          "glob": "**/*",
+          "input": "../../../node_modules/monaco-editor",
+          "output": "./assets/monaco"
+        }
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      },
+      "tags": []
+    },
+    {
       "name": "browser-window",
       "root": "libs/browser-window/src",
       "test": "../../../test.js",
@@ -247,35 +278,19 @@
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "apps/angular-svg/src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "apps/angular-svg/e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "apps/angular-codelab/src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "apps/angular-codelab/e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "apps/browser-window/src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "apps/browser-window/e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
       "project": "apps/feedback/src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },
     {
       "project": "apps/feedback/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/ast/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/ast/e2e/tsconfig.e2e.json",
       "exclude": "**/node_modules/**"
     }
   ],
