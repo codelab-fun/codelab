@@ -1,0 +1,6 @@
+{
+  "/svg-list": {
+    "target": "http://localhost:7000",
+    "secure": false
+  }
+}

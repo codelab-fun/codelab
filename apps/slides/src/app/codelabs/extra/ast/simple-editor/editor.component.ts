@@ -11,7 +11,8 @@ import {
   ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MonacoConfigService } from '../../../../../../../../libs/exercise/src/services/monaco-config.service';
+import { MonacoConfigService } from '@slides/exercise/src/services/monaco-config.service';
+
 
 declare const monaco: any;
 declare const require: any;
@@ -36,11 +37,11 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   actialFontSize: number;
   model: any;
   editor: any;
-  private code: string;
   @Input() fontSize = 12;
   @Input() lineNumbers = true;
   @Output() change = new EventEmitter();
   @ViewChild('editor') editorEl;
+  private code: string;
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
   }
@@ -88,30 +89,30 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
 
 
   ngAfterViewInit(): void {
-    const editor = this.editorEl.nativeElement;
-    this.model = this.monacoConfigService.monaco.editor.createModel(this.code, 'html');
-    this.editor = this.monacoConfigService.monaco.editor.create(editor,
-      {
-        model: this.model,
-        scrollBeyondLastLine: true,
-        tabCompletion: true,
-        wordBasedSuggestions: true,
-        lineNumbersMinChars: 3,
-        lineNumbers: this.lineNumbers,
-        automaticLayout: true,
-        fontSize: this.fontSize,
-        folding: true,
+    MonacoConfigService.monacoReady.then(() => {
+      const editor = this.editorEl.nativeElement;
+      this.model = this.monacoConfigService.monaco.editor.createModel(this.code, 'html');
+      this.editor = this.monacoConfigService.monaco.editor.create(editor,
+        {
+          model: this.model,
+          scrollBeyondLastLine: true,
+          tabCompletion: true,
+          wordBasedSuggestions: true,
+          lineNumbersMinChars: 3,
+          lineNumbers: this.lineNumbers,
+          automaticLayout: true,
+          fontSize: this.fontSize,
+          folding: true,
+        });
+
+      this.model.onDidChangeContent(() => {
+        this.change.emit(this.editor.getModel().getValue());
       });
 
-    this.model.onDidChangeContent(() => {
-      this.change.emit(this.editor.getModel().getValue());
+
+      this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+        () => this.change.emit(this.editor.getModel().getValue()));
     });
-
-
-    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-      () => this.change.emit(this.editor.getModel().getValue()));
-
-
   }
 }
 

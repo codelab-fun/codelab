@@ -51,6 +51,7 @@
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
     "rxjs": "^5.5.6",
+    "sanitize-html": "^1.18.2",
     "vue": "^2.3.4",
     "zone.js": "^0.8.4"
   },
@@ -100,6 +101,7 @@
     "prettier": "1.10.2",
     "protractor": "~5.1.0",
     "rxjs": "^5.5.6",
+    "slackbots": "^1.1.0",
     "source-map-support": "0.4.3",
     "sw-precache": "^5.2.0",
     "systemjs": "^0.20.12",
