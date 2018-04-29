@@ -157,8 +157,8 @@
       "tags": []
     },
     {
-      "root": "apps/slides/src",
-      "outDir": "dist/apps/slides",
+      "root": "apps/old-slides/src",
+      "outDir": "dist/apps/old-slides",
       "assets": [
         "../node_modules/intro.js",
         "assets",
@@ -171,7 +171,7 @@
       "test": "../../../test.js",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "../../../tsconfig.spec.json",
-      "prefix": "slides",
+      "prefix": "old-slides",
       "styles": [
         "styles.scss"
       ],
@@ -181,7 +181,7 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       },
-      "name": "slides",
+      "name": "old-slides",
       "tags": []
     },
     {

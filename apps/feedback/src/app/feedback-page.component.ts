@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import { GithubService } from '../../../slides/src/app/github.service';
+import { GithubService } from './github.service';
+
 
 
 type Filter = 'all' | 'done' | 'notDone';

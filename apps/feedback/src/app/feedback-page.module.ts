@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
 
 import { HttpModule } from '@angular/http';
 import { environment } from '../environments/environment';
-import { GithubService } from '../../../slides/src/app/github.service';
+import { GithubService } from './github.service';
+
 
 
 export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);

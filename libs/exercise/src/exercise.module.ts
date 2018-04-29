@@ -1,5 +1,5 @@
 import { AutorunComponent } from './autorun/autorun.component';
-import { BrowserWindowModule } from '../../browser-window/src/browser-window.module';
+import { BrowserWindowModule } from '@slides/browser-window';
 import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
@@ -14,7 +14,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { RunnerComponent } from './runner/runner.component';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
-import { TooltipsModule } from '../../../apps/slides/src/app/tooltips/tooltips.module';
+
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
@@ -22,6 +22,7 @@ import { DepsService } from './services/deps-order.service';
 import { NewEditorsComponent } from './new-editors/new-editors.component';
 import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
 import { RunnersModule } from './runners/runners.module';
+import { TooltipsModule } from '../../../apps/old-slides/src/app/tooltips/tooltips.module';
 
 
 @NgModule({
