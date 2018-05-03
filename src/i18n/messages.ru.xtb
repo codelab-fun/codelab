@@ -24,7 +24,7 @@
   <translation id="6502697971057653879">Дочерний класс должен содержать специальный декоратор:
 <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Input()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></translation>
   <translation id="242686228345857569">Это первый раз, когда мы применяем декораторы к свойствам (а не к классам).</translation>
-  <translation id="6993248291969541113">Теперь мы знаем как создать компонент. Давайте переместим всю информацию, связанную с видео, в новый компонент с именем 
+  <translation id="6993248291969541113">Теперь мы знаем как создать компонент. Давайте переместим всю информацию, связанную с видео, в новый компонент с именем
 VideoComponent.</translation>
   <translation id="8535569169237447692">Мы загрузим компонент для Вас, результат будет следующий:</translation>
   <translation id="1902505859733550335">Милый котенок</translation>
@@ -103,7 +103,7 @@ VideoComponent.</translation>
   <translation id="2735369781715347846">Передайте все экспортируемые (injectable) зависимости в секцию <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>providers<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> вашего <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></translation>
   <translation id="4525370649719280544">Теперь этот сервис становится доступным для всех <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>компонентов<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> и других сервисов в  <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</translation>
   <translation id="9193697677313937686">Затраты на инъекцию компонентов</translation>
-  <translation id="261676783640894862">Благодаря модификатору доступа <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>private<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> , сервис становится доступным внутри класса, и к нему можно обратиться так:   
+  <translation id="261676783640894862">Благодаря модификатору доступа <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>private<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> , сервис становится доступным внутри класса, и к нему можно обратиться так:
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.converter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</translation>
   <translation id="2179039829273699885">На следующем слайде вы будете использовать сервис VideoService, в котором будет еще больше котиков!!! Результат будет таким:</translation>
   <translation id="7541582794652430956">Далее: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Изучите как собирать компоненты вместе<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></translation>
@@ -111,7 +111,7 @@ VideoComponent.</translation>
   <translation id="1167128618662478140">Двойные фигурные скобки подставляют
 значение свойства компонента</translation>
   <translation id="4326093281669549121">Обратные кавычки <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>` `<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> — так называемые волшебные кавычки, поддерживающие многострочную запись и интерполированные строки</translation>
-  <translation id="4394745758352985330">Простые выражения также разрешены, вы можете выполнить метод компонента (например fullName() ниже), или вычислить 
+  <translation id="4394745758352985330">Простые выражения также разрешены, вы можете выполнить метод компонента (например fullName() ниже), или вычислить
       <ph name="START_TAG_CODE"><ex>&lt;code&gt;</ex></ph>323213+34234<ph name="CLOSE_TAG_CODE"><ex>&lt;/code&gt;</ex></ph></translation>
   <translation id="2296178219868339562">На следующем слайде вы создадите шаблон компонента, состоящий из  заголовка и формы поиска. Результат будет выглядеть так:</translation>
   <translation id="9052605393761038321">Строковая интерполяция <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> также может использоваться для передачи значения в дочернем атрибуте элемента</translation>
@@ -143,7 +143,7 @@ VideoComponent.</translation>
   <translation id="1319734933981966500">Модули</translation>
   <translation id="4240486300768704478">Подробнее...</translation>
   <translation id="4895625190709847499">Оказывается если один из аргументов строка, мы получим <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>22<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, а не <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>4<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>. На следующем слайде мы посмотрим как TypeScript поможет нам избежать таких ошибок.</translation>
-  <translation id="2453425375180790120">TypeScript использует <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>:<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> для указания информации о типе (например <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>n: number<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>). В нашей функции сложения и <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> и 
+  <translation id="2453425375180790120">TypeScript использует <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>:<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> для указания информации о типе (например <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>n: number<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>). В нашей функции сложения и <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> и
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>b<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> должны быть числами. Мы указали тип для <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>a<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, теперь ваша очередь!</translation>
   <translation id="5379917036245705937">Вы можете редактировать код выше</translation>
   <translation id="7773507354148549356">Вот еще немного про типы, с примерами.</translation>
@@ -220,9 +220,9 @@ VideoComponent.</translation>
   <translation id="orStyleProps">Или CSS</translation>
   <translation id="worksWithCustomComponents">Все работает с пользовательскими компонентами</translation>
   <translation id="whenUserClicksItCallsSaveUser">При нажатии на кнопку, вызовется метод  компонента &quot;saveUser&quot; и передаст соответствующий event.</translation>
-  <translation id="youCanAlsoCreateEventsForCustomComponents">Вы также можете создавать события для кастомных компонентов. 
+  <translation id="youCanAlsoCreateEventsForCustomComponents">Вы также можете создавать события для кастомных компонентов.
 Здесь у нас есть событие &quot;depleted&quot;, которое вызовет &quot;soundAlarm&quot; когда сработает</translation>
-  <translation id="thereAreShortcutEventBindings">Еще есть упрощенный способ привязки событий! 
+  <translation id="thereAreShortcutEventBindings">Еще есть упрощенный способ привязки событий!
 Если пользователь нажмет CTRL+ENTER, запустится метод submit (это фича ангуляра)</translation>
   <translation id="userNameHasRefToInput">в userName есть ссылка на input</translation>
   <translation id="tryChangingToTrue">Попробуйте изменить на true!</translation>
@@ -307,8 +307,8 @@ VideoComponent.</translation>
   <translation id="allSetBootstrapApp">Всё готово! Загружайте приложение</translation>
   <translation id="exportClass">Экспортируйте класс</translation>
   <translation id="addComponentDecorator">Добавьте классу декоратор @Component</translation>
-  <translation id="addSelectorMyApp">Добавьте селектор  &apos;my-app&apos; в декоратор компонента</translation>
-  <translation id="addTemplateHelloMewTube">Добавьте шаблон, содержащий тег h1 с текстом &quot;Hello MewTube!&quot;</translation>
+  <translation id="addSelectorMyApp">Добавьте selector  &apos;my-app&apos; в декоратор компонента</translation>
+  <translation id="addTemplateHelloMewTube">Добавьте template, содержащий тег h1 с текстом &quot;Hello MewTube!&quot;</translation>
   <translation id="addNgModuleDecorator">Добавьте классу декоратор NgModule</translation>
   <translation id="addBrowserModuleToNgModule">Добавьте &apos;BrowserModule&apos; в свойство декоратора NgModule</translation>
   <translation id="addAppComponentToDeclarations">Добавьте компонент &apos;AppComponent&apos; к свойству &apos;declarations&apos; у декоратора</translation>
