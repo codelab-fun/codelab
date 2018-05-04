@@ -107,7 +107,7 @@ VideoComponent.</translation>
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.converter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</translation>
   <translation id="2179039829273699885">На следующем слайде вы будете использовать сервис VideoService, в котором будет еще больше котиков!!! Результат будет таким:</translation>
   <translation id="7541582794652430956">Далее: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Изучите как собирать компоненты вместе<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></translation>
-  <translation id="828579207806918596">У Angular крутая система шаблонизации, основанная на HTML и расширяемая с помошью пользовательских элементов</translation>
+  <translation id="828579207806918596">У Angular крутая система шаблонизации, основанная на HTML и расширяемая с помощью пользовательских элементов</translation>
   <translation id="1167128618662478140">Двойные фигурные скобки подставляют
 значение свойства компонента</translation>
   <translation id="4326093281669549121">Обратные кавычки <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>` `<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> — так называемые волшебные кавычки, поддерживающие многострочную запись и интерполированные строки</translation>
