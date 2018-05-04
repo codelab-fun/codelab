@@ -324,7 +324,7 @@ VideoComponent.</translation>
   <translation id="assignFakeVideosToComponent">app.component.ts: Внутри метода &apos;search&apos; установите переменную FAKE_VIDEOS в качестве значения свойства &apos;videos&apos;.</translation>
   <translation id="addH1HeaderWithATitle">app.html: Добавь заголовок H1, отобразите там свойство &apos;title&apos; AppComponent&apos;а</translation>
   <translation id="addSearchMethodOnComponent">app.component.ts: Добавьте в компонент метод &apos;search&apos;, который принимает параметр &apos;searchString&apos;</translation>
-  <translation id="addClickHandlerToButtonCallSearch">app.html: Добавьте обработчик нажатия мышки на кнопку, вызовите метод &apos;search&apos; и передайте значние поля ввода (Сам поиск мы сделаем позже)</translation>
+  <translation id="addClickHandlerToButtonCallSearch">app.html: Добавьте обработчик нажатия мышки на кнопку, вызовите метод &apos;search&apos; и передайте значeние поля ввода (Сам поиск мы сделаем позже)</translation>
   <translation id="addMessageNoVideos">app.html: Добавьте сообщение  &apos;no videos&apos; которое появляется только когда массив videos пустой</translation>
   <translation id="bonusDisplayAllVideosByDefault">#Bonus app.component.ts: Сейчас вам придется нажать кнопку поиска, чтобы отобразились видео. Поправьте код так, чтобы видео отображались по умолчанию, без нажатия кнопки.</translation>
   <translation id="insideSearchMethodFilterFakeVideos">app.component.ts: Внутри метода &apos;search&apos; отфильтруйте FAKE_VIDEOS так, чтобы возвращались только видео, название которых содержит искомую строку searchString. (подсказка: используйте .includes или .indexOf строковый метод)</translation>
