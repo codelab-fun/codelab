@@ -68,7 +68,7 @@ export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
   fullName(){
-     return this.firstName + this.lastName
+     return this.firstName + " " + this.lastName
   }
 }`),
         dataBindingPre: displayAngularComponent(`import {Component} from '@angular/core';
@@ -83,7 +83,7 @@ export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
   avatar = 'assets/images/renoir.jpg';
-  fullName(){  return this.firstName + this.lastName }
+  fullName(){  return this.firstName + " " + this.lastName }
 }`),
         dataBinding: displayAngularComponent(`import {Component} from '@angular/core';
 
@@ -97,7 +97,7 @@ export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
   avatar = 'assets/images/renoir.jpg';
-  fullName(){  return this.firstName + this.lastName }
+  fullName(){  return this.firstName + " " + this.lastName }
 }`),
         dataBindingExtra: `<!-- ${this.t.thisIsValidHTML} -->
 <input [value]="person.emailAddress">
