@@ -48,7 +48,7 @@ describe('forms', () => {
   });
 
 
-  it('upload.html: Add "title" input bound to the title property of the component', (done) => {
+  it('upload.component.html: Add "title" input bound to the title property of the component', (done) => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.title = 'hello';
     fixture.detectChanges();
@@ -66,7 +66,7 @@ describe('forms', () => {
     });
   });
 
-  it('upload.html: Add "description" textarea bound to the description property of the component', (done) => {
+  it('upload.component.html: Add "description" textarea bound to the description property of the component', (done) => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.description = 'hello';
     fixture.detectChanges();
