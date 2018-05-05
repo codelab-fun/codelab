@@ -1,11 +1,11 @@
 <div #translations style="display: none">
   <div i18n="@@componentIsDecorator" id="componentIsDecorator">@Component is an Angular decorator</div>
   <div i18n="@@noSemicolon" id="noSemicolon">No semicolon here (as it attaches itself to the class below</div>
-  <div i18n="@@decoratorGoesAboveEntity" id="decoratorGoesAboveEntity">The Decorator goes directly above the decorated
-    entity (class in this case)
+  <div i18n="@@decoratorGoesAboveEntity" id="decoratorGoesAboveEntity"
+  >The Decorator goes directly above the decorated entity (class in this case)
   </div>
-  <div i18n="@@componentNameIsClassName" id="componentNameIsClassName">Component name is the class name
-    (AppComponent).
+  <div i18n="@@componentNameIsClassName" id="componentNameIsClassName"
+  >Component name is the class name (AppComponent).
   </div>
   <div i18n="@@createClassAppComponent" id="createClassAppComponent">Create a class called 'AppComponent'</div>
   <div i18n="@@createClassAppModule" id="createClassAppModule">Create a class called 'AppModule'</div>
@@ -20,9 +20,15 @@
     MewTube!"
   </div>
   <div i18n="@@addNgModuleDecorator" id="addNgModuleDecorator">Add a NgModule decorator for the class</div>
-  <div i18n="@@addBrowserModuleToNgModule" id="addBrowserModuleToNgModule">Add 'BrowserModule' to the NgModule decorator imports</div>
-  <div i18n="@@addAppComponentToDeclarations" id="addAppComponentToDeclarations">Add 'AppComponent' to the 'declarations' property of the decorator</div>
-  <div i18n="@@addAppComponentToBootstrap" id="addAppComponentToBootstrap">Add 'AppComponent' to the 'bootstrap' property of the decorator</div>
+  <div i18n="@@addBrowserModuleToNgModule" id="addBrowserModuleToNgModule">Add 'BrowserModule' to the NgModule decorator
+    imports
+  </div>
+  <div i18n="@@addAppComponentToDeclarations" id="addAppComponentToDeclarations">Add 'AppComponent' to the
+    'declarations' property of the decorator
+  </div>
+  <div i18n="@@addAppComponentToBootstrap" id="addAppComponentToBootstrap">Add 'AppComponent' to the 'bootstrap'
+    property of the decorator
+  </div>
 </div>
 <slides-presentation
   slides-slides-routing
@@ -274,22 +280,23 @@
       <ng-container i18n>Browser Module</ng-container>
     </h1>
     <ng-container *ngIf="currentMode=='web'">
-        <h2 i18n>Because we're building a browser web app, we need to pass <b>BrowserModule</b> to the <b>imports</b> array</h2>
+      <h2 i18n>Because we're building a browser web app, we need to pass <b>BrowserModule</b> to the <b>imports</b>
+        array</h2>
     </ng-container>
     <ng-container *ngIf="currentMode=='mobile'">
-        <h2 i18n>With Angular we build mobile apps using NativeScript or Ionic.</h2>
+      <h2 i18n>With Angular we build mobile apps using NativeScript or Ionic.</h2>
     </ng-container>
     <ng-container *ngIf="currentMode=='vr'">
-        <h2 i18n>With Angular you can build VR apps with A-FRAME or WEBGL.</h2>
+      <h2 i18n>With Angular you can build VR apps with A-FRAME or WEBGL.</h2>
     </ng-container>
     <slides-code-group>
       <div [ngClass]="getModeClass('web')">
         <div class="box-row">
           <div class="box-row-fill">
             <slides-code-editor path="app.module.ts" [fontSize]="30" [code]="code.moduleAnatomy.code"
-                    [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
+                                [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
           </div>
-          <slides-browser-window  style="width: 490px; height: 300px;">
+          <slides-browser-window style="width: 490px; height: 300px;">
             <h1>Hello World</h1>
             <div style="width: 100%; text-align: center;">
               <img class="angular" src="/assets/images/angular.svg">
@@ -301,7 +308,7 @@
         <div class="box-row">
           <div class="box-row-fill">
             <slides-code-editor [fontSize]="30" [code]="code.moduleAnatomy.codeMobile"
-                  [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
+                                [focus-highlight-match]="[code.moduleAnatomy.matches.importsArr]"></slides-code-editor>
           </div>
           <img style="height: 340px; padding-top: 10px;" src="/assets/images/helloworldapp.png">
         </div>
@@ -316,18 +323,18 @@
       </div>
     </slides-code-group>
     <div class="info box-row" i18n>
-        <div class="box-row-fill">
-          Angular is not just for web apps anymore; you can also use it to create native phone apps and even
-          VR scenes.
-        </div>
-        <div style="width: 740px;">
-          <a href="#" [class]="'mode '+(currentMode=='web'?'mode-current':'mode-other')"
-                      (click)="selectMode($event, 'web')"><img src="/assets/images/browsericon.png" /></a>
-          <a href="#" [class]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')"
-                      (click)="selectMode($event, 'mobile')"><img src="/assets/images/phoneicon.png" /></a>
-          <a href="#" [class]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')"
-                      (click)="selectMode($event, 'vr')"><img src="/assets/images/vricon.png" /></a>
-        </div>
+      <div class="box-row-fill">
+        Angular is not just for web apps anymore; you can also use it to create native phone apps and even
+        VR scenes.
+      </div>
+      <div style="width: 740px;">
+        <a href="#" [class]="'mode '+(currentMode=='web'?'mode-current':'mode-other')"
+           (click)="selectMode($event, 'web')"><img src="/assets/images/browsericon.png"/></a>
+        <a href="#" [class]="'mode '+(currentMode=='mobile'?'mode-current':'mode-other')"
+           (click)="selectMode($event, 'mobile')"><img src="/assets/images/phoneicon.png"/></a>
+        <a href="#" [class]="'mode '+(currentMode=='vr'?'mode-current':'mode-other')"
+           (click)="selectMode($event, 'vr')"><img src="/assets/images/vricon.png"/></a>
+      </div>
     </div>
   </slides-slide>
   <!--  Declarations  -->
