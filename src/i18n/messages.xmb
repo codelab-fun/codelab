@@ -380,7 +380,7 @@
       videos were found. The result will look like this:</msg>
   <msg id="92659757529171106">Repeating elements</msg>
   <msg id="1048135326031252257">
-      Let&apos;s say you have an array of puppies, and want to display all of them on them page. Angular has a special syntax
+      Let&apos;s say you have an array of puppies, and want to display all of them on the page. Angular has a special syntax
       for that called <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, let&apos;s see how it works on the next slide
     </msg>
   <msg id="8944028182505149416">Repeating elements (*ngFor)</msg>

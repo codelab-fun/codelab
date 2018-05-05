@@ -417,7 +417,7 @@
       Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will start up all the components from that
       module's bootstrap section
     </h2>
-    <slides-code-editor path="app.module.ts" [fontSize]="30"
+    <slides-code-editor path="main.ts" [fontSize]="30"
                         [code]="code.moduleBootstrapping.code.mainTs"></slides-code-editor>
     <div class="info" i18n>For most simple apps, you can just copy/paste the code above "as is"</div>
   </slides-slide>
@@ -438,11 +438,11 @@
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells Angular that we are operating in the
       browser
     </h2>
-    <slides-code-editor path="app.module.ts" [fontSize]="25"
+    <slides-code-editor path="main.ts" [fontSize]="25"
                         [code]="code.moduleBootstrapping.code.mainTs"
                         [focus-highlight-match]="code.moduleBootstrapping.matches.bootstrap"></slides-code-editor>
 
-    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+    <a href="https://angular.io/guide/bootstrapping"
        target="_blank" i18n>
       Read more about root module and bootstrapping in Angular
     </a>
@@ -463,7 +463,7 @@
     <slides-code-editor path="app.module.ts" [fontSize]="25" [code]="code.moduleAnatomy.code"
                         [focus-highlight-match]="[code.moduleAnatomy.matches.bootstrapArr]"></slides-code-editor>
 
-    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+    <a href="https://angular.io/guide/bootstrapping"
        target="_blank" i18n>
       Read more about root module and bootstrapping in Angular
     </a>
@@ -484,7 +484,7 @@
     <slides-code-editor path="index.html" [fontSize]="25" [code]="code.moduleBootstrapping.code.indexHTML"
                         [focus-highlight-match]="code.moduleBootstrapping.matches.index"></slides-code-editor>
 
-    <a href="https://angular.io/docs/ts/latest/guide/appmodule.html"
+    <a href="https://angular.io/guide/bootstrapping"
        target="_blank" i18n>
       Read more about root module and bootstrapping in Angular
     </a>
