@@ -46,7 +46,7 @@ export class MaterialComponent {
   code = {
     material: {
       step1: matExercise(
-        `MatToolbarModule`,
+        `MatCardModule, MatToolbarModule`,
         require('!!raw-loader!./samples/basic/app.1.html'),
         {
           appModule: /MatToolbarModule/,
