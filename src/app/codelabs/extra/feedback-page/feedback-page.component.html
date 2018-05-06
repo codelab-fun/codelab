@@ -19,6 +19,7 @@
 
       <div *ngFor="let item of (this.messages$ | async)" class="group">
         <h2 class="feedback-header">{{item.key}}</h2>
+        <pre>{{item|json}}</pre>
 
         <div *ngFor="let message of item.value" class="card">
           <div>
