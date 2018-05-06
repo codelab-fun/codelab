@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Message } from './message';
 import { Observable } from 'rxjs/Observable';
 import { getRef } from 'angularfire2/database/utils';
+import { map, switchMap } from 'rxjs/operators';
 
 
 @Injectable()
@@ -19,11 +20,12 @@ export class FeedbackService {
 
   // Get a stream of messages filtered by href (of a message)
   getMessages(activatedRoute: ActivatedRoute): Observable<Message[]> {
-    const stream$ = this.repo$.valueChanges()
-      .switchMap((results: Message[]) =>
-        Observable.of(results.filter(m => m.href === this.router.url).filter(m => !m.isDone).sort())
-      );
-    return activatedRoute.url.switchMap(urls => stream$);
+    return activatedRoute.url.pipe(map(() => this.router.url),
+      switchMap(url => {
+        return this.database.list('/feedback',
+          ref => ref
+            .orderByChild('href').equalTo(url)).valueChanges();
+      })).map((items: Message[]) => items.filter(item => !item.isDone))
   }
 
   addMessage(name: string, email: string, comment: string, header?: string): any {
