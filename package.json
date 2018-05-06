@@ -55,7 +55,7 @@
     "@types/node": "~6.0.60",
     "angular-ast-viz": "^0.3.3",
     "angular-stackblitz": "0.0.0",
-    "angularfire2": "^5.0.0-rc.6",
+    "angularfire2": "^5.0.0-rc.4",
     "babel-generator": "^6.25.0",
     "babel-traverse": "^6.25.0",
     "babel-types": "^6.25.0",

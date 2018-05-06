@@ -13,7 +13,7 @@ declare const require;
 })
 export class AngularPreviewRunnerComponent implements AfterViewInit {
   @ViewChild('runner') runnerElement: ElementRef;
-  @Input() url = 'https://codelab.fun/assets/runner/';
+  @Input() url = '/assets/runner/';
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
 
