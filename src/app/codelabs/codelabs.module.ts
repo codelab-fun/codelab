@@ -1,7 +1,8 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MonacoConfigService } from '../exercise/services/monaco-config.service';
@@ -205,7 +206,8 @@ export function monacoReady() {
     IndexComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
     FormsModule,
     HttpModule,
     PresentationModule,
