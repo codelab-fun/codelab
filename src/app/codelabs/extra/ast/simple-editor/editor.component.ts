@@ -1,6 +1,3 @@
-///<reference path="../../../../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
-
-
 import {
   AfterViewInit,
   Component,
@@ -70,7 +67,6 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   resize() {
     if (this.editor) {
       this.editor.updateOptions({fontSize: this.fontSize * document.documentElement.clientWidth / 1800});
-
       const lines = this.code.split('\n').length;
       const lineHeight = this.actialFontSize * 1.6;
       const height = Math.max(lines * lineHeight, lineHeight * this.minLines);

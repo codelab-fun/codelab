@@ -15,6 +15,9 @@ import { SvgPlaygroundComponent } from './svg-playground/svg-playground.componen
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
+import { SvgTogetherComponent } from './svg-together/svg-together.component';
+import { MatButtonModule } from '@angular/material';
+import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)
@@ -41,9 +44,18 @@ export class SafeHtml {
     RunnersModule,
     SimpleEditorModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatButtonModule,
   ],
-  declarations: [SvgComponent, SvgDemoComponent, SafeHtml, SvgPlaygroundComponent, TimerComponent],
+  declarations: [
+    SvgComponent,
+    SvgTogetherComponent,
+    SvgTogetherResultComponent,
+    SvgDemoComponent,
+    SafeHtml,
+    SvgPlaygroundComponent,
+    TimerComponent
+  ],
   exports: [SvgComponent]
 })
 export class SvgModule {
