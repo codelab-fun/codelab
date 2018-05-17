@@ -84,6 +84,21 @@ export class AstComponent {
   code = {
     astPreview: 'log',
     astPreviewDebugger: 'console.log();\ndebugger\n123',
+    types: {
+      identifier: `
+// Before
+path.node.property.type === 'Identifier'
+// with babel types
+import {isIdentifier} from 'babel-types';
+isIdentifier(path.node.property)`,
+      name: `
+// Before
+path.node.property.type === 'Identifier'
+path.node.property.name === 'log'
+// with babel types
+import {isIdentifier} from 'babel-types';
+isIdentifier(path.node.property, {name: log})`,
+    },
     astHello: 'hello(console.log)',
     matches: {loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/},
     astExampleFull: processCode(helloWorldCodePre, {remove: []}),

@@ -1,17 +1,36 @@
-<div class="wrapper">
-  <div *ngIf="logs.length">
-    <div *ngFor="let log of logs">
-      <pre>{{log|json}}</pre>
-      <hr>
+<div *ngIf="logs.length">
+  <div *ngFor="let log of logs">
+    <pre>{{log|json}}</pre>
+    <hr>
+  </div>
+</div>
+
+<mat-card>
+  <div class="summary">
+    <div class="label">Running {{tests.length}} tests.</div>
+    <div>
+      <div *ngFor="let test of tests; let i = index" [class.pass]="test.pass" [class.test-point]="true"
+           [class.compeleted]="i < firstFailingIndex()" [class.current]="test === firstFailing"
+           [class.future]="i > firstFailingIndex()">
+      </div>
     </div>
   </div>
 
-  <div>
-    <div *ngFor="let test of tests; let i = index" [class.pass]="test.pass" [class.test]="true"
-         [class.compeleted]="i < firstFailingIndex()" [class.current]="i ===firstFailingIndex()"
-         [class.future]="i > firstFailingIndex()">
-      <div class="mini">{{(test.shouldPass === true || test.shouldPass === false) ? (test.shouldPass ? ' (Should match)' : '(Should NOT match)') : ''}}</div>
-      <pre>{{test.title}}</pre>
-    </div>
+  <mat-divider></mat-divider>
+  <div class="results" *ngIf="firstFailing">
+    <div class="label">When seeing:</div>
+    <code>
+      {{firstFailing.title}}
+    </code>
+    <div class="label">Should return:</div>
+    <code>
+      {{firstFailing.shouldPass}}
+    </code>
+    <div class="label">Instead got:</div>
+    <code class="failing">
+      {{!firstFailing.shouldPass}}
+    </code></div>
+
+  <div *ngIf="!firstFailing" class="complete">
   </div>
-</div>
+</mat-card>

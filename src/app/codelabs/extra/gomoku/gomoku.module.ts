@@ -9,7 +9,7 @@ import { BrowserWindowModule } from '../../../browser/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { GomokuComponent } from './gomoku.component';
 import { TooltipsModule } from '../../../tooltips/tooltips.module';
-import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.model';
+import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.module';
 import { CommonModule } from '@angular/common';
 import { GomokuBoardModule } from './board/board.module';
 
