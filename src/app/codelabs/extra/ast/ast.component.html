@@ -3,16 +3,7 @@
   slides-mode-routing
   slides-tracking>
 
-  <div class="btn-bar">
-    <div class="twitter">
-      @kirjs
-    </div>
-    <div class="increase-font-size font-size" (click)="updateFontSize(2)">+</div>
-    <div class="decrease-font-size font-size" (click)="updateFontSize(-2)">-</div>
-  </div>
-
-
-  <slides-progress-bar></slides-progress-bar>
+  <slides-ast-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></slides-ast-progress-bar>
   <slides-arrows></slides-arrows>
 
 
@@ -145,12 +136,6 @@
                             [fontSize]="fontSize"
                             style="width: 70%;"
       ></slides-simple-editor>
-      <slides-simple-editor [slidesSimpleHighlight]="asthighlight"
-                            class="editor"
-                            [(ngModel)]="code.astPreview"
-                            [fontSize]="fontSize"
-                            style="width: 70%;"
-      ></slides-simple-editor>
       <div class="ast-preview-helper-list">
         <ul>
           <li (click)="code.astPreview = 'log'">log</li>
@@ -199,7 +184,7 @@
                           language="javascript"
                           [lineNumbers]="false"
                           [(ngModel)]="code.types.identifier"
-                          [fontSize]="fontSize"
+                          [fontSize]="fontSize * 1.5"
     ></slides-simple-editor>
   </slides-slide>
   <slides-slide *slidesIf="'babel-types-name'" no-padding>
@@ -207,7 +192,7 @@
                           language="javascript"
                           [lineNumbers]="false"
                           [(ngModel)]="code.types.name"
-                          [fontSize]="fontSize"
+                          [fontSize]="fontSize* 1.5"
     ></slides-simple-editor>
   </slides-slide>
 

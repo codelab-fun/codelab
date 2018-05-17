@@ -1,8 +1,4 @@
 <div fxLayout>
-  <div style="position: absolute; left: 55vw; top: 20px; margin-left: -40px;z-index: 100;"
-       (click)="files[0].code = files[0].solution; runner.runTests()">
-    🙀
-  </div>
   <slides-simple-editor
     [lineNumbers]="false"
     [fontSize]="fontSize"
@@ -11,6 +7,9 @@
     [(ngModel)]="files[0].code"
     (ngModelChange)="runner.runTests()"
   ></slides-simple-editor>
+  <div (click)="files[0].code = files[0].solution; runner.runTests()" class="show-solution">
+    <div class="icon">🙀</div>
+  </div>
   <slides-simple-fake-babel-runner
     #runner
     class="tests"

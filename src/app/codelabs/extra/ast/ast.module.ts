@@ -19,6 +19,10 @@ import { DebuggerComponent } from './debugger/debugger.component';
 import { SimpleEditorModule } from './simple-editor/editor.module';
 import { MatCardModule } from '@angular/material';
 import { TestSetComponent } from './test-set/test-set.component';
+import { AstProgressBarComponent } from './progress-bar/progress-bar.component';
+import { CommonModule } from '@angular/common';
+import { SizePickerComponent } from './size-picker/size-picker.component';
+import { SizePickerModule } from './size-picker/size-picker.module';
 
 
 const routes = RouterModule.forChild(
@@ -28,6 +32,7 @@ const routes = RouterModule.forChild(
 @NgModule({
   imports: [
     routes,
+    CommonModule,
     AstPreviewRunnerModule,
     PresentationModule,
     ExerciseModule,
@@ -38,6 +43,7 @@ const routes = RouterModule.forChild(
     FormsModule,
     RunnersModule,
     TooltipsModule,
+    SizePickerModule,
     MatCardModule,
     FakeBabelModule,
   ],
@@ -46,7 +52,8 @@ const routes = RouterModule.forChild(
     MatchTypesOnHoverDirective,
     SimpleHighlightDirective,
     DebuggerComponent,
-    TestSetComponent
+    TestSetComponent,
+    AstProgressBarComponent
   ],
   exports: [AstComponent]
 })

@@ -97,3 +97,17 @@ mat-card {
 .results {
   padding-top: 24px;
 }
+
+.ast-full {
+  background: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+}
+
+slides-size-picker {
+  margin-left: 20px;
+}

@@ -18,6 +18,8 @@ export class SimpleFakeBabelRunnerComponent {
   logs = [];
   @Input() files: FileConfig[];
   @Input() showAst = false;
+  scale = 10;
+  showFull = false;
   private firstFailing: TestInfo;
 
   run(files: Array<FileConfig>) {

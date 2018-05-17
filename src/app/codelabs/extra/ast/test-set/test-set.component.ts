@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'slides-test-set',
   templateUrl: './test-set.component.html',
   styleUrls: ['./test-set.component.css']
 })
-export class TestSetComponent implements OnInit {
+export class TestSetComponent {
   @Input() files = [];
   @Input() fontSize = 30;
   @Input() showAst = false;
