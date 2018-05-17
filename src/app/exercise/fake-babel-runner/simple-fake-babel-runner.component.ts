@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
-import { ExerciseComponent } from '../exercise/exercise.component';
+import { Component, Input } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { TestInfo } from '../interfaces/test-info';
 import * as babylon from 'babylon';
@@ -10,18 +9,16 @@ import babelGenerator from 'babel-generator';
 declare const require;
 
 @Component({
-  selector: 'slides-fake-babel-runner',
+  selector: 'slides-simple-fake-babel-runner',
   templateUrl: './fake-babel-runner.component.html',
   styleUrls: ['./fake-babel-runner.component.css']
 })
-export class FakeBabelRunnerComponent implements AfterViewInit {
+export class SimpleFakeBabelRunnerComponent {
   tests: Array<TestInfo> = [];
   logs = [];
+  @Input() files: FileConfig[];
   @Input() showAst = false;
   private firstFailing: TestInfo;
-
-  constructor(public parent: ExerciseComponent) {
-  }
 
   run(files: Array<FileConfig>) {
     this.logs = [];
@@ -55,11 +52,11 @@ export class FakeBabelRunnerComponent implements AfterViewInit {
     return firstFailing === -1 ? this.tests.length : firstFailing;
   }
 
-  onSelectFile(file: FileConfig) {
-    this.parent.currentFile = file;
+  runTests() {
+    this.run(this.files);
   }
 
-  ngAfterViewInit(): void {
-    this.parent.files$.subscribe(files => requestAnimationFrame(() => this.run(files)));
+  ngOnInit() {
+    this.runTests();
   }
 }

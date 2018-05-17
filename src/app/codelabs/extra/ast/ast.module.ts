@@ -17,6 +17,8 @@ import { SimpleHighlightDirective } from './simple-editor/simple-highlight.direc
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DebuggerComponent } from './debugger/debugger.component';
 import { SimpleEditorModule } from './simple-editor/editor.module';
+import { MatCardModule } from '@angular/material';
+import { TestSetComponent } from './test-set/test-set.component';
 
 
 const routes = RouterModule.forChild(
@@ -36,13 +38,15 @@ const routes = RouterModule.forChild(
     FormsModule,
     RunnersModule,
     TooltipsModule,
+    MatCardModule,
     FakeBabelModule,
   ],
   declarations: [
     AstComponent,
     MatchTypesOnHoverDirective,
     SimpleHighlightDirective,
-    DebuggerComponent
+    DebuggerComponent,
+    TestSetComponent
   ],
   exports: [AstComponent]
 })

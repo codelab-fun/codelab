@@ -62,6 +62,9 @@ code.failing {
 
 code {
   font-size: 3vw;
+  margin-top: 4px;
+  display: block;
+  margin-bottom: 24px;
 }
 
 mat-card {

@@ -14,6 +14,12 @@ function testThings(findConsoleLog, callback, args) {
       }
     },
     {
+      title: `console.lol();`,
+      test(func, args) {
+        return this.title === func(this.title, args);
+      }
+    },
+    {
       title: `// don't use console.log();`,
       test(func, args) {
         return this.title === func(this.title, args);

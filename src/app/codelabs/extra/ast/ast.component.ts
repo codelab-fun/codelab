@@ -88,6 +88,7 @@ export class AstComponent {
       identifier: `
 // Before
 path.node.property.type === 'Identifier'
+
 // with babel types
 import {isIdentifier} from 'babel-types';
 isIdentifier(path.node.property)`,
@@ -95,6 +96,7 @@ isIdentifier(path.node.property)`,
 // Before
 path.node.property.type === 'Identifier'
 path.node.property.name === 'log'
+
 // with babel types
 import {isIdentifier} from 'babel-types';
 isIdentifier(path.node.property, {name: log})`,

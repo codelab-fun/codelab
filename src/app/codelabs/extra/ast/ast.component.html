@@ -47,11 +47,7 @@
   </slides-slide>
 
   <slides-slide id="debugger-regex" *slidesIf="'console-log-regex'" no-padding>
-    <slides-exercise [files]="code.findConsoleLog">
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
-    </slides-exercise>
+    <slides-test-set [files]="code.findConsoleLog" [fontSize]="fontSize"></slides-test-set>
   </slides-slide>
 
 
@@ -81,7 +77,7 @@
     </slides-code-group>
   </slides-slide>
 
-  <slides-slide id="bad-tree" *slidesIf="'scary-tree'">
+  <slides-slide id="bad-tree" *slidesIf="'scary-tree'" no-padding>
     <div class="bad-tree"></div>
   </slides-slide>
 
@@ -149,6 +145,12 @@
                             [fontSize]="fontSize"
                             style="width: 70%;"
       ></slides-simple-editor>
+      <slides-simple-editor [slidesSimpleHighlight]="asthighlight"
+                            class="editor"
+                            [(ngModel)]="code.astPreview"
+                            [fontSize]="fontSize"
+                            style="width: 70%;"
+      ></slides-simple-editor>
       <div class="ast-preview-helper-list">
         <ul>
           <li (click)="code.astPreview = 'log'">log</li>
@@ -179,43 +181,12 @@
     </slides-code-group>
   </slides-slide>
 
-
-  <slides-slide id="console-log-structure" *slidesIf="'console-log-structure2'" no-padding>
-    <div fxLayout style="height: 200px;flex-shrink: 0">
-      <slides-simple-editor [slidesSimpleHighlight]="asthighlight"
-                            class="editor"
-                            [(ngModel)]="code.astPreview"
-                            [fontSize]="fontSize"
-                            style="width: 70%;"
-      ></slides-simple-editor>
-      <div class="ast-preview-helper-list">
-        <ul>
-          <li (click)="code.astPreview = 'console.log()\n123'">123</li>
-          <li (click)="code.astPreview = 'console.log()\na.b'">a.b</li>
-          <li (click)="code.astPreview = 'console.log()\nconsole.log'">console.log</li>
-          <li (click)="code.astPreview = 'console.log()\nhello(console.log)'">hello(console.log)</li>
-
-        </ul>
-      </div>
-    </div>
-    <slides-ast-preview-runner (highlight)="asthighlight = $event" #astPreview [code]="code.astPreview"
-                               class="ast-preview"></slides-ast-preview-runner>
-  </slides-slide>
-
-
   <slides-slide id="babel-traverse" *slidesIf="'babel-traverse'" no-padding>
     <div class="bg">Обход AST с помощью <b>babel-traverse</b></div>
   </slides-slide>
 
   <slides-slide *slidesIf="'console-log-babel-traverse'" no-padding>
-    <slides-exercise [files]="code.traverseConsoleLogBabel">
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
-      <slides-ast-preview-runner [style.zoom]="0.5" style="position:  fixed; bottom: 20px" class="slides-preview"
-                                 #astPreview [code]="'console.log();'"
-                                 class="ast-preview"></slides-ast-preview-runner>
-    </slides-exercise>
+    <slides-test-set [files]="code.traverseConsoleLogBabel" [fontSize]="fontSize" [showAst]="true"></slides-test-set>
   </slides-slide>
 
 
@@ -225,26 +196,24 @@
 
   <slides-slide *slidesIf="'babel-types-identifier'" no-padding>
     <slides-simple-editor class="editor"
+                          language="javascript"
+                          [lineNumbers]="false"
                           [(ngModel)]="code.types.identifier"
                           [fontSize]="fontSize"
-                          style="width: 100%;height: 100%;"
     ></slides-simple-editor>
   </slides-slide>
   <slides-slide *slidesIf="'babel-types-name'" no-padding>
     <slides-simple-editor class="editor"
+                          language="javascript"
+                          [lineNumbers]="false"
                           [(ngModel)]="code.types.name"
                           [fontSize]="fontSize"
-                          style="width: 100%;height: 100%;"
     ></slides-simple-editor>
   </slides-slide>
 
 
   <slides-slide *slidesIf="'console-log-babel-traverse1'" no-padding>
-    <slides-exercise [files]="code.traverseConsoleLogBabel2">
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
-    </slides-exercise>
+    <slides-test-set [files]="code.traverseConsoleLogBabel2" [fontSize]="fontSize"></slides-test-set>
   </slides-slide>
 
   <slides-slide id="babel-transform" *slidesIf="'babel-transform'" no-padding>
@@ -252,11 +221,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'console-log-babel-transform'" no-padding>
-    <slides-exercise [files]="code.removeConsoleLogBabel">
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-fake-babel-runner class="tests"></slides-fake-babel-runner>
-    </slides-exercise>
+    <slides-test-set [files]="code.removeConsoleLogBabel" [fontSize]="fontSize"></slides-test-set>
   </slides-slide>
 
   <slides-slide id="babel-remove-debugger" *slidesIf="'eslint'" no-padding>

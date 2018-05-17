@@ -19,9 +19,7 @@
   <mat-divider></mat-divider>
   <div class="results" *ngIf="firstFailing">
     <div class="label">When seeing:</div>
-    <code>
-      {{firstFailing.title}}
-    </code>
+    <pre><code>{{firstFailing.title.trim()}}</code></pre>
     <div class="label">Should return:</div>
     <code>
       {{firstFailing.shouldPass}}
@@ -29,7 +27,16 @@
     <div class="label">Instead got:</div>
     <code class="failing">
       {{!firstFailing.shouldPass}}
-    </code></div>
+    </code>
+
+    <ng-container *ngIf="showAst">
+    <div class="label">AST: + -</div>
+    <code class="ast" style="zoom: 0.4">
+      <slides-ast-preview-runner [code]="firstFailing.title.trim()"></slides-ast-preview-runner>
+    </code>
+    </ng-container>
+  </div>
+
 
   <div *ngIf="!firstFailing" class="complete">
   </div>
