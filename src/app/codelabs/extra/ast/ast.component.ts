@@ -80,7 +80,7 @@ const consoleLogNoLocCode = removeDoubleWhiteLines(processCode(consoleLogBodyAst
 export class AstComponent {
   fontSize = 28;
 
-  displayCallee = true;
+  displayCallee = false;
   code = {
     astPreview: 'log',
     astPreviewDebugger: 'console.log();\ndebugger\n123',

@@ -1,6 +1,6 @@
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseProvider } from 'angularfire2/database';
-import { AngularFireAuthProvider } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NgModule } from '@angular/core';
 import { FeedbackPageComponent } from './feedback-page.component';
 import { RouterModule } from '@angular/router';
@@ -21,9 +21,12 @@ const routes = RouterModule.forChild(
 export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
 
 @NgModule({
-  imports: [routes, BrowserWindowModule, PresentationModule, angularFire, FormsModule, CommonModule, HttpModule],
+  imports: [routes,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    BrowserWindowModule, PresentationModule, angularFire, FormsModule, CommonModule, HttpModule],
   declarations: [FeedbackPageComponent],
-  providers: [AngularFireDatabaseProvider, AngularFireAuthProvider, GithubService],
+  providers: [GithubService],
   exports: [FeedbackPageComponent]
 })
 export class FeedbackPageModule {

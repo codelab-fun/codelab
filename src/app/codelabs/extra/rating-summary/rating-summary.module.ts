@@ -1,6 +1,6 @@
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseProvider } from 'angularfire2/database';
-import { AngularFireAuthProvider } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../presentation/slide-routes';
@@ -20,9 +20,15 @@ const routes = RouterModule.forChild(
 export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
 
 @NgModule({
-  imports: [routes, BrowserWindowModule, PresentationModule, angularFire, CommonModule, HttpModule, FeedbackModule],
+  imports: [
+    routes, BrowserWindowModule,
+    PresentationModule, angularFire,
+    CommonModule, HttpModule, FeedbackModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+  ],
   declarations: [RatingSummaryComponent],
-  providers: [AngularFireDatabaseProvider, AngularFireAuthProvider],
+  providers: [],
   exports: [RatingSummaryComponent]
 })
 export class RatingSummaryModule {

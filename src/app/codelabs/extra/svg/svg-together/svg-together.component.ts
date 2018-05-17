@@ -16,52 +16,52 @@ export class SvgTogetherComponent implements OnInit {
       label: '⭕️',
       code: `<svg>
 <circle cx="200"
-  opacity="0.3"
+  opacity="0.5"
   cy="200"
-  r="150"
-  fill="pink"
+  r="30"
+  fill="#ff0000"
   stroke="black"
-  stroke-width="20">
+  stroke-width="2">
 </circle>
 </svg>`,
     },
     {
       label: '⬭',
       code: `<svg>
- <ellipse cx="300"
+ <ellipse cx="130"
         cy="175"
         opacity="0.3"
-        rx="240"
-        ry="140"
-        fill="pink"
+        rx="40"
+        ry="20"
+        fill="#ff0000"
         stroke="black"
-        stroke-width="20"/>
+        stroke-width="2"/>
 </svg>`,
     },
     {
       label: '▭',
       code: `<svg>
 <rect x="100"
-  width="200"
+  width="20"
   opacity="0.3"
   y="100"
-  height="200"
-  fill="pink"
+  height="20"
+  fill="#ff0000"
   stroke="black"
-  stroke-width="20">
+  stroke-width="2">
 </rect>
 </svg>`,
     },
     {
       label: '_',
       code: `<svg>
-<line x1="100"
+<line x1="10"
   opacity="0.3"
-  x2="300"
-  y1="300"
-  y2="100"
-  stroke="pink"
-  stroke-width="20">
+  x2="30"
+  y1="30"
+  y2="10"
+  stroke="#ff0000"
+  stroke-width="2">
 </line>
 </svg>`
     },
@@ -69,10 +69,10 @@ export class SvgTogetherComponent implements OnInit {
       label: 't',
       code: `<svg>
 <text x=20
-  y="400"
+  y="40"
   opacity="0.3"
-  font-size="400"
-  fill="pink"
+  font-size="40"
+  fill="#ff0000"
   stroke="black"
   stroke-width=10>
 LOL❤
@@ -82,28 +82,28 @@ LOL❤
     {
       label: '☆',
       code: `<svg>
-<polygon points="200,10 250,190 160,310 400,200"
-  fill="pink"
+<polygon points="20,10 250,190 160,310 40,20"
+  fill="#ff0000"
   opacity="0.3"
   stroke="black"
-  stroke-width="20"/>
+  stroke-width="2"/>
 </svg>`,
     },
     {
       label: '⌇',
       code: `<svg>
-<path d="M 40 220 L 200 20, 550 130 Z"
-    fill="pink"
+<path d="M 40 20 L 20 20, 55 130 Z"
+    fill="#ff0000"
     opacity="0.3"
     stroke="black"
-    stroke-width=20
+    stroke-width=1
     />
 </svg>`,
     }
   ];
 
   constructor(af: AngularFireDatabase) {
-    this.angularFireList = af.list('svg-together');
+    this.angularFireList = af.list('/svg-together');
     this.angularFireList.snapshotChanges().subscribe((a) => {
       this.allCode = '<svg>' + a.map(a => a.payload.val()).join('\n') + '</svg>';
     });
@@ -119,6 +119,7 @@ LOL❤
   submit() {
     const code = this.code.replace(/<svg>\s+/, '').replace('</svg>', '');
     this.angularFireList.push(code);
+    this.reset();
 
   }
 

@@ -46,7 +46,7 @@ export class FeedbackService {
 
   addRating(lesson: string, rating: string) {
     const path = 'ratings/' + lesson;
-    getRef(this.database.app, path).transaction(ratings => {
+    getRef(this.database.database, path).transaction(ratings => {
       if (ratings == null) {
         ratings = {
           lesson: lesson

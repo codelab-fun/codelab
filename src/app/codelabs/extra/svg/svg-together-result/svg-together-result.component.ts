@@ -14,7 +14,7 @@ export class SvgTogetherResultComponent implements OnInit {
 
 
   constructor(af: AngularFireDatabase) {
-    this.angularFireList = af.list('svg-together');
+    this.angularFireList = af.list('/svg-together');
     this.angularFireList.snapshotChanges().subscribe((a) => {
       this.allCode = '<svg viewBox="0 0 500 500">' + a.map(a => a.payload.val()).join('\n') + '</svg>';
     });
