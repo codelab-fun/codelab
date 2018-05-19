@@ -18,16 +18,22 @@
   </div>
   <mat-divider></mat-divider>
   <div class="results" *ngIf="(displayedTest || firstFailing) as test">
-    <div class="label">For the code:</div>
-    <pre><code>{{test.code.trim()}}</code></pre>
-    <div class="label">Expected:</div>
-    <code>
-      {{test.expected | json}}
-    </code>
-    <div class="label">Actual:</div>
-    <code class="failing">
-      {{test.result | json}}
-    </code>
+    <ng-container *ngIf="test.error">
+      <div class="label">For the code:</div>
+      <code class="failing">{{test.error}}</code>
+    </ng-container>
+    <ng-container *ngIf="!test.error">
+      <div class="label">For the code:</div>
+      <pre><code>{{test.code.trim()}}</code></pre>
+      <div class="label">Expected:</div>
+      <code>
+        {{test.expected | json}}
+      </code>
+      <div class="label">Actual:</div>
+      <code class="failing">
+        {{test.result | json}}
+      </code>
+    </ng-container>
     <ng-container *ngIf="showAst">
       <div class="label">AST:</div>
       <div class="ast" (click)="showFull = true">
@@ -40,7 +46,7 @@
         <slides-size-picker (sizeChange)="scale = scale + $event" [step]="1"
                             [size]="scale"></slides-size-picker>
         <slides-ast-preview-runner [style.zoom]="scale/10"
-                                   [code]="test.title.trim()"></slides-ast-preview-runner>
+                                   [code]="test.code.trim()"></slides-ast-preview-runner>
       </div>
     </ng-container>
   </div>

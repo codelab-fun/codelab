@@ -83,12 +83,15 @@ function testThings(findConsoleLog, callback, args) {
           logs.push(value);
         };
 
+        let result = false;
+
         let error;
         try {
-          const result = findConsoleLog(test.code, args);
+          result = findConsoleLog(test.code, args);
         } catch (e) {
           error = e;
         }
+
         const pass = result === test.expected;
 
         results.push(({code: test.code, expected: test.expected, result, pass, error}));
