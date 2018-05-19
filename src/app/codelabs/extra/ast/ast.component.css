@@ -12,10 +12,10 @@
   font-family: "Helvetica Neue", sans-serif;
 }
 
-
 a {
   color: #9c2600;
 }
+
 #intro h2, #outro h2 {
   font-size: 12vw;
 }
@@ -29,7 +29,6 @@ a {
   padding: 60px;
 }
 
-
 #sausage-pre {
   background: url(./pics/sausage-pre.jpg) no-repeat;
   background-size: 100% auto;
@@ -37,7 +36,6 @@ a {
   height: 100vh;
   font-size: 5vw;
 }
-
 
 #sausage {
   background: url(./pics/sausage2.jpg) no-repeat;
@@ -74,8 +72,6 @@ a {
   height: 100vh;
   font-size: 5vw;
 }
-
-
 
 #debugger-pre {
   background: url(./pics/debugger.jpg) no-repeat;
@@ -116,6 +112,7 @@ a {
   height: 100vh;
   font-size: 5vw;
 }
+
 #links-5-cool-things {
   background: url(./pics/bg-links.jpg) no-repeat;
   background-size: 100% auto;
@@ -123,12 +120,67 @@ a {
   height: 100vh;
   font-size: 5vw;
 }
+
 #panda {
   background: url(./pics/panda.webp) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
   font-size: 5vw;
+}
+
+.henry-zhu {
+  background: url(./pics/patreon.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+  width: 70vw;
+}
+
+.success-complete-disco {
+  margin-top: 20px;
+  width: 500px;
+  height: 300px;
+  background: url(./pics/success/disco.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.success-complete-husky {
+  margin-top: 20px;
+  width: 500px;
+  height: 300px;
+  background: url(./pics/success/happy.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.success-complete-dancing {
+  margin-top: 20px;
+  width: 500px;
+  height: 300px;
+  background: url(./pics/success/dancing-dog.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.github {
+  background: url(./pics/github.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+  width: 70vw;
+}
+
+.opencollective {
+  background: url(./pics/opencollective.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+  width: 70vw;
 }
 
 #eslint {
@@ -145,6 +197,7 @@ a {
   display: inline-block;
   height: 100vh;
 }
+
 .bad-tree {
   background: url(./pics/tree.gif) no-repeat;
   background-size: 100% auto;
@@ -209,6 +262,7 @@ a {
   padding: 0;
   margin: 0;
 }
+
 .two-button2 {
   background: url(./pics/two-button2.gif) no-repeat;
   background-size: 50% auto;
@@ -219,6 +273,7 @@ a {
   padding: 0;
   margin: 0;
 }
+
 .two-button3 {
   background: url(./pics/two-button3.gif) no-repeat;
   background-size: 100% auto;
@@ -240,7 +295,6 @@ a {
   margin-bottom: 10vh;
 }
 
-
 .collie.display {
   background: url(./pics/collie.webp) no-repeat;
 }
@@ -261,11 +315,13 @@ a {
   display: block;
   font-size: 4vw;
 }
+
 .btn-bar .font-size {
   display: none;
 }
+
 .twitter {
-   color: #444;
+  color: #444;
   font-size: 3vw;
   margin: 2vw;
 }

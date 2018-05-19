@@ -2,82 +2,71 @@ function testThings(findConsoleLog, callback, args) {
   const log = args.log;
   const tests = [
     {
-      title: `console.log('123')`,
-      test(func, args) {
-        return '' === func(this.title, args);
-      }
-    },
-    {
-      title: `lolconsole.log();`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
-    },
-    {
-      title: `console.lol();`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
-    },
-    {
-      title: `// don't use console.log();`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
-    },
-    {
-      title: `'console.log()';`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
-    },
-    {
-      title: `'hi'; console.log(123); 'bye';`,
-      test(func, args) {
+      code: `console.log('🐶🐶🐶')`,
+      expected: '',
 
-        return `'hi';
-'bye';` === func(this.title, args);
-      }
+
     },
     {
-      title: `console
+      code: `lolconsole.log();`,
+      expected: 'lolconsole.log();',
+
+    },
+    {
+      code: `console.lol();`,
+      expected: `console.lol();`,
+    },
+    {
+      code: `// don't use console.log();`,
+      expected: `// don't use console.log();`,
+
+    },
+    {
+      code: `'console.log()';`,
+      expected: `'console.log()';`,
+
+    },
+    {
+      code: `'hi'; console.log(123); 'bye';`,
+      expected: `'hi';\n'bye';`,
+
+    },
+    {
+      code: `console
       .log()`,
-      test(func, args) {
-        return `` === func(this.title, args);
-      }
+      expected: ``,
+
     },
     {
-      title: `"console.log(123)";`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
+      code: `"console.log(123)";`,
+      expected: `"console.log(123)";`,
+
     },
     {
-      title: `\`
+      code: `\`
        console.log(1234)\`;`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
+      expected: `\`
+       console.log(1234)\`;`,
+
     },
     {
-      title: `' \\' console.log(123)';`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
+      code: `' \\' console.log(123)';`,
+      expected: `' \\' console.log(123)';`,
+
     },
     {
-      title: `/* \` 
+      code: `/* \` 
        */ console.log(123); \`
         \` + '';`,
-      test(func, args) {
-        return  !func(this.title, args).includes('console.log');
-      }
+      expected: `\`
+        \` + ''; /* \` 
+                       */`,
+
     },
     {
-      title: `hello(console.log);`,
-      test(func, args) {
-        return this.title === func(this.title, args);
-      }
+      code: `hello(console.log);`,
+      expected: `hello(console.log);`,
+
     }
 
   ];
@@ -93,20 +82,29 @@ function testThings(findConsoleLog, callback, args) {
         args.log = (value) => {
           logs.push(value);
         };
-        let pass = test.test(findConsoleLog, args);
-        results.push(({title: test.title, pass: pass}));
+
+        let error;
+        try {
+          const result = findConsoleLog(test.code, args);
+        } catch (e) {
+          error = e;
+        }
+        const pass = result === test.expected;
+
+        results.push(({code: test.code, expected: test.expected, result, pass, error}));
         if (!pass) {
           failed = true;
           logs.map(log);
         }
       } else {
-        results.push(({title: test.title, pass: false}));
+        results.push(({code: test.code, pass: false}));
       }
     }
   }
 
   callback(results);
 }
+
 /**
 
  return code

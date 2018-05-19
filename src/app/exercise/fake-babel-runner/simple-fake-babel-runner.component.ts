@@ -20,7 +20,7 @@ export class SimpleFakeBabelRunnerComponent {
   @Input() showAst = false;
   scale = 10;
   showFull = false;
-  private firstFailing: TestInfo;
+  firstFailing: TestInfo;
 
   run(files: Array<FileConfig>) {
     this.logs = [];

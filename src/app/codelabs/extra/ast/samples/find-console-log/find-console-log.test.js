@@ -2,114 +2,99 @@ function testThings(findConsoleLog, callback, args) {
   const log = args.log;
   const tests = [
     {
-      title: `console.log('123')`,
-      shouldPass: true,
-      test(func, args) {
-        return !!func(this.title, args);
-      }
+      code: `console.log('🐶🐶🐶')`,
+      expected: true,
     },
     {
-      title: `lolconsole.log()`,
-      shouldPass: false,
-      test(func, args) {
-        return !func(this.title, args);
-      }
+      code: `lolconsole.log()`,
+      expected: false,
+
     },
     {
-      title: `// don't use console.log();`,
-      shouldPass: false,
-      test(func, args) {
-        return !func(this.title, args);
-      }
+      code: `// don't use console.log();`,
+      expected: false,
+
     },
     {
-      title: `'console.log()'`,
-      shouldPass: false,
-      test(func, args) {
-        return !func(this.title, args);
-      }
+      code: `'console.log()'`,
+      expected: false,
+
     },
     {
-      title: `'hi'; console.log(123); 'bye'`,
-      shouldPass: true,
-      test(func, args) {
-        return func(this.title, args);
-      }
+      code: `'hi'; console.log(123); 'bye'`,
+      expected: true,
+
     },
     {
-      title: `console
+      code: `console
       .log()`,
-      shouldPass: true,
-      test(func, args) {
-        return func(this.title, args);
-      }
+      expected: true,
+
     },
     {
-      title: `'Fake //'; console.log(123); `,
-      shouldPass: true,
-      test(func, args) {
-        return func(this.title, args);
-      }
+      code: `'Fake //'; console.log(123); `,
+      expected: true,
+
     },
     {
-      title: `"console.log(123)"`,
-      shouldPass: false,
-      test(func, args) {
-        return !func(this.title, args);
-      }
+      code: `"console.log(123)"`,
+      expected: false,
+
     },
     {
-      title: `\`
+      code: `\`
        console.log(123)\``,
-      shouldPass: false,
-      test(func, args) {
-        return !func(this.title, args);
-      }
+      expected: false,
+
     },
     {
-      title: `' \\' console.log(123)'`,
-      test(func, args) {
-        return !func(this.title, args);
-      },
-      shouldPass: false,
+      code: `' \\' console.log(123)'`,
+      expected: false,
     },
     {
-      title: `/* \` 
+      code: `console.lol()`,
+      expected: false,
+
+    },
+    {
+      code: `"hello".log()`,
+      expected: false,
+
+    },
+    {
+      code: `/* \` 
        */ console.log(123); \`
         \` + ''`,
-      test(func, args) {
-        return func(this.title, args);
-      }
+      expected: true,
+
     },
     {
-      title: `function hello() {
+      code: `function hello() {
    console.log(123);
  }`,
-      test(func, args) {
-        return func(this.title, args);
-      }
+      expected: true,
+
+
     },
     {
-      title: `console.log({
+      code: `console.log({
         hello: 123
       })`,
-      test(func, args) {
-        return func(this.title, args);
-      }
+      expected: true,
+
     },
     {
-      title: `console.log`,
-      test(func, args) {
-        return !func(this.title, args);
-      }
+      code: `console.log`,
+      expected: false,
+
     },
     {
-      title: `hello(console.log)`,
-      test(func, args) {
-        return !func(this.title, args);
-      }
+      code: `hello(console.log)`,
+      expected: false,
+
     }
   ];
+
 
 
   let results = [];
@@ -122,14 +107,17 @@ function testThings(findConsoleLog, callback, args) {
         args.log = (value) => {
           logs.push(value);
         };
-        let pass = test.test(findConsoleLog, args);
-        results.push(({shouldPass: test.shouldPass, title: test.title, pass: pass}));
+
+        const result = !!findConsoleLog(test.code, args);
+        const pass = result === test.expected;
+
+        results.push(({code: test.code, expected: test.expected, result, pass}));
         if (!pass) {
           failed = true;
           logs.map(log);
         }
       } else {
-        results.push(({shouldPass: test.shouldPass, title: test.title, pass: false}));
+        results.push(({code: test.code, pass: false}));
       }
     }
   }

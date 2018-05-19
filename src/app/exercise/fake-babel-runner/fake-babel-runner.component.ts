@@ -18,7 +18,9 @@ export class FakeBabelRunnerComponent implements AfterViewInit {
   tests: Array<TestInfo> = [];
   logs = [];
   @Input() showAst = false;
-  private firstFailing: TestInfo;
+  firstFailing: TestInfo;
+  displayedTest: TestInfo;
+
 
   constructor(public parent: ExerciseComponent) {
   }

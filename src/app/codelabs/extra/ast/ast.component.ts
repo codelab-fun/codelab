@@ -65,7 +65,7 @@ export class SimpleEditorComponent implements ControlValueAccessor {
   }
 }`;
 
-const consoleLog = 'console.log("Hello")';
+const consoleLog = 'console.log(\'holy\')';
 const consoleLogAst = parse(consoleLog);
 const consoleLogCode = JSON.stringify(consoleLogAst, null, '  ');
 const consoleLogBodyAst = consoleLogAst.program.body;
@@ -80,8 +80,11 @@ const consoleLogNoLocCode = removeDoubleWhiteLines(processCode(consoleLogBodyAst
 export class AstComponent {
   fontSize = 28;
 
+
   displayCallee = false;
   code = {
+    parser: `import { parse } from 'babylon';
+parse("console.log('🐶🐶🐶')");`,
     astPreview: 'log',
     astPreviewDebugger: 'console.log();\ndebugger\n123',
     types: {
@@ -156,6 +159,10 @@ isIdentifier(path.node.property, {name: log})`,
 
   };
 
+  constructor() {
+
+  }
+
   matchTreePartsLoc(code) {
     return findHighlightsObjectProp(code, [isLoc]);
   }
@@ -170,9 +177,5 @@ isIdentifier(path.node.property, {name: log})`,
 
   updateFontSize(diff) {
     this.fontSize += diff;
-  }
-
-  constructor() {
-
   }
 }

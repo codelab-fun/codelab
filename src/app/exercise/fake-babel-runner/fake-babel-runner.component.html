@@ -11,42 +11,42 @@
     <div>
       <div *ngFor="let test of tests; let i = index" [class.pass]="test.pass" [class.test-point]="true"
            [class.compeleted]="i < firstFailingIndex()" [class.current]="test === firstFailing"
-           [class.future]="i > firstFailingIndex()">
+           [class.future]="i > firstFailingIndex()" (mouseenter)="displayedTest = test"
+           (mouseout)="displayedTest = null">
       </div>
     </div>
   </div>
-
   <mat-divider></mat-divider>
-  <div class="results" *ngIf="firstFailing">
-    <div class="label">When seeing:</div>
-    <pre><code>{{firstFailing.title.trim()}}</code></pre>
-    <div class="label">Should return:</div>
+  <div class="results" *ngIf="(displayedTest || firstFailing) as test">
+    <div class="label">For the code:</div>
+    <pre><code>{{test.code.trim()}}</code></pre>
+    <div class="label">Expected:</div>
     <code>
-      {{firstFailing.shouldPass}}
+      {{test.expected | json}}
     </code>
-    <div class="label">Instead got:</div>
+    <div class="label">Actual:</div>
     <code class="failing">
-      {{!firstFailing.shouldPass}}
+      {{test.result | json}}
     </code>
     <ng-container *ngIf="showAst">
       <div class="label">AST:</div>
       <div class="ast" (click)="showFull = true">
-        <slides-ast-preview-runner [code]="firstFailing.title.trim()"></slides-ast-preview-runner>
+        <slides-ast-preview-runner [code]="test.code.trim()"></slides-ast-preview-runner>
       </div>
 
       <div class="ast-full" *ngIf="showFull">
         <span style="float: right" (click)="showFull = false;">╳</span>
-        <pre><code>{{firstFailing.title.trim()}}</code></pre>
+        <pre><code>{{test.code.trim()}}</code></pre>
         <slides-size-picker (sizeChange)="scale = scale + $event" [step]="1"
                             [size]="scale"></slides-size-picker>
         <slides-ast-preview-runner [style.zoom]="scale/10"
-                                   [code]="firstFailing.title.trim()"></slides-ast-preview-runner>
+                                   [code]="test.title.trim()"></slides-ast-preview-runner>
       </div>
     </ng-container>
   </div>
 
 
   <div *ngIf="!firstFailing">
-    <div class="complete"></div>
+    <ng-content></ng-content>
   </div>
 </mat-card>

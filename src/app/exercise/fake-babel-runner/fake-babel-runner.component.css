@@ -37,9 +37,13 @@ pre {
   height: 100%;
 }
 
+.test-point:hover {
+  border: 3px black solid;
+}
+
 .test-point {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: inline-block;
   margin-left: 5px;
@@ -70,15 +74,6 @@ code {
 mat-card {
   width: 100%;
   height: 100%;
-}
-
-.complete {
-  margin-top: 20px;
-  width: 500px;
-  height: 300px;
-  background: url(./assets/happy.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .label {

@@ -21,14 +21,12 @@
     <h2>Это выступление о том как научить код <b>понимать</b> и <b>трансформировать</b> другой код.</h2>
   </slides-slide>
 
-
   <slides-slide id="debugger-pre" *slidesIf="'debugger-pre'" no-padding>
     <div class="bg">
       <h1>Начнем сразу с примера</h1>
       <h2>Как определить что из файла забыли вырезать <b>console.log</b></h2>
     </div>
   </slides-slide>
-
 
   <slides-slide no-padding *slidesIf="'two-buttons'">
     <div class="bg two-button">
@@ -38,9 +36,10 @@
   </slides-slide>
 
   <slides-slide id="debugger-regex" *slidesIf="'console-log-regex'" no-padding>
-    <slides-test-set [files]="code.findConsoleLog" [fontSize]="fontSize"></slides-test-set>
+    <slides-test-set [files]="code.findConsoleLog" [fontSize]="fontSize">
+      <div class="success-complete-dancing"></div>
+    </slides-test-set>
   </slides-slide>
-
 
   <slides-slide no-padding *slidesIf="'two-buttons-push'">
     <div class="bg two-button3">
@@ -53,6 +52,16 @@
   <slides-slide id="sausage" *slidesIf="'not-like-sausage'" no-padding></slides-slide>
 
   <slides-slide id="parser" *slidesIf="'parser'" no-padding>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'parser-code'">
+    <h2>Парсим с помощью babylon:</h2>
+    <slides-simple-editor class="editor"
+                          language="javascript"
+                          [lineNumbers]="false"
+                          [(ngModel)]="code.parser"
+                          [fontSize]="fontSize * 1.5"
+    ></slides-simple-editor>
   </slides-slide>
 
   <slides-slide *slidesIf="'consle-log-ast-again'">
@@ -133,7 +142,8 @@
       <slides-simple-editor [slidesSimpleHighlight]="asthighlight"
                             class="editor"
                             [(ngModel)]="code.astPreview"
-                            [fontSize]="fontSize"
+                            [fontSize]="fontSize * 2"
+                            [lineNumbers]="false"
                             style="width: 70%;"
       ></slides-simple-editor>
       <div class="ast-preview-helper-list">
@@ -171,7 +181,9 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'console-log-babel-traverse'" no-padding>
-    <slides-test-set [files]="code.traverseConsoleLogBabel" [fontSize]="fontSize" [showAst]="true"></slides-test-set>
+    <slides-test-set [files]="code.traverseConsoleLogBabel" [fontSize]="fontSize" [showAst]="true">
+      <div class="success-complete-husky"></div>
+    </slides-test-set>
   </slides-slide>
 
 
@@ -187,6 +199,7 @@
                           [fontSize]="fontSize * 1.5"
     ></slides-simple-editor>
   </slides-slide>
+
   <slides-slide *slidesIf="'babel-types-name'" no-padding>
     <slides-simple-editor class="editor"
                           language="javascript"
@@ -198,7 +211,9 @@
 
 
   <slides-slide *slidesIf="'console-log-babel-traverse1'" no-padding>
-    <slides-test-set [files]="code.traverseConsoleLogBabel2" [fontSize]="fontSize"></slides-test-set>
+    <slides-test-set [files]="code.traverseConsoleLogBabel2" [fontSize]="fontSize">
+      <div class="success-complete-husky"></div>
+    </slides-test-set>
   </slides-slide>
 
   <slides-slide id="babel-transform" *slidesIf="'babel-transform'" no-padding>
@@ -206,7 +221,9 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'console-log-babel-transform'" no-padding>
-    <slides-test-set [files]="code.removeConsoleLogBabel" [fontSize]="fontSize"></slides-test-set>
+    <slides-test-set [files]="code.removeConsoleLogBabel" [fontSize]="fontSize">
+      <div class="success-complete-disco"></div>
+    </slides-test-set>
   </slides-slide>
 
   <slides-slide id="babel-remove-debugger" *slidesIf="'eslint'" no-padding>
@@ -241,7 +258,7 @@
     <ul>
       <li>Больше контроля надо кодом, проще рефакторинг, codemods</li>
       <li>Меньше споров про оформление кода</li>
-      <li>Создание игровых проэктор</li>
+      <li>Создание игровых проэктов</li>
       <li>Лучшее понимание JavaScript</li>
     </ul>
   </slides-slide>
@@ -254,30 +271,38 @@
 
   </slides-slide>
 
-  <slides-slide *slidesIf="'ast-links-2'">
+  <slides-slide *slidesIf="'ast-links-1'">
     <b class="link-number">1</b>
-    <h2>Все все трансформации которые Babel делает в билдах используют этот API</h2>
     <h2>
-      Все плагины и пресеты можно найти <a href="https://github.com/babel/babel/tree/master/packages">в этом
-      репозитории</a>
+      Все трансформации Babel используют этот API.
+      <a href="https://github.com/babel/babel/tree/master/packages">плагины и пресеты </a>
     </h2>
-    <h2>
-      A еще все новые фишки в EcmaScript должны сначала быть реализованы в виде плагина Babel, например <a
-      href="https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-logical-assignment-operators">logical-assignment-operator</a>
-    </h2>
+
   </slides-slide>
-  <slides-slide *slidesIf="'ast-links-3'">
+  <slides-slide *slidesIf="'ast-links-2'">
     <b class="link-number">2</b>
     <h2>
-      Сам по себе Babel Generator теряет форматирование при регенерации кода, однако существуют инструменты который
-      используют умные алгоритмы чтобы сохранить структуру кода.
-      <a href="https://www.npmjs.com/package/recast">Recast</a>
-      <a href="https://www.npmjs.com/package/babel-codemod">Babel CodeMod</a>
+      Часть процесса добавления новой функциональности в EcmaScript - создание плагина для Babel.
+    </h2>
+    <h2>
+      <a href="https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-logical-assignment-operators">
+        например logical-assignment-operator</a>
+    </h2>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ast-links-3'">
+    <b class="link-number">3</b>
+    <h2>
+      Babel Generator теряет форматирование при гегенерации кода.
+    </h2>
+    <h2>
+      <a href="https://www.npmjs.com/package/recast">Recast</a> и
+      <a href="https://www.npmjs.com/package/babel-codemod">Babel CodeMod</a> решают это проблему.
     </h2>
   </slides-slide>
 
   <slides-slide *slidesIf="'ast-links-4'">
-    <b class="link-number">3</b>
+    <b class="link-number">4</b>
     <h2>
       Оргомная подборка информации про Babel в репозитории <a href="https://github.com/babel/awesome-babel">Awesome
       Babel</a>
@@ -285,30 +310,45 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'ast-links-5'">
-    <b class="link-number">4</b>
+    <b class="link-number">5</b>
     <h2>
       Babel - проект с открытыми исходниками, над ним трудится команда волонтеров и им не помешала бы помощь :)
     </h2>
-    <h2>
-      Можно помочь деньгами:
-      <ul>
-        <li><a href="https://www.patreon.com/henryzhu">Henry Zhu Patreon</a></li>
-        <li><a href="https://opencollective.com/babel">Babel Open Collective</a></li>
-      </ul>
-      Или <a href="https://github.com/babel/babel/issues">помочь с кодом</a>
-    </h2>
   </slides-slide>
 
-  <slides-slide *slidesIf="'ast-links-7'">
+  <slides-slide *slidesIf="'ast-links-5-1'">
     <b class="link-number">5</b>
     <h2>
-      Эта презентация: <a href="https://codelab.fun/ast/intro">http://localhost:4200</a>
+      <a href="https://www.patreon.com/henryzhu">patreon.com/henryzhu</a>
     </h2>
+    <br>
+    <br>
+    <div class="henry-zhu"></div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ast-links-5-2'">
+    <b class="link-number">5</b>
+    <h2>
+      <a href="opencollective.com/babel">opencollective.com/babel</a>
+    </h2>
+    <br>
+    <br>
+    <div class="opencollective"></div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ast-links-5-3'">
+    <b class="link-number">5</b>
+    <h2>
+      <a href="github.com/babel/babel/issues">github.com/babel/babel/issues</a>
+    </h2>
+    <br>
+    <br>
+    <div class="github"></div>
   </slides-slide>
 
   <slides-slide id="renoir" *slidesIf="'renoir'" no-padding>
     <div class="bg">
-      <h2> Эта презентация: <a href="https://codelab.fun/ast/intro">https://codelab.fun/ast/intro</a></h2>
+      <h2>Эта презентация: <a href="https://codelab.fun/ast/intro">https://codelab.fun/ast/intro</a></h2>
       <h2>Картинки: <a href="https://twitter.com/artist_renoir">@artist_renoir</a></h2>
       <h2>Мой твиттер: <a href="https://twitter.com/kirjs">@kirjs</a></h2>
     </div>
