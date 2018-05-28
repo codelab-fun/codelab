@@ -31,9 +31,7 @@ export class ModeOverviewComponent {
   }
 
   static print() {
-    // TODO(synnz) this bug will be fixed with 2.8.2 ts release
-    // window.print();
-    console.log("Check it out https://github.com/Microsoft/TypeScript/issues/22917")
+    window.print();
   }
 
   toggle(mode: Mode) {
