@@ -147,6 +147,15 @@ a {
   width: 70vw;
 }
 
+.babylon {
+  background: url(./pics/babylon.png) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+  font-size: 5vw;
+  width: 70vw;
+}
+
 .success-complete-disco {
   margin-top: 20px;
   width: 500px;
@@ -198,6 +207,13 @@ a {
   display: inline-block;
   height: 100vh;
   font-size: 5vw;
+}
+
+#kirjs {
+  background: url(./pics/kirjs.jpg) no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
 }
 
 #intro, #outro {

@@ -21,6 +21,7 @@ export class SimpleFakeBabelRunnerComponent {
   scale = 10;
   showFull = false;
   firstFailing: TestInfo;
+  displayedTest: TestInfo;
 
   run(files: Array<FileConfig>) {
     this.logs = [];

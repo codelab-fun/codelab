@@ -16,10 +16,18 @@
       <h2>@kirjs</h2>
     </div>
   </slides-slide>
+
+  <slides-slide id="kirjs" *slidesIf="'kirjs'" no-padding>
+    <div class="bg">
+      <h2>@kirjs</h2>
+    </div>
+  </slides-slide>
+
   <slides-slide *slidesIf="'what-s-ast'">
     <h1>Абстрактные синтаксические деревья (АСД)</h1>
     <h2>Это выступление о том как научить код <b>понимать</b> и <b>трансформировать</b> другой код.</h2>
   </slides-slide>
+
 
   <slides-slide id="debugger-pre" *slidesIf="'debugger-pre'" no-padding>
     <div class="bg">
