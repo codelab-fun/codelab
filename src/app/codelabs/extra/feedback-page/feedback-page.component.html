@@ -19,7 +19,6 @@
 
       <div *ngFor="let item of (this.messages$ | async)" class="group">
         <h2 class="feedback-header">{{item.key}}</h2>
-
         <div *ngFor="let message of item.value" class="card">
           <div>
             <b (click)="group$.next('name')">{{message.name}}</b>

@@ -1,4 +1,4 @@
-import { AngularFireDatabaseProvider } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { CommonModule } from '@angular/common';
 import { FeedbackService } from './feedback.service';
@@ -17,10 +17,12 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    AngularFireDatabaseModule,
     angularFire,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule
   ],
-  providers: [AngularFireDatabaseProvider, FeedbackService],
+  providers: [FeedbackService],
   declarations: [FeedbackWidgetComponent, FeedbackFormComponent, FeedbackRatingComponent],
   exports: [FeedbackWidgetComponent, FeedbackFormComponent, FeedbackRatingComponent]
 })

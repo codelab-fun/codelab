@@ -147,6 +147,10 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
   <hello-world>
     Loading...
   </hello-world>
+
+  <!--this is main.ts compiled.
+    Often build system will insert the script tag for you-->
+  <script src="main.js"></script>
 </body>`
         },
         matches: {

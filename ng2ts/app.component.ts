@@ -17,8 +17,7 @@ const FAKE_VIDEOS = [{
     title: 'Serious cat',
     src: '/assets/images/cat-03.jpg'
   }];
-/*/d*//*d:createComponentSolved*/
-/* tslint:disable */
+/*/d*//*d:neverShow*//* tslint:disable *//*/d*//*d:createComponentSolved*/
 @Component({
   selector: 'my-app',
   /*/d*//*d:createComponentSolved:bootstrapSolved/trimBoth*/

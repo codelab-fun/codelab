@@ -183,9 +183,7 @@ LOL❤
   };
 
 
-  constructor() {
-    console.log(123);
-  }
+  constructor() {}
 
 }
 

@@ -11,7 +11,7 @@
     <slides-title-slide title="Material design" description="Learn how to use Angular Material"></slides-title-slide>
   </slides-slide>
   <!--  INTRO -->
-  <slides-slide *slidesIf="'components'">
+  <slides-slide *slidesIf="'components'; milestone:'material'">
     <h2>Now let's use <a href="https://material.angular.io" target="_blank">Angular Material</a> to make our app look
       beautiful ✨</h2>
     <h2>Angular material provides you with a set of <a href="https://material.io/" target="_blank">Material Design</a>
@@ -30,9 +30,9 @@
 
   </slides-slide>
 
-  <slides-slide *slidesIf="'toolbar'">
+  <slides-slide *slidesIf="'toolbar'; milestone:'material'">
     <h1>Material / NavBar</h1>
-    <h2>Let's start with adding a Navigation Bar with 2 simple steps:</h2>
+    <h2>Adding a Navigation Bar takes 2 simple steps:</h2>
     <ul>
       <li>Add <b>MatToolbarModule</b> to the imports</li>
       <li>Use the component in the template</li>
@@ -44,19 +44,19 @@
     </div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'card'">
+  <slides-slide *slidesIf="'card'; milestone:'material'">
     <h1>Material / Card</h1>
     <h2>Now let's add material card.</h2>
     <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step2"></slides-playground>
   </slides-slide>
 
-  <slides-slide *slidesIf="'header'">
+  <slides-slide *slidesIf="'header'; milestone:'material'">
     <h1>Material / Card Header</h1>
     <h2>Header and an image.</h2>
     <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step3"></slides-playground>
   </slides-slide>
 
-  <slides-slide *slidesIf="'buttons'">
+  <slides-slide *slidesIf="'buttons'; milestone:'material'">
     <h1>Material / Buttons</h1>
     <h2>Adding some actions....</h2>
     <slides-playground [openFilesIndex]="[0,1]" [config]="code.material.step4"></slides-playground>
@@ -64,7 +64,7 @@
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'themes'">
+  <slides-slide *slidesIf="'themes'; milestone:'material'">
     <h1>Material / Themes</h1>
     <h2>All material components are also themable, try different themes by clicking the buttons below:</h2>
     <div>
@@ -88,7 +88,7 @@
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'exercise-pre'">
+  <slides-slide *slidesIf="'exercise-pre'; milestone:'material'">
     <h1>Material / Exercise</h1>
     <h2>In the next slide there is an exercise. We're going to materialize our application</h2>
     <slides-exercise-preview column-5 [config]="exercise" [url]="'/assets/runner/'"></slides-exercise-preview>
@@ -100,7 +100,7 @@
       <div class="description"></div>
       <slides-new-editors class="editor">
       </slides-new-editors>
-      <slides-slides-preview class="slides-preview">
+      <slides-slides-preview milestone="material" class="slides-preview">
       </slides-slides-preview>
       <slides-angular-test-runner class="tests"></slides-angular-test-runner>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
@@ -122,7 +122,7 @@
         <h2 i18n>
           Next <a routerLink="/forms/0">⏭️ Go to the Forms Milestone</a>
         </h2>
-        <slides-feedback-rating lesson="FirstAngularApp">
+        <slides-feedback-rating lesson="Material">
         </slides-feedback-rating>
       </div>
     </slides-closing-slide>

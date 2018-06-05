@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from '../message';
@@ -18,8 +18,7 @@ export class FeedbackFormComponent implements OnInit {
   statusMessage = '';
   error = false;
 
-  constructor(private el: ViewContainerRef,
-              private fb: FormBuilder,
+  constructor(private fb: FormBuilder,
               private activatedRoute: ActivatedRoute,
               private feedbackService: FeedbackService,
               private router: Router) {
@@ -27,8 +26,10 @@ export class FeedbackFormComponent implements OnInit {
 
   ngOnInit() {
     this.messages$ = this.feedbackService.getMessages(this.activatedRoute);
+    let value = localStorage[`feedback-${this.router.url}-comment`] || '';
+    value = value === 'null' ? '' : value;
     this.formGroup = this.fb.group({
-      comment: [localStorage[`feedback-${this.router.url}-comment`], Validators.required],
+      comment: [value, Validators.required],
       name: [localStorage.getItem('userName') || '', Validators.required],
       email: [localStorage.getItem('userEmail') || '', []]
     });
@@ -40,7 +41,6 @@ export class FeedbackFormComponent implements OnInit {
 
   submit() {
     const formValues: any = this.formGroup.getRawValue();
-    // TODO: Consider storing in firebase instead?
     localStorage.setItem('userName', formValues.name);
     localStorage.setItem('userEmail', formValues.email);
     this.feedbackService.addMessage(formValues.name, formValues.email, formValues.comment, this.getHeaderText())
@@ -57,5 +57,4 @@ export class FeedbackFormComponent implements OnInit {
     const el = document.body.querySelector('h1');
     return el ? el.innerHTML : '';
   }
-
 }

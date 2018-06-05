@@ -24,21 +24,18 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'why-svg'">
-    <h1>Почему SVG?</h1>
+    <h1>What is SVG?</h1>
     <ul>
-      <li>Веркторный формат картинок</li>
-      <li>Отлично масштабируется и на всех разрешениях выглядит великолепно</li>
-      <li>Все объекты это просто XML теги</li>
-      <li>Можно использовать в шаблонах Angular</li>
-      <li>Работает с CSS</li>
-
+      <li>Scalable Vector Graphic Format</li>
+      <li>Every object is just an XML tag</li>
+      <li>Also works with CSS</li>
     </ul>
   </slides-slide>
 
   <!--  INTRO -->
   <slides-slide no-padding *slidesIf="'svg-in-60'">
     <div class="bg svg-60">
-      <h2>SVG за 180 секунд</h2>
+      <h2>SVG in 180 seconds</h2>
     </div>
   </slides-slide>
 
@@ -75,7 +72,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'cool-stuff'">
-    <h2>Всякие прикольные штуки</h2>
+    <h2>Some cool stuff</h2>
   </slides-slide>
 
   <slides-slide *slidesIf="'svg-clip'">
@@ -95,86 +92,95 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'completed'">
-    <h2>Поздравляю! Вы эксперт по SVG! </h2>
-    <h2>Правда в SVG Есть несколько не совсем очевидных и интуитивных моментов.</h2>
+    <h2>Now you're an SVG expert! </h2>
+    <h2>However SVG has a couple of edge cases</h2>
   </slides-slide>
 
   <slides-slide *slidesIf="'completed2'" no-padding>
     <div class="bg dog">
-      <h2>Приходите на мой 80ти часовой курс "SVG - какого хрена?!"</h2></div>
+      <h2>Sign up for my 80 hour workshop "Wait, SVG, LOL, Really?"</h2></div>
   </slides-slide>
 
-  <slides-slide *slidesIf="'examples'" no-padding>
-    <div class="bg example">
-      <h2>Примеры?</h2>
-    </div>
-  </slides-slide>
+  <!--<slides-slide *slidesIf="'examples'" no-padding>-->
+  <!--<div class="bg example">-->
+  <!--<h2>Примеры?</h2>-->
+  <!--</div>-->
+  <!--</slides-slide>-->
 
   <slides-slide *slidesIf="'angular'">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.angular></slides-svg-demo>
   </slides-slide>
 
-  <slides-slide *slidesIf="'examples-hc'">
-    <h2><a href="https://www.highcharts.com/demo">Highcharts</a></h2>
+  <!--<slides-slide *slidesIf="'examples-hc'">-->
+  <!--<h2><a href="https://www.highcharts.com/demo">Highcharts</a></h2>-->
+  <!--</slides-slide>-->
+
+
+  <!--<slides-slide *slidesIf="'svg-component1'" no-padding>-->
+  <!--<h1>Привязка к атрибутам</h1>-->
+  <!--<slides-exercise [files]="code.component1">-->
+  <!--<div class="description"></div>-->
+  <!--<slides-new-editors [fontSize]="fontSize" class="editor">-->
+  <!--</slides-new-editors>-->
+  <!--<slides-angular-preview-runner class="description"></slides-angular-preview-runner>-->
+  <!--</slides-exercise>-->
+  <!--</slides-slide>-->
+
+  <!--<slides-slide *slidesIf="'attr-vs-prop'">-->
+  <!--<h1>А че так?</h1>-->
+  <!--<div style="height: 100%;">-->
+  <!--<slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.attrVsProp"></slides-simple-editor>-->
+  <!--</div>-->
+  <!--</slides-slide>-->
+
+  <!--<slides-slide *slidesIf="'svg-chart'" no-padding>-->
+  <!--<h1>Давайте запилим график</h1>-->
+  <!--<slides-exercise [files]="code.chart">-->
+  <!--<div class="description"></div>-->
+  <!--<slides-new-editors [fontSize]="fontSize" class="editor">-->
+  <!--</slides-new-editors>-->
+  <!--<slides-angular-preview-runner class="description"></slides-angular-preview-runner>-->
+  <!--</slides-exercise>-->
+  <!--</slides-slide>-->
+
+
+  <!--<slides-slide *slidesIf="'svg-chart2'" no-padding>-->
+  <!--<h1>кастомные SVG Элементы</h1>-->
+
+  <!--<slides-exercise [files]="code.chart2">-->
+  <!--<div class="description"></div>-->
+  <!--<slides-new-editors [fontSize]="fontSize" class="editor">-->
+  <!--</slides-new-editors>-->
+  <!--<slides-angular-preview-runner class="description"></slides-angular-preview-runner>-->
+  <!--</slides-exercise>-->
+  <!--</slides-slide>-->
+
+  <!--<slides-slide *slidesIf="'attr-vs-prop'">-->
+  <!--<h1>А че так?</h1>-->
+  <!--<div style="height: 100%;">-->
+  <!--<slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.createElement"></slides-simple-editor>-->
+  <!--</div>-->
+  <!--</slides-slide>-->
+
+  <!--<slides-slide *slidesIf="'links'">-->
+  <!--<h2>Ссылки</h2>-->
+  <!--<ul>-->
+  <!--<li><a href="https://www.youtube.com/watch?v=ADXX4fmWHbo">SVG Can do that? (eng)</a></li>-->
+  <!--<li><a href="https://swimlane.github.io/ngx-charts/bar-vertical">NGX Charts</a></li>-->
+  <!--<li><a href="https://codelab.fun/svg/0">https://codelab.fun/svg/0</a></li>-->
+  <!--</ul>-->
+
+
+  <!--</slides-slide>-->
+
+  <slides-slide *slidesIf="'draw'">
+    <slides-svg-together [fontSize]="fontSize"></slides-svg-together>
   </slides-slide>
 
-
-  <slides-slide *slidesIf="'svg-component1'" no-padding>
-    <h1>Привязка к атрибутам</h1>
-    <slides-exercise [files]="code.component1">
-      <div class="description"></div>
-      <slides-new-editors [fontSize]="fontSize" class="editor">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
-    </slides-exercise>
+  <slides-slide *slidesIf="'svg-together-result'" no-padding="">
+    <slides-svg-together-result [fontSize]="fontSize"></slides-svg-together-result>
   </slides-slide>
 
-  <slides-slide *slidesIf="'attr-vs-prop'">
-    <h1>А че так?</h1>
-    <div style="height: 100%;">
-      <slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.attrVsProp"></slides-simple-editor>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'svg-chart'" no-padding>
-    <h1>Давайте запилим график</h1>
-    <slides-exercise [files]="code.chart">
-      <div class="description"></div>
-      <slides-new-editors [fontSize]="fontSize" class="editor">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
-
-
-  <slides-slide *slidesIf="'svg-chart2'" no-padding>
-    <h1>кастомные SVG Элементы</h1>
-
-    <slides-exercise [files]="code.chart2">
-      <div class="description"></div>
-      <slides-new-editors [fontSize]="fontSize" class="editor">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'attr-vs-prop'">
-    <h1>А че так?</h1>
-    <div style="height: 100%;">
-      <slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.createElement"></slides-simple-editor>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'links'">
-    <h2>Ссылки</h2>
-    <ul>
-      <li><a href="https://www.youtube.com/watch?v=ADXX4fmWHbo">SVG Can do that? (eng)</a></li>
-      <li><a href="https://swimlane.github.io/ngx-charts/bar-vertical">NGX Charts</a></li>
-      <li><a href="https://codelab.fun/svg/0">https://codelab.fun/svg/0</a></li>
-    </ul>
-
-
-  </slides-slide>
 
   <slides-slide *slidesIf="'links'" no-padding>
     <div class="bg the-end">

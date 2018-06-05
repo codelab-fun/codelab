@@ -46,7 +46,7 @@ describe('material', () => {
     }
   });
 
-  it('app.module.ts: Add MatCardModule and MatToolbar modules, to the imports.', () => {
+  it('app.module.ts: Add MatCardModule and MatToolbarModule, to the imports.', () => {
     let metadata;
     try {
       metadata = Reflect.getMetadata('annotations', AppModule);
@@ -71,25 +71,25 @@ describe('material', () => {
     chai.expect(getCard()).is.ok;
   });
 
-  it('video.component.html: Use mat-card-title to display video title', () => {
+  it('video.component.html: Add mat-card-title (inside of the mat-card) to display video title', () => {
     const title = getCard().querySelector('mat-card-title');
     chai.expect(title).is.ok;
     chai.expect(title.innerText).to.contain(Api.fetch('')[0].title);
   });
 
-  it('video.component.html: Use mat-card-subtitle to display video description', () => {
+  it('video.component.html: Add mat-card-subtitle (inside of the mat-card)  to display video description', () => {
     const subTitle = getCard().querySelector('mat-card-subtitle');
     chai.expect(subTitle).is.ok;
     chai.expect(subTitle.innerText).to.contain(Api.fetch('')[0].description);
   });
 
 
-  it('video.component.html: Mark img with mat-card-image attribute so that it takes full card size', () => {
+  it('video.component.html: Mark img with mat-card-image attribute (inside of the mat-card)  so that it takes full card size', () => {
     const img = getCard().querySelector('img[mat-card-image]');
     chai.expect(img).is.ok;
   });
 
-  it('video.component.html:  move date/views/likes info inside of mat-card-content', () => {
+  it('video.component.html:  move date/views/likes info inside of mat-card-content (inside of the mat-card) ', () => {
     const content = getCard().querySelector('mat-card-content');
     chai.expect(content).is.ok;
     chai.expect(content.innerText).contains(Api.fetch('')[0].likes);

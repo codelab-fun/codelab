@@ -3,7 +3,7 @@ import {Codelab} from './Codelab';
 import {Guest} from './Guest';
 
 // Use this file for reference.
-const guests = [
+const guests: Guest[] = [
   {
     coming: true,
     name: `Sir Isaac Newton`

@@ -65,7 +65,7 @@ export class SimpleEditorComponent implements ControlValueAccessor {
   }
 }`;
 
-const consoleLog = 'console.log("Hello")';
+const consoleLog = 'console.log(\'holy\')';
 const consoleLogAst = parse(consoleLog);
 const consoleLogCode = JSON.stringify(consoleLogAst, null, '  ');
 const consoleLogBodyAst = consoleLogAst.program.body;
@@ -80,10 +80,30 @@ const consoleLogNoLocCode = removeDoubleWhiteLines(processCode(consoleLogBodyAst
 export class AstComponent {
   fontSize = 28;
 
-  displayCallee = true;
+
+  displayCallee = false;
   code = {
+    parser: `import { parse } from 'babylon';
+parse("console.log('🐶🐶🐶')");`,
     astPreview: 'log',
     astPreviewDebugger: 'console.log();\ndebugger\n123',
+    types: {
+      identifier: `
+// Before
+path.node.property.type === 'Identifier'
+
+// with babel types
+import {isIdentifier} from 'babel-types';
+isIdentifier(path.node.property)`,
+      name: `
+// Before
+path.node.property.type === 'Identifier'
+path.node.property.name === 'log'
+
+// with babel types
+import {isIdentifier} from 'babel-types';
+isIdentifier(path.node.property, {name: log})`,
+    },
     astHello: 'hello(console.log)',
     matches: {loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/},
     astExampleFull: processCode(helloWorldCodePre, {remove: []}),
@@ -139,6 +159,10 @@ export class AstComponent {
 
   };
 
+  constructor() {
+
+  }
+
   matchTreePartsLoc(code) {
     return findHighlightsObjectProp(code, [isLoc]);
   }
@@ -153,9 +177,5 @@ export class AstComponent {
 
   updateFontSize(diff) {
     this.fontSize += diff;
-  }
-
-  constructor() {
-
   }
 }

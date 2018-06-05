@@ -7,7 +7,6 @@ import { PresentationComponent } from '../presentation/presentation.component';
   styleUrls: ['./progress-bar.component.css']
 })
 export class ProgressBarComponent implements AfterViewInit {
-  @ViewChild('progressBarDiv') el: ElementRef;
   slides = [];
   currentSlideId = 0;
 
@@ -21,30 +20,8 @@ export class ProgressBarComponent implements AfterViewInit {
     });
 
     this.presentation.onSlideChange.subscribe(() => {
-      try {
-        if (this.slides[this.presentation.activeSlideIndex].id === 'type-mini-exercise') {
-          this.addProgressBarExplanation();
-        } else if (this.el.nativeElement.getAttribute('data-intro') !== null) {
-          this.removeProgressBarExplanation();
-        }
-      } catch (e) {
-      }
       this.currentSlideId = this.presentation.activeSlideIndex;
     });
-  }
-
-  // TODO: Move the logic out of the progress bar.
-  addProgressBarExplanation() {
-    this.el.nativeElement.setAttribute('data-step', '5');
-    this.el.nativeElement.setAttribute(
-      'data-intro',
-      'By the way...the progress bar can help you navigate through any section.'
-    );
-  }
-
-  removeProgressBarExplanation() {
-    this.el.nativeElement.removeAttribute('data-step');
-    this.el.nativeElement.removeAttribute('data-intro');
   }
 
   goToSlide(index) {

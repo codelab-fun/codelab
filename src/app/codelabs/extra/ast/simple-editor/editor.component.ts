@@ -1,6 +1,3 @@
-///<reference path="../../../../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
-
-
 import {
   AfterViewInit,
   Component,
@@ -39,11 +36,12 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   actialFontSize: number;
   model: any;
   editor: any;
-  private code: string;
   @Input() fontSize = 12;
+  @Input() language = 'html';
   @Input() lineNumbers = true;
   @Output() change = new EventEmitter();
   @ViewChild('editor') editorEl;
+  private code: string;
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
   }
@@ -70,7 +68,6 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   resize() {
     if (this.editor) {
       this.editor.updateOptions({fontSize: this.fontSize * document.documentElement.clientWidth / 1800});
-
       const lines = this.code.split('\n').length;
       const lineHeight = this.actialFontSize * 1.6;
       const height = Math.max(lines * lineHeight, lineHeight * this.minLines);
@@ -92,11 +89,11 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
 
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
-    this.model = this.monacoConfigService.monaco.editor.createModel(this.code, 'html');
+    this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);
     this.editor = this.monacoConfigService.monaco.editor.create(editor,
       {
         model: this.model,
-        scrollBeyondLastLine: true,
+        scrollBeyondLastLine: false,
         tabCompletion: true,
         wordBasedSuggestions: true,
         lineNumbersMinChars: 3,
@@ -104,6 +101,9 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
         automaticLayout: true,
         fontSize: this.fontSize,
         folding: true,
+        minimap: {
+          enabled: false
+        }
       });
 
     this.model.onDidChangeContent(() => {
