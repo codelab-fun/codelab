@@ -15,8 +15,112 @@ import {
 declare const require;
 
 
-const helloWorld = JSON.parse(require('!!raw-loader!./samples/hello-world.json'));
-
+const helloWorld = {
+  'type': 'File',
+  'start': 0,
+  'end': 8,
+  'loc': {
+    'start': {
+      'line': 1,
+      'column': 0
+    },
+    'end': {
+      'line': 1,
+      'column': 8
+    }
+  },
+  'program': {
+    'type': 'Program',
+    'start': 0,
+    'end': 8,
+    'loc': {
+      'start': {
+        'line': 1,
+        'column': 0
+      },
+      'end': {
+        'line': 1,
+        'column': 8
+      }
+    },
+    'sourceType': 'script',
+    'body': [
+      {
+        'type': 'DebuggerStatement',
+        'start': 0,
+        'end': 8,
+        'loc': {
+          'start': {
+            'line': 1,
+            'column': 0
+          },
+          'end': {
+            'line': 1,
+            'column': 8
+          }
+        }
+      }
+    ],
+    'directives': []
+  },
+  'comments': [],
+  'tokens': [
+    {
+      'type': {
+        'label': 'debugger',
+        'keyword': 'debugger',
+        'beforeExpr': false,
+        'startsExpr': false,
+        'rightAssociative': false,
+        'isLoop': false,
+        'isAssign': false,
+        'prefix': false,
+        'postfix': false,
+        'binop': null,
+        'updateContext': null
+      },
+      'value': 'debugger',
+      'start': 0,
+      'end': 8,
+      'loc': {
+        'start': {
+          'line': 1,
+          'column': 0
+        },
+        'end': {
+          'line': 1,
+          'column': 8
+        }
+      }
+    },
+    {
+      'type': {
+        'label': 'eof',
+        'beforeExpr': false,
+        'startsExpr': false,
+        'rightAssociative': false,
+        'isLoop': false,
+        'isAssign': false,
+        'prefix': false,
+        'postfix': false,
+        'binop': null,
+        'updateContext': null
+      },
+      'start': 8,
+      'end': 8,
+      'loc': {
+        'start': {
+          'line': 1,
+          'column': 8
+        },
+        'end': {
+          'line': 1,
+          'column': 8
+        }
+      }
+    }
+  ]
+};
 
 function jsify(program) {
   return 'const ast = ' + JSON.stringify(program, null, '  ');
@@ -84,7 +188,7 @@ export class AstComponent {
   displayCallee = false;
   code = {
     parser: `import { parse } from 'babylon';
-parse("console.log('🐶🐶🐶')");`,
+parse('console.log('🐶🐶🐶')');`,
     astPreview: 'log',
     astPreviewDebugger: 'console.log();\ndebugger\n123',
     types: {
@@ -105,7 +209,7 @@ import {isIdentifier} from 'babel-types';
 isIdentifier(path.node.property, {name: log})`,
     },
     astHello: 'hello(console.log)',
-    matches: {loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/},
+    matches: {loc: /'loc': \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/},
     astExampleFull: processCode(helloWorldCodePre, {remove: []}),
     astExample: removeDoubleWhiteLines(processCode(helloWorldCodePre, {remove: [removeLoc]})),
     astExampleNoBody: removeDoubleWhiteLines(processCode(jsify(helloWorld.program.body),

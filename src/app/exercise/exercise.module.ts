@@ -23,7 +23,6 @@ import { DepsService } from './services/deps-order.service';
 import { NewEditorsComponent } from './new-editors/new-editors.component';
 import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
 import { RunnersModule } from './runners/runners.module';
-import { StackblitzEmbedModule } from 'angular-stackblitz';
 import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.module';
 
 @NgModule({
@@ -50,7 +49,6 @@ import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.
       CommonModule,
       FormsModule,
       TooltipsModule,
-      StackblitzEmbedModule,
       BrowserWindowModule,
       SizePickerModule,
     ],
