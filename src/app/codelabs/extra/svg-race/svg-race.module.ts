@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material';
 import { RaceComponent } from './race/race.component';
 import { LittleCarComponent } from './little-car/little-car.component';
 import { FinishComponent } from './finish/finish.component';
+import { PlayerComponent } from './player/player.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgRaceComponent)
@@ -53,7 +54,8 @@ export class SafeHtml {
     SvgRaceComponent,
     TimerComponent,
     LittleCarComponent,
-    FinishComponent
+    FinishComponent,
+    PlayerComponent
   ],
   exports: [SvgRaceComponent]
 })

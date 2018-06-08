@@ -1,7 +1,7 @@
 <div fxLayout style="height: 100%;">
   <div [style.height]="'100%'" fxFlex="1 0">
     <slides-simple-editor style="width: 100%; height: 500px" [(ngModel)]="d" [lineNumbers]="false"
-                          [fontSize]="'30'" (ngModelChange)="calculateScore()"></slides-simple-editor>
+                          [fontSize]="'30'"></slides-simple-editor>
   </div>
   <div fxFlex="1 0" style="height: 100%;">
     <!--https://www.flaticon.com/free-icon/car_809998#term=car%20top&page=1&position=5-->
@@ -15,10 +15,6 @@
 
 
     <svg style="width: 500px; height: 500px">
-      <filter id="trackBlur">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
-      </filter>
-
       <!--Track Border -->
       <path style="stroke: #444;  fill:transparent;" [attr.d]="track"
             [style.stroke-width]="trackWidth * 2 + 2">
@@ -36,11 +32,10 @@
       <path style="stroke: #ddd; stroke-dasharray: 4px 6px;stroke-width: 2px; fill:transparent;"
             [attr.d]="track"></path>
 
-      <path #guess style="stroke: yellow;stroke-width: 2px; fill:transparent;" [attr.d]="d"></path>
       <!--<circle r=20 fill="#ddd" *ngFor="let point of points" [attr.cx]="point.x" [attr.cy]="point.y"></circle>-->
 
+      <g slides-player [path]="path" [d]="d"></g>
       <g slides-finish [position]="finishPosition"></g>
-      <g slides-little-car [color]="'#ff7b06'" [position]="carPosition"></g>
 
     </svg>
     <!--<div style="height: 100%;" [innerHTML]="code|safeHtml"></div>-->
