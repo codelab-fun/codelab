@@ -7,14 +7,6 @@
   <div fxFlex="1 0" style="height: 100%;">
     <!--https://www.flaticon.com/free-icon/car_809998#term=car%20top&page=1&position=5-->
 
-    <!-- Progress bar -->
-    <div style="width: 100%;background: #eee; border: #999 solid 1px; height: 20px">
-      <div [style.width.%]="score" style="background: #f99; height: 100%">
-      </div>
-    </div>
-    <h1>Distance: 100 {{score}}</h1>
-
-
     <div>
       <h1>Progress</h1>
       <div *ngFor="let car of cars" style="display: flex;margin-bottom: 10px">
