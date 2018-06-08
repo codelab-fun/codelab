@@ -2,9 +2,11 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
   ViewChild
 } from '@angular/core';
@@ -18,15 +20,14 @@ export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('guess') guess: ElementRef;
   @Input() path;
   @Input() d = '';
-  score = 0;
+  @Input() color = '#ffffff';
+  @Output() onScore = new EventEmitter<number>();
   points = [];
   carPosition = {x: 50, y: 50, angle: 0};
   pathLength = 0;
   startPosition = {x: 0, y: 0};
   trackWidth = 20;
-
-  constructor() {
-  }
+  score = 0;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.d) {
@@ -40,7 +41,6 @@ export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
       this.score = 0;
       const guess = this.guess.nativeElement;
 
-
       for (let i = 0; i < this.points.length; i++) {
         const point = this.points[i];
 
@@ -50,21 +50,25 @@ export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
           this.score++;
         } else {
           this.pathLength = (i - 3) / 100 * this.path.getTotalLength();
+          this.onScore.emit(this.score);
           return;
         }
       }
+      this.onScore.emit(this.score);
     });
   }
 
   ngAfterViewInit() {
-    const path = this.path;
-    const l = path.getTotalLength();
+    requestAnimationFrame(() => {
+      const path = this.path;
+      const l = path.getTotalLength();
 
-    for (let i = 0; i < l; i += l / 100) {
-      this.points.push(path.getPointAtLength(i));
-    }
+      for (let i = 0; i < l; i += l / 100) {
+        this.points.push(path.getPointAtLength(i));
+      }
 
-    this.startPosition = path.getPointAtLength(0);
+      this.startPosition = path.getPointAtLength(0);
+    });
   }
 
   calculateCarPosition() {
