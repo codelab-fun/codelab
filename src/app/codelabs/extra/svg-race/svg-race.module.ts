@@ -19,6 +19,8 @@ import { RaceComponent } from './race/race.component';
 import { LittleCarComponent } from './little-car/little-car.component';
 import { FinishComponent } from './finish/finish.component';
 import { PlayerComponent } from './player/player.component';
+import { CircleProgressBarModule } from '../../../progress-bar/progress-bar.module';
+
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgRaceComponent)
@@ -47,6 +49,7 @@ export class SafeHtml {
     FormsModule,
     FlexLayoutModule,
     MatButtonModule,
+    CircleProgressBarModule,
   ],
   declarations: [
     RaceComponent,
