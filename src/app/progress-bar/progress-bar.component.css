@@ -10,7 +10,7 @@
   opacity: 0.3;
 }
 
-.progress-bar:hover .font-size {
+.progress-bar:hover .extras {
   visibility: visible;
 }
 
@@ -18,8 +18,9 @@
   opacity: 1;
 }
 
-.font-size {
+.extras {
   visibility: hidden;
+  margin-right: 80px;
 }
 
 .slide-block.completed-slide {
