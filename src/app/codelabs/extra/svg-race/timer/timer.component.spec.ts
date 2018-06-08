@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SvgPlaygroundComponent } from './svg-playground.component';
+import { TimerComponent } from './timer.component';
 
-describe('RaceComponent', () => {
-  let component: SvgPlaygroundComponent;
-  let fixture: ComponentFixture<SvgPlaygroundComponent>;
+describe('TimerComponent', () => {
+  let component: TimerComponent;
+  let fixture: ComponentFixture<TimerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvgPlaygroundComponent ]
+      declarations: [ TimerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SvgPlaygroundComponent);
+    fixture = TestBed.createComponent(TimerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

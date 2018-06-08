@@ -1,0 +1,45 @@
+<slides-presentation
+  slides-slides-routing
+  slides-mode-routing
+  slides-tracking>
+
+  <div class="btn-bar">
+    <div class="twitter">
+      @kirjs
+    </div>
+  </div>
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <!--  INTRO -->
+  <slides-slide no-padding *slidesIf="'intro'">
+    <div class="bg intro">
+      <h2>Angular ❤️ SVG
+        <br>
+        @kirjs</h2>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'why-svg'">
+    <h1>What is SVG?</h1>
+    <ul>
+      <li>Scalable Vector Graphic Format</li>
+      <li>Every object is just an XML tag</li>
+      <li>Also works with CSS</li>
+    </ul>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'race'">
+    <h1>Race</h1>
+    <slides-race [track]="'M50 450 v -400 h 400 v 400 h-300'"></slides-race>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'race2'">
+    <h1>Race</h1>
+    <slides-race [track]="tracks.advanced"></slides-race>
+  </slides-slide>
+
+
+</slides-presentation>

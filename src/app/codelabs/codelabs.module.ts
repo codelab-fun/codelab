@@ -126,6 +126,13 @@ export let routes = [
     description: 'Angular Svg',
     page: 'bonus',
     prod: true
+  },  {
+    path: 'svg-race',
+    loadChildren: './extra/svg-race/svg-race.module#SvgRaceModule',
+    name: 'Svg',
+    description: 'Angular Svg',
+    page: 'bonus',
+    prod: true
   },
   {
     path: 'ast',

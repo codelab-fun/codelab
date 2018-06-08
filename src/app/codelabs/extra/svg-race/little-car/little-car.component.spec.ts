@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SvgPlaygroundComponent } from './svg-playground.component';
+import { LittleCarComponent } from './little-car.component';
 
-describe('RaceComponent', () => {
-  let component: SvgPlaygroundComponent;
-  let fixture: ComponentFixture<SvgPlaygroundComponent>;
+describe('LittleCarComponent', () => {
+  let component: LittleCarComponent;
+  let fixture: ComponentFixture<LittleCarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvgPlaygroundComponent ]
+      declarations: [ LittleCarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SvgPlaygroundComponent);
+    fixture = TestBed.createComponent(LittleCarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
