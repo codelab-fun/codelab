@@ -20,6 +20,8 @@ import { LittleCarComponent } from './little-car/little-car.component';
 import { FinishComponent } from './finish/finish.component';
 import { PlayerComponent } from './player/player.component';
 import { CircleProgressBarModule } from '../../../progress-bar/progress-bar.module';
+import { SyncModule } from '../../../sync/sync.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const routes = RouterModule.forChild(
@@ -50,6 +52,7 @@ export class SafeHtml {
     FlexLayoutModule,
     MatButtonModule,
     CircleProgressBarModule,
+    SyncModule
   ],
   declarations: [
     RaceComponent,

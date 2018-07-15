@@ -1,7 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MonacoConfigService } from '../exercise/services/monaco-config.service';
@@ -11,6 +10,7 @@ import { IndexComponent } from './index/index.component';
 import { PresentationModule } from '../presentation/presentation.module';
 import { FeedbackModule } from 'app/feedback/feedback.module';
 import { environment } from '../../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export let routes = [
   {
@@ -126,7 +126,7 @@ export let routes = [
     description: 'Angular Svg',
     page: 'bonus',
     prod: true
-  },  {
+  }, {
     path: 'svg-race',
     loadChildren: './extra/svg-race/svg-race.module#SvgRaceModule',
     name: 'Svg',
@@ -212,7 +212,7 @@ export function monacoReady() {
     IndexComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     PresentationModule,
@@ -230,7 +230,8 @@ export function monacoReady() {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
       multi: true
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class CodelabsModule {

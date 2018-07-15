@@ -3,14 +3,10 @@
   slides-mode-routing
   slides-tracking>
 
-  <div class="btn-bar">
-    <div class="twitter">
-      @kirjs
-    </div>
-  </div>
-
   <slides-circle-progress-bar title="SVG Race" [fontSize]="fontSize"
-                              (fontSizeChange)="updateFontSize($event)"></slides-circle-progress-bar>
+                              (fontSizeChange)="updateFontSize($event)">
+    <slides-sync-button></slides-sync-button>
+  </slides-circle-progress-bar>
 
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>

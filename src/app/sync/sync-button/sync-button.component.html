@@ -1,0 +1,10 @@
+<div style="display: flex">
+  <button mat-button style="cursor:pointer" *ngIf="!syncOn" (click)="start()">⚫️ start</button>
+  <div *ngIf="syncOn">🔴️🔴 {{syncId}}</div>
+
+  <mat-select placeholder="Select existing session" (change)="follow($event)">
+    <mat-option value="LOL">LOL</mat-option>
+    {{sessions | json}}
+    <mat-option *ngFor="let session of (sessions$ | async)" [value]="session.key">{{session.key}}</mat-option>
+  </mat-select>
+</div>
