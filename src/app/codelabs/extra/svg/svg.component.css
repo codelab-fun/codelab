@@ -27,6 +27,10 @@
   background-image: url(./pics/1.jpg);
 }
 
+.kirjs {
+  background-image: url(./pics/ava.gif);
+}
+
 .svg-60 {
   background-image: url(./pics/2.jpg);
 }
@@ -48,6 +52,16 @@
   color: white;
   margin-top: 50vh;
   padding: 50px;
+  font-size: 10vh;
+  opacity: 0.7;
+}
+
+
+.bg.kirjs h2 {
+  background: #000;
+  color: white;
+  margin-top: 50vh;
+  padding: 10px;
   font-size: 10vh;
   opacity: 0.7;
 }

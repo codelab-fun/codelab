@@ -141,6 +141,20 @@ LOL❤
     </textPath>
 </text>
 `,
+    linewrap:
+      `<text font-size="20" y="100">
+    Go Angular Oslo! Go Angular Oslo! Go Angular Oslo! Go Angular Oslo!
+    Go Angular Oslo! Go Angular Oslo! Go Angular Oslo! Go Angular Oslo!
+    Go Angular Oslo! Go Angular Oslo!
+</text>`, foreignObject: `<circle cx="200" cy="200" r="150" fill="pink" stroke="black" stroke-width="20">
+</circle>
+<foreignObject>
+  <h2 style = "width: 300px">
+      Go Angular Oslo! Go Angular Oslo! Go Angular Oslo! Go Angular Oslo!
+      Go Angular Oslo! Go Angular Oslo! Go Angular Oslo! Go Angular Oslo!
+      Go Angular Oslo! Go Angular Oslo!
+  </h2>
+</foreignObject>`,
     attrVsProp: `
       // <rect [x]=123>
       rect.x = 123;
@@ -180,10 +194,20 @@ LOL❤
       stylesheet(require('!!raw-loader!./samples/style.css')),
     ],
 
+    chart3: [
+      exercise('app.component', require('!!raw-loader!./samples/chart4/app.component.ts'),
+        require('!!raw-loader!./samples/chart4/app.component.solved.ts')),
+      exercise('ticks.component', require('!!raw-loader!./samples/chart4/ticks.component.ts')),
+      exercise('app.module', require('!!raw-loader!./samples/chart4/app.module.ts')),
+      bootstrap('main', builder.bootstrap()),
+      stylesheet(require('!!raw-loader!./samples/style.css')),
+    ],
+
   };
 
 
-  constructor() {}
+  constructor() {
+  }
 
 }
 

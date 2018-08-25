@@ -1,0 +1,21 @@
+<iframe src="about:blank" frameborder="0" #iframe style="display: none"></iframe>
+<div style="display: flex; flex-direction: column">
+  <div>
+    <div #outputBlock *ngFor="let block of output" [class]="'code block ' + (block.type || '') "
+         [style.font-size.px]="fontSize" [innerHTML]="block.code">
+    </div>
+  </div>
+  <div style="display: flex">
+    <div [style.font-size.px]="fontSize" style="color: #067aff; line-height: 50px;">&gt;</div>
+    <textarea #inp
+              (keydown.enter)="execute(input); $event.preventDefault()"
+              (keydown.control.])="next(); $event.preventDefault()"
+              (keydown.control.enter)="input = input + '\n'"
+              [(ngModel)]="input" class="code"
+              [style.font-size.px]="fontSize"
+              [style.height.px]="inputHeight"
+              (keyup)="calcInputHeight()"
+              (keydown)="calcInputHeight()"></textarea>
+  </div>
+</div>
+

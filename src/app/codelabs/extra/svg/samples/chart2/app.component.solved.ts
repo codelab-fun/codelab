@@ -11,39 +11,37 @@ function generateData() {
 
 @Component({
   selector: 'my-app',
-  template: `<svg>
-  <g *ngFor="let item of data; let i = index; trackBy:getIndex"
-        [style.transform]="'translate('+(barSpace*i)+'px, '+(320-item.value)+'px)'">
-    <rect [attr.width]="barWidth"
-          [attr.height]="item.value"
-          fill="pink"
-          stroke="black"
-          stroke-width="4"
-    ></rect>
+  template: `
+    <svg>
+      <g *ngFor="let item of data; let i = index; trackBy:getIndex"
+         [style.transform]="'translate('+(barSpace*i)+'px, '+(320-item.value)+'px)'">
+        <rect [attr.width]="barWidth"
+              [attr.height]="item.value"
+              fill="pink"
+              stroke="black"
+              stroke-width="4"
+        ></rect>
 
-    <text [attr.x]="barWidth/2" y=-10>
-      {{item.value}}
-    </text>
-  </g>
-<!-- [data]="data" -->
-   <g appTicks style="transform: translate(0, 350px)" ></g>
-</svg>`
+        <text [attr.x]="barWidth/2" y=-10>
+          {{item.value}}
+        </text>
+      </g>
+      <g appTicks style="transform: translate(0, 350px)" [data]="data"></g>
+    </svg>`
 })
 export class AppComponent {
   barWidth = 30;
   padding = 10;
   barSpace = this.padding + this.barWidth;
-
-  getIndex(a, b) {
-    return a;
-  }
-
-
   data = generateData();
 
   constructor() {
     window.setInterval(() => {
       this.data = generateData();
     }, 1000);
+  }
+
+  getIndex(a, b) {
+    return a;
   }
 }

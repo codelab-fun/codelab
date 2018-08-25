@@ -135,6 +135,13 @@ export let routes = [
     page: 'bonus',
     prod: true
   }, {
+    path: 'binary',
+    loadChildren: './extra/binary/binary.module#BinaryModule',
+    name: 'Binary',
+    description: 'Learn about Binary in JS',
+    page: 'bonus',
+    prod: true
+  }, {
     path: 'cellular-automation',
     loadChildren: './extra/cellular-automation/cellular-automation.module#CellularAutomationModule',
     name: 'cellular-automation',

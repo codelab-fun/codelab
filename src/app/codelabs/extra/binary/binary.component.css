@@ -1,0 +1,20 @@
+.code {
+  text-indent: 10px;
+  flex: 1;
+  border: none;
+  font-family: Monaco, 'Lucida Console', monospace;
+}
+
+.block {
+  border-bottom: 1px #999 solid;
+  padding: 20px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+textarea {
+  outline: none;
+  word-wrap: break-word;
+  word-break: break-all;
+
+}
