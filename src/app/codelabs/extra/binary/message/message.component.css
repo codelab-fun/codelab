@@ -1,0 +1,23 @@
+.blocks {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  font-size: 1.5vw;
+  color: #444;
+}
+
+.basic .block {
+  padding: 0;
+  margin-right: -0.5vw;
+}
+
+.human {
+  font-size: 4vw;
+}
+
+.block {
+  padding: 1vw;
+  text-align: center;
+}

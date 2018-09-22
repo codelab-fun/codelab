@@ -1,4 +1,10 @@
 import { Component, ViewChild, ViewChildren } from '@angular/core';
+import { FakeGifComponent } from './fake-gif/fake-gif.component';
+import { MidiComponent } from './midi/midi.component';
+import { AsciiComponent } from './ascii/ascii.component';
+import { BindecComponent } from './bindec/bindec.component';
+import { MessageComponent } from './message/message.component';
+
 
 @Component({
   selector: 'slides-binary',
@@ -21,23 +27,89 @@ export class BinaryComponent {
         Binary ❤️ JavaScript
 
     \``,
+    `explain('message', 'basic')`,
+    `explain('message', 'bytes')`,
+    `explain('bindec')`,
+    `parseInt('01001110', 2)`,
+    `explain('message', 'uint8')`,
+    `explain('ascii')`,
+    `explain('message', 'string')`,
+    `explain('gif')`,
 
+    `// Let's read a gif file:
+     const reader = new FileReader();
 
-    `"01001001011101000010000001101001011100110010000001100011011011110110110101101101011011110110111000100000011010110110111001101111011101110110110001100101011001000110011101100101001000000111010001101000011000010111010000100000011000010110110001101100001000000111010001101000011001010010000001101001011011100110011001101111011011010110000101110100011010010110111101101110001000000111001101110100011011110111001001100101011001000010000001101001011011100010000001101111011101010111001000100000011000110110111101101101011100000111010101110100011001010111001001110011001000000110100101110011001000000111001001100101011100000111001001100101011100110110010101101110011101000110010101100100001000000110000101110011001000000110000100100000011000100111010101101110011000110110100000100000011011110110011000100000001100010111001100100000011000010110111001100100001000000011000001110011"
+    reader.onloadend = (e) => {
+      console.log(e.target.result.toString());
+      
+    };
+
+    reader.readAsArrayBuffer(file.files[0]).toString();
+    
+    `, `\`010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001\``
+    ,
+
+    `
+     // Let's reinvent gif with JSON:
+     
+     
+     gif = {
+        width: "4",
+        height: "4",
+        image: [
+        '#f00', '#f00', '#f00', '#f00',
+        '#f90', '#f0f', '#f00', '#f00',
+        '#f90', '#f0f', '#f00', '#f00',
+        '#f90', '#f0f', '#f00', '#f00',
+        ]
+     }
+     
+    `, `
+     // Let's index the colors
+     
+     
+     gif = {
+        width: "4",
+        height: "4",
+        colors: ['#f00', '#f90',  '#f0f'],
+        image: [
+          0, 0, 0, 0,
+          1, 2, 0, 0,
+          1, 2, 0, 0,
+          1, 0 ,2 , 0
+        ]
+     }
+     
+    `,
+    `JSON.stringify(gif)`,
+    `JSON.stringify(gif).length`,
+
+    `"010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001"
 
 
     `,
 
-    `\`       Marius cute doggie
+    `explain('gif')`,
 
-    \``,
+
+    `// How to read binary data?
+`,
 
 
   ];
   currentCommand = 0;
 
-  post(code: string, type: string = 'output') {
-    this.output.push({code: code, type});
+
+  trackByFn(a, i) {
+    return i;
+  };
+
+  post(code: any, type: string = 'output') {
+    if (code.dynamicComponent) {
+      this.output.push({code: code.dynamicComponent, param: code.param, type: 'dynamic'});
+    } else {
+      this.output.push({code: code, type});
+    }
   }
 
   evalCode(code: string) {
@@ -74,9 +146,13 @@ export class BinaryComponent {
 
   ngAfterViewInit() {
     const that = this;
+    this.iframe.nativeElement.contentWindow.explain = (component: string, param: string) => this.explain(component, param);
+
     this.iframe.nativeElement.contentWindow.console.log = function () {
       Array.from(arguments).map(a => that.post(a, 'log'));
     };
+
+    this.next();
   }
 
   execute(code: string) {
@@ -106,5 +182,21 @@ export class BinaryComponent {
   typeIn(code) {
     this.typeInQueue = this.typeInQueue.concat(code.split(''));
     this.typeInQueue.push('execute')
+  }
+
+
+  private explain(s: string, param: string) {
+    const map = {
+      gif: FakeGifComponent,
+      message: MessageComponent,
+      bindec: BindecComponent,
+      midi: MidiComponent,
+      ascii: AsciiComponent,
+    };
+
+    return {
+      dynamicComponent: map[s],
+      param
+    };
   }
 }

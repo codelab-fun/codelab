@@ -1,0 +1,6 @@
+<input type="file" (change)="upload(file)" #file>
+<label>
+  meta
+  <input type="checkbox" [(ngModel)]="showMeta">
+</label>
+<slides-block [showMeta]="showMeta" [data]="s"></slides-block>

@@ -1,0 +1,8 @@
+<input type="text" class="number" [value]="dec" (keyup)="update(i.value)" #i>
+<div class="powers">
+  <label *ngFor="let v of values" class="power">
+    <div class="dec">{{v.value}}</div>
+    <div><input type="checkbox" [(ngModel)]="v.checked"></div>
+    <div class="bin">{{v.checked ? '1' : '0'}}</div>
+  </label>
+</div>

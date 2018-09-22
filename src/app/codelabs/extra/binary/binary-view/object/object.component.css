@@ -1,0 +1,25 @@
+.show-meta {
+  padding: 4px;
+  display: inline-block;
+  margin-right: 4px;
+  margin-top: 4px;
+  border: 1px #ddd solid;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.name {
+  display: none;
+}
+
+.show-meta .name {
+  display: inline-block;
+}
+
+* {
+  transition: all 1.5s;
+}
+
+.block {
+  font-size: 20px;
+}

@@ -1,0 +1,18 @@
+<!--<div>-->
+  <!--<span (click)="setDisplay('basic')">basic</span>-->
+  <!--<span (click)="setDisplay('bytes')">bytes</span>-->
+  <!--<span (click)="setDisplay('hex')">hex</span>-->
+  <!--<span (click)="setDisplay('boolean')">boolean</span>-->
+  <!--<span (click)="setDisplay('uint8')">uint8</span>-->
+  <!--<span (click)="setDisplay('uint8')">int8</span>-->
+  <!--<span (click)="setDisplay('uint16')">uint16</span>-->
+  <!--<span (click)="setDisplay('uint32')">uint32</span>-->
+  <!--<span (click)="setDisplay('uint17')">uint17</span>-->
+  <!--<span (click)="setDisplay('string')">string</span>-->
+<!--</div>-->
+<div [class]="display + ' blocks'">
+  <div [class]="block.className" [class.block]="true" *ngFor="let block of blocks">
+    <div class="bin">{{block.bin}}</div>
+    <div class="human">{{block.human}}</div>
+  </div>
+</div>

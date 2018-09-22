@@ -1,0 +1,34 @@
+.powers {
+  display: flex;
+  font-size: 5vw;
+}
+
+.power {
+  width: 12.5%;
+  border: 1px #ddd dotted;
+  text-align: center;
+  cursor: pointer;
+}
+
+.power:hover {
+  box-shadow: 0 0 12px 6px #999;
+  background: #eeeeee;
+}
+
+.power input {
+  zoom: 4;
+}
+
+.dec {
+  font-size: 3vw;
+  color: #444;
+}
+.bin {
+  font-size: 10vw;
+}
+.number {
+  width: 100%;
+  text-align: center;
+  font-size: 16vw;
+  padding: 2vw;
+}

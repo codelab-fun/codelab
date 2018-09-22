@@ -1,5 +1,5 @@
 <div class="progress-bar" *ngIf="slides.length" fxLayout style="justify-content: space-between">
-  <span style="margin-right: 2vw;">JavaScript AST</span>
+  <span style="margin-right: 2vw;">{{title}}</span>
   <div class="points-container" #progressBarDiv fxLayout>
     <div class="slide-block" *ngFor="let slide of slides"
          [class.completed-slide]="slide.index < currentSlideId"

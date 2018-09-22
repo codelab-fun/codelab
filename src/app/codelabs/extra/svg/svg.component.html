@@ -3,15 +3,9 @@
   slides-mode-routing
   slides-tracking>
 
-  <div class="btn-bar">
-    <div class="twitter">
-      @kirjs
-    </div>
-    <div class="increase-font-size font-size" (click)="fontSize = fontSize + 2">+</div>
-    <div class="decrease-font-size font-size" (click)="fontSize = fontSize - 2">-</div>
-  </div>
 
-  <slides-progress-bar></slides-progress-bar>
+  <slides-new-progress-bar title="Angular ❤️ SVG" [fontSize]="fontSize"
+                           (fontSizeChange)="fontSize =fontSize+ $event"></slides-new-progress-bar>
   <slides-arrows></slides-arrows>
 
   <!--  INTRO -->
@@ -27,8 +21,7 @@
     <div class="bg kirjs">
       <h2>
         <ul>
-          <li>Run meetups in NYC</li>
-          <li>Love 📖📖📖</li>
+          <li>I read 📖📖📖</li>
           <li>@kirjs</li>
         </ul>
       </h2>
@@ -39,15 +32,22 @@
     <h1>What is SVG?</h1>
     <ul>
       <li>Scalable Vector Graphic Format</li>
+      <li>Can be edited with a text editor!</li>
       <li>Every object is just an XML tag</li>
       <li>Works with CSS</li>
       <li>Plays well with angular templates!</li>
+
     </ul>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'angular-gif'">
+    <slides-svg-demo [fontSize]="fontSize" [code]=code.gifang></slides-svg-demo>
   </slides-slide>
 
   <slides-slide *slidesIf="'angular-intro'">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.angular></slides-svg-demo>
   </slides-slide>
+
 
   <!--  INTRO -->
   <slides-slide no-padding *slidesIf="'svg-in-60'">
@@ -185,14 +185,14 @@
   </slides-slide>
 
   <!--<slides-slide *slidesIf="'svg-chart3'" no-padding>-->
-    <!--<h1>Foreign object</h1>-->
+  <!--<h1>Foreign object</h1>-->
 
-    <!--<slides-exercise [files]="code.chart3">-->
-      <!--<div class="description"></div>-->
-      <!--<slides-new-editors [fontSize]="fontSize" class="editor">-->
-      <!--</slides-new-editors>-->
-      <!--<slides-angular-preview-runner class="description"></slides-angular-preview-runner>-->
-    <!--</slides-exercise>-->
+  <!--<slides-exercise [files]="code.chart3">-->
+  <!--<div class="description"></div>-->
+  <!--<slides-new-editors [fontSize]="fontSize" class="editor">-->
+  <!--</slides-new-editors>-->
+  <!--<slides-angular-preview-runner class="description"></slides-angular-preview-runner>-->
+  <!--</slides-exercise>-->
   <!--</slides-slide>-->
 
   <slides-slide *slidesIf="'attr-vs-prop'">

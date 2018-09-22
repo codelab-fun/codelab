@@ -1,0 +1,16 @@
+<img [src]="gif" style="width:200px;position: fixed; right: 0; top: 0;image-rendering: -webkit-optimize-contrast;">
+
+<div>
+  <div style="width: 200px;">
+    <input type="file" (change)="upload(file)" #file>
+  </div>
+  <label>
+    meta
+    <input type="checkbox" [(ngModel)]="showMeta">
+  </label>
+  <div style="margin-right: 220px;">
+    <slides-binary-parent (updateBinary)="updateBinary($event)"  [parser]="parser" [binary]="binary" [showMeta]="showMeta"></slides-binary-parent>
+  </div>
+</div>
+
+

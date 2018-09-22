@@ -1,0 +1,4 @@
+<span>{{data.rawValue}}</span>
+
+<input type="checkbox" *ngIf="data.rawValue.length === 1 && showMeta" [checked]="!!(+data.rawValue)"
+       (change)="update(i.value)" #i>

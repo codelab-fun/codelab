@@ -1,0 +1,4 @@
+<span class="block" [class.show-meta]="showMeta" *ngFor="let item of data.value">
+  <span class="name">{{item.name}}</span>
+  <slides-block [showMeta]="showMeta" [class]="item.name" [data]="item"></slides-block>
+</span>

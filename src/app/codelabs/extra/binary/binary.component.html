@@ -1,8 +1,14 @@
 <iframe src="about:blank" frameborder="0" #iframe style="display: none"></iframe>
 <div style="display: flex; flex-direction: column">
   <div>
-    <div #outputBlock *ngFor="let block of output" [class]="'code block ' + (block.type || '') "
-         [style.font-size.px]="fontSize" [innerHTML]="block.code">
+    <div #outputBlock *ngFor="let block of output; trackBy: trackByFn">
+      <div *ngIf="block.type !== 'dynamic'" [class]="'code block ' + (block.type || '') "
+           [style.font-size.px]="fontSize" [innerHTML]="block.code">
+      </div>
+      <div *ngIf="block.type === 'dynamic'" class="code dynamic">
+        <slides-display-dynamic-component [component]="block.code"
+                                          [param]="block.param"></slides-display-dynamic-component>
+      </div>
     </div>
   </div>
   <div style="display: flex">

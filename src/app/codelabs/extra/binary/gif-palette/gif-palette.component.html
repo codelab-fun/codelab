@@ -1,0 +1,5 @@
+<div *ngFor="let color of colors">
+  <input [value]="color[0]" (change)="color[0] = c0.value; serialize();" #c0>
+  <input [value]="color[1]" (change)="color[1] = c1.value; serialize();" #c1>
+  <input [value]="color[2]" (change)="color[2] = c2.value; serialize();" #c2>
+</div>

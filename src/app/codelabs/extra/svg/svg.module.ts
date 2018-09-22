@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';
 import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
+import { NewProgreessBarModule } from '../ast/progress-bar/new-progress-bar.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)
@@ -46,6 +47,7 @@ export class SafeHtml {
     FormsModule,
     FlexLayoutModule,
     MatButtonModule,
+    NewProgreessBarModule,
   ],
   declarations: [
     SvgComponent,

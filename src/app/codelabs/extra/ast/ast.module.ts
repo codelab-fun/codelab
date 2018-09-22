@@ -19,10 +19,9 @@ import { DebuggerComponent } from './debugger/debugger.component';
 import { SimpleEditorModule } from './simple-editor/editor.module';
 import { MatCardModule } from '@angular/material';
 import { TestSetComponent } from './test-set/test-set.component';
-import { AstProgressBarComponent } from './progress-bar/progress-bar.component';
 import { CommonModule } from '@angular/common';
-import { SizePickerComponent } from './size-picker/size-picker.component';
 import { SizePickerModule } from './size-picker/size-picker.module';
+import { NewProgreessBarModule } from './progress-bar/new-progress-bar.module';
 
 
 const routes = RouterModule.forChild(
@@ -46,6 +45,7 @@ const routes = RouterModule.forChild(
     SizePickerModule,
     MatCardModule,
     FakeBabelModule,
+    NewProgreessBarModule,
   ],
   declarations: [
     AstComponent,
@@ -53,7 +53,6 @@ const routes = RouterModule.forChild(
     SimpleHighlightDirective,
     DebuggerComponent,
     TestSetComponent,
-    AstProgressBarComponent
   ],
   exports: [AstComponent]
 })
