@@ -16,7 +16,6 @@ export class BinaryArrayParser extends AbstractBinaryParser {
     const value = [];
 
     while (len > 0 && reader.hasMore()) {
-
       const result = this.config.parser.read(reader, data);
       raw += result.raw;
       value.push(result.value);
@@ -32,8 +31,10 @@ export class BinaryArrayParser extends AbstractBinaryParser {
     const value = [];
 
     let len = 0;
+    let index = 0;
 
     while (numberOfElements > 0 && reader.hasMore()) {
+      index++;
       const result = this.config.parser.readOrdered(reader, data, start + len);
       rawValue += result.rawValue;
 
@@ -42,6 +43,7 @@ export class BinaryArrayParser extends AbstractBinaryParser {
         start: start + len,
         end: start + len + length,
         length,
+        index,
         type: this.config.parser.type,
         value: result.value,
         rawValue: result.rawValue
@@ -50,7 +52,7 @@ export class BinaryArrayParser extends AbstractBinaryParser {
       numberOfElements--;
     }
 
-    return {start, length: len, end: start + len, value, rawValue, type: this.type};
+    return {name: this.config.name, start, length: len, end: start + len, value, rawValue, type: this.type};
   }
 }
 

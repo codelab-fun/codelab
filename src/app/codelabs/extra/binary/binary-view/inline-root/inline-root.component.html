@@ -1,0 +1,10 @@
+<ng-container *ngIf="displayData">
+  {{displayData | json}}
+  <!--<h2>{{displayData.type}}</h2>-->
+  <h2>{{displayData.name}}</h2>
+  <!--<input [value]="displayData.rawValue">-->
+  <!--<slides-block [showMeta]="true" [class]="item.name" [data]="displayData"></slides-block>-->
+  <h1>{{displayData.value}}</h1>
+</ng-container>
+<slides-inline [data]="data"></slides-inline>
+

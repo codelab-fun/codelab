@@ -12,6 +12,10 @@ export class ArrayComponent implements OnInit {
   constructor() {
   }
 
+  trackBy(i, data) {
+    return data.index;
+  }
+
   ngOnInit() {
   }
 }

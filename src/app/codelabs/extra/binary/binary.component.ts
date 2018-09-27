@@ -4,6 +4,8 @@ import { MidiComponent } from './midi/midi.component';
 import { AsciiComponent } from './ascii/ascii.component';
 import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
+import { JsonComponent } from './json/json.component';
+import { CompareComponent } from './compare/compare.component';
 
 
 @Component({
@@ -27,26 +29,35 @@ export class BinaryComponent {
         Binary ❤️ JavaScript
 
     \``,
-    `explain('message', 'basic')`,
-    `explain('message', 'bytes')`,
-    `explain('bindec')`,
-    `parseInt('01001110', 2)`,
-    `explain('message', 'uint8')`,
-    `explain('ascii')`,
-    `explain('message', 'string')`,
-    `explain('gif')`,
-
     `// Let's read a gif file:
-     const reader = new FileReader();
+    const reader = new FileReader();
 
     reader.onloadend = (e) => {
-      console.log(e.target.result.toString());
+      file = e.target.result;
       
     };
 
-    reader.readAsArrayBuffer(file.files[0]).toString();
-    
-    `, `\`010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001\``
+    reader.readAsArrayBuffer(input.files[0]);
+`,
+
+
+    `explain('message', 'basic')`,
+    `explain('message', 'bytes')`,
+    `explain('bindec', 'uint8')`,
+    `parseInt('01001110', 2)`,
+    `explain('bindec', 'int8')`,
+    `explain('message', 'uint8')`,
+    `explain('ascii')`,
+    `explain('message', 'string')`,
+
+
+    `explain('compare')`,
+    `explain('json')`,
+    `explain('gif')`,
+    `explain('midi')`,
+
+
+    `\`010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001\``
     ,
 
     `
@@ -192,6 +203,8 @@ export class BinaryComponent {
       bindec: BindecComponent,
       midi: MidiComponent,
       ascii: AsciiComponent,
+      json: JsonComponent,
+      compare: CompareComponent,
     };
 
     return {

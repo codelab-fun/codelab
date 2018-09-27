@@ -7,11 +7,23 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
   styleUrls: ['./string.component.css']
 })
 export class StringComponent implements OnInit {
-  @Input() data: any;
-
   constructor(private readonly root: BinaryParentComponent) {
   }
 
+  _data: any;
+
+  get data() {
+    return this._data;
+  }
+
+  @Input()
+  set data(data) {
+    this._data = data;
+  }
+
+  updateBinary(binary) {
+    this.root.update(this.data, binary);
+  }
 
   update(value) {
     const val = value.split('')

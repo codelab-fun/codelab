@@ -15,6 +15,10 @@ export class ObjectComponent implements OnInit {
   ngOnInit() {
   }
 
+  trackBy(i, data) {
+    return data.name;
+  }
+
   init() {
 
     this.cdr.detectChanges();

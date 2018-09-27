@@ -40,8 +40,9 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   @Input() language = 'html';
   @Input() lineNumbers = true;
   @Output() change = new EventEmitter();
+  @Output() lineChange = new EventEmitter();
   @ViewChild('editor') editorEl;
-  private code: string;
+  code: string;
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
   }
@@ -86,6 +87,16 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
     }
   }
 
+  onLineChange() {
+    const lineNumber = this.editor.getPosition().lineNumber;
+
+    this.lineChange.emit({
+      lineNumber,
+      line: this.model.getLineContent(lineNumber),
+      value: this.model.getValue()
+    });
+  }
+
 
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
@@ -105,6 +116,10 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
           enabled: false
         }
       });
+
+    this.editor.onDidChangeCursorPosition(() => {
+      this.onLineChange();
+    });
 
     this.model.onDidChangeContent(() => {
       this.change.emit(this.editor.getModel().getValue());

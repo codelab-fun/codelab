@@ -22,6 +22,7 @@ export class BitParser extends AbstractBinaryParser {
     if (start === 0) {
       debugger;
     }
+
     const result = this.read(reader, data);
     const length = result.rawValue.length;
     const end = start + length;

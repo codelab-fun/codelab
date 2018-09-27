@@ -9,14 +9,16 @@ export class SimpleHighlightDirective implements OnChanges {
   decorators: any;
   @Input() slidesSimpleHighlight;
 
+  constructor(private readonly editorComponent: SimpleEditorComponent) {
+  }
 
   ngOnChanges() {
-
-
     if (this.editorComponent.editor) {
+
 
       const ranges = [];
 
+      debugger;
       if (this.slidesSimpleHighlight) {
         ranges.push({
           range: new this.editorComponent.monacoConfigService.monaco.Range(...this.slidesSimpleHighlight),
@@ -26,9 +28,6 @@ export class SimpleHighlightDirective implements OnChanges {
 
       this.decorators = this.editorComponent.editor.deltaDecorations(this.decorators || [], ranges);
     }
-  }
-
-  constructor(private readonly editorComponent: SimpleEditorComponent) {
   }
 
 }

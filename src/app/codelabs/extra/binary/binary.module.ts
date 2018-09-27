@@ -12,6 +12,12 @@ import { MidiComponent } from './midi/midi.component';
 import { AsciiComponent } from './ascii/ascii.component';
 import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
+import { JsonComponent } from './json/json.component';
+import { SimpleEditorModule } from '../ast/simple-editor/simple-editor.module';
+import { TooltipsModule } from '../../../tooltips/tooltips.module';
+import { CompareComponent } from './compare/compare.component';
+import { MatAutocompleteModule } from '@angular/material';
+
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(BinaryComponent)
@@ -22,7 +28,10 @@ const routes = RouterModule.forChild(
     routes,
     FormsModule,
     CommonModule,
-    BinaryViewModule
+    BinaryViewModule,
+    SimpleEditorModule,
+    TooltipsModule,
+    MatAutocompleteModule
   ],
   declarations: [
     BinaryComponent,
@@ -33,6 +42,8 @@ const routes = RouterModule.forChild(
     AsciiComponent,
     BindecComponent,
     MessageComponent,
+    JsonComponent,
+    CompareComponent,
   ],
   entryComponents: [
     FakeGifComponent,
@@ -40,6 +51,8 @@ const routes = RouterModule.forChild(
     AsciiComponent,
     BindecComponent,
     MessageComponent,
+    JsonComponent,
+    CompareComponent,
   ],
   exports: [BinaryComponent]
 })

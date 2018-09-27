@@ -1,5 +1,9 @@
+<select [(ngModel)]=encoding>
+  <option *ngFor="let e of encodings" [ngValue]="e">{{e.key}}</option>
+</select>
+
 <div class="parent">
-  <ng-container class="item" *ngFor="let item of basics">
+  <ng-container class="item" *ngFor="let item of encoding.value">
     <div class="item">
       <span class="key">{{item.key}}</span>
       <span class="value">{{item.value}}</span>

@@ -1,4 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+
+function encode(from: number, to: number, encoding: string) {
+  return new TextDecoder(encoding).decode(new Uint8Array(to - from).map((a, i) => i + from).buffer).split('')
+    .map((value, i) => ({
+      key: i + from,
+      value
+    } ));
+}
+
+const layouts = {};
 
 @Component({
   selector: 'slides-ascii',
@@ -6,19 +17,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ascii.component.css']
 })
 export class AsciiComponent implements OnInit {
-  basics = Array.from(new Array(128)).map((a, i) => ({
-    key: i,
-    value: String.fromCharCode(i).trim()
-  })).slice(33);
-
-  basics_ = Array.from(new Array(128)).map((a, i) => ({
-    key: i + 128,
-    value: String.fromCharCode(i + 128).trim()
-  })).slice(33);
-
+  @Input() param = '';
+  encodings = [
+    {
+      key: 'ascii',
+      value: encode(33, 128, 'ascii')
+    },
+    {
+      key: 'ascii - Page 2',
+      value: encode(128, 255, 'ascii')
+    },
+    {
+      key: 'windows-1251 - Page 2',
+      value: encode(128, 255, 'windows-1251')
+    },
+    {
+      key: 'KOI8-R',
+      value: encode(128, 255, 'KOI8-R')
+    },
+  ];
+  encoding = this.encodings[0];
 
   constructor() {
-    //d = new TextDecoder('windows-125').decode(new Uint8Array(255).map((a,i)=>i).buffer)
+    // d = new TextDecoder('windows-125').decode(new Uint8Array(255).map((a,i)=>i).buffer)
+  }
+
+  lol() {
+    debugger;
   }
 
   ngOnInit() {

@@ -31,8 +31,6 @@ export function lzw(minCodeSize, data, pixelCount) {
   for (i = 0; i < npix;) {
     if (top === 0) {
       if (bits < code_size) {
-        console.log(i, bits, code_size, top, bi);
-
         // get the next byte
         datum += data[bi] << bits;
 
@@ -49,7 +47,7 @@ export function lzw(minCodeSize, data, pixelCount) {
         debugger;
         break;
       }
-      console.log({code});
+
       if (code == clear) {
         // Reset decoder.
         code_size = data_size + 1;

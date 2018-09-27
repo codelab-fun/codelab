@@ -61,29 +61,26 @@ export class FakeGifComponent implements OnInit {
 
   ngOnInit() {
     const palette = new BinaryParser()
-      .choice('palette', {
-        parser(data) {
-          const palette = data._parent[0].value.find(a => a.name === 'palette').value;
-          const size = parseInt(palette, 2);
-          const length = (2 ** (size + 1));
-          return new BinaryParser().array('palette3', {
-              parser: new BinaryParser().uInt24('color', {
-                type: 'color'
-              }),
-              length
-            }
-          );
+      .array('palette', {
+        parser: new BinaryParser().uInt24('color', {
+          type: 'color',
+        }),
+        length(data) {
+          const paletteSize = data._parent[0].value.find(a => a.name === 'palette-size').value;
+          const size = parseInt(paletteSize, 2);
+          return (2 ** (size + 1));
         }
       });
+
     const header = new BinaryParser()
       .string('headerConst', {length: 6})
       .uInt16('width')
       .uInt16('height')
       .bit1('globalPallette')
-      .bit3('color-resolution')
+      .bit3('resolution')
       .bit1('palette-sorted')
-      .bit3('palette')
-      .bit8('background')
+      .bit3('palette-size')
+      .uInt8('background')
       .bit8('Ratio');
 
     const controlExtension = new BinaryParser()
@@ -185,11 +182,12 @@ export class FakeGifComponent implements OnInit {
         }
       });
 
-    this.parser = new BinaryParser()
+
+    const gif = new BinaryParser()
       .block('header', header)
       .block('palette', palette)
       .array('extenstions', {parser: body, length: 200});
-
+    this.parser = new BinaryParser().block('gif', gif);
     this.binaryToGif(this.binary);
   }
 

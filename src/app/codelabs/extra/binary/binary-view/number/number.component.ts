@@ -17,6 +17,9 @@ export class NumberComponent implements OnInit {
     this.root.update(this.data, val.slice(8) + val.slice(0, 8));
   }
 
+  updateBinary(binary) {
+    this.root.update(this.data, binary);
+  }
 
   ngOnInit() {
   }

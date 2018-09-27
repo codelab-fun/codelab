@@ -129,9 +129,11 @@ export class BinaryParser {
   }
 
   readOrdered(reader: BinaryReader, data: any = [], start = 0) {
+    const v = this.parser.readOrdered(reader, data, start);
+
     return {
       start: start,
-      ...this.parser.readOrdered(reader, data, start)
+      ...v
     };
   }
 }

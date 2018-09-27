@@ -1,0 +1,37 @@
+<div style="display: flex;" class="wrapper">
+  <div class="code" style="flex: 0 0 36vw; display: flex;flex-direction: column">
+    <h1>Data as JSON</h1>
+    <slides-simple-editor
+      style="height: 400px;" (lineChange)="handleLineChange($event)" [(ngModel)]="code"
+      [fontSize]="30" [slidesSimpleHighlightMatch]="match"></slides-simple-editor>
+    <h1>Total Length: {{codeLength}}</h1>
+  </div>
+  <div class="binary" style="flex: 0 0 60vw; display: flex;flex-direction: column">
+    <h1>Binary data</h1>
+    <span (click)="index = i" *ngFor="let item of binaries; let i = index" [class.selected]="i === index">
+      <span class="value highlight-{{i}}">{{item.binary}}</span>
+      <span class="detail">
+        {{item.type}}
+        <span *ngIf="item.type === 'string'" style="display: flex;flex-wrap: wrap">
+          <span *ngFor="let l of item.display" style="display: flex; flex-direction: column">
+            <span class="letter" style="text-align: center;">{{l.value}}&nbsp;</span>
+            <span class="bin highlight-{{i}}">{{l.bin}}</span>
+          </span>
+        </span>
+        <span *ngIf="item.type === 'number'" style="display: flex; flex-direction: column">
+          <span class="letter" style="text-align: center;">{{item.value}}</span>
+          <span class="bin highlight-{{i}}">{{item.binary}}</span>
+        </span>
+        <span *ngIf="item.type === 'boolean'" style="display: flex; flex-direction: column">
+          <span class="letter" style="text-align: center;">{{item.value}}</span>
+          <span class="bin highlight-{{i}}">{{item.binary}}</span>
+        </span>
+
+      </span>
+    </span>
+    <h1>Total Length: {{binariesLength}}</h1>
+  </div>
+
+</div>
+
+<div (click)="index  = index + 1">Next</div>

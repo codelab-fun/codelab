@@ -6,7 +6,7 @@ import { FeedbackModule } from '../../../feedback/feedback.module';
 import { SvgComponent } from './svg.component';
 import { PresentationModule } from '../../../presentation/presentation.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { SimpleEditorModule } from '../ast/simple-editor/editor.module';
+import { SimpleEditorModule } from '../ast/simple-editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';

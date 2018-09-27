@@ -1,0 +1,55 @@
+.wrapper {
+  font-size: 3vw;
+  word-break: break-all;
+}
+
+.code {
+  white-space: pre-wrap;
+  font-size: 2vw;
+  margin-right: 2vw;
+  margin-left: 1vw;
+}
+
+.binary .selected {
+  display: block;
+  box-shadow: 0 0 4px 1px #444;
+  background: #eee;
+  font-size: 3vw;
+}
+
+.code .selected {
+  color: #444;
+  font-size: 3vw;
+  box-shadow: 0 0 4px 1px #444;
+  background: #eee;
+}
+
+.detail {
+  display: none;
+}
+
+.selected .detail {
+  display: block;
+}
+
+.selected .value {
+  display: none;
+}
+
+:host ::ng-deep {
+  .highlight-1 {
+    background: #ffff00;
+  }
+
+  .highlight-2 {
+    background: #24ff00;
+  }
+
+  .highlight-3 {
+    background: #00ffe3;
+  }
+
+  .highlight-4 {
+    background: #ff00e4;
+  }
+}

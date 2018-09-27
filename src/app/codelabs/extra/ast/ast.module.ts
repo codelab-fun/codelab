@@ -13,10 +13,9 @@ import { MatchTypesOnHoverDirective } from './match-types-on-hover.directive';
 import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.module';
 import { AstPreviewRunnerModule } from './ast-preview-runner/ast-preview-runner.module';
 import { FormsModule } from '@angular/forms';
-import { SimpleHighlightDirective } from './simple-editor/simple-highlight.directive';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DebuggerComponent } from './debugger/debugger.component';
-import { SimpleEditorModule } from './simple-editor/editor.module';
+import { SimpleEditorModule } from './simple-editor/simple-editor.module';
 import { MatCardModule } from '@angular/material';
 import { TestSetComponent } from './test-set/test-set.component';
 import { CommonModule } from '@angular/common';
@@ -50,7 +49,6 @@ const routes = RouterModule.forChild(
   declarations: [
     AstComponent,
     MatchTypesOnHoverDirective,
-    SimpleHighlightDirective,
     DebuggerComponent,
     TestSetComponent,
   ],
