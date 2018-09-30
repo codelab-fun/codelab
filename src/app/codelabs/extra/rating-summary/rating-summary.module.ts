@@ -8,7 +8,7 @@ import { BrowserWindowModule } from '../../../browser/browser.module';
 import { PresentationModule } from '../../../presentation/presentation.module';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../environments/environment';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { RatingSummaryComponent } from './rating-summary.component';
 
@@ -23,7 +23,7 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
   imports: [
     routes, BrowserWindowModule,
     PresentationModule, angularFire,
-    CommonModule, HttpModule, FeedbackModule,
+    CommonModule, HttpClientModule, FeedbackModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],

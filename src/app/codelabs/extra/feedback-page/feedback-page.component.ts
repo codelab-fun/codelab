@@ -104,13 +104,10 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
     this.ghService.createIssue({
       title: message.comment.substring(0, 150),
       body: this.generateIssueBody(message)
-    }, this.githubAuth.credential.accessToken).subscribe(response => {
-      if (response.ok) {
-        const responseData = response.json();
-        this.isDone(message);
-        this.database.object(`feedback/${message.key}`).update({url: responseData.html_url});
-        window.open(responseData.html_url);
-      }
+    }, this.githubAuth.credential.accessToken).subscribe((responseData: any) => {
+      this.isDone(message);
+      this.database.object(`feedback/${message.key}`).update({url: responseData.html_url});
+      window.open(responseData.html_url);
     });
   }
 
@@ -122,19 +119,17 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
     this.ghService.createIssue({
       title: reason + ' ' + message.comment.substring(0, 150),
       body: this.generateIssueBody(message),
-    }, this.githubAuth.credential.accessToken).subscribe(response => {
-      if (response.ok) {
-        const responseData = response.json();
-        // Until we get a better UI
-        console.log(responseData.html_url);
-        this.database.object(`feedback/${message.key}`).update({url: responseData.html_url});
-        this.ghService.closeIssue({state: 'closed'}, responseData.number, this.githubAuth.credential.accessToken)
-          .subscribe((res) => {
-            if (res.ok) {
-              this.isDone(message);
-            }
-          });
-      }
+    }, this.githubAuth.credential.accessToken).subscribe((responseData: any) => {
+      // Until we get a better UI
+      console.log(responseData.html_url);
+      this.database.object(`feedback/${message.key}`).update({url: responseData.html_url});
+      this.ghService.closeIssue({state: 'closed'}, responseData.number, this.githubAuth.credential.accessToken)
+        .subscribe((res) => {
+          if (res) {
+            this.isDone(message);
+          }
+        });
+
     });
   }
 
