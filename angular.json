@@ -67,7 +67,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "karmaConfig": "./karma.conf.js",
+            "karmaConfig": ".src/s/karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
@@ -94,8 +94,7 @@
       }
     },
     "angular-presentation-e2e": {
-      "root": "",
-      "sourceRoot": "e2e",
+      "root": "e2e/",
       "projectType": "application",
       "architect": {
         "e2e": {
