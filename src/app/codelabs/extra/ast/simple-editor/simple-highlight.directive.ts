@@ -14,11 +14,8 @@ export class SimpleHighlightDirective implements OnChanges {
 
   ngOnChanges() {
     if (this.editorComponent.editor) {
-
-
       const ranges = [];
 
-      debugger;
       if (this.slidesSimpleHighlight) {
         ranges.push({
           range: new this.editorComponent.monacoConfigService.monaco.Range(...this.slidesSimpleHighlight),

@@ -44,7 +44,6 @@ export function lzw(minCodeSize, data, pixelCount) {
       bits -= code_size;
       // Interpret the code
       if ((code > available) || (code == end_of_information)) {
-        debugger;
         break;
       }
 

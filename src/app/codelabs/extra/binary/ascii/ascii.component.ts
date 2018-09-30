@@ -42,10 +42,6 @@ export class AsciiComponent implements OnInit {
     // d = new TextDecoder('windows-125').decode(new Uint8Array(255).map((a,i)=>i).buffer)
   }
 
-  lol() {
-    debugger;
-  }
-
   ngOnInit() {
   }
 

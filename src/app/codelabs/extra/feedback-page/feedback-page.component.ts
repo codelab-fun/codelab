@@ -3,12 +3,9 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { Message } from '../../../feedback/message';
-import { BehaviorSubject } from 'rxjs';
-import { combineLatest } from 'rxjs/observable/combineLatest';
-import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { GithubService } from 'app/github.service';
 import { map } from 'rxjs/operators';
-
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';

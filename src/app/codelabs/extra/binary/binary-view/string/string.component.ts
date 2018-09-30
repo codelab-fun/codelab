@@ -7,20 +7,20 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
   styleUrls: ['./string.component.css']
 })
 export class StringComponent implements OnInit {
-  constructor(private readonly root: BinaryParentComponent) {
-  }
-
-  _data: any;
-
   get data() {
     return this._data;
   }
 
-  @Input() showMeta = false;
-
   @Input()
   set data(data) {
     this._data = data;
+  }
+
+  @Input() showMeta = false;
+
+  _data: any;
+
+  constructor(private readonly root: BinaryParentComponent) {
   }
 
   updateBinary(binary) {

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-const code = require('!!raw-loader!./debugger.ts');
 declare const require;
+const code = require('!!raw-loader!./debugger.ts');
 
 @Component({
   selector: 'slides-debugger-sample',
@@ -12,9 +12,7 @@ export class DebuggerComponent implements OnInit {
   @Input() fontSize = 20;
   code = code;
 
-  constructor() {
-
-  }
+  constructor() {}
 
   run() {
     eval(this.code + ';weird()');

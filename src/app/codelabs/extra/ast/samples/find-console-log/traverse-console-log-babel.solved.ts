@@ -2,7 +2,7 @@ function traverseConsoleLogSolved(code, {babylon, babelTraverse, types, log}) {
   const ast = babylon.parse(code);
   let hasConsoleLog = false;
   babelTraverse(ast, {
-    MemberExpression(path){
+    MemberExpression(path) {
       if (
         path.node.property.type === 'Identifier' &&
         path.node.property.name === 'log' &&
@@ -15,7 +15,7 @@ function traverseConsoleLogSolved(code, {babylon, babelTraverse, types, log}) {
       }
 
     }
-  })
+  });
 
   return hasConsoleLog;
 

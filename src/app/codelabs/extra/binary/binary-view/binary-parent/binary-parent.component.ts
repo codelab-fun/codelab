@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { BinaryParser } from '../../parser/binary-parser';
 import { StringBinaryReader } from '../../parser/readers/string-reader';
 
@@ -7,7 +7,7 @@ import { StringBinaryReader } from '../../parser/readers/string-reader';
   templateUrl: './binary-parent.component.html',
   styleUrls: ['./binary-parent.component.scss']
 })
-export class BinaryParentComponent {
+export class BinaryParentComponent implements OnInit, OnChanges {
   @Input() showMeta = true;
   @Input() parser: BinaryParser;
   @Input() binary: string;
