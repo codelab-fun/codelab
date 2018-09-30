@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -11,10 +11,17 @@
     "target": "es5",
     "paths": {
       "jszip": [
-        "../node_modules/jszip/dist/jszip.min.js"
+        "../../node_modules/jszip/dist/jszip.min.js"
       ],
-      "source-map-support": ["dummy.ts"],
-      "crypto": ["dummy.ts"]
+      "source-map-support": [
+        "../../dummy.ts"
+      ],
+      "crypto": [
+        "../../dummy.ts"
+      ],
+      "@angular-presentation/*": [
+        "libs/*"
+      ]
     },
     "typeRoots": [
       "node_modules/@types"
@@ -24,5 +31,7 @@
       "dom"
     ]
   },
-  "exclude": ["src/assets"]
+  "exclude": [
+    "src/assets"
+  ]
 }

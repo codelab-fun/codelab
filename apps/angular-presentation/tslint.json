@@ -1,7 +1,6 @@
 {
   "rulesDirectory": [
-    "../node_modules/codelyzer",
-    "node_modules/@nrwl/schematics/src/tslint"
+    "../node_modules/codelyzer"
   ],
   "rules": {
     "callable-types": true,
@@ -131,18 +130,5 @@
     "templates-use-public": true,
     "invoke-injectable": true
   },
-  "nx-enforce-module-boundaries": [
-    true,
-    {
-      "allow": [],
-      "depConstraints": [
-        {
-          "sourceTag": "*",
-          "onlyDependOnLibsWithTags": [
-            "*"
-          ]
-        }
-      ]
-    }
-  ]
+  "extends": "../../tslint.json"
 }

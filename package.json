@@ -10,13 +10,28 @@
     "build": "ng build",
     "build:prod": "ng build --prod --aot",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
     "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && npm run sw && firebase deploy",
     "deploy:ru": "npm run build:ru && firebase deploy",
-    "i18n": "ng xi18n -f=xmb --output-path src/i18n"
+    "i18n": "ng xi18n -f=xmb --output-path src/i18n",
+    "affected:apps": "./node_modules/.bin/nx affected:apps",
+    "affected:libs": "./node_modules/.bin/nx affected:libs",
+    "affected:build": "./node_modules/.bin/nx affected:build",
+    "affected:e2e": "./node_modules/.bin/nx affected:e2e",
+    "affected:test": "./node_modules/.bin/nx affected:test",
+    "affected:lint": "./node_modules/.bin/nx affected:lint",
+    "affected:dep-graph": "./node_modules/.bin/nx affected:dep-graph",
+    "format": "./node_modules/.bin/nx format:write",
+    "format:write": "./node_modules/.bin/nx format:write",
+    "format:check": "./node_modules/.bin/nx format:check",
+    "update": "ng update @nrwl/schematics",
+    "update:check": "ng update",
+    "dep-graph": "./node_modules/.bin/nx dep-graph",
+    "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
+    "help": "./node_modules/.bin/nx help"
   },
   "repository": {
     "type": "git",
@@ -46,7 +61,11 @@
     "react-dom": "^15.6.0",
     "rxjs-compat": "^6.3.3",
     "source-map-support": "^0.5.9",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "@nrwl/nx": "6.3.1",
+    "@ngrx/store": "6.0.1",
+    "@ngrx/router-store": "6.0.1",
+    "@ngrx/effects": "6.0.1"
   },
   "devDependencies": {
     "@angular/animations": "6.1.9",
@@ -77,7 +96,7 @@
     "gomoku-tools": "^0.1.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
-    "karma": "~1.4.1",
+    "karma": "~2.0.0",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^0.2.0",
@@ -91,6 +110,11 @@
     "ts-node": "~2.0.0",
     "tslint": "^5.11.0",
     "typescript": "2.9.2",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@ngrx/store-devtools": "6.0.1",
+    "ngrx-store-freeze": "0.2.4",
+    "@nrwl/schematics": "6.3.1",
+    "jasmine-marbles": "0.3.1",
+    "prettier": "1.13.7"
   }
 }

@@ -1,10 +1,11 @@
 // tslint:disable:max-line-length TODO: Clean up this file and remove this comment.
 //  TODO: This should be done using require.context
-import { DiffFilesResolver } from '../src/app/differ/diffFilesResolver';
+
 import { Injectable } from '@angular/core';
 import { createModuleTest } from './tests/createModuleTest';
 import { createComponentTest } from './tests/createComponentTest';
 import { createBootstrapTest } from './tests/bootstrapTest';
+import { DiffFilesResolver } from '../apps/angular-presentation/src/app/differ/diffFilesResolver';
 
 declare const require;
 
@@ -332,7 +333,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Service injection',
           files: diffFilesResolver.resolve('diInjectService', {
             exercise: [files.video_videoService, files.appModule, files.appComponent],
-            reference: [files.appHtml, files.apiService, files.video_videoItem, files.main, files.style_css, files.indexHtml],
+            reference: [
+              files.appHtml, files.apiService, files.video_videoItem, files.main, files.style_css, files.indexHtml
+            ],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -367,7 +370,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           files: diffFilesResolver.resolve('videoComponentUse', {
             exercise: [files.appModule, files.appHtml],
             reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
+              files.video_video_component_html, files.video_video_component, files.appComponent,
+              files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css,
+              files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -390,7 +395,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
               files.upload_upload_component_html,
             ],
             reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
+              files.video_video_component_html, files.video_video_component, files.appComponent,
+              files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css,
+              files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -511,7 +518,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Add TogglePanelComponent',
           files: diffFilesResolver.resolve('togglePanelComponentCreate', {
             exercise: [files.toggle_panel_toggle_panel, files.toggle_panel_toggle_panel_html],
-            reference: [files.wrapperComponent, files.apiService, files.appModule, files.main, files.style_css, files.indexHtml],
+            reference: [
+              files.wrapperComponent, files.apiService, files.appModule, files.main, files.style_css, files.indexHtml
+            ],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -542,46 +551,51 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
     },
     {
       name: 'Pipes (bonus)',
-      exercises: [{
-        name: 'Create a pipe',
-        files: diffFilesResolver.resolve('fuzzyPipeCreate', {
-          exercise: [files.fuzzyPipe_fuzzyPipe],
-          test: [files.test],
-          bootstrap: [files.main]
-        })
-      }, {
-        name: 'Use the pipe',
-        files: diffFilesResolver.resolve('fuzzyPipeUse', {
-          exercise: [files.appModule, files.video_video_component_html],
-          reference: [files.fuzzyPipe_fuzzyPipe,
-            files.contextService,
-            files.contextComponent,
-            files.context_context_html,
-            files.video_video_component,
-            files.toggle_panel_toggle_panel,
-            files.toggle_panel_toggle_panel_html,
-            files.thumbs_thumbs_component,
-            files.thumbs_thumbs_html,
-            files.appHtml,
-            files.appComponent,
-            files.video_videoService,
-            files.video_videoItem,
-            files.apiService,
-            files.main,
-            files.indexHtml
-          ],
-          test: [files.test],
-          bootstrap: [files.main]
-        })
-      }]
+      exercises: [
+        {
+          name: 'Create a pipe',
+          files: diffFilesResolver.resolve('fuzzyPipeCreate', {
+            exercise: [files.fuzzyPipe_fuzzyPipe],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }, {
+          name: 'Use the pipe',
+          files: diffFilesResolver.resolve('fuzzyPipeUse', {
+            exercise: [files.appModule, files.video_video_component_html],
+            reference: [
+              files.fuzzyPipe_fuzzyPipe,
+              files.contextService,
+              files.contextComponent,
+              files.context_context_html,
+              files.video_video_component,
+              files.toggle_panel_toggle_panel,
+              files.toggle_panel_toggle_panel_html,
+              files.thumbs_thumbs_component,
+              files.thumbs_thumbs_html,
+              files.appHtml,
+              files.appComponent,
+              files.video_videoService,
+              files.video_videoItem,
+              files.apiService,
+              files.main,
+              files.indexHtml
+            ],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }
+      ]
     }
     ,
     {
       name: 'Survey',
-      exercises: [{
-        slide: true,
-        name: 'All done!'
-      }]
+      exercises: [
+        {
+          slide: true,
+          name: 'All done!'
+        }
+      ]
     }
   ]
 };
