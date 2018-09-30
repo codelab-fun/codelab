@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConsoleComponent } from './console.component';
-import { SharedPipeModule } from '../pipes/pipes.module';
+import { SharedPipeModule } from '../../../../apps/angular-presentation/src/app/shared/pipes/pipes.module';
 import { DisplayDynamicComponent } from './display-dynamic.component/display-dynamic-component.component';
 import { FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';

@@ -27,6 +27,9 @@
       ],
       "@angular-presentation/browser": [
         "libs/browser/src/index.ts"
+      ],
+      "@angular-presentation/console": [
+        "libs/console/src/index.ts"
       ]
     },
     "typeRoots": [

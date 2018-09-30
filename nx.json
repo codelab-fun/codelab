@@ -19,6 +19,9 @@
     },
     "browser": {
       "tags": []
+    },
+    "console": {
+      "tags": []
     }
   }
 }

@@ -18,7 +18,7 @@ import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
 import { SharedPipeModule } from '../../../shared/pipes/pipes.module';
-import { ConsoleModule } from '../../../shared/console/console.module';
+import { ConsoleModule } from '../../../../../../../libs/console/src/lib/console.module';
 
 
 const routes = RouterModule.forChild(
