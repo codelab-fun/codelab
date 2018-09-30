@@ -1,5 +1,5 @@
 import { AutorunComponent } from './autorun/autorun.component';
-import { BrowserWindowModule } from '../browser/browser.module';
+import { BrowserWindowModule } from '../../../../../libs/browser/src/lib/browser.module';
 import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';

@@ -1,0 +1,24 @@
+{
+  "npmScope": "angular-presentation",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "angular-presentation": {
+      "tags": []
+    },
+    "angular-presentation-e2e": {
+      "tags": []
+    },
+    "presentation": {
+      "tags": []
+    },
+    "browser": {
+      "tags": []
+    }
+  }
+}

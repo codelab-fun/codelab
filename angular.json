@@ -140,6 +140,34 @@
           }
         }
       }
+    },
+    "browser": {
+      "root": "libs/browser",
+      "sourceRoot": "libs/browser/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/browser/src/test.ts",
+            "tsConfig": "libs/browser/tsconfig.spec.json",
+            "karmaConfig": "libs/browser/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/browser/tsconfig.lib.json",
+              "libs/browser/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-presentation",

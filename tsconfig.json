@@ -24,6 +24,9 @@
       ],
       "@angular-presentation/presentation": [
         "libs/presentation/src/index.ts"
+      ],
+      "@angular-presentation/browser": [
+        "libs/browser/src/index.ts"
       ]
     },
     "typeRoots": [

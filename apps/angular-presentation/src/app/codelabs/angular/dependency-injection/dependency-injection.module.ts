@@ -6,7 +6,7 @@ import { FeedbackModule } from '../../../feedback/feedback.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
-import { BrowserWindowModule } from '../../../browser/browser.module';
+import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 
 const routes = RouterModule.forChild(
