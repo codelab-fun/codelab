@@ -8,7 +8,7 @@ import { MonacoConfigService } from '../exercise/services/monaco-config.service'
 import { ExerciseModule } from '../exercise/exercise.module';
 import { TooltipsModule } from '../tooltips/tooltips.module';
 import { IndexComponent } from './index/index.component';
-import { PresentationModule } from '../presentation/presentation.module';
+import { PresentationModule } from '../../../../../libs/presentation/src/lib/presentation.module';
 
 import { environment } from '../../environments/environment';
 import { NxModule } from '@nrwl/nx';

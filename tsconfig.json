@@ -21,6 +21,9 @@
       ],
       "@angular-presentation/*": [
         "libs/*"
+      ],
+      "@angular-presentation/presentation": [
+        "libs/presentation/src/index.ts"
       ]
     },
     "typeRoots": [

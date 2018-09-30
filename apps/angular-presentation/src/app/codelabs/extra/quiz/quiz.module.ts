@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { QuizComponent } from './quiz.component';
-import { PresentationModule } from '../../../presentation/presentation.module';
+import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 
 const routes = RouterModule.forChild(

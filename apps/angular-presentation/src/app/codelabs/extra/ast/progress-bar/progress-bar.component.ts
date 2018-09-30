@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ProgressBarComponent } from '../../../../presentation/progress-bar/progress-bar.component';
+import { ProgressBarComponent } from '../../../../../../../../libs/presentation/src/lib/progress-bar/progress-bar.component';
 
 @Component({
   selector: 'slides-new-progress-bar',

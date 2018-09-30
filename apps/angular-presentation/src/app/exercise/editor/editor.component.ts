@@ -19,7 +19,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { PresentationComponent } from '../../presentation/presentation/presentation.component';
+import { PresentationComponent } from '../../../../../../libs/presentation/src/lib/presentation/presentation.component';
 import { assert } from '../services/utils';
 import { debounceTime, publish, switchMap } from 'rxjs/operators';
 

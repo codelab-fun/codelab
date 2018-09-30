@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 
 import { FeedbackModule } from '../../../feedback/feedback.module';
@@ -9,7 +9,7 @@ import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { RouterModule } from '@angular/router';
 import { FormsComponent } from './forms.component';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
-import { PresentationModule } from '../../../presentation/presentation.module';
+import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 
 const routes = RouterModule.forChild(
   [

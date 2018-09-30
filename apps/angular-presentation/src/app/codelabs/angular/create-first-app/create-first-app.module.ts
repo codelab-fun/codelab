@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
-import { PresentationModule } from '../../../presentation/presentation.module';
+import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
+import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { FeedbackModule } from '../../../feedback/feedback.module';
 import { CommonModule } from '@angular/common';

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { BinaryComponent } from './binary.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

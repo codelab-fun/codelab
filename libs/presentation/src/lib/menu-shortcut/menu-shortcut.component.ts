@@ -1,5 +1,5 @@
 import { Component, HostListener, Inject } from '@angular/core';
-import { IndexPageRoute } from '../../codelabs/index/index.component';
+import { IndexPageRoute } from '../../../../../apps/angular-presentation/src/app/codelabs/index/index.component';
 
 @Component({
   selector: 'slides-menu-shortcut',

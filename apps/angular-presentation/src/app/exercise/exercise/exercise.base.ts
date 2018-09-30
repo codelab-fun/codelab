@@ -1,10 +1,10 @@
 import { Input, OnInit } from '@angular/core';
 import { ExerciseConfig } from '../interfaces/exercise-config';
 
-import { SlideComponent } from '../../presentation/slide/slide.component';
-import { AnalyticsService } from '../../presentation/analytics.service';
+import { SlideComponent } from '../../../../../../libs/presentation/src/lib/slide/slide.component';
+import { AnalyticsService } from '../../../../../../libs/presentation/src/lib/analytics.service';
 import { ActivatedRoute } from '@angular/router';
-import { PresentationComponent } from '../../presentation/presentation/presentation.component';
+import { PresentationComponent } from '../../../../../../libs/presentation/src/lib/presentation/presentation.component';
 import { FileConfig } from '../interfaces/file-config';
 import * as assert from 'assert';
 import { MonacoConfigService } from '../services/monaco-config.service';

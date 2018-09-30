@@ -1,7 +1,7 @@
 import { Component, ContentChild, Input, OnInit, Optional, ViewChild } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '../../presentation/slide/slide.component';
+import { SlideComponent } from '../../../../../../libs/presentation/src/lib/slide/slide.component';
 import { CodeGroupComponent } from '../code-group/code-group.component';
 import { EditorComponent } from '../editor/editor.component';
 
@@ -42,7 +42,7 @@ export class CodeEditorComponent implements OnInit {
 
   ngOnInit(): void {
     const code = this.textarea && this.textarea.nativeElement.value.trim() || this.code;
-    
+
     if (this.highlight[0] && !(this.highlight[0] instanceof RegExp)) {
       // Has to be a regex
       // tslint:disable-next-line:no-debugger TODO: Remove debugger
