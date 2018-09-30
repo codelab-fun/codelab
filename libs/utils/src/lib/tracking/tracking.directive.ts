@@ -2,7 +2,7 @@ import { Directive, HostListener } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { PresentationComponent } from '../../../../../libs/presentation/src/lib/presentation/presentation.component';
+import { PresentationComponent } from '../../../../presentation/src/lib/presentation/presentation.component';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.

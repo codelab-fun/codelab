@@ -14,7 +14,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { RunnerComponent } from './runner/runner.component';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
-import { TooltipsModule } from '../tooltips/tooltips.module';
+import { TooltipsModule } from '../../../../../libs/tooltips/src/lib/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';

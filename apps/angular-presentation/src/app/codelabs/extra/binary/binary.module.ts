@@ -13,11 +13,11 @@ import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
 import { JsonComponent } from './json/json.component';
 import { SimpleEditorModule } from '../ast/simple-editor/simple-editor.module';
-import { TooltipsModule } from '../../../tooltips/tooltips.module';
+import { TooltipsModule } from '../../../../../../../libs/tooltips/src/lib/tooltips.module';
 import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
-import { SharedPipeModule } from '../../../shared/pipes/pipes.module';
+import { SharedPipeModule } from '../../../../../../../libs/utils/src/lib/pipes/pipes.module';
 import { ConsoleModule } from '../../../../../../../libs/console/src/lib/console.module';
 
 

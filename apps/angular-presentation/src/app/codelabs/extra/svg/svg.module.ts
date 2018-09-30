@@ -19,7 +19,7 @@ import { SvgTogetherComponent } from './svg-together/svg-together.component';
 import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgreessBarModule } from '../ast/progress-bar/new-progress-bar.module';
-import { SharedPipeModule } from '../../../shared/pipes/pipes.module';
+import { SharedPipeModule } from '../../../../../../../libs/utils/src/lib/pipes/pipes.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)

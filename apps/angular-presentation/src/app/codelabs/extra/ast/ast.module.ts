@@ -8,7 +8,7 @@ import { FeedbackModule } from '../../../feedback/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 import { AstComponent } from './ast.component';
-import { TooltipsModule } from '../../../tooltips/tooltips.module';
+import { TooltipsModule } from '../../../../../../../libs/tooltips/src/lib/tooltips.module';
 import { MatchTypesOnHoverDirective } from './match-types-on-hover.directive';
 import { FakeBabelModule } from '../../../exercise/fake-babel-runner/fake-babel-runner.module';
 import { AstPreviewRunnerModule } from './ast-preview-runner/ast-preview-runner.module';

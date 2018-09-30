@@ -30,6 +30,12 @@
       ],
       "@angular-presentation/console": [
         "libs/console/src/index.ts"
+      ],
+      "@angular-presentation/tooltips": [
+        "libs/tooltips/src/index.ts"
+      ],
+      "@angular-presentation/utils": [
+        "libs/utils/src/index.ts"
       ]
     },
     "typeRoots": [
