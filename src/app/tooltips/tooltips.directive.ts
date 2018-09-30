@@ -1,7 +1,6 @@
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 import { EditorComponent } from '../exercise/editor/editor.component';
 import { findPosition } from './utils';
-import 'rxjs/add/operator/filter';
 
 /*
  This directive adds tooltips to the provided text

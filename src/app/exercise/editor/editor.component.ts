@@ -14,17 +14,14 @@ import {
 } from '@angular/core';
 
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/publish';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 import { assert } from '../services/utils';
-import { replay } from './monaco-replay';
+import { debounceTime, publish, switchMap } from 'rxjs/operators';
 
 declare const monaco: any;
 declare const require: any;
@@ -50,13 +47,18 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() fontSize = 12;
   @Input() minLines = 6;
   @Input() lineNumbers = 'off';
-  private actialFontSize = 12;
   @ViewChild('editor') editorContent: ElementRef;
   @Output() onCodeChange = new EventEmitter();
-  private editSub: Subject<String> = new Subject<String>();
   autorun: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   height = 0;
   public code = '';
+  private actialFontSize = 12;
+  private editSub: Subject<String> = new Subject<String>();
+
+  constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
+    this.editSubscription = this.editSub.pipe(publish(A => this.autorun.pipe(switchMap(a => a ? A.pipe(debounceTime(1500)) : A))))
+      .subscribe(this.onCodeChange);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.fontSize && this.editor) {
@@ -71,13 +73,6 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     const lineHeight = this.actialFontSize * 1.6;
     return Math.max(lines * lineHeight, lineHeight * this.minLines);
   }
-
-
-  constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
-    this.editSubscription = this.editSub.publish(A => this.autorun.switchMap(a => a ? A.debounceTime(1500) : A))
-      .subscribe(this.onCodeChange);
-  }
-
 
   loadCode(code: string) {
     this.code = code;

@@ -1,8 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
-import { ChangeDetectionStrategy, Component, HostListener, OnInit } from '@angular/core';
-import { FeedbackService } from './../feedback.service';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'slides-feedback-widget',

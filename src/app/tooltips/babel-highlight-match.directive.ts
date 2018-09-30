@@ -1,6 +1,6 @@
 import { AfterViewInit, Directive, Input } from '@angular/core';
 import { EditorComponent } from '../exercise/editor/editor.component';
-import 'rxjs/add/operator/first';
+
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.

@@ -1,9 +1,9 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Component, Input } from '@angular/core';
 import { Mode } from '../mode.enum';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { PresentationComponent } from '../presentation/presentation.component';
-import 'rxjs/add/operator/distinctUntilChanged';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'slides-slide',
@@ -12,18 +12,16 @@ import 'rxjs/add/operator/distinctUntilChanged';
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SlideComponent {
-  private slideId: number;
-  private activeSubject = new BehaviorSubject<boolean>(false);
-
   public onActive: Observable<boolean>;
-
   @Input() milestone?: string;
   @Input() id: string;
   modeEnum = Mode;
   isExercise = false;
+  private slideId: number;
+  private activeSubject = new BehaviorSubject<boolean>(false);
 
   constructor(public presentation: PresentationComponent) {
-    this.onActive = this.activeSubject.distinctUntilChanged();
+    this.onActive = this.activeSubject.pipe(distinctUntilChanged());
   }
 
   disableResize() {

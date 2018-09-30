@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { async, inject, TestBed } from '@angular/core/testing';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { Component } from '@angular/core';
 import { FeedbackService } from './feedback.service';
 import { RouterTestingModule } from '@angular/router/testing';

@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewContainerRef, AfterViewInit, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 
 @Component({

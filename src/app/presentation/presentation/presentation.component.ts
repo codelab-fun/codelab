@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input,
 import { ActivatedRoute } from '@angular/router';
 import { Mode } from '../mode.enum';
 import { AnalyticsService } from '../analytics.service';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 declare const ga;
 
 @Component({
