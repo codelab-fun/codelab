@@ -3,9 +3,8 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Message } from '../../../feedback/message';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { combineLatest } from 'rxjs/observable/combineLatest';
-import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { GithubService } from 'app/github.service';
 
@@ -32,10 +31,12 @@ function normalize(feedback: Array<any>) {
 
 function group([feedback, grouping]) {
   if (grouping === 'nothing') {
-    return [{
-      key: 'Messages',
-      value: feedback
-    }];
+    return [
+      {
+        key: 'Messages',
+        value: feedback
+      }
+    ];
   }
   if (grouping === 'name' || grouping === 'href') {
     return groupBy(feedback, grouping);
@@ -66,8 +67,8 @@ export class FeedbackPageComponent implements OnInit {
   messages$: Observable<{ key: string; value: Message; }[]>;
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
-  private feedback$: AngularFireList<any[]>;
   githubAuth;
+  private feedback$: AngularFireList<any[]>;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
     afAuth.authState.subscribe(authData => {
@@ -139,7 +140,7 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
 
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');
-    const filteredMessages$ = combineLatest(this.feedback$.snapshotChanges().map(normalize), this.filter$).map(filter)
+    const filteredMessages$ = combineLatest(this.feedback$.snapshotChanges().map(normalize), this.filter$).map(filter);
     this.messages$ = combineLatest(filteredMessages$, this.group$).map(group);
   }
 }

@@ -8,6 +8,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 })
 export class NumberComponent implements OnInit {
   @Input() data: any;
+  @Input() showMeta = false;
 
   constructor(private readonly root: BinaryParentComponent) {
   }

@@ -49,7 +49,7 @@ const views = {
       })) as any);
     }
   }
-}
+};
 
 @Component({
   selector: 'slides-bindec',
@@ -57,7 +57,7 @@ const views = {
   styleUrls: ['./bindec.component.css']
 })
 export class BindecComponent implements OnInit {
-  private view = views.int8;
+  view = views.int8;
 
   constructor() {
   }

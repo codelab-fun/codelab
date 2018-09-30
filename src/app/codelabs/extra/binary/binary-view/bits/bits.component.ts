@@ -8,6 +8,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 })
 export class BitsComponent {
   @Input() data;
+  @Input() showMeta = false;
 
   constructor(private readonly root: BinaryParentComponent) {
   }

@@ -7,7 +7,7 @@ import { AnalyticsService } from '../../presentation/analytics.service';
 import { PresentationComponent } from '../../presentation/presentation/presentation.component';
 import { ActivatedRoute } from '@angular/router';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { ExerciseBase } from './exercise.base';
 
 @Component({

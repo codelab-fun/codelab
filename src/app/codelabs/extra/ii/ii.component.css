@@ -1,0 +1,11 @@
+:host ::ng-deep .item {
+  background: #1e9aff;
+  position: absolute;
+}
+
+
+.parent {
+  position: relative;
+  background: #eeeeee;
+  width: 700px;
+}

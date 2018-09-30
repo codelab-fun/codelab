@@ -1,4 +1,4 @@
-import { NgModule, Pipe } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../presentation/slide-routes';
@@ -19,21 +19,12 @@ import { SvgTogetherComponent } from './svg-together/svg-together.component';
 import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgreessBarModule } from '../ast/progress-bar/new-progress-bar.module';
+import { SharedPipeModule } from '../../../shared/pipes/pipes.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)
 );
 
-
-@Pipe({name: 'safeHtml'})
-export class SafeHtml {
-  constructor(private readonly sanitizer: DomSanitizer) {
-  }
-
-  transform(html) {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-}
 
 @NgModule({
   imports: [
@@ -48,13 +39,13 @@ export class SafeHtml {
     FlexLayoutModule,
     MatButtonModule,
     NewProgreessBarModule,
+    SharedPipeModule
   ],
   declarations: [
     SvgComponent,
     SvgTogetherComponent,
     SvgTogetherResultComponent,
     SvgDemoComponent,
-    SafeHtml,
     SvgPlaygroundComponent,
     TimerComponent
   ],

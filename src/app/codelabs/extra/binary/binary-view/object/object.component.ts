@@ -6,7 +6,7 @@ import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./object.component.css']
 })
 export class ObjectComponent implements OnInit {
-  @Input() data: Array<any>;
+  @Input() data: any;
   @Input() showMeta = true;
 
   constructor(private cdr: ChangeDetectorRef) {

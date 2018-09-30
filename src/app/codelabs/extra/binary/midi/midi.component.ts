@@ -11,11 +11,14 @@ import { StringParser } from '../parser/parsers/string-parser';
 })
 export class MidiComponent implements OnInit {
   showMeta = true;
-  private binary: string;
-  private parser: BinaryParser;
-  private s: BinaryReaderResult;
+  binary: string;
+  parser: BinaryParser;
+  s: BinaryReaderResult;
 
   constructor() {
+  }
+
+  updateBinary(e: Event) {
   }
 
   ngOnInit() {

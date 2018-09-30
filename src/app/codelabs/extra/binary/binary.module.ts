@@ -5,7 +5,6 @@ import { BinaryComponent } from './binary.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FakeGifComponent } from './fake-gif/fake-gif.component';
-import { DisplayDynamicComponent } from './display-dynamic.component/display-dynamic-component.component';
 import { GifPaletteComponent } from './gif-palette/gif-palette.component';
 import { BinaryViewModule } from './binary-view/binary-view.module';
 import { MidiComponent } from './midi/midi.component';
@@ -17,6 +16,9 @@ import { SimpleEditorModule } from '../ast/simple-editor/simple-editor.module';
 import { TooltipsModule } from '../../../tooltips/tooltips.module';
 import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule } from '@angular/material';
+import { HtmlPostComponent } from './html-post/html-post.component';
+import { SharedPipeModule } from '../../../shared/pipes/pipes.module';
+import { ConsoleModule } from '../../../shared/console/console.module';
 
 
 const routes = RouterModule.forChild(
@@ -31,12 +33,13 @@ const routes = RouterModule.forChild(
     BinaryViewModule,
     SimpleEditorModule,
     TooltipsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    SharedPipeModule,
+    ConsoleModule
   ],
   declarations: [
     BinaryComponent,
     FakeGifComponent,
-    DisplayDynamicComponent,
     GifPaletteComponent,
     MidiComponent,
     AsciiComponent,
@@ -44,6 +47,7 @@ const routes = RouterModule.forChild(
     MessageComponent,
     JsonComponent,
     CompareComponent,
+    HtmlPostComponent,
   ],
   entryComponents: [
     FakeGifComponent,
@@ -52,6 +56,7 @@ const routes = RouterModule.forChild(
     BindecComponent,
     MessageComponent,
     JsonComponent,
+    HtmlPostComponent,
     CompareComponent,
   ],
   exports: [BinaryComponent]

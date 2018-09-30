@@ -21,9 +21,9 @@ export class JsonComponent implements OnInit {
   match = [];
 
   index = 0;
-  private binaries: any[];
-  private binariesLength: number;
-  private codeLength: number;
+  binaries: any[];
+  binariesLength: number;
+  codeLength: number;
 
   constructor() {
   }

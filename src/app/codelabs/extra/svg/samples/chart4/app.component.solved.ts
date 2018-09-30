@@ -26,7 +26,7 @@ function generateData() {
           {{item.value}}
         </text>
       </g>
-      <g appTicks style="transform: translate(0, 350px)" [data]="data"></g>
+      <g appTicks style="transform: translate(0, 350px);a:1" [data]="data"></g>
     </svg>`
 })
 export class AppComponent {

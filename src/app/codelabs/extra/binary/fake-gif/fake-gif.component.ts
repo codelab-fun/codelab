@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { lzw } from '../display-dynamic.component/gif';
+import { lzw } from './gif';
 import { BinaryParser } from '../parser/binary-parser';
 import { BinaryReaderResult } from '../parser/readers/abstract-reader';
 
@@ -29,8 +29,8 @@ export class FakeGifComponent implements OnInit {
     '01000100', '00100110', '00000101', '00000000', '00111011'
   ].join('');
 
-  private gif: string;
-  private parser: BinaryParser;
+  gif: string;
+  parser: BinaryParser;
   private s: BinaryReaderResult;
 
   constructor() {
@@ -54,7 +54,6 @@ export class FakeGifComponent implements OnInit {
     const binaries = binary.match(/.{8}/g);
     const recombined = new Uint8Array(binaries.map(a => parseInt(a, 2)));
     const b64encoded = btoa(Array.from(recombined).map(a => String.fromCharCode(a)).join(''));
-
     this.gif = 'data:image/gif;base64,' + b64encoded;
   }
 

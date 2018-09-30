@@ -135,6 +135,14 @@ export let routes = [
     page: 'bonus',
     prod: true
   }, {
+    path: 'ii',
+    loadChildren: './extra/ii/ii.module#IiModule',
+    name: 'Image inclusion',
+    description: 'Image inclusion',
+    page: 'bonus',
+    prod: true
+  },
+  {
     path: 'binary',
     loadChildren: './extra/binary/binary.module#BinaryModule',
     name: 'Binary',
@@ -230,7 +238,8 @@ export function monacoReady() {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
       multi: true
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class CodelabsModule {

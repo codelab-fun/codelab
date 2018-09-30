@@ -10,7 +10,7 @@ function generateData() {
 }
 
 @Component({
-  selector: 'my-app',
+  selector: 'my-app-solved',
   template: `
     <svg>
       <g *ngFor="let item of data; let i = index; trackBy:getIndex"
@@ -26,10 +26,10 @@ function generateData() {
           {{item.value}}
         </text>
       </g>
-      <g appTicks style="transform: translate(0, 350px)" [data]="data"></g>
+      <g appTicks style="transform: translate(0, 350px);" [data]="data"></g>
     </svg>`
 })
-export class AppComponent {
+export class AppComponentSolved {
   barWidth = 30;
   padding = 10;
   barSpace = this.padding + this.barWidth;

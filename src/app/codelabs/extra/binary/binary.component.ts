@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewChildren } from '@angular/core';
+import { Component } from '@angular/core';
 import { FakeGifComponent } from './fake-gif/fake-gif.component';
 import { MidiComponent } from './midi/midi.component';
 import { AsciiComponent } from './ascii/ascii.component';
@@ -6,7 +6,7 @@ import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
 import { JsonComponent } from './json/json.component';
 import { CompareComponent } from './compare/compare.component';
-
+import { HtmlPostComponent } from './html-post/html-post.component';
 
 @Component({
   selector: 'slides-binary',
@@ -14,31 +14,45 @@ import { CompareComponent } from './compare/compare.component';
   styleUrls: ['./binary.component.css']
 })
 export class BinaryComponent {
-  fontSize = 40;
-  output = [];
-  input = '';
-  inputHeight = 50;
-  @ViewChild('iframe') iframe;
-  @ViewChild('inp') inputEl;
-  @ViewChildren('outputBlock') blocks;
-
-  typeInQueue = [];
   commands = [
     `\`
+
+
+
+
         @kirjs
         Binary ❤️ JavaScript
 
+
+
+
     \``,
-    `// Let's read a gif file:
-    const reader = new FileReader();
+    `<input id="file" type="file">`,
+    `
+    document.getElementById('file').addEventListener('change', (e)=>{
+      const reader = new FileReader();
 
-    reader.onloadend = (e) => {
-      file = e.target.result;
-      
-    };
+      reader.onloadend = (e) => {
+        file = e.target.result;
+        console.log(file);
+      };
 
-    reader.readAsArrayBuffer(input.files[0]);
-`,
+      reader.readAsArrayBuffer(e.target.files[0]);
+    })`,
+
+    `file.byteLength`,
+    `String.fromCharCode(...new Uint8Array(file))`,
+    // `// Let's test how many arguments we can apply
+    //  String.fromCharCode(...Array.from(new Array(100)))`,
+    // `String.fromCharCode(...Array.from(new Array(10000)))`,
+    // `String.fromCharCode(...Array.from(new Array(100000)))`,
+    // `String.fromCharCode(...Array.from(new Array(1000000)))`,
+    // `String.fromCharCode(...Array.from(new Array(125307)))`,
+    // `
+    // // read more: https://stackoverflow.com/questions/22747068/is-there-a-max-number-of-arguments-javascript-functions-can-accept
+    // String.fromCharCode(...Array.from(new Array(125306)))`,
+    `String.fromCharCode(...new Uint8Array(file))`,
+    `Array.from(new Uint8Array(file)).map(a=>a.toString(2).padStart(8, 0)).join('')`,
 
 
     `explain('message', 'basic')`,
@@ -54,16 +68,10 @@ export class BinaryComponent {
     `explain('compare')`,
     `explain('json')`,
     `explain('gif')`,
-    `explain('midi')`,
-
-
-    `\`010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001\``
-    ,
-
     `
      // Let's reinvent gif with JSON:
-     
-     
+
+
      gif = {
         width: "4",
         height: "4",
@@ -74,11 +82,11 @@ export class BinaryComponent {
         '#f90', '#f0f', '#f00', '#f00',
         ]
      }
-     
+
     `, `
      // Let's index the colors
-     
-     
+
+
      gif = {
         width: "4",
         height: "4",
@@ -90,7 +98,7 @@ export class BinaryComponent {
           1, 0 ,2 , 0
         ]
      }
-     
+
     `,
     `JSON.stringify(gif)`,
     `JSON.stringify(gif).length`,
@@ -103,113 +111,18 @@ export class BinaryComponent {
     `explain('gif')`,
 
 
-    `// How to read binary data?
-`,
+    `// How to read binary data?`,
 
 
   ];
-  currentCommand = 0;
-
-
-  trackByFn(a, i) {
-    return i;
+  componentMap = {
+    gif: FakeGifComponent,
+    message: MessageComponent,
+    bindec: BindecComponent,
+    midi: MidiComponent,
+    ascii: AsciiComponent,
+    json: JsonComponent,
+    compare: CompareComponent,
+    html: HtmlPostComponent
   };
-
-  post(code: any, type: string = 'output') {
-    if (code.dynamicComponent) {
-      this.output.push({code: code.dynamicComponent, param: code.param, type: 'dynamic'});
-    } else {
-      this.output.push({code: code, type});
-    }
-  }
-
-  evalCode(code: string) {
-    return this.iframe.nativeElement.contentWindow.eval(code);
-  }
-
-  ngOnInit() {
-    const addChar = () => {
-      if (this.typeInQueue.length > 0) {
-        const next = this.typeInQueue.shift();
-        if (next === 'execute') {
-          this.execute(this.input);
-        } else {
-          this.input += next;
-        }
-
-      }
-      window.setTimeout(() => addChar(), Math.random() * 1);
-    };
-
-    addChar();
-
-    this.inputEl.nativeElement.focus();
-  }
-
-  calcInputHeight() {
-    this.inputHeight = Math.max(50, this.inputEl.nativeElement.scrollHeight);
-  }
-
-  next() {
-    this.typeIn(this.commands[this.currentCommand]);
-    this.currentCommand++;
-  }
-
-  ngAfterViewInit() {
-    const that = this;
-    this.iframe.nativeElement.contentWindow.explain = (component: string, param: string) => this.explain(component, param);
-
-    this.iframe.nativeElement.contentWindow.console.log = function () {
-      Array.from(arguments).map(a => that.post(a, 'log'));
-    };
-
-    this.next();
-  }
-
-  execute(code: string) {
-    if (code.trim() === '') {
-      return;
-    }
-
-    if (!/['"`]/.test(code[0])) {
-      this.post(code);
-    }
-
-    try {
-
-      this.post(this.evalCode(code), 'result')
-    } catch (e) {
-      this.post(e.message, 'error');
-    }
-
-    requestAnimationFrame(() => {
-      this.blocks.last.nativeElement.scrollIntoView()
-    });
-
-    this.input = '';
-  }
-
-
-  typeIn(code) {
-    this.typeInQueue = this.typeInQueue.concat(code.split(''));
-    this.typeInQueue.push('execute')
-  }
-
-
-  private explain(s: string, param: string) {
-    const map = {
-      gif: FakeGifComponent,
-      message: MessageComponent,
-      bindec: BindecComponent,
-      midi: MidiComponent,
-      ascii: AsciiComponent,
-      json: JsonComponent,
-      compare: CompareComponent,
-    };
-
-    return {
-      dynamicComponent: map[s],
-      param
-    };
-  }
 }

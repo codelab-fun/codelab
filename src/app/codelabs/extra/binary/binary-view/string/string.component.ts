@@ -16,6 +16,8 @@ export class StringComponent implements OnInit {
     return this._data;
   }
 
+  @Input() showMeta = false;
+
   @Input()
   set data(data) {
     this._data = data;

@@ -13,7 +13,7 @@ export class BinaryParentComponent {
   @Input() binary: string;
 
   @Output() updateBinary = new EventEmitter();
-  private structure: any;
+  structure: any;
 
   constructor() {
   }
