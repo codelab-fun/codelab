@@ -14,10 +14,10 @@
         "../../node_modules/jszip/dist/jszip.min.js"
       ],
       "source-map-support": [
-        "../../dummy.ts"
+        "../../apps/angular-presentation/src/dummy.ts"
       ],
       "crypto": [
-        "../../dummy.ts"
+        "../../apps/angular-presentation/src/dummy.ts"
       ],
       "@angular-presentation/*": [
         "libs/*"

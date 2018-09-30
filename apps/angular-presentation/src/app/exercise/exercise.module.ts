@@ -11,7 +11,6 @@ import { LoopProtectionService } from './services/loop-protection.service';
 import { MonacoConfigService } from './services/monaco-config.service';
 import { NgModule } from '@angular/core';
 import { PlaygroundComponent } from './playground/playground.component';
-import { ResizeModule } from '../resize/resize.module';
 import { RunnerComponent } from './runner/runner.component';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
@@ -45,7 +44,6 @@ import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.
   imports:
     [
       RunnersModule,
-      ResizeModule,
       CommonModule,
       FormsModule,
       TooltipsModule,
