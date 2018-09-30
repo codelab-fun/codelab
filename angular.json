@@ -95,7 +95,7 @@
     },
     "angular-presentation-e2e": {
       "root": "",
-      "sourceRoot": "",
+      "sourceRoot": "e2e",
       "projectType": "application",
       "architect": {
         "e2e": {
