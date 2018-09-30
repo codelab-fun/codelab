@@ -1,9 +1,9 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import { Message } from './message';
 import { Observable } from 'rxjs';
-import { getRef } from 'angularfire2/database/utils';
+import { getRef } from '@angular/fire/database/utils';
 import { map, switchMap } from 'rxjs/operators';
 
 
@@ -20,12 +20,15 @@ export class FeedbackService {
 
   // Get a stream of messages filtered by href (of a message)
   getMessages(activatedRoute: ActivatedRoute): Observable<Message[]> {
-    return activatedRoute.url.pipe(map(() => this.router.url),
+    return activatedRoute.url.pipe(
+      map(() => this.router.url),
       switchMap(url => {
         return this.database.list('/feedback',
           ref => ref
             .orderByChild('href').equalTo(url)).valueChanges();
-      })).map((items: Message[]) => items.filter(item => !item.isDone))
+      }),
+      map((items: Message[]) => items.filter(item => !item.isDone)),
+    );
   }
 
   addMessage(name: string, email: string, comment: string, header?: string): any {

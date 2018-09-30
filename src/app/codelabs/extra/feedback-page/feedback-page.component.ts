@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { Message } from '../../../feedback/message';
 import { BehaviorSubject } from 'rxjs';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 import { Observable } from 'rxjs/Observable';
 import { GithubService } from 'app/github.service';
+import { map } from 'rxjs/operators';
 
 
 type Filter = 'all' | 'done' | 'notDone';
@@ -135,7 +136,7 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
 
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');
-    const filteredMessages$ = combineLatest(this.feedback$.snapshotChanges().map(normalize), this.filter$).map(filter);
-    this.messages$ = combineLatest(filteredMessages$, this.group$).map(group);
+    const filteredMessages$ = combineLatest(this.feedback$.snapshotChanges().pipe(map(normalize)), this.filter$, map(filter));
+    this.messages$ = combineLatest(filteredMessages$, this.group$).pipe(map(group));
   }
 }

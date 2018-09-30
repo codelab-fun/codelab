@@ -11,12 +11,9 @@ import {
   removeLoc
 } from './parse-hello-world-ast';
 
-
 declare const require;
 
-
-const helloWorld = JSON.parse(require('!!raw-loader!./samples/hello-world.json'));
-
+const helloWorld = require('./samples/hello-world.json');
 
 function jsify(program) {
   return 'const ast = ' + JSON.stringify(program, null, '  ');

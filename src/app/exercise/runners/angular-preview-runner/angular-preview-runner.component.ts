@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { createSystemJsSandbox } from '../utils/sandbox';
-import { runTypeScriptFiles } from '../utils/typescript';
+import { runTypeScriptFiles } from '../utils/typescript-runner';
 declare const require;
 
 

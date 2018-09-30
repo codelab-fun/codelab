@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Component({
   selector: 'slides-svg-together',

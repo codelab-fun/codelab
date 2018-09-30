@@ -3,7 +3,7 @@ import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { handleTestMessage } from '../utils/tests';
 import { createSystemJsSandbox } from '../utils/sandbox';
-import { runTypeScriptFiles } from '../utils/typescript';
+import { runTypeScriptFiles } from '../utils/typescript-runner';
 import { TestInfo } from '../../interfaces/test-info';
 declare const require;
 

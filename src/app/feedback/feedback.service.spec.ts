@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { async, inject, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
 import { Component } from '@angular/core';

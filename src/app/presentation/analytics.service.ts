@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Event as RouterEvent, NavigationEnd, NavigationError, Router } from '@angular/router';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 export declare const ga;
 
 @Injectable()
 export class AnalyticsService {
-  ga: (action: string, type: string, eventCategory?: string,  eventAction?: string, timing?: number|string,  extra?: string) => void;
+  ga: (action: string, type: string, eventCategory?: string, eventAction?: string, timing?: number | string, extra?: string) => void;
 
 
   constructor(router: Router) {
@@ -19,12 +20,12 @@ export class AnalyticsService {
       }
     });
 
-    router.events.distinctUntilChanged((previous: any, current: RouterEvent) => {
+    router.events.pipe(distinctUntilChanged((previous: any, current: RouterEvent) => {
       if (current instanceof NavigationEnd) {
         return previous.url === current.url;
       }
       return true;
-    }).subscribe((x: NavigationEnd) => {
+    })).subscribe((x: NavigationEnd) => {
       this.ga('set', 'page', x.url);
       this.ga('send', 'pageview');
     });

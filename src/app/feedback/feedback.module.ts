@@ -1,5 +1,5 @@
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
 import { CommonModule } from '@angular/common';
 import { FeedbackService } from './feedback.service';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
 
 // Note! We are using AngularFire2 v4. There are a lot of breaking changes.
-// See: https://github.com/angular/angularfire2/issues/854
+// See: https://github.com/angular/@angular/fire/issues/854
 export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
 
 @NgModule({

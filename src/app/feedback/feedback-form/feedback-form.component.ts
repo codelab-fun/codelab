@@ -4,6 +4,7 @@ import { FeedbackService } from '../feedback.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from '../message';
 import { Observable } from 'rxjs';
+import { debounceTime } from 'rxjs/internal/operators';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class FeedbackFormComponent implements OnInit {
       email: [localStorage.getItem('userEmail') || '', []]
     });
 
-    this.formGroup.valueChanges.debounceTime(500).subscribe((data) => {
+    this.formGroup.valueChanges.pipe(debounceTime(500)).subscribe((data) => {
       localStorage[`feedback-${this.router.url}-comment`] = data.comment;
     });
   }

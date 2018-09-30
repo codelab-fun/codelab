@@ -64,9 +64,6 @@ export function runTypeScriptFiles(files: Array<FileConfig>, {setHtml, addCss, e
         emitDecoratorMetadata: true,
         noImplicitAny: true,
         declaration: true,
-        // TODO: figure out why this doesn't work
-        inlineSourceMap: true,
-        inlineSources: true
       },
       fileName: moduleName,
       moduleName: moduleName,

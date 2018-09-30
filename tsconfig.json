@@ -9,6 +9,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "paths": {
+      "jszip": [
+        "../node_modules/jszip/dist/jszip.min.js"
+      ],
+      "source-map-support": ["dummy.ts"],
+      "crypto": ["dummy.ts"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ],
