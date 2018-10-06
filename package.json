@@ -69,6 +69,8 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.7.0",
+    "@angular-devkit/build-ng-packagr": "~0.7.0",
     "@angular/animations": "6.1.9",
     "@angular/cdk": "^5.2.2",
     "@angular/cli": "^6.1.5",
@@ -106,6 +108,7 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^3.0.0",
     "ngrx-store-freeze": "0.2.4",
     "prettier": "1.13.7",
     "protractor": "^5.4.1",
@@ -114,6 +117,8 @@
     "systemjs": "^0.20.12",
     "systemjs-builder": "^0.16.4",
     "ts-node": "~2.0.0",
+    "tsickle": ">=0.29.0",
+    "tslib": "^1.9.0",
     "tslint": "^5.11.0",
     "typescript": "2.9.2",
     "zone.js": "^0.8.26"

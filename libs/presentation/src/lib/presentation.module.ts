@@ -17,7 +17,7 @@ import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.componen
 import { AnalyticsService } from './analytics.service';
 import { IntrojsDirective } from './introjs-directive/introjs.directive';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
-import { ModeOverviewComponent } from './mode-overview/mode-overview.component';
+
 import { ModeRoutingDirective } from './mode-routing/mode-routing.directive';
 
 @NgModule({
@@ -33,7 +33,6 @@ import { ModeRoutingDirective } from './mode-routing/mode-routing.directive';
     MenuShortcutComponent,
     TitleSlideComponent,
     RippleAnimationComponent,
-    ModeOverviewComponent,
     ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
@@ -49,7 +48,6 @@ import { ModeRoutingDirective } from './mode-routing/mode-routing.directive';
     ArrowsComponent,
     SlidesRoutingDirective,
     TitleSlideComponent,
-    ModeOverviewComponent,
     MenuShortcutComponent,
     ModeRoutingDirective,
     FeedbackSlideComponent,

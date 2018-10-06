@@ -36,6 +36,9 @@
       ],
       "@angular-presentation/utils": [
         "libs/utils/src/index.ts"
+      ],
+      "@angular-presentation/slides": [
+        "libs/slides/src/index.ts"
       ]
     },
     "typeRoots": [

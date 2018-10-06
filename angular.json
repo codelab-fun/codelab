@@ -113,34 +113,6 @@
         }
       }
     },
-    "presentation": {
-      "root": "libs/presentation",
-      "sourceRoot": "libs/presentation/src",
-      "projectType": "library",
-      "prefix": "angular-libs/presentation",
-      "architect": {
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/presentation/src/test.ts",
-            "tsConfig": "libs/presentation/tsconfig.spec.json",
-            "karmaConfig": "libs/presentation/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/presentation/tsconfig.lib.json",
-              "libs/presentation/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "browser": {
       "root": "libs/browser",
       "sourceRoot": "libs/browser/src",
@@ -365,6 +337,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/kirjs-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "presentation": {
+      "root": "libs/presentation",
+      "sourceRoot": "libs/presentation/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/presentation/tsconfig.lib.json",
+            "project": "libs/presentation/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/presentation/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/presentation/src/test.ts",
+            "tsConfig": "libs/presentation/tsconfig.spec.json",
+            "karmaConfig": "libs/presentation/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/presentation/tsconfig.lib.json",
+              "libs/presentation/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

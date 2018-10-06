@@ -1,5 +1,11 @@
 import { Component, HostListener, Inject } from '@angular/core';
-import { IndexPageRoute } from '../../../../../apps/angular-presentation/src/app/codelabs/index/index.component';
+
+export interface MenuShortcutRoute {
+  name: string;
+  description: string;
+  page?: string;
+  translationIds?: string[];
+}
 
 @Component({
   selector: 'slides-menu-shortcut',
@@ -8,10 +14,10 @@ import { IndexPageRoute } from '../../../../../apps/angular-presentation/src/app
 })
 
 export class MenuShortcutComponent {
-  routes: IndexPageRoute[];
+  routes: MenuShortcutRoute[];
   open = false;
 
-  constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
+  constructor(@Inject('ROUTES') routes: Array<MenuShortcutRoute>) {
     this.routes = routes.filter(route => route.page === 'main').filter(route => route.name);
   }
 

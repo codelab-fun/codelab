@@ -1,12 +1,8 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { extractMessages } from '../../../../../../libs/presentation/src/lib/i18n-tools';
+import { MenuShortcutRoute } from '../../../../../../libs/presentation/src/lib/menu-shortcut/menu-shortcut.component';
 
-export interface IndexPageRoute {
-  name: string;
-  description: string;
-  page?: string;
-  translationIds?: string[];
-}
+
 
 @Component({
   selector: 'slides-index',
@@ -14,7 +10,7 @@ export interface IndexPageRoute {
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  routes: Array<IndexPageRoute>;
+  routes: Array<MenuShortcutRoute>;
   @ViewChild('translations') translations;
 
   getMainPageRoutes() {
@@ -36,7 +32,7 @@ export class IndexComponent implements OnInit {
     return this.routes.filter(route => route.page === page);
   }
 
-  constructor(@Inject('ROUTES') routes: Array<IndexPageRoute>) {
+  constructor(@Inject('ROUTES') routes: Array<MenuShortcutRoute>) {
     this.routes = routes.filter(route => route.name);
   }
 
