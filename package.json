@@ -69,7 +69,6 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.7.0",
     "@angular/animations": "6.1.9",
     "@angular/cdk": "^5.2.2",
     "@angular/cli": "^6.1.5",
@@ -109,7 +108,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ngrx-store-freeze": "0.2.4",
     "prettier": "1.13.7",
-    "protractor": "~5.1.0",
+    "protractor": "^5.4.1",
     "rxjs": "^6.3.3",
     "sw-precache": "^5.2.0",
     "systemjs": "^0.20.12",
