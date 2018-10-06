@@ -8,7 +8,6 @@ export declare const ga;
 export class AnalyticsService {
   ga: (action: string, type: string, eventCategory?: string, eventAction?: string, timing?: number | string, extra?: string) => void;
 
-
   constructor(
     router: Router) {
     this.ga = window['ga'] || (() => 0);

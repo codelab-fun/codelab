@@ -1,4 +1,74 @@
-<slides-console
-  [commands]="commands"
-  [componentMap]="componentMap"
-></slides-console>
+<slides-presentation slides-slides-routing>
+  <slides-slide *slidesIf="'intro'">
+    <h1>@kirjs</h1>
+    <h2>Binary ❤️ JavaScript</h2>
+  </slides-slide>
+  <slides-slide *slidesIf="'lol'">
+    TBD
+  </slides-slide>
+
+  <slides-slide *slidesIf="'message'">
+    <slides-message param="basic"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'bytes'">
+    <slides-message param="bytes"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'bin-dec'">
+    <slides-bindec param="uint8"></slides-bindec>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'parseint'">
+    <code>parseInt('01001110', 2)</code>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'int8'">
+    <slides-bindec param="int8"></slides-bindec>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'message-uint8'">
+    <slides-message param="uint8"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ascii'">
+    <slides-ascii></slides-ascii>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'message-string'">
+    <slides-message param="string"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare'">
+    <slides-compare></slides-compare>
+  </slides-slide>
+  <slides-slide *slidesIf="'json'">
+    <slides-json></slides-json>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif'">
+    <slides-fake-gif></slides-fake-gif>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'bunch'">
+    // Let's reinvent gif with JSON:
+
+    `, `
+
+    `,
+    `JSON.stringify(gif)`,
+    `JSON.stringify(gif).length`,
+
+    `"010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001"
+
+
+    `,
+
+    `explain('gif')`,
+
+
+    `// How to read binary data?`,
+  </slides-slide>
+</slides-presentation>
+

@@ -26,7 +26,6 @@ export class PresentationComponent implements AfterViewInit {
   private generatedSlideIndex = 0;
 
   constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
-    debugger;
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
   }

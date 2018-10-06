@@ -19,6 +19,7 @@ import { MatAutocompleteModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
 import { SharedPipeModule } from '../../../../../../../libs/utils/src/lib/pipes/pipes.module';
 import { ConsoleModule } from '../../../../../../../libs/console/src/lib/console.module';
+import { PresentationModule } from '../../../../../../../libs/presentation/src';
 
 
 const routes = RouterModule.forChild(
@@ -35,7 +36,8 @@ const routes = RouterModule.forChild(
     TooltipsModule,
     MatAutocompleteModule,
     SharedPipeModule,
-    ConsoleModule
+    ConsoleModule,
+    PresentationModule,
   ],
   declarations: [
     BinaryComponent,

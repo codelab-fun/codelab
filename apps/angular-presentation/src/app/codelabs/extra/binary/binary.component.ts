@@ -14,6 +14,46 @@ import { HtmlPostComponent } from './html-post/html-post.component';
   styleUrls: ['./binary.component.css']
 })
 export class BinaryComponent {
+
+//
+// `file.byteLength`,
+// `String.fromCharCode(...new Uint8Array(file))`,
+//   // `// Let's test how many arguments we can apply
+//   // String.fromCharCode(...Array.from(new Array(100)))`,
+//   // `String.fromCharCode(...Array.from(new Array(10000)))`,
+//   // `String.fromCharCode(...Array.from(new Array(100000)))`,
+//   // `String.fromCharCode(...Array.from(new Array(1000000)))`,
+//   // `String.fromCharCode(...Array.from(new Array(125307)))`,
+//   // `
+//   // // read more:
+//   https://stackoverflow.com/questions/22747068/is-there-a-max-number-of-arguments-javascript-functions-can-accept
+//   // String.fromCharCode(...Array.from(new Array(125306)))`,
+// `String.fromCharCode(...new Uint8Array(file))`,
+// `Array.from(new Uint8Array(file)).map(a=>a.toString(2).padStart(8, 0)).join('')`,
+
+//<input id="file" type="file">
+//   document.getElementById('file').addEventListener('change', (e)=>{
+//   const reader = new FileReader();
+//
+//   reader.onloadend = (e) => {
+//     file = e.target.result;
+//     console.log(file);
+//   };
+//
+//   reader.readAsArrayBuffer(e.target.files[0]);
+// })
+
+  // gif = {
+  //   width: "4",
+  //   height: "4",
+  //   image: [
+  //     '#f00', '#f00', '#f00', '#f00',
+  //     '#f90', '#f0f', '#f00', '#f00',
+  //     '#f90', '#f0f', '#f00', '#f00',
+  //     '#f90', '#f0f', '#f00', '#f00',
+  //   ]
+  // }
+
   commands = [
     `\`
 

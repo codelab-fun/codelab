@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 function toByte(message) {
   return Array.from(message.match(/.{8}/gi)).map(bin => ({
@@ -92,6 +92,7 @@ export class MessageComponent implements OnInit {
   constructor() {
   }
 
+  @Input()
   set param(value: string) {
     this.setDisplay(value);
   }
