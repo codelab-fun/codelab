@@ -8,13 +8,12 @@ import { PresentationComponent } from '../presentation/presentation.component';
 })
 export class SlidesRoutingDirective implements OnInit {
   activeSlideId: string;
-
+  @Output() change = new EventEmitter();
   private ids: { [index: number]: string } = {};
 
-
-  @Output() change = new EventEmitter();
-
-  constructor(private router: Router, private route: ActivatedRoute, private presentation: PresentationComponent) {
+  constructor(private router: Router,
+              private route:
+                ActivatedRoute, private presentation: PresentationComponent) {
 
   }
 

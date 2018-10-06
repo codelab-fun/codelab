@@ -22,7 +22,4 @@ export class SlideComponent {
     this.onActive = this.activeSubject.pipe(distinctUntilChanged());
   }
 
-  disableResize() {
-    this.presentation.disableResize();
-  }
 }

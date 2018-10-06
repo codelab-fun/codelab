@@ -14,7 +14,6 @@ declare const ga;
 })
 export class PresentationComponent implements AfterViewInit {
   public config = {
-    resize: false,
     hideControls: false
   };
   public index: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -27,9 +26,9 @@ export class PresentationComponent implements AfterViewInit {
   private generatedSlideIndex = 0;
 
   constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
+    debugger;
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
-    this.config.resize = this.route.snapshot.queryParams['resize'] || this.config.resize;
   }
 
   get totalSlides() {
@@ -103,10 +102,4 @@ export class PresentationComponent implements AfterViewInit {
     this.index.next(index);
     this.trackProgress();
   }
-
-
-  disableResize() {
-    // TODO
-  }
-
 }
