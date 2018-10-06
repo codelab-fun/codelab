@@ -1,8 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Mode } from '../mode.enum';
+
 import { AnalyticsService } from '../analytics.service';
 import { BehaviorSubject } from 'rxjs';
+
 declare const ga;
 
 @Component({
@@ -12,44 +13,23 @@ declare const ga;
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements AfterViewInit {
-  private generatedSlideIndex = 0;
-  private activeMode: Mode = Mode.none;
   public config = {
     resize: false,
     hideControls: false
   };
   public index: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
   @Input() public zoom = 1;
-
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
-  @Output() onModeChange = new EventEmitter<Mode>();
-
   slides = [];
-
-  // Expose enum to template
-  modeEnum = Mode;
+  private generatedSlideIndex = 0;
 
   constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
-    this.mode = this.route.snapshot.queryParams['mode'] || this.mode;
-    if (this.route.snapshot.queryParams['mini']) {
-
-    }
     this.milestone = this.route.snapshot.queryParams['milestone'];
     this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
     this.config.resize = this.route.snapshot.queryParams['resize'] || this.config.resize;
-  }
-
-  get mode(): Mode {
-    return this.activeMode;
-  }
-
-  set mode(value: Mode) {
-    this.activeMode = value;
-    this.onModeChange.next(value);
   }
 
   get totalSlides() {
@@ -97,12 +77,6 @@ export class PresentationComponent implements AfterViewInit {
     }
   }
 
-
-// TODO: This is a hack, need a proper way!
-  isIntroJsOpen() {
-    return !!document.querySelector('.introjs-overlay');
-  }
-
   nextSlide() {
     if (this.canGoNext()) {
       this.goToSlide(this.activeSlideIndex + 1);
@@ -116,11 +90,11 @@ export class PresentationComponent implements AfterViewInit {
   }
 
   canGoNext(): boolean {
-    return this.activeSlideIndex + 1 < this.generatedSlideIndex && !this.isIntroJsOpen();
+    return this.activeSlideIndex + 1 < this.generatedSlideIndex;
   }
 
   canGoPrevious(): boolean {
-    return this.activeSlideIndex > 0 && !this.isIntroJsOpen();
+    return this.activeSlideIndex > 0;
   }
 
   goToSlide(index) {

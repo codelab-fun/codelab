@@ -15,10 +15,10 @@ import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 import { RouterModule } from '@angular/router';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 import { AnalyticsService } from './analytics.service';
-import { IntrojsDirective } from './introjs-directive/introjs.directive';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
 
-import { ModeRoutingDirective } from './mode-routing/mode-routing.directive';
+
+
 
 @NgModule({
   declarations: [
@@ -33,10 +33,8 @@ import { ModeRoutingDirective } from './mode-routing/mode-routing.directive';
     MenuShortcutComponent,
     TitleSlideComponent,
     RippleAnimationComponent,
-    ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective,
     SlideIfDirective
   ],
 
@@ -49,10 +47,8 @@ import { ModeRoutingDirective } from './mode-routing/mode-routing.directive';
     SlidesRoutingDirective,
     TitleSlideComponent,
     MenuShortcutComponent,
-    ModeRoutingDirective,
     FeedbackSlideComponent,
     ClosingSlideComponent,
-    IntrojsDirective,
     SlideIfDirective
   ],
   imports: [

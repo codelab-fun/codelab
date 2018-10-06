@@ -1,6 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
 import { Component, Input } from '@angular/core';
-import { Mode } from '../mode.enum';
 import { Observable } from 'rxjs';
 import { PresentationComponent } from '../presentation/presentation.component';
 import { distinctUntilChanged } from 'rxjs/operators';
@@ -15,7 +14,6 @@ export class SlideComponent {
   public onActive: Observable<boolean>;
   @Input() milestone?: string;
   @Input() id: string;
-  modeEnum = Mode;
   isExercise = false;
   private slideId: number;
   private activeSubject = new BehaviorSubject<boolean>(false);
