@@ -1,12 +1,13 @@
-import { FileConfig } from '../exercise/interfaces/file-config';
 import { differ } from './differ';
 import { evaled, hidden, justForReference, test } from './fileHelpers';
+import { FileConfig } from '../../../../../apps/angular-presentation/src/app/exercise/interfaces/file-config';
 
 interface Override {
   [key: string]: {
     [key: string]: string;
   };
 }
+
 interface Overrides {
   file: Override;
   stage: Override;

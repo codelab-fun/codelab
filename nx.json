@@ -28,6 +28,12 @@
     },
     "utils": {
       "tags": []
+    },
+    "kirjs": {
+      "tags": []
+    },
+    "kirjs-e2e": {
+      "tags": []
     }
   }
 }
