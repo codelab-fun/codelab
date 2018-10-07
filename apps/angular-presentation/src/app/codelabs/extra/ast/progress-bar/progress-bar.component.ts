@@ -11,5 +11,4 @@ export class NewProgressBarComponent extends ProgressBarComponent {
   @Input() title = 'JavaScript AST';
   @Output() fontSizeChange = new EventEmitter();
 
-
 }

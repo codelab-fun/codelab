@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
@@ -9,6 +9,7 @@ import { PresentationComponent } from '../presentation/presentation.component';
 export class ProgressBarComponent implements AfterViewInit {
   slides = [];
   currentSlideId = 0;
+  tempSlideId = 0;
 
   constructor(public presentation: PresentationComponent) {
   }
@@ -24,7 +25,13 @@ export class ProgressBarComponent implements AfterViewInit {
     });
   }
 
+  previewSlide(index) {
+    this.tempSlideId = this.currentSlideId;
+    this.presentation.goToSlide(index);
+  }
+
   goToSlide(index) {
     this.presentation.goToSlide(index);
+    this.tempSlideId = this.currentSlideId;
   }
 }
