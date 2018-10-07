@@ -21,7 +21,6 @@ const routes = [
     PresentationModule,
     BrowserModule,
     NxModule.forRoot(),
-    RouterModule.forRoot(routes),
     NewProgressBarModule,
   ],
   providers: [],

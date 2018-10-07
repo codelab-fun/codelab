@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { Event as RouterEvent, NavigationEnd, NavigationError, Router } from '@angular/router';
 import { distinctUntilChanged } from 'rxjs/operators';
 
@@ -9,26 +9,27 @@ export class AnalyticsService {
   ga: (action: string, type: string, eventCategory?: string, eventAction?: string, timing?: number | string, extra?: string) => void;
 
   constructor(
-    router: Router) {
+    @Optional() router: Router) {
     this.ga = window['ga'] || (() => 0);
+    if (router) {
+      router.events.subscribe((a) => {
 
-    router.events.subscribe((a) => {
+        if (a instanceof NavigationError) {
+          console.log(a);
+          throw new Error('Navigation error');
+        }
+      });
 
-      if (a instanceof NavigationError) {
-        console.log(a);
-        throw new Error('Navigation error');
-      }
-    });
-
-    router.events.pipe(distinctUntilChanged((previous: any, current: RouterEvent) => {
-      if (current instanceof NavigationEnd) {
-        return previous.url === current.url;
-      }
-      return true;
-    })).subscribe((x: NavigationEnd) => {
-      this.ga('set', 'page', x.url);
-      this.ga('send', 'pageview');
-    });
+      router.events.pipe(distinctUntilChanged((previous: any, current: RouterEvent) => {
+        if (current instanceof NavigationEnd) {
+          return previous.url === current.url;
+        }
+        return true;
+      })).subscribe((x: NavigationEnd) => {
+        this.ga('set', 'page', x.url);
+        this.ga('send', 'pageview');
+      });
+    }
   }
 
   public sendEvent(eventCategory: string, eventAction: string, eventLabel: string) {
