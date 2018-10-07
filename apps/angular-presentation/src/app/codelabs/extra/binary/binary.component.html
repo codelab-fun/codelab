@@ -117,12 +117,17 @@
     <h1>ПЕЉМЕЊ!!!</h1>
   </slides-slide>
 
+
+  <slides-slide *slidesIf="'mess-num'">
+    <h1>Let's see our message expressed as <b>letters</b></h1>
+  </slides-slide>
+
   <slides-slide *slidesIf="'message-string'">
     <slides-message param="string"></slides-message>
   </slides-slide>
 
   <slides-slide *slidesIf="'summary'">
-    <h1>Summary</h1>
+    <h2>Summary</h2>
     <table>
       <tr>
         <td>boolean</td>
@@ -144,12 +149,20 @@
   </slides-slide>
 
 
+  <slides-slide *slidesIf="'binary-json'" bg vc json>
+    <h1>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
+  </slides-slide>
+
   <slides-slide *slidesIf="'json'">
     <slides-json></slides-json>
   </slides-slide>
 
   <slides-slide *slidesIf="'compare'">
     <slides-compare></slides-compare>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-internals'" bg vc gif>
+    <h1>Let's see what's inside of <b>gif</b></h1>
   </slides-slide>
 
   <slides-slide *slidesIf="'gif'">

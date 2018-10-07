@@ -1,13 +1,13 @@
 <div style="display: flex;" class="wrapper">
   <div class="code" style="flex: 0 0 36vw; display: flex;flex-direction: column">
-    <h1>Data as JSON</h1>
+    <h2>Data as JSON</h2>
     <slides-simple-editor
       style="" (lineChange)="handleLineChange($event)" [(ngModel)]="code"
       [fontSize]="30" [lineNumbers]="false" [slidesSimpleHighlightMatch]="match"></slides-simple-editor>
-    <h1>Total Length: {{codeLength}}</h1>
+    <h2>Total Length: {{codeLength}}</h2>
   </div>
   <div class="binary" style="flex: 0 0 60vw; display: flex;flex-direction: column">
-    <h1>Binary data</h1>
+    <h2>Binary data</h2>
     <span (click)="index = i" *ngFor="let item of binaries; let i = index" [class.selected]="i === index">
       <span class="value highlight-{{i}}">{{item.binary}}</span>
       <span class="detail">
@@ -29,7 +29,7 @@
 
       </span>
     </span>
-    <h1>Total Length: {{binariesLength}}</h1>
+    <h2>Total Length: {{binariesLength}}</h2>
   </div>
 
 </div>
