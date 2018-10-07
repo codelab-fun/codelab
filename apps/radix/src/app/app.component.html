@@ -1,0 +1,10 @@
+<slides-presentation slides-slides-routing>
+  <slides-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></slides-new-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide *slidesIf="'intro'" bg intro>
+    <h1>@kirjs</h1>
+    <h2>Radix</h2>
+  </slides-slide>
+
+</slides-presentation>

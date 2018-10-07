@@ -34,6 +34,12 @@
     },
     "kirjs-e2e": {
       "tags": []
+    },
+    "radix": {
+      "tags": []
+    },
+    "radix-e2e": {
+      "tags": []
     }
   }
 }

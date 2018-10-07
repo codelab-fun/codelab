@@ -383,6 +383,125 @@
           }
         }
       }
+    },
+    "radix": {
+      "root": "apps/radix/",
+      "sourceRoot": "apps/radix/src",
+      "projectType": "application",
+      "prefix": "angular-presentation",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/radix",
+            "index": "apps/radix/src/index.html",
+            "main": "apps/radix/src/main.ts",
+            "polyfills": "apps/radix/src/polyfills.ts",
+            "tsConfig": "apps/radix/tsconfig.app.json",
+            "assets": [
+              "apps/radix/src/favicon.ico",
+              "apps/radix/src/assets"
+            ],
+            "styles": [
+              "apps/radix/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/radix/src/environments/environment.ts",
+                  "with": "apps/radix/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "radix:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "radix:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "radix:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/radix/src/test.ts",
+            "polyfills": "apps/radix/src/polyfills.ts",
+            "tsConfig": "apps/radix/tsconfig.spec.json",
+            "karmaConfig": "apps/radix/karma.conf.js",
+            "styles": [
+              "apps/radix/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/radix/src/favicon.ico",
+              "apps/radix/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/radix/tsconfig.app.json",
+              "apps/radix/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "radix-e2e": {
+      "root": "apps/radix-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/radix-e2e/protractor.conf.js",
+            "devServerTarget": "radix:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "radix:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/radix-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-presentation",
