@@ -1,10 +1,8 @@
 import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { AnalyticsService } from '../analytics.service';
 import { BehaviorSubject } from 'rxjs';
-
-declare const ga;
+import { PresentationConfigService } from '../config/config.service';
 
 @Component({
   selector: 'slides-presentation',
@@ -13,9 +11,6 @@ declare const ga;
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements AfterViewInit {
-  public config = {
-    hideControls: false
-  };
   public index: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
@@ -25,9 +20,9 @@ export class PresentationComponent implements AfterViewInit {
   slides = [];
   private generatedSlideIndex = 0;
 
-  constructor(private route: ActivatedRoute, private analytics: AnalyticsService) {
-    this.milestone = this.route.snapshot.queryParams['milestone'];
-    this.config.hideControls = this.route.snapshot.queryParams['hideControls'] || this.config.hideControls;
+  constructor(private config: PresentationConfigService,
+              private analytics: AnalyticsService) {
+    this.milestone = config.milestone;
   }
 
   get totalSlides() {
@@ -45,7 +40,7 @@ export class PresentationComponent implements AfterViewInit {
       return;
     }
     const index = this.generatedSlideIndex++;
-    if (this.route.snapshot.params.id === id) {
+    if (this.config.activeSlideIndex === id) {
       this.activeSlideIndex = index;
     }
     this.slides.push({id, index});
@@ -55,7 +50,7 @@ export class PresentationComponent implements AfterViewInit {
 
   // TODO: Move out to a separate module;
   trackProgress() {
-    const path = this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
+    const path = this.config.path;
 
     if (this.activeSlideIndex === 0) {
       const key = `been-here-mileston-start-${path}`;

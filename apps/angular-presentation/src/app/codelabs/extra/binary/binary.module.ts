@@ -21,7 +21,7 @@ import { SharedPipeModule } from '../../../../../../../libs/utils/src/lib/pipes/
 import { ConsoleModule } from '../../../../../../../libs/console/src';
 import { PresentationModule } from '../../../../../../../libs/presentation/src';
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { NewProgressBarModule } from '../ast/progress-bar/new-progress-bar.module';
+import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 
 
 

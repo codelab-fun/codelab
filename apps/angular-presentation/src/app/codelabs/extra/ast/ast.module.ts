@@ -20,7 +20,7 @@ import { MatCardModule } from '@angular/material';
 import { TestSetComponent } from './test-set/test-set.component';
 import { CommonModule } from '@angular/common';
 import { SizePickerModule } from './size-picker/size-picker.module';
-import { NewProgressBarModule } from './progress-bar/new-progress-bar.module';
+import { NewProgressBarModule } from './new-progress-bar/new-progress-bar.module';
 
 
 const routes = RouterModule.forChild(

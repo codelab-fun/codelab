@@ -50,8 +50,7 @@ import { SlideIfDirective } from './slide-if/slide-if.directive';
     SlideIfDirective
   ],
   imports: [
-    CommonModule,
-    RouterModule
+    CommonModule
   ],
   providers: [AnalyticsService],
   bootstrap: []
