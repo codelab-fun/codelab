@@ -22,13 +22,42 @@
     <slides-message param="basic"></slides-message>
   </slides-slide>
 
+  <slides-slide *slidesIf="'can-be-anything'">
+    <h2>This can be anything</h2>
+    <ul>
+      <li>Bunch of booleans</li>
+      <li>Bunch of numbers</li>
+      <li>Text</li>
+      <li>Media? Image? Song? Video?</li>
+    </ul>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'files'">
+    <h2>Common file formats TBD</h2>
+    <ul>
+      <li>Gif - GIF87a</li>
+      <li>Jpeg- GIF87a</li>
+      <li>Java class - cafebabe</li>
+      <li>Text</li>
+      <li>Media? Image? Song? Video?</li>
+
+      Class bytecode starts with hex CAFEBABE
+      GIF image files have ‘GIF89a‘ (47 49 46 38 39 61) or ‘GIF87a‘ (47 49 46 38 37 61)
+      JPEG image files begin with ‘FF D8‘ and end with ‘FF D9'
+      PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)
+      ZIP files begin with ‘PK‘ (50 4B)
+      PDF files start with ‘%PDF‘ (25 50 44 46)
+      HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n
+    </ul>
+  </slides-slide>
+
   <slides-slide *slidesIf="'bytes'">
     <h2>Let's break it up into bytes</h2>
     <slides-message param="bytes"></slides-message>
   </slides-slide>
 
   <slides-slide *slidesIf="'can-they-be-numbers'">
-    <h1>Can they be numbers?</h1>
+    <h1>Can they be <b>numbers</b>?</h1>
   </slides-slide>
 
   <slides-slide *slidesIf="'bin-dec'">
@@ -36,7 +65,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'convert-bin-to-dec'">
-    <h2>Convert binary to decimal</h2>
+    <h2>Convert binary to decimal with JavaScript</h2>
     <realtime-eval code="parseInt('01001110', 2)"></realtime-eval>
   </slides-slide>
 
@@ -45,12 +74,25 @@
     <realtime-eval code="(1212).toString(2)"></realtime-eval>
   </slides-slide>
 
+
+  <slides-slide *slidesIf="'negative-numbers'">
+    <h1>What about negative <b>numbers</b>?</h1>
+  </slides-slide>
+
   <slides-slide *slidesIf="'int8'">
     <slides-bindec param="int8"></slides-bindec>
   </slides-slide>
 
+  <slides-slide *slidesIf="'mess-num'">
+    <h1>Let's see our message expressed as <b>numbers</b></h1>
+  </slides-slide>
+
   <slides-slide *slidesIf="'message-uint8'">
     <slides-message param="uint8"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'can-they-be-letters'">
+    <h1>Can they be <b>letters</b>?</h1>
   </slides-slide>
 
   <slides-slide *slidesIf="'ascii'">
