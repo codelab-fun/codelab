@@ -20,7 +20,7 @@ export class PresentationComponent implements AfterViewInit {
   slides = [];
   private generatedSlideIndex = 0;
 
-  constructor(private config: PresentationConfigService,
+  constructor(readonly config: PresentationConfigService,
               private analytics: AnalyticsService) {
     this.milestone = config.milestone;
   }

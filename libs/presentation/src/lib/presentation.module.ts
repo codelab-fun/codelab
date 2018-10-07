@@ -35,7 +35,6 @@ import { SlideIfDirective } from './slide-if/slide-if.directive';
     ClosingSlideComponent,
     SlideIfDirective
   ],
-
   exports: [
     PresentationComponent,
     SlideComponent,
