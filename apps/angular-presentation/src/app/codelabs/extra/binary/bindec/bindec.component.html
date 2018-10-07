@@ -1,4 +1,3 @@
-<input type="text" class="number" [value]="view.value" (keyup)="view.update(i.value)" #i>
 <div class="powers">
   <label *ngFor="let v of view.values" class="power">
     <div class="dec">{{v.value}}</div>
@@ -6,3 +5,4 @@
     <div class="bin">{{v.checked ? '1' : '0'}}</div>
   </label>
 </div>
+<input type="text" class="number" [value]="view.value" (keyup)="view.update(i.value)" #i>

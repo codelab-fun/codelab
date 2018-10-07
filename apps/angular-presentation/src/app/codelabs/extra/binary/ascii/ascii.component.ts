@@ -6,7 +6,7 @@ function encode(from: number, to: number, encoding: string) {
     .map((value, i) => ({
       key: i + from,
       value
-    } ));
+    }));
 }
 
 const layouts = {};
@@ -34,6 +34,10 @@ export class AsciiComponent implements OnInit {
     {
       key: 'KOI8-R',
       value: encode(128, 255, 'KOI8-R')
+    },
+    {
+      key: 'utf-8',
+      value: encode(1000, 1255, 'utf-16')
     },
   ];
   encoding = this.encodings[0];

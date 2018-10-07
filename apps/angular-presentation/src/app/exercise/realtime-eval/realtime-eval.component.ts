@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RealtimeEvalComponent implements OnInit {
   @Input() code = '';
+  @Input() language = 'typescript';
   result: string;
   error: string;
 

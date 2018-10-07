@@ -2,8 +2,8 @@
   <div class="code" style="flex: 0 0 36vw; display: flex;flex-direction: column">
     <h1>Data as JSON</h1>
     <slides-simple-editor
-      style="height: 400px;" (lineChange)="handleLineChange($event)" [(ngModel)]="code"
-      [fontSize]="30" [slidesSimpleHighlightMatch]="match"></slides-simple-editor>
+      style="" (lineChange)="handleLineChange($event)" [(ngModel)]="code"
+      [fontSize]="30" [lineNumbers]="false" [slidesSimpleHighlightMatch]="match"></slides-simple-editor>
     <h1>Total Length: {{codeLength}}</h1>
   </div>
   <div class="binary" style="flex: 0 0 60vw; display: flex;flex-direction: column">

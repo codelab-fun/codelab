@@ -2,29 +2,47 @@
   <slides-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></slides-new-progress-bar>
   <slides-arrows></slides-arrows>
 
-
-  <slides-slide *slidesIf="'intro'">
+  <slides-slide *slidesIf="'intro'" bg intro>
     <h1>@kirjs</h1>
     <h2>Binary ❤️ JavaScript</h2>
   </slides-slide>
-  <slides-slide *slidesIf="'lol'">
-    TBD
+
+  <slides-slide *slidesIf="'overview'">
+    <h1>Overview</h1>
+    <ul>
+      <li>What kind of data we can encode with binary?</li>
+      <li>How can we apply it for web?</li>
+      <li>How can we work with binary files in JavaScript?</li>
+    </ul>
   </slides-slide>
 
+
   <slides-slide *slidesIf="'message'">
+    <h2>Let's say you get a message</h2>
     <slides-message param="basic"></slides-message>
   </slides-slide>
 
   <slides-slide *slidesIf="'bytes'">
+    <h2>Let's break it up into bytes</h2>
     <slides-message param="bytes"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'can-they-be-numbers'">
+    <h1>Can they be numbers?</h1>
   </slides-slide>
 
   <slides-slide *slidesIf="'bin-dec'">
     <slides-bindec param="uint8"></slides-bindec>
   </slides-slide>
 
-  <slides-slide *slidesIf="'parseint'">
-    <code>parseInt('01001110', 2)</code>
+  <slides-slide *slidesIf="'convert-bin-to-dec'">
+    <h2>Convert binary to decimal</h2>
+    <realtime-eval code="parseInt('01001110', 2)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'convert-dec-to-bin'">
+    <h2>Convert decimal to binary</h2>
+    <realtime-eval code="(1212).toString(2)"></realtime-eval>
   </slides-slide>
 
   <slides-slide *slidesIf="'int8'">
@@ -39,24 +57,63 @@
     <slides-ascii></slides-ascii>
   </slides-slide>
 
+  <slides-slide *slidesIf="'str-to-charcode'">
+    <h2>Get charcode from string</h2>
+    <realtime-eval code="'lol'.charCodeAt(0)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'charcode-to-str'">
+    <h2>Get charcode from string</h2>
+    <realtime-eval code="String.fromCharCode(118)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'charcode-to-str'">
+    <realtime-eval code="String.fromCharCode(1034)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'charcode-to-str'">
+    <h1>ПЕЉМЕЊ!!!</h1>
+  </slides-slide>
+
   <slides-slide *slidesIf="'message-string'">
     <slides-message param="string"></slides-message>
   </slides-slide>
 
-  <slides-slide *slidesIf="'compare'">
-    <slides-compare></slides-compare>
+  <slides-slide *slidesIf="'summary'">
+    <h1>Summary</h1>
+    <table>
+      <tr>
+        <td>boolean</td>
+        <td>true</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>number</td>
+        <td>251</td>
+        <td>11111111</td>
+      </tr>
+      <tr>
+        <td>string</td>
+        <td>'l'</td>
+        <td>11111111</td>
+      </tr>
+
+    </table>
   </slides-slide>
+
+
   <slides-slide *slidesIf="'json'">
     <slides-json></slides-json>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare'">
+    <slides-compare></slides-compare>
   </slides-slide>
 
   <slides-slide *slidesIf="'gif'">
     <slides-fake-gif></slides-fake-gif>
   </slides-slide>
 
-  <slides-slide *slidesIf="'test'">
-    <realtime-eval code="(12).toString(2)"></realtime-eval>
-  </slides-slide>
 
   <slides-slide *slidesIf="'bunch'">
     // Let's reinvent gif with JSON:

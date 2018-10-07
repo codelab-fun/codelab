@@ -1,5 +1,5 @@
 .monaco-editor {
-  margin-top: 20px;
+  display: block;
   height: 100%;
   width: 100%;
 }
