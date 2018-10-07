@@ -12,14 +12,17 @@ import { AsciiComponent } from './ascii/ascii.component';
 import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
 import { JsonComponent } from './json/json.component';
-import { SimpleEditorModule } from '../ast/simple-editor/simple-editor.module';
-import { TooltipsModule } from '../../../../../../../libs/tooltips/src/lib/tooltips.module';
+import { SimpleEditorModule } from '../../../exercise/simple-editor/simple-editor.module';
+import { TooltipsModule } from '../../../../../../../libs/tooltips/src';
 import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
 import { SharedPipeModule } from '../../../../../../../libs/utils/src/lib/pipes/pipes.module';
-import { ConsoleModule } from '../../../../../../../libs/console/src/lib/console.module';
+import { ConsoleModule } from '../../../../../../../libs/console/src';
 import { PresentationModule } from '../../../../../../../libs/presentation/src';
+import { ExerciseModule } from '../../../exercise/exercise.module';
+import { NewProgressBarModule } from '../ast/progress-bar/new-progress-bar.module';
+
 
 
 const routes = RouterModule.forChild(
@@ -38,6 +41,8 @@ const routes = RouterModule.forChild(
     SharedPipeModule,
     ConsoleModule,
     PresentationModule,
+    ExerciseModule,
+    NewProgressBarModule
   ],
   declarations: [
     BinaryComponent,

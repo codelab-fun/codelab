@@ -6,7 +6,7 @@ import { FeedbackModule } from '../../../feedback/feedback.module';
 import { SvgComponent } from './svg.component';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { SimpleEditorModule } from '../ast/simple-editor/simple-editor.module';
+import { SimpleEditorModule } from '../../../exercise/simple-editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';
@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';
 import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
-import { NewProgreessBarModule } from '../ast/progress-bar/new-progress-bar.module';
+import { NewProgressBarModule } from '../ast/progress-bar/new-progress-bar.module';
 import { SharedPipeModule } from '../../../../../../../libs/utils/src/lib/pipes/pipes.module';
 
 const routes = RouterModule.forChild(
@@ -38,7 +38,7 @@ const routes = RouterModule.forChild(
     FormsModule,
     FlexLayoutModule,
     MatButtonModule,
-    NewProgreessBarModule,
+    NewProgressBarModule,
     SharedPipeModule
   ],
   declarations: [

@@ -23,6 +23,8 @@ import { NewEditorsComponent } from './new-editors/new-editors.component';
 import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
 import { RunnersModule } from './runners/runners.module';
 import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.module';
+import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
+import { SimpleEditorModule } from './simple-editor/simple-editor.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.
     ExercisePreviewComponent,
     NewEditorsComponent,
     AngularRunnerComponent,
+    RealtimeEvalComponent,
   ],
   imports:
     [
@@ -49,6 +52,7 @@ import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.
       TooltipsModule,
       BrowserWindowModule,
       SizePickerModule,
+      SimpleEditorModule,
     ],
   providers:
     [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
@@ -64,7 +68,8 @@ import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.
       ExercisePreviewComponent,
       ExerciseComponent,
       NewEditorsComponent,
-      AngularRunnerComponent
+      AngularRunnerComponent,
+      RealtimeEvalComponent,
     ]
 })
 

@@ -15,12 +15,12 @@ import { AstPreviewRunnerModule } from './ast-preview-runner/ast-preview-runner.
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DebuggerComponent } from './debugger/debugger.component';
-import { SimpleEditorModule } from './simple-editor/simple-editor.module';
+import { SimpleEditorModule } from '../../../exercise/simple-editor/simple-editor.module';
 import { MatCardModule } from '@angular/material';
 import { TestSetComponent } from './test-set/test-set.component';
 import { CommonModule } from '@angular/common';
 import { SizePickerModule } from './size-picker/size-picker.module';
-import { NewProgreessBarModule } from './progress-bar/new-progress-bar.module';
+import { NewProgressBarModule } from './progress-bar/new-progress-bar.module';
 
 
 const routes = RouterModule.forChild(
@@ -44,7 +44,7 @@ const routes = RouterModule.forChild(
     SizePickerModule,
     MatCardModule,
     FakeBabelModule,
-    NewProgreessBarModule,
+    NewProgressBarModule,
   ],
   declarations: [
     AstComponent,

@@ -9,5 +9,5 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [NewProgressBarComponent],
   exports: [NewProgressBarComponent],
 })
-export class NewProgreessBarModule {
+export class NewProgressBarModule {
 }

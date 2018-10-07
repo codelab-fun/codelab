@@ -1,4 +1,8 @@
 <slides-presentation slides-slides-routing>
+  <slides-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></slides-new-progress-bar>
+  <slides-arrows></slides-arrows>
+
+
   <slides-slide *slidesIf="'intro'">
     <h1>@kirjs</h1>
     <h2>Binary ❤️ JavaScript</h2>
@@ -50,6 +54,9 @@
     <slides-fake-gif></slides-fake-gif>
   </slides-slide>
 
+  <slides-slide *slidesIf="'test'">
+    <realtime-eval code="(12).toString(2)"></realtime-eval>
+  </slides-slide>
 
   <slides-slide *slidesIf="'bunch'">
     // Let's reinvent gif with JSON:
