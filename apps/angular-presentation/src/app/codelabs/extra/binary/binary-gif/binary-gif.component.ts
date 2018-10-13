@@ -6,9 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./binary-gif.component.css']
 })
 export class BinaryGifComponent {
-
-  private gif: string;
-
+  gif: string;
 
   @Input()
   set binary(binary: string) {

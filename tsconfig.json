@@ -39,6 +39,12 @@
       ],
       "@angular-presentation/slides": [
         "libs/slides/src/index.ts"
+      ],
+      "@angular-presentation/angular-ast-viz": [
+        "libs/angular-ast-viz/src/index.ts"
+      ],
+      "@angular-presentation/angular-slides-to-pdf": [
+        "libs/angular-slides-to-pdf/src/index.ts"
       ]
     },
     "typeRoots": [

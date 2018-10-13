@@ -1,0 +1,44 @@
+.box {
+  padding: 10px;
+  background: #eee;
+  margin-top: 4px;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.box.CallExpression {
+  background: #e4ff04;
+}
+
+.box.ExpressionStatement {
+  background: #444;
+  color: white;
+}
+
+.box.Identifier {
+  background: #ffe000;
+}
+
+.box.Array {
+  background: #fafafa;
+}
+
+.box.NumericLiteral,
+.box.RegExpLiteral,
+.box.NullLiteral,
+.box.BooleanLiteral,
+.box.TemplateLiteral,
+.box.StringLiteral {
+  background: #00daff;
+}
+
+.props {
+  color: #666;
+}
+
+.box .key {
+}
+
+.box .node {
+  font-weight: 300;
+}

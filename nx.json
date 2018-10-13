@@ -40,6 +40,12 @@
     },
     "radix-e2e": {
       "tags": []
+    },
+    "angular-ast-viz": {
+      "tags": []
+    },
+    "angular-slides-to-pdf": {
+      "tags": []
     }
   }
 }

@@ -22,7 +22,7 @@ export class BinaryFlatComponent implements OnInit {
   @Output() updateBinary = new EventEmitter();
   @Input() parser: BinaryParser;
   detailIndex = 3;
-  private structure: { start: number };
+  structure: { start: number };
 
   @Input() set binary(binary: string) {
     this.structure = flatten(this.parser.readOrdered(new StringBinaryReader(binary)).value);

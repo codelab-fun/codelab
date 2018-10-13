@@ -14,6 +14,7 @@ import { HtmlPostComponent } from './html-post/html-post.component';
   styleUrls: ['./binary.component.css']
 })
 export class BinaryComponent {
+  fontSize = 30;
 
   binaryLittleGif = [
     '01000111', '01001001', '01000110', '00111000', '00111001', '01100001', '00000010', '00000000', '00000010',

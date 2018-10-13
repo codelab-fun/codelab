@@ -1,5 +1,6 @@
 <slides-presentation slides-slides-routing>
-  <slides-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></slides-new-progress-bar>
+  <slides-new-progress-bar [fontSize]="fontSize"
+                           (fontSizeChange)="fontSize = fontSize + $event"></slides-new-progress-bar>
   <slides-arrows></slides-arrows>
 
   <slides-slide *slidesIf="'intro'" bg intro>

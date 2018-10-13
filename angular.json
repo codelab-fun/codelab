@@ -502,6 +502,86 @@
           }
         }
       }
+    },
+    "angular-ast-viz": {
+      "root": "libs/angular-ast-viz",
+      "sourceRoot": "libs/angular-ast-viz/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/angular-ast-viz/tsconfig.lib.json",
+            "project": "libs/angular-ast-viz/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/angular-ast-viz/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/angular-ast-viz/src/test.ts",
+            "tsConfig": "libs/angular-ast-viz/tsconfig.spec.json",
+            "karmaConfig": "libs/angular-ast-viz/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-ast-viz/tsconfig.lib.json",
+              "libs/angular-ast-viz/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "angular-slides-to-pdf": {
+      "root": "libs/angular-slides-to-pdf",
+      "sourceRoot": "libs/angular-slides-to-pdf/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/angular-slides-to-pdf/tsconfig.lib.json",
+            "project": "libs/angular-slides-to-pdf/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/angular-slides-to-pdf/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/angular-slides-to-pdf/src/test.ts",
+            "tsConfig": "libs/angular-slides-to-pdf/tsconfig.spec.json",
+            "karmaConfig": "libs/angular-slides-to-pdf/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-slides-to-pdf/tsconfig.lib.json",
+              "libs/angular-slides-to-pdf/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-presentation",
