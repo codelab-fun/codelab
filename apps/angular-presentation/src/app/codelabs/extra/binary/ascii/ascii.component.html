@@ -1,6 +1,9 @@
-<select [(ngModel)]=encoding>
-  <option *ngFor="let e of encodings" [ngValue]="e">{{e.key}}</option>
-</select>
+<h2>
+  Display character table for:
+  <select [(ngModel)]=encoding>
+    <option *ngFor="let e of encodings" [ngValue]="e">{{e.key}}</option>
+  </select>
+</h2>
 
 <div class="parent">
   <ng-container class="item" *ngFor="let item of encoding.value">

@@ -1,4 +1,4 @@
-<img [src]="gif" style="width:200px;position: fixed; right: 0; top: 0;image-rendering: -webkit-optimize-contrast;">
+<binary-gif [binary]="binary" style=";position: fixed; right: 0; top: 0;width: 250px;"></binary-gif>
 
 <div>
   <div style="width: 200px;">
@@ -9,8 +9,9 @@
     <input type="checkbox" [(ngModel)]="showMeta">
   </label>
   <div style="margin-right: 220px;">
-    <slides-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"
-                          [showMeta]="showMeta"></slides-binary-parent>
+    <binary-flat (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"></binary-flat>
+    <!--<slides-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"-->
+    <!--[showMeta]="showMeta"></slides-binary-parent>-->
   </div>
 </div>
 

@@ -8,7 +8,6 @@ import { BinaryReader } from './readers/abstract-reader';
 
 export class BinaryParser {
   type = 'object';
-  z
   private parser: BinaryObjectParser;
 
   constructor() {

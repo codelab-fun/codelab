@@ -15,14 +15,15 @@ import { JsonComponent } from './json/json.component';
 import { SimpleEditorModule } from '../../../exercise/simple-editor/simple-editor.module';
 import { TooltipsModule } from '../../../../../../../libs/tooltips/src';
 import { CompareComponent } from './compare/compare.component';
-import { MatAutocompleteModule } from '@angular/material';
+import { MatAutocompleteModule, MatSelectModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
 import { SharedPipeModule } from '../../../../../../../libs/utils/src/lib/pipes/pipes.module';
 import { ConsoleModule } from '../../../../../../../libs/console/src';
 import { PresentationModule } from '../../../../../../../libs/presentation/src';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
-
+import { BinaryGifComponent } from './binary-gif/binary-gif.component';
+import { BinaryFlatComponent } from './binary-flat/binary-flat.component';
 
 
 const routes = RouterModule.forChild(
@@ -42,7 +43,8 @@ const routes = RouterModule.forChild(
     ConsoleModule,
     PresentationModule,
     ExerciseModule,
-    NewProgressBarModule
+    NewProgressBarModule,
+    MatSelectModule,
   ],
   declarations: [
     BinaryComponent,
@@ -55,6 +57,8 @@ const routes = RouterModule.forChild(
     JsonComponent,
     CompareComponent,
     HtmlPostComponent,
+    BinaryGifComponent,
+    BinaryFlatComponent,
   ],
   entryComponents: [
     FakeGifComponent,

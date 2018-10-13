@@ -47,6 +47,8 @@ export class JsonComponent implements OnInit {
       const value = val[key];
       const data: any = {};
 
+      data.key = key;
+      data.key = key;
       if (typeof value === 'boolean') {
         data.binary = Number(value);
         data.type = 'boolean';
@@ -56,7 +58,7 @@ export class JsonComponent implements OnInit {
         data.type = 'number';
         data.comment = 'Number';
       } else if (typeof value === 'string') {
-        data.binary = strToBin(value)
+        data.binary = strToBin(value);
         data.display = value.split('').map((value => ({
           value,
           bin: (value.charCodeAt(0).toString(2) as any).padStart(8, 0)
@@ -70,9 +72,9 @@ export class JsonComponent implements OnInit {
       return data;
     }));
 
-    this.match = code.split('\n').map((a, i) => ({match: a.trim(), className: `highlight-${i}`}))
+    this.match = code.split('\n').map((a, i) => ({match: a.trim(), className: `highlight-${i}`}));
     this.index = lineNumber - 1;
-    this.codeLength = code.replace(/\s/g, '').length
+    this.codeLength = code.replace(/\s/g, '').length;
     this.binariesLength = Math.ceil(this.binaries.map(a => a.binary.toString().length).reduce((a, b) => a + b, 0) / 8);
   }
 

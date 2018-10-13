@@ -1,5 +1,5 @@
 import { Directive, Input, OnChanges } from '@angular/core';
-import { SimpleEditorComponent } from './editor.component';
+import { SimpleEditorComponent } from './simple-editor.component';
 
 @Directive({
   selector: '[slidesSimpleHighlight]'

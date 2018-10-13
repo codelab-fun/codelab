@@ -8,27 +8,29 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'overview'">
-    <h1>Overview</h1>
+    <h1>In this talk:</h1>
     <ul>
-      <li>What kind of data we can encode with binary?</li>
-      <li>How can we apply it for web?</li>
-      <li>How can we work with binary files in JavaScript?</li>
+      <li>Encoding different data ➡ <b>binary</b>?</li>
+      <li><b>Binary</b> ❤️ web?</li>
+      <li><b>Binary</b> files (e.g. pics, audio, etc) ❤️ JavaScript?</li>
     </ul>
   </slides-slide>
 
 
   <slides-slide *slidesIf="'message'">
-    <h2>Let's say you get a message</h2>
+    <h2>Let's reverse-engineer this message:</h2>
     <slides-message param="basic"></slides-message>
   </slides-slide>
 
   <slides-slide *slidesIf="'can-be-anything'">
-    <h2>This can be anything</h2>
+    <h2>This can be anything 🤔</h2>
     <ul>
-      <li>Bunch of booleans</li>
+      <li>Lots of booleans?</li>
       <li>Bunch of numbers</li>
-      <li>Text</li>
+      <li>Text?</li>
+      <li>Hex data? colors?</li>
       <li>Media? Image? Song? Video?</li>
+      <li>Bunch of random 1's and 0's?</li>
     </ul>
   </slides-slide>
 
@@ -56,8 +58,8 @@
     <slides-message param="bytes"></slides-message>
   </slides-slide>
 
-  <slides-slide *slidesIf="'can-they-be-numbers'">
-    <h1>Can they be <b>numbers</b>?</h1>
+  <slides-slide *slidesIf="'can-they-be-numbers'" vc>
+    <h1>Can this be <br> <b>numbers</b>?</h1>
   </slides-slide>
 
   <slides-slide *slidesIf="'bin-dec'">
@@ -137,11 +139,16 @@
       <tr>
         <td>number</td>
         <td>251</td>
-        <td>11111111</td>
+        <td>11111011</td>
       </tr>
       <tr>
         <td>string</td>
         <td>'l'</td>
+        <td>11111111</td>
+      </tr>
+      <tr>
+        <td>color</td>
+        <td style="color:#2b981f">#2b981f</td>
         <td>11111111</td>
       </tr>
 
@@ -165,8 +172,13 @@
     <h1>Let's see what's inside of <b>gif</b></h1>
   </slides-slide>
 
+  <slides-slide *slidesIf="'gif-example'" no-padding>
+    <binary-gif style="width: 100vh;margin: auto;" [binary]="binaryLittleGif"></binary-gif>
+  </slides-slide>
+
+
   <slides-slide *slidesIf="'gif'">
-    <slides-fake-gif></slides-fake-gif>
+    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
   </slides-slide>
 
 

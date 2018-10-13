@@ -33,7 +33,7 @@ export class BinaryParentComponent implements OnInit, OnChanges {
   update(chunk, value) {
     const len = chunk.end - chunk.start;
     value = value.padEnd(len, 0).slice(0, len);
-    this.binary = this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end)
+    this.binary = this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
     this.updateBinary.emit(this.binary);
     this.regenerate();
   }

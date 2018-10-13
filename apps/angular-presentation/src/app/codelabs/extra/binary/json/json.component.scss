@@ -37,19 +37,35 @@
 }
 
 :host ::ng-deep {
+  .highlight-0 {
+    background: rgba(255, 124, 0, 0.47);
+  }
+
   .highlight-1 {
-    background: #ffff00;
+    background: rgba(255, 239, 0, 0.47);
   }
 
   .highlight-2 {
-    background: #24ff00;
+    background: #00ff29;
   }
 
   .highlight-3 {
-    background: #00ffe3;
+    background: #00ffe7;
   }
 
   .highlight-4 {
-    background: #ff00e4;
+    background: rgba(0, 177, 255, 0.46);
+  }
+
+  .highlight-5 {
+    background: rgba(185, 0, 255, 0.29);
+  }
+
+  .highlight-6 {
+    background: rgba(255, 0, 89, 0.47);
+  }
+
+  .highlight-7 {
+    background: rgba(255, 115, 0, 0.4);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { lzw } from './gif';
 import { BinaryParser } from '../parser/binary-parser';
@@ -20,14 +20,7 @@ interface Chunk {
 })
 export class FakeGifComponent implements OnInit {
   showMeta = true;
-  binary = [
-    '01000111', '01001001', '01000110', '00111000', '00111001', '01100001', '00000010', '00000000', '00000010',
-    '00000000', '11110001', '00000000', '00000000', '11010111', '01010110', '00000000', '11110110', '10111001',
-    '00000000', '01101100', '01001111', '10001111', '00111000', '10011110', '10001111', '00100001', '11111001',
-    '00000100', '00000000', '00000000', '00000000', '00000000', '00000000', '00101100', '00000000', '00000000',
-    '00000000', '00000000', '00000010', '00000000', '00000010', '00000000', '00000000', '00000010', '00000011',
-    '01000100', '00100110', '00000101', '00000000', '00111011'
-  ].join('');
+  @Input() binary: string;
 
   gif: string;
   parser: BinaryParser;
@@ -44,17 +37,9 @@ export class FakeGifComponent implements OnInit {
       const result = new Uint8Array(e.target.result);
       const binaries = Array.from(result).map(a => a.toString(2)).map(a => (a as any).padStart(8, 0));
       this.binary = binaries.join('');
-      this.binaryToGif(this.binary);
     };
 
     reader.readAsArrayBuffer(file.files[0]);
-  }
-
-  binaryToGif(binary: string) {
-    const binaries = binary.match(/.{8}/g);
-    const recombined = new Uint8Array(binaries.map(a => parseInt(a, 2)));
-    const b64encoded = btoa(Array.from(recombined).map(a => String.fromCharCode(a)).join(''));
-    this.gif = 'data:image/gif;base64,' + b64encoded;
   }
 
 
@@ -187,11 +172,10 @@ export class FakeGifComponent implements OnInit {
       .block('palette', palette)
       .array('extenstions', {parser: body, length: 200});
     this.parser = new BinaryParser().block('gif', gif);
-    this.binaryToGif(this.binary);
   }
 
   updateBinary(binary) {
-    this.binaryToGif(binary);
+    this.binary = binary;
   }
 }
 
