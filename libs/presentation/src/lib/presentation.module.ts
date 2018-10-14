@@ -1,3 +1,4 @@
+import 'hammerjs';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PresentationComponent } from './presentation/presentation.component';
@@ -11,12 +12,14 @@ import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 import { TitleSlideComponent } from './title-slide/title-slide.component';
 import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
 import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
-import { RouterModule } from '@angular/router';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 import { AnalyticsService } from './analytics.service';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 
-
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = {}
+}
 
 
 @NgModule({
@@ -49,9 +52,15 @@ import { SlideIfDirective } from './slide-if/slide-if.directive';
     SlideIfDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
-  providers: [AnalyticsService],
+  providers: [
+    AnalyticsService, {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }
+  ],
   bootstrap: []
 })
 export class PresentationModule {

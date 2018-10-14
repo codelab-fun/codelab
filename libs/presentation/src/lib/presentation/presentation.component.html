@@ -1,6 +1,8 @@
 <div
   [class.presentation]="true"
   [class.presentation-hide-controls]="config.hideControls"
-  slides-shortcuts>
+  slides-shortcuts
+  (swipeleft)="nextSlide()"
+  (swiperight)="previousSlide()">
   <ng-content></ng-content>
 </div>
