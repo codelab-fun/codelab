@@ -6,12 +6,12 @@ import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 
 const routes = [
-  // {
-  //   path: 'ii',
-  //   loadChildren: './modules/ii/ii.module#IiModule',
-  //   name: 'Image inclusion',
-  //   description: 'Image inclusion',
-  // },
+  {
+    path: 'ii',
+    loadChildren: './modules/ii/ii.module#IiModule',
+    name: 'Image inclusion',
+    description: 'Image inclusion',
+  },
   {
     path: '',
     loadChildren: './modules/home/home.module#HomeModule',

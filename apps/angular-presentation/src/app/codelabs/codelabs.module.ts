@@ -136,13 +136,6 @@ export let routes = [
     description: 'Learn about ASTs',
     page: 'bonus',
     prod: true
-  }, {
-    path: 'ii',
-    loadChildren: './extra/ii/ii.module#IiModule',
-    name: 'Image inclusion',
-    description: 'Image inclusion',
-    page: 'bonus',
-    prod: true
   },
   {
     path: 'binary',

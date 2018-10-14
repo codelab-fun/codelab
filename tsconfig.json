@@ -11,7 +11,7 @@
     "target": "es5",
     "paths": {
       "jszip": [
-        "../../node_modules/jszip/dist/jszip.min.js"
+        "node_modules/jszip/dist/jszip.min.js"
       ],
       "source-map-support": [
         "../../apps/angular-presentation/src/dummy.ts"
