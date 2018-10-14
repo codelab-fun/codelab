@@ -1,0 +1,19 @@
+<div class="progress-bar" *ngIf="slides.length" fxLayout style="justify-content: space-between">
+  <span style="margin-right: 2vw;">{{title}}</span>
+  <div class="points-container" #progressBarDiv fxLayout>
+    <!--(mouseover)="previewSlide(slide.index)"-->
+    <!--(mouseout)="goToSlide(tempSlideId)"-->
+
+    <div *ngFor="let slide of slides"
+         (click)="goToSlide(slide.index)">
+      <div class="slide-block"
+           [class.completed-slide]="slide.index < currentSlideId"
+           [class.current-slide]="slide.index === currentSlideId"></div>
+    </div>
+  </div>
+  <span class="font-size">
+    <slides-size-picker (sizeChange)="fontSizeChange.emit($event)" [size]="fontSize"></slides-size-picker>
+  </span>
+  <span></span>
+</div>
+<a href="https://twitter.com/kirjs" class="handle">@kirjs</a>

@@ -1,6 +1,7 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "./node_modules/codelyzer",
+    "node_modules/@nrwl/schematics/src/tslint"
   ],
   "rules": {
     "callable-types": true,
@@ -12,7 +13,10 @@
     "curly": true,
     "eofline": true,
     "forin": true,
-    "import-blacklist": [true, "rxjs"],
+    "import-blacklist": [
+      true,
+      "rxjs"
+    ],
     "import-spacing": true,
     "import-destructuring-spacing": true,
     "indent": [
@@ -32,7 +36,7 @@
       "variables-before-functions"
     ],
     "no-arg": true,
-    "no-bitwise": true,
+    "no-bitwise": false,
     "no-console": [
       true,
       "debug",
@@ -46,9 +50,12 @@
     "no-duplicate-variable": true,
     "no-empty": false,
     "no-empty-interface": true,
-    "no-eval": true,
-    "no-inferrable-types": [true, "ignore-params"],
-    "no-shadowed-variable": true,
+    "no-eval": false,
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
+    "no-shadowed-variable": false,
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
@@ -99,9 +106,18 @@
       "check-separator",
       "check-type"
     ],
-
-    "directive-selector": [true, "attribute", "slides", "camelCase"],
-    "component-selector": [true, "element", "slides", "kebab-case"],
+    "directive-selector": [
+      true,
+      "attribute",
+      "slides",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "slides",
+      "kebab-case"
+    ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
@@ -114,5 +130,19 @@
     "no-access-missing-member": true,
     "templates-use-public": true,
     "invoke-injectable": true
-  }
+  },
+  "nx-enforce-module-boundaries": [
+    true,
+    {
+      "allow": [],
+      "depConstraints": [
+        {
+          "sourceTag": "*",
+          "onlyDependOnLibsWithTags": [
+            "*"
+          ]
+        }
+      ]
+    }
+  ]
 }

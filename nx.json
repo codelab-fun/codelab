@@ -1,0 +1,51 @@
+{
+  "npmScope": "angular-presentation",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "angular-presentation": {
+      "tags": []
+    },
+    "angular-presentation-e2e": {
+      "tags": []
+    },
+    "presentation": {
+      "tags": []
+    },
+    "browser": {
+      "tags": []
+    },
+    "console": {
+      "tags": []
+    },
+    "tooltips": {
+      "tags": []
+    },
+    "utils": {
+      "tags": []
+    },
+    "kirjs": {
+      "tags": []
+    },
+    "kirjs-e2e": {
+      "tags": []
+    },
+    "radix": {
+      "tags": []
+    },
+    "radix-e2e": {
+      "tags": []
+    },
+    "angular-ast-viz": {
+      "tags": []
+    },
+    "angular-slides-to-pdf": {
+      "tags": []
+    }
+  }
+}

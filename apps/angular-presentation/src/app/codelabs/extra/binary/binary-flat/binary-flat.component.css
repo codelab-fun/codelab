@@ -1,0 +1,21 @@
+.wrapper {
+  word-break: break-all;
+  padding: 40px;
+
+}
+
+.binary {
+  letter-spacing: 2vw;
+}
+
+.item, .detail-item {
+  font-size: 3vw;
+}
+
+.item-1 {
+  background: #eee;
+}
+
+.detail-item {
+  padding: 20px;
+}

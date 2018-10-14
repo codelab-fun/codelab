@@ -1,0 +1,18 @@
+<slides-presentation>
+  <slides-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></slides-new-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide *slidesIf="'intro'" bg intro>
+    <h1>All the numbers we use are </h1>
+  </slides-slide>
+  <slides-slide *slidesIf="'lol'" bg intro>
+    <h1>The numbers we generally use are <b>base 10</b>, which means they use 10 different digits:</h1>
+    <h1>1,2,3,4,5,6,7,8,9,0</h1>
+    <h1>But there are other numbering systems</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'mayan-numbers'" bg intro>
+    https://www.unicode.org/charts/PDF/U1D2E0.pdf
+    https://en.wikipedia.org/wiki/Magic_number_(programming)
+  </slides-slide>
+</slides-presentation>

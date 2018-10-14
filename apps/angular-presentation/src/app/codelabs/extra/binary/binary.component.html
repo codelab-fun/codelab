@@ -1,0 +1,206 @@
+<slides-presentation slides-slides-routing>
+  <slides-new-progress-bar [fontSize]="fontSize"
+                           (fontSizeChange)="fontSize = fontSize + $event"></slides-new-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide *slidesIf="'intro'" bg intro>
+    <h1>@kirjs</h1>
+    <h2>Binary ❤️ JavaScript</h2>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'overview'">
+    <h1>In this talk:</h1>
+    <ul>
+      <li>Encoding different data ➡ <b>binary</b>?</li>
+      <li><b>Binary</b> ❤️ web?</li>
+      <li><b>Binary</b> files (e.g. pics, audio, etc) ❤️ JavaScript?</li>
+    </ul>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'message'">
+    <h2>Let's reverse-engineer this message:</h2>
+    <slides-message param="basic"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'can-be-anything'">
+    <h2>This can be anything 🤔</h2>
+    <ul>
+      <li>Lots of booleans?</li>
+      <li>Bunch of numbers</li>
+      <li>Text?</li>
+      <li>Hex data? colors?</li>
+      <li>Media? Image? Song? Video?</li>
+      <li>Bunch of random 1's and 0's?</li>
+    </ul>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'files'">
+    <h2>Common file formats TBD</h2>
+    <ul>
+      <li>Gif - GIF87a</li>
+      <li>Jpeg- GIF87a</li>
+      <li>Java class - cafebabe</li>
+      <li>Text</li>
+      <li>Media? Image? Song? Video?</li>
+
+      Class bytecode starts with hex CAFEBABE
+      GIF image files have ‘GIF89a‘ (47 49 46 38 39 61) or ‘GIF87a‘ (47 49 46 38 37 61)
+      JPEG image files begin with ‘FF D8‘ and end with ‘FF D9'
+      PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)
+      ZIP files begin with ‘PK‘ (50 4B)
+      PDF files start with ‘%PDF‘ (25 50 44 46)
+      HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n
+    </ul>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'bytes'">
+    <h2>Let's break it up into bytes</h2>
+    <slides-message param="bytes"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'can-they-be-numbers'" vc>
+    <h1>Can this be <br> <b>numbers</b>?</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'bin-dec'">
+    <slides-bindec param="uint8"></slides-bindec>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'convert-bin-to-dec'">
+    <h2>Convert binary to decimal with JavaScript</h2>
+    <realtime-eval code="parseInt('01001110', 2)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'convert-dec-to-bin'">
+    <h2>Convert decimal to binary</h2>
+    <realtime-eval code="(1212).toString(2)"></realtime-eval>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'negative-numbers'">
+    <h1>What about negative <b>numbers</b>?</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'int8'">
+    <slides-bindec param="int8"></slides-bindec>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'mess-num'">
+    <h1>Let's see our message expressed as <b>numbers</b></h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'message-uint8'">
+    <slides-message param="uint8"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'can-they-be-letters'">
+    <h1>Can they be <b>letters</b>?</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ascii'">
+    <slides-ascii></slides-ascii>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'str-to-charcode'">
+    <h2>Get charcode from string</h2>
+    <realtime-eval code="'lol'.charCodeAt(0)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'charcode-to-str'">
+    <h2>Get charcode from string</h2>
+    <realtime-eval code="String.fromCharCode(118)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'charcode-to-str'">
+    <realtime-eval code="String.fromCharCode(1034)"></realtime-eval>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'charcode-to-str'">
+    <h1>ПЕЉМЕЊ!!!</h1>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'mess-num'">
+    <h1>Let's see our message expressed as <b>letters</b></h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'message-string'">
+    <slides-message param="string"></slides-message>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'summary'">
+    <h2>Summary</h2>
+    <table>
+      <tr>
+        <td>boolean</td>
+        <td>true</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>number</td>
+        <td>251</td>
+        <td>11111011</td>
+      </tr>
+      <tr>
+        <td>string</td>
+        <td>'l'</td>
+        <td>11111111</td>
+      </tr>
+      <tr>
+        <td>color</td>
+        <td style="color:#2b981f">#2b981f</td>
+        <td>11111111</td>
+      </tr>
+
+    </table>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'binary-json'" bg vc json>
+    <h1>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'json'">
+    <slides-json></slides-json>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare'">
+    <slides-compare></slides-compare>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-internals'" bg vc gif>
+    <h1>Let's see what's inside of <b>gif</b></h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-example'" no-padding>
+    <binary-gif style="width: 100vh;margin: auto;" [binary]="binaryLittleGif"></binary-gif>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'gif'">
+    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'bunch'">
+    // Let's reinvent gif with JSON:
+
+    `, `
+
+    `,
+    `JSON.stringify(gif)`,
+    `JSON.stringify(gif).length`,
+
+    `"010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001"
+
+
+    `,
+
+    `explain('gif')`,
+
+
+    `// How to read binary data?`,
+  </slides-slide>
+</slides-presentation>
+

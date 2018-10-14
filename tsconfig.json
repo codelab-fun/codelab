@@ -2,13 +2,51 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "paths": {
+      "jszip": [
+        "node_modules/jszip/dist/jszip.min.js"
+      ],
+      "source-map-support": [
+        "../../apps/angular-presentation/src/dummy.ts"
+      ],
+      "crypto": [
+        "../../apps/angular-presentation/src/dummy.ts"
+      ],
+      "@angular-presentation/*": [
+        "libs/*"
+      ],
+      "@angular-presentation/presentation": [
+        "libs/presentation/src/index.ts"
+      ],
+      "@angular-presentation/browser": [
+        "libs/browser/src/index.ts"
+      ],
+      "@angular-presentation/console": [
+        "libs/console/src/index.ts"
+      ],
+      "@angular-presentation/tooltips": [
+        "libs/tooltips/src/index.ts"
+      ],
+      "@angular-presentation/utils": [
+        "libs/utils/src/index.ts"
+      ],
+      "@angular-presentation/slides": [
+        "libs/slides/src/index.ts"
+      ],
+      "@angular-presentation/angular-ast-viz": [
+        "libs/angular-ast-viz/src/index.ts"
+      ],
+      "@angular-presentation/angular-slides-to-pdf": [
+        "libs/angular-slides-to-pdf/src/index.ts"
+      ]
+    },
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -17,5 +55,7 @@
       "dom"
     ]
   },
-  "exclude": ["src/assets"]
+  "exclude": [
+    "src/assets"
+  ]
 }
