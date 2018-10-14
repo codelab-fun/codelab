@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 
 import { AnalyticsService } from '../analytics.service';
 import { BehaviorSubject } from 'rxjs';
@@ -20,8 +20,11 @@ export class PresentationComponent implements AfterViewInit {
   slides = [];
   private generatedSlideIndex = 0;
 
-  constructor(readonly config: PresentationConfigService,
-              private analytics: AnalyticsService) {
+
+  constructor(
+    public el: ElementRef,
+    readonly config: PresentationConfigService,
+    private analytics: AnalyticsService) {
     this.milestone = config.milestone;
   }
 

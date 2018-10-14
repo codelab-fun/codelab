@@ -21,6 +21,7 @@ import { TestSetComponent } from './test-set/test-set.component';
 import { CommonModule } from '@angular/common';
 import { SizePickerModule } from './size-picker/size-picker.module';
 import { NewProgressBarModule } from './new-progress-bar/new-progress-bar.module';
+import { AngularSlidesToPdfModule } from '../../../../../../../libs/angular-slides-to-pdf/src';
 
 
 const routes = RouterModule.forChild(
@@ -45,6 +46,7 @@ const routes = RouterModule.forChild(
     MatCardModule,
     FakeBabelModule,
     NewProgressBarModule,
+    AngularSlidesToPdfModule,
   ],
   declarations: [
     AstComponent,

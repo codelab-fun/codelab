@@ -1,9 +1,10 @@
 <div class="progress-bar" *ngIf="slides.length" fxLayout style="justify-content: space-between">
   <span style="margin-right: 2vw;">{{title}}</span>
   <div class="points-container" #progressBarDiv fxLayout>
+    <!--(mouseover)="previewSlide(slide.index)"-->
+    <!--(mouseout)="goToSlide(tempSlideId)"-->
+
     <div *ngFor="let slide of slides"
-         (mouseover)="previewSlide(slide.index)"
-         (mouseout)="goToSlide(tempSlideId)"
          (click)="goToSlide(slide.index)">
       <div class="slide-block"
            [class.completed-slide]="slide.index < currentSlideId"
