@@ -1,0 +1,9 @@
+<div style="display: flex">
+  <div class="memory">
+    <div *ngFor="let cell of memory; let i = index" class="cell cell-{{cell.type}}">
+      <span class="index">{{i}}</span>
+      <span class="value">{{cell.value}}</span>
+    </div>
+  </div>
+  <h2>{{code}}</h2>
+</div>

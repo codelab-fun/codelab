@@ -11,6 +11,7 @@ export class BinaryParentComponent implements OnInit, OnChanges {
   @Input() showMeta = true;
   @Input() parser: BinaryParser;
   @Input() binary: string;
+  @Input() type: string = 'flat';
 
   @Output() updateBinary = new EventEmitter();
   structure: any;

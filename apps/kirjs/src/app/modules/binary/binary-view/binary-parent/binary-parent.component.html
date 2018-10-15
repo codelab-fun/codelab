@@ -1,0 +1,5 @@
+<slides-block *ngIf="type==='structure'" class="one-line" class="slides-block" [showMeta]="showMeta"
+              [data]="structure"></slides-block>
+<binary-flat *ngIf="type==='flat'" (updateBinary)="updateBinary($event)" [parser]="parser"
+             [binary]="binary"></binary-flat>
+<!--<slides-inline-root [data]="structure"></slides-inline-root>-->

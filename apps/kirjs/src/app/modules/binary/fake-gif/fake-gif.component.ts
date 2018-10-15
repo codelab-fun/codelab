@@ -57,7 +57,7 @@ export class FakeGifComponent implements OnInit {
       });
 
     const header = new BinaryParser()
-      .string('headerConst', {length: 6})
+      .string('headerConst', {length: 6, description: 'this is always GIF87a or GIF89a depending on the version'})
       .uInt16('width')
       .uInt16('height')
       .bit1('globalPallette')

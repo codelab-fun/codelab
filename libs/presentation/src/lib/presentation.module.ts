@@ -17,8 +17,18 @@ import { AnalyticsService } from './analytics.service';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 
+declare const Hammer;
+
+delete Hammer.defaults.cssProps.userSelect;
+Hammer.defaults.touchAction = 'pan-y';
+
 export class MyHammerConfig extends HammerGestureConfig {
-  overrides = {}
+  overrides = {
+    stop_browser_behavior: false,
+    cssProps: {
+      userSelect: 'auto',
+    },
+  }
 }
 
 

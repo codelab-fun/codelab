@@ -1,46 +1,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-.presentation .slide h1 {
-  font-size: 2vw;
-}
-
-.presentation.presentation {
-  h2, li {
-    font-size: 3vw;
-  }
-  .info, .exercise {
-    font-size: 2vw;
-  }
-
-  .header {
-    font-size: 7vw;
-  }
-
-  .description {
-    font-size: 3vw;
-  }
-
-  .instructions {
-    font-size: 2vw;
-  }
-}
-
 .presentation.size-600 li {
   font-size: 12px;
   margin-bottom: 5px;
-}
-
-/** end of size-specific styles **/
-.slide {
-  min-width: 600px;
-  min-height: 300px;
-  width: 100vw;
-  height: 100vh;
-  padding: 2vw;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .space-left {
@@ -101,60 +63,9 @@
   width: 100%;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  font-family: Roboto, sans-serif;
-}
-
-h1, h2, h3, li {
-  margin: 0;
-  padding: 0;
-  font-weight: 300;
-}
 
 .presentation.presentation.presentation [no-padding] .slide {
   padding: 0;
-}
-
-.presentation {
-  position: relative;
-  margin: 0 auto;
-}
-
-/* Hide all elements that are not slides when in overview mode */
-.presentation.overview > *:not(slides-slide) {
-  visibility: hidden;
-}
-
-.presentation.overview slides-ripple-animation {
-  visibility: hidden;
-}
-
-.presentation.overview .slide {
-  pointer-events: none;
-  margin: 2% auto;
-  zoom: 0.7;
-  overflow: hidden;
-}
-
-.presentation.overview .slide .page-number {
-  position: absolute;
-  right: 3%;
-  bottom: 4%;
-}
-
-.presentation.overview .overview-buttons {
-  position: fixed;
-  visibility: visible;
-}
-
-.overview-buttons {
-  z-index: 1;
-  position: absolute;
-  right: 10px;
-  top: 15px;
 }
 
 .browser-frame, .runner,
@@ -162,15 +73,6 @@ h1, h2, h3, li {
   height: 100%;
 }
 
-.slide {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 40px;
-  box-sizing: border-box;
-  background-color: #fff;
-  margin: 0 auto;
-}
 
 .slide [large-font] {
   font-size: 30px;
@@ -228,22 +130,7 @@ h1, h2, h3, li {
   justify-content: center;
 }
 
-b {
-  color: #c04e22;
-  font-weight: 300;
-  background-color: #ffe;
-}
 
-h1 {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
-li,
-h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
 
 .popup-message {
   padding: 5px 5px 0 5px;
@@ -296,32 +183,7 @@ a {
   font-size: 30px;
 }
 
-/* Slide/presentation printing styles */
-@media print {
-  @page {
-    size: A4 landscape;
-  }
 
-  .slide {
-    zoom: 1;
-    font-size: 12pt;
-    page-break-after: always;
-  }
-
-  .slide .page-number {
-    display: none;
-  }
-
-  .presentation.overview {
-    width: auto !important;
-    height: auto !important;
-    zoom: 1 !important;
-  }
-
-  .presentation.overview .overview-buttons {
-    display: none;
-  }
-}
 
 /*  BUTTONS BAR CONTAINER  */
 .btn-bar {

@@ -9,9 +9,11 @@
     <input type="checkbox" [(ngModel)]="showMeta">
   </label>
   <div style="margin-right: 220px;">
-    <binary-flat (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"></binary-flat>
+    <slides-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser"
+                          [binary]="binary" type="flat"></slides-binary-parent>
+
     <!--<slides-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"-->
-    <!--[showMeta]="showMeta"></slides-binary-parent>-->
+    <!--&lt;!&ndash;[showMeta]="showMeta"></slides-binary-parent>&ndash;&gt;-->
   </div>
 </div>
 

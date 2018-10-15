@@ -12,6 +12,7 @@ import { HexComponent } from './hex/hex.component';
 import { InlineComponent } from './inline/inline.component';
 import { InlineRootComponent } from './inline-root/inline-root.component';
 import { AutoSizeInputModule } from 'ngx-autosize-input';
+import { BinaryFlatComponent } from '../binary-flat/binary-flat.component';
 
 @NgModule({
   imports: [
@@ -20,14 +21,16 @@ import { AutoSizeInputModule } from 'ngx-autosize-input';
   ],
   declarations: [
     BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
-    BinaryParentComponent,
+    BinaryParentComponent, BinaryFlatComponent,
     HexComponent, InlineComponent, InlineRootComponent
   ],
   exports: [
+    BinaryFlatComponent,
     BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
     BinaryParentComponent, HexComponent
   ],
   entryComponents: [
+    BinaryFlatComponent,
     BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
     HexComponent
   ]

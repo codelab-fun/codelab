@@ -61,6 +61,7 @@
     "leaflet": "^1.3.4",
     "midi-player-js": "^2.0.4",
     "mime": "^2.3.1",
+    "monaco-editor": "^0.14.3",
     "ngx-autosize-input": "^2.2.2",
     "node-sass": "^4.9.3",
     "react": "^15.6.0",

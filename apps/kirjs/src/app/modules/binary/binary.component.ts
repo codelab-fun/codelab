@@ -11,7 +11,7 @@ import { HtmlPostComponent } from './html-post/html-post.component';
 @Component({
   selector: 'slides-binary',
   templateUrl: './binary.component.html',
-  styleUrls: ['./binary.component.css']
+  styleUrls: ['./binary.component.scss']
 })
 export class BinaryComponent {
   fontSize = 30;
@@ -24,6 +24,20 @@ export class BinaryComponent {
     '00000000', '00000000', '00000010', '00000000', '00000010', '00000000', '00000000', '00000010', '00000011',
     '01000100', '00100110', '00000101', '00000000', '00111011'
   ].join('');
+
+  code = {
+    inputFile: '<input id = "" type="file">',
+    fileHandler: `document.getElementById('file').addEventListener('change', (e)=>{
+      const reader = new FileReader();
+
+      reader.onloadend = (e) => {
+        file = e.target.result;
+        console.log(file);
+      };
+
+      reader.readAsArrayBuffer(e.target.files[0]);
+    }`
+  };
 
 //
 // `file.byteLength`,

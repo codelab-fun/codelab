@@ -1,0 +1,64 @@
+.memory {
+  display: flex;
+  flex-wrap: wrap;
+  width: 54vw;
+  flex-shrink: 0;
+}
+
+.cell {
+  font-size: 1vw;
+  color: #999;
+  width: 6vw;
+  margin-right: 0.5vw;
+  height: 6vw;
+  background: #ddd;
+  margin-bottom: 0.5vw;
+  padding: 0.5vw;
+  border: 1px #999 solid;
+}
+
+.value {
+  font-size: 3vw;
+}
+
+.index {
+  font-size: 1.5vw;
+  vertical-align: top;
+  padding: 0.2vw;
+  color: #444;
+  width: 2vw;
+}
+
+.cell.cell-empty {
+  background: #ffffff;
+}
+
+.cell.cell-boolean {
+  background: #444444;
+  color: #bbb;
+}
+
+.cell.cell-selected {
+  background: #ffff00;
+  color: #444;
+}
+
+.cell.cell-number-end-highlight,
+.cell.cell-number-highlight {
+  background: #ff0;
+  color: #444;
+}
+
+.cell.cell-cell-number-end,
+.cell.cell-number {
+  background: #444444;
+  color: #bbb;
+}
+
+.cell.cell-number-highlight,
+.cell.cell-number {
+  width: 6.5vw;
+  margin-right: 0;
+  border-right: 0;
+  border-left-style: dotted;
+}

@@ -7,7 +7,7 @@ import { PresentationConfigService } from '../config/config.service';
 @Component({
   selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.css'],
+  styleUrls: ['./presentation.component.scss'],
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements AfterViewInit {
