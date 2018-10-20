@@ -8,6 +8,14 @@
                            (fontSizeChange)="fontSize =fontSize+ $event"></slides-new-progress-bar>
   <slides-arrows></slides-arrows>
 
+  <ng-template #id slide>
+    <div class="bg intro">
+      <h2>Angular ❤️ SVG
+        <br>
+        @kirjs</h2>
+    </div>
+  </ng-template>
+
   <!--  INTRO -->
   <slides-slide no-padding *slidesIf="'intro'">
     <div class="bg intro">
@@ -16,6 +24,7 @@
         @kirjs</h2>
     </div>
   </slides-slide>
+
 
   <slides-slide no-padding *slidesIf="'kirjs'">
     <div class="bg kirjs">

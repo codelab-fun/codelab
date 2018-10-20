@@ -2,6 +2,22 @@ h1 {
   font-size: 5vw;
 }
 
+
+::ng-deep slides-feedback-widget {
+  position: absolute;
+  right: 0;
+  bottom: 140px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  z-index: 100;
+
+  .feedback-button {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 :host {
   .binary-presentation ::ng-deep {
     [intro] .slide {

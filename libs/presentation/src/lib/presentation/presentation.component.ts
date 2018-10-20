@@ -4,13 +4,20 @@ import { AnalyticsService } from '../analytics.service';
 import { BehaviorSubject } from 'rxjs';
 import { PresentationConfigService } from '../config/config.service';
 
+export interface SlideControls {
+  nextSlide(): void;
+  previousSlide(): void;
+  canGoNext(): boolean;
+  canGoPrevious(): boolean;
+}
+
 @Component({
   selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.scss'],
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PresentationComponent implements AfterViewInit {
+export class PresentationComponent implements AfterViewInit, SlideControls {
   public index: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;

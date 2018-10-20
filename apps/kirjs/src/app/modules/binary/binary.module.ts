@@ -25,6 +25,8 @@ import { NewProgressBarModule } from '../../../../../angular-presentation/src/ap
 import { BinaryGifComponent } from './binary-gif/binary-gif.component';
 import { BitComponent } from './bit/bit.component';
 import { MemoryComponent } from './memory/memory.component';
+import { AngularPresentationV2Module } from '@angular-presentation/presentation/src/lib/v2/angular-presentation-v2.module';
+import { FeedbackModule } from '../../../../../angular-presentation/src/app/feedback/feedback.module';
 
 
 const routes = RouterModule.forChild(
@@ -46,6 +48,8 @@ const routes = RouterModule.forChild(
     ExerciseModule,
     NewProgressBarModule,
     MatSelectModule,
+    AngularPresentationV2Module,
+    FeedbackModule
   ],
   declarations: [
     BinaryComponent,

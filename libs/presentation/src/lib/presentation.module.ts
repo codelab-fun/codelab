@@ -17,6 +17,7 @@ import { AnalyticsService } from './analytics.service';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 
+
 declare const Hammer;
 
 delete Hammer.defaults.cssProps.userSelect;
@@ -53,6 +54,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SlideComponent,
     FooterComponent,
     ProgressBarComponent,
+    ShortcutsDirective,
     ArrowsComponent,
     SlidesRoutingDirective,
     TitleSlideComponent,

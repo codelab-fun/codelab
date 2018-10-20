@@ -9,7 +9,7 @@ export class BitComponent implements OnInit, OnDestroy {
   bits = 7;
   @Input() param = 1;
   private interval: number;
-  private bitValue: number[] = [];
+  bitValue: number[] = [];
 
   constructor() {
     this.interval = setInterval(() => {
