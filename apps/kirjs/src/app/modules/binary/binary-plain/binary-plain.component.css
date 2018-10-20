@@ -1,0 +1,67 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-size: inherit;
+}
+
+.legend {
+  width: 200px;
+  font-size: 2vw;
+  padding: 3vw 0;
+  display: flex;
+}
+
+.legend .item {
+  margin-left: 10px;
+  background: #dddddd;
+  border-radius: 4px;
+  padding: 0.5vw 1vw;
+}
+
+.enums .enums {
+  background: #ff3302;
+  color: black;
+}
+
+.string .string {
+  background: #ffaf00;
+  color: black;
+}
+
+.const .const {
+  background: #aaaaaa;
+  color: black;
+}
+
+.number .number {
+  background: #00ff51;
+  color: black;
+}
+
+.hex .color, .hex .hex {
+  background: #00a4ff;
+  color: black;
+}
+
+.boolean .boolean {
+  background: #f600ff;
+  color: black;
+}
+
+.binary {
+  white-space: normal;
+  font-size: 3vw;
+}
+
+.spacing .binary {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.spacing .bin-block {
+  margin-right: 4vw;
+  white-space: nowrap;
+}

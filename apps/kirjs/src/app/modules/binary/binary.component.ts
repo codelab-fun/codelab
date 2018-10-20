@@ -8,6 +8,15 @@ import { JsonComponent } from './json/json.component';
 import { CompareComponent } from './compare/compare.component';
 import { HtmlPostComponent } from './html-post/html-post.component';
 
+declare const require;
+
+const littleGif = require('!binary-loader!./pics/little.gif');
+const chikinGif = require('!binary-loader!./pics/chikin.gif');
+
+function strToBin(str) {
+  return str.split('').map(a => a.charCodeAt(0)).map(a => a.toString(2).padStart(8, 0)).join('');
+}
+
 @Component({
   selector: 'slides-binary',
   templateUrl: './binary.component.html',
@@ -16,14 +25,7 @@ import { HtmlPostComponent } from './html-post/html-post.component';
 export class BinaryComponent {
   fontSize = 30;
 
-  binaryLittleGif = [
-    '01000111', '01001001', '01000110', '00111000', '00111001', '01100001', '00000010', '00000000', '00000010',
-    '00000000', '11110001', '00000000', '00000000', '11010111', '01010110', '00000000', '11110110', '10111001',
-    '00000000', '01101100', '01001111', '10001111', '00111000', '10011110', '10001111', '00100001', '11111001',
-    '00000100', '00000000', '00000000', '00000000', '00000000', '00000000', '00101100', '00000000', '00000000',
-    '00000000', '00000000', '00000010', '00000000', '00000010', '00000000', '00000000', '00000010', '00000011',
-    '01000100', '00100110', '00000101', '00000000', '00111011'
-  ].join('');
+  binaryLittleGif = strToBin(littleGif);
 
   code = {
     inputFile: '<input id = "" type="file">',
@@ -38,6 +40,7 @@ export class BinaryComponent {
       reader.readAsArrayBuffer(e.target.files[0]);
     }`
   };
+  rawGif = 'lol';
 
 //
 // `file.byteLength`,

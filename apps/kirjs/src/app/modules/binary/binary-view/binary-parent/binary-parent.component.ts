@@ -3,7 +3,7 @@ import { BinaryParser } from '../../parser/binary-parser';
 import { StringBinaryReader } from '../../parser/readers/string-reader';
 
 @Component({
-  selector: 'slides-binary-parent',
+  selector: 'kirjs-binary-parent',
   templateUrl: './binary-parent.component.html',
   styleUrls: ['./binary-parent.component.scss']
 })
@@ -11,7 +11,7 @@ export class BinaryParentComponent implements OnInit, OnChanges {
   @Input() showMeta = true;
   @Input() parser: BinaryParser;
   @Input() binary: string;
-  @Input() type: string = 'flat';
+  @Input() type: string = 'structure';
 
   @Output() updateBinary = new EventEmitter();
   structure: any;

@@ -2,4 +2,6 @@
               [data]="structure"></slides-block>
 <binary-flat *ngIf="type==='flat'" (updateBinary)="updateBinary($event)" [parser]="parser"
              [binary]="binary"></binary-flat>
+<kirjs-binary-plain *ngIf="type==='plain'" (updateBinary)="updateBinary($event)" [parser]="parser"
+                    [binary]="binary"></kirjs-binary-plain>
 <!--<slides-inline-root [data]="structure"></slides-inline-root>-->

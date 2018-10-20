@@ -1,0 +1,16 @@
+<div class="wrapper {{highlighted}} {{spacing?'spacing' :''}}">
+  <div class="legend">
+    <button class="item {{type}}" (click)="highlightedMap[type] = !highlightedMap[type]" *ngFor="let type of types">
+      {{type}}
+    </button>
+    <label style="display: flex;margin-left: 3vw;">
+      Spacing <input style="zoom:3" type="checkbox" [(ngModel)]="spacing">
+    </label>
+  </div>
+  <div class="binary">
+    <ng-container *ngFor="let item of structure; let i = index">
+      <span class="{{item.type}} bin-block" [attr.name]="item.name">{{item.rawValue}}</span>
+      <span> </span>
+    </ng-container>
+  </div>
+</div>

@@ -1,19 +1,16 @@
-<binary-gif [binary]="binary" style=";position: fixed; right: 0; top: 0;width: 250px;"></binary-gif>
+<div style=";position: fixed; right: 0; top: 0;width: 250px;">
+  <binary-gif [binary]="binary"></binary-gif>
+  <input type="file" (change)="upload(file)" #file>
+</div>
+
 
 <div>
-  <div style="width: 200px;">
-    <input type="file" (change)="upload(file)" #file>
-  </div>
-  <label>
-    meta
-    <input type="checkbox" [(ngModel)]="showMeta">
-  </label>
   <div style="margin-right: 220px;">
-    <slides-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser"
-                          [binary]="binary" type="flat"></slides-binary-parent>
+    <kirjs-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser"
+                          [binary]="binary" type="plain"></kirjs-binary-parent>
 
-    <!--<slides-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"-->
-    <!--&lt;!&ndash;[showMeta]="showMeta"></slides-binary-parent>&ndash;&gt;-->
+    <!--<kirjs-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"-->
+    <!--&lt;!&ndash;[showMeta]="showMeta"></kirjs-binary-parent>&ndash;&gt;-->
   </div>
 </div>
 

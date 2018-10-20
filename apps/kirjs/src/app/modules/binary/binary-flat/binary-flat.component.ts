@@ -3,7 +3,7 @@ import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { BinaryParentComponent } from '../binary-view/binary-parent/binary-parent.component';
 
-function flatten(structure: any[], nesting = 0) {
+export function flatten(structure: any[], nesting = 0) {
   return structure.reduce((result, item) => {
     if (item.type === 'object' || item.type === 'array') {
       result = result.concat(flatten(item.value, nesting + 1))

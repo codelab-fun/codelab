@@ -13,26 +13,29 @@ import { InlineComponent } from './inline/inline.component';
 import { InlineRootComponent } from './inline-root/inline-root.component';
 import { AutoSizeInputModule } from 'ngx-autosize-input';
 import { BinaryFlatComponent } from '../binary-flat/binary-flat.component';
+import { BinaryPlainComponent } from '../binary-plain/binary-plain.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    AutoSizeInputModule
+    AutoSizeInputModule,
+    FormsModule,
   ],
   declarations: [
     BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
     BinaryParentComponent, BinaryFlatComponent,
-    HexComponent, InlineComponent, InlineRootComponent
+    HexComponent, InlineComponent, InlineRootComponent, BinaryPlainComponent,
   ],
   exports: [
-    BinaryFlatComponent,
+    BinaryFlatComponent, BinaryPlainComponent,
     BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
     BinaryParentComponent, HexComponent
   ],
   entryComponents: [
     BinaryFlatComponent,
     BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
-    HexComponent
+    HexComponent, BinaryPlainComponent,
   ]
 })
 export class BinaryViewModule {

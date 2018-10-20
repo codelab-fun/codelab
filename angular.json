@@ -229,7 +229,7 @@
       "root": "apps/kirjs/",
       "sourceRoot": "apps/kirjs/src",
       "projectType": "application",
-      "prefix": "angular-presentation",
+      "prefix": "kirjs",
       "schematics": {},
       "architect": {
         "build": {

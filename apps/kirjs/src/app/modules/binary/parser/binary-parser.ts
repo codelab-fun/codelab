@@ -6,6 +6,12 @@ import { BitParser } from './parsers/bit-parser';
 import { FirstBitParser } from './parsers/first-bit-parser';
 import { BinaryReader } from './readers/abstract-reader';
 
+export interface BaseConfig {
+  description: string;
+  length: number;
+  type: string
+}
+
 export class BinaryParser {
   type = 'object';
   private parser: BinaryObjectParser;
@@ -44,31 +50,39 @@ export class BinaryParser {
     return this;
   }
 
-  bit1(name: string) {
+  constBits(value, config?: Partial<BaseConfig>) {
+    return this.bit('const', {length: value.length, type: 'const', ...config})
+  }
+
+  boolean(name: string, config?: Partial<BaseConfig>) {
+    return this.bit(name, {length: 1, type: 'boolean', ...config});
+  }
+
+  bit1(name: string, config?: Partial<BaseConfig>) {
+    return this.bit(name, {length: 1, ...config});
+  }
+
+  bit2(name: string, config?: Partial<BaseConfig>) {
+    return this.bit(name, {length: 2, ...config});
+  }
+
+  bit3(name: string, config?: Partial<BaseConfig>) {
+    return this.bit(name, {length: 3, ...config});
+  }
+
+  bit8(name: string, config?: Partial<BaseConfig>) {
+    return this.bit(name, {length: 8, ...config});
+  }
+
+  bit32(name: string, config?: Partial<BaseConfig>) {
+    return this.bit(name, {length: 32, ...config});
+  }
+
+  object(name: string, config?: Partial<BaseConfig>) {
     return this.bit(name, {length: 1});
   }
 
-  bit2(name: string) {
-    return this.bit(name, {length: 2});
-  }
-
-  bit3(name: string) {
-    return this.bit(name, {length: 3});
-  }
-
-  bit8(name: string) {
-    return this.bit(name, {length: 8});
-  }
-
-  bit32(name: string) {
-    return this.bit(name, {length: 32});
-  }
-
-  object(name: string) {
-    return this.bit(name, {length: 1});
-  }
-
-  uInt16(name: string) {
+  uInt16(name: string, config?: Partial<BaseConfig>) {
     return this.bit(name, {
       type: 'number',
       length: 16, converter: (a) => {
@@ -88,7 +102,7 @@ export class BinaryParser {
     });
   }
 
-  uInt32(name: string) {
+  uInt32(name: string, config?: Partial<BaseConfig>) {
     return this.bit(name, {
       type: 'number',
       length: 32, converter: (a) => {
@@ -97,16 +111,19 @@ export class BinaryParser {
     });
   }
 
-  uInt8(name: string) {
+  uInt8(name: string, config?: Partial<BaseConfig>) {
     return this.bit(name, {
       type: 'number',
-      length: 8, converter: (a) => {
+      subtype: 'uint8',
+      length: 8,
+      converter: (a) => {
         return parseInt(a, 2);
-      }
+      },
+      ...config
     });
   }
 
-  hex(name: string, config: any = {}) {
+  hex(name: string, config?: Partial<BaseConfig>) {
     if (typeof config.length === 'function') {
       debugger;
       //TODO

@@ -12,7 +12,7 @@ import { SlideControls } from '../../presentation/presentation.component';
 export class PresentationComponentV2 implements AfterContentInit, SlideControls {
   slides: any[] = [];
   @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
-  private activeSlideIndex: number;
+  activeSlideIndex: number;
 
   constructor() {
 

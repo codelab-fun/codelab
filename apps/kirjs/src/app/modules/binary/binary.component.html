@@ -27,6 +27,12 @@
     <slides-simple-editor [fontSize]="40" [(ngModel)]="code.fileHandler" language="javascripts"></slides-simple-editor>
   </slides-slide>
 
+  <slides-slide *slidesIf="'binary-file-value'">
+    <code style="font-size: 2vw;">
+      {{rawGif}}
+    </code>
+  </slides-slide>
+
   <slides-slide *slidesIf="'message'">
     <h2>Let's reverse-engineer this message:</h2>
     <slides-message param="basic"></slides-message>
@@ -578,6 +584,17 @@
     <binary-gif style="width: 100vh;margin: auto;" [binary]="binaryLittleGif"></binary-gif>
   </slides-slide>
 
+
+  <slides-slide *slidesIf="'Facts'">
+    <ul>
+      <li>Image size: 1х1 to 65535х65535</li>
+      <li>Colors: 2 - 256</li>
+      <li>Max number of animation frames - unlimited</li>
+      <li>Animation delay 1/100 - 655 seconds</li>
+      <li>There's a plain text extension</li>
+      <li>24 pages + 12 pages appendix in gif89 standard</li>
+    </ul>
+  </slides-slide>
 
   <slides-slide *slidesIf="'gif'">
     <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
