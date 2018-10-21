@@ -13,10 +13,13 @@
       "jszip": [
         "node_modules/jszip/dist/jszip.min.js"
       ],
+      "crypto": [
+        "../../apps/angular-presentation/src/dummy.ts"
+      ],
       "source-map-support": [
         "../../apps/angular-presentation/src/dummy.ts"
       ],
-      "crypto": [
+      "path": [
         "../../apps/angular-presentation/src/dummy.ts"
       ],
       "process": [

@@ -32,7 +32,7 @@ export class FakeGifComponent implements OnInit {
   upload(file) {
     const reader = new FileReader();
 
-    reader.onloadend = (e) => {
+    reader.onloadend = (e: any) => {
       const result = new Uint8Array(e.target.result);
       const binaries = Array.from(result).map(a => a.toString(2)).map(a => (a as any).padStart(8, 0));
       this.binary = binaries.join('');

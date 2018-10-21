@@ -10,7 +10,7 @@ export class HideMeDirective implements AfterViewInit {
               private tabs: MatTabGroup,
               private viewContainer: ViewContainerRef,
               private templateRef: TemplateRef<any>) {
-    tabs.selectChange.subscribe(({tab}: { tab: MatTab }) => {
+    (tabs as any).selectChange.subscribe(({tab}: { tab: MatTab }) => {
       this.toggleContentDisplay(tab === parentTab);
     });
   }
