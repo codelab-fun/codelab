@@ -1,6 +1,5 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject ,  Observable } from 'rxjs';
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { PresentationComponent } from '../presentation/presentation.component';
 import { distinctUntilChanged } from 'rxjs/operators';
 

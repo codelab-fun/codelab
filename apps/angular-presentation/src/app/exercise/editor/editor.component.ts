@@ -14,9 +14,7 @@ import {
 } from '@angular/core';
 
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subscription } from 'rxjs/Subscription';
+import { Subject ,  BehaviorSubject ,  Subscription } from 'rxjs';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { PresentationComponent } from '../../../../../../libs/presentation/src/lib/presentation/presentation.component';
