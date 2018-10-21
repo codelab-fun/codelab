@@ -69,7 +69,6 @@
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
     "rxjs-compat": "^6.3.3",
-    "source-map-support": "^0.4.3",
     "vm-shim": "0.0.6",
     "vue": "^2.5.17"
   },
