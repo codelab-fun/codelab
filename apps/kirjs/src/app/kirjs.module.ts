@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
+import { monacoReady } from '../../../angular-presentation/src/app/codelabs/codelabs.module';
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue: monacoReady,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

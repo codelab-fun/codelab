@@ -1,3 +1,21 @@
-<p>
-  binary-parser-demo works!
-</p>
+<div style="display: flex;">
+  <slides-simple-editor
+    [fontSize]="30"
+    [lineNumbers]="false"
+    [(ngModel)]="code"
+    style="width:50vw; height: 100vh;flex: none"
+    language="javascript"
+    (ngModelChange)="generateCode()"></slides-simple-editor>
+  <div>
+    <div style="font-size: 2vw;word-break: break-all"
+         (input)="binary = $event.target.innerText; generateCode()"
+         contenteditable="true">{{binary}}
+    </div>
+    <slides-simple-editor
+      [fontSize]="30"
+      language="json"
+      [lineNumbers]="false"
+      [(ngModel)]="result"
+      style="width:50vw; height: 100vh;flex: none"></slides-simple-editor>
+  </div>
+</div>

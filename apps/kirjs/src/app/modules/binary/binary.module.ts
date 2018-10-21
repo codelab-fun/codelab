@@ -25,10 +25,10 @@ import { NewProgressBarModule } from '../../../../../angular-presentation/src/ap
 import { BinaryGifComponent } from './binary-gif/binary-gif.component';
 import { BitComponent } from './bit/bit.component';
 import { MemoryComponent } from './memory/memory.component';
-import { AngularPresentationV2Module } from '@angular-presentation/presentation/src/lib/v2/angular-presentation-v2.module';
+
 import { FeedbackModule } from '../../../../../angular-presentation/src/app/feedback/feedback.module';
-import { BinaryPlainComponent } from './binary-plain/binary-plain.component';
 import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-demo.component';
+import { AngularPresentationV2Module } from '../../../../../../libs/presentation/src/lib/v2/angular-presentation-v2.module';
 
 
 const routes = RouterModule.forChild(

@@ -48,6 +48,9 @@
       ],
       "@angular-presentation/angular-slides-to-pdf": [
         "libs/angular-slides-to-pdf/src/index.ts"
+      ],
+      "vm": [
+        "node_modules/vm-shim"
       ]
     },
     "typeRoots": [
