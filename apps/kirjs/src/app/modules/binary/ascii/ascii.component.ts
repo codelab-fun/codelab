@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 function encode(from: number, to: number, encoding: string) {
-  return new TextDecoder(encoding).decode(new Uint8Array(to - from).map((a, i) => i + from).buffer).split('')
+  return new TextDecoder(encoding).decode(new Uint8Array(to - from).map((a, i) => i + from).buffer as any).split('')
     .map((value, i) => ({
       key: i + from,
       value

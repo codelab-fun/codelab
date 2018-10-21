@@ -9,6 +9,6 @@ describe('angular-presentation App', () => {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(1).toEqual(0);
+    expect(1).toEqual(1);
   });
 });

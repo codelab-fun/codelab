@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 function strToBin(s: string) {
-  return Array.from(new TextEncoder().encode(s)).map(a => (a.toString(2) as any).padStart(8, 0)).join('')
+  return Array.from(new TextEncoder().encode(s)).map(a => a.toString(2).padStart(8, '0')).join('')
 }
 
 const zerozero = '0000000000000000';

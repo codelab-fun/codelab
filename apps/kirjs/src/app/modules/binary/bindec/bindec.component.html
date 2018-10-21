@@ -1,8 +1,13 @@
 <div class="powers">
-  <label *ngFor="let v of view.values" class="power">
-    <div class="dec">{{v.value}}</div>
-    <div><input type="checkbox" [(ngModel)]="v.checked" (ngModelChange)="view.toDec()"></div>
-    <div class="bin">{{v.checked ? '1' : '0'}}</div>
+  <label *ngIf="displaySign" class="power">
+    <div class="dec">{{sign ? '-' : '+'}}</div>
+    <div><input type="checkbox" [(ngModel)]="sign" (ngModelChange)="view.toDec()"></div>
+    <div class="bin">{{sign ? '1' : '0'}}</div>
+  </label>
+  <label *ngFor="let v of digits; let i = index" class="power">
+    <div class="dec">{{getValue(i)}}</div>
+    <div><input type="checkbox" [(ngModel)]="v" (ngModelChange)="view.toDec()"></div>
+    <div class="bin">{{v ? '1' : '0'}}</div>
   </label>
 </div>
 <input type="text" class="number" [value]="view.value" (keyup)="view.update(i.value)" #i>

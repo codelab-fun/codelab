@@ -58,6 +58,9 @@ const views = {
 })
 export class BindecComponent implements OnInit {
   view = views.int8;
+  digits = [0, 0, 0, 0, 0, 0];
+  displaySign = true;
+  sign = false;
 
   constructor() {
   }
@@ -66,6 +69,10 @@ export class BindecComponent implements OnInit {
   set param(p: string) {
     this.view = views[p];
     this.view.toDec();
+  }
+
+  getBaseValue(i: number) {
+    return 2 ** i;
   }
 
   update(value) {
