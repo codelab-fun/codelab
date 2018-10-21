@@ -15,7 +15,7 @@ import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 import { AnalyticsService } from './analytics.service';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
-import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+import { HammerGestureConfig } from '@angular/platform-browser';
 
 
 declare const Hammer;
@@ -68,10 +68,7 @@ export class MyHammerConfig extends HammerGestureConfig {
 
   ],
   providers: [
-    AnalyticsService, {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: MyHammerConfig
-    }
+    AnalyticsService
   ],
   bootstrap: []
 })
