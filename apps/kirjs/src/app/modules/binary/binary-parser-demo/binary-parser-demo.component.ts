@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Parser } from 'binary-parser';
 import { Buffer } from 'buffer';
 import { bin2hex } from '../shared';
@@ -18,16 +18,18 @@ export class BinaryParserDemoComponent implements OnInit {
     `,
 
   ];
-
   code = `
  new Parser()
   
     `;
-
-  binary = '10101010101101010101011010101010110101010101101010101011010101010110101010101101010101011010101010110101010101'.match(/.{8}/g).join(' ');
+  binaryValue = '';
   result = '';
 
   constructor() {
+  }
+
+  @Input() set binary(value) {
+    this.binaryValue = value.match(/.{8}/g).join(' ');
   }
 
   ngOnInit() {
@@ -36,6 +38,6 @@ export class BinaryParserDemoComponent implements OnInit {
 
   generateCode() {
     const parser = new Function('Parser', 'const parser = ' + this.code + '; return parser;')(Parser);
-    this.result = JSON.stringify(parser.parse(Buffer.from(bin2hex(this.binary.replace(/ /g, '')), 'hex')), null, '  ');
+    this.result = JSON.stringify(parser.parse(Buffer.from(bin2hex(this.binaryValue.replace(/ /g, '')), 'hex')), null, '  ');
   }
 }

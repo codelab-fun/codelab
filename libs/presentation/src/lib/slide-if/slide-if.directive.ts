@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class SlideIfDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input() slidesIf: string;
   @Input() slidesIfMilestone?: string;
+  @Input() id = '';
   private _created: boolean;
   private index: number;
   private slideSubscription: Subscription;

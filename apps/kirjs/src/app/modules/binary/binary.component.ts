@@ -26,6 +26,7 @@ export class BinaryComponent {
   fontSize = 30;
 
   binaryLittleGif = strToBin(littleGif);
+  binaryChikinGif = strToBin(chikinGif);
 
   code = {
     inputFile: '<input id = "" type="file">',
@@ -40,7 +41,9 @@ export class BinaryComponent {
       reader.readAsArrayBuffer(e.target.files[0]);
     }`
   };
-  rawGif = 'lol';
+
+  littleGif = littleGif;
+  chikinGif = chikinGif;
 
 //
 // `file.byteLength`,
@@ -193,4 +196,10 @@ export class BinaryComponent {
     compare: CompareComponent,
     html: HtmlPostComponent
   };
+
+  setLittleGifBinary(value: string) {
+    this.littleGif = value;
+    this.binaryLittleGif = strToBin(value);
+
+  }
 }

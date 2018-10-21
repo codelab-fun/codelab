@@ -13,25 +13,94 @@
   <slides-slide *slidesIf="'overview'">
     <h1>In this talk:</h1>
     <ul>
-      <li><b>binary</b> inside</li>
+      <li><b>binary</b> + files</li>
       <li><b>binary</b> + JS memory internals</li>
       <li><b>binary</b> + HTTP requests</li>
-      <li><b>Binary</b> + files (e.g. pics, audio, etc)</li>
     </ul>
   </slides-slide>
 
 
+  <slides-slide *slidesIf="'gif-internals'" bg vc gif>
+    <h1>Let's see what's inside of <b>gif</b></h1>
+  </slides-slide>
+
   <slides-slide *slidesIf="'binary-file-upload'">
-    <h2>Let's read a gif file:</h2>
     <h2>And file </h2>
     <slides-simple-editor [fontSize]="40" [(ngModel)]="code.fileHandler" language="javascripts"></slides-simple-editor>
   </slides-slide>
 
-  <slides-slide *slidesIf="'binary-file-value'">
-    <code style="font-size: 2vw;">
-      {{rawGif}}
+  <slides-slide *slidesIf="'binary-file-value-2'" vertical-split>
+    <code style="font-size: 2vw;font-weight: 300;word-break: break-word">
+      {{chikinGif}}
     </code>
+    <binary-gif [binary]="binaryChikinGif"></binary-gif>
   </slides-slide>
+
+  <slides-slide *slidesIf="'binary-file-value'" vertical-split>
+    <code style="font-size: 10vw;font-weight: 300;word-break: break-word"
+          contenteditable="true"
+          (input)="setLittleGifBinary($event.target.innerText)">
+      {{littleGif}}
+    </code>
+    <binary-gif [binary]="binaryLittleGif"></binary-gif>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'gif'">
+    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'gif-standard'" vc>
+      <pre style="text-align: center;font-size: 2vw;">
+        GRAPHICS INTERCHANGE FORMAT(sm)
+
+        <a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">Version 89a</a>
+
+      (c)1987,1988,1989,1990
+
+      Copyright
+      CompuServe Incorporated
+      Columbus, Ohio
+      </pre>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-spaced'">
+    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'bin-dec'">
+    <slides-bindec param="uint8"></slides-bindec>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'binary-parser'">
+    <kirjs-binary-parser-demo [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'gif-tbd'">
+    <h1>https://tls.ulfheim.net/</h1>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'files'">
+    <h2>Common file formats TBD</h2>
+    <ul>
+      <li>Gif - GIF87a</li>
+      <li>Jpeg- GIF87a</li>
+      <li>Java class - cafebabe</li>
+      <li>Text</li>
+      <li>Media? Image? Song? Video?</li>
+
+      Class bytecode starts with hex CAFEBABE
+      GIF image files have ‘GIF89a‘ (47 49 46 38 39 61) or ‘GIF87a‘ (47 49 46 38 37 61)
+      JPEG image files begin with ‘FF D8‘ and end with ‘FF D9'
+      PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)
+      ZIP files begin with ‘PK‘ (50 4B)
+      PDF files start with ‘%PDF‘ (25 50 44 46)
+      HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n
+    </ul>
+  </slides-slide>
+
 
   <slides-slide *slidesIf="'message'">
     <h2>Let's reverse-engineer this message:</h2>
@@ -325,7 +394,7 @@
     <h1>Can this be <br> <b>numbers</b>?</h1>
   </slides-slide>
 
-  <slides-slide *slidesIf="'bin-dec'">
+  <slides-slide *slidesIf="'bin-dec1'">
     <slides-bindec param="uint8"></slides-bindec>
   </slides-slide>
 
@@ -575,58 +644,6 @@
   <!--<li>Tools</li>-->
   <!--<li>Schema</li>-->
 
-
-  <slides-slide *slidesIf="'gif-internals'" bg vc gif>
-    <h1>Let's see what's inside of <b>gif</b></h1>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'gif-example'" no-padding>
-    <binary-gif style="width: 100vh;margin: auto;" [binary]="binaryLittleGif"></binary-gif>
-  </slides-slide>
-
-
-  <slides-slide *slidesIf="'Facts'">
-    <ul>
-      <li>Image size: 1х1 to 65535х65535</li>
-      <li>Colors: 2 - 256</li>
-      <li>Max number of animation frames - unlimited</li>
-      <li>Animation delay 1/100 - 655 seconds</li>
-      <li>There's a plain text extension</li>
-      <li>24 pages + 12 pages appendix in gif89 standard</li>
-    </ul>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'gif'">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'binary-parser'">
-   <kirjs-binary-parser-demo></kirjs-binary-parser-demo>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'gif-tbd'">
-    <h1>https://tls.ulfheim.net/</h1>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'files'">
-    <h2>Common file formats TBD</h2>
-    <ul>
-      <li>Gif - GIF87a</li>
-      <li>Jpeg- GIF87a</li>
-      <li>Java class - cafebabe</li>
-      <li>Text</li>
-      <li>Media? Image? Song? Video?</li>
-
-      Class bytecode starts with hex CAFEBABE
-      GIF image files have ‘GIF89a‘ (47 49 46 38 39 61) or ‘GIF87a‘ (47 49 46 38 37 61)
-      JPEG image files begin with ‘FF D8‘ and end with ‘FF D9'
-      PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)
-      ZIP files begin with ‘PK‘ (50 4B)
-      PDF files start with ‘%PDF‘ (25 50 44 46)
-      HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n
-    </ul>
-  </slides-slide>
-
   <slides-slide *slidesIf="'bunch'">
     // Let's reinvent gif with JSON:
 
@@ -645,6 +662,18 @@
 
 
     `// How to read binary data?`,
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'Facts'">
+    <ul>
+      <li>Image size: 1х1 to 65535х65535</li>
+      <li>Colors: 2 - 256</li>
+      <li>Max number of animation frames - unlimited</li>
+      <li>Animation delay 1/100 - 655 seconds</li>
+      <li>There's a plain text extension</li>
+      <li>24 pages + 12 pages appendix in gif89 standard</li>
+    </ul>
   </slides-slide>
 </slides-presentation>
 
