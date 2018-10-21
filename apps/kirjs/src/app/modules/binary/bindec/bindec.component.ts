@@ -1,55 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-
-
-const views = {
-  uint8: {
-    values: Array.from(new Array(8)).map((a, i) => ({
-      value: 2 ** (7 - i),
-      checked: true
-    })),
-    toDec() {
-      this.value = this.values.reduce((a, value) => {
-        return a + (Number(value.checked) * value.value);
-      }, 0);
-    },
-    update(value) {
-      this.view.values = Array.from(new Array(8)).map((a, i) => ({
-        value: 2 ** (7 - i) as any,
-        checked: !!(value & 2 ** (7 - i))
-      }));
-    }
-  },
-  int8: {
-    value: 0,
-    values: [
-      {
-        value: '-' as any,
-        checked: false,
-      }
-    ].concat(Array.from(new Array(7)).map((a, i) => ({
-      value: 2 ** (6 - i),
-      checked: true
-    })) as any),
-    toDec() {
-      this.value = this.values.slice(1).reduce((a, value) => {
-        return a + (Number(value.checked) * value.value);
-      }, 0) * (this.values[0].checked ? -1 : 1);
-    },
-    update(value) {
-      value = Number(value);
-
-      this.values = [
-        {
-          value: '-',
-          checked: value < 0
-        }
-      ].concat(Array.from(new Array(7)).map((a, i) => ({
-        value: 2 ** (6 - i),
-        checked: !!(value & 2 ** (6 - i))
-      })) as any);
-    }
-  }
-};
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'slides-bindec',
@@ -57,22 +6,24 @@ const views = {
   styleUrls: ['./bindec.component.css']
 })
 export class BindecComponent implements OnInit {
-  view = views.int8;
-  digits = [0, 0, 0, 0, 0, 0];
-  displaySign = true;
+  digits = [0];
+  displaySign = false;
   sign = false;
 
   constructor() {
   }
 
-  @Input()
-  set param(p: string) {
-    this.view = views[p];
-    this.view.toDec();
+  get size() {
+    return this.digits.length;
+  }
+
+  get convertedValue() {
+    return (this.sign ? -1 : 1) * this.digits
+      .reduce((result, value, index) => result + value * this.getBaseValue(index), 0);
   }
 
   getBaseValue(i: number) {
-    return 2 ** i;
+    return 2 ** (this.size - i - 1);
   }
 
   update(value) {

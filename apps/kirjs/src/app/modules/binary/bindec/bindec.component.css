@@ -1,6 +1,7 @@
 .powers {
   display: flex;
   font-size: 5vw;
+  justify-content: center;
 }
 
 .power {
@@ -31,4 +32,13 @@
   text-align: center;
   font-size: 16vw;
   padding: 2vw;
+}
+
+.link:hover {
+  color: #90cd79;
+}
+.link {
+  border-bottom: 1px #999 dotted;
+  margin-right: 20px;
+  cursor: pointer;
 }
