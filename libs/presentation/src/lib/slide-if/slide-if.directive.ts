@@ -1,5 +1,12 @@
 import {
-  AfterViewInit, ChangeDetectorRef, Directive, Input, OnDestroy, OnInit, TemplateRef,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Directive,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  TemplateRef,
   ViewContainerRef
 } from '@angular/core';
 
@@ -22,7 +29,9 @@ export class SlideIfDirective implements OnInit, OnDestroy, AfterViewInit {
   constructor(private presentation: PresentationComponent,
               private templateRef: TemplateRef<any>,
               private viewContainerRef: ViewContainerRef,
-              private changeDetectorRef: ChangeDetectorRef) {
+              private changeDetectorRef: ChangeDetectorRef,
+              private el: ElementRef) {
+    debugger;
   }
 
   ngOnInit() {

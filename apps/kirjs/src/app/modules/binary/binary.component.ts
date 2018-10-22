@@ -1,12 +1,4 @@
 import { Component } from '@angular/core';
-import { FakeGifComponent } from './fake-gif/fake-gif.component';
-import { MidiComponent } from './midi/midi.component';
-import { AsciiComponent } from './ascii/ascii.component';
-import { BindecComponent } from './bindec/bindec.component';
-import { MessageComponent } from './message/message.component';
-import { JsonComponent } from './json/json.component';
-import { CompareComponent } from './compare/compare.component';
-import { HtmlPostComponent } from './html-post/html-post.component';
 
 declare const require;
 
@@ -44,6 +36,8 @@ export class BinaryComponent {
 
   littleGif = littleGif;
   chikinGif = chikinGif;
+
+  hexVals = Array.from(Array(16).keys());
 
 //
 // `file.byteLength`,
@@ -186,20 +180,10 @@ export class BinaryComponent {
 
 
   ];
-  componentMap = {
-    gif: FakeGifComponent,
-    message: MessageComponent,
-    bindec: BindecComponent,
-    midi: MidiComponent,
-    ascii: AsciiComponent,
-    json: JsonComponent,
-    compare: CompareComponent,
-    html: HtmlPostComponent
-  };
+
 
   setLittleGifBinary(value: string) {
     this.littleGif = value;
     this.binaryLittleGif = strToBin(value);
-
   }
 }

@@ -2,6 +2,7 @@ h1 {
   font-size: 5vw;
 }
 
+::ng-deep .slide.slide [vertical-split] ,
 [vertical-split] ::ng-deep .slide.slide {
   display: flex;
   flex-direction: row;
@@ -33,6 +34,7 @@ h1 {
 
 :host {
   .binary-presentation ::ng-deep {
+    .slide [intro],
     [intro] .slide {
       background: url(pics/p1.jpg);
       padding-left: 3vw;
@@ -42,23 +44,27 @@ h1 {
       }
     }
 
+    .slide [json],
     [json] .slide {
       background: url(pics/p2.jpg);
     }
 
+    .slide [gif],
     [gif] .slide {
       background: url(pics/p3.jpg);
     }
 
+    .slide [gif-bg],
     [gif-bg] .slide {
       background: url(pics/little.gif);
     }
-
+    .slide [bg],
     [bg] .slide {
       background-repeat: no-repeat;
       background-size: cover;
     }
 
+    .slide [vs],
     slides-slide[vc] .slide {
       display: flex;
       align-items: center;

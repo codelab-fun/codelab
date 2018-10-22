@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChildren, QueryList, TemplateRef } from '@angular/core';
+import { Component, ContentChildren, QueryList, TemplateRef } from '@angular/core';
 import { SlideControls } from '../../presentation/presentation.component';
 
 @Component({
@@ -9,25 +9,17 @@ import { SlideControls } from '../../presentation/presentation.component';
     '../../presentation/presentation.component.scss'
   ]
 })
-export class PresentationComponentV2 implements AfterContentInit, SlideControls {
+export class PresentationComponentV2 implements SlideControls {
   slides: any[] = [];
   @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
-  activeSlideIndex: number;
+  activeSlideIndex = 0;
 
   constructor() {
 
   }
 
-  ngAfterContentInit() {
-    this.slides = this.templates.toArray().map((template, index) => {
-      return {
-        id: Object.keys((template as any)._def.references)[0] || index,
-        template,
-        index
-      }
-    });
-    console.log(this.slides[0]);
-    this.activeSlideIndex = 0;
+  addSlide(slide) {
+    this.slides.push(slide)
   }
 
   nextSlide() {

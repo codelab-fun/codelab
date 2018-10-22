@@ -14,14 +14,37 @@ export class BinaryParserDemoComponent implements OnInit {
   helpers = [
     `new Parser();`,
     `new Parser()
-      .bit()
+      .string('gif', {length: 3})
     `,
-
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16('width')
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+      .bit1('globalPallette')
+    `,
   ];
-  code = `
- new Parser()
-  
-    `;
+  code = this.helpers[0];
   binaryValue = '';
   result = '';
 
