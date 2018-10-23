@@ -54,6 +54,8 @@ button {
 .binary {
   white-space: normal;
   font-size: 3vw;
+  word-break: break-all;
+  padding-right: 3vw;
 }
 
 .spacing .binary {

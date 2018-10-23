@@ -1,5 +1,6 @@
 import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
+import { resolveByKey, resolveOrderedByKey } from '../utils';
 
 export class BinaryChoiceParser extends AbstractBinaryParser {
   constructor(private config) {
@@ -11,15 +12,15 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
   };
 
   read(reader: BinaryReader, data: BinaryReaderResult = {}): BinaryReaderResult {
-    return this.getParser(data).read(reader, data);
+    return this.getParser(data, resolveByKey).read(reader, data);
   }
 
-  getParser(data) {
+  getParser(data, resolver) {
     let parser: AbstractBinaryParser;
 
     if (this.config.key) {
-      const key = this.config.key(data);
-      parser = this.config.values[key];
+      const keyValue = resolver(this.config.key, data);
+      parser = this.config.values[keyValue];
     }
 
     if (this.config.parser) {
@@ -34,8 +35,8 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
   }
 
   readOrdered(reader: BinaryReader, data: BinaryReaderResult = [], start = 0): BinaryReaderResult {
-    const parser = this.getParser(data);
+    const parser = this.getParser(data, resolveOrderedByKey);
     const {value, rawValue} = parser.readOrdered(reader, data, start);
-    return {start,  value, rawValue, type: parser.type};
+    return {start, value, rawValue, type: parser.type};
   }
 }

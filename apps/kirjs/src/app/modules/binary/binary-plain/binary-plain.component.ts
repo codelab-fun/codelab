@@ -32,6 +32,7 @@ export class BinaryPlainComponent implements OnInit {
 
   @Input() set binary(binary: string) {
     this.structure = flatten(this.parser.readOrdered(new StringBinaryReader(binary)).value);
+    console.log(this.structure);
   }
 
   ngOnInit() {

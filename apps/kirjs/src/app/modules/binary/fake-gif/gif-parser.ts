@@ -14,6 +14,11 @@ const header = new BinaryParser()
   .uInt8('background')
   .uInt8('Ratio');
 
+
+const commentParser = new BinaryParser()
+  .string('comment', {readUntil: '00000000'})
+  .hex('end', {length: 2});
+
 const palette = new BinaryParser()
   .array('palette', {
     parser: new BinaryParser().uInt24('color', {
@@ -23,6 +28,31 @@ const palette = new BinaryParser()
       const paletteSize = data._parent[0].value.find(a => a.name === 'palette-size').value;
       const size = parseInt(paletteSize, 2);
       return (2 ** (size + 1));
+    }
+  });
+
+const netscapeParser = new BinaryParser()
+  .uInt8('length')
+  .uInt8('TBD')
+  .uInt16('loops')
+  .uInt8('zero');
+
+const xmpParser = new BinaryParser()
+  .string('data', {
+    readUntil: '00000000'
+  })
+  .hex('end', {length: 4});
+
+
+const extensionParser = new BinaryParser()
+  .hex('0b', {length: 2})
+  .string('type', {length: 8})
+  .string('code', {length: 3})
+  .choice('data', {
+    key: 'type',
+    values: {
+      'NETSCAPE': netscapeParser,
+      'XMP Data': xmpParser
     }
   });
 
@@ -40,57 +70,11 @@ const graphicControlParser = new BinaryParser()
 const exclamationMarkParser = new BinaryParser()
   .hex('subtype', {length: 2})
   .choice('extension', {
-    parser(data: any) {
-      const marker = (Object as any).values(data).find(a => a.name === 'subtype').value;
-      const parsers = {
-        'f9': graphicControlParser,
-        'ff': extensionParser,
-        'fe': commentParser
-      };
-
-      if (parsers[marker]) {
-        return parsers[marker];
-      }
-
-      debugger;
-    }
-  });
-
-const netscapeParser = new BinaryParser()
-  .uInt8('length')
-  .uInt8('TBD')
-  .uInt16('loops')
-  .uInt8('zero');
-
-const xmpParser = new BinaryParser()
-  .string('data', {
-    readUntil: '00000000'
-  })
-  .hex('end', {length: 4});
-
-const commentParser = new BinaryParser()
-  .string('comment', {readUntil: '00000000'})
-  .hex('end', {length: 2});
-
-const extensionParser = new BinaryParser()
-  .hex('0b', {length: 2})
-  .string('type', {length: 8})
-  .string('code', {length: 3})
-  .choice('data', {
-    parser: function (data) {
-      const marker = (Object as any).values(data).find(a => a.name === 'type').value;
-
-      const parsers = {
-        'NETSCAPE': netscapeParser,
-        'XMP Data': xmpParser
-      };
-
-      if (parsers[marker]) {
-        return parsers[marker];
-      }
-
-      debugger;
-
+    key: 'subtype',
+    values: {
+      'f9': graphicControlParser,
+      'ff': extensionParser,
+      'fe': commentParser
     }
   });
 
@@ -120,20 +104,11 @@ const imageDescriptorParser = new BinaryParser()
 const body = new BinaryParser()
   .string('marker', {length: 1})
   .choice('extension', {
-    parser(data) {
-      const marker = (Object as any).values(data).find(a => a.name === 'marker').value;
-
-      const parsers = {
-        '!': exclamationMarkParser,
-        ';': new BinaryParser(),
-        ',': imageDescriptorParser
-      };
-
-      if (parsers[marker]) {
-        return parsers[marker];
-      }
-
-      debugger;
+    key: 'marker',
+    values: {
+      '!': exclamationMarkParser,
+      ';': new BinaryParser(),
+      ',': imageDescriptorParser
     }
   });
 

@@ -1,6 +1,6 @@
 import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
-import { resolveFunctionOrvalue } from '../utils';
+import { resolveFunctionOrvalue, resolveLengthOrdered } from '../utils';
 
 
 export class BinaryArrayParser extends AbstractBinaryParser {
@@ -26,7 +26,7 @@ export class BinaryArrayParser extends AbstractBinaryParser {
   }
 
   readOrdered(reader: BinaryReader, data: BinaryReaderResult = {}, start = 0): BinaryReaderResult {
-    let numberOfElements = resolveFunctionOrvalue(this.config.length, data) || Infinity;
+    let numberOfElements = resolveLengthOrdered(this.config.length, data) || Infinity;
     let rawValue = '';
     const value = [];
 

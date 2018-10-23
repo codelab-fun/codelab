@@ -1,6 +1,6 @@
 import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
-import { resolveFunctionOrvalue } from '../utils';
+import { resolveByKey, resolveFunctionKeyOrValue, resolveOrderedByKey } from '../utils';
 
 
 export class BitParser extends AbstractBinaryParser {
@@ -11,11 +11,15 @@ export class BitParser extends AbstractBinaryParser {
     this.type = config.type || this.type;
   }
 
-  read(reader: BinaryReader, data: BinaryReaderResult = {}): BinaryReaderResult {
-    const len = resolveFunctionOrvalue(this.config.length, data);
+  readWithLength(reader: BinaryReader, data: BinaryReaderResult = {}, len: number) {
     const rawValue = reader.read(len);
     const converter = this.config.converter || (a => a);
     return {value: converter(rawValue), rawValue};
+  }
+
+  read(reader: BinaryReader, data: BinaryReaderResult = {}): BinaryReaderResult {
+    const len = resolveFunctionKeyOrValue(this.config.length, data, resolveByKey);
+    return this.readWithLength(reader, data, len);
   }
 
   readOrdered(reader: BinaryReader, data: BinaryReaderResult = {}, start = 0): BinaryReaderResult {
@@ -23,7 +27,8 @@ export class BitParser extends AbstractBinaryParser {
       debugger;
     }
 
-    const result = this.read(reader, data);
+    const len = resolveFunctionKeyOrValue(this.config.length, data, resolveOrderedByKey);
+    const result = this.readWithLength(reader, data, len);
     const length = result.rawValue.length;
     const end = start + length;
     return {start, length, end, ...result, type: this.type, unconverter: this.config.unconverter};
