@@ -75,7 +75,7 @@
 
   <div *slide id="convert-bin-to-dec">
     <h2>Convert binary to decimal with JavaScript</h2>
-    <realtime-eval code="parseInt('01001110', 2)"></realtime-eval>
+    <realtime-eval code="parseInt('01010101', 2)"></realtime-eval>
   </div>
 
   <div *slide id="convert-dec-to-bin">
@@ -134,7 +134,7 @@
 
 
   <div *slide id="binary-parser">
-    <kirjs-binary-parser-demo [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
+    <kirjs-binary-parser-demo [binary]="binaryLittleGif.slice(0,200)"></kirjs-binary-parser-demo>
   </div>
 
 

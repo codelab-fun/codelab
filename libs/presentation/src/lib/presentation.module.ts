@@ -1,4 +1,3 @@
-import 'hammerjs';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PresentationComponent } from './presentation/presentation.component';
@@ -17,11 +16,6 @@ import { AnalyticsService } from './analytics.service';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
 import { HammerGestureConfig } from '@angular/platform-browser';
 
-
-declare const Hammer;
-
-delete Hammer.defaults.cssProps.userSelect;
-Hammer.defaults.touchAction = 'pan-y';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = {

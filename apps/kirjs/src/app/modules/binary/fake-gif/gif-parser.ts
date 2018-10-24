@@ -116,4 +116,4 @@ const body = new BinaryParser()
 export const gifParser = new BinaryParser()
   .block('header', header)
   .block('palette', palette)
-  .array('extenstions', {parser: body, length: 200});
+  .array('extensions', {parser: body, length: 200});

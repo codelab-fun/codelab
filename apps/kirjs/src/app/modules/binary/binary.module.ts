@@ -29,6 +29,7 @@ import { MemoryComponent } from './memory/memory.component';
 import { FeedbackModule } from '../../../../../angular-presentation/src/app/feedback/feedback.module';
 import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-demo.component';
 import { AngularPresentationV2Module } from '../../../../../../libs/presentation/src/lib/v2/angular-presentation-v2.module';
+import { HexdecComponent } from './hexdec/hexdec.component';
 
 
 const routes = RouterModule.forChild(
@@ -68,6 +69,7 @@ const routes = RouterModule.forChild(
     BitComponent,
     MemoryComponent,
     BinaryParserDemoComponent,
+    HexdecComponent,
   ],
   entryComponents: [
     FakeGifComponent,

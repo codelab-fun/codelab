@@ -49,6 +49,13 @@ h1 {
       background: url(pics/p2.jpg);
     }
 
+    .slide [krakoziabry],
+    [krakoziabry] .slide {
+      background: url(pics/krakoziabry.jpg);
+      background-size: cover;
+
+    }
+
     .slide [gif],
     [gif] .slide {
       background: url(pics/p3.jpg);

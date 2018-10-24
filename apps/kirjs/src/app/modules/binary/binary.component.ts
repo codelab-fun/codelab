@@ -30,7 +30,7 @@ export class BinaryComponent {
         console.log(file);
       };
 
-      reader.readAsArrayBuffer(e.target.files[0]);
+      reader.readAsString(e.target.files[0]);
     }`
   };
 
@@ -38,6 +38,124 @@ export class BinaryComponent {
   chikinGif = chikinGif;
 
   hexVals = Array.from(Array(16).keys());
+
+  binaryParserHeaderMatch = /parent-header/;
+  binaryParserHeaderHelpers = [
+    `new Parser();`,
+    `new Parser()
+      .string('gif', {length: 3})
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16('width')
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+      .bit1('globalPallette')
+    `,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+      .bit1('globalPallette')
+      .bit3('resolution')
+      .bit1('paletteSorted')
+      .bit3('paletteSize')
+      .uint8('background')
+      .uint8('ratio')
+    `,
+  ];
+
+  binaryParserPaletteMatch = /parent-palette/;
+  binaryParserPaletteHelpers = [
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+      .bit1('globalPallette')
+      .bit3('resolution')
+      .bit1('paletteSorted')
+      .bit3('paletteSize')
+      .uint8('background')
+      .uint8('ratio')`,
+
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+      .bit1('globalPallette')
+      .bit3('resolution')
+      .bit1('paletteSorted')
+      .bit3('paletteSize')
+      .uint8('background')
+      .uint8('ratio')
+      .array('palette', {
+        type: new Parser().bit24('color'),
+        length: 4
+        }
+      )`,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+      .bit1('globalPallette')
+      .bit3('resolution')
+      .bit1('paletteSorted')
+      .bit3('paletteSize')
+      .uint8('background')
+      .uint8('ratio')
+      .array('palette', {
+        type: new Parser().bit24('color'),
+        length: (result) =>
+            2 ** (result.paletteSize + 1)
+        }
+      )`,
+    `new Parser()
+      .string('gif', {length: 3})
+      .string('version', {length: 3})
+      .uint16le('width')
+      .uint16le('height')
+      .bit1('globalPallette')
+      .bit3('resolution')
+      .bit1('paletteSorted')
+      .bit3('paletteSize')
+      .uint8('background')
+      .uint8('ratio')
+      .array('palette', {
+        type: new Parser()
+          .uint8('r')
+          .uint8('g')
+          .uint8('b'),,
+        length: (result) =>
+            2 ** (result.paletteSize + 1)
+        }
+      )`,
+
+  ];
+
 
 //
 // `file.byteLength`,
@@ -123,7 +241,7 @@ export class BinaryComponent {
     `explain('message', 'basic')`,
     `explain('message', 'bytes')`,
     `explain('bindec', 'uint8')`,
-    `parseInt('01001110', 2)`,
+    `parseInt('01010101', 2)`,
     `explain('bindec', 'int8')`,
     `explain('message', 'uint8')`,
     `explain('ascii')`,

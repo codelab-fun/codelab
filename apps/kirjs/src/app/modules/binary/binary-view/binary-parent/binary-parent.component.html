@@ -1,7 +1,6 @@
-<slides-block *ngIf="type==='structure'" class="one-line" class="slides-block" [showMeta]="showMeta"
-              [data]="structure"></slides-block>
-<binary-flat *ngIf="type==='flat'" (updateBinary)="updateBinary($event)" [parser]="parser"
-             [binary]="binary"></binary-flat>
-<kirjs-binary-plain *ngIf="type==='plain'" (updateBinary)="updateBinary($event)" [parser]="parser"
-                    [binary]="binary"></kirjs-binary-plain>
-<!--<slides-inline-root [data]="structure"></slides-inline-root>-->
+<!--<slides-block *ngIf="type==='structure'" class="one-line" class="slides-block" [showMeta]="showMeta"-->
+              <!--[data]="structure"></slides-block>-->
+<!--<binary-flat *ngIf="type==='flat'" (updateBinary)="updateBinary($event)" [parser]="parser"-->
+             <!--[binary]="binary"></binary-flat>-->
+<!--<ng-content></ng-content>-->
+<!--&lt;!&ndash;<slides-inline-root [data]="structure"></slides-inline-root>&ndash;&gt;-->

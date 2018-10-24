@@ -14,8 +14,9 @@
     <h1>In this talk:</h1>
     <ul>
       <li><b>binary</b> + files</li>
-      <li><b>binary</b> + JS memory internals</li>
+      <li><b>binary</b> + parsing files</li>
       <li><b>binary</b> + HTTP requests</li>
+      <li><b>binary</b> + JS memory internals</li>
     </ul>
   </slides-slide>
 
@@ -24,8 +25,7 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'binary-file-upload'">
-    <h2>And file </h2>
-    <slides-simple-editor [fontSize]="40" [(ngModel)]="code.fileHandler" language="javascripts"></slides-simple-editor>
+    <slides-simple-editor [fontSize]="30" [(ngModel)]="code.fileHandler" language="javascript"></slides-simple-editor>
   </slides-slide>
 
   <slides-slide *slidesIf="'binary-file-value-2'" vertical-split>
@@ -65,7 +65,21 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'gif-spaced'">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+    <slides-fake-gif [binary]="binaryLittleGif" [spacing]="true"></slides-fake-gif>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-spaced-sections'">
+    <slides-fake-gif [binary]="binaryLittleGif" [spacing]="true" [highlightGroups]="true"></slides-fake-gif>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-boolean'">
+    <slides-fake-gif [binary]="binaryLittleGif" [highlightedMap]="{boolean: true}" [spacing]="true"></slides-fake-gif>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-number'">
+    <slides-fake-gif [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true}"
+                     [spacing]="true"></slides-fake-gif>
   </slides-slide>
 
   <slides-slide *slidesIf="'bin-dec'">
@@ -75,7 +89,7 @@
 
   <slides-slide *slidesIf="'convert-bin-to-dec'">
     <h2>Convert binary to decimal with JavaScript</h2>
-    <realtime-eval code="parseInt('01001110', 2)"></realtime-eval>
+    <realtime-eval code="parseInt('01010101', 2)"></realtime-eval>
   </slides-slide>
 
   <slides-slide *slidesIf="'convert-dec-to-bin'">
@@ -84,29 +98,65 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'gif-spaced-bin-dec'">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+    <slides-fake-gif [binary]="binaryLittleGif" [highlightedMap]="{boolean: true, number: true}"
+                     [spacing]="true"></slides-fake-gif>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'gif-spaced-hex'">
+    <slides-fake-gif [binary]="binaryLittleGif" [highlightedMap]="{boolean: true, number: true, hex: true}"
+                     [spacing]="true"></slides-fake-gif>
   </slides-slide>
 
 
+  <slides-slide *slidesIf="'bin-hex-explained'">
+    <kirjs-hexdec></kirjs-hexdec>
+  </slides-slide>
   <slides-slide *slidesIf="'bin-hex'">
-    TBD Bin 2 Hex
+    <h2>Convert binary to hexadecimal with JavaScript</h2>
+    <realtime-eval code="parseInt('01010101', 2).toString(16)"></realtime-eval>
   </slides-slide>
+
+  <slides-slide *slidesIf="'hex-bin'">
+    <h2>Convert hexadecimal to binary with JavaScript</h2>
+    <realtime-eval code="parseInt('FEFEFE', 16).toString(2)"></realtime-eval>
+  </slides-slide>
+
 
   <slides-slide *slidesIf="'gif-spaced-bin-hex'">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+    <slides-fake-gif [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true, hex: true}"
+                     [spacing]="true"></slides-fake-gif>
   </slides-slide>
 
-
-  <slides-slide *slidesIf="'gif-spaced-bin-string'">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'bin-enum'">
-    TBD Bin 2 Hex
+  <slides-slide *slidesIf="'gif-spaced-string'">
+    <slides-fake-gif [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
+                     [spacing]="true"></slides-fake-gif>
   </slides-slide>
 
   <slides-slide *slidesIf="'ascii'">
     <slides-ascii></slides-ascii>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'ascii-2'">
+    <slides-ascii param="ascii - Page 2"></slides-ascii>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'windows-1251'">
+    <slides-ascii param="windows-1251"></slides-ascii>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'KOI8-R'">
+    <slides-ascii param="KOI8-R"></slides-ascii>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'krakoziabry'" bg krakoziabry>
+  </slides-slide>
+
+
+  <slides-slide *slidesIf="'utf-8'">
+    <slides-ascii param="utf-8"></slides-ascii>
   </slides-slide>
 
   <slides-slide *slidesIf="'str-to-charcode'">
@@ -115,26 +165,41 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'charcode-to-str'">
-    <h2>Get charcode from string</h2>
+    <h2>Get letter from charcode</h2>
     <realtime-eval code="String.fromCharCode(118)"></realtime-eval>
   </slides-slide>
 
-  <slides-slide *slidesIf="'charcode-to-str'">
-    <realtime-eval code="String.fromCharCode(1034)"></realtime-eval>
+  <slides-slide *slidesIf="'gif-string-2'">
+    <slides-fake-gif [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
+                     [spacing]="true"
+    ></slides-fake-gif>
   </slides-slide>
 
-  <slides-slide *slidesIf="'charcode-to-str'">
-    <h1>ПЕЉМЕЊ!!!</h1>
-  </slides-slide>
+  <!--<slides-slide *slidesIf="'charcode-to-str'">-->
+  <!--<realtime-eval code="String.fromCharCode(1034)"></realtime-eval>-->
+  <!--</slides-slide>-->
+
+  <!--<slides-slide *slidesIf="'charcode-to-str'">-->
+  <!--<h1>ПЕЉМЕЊ!!!</h1>-->
+  <!--</slides-slide>-->
 
 
   <slides-slide *slidesIf="'gif-internals'" bg vc gif>
-    <h1>Let's parse some binary</h1>
+    <h1>Parsing binary</h1>
   </slides-slide>
 
 
-  <slides-slide *slidesIf="'binary-parser'">
-    <kirjs-binary-parser-demo [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
+  <slides-slide *slidesIf="'binary-parser-header'">
+    <kirjs-binary-parser-demo
+      [filterClassName]="binaryParserHeaderMatch"
+      [helpers]="binaryParserHeaderHelpers"
+      [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
+  </slides-slide>
+  <slides-slide *slidesIf="'binary-parser-palette'">
+    <kirjs-binary-parser-demo [helpers]="binaryParserPaletteHelpers"
+                              [filterClassName]="binaryParserPaletteMatch"
+                              [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
   </slides-slide>
 
 
@@ -158,9 +223,123 @@
     </ul>
   </slides-slide>
 
-  <slides-slide *slidesIf="'gif-tbd'">
-    <h1>https://tls.ulfheim.net/</h1>
+
+  <slides-slide *slidesIf="'binary-json'" bg vc json>
+    <h1>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
   </slides-slide>
+
+  <slides-slide *slidesIf="'json'">
+    <slides-json></slides-json>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare-size'">
+    <h2>Size</h2>
+    <div style="display: flex;">
+
+      <div>
+        <h2>JSON</h2>
+        <div>Bigger</div>
+      </div>
+
+      <div>
+        <h2>Binary</h2>
+        <div>Smaller</div>
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare-speed'">
+    <h2>Serialization speed</h2>
+    <div style="display: flex;">
+      <div>
+        <h2>JSON</h2>
+        <div>Slower</div>
+      </div>
+
+      <div>
+        <h2>Binary</h2>
+        <div>Faster</div>
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare-debugging'">
+    <h2>Debugging</h2>
+    <div style="display: flex;">
+      <div>
+        <h2>JSON</h2>
+
+        <ul>
+          <li>Easy to understand</li>
+          <li>Human readable</li>
+        </ul>
+
+      </div>
+
+      <div>
+        <h2>Binary</h2>
+        <ul>
+          <li>Requires special tooling</li>
+        </ul>
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare-tooling'">
+    <h2>Tooling</h2>
+    <div style="display: flex;">
+      <div>
+        <h2>JSON</h2>
+        <ul>
+          <li>For JS works out of the box</li>
+        </ul>
+
+      </div>
+
+      <div>
+        <h2>Binary</h2>
+        <ul>
+          <li>Requires special tooling</li>
+        </ul>
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare-schema'">
+    <h2>Schema</h2>
+    <div style="display: flex;">
+      <div>
+        <h2>JSON</h2>
+        <ul>
+          <li>No schema</li>
+        </ul>
+
+      </div>
+
+      <div>
+        <h2>Binary</h2>
+        <ul>
+          <li>Needs a schema</li>
+          <li>Comes with type checking</li>
+          <li>Comes with validation</li>
+        </ul>
+      </div>
+    </div>
+  </slides-slide>
+
+  <slides-slide *slidesIf="'compare-examles'">
+    <h2>Existing solutions</h2>
+    <ul>
+      <li>Proto Buffers (google)</li>
+      <li>Flatbuffers</li>
+      <li>Thrift (apache/facebook)</li>
+    </ul>
+  </slides-slide>
+
+
+  <!--<slides-slide *slidesIf="'gif-tbd'">-->
+  <!--<h1>https://tls.ulfheim.net/</h1>-->
+  <!--</slides-slide>-->
 
 
   <!--<slides-slide *slidesIf="'message'">-->
@@ -545,119 +724,6 @@
   <slides-slide *slidesIf="'binary-memory-6'">
     <angular-presentation-memory [param]="5"
                                  code="a = [true, false, true, false, true]"></angular-presentation-memory>
-  </slides-slide>
-
-
-  <slides-slide *slidesIf="'binary-json'" bg vc json>
-    <h1>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'json'">
-    <slides-json></slides-json>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'compare-size'">
-    <h2>Size</h2>
-    <div style="display: flex;">
-
-      <div>
-        <h2>JSON</h2>
-        <div>Bigger</div>
-      </div>
-
-      <div>
-        <h2>Binary</h2>
-        <div>Smaller</div>
-      </div>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'compare-speed'">
-    <h2>Serialization speed</h2>
-    <div style="display: flex;">
-      <div>
-        <h2>JSON</h2>
-        <div>Slower</div>
-      </div>
-
-      <div>
-        <h2>Binary</h2>
-        <div>Faster</div>
-      </div>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'compare-debugging'">
-    <h2>Debugging</h2>
-    <div style="display: flex;">
-      <div>
-        <h2>JSON</h2>
-
-        <ul>
-          <li>Easy to understand</li>
-          <li>Human readable</li>
-        </ul>
-
-      </div>
-
-      <div>
-        <h2>Binary</h2>
-        <ul>
-          <li>Requires special tooling</li>
-        </ul>
-      </div>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'compare-tooling'">
-    <h2>Tooling</h2>
-    <div style="display: flex;">
-      <div>
-        <h2>JSON</h2>
-        <ul>
-          <li>For JS works out of the box</li>
-        </ul>
-
-      </div>
-
-      <div>
-        <h2>Binary</h2>
-        <ul>
-          <li>Requires special tooling</li>
-        </ul>
-      </div>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'compare-schema'">
-    <h2>Schema</h2>
-    <div style="display: flex;">
-      <div>
-        <h2>JSON</h2>
-        <ul>
-          <li>No schema</li>
-        </ul>
-
-      </div>
-
-      <div>
-        <h2>Binary</h2>
-        <ul>
-          <li>Needs a schema</li>
-          <li>Comes with type checking</li>
-          <li>Comes with validation</li>
-        </ul>
-      </div>
-    </div>
-  </slides-slide>
-
-  <slides-slide *slidesIf="'compare-examles'">
-    <h2>Existing solutions</h2>
-    <ul>
-      <li>Proto Buffers (google)</li>
-      <li>Flatbuffers</li>
-      <li>Thrift (apache/facebook)</li>
-    </ul>
   </slides-slide>
 
 

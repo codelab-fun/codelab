@@ -15,11 +15,15 @@ button {
 }
 
 .legend .item {
-  margin-left: 10px;
+  margin-right: 10px;
   background: #dddddd;
   border-radius: 4px;
   padding: 0.5vw 1vw;
 }
+
+
+
+
 
 .enums .enums {
   background: #ff3302;
@@ -66,4 +70,39 @@ button {
 .spacing .bin-block {
   margin-right: 4vw;
   white-space: nowrap;
+}
+
+.groups .parent-palette {
+  background: #00ff51;
+}
+
+.groups .parent-header {
+  background: #ffaf00;
+}
+
+.groups .parent-extensions {
+  background: #00a4ff;
+}
+
+.spacing {
+  line-height: 50px;
+}
+
+
+.mini .legend {
+  font-size: 1.2vw;
+  padding: 0;
+}
+
+.mini .legend .item {
+  padding: 0.2vw;
+  height: 2vw;
+}
+
+.mini input[type=checkbox] {
+  zoom: 2 !important
+}
+
+.mini .spacing {
+  line-height: 2vw;
 }

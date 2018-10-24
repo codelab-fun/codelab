@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BindecComponent implements OnInit {
   digits = [0];
+  result = [0];
   displaySign = false;
   sign = false;
 
@@ -18,7 +19,7 @@ export class BindecComponent implements OnInit {
   }
 
   get convertedValue() {
-    return (this.sign ? -1 : 1) * this.digits
+    return (this.sign ? -1 : 1) * this.result
       .reduce((result, value, index) => result + value * this.getBaseValue(index), 0);
   }
 

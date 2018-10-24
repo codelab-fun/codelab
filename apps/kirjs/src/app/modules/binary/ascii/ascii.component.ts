@@ -17,7 +17,6 @@ const layouts = {};
   styleUrls: ['./ascii.component.css']
 })
 export class AsciiComponent implements OnInit {
-  @Input() param = '';
   encodings = [
     {
       key: 'ascii',
@@ -28,7 +27,7 @@ export class AsciiComponent implements OnInit {
       value: encode(128, 255, 'ascii')
     },
     {
-      key: 'windows-1251 - Page 2',
+      key: 'windows-1251',
       value: encode(128, 255, 'windows-1251')
     },
     {
@@ -44,6 +43,10 @@ export class AsciiComponent implements OnInit {
 
   constructor() {
     // d = new TextDecoder('windows-125').decode(new Uint8Array(255).map((a,i)=>i).buffer)
+  }
+
+  @Input() set param(key) {
+    this.encoding = this.encodings.find(a => a.key === key);
   }
 
   ngOnInit() {

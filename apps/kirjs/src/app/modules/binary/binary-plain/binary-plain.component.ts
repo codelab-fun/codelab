@@ -11,11 +11,19 @@ import { flatten } from '../binary-flat/binary-flat.component';
 export class BinaryPlainComponent implements OnInit {
   @Output() updateBinary = new EventEmitter();
   @Input() parser: BinaryParser;
+  @Input() highlightGroups = false;
+  @Input() filterClassName = /./;
+  @Input() mini = false;
+
   types = [
-    'const', 'boolean', 'number', 'hex', 'string', 'enums',
+    'boolean', 'number', 'hex', 'string', 'const', 'enums',
   ];
+
+  @Input()
   spacing = false;
 
+
+  @Input()
   highlightedMap = this.types.reduce((r, v) => {
     r[v] = false;
     return r;
@@ -31,11 +39,8 @@ export class BinaryPlainComponent implements OnInit {
   }
 
   @Input() set binary(binary: string) {
-    this.structure = flatten(this.parser.readOrdered(new StringBinaryReader(binary)).value);
-    console.log(this.structure);
-  }
+    this.structure = flatten(this.parser.readOrdered(new StringBinaryReader(binary)).value).filter(a => a.className.match(this.filterClassName));
 
-  ngOnInit() {
-  }
 
+  }
 }

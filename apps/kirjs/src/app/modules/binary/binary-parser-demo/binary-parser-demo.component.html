@@ -14,6 +14,15 @@
       (ngModelChange)="generateCode()"></slides-simple-editor>
   </div>
   <div>
+
+    <slides-fake-gif
+      [mini]="true"
+      [preview]="false"
+      [binary]="binary"
+      [filterClassName]="filterClassName"
+      [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
+      [spacing]="true"></slides-fake-gif>
+
     <div style="font-size: 2vw;word-break: break-all"
          (input)="binaryValue = $event.target.innerText; generateCode()"
          contenteditable="true">{{binaryValue}}

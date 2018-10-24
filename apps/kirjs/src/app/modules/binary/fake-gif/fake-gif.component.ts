@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { lzw } from './gif';
 import { BinaryParser } from '../parser/binary-parser';
 import { gifParser } from './gif-parser';
 
@@ -19,15 +17,21 @@ interface Chunk {
   styleUrls: ['./fake-gif.component.css']
 })
 export class FakeGifComponent implements OnInit {
+  @Input()
+  spacing = false;
   showMeta = true;
   @Input() binary: string;
+  @Input() highlightedMap: Record<string, boolean> = {};
+  @Input() highlightGroups = false;
+  @Input() preview = true;
+  @Input() filterClassName = /./;
+  @Input() mini = false;
 
   gif: string;
   parser: BinaryParser;
 
   constructor() {
   }
-
 
   upload(file) {
     const reader = new FileReader();
