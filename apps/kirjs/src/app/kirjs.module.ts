@@ -26,6 +26,11 @@ const routes = [
     loadChildren: './modules/svg/svg.module#SvgModule',
     name: 'Svg + Angular',
     description: 'SVG ',
+  },  {
+    path: 'ast',
+    loadChildren: './modules/ast/ast.module#AstModule',
+    name: 'Ast + Angular',
+    description: 'SVG ',
   },
   {
     path: '',

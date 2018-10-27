@@ -30,7 +30,7 @@ a {
 }
 
 #sausage-pre {
-  background: url(./pics/sausage-pre.jpg) no-repeat;
+  background: url(pics/sausage-pre.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -38,7 +38,7 @@ a {
 }
 
 #sausage {
-  background: url(./pics/sausage2.jpg) no-repeat;
+  background: url(pics/sausage2.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -46,7 +46,7 @@ a {
 }
 
 #babel-types {
-  background: url(./pics/park.jpg) no-repeat;
+  background: url(pics/park.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -58,7 +58,7 @@ a {
 }
 
 #babel-traverse {
-  background: url(./pics/girl-reading-1890.jpg) no-repeat;
+  background: url(pics/girl-reading-1890.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -66,7 +66,7 @@ a {
 }
 
 #babel-transform {
-  background: url(./pics/doggie.jpg) no-repeat;
+  background: url(pics/doggie.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -74,7 +74,7 @@ a {
 }
 
 #debugger-pre {
-  background: url(./pics/debugger.jpg) no-repeat;
+  background: url(pics/debugger.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -82,7 +82,7 @@ a {
 }
 
 #renoir {
-  background: url(./pics/renoir.png) no-repeat;
+  background: url(pics/renoir.png) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -90,7 +90,7 @@ a {
 }
 
 #babel-remove-debugger {
-  background: url(./pics/cat.jpg) no-repeat;
+  background: url(pics/cat.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -98,7 +98,7 @@ a {
 }
 
 #babel-fit {
-  background: url(./pics/the-garden.jpg) no-repeat;
+  background: url(pics/the-garden.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -106,7 +106,7 @@ a {
 }
 
 #parser {
-  background: url(./pics/parser.png) no-repeat;
+  background: url(pics/parser.png) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -114,7 +114,7 @@ a {
 }
 
 #links-5-cool-things {
-  background: url(./pics/bg-links.jpg) no-repeat;
+  background: url(pics/bg-links.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -122,7 +122,7 @@ a {
 }
 
 #panda {
-  background: url(./pics/panda.webp) no-repeat;
+  background: url(pics/panda.webp) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -130,7 +130,7 @@ a {
 }
 
 .henry-zhu {
-  background: url(./pics/patreon.png) no-repeat;
+  background: url(pics/patreon.png) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -139,7 +139,7 @@ a {
 }
 
 .babylon {
-  background: url(./pics/babylon.png) no-repeat;
+  background: url(pics/babylon.png) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -148,7 +148,7 @@ a {
 }
 
 .babylon {
-  background: url(./pics/babylon.png) no-repeat;
+  background: url(pics/babylon.png) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -160,7 +160,7 @@ a {
   margin-top: 20px;
   width: 500px;
   height: 300px;
-  background: url(./pics/success/disco.webp);
+  background: url(pics/success/disco.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -169,7 +169,7 @@ a {
   margin-top: 20px;
   width: 500px;
   height: 300px;
-  background: url(./pics/success/happy.webp);
+  background: url(pics/success/happy.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -178,13 +178,13 @@ a {
   margin-top: 20px;
   width: 500px;
   height: 300px;
-  background: url(./pics/success/dancing-dog.webp);
+  background: url(pics/success/dancing-dog.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .github {
-  background: url(./pics/github.png) no-repeat;
+  background: url(pics/github.png) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -193,7 +193,7 @@ a {
 }
 
 .opencollective {
-  background: url(./pics/opencollective.png) no-repeat;
+  background: url(pics/opencollective.png) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -202,7 +202,7 @@ a {
 }
 
 #eslint {
-  background: url(./pics/debugger.jpg) no-repeat;
+  background: url(pics/debugger.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -210,21 +210,21 @@ a {
 }
 
 #kirjs {
-  background: url(./pics/kirjs.jpg) no-repeat;
+  background: url(pics/kirjs.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
 }
 
 #intro, #outro {
-  background: url(./pics/landscape-with-trees-1.jpg) no-repeat;
+  background: url(pics/landscape-with-trees-1.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
 }
 
 .bad-tree {
-  background: url(./pics/tree.gif) no-repeat;
+  background: url(pics/tree.gif) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -278,7 +278,7 @@ a {
 }
 
 .two-button {
-  background: url(./pics/button-1.png) no-repeat;
+  background: url(pics/button-1.png) no-repeat;
   background-size: 50% auto;
   display: inline-block;
   height: 50vh;
@@ -289,7 +289,7 @@ a {
 }
 
 .two-button2 {
-  background: url(./pics/two-button2.gif) no-repeat;
+  background: url(pics/two-button2.gif) no-repeat;
   background-size: 50% auto;
   display: inline-block;
   height: 50vh;
@@ -300,7 +300,7 @@ a {
 }
 
 .two-button3 {
-  background: url(./pics/two-button3.gif) no-repeat;
+  background: url(pics/two-button3.gif) no-repeat;
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
@@ -321,7 +321,7 @@ a {
 }
 
 .collie.display {
-  background: url(./pics/collie.webp) no-repeat;
+  background: url(pics/collie.webp) no-repeat;
 }
 
 .collie {

@@ -22,7 +22,7 @@ import { DepsService } from './services/deps-order.service';
 import { NewEditorsComponent } from './new-editors/new-editors.component';
 import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
 import { RunnersModule } from './runners/runners.module';
-import { SizePickerModule } from '../codelabs/extra/ast/size-picker/size-picker.module';
+import { SizePickerModule } from '../../../../kirjs/src/app/modules/ast/size-picker/size-picker.module';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 import { SimpleEditorModule } from './simple-editor/simple-editor.module';
 

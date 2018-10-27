@@ -1,6 +1,7 @@
 import { AfterContentInit, ContentChildren, Directive } from '@angular/core';
 import { findHighlightsAll } from './parse-hello-world-ast';
-import { CodeEditorComponent } from '../../../exercise/code-editor/code-editor.component';
+import { CodeEditorComponent } from '../../../../../angular-presentation/src/app/exercise/code-editor/code-editor.component';
+
 
 @Directive({
   selector: '[slidesMatchTypesOnHover]'

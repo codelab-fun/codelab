@@ -21,7 +21,7 @@ import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pip
 import { ConsoleModule } from '../../../../../../libs/console/src/index';
 import { PresentationModule } from '../../../../../../libs/presentation/src/index';
 import { ExerciseModule } from '../../../../../angular-presentation/src/app/exercise/exercise.module';
-import { NewProgressBarModule } from '../../../../../angular-presentation/src/app/codelabs/extra/ast/new-progress-bar/new-progress-bar.module';
+import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { BinaryGifComponent } from './binary-gif/binary-gif.component';
 import { BitComponent } from './bit/bit.component';
 import { MemoryComponent } from './memory/memory.component';
