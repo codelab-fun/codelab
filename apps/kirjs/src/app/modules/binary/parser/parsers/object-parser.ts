@@ -3,7 +3,11 @@ import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
 
 export class BinaryObjectParser extends AbstractBinaryParser {
   type = 'object';
-  steps: { name: string, parser: AbstractBinaryParser }[] = [];
+  steps: {
+    name: string,
+    description?: string,
+    parser: AbstractBinaryParser
+  }[] = [];
 
 
   addStep(name: string, parser: AbstractBinaryParser) {
@@ -29,11 +33,12 @@ export class BinaryObjectParser extends AbstractBinaryParser {
 
 
     const value = this.steps.reduce((result, step) => {
-      const {value, rawValue, type} = step.parser.readOrdered(reader, {_parent: data, ...result}, start + len);
+      const {value, rawValue, type, description} = step.parser.readOrdered(reader, {_parent: data, ...result}, start + len);
       raw += rawValue;
       if (!type) {
         debugger;
       }
+
 
       len += rawValue.length;
       result.push({
@@ -41,6 +46,7 @@ export class BinaryObjectParser extends AbstractBinaryParser {
         end: start + len,
         length: rawValue.length,
         name: step.name,
+        description,
         value,
         rawValue,
         type

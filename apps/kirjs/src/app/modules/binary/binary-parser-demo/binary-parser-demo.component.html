@@ -6,7 +6,7 @@
       </div>
     </div>
     <slides-simple-editor
-      [fontSize]="30"
+      [fontSize]="40"
       [lineNumbers]="false"
       [(ngModel)]="code"
       style="width:50vw; height: 100vh;flex: none"
@@ -15,20 +15,17 @@
   </div>
   <div>
 
-    <slides-fake-gif
+    <slides-fake-gif (onBinaryUpdate)="binary = $event; generateCode()"
       [mini]="true"
+      [showPopups]="true"
       [preview]="false"
       [binary]="binary"
       [filterClassName]="filterClassName"
       [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
       [spacing]="true"></slides-fake-gif>
-
-    <div style="font-size: 2vw;word-break: break-all"
-         (input)="binaryValue = $event.target.innerText; generateCode()"
-         contenteditable="true">{{binaryValue}}
-    </div>
+    <code class="output error" *ngIf="error">{{error}}</code>
     <slides-simple-editor
-      [fontSize]="30"
+      [fontSize]="40"
       language="json"
       [lineNumbers]="false"
       [(ngModel)]="result"

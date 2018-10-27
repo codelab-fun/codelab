@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { Parser } from 'binary-parser';
 import { Buffer } from 'buffer';
 import { bin2hex } from '../shared';
@@ -17,6 +17,8 @@ export class BinaryParserDemoComponent implements OnInit {
   @Input() filterClassName = /./;
   result = '';
   @Input() binary = '';
+  error = '';
+  onCodeChange = new EventEmitter();
 
   constructor() {
   }
@@ -27,7 +29,13 @@ export class BinaryParserDemoComponent implements OnInit {
   }
 
   generateCode() {
-    const parser = new Function('Parser', 'const parser = ' + this.code + '; return parser;')(Parser);
-    this.result = JSON.stringify(parser.parse(Buffer.from(bin2hex(this.binary), 'hex')), null, '  ');
+    this.onCodeChange.emit(this.code);
+    this.error = '';
+    try {
+      const parser = new Function('Parser', 'const parser = ' + this.code + '; return parser;')(Parser);
+      this.result = JSON.stringify(parser.parse(Buffer.from(bin2hex(this.binary), 'hex')), null, '  ');
+    } catch (e) {
+      this.error = e.message;
+    }
   }
 }

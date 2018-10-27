@@ -36,7 +36,7 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
 
   readOrdered(reader: BinaryReader, data: BinaryReaderResult = [], start = 0): BinaryReaderResult {
     const parser = this.getParser(data, resolveOrderedByKey);
-    const {value, rawValue} = parser.readOrdered(reader, data, start);
-    return {start, value, rawValue, type: parser.type};
+    const {value, rawValue, description} = parser.readOrdered(reader, data, start);
+    return {start, value, rawValue, type: parser.type, description};
   }
 }

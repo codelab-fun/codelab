@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { gifParser } from './gif-parser';
 
@@ -26,7 +26,8 @@ export class FakeGifComponent implements OnInit {
   @Input() preview = true;
   @Input() filterClassName = /./;
   @Input() mini = false;
-
+  @Input() showPopups = false;
+  @Output() onBinaryUpdate = new EventEmitter();
   gif: string;
   parser: BinaryParser;
 
@@ -43,6 +44,13 @@ export class FakeGifComponent implements OnInit {
     };
 
     reader.readAsArrayBuffer(file.files[0]);
+  }
+
+  update(chunk, value) {
+    const len = chunk.end - chunk.start;
+    value = value.padEnd(len, 0).slice(0, len);
+    this.binary = this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
+    this.onBinaryUpdate.emit(this.binary);
   }
 
 

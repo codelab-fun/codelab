@@ -37,6 +37,6 @@ export class StringParser extends AbstractBinaryParser {
     const result = this.read(reader, data);
     const length = start + result.rawValue.length;
     const end = start + length;
-    return {...result, type: this.type, start, end, length};
+    return {...result, type: this.type, description: this.config.description, start, end, length};
   }
 }

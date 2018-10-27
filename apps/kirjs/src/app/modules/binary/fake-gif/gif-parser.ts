@@ -3,12 +3,12 @@ import { lzw } from './gif';
 
 
 const header = new BinaryParser()
-  .string('headerConst', {length: 3, description: 'this is always GIF'})
+  .string('headerConst', {length: 3, description: 'this is always "GIF"'})
   .string('Versions', {length: 3, description: 'this is either 87a or 89a'})
   .uInt16('width', {description: 'Width of the image'})
   .uInt16('height', {description: 'Height of the image'})
   .boolean('globalPallette', {description: 'Whether global palette is present'})
-  .bit3('resolution', {type: 'number', description: 'Resolution TBD'})
+  .bit3('resolution', {type: 'number', description: 'Number of bits per primary color available'})
   .boolean('palette-sorted', {description: 'Whether the palette is sorted'})
   .bit3('palette-size', {type: 'number'})
   .uInt8('background')

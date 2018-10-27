@@ -22,6 +22,12 @@ const routes = [
     description: 'Image inclusion',
   },
   {
+    path: 'svg',
+    loadChildren: './modules/svg/svg.module#SvgModule',
+    name: 'Svg + Angular',
+    description: 'SVG ',
+  },
+  {
     path: '',
     loadChildren: './modules/home/home.module#HomeModule',
     name: 'Home',

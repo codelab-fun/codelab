@@ -10,7 +10,7 @@
     <div class="bin">{{v ? '1' : '0'}}</div>
   </label>
 </div>
-<input type="text" class="number" [value]="convertedValue" (keyup)="view.update(i.value)" #i>
+<input type="text" class="number" [value]="convertedValue" #i>
 <div style="display: flex;margin-top: 10px;">
   <div class="link" (click)="digits = [0]">1</div>
   <div class="link" (click)="digits = [0, 0]">2</div>

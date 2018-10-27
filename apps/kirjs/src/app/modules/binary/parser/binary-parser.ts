@@ -79,7 +79,7 @@ export class BinaryParser {
   }
 
   object(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 1});
+    return this.bit(name, {length: 1, ...config});
   }
 
   uInt16(name: string, config?: Partial<BaseConfig>) {
@@ -87,7 +87,8 @@ export class BinaryParser {
       type: 'number',
       length: 16, converter: (a) => {
         return parseInt(a.slice(8) + a.slice(0, 8), 2);
-      }
+      },
+      ...config
     });
   }
 

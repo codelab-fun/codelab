@@ -31,7 +31,6 @@ import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-de
 import { AngularPresentationV2Module } from '../../../../../../libs/presentation/src/lib/v2/angular-presentation-v2.module';
 import { HexdecComponent } from './hexdec/hexdec.component';
 
-
 const routes = RouterModule.forChild(
   SlidesRoutes.get(BinaryComponent)
 );

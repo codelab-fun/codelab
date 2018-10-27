@@ -2,7 +2,7 @@ h1 {
   font-size: 5vw;
 }
 
-::ng-deep .slide.slide [vertical-split] ,
+::ng-deep .slide.slide [vertical-split],
 [vertical-split] ::ng-deep .slide.slide {
   display: flex;
   flex-direction: row;
@@ -36,11 +36,20 @@ h1 {
   .binary-presentation ::ng-deep {
     .slide [intro],
     [intro] .slide {
-      background: url(pics/p1.jpg);
+      background: url(pics/kirjs.gif);
+      background-size: 50vw !important;
       padding-left: 3vw;
-      h1 {
+      h2 {
+        font-size: 3vw;
+      }
+      h1, h2, h3 {
         text-align: left;
+        margin-left: 50vw;
         margin-bottom: 2vw;
+      }
+
+      h3 {
+        font-size: 5vw;
       }
     }
 
@@ -53,7 +62,26 @@ h1 {
     [krakoziabry] .slide {
       background: url(pics/krakoziabry.jpg);
       background-size: cover;
+    }
 
+    .slide [endianness],
+    [endianness] .slide {
+      background: url(pics/endianness.png);
+      background-size: 80vw !important;
+    }
+
+    [kaitai] .slide {
+      background: url(pics/kaitai.png);
+      background-size: 400px 400px !important;
+      background-color: #fff;
+
+      h1 {
+        font-size: 3vw;
+      }
+      h2 {
+        text-align: center;
+        font-size: 2vw;
+      }
     }
 
     .slide [gif],
@@ -113,4 +141,26 @@ h1 {
     background: transparent;
     font-weight: bold;
   }
+}
+
+::ng-deep {
+  .angular-popper.angular-popper.angular-popper.angular-popper.angular-popper.angular-popper.angular-popper {
+    background: white;
+    width: auto;
+    padding: 2vw;
+    margin-top: 3vw;
+    z-index: 10000;
+
+    h1 {
+      font-size: 2vw;
+    }
+  }
+}
+
+.compare-json {
+  width: 50%;
+}
+
+.compare-serialization {
+  padding: 0 20vw;
 }

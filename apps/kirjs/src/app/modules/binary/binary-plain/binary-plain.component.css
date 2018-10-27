@@ -21,10 +21,6 @@ button {
   padding: 0.5vw 1vw;
 }
 
-
-
-
-
 .enums .enums {
   background: #ff3302;
   color: black;
@@ -88,7 +84,6 @@ button {
   line-height: 50px;
 }
 
-
 .mini .legend {
   font-size: 1.2vw;
   padding: 0;
@@ -105,4 +100,16 @@ button {
 
 .mini .spacing {
   line-height: 2vw;
+}
+
+angular-popper {
+  display: inline;
+  max-width: 50vw;
+  margin-top: 1vw;
+}
+
+.bin-block:hover {
+  background: #000;
+  color: #fff;
+  cursor: hand;
 }

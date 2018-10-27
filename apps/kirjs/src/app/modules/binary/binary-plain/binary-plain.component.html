@@ -12,7 +12,19 @@
 
     <div class="binary">
       <ng-container *ngFor="let item of structure; let i = index">
-        <span class="{{item.type}} {{item.className}} bin-block" [attr.name]="item.name">{{item.rawValue}}</span>
+        <angular-popper [show]="showPopups && show[i]">
+          <span (mouseover)="show[i] = true"  (mouseout)="show[i] = false"
+                class="{{item.type}} {{item.className}} bin-block" [attr.name]="item.name"
+                (keydown.enter)="update(item, $event.target.innerText)"
+                contenteditable="true">{{item.rawValue}}</span>
+
+          <div content>
+            <div>{{item.rawValue}}</div>
+            <h1>{{item.name}} - {{item.type}}</h1>
+            <div>{{item.value}}</div>
+            <div>{{item.description}}</div>
+          </div>
+        </angular-popper>
         <span> </span>
       </ng-container>
     </div>

@@ -31,6 +31,11 @@ export class BitParser extends AbstractBinaryParser {
     const result = this.readWithLength(reader, data, len);
     const length = result.rawValue.length;
     const end = start + length;
-    return {start, length, end, ...result, type: this.type, unconverter: this.config.unconverter};
+    return {
+      start, length, end, ...result,
+      type: this.type,
+      description: this.config && this.config.description,
+      unconverter: this.config.unconverter
+    };
   }
 }

@@ -31,6 +31,16 @@ export class BinaryComponent {
       };
 
       reader.readAsString(e.target.files[0]);
+    }`,
+    fileHandlerBinary: `document.getElementById('file').addEventListener('change', (e)=>{
+      const reader = new FileReader();
+
+      reader.onloadend = (e) => {
+        file = e.target.result;
+        console.log(file);
+      };
+
+      reader.readAsArrayBuffer(e.target.files[0]);
     }`
   };
 

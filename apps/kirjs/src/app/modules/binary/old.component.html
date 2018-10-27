@@ -1,0 +1,387 @@
+
+<!--<slides-slide *slidesIf="'gif-tbd'">-->
+<!--<h1>https://tls.ulfheim.net/</h1>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'message'">-->
+<!--<h2>Let's reverse-engineer this message:</h2>-->
+<!--<slides-message param="basic"></slides-message>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'can-be-anything'">-->
+<!--<h2>This can be anything 🤔</h2>-->
+<!--<ul>-->
+<!--<li>Lots of booleans?</li>-->
+<!--<li>Bunch of numbers</li>-->
+<!--<li>Text?</li>-->
+<!--<li>Hex data? colors?</li>-->
+<!--<li>Media? Image? Song? Video?</li>-->
+<!--<li>Bunch of random 1's and 0's?</li>-->
+<!--</ul>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-1-1'">-->
+<!--<angular-presentation-bit [param]="1">-->
+<!--<h2>How many TBD do you have?</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>1</td>-->
+<!--<td>1</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>0</td>-->
+<!--<td>0</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-1'">-->
+<!--<angular-presentation-bit [param]="1">-->
+<!--<h2>Will you marry me?</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>1</td>-->
+<!--<td>Yes</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>0</td>-->
+<!--<td>No</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-2'">-->
+<!--<angular-presentation-bit [param]="2">-->
+<!--<h2>Numbers 0-3</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>00</td>-->
+<!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>01</td>-->
+<!--<td>1</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>10</td>-->
+<!--<td>2</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>11</td>-->
+<!--<td>3</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-2-1'">-->
+<!--<angular-presentation-bit [param]="2">-->
+<!--<h2>Will you marry me?</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>00</td>-->
+<!--<td>Yes</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>01</td>-->
+<!--<td>No</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>10</td>-->
+<!--<td>Maybe</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>11</td>-->
+<!--<td>-</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'bit-3'">-->
+<!--<angular-presentation-bit [param]="3">-->
+<!--<h2>Numbers 0-7</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>000</td>-->
+<!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>010</td>-->
+<!--<td>2</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>100</td>-->
+<!--<td>4</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>111</td>-->
+<!--<td>7</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'bit-4'">-->
+<!--<angular-presentation-bit [param]="4">-->
+<!--<h2>Numbers 0-16</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>0000</td>-->
+<!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>0001</td>-->
+<!--<td>1</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>0010</td>-->
+<!--<td>2</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>0011</td>-->
+<!--<td>3</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'bit-5'">-->
+<!--<angular-presentation-bit [param]="5">-->
+<!--<h2>Numbers 0-32</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>00000</td>-->
+<!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>00001</td>-->
+<!--<td>1</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>00010</td>-->
+<!--<td>2</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>00011</td>-->
+<!--<td>3</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-5-1'">-->
+<!--<angular-presentation-bit [param]="5">-->
+<!--<h2>Letters?</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>00000</td>-->
+<!--<td>a</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>00001</td>-->
+<!--<td>b</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>00010</td>-->
+<!--<td>c</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>...</td>-->
+<!--<td>3</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-6'">-->
+<!--<angular-presentation-bit [param]="6">-->
+<!--<h2>One character from base64 encoding?</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>000000</td>-->
+<!--<td>a</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-7'">-->
+<!--<angular-presentation-bit [param]="7">-->
+<!--<h2>Basic ascii letter?</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>00000</td>-->
+<!--<td>a</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>00001</td>-->
+<!--<td>b</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>00010</td>-->
+<!--<td>c</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>...</td>-->
+<!--<td>3</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-8'">-->
+<!--<angular-presentation-bit [param]="8">-->
+<!--<h2>This is one byte!</h2>-->
+<!--<h2>Numbers 0-255</h2>-->
+
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-16'">-->
+<!--<angular-presentation-bit [param]="16">-->
+<!--<h2>Numbers 0-65535</h2>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+<!--<slides-slide *slidesIf="'bit-24'">-->
+<!--<angular-presentation-bit [param]="24">-->
+<!--<h2>Numbers 0-16777215</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>-->
+<!--110100100000000000000110-->
+<!--</td>-->
+<!--<td>13762566</td>-->
+<!--</tr>-->
+<!--</table>-->
+
+<!--<h2>Hex color</h2>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>-->
+<!--110100100000000000000110-->
+<!--</td>-->
+<!--<td style="background: #d20006;color: white;">#d20006</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bit-32'">-->
+<!--<angular-presentation-bit [param]="32">-->
+<!--<h2>Numbers 0-4294967295</h2>-->
+<!--</angular-presentation-bit>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'message'">-->
+<!--<h2>Let's reverse-engineer this message:</h2>-->
+<!--<slides-message param="basic"></slides-message>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'bytes'">-->
+<!--<h2>Let's break it up into bytes</h2>-->
+<!--<slides-message param="bytes"></slides-message>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'can-they-be-numbers'" vc>-->
+<!--<h1>Can this be <br> <b>numbers</b>?</h1>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'bin-dec1'">-->
+<!--<slides-bindec param="uint8"></slides-bindec>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'negative-numbers'">-->
+<!--<h1>What about negative <b>numbers</b>?</h1>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'int8'">-->
+<!--<slides-bindec param="int8"></slides-bindec>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'mess-num'">-->
+<!--<h1>Let's see our message expressed as <b>numbers</b></h1>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'message-uint8'">-->
+<!--<slides-message param="uint8"></slides-message>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'can-they-be-letters'">-->
+<!--<h1>Can they be <b>letters</b>?</h1>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'binary-memory'" bg vc json>-->
+<!--<h1>Let's look at memory management in JS</h1>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'binary-memory-1'">-->
+<!--<h2>Let's see how memory works in typed arrays</h2>-->
+
+<!--<angular-presentation-memory></angular-presentation-memory>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'binary-memory-2'">-->
+<!--<angular-presentation-memory [param]="1" code="Boolean b = new boolean[](5);"></angular-presentation-memory>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'binary-memory-3'">-->
+<!--<angular-presentation-memory [param]="2" code="Boolean b = new boolean[](5);\nb[3]"></angular-presentation-memory>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'binary-memory-4'">-->
+<!--<angular-presentation-memory [param]="3" code="Number b = new Uint8[](5);"></angular-presentation-memory>-->
+<!--</slides-slide>-->
+
+
+<!--<slides-slide *slidesIf="'binary-memory-5'">-->
+<!--<angular-presentation-memory [param]="4" code="Number b = new Uint8[](5);b[3]"></angular-presentation-memory>-->
+<!--</slides-slide>-->
+
+<!--<slides-slide *slidesIf="'binary-memory-6'">-->
+<!--<angular-presentation-memory [param]="5"-->
+<!--code="a = [true, false, true, false, true]"></angular-presentation-memory>-->
+<!--</slides-slide>-->
+
+
+<!--<li>Size</li>-->
+<!--<li>Speed</li>-->
+<!--<li>Who's using</li>-->
+<!--<li>Debugging</li>-->
+<!--<li>Tools</li>-->
+<!--<li>Schema</li>-->
+
+<!--<slides-slide *slidesIf="'bunch'">-->
+<!--// Let's reinvent gif with JSON:-->
+
+<!--`, `-->
+
+<!--`,-->
+<!--`JSON.stringify(gif)`,-->
+<!--`JSON.stringify(gif).length`,-->
+
+<!--`"010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001"-->
+
+
+<!--`,-->
+
+<!--`explain('gif')`,-->
+
+
+<!--`// How to read binary data?`,-->
+<!--</slides-slide>-->
+
