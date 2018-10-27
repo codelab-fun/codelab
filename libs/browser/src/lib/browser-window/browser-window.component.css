@@ -8,6 +8,7 @@
   margin-top: 0;
   width: 100%;
   background-color: #fff;
+  height: 100%;
 }
 
 ::ng-deep iframe {
@@ -32,6 +33,7 @@
 
 .browser-frame {
   position: relative;
+  height: 100%;
 }
 
 .browser-frame .url {

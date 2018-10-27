@@ -23,7 +23,6 @@
     display: none;
   }
 
-
   .presentation.overview {
     width: auto !important;
     height: auto !important;
@@ -39,7 +38,6 @@
   * {
     box-sizing: border-box;
   }
-
 
   [no-padding] .slide {
     padding: 0;
@@ -61,46 +59,45 @@
 
 }
 
-:host .theme-basic {
+:host ::ng-deep .theme-basic {
   font-family: Roboto, sans-serif;
 
-  ::ng-deep {
-    h1, h2, h3, h4, h5, h6, li {
-      margin: 0;
-      padding: 0;
-      font-weight: 300;
-    }
+  h1, h2, h3, h4, h5, h6, li {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+  }
 
-    b {
-      color: #c04e22;
-      font-weight: 300;
-      background-color: #ffe;
-    }
+  b {
+    color: #c04e22;
+    font-weight: 300;
+    background-color: #ffe;
+  }
 
-    h2, li {
-      font-size: 3vw;
-      margin-bottom: 1vw;
-    }
+  h2, li {
+    font-size: 3vw;
+    margin-bottom: 1vw;
+  }
 
-    h1 {
-      margin-bottom: 20px;
-    }
+  h1 {
+    margin-bottom: 20px;
+  }
 
-    .info, .exercise {
-      font-size: 2vw;
-    }
+  .info, .exercise {
+    font-size: 2vw;
+  }
 
-    .header {
-      font-size: 7vw;
-    }
+  .header {
+    font-size: 7vw;
+  }
 
-    .description {
-      font-size: 3vw;
-    }
+  .description {
+    font-size: 3vw;
+  }
 
-    .instructions {
-      font-size: 2vw;
-    }
+  .instructions {
+    font-size: 2vw;
+
   }
 }
 
