@@ -50,6 +50,11 @@ const routes = [
     loadChildren: './modules/home/home.module#HomeModule',
     name: 'Home',
     description: 'Home',
+  }, {
+    path: 'test',
+    loadChildren: './modules/test/test.module#TestModule',
+    name: 'Home',
+    description: 'Home',
   },
 ];
 
