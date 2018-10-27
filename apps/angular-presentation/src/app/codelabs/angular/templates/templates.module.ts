@@ -6,7 +6,7 @@ import { TemplatesComponent } from './templates.component';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
-import { FeedbackModule } from '../../../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { RunnersModule } from '../../../exercise/runners/runners.module';
 
 const routes = RouterModule.forChild(

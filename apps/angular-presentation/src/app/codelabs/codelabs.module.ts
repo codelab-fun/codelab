@@ -12,7 +12,7 @@ import { PresentationModule } from '../../../../../libs/presentation/src/lib/pre
 
 import { environment } from '../../environments/environment';
 import { NxModule } from '@nrwl/nx';
-import { FeedbackModule } from '../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../libs/feedback/src/lib/feedback.module';
 
 export let routes = [
   // {

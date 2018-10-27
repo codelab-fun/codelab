@@ -4,7 +4,7 @@ import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/sli
 
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
-import { FeedbackModule } from '../../../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { StructuralDirectivesComponent } from './structural-directives.component';
 import { RunnersModule } from '../../../exercise/runners/runners.module';

@@ -19,7 +19,7 @@ import { SizePickerModule } from './size-picker/size-picker.module';
 import { TooltipsModule } from '@angular-presentation/tooltips';
 import { RunnersModule } from '../../../../../angular-presentation/src/app/exercise/runners/runners.module';
 import { PresentationModule } from '@angular-presentation/presentation';
-import { FeedbackModule } from '../../../../../angular-presentation/src/app/feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { ExerciseModule } from '../../../../../angular-presentation/src/app/exercise/exercise.module';
 
 const routes = RouterModule.forChild(

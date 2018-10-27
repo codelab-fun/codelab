@@ -9,7 +9,7 @@ import { PresentationModule } from '../../../../../../../libs/presentation/src/l
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { FeedbackModule } from '../../../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { RatingSummaryComponent } from './rating-summary.component';
 
 

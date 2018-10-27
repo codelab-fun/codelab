@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { DependencyInjectionComponent } from './dependency-injection.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { FeedbackModule } from '../../../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { ExerciseModule } from '../../../exercise/exercise.module';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';

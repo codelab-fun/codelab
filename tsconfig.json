@@ -54,6 +54,9 @@
       ],
       "vm": [
         "node_modules/vm-shim"
+      ],
+      "@angular-presentation/feedback": [
+        "libs/feedback/src/index.ts"
       ]
     },
     "typeRoots": [

@@ -1,5 +1,5 @@
 import { RouterModule } from '@angular/router';
-import { FeedbackModule } from '../../../feedback/feedback.module';
+import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

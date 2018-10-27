@@ -4,14 +4,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgModule } from '@angular/core';
 import { FeedbackPageComponent } from './feedback-page.component';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
 import { FormsModule } from '@angular/forms';
-import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+import { BrowserWindowModule } from '../../../../../../libs/browser/src/lib/browser.module';
+import { PresentationModule } from '../../../../../../libs/presentation/src/lib/presentation.module';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../../angular-presentation/src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { GithubService } from '../../../github.service';
+import { GithubService } from '../../../../../angular-presentation/src/app/github.service';
 
 
 const routes = RouterModule.forChild(

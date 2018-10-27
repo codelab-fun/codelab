@@ -46,6 +46,9 @@
     },
     "angular-slides-to-pdf": {
       "tags": []
+    },
+    "feedback": {
+      "tags": []
     }
   }
 }

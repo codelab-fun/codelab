@@ -20,7 +20,14 @@ const routes = [
     loadChildren: './modules/cellular-automation/cellular-automation.module#CellularAutomationModule',
     name: 'Image inclusion',
     description: 'Image inclusion',
-  }, {
+  },
+  {
+    path: 'feedback-page',
+    loadChildren: './modules/feedback-page/feedback-page.module#FeedbackPageModule',
+    name: 'Image inclusion',
+    description: 'Image inclusion',
+  },
+  {
     path: 'ii',
     loadChildren: './modules/ii/ii.module#IiModule',
     name: 'Image inclusion',
