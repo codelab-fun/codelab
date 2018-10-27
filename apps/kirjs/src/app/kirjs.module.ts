@@ -16,6 +16,11 @@ const routes = [
     prod: true
   },
   {
+    path: 'cellular-automation',
+    loadChildren: './modules/cellular-automation/cellular-automation.module#CellularAutomationModule',
+    name: 'Image inclusion',
+    description: 'Image inclusion',
+  }, {
     path: 'ii',
     loadChildren: './modules/ii/ii.module#IiModule',
     name: 'Image inclusion',
@@ -26,7 +31,8 @@ const routes = [
     loadChildren: './modules/svg/svg.module#SvgModule',
     name: 'Svg + Angular',
     description: 'SVG ',
-  },  {
+  },
+  {
     path: 'ast',
     loadChildren: './modules/ast/ast.module#AstModule',
     name: 'Ast + Angular',
