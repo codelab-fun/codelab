@@ -12,10 +12,10 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MonacoConfigService } from '../services/monaco-config.service';
+import * as theme from './themes/devtools.json';
 
 declare const monaco: any;
 declare const require: any;
-
 
 @Component({
   selector: 'slides-simple-editor',
@@ -101,6 +101,10 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
     this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);
+    this.monacoConfigService.monaco.editor.defineTheme('OneDark', theme);
+    debugger;
+    this.monacoConfigService.monaco.editor.setTheme('OneDark');
+
     this.editor = this.monacoConfigService.monaco.editor.create(editor,
       {
         model: this.model,

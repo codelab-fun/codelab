@@ -5,6 +5,8 @@ import { SlidesRoutes } from '@angular-presentation/presentation/src/lib/slide-r
 import { PresentationModule } from '@angular-presentation/presentation';
 import { ExerciseModule } from '../../../../../angular-presentation/src/app/exercise/exercise.module';
 import { BrowserWindowModule } from '@angular-presentation/browser';
+import { SimpleEditorModule } from '../../../../../angular-presentation/src/app/exercise/simple-editor/simple-editor.module';
+import { FormsModule } from '@angular/forms';
 
 
 const routes = RouterModule.forChild(
@@ -12,12 +14,17 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, PresentationModule, ExerciseModule, BrowserWindowModule],
+  imports: [
+    routes,
+    PresentationModule,
+    FormsModule,
+    ExerciseModule,
+    BrowserWindowModule,
+    SimpleEditorModule,
+  ],
   declarations: [ReactComponent],
   exports: [ReactComponent],
-  providers: [
-
-  ]
+  providers: []
 })
 export class ReactModule {
 

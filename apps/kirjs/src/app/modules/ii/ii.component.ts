@@ -111,7 +111,7 @@ export class IiComponent implements OnInit {
   }
 
   makeDraggable(item, savedItem) {
-    interact(item)
+    (interact as any)(item)
       .draggable({
         onmove: (event) => {
           const target = event.target,

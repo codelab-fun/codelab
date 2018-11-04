@@ -5,12 +5,9 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide *slidesIf="'react-description'; milestone: 'React'">
+  <slides-slide *slidesIf="'react-description'; milestone: 'React'" no-padding>
     <h1 i18n="@@introduction">Introduction</h1>
-    <div class="centered-vertically">
-      <h2>This is React3.js!!</h2>
-      <slides-playground [config]="code.basic"></slides-playground>
-    </div>
+    <slides-simple-editor [fontSize]="30" [(ngModel)]="code.hook1" language="javascript" [lineNumbers]="false"></slides-simple-editor>
   </slides-slide>
 
 </slides-presentation>
