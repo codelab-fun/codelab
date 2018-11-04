@@ -82,10 +82,12 @@ export const builder = {
     return `[${components.map(c => c.name).join(',')}]`;
   },
 
-  ngModule(declarations: Array<SimpleImport> = [{
-    name: 'AppComponent',
-    path: './app.component'
-  }], bootstrapComponent?: Array<SimpleImport>) {
+  ngModule(declarations: Array<SimpleImport> = [
+    {
+      name: 'AppComponent',
+      path: './app.component'
+    }
+  ], bootstrapComponent?: Array<SimpleImport>) {
     bootstrapComponent = bootstrapComponent || declarations;
 
     return `import {BrowserModule} from \'@angular/platform-browser\';
@@ -300,7 +302,7 @@ export function reactExercise(code: string) {
   return {
     runner: 'React',
     files: [
-      exercise('main.ts', code)
+      {...exercise('main.ts', code), type: 'jsx'}
     ]
   };
 }

@@ -17,6 +17,7 @@ import { ScriptLoaderService } from '../services/script-loader.service';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import babel_traverse from 'babel-traverse';
+import { runReact } from './react/react-runner';
 
 declare const require;
 
@@ -299,8 +300,8 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
   html = `<my-app id="app"></my-app>`;
   @ViewChild('runner') runnerElement: ElementRef;
   @ViewChild('runnerConsole') runnerConsoleElement: ElementRef;
-  private handleMessageBound: any;
   public System: any;
+  private handleMessageBound: any;
 
   constructor(public loopProtectionService: LoopProtectionService,
               public scriptLoaderService: ScriptLoaderService) {
@@ -412,13 +413,7 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
     } else if (runner === 'React') {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': this.url
-      }, this).then((sandbox: Sandbox) => {
-        sandbox.runCss(require('./inner.css'));
-        sandbox.setHtml('<div id="app"></div>');
-        sandbox.runSingleFile(this.scriptLoaderService.getScript('react'));
-        sandbox.runSingleFile(this.scriptLoaderService.getScript('react-dom'));
-        sandbox.runSingleFile(files[0].code);
-      });
+      }, this).then((sandbox) => runReact(sandbox, files, this));
     } else if (runner === 'html') {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': this.url

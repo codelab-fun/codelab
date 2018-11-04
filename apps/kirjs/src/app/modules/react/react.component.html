@@ -1,0 +1,16 @@
+<slides-presentation
+  slides-slides-routing
+  slides-tracking>
+
+  <slides-progress-bar></slides-progress-bar>
+  <slides-arrows></slides-arrows>
+
+  <slides-slide *slidesIf="'react-description'; milestone: 'React'">
+    <h1 i18n="@@introduction">Introduction</h1>
+    <div class="centered-vertically">
+      <h2>This is React3.js!!</h2>
+      <slides-playground [config]="code.basic"></slides-playground>
+    </div>
+  </slides-slide>
+
+</slides-presentation>

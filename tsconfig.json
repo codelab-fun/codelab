@@ -25,6 +25,9 @@
       "process": [
         "../../apps/angular-presentation/src/dummy.ts"
       ],
+      "convert-source-map": [
+        "../../apps/angular-presentation/src/dummy.ts"
+      ],
       "@angular-presentation/*": [
         "libs/*"
       ],

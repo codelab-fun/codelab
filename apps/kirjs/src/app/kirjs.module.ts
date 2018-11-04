@@ -24,14 +24,25 @@ const routes = [
   {
     path: 'feedback-page',
     loadChildren: './modules/feedback-page/feedback-page.module#FeedbackPageModule',
-    name: 'Image inclusion',
-    description: 'Image inclusion',
+    name: 'Feedback page',
+    description: 'Feedback page',
   },
   {
     path: 'ii',
     loadChildren: './modules/ii/ii.module#IiModule',
     name: 'Image inclusion',
     description: 'Image inclusion',
+  }, {
+    path: 'music',
+    loadChildren: './modules/music/music.module#MusicModule',
+    name: 'Music',
+    description: 'Musicja',
+  },
+  {
+    path: 'react',
+    loadChildren: './modules/react/react.module#ReactModule',
+    name: 'React',
+    description: 'React',
   },
   {
     path: 'svg',
@@ -50,7 +61,8 @@ const routes = [
     loadChildren: './modules/home/home.module#HomeModule',
     name: 'Home',
     description: 'Home',
-  }, {
+  },
+  {
     path: 'test',
     loadChildren: './modules/test/test.module#TestModule',
     name: 'Home',
@@ -70,7 +82,11 @@ const routes = [
       provide: APP_INITIALIZER,
       useValue: monacoReady,
       multi: true
-    }
+    },
+    {
+      provide: 'ROUTES',
+      useValue: []
+    },
   ],
   bootstrap: [AppComponent]
 })

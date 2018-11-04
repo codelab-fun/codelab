@@ -121,13 +121,7 @@ export let routes = [
     description: 'Learn how pipes transform input values to output values for display in a view',
     page: 'vue'
   },
-  {
-    path: 'react-intro',
-    loadChildren: './react/intro/intro.module#ReactModule',
-    name: 'react',
-    description: 'Learn some React. It\'s easier than Angular',
-    page: 'react'
-  },
+
 
   {
     path: '',
