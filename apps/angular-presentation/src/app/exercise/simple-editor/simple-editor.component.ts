@@ -102,11 +102,12 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
     const editor = this.editorEl.nativeElement;
     this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);
     this.monacoConfigService.monaco.editor.defineTheme('OneDark', theme);
-    debugger;
+
     this.monacoConfigService.monaco.editor.setTheme('OneDark');
 
     this.editor = this.monacoConfigService.monaco.editor.create(editor,
       {
+        wrappingColumn: 10,
         model: this.model,
         scrollBeyondLastLine: false,
         tabCompletion: true,

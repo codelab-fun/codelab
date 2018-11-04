@@ -59,6 +59,11 @@
 
 }
 
+:host ::ng-deep .theme-basic .monaco-menu li {
+  margin-bottom: auto;
+  font-size: 12px;
+}
+
 :host ::ng-deep .theme-basic {
   font-family: Roboto, sans-serif;
 

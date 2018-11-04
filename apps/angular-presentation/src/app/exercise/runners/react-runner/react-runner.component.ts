@@ -1,47 +1,49 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { ExerciseComponent } from '../../exercise/exercise.component';
-import { FileConfig } from '../../interfaces/file-config';
+import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 import { createSystemJsSandbox } from '../utils/sandbox';
-import { runTypeScriptFiles } from '../utils/typescript-runner';
+import { ScriptLoaderService } from '../../services/script-loader.service';
+import { transform } from '@babel/standalone';
+
 declare const require;
 
 
 @Component({
-  selector: 'slides-angular-preview-runner',
+  selector: 'slides-react-preview-runner',
   templateUrl: './react-runner.component.html',
   styleUrls: ['./react-runner.component.css']
 })
-export class ReactRunnerComponent implements AfterViewInit {
+export class ReactRunnerComponent implements OnChanges {
   @ViewChild('runner') runnerElement: ElementRef;
+  @Input() code = '';
   @Input() url = '/assets/runner/';
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
+
+  constructor(public scriptLoaderService: ScriptLoaderService) {
+  }
 
   fullUrl() {
     return (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
   }
 
-  run(files: Array<FileConfig>) {
+  run() {
     createSystemJsSandbox(this.runnerElement.nativeElement, {
-      id: 'testing', 'url': this.url
-    }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
-      // TODO: addCss(require('./inner.css'));
-      const indexHtml = files.find(file => file.path === 'index.html') || {code: '<my-app></my-app>'};
-      setHtml(indexHtml.code);
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/core-js/client/shim.min.js'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/zone.js/dist/zone.js'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/js/system-config'));
-      loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../../assets/runner/ng2/ng-bundle'));
-      addCss(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'));
-      addDep('reflect-metadata', Reflect);
-      const bootstrapFiles = files.filter(file => !file.test);
-
-      this.trackIframeUrl(iframe);
-
-      runTypeScriptFiles(bootstrapFiles, {addCss, setHtml, evalJs, addDep, iframe});
+      id: 'testing', 'url': 'about:blank'
+    }).then((sandbox) => {
+      this.runReact(sandbox, this.code);
     });
   }
 
+  ngOnChanges() {
+    this.run();
+  }
+
+  runReact(sandbox, code) {
+    sandbox.addCss(require('../inner.css'));
+    sandbox.setHtml('<div id="app"></div>');
+    sandbox.evalJs(this.scriptLoaderService.getScript('react'));
+    sandbox.evalJs(this.scriptLoaderService.getScript('react-dom'));
+    sandbox.evalJs(transform(code, {presets: ['react']}).code);
+  }
 
   trackIframeUrl(iframe) {
     const interval = window.setInterval(() => {
@@ -56,10 +58,4 @@ export class ReactRunnerComponent implements AfterViewInit {
     }, 200);
   }
 
-  constructor(public parent: ExerciseComponent) {
-  }
-
-  ngAfterViewInit(): void {
-    this.parent.files$.subscribe(files => this.run(files));
-  }
 }

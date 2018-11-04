@@ -17,7 +17,6 @@ import { ScriptLoaderService } from '../services/script-loader.service';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import babel_traverse from 'babel-traverse';
-import { runReact } from './react/react-runner';
 
 declare const require;
 
@@ -410,10 +409,6 @@ export class RunnerComponent implements AfterViewInit, OnChanges, OnDestroy {
         sandbox.runSingleFile(this.scriptLoaderService.getScript('vue'));
         sandbox.runSingleFile(files[0].code);
       });
-    } else if (runner === 'React') {
-      injectIframe(this.runnerElement.nativeElement, {
-        id: 'preview', 'url': this.url
-      }, this).then((sandbox) => runReact(sandbox, files, this));
     } else if (runner === 'html') {
       injectIframe(this.runnerElement.nativeElement, {
         id: 'preview', 'url': this.url

@@ -7,7 +7,11 @@
 
   <slides-slide *slidesIf="'react-description'; milestone: 'React'" no-padding>
     <h1 i18n="@@introduction">Introduction</h1>
-    <slides-simple-editor [fontSize]="30" [(ngModel)]="code.hook1" language="javascript" [lineNumbers]="false"></slides-simple-editor>
+    <div fxLayout style="height: 100%">
+      <slides-simple-editor style="width: 50%;" [fontSize]="30" [(ngModel)]="code.hook1" language="javascript"
+                            [lineNumbers]="false"></slides-simple-editor>
+      <slides-react-preview-runner style="width: 50%;" [code]="code.hook1"></slides-react-preview-runner>
+    </div>
   </slides-slide>
 
 </slides-presentation>
