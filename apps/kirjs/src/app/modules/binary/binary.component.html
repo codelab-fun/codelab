@@ -23,7 +23,7 @@
 
   <slides-slide *slidesIf="'font-size'">
     <h2>
-      If you can't read the text below, move closer or go to <b style = "font-size: 10vw">kirjs.com/binary/0</b>
+      If you can't read the text below, move closer or go to <b style="font-size: 10vw">kirjs.com/binary/0</b>
     </h2>
     <div style="font-size: 3vw;word-break: break-all">
       {{binaryLittleGif.substr(0, 200)}}
@@ -35,7 +35,12 @@
   </slides-slide>
 
   <slides-slide *slidesIf="'binary-file-upload'">
-    <slides-simple-editor [fontSize]="30" [(ngModel)]="code.fileHandler" language="javascript"></slides-simple-editor>
+    <slides-simple-editor
+      [lineNumbers]="false"
+      [fontSize]="40"
+      [(ngModel)]="code.fileHandler"
+      [slidesSimpleHighlightMatch]="code.fileHandlerHighlight"
+      language="javascript"></slides-simple-editor>
   </slides-slide>
 
   <slides-slide *slidesIf="'binary-file-value-2'" vertical-split>
@@ -54,8 +59,9 @@
     <binary-gif [binary]="binaryLittleGif"></binary-gif>
   </slides-slide>
 
-  <slides-slide *slidesIf="'binary-file-upload'">
-    <slides-simple-editor [fontSize]="30" [(ngModel)]="code.fileHandlerBinary" language="javascript"></slides-simple-editor>
+  <slides-slide *slidesIf="'binary-file-upload-buffer'">
+    <slides-simple-editor [fontSize]="40" [(ngModel)]="code.fileHandlerBinary"
+                          language="javascript"></slides-simple-editor>
   </slides-slide>
 
 

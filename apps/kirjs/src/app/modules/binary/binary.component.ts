@@ -22,16 +22,19 @@ export class BinaryComponent {
 
   code = {
     inputFile: '<input id = "" type="file">',
-    fileHandler: `document.getElementById('file').addEventListener('change', (e)=>{
-      const reader = new FileReader();
+    fileHandlerHighlight: {match: /read/, className: 'highlighted-code'},
+    fileHandler: `
+const input = document.getElementById('file');
+input.addEventListener('change', (e) => {
+  const reader = new FileReader();
 
-      reader.onloadend = (e) => {
-        file = e.target.result;
-        console.log(file);
-      };
+  reader.onloadend = (e) => {
+    console.log(e.target.result);
+  };
 
-      reader.readAsString(e.target.files[0]);
-    }`,
+  reader.readAsString(input.files[0]);
+});
+`,
     fileHandlerBinary: `document.getElementById('file').addEventListener('change', (e)=>{
       const reader = new FileReader();
 
