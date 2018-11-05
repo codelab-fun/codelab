@@ -1,6 +1,5 @@
-import { Component, OnInit, Optional } from '@angular/core';
-import { PresentationComponent, SlideControls } from '../presentation/presentation.component';
-import { PresentationComponentV2 } from '../v2/pres/presentation-componentv2.component';
+import { Component, OnInit } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 
 @Component({
@@ -9,13 +8,11 @@ import { PresentationComponentV2 } from '../v2/pres/presentation-componentv2.com
   styleUrls: ['./arrows.component.css']
 })
 export class ArrowsComponent implements OnInit {
-  private presentation: SlideControls;
+
 
   constructor(
-    @Optional() presentation: PresentationComponent,
-    @Optional() presentationv2: PresentationComponentV2,
+    private presentation: PresentationComponent
   ) {
-    this.presentation = presentation || presentationv2;
   }
 
   goToPreviousSlide() {

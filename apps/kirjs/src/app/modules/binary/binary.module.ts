@@ -28,8 +28,8 @@ import { MemoryComponent } from './memory/memory.component';
 
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-demo.component';
-import { AngularPresentationV2Module } from '../../../../../../libs/presentation/src/lib/v2/angular-presentation-v2.module';
 import { HexdecComponent } from './hexdec/hexdec.component';
+import { SlidesModule } from '@angular-presentation/slides';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(BinaryComponent)
@@ -50,7 +50,7 @@ const routes = RouterModule.forChild(
     ExerciseModule,
     NewProgressBarModule,
     MatSelectModule,
-    AngularPresentationV2Module,
+    SlidesModule,
     FeedbackModule
   ],
   declarations: [

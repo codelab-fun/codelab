@@ -1,21 +1,20 @@
 import { Directive, HostListener, Optional } from '@angular/core';
-import { PresentationComponent, SlideControls } from '../presentation/presentation.component';
-
+import { SlidesDeckComponent } from '@angular-presentation/slides/src/lib/deck/deck.component';
 
 @Directive({
-  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[slides-shortcuts]'
+  selector: '[slidesShortcuts]'
 })
 export class ShortcutsDirective {
-  constructor(private presentation: PresentationComponent) {
-
+  constructor(
+    @Optional() private deck: SlidesDeckComponent,
+  ) {
   }
 
   @HostListener('window:keydown.ArrowRight', ['$event.target'])
   @HostListener('window:keydown.PageDown', ['$event.target'])
   next(target) {
     if (target === document.body) {
-      this.presentation.nextSlide();
+      this.deck.nextSlide();
     }
   }
 
@@ -23,7 +22,7 @@ export class ShortcutsDirective {
   @HostListener('window:keydown.PageUp', ['$event.target'])
   previous(target) {
     if (target === document.body) {
-      this.presentation.previousSlide();
+      this.deck.previousSlide();
     }
   }
 

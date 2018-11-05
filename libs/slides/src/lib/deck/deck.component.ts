@@ -1,22 +1,18 @@
 import { Component, ContentChildren, Input, QueryList, TemplateRef } from '@angular/core';
-import { SlideControls } from '../../presentation/presentation.component';
+import { SlideControls } from '../../../../presentation/src/lib/presentation/presentation.component';
 
 @Component({
-  selector: 'angular-presentation-pres',
-  templateUrl: './presentation-componentv2.component.html',
+  selector: 'slides-deck',
+  templateUrl: './deck.component.html',
   styleUrls: [
-    './presentation-componentv2.component.scss'
+    './deck.component.scss'
   ]
 })
-export class PresentationComponentV2 implements SlideControls {
+export class SlidesDeckComponent implements SlideControls {
   slides: any[] = [];
   @Input() theme = 'basic';
   @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
   activeSlideIndex = 0;
-
-  constructor() {
-
-  }
 
   addSlide(slide) {
     this.slides.push(slide)
