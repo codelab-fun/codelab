@@ -9,6 +9,7 @@ import { SimpleEditorModule } from '../../../../../angular-presentation/src/app/
 import { FormsModule } from '@angular/forms';
 import { RunnersModule } from '../../../../../angular-presentation/src/app/exercise/runners/runners.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SlidesModule } from '@angular-presentation/slides';
 
 
 const routes = RouterModule.forChild(
@@ -19,6 +20,7 @@ const routes = RouterModule.forChild(
   imports: [
     routes,
     PresentationModule,
+    SlidesModule,
     FormsModule,
     ExerciseModule,
     BrowserWindowModule,
