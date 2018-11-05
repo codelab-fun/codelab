@@ -142,8 +142,6 @@
 
   <div *slide id="svg-component1" no-padding>
     <h1>SVG attributes binding</h1>
-
-    <slides-simple-editor [(ngModel)]="code.component1"></slides-simple-editor>
     <slides-exercise [files]="code.component1">
       <div class="description"></div>
       <slides-new-editors [fontSize]="fontSize" class="editor">
@@ -165,7 +163,7 @@
       <div class="description"></div>
       <slides-new-editors [fontSize]="fontSize" class="editor">
       </slides-new-editors>
-      <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
+      <slides-angular-preview-runner [url]="'about:blank'" class="description"></slides-angular-preview-runner>
     </slides-exercise>
   </div>
 

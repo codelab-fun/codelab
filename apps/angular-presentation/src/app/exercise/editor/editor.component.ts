@@ -14,10 +14,9 @@ import {
 } from '@angular/core';
 
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Subject ,  BehaviorSubject ,  Subscription } from 'rxjs';
+import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { PresentationComponent } from '../../../../../../libs/presentation/src/lib/presentation/presentation.component';
 import { assert } from '../services/utils';
 import { debounceTime, publish, switchMap } from 'rxjs/operators';
 
@@ -53,7 +52,7 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   private actialFontSize = 12;
   private editSub: Subject<String> = new Subject<String>();
 
-  constructor(public monacoConfigService: MonacoConfigService, public presentation: PresentationComponent) {
+  constructor(public monacoConfigService: MonacoConfigService) {
     this.editSubscription = this.editSub.pipe(publish(A => this.autorun.pipe(switchMap(a => a ? A.pipe(debounceTime(1500)) : A))))
       .subscribe(this.onCodeChange);
   }
