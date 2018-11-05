@@ -1,10 +1,10 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Directive, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { PresentationComponent } from '../presentation/presentation.component';
+import { SlidesDeckComponent } from '@angular-presentation/slides/src/lib/deck/deck.component';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[slides-slides-routing]'
+  selector: '[slidesRouting]'
 })
 export class SlidesRoutingDirective implements OnInit {
   activeSlideId: string;
@@ -13,7 +13,7 @@ export class SlidesRoutingDirective implements OnInit {
 
   constructor(private router: Router,
               private route:
-                ActivatedRoute, private presentation: PresentationComponent) {
+                ActivatedRoute, private deck: SlidesDeckComponent) {
 
   }
 
@@ -25,7 +25,7 @@ export class SlidesRoutingDirective implements OnInit {
     if (this.activeSlideId === value.index.toString() || value.id === this.activeSlideId) {
       // Maybe update route here
       this.slideChange(value.index);
-      this.presentation.activeSlideIndex = value.index;
+      this.deck.activeSlideIndex = value.index;
     }
   }
 

@@ -1,43 +1,30 @@
-<slides-presentation
-  slides-slides-routing
-  slides-mode-routing
-  slides-tracking>
+<slides-deck slides-tracking slidesRouting slidesShortcuts>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
+  <!--<slides-new-progress-bar title="Angular ❤️ SVG" [fontSize]="fontSize"-->
+  <!--(fontSizeChange)="fontSize =fontSize+ $event"></slides-new-progress-bar>-->
 
-  <slides-new-progress-bar title="Angular ❤️ SVG" [fontSize]="fontSize"
-                           (fontSizeChange)="fontSize =fontSize+ $event"></slides-new-progress-bar>
-  <slides-arrows></slides-arrows>
-
-  <ng-template #id slide>
-    <div class="bg intro">
-      <h2>Angular ❤️ SVG
-        <br>
-        @kirjs</h2>
-    </div>
-  </ng-template>
 
   <!--  INTRO -->
-  <slides-slide no-padding *slidesIf="'intro'">
+  <div no-padding *slide id="intro">
     <div class="bg intro">
       <h2>Angular ❤️ SVG
         <br>
         @kirjs</h2>
     </div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide no-padding *slidesIf="'kirjs'">
+  <div no-padding *slide id="kirjs">
     <div class="bg kirjs">
-      <h2>
         <ul>
           <li>I read 📖📖📖</li>
           <li>@kirjs</li>
         </ul>
-      </h2>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'why-svg'">
+  <div *slide id="why-svg">
     <h1>What is SVG?</h1>
     <ul>
       <li>Scalable Vector Graphic Format</li>
@@ -47,114 +34,114 @@
       <li>Plays well with angular templates!</li>
 
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'angular-gif'">
+  <div *slide id="angular-gif">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.gifang></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'angular-intro'">
+  <div *slide id="angular-intro">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.angular></slides-svg-demo>
-  </slides-slide>
+  </div>
 
 
   <!--  INTRO -->
-  <slides-slide no-padding *slidesIf="'svg-in-60'">
+  <div no-padding *slide id="svg-in-60">
     <div class="bg svg-60">
       <h2>SVG in 5 minutes</h2>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-circle'">
+  <div *slide id="svg-circle">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.circle></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-ellipse'">
+  <div *slide id="svg-ellipse">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.ellipse></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-rect'">
+  <div *slide id="svg-rect">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.rect></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-line'">
+  <div *slide id="svg-line">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.line></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-text'">
+  <div *slide id="svg-text">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.text></slides-svg-demo>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'svg-linewrap'">
+  <div *slide id="svg-linewrap">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.linewrap></slides-svg-demo>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'svg-foreign-object'">
+  <div *slide id="svg-foreign-object">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.foreignObject></slides-svg-demo>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'svg-polygon'">
+  <div *slide id="svg-polygon">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.polygon></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-path'">
+  <div *slide id="svg-path">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.path></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-group'">
+  <div *slide id="svg-group">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.group></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'cool-stuff'">
+  <div *slide id="cool-stuff">
     <h2>Some cool stuff</h2>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-clip'">
+  <div *slide id="svg-clip">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.clip></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-path'">
+  <div *slide id="svg-path-2">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.path></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-clip2'">
+  <div *slide id="svg-clip2">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.clip2></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-textPath'">
+  <div *slide id="svg-textPath">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.textPath></slides-svg-demo>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'completed'">
+  <div *slide id="completed">
     <h2>Now you're an SVG expert! </h2>
     <h2>However SVG has a couple of edge cases</h2>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'completed2'" no-padding>
+  <div *slide id="completed2" no-padding>
     <div class="bg dog">
       <h2>Sign up for my 80 hour workshop "Wait, SVG, LOL, Really?"</h2></div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'examples'" no-padding>
+  <div *slide id="examples" no-padding>
     <div class="bg example">
       <h2>Let's check out some examples:</h2>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'angular'">
+  <div *slide id="angular">
     <slides-svg-demo [fontSize]="fontSize" [code]=code.angular></slides-svg-demo>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'examples-hc'">
+  <div *slide id="examples-hc">
     <h2><a href="https://www.highcharts.com/demo">Highcharts</a></h2>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'svg-component1'" no-padding>
+  <div *slide id="svg-component1" no-padding>
     <h1>SVG attributes binding</h1>
     <slides-exercise [files]="code.component1">
       <div class="description"></div>
@@ -162,16 +149,16 @@
       </slides-new-editors>
       <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
     </slides-exercise>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'attr-vs-prop'">
+  <div *slide id="attr-vs-prop-2">
     <h1>LOL, but why?</h1>
     <div style="height: 100%;">
       <slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.attrVsProp"></slides-simple-editor>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'svg-chart'" no-padding>
+  <div *slide id="svg-chart" no-padding>
     <h1>Let's create a simple barchart</h1>
     <slides-exercise [files]="code.chart">
       <div class="description"></div>
@@ -179,10 +166,10 @@
       </slides-new-editors>
       <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
     </slides-exercise>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'svg-chart2'" no-padding>
+  <div *slide id="svg-chart2" no-padding>
     <h1>Custom SVG Elements</h1>
 
     <slides-exercise [files]="code.chart2">
@@ -191,9 +178,9 @@
       </slides-new-editors>
       <slides-angular-preview-runner class="description"></slides-angular-preview-runner>
     </slides-exercise>
-  </slides-slide>
+  </div>
 
-  <!--<slides-slide *slidesIf="'svg-chart3'" no-padding>-->
+  <!--<div *slide id="svg-chart3" no-padding>-->
   <!--<h1>Foreign object</h1>-->
 
   <!--<slides-exercise [files]="code.chart3">-->
@@ -202,16 +189,16 @@
   <!--</slides-new-editors>-->
   <!--<slides-angular-preview-runner class="description"></slides-angular-preview-runner>-->
   <!--</slides-exercise>-->
-  <!--</slides-slide>-->
+  <!--</div>-->
 
-  <slides-slide *slidesIf="'attr-vs-prop'">
+  <div *slide id="attr-vs-prop-3">
     <h1>But why?</h1>
     <div style="height: 100%;">
       <slides-simple-editor fontSize="40" [lineNumbers]="false" [(ngModel)]="code.createElement"></slides-simple-editor>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'links'">
+  <div *slide id="links">
     <h2>Links</h2>
     <ul>
       <li><a href="https://www.youtube.com/watch?v=ADXX4fmWHbo">SVG Can do that? (eng)</a></li>
@@ -220,25 +207,25 @@
     </ul>
 
 
-  </slides-slide>
+  </div>
 
-  <!--<slides-slide *slidesIf="'draw'">-->
+  <!--<div *slide id="draw">-->
   <!--<slides-svg-together [fontSize]="fontSize"></slides-svg-together>-->
-  <!--</slides-slide>-->
+  <!--</div>-->
 
-  <!--<slides-slide *slidesIf="'svg-together-result'" no-padding="">-->
+  <!--<div *slide id="svg-together-result" no-padding="">-->
   <!--<slides-svg-together-result [fontSize]="fontSize"></slides-svg-together-result>-->
-  <!--</slides-slide>-->
+  <!--</div>-->
 
 
-  <slides-slide *slidesIf="'links'" no-padding>
+  <div *slide id="links-2" no-padding>
     <div class="bg the-end">
       <h2>@kirjs</h2>
     </div>
-  </slides-slide>
+  </div>
 
   <div class="timer" no-padding>
     <slides-timer></slides-timer>
   </div>
 
-</slides-presentation>
+</slides-deck>

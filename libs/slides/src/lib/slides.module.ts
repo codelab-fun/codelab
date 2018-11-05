@@ -5,6 +5,7 @@ import { SlidesDeckComponent } from '@angular-presentation/slides/src/lib/deck/d
 import { SlideDirective } from '@angular-presentation/slides/src/lib/slide/slide.directive';
 import { ShortcutsDirective } from '@angular-presentation/slides/src/lib/shortcuts/shortcuts.directive';
 import { SlidesArrowsComponent } from '@angular-presentation/slides/src/lib/arrows/slides-arrows.component';
+import { SlidesRoutingDirective } from '@angular-presentation/slides/src/lib/routing/slides-routing.directive';
 
 export const slidesRoutes: Route[] = [];
 
@@ -14,12 +15,14 @@ export const slidesRoutes: Route[] = [];
     SlideDirective,
     ShortcutsDirective,
     SlidesArrowsComponent,
+    SlidesRoutingDirective,
   ],
   exports: [
     SlidesDeckComponent,
     SlideDirective,
     ShortcutsDirective,
-    SlidesArrowsComponent
+    SlidesArrowsComponent,
+    SlidesRoutingDirective
   ],
   imports: [CommonModule, RouterModule]
 })

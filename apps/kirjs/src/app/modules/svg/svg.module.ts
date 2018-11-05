@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
+import { SlidesModule } from '@angular-presentation/slides';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)
@@ -39,7 +40,8 @@ const routes = RouterModule.forChild(
     FlexLayoutModule,
     MatButtonModule,
     NewProgressBarModule,
-    SharedPipeModule
+    SharedPipeModule,
+    SlidesModule,
   ],
   declarations: [
     SvgComponent,

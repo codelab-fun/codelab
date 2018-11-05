@@ -13,7 +13,7 @@ export class ShortcutsDirective {
   @HostListener('window:keydown.ArrowRight', ['$event.target'])
   @HostListener('window:keydown.PageDown', ['$event.target'])
   next(target) {
-    if (target === document.body) {
+    if (target === document.body && this.deck.canGoNext()) {
       this.deck.nextSlide();
     }
   }
@@ -21,7 +21,7 @@ export class ShortcutsDirective {
   @HostListener('window:keydown.ArrowLeft', ['$event.target'])
   @HostListener('window:keydown.PageUp', ['$event.target'])
   previous(target) {
-    if (target === document.body) {
+    if (target === document.body && this.deck.canGoPrevious()) {
       this.deck.previousSlide();
     }
   }
