@@ -60,6 +60,9 @@
       ],
       "@angular-presentation/feedback": [
         "libs/feedback/src/index.ts"
+      ],
+      "@angular-presentation/code-demos": [
+        "libs/code-demos/src/index.ts"
       ]
     },
     "typeRoots": [

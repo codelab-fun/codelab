@@ -17,10 +17,10 @@
 
   <div no-padding *slide id="kirjs">
     <div class="bg kirjs">
-        <ul>
-          <li>I read 📖📖📖</li>
-          <li>@kirjs</li>
-        </ul>
+      <ul>
+        <li>I read 📖📖📖</li>
+        <li>@kirjs</li>
+      </ul>
     </div>
   </div>
 
@@ -143,6 +143,8 @@
 
   <div *slide id="svg-component1" no-padding>
     <h1>SVG attributes binding</h1>
+
+    <slides-simple-editor [(ngModel)]="code.component1"></slides-simple-editor>
     <slides-exercise [files]="code.component1">
       <div class="description"></div>
       <slides-new-editors [fontSize]="fontSize" class="editor">

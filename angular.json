@@ -657,6 +657,41 @@
           }
         }
       }
+    },
+    "code-demos": {
+      "root": "libs/code-demos",
+      "sourceRoot": "libs/code-demos/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/code-demos/tsconfig.lib.json",
+            "project": "libs/code-demos/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/code-demos/tsconfig.lib.json",
+              "libs/code-demos/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/code-demos/jest.config.js",
+            "tsConfig": "libs/code-demos/tsconfig.spec.json",
+            "setupFile": "libs/code-demos/src/test-setup.ts"
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-presentation",

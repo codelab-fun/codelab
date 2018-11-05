@@ -17,25 +17,21 @@ export class SlidesRoutingDirective implements OnInit {
 
   }
 
-  @HostListener('onSlideAdded', ['$event']) slideAdded(value: { index: number, id?: string }) {
-    // Add url mapping
-    this.ids[value.index] = value.id;
+  getId(index: number) {
+    return (this.deck.slides && this.deck.slides[index] && this.deck.slides[index].id) ? this.deck.slides[index].id : index
+  }
 
-
-    if (this.activeSlideId === value.index.toString() || value.id === this.activeSlideId) {
-      // Maybe update route here
-      this.slideChange(value.index);
-      this.deck.activeSlideIndex = value.index;
-    }
+  navigate(url: string) {
+    this.router.navigate(['../' + url], {relativeTo: this.route, queryParamsHandling: 'merge'});
   }
 
   @HostListener('onSlideChange', ['$event']) slideChange(index) {
-    const url = this.ids[index] || index;
-    this.router.navigate(['../' + url], {relativeTo: this.route, queryParamsHandling: 'merge'});
+    this.navigate(this.getId(index));
   }
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.activeSlideId = id || '0';
+    const index = this.deck.slides.findIndex(s => s.id === id) || id;
+    this.deck.goToSlide(index);
   }
 }
