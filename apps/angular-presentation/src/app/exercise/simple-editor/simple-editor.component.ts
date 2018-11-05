@@ -113,10 +113,12 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
         tabCompletion: true,
         wordBasedSuggestions: true,
         lineNumbersMinChars: 3,
+        cursorBlinking: 'phase',
+        renderIndentGuides: false,
         lineNumbers: this.lineNumbers,
         automaticLayout: true,
         fontSize: this.fontSize,
-        folding: true,
+        // folding: true,
         minimap: {
           enabled: false
         }

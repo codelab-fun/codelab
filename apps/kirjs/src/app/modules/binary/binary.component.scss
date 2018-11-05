@@ -37,19 +37,19 @@ h1 {
     .slide [intro],
     [intro] .slide {
       background: url(pics/kirjs.gif);
-      background-size: 50vw !important;
+      background-size: 100vh !important;
       padding-left: 3vw;
       h2 {
         font-size: 3vw;
       }
       h1, h2, h3 {
         text-align: left;
-        margin-left: 50vw;
+        margin-left: 100vh;
         margin-bottom: 2vw;
       }
 
       h3 {
-        font-size: 5vw;
+        font-size: 3vw;
       }
     }
 
@@ -86,7 +86,7 @@ h1 {
 
     .slide [gif],
     [gif] .slide {
-      background: url(pics/p3.jpg);
+      background: url(pics/zoom.gif);
     }
 
     .slide [gif-bg],
