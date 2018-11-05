@@ -12,7 +12,8 @@
   text-align: left;
 }
 
-.arrow-left:hover, .arrow-right:hover {
+.arrow:hover,
+.arrow:focus {
   opacity: 0.5;
 }
 

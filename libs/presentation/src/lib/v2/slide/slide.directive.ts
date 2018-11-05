@@ -11,14 +11,12 @@ export class SlideDirective {
     private presentation: PresentationComponentV2,
     private template: TemplateRef<any>,
     private el: ElementRef) {
-
     const attr = (template as any)._def.element.template.nodes[0].element.attrs.find(([_, name]) => name === 'id');
     const id = attr && attr[2];
     presentation.addSlide({
       id: id,
       template
     })
-
   }
 
 

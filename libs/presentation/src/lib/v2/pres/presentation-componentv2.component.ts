@@ -1,16 +1,16 @@
-import { Component, ContentChildren, QueryList, TemplateRef } from '@angular/core';
+import { Component, ContentChildren, Input, QueryList, TemplateRef } from '@angular/core';
 import { SlideControls } from '../../presentation/presentation.component';
 
 @Component({
   selector: 'angular-presentation-pres',
   templateUrl: './presentation-componentv2.component.html',
   styleUrls: [
-    './presentation-componentv2.component.css',
-    '../../presentation/presentation.component.scss'
+    './presentation-componentv2.component.scss'
   ]
 })
 export class PresentationComponentV2 implements SlideControls {
   slides: any[] = [];
+  @Input() theme = 'basic';
   @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
   activeSlideIndex = 0;
 

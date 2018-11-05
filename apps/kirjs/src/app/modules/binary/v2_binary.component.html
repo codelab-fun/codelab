@@ -5,27 +5,42 @@
   <!--<slides-arrows></slides-arrows>-->
   <!--<slides-feedback-widget></slides-feedback-widget>-->
 
-  <div *slide id="intro" bg intro>
+  <div *slide id="intro" bg intro no-padding>
     <h1>@kirjs</h1>
     <h2>Binary ❤️ JavaScript</h2>
+    <h3>kirjs.com/binary/0</h3>
   </div>
 
-  <div *slide id="overview">
-    <h1>In this talk:</h1>
-    <ul>
-      <li><b>binary</b> + files</li>
-      <li><b>binary</b> + JS memory internals</li>
-      <li><b>binary</b> + HTTP requests</li>
-    </ul>
+  <!--<div *slide id="overview">-->
+  <!--<h1>In this talk:</h1>-->
+  <!--<ul>-->
+  <!--<li><b>binary</b> + files</li>-->
+  <!--<li><b>binary</b> + parsing files</li>-->
+  <!--<li><b>binary</b> + HTTP requests</li>-->
+  <!--<li><b>binary</b> + JS memory internals</li>-->
+  <!--</ul>-->
+  <!--</div>-->
+
+  <div *slide id="font-size">
+    <h2>
+      If you can't read the text below, move closer or go to <b style="font-size: 10vw">kirjs.com/binary/0</b>
+    </h2>
+    <div style="font-size: 3vw;word-break: break-all">
+      {{binaryLittleGif.substr(0, 200)}}
+    </div>
   </div>
 
-  <div *slide id="gif-internals2" bg vc gif>
+  <div *slide id="gif-internals" bg vc gif>
     <h1>Let's see what's inside of <b>gif</b></h1>
   </div>
 
   <div *slide id="binary-file-upload">
-    <h2>And file </h2>
-    <slides-simple-editor [fontSize]="40" [(ngModel)]="code.fileHandler" language="javascripts"></slides-simple-editor>
+    <slides-simple-editor
+      [lineNumbers]="false"
+      [fontSize]="40"
+      [(ngModel)]="code.fileHandler"
+      [slidesSimpleHighlightMatch]="code.fileHandlerHighlight"
+      language="javascript"></slides-simple-editor>
   </div>
 
   <div *slide id="binary-file-value-2" vertical-split>
@@ -44,28 +59,52 @@
     <binary-gif [binary]="binaryLittleGif"></binary-gif>
   </div>
 
-
-  <div *slide id="gif">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+  <div *slide id="binary-file-upload-buffer">
+    <slides-simple-editor [fontSize]="40" [(ngModel)]="code.fileHandlerBinary"
+                          language="javascript"></slides-simple-editor>
   </div>
 
 
+  <div *slide id="gif">
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif"></slides-fake-gif>
+  </div>
+
   <div *slide id="gif-standard" vc>
-      <pre style="text-align: center;font-size: 2vw;">
-        GRAPHICS INTERCHANGE FORMAT(sm)
+    <pre style="text-align: center;font-size: 2vw;">
+GRAPHICS INTERCHANGE FORMAT(sm)
 
-        <a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">Version 89a</a>
+<a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">Version 89a</a>
 
-      (c)1987,1988,1989,1990
+(c)1987,1988,1989,1990
 
-      Copyright
-      CompuServe Incorporated
-      Columbus, Ohio
+Copyright
+CompuServe Incorporated
+Columbus, Ohio
       </pre>
   </div>
 
   <div *slide id="gif-spaced">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif"
+                     [spacing]="true"></slides-fake-gif>
+  </div>
+
+  <div *slide id="gif-spaced-sections">
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif" [spacing]="true"
+                     [highlightGroups]="true"></slides-fake-gif>
+  </div>
+
+  <div *slide id="gif-boolean">
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true" [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true}"
+                     [spacing]="true"></slides-fake-gif>
+  </div>
+
+  <div *slide id="gif-number">
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event"
+                     [showPopups]="true"
+                     [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true}"
+                     [spacing]="true"></slides-fake-gif>
   </div>
 
   <div *slide id="bin-dec">
@@ -84,29 +123,70 @@
   </div>
 
   <div *slide id="gif-spaced-bin-dec">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event"
+                     [showPopups]="true"
+                     [binary]="binaryLittleGif" [highlightedMap]="{boolean: true, number: true}"
+                     [spacing]="true"></slides-fake-gif>
+  </div>
+
+  <div *slide id="gif-spaced-hex">
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
+                     [binary]="binaryLittleGif" [highlightedMap]="{boolean: true, number: true, hex: true}"
+                     [spacing]="true"></slides-fake-gif>
   </div>
 
 
+  <div *slide id="bin-hex-explained">
+    <kirjs-hexdec></kirjs-hexdec>
+  </div>
   <div *slide id="bin-hex">
-    TBD Bin 2 Hex
+    <h2>Convert binary to hexadecimal with JavaScript</h2>
+    <realtime-eval code="parseInt('01010101', 2).toString(16)"></realtime-eval>
   </div>
+
+  <div *slide id="hex-bin">
+    <h2>Convert hexadecimal to binary with JavaScript</h2>
+    <realtime-eval code="parseInt('FEFEFE', 16).toString(2)"></realtime-eval>
+  </div>
+
 
   <div *slide id="gif-spaced-bin-hex">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
+                     [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true, hex: true}"
+                     [spacing]="true"></slides-fake-gif>
   </div>
 
-
-  <div *slide id="gif-spaced-bin-string">
-    <slides-fake-gif [binary]="binaryLittleGif"></slides-fake-gif>
-  </div>
-
-  <div *slide id="bin-enum">
-    TBD Bin 2 Hex
+  <div *slide id="gif-spaced-string">
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
+                     [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
+                     [spacing]="true"></slides-fake-gif>
   </div>
 
   <div *slide id="ascii">
     <slides-ascii></slides-ascii>
+  </div>
+
+  <div *slide id="ascii-2">
+    <slides-ascii param="ascii - Page 2"></slides-ascii>
+  </div>
+
+  <div *slide id="windows-1251">
+    <slides-ascii param="windows-1251"></slides-ascii>
+  </div>
+
+
+  <div *slide id="KOI8-R">
+    <slides-ascii param="KOI8-R"></slides-ascii>
+  </div>
+
+  <div *slide id="krakoziabry" bg krakoziabry>
+  </div>
+
+
+  <div *slide id="utf-8">
+    <slides-ascii param="utf-8"></slides-ascii>
   </div>
 
   <div *slide id="str-to-charcode">
@@ -115,438 +195,83 @@
   </div>
 
   <div *slide id="charcode-to-str">
-    <h2>Get charcode from string</h2>
+    <h2>Get letter from charcode</h2>
     <realtime-eval code="String.fromCharCode(118)"></realtime-eval>
   </div>
 
-  <div *slide id="charcode-to-str2">
-    <realtime-eval code="String.fromCharCode(1034)"></realtime-eval>
+  <div *slide id="gif-string-2">
+    <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
+                     [binary]="binaryLittleGif"
+                     [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
+                     [spacing]="true"
+    ></slides-fake-gif>
   </div>
 
-  <div *slide id="pelmen">
-    <h1>ПЕЉМЕЊ!!!</h1>
+  <div *slide id="chikin">
+    <slides-fake-gif (onBinaryUpdate)="binaryChikinGif = $event" [showPopups]="true"
+                     [binary]="binaryChikinGif"
+                     [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
+                     [spacing]="true"
+    ></slides-fake-gif>
   </div>
 
+  <!--<div *slide id="charcode-to-str">-->
+  <!--<realtime-eval code="String.fromCharCode(1034)"></realtime-eval>-->
+  <!--</div>-->
 
-  <div *slide id="Parsebinary" bg vc gif>
-    <h1>Let's parse some binary (with <b>binary-parser</b>)</h1>
-  </div>
-
-
-  <div *slide id="binary-parser">
-    <kirjs-binary-parser-demo [binary]="binaryLittleGif.slice(0,200)"></kirjs-binary-parser-demo>
-  </div>
-
-
-  <div *slide id="files">
-    <h2>Some constants</h2>
-    <ul>
-      <li>Gif - GIF87a</li>
-      <li>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9'</li>
-      <li>Java class - cafebabe</li>
-      <li>Text</li>
-      <li>Media? Image? Song? Video?</li>
-
-      Class bytecode starts with hex CAFEBABE
-      GIF image files have ‘GIF89a‘ (47 49 46 38 39 61) or ‘GIF87a‘ (47 49 46 38 37 61)
-
-      PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)
-      ZIP files begin with ‘PK‘ (50 4B)
-      PDF files start with ‘%PDF‘ (25 50 44 46)
-      HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n
-    </ul>
-  </div>
-
-  <div *slide id="gif-tbd">
-    <h1>https://tls.ulfheim.net/</h1>
-  </div>
-
-
-  <!--<div *slide id="message">-->
-  <!--<h2>Let's reverse-engineer this message:</h2>-->
-  <!--<slides-message param="basic"></slides-message>-->
+  <!--<div *slide id="charcode-to-str">-->
+  <!--<h1>ПЕЉМЕЊ!!!</h1>-->
   <!--</div>-->
 
 
-  <!--<div *slide id="can-be-anything">-->
-  <!--<h2>This can be anything 🤔</h2>-->
-  <!--<ul>-->
-  <!--<li>Lots of booleans?</li>-->
-  <!--<li>Bunch of numbers</li>-->
-  <!--<li>Text?</li>-->
-  <!--<li>Hex data? colors?</li>-->
-  <!--<li>Media? Image? Song? Video?</li>-->
-  <!--<li>Bunch of random 1's and 0's?</li>-->
-  <!--</ul>-->
-  <!--</div>-->
+  <div *slide id="parsing-binary" bg vc gif>
+    <h1>Parsing binary(with <b>binary-parser</b>)</h1>
+  </div>
 
-  <!--<div *slide id="bit-1-1">-->
-  <!--<angular-presentation-bit [param]="1">-->
-  <!--<h2>How many TBD do you have?</h2>-->
+
+  <div *slide id="binary-parser-header">
+    <kirjs-binary-parser-demo
+      [filterClassName]="binaryParserHeaderMatch"
+      [helpers]="binaryParserHeaderHelpers"
+      [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
+  </div>
+
+
+  <div *slide id="endianness" bg endianness>
+  </div>
+  <div *slide id="binary-parser-palette">
+    <kirjs-binary-parser-demo [helpers]="binaryParserPaletteHelpers"
+                              [filterClassName]="binaryParserPaletteMatch"
+                              [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
+  </div>
+
+
+  <!--<div *slide id="summary">-->
+  <!--<h2>Summary</h2>-->
   <!--<table>-->
   <!--<tr>-->
-  <!--<td>1</td>-->
+  <!--<td>boolean</td>-->
+  <!--<td>true</td>-->
   <!--<td>1</td>-->
   <!--</tr>-->
   <!--<tr>-->
-  <!--<td>0</td>-->
-  <!--<td>0</td>-->
+  <!--<td>number</td>-->
+  <!--<td>251</td>-->
+  <!--<td>11111011</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>string</td>-->
+  <!--<td>U</td>-->
+  <!--<td>01010101</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>color</td>-->
+  <!--<td style="color:#2b981f">#2b981f</td>-->
+  <!--<td>1010111001100000011111</td>-->
   <!--</tr>-->
   <!--</table>-->
-  <!--</angular-presentation-bit>-->
   <!--</div>-->
-
-  <!--<div *slide id="bit-1">-->
-  <!--<angular-presentation-bit [param]="1">-->
-  <!--<h2>Will you marry me?</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>1</td>-->
-  <!--<td>Yes</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>0</td>-->
-  <!--<td>No</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-2">-->
-  <!--<angular-presentation-bit [param]="2">-->
-  <!--<h2>Numbers 0-3</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>00</td>-->
-  <!--<td>0</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>01</td>-->
-  <!--<td>1</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>10</td>-->
-  <!--<td>2</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>11</td>-->
-  <!--<td>3</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-2-1">-->
-  <!--<angular-presentation-bit [param]="2">-->
-  <!--<h2>Will you marry me?</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>00</td>-->
-  <!--<td>Yes</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>01</td>-->
-  <!--<td>No</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>10</td>-->
-  <!--<td>Maybe</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>11</td>-->
-  <!--<td>-</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-
-  <!--<div *slide id="bit-3">-->
-  <!--<angular-presentation-bit [param]="3">-->
-  <!--<h2>Numbers 0-7</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>000</td>-->
-  <!--<td>0</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>010</td>-->
-  <!--<td>2</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>100</td>-->
-  <!--<td>4</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>111</td>-->
-  <!--<td>7</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-
-  <!--<div *slide id="bit-4">-->
-  <!--<angular-presentation-bit [param]="4">-->
-  <!--<h2>Numbers 0-16</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>0000</td>-->
-  <!--<td>0</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>0001</td>-->
-  <!--<td>1</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>0010</td>-->
-  <!--<td>2</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>0011</td>-->
-  <!--<td>3</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-
-  <!--<div *slide id="bit-5">-->
-  <!--<angular-presentation-bit [param]="5">-->
-  <!--<h2>Numbers 0-32</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>00000</td>-->
-  <!--<td>0</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>00001</td>-->
-  <!--<td>1</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>00010</td>-->
-  <!--<td>2</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>00011</td>-->
-  <!--<td>3</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-5-1">-->
-  <!--<angular-presentation-bit [param]="5">-->
-  <!--<h2>Letters?</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>00000</td>-->
-  <!--<td>a</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>00001</td>-->
-  <!--<td>b</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>00010</td>-->
-  <!--<td>c</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>...</td>-->
-  <!--<td>3</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-6">-->
-  <!--<angular-presentation-bit [param]="6">-->
-  <!--<h2>One character from base64 encoding?</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>000000</td>-->
-  <!--<td>a</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-7">-->
-  <!--<angular-presentation-bit [param]="7">-->
-  <!--<h2>Basic ascii letter?</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>00000</td>-->
-  <!--<td>a</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>00001</td>-->
-  <!--<td>b</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>00010</td>-->
-  <!--<td>c</td>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--<td>...</td>-->
-  <!--<td>3</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-8">-->
-  <!--<angular-presentation-bit [param]="8">-->
-  <!--<h2>This is one byte!</h2>-->
-  <!--<h2>Numbers 0-255</h2>-->
-
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-16">-->
-  <!--<angular-presentation-bit [param]="16">-->
-  <!--<h2>Numbers 0-65535</h2>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-  <!--<div *slide id="bit-24">-->
-  <!--<angular-presentation-bit [param]="24">-->
-  <!--<h2>Numbers 0-16777215</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>-->
-  <!--110100100000000000000110-->
-  <!--</td>-->
-  <!--<td>13762566</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-
-  <!--<h2>Hex color</h2>-->
-  <!--<table>-->
-  <!--<tr>-->
-  <!--<td>-->
-  <!--110100100000000000000110-->
-  <!--</td>-->
-  <!--<td style="background: #d20006;color: white;">#d20006</td>-->
-  <!--</tr>-->
-  <!--</table>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bit-32">-->
-  <!--<angular-presentation-bit [param]="32">-->
-  <!--<h2>Numbers 0-4294967295</h2>-->
-  <!--</angular-presentation-bit>-->
-  <!--</div>-->
-
-
-  <!--<div *slide id="message">-->
-  <!--<h2>Let's reverse-engineer this message:</h2>-->
-  <!--<slides-message param="basic"></slides-message>-->
-  <!--</div>-->
-
-
-  <!--<div *slide id="bytes">-->
-  <!--<h2>Let's break it up into bytes</h2>-->
-  <!--<slides-message param="bytes"></slides-message>-->
-  <!--</div>-->
-
-  <!--<div *slide id="can-they-be-numbers" vc>-->
-  <!--<h1>Can this be <br> <b>numbers</b>?</h1>-->
-  <!--</div>-->
-
-  <!--<div *slide id="bin-dec1">-->
-  <!--<slides-bindec param="uint8"></slides-bindec>-->
-  <!--</div>-->
-
-
-  <!--<div *slide id="negative-numbers">-->
-  <!--<h1>What about negative <b>numbers</b>?</h1>-->
-  <!--</div>-->
-
-  <!--<div *slide id="int8">-->
-  <!--<slides-bindec param="int8"></slides-bindec>-->
-  <!--</div>-->
-
-  <!--<div *slide id="mess-num">-->
-  <!--<h1>Let's see our message expressed as <b>numbers</b></h1>-->
-  <!--</div>-->
-
-  <!--<div *slide id="message-uint8">-->
-  <!--<slides-message param="uint8"></slides-message>-->
-  <!--</div>-->
-
-  <!--<div *slide id="can-they-be-letters">-->
-  <!--<h1>Can they be <b>letters</b>?</h1>-->
-  <!--</div>-->
-
-  <div *slide id="summary">
-    <h2>Summary</h2>
-    <table>
-      <tr>
-        <td>boolean</td>
-        <td>true</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>number</td>
-        <td>251</td>
-        <td>11111011</td>
-      </tr>
-      <tr>
-        <td>string</td>
-        <td>'l'</td>
-        <td>11111111</td>
-      </tr>
-      <tr>
-        <td>color</td>
-        <td style="color:#2b981f">#2b981f</td>
-        <td>11111111</td>
-      </tr>
-
-    </table>
-  </div>
-
-  <div *slide id="kaitai">
-    https://formats.kaitai.io/
-  </div>
-
-
-  <div *slide id="binary-memory" bg vc json>
-    <h1>Let's look at memory management in JS</h1>
-  </div>
-
-  <div *slide id="binary-memory-1">
-    <h2>Let's see how memory works in typed arrays</h2>
-
-    <angular-presentation-memory></angular-presentation-memory>
-  </div>
-
-
-  <div *slide id="binary-memory-2">
-    <angular-presentation-memory [param]="1" code="Boolean b = new boolean[](5);"></angular-presentation-memory>
-  </div>
-
-
-  <div *slide id="binary-memory-3">
-    <angular-presentation-memory [param]="2" code="Boolean b = new boolean[](5);\nb[3]"></angular-presentation-memory>
-  </div>
-
-
-  <div *slide id="binary-memory-4">
-    <angular-presentation-memory [param]="3" code="Number b = new Uint8[](5);"></angular-presentation-memory>
-  </div>
-
-
-  <div *slide id="binary-memory-5">
-    <angular-presentation-memory [param]="4" code="Number b = new Uint8[](5);b[3]"></angular-presentation-memory>
-  </div>
-
-  <div *slide id="binary-memory-6">
-    <angular-presentation-memory [param]="5"
-                                 code="a = [true, false, true, false, true]"></angular-presentation-memory>
-  </div>
-
-
+  <!---->
   <div *slide id="binary-json" bg vc json>
     <h1>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
   </div>
@@ -556,45 +281,53 @@
   </div>
 
   <div *slide id="compare-size">
-    <h2>Size</h2>
-    <div style="display: flex;">
+    <h1>Serialized Size</h1>
+    <div style="display: flex;" class="compare-serialization">
 
-      <div>
+      <div class="compare-json">
         <h2>JSON</h2>
-        <div>Bigger</div>
+        <ul>
+          <li class="compare-value">Bigger</li>
+        </ul>
       </div>
 
       <div>
         <h2>Binary</h2>
-        <div>Smaller</div>
+        <ul>
+          <li class="compare-value">Smaller</li>
+        </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-speed">
-    <h2>Serialization speed</h2>
-    <div style="display: flex;">
-      <div>
+    <h1>Serialization speed</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
         <h2>JSON</h2>
-        <div>Slower</div>
+        <ul>
+          <li class="compare-value">Slower</li>
+        </ul>
       </div>
 
       <div>
         <h2>Binary</h2>
-        <div>Faster</div>
+        <ul>
+          <li class="compare-value">Faster</li>
+        </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-debugging">
-    <h2>Debugging</h2>
-    <div style="display: flex;">
-      <div>
+    <h1>Debugging</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
         <h2>JSON</h2>
 
         <ul>
-          <li>Easy to understand</li>
-          <li>Human readable</li>
+          <li class="compare-value">Easy to understand</li>
+          <li class="compare-value">Human readable</li>
         </ul>
 
       </div>
@@ -602,19 +335,19 @@
       <div>
         <h2>Binary</h2>
         <ul>
-          <li>Requires special tooling</li>
+          <li class="compare-value">Requires special tooling</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-tooling">
-    <h2>Tooling</h2>
-    <div style="display: flex;">
-      <div>
+    <h1>Tooling</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
         <h2>JSON</h2>
         <ul>
-          <li>For JS works out of the box</li>
+          <li class="compare-value">For JS works out of the box</li>
         </ul>
 
       </div>
@@ -622,16 +355,16 @@
       <div>
         <h2>Binary</h2>
         <ul>
-          <li>Requires special tooling</li>
+          <li class="compare-value">Requires special tooling</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-schema">
-    <h2>Schema</h2>
-    <div style="display: flex;">
-      <div>
+    <h1>Schema</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
         <h2>JSON</h2>
         <ul>
           <li>No schema</li>
@@ -659,44 +392,46 @@
     </ul>
   </div>
 
-
-  <!--<li>Size</li>-->
-  <!--<li>Speed</li>-->
-  <!--<li>Who's using</li>-->
-  <!--<li>Debugging</li>-->
-  <!--<li>Tools</li>-->
-  <!--<li>Schema</li>-->
-
-  <div *slide id="bunch">
-    // Let's reinvent gif with JSON:
-
-    `, `
-
-    `,
-    `JSON.stringify(gif)`,
-    `JSON.stringify(gif).length`,
-
-    `"010010010111010000100000011010010111001100100000011000110110111101101101011011010110111101101110001"
-
-
-    `,
-
-    `explain('gif')`,
-
-
-    `// How to read binary data?`,
+  <div *slide id="bonus" bg vc gif>
+    <h1>Bonus</h1>
   </div>
 
+  <div *slide id="files">
+    <h2>File header constants</h2>
+    <ul>
+      <li>Gif - GIF87a (or GIF89a)</li>
+      <li>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9'</li>
+      <li>Java class - CAFEBABE</li>
+      <li>ZIP files begin with ‘PK‘ (50 4B)</li>
+      <li>PDF files start with ‘%PDF‘ (25 50 44 46)</li>
+      <li>PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)</li>
+      <li>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
+    </ul>
+  </div>
+
+  <div *slide id="kaitai" bg kaitai>
+    <h1>Big library of binary formats</h1>
+    <h2>https://formats.kaitai.io/</h2>
+  </div>
 
   <div *slide id="Facts">
+    <h2>Gif facts</h2>
     <ul>
       <li>Image size: 1х1 to 65535х65535</li>
       <li>Colors: 2 - 256</li>
+      <li>True color gifs are possible</li>
       <li>Max number of animation frames - unlimited</li>
       <li>Animation delay 1/100 - 655 seconds</li>
       <li>There's a plain text extension</li>
       <li>24 pages + 12 pages appendix in gif89 standard</li>
     </ul>
+  </div>
+
+  <div *slide id="outro" bg intro>
+    <h1>@kirjs</h1>
+    <h2>Binary ❤️ JavaScript</h2>
+    <h2>kirjs.com/binary/0</h2>
+    <h3>Thanks @andrey_sitnik for review</h3>
   </div>
 </angular-presentation-pres>
 
