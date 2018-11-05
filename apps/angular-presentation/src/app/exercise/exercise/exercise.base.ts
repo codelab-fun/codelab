@@ -1,7 +1,7 @@
 import { Input, OnInit } from '@angular/core';
 import { ExerciseConfig } from '../interfaces/exercise-config';
 
-import { SlideComponent } from '../../../../../../libs/presentation/src/lib/slide/slide.component';
+
 import { AnalyticsService } from '../../../../../../libs/presentation/src/lib/analytics.service';
 import { ActivatedRoute } from '@angular/router';
 import { PresentationComponent } from '../../../../../../libs/presentation/src/lib/presentation/presentation.component';
@@ -14,11 +14,15 @@ export class ExerciseBase implements OnInit {
   running = false;
   solved = false;
 
+  constructor(private monacoConfig: MonacoConfigService,
+              private analyticsService: AnalyticsService,
+              private route: ActivatedRoute,
+              private presentation: PresentationComponent) {
+  }
 
   loadModels(files: Array<FileConfig>) {
     this.monacoConfig.createFileModels(files);
   }
-
 
   onTestUpdate(event) {
     if (!event.data || !event.data.type) {
@@ -52,7 +56,9 @@ export class ExerciseBase implements OnInit {
   }
 
   goToNextSlide() {
-    this.presentation.nextSlide();
+    if (this.presentation) {
+      this.presentation.nextSlide();
+    }
   }
 
   toggleFile(toggledFile) {
@@ -82,13 +88,6 @@ export class ExerciseBase implements OnInit {
     if (this.config.files.length) {
       this.loadModels(this.config.files);
     }
-  }
-
-  constructor(public slide: SlideComponent,
-              private monacoConfig: MonacoConfigService,
-              private analyticsService: AnalyticsService,
-              private route: ActivatedRoute,
-              private presentation: PresentationComponent) {
   }
 }
 

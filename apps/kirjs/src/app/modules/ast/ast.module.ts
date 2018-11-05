@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { SlidesRoutes } from '@angular-presentation/presentation/src/lib/slide-routes';
 import { AstPreviewRunnerModule } from './ast-preview-runner/ast-preview-runner.module';
 import { BrowserWindowModule } from '@angular-presentation/browser';
-import { SimpleEditorModule } from '../../../../../angular-presentation/src/app/exercise/simple-editor/simple-editor.module';
+import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { NewProgressBarModule } from './new-progress-bar/new-progress-bar.module';
 import { AstComponent } from './ast.component';
 import { DebuggerComponent } from './debugger/debugger.component';

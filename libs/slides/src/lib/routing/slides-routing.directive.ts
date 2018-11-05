@@ -30,8 +30,9 @@ export class SlidesRoutingDirective implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
-    const index = this.deck.slides.findIndex(s => s.id === id) || id;
-    this.deck.goToSlide(index);
+    const id: string = this.route.snapshot.params['id'];
+    const index = this.deck.slides.findIndex(s => s.id === id);
+
+    this.deck.goToSlide(Number(index === -1 ? id : index));
   }
 }

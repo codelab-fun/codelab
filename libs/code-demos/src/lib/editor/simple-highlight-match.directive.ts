@@ -1,6 +1,6 @@
 import { AfterViewInit, Directive, Input, OnChanges } from '@angular/core';
 import { SimpleEditorComponent } from './simple-editor.component';
-import { findPosition } from '../../../../../../libs/tooltips/src/lib/utils';
+import { findPosition } from '../../../../tooltips/src/lib/utils';
 
 @Directive({
   selector: '[slidesSimpleHighlightMatch]'

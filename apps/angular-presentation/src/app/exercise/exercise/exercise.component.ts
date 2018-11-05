@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Optional } from '@angular/core';
 
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
-import { SlideComponent } from '../../../../../../libs/presentation/src/lib/slide/slide.component';
 import { AnalyticsService } from '../../../../../../libs/presentation/src/lib/analytics.service';
 import { PresentationComponent } from '../../../../../../libs/presentation/src/lib/presentation/presentation.component';
 import { ActivatedRoute } from '@angular/router';
@@ -21,7 +20,18 @@ export class ExerciseComponent extends ExerciseBase implements OnInit {
   @Input() currentFile: FileConfig;
 
   public readonly files$ = new BehaviorSubject<Array<FileConfig>>([]);
+
   private _files: any;
+
+  constructor(@Optional() presentation: PresentationComponent,
+              monacoConfig: MonacoConfigService, analyticsService: AnalyticsService, route: ActivatedRoute) {
+    super(monacoConfig, analyticsService, route, presentation);
+
+  }
+
+  get files() {
+    return this._files;
+  }
 
   @Input() set files(files) {
     if (!this._files) {
@@ -31,10 +41,6 @@ export class ExerciseComponent extends ExerciseBase implements OnInit {
     this.files$.next(files);
   }
 
-  get files() {
-    return this._files;
-  }
-
   updateFiles(callback) {
     this.files = callback(this.files);
   }
@@ -42,15 +48,6 @@ export class ExerciseComponent extends ExerciseBase implements OnInit {
   ngOnInit(): void {
 
   }
-
-
-  constructor(presentation: PresentationComponent,
-              slide: SlideComponent,
-              monacoConfig: MonacoConfigService, analyticsService: AnalyticsService, route: ActivatedRoute) {
-    super(slide, monacoConfig, analyticsService, route, presentation);
-    this.slide.isExercise = true;
-  }
-
 
   onSelectFile(fileConfig: FileConfig): void {
     this.currentFile = fileConfig;

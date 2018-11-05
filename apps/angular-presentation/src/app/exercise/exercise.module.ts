@@ -24,7 +24,7 @@ import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.
 import { RunnersModule } from './runners/runners.module';
 import { SizePickerModule } from '../../../../kirjs/src/app/modules/ast/size-picker/size-picker.module';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
-import { SimpleEditorModule } from './simple-editor/simple-editor.module';
+import { SimpleEditorModule } from '../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 
 @NgModule({
   declarations: [

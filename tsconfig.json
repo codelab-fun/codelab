@@ -1,5 +1,10 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "enableIvy": true,
+    "pizda": 1
+
+  },
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "baseUrl": ".",
