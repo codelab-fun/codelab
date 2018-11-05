@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { PresentationComponent } from '../presentation/presentation.component';
+import { SlidesDeckComponent } from '@angular-presentation/slides/src/lib/deck/deck.component';
 
 
 @Component({
-  selector: 'slides-arrows',
-  templateUrl: './arrows.component.html',
-  styleUrls: ['./arrows.component.css']
+  selector: 'slides-arrow-navigation',
+  templateUrl: './slides-arrows.component.html',
+  styleUrls: ['./slides-arrows.component.css']
 })
-export class ArrowsComponent {
-  constructor(private presentation: PresentationComponent) {
+export class SlidesArrowsComponent {
+  constructor(private presentation: SlidesDeckComponent) {
   }
 
   goToPreviousSlide() {

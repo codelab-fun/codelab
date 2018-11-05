@@ -11,7 +11,7 @@ function strToBin(str) {
 
 @Component({
   selector: 'slides-binary',
-  templateUrl: './v2_binary.component.html',
+  templateUrl: './binary.component.html',
   styleUrls: ['./binary.component.scss']
 })
 export class BinaryComponent {

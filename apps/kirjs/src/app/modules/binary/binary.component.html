@@ -1,17 +1,18 @@
-<slides-presentation slides-slides-routing class="binary-presentation">
-  <slides-new-progress-bar [fontSize]="fontSize"
-                           title="Binary ❤️ JavaScript"
-                           (fontSizeChange)="fontSize = fontSize + $event"></slides-new-progress-bar>
-  <slides-arrows></slides-arrows>
-  <slides-feedback-widget></slides-feedback-widget>
+<slides-deck slidesShortcuts class="binary-presentation">
+  <slides-arrow-navigation></slides-arrow-navigation>
+  <!--<slides-new-progress-bar [fontSize]="fontSize"-->
+  <!--title="Binary ❤️ JavaScript"-->
+  <!--(fontSizeChange)="fontSize = fontSize + $event"></slides-new-progress-bar>-->
+  <!--<slides-arrows></slides-arrows>-->
+  <!--<slides-feedback-widget></slides-feedback-widget>-->
 
-  <slides-slide *slidesIf="'intro'" bg intro>
+  <div *slide id="intro" bg intro no-padding>
     <h1>@kirjs</h1>
     <h2>Binary ❤️ JavaScript</h2>
     <h3>kirjs.com/binary/0</h3>
-  </slides-slide>
+  </div>
 
-  <!--<slides-slide *slidesIf="'overview'">-->
+  <!--<div *slide id="overview">-->
   <!--<h1>In this talk:</h1>-->
   <!--<ul>-->
   <!--<li><b>binary</b> + files</li>-->
@@ -19,57 +20,57 @@
   <!--<li><b>binary</b> + HTTP requests</li>-->
   <!--<li><b>binary</b> + JS memory internals</li>-->
   <!--</ul>-->
-  <!--</slides-slide>-->
+  <!--</div>-->
 
-  <slides-slide *slidesIf="'font-size'">
+  <div *slide id="font-size">
     <h2>
       If you can't read the text below, move closer or go to <b style="font-size: 10vw">kirjs.com/binary/0</b>
     </h2>
     <div style="font-size: 3vw;word-break: break-all">
       {{binaryLittleGif.substr(0, 200)}}
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-internals'" bg vc gif>
+  <div *slide id="gif-internals" bg vc gif>
     <h1>Let's see what's inside of <b>gif</b></h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'binary-file-upload'">
+  <div *slide id="binary-file-upload">
     <slides-simple-editor
       [lineNumbers]="false"
       [fontSize]="40"
       [(ngModel)]="code.fileHandler"
       [slidesSimpleHighlightMatch]="code.fileHandlerHighlight"
       language="javascript"></slides-simple-editor>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'binary-file-value-2'" vertical-split>
+  <div *slide id="binary-file-value-2" vertical-split>
     <code style="font-size: 2vw;font-weight: 300;word-break: break-word">
       {{chikinGif}}
     </code>
     <binary-gif [binary]="binaryChikinGif"></binary-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'binary-file-value'" vertical-split>
+  <div *slide id="binary-file-value" vertical-split>
     <code style="font-size: 10vw;font-weight: 300;word-break: break-word"
           contenteditable="true"
           (input)="setLittleGifBinary($event.target.innerText)">
       {{littleGif}}
     </code>
     <binary-gif [binary]="binaryLittleGif"></binary-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'binary-file-upload-buffer'">
+  <div *slide id="binary-file-upload-buffer">
     <slides-simple-editor [fontSize]="40" [(ngModel)]="code.fileHandlerBinary"
                           language="javascript"></slides-simple-editor>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'gif'">
+  <div *slide id="gif">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-standard'" vc>
+  <div *slide id="gif-standard" vc>
     <pre style="text-align: center;font-size: 2vw;">
 GRAPHICS INTERCHANGE FORMAT(sm)
 
@@ -81,172 +82,172 @@ Copyright
 CompuServe Incorporated
 Columbus, Ohio
       </pre>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-spaced'">
+  <div *slide id="gif-spaced">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif"
                      [spacing]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-spaced-sections'">
+  <div *slide id="gif-spaced-sections">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif" [spacing]="true"
                      [highlightGroups]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-boolean'">
+  <div *slide id="gif-boolean">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true" [binary]="binaryLittleGif"
                      [highlightedMap]="{boolean: true}"
                      [spacing]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-number'">
+  <div *slide id="gif-number">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event"
                      [showPopups]="true"
                      [binary]="binaryLittleGif"
                      [highlightedMap]="{boolean: true, number: true}"
                      [spacing]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'bin-dec'">
+  <div *slide id="bin-dec">
     <slides-bindec param="uint8"></slides-bindec>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'convert-bin-to-dec'">
+  <div *slide id="convert-bin-to-dec">
     <h2>Convert binary to decimal with JavaScript</h2>
     <realtime-eval code="parseInt('01010101', 2)"></realtime-eval>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'convert-dec-to-bin'">
+  <div *slide id="convert-dec-to-bin">
     <h2>Convert decimal to binary</h2>
     <realtime-eval code="(1212).toString(2)"></realtime-eval>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-spaced-bin-dec'">
+  <div *slide id="gif-spaced-bin-dec">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event"
                      [showPopups]="true"
                      [binary]="binaryLittleGif" [highlightedMap]="{boolean: true, number: true}"
                      [spacing]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-spaced-hex'">
+  <div *slide id="gif-spaced-hex">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
                      [binary]="binaryLittleGif" [highlightedMap]="{boolean: true, number: true, hex: true}"
                      [spacing]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'bin-hex-explained'">
+  <div *slide id="bin-hex-explained">
     <kirjs-hexdec></kirjs-hexdec>
-  </slides-slide>
-  <slides-slide *slidesIf="'bin-hex'">
+  </div>
+  <div *slide id="bin-hex">
     <h2>Convert binary to hexadecimal with JavaScript</h2>
     <realtime-eval code="parseInt('01010101', 2).toString(16)"></realtime-eval>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'hex-bin'">
+  <div *slide id="hex-bin">
     <h2>Convert hexadecimal to binary with JavaScript</h2>
     <realtime-eval code="parseInt('FEFEFE', 16).toString(2)"></realtime-eval>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'gif-spaced-bin-hex'">
+  <div *slide id="gif-spaced-bin-hex">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
                      [binary]="binaryLittleGif"
                      [highlightedMap]="{boolean: true, number: true, hex: true}"
                      [spacing]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-spaced-string'">
+  <div *slide id="gif-spaced-string">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
                      [binary]="binaryLittleGif"
                      [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
                      [spacing]="true"></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'ascii'">
+  <div *slide id="ascii">
     <slides-ascii></slides-ascii>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'ascii-2'">
+  <div *slide id="ascii-2">
     <slides-ascii param="ascii - Page 2"></slides-ascii>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'windows-1251'">
+  <div *slide id="windows-1251">
     <slides-ascii param="windows-1251"></slides-ascii>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'KOI8-R'">
+  <div *slide id="KOI8-R">
     <slides-ascii param="KOI8-R"></slides-ascii>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'krakoziabry'" bg krakoziabry>
-  </slides-slide>
+  <div *slide id="krakoziabry" bg krakoziabry>
+  </div>
 
 
-  <slides-slide *slidesIf="'utf-8'">
+  <div *slide id="utf-8">
     <slides-ascii param="utf-8"></slides-ascii>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'str-to-charcode'">
+  <div *slide id="str-to-charcode">
     <h2>Get charcode from string</h2>
     <realtime-eval code="'lol'.charCodeAt(0)"></realtime-eval>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'charcode-to-str'">
+  <div *slide id="charcode-to-str">
     <h2>Get letter from charcode</h2>
     <realtime-eval code="String.fromCharCode(118)"></realtime-eval>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'gif-string-2'">
+  <div *slide id="gif-string-2">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
                      [binary]="binaryLittleGif"
                      [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
                      [spacing]="true"
     ></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'chikin'">
+  <div *slide id="chikin">
     <slides-fake-gif (onBinaryUpdate)="binaryChikinGif = $event" [showPopups]="true"
                      [binary]="binaryChikinGif"
                      [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
                      [spacing]="true"
     ></slides-fake-gif>
-  </slides-slide>
+  </div>
 
-  <!--<slides-slide *slidesIf="'charcode-to-str'">-->
+  <!--<div *slide id="charcode-to-str">-->
   <!--<realtime-eval code="String.fromCharCode(1034)"></realtime-eval>-->
-  <!--</slides-slide>-->
+  <!--</div>-->
 
-  <!--<slides-slide *slidesIf="'charcode-to-str'">-->
+  <!--<div *slide id="charcode-to-str">-->
   <!--<h1>ПЕЉМЕЊ!!!</h1>-->
-  <!--</slides-slide>-->
+  <!--</div>-->
 
 
-  <slides-slide *slidesIf="'parsing-binary'" bg vc gif>
+  <div *slide id="parsing-binary" bg vc gif>
     <h1>Parsing binary(with <b>binary-parser</b>)</h1>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'binary-parser-header'">
+  <div *slide id="binary-parser-header">
     <kirjs-binary-parser-demo
       [filterClassName]="binaryParserHeaderMatch"
       [helpers]="binaryParserHeaderHelpers"
       [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'endianness'" bg endianness>
-  </slides-slide>
-  <slides-slide *slidesIf="'binary-parser-palette'">
+  <div *slide id="endianness" bg endianness>
+  </div>
+  <div *slide id="binary-parser-palette">
     <kirjs-binary-parser-demo [helpers]="binaryParserPaletteHelpers"
                               [filterClassName]="binaryParserPaletteMatch"
                               [binary]="binaryLittleGif"></kirjs-binary-parser-demo>
-  </slides-slide>
+  </div>
 
 
-  <!--<slides-slide *slidesIf="'summary'">-->
+  <!--<div *slide id="summary">-->
   <!--<h2>Summary</h2>-->
   <!--<table>-->
   <!--<tr>-->
@@ -270,17 +271,17 @@ Columbus, Ohio
   <!--<td>1010111001100000011111</td>-->
   <!--</tr>-->
   <!--</table>-->
-  <!--</slides-slide>-->
+  <!--</div>-->
   <!---->
-  <slides-slide *slidesIf="'binary-json'" bg vc json>
+  <div *slide id="binary-json" bg vc json>
     <h1>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'json'">
+  <div *slide id="json">
     <slides-json></slides-json>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'compare-size'">
+  <div *slide id="compare-size">
     <h1>Serialized Size</h1>
     <div style="display: flex;" class="compare-serialization">
 
@@ -298,9 +299,9 @@ Columbus, Ohio
         </ul>
       </div>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'compare-speed'">
+  <div *slide id="compare-speed">
     <h1>Serialization speed</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
@@ -317,9 +318,9 @@ Columbus, Ohio
         </ul>
       </div>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'compare-debugging'">
+  <div *slide id="compare-debugging">
     <h1>Debugging</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
@@ -339,9 +340,9 @@ Columbus, Ohio
         </ul>
       </div>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'compare-tooling'">
+  <div *slide id="compare-tooling">
     <h1>Tooling</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
@@ -359,9 +360,9 @@ Columbus, Ohio
         </ul>
       </div>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'compare-schema'">
+  <div *slide id="compare-schema">
     <h1>Schema</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
@@ -381,23 +382,22 @@ Columbus, Ohio
         </ul>
       </div>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'compare-examles'">
+  <div *slide id="compare-examles">
     <h2>Existing solutions</h2>
     <ul>
       <li>Proto Buffers (google)</li>
       <li>Flatbuffers</li>
       <li>Thrift (apache/facebook)</li>
     </ul>
-  </slides-slide>
+  </div>
 
-
-  <slides-slide *slidesIf="'gif-internals'" bg vc gif>
+  <div *slide id="bonus" bg vc gif>
     <h1>Bonus</h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'files'">
+  <div *slide id="files">
     <h2>File header constants</h2>
     <ul>
       <li>Gif - GIF87a (or GIF89a)</li>
@@ -408,14 +408,14 @@ Columbus, Ohio
       <li>PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)</li>
       <li>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'kaitai'" bg kaitai>
+  <div *slide id="kaitai" bg kaitai>
     <h1>Big library of binary formats</h1>
     <h2>https://formats.kaitai.io/</h2>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'Facts'">
+  <div *slide id="Facts">
     <h2>Gif facts</h2>
     <ul>
       <li>Image size: 1х1 to 65535х65535</li>
@@ -426,13 +426,13 @@ Columbus, Ohio
       <li>There's a plain text extension</li>
       <li>24 pages + 12 pages appendix in gif89 standard</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'outro'" bg intro>
+  <div *slide id="outro" bg intro>
     <h1>@kirjs</h1>
     <h2>Binary ❤️ JavaScript</h2>
     <h2>kirjs.com/binary/0</h2>
     <h3>Thanks @andrey_sitnik for review</h3>
-  </slides-slide>
-</slides-presentation>
+  </div>
+</slides-deck>
 
