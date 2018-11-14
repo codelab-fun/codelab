@@ -27,6 +27,17 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 import { SimpleEditorModule } from '../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 
 @NgModule({
+
+  imports:
+    [
+      RunnersModule,
+      CommonModule,
+      FormsModule,
+      TooltipsModule,
+      BrowserWindowModule,
+      SizePickerModule,
+      SimpleEditorModule,
+    ],
   declarations: [
     ExerciseComponent,
     EditorsComponent,
@@ -44,16 +55,6 @@ import { SimpleEditorModule } from '../../../../../libs/code-demos/src/lib/edito
     AngularRunnerComponent,
     RealtimeEvalComponent,
   ],
-  imports:
-    [
-      RunnersModule,
-      CommonModule,
-      FormsModule,
-      TooltipsModule,
-      BrowserWindowModule,
-      SizePickerModule,
-      SimpleEditorModule,
-    ],
   providers:
     [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
   exports:

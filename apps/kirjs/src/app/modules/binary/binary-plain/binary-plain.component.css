@@ -108,8 +108,35 @@ angular-popper {
   margin-top: 1vw;
 }
 
-.bin-block:hover {
-  background: #000;
-  color: #fff;
-  cursor: hand;
+.item-header:first-child {
+  margin-top: 0;
+}
+
+.item-header {
+  width: 100%;
+  font-size: 5vw;
+  display: block;
+  margin-bottom: 2vw;
+  margin-top: 4vw;
+}
+
+.selected {
+  width: 100%;
+  border: 1px #ddd solid;
+  padding: 1vw;
+}
+
+.label {
+  display: inline-block;
+  width: 24vw;
+  flex-shrink: 0;
+}
+
+.meta {
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+}
+
+.selected .bin-block {
+  font-size: 4vw;
 }

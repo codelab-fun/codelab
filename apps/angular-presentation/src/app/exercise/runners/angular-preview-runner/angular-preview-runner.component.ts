@@ -3,6 +3,7 @@ import { ExerciseComponent } from '../../exercise/exercise.component';
 import { FileConfig } from '../../interfaces/file-config';
 import { createSystemJsSandbox } from '../utils/sandbox';
 import { runTypeScriptFiles } from '../utils/typescript-runner';
+
 declare const require;
 
 
@@ -16,6 +17,9 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
   @Input() url = '/assets/runner/';
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
+
+  constructor(public parent: ExerciseComponent) {
+  }
 
   fullUrl() {
     return (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
@@ -42,7 +46,6 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
     });
   }
 
-
   trackIframeUrl(iframe) {
     const interval = window.setInterval(() => {
       if (iframe.contentWindow) {
@@ -54,9 +57,6 @@ export class AngularPreviewRunnerComponent implements AfterViewInit {
         window.clearInterval(interval);
       }
     }, 200);
-  }
-
-  constructor(public parent: ExerciseComponent) {
   }
 
   ngAfterViewInit(): void {

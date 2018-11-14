@@ -1,8 +1,13 @@
 import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 import { createSystemJsSandbox } from '../utils/sandbox';
 import { ScriptLoaderService } from '../../services/script-loader.service';
-import { transform } from '@babel/standalone';
-
+//import { transform } from '@babel/standalone';
+// TODO(kirjs);
+const transform = (a, b) => {
+  return {
+    code: 'alert("FIx babel transform")'
+  }
+};
 declare const require;
 
 

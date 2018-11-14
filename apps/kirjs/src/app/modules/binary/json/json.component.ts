@@ -24,6 +24,8 @@ export class JsonComponent implements OnInit {
   binaries: any[];
   binariesLength: number;
   codeLength: number;
+  private schema: { value: string }[] = [];
+  private schemaLength: string;
 
   constructor() {
   }
@@ -54,16 +56,15 @@ export class JsonComponent implements OnInit {
         data.type = 'boolean';
         data.comment = 'just one bit!';
       } else if (typeof value === 'number') {
-        data.binary = value.toString(2);
+        data.binary = value.toString(2).padStart(Math.ceil(Math.log2(value + 1) / 8) * 8, '0');
         data.type = 'number';
         data.comment = 'Number';
       } else if (typeof value === 'string') {
-        data.binary = strToBin(value);
+        data.binary = strToBin(value) + '0000000000000000';
         data.display = value.split('').map((value => ({
           value,
           bin: (value.charCodeAt(0).toString(2) as any).padStart(8, 0)
-
-        })));
+        }))).concat({value: 'Separator', bin: '000000000000000000'});
         data.type = 'string';
         data.comment = 'String!';
       }
@@ -72,6 +73,20 @@ export class JsonComponent implements OnInit {
       return data;
     }));
 
+    this.schema = [
+      {
+        value: 'message {',
+        className: ''
+      }
+    ].concat(this.binaries.slice(1).map(((b, i) => ({
+      value: `    ${b.type} ${b.key} = ${i};`,
+      className: 'highlight-' + i
+    })))).concat({
+      value: '}',
+      className: ''
+    });
+
+    this.schemaLength = this.schema.map(s => s.value).join('').length;
     this.match = code.split('\n').map((a, i) => ({match: a.trim(), className: `highlight-${i}`}));
     this.index = lineNumber - 1;
     this.codeLength = code.replace(/\s/g, '').length;

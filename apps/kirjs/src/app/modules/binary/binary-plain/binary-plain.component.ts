@@ -46,6 +46,9 @@ export class BinaryPlainComponent {
     try {
       this.structure = flatten(this.parser.readOrdered(new StringBinaryReader(binary)).value)
         .filter(a => a.className.match(this.filterClassName));
+
+      console.log(this.parser.readOrdered(new StringBinaryReader(binary)).value);
+      console.log(this.structure);
     } catch (e) {
       console.log(e);
       //  lol

@@ -12,20 +12,36 @@
 
     <div class="binary">
       <ng-container *ngFor="let item of structure; let i = index">
-        <angular-popper [show]="showPopups && show[i]">
-          <span (mouseover)="show[i] = true"  (mouseout)="show[i] = false"
-                class="{{item.type}} {{item.className}} bin-block" [attr.name]="item.name"
-                (keydown.enter)="update(item, $event.target.innerText)"
-                contenteditable="true">{{item.rawValue}}</span>
+        <div *ngIf="!item.data && item.nesting === 1" class="item-header">{{item.name}}</div>
 
-          <div content>
-            <div>{{item.rawValue}}</div>
-            <h1>{{item.name}} - {{item.type}}</h1>
-            <div>{{item.value}}</div>
-            <div>{{item.description}}</div>
+        <div [class.selected]="show[i]" *ngIf="item.data">
+          <div style="display: flex;justify-content: space-between;">
+            <div
+              class="{{item.type}} {{item.className}} bin-block"
+              (click)="show[i] = true"
+              [attr.name]="item.name"
+              (keydown.enter)="update(item, $event.target.innerText)"
+              contenteditable="true">{{item.rawValue}}
+            </div>
+            <button style="border: 0 solid;
+              line-height: 2vw;cursor: pointer;" (click)="show[i] = false"
+                    *ngIf="show[i]">
+              &times;
+            </button>
           </div>
-        </angular-popper>
-        <span> </span>
+          <div *ngIf="show[i]" class="meta">
+            <div>
+              <span class="label">value:</span><span>{{item.value}}</span>
+            </div>
+            <div>
+              <span class="label">name:</span><span>{{item.name}}</span>
+            </div>
+            <div style="display: flex;">
+              <span class="label">description:</span><span>{{item.description}}</span>
+            </div>
+
+          </div>
+        </div>
       </ng-container>
     </div>
   </div>

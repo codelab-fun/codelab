@@ -6,8 +6,12 @@ import { BinaryParentComponent } from '../binary-view/binary-parent/binary-paren
 export function flatten(structure: any[], nesting = 0, parent = null, path = []) {
   return structure.reduce((result, item) => {
     if (item.type === 'object' || item.type === 'array') {
-      result = result.concat(flatten(item.value, nesting + 1, item, [...path, item.name]))
+      item.data = false;
+      item.nesting = nesting;
+      item.className = 'tbd';
+      result = result.concat(item).concat(flatten(item.value, nesting + 1, item, item.name ? [...path, item.name] : [...path]))
     } else {
+      item.data = true;
       item.nesting = nesting;
       item.parent = parent || item;
       item.root = item.parent.root || item.parent;

@@ -34,8 +34,7 @@ h1 {
 
 :host {
   .binary-presentation ::ng-deep {
-    .slide [intro],
-    [intro] .slide {
+    .slide [intro] {
       background: url(pics/kirjs.gif);
       background-size: 100vh !important;
       padding-left: 3vw;
@@ -53,24 +52,21 @@ h1 {
       }
     }
 
-    .slide [json],
-    [json] .slide {
+    .slide [json] {
       background: url(pics/p2.jpg);
     }
 
-    .slide [krakoziabry],
-    [krakoziabry] .slide {
+    .slide [krakoziabry] {
       background: url(pics/krakoziabry.jpg);
       background-size: cover;
     }
 
-    .slide [endianness],
-    [endianness] .slide {
+    .slide [endianness] {
       background: url(pics/endianness.png);
       background-size: 80vw !important;
     }
 
-    [kaitai] .slide {
+    .slide [kaitai] {
       background: url(pics/kaitai.png);
       background-size: 400px 400px !important;
       background-color: #fff;

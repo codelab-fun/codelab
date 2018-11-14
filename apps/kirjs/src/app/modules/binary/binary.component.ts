@@ -23,8 +23,7 @@ export class BinaryComponent {
   code = {
     inputFile: '<input id = "" type="file">',
     fileHandlerHighlight: {match: /read/, className: 'highlighted-code'},
-    fileHandler: `
-const input = document.getElementById('file');
+    fileHandler: `const input = document.getElementById('file');
 input.addEventListener('change', (e) => {
   const reader = new FileReader();
 
@@ -35,22 +34,20 @@ input.addEventListener('change', (e) => {
   reader.readAsString(input.files[0]);
 });
 `,
-    fileHandlerBinary: `document.getElementById('file').addEventListener('change', (e)=>{
-      const reader = new FileReader();
+    fileHandlerBinary: `const input = document.getElementById('file');
+input.addEventListener('change', (e) => {
+  const reader = new FileReader();
 
-      reader.onloadend = (e) => {
-        file = e.target.result;
-        console.log(file);
-      };
+  reader.onloadend = (e) => {
+    console.log(e.target.result);
+  };
 
-      reader.readAsArrayBuffer(e.target.files[0]);
-    }`
+  reader.readAsArrayBuffer(input.files[0]);
+});`
   };
 
   littleGif = littleGif;
   chikinGif = chikinGif;
-
-  hexVals = Array.from(Array(16).keys());
 
   binaryParserHeaderMatch = /parent-header/;
   binaryParserHeaderHelpers = [
