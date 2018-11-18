@@ -12,9 +12,17 @@
 
     <div class="binary">
       <ng-container *ngFor="let item of structure; let i = index">
-        <div *ngIf="!item.data && item.nesting === 1" class="item-header">{{item.name}}</div>
+        <div *ngIf="!item.data && item.nesting === 1 && spacing" class="item-header">{{item.name}}</div>
+        <span
+          *ngIf="item.data"
+          class="{{item.type}} {{item.className}} bin-block"
+          style="display: inline;"
+          (click)="show[i] = !show[i]"
+          [attr.name]="item.name"
+          (keydown.enter)="update(item, $event.target.innerText)"
+          contenteditable="true">{{item.rawValue}}</span>
 
-        <div [class.selected]="show[i]" *ngIf="item.data">
+        <div [class.selected]="show[i]" *ngIf="item.data && show[i]" style="display: inline;word-break: break-all">
           <div style="display: flex;justify-content: space-between;">
             <div
               class="{{item.type}} {{item.className}} bin-block"

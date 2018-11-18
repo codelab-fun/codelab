@@ -3,7 +3,7 @@ h1 {
 }
 
 ::ng-deep .slide.slide [vertical-split],
-[vertical-split] ::ng-deep .slide.slide {
+::ng-deep [vertical-split] .slide.slide {
   display: flex;
   flex-direction: row;
 
@@ -84,6 +84,10 @@ h1 {
     [gif] .slide {
       background: url(pics/zoom.gif);
     }
+    .slide [message],
+    [gif] .slide {
+      background: url(pics/gdg-binary.jpg);
+    }
 
     .slide [gif-bg],
     [gif-bg] .slide {
@@ -139,20 +143,6 @@ h1 {
   }
 }
 
-::ng-deep {
-  .angular-popper.angular-popper.angular-popper.angular-popper.angular-popper.angular-popper.angular-popper {
-    background: white;
-    width: auto;
-    padding: 2vw;
-    margin-top: 3vw;
-    z-index: 10000;
-
-    h1 {
-      font-size: 2vw;
-    }
-  }
-}
-
 .compare-json {
   width: 50%;
 }
@@ -160,3 +150,19 @@ h1 {
 .compare-serialization {
   padding: 0 20vw;
 }
+
+#gif-structure {
+  .text, li {
+    font-size: 2vw;
+  }
+  h2 {
+    margin-bottom: 1vw;
+  }
+
+  .text {
+    margin-bottom: 2vw;
+  }
+
+}
+
+

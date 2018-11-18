@@ -23,13 +23,26 @@
   <!--</div>-->
 
   <div *slide id="font-size" bg style="padding: 4vw">
-    <h2>
+    <h2 i18n>
       If you can't read the numbers below, move closer or go to <b
       style="font-size: 10vw; margin-bottom: 6vw; display: block;">kirjs.com/binary/0</b>
     </h2>
     <div style="font-size: 3vw;word-break: break-all">
       {{binaryLittleGif.substr(0, 200)}}
     </div>
+  </div>
+
+  <div *slide id="overview">
+    <h1>In this talk:</h1>
+    <ul>
+      <li><b>binary</b> + files</li>
+      <li><b>binary</b> + parsing files</li>
+      <li><b>binary</b> + HTTP requests</li>
+      <!--<li><b>binary</b> + JS memory internals</li>-->
+    </ul>
+  </div>
+
+  <div *slide id="binary-message" bg vc message>
   </div>
 
   <div *slide id="gif-internals" bg vc gif>
@@ -90,18 +103,44 @@ Columbus, Ohio
       </pre>
   </div>
 
+
   <div *slide id="gif-unspaced">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif"></slides-fake-gif>
   </div>
+
   <div *slide id="gif-spaced">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif"
                      [spacing]="true"></slides-fake-gif>
   </div>
 
+
   <div *slide id="gif-spaced-sections">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [binary]="binaryLittleGif" [spacing]="true"
                      [highlightGroups]="true"></slides-fake-gif>
   </div>
+
+
+  <div *slide id="gif-structure" vc>
+    <h2>Header</h2>
+    <ul class="text">
+      <li>Contains size, global pallets specs, transparency.</li>
+    </ul>
+    <h2>Palette (Optional, size defined ) </h2>
+    <ul class="text">
+      <li>Contains indexed colors</li>
+    </ul>
+    <h2>Extensions (Optional)</h2>
+    <div class="text">
+      <ul>
+        <li>Actual image data</li>
+        <li>Image Control</li>
+        <li>Animation Control</li>
+        <li>Comments</li>
+      </ul>
+    </div>
+  </div>
+
+  <kirjs-color-indexing *slide id="color-indexing"></kirjs-color-indexing>
 
   <div *slide id="gif-boolean">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true" [binary]="binaryLittleGif"
@@ -209,6 +248,17 @@ Columbus, Ohio
     <realtime-eval code="String.fromCharCode(118)"></realtime-eval>
   </div>
 
+  <div *slide id="binary-message-2" bg vc message>
+  </div>
+  <div *slide id="binary-message-decoded" vertical-split>
+    <div>
+      <slides-simple-editor language="javascript" [fontSize]="40" [(ngModel)]="code.message"
+                            (ngModelChange)="evalMessage()"></slides-simple-editor>
+    </div>
+    <div style="font-size: 5vw; word-wrap: break-word">{{evaledMessage}}</div>
+  </div>
+
+
   <div *slide id="gif-string-2">
     <slides-fake-gif (onBinaryUpdate)="binaryLittleGif = $event" [showPopups]="true"
                      [binary]="binaryLittleGif"
@@ -289,6 +339,14 @@ Columbus, Ohio
   <div *slide id="json">
     <slides-json></slides-json>
   </div>
+
+  <div *slide id="json-1">
+    <slides-json [code]="code.jsonOne"></slides-json>
+  </div>
+
+  <!--<div *slide id="angular-flags">-->
+  <!--<kirjs-angular-flags></kirjs-angular-flags>-->
+  <!--</div>-->
 
   <div *slide id="compare-size">
     <h1>Serialized Size</h1>
@@ -396,9 +454,9 @@ Columbus, Ohio
   <div *slide id="compare-examles">
     <h2>Existing solutions</h2>
     <ul>
-      <li>Proto Buffers (google)</li>
-      <li>Flatbuffers</li>
-      <li>Thrift (apache/facebook)</li>
+      <li><a href="https://developers.google.com/protocol-buffers/">Protocol buffers</a> (Google)</li>
+      <li><a href="https://google.github.io/flatbuffers/">Flatbuffers</a> (Google)</li>
+      <li><a href="https://thrift.apache.org/">Thrift</a> (Apache/Facebook)</li>
     </ul>
   </div>
 

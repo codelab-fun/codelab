@@ -22,7 +22,6 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
   }
 
   highlight() {
-
     if (this.editorComponent.editor) {
       if (!this.slidesSimpleHighlightMatch) {
         return;
@@ -50,7 +49,7 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
       }, []);
 
       this.decorators = this.editorComponent.editor.deltaDecorations(this.decorators, []);
-      // this.decorators = this.editorComponent.editor.deltaDecorations(this.decorators, decorations);
+      this.decorators = this.editorComponent.editor.deltaDecorations(this.decorators, decorations);
     }
   }
 

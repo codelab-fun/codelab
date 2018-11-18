@@ -289,6 +289,14 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "kirjs:build"
+          },
+          "configurations" : {
+            "ru": {
+              "outputPath": "locale/",
+              "outFile": "messages.ru.untranslated.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ru"
+            }
           }
         },
         "test": {

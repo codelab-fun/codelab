@@ -30,6 +30,8 @@ import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback
 import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-demo.component';
 import { HexdecComponent } from './hexdec/hexdec.component';
 import { SlidesModule } from '@angular-presentation/slides';
+import { AngularFlagsComponent } from './angular-flags/angular-flags.component';
+import { ColorIndexingComponent } from './color-indexing/color-indexing.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(BinaryComponent)
@@ -51,7 +53,7 @@ const routes = RouterModule.forChild(
     NewProgressBarModule,
     MatSelectModule,
     SlidesModule,
-    FeedbackModule
+    FeedbackModule,
   ],
   declarations: [
     BinaryComponent,
@@ -69,6 +71,8 @@ const routes = RouterModule.forChild(
     MemoryComponent,
     BinaryParserDemoComponent,
     HexdecComponent,
+    AngularFlagsComponent,
+    ColorIndexingComponent,
   ],
   entryComponents: [
     FakeGifComponent,

@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 function strToBin(s: string) {
   return Array.from(new TextEncoder().encode(s)).map(a => a.toString(2).padStart(8, '0')).join('')
 }
 
-const zerozero = '0000000000000000';
 
 @Component({
   selector: 'slides-json',
@@ -12,7 +11,7 @@ const zerozero = '0000000000000000';
   styleUrls: ['./json.component.scss']
 })
 export class JsonComponent implements OnInit {
-  code = `{
+  @Input() code = `{
   "name": "Sarah",
   "test": true,
   "something": 1212
@@ -24,8 +23,8 @@ export class JsonComponent implements OnInit {
   binaries: any[];
   binariesLength: number;
   codeLength: number;
-  private schema: { value: string }[] = [];
-  private schemaLength: string;
+  schema: { value: string }[] = [];
+  schemaLength: number;
 
   constructor() {
   }

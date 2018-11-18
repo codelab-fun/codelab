@@ -34,7 +34,7 @@
 
 
     <div (click)="index = i" *ngFor="let item of schema; let i = index" class="bin {{item.className}}">
-      &nbsp;{{item.value}}
+     <ng-container *ngIf="item.className">&nbsp;&nbsp;</ng-container>{{item.value}}
     </div>
 
 

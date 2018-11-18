@@ -10,8 +10,8 @@ const header = new BinaryParser()
   .boolean('globalPallette', {description: 'Whether global palette is present'})
   .bit3('resolution', {type: 'number', description: 'Number of bits per primary color available'})
   .boolean('palette-sorted', {description: 'Whether the palette is sorted'})
-  .bit3('palette-size', {type: 'number'})
-  .uInt8('background')
+  .bit3('palette-size', {type: 'number', description: `Specifies number of colors in the palette proportional a power of two. e.g.`})
+  .uInt8('background', {description: 'If present specifies index of a color in the global color table that would be transparent'})
   .uInt8('Ratio');
 
 
@@ -21,7 +21,8 @@ const commentParser = new BinaryParser()
 
 const palette = new BinaryParser()
   .array('palette', {
-    parser: new BinaryParser().uInt24('color', {
+    parser: new BinaryParser().hex('color', {
+      length: 6,
       type: 'color',
     }),
     length(data) {
@@ -87,7 +88,7 @@ const imageDescriptorParser = new BinaryParser()
   .boolean('Interlacing', {description: 'Indicates if the image is interlaced.'})
   .boolean('localPaletteSorted', {description: 'Whether local palette is sorted'})
   .constBits('00', {description: 'This is reserved'})
-  .bit3('localPaletteSize', {type: 'enums', description: 'Bucket of sizes of local palette. E.g TODO'})
+  .bit3('localPaletteSize', {type: 'enums', description: 'Bucket of sizes of local palette.'})
   .uInt8('colorDepth')
   .uInt8('blockSize')
   .bit('graphicBlock', {

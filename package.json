@@ -15,7 +15,7 @@
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
     "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && npm run sw  && firebase deploy --only hosting:codelab",
-    "deploy:kirjs": "ng build kirjs --prod --aot && npm run sw && firebase deploy",
+    "deploy:kirjs": "ng build kirjs --prod --aot && npm run sw && firebase deploy  --only hosting:kirjs",
     "deploy:ru": "npm run build:ru && firebase deploy --only hosting:kirjs",
     "i18n": "ng xi18n -f=xmb --output-path src/i18n",
     "affected:apps": "./node_modules/.bin/nx affected:apps",

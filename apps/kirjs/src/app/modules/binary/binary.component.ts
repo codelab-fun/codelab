@@ -21,6 +21,34 @@ export class BinaryComponent {
   binaryChikinGif = strToBin(chikinGif);
 
   code = {
+    message: `['01001011', '01001111',
+ '01010100', '01001100',
+ '01001001', '01001110',
+ '00100000', '00111110',
+ '00100000', '01001010',
+ '01000001', '01010110',
+ '01000001'
+]
+
+
+
+
+
+
+// .map(
+//   a => String.fromCharCode(
+//   parseInt(a, 2)))
+//   .join('');
+`,
+    jsonBasic: `{
+  "name": "Sarah",
+  "test": true,
+  "something": 1212
+}`, jsonOne: `{
+  "str": "1",
+  "number": 1,
+  "bool": true
+}`,
     inputFile: '<input id = "" type="file">',
     fileHandlerHighlight: {match: /read/, className: 'highlighted-code'},
     fileHandler: `const input = document.getElementById('file');
@@ -308,7 +336,12 @@ input.addEventListener('change', (e) => {
 
 
   ];
+  private evaledMessage: string;
 
+
+  evalMessage() {
+    this.evaledMessage = eval(this.code.message);
+  }
 
   setLittleGifBinary(value: string) {
     this.littleGif = value;

@@ -32,6 +32,7 @@ export class FakeGifComponent implements OnInit {
   parser: BinaryParser;
 
   constructor() {
+
   }
 
   upload(file) {
