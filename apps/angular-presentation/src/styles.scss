@@ -1,5 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .presentation.size-600 li {
   font-size: 12px;
   margin-bottom: 5px;

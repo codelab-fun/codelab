@@ -1,4 +1,4 @@
-import { CodelabFile } from '../../../exercise/helpers/codelabFile';
+import { CodelabFile } from '../../../../../../../libs/exercise/src/lib/helpers/codelabFile';
 import { Component } from '@angular/core';
 import { ExerciseConfigTemplate, ng2tsConfig, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 

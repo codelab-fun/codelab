@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { vueJsExercise } from '../../../exercise/helpers/helpers';
+import { vueJsExercise } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 
 @Component({
   selector: 'slides-vue',

@@ -14,13 +14,13 @@ import { DebuggerComponent } from './debugger/debugger.component';
 import { TestSetComponent } from './test-set/test-set.component';
 import { MatchTypesOnHoverDirective } from './match-types-on-hover.directive';
 import { AngularSlidesToPdfModule } from '@angular-presentation/angular-slides-to-pdf';
-import { FakeBabelModule } from '../../../../../angular-presentation/src/app/exercise/fake-babel-runner/fake-babel-runner.module';
+import { FakeBabelModule } from '../../../../../../libs/exercise/src/lib/fake-babel-runner/fake-babel-runner.module';
 import { SizePickerModule } from './size-picker/size-picker.module';
 import { TooltipsModule } from '@angular-presentation/tooltips';
-import { RunnersModule } from '../../../../../angular-presentation/src/app/exercise/runners/runners.module';
+import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/runners.module';
 import { PresentationModule } from '@angular-presentation/presentation';
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
-import { ExerciseModule } from '../../../../../angular-presentation/src/app/exercise/exercise.module';
+import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(AstComponent)

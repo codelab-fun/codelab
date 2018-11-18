@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { reactExercise } from '../../../../../angular-presentation/src/app/exercise/helpers/helpers';
+import { reactExercise } from '../../../../../../libs/exercise/src/lib/helpers/helpers';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, Input } from '@angular/core';
-import { EditorComponent } from '../../../../apps/angular-presentation/src/app/exercise/editor/editor.component';
+import { EditorComponent } from '../../../exercise/src/lib/editor/editor.component';
 import { findPosition } from './utils';
 
 @Directive({

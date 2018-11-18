@@ -11,7 +11,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MonacoConfigService } from '../../../../../apps/angular-presentation/src/app/exercise/services/monaco-config.service';
+import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
 // import * as theme from './themes/devtools.json';
 
 declare const monaco: any;

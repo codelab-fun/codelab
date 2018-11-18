@@ -1,6 +1,6 @@
 import { AfterContentInit, ContentChildren, Directive } from '@angular/core';
 import { findHighlightsAll } from './parse-hello-world-ast';
-import { CodeEditorComponent } from '../../../../../angular-presentation/src/app/exercise/code-editor/code-editor.component';
+import { CodeEditorComponent } from '../../../../../../libs/exercise/src/lib/code-editor/code-editor.component';
 
 
 @Directive({

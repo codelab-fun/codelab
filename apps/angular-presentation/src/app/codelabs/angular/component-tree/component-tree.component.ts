@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate } from '../../../../../../../ng2ts/ng2ts';
-import { boxAndCircle, circleAndBox } from '../../../exercise/helpers/helpers';
+import { boxAndCircle, circleAndBox } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
 
 const circleAndBoxCode = circleAndBox();

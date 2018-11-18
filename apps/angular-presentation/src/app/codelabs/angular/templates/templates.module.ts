@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { TemplatesComponent } from './templates.component';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
-import { ExerciseModule } from '../../../exercise/exercise.module';
+import { ExerciseModule } from '../../../../../../../libs/exercise/src/lib/exercise.module';
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
-import { RunnersModule } from '../../../exercise/runners/runners.module';
+import { RunnersModule } from '../../../../../../../libs/exercise/src/lib/runners/runners.module';
 
 const routes = RouterModule.forChild(
   [{

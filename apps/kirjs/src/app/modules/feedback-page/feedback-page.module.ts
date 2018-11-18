@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '../../../../../../libs/browser/src/lib/browser.module';
 import { PresentationModule } from '../../../../../../libs/presentation/src/lib/presentation.module';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../../../../angular-presentation/src/environments/environment';
+
 import { HttpClientModule } from '@angular/common/http';
-import { GithubService } from '../../../../../angular-presentation/src/app/github.service';
+import { GithubService } from './github.service';
+import { environment } from '../../../environments/environment';
 
 
 const routes = RouterModule.forChild(

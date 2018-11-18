@@ -3,11 +3,11 @@ import { DependencyInjectionComponent } from './dependency-injection.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
-import { ExerciseModule } from '../../../exercise/exercise.module';
+import { ExerciseModule } from '../../../../../../../libs/exercise/src/lib/exercise.module';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { RunnersModule } from '../../../exercise/runners/runners.module';
+import { RunnersModule } from '../../../../../../../libs/exercise/src/lib/runners/runners.module';
 
 const routes = RouterModule.forChild(
   [{

@@ -5,7 +5,7 @@ import * as firebase from 'firebase/app';
 import { Message } from '../../../../../../libs/feedback/src/lib/message';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GithubService } from '../../../../../angular-presentation/src/app/github.service';
+import { GithubService } from './github.service';
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';

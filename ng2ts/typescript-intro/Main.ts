@@ -1,6 +1,6 @@
 
-import {Codelab} from './Codelab';
-import {Guest} from './Guest';
+import { Codelab } from './Codelab';
+import { Guest } from './Guest';
 
 // Use this file for reference.
 const guests: Guest[] = [

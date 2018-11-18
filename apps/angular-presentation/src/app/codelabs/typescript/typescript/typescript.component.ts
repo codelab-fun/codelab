@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../exercise/helpers/helpers';
+import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
 import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
 

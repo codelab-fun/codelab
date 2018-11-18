@@ -4,7 +4,8 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
-import { monacoReady } from '../../../angular-presentation/src/app/codelabs/codelabs.module';
+import { monacoReady } from '@angular-presentation/exercise/src/lib/services/monaco-config.service';
+
 
 const routes = [
   {

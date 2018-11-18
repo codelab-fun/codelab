@@ -5,14 +5,14 @@ import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { SvgComponent } from './svg.component';
 import { PresentationModule } from '../../../../../../libs/presentation/src/lib/presentation.module';
-import { ExerciseModule } from '../../../../../angular-presentation/src/app/exercise/exercise.module';
+import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
 import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SvgPlaygroundComponent } from './svg-playground/svg-playground.component';
-import { RunnersModule } from '../../../../../angular-presentation/src/app/exercise/runners/runners.module';
+import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/runners.module';
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';

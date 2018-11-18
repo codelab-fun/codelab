@@ -1,4 +1,4 @@
-import { FileConfig } from '../../../../../apps/angular-presentation/src/app/exercise/interfaces/file-config';
+import { FileConfig } from '../../../../exercise/src/lib/interfaces/file-config';
 export function hidden(...files: FileConfig[]): FileConfig[] {
   return files.map(file => Object.assign({}, file, {hidden: true}));
 }
