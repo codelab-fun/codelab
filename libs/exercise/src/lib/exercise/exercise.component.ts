@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { PresentationComponent } from '../../../../presentation/src/lib/presentation/presentation.component';
 import { BehaviorSubject } from 'rxjs';
 import { ExerciseBase } from './exercise.base';
 
@@ -19,13 +19,15 @@ export class ExerciseComponent extends ExerciseBase implements OnInit {
 
   public readonly files$ = new BehaviorSubject<Array<FileConfig>>([]);
 
-  constructor(
-    monacoConfig: MonacoConfigService, route: ActivatedRoute) {
-    super(monacoConfig, route);
-
-  }
-
   private _files: any;
+
+  constructor(
+    monacoConfig: MonacoConfigService,
+    route: ActivatedRoute,
+    presentation: PresentationComponent,
+  ) {
+    super(monacoConfig, route, presentation);
+  }
 
   get files() {
     return this._files;

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ExerciseBase } from '../exercise/exercise.base';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { ActivatedRoute } from '@angular/router';
+import { PresentationComponent } from '../../../../presentation/src/lib/presentation/presentation.component';
 
 
 @Component({
@@ -22,8 +23,9 @@ export class PlaygroundComponent extends ExerciseBase {
   constructor(
     monacoConfig: MonacoConfigService,
     route: ActivatedRoute,
+    presentation: PresentationComponent,
   ) {
-    super(monacoConfig, route);
+    super(monacoConfig, route, presentation);
   }
 
   onCodeChange(code, file) {

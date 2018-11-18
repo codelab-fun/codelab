@@ -1,4 +1,4 @@
-import { EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Input, OnInit } from '@angular/core';
 import { ExerciseConfig } from '../interfaces/exercise-config';
 
 
@@ -6,15 +6,16 @@ import { ActivatedRoute } from '@angular/router';
 import { FileConfig } from '../interfaces/file-config';
 import * as assert from 'assert';
 import { MonacoConfigService } from '../services/monaco-config.service';
+import { PresentationComponent } from '../../../../presentation/src/lib/presentation/presentation.component';
 
 export class ExerciseBase implements OnInit {
   @Input() public config: ExerciseConfig;
-  @Output() nextSlide = new EventEmitter();
   running = false;
   solved = false;
 
   constructor(private monacoConfig: MonacoConfigService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private presentation: PresentationComponent) {
   }
 
   loadModels(files: Array<FileConfig>) {
@@ -54,7 +55,7 @@ export class ExerciseBase implements OnInit {
   }
 
   goToNextSlide() {
-    this.nextSlide.emit();
+    this.presentation.nextSlide();
   }
 
   toggleFile(toggledFile) {
