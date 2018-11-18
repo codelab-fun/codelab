@@ -32,6 +32,12 @@ h1 {
   }
 }
 
+#font-size b {
+  font-size: 10vw;
+  margin-bottom: 6vw;
+  display: block;
+}
+
 :host {
   .binary-presentation ::ng-deep {
     .slide [intro] {

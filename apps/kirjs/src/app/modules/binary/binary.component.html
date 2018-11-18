@@ -7,25 +7,24 @@
   <!--<slides-feedback-widget></slides-feedback-widget>-->
 
   <div *slide id="intro" bg intro no-padding>
-    <h1>@kirjs</h1>
-    <h2>Binary ❤️ JavaScript</h2>
+    <h1 i18n>@kirjs</h1>
+    <h2 i18n>️JavaScript ❤️ Binary </h2>
     <h3>kirjs.com/binary/0</h3>
   </div>
 
   <!--<div *slide id="overview">-->
-  <!--<h1>In this talk:</h1>-->
+  <!--<h1 i18n>In this talk:</h1>-->
   <!--<ul>-->
-  <!--<li><b>binary</b> + files</li>-->
-  <!--<li><b>binary</b> + parsing files</li>-->
-  <!--<li><b>binary</b> + HTTP requests</li>-->
-  <!--<li><b>binary</b> + JS memory internals</li>-->
+  <!--<li i18n><b>binary</b> + files</li>-->
+  <!--<li i18n><b>binary</b> + parsing files</li>-->
+  <!--<li i18n><b>binary</b> + HTTP requests</li>-->
+  <!--<li i18n><b>binary</b> + JS memory internals</li>-->
   <!--</ul>-->
   <!--</div>-->
 
   <div *slide id="font-size" bg style="padding: 4vw">
     <h2 i18n>
-      If you can't read the numbers below, move closer or go to <b
-      style="font-size: 10vw; margin-bottom: 6vw; display: block;">kirjs.com/binary/0</b>
+      If you can't read the numbers below, move closer or go to <b>kirjs.com/binary/0</b>
     </h2>
     <div style="font-size: 3vw;word-break: break-all">
       {{binaryLittleGif.substr(0, 200)}}
@@ -35,10 +34,10 @@
   <div *slide id="overview">
     <h1 i18n>In this talk:</h1>
     <ul>
-      <li i18n="TBD"><b>binary</b> + files</li>
-      <li><b>binary</b> + parsing files</li>
-      <li><b>binary</b> + HTTP requests</li>
-      <!--<li><b>binary</b> + JS memory internals</li>-->
+      <li i18n i18n><b>binary</b> + files</li>
+      <li i18n i18n><b>binary</b> + parsing files</li>
+      <li i18n i18n><b>binary</b> + HTTP requests</li>
+      <!--<li i18n><b>binary</b> + JS memory internals</li>-->
     </ul>
   </div>
 
@@ -46,7 +45,7 @@
   </div>
 
   <div *slide id="gif-internals" bg vc gif>
-    <h1>Let's see what's inside of <b>gif</b></h1>
+    <h1 i18n>Let's see what's inside of <b>gif</b></h1>
   </div>
 
   <div *slide id="binary-file-upload">
@@ -121,21 +120,21 @@ Columbus, Ohio
 
 
   <div *slide id="gif-structure" vc>
-    <h2>Header</h2>
+    <h2 i18n>Header</h2>
     <ul class="text">
-      <li>Contains size, global pallets specs, transparency.</li>
+      <li i18n>Contains size, global pallets specs, transparency.</li>
     </ul>
-    <h2>Palette (Optional, size defined ) </h2>
+    <h2 i18n>Palette (Optional, size defined ) </h2>
     <ul class="text">
-      <li>Contains indexed colors</li>
+      <li i18n>Contains indexed colors</li>
     </ul>
-    <h2>Extensions (Optional)</h2>
+    <h2 i18n>Extensions (Optional)</h2>
     <div class="text">
       <ul>
-        <li>Actual image data</li>
-        <li>Image Control</li>
-        <li>Animation Control</li>
-        <li>Comments</li>
+        <li i18n i18n>Actual image data</li>
+        <li i18n i18n>Image Control</li>
+        <li i18n i18n>Animation Control</li>
+        <li i18n i18n>Comments</li>
       </ul>
     </div>
   </div>
@@ -162,12 +161,12 @@ Columbus, Ohio
 
 
   <div *slide id="convert-bin-to-dec">
-    <h2>Convert binary to decimal with JavaScript</h2>
+    <h2 i18n>Convert binary to decimal with JavaScript</h2>
     <realtime-eval code="parseInt('01010101', 2)"></realtime-eval>
   </div>
 
   <div *slide id="convert-dec-to-bin">
-    <h2>Convert decimal to binary</h2>
+    <h2 i18n>Convert decimal to binary</h2>
     <realtime-eval code="(1212).toString(2)"></realtime-eval>
   </div>
 
@@ -189,12 +188,12 @@ Columbus, Ohio
     <kirjs-hexdec></kirjs-hexdec>
   </div>
   <div *slide id="bin-hex">
-    <h2>Convert binary to hexadecimal with JavaScript</h2>
+    <h2 i18n>Convert binary to hexadecimal with JavaScript</h2>
     <realtime-eval code="parseInt('01010101', 2).toString(16)"></realtime-eval>
   </div>
 
   <div *slide id="hex-bin">
-    <h2>Convert hexadecimal to binary with JavaScript</h2>
+    <h2 i18n>Convert hexadecimal to binary with JavaScript</h2>
     <realtime-eval code="parseInt('FEFEFE', 16).toString(2)"></realtime-eval>
   </div>
 
@@ -239,12 +238,12 @@ Columbus, Ohio
   </div>
 
   <div *slide id="str-to-charcode">
-    <h2>Get charcode from string</h2>
+    <h2 i18n>Get charcode from string</h2>
     <realtime-eval code="'lol'.charCodeAt(0)"></realtime-eval>
   </div>
 
   <div *slide id="charcode-to-str">
-    <h2>Get letter from charcode</h2>
+    <h2 i18n>Get letter from charcode</h2>
     <realtime-eval code="String.fromCharCode(118)"></realtime-eval>
   </div>
 
@@ -280,12 +279,12 @@ Columbus, Ohio
   <!--</div>-->
 
   <!--<div *slide id="charcode-to-str">-->
-  <!--<h1>ПЕЉМЕЊ!!!</h1>-->
+  <!--<h1 i18n>ПЕЉМЕЊ!!!</h1>-->
   <!--</div>-->
 
 
   <div *slide id="parsing-binary" bg vc gif>
-    <h1>Parsing binary(with <b>binary-parser</b>)</h1>
+    <h1 i18n>Parsing binary(with <b>binary-parser</b>)</h1>
   </div>
 
 
@@ -307,7 +306,7 @@ Columbus, Ohio
 
 
   <!--<div *slide id="summary">-->
-  <!--<h2>Summary</h2>-->
+  <!--<h2 i18n>Summary</h2>-->
   <!--<table>-->
   <!--<tr>-->
   <!--<td>boolean</td>-->
@@ -333,7 +332,7 @@ Columbus, Ohio
   <!--</div>-->
   <!---->
   <div *slide id="binary-json" bg vc json>
-    <h1>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
+    <h1 i18n>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
   </div>
 
   <div *slide id="json">
@@ -349,157 +348,157 @@ Columbus, Ohio
   <!--</div>-->
 
   <div *slide id="compare-size">
-    <h1>Serialized Size</h1>
+    <h1 i18n>Serialized Size</h1>
     <div style="display: flex;" class="compare-serialization">
 
       <div class="compare-json">
-        <h2>JSON</h2>
+        <h2 i18n>JSON</h2>
         <ul>
-          <li class="compare-value">Bigger</li>
+          <li i18n class="compare-value">Bigger</li>
         </ul>
       </div>
 
       <div>
-        <h2>Binary</h2>
+        <h2 i18n>Binary</h2>
         <ul>
-          <li class="compare-value">Smaller</li>
+          <li i18n class="compare-value">Smaller</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-speed">
-    <h1>Serialization speed</h1>
+    <h1 i18n>Serialization speed</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
-        <h2>JSON</h2>
+        <h2 i18n>JSON</h2>
         <ul>
-          <li class="compare-value">Slower</li>
+          <li i18n class="compare-value">Slower</li>
         </ul>
       </div>
 
       <div>
-        <h2>Binary</h2>
+        <h2 i18n>Binary</h2>
         <ul>
-          <li class="compare-value">Faster</li>
+          <li i18n class="compare-value">Faster</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-debugging">
-    <h1>Debugging</h1>
+    <h1 i18n>Debugging</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
-        <h2>JSON</h2>
+        <h2 i18n>JSON</h2>
 
         <ul>
-          <li class="compare-value">Easy to understand</li>
-          <li class="compare-value">Human readable</li>
+          <li i18n class="compare-value">Easy to understand</li>
+          <li i18n class="compare-value">Human readable</li>
         </ul>
 
       </div>
 
       <div>
-        <h2>Binary</h2>
+        <h2 i18n>Binary</h2>
         <ul>
-          <li class="compare-value">Requires special tooling</li>
+          <li i18n class="compare-value">Requires special tooling</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-tooling">
-    <h1>Tooling</h1>
+    <h1 i18n>Tooling</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
-        <h2>JSON</h2>
+        <h2 i18n>JSON</h2>
         <ul>
-          <li class="compare-value">For JS works out of the box</li>
+          <li i18n class="compare-value">For JS works out of the box</li>
         </ul>
 
       </div>
 
       <div>
-        <h2>Binary</h2>
+        <h2 i18n>Binary</h2>
         <ul>
-          <li class="compare-value">Requires special tooling</li>
+          <li i18n class="compare-value">Requires special tooling</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-schema">
-    <h1>Schema</h1>
+    <h1 i18n>Schema</h1>
     <div style="display: flex;" class="compare-serialization">
       <div class="compare-json">
-        <h2>JSON</h2>
+        <h2 i18n>JSON</h2>
         <ul>
-          <li>No schema</li>
+          <li i18n>No schema</li>
         </ul>
 
       </div>
 
       <div>
-        <h2>Binary</h2>
+        <h2 i18n>Binary</h2>
         <ul>
-          <li>Needs a schema</li>
-          <li>Comes with type checking</li>
-          <li>Comes with validation</li>
+          <li i18n>Needs a schema</li>
+          <li i18n>Comes with type checking</li>
+          <li i18n>Comes with validation</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div *slide id="compare-examles">
-    <h2>Existing solutions</h2>
+    <h2 i18n>Existing solutions</h2>
     <ul>
-      <li><a href="https://developers.google.com/protocol-buffers/">Protocol buffers</a> (Google)</li>
-      <li><a href="https://google.github.io/flatbuffers/">Flatbuffers</a> (Google)</li>
-      <li><a href="https://thrift.apache.org/">Thrift</a> (Apache/Facebook)</li>
+      <li i18n><a href="https://developers.google.com/protocol-buffers/">Protocol buffers</a> (Google)</li>
+      <li i18n><a href="https://google.github.io/flatbuffers/">Flatbuffers</a> (Google)</li>
+      <li i18n><a href="https://thrift.apache.org/">Thrift</a> (Apache/Facebook)</li>
     </ul>
   </div>
 
   <div *slide id="bonus" bg vc gif>
-    <h1>Bonus</h1>
+    <h1 i18n>Bonus</h1>
   </div>
 
   <div *slide id="files">
-    <h2>File header constants</h2>
+    <h2 i18n>File header constants</h2>
     <ul>
-      <li>Gif - GIF87a (or GIF89a)</li>
-      <li>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9'</li>
-      <li>Java class - CAFEBABE</li>
-      <li>ZIP files begin with ‘PK‘ (50 4B)</li>
-      <li>PDF files start with ‘%PDF‘ (25 50 44 46)</li>
-      <li>PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)</li>
-      <li>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
+      <li i18n>Gif - GIF87a (or GIF89a)</li>
+      <li i18n>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9'</li>
+      <li i18n>Java class - CAFEBABE</li>
+      <li i18n>ZIP files begin with ‘PK‘ (50 4B)</li>
+      <li i18n>PDF files start with ‘%PDF‘ (25 50 44 46)</li>
+      <li i18n>PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)</li>
+      <li i18n>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
     </ul>
   </div>
 
   <div *slide id="kaitai" bg kaitai>
-    <h1>Big library of binary formats</h1>
-    <h2>https://formats.kaitai.io/</h2>
+    <h1 i18n>Big library of binary formats</h1>
+    <h2 i18n>https://formats.kaitai.io/</h2>
   </div>
 
   <div *slide id="Facts">
-    <h2>Gif facts</h2>
+    <h2 i18n>Gif facts</h2>
     <ul>
-      <li>Image size: 1х1 to 65535х65535</li>
-      <li>Colors: 2 - 256</li>
-      <li>True color gifs are possible</li>
-      <li>Max number of animation frames - unlimited</li>
-      <li>Animation delay 1/100 - 655 seconds</li>
-      <li>There's a plain text extension</li>
-      <li>24 pages + 12 pages appendix in gif89 standard</li>
+      <li i18n>Image size: 1х1 to 65535х65535</li>
+      <li i18n>Colors: 2 - 256</li>
+      <li i18n>True color gifs are possible</li>
+      <li i18n>Max number of animation frames - unlimited</li>
+      <li i18n>Animation delay 1/100 - 655 seconds</li>
+      <li i18n>There's a plain text extension</li>
+      <li i18n>24 pages + 12 pages appendix in gif89 standard</li>
     </ul>
   </div>
 
   <div *slide id="outro" bg intro>
-    <h1>@kirjs</h1>
-    <h2>Binary ❤️ JavaScript</h2>
-    <h2>kirjs.com/binary/0</h2>
-    <h3>Thanks @andrey_sitnik for review</h3>
+    <h1 i18n>@kirjs</h1>
+    <h2 i18n>Binary ❤️ JavaScript</h2>
+    <h2 i18n>kirjs.com/binary/0</h2>
+    <h3 i18n>Thanks @andrey_sitnik, @_bmsdave for review</h3>
   </div>
 </slides-deck>
 
