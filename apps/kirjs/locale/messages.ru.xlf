@@ -127,6 +127,22 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4c39881211591524065d428cc23688202965e1d2" datatype="html">
+        <source>In this talk:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/binary/binary.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3d36e6128ca2d9d2ba17fbabe6545aeae9fc5e0e" datatype="html">
+        <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>binary<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> + files</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/binary/binary.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">TBD</note>
+        <target>LOL</target>
+      </trans-unit>
       <trans-unit id="introduction" datatype="html">
         <source>Introduction</source>
         <context-group purpose="location">

@@ -255,6 +255,13 @@
             "scripts": []
           },
           "configurations": {
+            "ru": {
+              "outputPath": "dist/kirjs/ru",
+              "aot": true,
+              "i18nFile": "apps/kirjs/locale/messages.ru.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ru"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -267,7 +274,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
@@ -282,6 +289,9 @@
           "configurations": {
             "production": {
               "browserTarget": "kirjs:build:production"
+            },
+            "ru": {
+              "browserTarget": "kirjs:build:ru"
             }
           }
         },
@@ -290,7 +300,7 @@
           "options": {
             "browserTarget": "kirjs:build"
           },
-          "configurations" : {
+          "configurations": {
             "ru": {
               "outputPath": "locale/",
               "outFile": "messages.ru.untranslated.xlf",
