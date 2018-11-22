@@ -16,15 +16,15 @@ import { AnalyticsService } from './analytics.service';
 import { SlideIfDirective } from './slide-if/slide-if.directive';
 import { HammerGestureConfig } from '@angular/platform-browser';
 
-
-export class MyHammerConfig extends HammerGestureConfig {
-  overrides = {
-    stop_browser_behavior: false,
-    cssProps: {
-      userSelect: 'auto',
-    },
-  }
-}
+//
+// export class MyHammerConfig extends HammerGestureConfig {
+//   overrides = {
+//     stop_browser_behavior: false,
+//     cssProps: {
+//       userSelect: 'auto',
+//     },
+//   }
+// }
 
 
 @NgModule({

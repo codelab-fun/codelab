@@ -15,8 +15,77 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <translationbundle lang="ru">
-  <translation id="2824875105338391071">Тест тест</translation>
-  <translation id="4149332726076272416">В этом выступлении:</translation>
-  <translation id="7550776370111202144" desc="TBD"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>бинарные <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> файлы</translation>
-  <translation id="introduction">Вступление</translation>
+  <translation id="2824875105338391071">
+      If you can&apos;t read the numbers below, move closer or go to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>kirjs.com/binary/0<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
+    </translation>
+  <translation id="4149332726076272416">In this talk:</translation>
+  <translation id="7550776370111202144" desc="TBD"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> + files</translation>
+  <translation id="introduction">Introduction</translation>
+  <translation id="297943560492772582">@kirjs</translation>
+  <translation id="2822488826106826578">️JavaScript ❤️ Бинарные Данные </translation>
+  <translation id="9213967112278224715"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> + parsing files</translation>
+  <translation id="6553189578448767458"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> + HTTP requests</translation>
+  <translation id="4749058246803727552">Let&apos;s see what&apos;s inside of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>gif<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
+  <translation id="3597932961286677186">Заголовок</translation>
+  <translation id="8989873612204787281">Содержит размеры картинки, настройки прозрачности и палитры</translation>
+  <translation id="534812795985958361">Палитра (Наличие и размер определяется в заголовке)</translation>
+  <translation id="3938479736078443805">Содержит индексированные цвета</translation>
+  <translation id="3548048205965117162">Расширения (Optional)</translation>
+  <translation id="489855084993879246">Сама картинка</translation>
+  <translation id="5838521644867201449">Блок описывающий поведение картинки</translation>
+  <translation id="931491989303959259">Блок описывающий анимацию картинки</translation>
+  <translation id="3807699453257291879">Комментарии</translation>
+  <translation id="5510336295069197234">Конвертация из двоичной системы счисления в десятиричную  с помощью JavaScript</translation>
+  <translation id="8654618120168558452">Конвертация из десятиричной  системы счисления в двоичную с помощью JavaScript</translation>
+  <translation id="6328086056731380089">Конвертация из двоичной системы счисления в шестнадцатиричную  с помощью JavaScript</translation>
+  <translation id="3610726963919885246">Конвертация из шестнадцатиричную системы счисления в  двоичную с помощью JavaScript</translation>
+  <translation id="5377037856556160771">Получение charCode </translation>
+  <translation id="7025121863698322477">Get letter from charcode</translation>
+  <translation id="7931653459498650396">Парсим бинарный файл (с помощью <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary-parser<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>)</translation>
+  <translation id="3731160866778187040">Можем ли мы использовать <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>бинарные данные <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> вместо <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>JSON<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>?</translation>
+  <translation id="7852133356596779874">Размер после сериализации</translation>
+  <translation id="2742664813202759813">JSON</translation>
+  <translation id="2044194570562448530">Больше</translation>
+  <translation id="793068249425686908">Бинарные данные</translation>
+  <translation id="7774873943331135334">Меньше</translation>
+  <translation id="641664010209157570">Скорость сериализации</translation>
+  <translation id="2985059781575755822">Медленее</translation>
+  <translation id="659233733431508399">Быстрее</translation>
+  <translation id="675502942307621158">Debugging</translation>
+  <translation id="74488306490404477">Easy to understand</translation>
+  <translation id="7679521196114828675">Human readable</translation>
+  <translation id="4290458654577941433">Requires special tooling</translation>
+  <translation id="9105483695831392309">Tooling</translation>
+  <translation id="2186589438043615872">For JS works out of the box</translation>
+  <translation id="1721827980245086554">Schema</translation>
+  <translation id="2979028920132715625">No schema</translation>
+  <translation id="7108226176298610135">Needs a schema</translation>
+  <translation id="8657754663266965278">Comes with type checking</translation>
+  <translation id="9170265368266877102">Comes with validation</translation>
+  <translation id="1257397640951538252">Existing solutions</translation>
+  <translation id="8643348940092477927"><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Protocol buffers<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Google)</translation>
+  <translation id="5480246874668908377"><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Flatbuffers<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Google)</translation>
+  <translation id="3516009209791088102"><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Thrift<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Apache/Facebook)</translation>
+  <translation id="9153865673591675155">Bonus</translation>
+  <translation id="501698005128033255">File header constants</translation>
+  <translation id="497452967189052368">Gif - GIF87a (or GIF89a)</translation>
+  <translation id="734429310122802487">Jpeg - begin with ‘FF D8‘ and end with ‘FF D9&apos;</translation>
+  <translation id="6451047679707134711">Java class - CAFEBABE</translation>
+  <translation id="8107803807883105295">ZIP files begin with ‘PK‘ (50 4B)</translation>
+  <translation id="2598847161910848616">PDF files start with ‘%PDF‘ (25 50 44 46)</translation>
+  <translation id="7492675950271746195">PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)</translation>
+  <translation id="4799145408495606287">HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</translation>
+  <translation id="2428219673022947728">Big library of binary formats</translation>
+  <translation id="4964093976179230239">https://formats.kaitai.io/</translation>
+  <translation id="5747803473977552853">Gif facts</translation>
+  <translation id="3264831671739289198">Image size: 1х1 to 65535х65535</translation>
+  <translation id="6873436420290828569">Colors: 2 - 256</translation>
+  <translation id="8160048133378270611">True color gifs are possible</translation>
+  <translation id="8642911668882581757">Max number of animation frames - unlimited</translation>
+  <translation id="3688153131129835544">Animation delay 1/100 - 655 seconds</translation>
+  <translation id="336946060573563813">There&apos;s a plain text extension</translation>
+  <translation id="8788288170627730529">24 pages + 12 pages appendix in gif89 standard</translation>
+  <translation id="8031342257135808239">Binary ❤️ JavaScript</translation>
+  <translation id="6802387164374652684">kirjs.com/binary/0</translation>
+  <translation id="876108112502141396">Thanks @andrey_sitnik, @_bmsdave for review</translation>
 </translationbundle>

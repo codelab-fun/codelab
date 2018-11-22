@@ -86,10 +86,14 @@ h1 {
       }
     }
 
-    .slide [gif],
-    [gif] .slide {
+    .slide [gif] {
       background: url(pics/zoom.gif);
     }
+
+    .slide #binary-abstraction {
+      background: url(pics/binary-abstraction.png);
+    }
+
     .slide [message],
     [gif] .slide {
       background: url(pics/gdg-binary.jpg);

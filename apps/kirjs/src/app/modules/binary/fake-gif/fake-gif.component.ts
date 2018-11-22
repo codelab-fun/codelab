@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { gifParser } from './gif-parser';
+import { extractMessages } from '@angular-presentation/presentation/src/lib/i18n-tools';
 
 
 interface Chunk {
@@ -17,6 +18,7 @@ interface Chunk {
   styleUrls: ['./fake-gif.component.css']
 })
 export class FakeGifComponent implements OnInit {
+  t: { [key: string]: string; };
   @Input()
   spacing = false;
   showMeta = true;
@@ -30,6 +32,9 @@ export class FakeGifComponent implements OnInit {
   @Output() onBinaryUpdate = new EventEmitter();
   gif: string;
   parser: BinaryParser;
+
+
+  @ViewChild('translations') translation;
 
   constructor() {
 
@@ -56,7 +61,8 @@ export class FakeGifComponent implements OnInit {
 
 
   ngOnInit() {
-    this.parser = new BinaryParser().block('gif', gifParser);
+    this.t = extractMessages(this.translation);
+    this.parser = new BinaryParser().block('gif', gifParser(this.t));
   }
 
   updateBinary(binary) {
