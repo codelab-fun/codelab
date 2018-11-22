@@ -15,15 +15,11 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <translationbundle lang="ru">
-  <translation id="2824875105338391071">Если Вам не видно цифры снизу, подвиньтесь поближе или откройте слайды по ссылке: 
-<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>kirjs.com/binary/0<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
-  <translation id="4149332726076272416">В этом выступлении</translation>
-  <translation id="7550776370111202144" desc="TBD"/>
-  <translation id="introduction"/>
+  <translation id="introduction">Вступление</translation>
   <translation id="297943560492772582">@kirjs</translation>
   <translation id="2822488826106826578">JavaScript ❤️ Бинарные Данные</translation>
-  <translation id="9213967112278224715"/>
-  <translation id="6553189578448767458"/>
+  <translation id="199796482994564583">Двоичная система спрятана под большим количеством слоев абстракции</translation>
+  <translation id="4149332726076272416">В этом выступлении</translation>
   <translation id="4749058246803727552">Давайте посмотрим что внутри  <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>gif<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
   <translation id="3597932961286677186">Заголовок</translation>
   <translation id="8989873612204787281">Содержит информацию о размерах картинки, наличии и конфигурации глобальной палитры, и прозрачности.</translation>
@@ -38,6 +34,7 @@
   <translation id="8654618120168558452">Конвертация из десятичной системы счисления в двоичную с помощью JavaScript</translation>
   <translation id="6328086056731380089">Конвертация из двоичной системы счисления в шестнадцатиричную с помощью JavaScript</translation>
   <translation id="3610726963919885246">Конвертация из шестнадцатиричной системы счисления в  двоичную с помощью JavaScript</translation>
+  <translation id="4735883542091123359">ПЕЉМЕЊ!!!</translation>
   <translation id="5377037856556160771">Получение charCode из строки</translation>
   <translation id="7025121863698322477">Получение символа из charCode
 </translation>
@@ -63,10 +60,9 @@
   <translation id="8657754663266965278">Бесплатная проверка типов </translation>
   <translation id="9170265368266877102">Бесплатная валидация</translation>
   <translation id="1257397640951538252">Существующие решения</translation>
-  <translation id="8643348940092477927"/>
-  <translation id="5480246874668908377"/>
-  <translation id="3516009209791088102"/>
-  <translation id="9153865673591675155">Бонус</translation>
+  <translation id="8643348940092477927"><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Protocol buffers<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Google)</translation>
+  <translation id="5480246874668908377"><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Flatbuffers<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Google)</translation>
+  <translation id="3516009209791088102"><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Thrift<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Apache/Facebook)</translation>
   <translation id="501698005128033255">Заголовки бинарных файлов
 </translation>
   <translation id="497452967189052368">Gif - GIF87a (или GIF89a)</translation>
@@ -78,6 +74,8 @@
   <translation id="4799145408495606287">HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</translation>
   <translation id="2428219673022947728">Большая коллекция бинарных форматов</translation>
   <translation id="4964093976179230239">https://formats.kaitai.io/</translation>
+  <translation id="7117028634376204882">Давайте посмотрим как хранятся данные в JavaScript</translation>
+  <translation id="3362352357730335601">Вот так хранятся типизированные массивы в других языках</translation>
   <translation id="5747803473977552853">Факты о формате Gif</translation>
   <translation id="3264831671739289198">Размер картинки: 1х1 to 65535х65535</translation>
   <translation id="6873436420290828569">Цвета - 2-256</translation>
@@ -90,25 +88,27 @@
   <translation id="8031342257135808239">JavaScript ❤️ Бинарные данные</translation>
   <translation id="6802387164374652684">kirjs.com/binary/0</translation>
   <translation id="876108112502141396">Спасибо @andrey_sitnik и  @_bmsdave за ревью</translation>
-  <translation id="199796482994564583">Двоичная система спрятана под большим количеством слоев абстракции</translation>
-  <translation id="4735883542091123359">ПЕЉМЕЊ!!!</translation>
-  <translation id="7117028634376204882">Давайте посмотрим как хранятся данные в JavaScript</translation>
-  <translation id="3362352357730335601">Вот так хранятся типизированные массивы в других языках</translation>
   <translation id="1742016744700285395">Это значение - всегда &quot;GIF&quot;</translation>
   <translation id="1966011271871898521">Это всегда &quot;87a&quot; или &quot;89a&quot;</translation>
   <translation id="2907179763619097754">Ширина картинки</translation>
   <translation id="7454178759479297421">Высота картинки</translation>
   <translation id="2190517453154346128">Флаг наличия глобальной палитры</translation>
-  <translation id="1962602238184799459"/>
+  <translation id="7419758577762656600">Глубина цвета в палитре (в битах)</translation>
   <translation id="6279072752355765626">Флаг сортировки палитры по важности цвета.
 
 Нужен для экранов которые не поддерживают все 256 цветов, позволяет выбрать самые частые.</translation>
-  <translation id="5946124430437461227"/>
+  <translation id="6362281559063974384">Количество цветов в палитре (результат пропорционален двойке в указанной степени)</translation>
   <translation id="4799068399800745526">Указывает индекс цвета в таблице, который будет использоваться в качестве прозрачного
 </translation>
-  <translation id="2818110347080488919"/>
+  <translation id="7155961055090586288">Пропорции пикселя</translation>
   <translation id="8178615203242634427">Зарезервированные биты</translation>
-  <translation id="859690071951714471">Что делать поле </translation>
+  <translation id="6797144872680228343">Действие после показа кадра:
+
+0) Ничего не делать.
+1) Оставить все как есть.
+2) Восстановить фон.
+3) Вернуть предыдущий кадр
+4-7) Возможно будут заданы в будущем.</translation>
   <translation id="4537070299235731007">Этот бит не используется, но в теории позволял картинке реагировать на действия пользователя.</translation>
   <translation id="7895980228479043030">Флаг, значение которого позволяет включить/выключить прозрачность для последующего кадра</translation>
   <translation id="288524084616596078">Задержка анимации для следующего кадра</translation>
@@ -124,4 +124,5 @@
   <translation id="6828342527983665872">Размер расширения в байтах</translation>
   <translation id="3076441160662364443">Количество анимационных циклов </translation>
   <translation id="8535614733470597054">Код картинки сжатые с помощью LZW</translation>
+  <translation id="fontSize">Если вам сложно различить цифры ниже, садитесь ближе или откройте слайды: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>kirjs.com/binary/0<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
 </translationbundle>

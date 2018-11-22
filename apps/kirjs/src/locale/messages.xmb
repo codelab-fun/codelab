@@ -23,11 +23,14 @@
 <messagebundle>
   <msg id="297943560492772582"><source>src/app/modules/binary/binary.component.html:10</source><source>src/app/modules/binary/binary.component.html:538</source>@kirjs</msg>
   <msg id="2822488826106826578"><source>src/app/modules/binary/binary.component.html:11</source>️JavaScript ❤️ Binary </msg>
-  <msg id="2824875105338391071"><source>src/app/modules/binary/binary.component.html:16,18</source>
+  <msg id="fontSize"><source>src/app/modules/binary/binary.component.html:16,18</source>
       If you can&apos;t read the numbers below, move closer or go to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>kirjs.com/binary/0<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
     </msg>
   <msg id="199796482994564583"><source>src/app/modules/binary/binary.component.html:25</source>Binary is hidden behind many layers of abstraction</msg>
   <msg id="4149332726076272416"><source>src/app/modules/binary/binary.component.html:29</source>In this talk:</msg>
+  <msg id="8136286563521868281"><source>src/app/modules/binary/binary.component.html:31</source>Binary in files (images, video, other media, zip)</msg>
+  <msg id="2538222517770638672"><source>src/app/modules/binary/binary.component.html:32</source>Binary for data transfer (instead of JSON)</msg>
+  <msg id="12850250970925130"><source>src/app/modules/binary/binary.component.html:33</source>Javascript using binary in memory</msg>
   <msg id="4749058246803727552"><source>src/app/modules/binary/binary.component.html:41</source>Let&apos;s see what&apos;s inside of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>gif<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
   <msg id="3597932961286677186"><source>src/app/modules/binary/binary.component.html:161</source>Header</msg>
   <msg id="8989873612204787281"><source>src/app/modules/binary/binary.component.html:163</source>Contains size, global pallets specs, transparency.</msg>

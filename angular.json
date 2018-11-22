@@ -263,7 +263,7 @@
             "ru": {
               "outputPath": "dist/kirjs/ru",
               "aot": true,
-              "i18nFile": "apps/kirjs/src/locale/messages.ru.xtb",
+              "i18nFile": "apps/kirjs/src/locale/kirjs.ru.xtb",
               "i18nFormat": "xtb",
               "i18nLocale": "ru"
             },

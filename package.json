@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "serve:ru": "ng serve --aot --i18n-file=src/i18n/messages.ru.xtb --locale=ru --i18n-format=xtb",
+    "serve:ru": "ng serve --aot --i18n-file=src/i18n/kirjs.ru.xtb --locale=ru --i18n-format=xtb",
     "serve:kirjs:ru": "ng serve kirjs --configuration ru",
     "xi18n:kirjs": "ng xi18n kirjs --i18n-format xmb --output-path src/locale",
     "build:ru": "ng build --aot --i18n-file=src/i18n/messages.ru.xtb --locale=ru --i18n-format=xtb",
