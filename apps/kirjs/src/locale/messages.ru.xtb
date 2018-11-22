@@ -23,8 +23,6 @@
   <translation id="introduction">Introduction</translation>
   <translation id="297943560492772582">@kirjs</translation>
   <translation id="2822488826106826578">️JavaScript ❤️ Бинарные Данные </translation>
-  <translation id="9213967112278224715"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> + parsing files</translation>
-  <translation id="6553189578448767458"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> + HTTP requests</translation>
   <translation id="4749058246803727552">Let&apos;s see what&apos;s inside of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>gif<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
   <translation id="3597932961286677186">Заголовок</translation>
   <translation id="8989873612204787281">Содержит размеры картинки, настройки прозрачности и палитры</translation>
@@ -36,7 +34,7 @@
   <translation id="931491989303959259">Блок описывающий анимацию картинки</translation>
   <translation id="3807699453257291879">Комментарии</translation>
   <translation id="5510336295069197234">Конвертация из двоичной системы счисления в десятиричную  с помощью JavaScript</translation>
-  <translation id="8654618120168558452">Конвертация из десятиричной  системы счисления в двоичную с помощью JavaScript</translation>
+  <translation id="8654618120168558452">Конвертация из десятичной  системы счисления в двоичную с помощью JavaScript</translation>
   <translation id="6328086056731380089">Конвертация из двоичной системы счисления в шестнадцатиричную  с помощью JavaScript</translation>
   <translation id="3610726963919885246">Конвертация из шестнадцатиричную системы счисления в  двоичную с помощью JavaScript</translation>
   <translation id="5377037856556160771">Получение charCode </translation>

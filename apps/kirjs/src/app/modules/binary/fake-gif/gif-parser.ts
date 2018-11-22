@@ -61,7 +61,7 @@ export function gifParser(t: { [key: string]: string; }) {
   const graphicControlParser = new BinaryParser()
     .hex('const', {length: 2})
     .constBits('000', {description: t.reservedBits})
-    .bit3('display', {type: 'enums', description: t.display})
+    .bit3('disposalMethod', {type: 'enums', description: t.disposalMethod})
     .boolean('UI', {description: t.UI})
     .boolean('isTransparent', {description: t.isTransparent})
     .uInt16('delay', {description: t.delay})

@@ -29,7 +29,7 @@
   <msg id="componentTree">Component-Tree</msg>
   <msg id="customEvents">Custom-Events</msg>
   <msg id="angularWrittenInTypescript">Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.</msg>
-  <msg id="learnHowToBootstrapApp">Learn how to create and bootstrap your first Angular application</msg>
+  <msg id="learnHowToBootstrapApp">!Learn how to create and bootstrap your first Angular application</msg>
   <msg id="learnUsingTemplates">Learn how to use Angular templates</msg>
   <msg id="learnToProvideDependencies">Learn how to provide dependencies to your code instead of hard-coding them</msg>
   <msg id="learnToStructureAppWithReusableComponents">Learn how to structure your app with reusable components</msg>

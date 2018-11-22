@@ -95,34 +95,47 @@
   <msg id="876108112502141396"><source>src/app/modules/binary/binary.component.html:541</source>Thanks @andrey_sitnik, @_bmsdave for review</msg>
   <msg id="1742016744700285395"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:7</source>This is always &quot;GIF&quot;</msg>
   <msg id="1966011271871898521"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:8</source>This is always &quot;87a&quot; or &quot;89a&quot;</msg>
-  <msg id="2907179763619097754"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:9</source><source>src/app/modules/binary/fake-gif/fake-gif.component.html:30</source>Width of the image</msg>
-  <msg id="7454178759479297421"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:10</source><source>src/app/modules/binary/fake-gif/fake-gif.component.html:31</source>Height of the image</msg>
+  <msg id="2907179763619097754"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:9</source><source>src/app/modules/binary/fake-gif/fake-gif.component.html:43</source>Width of the image</msg>
+  <msg id="7454178759479297421"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:10</source><source>src/app/modules/binary/fake-gif/fake-gif.component.html:44</source>Height of the image</msg>
   <msg id="2190517453154346128"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:12</source>Whether global palette is present</msg>
-  <msg id="1962602238184799459"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:13</source>number&apos;, description: &apos;Number of bits per primary color available</msg>
+  <msg id="7419758577762656600"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:13</source>Number of bits per primary color available</msg>
   <msg id="6279072752355765626"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:14</source>Whether the palette is sorted</msg>
-  <msg id="5946124430437461227"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:15,17</source>number&apos;, description: `Specifies number of colors in the palette proportional a power of
+  <msg id="6362281559063974384"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:15,17</source>Specifies number of colors in the palette proportional a power of
     two. e.g.
   </msg>
   <msg id="4799068399800745526"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:18,19</source>If present specifies index of a color in the global color table that would be transparent
   </msg>
-  <msg id="2818110347080488919"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:20</source>Ratio of the picture</msg>
+  <msg id="7155961055090586288"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:20</source>Ratio of the pixel</msg>
   <msg id="8178615203242634427"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:22</source>Reserved bits</msg>
-  <msg id="859690071951714471"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:23</source>Action after displaying the frame</msg>
-  <msg id="4537070299235731007"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:24</source>Not used, the initial intention was to allow user interactions</msg>
-  <msg id="7895980228479043030"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:25</source>Whether the frame should have a transparent color</msg>
-  <msg id="288524084616596078"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:26</source>Animation delay for next image</msg>
-  <msg id="2564139578844670282"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:27</source>Optional transparent color index</msg>
-  <msg id="7752598573515737652"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:28</source>Horizontal shift in pixels</msg>
-  <msg id="3589525053629068000"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:29</source>Vertical shift in pixels</msg>
-  <msg id="1085666956292885352"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:32</source>Whether the image has local palette</msg>
-  <msg id="1603151697351855061"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:33</source>Indicates if the image is interlaced.</msg>
-  <msg id="8035016501244287343"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:34</source>Whether local palette is sorted</msg>
-  <msg id="2408340429265484547"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:35</source>Bucket of sizes of local palette.</msg>
-  <msg id="1537375986743181008"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:37,39</source>Identifies the Netscape Looping Extension. This field contains the fixed
+  <msg id="6797144872680228343"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:23,36</source>Disposal Method - Indicates the way in which the graphic is to
+    be treated after being displayed.
+
+    Values : 0 - No disposal specified. The decoder is
+    not required to take any action.
+    1 - Do not dispose. The graphic is to be left
+    in place.
+    2 - Restore to background color. The area used by the
+    graphic must be restored to the background color.
+    3 - Restore to previous. The decoder is required to
+    restore the area overwritten by the graphic with
+    what was there prior to rendering the graphic.
+    4-7 - To be defined.
+  </msg>
+  <msg id="4537070299235731007"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:37</source>Not used, the initial intention was to allow user interactions</msg>
+  <msg id="7895980228479043030"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:38</source>Whether the frame should have a transparent color</msg>
+  <msg id="288524084616596078"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:39</source>Animation delay for next image</msg>
+  <msg id="2564139578844670282"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:40</source>Optional transparent color index</msg>
+  <msg id="7752598573515737652"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:41</source>Horizontal shift in pixels</msg>
+  <msg id="3589525053629068000"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:42</source>Vertical shift in pixels</msg>
+  <msg id="1085666956292885352"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:45</source>Whether the image has local palette</msg>
+  <msg id="1603151697351855061"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:46</source>Indicates if the image is interlaced.</msg>
+  <msg id="8035016501244287343"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:47</source>Whether local palette is sorted</msg>
+  <msg id="2408340429265484547"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:48</source>Bucket of sizes of local palette.</msg>
+  <msg id="1537375986743181008"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:50,52</source>Identifies the Netscape Looping Extension. This field contains the fixed
     value 0x01
   </msg>
-  <msg id="6828342527983665872"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:40</source>Size of the extension block in bytes</msg>
-  <msg id="3076441160662364443"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:41</source>Number of animation loops</msg>
-  <msg id="8535614733470597054"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:42</source>This is the actual image encoded with LZW</msg>
+  <msg id="6828342527983665872"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:53</source>Size of the extension block in bytes</msg>
+  <msg id="3076441160662364443"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:54</source>Number of animation loops</msg>
+  <msg id="8535614733470597054"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:55</source>This is the actual image encoded with LZW</msg>
   <msg id="introduction"><source>src/app/modules/react/react.component.html:5</source>Introduction</msg>
 </messagebundle>

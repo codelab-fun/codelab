@@ -10,17 +10,30 @@
   <div i18n id="height">Height of the image</div>
 
   <div i18n id="globalPallette">Whether global palette is present</div>
-  <div i18n id="resolution">number', description: 'Number of bits per primary color available</div>
+  <div i18n id="resolution">Number of bits per primary color available</div>
   <div i18n id="isPaletteSorted">Whether the palette is sorted</div>
-  <div i18n id="paletteSize">number', description: `Specifies number of colors in the palette proportional a power of
+  <div i18n id="paletteSize">Specifies number of colors in the palette proportional a power of
     two. e.g.
   </div>
   <div i18n id="background">If present specifies index of a color in the global color table that would be transparent
   </div>
-  <div i18n id="ratio">Ratio of the picture</div>
+  <div i18n id="ratio">Ratio of the pixel</div>
 
   <div i18n id="reservedBits">Reserved bits</div>
-  <div i18n id="display">Action after displaying the frame</div>
+  <div i18n id="disposalMethod">Disposal Method - Indicates the way in which the graphic is to
+    be treated after being displayed.
+
+    Values : 0 - No disposal specified. The decoder is
+    not required to take any action.
+    1 - Do not dispose. The graphic is to be left
+    in place.
+    2 - Restore to background color. The area used by the
+    graphic must be restored to the background color.
+    3 - Restore to previous. The decoder is required to
+    restore the area overwritten by the graphic with
+    what was there prior to rendering the graphic.
+    4-7 - To be defined.
+  </div>
   <div i18n id="UI">Not used, the initial intention was to allow user interactions</div>
   <div i18n id="isTransparent">Whether the frame should have a transparent color</div>
   <div i18n id="delay">Animation delay for next image</div>
