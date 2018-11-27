@@ -4,10 +4,11 @@
   <div *slide id="intro0">
     <use-state-test></use-state-test>
   </div>
-  <div *slide id="intro1">
+  <div *slide id="intro1" vertical-split>
+    <slides-simple-editor language="typescript" [(ngModel)]="code['use-state.component.html']"></slides-simple-editor>
     <slides-simple-angular-runner [code]=code></slides-simple-angular-runner>
     <!--<slides-simple-editor language="typescript" [(ngModel)]="code['hooks-test.component.ts']"></slides-simple-editor>-->
-    <!--<slides-simple-editor language="typescript" [(ngModel)]="code['hooksDirective.ts']"></slides-simple-editor>-->
+
   </div>
 </slides-deck>
 
