@@ -15,6 +15,13 @@ const routes = [
     description: 'Learn about Binary in JS',
     page: 'bonus',
     prod: true
+  },  {
+    path: 'hooks',
+    loadChildren: './modules/hooks/hooks.module#BinaryModule',
+    name: 'Hooks',
+    description: 'Learn about Binary in JS',
+    page: 'bonus',
+    prod: true
   },
   {
     path: 'cellular-automation',

@@ -32,6 +32,8 @@ import { HexdecComponent } from './hexdec/hexdec.component';
 import { SlidesModule } from '@angular-presentation/slides';
 import { AngularFlagsComponent } from './angular-flags/angular-flags.component';
 import { ColorIndexingComponent } from './color-indexing/color-indexing.component';
+import { BitwiseComponent } from './bitwise/bitwise.component';
+import { ToReadComponent } from './to-read/to-read.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(BinaryComponent)
@@ -73,6 +75,8 @@ const routes = RouterModule.forChild(
     HexdecComponent,
     AngularFlagsComponent,
     ColorIndexingComponent,
+    BitwiseComponent,
+    ToReadComponent,
   ],
   entryComponents: [
     FakeGifComponent,

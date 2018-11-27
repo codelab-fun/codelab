@@ -40,6 +40,26 @@ export class BinaryComponent {
 //   parseInt(a, 2)))
 //   .join('');
 `,
+    simpleBinaryOperations:
+      `let i = 7; // 7 = 1 + 2 + 4
+!!(i & 1) // true
+!!(i & 2) // true
+!!(i & 4) // true
+
+i = i & ~2; // 5 = 1 + 4 (Not 2)
+
+!!(i & 1) // true
+!!(i & 2) // false
+!!(i & 4) // true
+
+i = i | 2  // 7 = 1 + 2 + 4
+
+!!(i & 1) // true
+!!(i & 2) // true
+!!(i & 4) // true
+
+
+`,
     jsonBasic: `{
   "name": "Sarah",
   "test": true,
@@ -108,14 +128,14 @@ input.addEventListener('change', (e) => {
       .string('version', {length: 3})
       .uint16le('width')
       .uint16le('height')
-      .bit1('globalPallette')
+      .bit1('globalPalette')
     `,
     `new Parser()
       .string('gif', {length: 3})
       .string('version', {length: 3})
       .uint16le('width')
       .uint16le('height')
-      .bit1('globalPallette')
+      .bit1('globalPalette')
       .bit3('resolution')
       .bit1('paletteSorted')
       .bit3('paletteSize')
@@ -131,7 +151,7 @@ input.addEventListener('change', (e) => {
       .string('version', {length: 3})
       .uint16le('width')
       .uint16le('height')
-      .bit1('globalPallette')
+      .bit1('globalPalette')
       .bit3('resolution')
       .bit1('paletteSorted')
       .bit3('paletteSize')
@@ -143,7 +163,7 @@ input.addEventListener('change', (e) => {
       .string('version', {length: 3})
       .uint16le('width')
       .uint16le('height')
-      .bit1('globalPallette')
+      .bit1('globalPalette')
       .bit3('resolution')
       .bit1('paletteSorted')
       .bit3('paletteSize')
@@ -159,7 +179,7 @@ input.addEventListener('change', (e) => {
       .string('version', {length: 3})
       .uint16le('width')
       .uint16le('height')
-      .bit1('globalPallette')
+      .bit1('globalPalette')
       .bit3('resolution')
       .bit1('paletteSorted')
       .bit3('paletteSize')
@@ -176,7 +196,7 @@ input.addEventListener('change', (e) => {
       .string('version', {length: 3})
       .uint16le('width')
       .uint16le('height')
-      .bit1('globalPallette')
+      .bit1('globalPalette')
       .bit3('resolution')
       .bit1('paletteSorted')
       .bit3('paletteSize')
@@ -186,7 +206,7 @@ input.addEventListener('change', (e) => {
         type: new Parser()
           .uint8('r')
           .uint8('g')
-          .uint8('b'),,
+          .uint8('b'),
         length: (result) =>
             2 ** (result.paletteSize + 1)
         }
@@ -211,7 +231,7 @@ input.addEventListener('change', (e) => {
 // `String.fromCharCode(...new Uint8Array(file))`,
 // `Array.from(new Uint8Array(file)).map(a=>a.toString(2).padStart(8, 0)).join('')`,
 
-//<input id="file" type="file">
+// <input id="file" type="file">
 //   document.getElementById('file').addEventListener('change', (e)=>{
 //   const reader = new FileReader();
 //

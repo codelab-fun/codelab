@@ -7,7 +7,7 @@ export function gifParser(t: { [key: string]: string; }) {
     .string('version', {length: 3, description: t.version})
     .uInt16('width', {description: t.width})
     .uInt16('height', {description: t.height})
-    .boolean('globalPallette', {description: t.globalPallette})
+    .boolean('globalPalette', {description: t.globalPalette})
     .bit3('resolution', {type: 'number', description: t.resolution})
     .boolean('isPaletteSorted', {description: t.isPaletteSorted})
     .bit3('paletteSize', {type: 'number', description: t.paletteSize})

@@ -9,7 +9,7 @@ describe('differ', () => {
   });
 
   it('Progressively adds the text for a single commit.', () => {
-    const commits = differ('hi/*d:first*/, world!/*/d*/', ['first']);
+    const commits = differ('hi/*Sd:first*/, world!/*/d*/', ['first']);
     expect(commits['initial']).toEqual('hi');
     expect(commits['first']).toEqual('hi, world!');
   });

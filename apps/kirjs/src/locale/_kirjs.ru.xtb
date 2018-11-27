@@ -30,7 +30,7 @@
   <translation id="5838521644867201449">Блок с графическими свйоствами картинки</translation>
   <translation id="931491989303959259">Настройки анимации</translation>
   <translation id="3807699453257291879">Комментарии</translation>
-  <translation id="5510336295069197234">Конвертация из двоичной системы исчисления в десятичную с помощью JavaScript </translation>
+  <translation id="5510336295069197234">Конвертация из двоичной системы исчисления в десятичную с </translation>
   <translation id="8654618120168558452">Конвертация из десятичной системы счисления в двоичную с помощью JavaScript</translation>
   <translation id="6328086056731380089">Конвертация из двоичной системы счисления в шестнадцатиричную с помощью JavaScript</translation>
   <translation id="3610726963919885246">Конвертация из шестнадцатиричной системы счисления в  двоичную с помощью JavaScript</translation>
@@ -128,15 +128,4 @@
   <translation id="8136286563521868281">Что внутри бинарных файлов (картинки, видео, медиа, zip и пр.)?</translation>
   <translation id="2538222517770638672">Передача бинарных данных (вместо JSON)</translation>
   <translation id="12850250970925130">Как JavaScript хранит данные в памяти</translation>
-  <translation id="4240264931790119622">Чтобы понять бинарные данные нужна схема</translation>
-  <translation id="1001352917033632569">Бинарные данные</translation>
-  <translation id="6599425442176006164">01101000 01101111 01101100 01111001 00101110 01101010 01110011</translation>
-  <translation id="1818723279872967225">???</translation>
-  <translation id="3222970134911157017">Это строка в кодировке UTF-8 </translation>
-  <translation id="5260619836644538424">Данные в виде JSON (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph><ph name="INTERPOLATION"><ex>{{codeLength}}</ex>{{codeLength}}</ph> байт<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
-  <translation id="1409409630239345307">Бинарные данные (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph><ph name="INTERPOLATION"><ex>{{binariesLength}}</ex>{{binariesLength}}</ph> байт<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
-  <translation id="6442265859744523188">Схема (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph><ph name="INTERPOLATION"><ex>{{schemaLength}}</ex>{{schemaLength}}</ph> bytes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>)</translation>
-  <translation id="2648443831787605149">Непроиндексированная картинка</translation>
-  <translation id="3694360292158869661">Таблица цветов (Палитра)</translation>
-  <translation id="6121157875507934433">Проиндексированная картинка</translation>
 </translationbundle>

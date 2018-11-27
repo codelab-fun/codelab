@@ -117,7 +117,7 @@ h1 {
     }
 
     .slide h1 {
-      font-size: 10vw;
+      font-size: 5vw;
       color: #444;
       text-align: center;
     }
@@ -163,7 +163,7 @@ h1 {
 
 #gif-structure {
   .text, li {
-    font-size: 2vw;
+    font-size: 3vw;
   }
   h2 {
     margin-bottom: 1vw;
@@ -175,4 +175,30 @@ h1 {
 
 }
 
+[binary-schema] {
+  table {
+    width: 100%;
+  }
+  td {
+    font-size: 4vw;
+    font-weight: 400;
+  }
+}
 
+#gif-structure {
+  .parent-palette {
+    background: #00ff51;
+  }
+
+  .parent-header {
+    background: #ffaf00;
+  }
+
+  .parent-extensions {
+    background: #00a4ff;
+  }
+}
+
+#bitwise-to-read .book {
+  background-image: url(./pics/hackers-delight.jpeg);
+}

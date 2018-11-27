@@ -1,13 +1,14 @@
 <div style="display: flex;" class="wrapper">
   <div class="code" style="flex: 0 0 36vw; display: flex;flex-direction: column">
-    <h2>Data as JSON (<b>{{codeLength}} bytes</b>)</h2>
+    <h2 i18n>Data as JSON (<b>{{codeLength}} bytes</b>)</h2>
     <slides-simple-editor
       style="" (lineChange)="handleLineChange($event)" [(ngModel)]="code"
       [fontSize]="40" [lineNumbers]="false" [slidesSimpleHighlightMatch]="match"></slides-simple-editor>
 
   </div>
   <div class="binary" style="flex: 0 0 60vw; display: flex;flex-direction: column">
-    <h2>Binary data (<b>{{binariesLength}} bytes</b>)</h2>
+    <h2 i18n>Binary data (<b>{{binariesLength}} bytes</b>)</h2>
+    <div *ngIf="error" style = "padding: 3vw;">{{error}}</div>
     <div>
       <span (click)="index = i" *ngFor="let item of binaries; let i = index" [class.selected]="i === index">
         <span class="value highlight-{{i}}">{{item.binary}}</span>
@@ -30,14 +31,12 @@
         </span>
       </span>
     </div>
-    <h2 style="margin-top: 2vw;">Schema (<b>{{schemaLength}} bytes</b>)</h2>
+    <h2 style="margin-top: 2vw;" i18n>Schema (<b>{{schemaLength}} bytes</b>)</h2>
 
 
     <div (click)="index = i" *ngFor="let item of schema; let i = index" class="bin {{item.className}}">
      <ng-container *ngIf="item.className">&nbsp;&nbsp;</ng-container>{{item.value}}
     </div>
-
-
   </div>
 
 </div>

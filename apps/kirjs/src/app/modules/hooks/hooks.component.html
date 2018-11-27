@@ -1,3 +1,13 @@
-<p>
-  hooks works!
-</p>
+<slides-deck slidesShortcuts class="binary-presentation" slidesRouting>
+  <slides-arrow-navigation></slides-arrow-navigation>
+
+  <div *slide id="intro0">
+    <kirjs-hooks-test></kirjs-hooks-test>
+  </div>
+  <div *slide id="intro1">
+    <slides-simple-editor language="typescript" [(ngModel)]="code.hooksComponent"></slides-simple-editor>
+    <slides-simple-editor language="html" [(ngModel)]="code.hooksTemplate"></slides-simple-editor>
+    <slides-simple-editor language="typescript" [(ngModel)]="code.hooksDirective"></slides-simple-editor>
+  </div>
+</slides-deck>
+

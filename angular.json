@@ -261,7 +261,7 @@
           },
           "configurations": {
             "ru": {
-              "outputPath": "dist/kirjs/ru",
+              "outputPath": "dist/apps/kirjs/ru",
               "aot": true,
               "i18nFile": "apps/kirjs/src/locale/kirjs.ru.xtb",
               "i18nFormat": "xtb",

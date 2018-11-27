@@ -25,6 +25,7 @@ export class JsonComponent implements OnInit {
   codeLength: number;
   schema: { value: string }[] = [];
   schemaLength: number;
+  error: string;
 
   constructor() {
   }
@@ -40,9 +41,12 @@ export class JsonComponent implements OnInit {
     let val;
     try {
       val = JSON.parse(code);
+      this.error = '';
     } catch (e) {
+      this.error = e.message;
       return;
     }
+
 
     this.binaries = this.binaries.concat(Object.keys(val).map((key) => {
       const value = val[key];

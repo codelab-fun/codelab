@@ -8,10 +8,10 @@ declare const require;
 
 @Component({
   selector: 'slides-react-preview-runner',
-  templateUrl: './react-runner.component.html',
-  styleUrls: ['./react-runner.component.css']
+  templateUrl: './simple-angular-runner.component.html',
+  styleUrls: ['./simple-angular-runner.component.css']
 })
-export class ReactRunnerComponent implements OnChanges {
+export class SimpleAngularRunnerComponent implements OnChanges {
   @ViewChild('runner') runnerElement: ElementRef;
   @Input() code = '';
   @Input() url = '/assets/runner/';
