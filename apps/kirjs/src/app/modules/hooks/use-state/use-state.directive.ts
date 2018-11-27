@@ -13,7 +13,7 @@ interface AngularHooksContext<T = any> {
 @Directive({
   selector: '[useState]'
 })
-export class HooksDirective implements OnChanges {
+export class UseStateDirective implements OnChanges {
   @Input() useStateOf: any;
 
   private context: AngularHooksContext = {

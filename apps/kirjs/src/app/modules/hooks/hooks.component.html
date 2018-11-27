@@ -2,12 +2,12 @@
   <slides-arrow-navigation></slides-arrow-navigation>
 
   <div *slide id="intro0">
-    <kirjs-hooks-test></kirjs-hooks-test>
+    <use-state-test></use-state-test>
   </div>
   <div *slide id="intro1">
-    <slides-simple-editor language="typescript" [(ngModel)]="code.hooksComponent"></slides-simple-editor>
-    <slides-simple-editor language="html" [(ngModel)]="code.hooksTemplate"></slides-simple-editor>
-    <slides-simple-editor language="typescript" [(ngModel)]="code.hooksDirective"></slides-simple-editor>
+    <slides-simple-angular-runner [code]=code></slides-simple-angular-runner>
+    <!--<slides-simple-editor language="typescript" [(ngModel)]="code['hooks-test.component.ts']"></slides-simple-editor>-->
+    <!--<slides-simple-editor language="typescript" [(ngModel)]="code['hooksDirective.ts']"></slides-simple-editor>-->
   </div>
 </slides-deck>
 

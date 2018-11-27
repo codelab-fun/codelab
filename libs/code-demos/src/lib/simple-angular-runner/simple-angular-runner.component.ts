@@ -1,19 +1,22 @@
 import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
-import { createSystemJsSandbox } from '../utils/sandbox';
-import { ScriptLoaderService } from '../../services/script-loader.service';
+import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
+import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
 import { transform } from '@babel/standalone';
+import { compileTsFiles } from '@angular-presentation/code-demos/src/lib/runner/compile-ts-files';
+import { compileTemplates } from '@angular-presentation/code-demos/src/lib/runner/prepare-templates';
 
 declare const require;
 
 
 @Component({
-  selector: 'slides-react-preview-runner',
+  selector: 'slides-simple-angular-runner',
   templateUrl: './simple-angular-runner.component.html',
   styleUrls: ['./simple-angular-runner.component.css']
 })
 export class SimpleAngularRunnerComponent implements OnChanges {
   @ViewChild('runner') runnerElement: ElementRef;
-  @Input() code = '';
+  @Input() code: Record<string, string> = {};
+  @Input() run: string
   @Input() url = '/assets/runner/';
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
@@ -25,24 +28,28 @@ export class SimpleAngularRunnerComponent implements OnChanges {
     return (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
   }
 
-  run() {
+  runCode() {
     createSystemJsSandbox(this.runnerElement.nativeElement, {
       id: 'testing', 'url': 'about:blank'
     }).then((sandbox) => {
-      this.runReact(sandbox, this.code);
+      this.runAngular(sandbox, this.code);
     });
   }
 
   ngOnChanges() {
-    this.run();
+    this.runCode();
   }
 
-  runReact(sandbox, code) {
-    sandbox.addCss(require('../inner.css'));
-    sandbox.setHtml('<div id="app"></div>');
-    sandbox.evalJs(this.scriptLoaderService.getScript('react'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('react-dom'));
-    sandbox.evalJs(transform(code, {presets: ['react']}).code);
+  runAngular(sandbox, code) {
+    sandbox.setHtml(this.code['index.html']);
+    sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
+    sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
+    sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
+    sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
+    sandbox.addDep('reflect-metadata', Reflect);
+    compileTsFiles(this.code).map(file => sandbox.evalJs(file.outputText));
+    compileTemplates(this.code, sandbox);
+    sandbox.evalJs(`System.import('bootstrap')`);
   }
 
   trackIframeUrl(iframe) {
