@@ -1,7 +1,6 @@
 import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
 import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
-import { transform } from '@babel/standalone';
 import { compileTsFiles } from '@angular-presentation/code-demos/src/lib/runner/compile-ts-files';
 import { compileTemplates } from '@angular-presentation/code-demos/src/lib/runner/prepare-templates';
 
@@ -16,7 +15,7 @@ declare const require;
 export class SimpleAngularRunnerComponent implements OnChanges {
   @ViewChild('runner') runnerElement: ElementRef;
   @Input() code: Record<string, string> = {};
-  @Input() run: string
+  @Input() run: string;
   @Input() url = '/assets/runner/';
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
@@ -49,6 +48,14 @@ export class SimpleAngularRunnerComponent implements OnChanges {
     sandbox.addDep('reflect-metadata', Reflect);
     compileTsFiles(this.code).map(file => sandbox.evalJs(file.outputText));
     compileTemplates(this.code, sandbox);
+
+
+    Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))
+      .forEach(([moduleName, code]) => {
+        sandbox.addCss(code);
+      });
+
+
     sandbox.evalJs(`System.import('bootstrap')`);
   }
 

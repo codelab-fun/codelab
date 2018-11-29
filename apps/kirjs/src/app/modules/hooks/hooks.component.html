@@ -1,14 +1,55 @@
-<slides-deck slidesShortcuts class="binary-presentation" slidesRouting>
+<slides-deck slidesShortcuts #pres class="binary-presentation" slidesRouting>
   <slides-arrow-navigation></slides-arrow-navigation>
 
-  <div *slide id="intro0">
-    <use-state-test></use-state-test>
-  </div>
-  <div *slide id="intro1" vertical-split>
-    <slides-simple-editor language="typescript" [(ngModel)]="code['use-state.component.html']"></slides-simple-editor>
-    <slides-simple-angular-runner [code]=code></slides-simple-angular-runner>
-    <!--<slides-simple-editor language="typescript" [(ngModel)]="code['hooks-test.component.ts']"></slides-simple-editor>-->
+  <div *slide id="use-state">
+    <div style="width: 870px; margin: 0 auto">
+      <h2>How useState hook would look in Angular?</h2>
+      <h3 style="color: #888; margin-bottom: 50px;font-size: 20px;">This is just a thought experiment, please don't try
+        this at home :) See the code <a (click)="pres.nextSlide()">here</a></h3>
 
+      <slides-simple-editor
+        style="height: 150px;margin: 20px 0 15px;"
+        language="html"
+        [lineNumbers]="false"
+        [theme]="'vs-dark'"
+        [fontSize]="20"
+        [(ngModel)]="code['use-state.component.html']"
+        (change)="regenerateCode()"></slides-simple-editor>
+      <slides-simple-angular-runner style="height: 250px;display: block;margin-bottom: 50px;"
+                                    [code]=code></slides-simple-angular-runner>
+    </div>
   </div>
+  <div *slide id="code">
+    <div style="width: 870px; margin: 0 auto">
+      <h2>How useState hook would look in Angular?</h2>
+      <h3 style="color: #888; margin-bottom: 20px;font-size: 20px;">
+        <a (click)="pres.previousSlide()"><< Back to the demo</a></h3>
+
+      <div vertical-split>
+        <div>
+          <slides-simple-editor
+            style="height: 90px;margin: 20px 0 15px;"
+            language="html"
+            [lineNumbers]="false"
+            [theme]="'vs-dark'"
+            [fontSize]="12"
+            [(ngModel)]="code['use-state.component.html']"
+            (change)="regenerateCode()"></slides-simple-editor>
+          <slides-simple-editor
+            style="height: 550px;"
+            language="typescript"
+            [lineNumbers]="false"
+            [fontSize]="12" [(ngModel)]="code['use-state.directive.ts']"
+            (change)="regenerateCode()"></slides-simple-editor>
+        </div>
+        <slides-simple-angular-runner
+          style="height: 250px;width: 250px;flex:0;display: block;margin-bottom: 50px;margin-top: 20px;"
+          [code]=code></slides-simple-angular-runner>
+      </div>
+
+
+    </div>
+  </div>
+
 </slides-deck>
 

@@ -6,7 +6,7 @@ export function compileTemplates(files: Record<string, string>, sandbox) {
         return {
           setters: [],
           execute: function () {
-            exports('default', code);
+            exports('template', code);
           }
         };
       });

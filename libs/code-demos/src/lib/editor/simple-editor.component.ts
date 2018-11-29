@@ -12,7 +12,6 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
-// import * as theme from './themes/devtools.json';
 
 declare const monaco: any;
 declare const require: any;
@@ -38,6 +37,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   editor: any;
   @Input() fontSize = 12;
   @Input() language = 'html';
+  @Input() theme = '';
   @Input() lineNumbers = true;
   @Output() change = new EventEmitter();
   @Output() lineChange = new EventEmitter();
@@ -46,7 +46,6 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
   }
-
 
   registerOnTouched(fn: any): void {
   }
@@ -101,6 +100,10 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
     this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);
+    if (this.theme) {
+      this.monacoConfigService.monaco.editor.setTheme(this.theme);
+    }
+
 
     this.editor = this.monacoConfigService.monaco.editor.create(editor,
       {

@@ -2,7 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { ResourceLoader } from '@angular/compiler';
 import { UseStateModule } from './use-state.module';
-import { default as template } from './use-state.component.html';
+import { template } from './use-state.component.html';
 
 // The code below is used to match the Components with the appropriate templates.
 //
