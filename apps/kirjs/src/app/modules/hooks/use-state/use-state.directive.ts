@@ -1,29 +1,49 @@
+import { Directive, EmbeddedViewRef, Input, OnChanges, OnDestroy, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 
-import { Directive, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+interface UseStateContext<T = any> {
+  $implicit: {
+    get: T,
+    set: (value: T) => void;
+    detectChanges: Function;
+  };
+}
 
 @Directive({
   selector: '[useState]'
 })
-export class UseStateDirective implements OnChanges {
-  @Input() useStateOf: any;
+export class UseStateDirective implements OnChanges, OnDestroy {
+  @Input() useStateDefault: any;
 
-  private context: any = {
-    $implicit: {
-      // We can't do array destructuring in Angular templates, so have to settle on an object.
-      get: this.useStateOf,
-      set(value: any) {
-        this.get = value;
+  private context: UseStateContext = {} as any;
+  private embeddedViewRef: EmbeddedViewRef<UseStateContext>;
+  private value: any;
+
+  constructor(
+    private templateRef: TemplateRef<UseStateContext>,
+    private vcr: ViewContainerRef
+  ) {
+    Object.defineProperty(this.context, '$implicit', {
+      get: () => this.value,
+      set: (value) => {
+        this.value = value;
+        if (this.embeddedViewRef) {
+          this.embeddedViewRef.detectChanges();
+        }
       }
-    }
-  };
+    });
 
-  constructor(vcr: ViewContainerRef, template: TemplateRef<any>) {
-    // We're in a structural directive. This displays the template.
-    vcr.createEmbeddedView(template, this.context);
+    this.embeddedViewRef = this.vcr.createEmbeddedView(this.templateRef, this.context);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // Every time value changes, set it on the get.
-    this.context.$implicit.get = this.useStateOf;
+    if (changes.useStateDefault) {
+      this.value = this.useStateDefault;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.vcr.clear();
+    this.embeddedViewRef.destroy();
+    this.embeddedViewRef = null;
   }
 }
