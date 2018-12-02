@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
-import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
+import { convertExerciseToMap, ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
 
 declare const require;
 
@@ -16,6 +16,7 @@ export class TypescriptComponent implements OnInit {
   exercises = [
     ng2tsConfig.milestones[0].exercises[1]
   ];
+  exercise = convertExerciseToMap(ng2tsConfig.milestones[0].exercises[1]);
 
   @ViewChild('translations') translation;
   private code: any = {};

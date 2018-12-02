@@ -220,6 +220,19 @@ function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
   });
 }
 
+export function convertExerciseToMap(exercise) {
+  const convertFilesToMap = (result, file) => {
+    result[file.path] = file.template;
+    return result;
+  };
+
+  return {
+    code: exercise.files.reduce(convertFilesToMap, {}),
+    codeSolutions: exercise.files.reduce(convertFilesToMap, {}),
+    test: exercise.files.reduce(convertFilesToMap, {}),
+  }
+}
+
 export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */any = {
   name: 'Angular 101 Codelab (beta)',
   id: 'ng2ts',

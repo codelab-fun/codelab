@@ -373,6 +373,20 @@
     <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
   </slides-slide>
 
+
+  <slides-slide *slidesIf="'exercise-new';" no-padding>
+    <slides-exercise [files]="exercises[0].files">
+      <div class="description"></div>
+      <slides-new-editors class="editor">
+      </slides-new-editors>
+      <slides-slides-preview milestone="TypeScript" class="slides-preview">
+      </slides-slides-preview>
+      <slides-angular-test-runner class="tests" [translations]="t"></slides-angular-test-runner>
+      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
+    </slides-exercise>
+  </slides-slide>
+
+
   <slides-slide *slidesIf="'exercise';" no-padding>
     <slides-exercise [files]="exercises[0].files">
       <div class="description"></div>
