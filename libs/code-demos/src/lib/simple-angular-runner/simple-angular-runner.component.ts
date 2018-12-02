@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
 import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
-import { compileTsFiles } from '@angular-presentation/code-demos/src/lib/runner/compile-ts-files';
-import { compileTemplates } from '@angular-presentation/code-demos/src/lib/runner/prepare-templates';
+import { compileTsFiles } from '../runner/compile-ts-files';
+import { compileTemplates } from '../runner/prepare-templates';
 
 declare const require;
 

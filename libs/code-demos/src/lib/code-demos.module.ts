@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SimpleAngularRunnerComponent } from '@angular-presentation/code-demos/src/lib/simple-angular-runner/simple-angular-runner.component';
-import { BrowserWindowModule } from '@angular-presentation/browser';
-import { SimpleAngularEditorComponent } from '@angular-presentation/code-demos/src/lib/simple-angular-runner/simple-angular-editor.component';
+import { SimpleAngularRunnerComponent } from './simple-angular-runner/simple-angular-runner.component';
+
+import { SimpleAngularPlaygroundComponent } from './simple-angular-runner/simple-angular-playground.component';
 import { MatButtonModule, MatSelectModule } from '@angular/material';
-import { SimpleEditorModule } from '@angular-presentation/code-demos/src/lib/editor/simple-editor.module';
+import { SimpleEditorModule } from './editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
+import { BrowserWindowModule } from '../../../../libs/browser/src/lib/browser.module';
 
 @NgModule({
   imports: [
@@ -18,11 +19,11 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     SimpleAngularRunnerComponent,
-    SimpleAngularEditorComponent,
+    SimpleAngularPlaygroundComponent,
   ],
   exports: [
     SimpleAngularRunnerComponent,
-    SimpleAngularEditorComponent,
+    SimpleAngularPlaygroundComponent,
   ],
 })
 export class CodeDemosModule {

@@ -1,3 +1,8 @@
 :host, .runner {
   height: 100%;
 }
+
+.slide.slide [vertical-split] {
+  display: flex;
+  flex-direction: row;
+}

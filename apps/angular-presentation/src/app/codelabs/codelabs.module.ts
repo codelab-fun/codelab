@@ -13,6 +13,7 @@ import { PresentationModule } from '../../../../../libs/presentation/src/lib/pre
 import { environment } from '../../environments/environment';
 import { NxModule } from '@nrwl/nx';
 import { FeedbackModule } from '../../../../../libs/feedback/src/lib/feedback.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export let routes = [
   {
@@ -142,6 +143,7 @@ if (environment.production) {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     PresentationModule,

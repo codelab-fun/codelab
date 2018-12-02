@@ -9,9 +9,9 @@ interface Files {
 }
 
 @Component({
-  selector: 'slides-simple-angular-editor',
+  selector: 'slides-simple-angular-playground',
   template: `
-    <div vertical-split *ngIf="code">
+    <div vertical-split style="display: flex;" *ngIf="code">
       <div>
         <div style="display: flex;">
           <mat-form-field *ngIf="showFilePicker" style="margin-left: 20px;">
@@ -40,12 +40,12 @@ interface Files {
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SimpleAngularEditorComponent),
+      useExisting: forwardRef(() => SimpleAngularPlaygroundComponent),
       multi: true
     }
   ],
 })
-export class SimpleAngularEditorComponent implements ControlValueAccessor {
+export class SimpleAngularPlaygroundComponent implements ControlValueAccessor {
   @Input() file: string;
   @Input() code: Files;
   @Input() solutions: Files = {};
