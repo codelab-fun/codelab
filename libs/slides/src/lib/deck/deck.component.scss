@@ -1,4 +1,19 @@
 :host ::ng-deep {
+  .slide.slide [vertical-split],
+  [vertical-split] .slide.slide {
+    display: flex;
+    flex-direction: row;
+
+    > *:first-child {
+      width: 49vw;
+      margin-right: 1vw;
+    }
+    > *:nth-child(2) {
+      width: 49vw;
+      margin-left: 1vw;
+    }
+  }
+
   .theme-basic {
     font-family: "Helvetica Neue", sans-serif;
 

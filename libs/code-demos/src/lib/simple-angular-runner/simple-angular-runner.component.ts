@@ -40,7 +40,7 @@ export class SimpleAngularRunnerComponent implements OnChanges {
   }
 
   runAngular(sandbox, code) {
-    sandbox.setHtml(this.code['index.html']);
+    sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app>');
     sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
     sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
     sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
@@ -54,7 +54,6 @@ export class SimpleAngularRunnerComponent implements OnChanges {
       .forEach(([moduleName, code]) => {
         sandbox.addCss(code);
       });
-
 
     sandbox.evalJs(`System.import('bootstrap')`);
   }

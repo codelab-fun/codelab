@@ -1,5 +1,4 @@
-import 'rxjs/Subject';
-import 'rxjs/Observable';
+import 'rxjs';
 import '@angular/core';
 import '@angular/animations';
 import '@angular/router';

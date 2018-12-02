@@ -20,7 +20,7 @@ import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { DepsService } from './services/deps-order.service';
 import { NewEditorsComponent } from './new-editors/new-editors.component';
-import { AngularRunnerComponent } from './runners/angular-runner/angular-runner.component';
+
 import { RunnersModule } from './runners/runners.module';
 import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/size-picker/size-picker.module';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
@@ -52,7 +52,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     CodeGroupComponent,
     ExercisePreviewComponent,
     NewEditorsComponent,
-    AngularRunnerComponent,
     RealtimeEvalComponent,
   ],
   providers:
@@ -69,7 +68,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
       ExercisePreviewComponent,
       ExerciseComponent,
       NewEditorsComponent,
-      AngularRunnerComponent,
       RealtimeEvalComponent,
     ]
 })

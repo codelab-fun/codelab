@@ -49,11 +49,11 @@ describe('Pipes', () => {
   it(`app.module.ts: Add the FuzzyPipe to the AppModule declarations`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].declarations, `Fuzzy pipe not found`).contains(FuzzyPipe);
+    chai.expect(metadata.declarations || [], `Fuzzy pipe not found`).contains(FuzzyPipe);
   });
 
   it(`video.component.html: Use the pipe on the date.`, () => {

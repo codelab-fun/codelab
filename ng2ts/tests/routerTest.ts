@@ -6,8 +6,8 @@ import { app_html } from '../code';
 function getRoutes() {
   let metadata;
   try {
-    metadata = Reflect.getMetadata('annotations', AppModule);
-    const routerImport = metadata[0].imports.find(imp => imp.ngModule && imp.ngModule.toString().includes('RouterModule'));
+    metadata = AppModule['__annotations__'][0];
+    const routerImport = metadata.imports.find(imp => imp.ngModule && imp.ngModule.toString().includes('RouterModule'));
 
     function findRecByToken(dep) {
       if (Array.isArray(dep)) {

@@ -25,7 +25,7 @@ platform.bootstrapModule(AppModule);
 /*/d*//*d:templatePageSetup*/
 platform.bootstrapModule(AppModule, {
   providers: [
-    {provide: ResourceLoader, useClass: MyResourceLoader}
+    {provide: ResourceLoader, useClass: MyResourceLoader, deps: []}
   ]
 });
 /*/d*/

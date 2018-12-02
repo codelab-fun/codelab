@@ -106,28 +106,9 @@ export class AppModule {}`;
     return `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 ${this.imports([module])}
 import {ResourceLoader} from '@angular/compiler';
-import * as code from './code';
-
-// The code below is used to match the Components with the appropriate templates.
-//
-class MyResourceLoader extends ResourceLoader {
-  get(url: string): Promise<string> {
-    const templateId = Object.keys(code).find(key => key.includes(url.replace(/[\/\.-]/gi, '_')));
-    let template = code[templateId];
-    if (!template) {
-      console.log(template);
-      debugger;
-    }
-    return Promise.resolve(template);
-  };
-}
 
 const platform = platformBrowserDynamic();
-platform.bootstrapModule(${module.name}, {
-  providers: [
-    {provide: ResourceLoader, useClass: MyResourceLoader}
-  ]
-});
+platform.bootstrapModule(${module.name});
 
 `;
   }

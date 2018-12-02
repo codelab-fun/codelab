@@ -39,12 +39,12 @@ describe('forms', () => {
   it('app.module.ts: Add FormsModule and MatInputModule, to the imports.', () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].imports).to.contain(MatInputModule);
-    chai.expect(metadata[0].imports).to.contain(FormsModule);
+    chai.expect(metadata.imports).to.contain(MatInputModule);
+    chai.expect(metadata.imports).to.contain(FormsModule);
   });
 
 

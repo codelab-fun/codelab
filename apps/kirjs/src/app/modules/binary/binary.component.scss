@@ -2,20 +2,7 @@ h1 {
   font-size: 5vw;
 }
 
-::ng-deep .slide.slide [vertical-split],
-::ng-deep [vertical-split] .slide.slide {
-  display: flex;
-  flex-direction: row;
 
-  > *:first-child {
-    width: 49vw;
-    margin-right: 1vw;
-  }
-  > *:nth-child(2) {
-    width: 49vw;
-    margin-left: 1vw;
-  }
-}
 
 ::ng-deep slides-feedback-widget {
   position: absolute;

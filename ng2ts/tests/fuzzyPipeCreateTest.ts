@@ -1,13 +1,11 @@
-
-import {FuzzyPipe, evalJs} from '../fuzzy-pipe/fuzzy.pipe';
+import { evalJs, FuzzyPipe } from '../fuzzy-pipe/fuzzy.pipe';
 import 'reflect-metadata';
 
 let metadata;
 beforeEach(() => {
   try {
-    metadata = Reflect.getMetadata('annotations', FuzzyPipe);
+    metadata = FuzzyPipe['__annotations__'][0];
   } catch (e) {
-
   }
 });
 
@@ -30,7 +28,7 @@ describe('Pipe', () => {
   });
 
   it(`Set the name to fuzzy`, () => {
-    chai.expect(metadata[0].name).equals('fuzzy');
+    chai.expect(metadata.name).equals('fuzzy');
   });
 
   it(`Make it return '2 days ago for '${formattedDate}'`, () => {

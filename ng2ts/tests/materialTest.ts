@@ -25,7 +25,7 @@ describe('material', () => {
       TestBed.configureTestingModule({
         providers: [VideoService],
         declarations: [AppComponent, SearchComponent, VideoComponent],
-        imports: [RouterModule.forRoot([{path: '', component: SearchComponent}]), MatToolbarModule]
+        imports: [RouterModule.forRoot([{path: '', component: SearchComponent}]), MatToolbarModule, MatCardModule]
       });
       TestBed.overrideComponent(AppComponent, {
         set: {
@@ -49,12 +49,12 @@ describe('material', () => {
   it('app.module.ts: Add MatCardModule and MatToolbarModule, to the imports.', () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].imports).to.contain(MatCardModule);
-    chai.expect(metadata[0].imports).to.contain(MatToolbarModule);
+    chai.expect(metadata.imports).to.contain(MatCardModule);
+    chai.expect(metadata.imports).to.contain(MatToolbarModule);
   });
 
   it('app.html: Add material toolbar containing the title', () => {

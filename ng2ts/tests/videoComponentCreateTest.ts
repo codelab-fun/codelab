@@ -4,6 +4,7 @@ import { video_video_component_html } from '../code';
 import { VideoComponent } from '../video/video.component';
 import { VideoService } from '../video/video.service';
 import 'initTestBed';
+
 const video = Api.fetch('')[0];
 
 beforeEach(() => {
@@ -29,22 +30,23 @@ describe('Component Tree', () => {
   describe('Make sure metadata is in place', () => {
 
     it(`@@addComponentDecoratorAndSetSelectorToMyVideo`, () => {
-      const metadata = Reflect.getMetadata('annotations', VideoComponent);
+      const metadata = VideoComponent['__annotations__'][0];
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].selector, `VideoComponent's selector has to be 'my-video'.`).equals('my-video');
+      chai.expect(metadata.selector, `VideoComponent's selector has to be 'my-video'.`).equals('my-video');
     });
 
 
     it(`@@setTemplateUrlToLoadAppropriateFile`, () => {
-      const metadata = Reflect.getMetadata('annotations', VideoComponent);
+      const metadata = VideoComponent['__annotations__'][0];
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].templateUrl, `VideoComponent's templateUrl should be set to './video.component.html'`)
+      chai.expect(metadata.templateUrl, `VideoComponent's templateUrl should be set to './video.component.html'`)
         .matches(/\.\/video\.component\.html/);
     });
 
 
     it(`@@addVideoPropertyAndDecorateWithInput`, () => {
-      const metadata = Reflect.getMetadata('propMetadata', VideoComponent);
+      const metadata = VideoComponent['__prop__metadata__'];
+
       chai.expect(metadata, `VideoComponent doesn't have any @Input()'s`).is.not.undefined;
       chai.expect(Object.keys(metadata).length, `VideoComponent doesn't have any @Input()'s`).equals(1);
       chai.expect(metadata.video, `VideoComponent's @Input()' should be called video.`).is.not.undefined;

@@ -4,7 +4,7 @@ import { FeedbackService } from '../feedback.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from '../message';
 import { Observable } from 'rxjs';
-import { debounceTime } from 'rxjs/internal/operators';
+import { debounceTime } from 'rxjs/operators';
 
 
 @Component({

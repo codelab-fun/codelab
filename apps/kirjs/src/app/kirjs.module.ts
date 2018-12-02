@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { monacoReady } from '@angular-presentation/exercise/src/lib/services/monaco-config.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const routes = [
@@ -82,6 +83,7 @@ const routes = [
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NxModule.forRoot(),
     RouterModule.forRoot(routes)
   ],

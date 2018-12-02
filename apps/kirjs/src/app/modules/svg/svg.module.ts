@@ -1,4 +1,4 @@
-import { NgModule, Pipe, PipeTransform } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
@@ -10,7 +10,6 @@ import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/ed
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';
-import { DomSanitizer } from '@angular/platform-browser';
 import { SvgPlaygroundComponent } from './svg-playground/svg-playground.component';
 import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/runners.module';
 import { TimerComponent } from './timer/timer.component';
@@ -21,6 +20,7 @@ import { SvgTogetherResultComponent } from './svg-together-result/svg-together-r
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
 import { SlidesModule } from '@angular-presentation/slides';
+import { CodeDemosModule } from '@angular-presentation/code-demos';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)
@@ -42,6 +42,7 @@ const routes = RouterModule.forChild(
     NewProgressBarModule,
     SharedPipeModule,
     SlidesModule,
+    CodeDemosModule,
   ],
   declarations: [
     SvgComponent,

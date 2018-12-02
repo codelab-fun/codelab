@@ -42,8 +42,8 @@ export class AngularTestRunnerComponent implements AfterViewInit {
     }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
       // TODO: addCss(require('./inner.css'));
       setHtml('<my-app></my-app>');
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/core-js/client/shim.min.js'));
-      evalJs(require('!!raw-loader!../../../../assets/runner/node_modules/zone.js/dist/zone.js'));
+      evalJs(require('!!raw-loader!core-js/client/shim.js'));
+      evalJs(require('!!raw-loader!zone.js/dist/zone.js'));
       evalJs(require('!!raw-loader!../../../../assets/runner/js/chai.min'));
       evalJs(require('!!raw-loader!../../../../assets/runner/js/system-config'));
       evalJs(require('!!raw-loader!../../../../assets/runner/js/mocha'));

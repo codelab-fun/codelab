@@ -1,6 +1,6 @@
 var path = require("path");
 var Builder = require('systemjs-builder');
-const rel = "src/assets/runner/ng2/";
+const rel = "libs/exercise/assets/runner/ng2/";
 
 const config = {
   transpiler: "ts",
@@ -22,7 +22,8 @@ const config = {
     }
   },
   paths: {
-    'npm:': 'node_modules/'
+    'npm:': 'node_modules/',
+    'rxjs/': 'node_modules/rxjs/'
   },
   // map tells the System loader where to look for things
   map: {
@@ -33,6 +34,7 @@ const config = {
     '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
     '@angular/core/testing': 'npm:@angular/core/bundles/core-testing.umd.js',
     '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+    '@angular/common/http': 'npm:@angular/common/bundles/common-http.umd.js',
     '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
     '@angular/compiler/testing': 'npm:@angular/compiler/bundles/compiler-testing.umd.js',
     '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
@@ -45,7 +47,11 @@ const config = {
     '@angular/cdk/portal': 'npm:@angular/cdk/bundles/cdk-portal.umd.js',
     '@angular/cdk/rxjs': 'npm:@angular/cdk/bundles/cdk-rxjs.umd.js',
     '@angular/cdk/table': 'npm:@angular/cdk/bundles/cdk-table.umd.js',
+    '@angular/cdk/tree': 'npm:@angular/cdk/bundles/cdk-tree.umd.js',
     '@angular/cdk/stepper': 'npm:@angular/cdk/bundles/cdk-stepper.umd.js',
+    '@angular/cdk/layout': 'npm:@angular/cdk/bundles/cdk-layout.umd.js',
+    '@angular/cdk/text-field': 'npm:@angular/cdk/bundles/cdk-text-field.umd.js',
+    '@angular/cdk/accordion': 'npm:@angular/cdk/bundles/cdk-accordion.umd.js',
     '@angular/cdk/scrolling': 'npm:@angular/cdk/bundles/cdk-scrolling.umd.js',
     '@angular/cdk/observers': 'npm:@angular/cdk/bundles/cdk-observers.umd.js',
     '@angular/cdk/overlay': 'npm:@angular/cdk/bundles/cdk-overlay.umd.js',
@@ -61,6 +67,7 @@ const config = {
     '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
     // other libraries
+    'rxjs/operators': 'npm:rxjs/operators',
     'rxjs': 'npm:rxjs',
     'typescript': 'npm:typescript/lib/typescript.js',
     'ts': "npm:plugin-typescript/lib",
@@ -70,6 +77,7 @@ const config = {
   },
   // packages tells the System loader how to load when no filename and/or no extension
   packages: {
+
     'app': {
       main: './main',
       defaultExtension: 'ts'
@@ -77,10 +85,13 @@ const config = {
     'ts': {
       "main": "plugin.js"
     },
-    'rxjs': {
-      main: 'Rx',
-      defaultExtension: 'js'
+    'rxjs/operators': {
+      main: 'index'
     },
+    rxjs: {
+      main: 'index'
+    },
+
     'angular2-in-memory-web-api': {
       main: 'index',
       defaultExtension: 'js'

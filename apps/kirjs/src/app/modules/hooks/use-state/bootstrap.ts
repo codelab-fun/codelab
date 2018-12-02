@@ -17,6 +17,6 @@ const platform = platformBrowserDynamic();
 
 platform.bootstrapModule(UseStateModule, {
   providers: [
-    {provide: ResourceLoader, useClass: MyResourceLoader}
+    {provide: ResourceLoader, useClass: MyResourceLoader, deps: []}
   ]
 });
