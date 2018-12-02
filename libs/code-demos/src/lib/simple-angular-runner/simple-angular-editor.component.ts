@@ -37,7 +37,6 @@ interface Files {
                                     [code]=code></slides-simple-angular-runner>
     </div>
   `,
-  styleUrls: ['editor.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
