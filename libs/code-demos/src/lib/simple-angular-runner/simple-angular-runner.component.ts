@@ -3,6 +3,7 @@ import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/util
 import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
 import { compileTsFiles } from '../runner/compile-ts-files';
 import { compileTemplates } from '../runner/prepare-templates';
+import { PreviewWindowType } from '../../../../browser/src/lib/preview-window/preview-window.component';
 
 declare const require;
 
@@ -20,6 +21,7 @@ export class SimpleAngularRunnerComponent implements OnChanges {
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
   @Input() bootstrap = 'bootstrap';
+  @Input() ui: PreviewWindowType;
 
   constructor(public scriptLoaderService: ScriptLoaderService) {
   }

@@ -2,7 +2,10 @@
   <div class="panel">
     <mat-form-field>
       <mat-select [(ngModel)]="file">
-        <mat-option *ngFor="let fileName of files" [value]="fileName">🆙 {{fileName}}</mat-option>
+        <ng-template>Lol</ng-template>
+        <mat-option *ngFor="let fileName of files" [value]="fileName">
+          <slides-file-path [path]="fileName"></slides-file-path>
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <button mat-button *ngIf="solutions[file] && solutions[file] != code[file]" style="cursor: pointer"
@@ -14,7 +17,7 @@
   <div class="editor">
     <slides-simple-editor
       (ngModelChange)="update()"
-      [slidesSimpleHighlight]="slidesSimpleHighlight"
+      [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       language="typescript"
       [lineNumbers]="false"
       [fontSize]="20"

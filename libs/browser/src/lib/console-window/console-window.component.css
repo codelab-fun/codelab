@@ -7,7 +7,7 @@
 .frame {
  box-shadow: 0 0 1px #dddddd;
   padding: 10px;
-  margin-top: 0px;
+  margin-top: 0;
   width: 100%;
   background-color: #fff;
 }

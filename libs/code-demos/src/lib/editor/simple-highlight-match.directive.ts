@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, Input, OnChanges } from '@angular/core';
+import { AfterViewInit, Directive, Host, Input, OnChanges, Optional } from '@angular/core';
 import { SimpleEditorComponent } from './simple-editor.component';
 import { findPosition } from '../../../../tooltips/src/lib/utils';
 
@@ -11,7 +11,7 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
   @Input() slidesSimpleHighlightMatch;
   @Input() ngModel;
 
-  constructor(private readonly editorComponent: SimpleEditorComponent) {
+  constructor(@Optional() @Host() private readonly editorComponent: SimpleEditorComponent) {
   }
 
   ngAfterViewInit() {
@@ -22,6 +22,10 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
   }
 
   highlight() {
+    if (!this.editorComponent) {
+      return;
+    }
+
     if (this.editorComponent.editor) {
       if (!this.slidesSimpleHighlightMatch) {
         return;
@@ -36,7 +40,6 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
       if (!code.length) {
         return;
       }
-
 
 
       const decorations = this.slidesSimpleHighlightMatch.map(match => ({match})).reduce((ranges, {match, className}) => {

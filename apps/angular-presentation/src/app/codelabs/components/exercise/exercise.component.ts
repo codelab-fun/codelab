@@ -28,7 +28,7 @@ export function extractSolutions(files: any[]) {
 export class CodelabExerciseComponent {
   @Input() bootstrapTest;
   @Input() translations = {};
-  @Input() codelabHighlightMatch = [];
+  @Input() slidesSimpleHighlightMatch = [];
   code: any;
   solutions = {};
   filesConfig: any;

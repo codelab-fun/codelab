@@ -1,13 +1,16 @@
-<div style="height: 400px; display: flex;">
-  <slides-simple-editor
-    style="width: 50%;flex-grow: 0"
-    (ngModelChange)="update()"
-    [slidesSimpleHighlightMatch]="codelabHighlightMatch"
-    language="typescript"
-    [lineNumbers]="false"
-    [fontSize]="20"
-    [(ngModel)]="code[file]">
-  </slides-simple-editor>
+<div style="height: 500px; display: flex;">
+  <div style="width: 50%;flex-grow: 0">
+    <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
+    <slides-simple-editor
+      style="width: 100%;flex-grow: 0"
+      (ngModelChange)="update()"
+      [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
+      language="typescript"
+      [lineNumbers]="false"
+      [fontSize]="20"
+      [(ngModel)]="code[file]">
+    </slides-simple-editor>
+  </div>
 
   <slides-simple-angular-runner style="width: 50%;flex-grow: 0"
                                 *ngIf="runFilesMap" class="quarter"

@@ -1,18 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('Deck', () => {
-  let component: PresentationComponentV2;
-  let fixture: ComponentFixture<PresentationComponentV2>;
+import { FilePathComponent } from './file-path.component';
+
+describe('FilePathComponent', () => {
+  let component: FilePathComponent;
+  let fixture: ComponentFixture<FilePathComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PresentationComponentV2]
+      declarations: [ FilePathComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PresentationComponentV2);
+    fixture = TestBed.createComponent(FilePathComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

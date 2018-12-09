@@ -61,6 +61,15 @@
     }
   }
 
+  [vertical-flex-layout] {
+    display: flex;
+    flex-direction: column;
+
+    [stretch] {
+
+    }
+  }
+
   .slides-layout {
     height: 100%;
 

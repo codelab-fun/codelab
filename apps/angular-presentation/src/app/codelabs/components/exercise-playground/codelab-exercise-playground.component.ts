@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CodelabExerciseComponent } from '../exercise/exercise.component';
+import { PreviewWindowType } from '../../../../../../../libs/browser/src/lib/preview-window/preview-window.component';
 
 
 @Component({
@@ -8,5 +9,6 @@ import { CodelabExerciseComponent } from '../exercise/exercise.component';
   // styleUrls: ['../exercise/exercise.component.css'],
 })
 export class CodelabExercisePlayground extends CodelabExerciseComponent {
-
+  @Input() path = '';
+  @Input() ui: PreviewWindowType = 'browser';
 }

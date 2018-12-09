@@ -17,7 +17,8 @@ export class MultitabEditorComponent implements OnInit, ControlValueAccessor {
   @Input() code: any;
   @Input() solutions: any = {};
   @Input() file;
-  @Input() slidesSimpleHighlight = [];
+  @Input() slidesSimpleHighlightMatch = [];
+
   private onChange: any;
   private files: string[];
 

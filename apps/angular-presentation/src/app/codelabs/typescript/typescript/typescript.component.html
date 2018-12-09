@@ -176,7 +176,7 @@
       <ng-container i18n="@@typeSystem">Type System</ng-container>
     </h1>
     <h2 i18n>Below we have an <b>add</b> function, and we're adding 2 and 2. What could go wrong?</h2>
-    <codelab-exercise-playground [codelabHighlightMatch]="[code.tsExerciseMatch]"
+    <codelab-exercise-playground [slidesSimpleHighlightMatch]="[code.tsExerciseMatch]"
                                  [exercise]="code.js2And2"></codelab-exercise-playground>
     <!--<slides-playground [config]="code.js2And2"-->
     <!--[focus-highlight-match]="[code.tsExerciseMatch]"-->
@@ -247,6 +247,7 @@
       <ng-container i18n>Interfaces</ng-container>
     </h1>
     <h2 i18n>TypeScript allows to define more complex objects using interfaces:</h2>
+    <slides-file-path path="puppies.ts"></slides-file-path>
     <slides-simple-editor
       style="height: 400px;"
       language="typescript"
@@ -254,9 +255,6 @@
       [fontSize]="20"
       [(ngModel)]="code.moreTypes.codeInterfaces">
     </slides-simple-editor>
-
-    <!--<slides-code-editor path="puppies.ts" [fontSize]="25" [readonly]="false"-->
-    <!--[code]="code.moreTypes.codeInterfaces"></slides-code-editor>-->
     <div class="info" i18n>
       Here, <b>realPuppy</b> is an instance of the <b>Puppy</b> Interface.
     </div>
@@ -271,7 +269,9 @@
       <ng-container i18n>Arrays</ng-container>
     </h1>
     <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}</b> or <b>Type[]</b></h2>
-    <codelab-exercise-playground [exercise]="code.moreTypes.codeArrays"></codelab-exercise-playground>
+    <codelab-exercise-playground
+      ui="console"
+      [exercise]="code.moreTypes.codeArrays"></codelab-exercise-playground>
     <!--<slides-playground [config]="code.moreTypes.codeArrays" [browserUseConsole]="true"></slides-playground>-->
     <div class="info" i18n>Here, each element in the <b>betterCats</b> array is an instance of the
       <b>Cat</b> Interface.
@@ -289,11 +289,12 @@
     <h2 i18n>They are similar to classes in other languages, and are used to group methods and properties
       together</h2>
     <codelab-exercise-playground
-      [codelabHighlightMatch]="[code.classDescription.matches.classPuppyMatch]"
+      [slidesSimpleHighlightMatch]="[code.classDescription.matches.classPuppyMatch]"
       [exercise]="code.classDescription.code"></codelab-exercise-playground>
     <!--<slides-playground [config]="code.classDescription.code" [browserUseConsole]="true"-->
     <!--[focus-highlight-match]="[code.classDescription.matches.classPuppyMatch]"></slides-playground>-->
   </div>
+
   <div *slide id="classes-constructor" milestone="TypeScript">
     <h1>
       <ng-container i18n="@@typescript">TypeScript</ng-container>
@@ -307,7 +308,8 @@
       instantiated and
       allows the class to take parameters
     </h2>
-    <codelab-exercise-playground [exercise]="code.classDescription.codeConstructor"></codelab-exercise-playground>
+    <codelab-exercise-playground [exercise]="code.classDescription.codeConstructor"
+                                 [slidesSimpleHighlightMatch]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></codelab-exercise-playground>
     <!--<slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"-->
     <!--[focus-highlight-match]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></slides-playground>-->
   </div>
@@ -325,7 +327,9 @@
       properties accessible as
       <b>this.ParameterName</b> within the class
     </h2>
-    <codelab-exercise-playground [exercise]="code.classDescription.codeConstructor"></codelab-exercise-playground>
+    <codelab-exercise-playground
+      [slidesSimpleHighlightMatch]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]  "
+      [exercise]="code.classDescription.codeConstructor"></codelab-exercise-playground>
     <!--<slides-playground [config]="code.classDescription.codeConstructor" [browserUseConsole]="true"-->
     <!--[focus-highlight-match]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]"></slides-playground>-->
     <div class="info" i18n>private or protected properties are not visible outside of the class.</div>
@@ -344,6 +348,7 @@
     <!--TODO(kirjs): file names-->
     <slides-simple-editor
       style="height: 400px;"
+      [slidesSimpleHighlightMatch]="[code.classDescription.matches.exportMatch]"
       language="typescript"
       [lineNumbers]="false"
       [fontSize]="20"
@@ -426,7 +431,6 @@
     <h3 i18n>The result will be as follows:</h3>
     <slides-codelab-exercise-preview style="margin-top: 2vw;"
                                      [exercise]="exercises[0]"></slides-codelab-exercise-preview>
-    <!--<slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>-->
   </div>
 
 
@@ -438,21 +442,7 @@
 
   </div>
 
-
-  <!--<div *slide id="exercise" no-padding>-->
-  <!--<slides-exercise [files]="exercises[0].files">-->
-  <!--<div class="description"></div>-->
-  <!--<slides-new-editors class="editor">-->
-  <!--</slides-new-editors>-->
-  <!--<slides-slides-preview milestone="TypeScript" class="slides-preview">-->
-  <!--</slides-slides-preview>-->
-  <!--<slides-angular-test-runner class="tests"-->
-  <!--[translations]="t"></slides-angular-test-runner>-->
-  <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
-  <!--</slides-exercise>-->
-  <!--</div>-->
-
-  <div *slide id="end" milestone="TypeScript">
+  <div *slide id="end">
     <codelab-closing-slide>
       <div header>
         <h1>

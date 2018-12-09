@@ -16,6 +16,7 @@ import { CodelabClosingSlideComponent } from './closing-slide/codelab-closing-sl
 import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { CodelabExercisePlayground } from './exercise-playground/codelab-exercise-playground.component';
 import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-progress-bar.component';
+import { FilePathComponent } from './file-path/file-path.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-prog
     CodelabExercisePreviewComponent,
     CodelabExercisePlayground,
     CodelabProgressBarComponent,
+    FilePathComponent,
   ],
   exports: [
     CodelabExerciseComponent,
@@ -50,6 +52,8 @@ import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-prog
     CodelabExercisePreviewComponent,
     CodelabExercisePlayground,
     CodelabProgressBarComponent,
+    FilePathComponent,
+    FilePathComponent,
   ],
 })
 export class CodelabExerciseModule {

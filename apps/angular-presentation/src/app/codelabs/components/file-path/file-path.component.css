@@ -1,0 +1,8 @@
+.file.ts:before {
+  content: "ts";
+  background: #1885ff;
+  color: #eeeeee;
+  padding: 0.4vw;
+  margin-right: 1vw;
+  display: inline-block;
+}
