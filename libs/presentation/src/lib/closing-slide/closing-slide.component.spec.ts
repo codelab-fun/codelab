@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClosingSlideComponent } from './closing-slide.component';
 
-describe('ClosingSlideComponent', () => {
+describe('CodelabClosingSlideComponent', () => {
   let component: ClosingSlideComponent;
   let fixture: ComponentFixture<ClosingSlideComponent>;
 

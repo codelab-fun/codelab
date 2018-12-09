@@ -2,6 +2,7 @@
   display: block;
   height: 100%;
   width: 100%;
+  flex-grow: 1;
 }
 
 :host {
@@ -10,7 +11,7 @@
   display: block;
 }
 
-::ng-deep .decorationsOverviewRuler, ::ng-deep .current-line  {
+::ng-deep .decorationsOverviewRuler, ::ng-deep .current-line {
   display: none !important
 }
 

@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Directive, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { SlidesDeckComponent } from '@angular-presentation/slides/src/lib/deck/deck.component';
+import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
@@ -32,7 +32,8 @@ export class SlidesRoutingDirective implements OnInit {
   ngOnInit() {
     const id: string = this.route.snapshot.params['id'];
     const index = this.deck.slides.findIndex(s => s.id === id);
-
-    this.deck.goToSlide(Number(index === -1 ? id : index));
+    // TODO(kirjs): Clean this up
+    const index2 = Number(index === -1 ? id : index);
+    this.deck.goToSlide(isNaN(index2) ? 0 : index2);
   }
 }

@@ -34,6 +34,7 @@ interface Files {
         </slides-simple-editor>
       </div>
       <slides-simple-angular-runner style="height: 400px;display: block;margin-bottom: 50px;"
+                                    [bootstrap]="bootstrap"
                                     [code]=code></slides-simple-angular-runner>
     </div>
   `,
@@ -49,6 +50,7 @@ export class SimpleAngularPlaygroundComponent implements ControlValueAccessor {
   @Input() file: string;
   @Input() code: Files;
   @Input() solutions: Files = {};
+  @Input() bootstrap;
 
   change = new Subject();
   showFilePicker = true;

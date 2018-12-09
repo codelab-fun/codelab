@@ -1,0 +1,16 @@
+<div style="height: 400px; display: flex;">
+  <slides-simple-editor
+    style="width: 50%;flex-grow: 0"
+    (ngModelChange)="update()"
+    [slidesSimpleHighlightMatch]="codelabHighlightMatch"
+    language="typescript"
+    [lineNumbers]="false"
+    [fontSize]="20"
+    [(ngModel)]="code[file]">
+  </slides-simple-editor>
+
+  <slides-simple-angular-runner style="width: 50%;flex-grow: 0"
+                                *ngIf="runFilesMap" class="quarter"
+                                [bootstrap]="bootstrap"
+                                [code]=runFilesMap></slides-simple-angular-runner>
+</div>

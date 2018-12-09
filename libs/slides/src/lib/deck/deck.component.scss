@@ -1,3 +1,9 @@
+::ng-deep {
+  .has-milestone .btn-bar {
+    display: none;
+  }
+}
+
 :host ::ng-deep {
   .slide.slide [vertical-split],
   [vertical-split] .slide.slide {

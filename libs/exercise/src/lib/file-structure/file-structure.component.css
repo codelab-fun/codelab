@@ -4,7 +4,7 @@ slides-file-tree {
 
 .file-tree-column {
   display: flex;
-  border: 1px solid #dddddd;
+ box-shadow: 0 0 1px #dddddd;
 }
 
 .file-tree-column-toggle {

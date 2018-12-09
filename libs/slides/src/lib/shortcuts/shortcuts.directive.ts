@@ -1,5 +1,5 @@
 import { Directive, HostListener, Optional } from '@angular/core';
-import { SlidesDeckComponent } from '@angular-presentation/slides/src/lib/deck/deck.component';
+import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
   selector: '[slidesShortcuts]'

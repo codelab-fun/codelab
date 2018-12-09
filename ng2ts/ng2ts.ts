@@ -221,15 +221,18 @@ function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
 }
 
 export function convertExerciseToMap(exercise) {
-  const convertFilesToMap = (result, file) => {
-    result[file.path] = file.template;
+  const convertFilesToMap = (prop = 'template') => (result, file) => {
+    result[file.path] = file[prop];
     return result;
   };
 
   return {
-    code: exercise.files.reduce(convertFilesToMap, {}),
-    codeSolutions: exercise.files.reduce(convertFilesToMap, {}),
-    test: exercise.files.reduce(convertFilesToMap, {}),
+    code: exercise.files.reduce(convertFilesToMap(), {}),
+    codeSolutions: exercise.files.filter(file => file.solution).reduce(convertFilesToMap('solution'), {}),
+    test: exercise.files.filter(file => !file.excludeFromTesting).reduce(convertFilesToMap(), {}),
+    bootstrap: exercise.files.find(({bootstrap, excludeFromTesting}) => bootstrap && excludeFromTesting).moduleName,
+    bootstrapTest: exercise.files.find(({bootstrap, excludeFromTesting}) => bootstrap && !excludeFromTesting).moduleName,
+    file: exercise.files[0].path
   }
 }
 

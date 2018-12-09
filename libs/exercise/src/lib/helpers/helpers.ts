@@ -296,7 +296,7 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
     {
       path: 'main.css',
       type: 'css',
-      code: `body {background: red}`
+      code: ``
     }
   ];
   if (otherCode !== '') {

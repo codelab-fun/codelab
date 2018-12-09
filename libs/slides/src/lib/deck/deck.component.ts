@@ -1,5 +1,6 @@
-import { Component, ContentChildren, EventEmitter, Input, Output, QueryList, TemplateRef } from '@angular/core';
+import { Component, ContentChildren, EventEmitter, HostBinding, Input, Optional, Output, QueryList, TemplateRef } from '@angular/core';
 import { SlideControls } from '../../../../presentation/src/lib/presentation/presentation.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'slides-deck',
@@ -15,9 +16,18 @@ export class SlidesDeckComponent implements SlideControls {
   activeSlideIndex = 0;
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
+  @HostBinding('class.has-milestone') hasMilestone = false;
+  private milestone: string = '';
+
+  constructor(@Optional() route: ActivatedRoute) {
+    this.milestone = route.snapshot.queryParams.milestone;
+    this.hasMilestone = !!this.milestone;
+  }
 
   addSlide(slide) {
-    this.slides.push(slide)
+    if (!this.milestone || this.milestone === slide.milestone) {
+      this.slides.push(slide)
+    }
   }
 
   goToSlide(index: number) {

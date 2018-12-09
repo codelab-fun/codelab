@@ -1,0 +1,8 @@
+.quarter {
+  width: 50vw;
+  height: 50vh;
+}
+
+.row {
+  display: flex;
+}

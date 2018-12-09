@@ -19,6 +19,7 @@ export class SimpleAngularRunnerComponent implements OnChanges {
   @Input() url = '/assets/runner/';
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
+  @Input() bootstrap = 'bootstrap';
 
   constructor(public scriptLoaderService: ScriptLoaderService) {
   }
@@ -49,15 +50,16 @@ export class SimpleAngularRunnerComponent implements OnChanges {
     compileTsFiles(this.code).map(file => sandbox.evalJs(file.outputText));
     compileTemplates(this.code, sandbox);
 
-
     Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))
       .forEach(([moduleName, code]) => {
         sandbox.addCss(code);
       });
 
-    sandbox.evalJs(`System.import('bootstrap')`);
+    sandbox.evalJs(`System.import('${this.bootstrap}')`);
   }
 
+
+  // TODO(kirjs): Actually track
   trackIframeUrl(iframe) {
     const interval = window.setInterval(() => {
       if (iframe.contentWindow) {

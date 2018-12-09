@@ -1,0 +1,26 @@
+<div *ngIf="code">
+  <div class="row">
+    <slides-multitab-editor
+      [slidesSimpleHighlight]="codelabHighlightMatch"
+      class="quarter"
+      [file]="file"
+      [solutions]="solutions"
+      [(ngModel)]="code"
+      (ngModelChange)="update()"
+    ></slides-multitab-editor>
+
+    <slides-simple-angular-test-runner
+      class="quarter"
+      [translations]="translations"
+      [bootstrap]="bootstrapTest"
+      [code]="runFilesMap"></slides-simple-angular-test-runner>
+  </div>
+  <div class="row">
+    <div class="quarter">
+      <ng-content></ng-content>
+    </div>
+    <slides-simple-angular-runner *ngIf="runFilesMap" class="quarter"
+                                  [bootstrap]="bootstrap"
+                                  [code]=runFilesMap></slides-simple-angular-runner>
+  </div>
+</div>

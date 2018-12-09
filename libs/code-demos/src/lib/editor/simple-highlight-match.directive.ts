@@ -38,7 +38,8 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
       }
 
 
-      const decorations = this.slidesSimpleHighlightMatch.reduce((ranges, {match, className}) => {
+
+      const decorations = this.slidesSimpleHighlightMatch.map(match => ({match})).reduce((ranges, {match, className}) => {
         const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(code, match);
         ranges.push({
           range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),

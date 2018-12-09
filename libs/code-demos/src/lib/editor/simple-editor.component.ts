@@ -32,13 +32,14 @@ declare const require: any;
 export class SimpleEditorComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
   height: number;
   minLines = 6;
-  actialFontSize: number;
+  actualFontSize: number;
   model: any;
   editor: any;
   @Input() fontSize = 12;
   @Input() language = 'html';
   @Input() theme = '';
   @Input() lineNumbers = true;
+  @Input() autoSize = true;
   @Output() change = new EventEmitter();
   @Output() lineChange = new EventEmitter();
   @ViewChild('editor') editorEl;
@@ -69,7 +70,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
     if (this.editor) {
       this.editor.updateOptions({fontSize: this.fontSize * document.documentElement.clientWidth / 1800});
       const lines = this.code.split('\n').length;
-      const lineHeight = this.actialFontSize * 1.6;
+      const lineHeight = this.actualFontSize * 1.6;
       const height = Math.max(lines * lineHeight, lineHeight * this.minLines);
 
       if (this.height !== height) {

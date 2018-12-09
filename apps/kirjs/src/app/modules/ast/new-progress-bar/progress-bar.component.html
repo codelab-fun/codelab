@@ -7,8 +7,8 @@
     <div *ngFor="let slide of slides"
          (click)="goToSlide(slide.index)">
       <div class="slide-block"
-           [class.completed-slide]="slide.index < currentSlideId"
-           [class.current-slide]="slide.index === currentSlideId"></div>
+           [class.completed-slide]="slide.index < activeSlideIndex"
+           [class.current-slide]="slide.index === activeSlideIndex"></div>
     </div>
   </div>
   <span class="font-size">
