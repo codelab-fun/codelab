@@ -136,8 +136,6 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
 
     this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
       () => this.change.emit(this.editor.getModel().getValue()));
-
-
   }
 }
 

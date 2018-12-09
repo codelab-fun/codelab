@@ -1,4 +1,10 @@
-<div style="height: 500px; display: flex;">
+<slides-simple-angular-test-runner
+  class="quarter"
+  [translations]="translations"
+  [bootstrap]="bootstrapTest"
+  [code]="runFilesMap"></slides-simple-angular-test-runner>
+
+<div style=" display: flex;">
   <div style="width: 50%;flex-grow: 0">
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
     <slides-simple-editor
@@ -13,6 +19,7 @@
   </div>
 
   <slides-simple-angular-runner style="width: 50%;flex-grow: 0"
+                                [ui]="ui"
                                 *ngIf="runFilesMap" class="quarter"
                                 [bootstrap]="bootstrap"
                                 [code]=runFilesMap></slides-simple-angular-runner>

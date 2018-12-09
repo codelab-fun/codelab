@@ -11,7 +11,7 @@ function getFunctionNode(code) {
    * Fancy: Require the actual source code, and search in it.
    */
   function findFunctionNode(node) {
-    if (node.kind === ts.SyntaxKind.FunctionDeclaration) {
+    if (node.kind === ts.SyntaxKind.FunctionDeclaration && node.name.text === 'add') {
       functionNode = node;
     }
     ts.forEachChild(node, findFunctionNode);

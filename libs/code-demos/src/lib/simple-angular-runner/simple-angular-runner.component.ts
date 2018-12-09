@@ -21,7 +21,7 @@ export class SimpleAngularRunnerComponent implements OnChanges {
   @Input() urlBase = location.origin;
   @Input() hiddenUrlPart = '/assets/runner';
   @Input() bootstrap = 'bootstrap';
-  @Input() ui: PreviewWindowType;
+  @Input() ui: PreviewWindowType = 'browser';
 
   constructor(public scriptLoaderService: ScriptLoaderService) {
   }

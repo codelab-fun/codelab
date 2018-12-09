@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CodelabExerciseModule } from '../../components/exercise.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+import { TypescriptSvgComponent } from './typescript-svg/typescript-svg.component';
 
 const routes = RouterModule.forChild(
   [
@@ -38,7 +39,7 @@ const routes = RouterModule.forChild(
     CodelabExerciseModule,
     SimpleEditorModule,
   ],
-  declarations: [TypescriptComponent],
+  declarations: [TypescriptComponent, TypescriptSvgComponent],
   exports: [TypescriptComponent]
 })
 export class TypescriptModule {

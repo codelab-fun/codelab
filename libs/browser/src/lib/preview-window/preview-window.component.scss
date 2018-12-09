@@ -81,18 +81,18 @@
   }
 
   .img-full {
-    background-image: url(../browser-window/pics/browsertop-middle.png);
+    background-image: url(./pics/browser/browsertop-middle.png);
 
     .img-left {
-      width: 5vw;
+      width: 10vw;
       height: 2vw;
-      background: url(../browser-window/pics/browsertop-left.png);
+      background-image: url(./pics/browser/browsertop-left.png);
     }
 
     .img-right {
       width: 3vw;
       height: 2vw;
-      background: url(../browser-window/pics/browsertop-right.png);
+      background-image: url(../browser-window/pics/browsertop-right.png);
     }
   }
 
