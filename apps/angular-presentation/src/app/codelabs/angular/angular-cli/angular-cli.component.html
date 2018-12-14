@@ -1,19 +1,19 @@
-<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
-  <slides-progress-bar></slides-progress-bar>
-  <slides-arrows></slides-arrows>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
   <!--  INTRO -->
-  <slides-slide *slidesIf="'intro'" no-padding>
+  <div *slide id="intro" no-padding>
     <slides-title-slide title="angular-cli"
                         description="Learn how to quickly start working on your Angular app"></slides-title-slide>
-  </slides-slide>
+  </div>
 
-i
-  <slides-slide *slidesIf="'angular-cli'">
+  i
+  <div *slide id="angular-cli">
     <h1>Angular CLI / Intro</h1>
     <h2>Angular CLI is a command line tool that can be used to quickly get up to speed with running your angular
       app.</h2>
@@ -23,9 +23,9 @@ i
       Hi, I'm <b>angular-cli</b>, I'm a command line tool! </span>
       It may sound scary, but I'm really easy to use!
     </slides-terminal-window>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'npm'">
+  <div *slide id="npm">
     <h1>Angular CLI / node</h1>
     <h2>Before you start, make sure you have node.js on your machine.</h2>
     <h2>Open terminal and type in: <code>node -v</code></h2>
@@ -37,9 +37,9 @@ i
       $ node -v<span class="success">
       v6.11.3</span>
     </slides-terminal-window>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'install'">
+  <div *slide id="install">
     <h1>Angular CLI / installing</h1>
     <h2>
       Run <code>sudo npm install -g @angular/cli</code> to install <b>Angular cli</b> on your machine
@@ -64,10 +64,10 @@ i
       ├── webpack-sources@1.0.1
       └── zone.js@0.8.18
     </slides-terminal-window>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'new-app'">
+  <div *slide id="new-app">
     <h1>Angular CLI / Creating new Angular app</h1>
     <h2>
       Creating new Angular app is easy, just run <code>ng new awesome-app</code>, then <code>cd awesome-app</code>
@@ -88,9 +88,9 @@ i
         Project 'awesome-app' successfully created.
       </div>
     </slides-terminal-window>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'starting'">
+  <div *slide id="starting">
     <h1>Angular CLI / Starting the app</h1>
     <h2>
       Once you're in the app folder, start the app with <code>ng serve</code>
@@ -115,10 +115,10 @@ i
 
     <h2>Once the app is started just open <a target="_blank" href="http://localhost:4200/">http://localhost:4200/</a> in
       your browser</h2>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'generating'">
+  <div *slide id="generating">
     <h1>Angular CLI / Generating components</h1>
     <h2>
       You can easily generate new components <code>ng generate component my-component</code>
@@ -134,9 +134,9 @@ i
 
     <h2>You can also generate modules, services and pipes</h2>
     <div class="info">You can use a shorter version: <code>ng g c my-component</code></div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'end'">
+  <div *slide id="end">
     <slides-closing-slide>
       <div class="header" header>
         <h1 i18n>End of The Angular-cli Milestone</h1>
@@ -147,7 +147,7 @@ i
           are some links that can help you continue learning.</h2>
         <ul>
           <li><h2>
-            Learn more  <a href="https://cli.angular.io/">about angular-cli </a></h2></li>
+            Learn more <a href="https://cli.angular.io/">about angular-cli </a></h2></li>
           <li><a href="https://angular.io/" target="_blank">Angular.io</a>
             <span i18n>Find features, docs and events listed here</span>
           </li>
@@ -164,9 +164,9 @@ i
         </slides-feedback-rating>
       </div>
     </slides-closing-slide>
-  </slides-slide>
+  </div>
 
 
-</slides-presentation>
+</slides-deck>
 
 

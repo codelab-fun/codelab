@@ -8,18 +8,22 @@
       [(ngModel)]="code"
       (ngModelChange)="update()"
     ></slides-multitab-editor>
+    <div class="quarter">
+      <ng-content select=".description"></ng-content>
+      <!--<slides-simple-angular-test-runner-->
+      <!--[translations]="translations"-->
+      <!--[bootstrap]="bootstrapTest"-->
+      <!--[code]="runFilesMap"></slides-simple-angular-test-runner>-->
+      <slides-babel-test-runner [translations]="translations"
+                                [bootstrap]="bootstrapTest"
+                                [code]="runFilesMap"></slides-babel-test-runner>
+    </div>
 
-    <slides-simple-angular-test-runner
-      class="quarter"
-      [translations]="translations"
-      [bootstrap]="bootstrapTest"
-      [code]="runFilesMap"></slides-simple-angular-test-runner>
   </div>
   <div class="row">
-    <div class="quarter">
-      <ng-content></ng-content>
-    </div>
-    <slides-simple-angular-runner *ngIf="runFilesMap" class="quarter"
+    <codelab-slides-preview class="quarter" milestone="Bootstrap"></codelab-slides-preview>
+    <slides-simple-angular-runner [url]="url"
+                                  *ngIf="runFilesMap" class="quarter"
                                   [bootstrap]="bootstrap"
                                   [code]=runFilesMap></slides-simple-angular-runner>
   </div>

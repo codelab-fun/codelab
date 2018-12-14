@@ -60,16 +60,16 @@ export class SimpleAngularTestRunnerComponent extends SimpleAngularRunnerCompone
     window.addEventListener('message', this.handleMessageBound, false);
   }
 
-  runCode() {
-    createSystemJsSandbox(this.runnerElement.nativeElement, {
+  async runCode() {
+    const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
       id: 'testing', 'url': 'about:blank'
-    }).then((sandbox) => {
-      addMetaInformation(sandbox.iframe, this.code);
-      sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
-      sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
-      sandbox.evalJs(this.scriptLoaderService.getScript('test-bootstrap'));
-      this.runAngular(sandbox, this.code);
     });
+
+    addMetaInformation(sandbox.iframe, this.code);
+    sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
+    sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
+    sandbox.evalJs(this.scriptLoaderService.getScript('test-bootstrap'));
+    this.runAngular(sandbox);
   }
 
 

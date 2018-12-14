@@ -7,7 +7,11 @@ import { AlertComponent } from './alert.component';
 import { HideMeDirective } from './hideme.directive';
 
 @NgModule({
-  imports: [BrowserModule, MatTabsModule, NoopAnimationsModule],
+  imports: [
+    BrowserModule,
+    MatTabsModule,
+    NoopAnimationsModule
+  ],
   declarations: [AppComponent, AlertComponent, HideMeDirective],
   bootstrap: [AppComponent]
 })

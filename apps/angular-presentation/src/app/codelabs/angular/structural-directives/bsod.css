@@ -46,7 +46,6 @@ p {
   height: 100vh;
 }
 
-
 #bsod-2 .alfred-upset {
   position: absolute;
   left: 0;
@@ -55,6 +54,7 @@ p {
   height: 420px;
   background: url(./pics/Alfred_Sisley_photo_full.jpg);
 }
+
 #bsod-beautiful {
   background: url(./pics/bebbf81f5402fbbec1cff6eb687aa90a.jpg) no-repeat center center fixed;
   background-size: 100%;

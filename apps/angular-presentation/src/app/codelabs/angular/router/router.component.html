@@ -2,34 +2,36 @@
   <div i18n="@@componentIsDecorator" id="componentIsDecorator">@Component is an Angular decorator</div>
   <div i18n="@@noSemicolon" id="noSemicolon">No semicolon here (as it attaches itself to the class below</div>
 </div>
-<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
-  <slides-progress-bar></slides-progress-bar>
-  <slides-arrows></slides-arrows>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
   <!--  INTRO -->
-  <slides-slide *slidesIf="'intro'" no-padding>
+  <div *slide id="intro" no-padding>
     <slides-title-slide title="Routing" description="Learn how to add routing to your app"></slides-title-slide>
-  </slides-slide>
+  </div>
 
   <!--  Slide 2-->
-  <slides-slide *slidesIf="'router-intro'; milestone: 'Router'">
+  <div *slide id="router-intro" milestone="Router">
     <h1>Router - intro</h1>
     <h2>Router is used to give <b>URLs</b> to different parts of your app.</h2>
     <div class="router-preview">
-      <slides-exercise-preview column-5
-                               [config]="code.kittens"
-                               fakeUrl="http://localhost:4200/assets/runner/kittens"
-      ></slides-exercise-preview>
-      <slides-exercise-preview column-5
-                               [config]="code.puppies"
-                               fakeUrl="http://localhost:4200/assets/runner/puppies"></slides-exercise-preview>
+      <!--fakeUrl="http://localhost:4200/assets/runner/kittens"-->
+      <slides-codelab-exercise-preview column-5
+                                       [exercise]="code.kittens"
+
+      ></slides-codelab-exercise-preview>
+      <!--fakeUrl="http://localhost:4200/assets/runner/puppies"-->
+      <slides-codelab-exercise-preview column-5
+                                       [exercise]="code.puppies"
+                                      ></slides-codelab-exercise-preview>
     </div>
-  </slides-slide>
-  <slides-slide *slidesIf="'router-intro2'; milestone: 'Router'">
+  </div>
+  <div *slide id="router-intro2" milestone="Router">
     <h1>Router - intro</h1>
     <h2>It takes 3 simple steps to set up routing in Angular:</h2>
     <ol>
@@ -37,60 +39,62 @@
       <li>Create the menu</li>
       <li>Find a place to display selected component</li>
     </ol>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'router-config'; milestone: 'Router'">
+  <div *slide id="router-config" milestone="Router">
     <h1>Router - configuration</h1>
     <h2>Routes are configured by defining an array of mapping between URL path and a component</h2>
-    <slides-playground [url]="'/assets/runner'" [config]="code.routerConfig"></slides-playground>
-  </slides-slide>
+    <codelab-exercise-playground [url]="'/assets/runner'" [exercise]="code.routerConfig"></codelab-exercise-playground>
+  </div>
 
-  <slides-slide *slidesIf="'router-config-pass-to-module'; milestone: 'Router'">
+  <div *slide id="router-config-pass-to-module" milestone="Router">
     <h1>Router - configuration</h1>
     <h2>Then we have to pass the config to our module.</h2>
-    <slides-playground [url]="'/assets/runner'" [config]="code.routerConfigPass"></slides-playground>
+    <codelab-exercise-playground [url]="'/assets/runner'"
+                                 [exercise]="code.routerConfigPass"></codelab-exercise-playground>
     <div class="info">Note that we're using <b>RouterModule.forRoot</b> which creates an Angular Module out of our
       configuration.
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'router-outlet'; milestone: 'Router'">
+  <div *slide id="router-outlet" milestone="Router">
     <h1>Router - Outlet</h1>
     <h2>Now we have to find a place where the router would display selected component.</h2>
     <h2>It can be marked by placing <b>router-outlet tag</b></h2>
-    <slides-playground [url]="'/assets/runner'" [openFilesIndex]="[1]"
-                       [config]="code.routerOutlet"></slides-playground>
-  </slides-slide>
+    <!--[openFilesIndex]="[1]"-->
+    <codelab-exercise-playground [url]="'/assets/runner'"
+                                 [exercise]="code.routerOutlet"></codelab-exercise-playground>
+  </div>
 
-  <slides-slide *slidesIf="'menu'; milestone: 'Router'">
+  <div *slide id="menu" milestone="Router">
     <h1>Router - Menu</h1>
     <h2>The last part is creating the menu.</h2>
     <h2>Use <b>routerLink</b> directive to provide the URL</h2>
-    <slides-playground [url]="'/assets/runner'" [openFilesIndex]="[1]"
-                       [config]="code.menu"></slides-playground>
-  </slides-slide>
+    <!--[openFilesIndex]="[1]"-->
+    <codelab-exercise-playground [url]="'/assets/runner'"
+                                 [exercise]="code.menu"></codelab-exercise-playground>
+  </div>
 
-  <slides-slide *slidesIf="'exercise-pre'">
+  <div *slide id="exercise-pre">
     <h1>Router / Exercise</h1>
     <h2>In the next slide there is an exercise. We're going to add 2 routes: <b>Search</b> and <b>Upload</b>, and a menu
       for switching between them.</h2>
-    <slides-exercise-preview column-5 [config]="exercise" [url]="'/assets/runner/'"></slides-exercise-preview>
-    <div class="info">Note: We have  already created empty Upload component and SearchComponent containing search logic.</div>
-  </slides-slide>
+    <slides-codelab-exercise-preview column-5 [exercise]="exercise"
+                                     [url]="'/assets/runner/'"></slides-codelab-exercise-preview>
+    <div class="info">Note: We have already created empty Upload component and SearchComponent containing search
+      logic.
+    </div>
+  </div>
 
-  <slides-slide *slidesIf="'exercise'" no-padding>
-    <slides-exercise [files]="exercise.files">
-      <div class="description"></div>
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-slides-preview milestone="Router" class="slides-preview">
-      </slides-slides-preview>
-      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
+  <div *slide id="exercise" no-padding>
+    <slides-codelab-exercise
+      milestone="Router"
+      [translations]="t"
+      [exercise]="exercise">
+    </slides-codelab-exercise>
+  </div>
 
-  <slides-slide *slidesIf="'end'">
+  <div *slide id="end">
     <slides-closing-slide>
       <div class="header" header>
         <h1 i18n>End of The Routing Milestone</h1>
@@ -108,7 +112,7 @@
         </slides-feedback-rating>
       </div>
     </slides-closing-slide>
-  </slides-slide>
-</slides-presentation>
+  </div>
+</slides-deck>
 
 

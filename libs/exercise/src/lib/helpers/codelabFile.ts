@@ -34,7 +34,7 @@ export class CodelabFile implements FileConfig {
 
   static TypeScriptFile(name: string): CodelabFile {
     return new CodelabFile(FileType.TypeScript, name)
-      .setAfter('export export function evalJs( js ){ return eval(js);}');
+      .setAfter('export function evalJs( js ){ return eval(js);}');
   }
 
   static TypeScriptTest(name: string): CodelabFile {

@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { CodelabFile } from '../../../../../../../../../libs/exercise/src/lib/helpers/codelabFile';
-
-
 
 
 /* tslint:disable */
@@ -9,4 +6,5 @@ import { CodelabFile } from '../../../../../../../../../libs/exercise/src/lib/he
   selector: 'my-app',
   templateUrl: './app.html'
 })
-export class AppComponent {}
+export class AppComponent {
+}

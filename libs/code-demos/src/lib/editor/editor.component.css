@@ -1,13 +1,10 @@
 .monaco-editor {
   display: block;
-  height: 100%;
   width: 100%;
   flex-grow: 1;
 }
 
 :host {
-  height: 100%;
-  width: 100%;
   display: block;
 }
 

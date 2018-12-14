@@ -37,6 +37,7 @@ const routes = RouterModule.forChild(
     BrowserWindowModule,
     RunnersModule,
     CodelabExerciseModule,
+    FormsModule,
     SimpleEditorModule,
   ],
   declarations: [TypescriptComponent, TypescriptSvgComponent],

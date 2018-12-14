@@ -7,6 +7,12 @@ import { PreviewWindowType } from '../../../../browser/src/lib/preview-window/pr
 
 declare const require;
 
+function experimentRequestAnimationFrame() {
+  return new Promise((resolve) => {
+      requestAnimationFrame(resolve);
+    }
+  )
+}
 
 @Component({
   selector: 'slides-simple-angular-runner',
@@ -30,20 +36,25 @@ export class SimpleAngularRunnerComponent implements OnChanges {
     return (this.urlBase + this.url).replace(this.hiddenUrlPart, '');
   }
 
-  runCode() {
-    createSystemJsSandbox(this.runnerElement.nativeElement, {
+  async runCode() {
+
+    const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
       id: 'testing', 'url': 'about:blank'
-    }).then((sandbox) => {
-      this.runAngular(sandbox, this.code);
     });
+
+    this.runAngular(sandbox);
   }
 
   ngOnChanges() {
     this.runCode();
   }
 
-  runAngular(sandbox, code) {
+  async runAngular(sandbox) {
+    console.log(this.code);
+
+    await(experimentRequestAnimationFrame);
     sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app>');
+
     sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
     sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
     sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
@@ -57,7 +68,9 @@ export class SimpleAngularRunnerComponent implements OnChanges {
         sandbox.addCss(code);
       });
 
+    // debugger;
     sandbox.evalJs(`System.import('${this.bootstrap}')`);
+
   }
 
 

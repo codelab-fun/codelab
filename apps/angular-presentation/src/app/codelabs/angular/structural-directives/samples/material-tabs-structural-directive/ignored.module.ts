@@ -1,4 +1,3 @@
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { HideMeDirective } from './hideme.directive.solved';
 

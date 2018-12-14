@@ -58,11 +58,11 @@ export class StructuralDirectivesComponent {
     }
   };
 
-  updateFontSize(diff) {
-    this.fontSize += diff;
-  }
-
   constructor() {
 
+  }
+
+  updateFontSize(diff) {
+    this.fontSize += diff;
   }
 }

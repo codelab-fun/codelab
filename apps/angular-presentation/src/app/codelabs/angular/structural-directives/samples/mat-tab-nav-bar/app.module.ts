@@ -17,7 +17,7 @@ const routes = [
   imports: [BrowserModule, MatTabsModule, RouterModule.forRoot(routes)],
   declarations: [AppComponent, AlertComponent, TabComponent],
   bootstrap: [AppComponent],
-  providers: [{provide: APP_BASE_HREF, useValue : '/assets/runner/' }]
+  providers: [{provide: APP_BASE_HREF, useValue: '/assets/runner/'}]
 })
 export class AppModule {
 }

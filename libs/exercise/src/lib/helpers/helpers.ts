@@ -51,7 +51,7 @@ export function exercise(moduleName: string, template: string, solution?: string
     code: template,
     moduleName: moduleName,
     solution,
-    after: `export export function evalJs( js ){ return eval(js);}`
+    after: `export function evalJs( js ){ return eval(js);}`
   };
 }
 

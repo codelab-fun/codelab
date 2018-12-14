@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 /* tslint:disable */
 @Component({
   selector: 'my-app',
@@ -14,11 +15,13 @@ import { Component } from '@angular/core';
     <router-outlet></router-outlet>`
 })
 export class AppComponent {
-  tabs = [{
-    link: '',
-    label: 'Tab 1'
-  }, {
-    link: 'danger',
-    label: 'Danger'
-  }];
+  tabs = [
+    {
+      link: '',
+      label: 'Tab 1'
+    }, {
+      link: 'danger',
+      label: 'Danger'
+    }
+  ];
 }

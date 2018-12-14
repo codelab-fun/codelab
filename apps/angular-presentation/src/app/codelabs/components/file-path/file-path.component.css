@@ -1,8 +1,28 @@
+.file {
+  margin-left: 1vw;
+  margin-bottom: 1vw;
+  display: block;
+  box-shadow: 0 0 1px #999;
+}
+
 .file.ts:before {
   content: "ts";
   background: #1885ff;
   color: #eeeeee;
+}
+
+.file.html:before {
+  content: "<>";
+  background: #fbff20;
+  color: #424242;
+}
+
+.file:before {
   padding: 0.4vw;
   margin-right: 1vw;
   display: inline-block;
+  width: 16px;
+  height: 16px;
+  box-shadow: 0 0 1px #444444;
 }
+

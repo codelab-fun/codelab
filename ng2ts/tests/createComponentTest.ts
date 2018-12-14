@@ -1,11 +1,10 @@
-import 'reflect-metadata';
 import {
   babelTestSuite,
   expectClass,
   expectDecorator,
   expectDecoratorPropertyStringValue,
   expectExportedClass
-} from '../../libs/exercise/src/lib/runners/ts-code-test-runner/babel-helpers';
+} from '../../apps/angular-presentation/src/app/codelabs/components/babel-test-runner/babel-helpers';
 
 const tests = [
   {

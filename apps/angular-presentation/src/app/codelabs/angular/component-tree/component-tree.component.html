@@ -15,7 +15,9 @@
     video property and decorate it with @Input()
   </div>
   <div i18n="@@displayVideoTitle" id="displayVideoTitle">video.component.html: Display the video title</div>
-  <div i18n="@@displayVideoThumbnail" id="displayVideoThumbnail">video.component.html: Display the video thumbnail (src)</div>
+  <div i18n="@@displayVideoThumbnail" id="displayVideoThumbnail">video.component.html: Display the video thumbnail
+    (src)
+  </div>
   <div i18n="@@displayVideoDescription" id="displayVideoDescription">video.component.html: Display the video
     description
   </div>
@@ -34,8 +36,8 @@
   </div>
 </div>
 
-<slides-presentation slides-slides-routing slides-mode-routing slides-tracking>
-  <slides-progress-bar></slides-progress-bar>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
 
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
@@ -47,26 +49,26 @@
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
 
-  <slides-arrows></slides-arrows>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
 
-  <slides-slide *slidesIf="'intro'" no-padding>
+  <div *slide id="intro" no-padding>
     <slides-title-slide title="Component Tree" description="Combine components together"
                         prereqs=""></slides-title-slide>
-  </slides-slide>
+  </div>
 
 
   <!--  COMPONENT TREE  -->
-  <slides-slide *slidesIf="'description'; milestone: 'component-tree'">
+  <div *slide id="description" milestone="component-tree">
     <h1 i18n="@@componentTree">Component Tree</h1>
     <h2 i18n>So far we have only one component, but as your app grows it will form a tree of components</h2>
     <img src="assets/images/tree.png" alt="tree" height="400">
-  </slides-slide>
+  </div>
 
   <!--  Parent/Child COMPONENTS-->
-  <slides-slide *slidesIf="'parent-child-component'; milestone: 'Component Tree'">
+  <div *slide id="parent-child-component" milestone="Component Tree">
     <h1>
       <ng-container i18n="@@componentTree">Component Tree</ng-container>
       /
@@ -74,25 +76,27 @@
     </h1>
     <h2 i18n>Any component can render another one by using an HTML element that matches the selector of the other
       component</h2>
-    <slides-code-group row>
-      <div column-5>
-        <slides-code-editor path="box.component.ts" [fontSize]="15" [code]="code.circleAndBox.other.boxNoParams"
-                            [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
-      </div>
-      <div column-5>
-        <slides-code-editor path="circle.component..ts" [fontSize]="15" [code]="code.circleAndBox.files[0].code"
-                            [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
-      </div>
-    </slides-code-group>
+    <!--<div row>-->
+    <!--<div column-5>-->
+    <!--<slides-file-path path="box.component.ts"></slides-file-path>-->
+    <!--<slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.other.boxNoParams"-->
+    <!--[slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>-->
+    <!--</div>-->
+    <!--<div column-5>-->
+    <!--<slides-file-path path="circle.component..ts"></slides-file-path>-->
+    <!--<slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[0].code"-->
+    <!--[slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>-->
+    <!--</div>-->
+    <!--</div>-->
     <slides-browser-window style="margin-top: 280px;">
       <div style="border: 1px #ddd solid; width: 100px">
         <div style="width: 100px;height: 100px;background-color: green;border-radius: 50%"></div>
       </div>
     </slides-browser-window>
-  </slides-slide>
+  </div>
 
   <!--  PASSING DATA  -->
-  <slides-slide *slidesIf="'passing-data'; milestone: 'component-tree'">
+  <div *slide id="passing-data" milestone="component-tree">
     <h1>
       <ng-container i18n="@@componentTree">Component Tree</ng-container>
       /
@@ -102,25 +106,25 @@
     <div class="exercise" i18n>
       Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to recreate the Japanese flag.
     </div>
-    <slides-playground [config]="code.boxAndCircle"></slides-playground>
-  </slides-slide>
+    <codelab-exercise-playground [exercise]="code.boxAndCircle"></codelab-exercise-playground>
+  </div>
 
 
   <!--  PASSING DATA  -->
-  <slides-slide *slidesIf="'passing-data-child'; milestone: 'component-tree'">
+  <div *slide id="passing-data-child" milestone="component-tree">
     <h1>
       <ng-container i18n="@@componentTree">Component Tree</ng-container>
       /
       <ng-container i18n="@@passingDataParentChild">Passing Data Parent -> Child</ng-container>
     </h1>
     <h2 i18n>The child class must decorate its properties with a special <b>@Input()</b> decorator</h2>
-    <slides-playground [config]="code.circleAndBox"
-                       [focus-highlight-match]="['@Input() size','@Input() color']"></slides-playground>
+    <codelab-exercise-playground [exercise]="code.circleAndBox"
+                                 [slidesSimpleHighlightMatch]="['@Input() size','@Input() color']"></codelab-exercise-playground>
     <div class="info" i18n>This is the first time we're applying decorators to properties (as opposed to classes).</div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'exercise-1-pre'; milestone: 'component-tree'">
+  <div *slide id="exercise-1-pre" milestone="component-tree">
     <h1>
       <ng-container i18n="@@componentTree">Component Tree</ng-container>
       /
@@ -140,93 +144,88 @@
         <div>Description todo</div>
       </div>
     </slides-browser-window>
-  </slides-slide>
+  </div>
 
 
   <!--  COMPONENT TREE EXERCISE 1 -->
-  <slides-slide *slidesIf="'exercise-1'" no-padding>
-    <slides-exercise [files]="exercise.files">
-      <div class="description">Create a video component.</div>
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-slides-preview milestone="component-tree" class="slides-preview">
-      </slides-slides-preview>
-      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
+  <div *slide id="exercise-1" no-padding>
+    <slides-codelab-exercise
+      milestone="component-tree"
+      [translations]="t"
+      [exercise]="exercise">
+    </slides-codelab-exercise>
+  </div>
 
   <!-- NgModule -->
-  <slides-slide *slidesIf="'module'; milestone: 'component-tree-2'">
+  <div *slide id="module" milestone="component-tree-2">
     <h1>
       <ng-container i18n="@@componentTree">Component Tree</ng-container>
       /
       <ng-container i18n>Parent and Child component</ng-container>
     </h1>
     <h2 i18n>Components won't know about each other unless they're declared in the same module</h2>
-    <slides-code-editor path="app.module.ts" [code]="code.appModule.code"
-                        [focus-highlight-match]="code.appModule.match"></slides-code-editor>
-  </slides-slide>
+    <slides-file-path path="app.module.ts"></slides-file-path>
+    <slides-simple-editor [(ngModel)]="code.appModule.code"
+                          [slidesSimpleHighlightMatch]="code.appModule.match"></slides-simple-editor>
+  </div>
 
-  <slides-slide *slidesIf="'recap'; milestone: 'component-tree-2'">
+  <div *slide id="recap" milestone="component-tree-2">
     <h1>
       <ng-container i18n="@@componentTree">Component Tree</ng-container>
       /
       <ng-container i18n>Review</ng-container>
     </h1>
-    <slides-code-group>
-      <div row>
-        <div column-5>
+    <!--<div>-->
+    <!--<div row>-->
+    <!--<div column-5>-->
 
-          <slides-code-editor path="box.component.ts" [fontSize]="15" [code]="code.circleAndBox.files[1].code"
-                              [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
-        </div>
-        <div column-5>
-          <slides-code-editor path="circle.component.ts" [fontSize]="15" [code]="code.circleAndBox.files[0].code"
-                              [focus-highlight-match]="code.parentComponentSkeleton.match"></slides-code-editor>
-        </div>
-      </div>
-      <div row>
-        <div column-5>
-          <slides-code-editor path="module.ts" [fontSize]="15" [code]="code.circleAndBox.files[2].code"
-                              [focus-highlight-match]="code.appModule.match"></slides-code-editor>
-        </div>
-        <slides-browser-window>
-          <div style="border: 1px #ddd solid; width: 100px">
-            <div style="width: 30px;height: 30px;background-color: green;border-radius: 50%"></div>
-          </div>
-        </slides-browser-window>
-      </div>
-    </slides-code-group>
-  </slides-slide>
+    <!--<slides-file-path path="box.component.ts"></slides-file-path>-->
+    <!--<slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[1].code"-->
+    <!--[slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>-->
+    <!--</div>-->
+    <!--<div column-5>-->
+    <!--<slides-file-path path="circle.component.ts"></slides-file-path>-->
+    <!--<slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[0].code"-->
+    <!--[slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div row>-->
+    <!--<div column-5>-->
+    <!--<slides-file-path path="module.ts"></slides-file-path>-->
+    <!--<slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[2].code"-->
+    <!--[slidesSimpleHighlightMatch]="code.appModule.match"></slides-simple-editor>-->
+    <!--</div>-->
+    <!--<slides-browser-window>-->
+    <!--<div style="border: 1px #ddd solid; width: 100px">-->
+    <!--<div style="width: 30px;height: 30px;background-color: green;border-radius: 50%"></div>-->
+    <!--</div>-->
+    <!--</slides-browser-window>-->
+    <!--</div>-->
+    <!--</div>-->
+  </div>
 
 
-  <slides-slide *slidesIf="'exercise-2-pre'; milestone: 'component-tree-2'">
+  <div *slide id="exercise-2-pre" milestone="component-tree-2">
     <h1>
       <ng-container i18n="@@componentTree">Component Tree</ng-container>
       /
       <ng-container i18n>Exercise 2</ng-container>
     </h1>
     <h2 i18n>In the next exercise you will use the newly created component</h2>
-    <slides-exercise-preview column-5 [config]="exercise2"></slides-exercise-preview>
-  </slides-slide>
+    <slides-codelab-exercise-preview column-5 [exercise]="exercise2"></slides-codelab-exercise-preview>
+  </div>
 
   <!--  COMPONENT TREE EXERCISE 2-->
-  <slides-slide *slidesIf="'exercise-2'" no-padding>
-    <slides-exercise [files]="exercise2.files">
-      <div class="description"></div>
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-slides-preview milestone="component-tree-2" class="slides-preview">
-      </slides-slides-preview>
-      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
+  <div *slide id="exercise-2" no-padding>
+    <slides-codelab-exercise [translations]="t"
+                             [exercise]="exercise2"
+                             milestone="component-tree-2">
+    </slides-codelab-exercise>
+  </div>
 
 
   <!--  COMPONENT TREE EXERCISE 2-->
-  <slides-slide *slidesIf="'end'">
+  <div *slide id="end">
     <slides-closing-slide>
       <div header><h1 i18n>Component Tree Milestone Completed!</h1></div>
       <div body>
@@ -239,5 +238,5 @@
         </slides-feedback-rating>
       </div>
     </slides-closing-slide>
-  </slides-slide>
-</slides-presentation>
+  </div>
+</slides-deck>

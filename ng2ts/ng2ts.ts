@@ -226,12 +226,14 @@ export function convertExerciseToMap(exercise) {
     return result;
   };
 
+  const testBootstrap = exercise.files.find(({bootstrap, excludeFromTesting}) => bootstrap && !excludeFromTesting);
+  const bootstrapFiles = exercise.files.find(({bootstrap, excludeFromTesting}) => bootstrap && excludeFromTesting);
   return {
     code: exercise.files.reduce(convertFilesToMap(), {}),
     codeSolutions: exercise.files.filter(file => file.solution).reduce(convertFilesToMap('solution'), {}),
     test: exercise.files.filter(file => !file.excludeFromTesting).reduce(convertFilesToMap(), {}),
-    bootstrap: exercise.files.find(({bootstrap, excludeFromTesting}) => bootstrap && excludeFromTesting).moduleName,
-    bootstrapTest: exercise.files.find(({bootstrap, excludeFromTesting}) => bootstrap && !excludeFromTesting).moduleName,
+    bootstrap: bootstrapFiles && bootstrapFiles.moduleName,
+    bootstrapTest: testBootstrap && testBootstrap.moduleName,
     file: exercise.files[0].path
   }
 }

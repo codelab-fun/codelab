@@ -8,7 +8,7 @@ const circleAndBoxCode = circleAndBox();
 @Component({
   selector: 'slides-component-tree',
   templateUrl: './component-tree.component.html',
-  styleUrls: ['./component-tree.component.css']
+  styleUrls: ['../../components/css/codelab-styles.scss', './component-tree.component.css']
 })
 export class ComponentTreeComponent implements OnInit {
   t: { [key: string]: string; };

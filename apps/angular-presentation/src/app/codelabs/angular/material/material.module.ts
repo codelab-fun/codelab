@@ -1,7 +1,6 @@
 import { MaterialComponent } from './material.component';
 import { NgModule } from '@angular/core';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { ExerciseModule } from '../../../../../../../libs/exercise/src/lib/exercise.module';
 
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { CommonModule } from '@angular/common';
@@ -11,6 +10,9 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+import { CodelabExerciseModule } from '../../components/exercise.module';
+import { SlidesModule } from '../../../../../../../libs/slides/src';
+import { FormsModule } from '@angular/forms';
 
 
 const routes = RouterModule.forChild(
@@ -27,14 +29,17 @@ const routes = RouterModule.forChild(
   imports: [
     routes,
     PresentationModule,
-    ExerciseModule,
+
     FeedbackModule,
     CommonModule,
     BrowserWindowModule,
     RunnersModule,
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    CodelabExerciseModule,
+    SlidesModule,
+    FormsModule,
   ],
   declarations: [MaterialComponent],
   exports: [MaterialComponent],

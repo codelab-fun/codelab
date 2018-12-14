@@ -1,5 +1,4 @@
-import { AfterViewInit, Directive, TemplateRef, ViewContainerRef } from '@angular/core';
-import { MatTab, MatTabGroup } from '@angular/material';
+import { Directive } from '@angular/core';
 
 /* tslint:disable */
 @Directive(

@@ -9,9 +9,12 @@ import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
 })
 export class CodelabExercisePreviewComponent {
   filesMap: any;
+  @Input() url = '';
+  @Input() fakeUrl = '';
   private bootstrap: string;
 
   @Input() set exercise(exercise: any) {
+    debugger;
     const map = convertExerciseToMap(exercise);
 
     this.filesMap = map.codeSolutions;

@@ -8,7 +8,6 @@ import { template } from './use-state.component.html';
 //
 class MyResourceLoader extends ResourceLoader {
   get(url: string): Promise<string> {
-
     return Promise.resolve(template);
   };
 }

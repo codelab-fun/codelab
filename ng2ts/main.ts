@@ -1,8 +1,12 @@
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {AppModule} from './app.module';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+import { enableProdMode } from '@angular/core';
 /*d:templatePageSetup/trimLeading*/
-import {ResourceLoader} from '@angular/compiler';
+import { ResourceLoader } from '@angular/compiler';
 import * as code from './code';
+
+enableProdMode();
+
 
 // The code below is used to match the Components with the appropriate templates.
 //
@@ -11,7 +15,6 @@ class MyResourceLoader extends ResourceLoader {
     const templateId = Object.keys(code).find(key => key.includes(url.replace(/[\/\.-]/gi, '_')));
     let template = code[templateId];
     if (!template) {
-
       console.log(template);
       debugger;
     }

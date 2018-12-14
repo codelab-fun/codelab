@@ -1,4 +1,5 @@
 import { parseTemplate } from './ms';
+
 describe('micro-syntax', () => {
   it('parses ngIF', () => {
     expect(parseTemplate('<div *ngIf="hero">{{hero.name}}</div>')).toBe(`<ng-template [ngIf]="hero">

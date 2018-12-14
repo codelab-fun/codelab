@@ -1,6 +1,6 @@
 import { CodelabFile } from '../../../../../../../libs/exercise/src/lib/helpers/codelabFile';
 import { Component } from '@angular/core';
-import { ExerciseConfigTemplate, ng2tsConfig, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
+import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 
 declare const require;
 
@@ -57,7 +57,8 @@ export class RouterComponent {
     },
     puppies: {
       runner: 'html',
-      files: [CodelabFile.Html('index').setCode(`<h1>Puppies</h1>`)]}
+      files: [CodelabFile.Html('index').setCode(`<h1>Puppies</h1>`)]
+    }
   };
 
   constructor(private exercises: Ng2TsExercises) {

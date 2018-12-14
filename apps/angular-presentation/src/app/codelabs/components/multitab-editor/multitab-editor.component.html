@@ -16,7 +16,7 @@
 
   <div class="editor">
     <slides-simple-editor
-      (ngModelChange)="update()"
+      (ngModelChange)="update($event)"
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       language="typescript"
       [lineNumbers]="false"

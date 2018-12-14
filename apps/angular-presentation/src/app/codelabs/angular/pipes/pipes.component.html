@@ -1,7 +1,4 @@
-<slides-presentation
-  slides-slides-routing
-  slides-mode-routing
-  slides-tracking>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
 
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
@@ -12,19 +9,19 @@
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
-  <slides-progress-bar></slides-progress-bar>
-  <slides-arrows></slides-arrows>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
-  <slides-slide *slidesIf="'intro'" no-padding milestone="Pipes">
+  <div *slide id="intro" no-padding milestone="Pipes">
     <slides-title-slide
       title="Pipes"
       description="Learn how pipes transform input values to output values for display in a view."
       prereqs="Interpolation expressions"
     ></slides-title-slide>
-  </slides-slide>
+  </div>
 
   <!-- WHAT ARE PIPES  -->
-  <slides-slide  *slidesIf="'pipes-description'; milestone: 'Pipes'">
+  <div *slide id="pipes-description" milestone="Pipes">
     <h1>Introduction</h1>
     <div class="centered-vertically">
       <h2>
@@ -35,10 +32,10 @@
         Let's see how it works.
       </h2>
     </div>
-  </slides-slide>
+  </div>
 
   <!--  HOW DO PIPES WORK -->
-  <slides-slide  *slidesIf="'how-pipes-work'; milestone: 'Pipes'">
+  <div *slide id="how-pipes-work" milestone="Pipes">
     <h1>How do pipes work?</h1>
     <h2>
       A pipe takes in data as input and transforms it to a desired output.</h2>
@@ -46,13 +43,13 @@
       Inside the interpolation expression, we use the pipe <b>( &#124; )</b> operator to pass the App Component's 'dob'
       through the the 'date' pipe on the right, transforming a long timestamp into a more human-readable output.
       All pipes follow this signature.
-      <slides-playground [config]="code.workingPipes.template"
-                         [focus-highlight-match]="[code.workingPipes.matches.pipeOperator]"></slides-playground>
+      <codelab-exercise-playground [exercise]="code.workingPipes.template"
+                                   [slidesSimpleHighlightMatch]="[code.workingPipes.matches.pipeOperator]"></codelab-exercise-playground>
     </h3>
-  </slides-slide>
+  </div>
 
   <!--  BUILT-IN PIPES -->
-  <slides-slide  *slidesIf="'built-in-pipes'; milestone: 'Pipes'">
+  <div *slide id="built-in-pipes" milestone="Pipes">
     <h1>Built-in Pipes</h1>
     <div class="centered-vertically">
       <h2>
@@ -70,97 +67,97 @@
         You can check out all the pipes <a href="https://angular.io/docs/ts/latest/api/#!?query=pipe">in the docs.</a>
       </h2>
     </div>
-  </slides-slide>
+  </div>
 
   <!--  CHAINED PIPES -->
-  <slides-slide  *slidesIf="'chained-pipes'; milestone: 'Pipes'">
+  <div *slide id="chained-pipes" milestone="Pipes">
     <h1>Chained Pipes</h1>
     <h2>
       Translate Dali's birthday to a more human-friendly format. While you're at it, make his birthday uppercase, too.
     </h2>
-    <slides-playground [config]="code.chainedPipesExample.template"></slides-playground>
+    <codelab-exercise-playground [exercise]="code.chainedPipesExample.template"></codelab-exercise-playground>
     <div class="info" milestone="Pipes">
       Hint: dob ... date ... uppercase
     </div>
-  </slides-slide>
+  </div>
 
   <!--  PIPES WITH ARGUMENT -->
-  <slides-slide  *slidesIf="'argument-pipes'; milestone: 'Pipes'">
+  <div *slide id="argument-pipes" milestone="Pipes">
     <h1>Pipes with arguments:</h1>
-    <slides-code-editor
-      [code]="code.argumentPipes.template"
-      type="html">
-    </slides-code-editor>
+    <slides-simple-editor
+      [(ngModel)]="code.argumentPipes.template"
+      language="html">
+    </slides-simple-editor>
     <div class="info" milestone="Pipes">
       To add parameters to a pipe, append a colon ( : ) followed by the parameters' values
       e.g. currency:'AUD'
     </div>
-  </slides-slide>
+  </div>
 
   <!--  PIPES AS FILTERS  -->
-  <slides-slide  *slidesIf="'pipes-as-filters'; milestone: 'Pipes'">
+  <div *slide id="pipes-as-filters" milestone="Pipes">
     <h1>Using custom pipes to filter data</h1>
-    <slides-code-editor
-      [code]="code.filterPipes.template"
-      type="html">
-    </slides-code-editor>
-  </slides-slide>
+    <slides-simple-editor
+      [(ngModel)]="code.filterPipes.template"
+      language="html">
+    </slides-simple-editor>
+  </div>
 
   <!--  CREATING A PIPE  -->
-  <slides-slide  *slidesIf="'crating-pipe'; milestone: 'Pipes'">
+  <div *slide id="crating-pipe" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-code-editor
+    <slides-simple-editor
       [fontSize]="25"
-      [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.exportClass">
-    </slides-code-editor>
+      [(ngModel)]="code.creatingAPipe.template"
+      [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.exportClass">
+    </slides-simple-editor>
     <h2>A pipe is a class decorated with pipe metadata.</h2>
-  </slides-slide>
+  </div>
 
   <!--  PIPE TRANSFORM  -->
-  <slides-slide  *slidesIf="'pipeTransform'; milestone: 'Pipes'">
+  <div *slide id="pipeTransform" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-code-editor
+    <slides-simple-editor
       [fontSize]="25"
-      [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.pipeTransform">
-    </slides-code-editor>
+      [(ngModel)]="code.creatingAPipe.template"
+      [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.pipeTransform">
+    </slides-simple-editor>
     <h2>
       The pipe class implements the PipeTransform interface.
     </h2>
-  </slides-slide>
+  </div>
 
   <!--  PIPE TRANSFORM METHOD  -->
-  <slides-slide  *slidesIf="'pipe-transform-method'; milestone: 'Pipes'">
+  <div *slide id="pipe-transform-method" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-code-editor
+    <slides-simple-editor
       [fontSize]="25"
-      [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.method">
-    </slides-code-editor>
+      [(ngModel)]="code.creatingAPipe.template"
+      [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.method">
+    </slides-simple-editor>
     <h2>
       The transform method accepts an input value followed by optional parameters and returns the transformed value.
     </h2>
-  </slides-slide>
+  </div>
 
   <!--  PIPE DECORATOR  -->
-  <slides-slide  *slidesIf="'pipe-decorator'; milestone: 'Pipes'">
+  <div *slide id="pipe-decorator" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-code-editor
+    <slides-simple-editor
       [fontSize]="25"
-      [code]="code.creatingAPipe.template"
-      [focus-highlight-match]="code.creatingAPipe.matches.decorator">
-    </slides-code-editor>
+      [(ngModel)]="code.creatingAPipe.template"
+      [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.decorator">
+    </slides-simple-editor>
     <h2>
       The @Pipe decorator allows you to define the pipe name that you'll use within template expressions.
     </h2>
     <div class="info" milestone="Pipes">
       Don't forget to import the @Pipe decorator from the core Angular library.
     </div>
-  </slides-slide>
+  </div>
 
   <!--  END -->
-  <slides-slide *slidesIf="'end'">
+  <div *slide id="end">
     <slides-closing-slide>
       <div class="header" header>
         <h1>End of the Pipes Section</h1></div>
@@ -173,6 +170,6 @@
         </h2>
       </div>
     </slides-closing-slide>
-  </slides-slide>
+  </div>
 
-</slides-presentation>
+</slides-deck>

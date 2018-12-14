@@ -6,7 +6,6 @@ import { KittenComponent } from './components/kitten';
 import { BrowserModule } from '@angular/platform-browser';
 
 
-
 const routes: Routes = [
   {path: '', component: PuppyComponent},
   {path: 'kittens', component: KittenComponent},

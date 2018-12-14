@@ -366,16 +366,15 @@
       method to output
       only the ones who are coming.</h3>
     <h3 i18n>The result will be as follows:</h3>
-    <slides-codelab-exercise-preview style="margin-top: 2vw;"
-                                     [exercise]="exercises[0]"></slides-codelab-exercise-preview>
+    <slides-codelab-exercise-preview [exercise]="exercises[0]"></slides-codelab-exercise-preview>
   </div>
 
 
   <div *slide id="exercise-new" no-padding>
     <slides-codelab-exercise [translations]="t"
-                             [exercise]="exercises[0]">
-      <codelab-slides-preview style="width: 50vw; height: 50vh" milestone="TypeScript"></codelab-slides-preview>
-    </slides-codelab-exercise>
+                             [exercise]="exercises[0]"
+                             milestone="TypeScript">
+   </slides-codelab-exercise>
 
   </div>
 

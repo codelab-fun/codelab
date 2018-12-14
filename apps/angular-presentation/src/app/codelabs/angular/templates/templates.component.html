@@ -64,10 +64,7 @@
     'placeholder' attribute set to 'video'
   </div>
 </div>
-<slides-presentation
-  slides-slides-routing
-  slides-mode-routing
-  slides-tracking>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
       <a href="https://github.com/AngularNYC/angular-presentation">
@@ -78,11 +75,11 @@
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
-  <slides-progress-bar></slides-progress-bar>
-  <slides-arrows></slides-arrows>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
   <!--  INTRO -->
-  <slides-slide *slidesIf="'intro'" no-padding>
+  <div *slide id="intro" no-padding>
     <slides-title-slide
       title="Templates"
       i18n-title="@@templates"
@@ -90,39 +87,42 @@
       i18n-description
       prereqs=""
     ></slides-title-slide>
-  </slides-slide>
+  </div>
 
 
   <!--  COMPONENT -->
-  <slides-slide *slidesIf="'component'; milestone: 'Templates'">
+  <div *slide id="component" milestone="Templates">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
       <ng-container i18n="@@intro">Intro</ng-container>
     </h1>
-    <h2 i18n>Angular has a very expressive template system, which takes HTML as a base, and extends it with custom
-      elements</h2>
-    <slides-playground [config]="code.template.intro"></slides-playground>
-  </slides-slide>
+    <h2 i18n>
+      Angular has a very expressive template system, which takes HTML as a base, and extends it with custom elements
+    </h2>
+    <codelab-exercise-playground
+      [slidesSimpleHighlightMatch]="[code.template.matches.template]"
+      [exercise]="code.template.intro"></codelab-exercise-playground>
+  </div>
 
   <!--  INTERPOLATION-->
-  <slides-slide *slidesIf="'interpolation'; milestone: 'Templates'">
+  <div *slide id="interpolation" milestone="Templates">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
       <ng-container i18n>Interpolation</ng-container>
     </h1>
     <h2 i18n>Double curlies allow you to include properties from the component</h2>
-    <slides-playground [config]="code.template.interpolation"
-                       [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.firstName]"></slides-playground>
+    <codelab-exercise-playground [exercise]="code.template.interpolation"
+                                 [slidesSimpleHighlightMatch]="[code.template.matches.curlies,code.template.matches.firstName]"></codelab-exercise-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;" i18n>
       Backticks <b>` `</b>, are magic quotes that allow multi-line strings and text interpolation.
     </div>
-  </slides-slide>
+  </div>
 
 
   <!--INTERPOLATION-METHOD-->
-  <slides-slide *slidesIf="'interpolation-method'; milestone: 'Templates'">
+  <div *slide id="interpolation-method" milestone="Templates">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -132,37 +132,34 @@
       Simple expressions are also allowed, you can run a component method (like fullName() below), or calculate
       <code>323213+34234</code>
     </h2>
-    <slides-playground [config]="code.template.interpolationMethod"
-                       [focus-highlight-match]="[code.template.matches.curlies,code.template.matches.fullName]"></slides-playground>
-  </slides-slide>
+    <codelab-exercise-playground [exercise]="code.template.interpolationMethod"
+                                 [slidesSimpleHighlightMatch]="[code.template.matches.curlies,code.template.matches.fullName]"></codelab-exercise-playground>
+  </div>
 
-  <slides-slide *slidesIf="'exercise-pre'; milestone: 'Templates'">
+  <div *slide id="exercise-pre" milestone="Templates">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
       <ng-container i18n="@@exercise">Exercise</ng-container>
     </h1>
-    <h2 i18n>In the next slide you'll edit a component template to create a simple header and search form. The result will
+    <h2 i18n>In the next slide you'll edit a component template to create a simple header and search form. The result
+      will
       look like
       this:</h2>
 
-    <slides-exercise-preview column-5 [config]="exercises[0]"></slides-exercise-preview>
-  </slides-slide>
+    <slides-codelab-exercise-preview column-5 [exercise]="exercises[0]"></slides-codelab-exercise-preview>
+  </div>
 
-  <slides-slide *slidesIf="'exercise'; " no-padding>
-    <slides-exercise [files]="exercises[0].files">
-      <div class="description"></div>
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-slides-preview milestone="Templates" class="slides-preview">
-      </slides-slides-preview>
-      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
+  <div *slide id="exercise" no-padding>
+    <slides-codelab-exercise
+      milestone="Templates"
+      [translations]="t"
+      [exercise]="exercises[0]">
+    </slides-codelab-exercise>
+  </div>
 
   <!--  PRE DATA BINDING-->
-  <slides-slide *slidesIf="'data-binding-pre'; milestone: 'Templates2'">
+  <div *slide id="data-binding-pre" milestone="Templates2">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -172,64 +169,63 @@
     </h1>
     <h2 i18n>String interpolation <b>{{ curlies }}</b> can also be used to pass a value to a child element's attribute
     </h2>
-    <slides-playground [config]="code.template.dataBindingPre"
-                       [focus-highlight-match]="[code.template.matches.curliesAttribute]"></slides-playground>
-  </slides-slide>
+    <codelab-exercise-playground [exercise]="code.template.dataBindingPre"
+                                 [slidesSimpleHighlightMatch]="[code.template.matches.curliesAttribute]"></codelab-exercise-playground>
+  </div>
 
   <!--  DATA BINDING  -->
-  <slides-slide *slidesIf="'data-binding'; milestone: 'Templates2'">
+  <div *slide id="data-binding" milestone="Templates2">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
       <ng-container i18n>Property Binding</ng-container>
     </h1>
     <h2 i18n>Another option is to use property binding <b>[attribute] = property</b></h2>
-    <slides-playground [config]="code.template.dataBinding"
-                       [focus-highlight-match]="[code.template.matches.squares]"></slides-playground>
+    <codelab-exercise-playground [exercise]="code.template.dataBinding"
+                                 [slidesSimpleHighlightMatch]="[code.template.matches.squares]"></codelab-exercise-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;" i18n>
       You can use arbitrary expressions in the binding.
     </div>
-  </slides-slide>
+  </div>
 
   <!--  DATA BINDING EXTRAS-->
-  <slides-slide *slidesIf="'data-binding-extras'; milestone: 'Templates2'">
+  <div *slide id="data-binding-extras" milestone="Templates2">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
       <ng-container i18n>Data binding extras</ng-container>
     </h1>
     <h2 i18n>Angular supports more advanced property bindings than just attribute name</h2>
-    <slides-code-editor
-      path="app.component.html"
-      [code]="code.template.dataBindingExtra"
-      type="html">
-    </slides-code-editor>
-  </slides-slide>
+    <slides-file-path path="app.component.html"></slides-file-path>
+    <slides-simple-editor
+      [(ngModel)]="code.template.dataBindingExtra"
+      language="html">
+    </slides-simple-editor>
+  </div>
 
 
   <!--  BINDING EVENT -->
-  <slides-slide *slidesIf="'event-binding'; milestone: 'Templates2'">
+  <div *slide id="event-binding" milestone="Templates2">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
       <ng-container i18n>Event binding: (event)</ng-container>
     </h1>
     <h2 i18n>The bindings directives you've met so far flow data in one direction: from a component to an element</h2>
-    <slides-code-editor
-      path="app.component.html"
-      [code]="code.eventBinding"
+    <slides-file-path path="app.component.html"></slides-file-path>
+    <slides-simple-editor
+      [(ngModel)]="code.eventBinding"
       [fontSize]="25"
-      [focus-highlight-match]="[code.eventBindingMatch]"
-      [readonly]="true"
-      type="html">
-    </slides-code-editor>
+      [slidesSimpleHighlightMatch]="[code.eventBindingMatch]"
+      language="html">
+    </slides-simple-editor>
     <div class="info" i18n>
       While Parentheses are used for event binding: <b>(event)</b>, "on-" can also be used: <b>on-event</b>.
     </div>
-  </slides-slide>
+  </div>
 
   <!--  REFERENCE BINDING -->
-  <slides-slide *slidesIf="'reference-binding'; milestone: 'Templates2'">
+  <div *slide id="reference-binding" milestone="Templates2">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -238,28 +234,28 @@
     <h2 i18n>
       Sometimes we need to access an HTML element or Angular component from the template. We can mark it with <b>#userName</b>,
       and it becomes available as <b>userName</b> everywhere in the template</h2>
-    <slides-code-editor
-      path="app.component.html"
-      [code]="code.bindingRef"
+
+    <slides-file-path path="app.component.html"></slides-file-path>
+    <slides-simple-editor
+      [(ngModel)]="code.bindingRef"
       [fontSize]="25"
-      [focus-highlight-match]="[code.bindingRefMatch, code.bindingRef2Match]"
-      [readonly]="true"
-      type="html">
-    </slides-code-editor>
-  </slides-slide>
+      [slidesSimpleHighlightMatch]="[code.bindingRefMatch, code.bindingRef2Match]"
+      language="html">
+    </slides-simple-editor>
+  </div>
 
   <!--  CONDITIONAL DISPLAY-->
-  <slides-slide *slidesIf="'conditional-display-ngif'; milestone: 'Templates2'">
+  <div *slide id="conditional-display-ngif" milestone="Templates2">
     <h2 i18n>Templates / Conditional Display (*ngIf)</h2>
     <p i18n>
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
     </p>
-    <slides-playground [config]="code.ngIfDirective.template"
-                       [focus-highlight-match]="[code.ngIfDirective.matches.ngIf]"></slides-playground>
-  </slides-slide>
+    <codelab-exercise-playground [exercise]="code.ngIfDirective.template"
+                                 [slidesSimpleHighlightMatch]="[code.ngIfDirective.matches.ngIf]"></codelab-exercise-playground>
+  </div>
 
 
-  <slides-slide *slidesIf="'exercise-2-pre'; milestone: 'Templates2'">
+  <div *slide id="exercise-2-pre" milestone="Templates2">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -269,23 +265,19 @@
       no
       videos were found. The result will look like this:</h2>
 
-    <slides-exercise-preview column-5 [config]="exercises[1]"></slides-exercise-preview>
-  </slides-slide>
+    <slides-codelab-exercise-preview column-5 [exercise]="exercises[1]"></slides-codelab-exercise-preview>
+  </div>
 
-  <slides-slide *slidesIf="'exercise-2'" no-padding>
-    <slides-exercise [files]="exercises[1].files">
-      <div class="description"></div>
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-slides-preview milestone="Templates2" class="slides-preview">
-      </slides-slides-preview>
-      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
+  <div *slide id="exercise-2" no-padding>
+    <slides-codelab-exercise
+      milestone="Templates2"
+      [translations]="t"
+      [exercise]="exercises[1]">
+    </slides-codelab-exercise>
+  </div>
 
 
-  <slides-slide *slidesIf="'repeating'; milestone: 'Templates3'">
+  <div *slide id="repeating" milestone="Templates3">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -295,11 +287,11 @@
       Let's say you have an array of puppies, and want to display all of them on the page. Angular has a special syntax
       for that called <b>*ngFor</b>, let's see how it works on the next slide
     </h2>
-    <slides-playground [config]="code.ngForDirectivePre.template"
-                       [focus-highlight-match]="code.ngForDirectivePre.matches"></slides-playground>
-  </slides-slide>
+    <codelab-exercise-playground [exercise]="code.ngForDirectivePre.template"
+                                 [slidesSimpleHighlightMatch]="code.ngForDirectivePre.matches"></codelab-exercise-playground>
+  </div>
 
-  <slides-slide *slidesIf="'conditional-display-ngfor'; milestone: 'Templates3'">
+  <div *slide id="conditional-display-ngfor" milestone="Templates3">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -309,15 +301,15 @@
       Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case) for every single puppy in the puppies
       array
     </h2>
-    <slides-playground #forExercise [config]="code.ngForDirective.template"
-                       [focus-highlight-match]="[code.ngForDirective.matches.ngFor]"></slides-playground>
+    <codelab-exercise-playground #forExercise [exercise]="code.ngForDirective.template"
+                                 [slidesSimpleHighlightMatch]="[code.ngForDirective.matches.ngFor]"></codelab-exercise-playground>
     <div class="info" i18n>HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work, <b>*ngFor</b>
       will
     </div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'exercise-3-pre'; milestone: 'Templates3'">
+  <div *slide id="exercise-3-pre" milestone="Templates3">
     <h1>
       <ng-container i18n>Templates</ng-container>
       /
@@ -329,24 +321,19 @@
           In the next slide you'll finally display the videos! The result will look like this:
         </h2>
       </div>
-      <slides-exercise-preview column-5 [config]="exercises[2]"></slides-exercise-preview>
+      <slides-codelab-exercise-preview column-5 [exercise]="exercises[2]"></slides-codelab-exercise-preview>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'exercise-3'" no-padding>
-    <slides-exercise [files]="exercises[2].files">
-      <div class="description"></div>
-      <slides-new-editors class="editor">
-      </slides-new-editors>
-      <slides-slides-preview milestone="Templates3" class="slides-preview">
-      </slides-slides-preview>
-      <slides-angular-test-runner [translations]="t" class="tests"></slides-angular-test-runner>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
-  </slides-slide>
+  <div *slide id="exercise-3" no-padding>
+    <slides-codelab-exercise [translations]="t"
+                             [exercise]="exercises[2]"
+                             milestone="Templates3">
+    </slides-codelab-exercise>
+  </div>
 
 
-  <slides-slide *slidesIf="'end'">
+  <div *slide id="end">
     <slides-closing-slide>
       <div class="header" header>
         <h1>
@@ -365,6 +352,6 @@
         </slides-feedback-rating>
       </div>
     </slides-closing-slide>
-  </slides-slide>
+  </div>
 
-</slides-presentation>
+</slides-deck>

@@ -97,14 +97,13 @@ export class MaterialComponent {
   };
   private theme = 'indigo';
 
+  constructor(private exercises: Ng2TsExercises) {
+    this.exercise = exercises.getExercises(6, 0);
+  }
 
   setTheme(theme) {
     this.theme = theme;
     const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
     this.themePlayground.onCodeChange(this.themes[theme], cssFile);
-  }
-
-  constructor(private exercises: Ng2TsExercises) {
-    this.exercise = exercises.getExercises(6, 0);
   }
 }

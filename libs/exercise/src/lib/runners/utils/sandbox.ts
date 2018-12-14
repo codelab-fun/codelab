@@ -89,7 +89,6 @@ export function createSystemJsSandbox(element: any, config: SandboxConfig): Prom
       (sandbox.iframe.contentWindow as any).loadSystemModule(name, code);
     }
 
-
     return {...sandbox, addDep, loadSystemJsDep};
   });
 }
@@ -138,7 +137,9 @@ export function injectIframe(element: any, config: SandboxConfig): Promise<SandB
         // handle Angular error 1/3
         logError(error, message);
 
-        setHtml(`<pre style = "font-size: 3vw;padding: 20px;">${error}</pre>`)
+        setHtml(`<pre style = "font-size: 3vw;padding: 20px;">${error}
+${message}
+</pre>`)
       };
 
       resolve({

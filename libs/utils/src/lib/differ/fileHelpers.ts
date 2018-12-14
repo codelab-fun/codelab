@@ -28,6 +28,6 @@ export function test(...files: FileConfig[]): FileConfig[] {
 
 export function evaled(file) {
   return Object.assign(file, {
-    after: `export export function evalJs( js ){ return eval(js);}`
+    after: `export function evalJs( js ){ return eval(js);}`
   });
 }

@@ -30,7 +30,6 @@ export class DependencyInjectionComponent implements OnInit {
   constructor() {
     this.profession = new Job();
   }
-
 }`,
         code2: `import {ProfessionsEnum} from './professions';
 
@@ -67,12 +66,12 @@ export class Person {
       },
       withDITesting: {
         code: `const mockProfession = new Job('lawyer');
-  it('should create a Person with the right profession', () => {
-    const person = new Person(mockProfession);
-    // ${this.t.assumingJobHasPropTitle}
-    expect(person.profession.title).toEqual('lawyer');
-  });
-}`,
+it('should create a Person with the right profession', () => {
+  const person = new Person(mockProfession);
+  // ${this.t.assumingJobHasPropTitle}
+  expect(person.profession.title).toEqual('lawyer');
+});
+`,
         matches: {
           constructor: /constructor.*/
         },
@@ -86,7 +85,7 @@ export class Person {
 
 @Injectable()
 export class UnitConverterService {
-  ...
+  // ...
 }`,
         matches: {
           injectable: /@I[^]*?\)[^]/

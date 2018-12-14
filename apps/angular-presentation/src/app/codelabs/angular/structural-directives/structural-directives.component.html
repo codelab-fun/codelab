@@ -1,7 +1,4 @@
-<slides-presentation
-  slides-slides-routing
-  slides-mode-routing
-  slides-tracking>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
 
   <div class="twitter">@kirjs</div>
 
@@ -11,29 +8,30 @@
 
   </div>
 
-  <slides-progress-bar></slides-progress-bar>
-  <slides-arrows></slides-arrows>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
-  <slides-slide id="intro" *slidesIf="'intro'" no-padding>
+  <div id="intro" no-padding>
     <div class="bg">
       <h1>Structural directives</h1>
       <h2>By @kirjs</h2>
     </div>
-  </slides-slide>
-  <slides-slide id="we-need-tabs" *slidesIf="'we-need-tabs'" no-padding>
+  </div>
+  <div id="we-need-tabs" no-padding>
     <h1>We need tabs</h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'intro2'" no-padding>
+  <div *slide id="intro2" no-padding>
+
     <slides-exercise [files]="code.materialTabs">
       <div class="description"></div>
       <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
-  </slides-slide>
+  </div>
 
-  <slides-slide id="bsod" *slidesIf="'bsod'" no-padding>
+  <div id="bsod" no-padding>
     <div class='container'>
       <div class="msg" align='center'>
         <p class='highlight'>Windows</p>
@@ -45,8 +43,8 @@
         <p class="continue">Press any key to continue <span class="blink">_</span></p>
       </div>
     </div>
-  </slides-slide>
-  <slides-slide id="bsod-2" *slidesIf="'bsod-2'" no-padding>
+  </div>
+  <div id="bsod-2" no-padding>
     <div class="alfred-upset"></div>
     <div class='container'>
       <div class="msg" align='center'>
@@ -59,8 +57,8 @@
         <p class="continue">Press any key to continue <span class="blink">_</span></p>
       </div>
     </div>
-  </slides-slide>
-  <slides-slide id="bsod-beautiful" *slidesIf="'bsod-beautiful  '" no-padding>
+  </div>
+  <div id="bsod-beautiful" no-padding>
     <div class='container'>
       <div class="msg" align='center'>
         <p class='highlight'>Windows</p>
@@ -72,79 +70,87 @@
         <p class="continue">Press any key to continue <span class="blink">_</span></p>
       </div>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'play-with-tabs'" no-padding>
+  <div *slide id="play-with-tabs" no-padding>
     <slides-exercise [files]="code.materialTabs">
       <div class="description"></div>
       <slides-new-editors [fontSize]="fontSize" class="editor">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'structural-directives-ng-if'">
+  <div *slide id="structural-directives-ng-if">
     <h1>Structural directives ngIf</h1>
-    <slides-code-group>
-      <slides-code-editor path="before" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
-                          [code]="code.structuralDirectives.ngIfBefore"></slides-code-editor>
+    <div>
+      <slides-file-path path="before"></slides-file-path>
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngIfBefore"></slides-simple-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
-      <slides-code-editor path="after" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
-                          [code]="code.structuralDirectives.ngIfAfter"></slides-code-editor>
-    </slides-code-group>
-  </slides-slide>
+      <slides-file-path path="after"></slides-file-path>
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngIfAfter"></slides-simple-editor>
+    </div>
+  </div>
 
 
-  <slides-slide *slidesIf="'structural-directives-ng-for'">
+  <div *slide id="structural-directives-ng-for">
     <h1>Structural directives ngFor</h1>
-    <slides-code-group>
-      <slides-code-editor path="before" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
-                          [code]="code.structuralDirectives.ngForBefore"></slides-code-editor>
+    <div>
+      <slides-file-path path="before"></slides-file-path>
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngForBefore"></slides-simple-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
-      <slides-code-editor path="after" [fontSize]="fontSize" [minLines]="3" [readonly]="false" type="html"
-                          [code]="code.structuralDirectives.ngForAfter"></slides-code-editor>
-    </slides-code-group>
-  </slides-slide>
+      <slides-file-path path="after"></slides-file-path>
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngForAfter"></slides-simple-editor>
+    </div>
+  </div>
 
 
-  <slides-slide *slidesIf="'structural-directives-microsyntax'">
+  <div *slide id="structural-directives-microsyntax">
     <h1>Angular MicroSyntax</h1>
-    <slides-code-group>
-      <slides-code-editor [type]="text" readonly="false" path="before" [fontSize]="fontSize" [minLines]="3"
-                          [code]="code.structuralDirectives.microSyntax"></slides-code-editor>
-    </slides-code-group>
+    <div>
+      <slides-file-path path="before"></slides-file-path>
+      <slides-simple-editor [type]="text" readonly="false" [fontSize]="fontSize" [minLines]="3"
+                            [(ngModel)]="code.structuralDirectives.microSyntax"></slides-simple-editor>
+    </div>
     <a href="https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855#file-microsyntax-md">More details</a>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'play-with-tabs-structural-directive'" no-padding>
+  <div *slide id="play-with-tabs-structural-directive" no-padding>
     <slides-exercise [files]="code.materialTabsStructuralDirective">
       <div class="description"></div>
       <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'mat-tab-nav-bar'" no-padding>
+  <div *slide id="mat-tab-nav-bar" no-padding>
     <slides-exercise [files]="code.mdTabNavBar">
       <slides-new-editors class="editor" [fontSize]="fontSize">
       </slides-new-editors>
       <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
     </slides-exercise>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'micro-syntax'" no-padding>
+  <div *slide id="micro-syntax" no-padding>
     <h1>Russian pop music</h1>
     <h2>@kirjs</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/i9AHJkHqkpw" frameborder="0" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/et281UHNoOU" frameborder="0" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/n3Go8ub9a1k" frameborder="0" allowfullscreen></iframe>
-  </slides-slide>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/i9AHJkHqkpw" frameborder="0"
+            allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/et281UHNoOU" frameborder="0"
+            allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/n3Go8ub9a1k" frameborder="0"
+            allowfullscreen></iframe>
+  </div>
 
-</slides-presentation>
+</slides-deck>

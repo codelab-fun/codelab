@@ -6,16 +6,13 @@ import { extractMessages } from '../../../../../../../libs/presentation/src/lib/
 @Component({
   selector: 'slides-create-first-app',
   templateUrl: './create-first-app.component.html',
-  styleUrls: ['./create-first-app.component.css']
+  styleUrls: ['../../components/css/codelab-styles.scss', './create-first-app.component.css']
 })
 export class CreateFirstAppComponent implements OnInit {
   t: { [key: string]: string; };
 
   @ViewChild('translations') translation;
   currentMode = 'web';
-  private code: any = {};
-
-  // tslint:disable:max-line-length TODO: Clean up exercises and remove this comment.
   //  Exercises
   exercises = [
     ng2tsConfig.milestones[1].exercises[1],
@@ -42,7 +39,7 @@ export class AppComponent {
 }
 `,
           'solution': 'import { Component } from \'@angular/core\';\n\n@Component({\n  selector: \'my-app\',\n  template: \'<h1>Hello MewTube!</h1>\',\n})\nexport class AppComponent {\n}\n',
-          'after': 'export export function evalJs( js ){ return eval(js);}'
+          'after': 'export function evalJs( js ){ return eval(js);}'
         },
         {
           'bootstrap': false,
@@ -69,6 +66,10 @@ export class AppComponent {
       ]
     }
   ];
+
+  // tslint:disable:max-line-length TODO: Clean up exercises and remove this comment.
+  private code: any = {};
+
   // tslint:enable:max-line-length
 
   ngOnInit() {
@@ -78,7 +79,7 @@ export class AppComponent {
       decorators: {
         code: `// ${this.t.componentIsDecorator}
 @Component({
-  metadata
+  // metadata
 }) // ${this.t.noSemicolon}
 export class AppComponent {
   // ${this.t.decoratorGoesAboveEntity}
@@ -111,14 +112,14 @@ export class HelloWorldComponent {}`,
   bootstrap: [ HelloWorldComponent ],
 })
 export class AppModule {}`,
-      codeMobile: `/* Imports */
+        codeMobile: `/* Imports */
 @NgModule({
   imports: [ NativeScriptModule ],
   declarations: [ HelloWorldComponent ],
   bootstrap: [ HelloWorldComponent ],
 })
 export class AppModule {}`,
-      codeVR: `/* Imports */
+        codeVR: `/* Imports */
 export class VRComponent implements OnInit {
     aframe: any;
     ngOnInit() {
@@ -143,7 +144,8 @@ export class VRComponent implements OnInit {
 import { AppModule } from './app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);`,
-          indexHTML: `<!DOCTYPE><body>
+          indexHTML: `<!DOCTYPE>
+<body>
   <hello-world>
     Loading...
   </hello-world>

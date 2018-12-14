@@ -12,6 +12,8 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
+import { Subject } from 'rxjs/internal/Subject';
+import { debounceTime } from 'rxjs/operators';
 
 declare const monaco: any;
 declare const require: any;
@@ -32,27 +34,34 @@ declare const require: any;
 export class SimpleEditorComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
   height: number;
   minLines = 6;
-  actualFontSize: number;
   model: any;
   editor: any;
-  @Input() fontSize = 12;
-  @Input() language = 'html';
+  @Input() debounce = 1500;
+  @Input() fontSize = 20;
+  @Input() language = 'typescript';
   @Input() theme = '';
   @Input() lineNumbers = true;
   @Input() autoSize = true;
-  @Output() change = new EventEmitter();
+
   @Output() lineChange = new EventEmitter();
   @ViewChild('editor') editorEl;
   code: string;
+  change = new Subject();
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
+  }
+
+  get actualFontSize() {
+    return this.fontSize;
   }
 
   registerOnTouched(fn: any): void {
   }
 
   registerOnChange(onChange: (code: string) => void): void {
-    this.change.subscribe(onChange)
+    this.change.pipe(
+      debounceTime(1500),
+    ).subscribe(onChange)
   }
 
   writeValue(value: string): void {
@@ -60,6 +69,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
       return;
     }
     this.code = value;
+    this.resize();
     if (this.model) {
       this.model.setValue(value);
     }
@@ -67,7 +77,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
 
   @HostListener('window:resize')
   resize() {
-    if (this.editor) {
+    if (this.editor && this.code) {
       this.editor.updateOptions({fontSize: this.fontSize * document.documentElement.clientWidth / 1800});
       const lines = this.code.split('\n').length;
       const lineHeight = this.actualFontSize * 1.6;
@@ -130,12 +140,14 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
     });
 
     this.model.onDidChangeContent(() => {
-      this.change.emit(this.editor.getModel().getValue());
+      this.change.next(this.editor.getModel().getValue());
     });
 
 
     this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-      () => this.change.emit(this.editor.getModel().getValue()));
+      () => this.change.next(this.editor.getModel().getValue()));
+
+    this.resize();
   }
 }
 

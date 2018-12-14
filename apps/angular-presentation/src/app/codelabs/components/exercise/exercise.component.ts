@@ -27,6 +27,8 @@ export function extractSolutions(files: any[]) {
 })
 export class CodelabExerciseComponent {
   @Input() bootstrapTest;
+  @Input() milestone = '';
+  @Input() url = '';
   @Input() translations = {};
   @Input() slidesSimpleHighlightMatch = [];
   code: any;
@@ -48,20 +50,33 @@ export class CodelabExerciseComponent {
     this.file = exercise.files[0].path;
     this.filesConfig = exercise;
     this.solutions = extractSolutions(this.filesConfig.files);
-
     this.update();
   };
 
   buildFileMap(files: any[]) {
     return files.reduce((result, file) => {
+
       result[file.path] = (file.before || '') + ' \n ' + this.code[file.path] + ' \n ' + (file.after || '');
+
+      if (file.execute) {
+        result[file.path + '_execute'] = file.execute;
+      }
+
       return result;
     }, {});
   }
 
   update() {
-    this.runFilesMap = this.buildFileMap(this.filesConfig.files);
-    this.files = Object.keys(this.runFilesMap);
+    const runFilesMap = this.buildFileMap(this.filesConfig.files);
+
+    const needsUpdate = (!this.runFilesMap) || Object.keys(runFilesMap).some(key => this.runFilesMap[key] !== runFilesMap[key]);
+
+    if (needsUpdate) {
+      this.runFilesMap = runFilesMap;
+      this.files = Object.keys(this.runFilesMap);
+    }
+
   }
 
 }
+

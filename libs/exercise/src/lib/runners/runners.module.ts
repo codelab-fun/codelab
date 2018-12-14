@@ -6,7 +6,6 @@ import { TestsComponent } from './tests/tests.component';
 import { TestDescriptionComponent } from './test-description/test-description.component';
 import { BrowserWindowModule } from '../../../../browser/src/lib/browser.module';
 import { TestsProgressComponent } from './tests-progress/tests-progress.component';
-import { BabelTestRunnerComponent } from './ts-code-test-runner/babel-test-runner.component';
 import { ReactRunnerComponent } from './react-runner/react-runner.component';
 
 
@@ -19,14 +18,12 @@ import { ReactRunnerComponent } from './react-runner/react-runner.component';
     AngularPreviewRunnerComponent,
     AngularTestRunnerComponent,
     TestsComponent,
-    BabelTestRunnerComponent,
     TestDescriptionComponent,
     TestsProgressComponent,
     ReactRunnerComponent,
   ],
   exports: [
     AngularPreviewRunnerComponent,
-    BabelTestRunnerComponent,
     AngularTestRunnerComponent,
     TestsComponent,
     TestDescriptionComponent,

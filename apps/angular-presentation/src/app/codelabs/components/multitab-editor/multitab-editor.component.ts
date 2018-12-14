@@ -38,17 +38,15 @@ export class MultitabEditorComponent implements OnInit, ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
   }
 
-  update() {
+  update(code: string) {
+    this.code[this.file] = code;
     this.onChange({...this.code});
   }
-
 
   writeValue(code: any): void {
     if (code) {
       this.code = code;
       this.files = Object.keys(this.code);
     }
-
   }
-
 }

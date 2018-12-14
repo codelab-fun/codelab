@@ -17,6 +17,7 @@ import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-pre
 import { CodelabExercisePlayground } from './exercise-playground/codelab-exercise-playground.component';
 import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-progress-bar.component';
 import { FilePathComponent } from './file-path/file-path.component';
+import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { FilePathComponent } from './file-path/file-path.component';
     CodelabExercisePlayground,
     CodelabProgressBarComponent,
     FilePathComponent,
+    BabelTestRunnerComponent,
   ],
   exports: [
     CodelabExerciseComponent,
@@ -54,6 +56,7 @@ import { FilePathComponent } from './file-path/file-path.component';
     CodelabProgressBarComponent,
     FilePathComponent,
     FilePathComponent,
+    BabelTestRunnerComponent,
   ],
 })
 export class CodelabExerciseModule {
