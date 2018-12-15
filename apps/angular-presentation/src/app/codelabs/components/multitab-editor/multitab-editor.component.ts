@@ -1,6 +1,12 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+const extenstionToLang = {
+  'ts': 'typescript',
+  'js': 'javascript',
+  'html': 'html',
+};
+
 @Component({
   selector: 'slides-multitab-editor',
   templateUrl: './multitab-editor.component.html',
@@ -23,6 +29,10 @@ export class MultitabEditorComponent implements OnInit, ControlValueAccessor {
   private files: string[];
 
   constructor() {
+  }
+
+  get language() {
+    return extenstionToLang[this.file.match(/\.(\w+)$/)[1]];
   }
 
   ngOnInit() {

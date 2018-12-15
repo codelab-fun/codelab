@@ -13,17 +13,15 @@
       solution
     </button>
   </div>
-
   <div class="editor">
     <slides-simple-editor
       (ngModelChange)="update($event)"
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
-      language="typescript"
+      [language]="language"
       [lineNumbers]="false"
       [fontSize]="20"
       [(ngModel)]="code[file]">
     </slides-simple-editor>
   </div>
-
 </div>
 

@@ -14,9 +14,7 @@ export class CodelabExercisePreviewComponent {
   private bootstrap: string;
 
   @Input() set exercise(exercise: any) {
-    debugger;
     const map = convertExerciseToMap(exercise);
-
     this.filesMap = map.codeSolutions;
     this.bootstrap = map.bootstrap;
   }

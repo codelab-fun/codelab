@@ -10,7 +10,7 @@
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
     <slides-simple-editor
       style="width: 100%;flex-grow: 0"
-      (ngModelChange)="update()"
+      (ngModelChange)="update($event)"
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       language="typescript"
       [lineNumbers]="false"

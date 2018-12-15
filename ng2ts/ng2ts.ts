@@ -230,7 +230,7 @@ export function convertExerciseToMap(exercise) {
   const bootstrapFiles = exercise.files.find(({bootstrap, excludeFromTesting}) => bootstrap && excludeFromTesting);
   return {
     code: exercise.files.reduce(convertFilesToMap(), {}),
-    codeSolutions: exercise.files.filter(file => file.solution).reduce(convertFilesToMap('solution'), {}),
+    codeSolutions: exercise.files.map(file => ((file.solution = file.solution || file.template), file)).reduce(convertFilesToMap('solution'), {}),
     test: exercise.files.filter(file => !file.excludeFromTesting).reduce(convertFilesToMap(), {}),
     bootstrap: bootstrapFiles && bootstrapFiles.moduleName,
     bootstrapTest: testBootstrap && testBootstrap.moduleName,

@@ -30,7 +30,7 @@ export class SimpleTestsComponent implements OnInit {
   }
 
   hasTests() {
-    return this.tests && this.tests.length > 0;
+    return this.tests && this.tests.length > 1;
   }
 
   getTranslation(title) {

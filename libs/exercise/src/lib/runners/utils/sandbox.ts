@@ -94,6 +94,7 @@ export function createSystemJsSandbox(element: any, config: SandboxConfig): Prom
 }
 
 function logError(error, message) {
+  debugger;
   console.groupCollapsed('ERROR in your app:  '
     + ((error && error.message) || '').split('\n')[0]);
   console.error(error, message);

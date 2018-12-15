@@ -50,7 +50,7 @@ export class CodelabExerciseComponent {
     this.file = exercise.files[0].path;
     this.filesConfig = exercise;
     this.solutions = extractSolutions(this.filesConfig.files);
-    this.update();
+    this.update(this.code[this.file]);
   };
 
   buildFileMap(files: any[]) {
@@ -66,7 +66,8 @@ export class CodelabExerciseComponent {
     }, {});
   }
 
-  update() {
+  update(code: string) {
+    this.code[this.file] = code;
     const runFilesMap = this.buildFileMap(this.filesConfig.files);
 
     const needsUpdate = (!this.runFilesMap) || Object.keys(runFilesMap).some(key => this.runFilesMap[key] !== runFilesMap[key]);
