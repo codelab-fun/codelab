@@ -36,7 +36,7 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   minLines = 6;
   model: any;
   editor: any;
-  @Input() debounce = 1500;
+  @Input() debounce = 1;
   @Input() fontSize = 20;
   @Input() language = 'typescript';
   @Input() theme = '';

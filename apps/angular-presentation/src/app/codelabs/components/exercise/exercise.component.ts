@@ -1,4 +1,4 @@
-import { Compiler, Component, forwardRef, Injector, Input, ModuleFactory, ModuleRef } from '@angular/core';
+import { Compiler, Component, forwardRef, Injector, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
 

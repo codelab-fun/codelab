@@ -94,7 +94,6 @@ export function createSystemJsSandbox(element: any, config: SandboxConfig): Prom
 }
 
 function logError(error, message) {
-  debugger;
   console.groupCollapsed('ERROR in your app:  '
     + ((error && error.message) || '').split('\n')[0]);
   console.error(error, message);
@@ -124,6 +123,10 @@ export function injectIframe(element: any, config: SandboxConfig): Promise<SandB
         iframe.contentDocument.body.innerHTML = html;
       }
 
+      function setError(html) {
+        iframe.contentDocument.querySelector('.error') || iframe.contentDocument.body.innerHTML;
+      }
+
       iframe.contentWindow.console.log = function () {
         console.log.apply(console, arguments);
       };
@@ -138,7 +141,7 @@ export function injectIframe(element: any, config: SandboxConfig): Promise<SandB
         // handle Angular error 1/3
         logError(error, message);
 
-        setHtml(`<pre style = "font-size: 3vw;padding: 20px;">${error}
+        setError(`<pre style = "font-size: 3vw;padding: 20px;">${error}
 ${message}
 </pre>`)
       };

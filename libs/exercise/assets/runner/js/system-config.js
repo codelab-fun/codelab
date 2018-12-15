@@ -48,6 +48,7 @@ System.config({
     'rxjs/operators': 'npm:rxjs/operators',
     'rxjs': 'npm:rxjs',
   },
+  warnings: true,
   packages: {
     'rxjs/operators': {
       main: 'index'

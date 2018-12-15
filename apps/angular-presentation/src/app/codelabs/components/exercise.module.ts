@@ -18,6 +18,7 @@ import { CodelabExercisePlayground } from './exercise-playground/codelab-exercis
 import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-progress-bar.component';
 import { FilePathComponent } from './file-path/file-path.component';
 import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
+import { NewSmartRunnerModule } from './new-smart-runner/new-smart-runner.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.
     MatSelectModule,
     SimpleEditorModule,
     CodeDemosModule,
+    NewSmartRunnerModule
   ],
   declarations: [
     CodelabExerciseComponent,

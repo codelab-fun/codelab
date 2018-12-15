@@ -52,7 +52,7 @@ export class SimpleAngularRunnerComponent implements OnChanges {
   async runAngular(sandbox) {
     console.log(this.code);
 
-    await(experimentRequestAnimationFrame);
+    await (experimentRequestAnimationFrame);
     sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app>');
 
     sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
@@ -60,7 +60,11 @@ export class SimpleAngularRunnerComponent implements OnChanges {
     sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
     sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
     sandbox.addDep('reflect-metadata', Reflect);
-    compileTsFiles(this.code).map(file => sandbox.evalJs(file.outputText));
+    console.time('compileold');
+    const transpileOutputs = compileTsFiles(this.code);
+    debugger;
+    transpileOutputs.map(file => sandbox.evalJs(file.outputText));
+    console.timeEnd('compileold');
     compileTemplates(this.code, sandbox);
 
     Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))

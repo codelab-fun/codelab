@@ -16,17 +16,18 @@
       <!--[bootstrap]="bootstrapTest"-->
       <!--[code]="runFilesMap"></slides-simple-angular-test-runner>-->
 
-      <slides-babel-test-runner [translations]="translations"
-                                [bootstrap]="bootstrapTest"
-                                [code]="runFilesMap"></slides-babel-test-runner>
+      <!--<slides-babel-test-runner [translations]="translations"-->
+      <!--[bootstrap]="bootstrapTest"-->
+      <!--[code]="runFilesMap"></slides-babel-test-runner>-->
     </div>
 
   </div>
   <div class="row">
-    <codelab-slides-preview class="quarter" milestone="Bootstrap"></codelab-slides-preview>
-    <slides-simple-angular-runner [url]="url"
-                                  *ngIf="runFilesMap" class="quarter"
-                                  [bootstrap]="bootstrap"
-                                  [code]=runFilesMap></slides-simple-angular-runner>
+    <new-smart-runner [bootstrap]="bootstrap" [code]="code"></new-smart-runner>
+    <!--<codelab-slides-preview class="quarter" milestone="Bootstrap"></codelab-slides-preview>-->
+    <!--<slides-simple-angular-runner [url]="url"-->
+                                  <!--*ngIf="runFilesMap" class="quarter"-->
+                                  <!--[bootstrap]="bootstrap"-->
+                                  <!--[code]=runFilesMap></slides-simple-angular-runner>-->
   </div>
 </div>
