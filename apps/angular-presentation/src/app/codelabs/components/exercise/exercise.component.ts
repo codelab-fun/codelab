@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Compiler, Component, forwardRef, Injector, Input, ModuleFactory, ModuleRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
 
@@ -39,7 +39,7 @@ export class CodelabExerciseComponent {
   private runFilesMap: any;
   private files: string[];
 
-  constructor() {
+  constructor(private compiler: Compiler, private injector: Injector) {
   }
 
   @Input() set exercise(exercise) {
@@ -50,7 +50,7 @@ export class CodelabExerciseComponent {
     this.file = exercise.files[0].path;
     this.filesConfig = exercise;
     this.solutions = extractSolutions(this.filesConfig.files);
-    this.update(this.code[this.file]);
+    this.update(this.code);
   };
 
   buildFileMap(files: any[]) {
@@ -67,7 +67,23 @@ export class CodelabExerciseComponent {
   }
 
   update(code: string) {
-    this.code[this.file] = code;
+    // // WebWorker
+    // // timeout 3 sec
+    //
+    // @Component({selector: 'lol'})
+    // class DynamicComponent {
+    // }
+    //
+    // @NgModule({declarations: [DynamicComponent]})
+    // class DynamicModule {
+    // }
+    //
+    // const moduleFactory: ModuleWithComponentFactories<DynamicModule> = this.compiler.compileModuleAndAllComponentsSync(DynamicModule);
+    // const moduleRef: NgModuleRef<DynamicModule> = moduleFactory.ngModuleFactory.create(this.injector);
+    //
+    // moduleRef.componentFactoryResolver;
+
+    this.code = code;
     const runFilesMap = this.buildFileMap(this.filesConfig.files);
 
     const needsUpdate = (!this.runFilesMap) || Object.keys(runFilesMap).some(key => this.runFilesMap[key] !== runFilesMap[key]);
