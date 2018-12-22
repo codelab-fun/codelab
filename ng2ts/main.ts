@@ -5,6 +5,7 @@ import { ApplicationRef, enableProdMode, NgModuleRef } from '@angular/core';
 import { ResourceLoader } from '@angular/compiler';
 import * as code from './code';
 
+debugger;
 enableProdMode();
 
 

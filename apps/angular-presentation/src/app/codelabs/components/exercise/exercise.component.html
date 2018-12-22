@@ -10,24 +10,24 @@
     ></slides-multitab-editor>
     <div class="quarter tests">
       <ng-content select=".description"></ng-content>
-      <!--<slides-simple-angular-test-runner-->
-      <!--*ngIf="true"-->
-      <!--[translations]="translations"-->
-      <!--[bootstrap]="bootstrapTest"-->
-      <!--[code]="runFilesMap"></slides-simple-angular-test-runner>-->
+      <slides-simple-angular-test-runner
+        *ngIf="true"
+        [translations]="translations"
+        [bootstrap]="bootstrapTest"
+        [code]="code"></slides-simple-angular-test-runner>
 
       <!--<slides-babel-test-runner [translations]="translations"-->
       <!--[bootstrap]="bootstrapTest"-->
-      <!--[code]="runFilesMap"></slides-babel-test-runner>-->
+      <!--[code]="code"></slides-babel-test-runner>-->
     </div>
 
   </div>
   <div class="row">
-    <new-smart-runner [bootstrap]="bootstrap" [code]="code"></new-smart-runner>
+    <new-smart-runner [bootstrap]="bootstrap" [code]="files$ | async"></new-smart-runner>
     <!--<codelab-slides-preview class="quarter" milestone="Bootstrap"></codelab-slides-preview>-->
     <!--<slides-simple-angular-runner [url]="url"-->
-                                  <!--*ngIf="runFilesMap" class="quarter"-->
-                                  <!--[bootstrap]="bootstrap"-->
-                                  <!--[code]=runFilesMap></slides-simple-angular-runner>-->
+    <!--*ngIf="runFilesMap" class="quarter"-->
+    <!--[bootstrap]="bootstrap"-->
+    <!--[code]=runFilesMap></slides-simple-angular-runner>-->
   </div>
 </div>

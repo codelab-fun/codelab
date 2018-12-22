@@ -30,6 +30,10 @@ export class SimpleTestsComponent implements OnInit {
   }
 
   hasTests() {
+    return this.tests && this.tests.length > 0;
+  }
+
+  hasMoreThanOneTest() {
     return this.tests && this.tests.length > 1;
   }
 

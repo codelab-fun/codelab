@@ -26,8 +26,7 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
   }
 
   run(files: any) {
-    const test = files[this.bootstrap + '.ts_execute'];
-
+    const test = files[this.bootstrap + '.ts.execute'];
     try {
       this.tests = test(files);
     } catch (e) {

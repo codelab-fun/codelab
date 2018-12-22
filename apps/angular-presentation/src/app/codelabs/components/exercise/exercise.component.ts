@@ -1,7 +1,18 @@
-import { Compiler, Component, forwardRef, Injector, Input } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
+import { compileTsFilesWatch } from '../../../../../../../libs/code-demos/src/lib/runner/compile-ts-files';
+import { filter, map, publishReplay, refCount, tap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 
+function filterByFileType(type: string, files: Record<string, string>) {
+  return Object.entries(files).reduce((changedFiles, [path, code]) => {
+    if (path.match(new RegExp(`\\\.${type}$`))) {
+      changedFiles[path] = code;
+    }
+    return changedFiles;
+  }, {});
+}
 
 export function extractSolutions(files: any[]) {
   return files.reduce((result, file) => {
@@ -10,6 +21,16 @@ export function extractSolutions(files: any[]) {
     }
 
     return result;
+  }, {});
+}
+
+
+export function getChanges(current, previous) {
+  return Object.keys(current).reduce((changedFiles, path) => {
+    if (current[path] !== previous[path]) {
+      changedFiles[path] = current[path];
+    }
+    return changedFiles;
   }, {});
 }
 
@@ -31,68 +52,58 @@ export class CodelabExerciseComponent {
   @Input() url = '';
   @Input() translations = {};
   @Input() slidesSimpleHighlightMatch = [];
-  code: any;
+  code: any = {};
   solutions = {};
   filesConfig: any;
+  changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
+  changedHtmlFilesSubject = new BehaviorSubject<Record<string, string>>({});
   private file: string;
   private bootstrap: string;
   private runFilesMap: any;
   private files: string[];
+  private files$: Observable<Record<string, string>>;
+  private codeCache: Record<string, string> = {};
 
-  constructor(private compiler: Compiler, private injector: Injector) {
+  constructor() {
+    this.files$ = combineLatest(this.changedTsFilesSubject.pipe(
+      map(files =>
+        Object.entries(files).reduce((result, [file, code]) => {
+          const f = this.filesConfig.files.find(f => f.path === file);
+          result[file] = (f.before || '') + code + (f.after || '');
+          return result;
+        }, {})
+      ),
+      filter(value => Object.keys(value).length > 0),
+      compileTsFilesWatch()),
+      this.changedHtmlFilesSubject.pipe(filter(value => Object.keys(value).length > 0))).pipe(
+      map(([html, js]) => ({...html, ...js})),
+      tap(a => {
+        console.log('HI', a)
+      }),
+      map((files) => ({...this.code, ...files})),
+      publishReplay(1),
+      refCount()
+    )
+    ;
   }
 
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
-    this.code = map.code;
     this.bootstrap = map.bootstrap;
     this.bootstrapTest = map.bootstrapTest;
     this.file = exercise.files[0].path;
     this.filesConfig = exercise;
     this.solutions = extractSolutions(this.filesConfig.files);
-    this.update(this.code);
+    this.code = map.code;
+    this.update(map.code);
   };
 
-  buildFileMap(files: any[]) {
-    return files.reduce((result, file) => {
-
-      result[file.path] = (file.before || '') + ' \n ' + this.code[file.path] + ' \n ' + (file.after || '');
-
-      if (file.execute) {
-        result[file.path + '_execute'] = file.execute;
-      }
-
-      return result;
-    }, {});
-  }
-
-  update(code: string) {
-    // // WebWorker
-    // // timeout 3 sec
-    //
-    // @Component({selector: 'lol'})
-    // class DynamicComponent {
-    // }
-    //
-    // @NgModule({declarations: [DynamicComponent]})
-    // class DynamicModule {
-    // }
-    //
-    // const moduleFactory: ModuleWithComponentFactories<DynamicModule> = this.compiler.compileModuleAndAllComponentsSync(DynamicModule);
-    // const moduleRef: NgModuleRef<DynamicModule> = moduleFactory.ngModuleFactory.create(this.injector);
-    //
-    // moduleRef.componentFactoryResolver;
-
-    this.code = code;
-    const runFilesMap = this.buildFileMap(this.filesConfig.files);
-
-    const needsUpdate = (!this.runFilesMap) || Object.keys(runFilesMap).some(key => this.runFilesMap[key] !== runFilesMap[key]);
-
-    if (needsUpdate) {
-      this.runFilesMap = runFilesMap;
-      this.files = Object.keys(this.runFilesMap);
-    }
-
+  update(code: Record<string, string>) {
+    const changesTs = getChanges(filterByFileType('ts', code), filterByFileType('ts', this.codeCache));
+    const changesHtml = getChanges(filterByFileType('html', code), filterByFileType('html', this.codeCache));
+    this.codeCache = {...code};
+    this.changedTsFilesSubject.next(changesTs);
+    this.changedHtmlFilesSubject.next(changesHtml);
   }
 
 }

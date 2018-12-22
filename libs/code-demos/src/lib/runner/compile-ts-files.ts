@@ -1,4 +1,4 @@
-import { MonoTypeOperatorFunction, Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { exhaustMap, finalize } from 'rxjs/operators';
 import * as ts from 'typescript';
 
@@ -22,9 +22,7 @@ function watch(
   inputFiles$: ObservableFiles,
   options: ts.CompilerOptions
 ): AdapterHost {
-  const outputFiles: BehaviorSubject<
-    Record<string, string>
-  > = new BehaviorSubject<Record<string, string>>({});
+  const outputFiles: BehaviorSubject<Record<string, string>> = new BehaviorSubject<Record<string, string>>({});
   // const rootFileNames = [];
   const files: ts.MapLike<{ version: number; file: string }> = {};
 
@@ -68,7 +66,7 @@ function watch(
 
     filteredFiles.forEach(([fileName, file]) => {
       if (!files[fileName]) {
-        files[fileName] = { version: 0, file };
+        files[fileName] = {version: 0, file};
       }
       files[fileName].version++;
       files[fileName].file = file;
@@ -133,12 +131,12 @@ function watch(
         '\n'
       );
       if (diagnostic.file) {
-        let { line, character } = diagnostic.file.getLineAndCharacterOfPosition(
+        let {line, character} = diagnostic.file.getLineAndCharacterOfPosition(
           diagnostic.start!
         );
         console.log(
           `  Error ${diagnostic.file.fileName} (${line + 1},${character +
-            1}): ${message}`
+          1}): ${message}`
         );
       } else {
         console.log(`  Error: ${message}`);
@@ -147,9 +145,7 @@ function watch(
   }
 }
 
-export function compileTsFilesWatch(): MonoTypeOperatorFunction<
-  Record<string, string>
-> {
+export function compileTsFilesWatch(): MonoTypeOperatorFunction<Record<string, string>> {
   let host: AdapterHost;
   return (source: Observable<Record<string, string>>) => {
     return source.pipe(
@@ -165,65 +161,14 @@ export function compileTsFilesWatch(): MonoTypeOperatorFunction<
         }
       ),
       finalize(() => {
-        host && host.dispose();
+        if (host) {
+          host.dispose();
+        }
         host = null;
       })
     );
   };
 }
-
-// const createProgram = ts.createSemanticDiagnosticsBuilderProgram;
-//
-// const compilerOptions = {
-//   module: ts.ModuleKind.System,
-//   target: ts.ScriptTarget.ES5,
-//   experimentalDecorators: true,
-//   emitDecoratorMetadata: true,
-//   noImplicitAny: true,
-//   declaration: true,
-// };
-//
-// function reportDiagnostic(diagnostic: ts.Diagnostic) {
-//   console.error(
-//     'Error',
-//     diagnostic.code,
-//     ':',
-//     ts.flattenDiagnosticMessageText(
-//       diagnostic.messageText,
-//       formatHost.getNewLine()
-//     )
-//   );
-// }
-//
-// const formatHost: ts.FormatDiagnosticsHost = {
-//   getCanonicalFileName: path => path,
-//   getCurrentDirectory: ts.sys.getCurrentDirectory,
-//   getNewLine: () => ts.sys.newLine
-// };
-//
-// /**
-//  * Prints a diagnostic every time the watch status changes.
-//  * This is mainly for messages like "Starting compilation" or "Compilation completed".
-//  */
-// function reportWatchStatusChanged(diagnostic: ts.Diagnostic) {
-//   console.info(ts.formatDiagnostic(diagnostic, formatHost));
-// }
-//
-// function createHost(): WatchCompilerHostOfConfigFile<any> {
-//   const configPath = ts.findConfigFile('./', (file) => {
-//     console.log(file, 'check file');
-//     return true;
-//   });
-//
-//   return ts.createWatchCompilerHost(
-//     configPath,
-//     compilerOptions,
-//     ts.sys,
-//     createProgram,
-//     reportDiagnostic,
-//     reportWatchStatusChanged
-//   );
-// }
 
 export function compileTsFiles(files: Record<string, string>) {
   return Object.entries(files)

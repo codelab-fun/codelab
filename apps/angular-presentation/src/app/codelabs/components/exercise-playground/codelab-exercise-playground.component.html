@@ -3,7 +3,7 @@
   class="quarter"
   [translations]="translations"
   [bootstrap]="bootstrapTest"
-  [code]="runFilesMap"></slides-simple-angular-test-runner>
+  [code]="code"></slides-simple-angular-test-runner>
 
 <div style=" display: flex;">
   <div style="width: 50%;flex-grow: 0">
@@ -21,7 +21,7 @@
 
   <slides-simple-angular-runner style="width: 50%;flex-grow: 0"
                                 [ui]="ui"
-                                *ngIf="runFilesMap" class="quarter"
+                                *ngIf="code" class="quarter"
                                 [bootstrap]="bootstrap"
-                                [code]=runFilesMap></slides-simple-angular-runner>
+                                [code]=code></slides-simple-angular-runner>
 </div>

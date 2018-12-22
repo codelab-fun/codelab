@@ -99,7 +99,6 @@ declare class Observable<T> {
 
 
 declare module '@angular/router' {
-
   export type Routes = Array<RouteConfig>;
   export class RouterModule {
     static forRoot(routes: Routes){}

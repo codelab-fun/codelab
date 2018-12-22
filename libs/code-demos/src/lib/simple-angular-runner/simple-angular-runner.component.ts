@@ -1,9 +1,10 @@
-import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
 import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
 import { compileTsFiles } from '../runner/compile-ts-files';
 import { compileTemplates } from '../runner/prepare-templates';
 import { PreviewWindowType } from '../../../../browser/src/lib/preview-window/preview-window.component';
+import { addMetaInformation } from '../../../../../apps/angular-presentation/src/app/codelabs/components/angular-test-runner/angular-test-runner.component';
 
 declare const require;
 
@@ -45,7 +46,7 @@ export class SimpleAngularRunnerComponent implements OnChanges {
     this.runAngular(sandbox);
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
     this.runCode();
   }
 
@@ -60,21 +61,19 @@ export class SimpleAngularRunnerComponent implements OnChanges {
     sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
     sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
     sandbox.addDep('reflect-metadata', Reflect);
-    console.time('compileold');
     const transpileOutputs = compileTsFiles(this.code);
-    debugger;
+
     transpileOutputs.map(file => sandbox.evalJs(file.outputText));
-    console.timeEnd('compileold');
     compileTemplates(this.code, sandbox);
 
     Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))
       .forEach(([moduleName, code]) => {
         sandbox.addCss(code);
       });
+    addMetaInformation(sandbox, this.code);
 
-    // debugger;
+    debugger;
     sandbox.evalJs(`System.import('${this.bootstrap}')`);
-
   }
 
 

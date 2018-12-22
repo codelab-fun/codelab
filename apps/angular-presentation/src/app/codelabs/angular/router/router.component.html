@@ -20,15 +20,16 @@
     <h1>Router - intro</h1>
     <h2>Router is used to give <b>URLs</b> to different parts of your app.</h2>
     <div class="router-preview">
-      <!--fakeUrl="http://localhost:4200/assets/runner/kittens"-->
-      <slides-codelab-exercise-preview column-5
-                                       [exercise]="code.kittens"
-
+      <slides-codelab-exercise-preview
+        fakeUrl="/kittens"
+        column-5
+        [exercise]="code.kittens"
       ></slides-codelab-exercise-preview>
-      <!--fakeUrl="http://localhost:4200/assets/runner/puppies"-->
-      <slides-codelab-exercise-preview column-5
+
+      <slides-codelab-exercise-preview fakeUrl="/puppies"
+                                       column-5
                                        [exercise]="code.puppies"
-                                      ></slides-codelab-exercise-preview>
+      ></slides-codelab-exercise-preview>
     </div>
   </div>
   <div *slide id="router-intro2" milestone="Router">
