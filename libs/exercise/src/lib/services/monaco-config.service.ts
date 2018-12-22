@@ -21,6 +21,7 @@ export class MonacoConfigService {
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
+      debugger;
       resolve(monaco);
     });
   });

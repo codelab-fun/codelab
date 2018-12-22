@@ -2,8 +2,9 @@ import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
 import { compileTsFilesWatch } from '../../../../../../../libs/code-demos/src/lib/runner/compile-ts-files';
-import { filter, map, publishReplay, refCount, tap } from 'rxjs/operators';
+import { filter, map, publishReplay, refCount, startWith, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 
 function filterByFileType(type: string, files: Record<string, string>) {
   return Object.entries(files).reduce((changedFiles, [path, code]) => {
@@ -24,7 +25,6 @@ export function extractSolutions(files: any[]) {
   }, {});
 }
 
-
 export function getChanges(current, previous) {
   return Object.keys(current).reduce((changedFiles, path) => {
     if (current[path] !== previous[path]) {
@@ -44,7 +44,7 @@ export function getChanges(current, previous) {
       useExisting: forwardRef(() => CodelabExerciseComponent),
       multi: true
     }
-  ],
+  ]
 })
 export class CodelabExerciseComponent {
   @Input() bootstrapTest;
@@ -56,7 +56,8 @@ export class CodelabExerciseComponent {
   solutions = {};
   filesConfig: any;
   changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
-  changedHtmlFilesSubject = new BehaviorSubject<Record<string, string>>({});
+  changedHtmlFilesSubject = new ReplaySubject<Record<string, string>>(1);
+
   private file: string;
   private bootstrap: string;
   private runFilesMap: any;
@@ -65,7 +66,7 @@ export class CodelabExerciseComponent {
   private codeCache: Record<string, string> = {};
 
   constructor() {
-    this.files$ = combineLatest(this.changedTsFilesSubject.pipe(
+    const ts = this.changedTsFilesSubject.pipe(
       map(files =>
         Object.entries(files).reduce((result, [file, code]) => {
           const f = this.filesConfig.files.find(f => f.path === file);
@@ -74,17 +75,22 @@ export class CodelabExerciseComponent {
         }, {})
       ),
       filter(value => Object.keys(value).length > 0),
-      compileTsFilesWatch()),
-      this.changedHtmlFilesSubject.pipe(filter(value => Object.keys(value).length > 0))).pipe(
-      map(([html, js]) => ({...html, ...js})),
-      tap(a => {
-        console.log('HI', a)
-      }),
-      map((files) => ({...this.code, ...files})),
+      compileTsFilesWatch()
+    );
+    const html = this.changedHtmlFilesSubject.pipe(
+      filter(value => Object.keys(value).length > 0),
+      startWith({}),
+      tap(a => console.log(a))
+    );
+
+    this.files$ = combineLatest(ts, html).pipe(
+      tap(a => console.log(a)),
+      map(([js, html]) => ({...html, ...js})),
+      map(files => ({...this.code, ...files})),
+      tap(a => console.log(a)),
       publishReplay(1),
       refCount()
-    )
-    ;
+    );
   }
 
   @Input() set exercise(exercise) {
@@ -96,15 +102,19 @@ export class CodelabExerciseComponent {
     this.solutions = extractSolutions(this.filesConfig.files);
     this.code = map.code;
     this.update(map.code);
-  };
+  }
 
   update(code: Record<string, string>) {
-    const changesTs = getChanges(filterByFileType('ts', code), filterByFileType('ts', this.codeCache));
-    const changesHtml = getChanges(filterByFileType('html', code), filterByFileType('html', this.codeCache));
+    const changesTs = getChanges(
+      filterByFileType('ts', code),
+      filterByFileType('ts', this.codeCache)
+    );
+    const changesHtml = getChanges(
+      filterByFileType('html', code),
+      filterByFileType('html', this.codeCache)
+    );
     this.codeCache = {...code};
     this.changedTsFilesSubject.next(changesTs);
     this.changedHtmlFilesSubject.next(changesHtml);
   }
-
 }
-
