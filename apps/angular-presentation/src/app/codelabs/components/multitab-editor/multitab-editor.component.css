@@ -26,3 +26,11 @@ slides-simple-editor {
   display: flex;
   flex-direction: column;
 }
+
+
+.monaco-editor {
+  display: block;
+  width: 100%;
+  height: 500px;
+  flex-grow: 1;
+}

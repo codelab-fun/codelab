@@ -1,36 +1,44 @@
 import { Injectable } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { DepsService } from './deps-order.service';
+
 declare const require;
 const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/dev/vs/loader');
 
 const win = window as any;
 declare const monaco;
 
-
 @Injectable()
 export class MonacoConfigService {
-
-  public static monacoReady = new Promise((resolve) => {
+  public static monacoReady = new Promise(resolve => {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({paths: {'vs': 'assets/monaco/dev/vs'}});
+    win.require.config({paths: {vs: 'assets/monaco/dev/vs'}});
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
       resolve(monaco);
     });
   });
+  static initialized: boolean = false;
   public monaco: any;
 
+  constructor(private depsService: DepsService) {
+    this.monaco = monaco;
+  }
+
   static configureMonaco() {
+    if (MonacoConfigService.initialized) {
+      return;
+    }
+    MonacoConfigService.initialized = true;
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
       experimentalDecorators: true,
       allowNonTsExtensions: true,
-      noImplicitAny: true,
+      noImplicitAny: true
     });
 
     // Some fake Angular deps, good for catching silly errors.
@@ -41,25 +49,24 @@ export class MonacoConfigService {
 
     const dependencies = [
       '@angular/core',
-      // '@angular/common',
-      // '@angular/forms',
-      // '@angular/http',
-      // '@angular/platform-browser',
-      // '@angular/platform-browser-dynamic',
-      // '@angular/router',
+      '@angular/common',
+      '@angular/forms',
+      '@angular/http',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic',
+      '@angular/router',
       'rxjs/operators',
       'rxjs'
     ];
-    dependencies.forEach((dependency) => {
-      console.log(dependency);
-      const file = require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${dependency}.d.ts`);
-      monaco.languages.typescript.typescriptDefaults.addExtraLib(file);
+    dependencies.forEach(dependency => {
+      monaco.languages.typescript.typescriptDefaults.addExtraLib(
+        require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${dependency}.d.ts`), dependency);
+      // monaco.languages.typescript.typescriptDefaults._extraLibs[`${dependency}.d.ts`] =
+      //   require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${dependency}.d.ts`);
     });
 
-  }
+    // monaco.languages.typescript.typescriptDefaults.updateExtraLibs();
 
-  constructor(private depsService: DepsService) {
-    this.monaco = monaco;
   }
 
   sortFiles(files: FileConfig[]) {
@@ -79,7 +86,11 @@ export class MonacoConfigService {
     }
 
     this.sortFiles([...files]).map(file => {
-      monaco.editor.createModel(file.code, file.editorType || file.type, file.path);
+      monaco.editor.createModel(
+        file.code,
+        file.editorType || file.type,
+        /** Math.random() + */ file.path
+      );
     });
   }
 }

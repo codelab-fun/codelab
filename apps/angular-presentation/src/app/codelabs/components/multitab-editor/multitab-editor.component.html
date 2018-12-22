@@ -1,7 +1,7 @@
-<div *ngIf="code" class="wrapper">
+<div class="wrapper">
   <div class="panel">
     <mat-form-field>
-      <mat-select [(ngModel)]="file">
+      <mat-select [ngModel]="file" (ngModelChange)="openFile($event)">
         <ng-template>Lol</ng-template>
         <mat-option *ngFor="let fileName of files" [value]="fileName">
           <slides-file-path [path]="fileName"></slides-file-path>
@@ -9,19 +9,13 @@
       </mat-select>
     </mat-form-field>
     <button mat-button *ngIf="solutions[file] && solutions[file] != code[file]" style="cursor: pointer"
-            (click)="code[file]=solutions[file]">Load
+            (click)="loadSolution(file)">Load
       solution
     </button>
   </div>
+
   <div class="editor">
-    <slides-simple-editor
-      (ngModelChange)="update($event)"
-      [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
-      [language]="language"
-      [lineNumbers]="false"
-      [fontSize]="20"
-      [(ngModel)]="code[file]">
-    </slides-simple-editor>
+    <div #editor class="monaco-editor"></div>
   </div>
 </div>
 

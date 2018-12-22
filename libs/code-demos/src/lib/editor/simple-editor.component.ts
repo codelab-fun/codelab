@@ -107,7 +107,6 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
     });
   }
 
-
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
     this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);

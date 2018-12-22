@@ -80,15 +80,12 @@ export class CodelabExerciseComponent {
 
     const html = this.changedHtmlFilesSubject.pipe(
       filter(value => Object.keys(value).length > 0),
-      startWith({}),
-      tap(a => console.log(a))
+      startWith({})
     );
 
     this.files$ = combineLatest(ts, html).pipe(
-      tap(a => console.log(a)),
       map(([js, html]) => ({...html, ...js})),
       map(files => ({...this.code, ...files})),
-      tap(a => console.log(a)),
       publishReplay(1),
       refCount()
     );
