@@ -33,14 +33,29 @@ export class MonacoConfigService {
       noImplicitAny: true,
     });
 
-
-    debugger;
-
     // Some fake Angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
-    const core = require('!!raw-loader!./types.d.ts.not-really');
 
-    monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
+    // const core = require('!!raw-loader!../../../assets/runner/ng-dts/bundles/@angular/core.d.ts');
+    // monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
+
+    const dependencies = [
+      '@angular/core',
+      // '@angular/common',
+      // '@angular/forms',
+      // '@angular/http',
+      // '@angular/platform-browser',
+      // '@angular/platform-browser-dynamic',
+      // '@angular/router',
+      'rxjs/operators',
+      'rxjs'
+    ];
+    dependencies.forEach((dependency) => {
+      console.log(dependency);
+      const file = require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${dependency}.d.ts`);
+      monaco.languages.typescript.typescriptDefaults.addExtraLib(file);
+    });
+
   }
 
   constructor(private depsService: DepsService) {
