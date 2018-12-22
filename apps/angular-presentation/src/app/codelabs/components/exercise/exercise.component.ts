@@ -77,6 +77,7 @@ export class CodelabExerciseComponent {
       filter(value => Object.keys(value).length > 0),
       compileTsFilesWatch()
     );
+
     const html = this.changedHtmlFilesSubject.pipe(
       filter(value => Object.keys(value).length > 0),
       startWith({}),

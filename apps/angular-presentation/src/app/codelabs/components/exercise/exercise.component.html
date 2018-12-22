@@ -23,7 +23,7 @@
 
   </div>
   <div class="row">
-    <new-smart-runner [bootstrap]="bootstrap" *ngIf="files$ | async" [code]="files$ | async"></new-smart-runner>
+    <new-smart-runner [bootstrap]="bootstrap" [code]="files$ | async"></new-smart-runner>
     <!--<codelab-slides-preview class="quarter" milestone="Bootstrap"></codelab-slides-preview>-->
     <!--<slides-simple-angular-runner [url]="url"-->
     <!--*ngIf="runFilesMap" class="quarter"-->

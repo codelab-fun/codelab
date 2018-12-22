@@ -21,7 +21,6 @@ export class MonacoConfigService {
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
-      debugger;
       resolve(monaco);
     });
   });
@@ -34,6 +33,8 @@ export class MonacoConfigService {
       noImplicitAny: true,
     });
 
+
+    debugger;
 
     // Some fake Angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
