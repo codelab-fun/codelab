@@ -36,9 +36,14 @@ export class MonacoConfigService {
     }
     MonacoConfigService.initialized = true;
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
+      target: monaco.languages.typescript.ScriptTarget.ES2016,
       experimentalDecorators: true,
       allowNonTsExtensions: true,
-      noImplicitAny: true
+      noImplicitAny: true,
+      moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
+      module: monaco.languages.typescript.ModuleKind.CommonJS,
+      noEmit: true,
+      typeRoots: ["node_modules/@types"]
     });
 
     // Some fake Angular deps, good for catching silly errors.
@@ -47,6 +52,46 @@ export class MonacoConfigService {
     // const core = require('!!raw-loader!../../../assets/runner/ng-dts/bundles/@angular/core.d.ts');
     // monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
 
+    // this.addExtraLibs();
+    this.addExtraLibsTest();
+
+    // monaco.languages.typescript.typescriptDefaults.updateExtraLibs();
+
+  }
+
+  private static addExtraLibsTest() {
+    let files = require('!!!raw-loader!../../../assets/runner/ng-dts/files.txt');
+    files = JSON.parse(files);
+
+    files.forEach(file => {
+      // monaco.languages.typescript.typescriptDefaults._extraLibs[file.path] = file.content;
+      // console.log(file.path);
+      monaco.languages.typescript.typescriptDefaults.addExtraLib(file.content, 'file:///' + file.path);
+    });
+
+    // monaco.languages.typescript.typescriptDefaults._onDidChange.fire(monaco.languages.typescript.typescriptDefaults);
+
+    // monaco.languages.typescript.typescriptDefaults.addExtraLib(``, 'asdafsdfdasdad');
+    // debugger;
+    // console.log(monaco.languages.typescript.typescriptDefaults._extraLibs);
+
+    //       .forEach(function(t) {
+    //   monaco.languages.typescript.typescriptDefaults._extraLibs[t.path] = t.content
+    // }),
+    //   Object.keys(this.store.getState().project.dependencies).concat(Nl).forEach(function(t) {
+    //     monaco.languages.typescript.typescriptDefaults._extraLibs["zuz_/" + t] = function(t) {
+    //       return 'import {  } from "' + t + '"'
+    //     }(t)
+    //   }),
+    //   monaco.languages.typescript.typescriptDefaults.updateExtraLibs(),
+    //   monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
+    //     noSemanticValidation: !1,
+    //     noSyntaxValidation: !1
+    //   }),
+    //
+  }
+
+  private static addExtraLibs() {
     const dependencies = [
       '@angular/core',
       '@angular/common',
@@ -60,13 +105,10 @@ export class MonacoConfigService {
     ];
     dependencies.forEach(dependency => {
       monaco.languages.typescript.typescriptDefaults.addExtraLib(
-        require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${dependency}.d.ts`), dependency);
+        require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${ dependency }.d.ts`), dependency);
       // monaco.languages.typescript.typescriptDefaults._extraLibs[`${dependency}.d.ts`] =
       //   require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${dependency}.d.ts`);
     });
-
-    // monaco.languages.typescript.typescriptDefaults.updateExtraLibs();
-
   }
 
   sortFiles(files: FileConfig[]) {

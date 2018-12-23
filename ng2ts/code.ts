@@ -1,4 +1,4 @@
-export const thumbs_thumbs_html: string;
+export declare const thumbs_thumbs_html: string;
 export declare const video_video_component_html: string;
 export declare const upload_upload_component_html: string;
 export declare const search_search_component_html: string;

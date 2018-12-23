@@ -72,7 +72,6 @@ export class SimpleAngularRunnerComponent implements OnChanges {
       });
     addMetaInformation(sandbox, this.code);
 
-    debugger;
     sandbox.evalJs(`System.import('${this.bootstrap}')`);
   }
 

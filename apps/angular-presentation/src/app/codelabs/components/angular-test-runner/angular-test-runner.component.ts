@@ -75,11 +75,10 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
     }
   }
 
-  async runCode() {
+  async ngOnInit() {
     const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
       id: 'testing', 'url': 'about:blank'
     });
-
 
     sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
     sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
@@ -95,9 +94,9 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
         sandbox.evalJs(`System.registry.delete(System.normalizeSync('./${path.replace('.js', '')}'));`);
         addMetaInformation(sandbox, this.code);
         sandbox.evalJs(code);
+        console.log('lol');
+        sandbox.evalJs(`System.import('${this.bootstrap}')`);
       });
-
-      // sandbox.evalJs(`debugger;System.import('${this.bootstrap}')`);
     });
   }
 
@@ -107,27 +106,6 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
       this.subscription = null;
     }
   }
-
-
-  //
-  // run(files: any) {
-  //   createSystemJsSandbox(this.runnerElement.nativeElement, {
-  //     id: 'testing', 'url': 'about:blank'
-  //   }).then(({addCss, setHtml, evalJs, addDep, loadSystemJsDep, iframe}) => {
-  //     // TODO: addCss(require('./inner.css'));
-  //     setHtml('<my-app></my-app>');
-  //     evalJs(require('!!raw-loader!core-js/client/shim.js'));
-  //     evalJs(require('!!raw-loader!zone.js/dist/zone.js'));
-  //     evalJs(require('!!raw-loader!../../../../assets/runner/js/chai.min'));
-  //     evalJs(require('!!raw-loader!../../../../assets/runner/js/system-config'));
-  //     evalJs(require('!!raw-loader!../../../../assets/runner/js/mocha'));
-  //     evalJs(require('!!raw-loader!../../../../assets/runner/js/test-bootstrap'));
-  //     loadSystemJsDep('ng-bundle', require('!!raw-loader!../../../../assets/runner/ng2/ng-bundle'));
-  //     addDep('reflect-metadata', Reflect);
-  //     const testFiles = files.filter(file => !file.excludeFromTesting);
-  //     runTypeScriptFiles(testFiles, {addCss, setHtml, evalJs, addDep, iframe});
-  //   });
-  // }
 
   onSelectFile(file: any) {
     debugger;
