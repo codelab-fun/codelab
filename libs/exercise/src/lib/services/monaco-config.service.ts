@@ -91,26 +91,6 @@ export class MonacoConfigService {
     //
   }
 
-  private static addExtraLibs() {
-    const dependencies = [
-      '@angular/core',
-      '@angular/common',
-      '@angular/forms',
-      '@angular/http',
-      '@angular/platform-browser',
-      '@angular/platform-browser-dynamic',
-      '@angular/router',
-      'rxjs/operators',
-      'rxjs'
-    ];
-    dependencies.forEach(dependency => {
-      monaco.languages.typescript.typescriptDefaults.addExtraLib(
-        require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${ dependency }.d.ts`), dependency);
-      // monaco.languages.typescript.typescriptDefaults._extraLibs[`${dependency}.d.ts`] =
-      //   require(`!!raw-loader!../../../assets/runner/ng-dts/bundles/${dependency}.d.ts`);
-    });
-  }
-
   sortFiles(files: FileConfig[]) {
     // TODO(kirjs): Find a better way to handle this.
     try {

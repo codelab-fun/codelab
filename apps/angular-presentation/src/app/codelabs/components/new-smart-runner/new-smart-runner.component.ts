@@ -45,6 +45,7 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
     sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
     sandbox.addDep('reflect-metadata', Reflect);
 
+
     Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))
       .forEach(([moduleName, code]) => {
         sandbox.addCss(code);

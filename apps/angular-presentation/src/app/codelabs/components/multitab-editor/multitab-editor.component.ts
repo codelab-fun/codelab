@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { editor } from 'monaco-editor';
+import { editor, IDisposable } from 'monaco-editor';
 import { MonacoConfigService } from '../../../../../../../libs/exercise/src/lib/services/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
@@ -36,6 +36,7 @@ export class MultitabEditorComponent
   private files: string[];
   private editor: IStandaloneCodeEditor;
   private models: ITextModel[];
+  private didChangeListener: IDisposable;
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
   }
@@ -107,6 +108,10 @@ export class MultitabEditorComponent
         enabled: false
       }
     });
+
+    this.didChangeListener = this.editor.onDidChangeModelContent(() => {
+      this.update(this.editor.getModel().getValue())
+    })
   }
 
   writeValue(code: any): void {
@@ -134,6 +139,11 @@ export class MultitabEditorComponent
         model.dispose();
       });
       this.models = null;
+    }
+
+    if (this.didChangeListener) {
+      this.didChangeListener.dispose();
+      this.didChangeListener = null;
     }
 
     if (this.editor) {
