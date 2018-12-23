@@ -2,7 +2,7 @@ import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
 import { compileTsFilesWatch } from '../../../../../../../libs/code-demos/src/lib/runner/compile-ts-files';
-import { filter, map, publishReplay, refCount, startWith, tap } from 'rxjs/operators';
+import { filter, map, publishReplay, refCount, startWith } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 
@@ -92,6 +92,7 @@ export class CodelabExerciseComponent {
   }
 
   @Input() set exercise(exercise) {
+    debugger;
     const map = convertExerciseToMap(exercise);
     this.bootstrap = map.bootstrap;
     this.bootstrapTest = map.bootstrapTest;

@@ -123,7 +123,13 @@ export let routes = [
     page: 'vue'
   },
 
-
+  {
+    path: 'code-playground',
+    loadChildren: './extra/code-playground/code-playground.module#CodePlaygroundModule',
+    name: 'code-playground',
+    description: 'Learn how pipes transform input values to output values for display in a view',
+    page: 'extra'
+  },
   {
     path: '',
     component: IndexComponent,
