@@ -19,8 +19,8 @@ function matExercise(modules, html, highlights: FileHighlights = {}, theme = 'pu
       CodelabFile.Html('app').setCode(html).withHighlight(highlights.appHtml),
       CodelabFile.TypeScriptFile('app.component').setCode(require('!!raw-loader!./samples/basic/app.component.ts')),
       CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./samples/basic/main.ts')).makeBootstrappable(),
-      CodelabFile.Css('styles.css').setCode(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')),
-      CodelabFile.Css('extra.css').setCode('body {padding: 0; margin: 0;}')
+      CodelabFile.Css('styles').setCode(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')),
+      CodelabFile.Css('extra').setCode('body {padding: 0; margin: 0;}')
     ]
   };
 }
@@ -104,6 +104,7 @@ export class MaterialComponent {
   setTheme(theme) {
     this.theme = theme;
     const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
-    this.themePlayground.onCodeChange(this.themes[theme], cssFile);
+    cssFile.template = this.themes[theme];
+    this.code.material.theme = {...this.code.material.theme};
   }
 }

@@ -2,7 +2,7 @@ import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
 import { compileTsFilesWatch } from '../../../../../../../libs/code-demos/src/lib/runner/compile-ts-files';
-import { filter, map, publishReplay, refCount, startWith } from 'rxjs/operators';
+import { filter, map, publishReplay, refCount, startWith, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 
@@ -58,7 +58,7 @@ export class CodelabExerciseComponent {
   solutions = {};
   filesConfig: any;
   changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
-  changedHtmlFilesSubject = new ReplaySubject<Record<string, string>>(1);
+  changedStaticFilesSubject = new ReplaySubject<Record<string, string>>(1);
   public bootstrap: string;
   public file: string;
   public files$: Observable<Record<string, string>>;
@@ -77,12 +77,13 @@ export class CodelabExerciseComponent {
       compileTsFilesWatch()
     );
 
-    const html = this.changedHtmlFilesSubject.pipe(
+    const staticFiles = this.changedStaticFilesSubject.pipe(
       filter(value => Object.keys(value).length > 0),
+      tap(a => console.log(a)),
       startWith({})
     );
 
-    this.files$ = combineLatest(ts, html).pipe(
+    this.files$ = combineLatest(ts, staticFiles).pipe(
       map(([js, html]) => ({...html, ...js})),
       map(files => ({...this.code, ...files})),
       publishReplay(1),
@@ -107,12 +108,12 @@ export class CodelabExerciseComponent {
       filterByFileType('ts', code),
       filterByFileType('ts', this.codeCache)
     );
-    const changesHtml = getChanges(
-      filterByFileType('html', code),
-      filterByFileType('html', this.codeCache)
+    const changesStatic = getChanges(
+      filterByFileType('html|css', code),
+      filterByFileType('html|css', this.codeCache)
     );
     this.codeCache = {...code};
     this.changedTsFilesSubject.next(changesTs);
-    this.changedHtmlFilesSubject.next(changesHtml);
+    this.changedStaticFilesSubject.next(changesStatic);
   }
 }

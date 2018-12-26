@@ -63,6 +63,10 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
         sandbox.evalJs(code);
       });
 
+      Object.entries(files).filter(([path]) => path.match(/\.css$/)).forEach(([path, code]) => {
+        // TODO(kirjs): Consider deleting old CSS.
+        sandbox.addCss(code);
+      });
 
       if (!this.bootstrap) {
         debugger;
