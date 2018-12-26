@@ -45,13 +45,13 @@
   <div *slide id="router-config" milestone="Router">
     <h1>Router - configuration</h1>
     <h2>Routes are configured by defining an array of mapping between URL path and a component</h2>
-    <codelab-exercise-playground [url]="'/assets/runner'" [exercise]="code.routerConfig"></codelab-exercise-playground>
+    <codelab-exercise-playground url="/assets/runner" [exercise]="code.routerConfig"></codelab-exercise-playground>
   </div>
 
   <div *slide id="router-config-pass-to-module" milestone="Router">
     <h1>Router - configuration</h1>
     <h2>Then we have to pass the config to our module.</h2>
-    <codelab-exercise-playground [url]="'/assets/runner'"
+    <codelab-exercise-playground url="/assets/runner"
                                  [exercise]="code.routerConfigPass"></codelab-exercise-playground>
     <div class="info">Note that we're using <b>RouterModule.forRoot</b> which creates an Angular Module out of our
       configuration.
@@ -63,7 +63,7 @@
     <h2>Now we have to find a place where the router would display selected component.</h2>
     <h2>It can be marked by placing <b>router-outlet tag</b></h2>
     <!--[openFilesIndex]="[1]"-->
-    <codelab-exercise-playground [url]="'/assets/runner'"
+    <codelab-exercise-playground url="/assets/runner"
                                  [exercise]="code.routerOutlet"></codelab-exercise-playground>
   </div>
 
@@ -72,7 +72,7 @@
     <h2>The last part is creating the menu.</h2>
     <h2>Use <b>routerLink</b> directive to provide the URL</h2>
     <!--[openFilesIndex]="[1]"-->
-    <codelab-exercise-playground [url]="'/assets/runner'"
+    <codelab-exercise-playground url="/assets/runner"
                                  [exercise]="code.menu"></codelab-exercise-playground>
   </div>
 
@@ -91,6 +91,7 @@
     <slides-codelab-exercise
       milestone="Router"
       [translations]="t"
+      url="/assets/runner"
       [exercise]="exercise">
     </slides-codelab-exercise>
   </div>

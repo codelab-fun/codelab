@@ -29,6 +29,7 @@ export class MultitabEditorComponent
   @Input() code: any = {};
   @Input() solutions: any = {};
   @Input() file;
+  @Input() showPanel = true;
   @Input() slidesSimpleHighlightMatch = [];
 
   @ViewChild('editor') editorEl;

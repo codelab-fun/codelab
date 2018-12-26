@@ -94,9 +94,9 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
         sandbox.evalJs(`System.registry.delete(System.normalizeSync('./${path.replace('.js', '')}'));`);
         addMetaInformation(sandbox, this.code);
         sandbox.evalJs(code);
-        console.log('lol');
-        sandbox.evalJs(`System.import('${this.bootstrap}')`);
       });
+
+      sandbox.evalJs(`System.import('${this.bootstrap}')`);
     });
   }
 

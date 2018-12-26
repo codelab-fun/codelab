@@ -8,20 +8,23 @@
 <div style=" display: flex;">
   <div style="width: 50%;flex-grow: 0">
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
-    <slides-simple-editor
-      style="width: 100%;flex-grow: 0"
-      (ngModelChange)="update($event)"
+    <slides-multitab-editor
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
-      language="typescript"
-      [lineNumbers]="false"
-      [fontSize]="20"
-      [(ngModel)]="code[file]">
-    </slides-simple-editor>
+      class="quarter"
+      [showPanel]="false"
+      [file]="file"
+      [solutions]="solutions"
+      [(ngModel)]="code"
+      (ngModelChange)="update($event)"
+    ></slides-multitab-editor>
   </div>
 
-  <slides-simple-angular-runner style="width: 50%;flex-grow: 0"
-                                [ui]="ui"
-                                *ngIf="code" class="quarter"
-                                [bootstrap]="bootstrap"
-                                [code]=code></slides-simple-angular-runner>
+  <new-smart-runner [url]="url" style="width: 50%;flex-grow: 0" [bootstrap]="bootstrap"
+                    [code]="files$ | async"></new-smart-runner>
+
+  <!--<slides-simple-angular-runner style="width: 50%;flex-grow: 0"-->
+  <!--[ui]="ui"-->
+  <!--*ngIf="code" class="quarter"-->
+  <!--[bootstrap]="bootstrap"-->
+  <!--[code]=code></slides-simple-angular-runner>-->
 </div>

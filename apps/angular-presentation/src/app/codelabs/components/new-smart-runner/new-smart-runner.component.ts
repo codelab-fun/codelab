@@ -19,6 +19,7 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
   @Input() code: CodeFiles = {};
   @Input() jsFiles: CodeFiles = {};
   @Input() bootstrap: string;
+  @Input() url = 'about:blank';
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
   @ViewChild('runner') runnerElement: ElementRef;
 
@@ -34,8 +35,9 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
   }
 
   async ngOnInit() {
+    console.log(this.url);
     const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
-      id: 'testing', 'url': 'about:blank'
+      id: 'testing', 'url': this.url
     });
 
     sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app><div class="error"></div>');
@@ -62,8 +64,26 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
       });
 
 
+      if (!this.bootstrap) {
+        debugger;
+      }
       sandbox.evalJs(`System.import('${this.bootstrap}')`);
     });
+
+    this.trackIframeUrl(sandbox.iframe);
+  }
+
+  trackIframeUrl(iframe) {
+    const interval = window.setInterval(() => {
+      if (iframe.contentWindow) {
+        const url = iframe.contentWindow.location.href.replace('assets/runner/', ''); // .replace(this.urlBase, '')
+        if (this.url !== url) {
+          this.url = url;
+        }
+      } else {
+        window.clearInterval(interval);
+      }
+    }, 200);
   }
 
   ngOnDestroy() {

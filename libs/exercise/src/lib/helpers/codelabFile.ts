@@ -31,6 +31,12 @@ export class CodelabFile implements FileConfig {
   public before: string;
   public hidden = false;
 
+  constructor(public readonly type: FileType,
+              public readonly moduleName: string) {
+
+
+    this.path = moduleName + fileConfig[type].extension;
+  }
 
   static TypeScriptFile(name: string): CodelabFile {
     return new CodelabFile(FileType.TypeScript, name)
@@ -49,13 +55,6 @@ export class CodelabFile implements FileConfig {
     return new CodelabFile(FileType.Css, name);
   }
 
-  constructor(public readonly type: FileType,
-              public readonly moduleName: string) {
-
-
-    this.path = moduleName + fileConfig[type].extension;
-  }
-
   public setAfter(after: string): CodelabFile {
     this.after = after;
     return this;
@@ -67,6 +66,7 @@ export class CodelabFile implements FileConfig {
 
   public makeBootstrappable(): CodelabFile {
     this.bootstrap = true;
+    this.excludeFromTesting = true;
     return this;
   }
 
@@ -90,7 +90,7 @@ export class CodelabFile implements FileConfig {
     return this;
   }
 
-  public withHighlight(highlight: RegExp|RegExp[]) {
+  public withHighlight(highlight: RegExp | RegExp[]) {
     this.highlight = highlight;
     return this;
   }

@@ -3,7 +3,13 @@ import { join } from 'path';
 
 const glob = require('glob');
 
-const folders = ['@angular/core', 'rxjs'];
+const folders = [
+  '@angular/core',
+  '@angular/platform-browser',
+  '@angular/router',
+  '@angular/material',
+  'rxjs'
+];
 const files = [].concat(...folders.map(folder => glob.sync(`node_modules/${folder}/**/*.d.ts`)));
 
 const vendors = files.map((path) => {
@@ -12,4 +18,4 @@ const vendors = files.map((path) => {
 });
 
 writeFileSync(join(__dirname, './files.txt'), JSON.stringify(vendors, null, 2), 'utf-8');
-console.info('Done: ' , vendors.length);
+console.info('Done: ', vendors.length);

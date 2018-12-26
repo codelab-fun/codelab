@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="panel">
+  <div class="panel" *ngIf="showPanel">
     <mat-form-field>
       <mat-select [ngModel]="file" (ngModelChange)="openFile($event)">
         <ng-template>Lol</ng-template>

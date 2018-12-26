@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CodelabExerciseComponent, extractSolutions } from '../exercise/exercise.component';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
 
 
@@ -7,15 +8,15 @@ import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
   templateUrl: 'exercise-preview.component.html',
   // styleUrls: ['../exercise/exercise.component.css'],
 })
-export class CodelabExercisePreviewComponent {
-  filesMap: any;
-  @Input() url = '';
-  @Input() fakeUrl = '';
-  private bootstrap: string;
-
-  @Input() set exercise(exercise: any) {
+export class CodelabExercisePreviewComponent extends CodelabExerciseComponent {
+  @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
-    this.filesMap = map.codeSolutions;
+    this.filesConfig = exercise;
     this.bootstrap = map.bootstrap;
+
+    this.code = extractSolutions(exercise.files);
+    console.log(this.code);
+
+    this.update(this.code);
   }
 }

@@ -1,7 +1,9 @@
 function mochaBefore() {
+  mocha.suite.suites = [];
   mocha.setup('bdd').reporter(function () {
   });
 }
+
 System.register("initTestBed", ['@angular/core/testing', '@angular/platform-browser-dynamic/testing'], function () {
   "use strict";
   var testing_1, testing_2;

@@ -1,5 +1,4 @@
-<slides-simple-angular-runner *ngIf="filesMap" class="quarter"
-                              [url]="url || fakeUrl"
-                              [bootstrap]="bootstrap"
-                              [code]=filesMap></slides-simple-angular-runner>
-
+<new-smart-runner [url]="url"
+                  style="width: 50%;flex-grow: 0"
+                  [bootstrap]="bootstrap"
+                  [code]="files$ | async"></new-smart-runner>

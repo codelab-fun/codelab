@@ -18,7 +18,7 @@ function filterByFileType(type: string, files: Record<string, string>) {
 export function extractSolutions(files: any[]) {
   return files.reduce((result, file) => {
     if (file.solution) {
-      result[file.path] = file.solution;
+      result[file.path] = file.solution || file.template;
     }
 
     return result;
@@ -52,17 +52,16 @@ export class CodelabExerciseComponent {
   @Input() url = '';
   @Input() translations = {};
   @Input() slidesSimpleHighlightMatch = [];
+  @Input() testRunner: 'babel' | 'iframe' = 'iframe';
+
   code: any = {};
   solutions = {};
   filesConfig: any;
   changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
   changedHtmlFilesSubject = new ReplaySubject<Record<string, string>>(1);
-
-  private file: string;
-  private bootstrap: string;
-  private runFilesMap: any;
-  private files: string[];
-  private files$: Observable<Record<string, string>>;
+  public bootstrap: string;
+  public file: string;
+  public files$: Observable<Record<string, string>>;
   private codeCache: Record<string, string> = {};
 
   constructor() {
@@ -92,8 +91,8 @@ export class CodelabExerciseComponent {
   }
 
   @Input() set exercise(exercise) {
-    debugger;
     const map = convertExerciseToMap(exercise);
+
     this.bootstrap = map.bootstrap;
     this.bootstrapTest = map.bootstrapTest;
     this.file = exercise.files[0].path;

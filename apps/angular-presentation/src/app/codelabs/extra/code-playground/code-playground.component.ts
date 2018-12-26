@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Optional, SkipSelf } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'code-playground',
@@ -14,6 +14,7 @@ export class CodePlaygroundComponent implements OnInit {
   }
 
 }
+
 //
 //
 // // 1. code- components

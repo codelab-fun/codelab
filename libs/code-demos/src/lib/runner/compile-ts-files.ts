@@ -162,7 +162,8 @@ export function compileTsFilesWatch(): MonoTypeOperatorFunction<Record<string, s
       ),
       finalize(() => {
         if (host) {
-          host.dispose();
+          // TODO(kirjs): Dispose the host?
+          // host.dispose();
         }
         host = null;
       })

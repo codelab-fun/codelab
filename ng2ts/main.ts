@@ -5,9 +5,11 @@ import { ApplicationRef, enableProdMode, NgModuleRef } from '@angular/core';
 import { ResourceLoader } from '@angular/compiler';
 import * as code from './code';
 
-debugger;
-enableProdMode();
-
+try {
+  enableProdMode();
+} catch(e){
+  // lol
+}
 
 // The code below is used to match the Components with the appropriate templates.
 //
