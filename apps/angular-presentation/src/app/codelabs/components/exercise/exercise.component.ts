@@ -84,7 +84,7 @@ export class CodelabExerciseComponent {
     );
 
     this.files$ = combineLatest(ts, staticFiles).pipe(
-      map(([js, html]) => ({...html, ...js})),
+      map(([js, staticFiles]) => ({...staticFiles, ...js})),
       map(files => ({...this.code, ...files})),
       publishReplay(1),
       refCount()

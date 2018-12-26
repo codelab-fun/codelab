@@ -28,10 +28,8 @@ export class MultitabEditorComponent
   implements OnInit, OnDestroy, ControlValueAccessor {
   @Input() code: any = {};
   @Input() solutions: any = {};
-  @Input() file;
   @Input() showPanel = true;
   @Input() slidesSimpleHighlightMatch = [];
-
   @ViewChild('editor') editorEl;
   private onChange: any;
   private files: string[];
@@ -41,6 +39,17 @@ export class MultitabEditorComponent
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
   }
+
+  private _file: string;
+
+  get file() {
+    return this._file;
+  }
+
+  @Input() set file(file: string) {
+    this._file = file;
+    this.openFile(file);
+  };
 
   get language() {
     return extenstionToLang[this.file.match(/\.(\w+)$/)[1]];
@@ -128,10 +137,11 @@ export class MultitabEditorComponent
   }
 
   openFile(file) {
-    this.file = file;
-    const m = this.getModelByFileName(file) as any;
-    this.editor.setModel(m);
-    m.setValue(m.getValue());
+    if (this.models) {
+      const m = this.getModelByFileName(file) as any;
+      this.editor.setModel(m);
+      m.setValue(m.getValue());
+    }
   }
 
   private dispose() {

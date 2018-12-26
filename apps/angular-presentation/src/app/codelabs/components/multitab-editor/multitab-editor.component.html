@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="panel" *ngIf="showPanel">
     <mat-form-field>
-      <mat-select [ngModel]="file" (ngModelChange)="openFile($event)">
+      <mat-select [ngModel]="file">
         <ng-template>Lol</ng-template>
         <mat-option *ngFor="let fileName of files" [value]="fileName">
           <slides-file-path [path]="fileName"></slides-file-path>

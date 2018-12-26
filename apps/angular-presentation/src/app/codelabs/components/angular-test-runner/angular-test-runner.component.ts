@@ -46,13 +46,15 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
 })
 export class SimpleAngularTestRunnerComponent implements OnChanges {
   handleMessageBound: any;
-  @Input() translations: { [key: string]: string; } = {};
   @Output() solved = new EventEmitter();
+  @Output() public selectFile: EventEmitter<string> = new EventEmitter<string>();
+  @Input() translations: { [key: string]: string; } = {};
   @Input() code: any;
-  changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
   @Input() bootstrap: string;
 
   @ViewChild('runner') runnerElement: ElementRef;
+
+  changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
   private tests: any;
   private subscription: Subscription;
 
@@ -77,8 +79,10 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
 
   async ngOnInit() {
     const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
-      id: 'testing', 'url': 'about:blank'
+      id: 'testing', 'url': '/assets/runner'
     });
+
+    sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app><div class="error"></div>');
 
     sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
     sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
@@ -108,7 +112,6 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
   }
 
   onSelectFile(file: any) {
-    debugger;
+    this.selectFile.emit(file);
   }
-
 }

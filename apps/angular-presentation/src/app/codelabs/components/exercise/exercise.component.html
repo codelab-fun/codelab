@@ -13,6 +13,7 @@
       <slides-simple-angular-test-runner
         *ngIf="testRunner === 'iframe'"
         [translations]="translations"
+        (selectFile)="file=$event"
         [bootstrap]="bootstrapTest"
         [code]="files$ | async"></slides-simple-angular-test-runner>
 

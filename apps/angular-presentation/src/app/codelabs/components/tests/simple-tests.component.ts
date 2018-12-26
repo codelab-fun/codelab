@@ -14,15 +14,27 @@ function getFileName(file: string) {
 export class SimpleTestsComponent implements OnInit {
 
 
-  @Input() tests: Array<TestInfo>;
   @Input() code: any;
   @Input() translations: { [key: string]: string; } = {};
   @Output()
   public onSelectFile: EventEmitter<string> = new EventEmitter<string>();
-
   seeAll = false;
+  private tests: Array<TestInfo>;
 
   constructor(private sanitizer: DomSanitizer) {
+  };
+
+  @Input('tests') set testsSetter(tests: Array<TestInfo>) {
+
+    this.tests = (tests || []).map(test => ({
+      ...test,
+      filename: this.getTestFile(test),
+      title: this.getTitle(test),
+      isFirstUnresolved: this.isFirstUnsolved(test),
+    }));
+
+    console.log(this.tests);
+
   };
 
   ngOnInit(): void {
