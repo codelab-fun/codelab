@@ -5,10 +5,17 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "Library name",
+      "description": "Presentation name",
       "$default": {
         "$source": "argv",
         "index": 0
+      }
+    },
+    "project": {
+      "type": "string",
+      "description": "Presentation name",
+      "$default": {
+        "$source": "project"
       }
     }
   },
