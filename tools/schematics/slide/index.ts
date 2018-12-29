@@ -13,7 +13,7 @@ function overrideHtml(schema: any): Rule {
   }
 }
 
-function importSlidesModule(schema: any): Rule {
+function updateSlidesModule(schema: any): Rule {
   return (host: Tree, context: SchematicContext) => {
     const modulePath: string = host.actions.find(a => a.path.endsWith('.module.ts')).path;
     // @angular-presentation/slides
@@ -24,6 +24,8 @@ function importSlidesModule(schema: any): Rule {
       true
     );
 
+    
+    const code = fs.readFileSync(join(__dirname, './files/code.ts'), 'utf-8').toString();    
 
 
     const changes = addImportToModule(sourceFile, modulePath, "SlidesModule", '@angular-presentation/slides');
@@ -32,6 +34,9 @@ function importSlidesModule(schema: any): Rule {
     changes.forEach((change: InsertChange) => {
       recorder.insertLeft(change.pos, change.toAdd);
     });
+    
+    const classDeclaration = sourceFile.statements.find(s => ts.isClassDeclaration(s));
+    recorder.insertLeft(classDeclaration.pos, code);
     host.commitUpdate(recorder);
   }
 }
@@ -47,7 +52,7 @@ export default function (schema: any): Rule {
       name: schema.name,
       project: schema.project
     }),
-    importSlidesModule(schema),
+    updateSlidesModule(schema),
     overrideHtml(schema),
   ]);
 }
