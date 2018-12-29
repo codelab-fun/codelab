@@ -125,7 +125,7 @@ export let routes = [
 
   {
     path: 'code-playground',
-    loadChildren: './extra/code-playground/code-playground.module#EmptyModule',
+    loadChildren: './extra/code-playground/code-playground.module#CodePlaygroundModule',
     name: 'code-playground',
     description: 'Learn how pipes transform input values to output values for display in a view',
     page: 'extra'
