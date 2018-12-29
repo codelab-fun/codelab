@@ -25,6 +25,7 @@ export class SimpleTestsComponent implements OnInit {
   };
 
   @Input('tests') set testsSetter(tests: Array<TestInfo>) {
+    this.tests = tests;
 
     this.tests = (tests || []).map(test => ({
       ...test,

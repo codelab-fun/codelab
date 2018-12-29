@@ -1,14 +1,13 @@
 <slides-simple-tests-progress [tests]="tests" *ngIf="hasTests()"></slides-simple-tests-progress>
 <ng-container *ngFor="let test of tests; trackBy: trackTest; let i=index;">
-  <div *ngIf="seeAll || i==indexOfFirstUnsolved()" class="test-panel" title="{{test.result}}">
-
+  <div *ngIf="seeAll || test.isFirstUnresolved" class="test-panel" title="{{test.result}}">
     <slides-simple-test-description [title]="test.title"
                                     [file]="test.filename"
                                     [pass]="test.pass"
                                     [class.first-unsolved]="test.isFirstUnresolved"
                                     (onSelectFile)="onSelectFile.emit($event)"
     ></slides-simple-test-description>
-    <div class="result" *ngIf="isFirstUnsolved(test)">{{test.result}}</div>
+    <div class="result" *ngIf="test.isFirstUnresolved">{{test.result}}</div>
   </div>
 </ng-container>
 

@@ -88,7 +88,7 @@ export class MultitabEditorComponent
 
     this.dispose();
 
-    this.models = Object.entries(this.code).map(([path, code]) => {
+    this.models = Object.entries(this.code).filter(([path, code]) => (typeof code === 'string')).map(([path, code]) => {
       const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
       return this.monacoConfigService.monaco.editor.createModel(
         code,
