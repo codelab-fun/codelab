@@ -1,8 +1,12 @@
 .router-preview {
   display: flex;
-
 }
 
 .router-preview slides-codelab-exercise-preview {
   margin: 10px;
+}
+
+.router-preview ::ng-deep .url {
+  color: black !important;
+  background: #f8ff15 !important;
 }

@@ -36,9 +36,9 @@ function formsConfig(code,
 
       CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./samples/basic/main.ts')).makeBootstrappable(),
 
-      CodelabFile.Css('styles.css').setCode(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')),
+      CodelabFile.Css('styles').setCode(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')),
 
-      CodelabFile.Css('extra.css').setCode(require('!!raw-loader!./samples/basic/styles.css'))
+      CodelabFile.Css('extra').setCode(require('!!raw-loader!./samples/basic/styles.css'))
     ]
   };
 

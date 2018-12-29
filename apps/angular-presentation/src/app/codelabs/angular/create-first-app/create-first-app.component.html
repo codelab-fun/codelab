@@ -412,11 +412,11 @@
 
   <!--DESCRIPTION 1-->
   <div *slide id="exercise-module" no-padding>
-    <div class="description"><p i18n>Create first NgModule.</p></div>
     <slides-codelab-exercise [translations]="t"
+                             testRunner="babel"
                              [exercise]="exercises[1]"
                              milestone="Bootstrap2">
-
+      <div class="description"><p i18n>Create first NgModule.</p></div>
     </slides-codelab-exercise>
   </div>
 
@@ -540,6 +540,7 @@
   <div *slide id="exercise-bootstrap" no-padding>
     <slides-codelab-exercise
       milestone="Bootstrap3"
+      testRunner="babel"
       [translations]="t"
       [exercise]="exercises[2]">
       <div class="description">

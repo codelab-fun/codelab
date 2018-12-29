@@ -53,7 +53,7 @@ export class CodelabExerciseComponent {
   @Input() translations = {};
   @Input() slidesSimpleHighlightMatch = [];
   @Input() testRunner: 'babel' | 'iframe' = 'iframe';
-
+  openFileIndex = 0;
   code: any = {};
   solutions = {};
   filesConfig: any;
@@ -91,12 +91,20 @@ export class CodelabExerciseComponent {
     );
   }
 
+  @Input('openFileIndex') set setOpenFileIndex(index: number) {
+    this.openFileIndex = index;
+    if (this.filesConfig) {
+
+      this.file = this.filesConfig.files[this.openFileIndex].path;
+    }
+  }
+
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
 
     this.bootstrap = map.bootstrap;
     this.bootstrapTest = map.bootstrapTest;
-    this.file = exercise.files[0].path;
+    this.file = exercise.files[this.openFileIndex].path;
     this.filesConfig = exercise;
     this.solutions = extractSolutions(this.filesConfig.files);
     this.code = map.code;
@@ -112,6 +120,7 @@ export class CodelabExerciseComponent {
       filterByFileType('html|css', code),
       filterByFileType('html|css', this.codeCache)
     );
+
     this.codeCache = {...code};
     this.changedTsFilesSubject.next(changesTs);
     this.changedStaticFilesSubject.next(changesStatic);

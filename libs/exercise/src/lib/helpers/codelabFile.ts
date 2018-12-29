@@ -33,8 +33,6 @@ export class CodelabFile implements FileConfig {
 
   constructor(public readonly type: FileType,
               public readonly moduleName: string) {
-
-
     this.path = moduleName + fileConfig[type].extension;
   }
 

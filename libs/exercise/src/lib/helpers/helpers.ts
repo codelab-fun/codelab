@@ -218,7 +218,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       {
         type: 'css',
         path: 'styles.css',
-        code: `
+        template: `
          my-app > div {
            width: 300px;
            height: 200px;

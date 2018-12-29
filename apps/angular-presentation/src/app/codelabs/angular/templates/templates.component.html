@@ -315,13 +315,14 @@
       /
       <ng-container i18n>Exercise 3</ng-container>
     </h1>
-    <div flex>
+    <div flex style="height: 100%;">
       <div column-5>
         <h2 i18n>
           In the next slide you'll finally display the videos! The result will look like this:
         </h2>
       </div>
-      <slides-codelab-exercise-preview column-5 [exercise]="exercises[2]"></slides-codelab-exercise-preview>
+      <slides-codelab-exercise-preview column-5
+                                       [exercise]="exercises[2]"></slides-codelab-exercise-preview>
     </div>
   </div>
 

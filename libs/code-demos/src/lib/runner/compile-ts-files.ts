@@ -110,7 +110,6 @@ function watch(
     const output = services.getEmitOutput(fileName);
 
     if (!output.emitSkipped) {
-      console.log(`Emitting ${fileName}`);
     } else {
       console.log(`Emitting ${fileName} failed`);
       logErrors(fileName);

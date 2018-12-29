@@ -1,8 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body {
+body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .presentation.size-600 li {
@@ -68,7 +69,6 @@ body {
   width: 100%;
 }
 
-
 .presentation.presentation.presentation [no-padding] .slide {
   padding: 0;
 }
@@ -77,7 +77,6 @@ body {
 .browser-frame, .frame {
 
 }
-
 
 .slide [large-font] {
   font-size: 30px;
@@ -97,6 +96,7 @@ body {
 
 .slide [column-5] {
   width: 50%;
+  padding: 0 1vw;
 }
 
 .slide [column-4] {
@@ -134,8 +134,6 @@ body {
   flex-grow: 1;
   justify-content: center;
 }
-
-
 
 .popup-message {
   padding: 5px 5px 0 5px;
@@ -187,8 +185,6 @@ a {
   padding: 12px;
   font-size: 30px;
 }
-
-
 
 /*  BUTTONS BAR CONTAINER  */
 .btn-bar {

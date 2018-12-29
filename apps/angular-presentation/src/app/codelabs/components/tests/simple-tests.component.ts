@@ -25,17 +25,12 @@ export class SimpleTestsComponent implements OnInit {
   };
 
   @Input('tests') set testsSetter(tests: Array<TestInfo>) {
-    this.tests = tests;
-
     this.tests = (tests || []).map(test => ({
       ...test,
       filename: this.getTestFile(test),
       title: this.getTitle(test),
-      isFirstUnresolved: this.isFirstUnsolved(test),
+      isFirstUnresolved: this.isFirstUnsolved(test, tests),
     }));
-
-    console.log(this.tests);
-
   };
 
   ngOnInit(): void {
@@ -68,12 +63,8 @@ export class SimpleTestsComponent implements OnInit {
     return file ? title.replace(getFileName(file), '') : title;
   }
 
-  isFirstUnsolved(test) {
-    return this.tests.find(t => !t.pass) === test;
-  }
-
-  indexOfFirstUnsolved() {
-    return this.tests.findIndex(t => !t.pass);
+  isFirstUnsolved(test, tests) {
+    return tests.find(t => !t.pass) === test;
   }
 
   toggleSeeAll(event) {

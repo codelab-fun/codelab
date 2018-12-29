@@ -91,15 +91,9 @@ export class MultitabEditorComponent
     this.models = Object.entries(this.code).filter(([path, code]) => (typeof code === 'string')).map(([path, code]) => {
       const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
       return this.monacoConfigService.monaco.editor.createModel(
-        code,
-        language,
-        'file:///' + path
+        code, language, 'file:///' + path
       );
     });
-
-    // this.models.forEach((model) => {
-    //   model.setEOL(1);
-    // });
 
     this.editor = this.monacoConfigService.monaco.editor.create(editor, {
       wrappingColumn: 10,

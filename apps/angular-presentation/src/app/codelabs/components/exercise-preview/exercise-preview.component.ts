@@ -13,10 +13,7 @@ export class CodelabExercisePreviewComponent extends CodelabExerciseComponent {
     const map = convertExerciseToMap(exercise);
     this.filesConfig = exercise;
     this.bootstrap = map.bootstrap;
-
     this.code = extractSolutions(exercise.files);
-    console.log(this.code);
-
     this.update(this.code);
   }
 }
