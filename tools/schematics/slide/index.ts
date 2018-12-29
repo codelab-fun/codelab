@@ -1,10 +1,11 @@
 import { chain, externalSchematic, Rule, Tree, SchematicContext } from '@angular-devkit/schematics';
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import * as ts from 'typescript';
+import { InsertChange } from '@schematics/angular/utility/change';
 
-function importSlidesModule(modulePath: string): Rule {
+function importSlidesModule(schema: any): Rule {
   return (host: Tree, context: SchematicContext) => {
-
+    const modulePath: string = host.actions.find(a => a.path.endsWith('.module.ts')).path;
     // @angular-presentation/slides
     const sourceFile = ts.createSourceFile(
       modulePath,
@@ -16,6 +17,12 @@ function importSlidesModule(modulePath: string): Rule {
 
 
     const changes = addImportToModule(sourceFile, modulePath, "SlidesModule", '@angular-presentation/slides');
+
+    const recorder = host.beginUpdate(modulePath);
+    changes.forEach((change: InsertChange) => {
+      recorder.insertLeft(change.pos, change.toAdd);
+    });
+    host.commitUpdate(recorder);
   }
 }
 
@@ -30,6 +37,6 @@ export default function (schema: any): Rule {
       name: schema.name,
       project: schema.project
     }),
-    importSlidesModule
+    importSlidesModule(schema)
   ]);
 }
