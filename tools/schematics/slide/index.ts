@@ -2,13 +2,13 @@ import { chain, externalSchematic, Rule, Tree, SchematicContext, url } from '@an
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import * as ts from 'typescript';
 import * as fs from 'fs';
-import {join} from 'path';
+import { join } from 'path';
 import { InsertChange } from '@schematics/angular/utility/change';
 
 function overrideHtml(schema: any): Rule {
   return (host: Tree, context: SchematicContext) => {
     const path: string = host.actions.find(a => a.path.endsWith('.component.html')).path;
-    const html = fs.readFileSync(join(__dirname, './files/template.component.html'), 'utf-8').toString();    
+    const html = fs.readFileSync(join(__dirname, './files/template.component.html'), 'utf-8').toString();
     host.overwrite(path, html);
   }
 }
@@ -24,17 +24,17 @@ function updateSlidesModule(schema: any): Rule {
       true
     );
 
-    
-    const code = fs.readFileSync(join(__dirname, './files/code.ts'), 'utf-8').toString();    
+
+    const code = fs.readFileSync(join(__dirname, './files/code.bs'), 'utf-8').toString();
 
 
-    const changes = addImportToModule(sourceFile, modulePath, "SlidesModule", '@angular-presentation/slides');
+    const changes = addImportToModule(sourceFile, modulePath, 'SlidesModule', '@angular-presentation/slides');
 
     const recorder = host.beginUpdate(modulePath);
     changes.forEach((change: InsertChange) => {
       recorder.insertLeft(change.pos, change.toAdd);
     });
-    
+
     const classDeclaration = sourceFile.statements.find(s => ts.isClassDeclaration(s));
     recorder.insertLeft(classDeclaration.pos, code);
     host.commitUpdate(recorder);
@@ -42,7 +42,7 @@ function updateSlidesModule(schema: any): Rule {
 }
 
 export default function (schema: any): Rule {
-  console.log("schema", schema);
+  console.log('schema', schema);
   return chain([
     externalSchematic('@schematics/angular', 'module', {
       name: schema.name,
