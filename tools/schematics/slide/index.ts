@@ -48,6 +48,6 @@ export default function (schema: any): Rule {
       project: schema.project
     }),
     importSlidesModule(schema),
-
+    overrideHtml(schema),
   ]);
 }
