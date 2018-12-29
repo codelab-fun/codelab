@@ -1,3 +1,6 @@
+
+import { SlidesRoutes } from '@angular-presentation/presentation';
+
 const routes = RouterModule.forChild(
   SlidesRoutes.get(EmptyComponent)
 );
