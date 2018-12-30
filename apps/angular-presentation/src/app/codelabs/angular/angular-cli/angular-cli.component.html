@@ -45,6 +45,7 @@
       Run <code>sudo npm install -g @angular/cli</code> to install <b>Angular cli</b> on your machine
     </h2>
     <slides-terminal-window>
+      <pre>
       $ sudo npm install -g @angular/cli<span class="skipped">
       &hellip; A bunch of output omitted for brevety &hellip;</span>
       │ ├─┬ strip-ansi@3.0.1
@@ -63,6 +64,7 @@
       ├── webpack-merge@4.1.0
       ├── webpack-sources@1.0.1
       └── zone.js@0.8.18
+      </pre>
     </slides-terminal-window>
   </div>
 
@@ -73,6 +75,7 @@
       Creating new Angular app is easy, just run <code>ng new awesome-app</code>, then <code>cd awesome-app</code>
     </h2>
     <slides-terminal-window>
+      <pre>
       $ ng new awesome-app
 
       create awesome-app/README.md (1026 bytes)
@@ -87,6 +90,7 @@
         Successfully initialized git.
         Project 'awesome-app' successfully created.
       </div>
+      </pre>
     </slides-terminal-window>
   </div>
 
@@ -95,7 +99,7 @@
     <h2>
       Once you're in the app folder, start the app with <code>ng serve</code>
     </h2>
-    <slides-terminal-window>
+    <slides-terminal-window><pre>
       $ ng serve
       ** NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
       Date: 2017-10-22T03:25:09.430Z - Hash: 6af162d0da3cc77873d4
@@ -111,6 +115,7 @@
       <span class="success">
       webpack: Compiled successfully.
       </span>
+    </pre>
     </slides-terminal-window>
 
     <h2>Once the app is started just open <a target="_blank" href="http://localhost:4200/">http://localhost:4200/</a> in
@@ -123,13 +128,14 @@
     <h2>
       You can easily generate new components <code>ng generate component my-component</code>
     </h2>
-    <slides-terminal-window>
+    <slides-terminal-window><pre>
       $ ng generate component my-component
       create src/app/my-component/my-component.component.css (0 bytes)
       create src/app/my-component/my-component.component.html (31 bytes)
       create src/app/my-component/my-component.component.spec.ts (664 bytes)
       create src/app/my-component/my-component.component.ts (292 bytes)
       update src/app/app.module.ts (418 bytes)
+    </pre>
     </slides-terminal-window>
 
     <h2>You can also generate modules, services and pipes</h2>
@@ -165,8 +171,6 @@
       </div>
     </slides-closing-slide>
   </div>
-
-
 </slides-deck>
 
 
