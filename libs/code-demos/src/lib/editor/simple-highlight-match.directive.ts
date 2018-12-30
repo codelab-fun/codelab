@@ -41,7 +41,7 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
         this.slidesSimpleHighlightMatch = [this.slidesSimpleHighlightMatch];
       }
 
-      const code = this.editorComponent.model.getValue();
+      const code = this.editorComponent.editor.getModel().getValue();
 
       if (!code.length) {
         return;
