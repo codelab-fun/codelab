@@ -1,6 +1,6 @@
-import { Component, forwardRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnDestroy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { editor, IDisposable } from 'monaco-editor';
+import { editor } from 'monaco-editor';
 import { MonacoConfigService } from '../../../../../../../libs/exercise/src/lib/services/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
@@ -12,10 +12,19 @@ const extenstionToLang = {
   html: 'html'
 };
 
+interface MonacoModel {
+  model: ITextModel;
+  path: string,
+  editorIndex?: number;
+  highlight: RegExp
+}
+
+
 @Component({
   selector: 'slides-multitab-editor',
   templateUrl: './multitab-editor.component.html',
   styleUrls: ['./multitab-editor.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -25,37 +34,41 @@ const extenstionToLang = {
   ]
 })
 export class MultitabEditorComponent
-  implements OnInit, OnDestroy, ControlValueAccessor {
+  implements OnDestroy, ControlValueAccessor {
   @Input() code: any = {};
   @Input() solutions: any = {};
   @Input() showPanel = true;
   @Input() slidesSimpleHighlightMatch = [];
-  @ViewChild('editor') editorEl;
+  @Input() highlights = {};
+  files = [];
   private onChange: any;
-  private files: string[];
+  private fileNames: string[];
   private editor: IStandaloneCodeEditor;
-  private models: ITextModel[];
-  private didChangeListener: IDisposable;
+  private models: MonacoModel[];
+  private openModels: MonacoModel[];
 
-  constructor(readonly monacoConfigService: MonacoConfigService) {
+  constructor(readonly monacoConfigService: MonacoConfigService,
+              readonly cdr: ChangeDetectorRef) {
   }
 
-  private _file: string;
-
-  get file() {
-    return this._file;
+  @Input('files') set setFiles(files: string | string[]) {
+    if (typeof files === 'string') {
+      files = files.split(',');
+    }
+    this.files = files;
+    this.updateOpenModels();
   }
 
-  @Input() set file(file: string) {
-    this._file = file;
-    this.openFile(file);
-  };
-
-  get language() {
-    return extenstionToLang[this.file.match(/\.(\w+)$/)[1]];
-  }
-
-  ngOnInit() {
+  handleFileChange(index, {value}) {
+    if (this.models) {
+      const m = this.getModelByFileName(value.path);
+      m.model.setValue(m.model.getValue());
+      delete this.openModels[index].editorIndex;
+      m.editorIndex = index;
+      this.openModels[index] = m;
+      this.openModels = [...this.openModels];
+      this.cdr.markForCheck();
+    }
   }
 
   registerOnChange(fn: any): void {
@@ -65,64 +78,59 @@ export class MultitabEditorComponent
   registerOnTouched(fn: any): void {
   }
 
-  setDisabledState(isDisabled: boolean): void {
-  }
-
-  update(code: string) {
-    this.code[this.file] = code;
-    this.onChange({...this.code});
-  }
-
   loadSolution(file) {
-    this.getModelByFileName(file).setValue(this.solutions[file]);
+    this.getModelByFileName(file).model.setValue(this.solutions[file]);
   }
 
-  getModelByFileName(file): ITextModel {
-    return this.models.find(
-      m => m.uri.toString().replace('file:///', '') === file
-    );
+  getModelByFileName(file): MonacoModel | undefined {
+    if (this.models) {
+      return this.models.find(({path}) => path === file);
+    }
   }
 
-  displayEditor() {
-    const editor = this.editorEl.nativeElement;
+  generateModels() {
+    const textModels = Object.entries(this.code)
+      .filter(([path, code]) => (typeof code === 'string'));
 
-    this.dispose();
 
-    this.models = Object.entries(this.code).filter(([path, code]) => (typeof code === 'string')).map(([path, code]) => {
-      const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
-      return this.monacoConfigService.monaco.editor.createModel(
-        code, language, 'file:///' + path
-      );
-    });
+    this.models = textModels.map(([path, code]) => {
+      const monacoModel = this.getModelByFileName(path);
 
-    this.editor = this.monacoConfigService.monaco.editor.create(editor, {
-      wrappingColumn: 10,
-      model: this.models[0],
-      scrollBeyondLastLine: false,
-      tabCompletion: true,
-      wordBasedSuggestions: true,
-      lineNumbersMinChars: 3,
-      cursorBlinking: 'phase',
-      renderIndentGuides: false,
-      lineNumbers: false,
-      automaticLayout: true,
-      fontSize: 20,
-      // folding: true,
-      minimap: {
-        enabled: false
+      if (monacoModel) {
+        return monacoModel;
+      } else {
+        const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
+        const model = this.monacoConfigService.monaco.editor.createModel(
+          code, language, 'file:///' + path
+        );
+
+        const subscription = model.onDidChangeContent(() => {
+          this.code[path] = model.getValue();
+          this.onChange({...this.code});
+        });
+
+        return {
+          highlight: this.highlights[path],
+          path,
+          model,
+          subscription
+        };
       }
     });
 
-    this.didChangeListener = this.editor.onDidChangeModelContent(() => {
-      this.update(this.editor.getModel().getValue())
-    })
+    if (!this.files) {
+      this.files = [Object.keys(this.code)[0]];
+    }
+
+    this.updateOpenModels();
+
   }
 
   writeValue(code: any): void {
     if (code) {
       this.code = code;
-      this.displayEditor();
-      this.files = Object.keys(this.code);
+      this.fileNames = Object.keys(this.code);
+      this.generateModels();
     }
   }
 
@@ -130,25 +138,30 @@ export class MultitabEditorComponent
     this.dispose();
   }
 
-  openFile(file) {
+
+  trackByEditorIndex(index, model) {
+    console.log(model.editorIndex, model);
+    return model.editorIndex;
+  }
+
+  private updateOpenModels() {
     if (this.models) {
-      const m = this.getModelByFileName(file) as any;
-      this.editor.setModel(m);
-      m.setValue(m.getValue());
+      this.openModels = this.files.map((file, index) => {
+        const model = this.getModelByFileName(file);
+        model.editorIndex = index;
+        return model;
+      });
+      this.cdr.markForCheck();
     }
   }
 
   private dispose() {
     if (this.models) {
       this.models.forEach(model => {
-        model.dispose();
+        model.model.dispose();
+        // TODO(kirjs): subscription
       });
       this.models = null;
-    }
-
-    if (this.didChangeListener) {
-      this.didChangeListener.dispose();
-      this.didChangeListener = null;
     }
 
     if (this.editor) {

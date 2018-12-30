@@ -19,6 +19,7 @@ import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-prog
 import { FilePathComponent } from './file-path/file-path.component';
 import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
 import { NewSmartRunnerModule } from './new-smart-runner/new-smart-runner.module';
+import { EditorFromModelComponent } from './multitab-editor/editor-from-model/editor-from-model.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { NewSmartRunnerModule } from './new-smart-runner/new-smart-runner.module
     CodelabProgressBarComponent,
     FilePathComponent,
     BabelTestRunnerComponent,
+    EditorFromModelComponent,
   ],
   exports: [
     CodelabExerciseComponent,

@@ -27,8 +27,11 @@ slides-simple-editor {
   flex-direction: column;
 }
 
-
 .monaco-editor {
+  display: flex;
+}
+
+.monaco-editor, .monaco-editor ::ng-deep > .monaco-single-editor {
   display: block;
   width: 100%;
   height: 500px;

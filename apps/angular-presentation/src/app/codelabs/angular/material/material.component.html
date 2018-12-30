@@ -37,8 +37,9 @@
       <li>Add <b>MatToolbarModule</b> to the imports</li>
       <li>Use the component in the template</li>
     </ul>
-    <!--[openFilesIndex]="[0,1]"-->
-    <codelab-exercise-playground [exercise]="code.material.step1"></codelab-exercise-playground>
+
+    <codelab-exercise-playground files="app.module.ts,app.html"
+                                 [exercise]="code.material.step1"></codelab-exercise-playground>
     <div class="info">Note that Angular animations come in a separate module. We're including
       <b>NoopAnimationsModule</b> here, but could have used <b>BrowserAnimationsModule</b> instead, to have full-fledged
       animations.
@@ -48,23 +49,22 @@
   <div *slide id="card" milestone="material">
     <h1>Material / Card</h1>
     <h2>Now let's add material card.</h2>
-    <!--[openFilesIndex]="[0,1]"-->
-    <codelab-exercise-playground [exercise]="code.material.step2"></codelab-exercise-playground>
+    <codelab-exercise-playground files="app.module.ts,app.html"
+                                 [exercise]="code.material.step2"></codelab-exercise-playground>
   </div>
 
   <div *slide id="header" milestone="material">
     <h1>Material / Card Header</h1>
     <h2>Header and an image.</h2>
-    <!--[openFilesIndex]="[0,1]"-->
-    <codelab-exercise-playground
-      [exercise]="code.material.step3"></codelab-exercise-playground>
+    <codelab-exercise-playground files="app.html"
+                                 [exercise]="code.material.step3"></codelab-exercise-playground>
   </div>
 
   <div *slide id="buttons" milestone="material">
     <h1>Material / Buttons</h1>
     <h2>Adding some actions....</h2>
-    <!--[openFilesIndex]="[0,1]"-->
-    <codelab-exercise-playground [exercise]="code.material.step4"></codelab-exercise-playground>
+    <codelab-exercise-playground files="app.module.ts,app.html"
+                                 [exercise]="code.material.step4"></codelab-exercise-playground>
     <div class="info">Note that for the button we're using <b>mat-button</b> attribute instead of a separate tag.</div>
   </div>
 
@@ -87,8 +87,7 @@
               (click)="setTheme('purple')">Purple
       </button>
     </div>
-    <!--[openFilesIndex]="[0,1]"-->
-    <codelab-exercise-playground #themePlayground
+    <codelab-exercise-playground files="app.module.ts,app.html" #themePlayground
                                  [exercise]="code.material.theme"></codelab-exercise-playground>
     <div class="info">Read more on theming Anglar Material <a href="https://material.angular.io/guide/theming">in this
       guide</a></div>

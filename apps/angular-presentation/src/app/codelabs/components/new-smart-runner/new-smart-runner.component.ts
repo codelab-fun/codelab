@@ -35,7 +35,6 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
   }
 
   async ngOnInit() {
-    console.log(this.url);
     const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
       id: 'testing', 'url': this.url
     });

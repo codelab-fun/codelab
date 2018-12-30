@@ -49,10 +49,11 @@ export function getChanges(current, previous) {
 export class CodelabExerciseComponent {
   @Input() bootstrapTest;
   @Input() milestone = '';
-  @Input() url = '';
+  @Input() url = 'about:blank';
   @Input() translations = {};
   @Input() slidesSimpleHighlightMatch = [];
   @Input() testRunner: 'babel' | 'iframe' = 'iframe';
+  @Input() files: string[];
   openFileIndex = 0;
   code: any = {};
   solutions = {};
@@ -60,9 +61,10 @@ export class CodelabExerciseComponent {
   changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
   changedStaticFilesSubject = new ReplaySubject<Record<string, string>>(1);
   public bootstrap: string;
-  public file: string;
+
   public files$: Observable<Record<string, string>>;
   private codeCache: Record<string, string> = {};
+  private highlights: Record<string, string>;
 
   constructor() {
     const ts = this.changedTsFilesSubject.pipe(
@@ -91,20 +93,15 @@ export class CodelabExerciseComponent {
     );
   }
 
-  @Input('openFileIndex') set setOpenFileIndex(index: number) {
-    this.openFileIndex = index;
-    if (this.filesConfig) {
-
-      this.file = this.filesConfig.files[this.openFileIndex].path;
-    }
-  }
-
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
 
+    this.highlights = map.highlights;
     this.bootstrap = map.bootstrap;
     this.bootstrapTest = map.bootstrapTest;
-    this.file = exercise.files[this.openFileIndex].path;
+    if (!this.files) {
+      this.files = [exercise.files[this.openFileIndex].path];
+    }
     this.filesConfig = exercise;
     this.solutions = extractSolutions(this.filesConfig.files);
     this.code = map.code;

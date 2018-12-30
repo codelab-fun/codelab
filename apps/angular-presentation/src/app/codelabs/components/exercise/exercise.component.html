@@ -3,7 +3,7 @@
     <slides-multitab-editor
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       class="quarter"
-      [file]="file"
+      [files]="files"
       [solutions]="solutions"
       [(ngModel)]="code"
       (ngModelChange)="update($event)"
@@ -13,7 +13,7 @@
       <slides-simple-angular-test-runner
         *ngIf="testRunner === 'iframe'"
         [translations]="translations"
-        (selectFile)="file=$event"
+        (selectFile)="files = [$event]"
         [bootstrap]="bootstrapTest"
         [code]="files$ | async"></slides-simple-angular-test-runner>
 

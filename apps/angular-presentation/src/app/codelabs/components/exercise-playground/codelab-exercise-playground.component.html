@@ -10,9 +10,10 @@
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
     <slides-multitab-editor
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
+      [highlights]="highlights"
       class="quarter"
       [showPanel]="false"
-      [file]="file"
+      [files]="files"
       [solutions]="solutions"
       [(ngModel)]="code"
       (ngModelChange)="update($event)"

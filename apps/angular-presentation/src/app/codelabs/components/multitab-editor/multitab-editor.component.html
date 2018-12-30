@@ -1,21 +1,22 @@
-<div class="wrapper">
-  <div class="panel" *ngIf="showPanel">
-    <mat-form-field>
-      <mat-select [ngModel]="file">
-        <ng-template>Lol</ng-template>
-        <mat-option *ngFor="let fileName of files" [value]="fileName">
-          <slides-file-path [path]="fileName"></slides-file-path>
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-button *ngIf="solutions[file] && solutions[file] != code[file]" style="cursor: pointer"
-            (click)="loadSolution(file)">Load
-      solution
-    </button>
-  </div>
+<div style="display: flex;">
+  <div style="flex: 1" *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index;">
+    <div class="panel" *ngIf="showPanel">
+      <mat-form-field>
+        <mat-select [ngModel]="openModels[i]" (selectionChange)="handleFileChange(i, $event)">
+          <ng-template>Lol</ng-template>
+          <mat-option *ngFor="let m of models" [value]="m">
+            <slides-file-path [path]="m.path"></slides-file-path>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]"
+              style="cursor: pointer"
+              (click)="loadSolution(model.path)">Load
+        solution
+      </button>
+    </div>
 
-  <div class="editor">
-    <div #editor class="monaco-editor"></div>
+    <slides-editor-from-model [model]="model.model"
+                              [slidesSimpleHighlightMatch]="model.highlight"></slides-editor-from-model>
   </div>
 </div>
-
