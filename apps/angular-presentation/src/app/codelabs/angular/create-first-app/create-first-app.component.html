@@ -420,17 +420,6 @@
     </slides-codelab-exercise>
   </div>
 
-  <!--Bootstrap intro-->
-  <div *slide id="bootstrap-the-module" milestone="Bootstrap3">
-    <h1>
-      <ng-container i18n="@@firstAngularApp">First Angular App</ng-container>
-      /
-      <ng-container i18n="@@step3">Step 3</ng-container>
-    </h1>
-    <h2 i18n>This is the last step. We have everything ready, just need to bootstrap our app!</h2>
-
-  </div>
-
   <!--MODULE BOOTSTRAPPING-->
   <div *slide id="bootstrapping" milestone="Bootstrap3">
     <h1>
@@ -447,7 +436,7 @@
     </h2>
     <slides-file-path path="main.ts"></slides-file-path>
 
-    <slides-simple-editor [fontSize]="30"
+    <slides-simple-editor [fontSize]="25"
                           [(ngModel)]="code.moduleBootstrapping.code.mainTs"></slides-simple-editor>
     <div class="info" i18n>For most simple apps, you can just copy/paste the code above "as is"</div>
   </div>
@@ -515,7 +504,7 @@
     </h2>
     <slides-file-path path="index.html"></slides-file-path>
 
-    <slides-simple-editor [fontSize]="25" [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
+    <slides-simple-editor [fontSize]="25" language="html" [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
                           [slidesSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"></slides-simple-editor>
 
 
