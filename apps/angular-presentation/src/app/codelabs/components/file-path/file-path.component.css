@@ -1,6 +1,8 @@
+:host ::ng-deep .mat-form-field-infix {
+  padding: 0 !important;
+}
+
 .file {
-  margin-left: 1vw;
-  margin-bottom: 1vw;
   display: block;
   box-shadow: 0 0 1px #999;
 }
@@ -18,11 +20,13 @@
 }
 
 .file:before {
-  padding: 0.4vw;
-  margin-right: 1vw;
+  padding: 0.2vw;
   display: inline-block;
   width: 16px;
   height: 16px;
   box-shadow: 0 0 1px #444444;
+  margin: 0.2vw 1vw 0.2vw 0.2vw;
+  line-height: 18px;
+  text-align: center;
 }
 
