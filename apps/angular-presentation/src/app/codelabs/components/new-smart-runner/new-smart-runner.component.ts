@@ -59,7 +59,6 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
 
     sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app><div class="error"></div>');
 
-    console.log(this.presets);
     this.presets.forEach(preset => presets[preset](sandbox, this.scriptLoaderService));
 
     Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))
@@ -85,6 +84,7 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
       if (!this.bootstrap) {
         debugger;
       }
+
 
       sandbox.evalJs(`System.import('${this.bootstrap}')`);
     });

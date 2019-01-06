@@ -40,12 +40,11 @@ export class AppComponent {
 }`),
 
         matches: {
-          curlies: /\{\{.*\}\}/,
-          curliesAttribute: /"\{\{.*\}\}"/,
-          template: /<h1>.*<\/h1>/,
-          firstName: /firstName = .*/,
-          fullName: /fullName\(\)\{/,
-          squares: /\[.*\]/
+          curlies: {'app.component.ts': [/{{.*}}/, /firstName = .*/]},
+          curliesFullName: {'app.component.ts': [/{{.*}}/, /fullName\(\){/]},
+          curliesAttribute: {'app.component.ts': [/"{{.*}}"/, /avatar = .*/]},
+          template: {'app.component.ts': /<h1>.*<\/h1>/},
+          squares: {'app.component.ts': /\[.*]/}
         },
         interpolation: displayAngularComponent(`import {Component} from '@angular/core';
 
@@ -58,7 +57,7 @@ export class AppComponent {
 export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
-}`, '', ),
+}`, '',),
         interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
@@ -125,7 +124,7 @@ export class AppComponent {
   onDisplay(){  return false } // ${this.t.tryChangingToTrue}
 }`),
         matches: {
-          ngIf: '*ngIf'
+          ngIf: {'app.component.ts': /\*ngIf/}
         }
       },
       ngForDirectivePre: {
@@ -140,7 +139,7 @@ export class AppComponent {
 export class AppComponent {
   puppies = ['Schumann', 'Mendelssohn', 'Bach'];
 }`),
-        matches: ['???', /puppies.*;/]
+        matches: {'app.component.ts': ['???', /puppies.*;/]}
       }, ngForDirective: {
         template: displayAngularComponent(`import {Component} from '@angular/core';
 
@@ -168,7 +167,7 @@ describe('AppComponent', ()=>{
 
 `),
         matches: {
-          ngFor: '*ngFor'
+          ngFor: {'app.component.ts': '*ngFor'}
         }
       },
 

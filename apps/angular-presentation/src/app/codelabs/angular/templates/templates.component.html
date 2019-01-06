@@ -101,7 +101,7 @@
       Angular has a very expressive template system, which takes HTML as a base, and extends it with custom elements
     </h2>
     <codelab-exercise-playground
-      [slidesSimpleHighlightMatch]="[code.template.matches.template]"
+      [highlights]="code.template.matches.template"
       [exercise]="code.template.intro"></codelab-exercise-playground>
   </div>
 
@@ -112,9 +112,9 @@
       /
       <ng-container i18n>Interpolation</ng-container>
     </h1>
-    <h2 i18n>Double include appropriate component property value </h2>
+    <h2 i18n>Double curlies include the appropriate component property value </h2>
     <codelab-exercise-playground [exercise]="code.template.interpolation"
-                                 [highlights]="[code.template.matches.curlies,code.template.matches.firstName]"></codelab-exercise-playground>
+                                 [highlights]="code.template.matches.curlies"></codelab-exercise-playground>
     <div class="info" milestone="Templates" style="margin-top: -8px;" i18n>
       Backticks <b>` `</b>, are magic quotes that allow multi-line strings and text interpolation.
     </div>
@@ -133,7 +133,7 @@
       <code>323213+34234</code>
     </h2>
     <codelab-exercise-playground [exercise]="code.template.interpolationMethod"
-                                 [slidesSimpleHighlightMatch]="[code.template.matches.curlies,code.template.matches.fullName]"></codelab-exercise-playground>
+                                 [highlights]="code.template.matches.curliesFullName"></codelab-exercise-playground>
   </div>
 
   <div *slide id="exercise-pre" milestone="Templates">
@@ -170,7 +170,7 @@
     <h2 i18n>String interpolation <b>{{ curlies }}</b> can also be used to pass a value to a child element's attribute
     </h2>
     <codelab-exercise-playground [exercise]="code.template.dataBindingPre"
-                                 [slidesSimpleHighlightMatch]="[code.template.matches.curliesAttribute]"></codelab-exercise-playground>
+                                 [highlights]="code.template.matches.curliesAttribute"></codelab-exercise-playground>
   </div>
 
   <!--  DATA BINDING  -->
@@ -182,7 +182,7 @@
     </h1>
     <h2 i18n>Another option is to use property binding <b>[attribute] = property</b></h2>
     <codelab-exercise-playground [exercise]="code.template.dataBinding"
-                                 [slidesSimpleHighlightMatch]="[code.template.matches.squares]"></codelab-exercise-playground>
+                                 [highlights]="code.template.matches.squares"></codelab-exercise-playground>
     <div class="info" style="margin-top: -10px; z-index: 2;" i18n>
       You can use arbitrary expressions in the binding.
     </div>
@@ -251,7 +251,7 @@
       This conditional expression will add or remove an element from the DOM if it evaluates as a truthy
     </p>
     <codelab-exercise-playground [exercise]="code.ngIfDirective.template"
-                                 [slidesSimpleHighlightMatch]="[code.ngIfDirective.matches.ngIf]"></codelab-exercise-playground>
+                                 [highlights]="code.ngIfDirective.matches.ngIf"></codelab-exercise-playground>
   </div>
 
 
@@ -288,7 +288,7 @@
       for that called <b>*ngFor</b>, let's see how it works on the next slide
     </h2>
     <codelab-exercise-playground [exercise]="code.ngForDirectivePre.template"
-                                 [slidesSimpleHighlightMatch]="code.ngForDirectivePre.matches"></codelab-exercise-playground>
+                                 [highlights]="code.ngForDirectivePre.matches"></codelab-exercise-playground>
   </div>
 
   <div *slide id="conditional-display-ngfor" milestone="Templates3">
@@ -302,7 +302,7 @@
       array
     </h2>
     <codelab-exercise-playground #forExercise [exercise]="code.ngForDirective.template"
-                                 [slidesSimpleHighlightMatch]="[code.ngForDirective.matches.ngFor]"></codelab-exercise-playground>
+                                 [highlights]="code.ngForDirective.matches.ngFor"></codelab-exercise-playground>
     <div class="info" i18n>HTML attributes in <b>Angular</b> are case sensitive: <b><s>*ngfor</s></b> won't work, <b>*ngFor</b>
       will
     </div>

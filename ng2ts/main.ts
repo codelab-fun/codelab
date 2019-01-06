@@ -13,13 +13,13 @@ const platform = platformBrowserDynamic();
 /*/d*//*d:bootstrapSolved:bootstrapSolved/trimTrailing*/
 
 
-platform.bootstrapModule(AppModule)/*/d*//*d:templatePageSetup/trimLeading*/.then((ngModuleRef: NgModuleRef<any>) => {
-  window['ref'] = ngModuleRef;
-}).catch(err => console.error(err));
+platform.bootstrapModule(AppModule);
 /*/d*//*d:templatePageSetup/trimTrailing*/
 platform.bootstrapModule(AppModule, {
   providers: [
     {provide: ResourceLoader, useClass: MyResourceLoader, deps: []}
   ]
-});
+}).then((ngModuleRef: NgModuleRef<any>) => {
+  window['ref'] = ngModuleRef;
+}).catch(err => console.error(err));
 /*/d*/
