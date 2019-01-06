@@ -5,10 +5,11 @@
   [bootstrap]="bootstrapTest"
   [code]="code"></slides-simple-angular-test-runner>
 
-<div style=" display: flex;">
-  <div style="width: 50%;flex-grow: 0">
+<div style=" display: flex;height: 100%;">
+  <div style="width: 50%;flex-grow: 0; display: flex;">
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
     <slides-multitab-editor
+      style="width: 100%"
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       [highlights]="highlights"
       class="quarter"
@@ -22,10 +23,4 @@
 
   <new-smart-runner [url]="url" style="width: 50%;flex-grow: 0" [bootstrap]="bootstrap"
                     [code]="files$ | async"></new-smart-runner>
-
-  <!--<slides-simple-angular-runner style="width: 50%;flex-grow: 0"-->
-  <!--[ui]="ui"-->
-  <!--*ngIf="code" class="quarter"-->
-  <!--[bootstrap]="bootstrap"-->
-  <!--[code]=code></slides-simple-angular-runner>-->
 </div>

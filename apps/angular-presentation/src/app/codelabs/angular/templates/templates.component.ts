@@ -58,7 +58,7 @@ export class AppComponent {
 export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
-}`),
+}`, '', ),
         interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({

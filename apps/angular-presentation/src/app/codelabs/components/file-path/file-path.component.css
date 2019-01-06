@@ -19,7 +19,15 @@
   color: #424242;
 }
 
+.file.css:before {
+  content: "{}";
+  background: #6cff37;
+  color: #424242;
+}
+
 .file:before {
+  font-family: roboto-mono, monospace;
+  font-size: 12px;
   padding: 0.2vw;
   display: inline-block;
   width: 16px;
