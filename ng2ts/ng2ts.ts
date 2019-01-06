@@ -222,9 +222,12 @@ function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
 
 export function convertExerciseToMap(exercise) {
   const convertFilesToMap = (prop = 'template') => (result, file) => {
-    result[file.path] = file[prop];
-    if (file.execute) {
-      result[file.path + '.execute'] = file.execute;
+    if (file[prop]) {
+      result[file.path] = file[prop];
+
+      if (file.execute) {
+        result[file.path + '.execute'] = file.execute;
+      }
     }
     return result;
   };

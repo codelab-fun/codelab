@@ -70,6 +70,7 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
       if (!this.bootstrap) {
         debugger;
       }
+
       sandbox.evalJs(`System.import('${this.bootstrap}')`);
     });
 

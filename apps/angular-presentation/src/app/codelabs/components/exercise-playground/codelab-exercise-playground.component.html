@@ -1,9 +1,10 @@
-<slides-simple-angular-test-runner
-  *ngIf="bootstrapTest"
-  class="quarter"
-  [translations]="translations"
-  [bootstrap]="bootstrapTest"
-  [code]="code"></slides-simple-angular-test-runner>
+<!--<slides-simple-angular-test-runner-->
+<!--*ngIf="bootstrapTest"-->
+<!--[translations]="translations"-->
+<!--(selectFile)="files = [$event]"-->
+<!--[bootstrap]="bootstrapTest"-->
+<!--[code]="files$ | async"></slides-simple-angular-test-runner>-->
+
 
 <div style=" display: flex;height: 100%;">
   <div style="width: 50%;flex-grow: 0; display: flex;">
@@ -21,6 +22,7 @@
     ></slides-multitab-editor>
   </div>
 
-  <new-smart-runner [url]="url" style="width: 50%;flex-grow: 0" [bootstrap]="bootstrap"
+  <new-smart-runner [url]="url" style="width: 50%;flex-grow: 0"
+                    [bootstrap]="bootstrap"
                     [code]="files$ | async"></new-smart-runner>
 </div>
