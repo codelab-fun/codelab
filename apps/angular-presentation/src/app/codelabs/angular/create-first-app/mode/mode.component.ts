@@ -38,8 +38,6 @@ export class AppModule {}`,
         exportClass: /export.*/,
         ngModule: /@N[^]*?\)[^]/,
         importsArr: /imports.*/,
-        declarationsArr: /declarations.*/,
-        bootstrapArr: /bootstrap.*/
       },
       readonly: true,
       path: 'module.anatomy.ts',

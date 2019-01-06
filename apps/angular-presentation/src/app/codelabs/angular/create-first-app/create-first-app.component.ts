@@ -103,6 +103,27 @@ export class HelloWorldComponent {}`,
         type: 'typescript'
       },
 
+      moduleAnatomy: {  // Module Anatomy - Milestone #1
+        code: `/* Imports */
+
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ HelloWorldComponent ],
+  bootstrap: [ HelloWorldComponent ],
+})
+export class AppModule {}`,
+        matches: {
+          exportClass: /export.*/,
+          ngModule: /@N[^]*?\)[^]/,
+          importsArr: /imports.*/,
+
+
+          declarationsArr: /declarations.*/,
+          bootstrapArr: /bootstrap.*/
+
+        },
+        readonly: true,
+      },
       moduleBootstrapping: {  // Module Bootstrapping - Milestone #1
         code: {
           mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
