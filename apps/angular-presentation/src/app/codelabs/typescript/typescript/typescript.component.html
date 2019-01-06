@@ -130,10 +130,10 @@
       <ng-container i18n="@@typeSystem">Type System</ng-container>
     </h1>
     <h2 i18n>Below we have an <b>add</b> function, and we're adding 2 and 2. What could go wrong?</h2>
-    <codelab-exercise-playground
-      ui="console"
-      [slidesSimpleHighlightMatch]="[code.tsExerciseMatch]"
-      [exercise]="code.js2And2"></codelab-exercise-playground>
+    <codelab-exercise-playground presets=""
+                                 ui="console"
+                                 [slidesSimpleHighlightMatch]="[code.tsExerciseMatch]"
+                                 [exercise]="code.js2And2"></codelab-exercise-playground>
     <h2 i18n>Turns out it's possible to pass a string to this function and we get <b>22</b> instead of <b>4</b>.
       Let's
       see how TypeScript can help address this issue on the next slide</h2>
@@ -150,7 +150,7 @@
       and
       <b>b</b> should be
       numbers. We specified the type for <b>a</b>, now it's your turn!</h2>
-    <codelab-exercise-playground ui="console" [exercise]="code.tsExercise"></codelab-exercise-playground>
+    <codelab-exercise-playground presets="" ui="console" [exercise]="code.tsExercise"></codelab-exercise-playground>
     <div data-position="top"
          class="info"
          i18n>
@@ -214,9 +214,9 @@
       <ng-container i18n>Arrays</ng-container>
     </h1>
     <h2 i18n>Arrays are defined as <b>Array{{'<'}}Type{{'>'}}</b> or <b>Type[]</b></h2>
-    <codelab-exercise-playground
-      ui="console"
-      [exercise]="code.moreTypes.codeArrays"></codelab-exercise-playground>
+    <codelab-exercise-playground presets=""
+                                 ui="console"
+                                 [exercise]="code.moreTypes.codeArrays"></codelab-exercise-playground>
     <div class="info" i18n>Here, each element in the <b>betterCats</b> array is an instance of the
       <b>Cat</b> Interface.
     </div>
@@ -232,10 +232,10 @@
     <h2 i18n>TypeScript has <b>classes</b>, and Angular uses them heavily.</h2>
     <h2 i18n>They are similar to classes in other languages, and are used to group methods and properties
       together</h2>
-    <codelab-exercise-playground
-      ui="console"
-      [slidesSimpleHighlightMatch]="[code.classDescription.matches.classPuppyMatch]"
-      [exercise]="code.classDescription.code"></codelab-exercise-playground>
+    <codelab-exercise-playground presets=""
+                                 ui="console"
+                                 [slidesSimpleHighlightMatch]="[code.classDescription.matches.classPuppyMatch]"
+                                 [exercise]="code.classDescription.code"></codelab-exercise-playground>
   </div>
 
   <div *slide id="classes-constructor" milestone="TypeScript">
@@ -251,7 +251,7 @@
       instantiated and
       allows the class to take parameters
     </h2>
-    <codelab-exercise-playground ui="console"
+    <codelab-exercise-playground presets="" ui="console"
                                  [exercise]="code.classDescription.codeConstructor"
                                  [slidesSimpleHighlightMatch]="[code.classDescription.matches.constructorMatch,code.classDescription.matches.edouardMatch]"></codelab-exercise-playground>
   </div>
@@ -269,10 +269,10 @@
       properties accessible as
       <b>this.ParameterName</b> within the class
     </h2>
-    <codelab-exercise-playground
-      ui="console"
-      [slidesSimpleHighlightMatch]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]  "
-      [exercise]="code.classDescription.codeConstructor"></codelab-exercise-playground>
+    <codelab-exercise-playground presets=""
+                                 ui="console"
+                                 [slidesSimpleHighlightMatch]="[code.classDescription.matches.thisMatch,code.classDescription.matches.publicMatch]  "
+                                 [exercise]="code.classDescription.codeConstructor"></codelab-exercise-playground>
     <div class="info" i18n>private or protected properties are not visible outside of the class.</div>
   </div>
 
@@ -324,7 +324,7 @@
     <h2 i18n>"<b>filter</b>" is an Array method that allows you to generate a new array keeping
       only values that satisfy
       the condition</h2>
-    <codelab-exercise-playground [exercise]="code.filter"></codelab-exercise-playground>
+    <codelab-exercise-playground presets="" [exercise]="code.filter"></codelab-exercise-playground>
   </div>
 
   <div *slide id="more" milestone="TypeScript">
@@ -368,12 +368,13 @@
       method to output
       only the ones who are coming.</h3>
     <h3 i18n>The result will be as follows:</h3>
-    <slides-codelab-exercise-preview [exercise]="exercises[0]"></slides-codelab-exercise-preview>
+    <slides-codelab-exercise-preview [presets]="[]" [exercise]="exercises[0]"></slides-codelab-exercise-preview>
   </div>
 
 
   <div *slide id="exercise-new" no-padding>
     <slides-codelab-exercise [translations]="t"
+                             [presets]="[]"
                              [exercise]="exercises[0]"
                              milestone="TypeScript">
     </slides-codelab-exercise>
