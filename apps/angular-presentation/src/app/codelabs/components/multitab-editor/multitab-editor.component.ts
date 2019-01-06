@@ -140,7 +140,6 @@ export class MultitabEditorComponent
 
 
   trackByEditorIndex(index, model) {
-    console.log(model.editorIndex, model);
     return model.editorIndex;
   }
 
