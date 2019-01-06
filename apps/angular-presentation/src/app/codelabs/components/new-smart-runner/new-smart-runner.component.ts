@@ -20,6 +20,7 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
   @Input() jsFiles: CodeFiles = {};
   @Input() bootstrap: string;
   @Input() url = 'about:blank';
+  @Input() ui = 'browser';
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
   @ViewChild('runner') runnerElement: ElementRef;
 

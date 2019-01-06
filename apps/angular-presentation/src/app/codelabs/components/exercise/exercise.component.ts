@@ -96,6 +96,7 @@ export class CodelabExerciseComponent {
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
 
+
     this.highlights = map.highlights;
     this.bootstrap = map.bootstrap;
     this.bootstrapTest = map.bootstrapTest;

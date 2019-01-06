@@ -173,12 +173,17 @@ console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise
           .replace('@@typescriptHighlightsErrorFix224', this.t.typescriptHighlightsErrorFix224)
       ),
 
-      js2And2: javaScriptWithConsoleLog(
-        `function add(a, b){
+      js2And2: (() => {
+
+        const code = javaScriptWithConsoleLog(
+          `function add(a, b){
   return a+b;
 };
 
-console.log(add(2, '2'));`),
+console.log(add(2, '2'));`);
+        (code.files[2] as any).bootstrap = false;
+        return code;
+      })(),
       tsExerciseMatch: /'.*'/
     };
 

@@ -30,9 +30,10 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
     /* TODO: Get rid of the CSS hack */
     wrap(console, 'log', (v)=>{
       value.value = v;
-      document.write('<pre style="font-family: roboto-mono, monospace;font-size: 3vw; font-weight: 400; margin: 0;">' +
-       '<span style="color: #999;font-size: 2vw;">＜</span> ' + JSON.stringify(v, null, '  ') + '<pre> ' +
-       '<hr style="margin-left: 2vw;border: 0 solid;">')
+
+      document.body.innerHTML = '<pre style="font-family: roboto-mono, monospace;font-size: 3vw; font-weight: 400; margin: 0;">' +
+       '<span style="color: #999;font-size: 2vw;">＜</span> ' + JSON.stringify(v, null, '  ') + '</pre> ' +
+       '<hr style="margin-left: 2vw;border: 0 solid;">'
     })
   `
   };
