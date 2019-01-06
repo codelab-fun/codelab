@@ -11,7 +11,9 @@ import ITextModel = editor.ITextModel;
 })
 export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   @ViewChild('editor') el;
+  fontSize = 14;
   editor: any;
+  height = 0;
   private didChangeListener: IDisposable;
   private model: ITextModel;
 
@@ -37,16 +39,30 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
       renderIndentGuides: false,
       lineNumbers: false,
       automaticLayout: true,
-      fontSize: 14,
+      fontSize: this.fontSize,
       minimap: {
         enabled: false
       }
     });
+  }
 
+  resize() {
+    const lines = this.editor.getModel().getValue().split('\n').length;
+    const lineHeight = this.fontSize * 1.6;
+    const height = Math.max(lines * lineHeight, lineHeight * 5);
+    if (this.height !== height) {
+      this.height = height;
+      this.el.nativeElement.style.height = height + 'px';
+      this.editor.layout();
+    }
   }
 
   ngAfterViewInit() {
     this.editor = this.setUpEditor(this.el.nativeElement);
+
+    this.resize();
+    this.didChangeListener = this.editor.onDidChangeModelContent(() => this.resize());
+
   }
 
   ngOnDestroy() {
