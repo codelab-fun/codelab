@@ -12,7 +12,6 @@ export class CreateFirstAppComponent implements OnInit {
   t: { [key: string]: string; };
 
   @ViewChild('translations') translation;
-  currentMode = 'web';
   //  Exercises
   exercises = [
     ng2tsConfig.milestones[1].exercises[1],
@@ -103,41 +102,7 @@ export class HelloWorldComponent {}`,
         path: 'component.anatomy.ts',
         type: 'typescript'
       },
-      moduleAnatomy: {  // Module Anatomy - Milestone #1
-        code: `/* Imports */
 
-@NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ HelloWorldComponent ],
-  bootstrap: [ HelloWorldComponent ],
-})
-export class AppModule {}`,
-        codeMobile: `/* Imports */
-@NgModule({
-  imports: [ NativeScriptModule ],
-  declarations: [ HelloWorldComponent ],
-  bootstrap: [ HelloWorldComponent ],
-})
-export class AppModule {}`,
-        codeVR: `/* Imports */
-export class VRComponent implements OnInit {
-    aframe: any;
-    ngOnInit() {
-        this.aframe = this.elem
-            .querySelector('a-scene');
-    }
-}`,
-        matches: {
-          exportClass: /export.*/,
-          ngModule: /@N[^]*?\)[^]/,
-          importsArr: /imports.*/,
-          declarationsArr: /declarations.*/,
-          bootstrapArr: /bootstrap.*/
-        },
-        readonly: true,
-        path: 'module.anatomy.ts',
-        type: 'typescript'
-      },
       moduleBootstrapping: {  // Module Bootstrapping - Milestone #1
         code: {
           mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -164,14 +129,5 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
         type: 'typescript'
       }
     };
-  }
-
-  selectMode(event, mode) {
-    event.preventDefault();
-    this.currentMode = mode;
-  }
-
-  getModeClass(mode) {
-    return (mode === this.currentMode ? '' : 'mode-hide');
   }
 }

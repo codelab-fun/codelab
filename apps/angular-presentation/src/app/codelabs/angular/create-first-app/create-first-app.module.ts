@@ -12,6 +12,7 @@ import { CodelabExerciseModule } from '../../components/exercise.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
+import { ModeComponent } from './mode/mode.component';
 
 const routes = RouterModule.forChild(
   [
@@ -36,7 +37,7 @@ const routes = RouterModule.forChild(
     SlidesModule,
     FormsModule,
   ],
-  declarations: [CreateFirstAppComponent],
+  declarations: [CreateFirstAppComponent, ModeComponent],
   exports: [CreateFirstAppComponent]
 })
 export class CreateFirstAppModule {
