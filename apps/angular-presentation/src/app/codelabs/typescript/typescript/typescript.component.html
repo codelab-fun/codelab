@@ -305,8 +305,10 @@
       <ng-container i18n>Import</ng-container>
     </h1>
     <h2 i18n>Now we can use the <b>Puppy</b> class in the other file</h2>
-    <codelab-exercise-playground ui="console"
-                                 [slidesSimpleHighlightMatch]="[code.classDescription.matches.importMatch]"
+    <codelab-exercise-playground presets=""
+                                 ui="console"
+                                 files="puppy.ts,app.ts"
+                                 [highlights]="code.classDescription.matches.importMatch"
                                  [exercise]="code.classDescription.codeImport"></codelab-exercise-playground>
     <div class="info" i18n>
       Imports and exports are not just for classes. They work with variables, functions and other things!

@@ -1,5 +1,8 @@
 <div class="wrapper" *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index;">
-  <div class="panel" *ngIf="showPanel">
+  <div class="panel" *ngIf="displayFileName">
+    <slides-file-path style="margin: 1px 0 10px 0;display: block;" [path]="openModels[i].path"></slides-file-path>
+  </div>
+  <div class="panel" *ngIf="allowSwitchingFiles">
     <mat-form-field>
       <mat-select [ngModel]="openModels[i]" (selectionChange)="handleFileChange(i, $event)">
         <mat-select-trigger>

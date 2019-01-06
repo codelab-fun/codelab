@@ -1,19 +1,20 @@
-<slides-simple-angular-test-runner
-  *ngIf="bootstrapTest"
-  [translations]="translations"
-  (selectFile)="files = [$event]"
-  [bootstrap]="bootstrapTest"
-  [code]="files$ | async"></slides-simple-angular-test-runner>
-
+<!--<slides-simple-angular-test-runner-->
+<!--*ngIf="bootstrapTest"-->
+<!--[translations]="translations"-->
+<!--(selectFile)="files = [$event]"-->
+<!--[bootstrap]="bootstrapTest"-->
+<!--[code]="files$ | async"></slides-simple-angular-test-runner>-->
 <div style=" display: flex;height: 100%;">
   <div style="width: 50%;flex-grow: 0; display: flex;">
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
     <slides-multitab-editor
       style="width: 100%"
+      [displayFileName]="true"
+      [allowSwitchingFiles]="allowSwitchingFiles"
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       [highlights]="highlights"
       class="quarter"
-      [showPanel]="false"
+      [allowSwitchingFiles]="false"
       [files]="files"
       [solutions]="solutions"
       [(ngModel)]="code"
@@ -24,6 +25,7 @@
   <new-smart-runner [url]="url"
                     style="width: 50%;flex-grow: 0"
                     [ui]="ui"
+                    [presets]="presets"
                     [bootstrap]="bootstrap"
                     [code]="files$ | async"></new-smart-runner>
 </div>

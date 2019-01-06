@@ -22,6 +22,7 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
 
   ngAfterViewInit() {
     this.highlight();
+    // TODO(kirjs): Get rid of the timeout
     window.setTimeout(() => {
       this.highlight()
     }, 1000);
@@ -41,6 +42,9 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
         this.slidesSimpleHighlightMatch = [this.slidesSimpleHighlightMatch];
       }
 
+      if (!this.editorComponent.editor.getModel()) {
+        return;
+      }
       const code = this.editorComponent.editor.getModel().getValue();
 
       if (!code.length) {

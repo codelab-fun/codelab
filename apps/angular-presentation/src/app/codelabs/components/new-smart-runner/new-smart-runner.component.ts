@@ -10,6 +10,15 @@ interface CodeFiles {
   [key: string]: string;
 }
 
+const presets = {
+  angular(sandbox, scriptLoaderService) {
+    sandbox.evalJs(scriptLoaderService.getScript('shim'));
+    sandbox.evalJs(scriptLoaderService.getScript('zone'));
+    sandbox.evalJs(scriptLoaderService.getScript('system-config'));
+    sandbox.evalJs(scriptLoaderService.getScript('ng-bundle'));
+  }
+}
+
 @Component({
   selector: 'new-smart-runner',
   templateUrl: './new-smart-runner.component.html',
@@ -23,10 +32,18 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
   @Input() ui = 'browser';
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
   @ViewChild('runner') runnerElement: ElementRef;
-
+  presets = ['angular'];
   private subscription: SubscriptionLike;
 
   constructor(public scriptLoaderService: ScriptLoaderService) {
+  }
+
+  @Input('presets')
+  public set setPresets(presets: any) {
+    if (typeof presets === 'string') {
+      presets = presets.split(',');
+    }
+    this.presets = presets.filter(a => a);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -41,12 +58,9 @@ export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
     });
 
     sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app><div class="error"></div>');
-    sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
-    sandbox.addDep('reflect-metadata', Reflect);
 
+    console.log(this.presets);
+    this.presets.forEach(preset => presets[preset](sandbox, this.scriptLoaderService));
 
     Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))
       .forEach(([moduleName, code]) => {

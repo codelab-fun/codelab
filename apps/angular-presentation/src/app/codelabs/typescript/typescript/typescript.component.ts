@@ -154,7 +154,10 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
           classPuppyMatch: /class Puppy/,
           classMatch: /class/,
           exportMatch: /export/,
-          importMatch: /import/,
+          importMatch: {
+            'puppy.ts': /export/,
+            'app.ts': /import/
+          },
           constants: /const /,
           constructorMatch: /constructor/,
           publicMatch: /public name/,

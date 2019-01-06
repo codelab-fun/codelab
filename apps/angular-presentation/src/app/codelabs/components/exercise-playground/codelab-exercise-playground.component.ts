@@ -9,6 +9,7 @@ import { PreviewWindowType } from '../../../../../../../libs/browser/src/lib/pre
   // styleUrls: ['../exercise/exercise.component.css'],
 })
 export class CodelabExercisePlayground extends CodelabExerciseComponent {
+  @Input() allowSwitchingFiles = false;
   @Input() path = '';
   @Input() ui: PreviewWindowType = 'browser';
 }

@@ -37,7 +37,8 @@ export class MultitabEditorComponent
   implements OnDestroy, ControlValueAccessor {
   @Input() code: any = {};
   @Input() solutions: any = {};
-  @Input() showPanel = true;
+  @Input() allowSwitchingFiles = true;
+  @Input() displayFileName = false;
   @Input() slidesSimpleHighlightMatch = [];
   @Input() highlights = {};
   files = [];

@@ -66,6 +66,7 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.editor.dispose();
     if (this.didChangeListener) {
       this.didChangeListener.dispose();
       this.didChangeListener = null;
