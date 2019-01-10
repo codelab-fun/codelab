@@ -119,18 +119,18 @@ function watch(
   }
 
   function logErrors(fileName: string) {
-    let allDiagnostics = services
+    const allDiagnostics = services
       .getCompilerOptionsDiagnostics()
       .concat(services.getSyntacticDiagnostics(fileName))
       .concat(services.getSemanticDiagnostics(fileName));
 
     allDiagnostics.forEach(diagnostic => {
-      let message = ts.flattenDiagnosticMessageText(
+      const message = ts.flattenDiagnosticMessageText(
         diagnostic.messageText,
         '\n'
       );
       if (diagnostic.file) {
-        let {line, character} = diagnostic.file.getLineAndCharacterOfPosition(
+        const {line, character} = diagnostic.file.getLineAndCharacterOfPosition(
           diagnostic.start!
         );
         console.log(

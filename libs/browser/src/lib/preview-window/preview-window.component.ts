@@ -8,13 +8,6 @@ export type PreviewWindowType = 'console' | 'browser';
   styleUrls: ['./preview-window.component.scss']
 })
 export class PreviewWindowComponent implements OnInit {
-  @Input() height = '';
-  @Input() ui: PreviewWindowType = 'console';
-
-  constructor() {
-  }
-
-  private _url = 'http://';
 
   get url() {
     return this._url;
@@ -22,6 +15,13 @@ export class PreviewWindowComponent implements OnInit {
 
   @Input() set url(url: string) {
     this._url = url.replace('about:blank', 'https://localhost:4200');
+  }
+  @Input() height = '';
+  @Input() ui: PreviewWindowType = 'console';
+
+  private _url = 'http://';
+
+  constructor() {
   }
 
   ngOnInit() {

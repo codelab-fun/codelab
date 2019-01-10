@@ -59,11 +59,11 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 (window as any).process = {
   env: { DEBUG: undefined },
   argv: {
-    indexOf(){
+    indexOf() {
       return 0;
     }
   },
-  getuid(){
+  getuid() {
     return 0;
   }
 };

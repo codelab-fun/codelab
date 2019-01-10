@@ -23,12 +23,8 @@ export class MonacoConfigService {
       resolve(monaco);
     });
   });
-  static initialized: boolean = false;
+  static initialized = false;
   public monaco: any;
-
-  constructor(private depsService: DepsService) {
-    this.monaco = monaco;
-  }
 
   static configureMonaco() {
     if (MonacoConfigService.initialized) {
@@ -43,7 +39,7 @@ export class MonacoConfigService {
       moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
       module: monaco.languages.typescript.ModuleKind.CommonJS,
       noEmit: true,
-      typeRoots: ["node_modules/@types"]
+      typeRoots: ['node_modules/@types']
     });
 
     // Some fake Angular deps, good for catching silly errors.
@@ -89,6 +85,10 @@ export class MonacoConfigService {
     //     noSyntaxValidation: !1
     //   }),
     //
+  }
+
+  constructor(private depsService: DepsService) {
+    this.monaco = monaco;
   }
 
   sortFiles(files: FileConfig[]) {

@@ -17,7 +17,7 @@ export class SlidesDeckComponent implements SlideControls {
   @Output() onSlideChange = new EventEmitter<number>();
   @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
   @HostBinding('class.has-milestone') hasMilestone = false;
-  private milestone: string = '';
+  private milestone = '';
 
   constructor(@Optional() route: ActivatedRoute) {
     this.milestone = route.snapshot.queryParams.milestone;
