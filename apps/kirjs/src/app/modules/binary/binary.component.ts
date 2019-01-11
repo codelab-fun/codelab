@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 declare const require;
 
-const littleGif = require('!binary-loader!./browser/little.gif');
-const chikinGif = require('!binary-loader!./browser/chikin.gif');
+const littleGif = require('!binary-loader!./pics/little.gif');
+const chikinGif = require('!binary-loader!./pics/chikin.gif');
 
 function strToBin(str) {
   return str.split('').map(a => a.charCodeAt(0)).map(a => a.toString(2).padStart(8, 0)).join('');
