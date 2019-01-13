@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { CreateFirstAppComponent } from './create-first-app.component';
 
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { CodelabExerciseModule } from '../../components/exercise.module';
+import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
@@ -32,7 +32,7 @@ const routes = RouterModule.forChild(
     CommonModule,
 
     BrowserWindowModule,
-    CodelabExerciseModule,
+    CodelabComponentsModule,
     SimpleEditorModule,
     SlidesModule,
     FormsModule,

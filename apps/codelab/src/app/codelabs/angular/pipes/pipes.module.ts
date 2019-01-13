@@ -5,7 +5,7 @@ import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/sli
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { CodelabExerciseModule } from '../../components/exercise.module';
+import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +22,7 @@ const routes = RouterModule.forChild(
 
     BrowserWindowModule,
     FeedbackModule,
-    CodelabExerciseModule,
+    CodelabComponentsModule,
     SlidesModule,
     SimpleEditorModule,
     FormsModule,

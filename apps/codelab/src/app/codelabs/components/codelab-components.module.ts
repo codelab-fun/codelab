@@ -65,6 +65,6 @@ import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-ani
     BabelTestRunnerComponent,
   ],
 })
-export class CodelabExerciseModule {
+export class CodelabComponentsModule {
 
 }

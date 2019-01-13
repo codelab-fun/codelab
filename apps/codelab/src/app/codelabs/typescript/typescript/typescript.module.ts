@@ -10,7 +10,7 @@ import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/b
 
 import { CodeDemosModule } from '../../../../../../../libs/code-demos/src';
 import { FormsModule } from '@angular/forms';
-import { CodelabExerciseModule } from '../../components/exercise.module';
+import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { TypescriptSvgComponent } from './typescript-svg/typescript-svg.component';
@@ -37,7 +37,7 @@ const routes = RouterModule.forChild(
     FormsModule,
     BrowserWindowModule,
 
-    CodelabExerciseModule,
+    CodelabComponentsModule,
     FormsModule,
     SimpleEditorModule,
     PresentationModule,

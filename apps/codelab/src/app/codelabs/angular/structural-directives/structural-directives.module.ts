@@ -6,7 +6,7 @@ import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedb
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { StructuralDirectivesComponent } from './structural-directives.component';
 
-import { CodelabExerciseModule } from '../../components/exercise.module';
+import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +24,7 @@ const routes = RouterModule.forChild(
     BrowserWindowModule,
     FeedbackModule,
 
-    CodelabExerciseModule,
+    CodelabComponentsModule,
     SimpleEditorModule,
     SlidesModule,
     FormsModule,
