@@ -25,17 +25,15 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-editor.module';
 
 @NgModule({
-
-  imports:
-    [
-      RunnersModule,
-      CommonModule,
-      FormsModule,
-      TooltipsModule,
-      BrowserWindowModule,
-      SizePickerModule,
-      SimpleEditorModule,
-    ],
+  imports: [
+    RunnersModule,
+    CommonModule,
+    FormsModule,
+    TooltipsModule,
+    BrowserWindowModule,
+    SizePickerModule,
+    SimpleEditorModule,
+  ],
   declarations: [
     ExerciseComponent,
     EditorsComponent,
