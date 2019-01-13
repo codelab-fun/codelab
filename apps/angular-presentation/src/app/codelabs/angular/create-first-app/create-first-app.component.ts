@@ -143,6 +143,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);`,
         },
         matches: {
           index: /<hello-[^]*world>/,
+          hello: /hello-world/,
           bootstrap: /platformBrowserDynamic\(\).*/
         },
         readonly: true,

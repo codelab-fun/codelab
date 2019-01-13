@@ -6,8 +6,10 @@ const glob = require('glob');
 const folders = [
   '@angular/core',
   '@angular/platform-browser',
+  '@angular/platform-browser-dynamic',
   '@angular/router',
   '@angular/material',
+  '@angular/forms',
   'rxjs'
 ];
 const files = [].concat(...folders.map(folder => glob.sync(`node_modules/${folder}/**/*.d.ts`)));

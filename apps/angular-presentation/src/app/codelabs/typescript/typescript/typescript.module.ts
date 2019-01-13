@@ -14,8 +14,7 @@ import { CodelabExerciseModule } from '../../components/exercise.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { TypescriptSvgComponent } from './typescript-svg/typescript-svg.component';
-import { DeletemeComponent } from './deleteme/deleteme.component';
-import { Deleteme2Component } from './deleteme/deleteme2/deleteme2.component';
+import { PresentationModule } from '../../../../../../../libs/presentation/src';
 
 const routes = RouterModule.forChild(
   [
@@ -41,8 +40,9 @@ const routes = RouterModule.forChild(
     CodelabExerciseModule,
     FormsModule,
     SimpleEditorModule,
+    PresentationModule,
   ],
-  declarations: [TypescriptComponent, TypescriptSvgComponent, DeletemeComponent, Deleteme2Component],
+  declarations: [TypescriptComponent, TypescriptSvgComponent],
   exports: [TypescriptComponent]
 })
 export class TypescriptModule {

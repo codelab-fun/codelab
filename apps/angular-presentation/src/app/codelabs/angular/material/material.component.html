@@ -71,8 +71,8 @@
 
   <div *slide id="themes" milestone="material">
     <h1>Material / Themes</h1>
-    <h2>All material components are also themable, try different themes by clicking the buttons below:</h2>
-    <div>
+    <h2>All material components allow to apply themes. Try different themes by clicking the buttons below:</h2>
+    <div style="margin-bottom: 1.5vw;">
       <button mat-button mat-raised-button [color]="theme === 'indigo' ? 'primary' : 'secondary'"
               (click)="setTheme('indigo');">Indigo
       </button>
@@ -97,7 +97,7 @@
   <div *slide id="exercise-pre" milestone="material">
     <h1>Material / Exercise</h1>
     <h2>In the next slide there is an exercise. We're going to materialize our application</h2>
-    <slides-codelab-exercise-preview column-5 [exercise]="exercise"
+    <slides-codelab-exercise-preview [exercise]="exercise"
                                      [url]="'/assets/runner/'"></slides-codelab-exercise-preview>
     <div class="info">Note: the final app won't be super beautiful, we're still working on that.</div>
   </div>

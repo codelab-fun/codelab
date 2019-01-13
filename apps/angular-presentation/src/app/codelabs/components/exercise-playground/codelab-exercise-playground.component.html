@@ -1,9 +1,9 @@
-<!--<slides-simple-angular-test-runner-->
-<!--*ngIf="bootstrapTest"-->
-<!--[translations]="translations"-->
-<!--(selectFile)="files = [$event]"-->
-<!--[bootstrap]="bootstrapTest"-->
-<!--[code]="files$ | async"></slides-simple-angular-test-runner>-->
+<slides-simple-angular-test-runner
+  *ngIf="bootstrapTest"
+  [translations]="translations"
+  (selectFile)="files = [$event]"
+  [bootstrap]="bootstrapTest"
+  [code]="files$ | async"></slides-simple-angular-test-runner>
 <div style=" display: flex;height: 100%;">
   <div style="width: 50%;flex-grow: 0; display: flex;">
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
@@ -14,7 +14,6 @@
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       [highlights]="highlights"
       class="quarter"
-      [allowSwitchingFiles]="false"
       [files]="files"
       [solutions]="solutions"
       [(ngModel)]="code"
