@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PresentationComponent } from './presentation/presentation.component';
 import { SlideComponent } from './slide/slide.component';
 import { FooterComponent } from './footer/footer.component';
-import { ShortcutsDirective } from './shortcuts/shortcuts.directive';
+
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 import { TitleSlideComponent } from './title-slide/title-slide.component';
@@ -13,7 +13,6 @@ import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.componen
 import { AnalyticsService } from './analytics.service';
 import { HammerGestureConfig } from '@angular/platform-browser';
 
-//
 // export class MyHammerConfig extends HammerGestureConfig {
 //   overrides = {
 //     stop_browser_behavior: false,
@@ -29,7 +28,6 @@ import { HammerGestureConfig } from '@angular/platform-browser';
     PresentationComponent,
     SlideComponent,
     FooterComponent,
-    ShortcutsDirective,
     ProgressBarComponent,
     MenuShortcutComponent,
     TitleSlideComponent,
@@ -42,7 +40,6 @@ import { HammerGestureConfig } from '@angular/platform-browser';
     SlideComponent,
     FooterComponent,
     ProgressBarComponent,
-    ShortcutsDirective,
     TitleSlideComponent,
     MenuShortcutComponent,
     FeedbackSlideComponent,
