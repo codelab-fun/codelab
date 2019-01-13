@@ -13,7 +13,6 @@ import { FakeBabelModule } from '../../../../../../libs/exercise/src/lib/fake-ba
 import { CommonModule } from '@angular/common';
 import { GomokuBoardModule } from './board/board.module';
 
-
 const routes = RouterModule.forChild(
   SlidesRoutes.get(GomokuComponent)
 );

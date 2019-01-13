@@ -6,13 +6,13 @@
   <slides-progress-bar></slides-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <slides-slide *slide no-padding title>
+  <div *slide no-padding title>
     <h1>Gomoku</h1>
     <div class="hb"></div>
     <h2>by @kirjs</h2>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Plan</h2>
     <ol>
       <li>What's gomoku?</li>
@@ -21,51 +21,51 @@
       <li>Gomoku and Computers</li>
       <li>Sample game</li>
     </ol>
-  </slides-slide>
+  </div>
 
   <!--
     Rules
   -->
 
-  <slides-slide *slide title>
+  <div *slide title>
     <h1>Gomoku</h1>
     <h2><b>Abstract</b> <b>strategy</b> <b>board</b> game</h2>
     <h2> coming from ancient asia (China & Japan)</h2>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>tic-tac-toe</h2>
     <slides-board center theme="xo" [game]="games.ticTacToe"></slides-board>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Gomoku</h2>
     <slides-board [game]="games.wonGame"></slides-board>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide title>
+  <div *slide title>
     <h1>
       Rules
     </h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Rule 1: Black puts a stone first</h2>
     <slides-board [game]="games.start"></slides-board>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Rule 2: Players alternate, putting a stone of their color on an empty cell</h2>
     <slides-board [game]="games.start2"></slides-board>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Rule 3: The first player to get 5 in a row wins</h2>
     <slides-board [game]="games.start5"></slides-board>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Sample game</h2>
     <div style="display: flex;">
       <slides-board [game]="games.sample"></slides-board>
@@ -82,20 +82,20 @@
 
       </div>
     </div>
-  </slides-slide>
+  </div>
 
 
   <!--
     Why gomoku?
   -->
 
-  <slides-slide *slide title>
+  <div *slide title>
     <h1>
       8 Reasons to play <b>Gomoku</b>
     </h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>1. Brain massage</h2>
     <ul>
       <li>Lots of memorization</li>
@@ -103,9 +103,9 @@
       <li>Problem solving</li>
       <li>A lot of gomoku playes became successful at poker</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>2. Transferable life skills</h2>
     <ul>
       <li>Learn to win/lose</li>
@@ -114,9 +114,9 @@
       <li>Strategical/Tacting thinking</li>
       <li>Understanding consequences / thinking ahead</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>3. Social Aspect</h2>
     <ul>
       <li>Cross cultures/ages/accessible to everyone</li>
@@ -125,17 +125,17 @@
       <li>Play solo or in a team.</li>
       <li>Hopefully soon play in real life :)</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>4. Quantifiable</h2>
     <ul>
       <li>All stats are out there</li>
       <li>Learning curve - plateaus and accelerations.</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>5. Easy to start</h2>
     <ul>
       <li>Can play with pen and paper</li>
@@ -143,33 +143,33 @@
       <li>A bunch of android apps</li>
       <li>Very simple rules</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>6.Not very popular in the US</h2>
     <ul>
       <li>Very few people are playing</li>
       <li>Not much has been done</li>
       <li>Not much learning materials/tutorials/videos in english</li>
     </ul>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>7. Lots of space for technical solutions</h2>
     <ul>
       <li>No good database of games</li>
       <li>Existing online playing platforms not perfect</li>
     </ul>
-  </slides-slide>
-  <slides-slide *slide>
+  </div>
+  <div *slide>
     <h2>8. It's Fun!</h2>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide title>
+  <div *slide title>
     <h1>Gomoku and Computers 🤖</h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Complexity</h2>
     <table>
       <tr>
@@ -210,69 +210,69 @@
       </tr>
     </table>
     <a href="https://en.wikipedia.org/wiki/Game_complexity">More on wikipedia</a>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide title blue>
+  <div *slide title blue>
     <h1>In the initial rules ⚫️ always started in the center</h1>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slide title blue>
+  <div *slide title blue>
     <h1>In 1994 Victor Ellis proved that this way ⚫️ always win. <a
       href="http://digitalarchive.maastrichtuniversity.nl/fedora/get/guid:36b5cf0a-cf06-4602-afdb-1af04d65c23b/ASSET1">
       📄
     </a></h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide title blue>
+  <div *slide title blue>
     <h1>Since then more advanced opening rules have been used, which haven't yet been solved.</h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide title blue>
+  <div *slide title blue>
     <h1>One of them is swap2</h1>
     <div class="cake"></div>
     <h2>(Using divide and choose)</h2>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Black is stronger</h2>
     <slides-board [game]="games.swap23"></slides-board>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>A draw?</h2>
     <slides-board [game]="games.swap26"></slides-board>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>White surewin</h2>
     <slides-board [game]="games.swap25"></slides-board>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide title blue>
+  <div *slide title blue>
     <h1>Swap2 opening hasn't been solved by a computer</h1>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slide title blue>
+  <div *slide title blue>
     <h1><a href="https://gomocup.org">Gomocup</a> is a yearly gomoku AI tournament.</h1>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slide title>
+  <div *slide title>
     <h1>Now let's look at a real game</h1>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slide>
+  <div *slide>
     <h2>Very Advanced - Defend from 4s</h2>
     <slides-board [game]="games.defendFrom4s"></slides-board>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slide>
+  <div *slide>
     <h1>How to start playing</h1>
-  </slides-slide>
-  <slides-slide *slide>
+  </div>
+  <div *slide>
     <h2>How to start playing</h2>
     <ul>
       <li>Online: <a href="https://www.playok.com/en/gomoku/">playok</a></li>
@@ -281,7 +281,7 @@
       <li>Bonus: <a href="http://kizu.ru/en/blog/counters-and-stones/">Gomoku in pure CSS</a></li>
       <li>Follow: <a href="thttps://twitter.com/kirjs">@kirjs</a></li>
     </ul>
-  </slides-slide>
+  </div>
 
 
 </slides-deck>
