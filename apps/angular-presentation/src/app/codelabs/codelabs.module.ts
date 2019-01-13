@@ -115,15 +115,6 @@ export let routes = [
     page: 'bonus',
     prod: true
   },
-
-  {
-    path: 'vue-intro',
-    loadChildren: './vue/intro/intro.module#VueModule',
-    name: 'vue',
-    description: 'Learn how pipes transform input values to output values for display in a view',
-    page: 'vue'
-  },
-
   {
     path: 'code-playground',
     loadChildren: './extra/code-playground/code-playground.module#CodePlaygroundModule',

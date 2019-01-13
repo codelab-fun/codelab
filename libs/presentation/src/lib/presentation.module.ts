@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PresentationComponent } from './presentation/presentation.component';
-import { SlideComponent } from './slide/slide.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
@@ -26,7 +25,6 @@ import { HammerGestureConfig } from '@angular/platform-browser';
 @NgModule({
   declarations: [
     PresentationComponent,
-    SlideComponent,
     FooterComponent,
     ProgressBarComponent,
     MenuShortcutComponent,
@@ -37,7 +35,6 @@ import { HammerGestureConfig } from '@angular/platform-browser';
   ],
   exports: [
     PresentationComponent,
-    SlideComponent,
     FooterComponent,
     ProgressBarComponent,
     TitleSlideComponent,
