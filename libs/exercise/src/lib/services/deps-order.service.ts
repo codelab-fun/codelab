@@ -8,6 +8,9 @@ import { simpleVisitor } from './visitor';
 @Injectable()
 export class DepsService {
 
+  constructor() {
+  }
+
   /**
    * Takes a file path, and another path relative to the first one.
    * Returns the fulle
@@ -30,7 +33,7 @@ export class DepsService {
   }
 
   order(files: Array<FileConfig>) {
-    let deps: {[key: string]: string} = files.reduce((result, file) => {
+    let deps: { [key: string]: string } = files.reduce((result, file) => {
       result[file.path] = {file, deps: []};
       const source = ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5);
       simpleVisitor(source, node => node.kind === ts.SyntaxKind.ImportDeclaration, (node: any) => {
@@ -50,7 +53,7 @@ export class DepsService {
       const depLen = keys.length;
 
       // Iterate over deps, grab each file with no dependencies, and add it to the list. Repeat.
-      [deps, orderedFiles] = keys.reduce(([result, orderedFiles_]: any, key): [{[key: string]: string}, Array<FileConfig>] => {
+      [deps, orderedFiles] = keys.reduce(([result, orderedFiles_]: any, key): [{ [key: string]: string }, Array<FileConfig>] => {
         if (result[key].deps.length === 0) {
           orderedFiles_.push(result[key].file);
 
@@ -70,9 +73,6 @@ export class DepsService {
     }
 
     return orderedFiles;
-  }
-
-  constructor() {
   }
 
 }

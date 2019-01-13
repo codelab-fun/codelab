@@ -12,13 +12,12 @@ export class NewEditorsComponent implements OnInit {
   @Input() fontSize = 16;
   private currentFile: FileConfig;
 
+  constructor(public parent: ExerciseComponent) {
+
+  }
 
   ngOnInit(): void {
     this.files = this.parent.files;
-  }
-
-  constructor(public parent: ExerciseComponent) {
-
   }
 
   onSelectFile(fileConfig: FileConfig): void {

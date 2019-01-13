@@ -23,6 +23,9 @@ export class TestsComponent implements OnInit {
 
   seeAll = false;
 
+  constructor(private sanitizer: DomSanitizer) {
+  };
+
   ngOnInit(): void {
     this.translations = this.translations || {};
   }
@@ -30,9 +33,6 @@ export class TestsComponent implements OnInit {
   hasTests() {
     return this.tests && this.tests.length > 0;
   }
-
-  constructor(private sanitizer: DomSanitizer) {
-  };
 
   getTranslation(title) {
     return this.translations[title.replace('@@', '')] || title;

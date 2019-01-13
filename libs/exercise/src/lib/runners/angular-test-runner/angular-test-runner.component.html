@@ -1,4 +1,4 @@
-<slides-tests  [translations]="translations" [tests]="tests" [files]="parent.files$ | async"
+<slides-tests [translations]="translations" [tests]="tests" [files]="parent.files$ | async"
               (onSelectFile)="onSelectFile($event)"></slides-tests>
 <div #runner class="runner"></div>
 

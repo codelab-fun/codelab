@@ -8,11 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TestsProgressComponent implements OnInit {
   @Input() tests = [];
 
-  countPassing() {
-    return (this.tests || []).filter(test => test.pass).length;
+  constructor() {
   }
 
-  constructor() {
+  countPassing() {
+    return (this.tests || []).filter(test => test.pass).length;
   }
 
   ngOnInit() {

@@ -21,6 +21,7 @@ declare module '@angular/core' {
   export interface PipeConfig {
     name: string;
   }
+
   export function enableProdMode();
 
   export function Component(config: ComponentConfig);
@@ -30,6 +31,7 @@ declare module '@angular/core' {
 
   export class TemplateRef<T> {
   }
+
   export class ViewContainerRef {
     clear: () => void;
     createEmbeddedView: (ref: TemplateRef<any>, context: any) => void;
@@ -38,6 +40,7 @@ declare module '@angular/core' {
   export interface AfterViewInit {
     ngAfterViewInit: () => void;
   }
+
   export interface OnInit {
     ngOnInit: () => void;
   }
@@ -50,6 +53,7 @@ declare module '@angular/core' {
     bootstrap?: any[];
     exports?: any[];
   }
+
   export function NgModule(config: NgModuleConfig);
 
   export function Injectable();
@@ -57,10 +61,15 @@ declare module '@angular/core' {
   export function Output();
 
   export function Input();
+
   export interface OnChanges {
-    ngOnChanges: function(simpleChanges: any)
+    ngOnChanges:
+
+    function(simpleChanges: any)
   }
-  export interface SimpleChanges {}
+
+  export interface SimpleChanges {
+  }
 
   export function Pipe(config: PipeConfig);
 
@@ -79,12 +88,14 @@ declare module '@angular/platform-browser' {
 }
 
 declare module '@angular/platform-browser/animations' {
-  export class NoopAnimationsModule {}
+  export class NoopAnimationsModule {
+  }
 }
 declare module '@angular/platform-browser-dynamic' {
   export class Platform {
     bootstrapModule: (module: any, config?: any) => void;
   }
+
   export function platformBrowserDynamic(): Platform;
 }
 
@@ -100,14 +111,16 @@ declare class Observable<T> {
 
 declare module '@angular/router' {
   export type Routes = Array<RouteConfig>;
+
   export class RouterModule {
-    static forRoot(routes: Routes) {}
+    static forRoot(routes: Routes) {
+    }
   }
 }
 
 declare module '@angular/common' {
   export class NgIf {
-   constructor(v: any, t: any);
+    constructor(v: any, t: any);
   }
 }
 
@@ -115,19 +128,31 @@ declare module '@angular/material' {
   export class MatTab {
     position: number;
   }
+
   export class MatTabGroup {
     selectedIndex: number;
     selectChange: Observable<any>;
   }
-  export class MatInputModule {}
-  export class MatTabsModule {}
-  export class MatToolbarModule {}
-  export class MatCardModule {}
-  export class MatButtonModule {}
+
+  export class MatInputModule {
+  }
+
+  export class MatTabsModule {
+  }
+
+  export class MatToolbarModule {
+  }
+
+  export class MatCardModule {
+  }
+
+  export class MatButtonModule {
+  }
 }
 
 declare class Babylon {
-  parse(code: string) {}
+  parse(code: string) {
+  }
 }
 
 

@@ -19,8 +19,6 @@ export class ExerciseComponent extends ExerciseBase implements OnInit {
 
   public readonly files$ = new BehaviorSubject<Array<FileConfig>>([]);
 
-  private _files: any;
-
   constructor(
     monacoConfig: MonacoConfigService,
     route: ActivatedRoute,
@@ -28,6 +26,8 @@ export class ExerciseComponent extends ExerciseBase implements OnInit {
   ) {
     super(monacoConfig, route, presentation);
   }
+
+  private _files: any;
 
   get files() {
     return this._files;

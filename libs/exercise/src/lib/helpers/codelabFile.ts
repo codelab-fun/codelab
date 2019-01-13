@@ -31,6 +31,11 @@ export class CodelabFile implements FileConfig {
   public before: string;
   public hidden = false;
 
+  constructor(public readonly type: FileType,
+              public readonly moduleName: string) {
+    this.path = moduleName + fileConfig[type].extension;
+  }
+
   static TypeScriptFile(name: string): CodelabFile {
     return new CodelabFile(FileType.TypeScript, name)
       .setAfter('export function evalJs( js ){ return eval(js);}');
@@ -46,11 +51,6 @@ export class CodelabFile implements FileConfig {
 
   static Css(name: string): CodelabFile {
     return new CodelabFile(FileType.Css, name);
-  }
-
-  constructor(public readonly type: FileType,
-              public readonly moduleName: string) {
-    this.path = moduleName + fileConfig[type].extension;
   }
 
   public setAfter(after: string): CodelabFile {

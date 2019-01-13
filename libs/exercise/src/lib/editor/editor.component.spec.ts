@@ -12,25 +12,27 @@ xdescribe('EditorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [EditorComponent],
-      providers: [{
-        provide: MonacoConfigService, useValue: {
-          monaco: {
-            editor: {
-              create: () => ({
-                getModel: () => ({
-                  getValue: () => 'hi',
-                  onDidChangeContent: () => {
-                  },
+      providers: [
+        {
+          provide: MonacoConfigService, useValue: {
+            monaco: {
+              editor: {
+                create: () => ({
+                  getModel: () => ({
+                    getValue: () => 'hi',
+                    onDidChangeContent: () => {
+                    },
+                  }),
+                  layout: () => {
+                  }
                 }),
-                layout: () => {
+                getModel: () => {
                 }
-              }),
-              getModel: () => {
               }
             }
           }
         }
-      }]
+      ]
     })
       .compileComponents();
   }));

@@ -1,7 +1,7 @@
 .progress {
   height: 1vw;
   font-size: 0.7vw;
-  line-height:1.1vw;
+  line-height: 1.1vw;
   display: flex;
 }
 
@@ -10,6 +10,7 @@
   background: #ff6144;
   flex: 1;
 }
+
 .text-box.pass {
   background: #5ccb5d;
 }

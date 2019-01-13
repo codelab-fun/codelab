@@ -52,11 +52,9 @@ slides-simple-editor {
   height: 100%;
 }
 
-
 :host ::ng-deep .monaco-editor-background,
 :host ::ng-deep .monaco-editor,
-:host ::ng-deep .monaco-editor .inputarea
-{
+:host ::ng-deep .monaco-editor .inputarea {
   background-color: transparent;
 }
 

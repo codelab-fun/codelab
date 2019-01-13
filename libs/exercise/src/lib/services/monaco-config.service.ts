@@ -26,6 +26,10 @@ export class MonacoConfigService {
   static initialized = false;
   public monaco: any;
 
+  constructor(private depsService: DepsService) {
+    this.monaco = monaco;
+  }
+
   static configureMonaco() {
     if (MonacoConfigService.initialized) {
       return;
@@ -85,10 +89,6 @@ export class MonacoConfigService {
     //     noSyntaxValidation: !1
     //   }),
     //
-  }
-
-  constructor(private depsService: DepsService) {
-    this.monaco = monaco;
   }
 
   sortFiles(files: FileConfig[]) {

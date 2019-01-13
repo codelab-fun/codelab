@@ -22,6 +22,10 @@ export class EditorsComponent implements OnInit {
     this.debug = true;
   }
 
+  get visibleFiles() {
+    return this.files.filter(file => !file.hidden);
+  }
+
   ngOnInit() {
     this.files.map(file => {
       file.opened = !file.readonly;
@@ -47,10 +51,6 @@ export class EditorsComponent implements OnInit {
 
   onCodeChange(change) {
     this.onChanges.emit(change);
-  }
-
-  get visibleFiles() {
-    return this.files.filter(file => !file.hidden);
   }
 
   getFileName(file) {

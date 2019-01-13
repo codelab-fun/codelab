@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { LoopProtectionService } from './services/loop-protection.service';
 import { MonacoConfigService } from './services/monaco-config.service';
 import { NgModule } from '@angular/core';
-import { PlaygroundComponent } from './playground/playground.component';
 import { RunnerComponent } from './runner/runner.component';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
@@ -38,7 +37,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     RunnerComponent,
     EditorComponent,
     SlidesPreviewComponent,
-    PlaygroundComponent,
     FileTreeComponent,
     FileStructureComponent,
     NewEditorsComponent,
@@ -49,7 +47,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
   exports:
     [
       ExerciseComponent,
-      PlaygroundComponent,
       EditorComponent,
       SlidesPreviewComponent,
       RunnerComponent,
