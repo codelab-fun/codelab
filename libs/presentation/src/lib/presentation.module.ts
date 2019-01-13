@@ -11,7 +11,6 @@ import { RippleAnimationComponent } from './ripple-animation/ripple-animation.co
 import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 import { AnalyticsService } from './analytics.service';
-import { SlideIfDirective } from './slide-if/slide-if.directive';
 import { HammerGestureConfig } from '@angular/platform-browser';
 
 //
@@ -36,8 +35,7 @@ import { HammerGestureConfig } from '@angular/platform-browser';
     TitleSlideComponent,
     RippleAnimationComponent,
     FeedbackSlideComponent,
-    ClosingSlideComponent,
-    SlideIfDirective
+    ClosingSlideComponent
   ],
   exports: [
     PresentationComponent,
@@ -48,8 +46,7 @@ import { HammerGestureConfig } from '@angular/platform-browser';
     TitleSlideComponent,
     MenuShortcutComponent,
     FeedbackSlideComponent,
-    ClosingSlideComponent,
-    SlideIfDirective
+    ClosingSlideComponent
   ],
   imports: [
     CommonModule,
