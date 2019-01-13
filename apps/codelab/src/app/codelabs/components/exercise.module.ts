@@ -10,9 +10,9 @@ import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-prog
 import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
 import { MultitabEditorComponent } from './multitab-editor/multitab-editor.component';
-import { TitleSlideComponent } from './title-slide/title-slide.component';
+import { TitleSlideComponent } from './slides/title-slide/title-slide.component';
 import { CodelabSlidesPreviewComponent } from './slides-preview/codelab-slides-preview.component';
-import { CodelabClosingSlideComponent } from './closing-slide/codelab-closing-slide.component';
+import { CodelabClosingSlideComponent } from './slides/closing-slide/codelab-closing-slide.component';
 import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { CodelabExercisePlayground } from './exercise-playground/codelab-exercise-playground.component';
 import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-progress-bar.component';
@@ -20,7 +20,7 @@ import { FilePathComponent } from './file-path/file-path.component';
 import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
 import { NewSmartRunnerModule } from './new-smart-runner/new-smart-runner.module';
 import { EditorFromModelComponent } from './multitab-editor/editor-from-model/editor-from-model.component';
-import { CodelabRippleAnimationComponent } from './title-slide/ripple-animation/codelab-ripple-animation.component';
+import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-animation/codelab-ripple-animation.component';
 
 
 @NgModule({
