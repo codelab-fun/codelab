@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubService } from './github.service';
 import { environment } from '../../../environments/environment';
+import { SlidesModule } from '@angular-presentation/slides';
 
 
 const routes = RouterModule.forChild(
@@ -26,7 +27,13 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
     routes,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    BrowserWindowModule, PresentationModule, angularFire, FormsModule, CommonModule, HttpClientModule
+    BrowserWindowModule,
+    PresentationModule,
+    angularFire,
+    FormsModule,
+    CommonModule,
+    HttpClientModule,
+    SlidesModule,
   ],
   declarations: [FeedbackPageComponent],
   providers: [GithubService],
