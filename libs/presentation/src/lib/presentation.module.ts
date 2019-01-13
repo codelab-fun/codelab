@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PresentationComponent } from './presentation/presentation.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
-import { TitleSlideComponent } from './title-slide/title-slide.component';
-import { RippleAnimationComponent } from './ripple-animation/ripple-animation.component';
 import { ClosingSlideComponent } from './closing-slide/closing-slide.component';
 import { FeedbackSlideComponent } from './feedback-slide/feedback-slide.component';
 import { AnalyticsService } from './analytics.service';
@@ -25,22 +23,18 @@ import { HammerGestureConfig } from '@angular/platform-browser';
     PresentationComponent,
     ProgressBarComponent,
     MenuShortcutComponent,
-    TitleSlideComponent,
-    RippleAnimationComponent,
     FeedbackSlideComponent,
     ClosingSlideComponent
   ],
   exports: [
     PresentationComponent,
     ProgressBarComponent,
-    TitleSlideComponent,
     MenuShortcutComponent,
     FeedbackSlideComponent,
     ClosingSlideComponent
   ],
   imports: [
     CommonModule,
-
   ],
   providers: [
     AnalyticsService

@@ -20,6 +20,7 @@ import { FilePathComponent } from './file-path/file-path.component';
 import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
 import { NewSmartRunnerModule } from './new-smart-runner/new-smart-runner.module';
 import { EditorFromModelComponent } from './multitab-editor/editor-from-model/editor-from-model.component';
+import { CodelabRippleAnimationComponent } from './title-slide/ripple-animation/codelab-ripple-animation.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { EditorFromModelComponent } from './multitab-editor/editor-from-model/ed
     FilePathComponent,
     BabelTestRunnerComponent,
     EditorFromModelComponent,
+    CodelabRippleAnimationComponent,
   ],
   exports: [
     CodelabExerciseComponent,
