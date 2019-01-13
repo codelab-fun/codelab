@@ -21,6 +21,7 @@ import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/r
 import { PresentationModule } from '@angular-presentation/presentation';
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
+import { SlidesModule } from '@angular-presentation/slides';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(AstComponent)
@@ -33,6 +34,7 @@ const routes = RouterModule.forChild(
     AstPreviewRunnerModule,
     PresentationModule,
     ExerciseModule,
+    SlidesModule,
     BrowserWindowModule,
     FeedbackModule,
     SimpleEditorModule,

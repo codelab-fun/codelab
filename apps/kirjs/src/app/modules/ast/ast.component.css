@@ -24,9 +24,12 @@ a {
   font-size: 6vw;
 }
 
+:host /deep/ .slide > div {
+  width: 100%;
+}
+
 :host /deep/ .slide {
   background: transparent;
-  padding: 60px;
 }
 
 #sausage-pre {
@@ -37,7 +40,7 @@ a {
   font-size: 5vw;
 }
 
-#sausage {
+#not-like-sausage {
   background: url(pics/sausage2.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
