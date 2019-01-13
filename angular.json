@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "angular-presentation": {
-      "root": "apps/angular-presentation",
-      "sourceRoot": "apps/angular-presentation/src",
+    "codelab": {
+      "root": "apps/codelab",
+      "sourceRoot": "apps/codelab/src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/angular-presentation",
-            "index": "apps/angular-presentation/src/index.html",
-            "main": "apps/angular-presentation/src/main.ts",
-            "tsConfig": "apps/angular-presentation/tsconfig.app.json",
-            "polyfills": "apps/angular-presentation/src/polyfills.ts",
+            "outputPath": "dist/apps/codelab",
+            "index": "apps/codelab/src/index.html",
+            "main": "apps/codelab/src/main.ts",
+            "tsConfig": "apps/codelab/tsconfig.app.json",
+            "polyfills": "apps/codelab/src/polyfills.ts",
             "assets": [
-              "apps/angular-presentation/src/assets",
-              "apps/angular-presentation/src/favicon.ico",
-              "apps/angular-presentation/src/service-worker.js",
+              "apps/codelab/src/assets",
+              "apps/codelab/src/favicon.ico",
+              "apps/codelab/src/service-worker.js",
               {
                 "glob": "**/*",
                 "input": "node_modules/monaco-editor/",
@@ -32,7 +32,7 @@
               }
             ],
             "styles": [
-              "apps/angular-presentation/src/styles.scss"
+              "apps/codelab/src/styles.scss"
             ],
             "scripts": []
           },
@@ -49,8 +49,8 @@
               "buildOptimizer": true,
               "fileReplacements": [
                 {
-                  "replace": "apps/angular-presentation/src/environments/environment.ts",
-                  "with": "apps/angular-presentation/src/environments/environment.prod.ts"
+                  "replace": "apps/codelab/src/environments/environment.ts",
+                  "with": "apps/codelab/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -59,35 +59,35 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-presentation:build"
+            "browserTarget": "codelab:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-presentation:build:production"
+              "browserTarget": "codelab:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-presentation:build"
+            "browserTarget": "codelab:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/angular-presentation/src/test.ts",
-            "karmaConfig": "apps/angular-presentation/karma.conf.js",
-            "polyfills": "apps/angular-presentation/src/polyfills.ts",
-            "tsConfig": "apps/angular-presentation/tsconfig.spec.json",
+            "main": "apps/codelab/src/test.ts",
+            "karmaConfig": "apps/codelab/karma.conf.js",
+            "polyfills": "apps/codelab/src/polyfills.ts",
+            "tsConfig": "apps/codelab/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "apps/angular-presentation/src/styles.scss"
+              "apps/codelab/src/styles.scss"
             ],
             "assets": [
-              "apps/angular-presentation/src/assets",
-              "apps/angular-presentation/src/favicon.ico",
-              "apps/angular-presentation/src/service-worker.js"
+              "apps/codelab/src/assets",
+              "apps/codelab/src/favicon.ico",
+              "apps/codelab/src/service-worker.js"
             ]
           }
         },
@@ -95,29 +95,29 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/angular-presentation/tsconfig.app.json",
-              "apps/angular-presentation/tsconfig.spec.json"
+              "apps/codelab/tsconfig.app.json",
+              "apps/codelab/tsconfig.spec.json"
             ],
             "exclude": []
           }
         }
       }
     },
-    "angular-presentation-e2e": {
-      "root": "apps/angular-presentation-e2e",
+    "codelab-e2e": {
+      "root": "apps/codelab-e2e",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "apps/angular-presentation-e2e/protractor.conf.js",
-            "devServerTarget": "angular-presentation:serve"
+            "protractorConfig": "apps/codelab-e2e/protractor.conf.js",
+            "devServerTarget": "codelab:serve"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/angular-presentation-e2e/tsconfig.e2e.json",
+            "tsConfig": "apps/codelab-e2e/tsconfig.e2e.json",
             "exclude": []
           }
         }
@@ -127,7 +127,7 @@
       "root": "libs/browser",
       "sourceRoot": "libs/browser/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -155,7 +155,7 @@
       "root": "libs/console",
       "sourceRoot": "libs/console/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -183,7 +183,7 @@
       "root": "libs/tooltips",
       "sourceRoot": "libs/tooltips/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -211,7 +211,7 @@
       "root": "libs/utils",
       "sourceRoot": "libs/utils/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -381,7 +381,7 @@
       "root": "libs/presentation",
       "sourceRoot": "libs/presentation/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -421,7 +421,7 @@
       "root": "libs/angular-ast-viz",
       "sourceRoot": "libs/angular-ast-viz/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -461,7 +461,7 @@
       "root": "libs/angular-slides-to-pdf",
       "sourceRoot": "libs/angular-slides-to-pdf/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -501,7 +501,7 @@
       "root": "libs/feedback",
       "sourceRoot": "libs/feedback/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -536,7 +536,7 @@
       "root": "libs/slides",
       "sourceRoot": "libs/slides/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -571,7 +571,7 @@
       "root": "libs/code-demos",
       "sourceRoot": "libs/code-demos/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "codelab",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -603,7 +603,7 @@
       }
     }
   },
-  "defaultProject": "angular-presentation",
+  "defaultProject": "codelab",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "slides",

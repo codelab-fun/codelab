@@ -11,7 +11,7 @@ import { Rule3Component } from './rule3/rule3.component';
 import { RuleComponent } from './rule/rule.component';
 import { Rule8Component } from './rule8/rule8.component';
 import { OscilatorsComponent } from './oscilators/oscilators.component';
-import { SlidesModule } from '@angular-presentation/slides';
+import { SlidesModule } from '@codelab/slides';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(CellularAutomationComponent)

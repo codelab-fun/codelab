@@ -4,7 +4,7 @@ import { ScriptLoaderService } from '../../../../exercise/src/lib/services/scrip
 import { compileTsFiles } from '../runner/compile-ts-files';
 import { compileTemplates } from '../runner/prepare-templates';
 import { PreviewWindowType } from '../../../../browser/src/lib/preview-window/preview-window.component';
-import { addMetaInformation } from '../../../../../apps/angular-presentation/src/app/codelabs/components/angular-test-runner/angular-test-runner.component';
+import { addMetaInformation } from '../../../../../apps/codelab/src/app/codelabs/components/angular-test-runner/angular-test-runner.component';
 
 declare const require;
 

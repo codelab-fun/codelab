@@ -4,7 +4,7 @@ import {
   expectClass,
   expectDecorator,
   expectExportedClass
-} from '../../apps/angular-presentation/src/app/codelabs/components/babel-test-runner/babel-helpers';
+} from '../../apps/codelab/src/app/codelabs/components/babel-test-runner/babel-helpers';
 
 
 const tests = [

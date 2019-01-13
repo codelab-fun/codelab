@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'angular-presentation-memory',
+  selector: 'codelab-memory',
   templateUrl: './memory.component.html',
   styleUrls: ['./memory.component.css']
 })

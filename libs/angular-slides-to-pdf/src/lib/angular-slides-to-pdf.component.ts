@@ -4,7 +4,7 @@ import * as JsPDF from 'jspdf'
 import * as domtoimage from 'dom-to-image';
 
 @Component({
-  selector: 'angular-presentation-to-pdf',
+  selector: 'codelab-to-pdf',
   template: ''
 })
 export class AngularSlidesToPdfComponent {

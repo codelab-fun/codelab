@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubService } from './github.service';
 import { environment } from '../../../environments/environment';
-import { SlidesModule } from '@angular-presentation/slides';
+import { SlidesModule } from '@codelab/slides';
 
 
 const routes = RouterModule.forChild(

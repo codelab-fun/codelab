@@ -1,5 +1,5 @@
 import { isCallExpression, isIdentifier } from 'babel-types';
-import { babelTestSuite } from '../../apps/angular-presentation/src/app/codelabs/components/babel-test-runner/babel-helpers';
+import { babelTestSuite } from '../../apps/codelab/src/app/codelabs/components/babel-test-runner/babel-helpers';
 
 const tests = [
   {

@@ -4,8 +4,9 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
-import { monacoReady } from '@angular-presentation/exercise/src/lib/services/monaco-config.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { monacoReady } from '@codelab/exercise/src/lib/services/monaco-config.service';
 
 
 const routes = [

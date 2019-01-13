@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getParagraphText() {
-    return element(by.css('angular-presentation-root h1')).getText();
+    return element(by.css('codelab-root h1')).getText();
   }
 }

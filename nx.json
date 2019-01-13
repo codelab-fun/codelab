@@ -8,10 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "angular-presentation": {
+    "codelab": {
       "tags": []
     },
-    "angular-presentation-e2e": {
+    "codelab-e2e": {
       "tags": []
     },
     "presentation": {

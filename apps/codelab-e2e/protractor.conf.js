@@ -21,7 +21,7 @@ exports.config = {
   },
   beforeLaunch: function() {
     require('ts-node').register({
-      project: 'apps/angular-presentation-e2e/tsconfig.e2e.json'
+      project: 'apps/codelab-e2e/tsconfig.e2e.json'
     });
   },
   onPrepare() {

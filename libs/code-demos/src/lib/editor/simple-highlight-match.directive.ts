@@ -1,7 +1,7 @@
 import { AfterViewInit, Directive, Host, Input, OnChanges, Optional } from '@angular/core';
 import { SimpleEditorComponent } from './simple-editor.component';
 import { findPosition } from '../../../../tooltips/src/lib/utils';
-import { EditorFromModelComponent } from '../../../../../apps/angular-presentation/src/app/codelabs/components/multitab-editor/editor-from-model/editor-from-model.component';
+import { EditorFromModelComponent } from '../../../../../apps/codelab/src/app/codelabs/components/multitab-editor/editor-from-model/editor-from-model.component';
 
 @Directive({
   selector: '[slidesSimpleHighlightMatch]'

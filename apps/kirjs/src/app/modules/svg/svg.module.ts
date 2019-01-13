@@ -19,8 +19,8 @@ import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
-import { SlidesModule } from '@angular-presentation/slides';
-import { CodeDemosModule } from '@angular-presentation/code-demos';
+import { SlidesModule } from '@codelab/slides';
+import { CodeDemosModule } from '@codelab/code-demos';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)

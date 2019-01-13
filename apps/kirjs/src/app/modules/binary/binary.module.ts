@@ -29,7 +29,7 @@ import { MemoryComponent } from './memory/memory.component';
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-demo.component';
 import { HexdecComponent } from './hexdec/hexdec.component';
-import { SlidesModule } from '@angular-presentation/slides';
+import { SlidesModule } from '@codelab/slides';
 import { AngularFlagsComponent } from './angular-flags/angular-flags.component';
 import { ColorIndexingComponent } from './color-indexing/color-indexing.component';
 import { BitwiseComponent } from './bitwise/bitwise.component';

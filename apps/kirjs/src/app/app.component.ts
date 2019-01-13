@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'angular-presentation-root',
+  selector: 'kirjs-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

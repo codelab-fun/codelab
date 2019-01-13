@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { ReactComponent } from './react.component';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@angular-presentation/presentation/src/lib/slide-routes';
-import { PresentationModule } from '@angular-presentation/presentation';
+import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
+import { PresentationModule } from '@codelab/presentation';
 import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
-import { BrowserWindowModule } from '@angular-presentation/browser';
+import { BrowserWindowModule } from '@codelab/browser';
 import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SlidesModule } from '@angular-presentation/slides';
+import { SlidesModule } from '@codelab/slides';
 
 
 const routes = RouterModule.forChild(

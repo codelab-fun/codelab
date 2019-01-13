@@ -16,7 +16,7 @@ function overrideHtml(schema: any): Rule {
 function updateSlidesModule(schema: any): Rule {
   return (host: Tree, context: SchematicContext) => {
     const modulePath: string = host.actions.find(a => a.path.endsWith('.module.ts')).path;
-    // @angular-presentation/slides
+    // @codelab/slides
     const sourceFile = ts.createSourceFile(
       modulePath,
       host.read(modulePath).toString('utf-8'),
@@ -28,7 +28,7 @@ function updateSlidesModule(schema: any): Rule {
     const code = fs.readFileSync(join(__dirname, './files/code.bs'), 'utf-8').toString();
 
 
-    const changes = addImportToModule(sourceFile, modulePath, 'SlidesModule', '@angular-presentation/slides');
+    const changes = addImportToModule(sourceFile, modulePath, 'SlidesModule', '@codelab/slides');
 
     const recorder = host.beginUpdate(modulePath);
     changes.forEach((change: InsertChange) => {
