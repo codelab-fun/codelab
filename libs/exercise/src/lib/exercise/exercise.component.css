@@ -62,10 +62,6 @@ slides-slides-preview {
   overflow: hidden;
 }
 
-slides-slide > div {
-  padding: 20px 5px;
-}
-
 .side {
   padding: 10px 20px;
   flex: 1;
