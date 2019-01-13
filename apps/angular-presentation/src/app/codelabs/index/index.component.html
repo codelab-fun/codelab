@@ -20,7 +20,7 @@
   <div i18n="@@learnToBindToEvents" id="learnToBindToEvents">Learn to bind to events.</div>
 </div>
 
-<slides-presentation>
+<slides-deck>
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
       <a href="https://github.com/AngularNYC/angular-presentation">
@@ -31,7 +31,7 @@
     <slides-feedback-widget></slides-feedback-widget>
   </div>
 
-  <slides-slide *slidesIf="'index'">
+  <div *slide id="index">
     <h1 i18n>Angular Codelab</h1>
     <h2>Welcome to the interactive Angular Codelab. Here you can learn the basics of <a href="https://angular.io">Angular</a>!
     </h2>
@@ -51,12 +51,12 @@
       </div>
     </div>
 
-    <h2 class = "contents" (click)="showContents=!showContents">Or click here to see full contents...</h2>
+    <h2 class="contents" (click)="showContents=!showContents">Or click here to see full contents...</h2>
     <ol *ngIf="showContents">
       <li *ngFor="let route of getMainPageRoutes()">
         <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
         <div>{{route.description}}</div>
       </li>
     </ol>
-  </slides-slide>
-</slides-presentation>
+  </div>
+</slides-deck>

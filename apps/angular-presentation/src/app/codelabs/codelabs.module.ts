@@ -14,6 +14,7 @@ import { environment } from '../../environments/environment';
 import { NxModule } from '@nrwl/nx';
 import { FeedbackModule } from '../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SlidesModule } from '../../../../../libs/slides/src';
 
 export let routes = [
   {
@@ -154,6 +155,7 @@ if (environment.production) {
     HttpClientModule,
     PresentationModule,
     ExerciseModule,
+    SlidesModule,
     RouterModule.forRoot(routes),
     TooltipsModule,
     FeedbackModule,
