@@ -1,29 +1,30 @@
 import { Component, Input } from '@angular/core';
-import { FileConfig } from '../interfaces/file-config';
-import { TestInfo } from '../interfaces/test-info';
+
+
 import * as babylon from 'babylon';
 import * as types from 'babel-types';
 import babelTraverse from 'babel-traverse';
 import babelGenerator from 'babel-generator';
+import { TestInfo } from '@codelab/exercise/src/lib/interfaces/test-info';
 
 declare const require;
 
 @Component({
-  selector: 'slides-simple-fake-babel-runner',
-  templateUrl: './fake-babel-runner.component.html',
-  styleUrls: ['./fake-babel-runner.component.css']
+  selector: 'kirjs-babel-test-runner',
+  templateUrl: './babel-test-runner.component.html',
+  styleUrls: ['./babel-test-runner.component.css']
 })
-export class SimpleFakeBabelRunnerComponent {
+export class BabelTestRunner {
   tests: Array<TestInfo> = [];
   logs = [];
-  @Input() files: FileConfig[];
+  @Input() files: any[];
   @Input() showAst = false;
   scale = 10;
   showFull = false;
   firstFailing: TestInfo;
   displayedTest: TestInfo;
 
-  run(files: Array<FileConfig>) {
+  run(files: Array<any>) {
     this.logs = [];
     const args = {
       babylon,

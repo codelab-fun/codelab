@@ -10,11 +10,11 @@
   <div (click)="files[0].code = files[0].solution; runner.runTests()" class="show-solution">
     <div class="icon">🙀</div>
   </div>
-  <slides-simple-fake-babel-runner
+  <kirjs-babel-test-runner
     #runner
     class="tests"
     [showAst]="showAst"
     [files]="files">
     <ng-content></ng-content>
-  </slides-simple-fake-babel-runner>
+  </kirjs-babel-test-runner>
 </div>

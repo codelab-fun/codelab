@@ -13,7 +13,6 @@ import { AstComponent } from './ast.component';
 import { DebuggerComponent } from './debugger/debugger.component';
 import { TestSetComponent } from './test-set/test-set.component';
 import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';
-import { FakeBabelModule } from '../../../../../../libs/exercise/src/lib/fake-babel-runner/fake-babel-runner.module';
 import { SizePickerModule } from './size-picker/size-picker.module';
 import { TooltipsModule } from '@codelab/tooltips';
 
@@ -21,6 +20,7 @@ import { PresentationModule } from '@codelab/presentation';
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
 import { SlidesModule } from '@codelab/slides';
+import { BabelTestRunner } from './test-set/babel-test-runner/babel-test-runner.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(AstComponent)
@@ -39,16 +39,15 @@ const routes = RouterModule.forChild(
     SimpleEditorModule,
     FlexLayoutModule,
     FormsModule,
-
     TooltipsModule,
     SizePickerModule,
     MatCardModule,
-    FakeBabelModule,
     NewProgressBarModule,
     AngularSlidesToPdfModule,
   ],
   declarations: [
     AstComponent,
+    BabelTestRunner,
     DebuggerComponent,
     TestSetComponent,
   ],

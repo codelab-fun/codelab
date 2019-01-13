@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { exercise } from '../../../../../../libs/exercise/src/lib/helpers/helpers';
 import { parse } from 'babylon';
-import {
-  findHighlightsObjectProp,
-  isBody,
-  isLoc,
-  isType,
-  processCode,
-  removeDoubleWhiteLines,
-  removeLoc
-} from './parse-hello-world-ast';
+import { findHighlightsObjectProp, isBody, isLoc, isType, processCode, removeDoubleWhiteLines, removeLoc } from './parse-hello-world-ast';
 
 declare const require;
 

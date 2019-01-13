@@ -9,7 +9,6 @@ import { BrowserWindowModule } from '../../../../../../libs/browser/src/lib/brow
 
 import { GomokuComponent } from './gomoku.component';
 import { TooltipsModule } from '../../../../../../libs/tooltips/src/lib/tooltips.module';
-import { FakeBabelModule } from '../../../../../../libs/exercise/src/lib/fake-babel-runner/fake-babel-runner.module';
 import { CommonModule } from '@angular/common';
 import { GomokuBoardModule } from './board/board.module';
 
@@ -24,10 +23,8 @@ const routes = RouterModule.forChild(
     ExerciseModule,
     BrowserWindowModule,
     FeedbackModule,
-
     CommonModule,
     TooltipsModule,
-    FakeBabelModule,
     GomokuBoardModule
   ],
   declarations: [GomokuComponent],

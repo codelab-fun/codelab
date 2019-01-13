@@ -22,7 +22,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
 
 @NgModule({
   imports: [
-
     CommonModule,
     FormsModule,
     TooltipsModule,
