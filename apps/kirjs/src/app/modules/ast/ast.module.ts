@@ -16,7 +16,7 @@ import { AngularSlidesToPdfModule } from '@angular-presentation/angular-slides-t
 import { FakeBabelModule } from '../../../../../../libs/exercise/src/lib/fake-babel-runner/fake-babel-runner.module';
 import { SizePickerModule } from './size-picker/size-picker.module';
 import { TooltipsModule } from '@angular-presentation/tooltips';
-import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { PresentationModule } from '@angular-presentation/presentation';
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
@@ -39,7 +39,7 @@ const routes = RouterModule.forChild(
     SimpleEditorModule,
     FlexLayoutModule,
     FormsModule,
-    RunnersModule,
+
     TooltipsModule,
     SizePickerModule,
     MatCardModule,

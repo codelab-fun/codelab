@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { handleTestMessage } from '../../../../../../../libs/exercise/src/lib/runners/utils/tests';
+import { handleTestMessage } from './tests';
 import { createSystemJsSandbox } from '../../../../../../../libs/exercise/src/lib/runners/utils/sandbox';
 import { ScriptLoaderService } from '../../../../../../../libs/exercise/src/lib/services/script-loader.service';
 import * as ts from 'typescript';

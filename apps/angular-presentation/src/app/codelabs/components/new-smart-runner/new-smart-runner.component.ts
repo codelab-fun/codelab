@@ -16,8 +16,16 @@ const presets = {
     sandbox.evalJs(scriptLoaderService.getScript('zone'));
     sandbox.evalJs(scriptLoaderService.getScript('system-config'));
     sandbox.evalJs(scriptLoaderService.getScript('ng-bundle'));
+  },
+  react(sandbox, scriptLoaderService) {
+    // TODO(kirjs): Make it work
+    // sandbox.addCss(require('../inner.css'));
+    sandbox.setHtml('<div id="app"></div>');
+    sandbox.evalJs(scriptLoaderService.getScript('react'));
+    sandbox.evalJs(scriptLoaderService.getScript('react-dom'));
+    // sandbox.evalJs(transform(code, {presets: ['react']}).code);
   }
-}
+};
 
 @Component({
   selector: 'new-smart-runner',

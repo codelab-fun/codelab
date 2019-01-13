@@ -15,14 +15,14 @@ import { TooltipsModule } from '../../../tooltips/src/lib/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { DepsService } from './services/deps-order.service';
 
-import { RunnersModule } from './runners/runners.module';
+
 import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/size-picker/size-picker.module';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-editor.module';
 
 @NgModule({
   imports: [
-    RunnersModule,
+
     CommonModule,
     FormsModule,
     TooltipsModule,

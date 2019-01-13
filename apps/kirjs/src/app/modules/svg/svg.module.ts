@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';
 import { SvgPlaygroundComponent } from './svg-playground/svg-playground.component';
-import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';
@@ -34,7 +34,7 @@ const routes = RouterModule.forChild(
     PresentationModule,
     FeedbackModule,
     ExerciseModule,
-    RunnersModule,
+
     SimpleEditorModule,
     FormsModule,
     FlexLayoutModule,

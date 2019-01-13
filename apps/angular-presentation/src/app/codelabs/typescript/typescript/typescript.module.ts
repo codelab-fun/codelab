@@ -7,7 +7,7 @@ import { ExerciseModule } from '../../../../../../../libs/exercise/src/lib/exerc
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { RunnersModule } from '../../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { CodeDemosModule } from '../../../../../../../libs/code-demos/src';
 import { FormsModule } from '@angular/forms';
 import { CodelabExerciseModule } from '../../components/exercise.module';
@@ -36,7 +36,7 @@ const routes = RouterModule.forChild(
     CommonModule,
     FormsModule,
     BrowserWindowModule,
-    RunnersModule,
+
     CodelabExerciseModule,
     FormsModule,
     SimpleEditorModule,

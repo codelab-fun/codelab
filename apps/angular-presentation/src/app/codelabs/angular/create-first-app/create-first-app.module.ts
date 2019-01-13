@@ -6,7 +6,7 @@ import { PresentationModule } from '../../../../../../../libs/presentation/src/l
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { CommonModule } from '@angular/common';
 import { CreateFirstAppComponent } from './create-first-app.component';
-import { RunnersModule } from '../../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { CodelabExerciseModule } from '../../components/exercise.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
@@ -30,7 +30,7 @@ const routes = RouterModule.forChild(
     PresentationModule,
     FeedbackModule,
     CommonModule,
-    RunnersModule,
+
     BrowserWindowModule,
     CodelabExerciseModule,
     SimpleEditorModule,

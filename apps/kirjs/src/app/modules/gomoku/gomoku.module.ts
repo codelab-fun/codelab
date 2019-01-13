@@ -6,7 +6,7 @@ import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise
 import { PresentationModule } from '../../../../../../libs/presentation/src/lib/presentation.module';
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserWindowModule } from '../../../../../../libs/browser/src/lib/browser.module';
-import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { GomokuComponent } from './gomoku.component';
 import { TooltipsModule } from '../../../../../../libs/tooltips/src/lib/tooltips.module';
 import { FakeBabelModule } from '../../../../../../libs/exercise/src/lib/fake-babel-runner/fake-babel-runner.module';
@@ -24,7 +24,7 @@ const routes = RouterModule.forChild(
     ExerciseModule,
     BrowserWindowModule,
     FeedbackModule,
-    RunnersModule,
+
     CommonModule,
     TooltipsModule,
     FakeBabelModule,

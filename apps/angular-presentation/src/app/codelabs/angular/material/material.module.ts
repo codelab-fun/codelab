@@ -5,7 +5,7 @@ import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/sli
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { RunnersModule } from '../../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
@@ -33,7 +33,7 @@ const routes = RouterModule.forChild(
     FeedbackModule,
     CommonModule,
     BrowserWindowModule,
-    RunnersModule,
+
     MatButtonModule,
     MatCardModule,
     MatInputModule,

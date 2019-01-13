@@ -7,7 +7,7 @@ import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise
 import { BrowserWindowModule } from '@angular-presentation/browser';
 import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
-import { RunnersModule } from '../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SlidesModule } from '@angular-presentation/slides';
 
@@ -25,7 +25,7 @@ const routes = RouterModule.forChild(
     ExerciseModule,
     BrowserWindowModule,
     SimpleEditorModule,
-    RunnersModule,
+
     FlexLayoutModule,
   ],
   declarations: [ReactComponent],

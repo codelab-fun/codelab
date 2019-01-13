@@ -6,7 +6,7 @@ import { PresentationModule } from '../../../../../../../libs/presentation/src/l
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
-import { RunnersModule } from '../../../../../../../libs/exercise/src/lib/runners/runners.module';
+
 import { CodelabExerciseModule } from '../../components/exercise.module';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
@@ -27,7 +27,7 @@ const routes = RouterModule.forChild(
     routes,
     PresentationModule,
     BrowserWindowModule,
-    RunnersModule,
+
     FeedbackModule,
     CodelabExerciseModule,
     SimpleEditorModule,
