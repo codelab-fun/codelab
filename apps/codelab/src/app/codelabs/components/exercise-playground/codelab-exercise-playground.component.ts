@@ -6,7 +6,6 @@ import { PreviewWindowType } from '../../../../../../../libs/browser/src/lib/pre
 @Component({
   selector: 'codelab-exercise-playground',
   templateUrl: 'codelab-exercise-playground.component.html',
-  // styleUrls: ['../exercise/exercise.component.css'],
 })
 export class CodelabExercisePlayground extends CodelabExerciseComponent {
   @Input() allowSwitchingFiles = false;

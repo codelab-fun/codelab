@@ -2,7 +2,6 @@ import { BrowserWindowModule } from '../../../browser/src/lib/browser.module';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
 import { EditorsComponent } from './editors/editors.component';
-import { ExerciseComponent } from './exercise/exercise.component';
 import { FileTreeComponent } from './file-tree/file-tree.component';
 import { FormsModule } from '@angular/forms';
 import { LoopProtectionService } from './services/loop-protection.service';
@@ -30,7 +29,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     SimpleEditorModule,
   ],
   declarations: [
-    ExerciseComponent,
     EditorsComponent,
     RunnerComponent,
     EditorComponent,
@@ -43,11 +41,9 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
   exports:
     [
-      ExerciseComponent,
       EditorComponent,
       SlidesPreviewComponent,
       RunnerComponent,
-      ExerciseComponent,
       RealtimeEvalComponent,
     ]
 })
