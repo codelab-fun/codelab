@@ -5,7 +5,6 @@ import { SlideComponent } from './slide/slide.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShortcutsDirective } from './shortcuts/shortcuts.directive';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import { SlidesRoutingDirective } from './slides-routing/slides-routing.directive';
 import { ArrowsComponent } from './arrows/arrows.component';
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 import { TitleSlideComponent } from './title-slide/title-slide.component';
@@ -34,7 +33,6 @@ import { HammerGestureConfig } from '@angular/platform-browser';
     FooterComponent,
     ShortcutsDirective,
     ProgressBarComponent,
-    SlidesRoutingDirective,
     ArrowsComponent,
     MenuShortcutComponent,
     TitleSlideComponent,
@@ -50,7 +48,6 @@ import { HammerGestureConfig } from '@angular/platform-browser';
     ProgressBarComponent,
     ShortcutsDirective,
     ArrowsComponent,
-    SlidesRoutingDirective,
     TitleSlideComponent,
     MenuShortcutComponent,
     FeedbackSlideComponent,
