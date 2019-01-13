@@ -3,7 +3,7 @@ import { SlidesDeckComponent } from '../deck/deck.component';
 
 
 @Component({
-  selector: 'slides-arrow-navigation',
+  selector: 'slides-arrows',
   templateUrl: './slides-arrows.component.html',
   styleUrls: ['./slides-arrows.component.css']
 })
