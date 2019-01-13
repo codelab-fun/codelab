@@ -1,4 +1,3 @@
-import { AutorunComponent } from './autorun/autorun.component';
 import { BrowserWindowModule } from '../../../browser/src/lib/browser.module';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
@@ -37,7 +36,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
   declarations: [
     ExerciseComponent,
     EditorsComponent,
-    AutorunComponent,
     RunnerComponent,
     EditorComponent,
     SlidesPreviewComponent,
