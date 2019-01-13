@@ -1,6 +1,5 @@
 import { AutorunComponent } from './autorun/autorun.component';
 import { BrowserWindowModule } from '../../../browser/src/lib/browser.module';
-import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
 import { EditorsComponent } from './editors/editors.component';
@@ -45,7 +44,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     EditorComponent,
     SlidesPreviewComponent,
     PlaygroundComponent,
-    CodeEditorComponent,
     FileTreeComponent,
     FileStructureComponent,
     ExercisePreviewComponent,
@@ -61,7 +59,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
       EditorComponent,
       SlidesPreviewComponent,
       RunnerComponent,
-      CodeEditorComponent,
       ExercisePreviewComponent,
       ExerciseComponent,
       NewEditorsComponent,

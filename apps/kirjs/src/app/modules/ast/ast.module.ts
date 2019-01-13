@@ -12,7 +12,6 @@ import { NewProgressBarModule } from './new-progress-bar/new-progress-bar.module
 import { AstComponent } from './ast.component';
 import { DebuggerComponent } from './debugger/debugger.component';
 import { TestSetComponent } from './test-set/test-set.component';
-import { MatchTypesOnHoverDirective } from './match-types-on-hover.directive';
 import { AngularSlidesToPdfModule } from '@angular-presentation/angular-slides-to-pdf';
 import { FakeBabelModule } from '../../../../../../libs/exercise/src/lib/fake-babel-runner/fake-babel-runner.module';
 import { SizePickerModule } from './size-picker/size-picker.module';
@@ -50,7 +49,6 @@ const routes = RouterModule.forChild(
   ],
   declarations: [
     AstComponent,
-    MatchTypesOnHoverDirective,
     DebuggerComponent,
     TestSetComponent,
   ],
