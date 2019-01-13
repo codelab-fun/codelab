@@ -1,18 +1,17 @@
-<slides-presentation slides-slides-routing slides-mode-routing>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
 
   <div class="btn-bar">
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
   </div>
   <slides-progress-bar></slides-progress-bar>
-  <slides-arrows></slides-arrows>
+  <slides-arrow-navigation></slides-arrow-navigation>
 
-
-  <slides-slide *slidesIf="'intro'" no-padding milestone="TypeScript">
+  <div id="intro" no-padding milestone="TypeScript">
     <slides-title-slide title="Visual Studio Code" description="Another Code Editor?"></slides-title-slide>
-  </slides-slide>
+  </div>
 
-  <slides-slide *slidesIf="'about-typescript'">
+  <div id="about-typescript">
     <h1>What is Visual Studio Code?</h1>
     <div row>
       <div>
@@ -30,10 +29,10 @@
         </ul>
       </div>
     </div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide>
+  <div>
     <h1>Why Use Visual Studio Code?</h1>
     <h2>It has awesome tooling support and works especially well with Typescript.</h2>
     <h2 class="feature-title">
@@ -48,10 +47,10 @@
              alt="IntelliSense demo gif">
       </div>
     </div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide>
+  <div>
     <h1>No Really, Why Use Visual Studio Code?</h1>
     <h2>Missing Reference? Syntax Error? No problem!</h2>
     <h2 class="feature-title">
@@ -62,10 +61,10 @@
         <img src="https://code.visualstudio.com/images/language-support_quick-fixes.gif" alt="IntelliSense demo gif">
       </div>
     </div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide>
+  <div>
     <h1>OK, How Do I Get VSCode?</h1>
     <div row>
       <div class="col-6">
@@ -82,10 +81,10 @@
         <img src="http://i.imgur.com/dac74Al.gif">
       </div>
     </div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide>
+  <div>
     <h1>Popular extensions</h1>
     <div row>
       <ul>
@@ -120,9 +119,9 @@
         </li>
       </ul>
     </div>
-  </slides-slide>
+  </div>
 
-  <slides-slide>
+  <div>
     <!--TODO: Add Mac shortcuts?-->
     <h1>Common Keyboard Shortcuts</h1>
     <ul>
@@ -146,20 +145,20 @@
       <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings"
          target="_blank">Sublime</a>
     </p>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide>
+  <div>
     <!--TODO: mac shortcuts-->
     <h1>What!? you forgot all the shortcuts already?</h1>
     <h2>No problem, VSCode has your back. Hit (F1) or (ctrl+shift+p) and type the command you want to perform</h2>
     <div class="col-6 vscode-gifs">
       <img src="https://code.visualstudio.com/images/javascript_formatter.gif" alt="IntelliSense demo">
     </div>
-  </slides-slide>
+  </div>
 
 
-  <slides-slide *slidesIf="'end'; milestone: 'Visaul-Studio-Code'">
+  <div id="end'; milestone: 'Visaul-Studio-Code">
     <slides-closing-slide>
       <div class="header" header>
         <h1>End of Visual Studio Code Section</h1>
@@ -177,7 +176,7 @@
         </h2>
       </div>
     </slides-closing-slide>
-  </slides-slide>
+  </div>
 
 
-</slides-presentation>
+</slides-deck>
