@@ -16,7 +16,6 @@ import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
 import { TooltipsModule } from '../../../tooltips/src/lib/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
-import { CodeGroupComponent } from './code-group/code-group.component';
 import { ExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { DepsService } from './services/deps-order.service';
 import { NewEditorsComponent } from './new-editors/new-editors.component';
@@ -49,7 +48,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     CodeEditorComponent,
     FileTreeComponent,
     FileStructureComponent,
-    CodeGroupComponent,
     ExercisePreviewComponent,
     NewEditorsComponent,
     RealtimeEvalComponent,
@@ -64,7 +62,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
       SlidesPreviewComponent,
       RunnerComponent,
       CodeEditorComponent,
-      CodeGroupComponent,
       ExercisePreviewComponent,
       ExerciseComponent,
       NewEditorsComponent,

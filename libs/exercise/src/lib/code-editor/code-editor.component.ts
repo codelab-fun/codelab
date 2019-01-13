@@ -1,8 +1,7 @@
-import { Component, ContentChild, Input, OnInit, Optional, ViewChild } from '@angular/core';
+import { Component, ContentChild, Input, OnInit, ViewChild } from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 import { MonacoConfigService } from '../services/monaco-config.service';
 import { SlideComponent } from '../../../../presentation/src/lib/slide/slide.component';
-import { CodeGroupComponent } from '../code-group/code-group.component';
 import { EditorComponent } from '../editor/editor.component';
 
 declare const require;
@@ -29,16 +28,12 @@ export class CodeEditorComponent implements OnInit {
   @ViewChild(EditorComponent) public editor;
   @ContentChild('code') textarea;
   public file: FileConfig;
-
-
-  constructor(public slide: SlideComponent,
-              private monacoConfig: MonacoConfigService, @Optional()
-              private group: CodeGroupComponent) {
-  }
-
   @Input('babelHighlightMatch') babelHighlightMatch: any = () => {
   };
 
+  constructor(public slide: SlideComponent,
+              private monacoConfig: MonacoConfigService) {
+  }
 
   ngOnInit(): void {
     const code = this.textarea && this.textarea.nativeElement.value.trim() || this.code;
@@ -69,13 +64,7 @@ export class CodeEditorComponent implements OnInit {
       template: ''
     };
 
-    if (this.group) {
-      this.group.register(this);
-    }
 
-
-    if (!this.group) {
-      this.monacoConfig.createFileModels([this.file]);
-    }
+    this.monacoConfig.createFileModels([this.file]);
   }
 }
