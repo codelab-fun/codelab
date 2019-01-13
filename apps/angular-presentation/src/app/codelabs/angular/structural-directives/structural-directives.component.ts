@@ -12,17 +12,19 @@ export class StructuralDirectivesComponent {
   fontSize = 18;
 
   code = {
-    materialTabs: [
-      html('app', require('!!raw-loader!./samples/material-tabs/app.html'),
-        require('!!raw-loader!./samples/material-tabs/app.solved.html')),
-      exercise('app.component', require('!!raw-loader!./samples/material-tabs/app.component.ts')),
-      exercise('alert.component', require('!!raw-loader!./samples/material-tabs/alert.component.ts')),
-      exercise('taet-led.component', require('!!raw-loader!./samples/material-tabs/taet-led.component.ts')),
-      exercise('app.module', require('!!raw-loader!./samples/material-tabs/app.module.ts')),
-      exercise('break-my-computer.component', require('!!raw-loader!./samples/material-tabs/break-my-computer.component.ts')),
-      stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
-      bootstrap('main', builder.bootstrap()),
-    ],
+    materialTabs: {
+      files: [
+        html('app', require('!!raw-loader!./samples/material-tabs/app.html'),
+          require('!!raw-loader!./samples/material-tabs/app.solved.html')),
+        exercise('app.component', require('!!raw-loader!./samples/material-tabs/app.component.ts')),
+        exercise('alert.component', require('!!raw-loader!./samples/material-tabs/alert.component.ts')),
+        exercise('taet-led.component', require('!!raw-loader!./samples/material-tabs/taet-led.component.ts')),
+        exercise('app.module', require('!!raw-loader!./samples/material-tabs/app.module.ts')),
+        exercise('break-my-computer.component', require('!!raw-loader!./samples/material-tabs/break-my-computer.component.ts')),
+        stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
+        bootstrap('main', builder.bootstrap()),
+      ]
+    },
     materialTabsStructuralDirective: [
       html('app', require('!!raw-loader!./samples/material-tabs-structural-directive/app.html'),
         require('!!raw-loader!./samples/material-tabs-structural-directive/app.solved.html')),

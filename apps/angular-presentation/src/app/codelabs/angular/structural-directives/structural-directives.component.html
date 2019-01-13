@@ -11,27 +11,29 @@
   <codelab-progress-bar></codelab-progress-bar>
   <slides-arrows></slides-arrows>
 
-  <div id="intro" no-padding>
+  <div *slide id="intro" no-padding>
     <div class="bg">
       <h1>Structural directives</h1>
       <h2>By @kirjs</h2>
     </div>
   </div>
-  <div id="we-need-tabs" no-padding>
+  <div *slide id="we-need-tabs" no-padding>
     <h1>We need tabs</h1>
   </div>
 
   <div *slide id="intro2" no-padding>
 
-    <slides-exercise [files]="code.materialTabs">
-      <div class="description"></div>
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
+    <codelab-exercise-playground files="app.component.ts"
+                                 [exercise]="code.materialTabs"></codelab-exercise-playground>
+    <!--<slides-exercise [files]="code.materialTabs">-->
+    <!--<div class="description"></div>-->
+    <!--<slides-new-editors class="editor" [fontSize]="fontSize">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
   </div>
 
-  <div id="bsod" no-padding>
+  <div *slide id="bsod" no-padding>
     <div class='container'>
       <div class="msg" align='center'>
         <p class='highlight'>Windows</p>
@@ -44,7 +46,7 @@
       </div>
     </div>
   </div>
-  <div id="bsod-2" no-padding>
+  <div *slide id="bsod-2" no-padding>
     <div class="alfred-upset"></div>
     <div class='container'>
       <div class="msg" align='center'>
@@ -58,7 +60,7 @@
       </div>
     </div>
   </div>
-  <div id="bsod-beautiful" no-padding>
+  <div *slide id="bsod-beautiful" no-padding>
     <div class='container'>
       <div class="msg" align='center'>
         <p class='highlight'>Windows</p>
@@ -73,25 +75,25 @@
   </div>
 
   <div *slide id="play-with-tabs" no-padding>
-    <slides-exercise [files]="code.materialTabs">
-      <div class="description"></div>
-      <slides-new-editors [fontSize]="fontSize" class="editor">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
+    <!--<slides-exercise [files]="code.materialTabs">-->
+    <!--<div class="description"></div>-->
+    <!--<slides-new-editors [fontSize]="fontSize" class="editor">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
   </div>
 
   <div *slide id="structural-directives-ng-if">
     <h1>Structural directives ngIf</h1>
     <div>
       <slides-file-path path="before"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
                             [(ngModel)]="code.structuralDirectives.ngIfBefore"></slides-simple-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
       <slides-file-path path="after"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
                             [(ngModel)]="code.structuralDirectives.ngIfAfter"></slides-simple-editor>
     </div>
   </div>
@@ -101,13 +103,13 @@
     <h1>Structural directives ngFor</h1>
     <div>
       <slides-file-path path="before"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
                             [(ngModel)]="code.structuralDirectives.ngForBefore"></slides-simple-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
       <slides-file-path path="after"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" [readonly]="false" language="html"
+      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
                             [(ngModel)]="code.structuralDirectives.ngForAfter"></slides-simple-editor>
     </div>
   </div>
@@ -117,7 +119,7 @@
     <h1>Angular MicroSyntax</h1>
     <div>
       <slides-file-path path="before"></slides-file-path>
-      <slides-simple-editor [type]="text" readonly="false" [fontSize]="fontSize" [minLines]="3"
+      <slides-simple-editor language="text" readonly="false" [fontSize]="fontSize" [minLines]="3"
                             [(ngModel)]="code.structuralDirectives.microSyntax"></slides-simple-editor>
     </div>
     <a href="https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855#file-microsyntax-md">More details</a>
@@ -125,20 +127,20 @@
 
 
   <div *slide id="play-with-tabs-structural-directive" no-padding>
-    <slides-exercise [files]="code.materialTabsStructuralDirective">
-      <div class="description"></div>
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
+    <!--<slides-exercise [files]="code.materialTabsStructuralDirective">-->
+    <!--<div class="description"></div>-->
+    <!--<slides-new-editors class="editor" [fontSize]="fontSize">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
   </div>
 
   <div *slide id="mat-tab-nav-bar" no-padding>
-    <slides-exercise [files]="code.mdTabNavBar">
-      <slides-new-editors class="editor" [fontSize]="fontSize">
-      </slides-new-editors>
-      <slides-angular-preview-runner class="preview"></slides-angular-preview-runner>
-    </slides-exercise>
+    <!--<slides-exercise [files]="code.mdTabNavBar">-->
+    <!--<slides-new-editors class="editor" [fontSize]="fontSize">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
   </div>
 
 
