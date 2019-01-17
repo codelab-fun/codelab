@@ -7,10 +7,10 @@
     [(ngModel)]="code"
     (ngModelChange)="update($event)"
   ></slides-multitab-editor>
-  <new-smart-runner
+  <code-demo-runner
     class="quarter"
     [url]="url"
     [presets]="presets"
     [bootstrap]="bootstrap"
-    [code]="compiledCode"></new-smart-runner>
+    [code]="compiledCode"></code-demo-runner>
 </div>

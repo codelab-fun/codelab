@@ -28,7 +28,7 @@ const presets = {
 };
 
 @Component({
-  selector: 'new-smart-runner',
+  selector: 'code-demo-runner',
   templateUrl: './code-demo-runner.component.html',
   styleUrls: ['./code-demo-runner.component.css']
 })
