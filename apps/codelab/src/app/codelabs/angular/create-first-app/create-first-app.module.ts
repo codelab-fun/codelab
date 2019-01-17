@@ -13,6 +13,7 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
 import { ModeComponent } from './mode/mode.component';
+import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
 const routes = RouterModule.forChild(
   [
@@ -30,7 +31,7 @@ const routes = RouterModule.forChild(
     PresentationModule,
     FeedbackModule,
     CommonModule,
-
+    CodeDemoModule,
     BrowserWindowModule,
     CodelabComponentsModule,
     SimpleEditorModule,

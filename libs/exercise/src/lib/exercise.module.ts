@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { LoopProtectionService } from './services/loop-protection.service';
 import { MonacoConfigService } from './services/monaco-config.service';
 import { NgModule } from '@angular/core';
-import { RunnerComponent } from './runner/runner.component';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
 import { TooltipsModule } from '../../../tooltips/src/lib/tooltips.module';
@@ -30,7 +29,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
   ],
   declarations: [
     EditorsComponent,
-    RunnerComponent,
     EditorComponent,
     SlidesPreviewComponent,
     FileTreeComponent,
@@ -43,7 +41,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     [
       EditorComponent,
       SlidesPreviewComponent,
-      RunnerComponent,
       RealtimeEvalComponent,
     ]
 })

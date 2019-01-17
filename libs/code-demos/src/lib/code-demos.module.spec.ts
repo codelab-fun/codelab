@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { CodeDemosModule } from './code-demos.module';
+import { CodeDemoModule } from './code-demo.module';
 
-describe('CodeDemosModule', () => {
+describe('CodeDemoModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CodeDemosModule]
+      imports: [CodeDemoModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(CodeDemosModule).toBeDefined();
+    expect(CodeDemoModule).toBeDefined();
   });
 });

@@ -12,14 +12,12 @@ function getFileName(file: string) {
   styleUrls: ['./simple-tests.component.css']
 })
 export class SimpleTestsComponent implements OnInit {
-
-
   @Input() code: any;
   @Input() translations: { [key: string]: string; } = {};
   @Output()
   public onSelectFile: EventEmitter<string> = new EventEmitter<string>();
   seeAll = false;
-  private tests: Array<TestInfo>;
+  tests: Array<TestInfo>;
 
   constructor(private sanitizer: DomSanitizer) {
   };

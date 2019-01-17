@@ -20,7 +20,7 @@ import { SvgTogetherResultComponent } from './svg-together-result/svg-together-r
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
 import { SlidesModule } from '@codelab/slides';
-import { CodeDemosModule } from '@codelab/code-demos';
+import { CodeDemoModule } from '@codelab/code-demos';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)
@@ -34,7 +34,6 @@ const routes = RouterModule.forChild(
     PresentationModule,
     FeedbackModule,
     ExerciseModule,
-
     SimpleEditorModule,
     FormsModule,
     FlexLayoutModule,
@@ -42,7 +41,7 @@ const routes = RouterModule.forChild(
     NewProgressBarModule,
     SharedPipeModule,
     SlidesModule,
-    CodeDemosModule,
+    CodeDemoModule,
   ],
   declarations: [
     SvgComponent,

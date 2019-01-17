@@ -1,1 +1,1 @@
-export * from './lib/code-demos.module';
+export * from './lib/code-demo.module';

@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./file-path.component.css']
 })
 export class FilePathComponent implements OnInit {
-  private path: string;
-  private extension: string;
+  path: string;
+  extension: string;
 
 
   constructor() {

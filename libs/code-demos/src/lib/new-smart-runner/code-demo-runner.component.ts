@@ -1,10 +1,10 @@
 import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { createSystemJsSandbox } from '../../../../../../../libs/exercise/src/lib/runners/utils/sandbox';
-import { compileTemplates } from '../../../../../../../libs/code-demos/src/lib/runner/prepare-templates';
-import { ScriptLoaderService } from '../../../../../../../libs/exercise/src/lib/services/script-loader.service';
-import { addMetaInformation } from '../angular-test-runner/angular-test-runner.component';
+import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
+import { compileTemplates } from '../runner/prepare-templates';
+import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
+import { addMetaInformation } from '../../../../../apps/codelab/src/app/codelabs/components/angular-test-runner/angular-test-runner.component';
 
 interface CodeFiles {
   [key: string]: string;
@@ -29,10 +29,10 @@ const presets = {
 
 @Component({
   selector: 'new-smart-runner',
-  templateUrl: './new-smart-runner.component.html',
-  styleUrls: ['./new-smart-runner.component.css']
+  templateUrl: './code-demo-runner.component.html',
+  styleUrls: ['./code-demo-runner.component.css']
 })
-export class NewSmartRunnerComponent implements OnDestroy, OnInit, OnChanges {
+export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   @Input() code: CodeFiles = {};
   @Input() jsFiles: CodeFiles = {};
   @Input() bootstrap: string;

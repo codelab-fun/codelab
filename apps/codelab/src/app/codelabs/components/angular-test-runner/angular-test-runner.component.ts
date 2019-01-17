@@ -55,7 +55,7 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
   @ViewChild('runner') runnerElement: ElementRef;
 
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
-  private tests: any;
+  tests: any;
   private subscription: Subscription;
 
   constructor(private  scriptLoaderService: ScriptLoaderService) {

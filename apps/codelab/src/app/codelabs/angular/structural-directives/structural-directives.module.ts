@@ -10,6 +10,7 @@ import { CodelabComponentsModule } from '../../components/codelab-components.mod
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
 import { FormsModule } from '@angular/forms';
+import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
 
 const routes = RouterModule.forChild(
@@ -20,10 +21,9 @@ const routes = RouterModule.forChild(
   imports: [
     routes,
     PresentationModule,
-
+    CodeDemoModule,
     BrowserWindowModule,
     FeedbackModule,
-
     CodelabComponentsModule,
     SimpleEditorModule,
     SlidesModule,

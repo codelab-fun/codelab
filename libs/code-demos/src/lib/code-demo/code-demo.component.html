@@ -1,0 +1,18 @@
+<div *ngIf="(files$ | async) as code">
+  <div class="row">
+    <slides-multitab-editor
+      [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
+      class="quarter"
+      [files]="files"
+      [solutions]="solutions"
+      [ngModel]="code"
+      (ngModelChange)="update($event)"
+    ></slides-multitab-editor>
+    <new-smart-runner
+      class="quarter"
+      [url]="url"
+      [presets]="presets"
+      [bootstrap]="bootstrap"
+      [code]="code"></new-smart-runner>
+  </div>
+</div>

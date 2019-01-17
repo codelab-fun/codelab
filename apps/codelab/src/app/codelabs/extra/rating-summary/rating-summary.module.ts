@@ -11,6 +11,7 @@ import { environment } from '../../../../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { RatingSummaryComponent } from './rating-summary.component';
+import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 
 const routes = RouterModule.forChild(
@@ -21,9 +22,14 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
 
 @NgModule({
   imports: [
-    routes, BrowserWindowModule,
-    PresentationModule, angularFire,
-    CommonModule, HttpClientModule, FeedbackModule,
+    routes,
+    BrowserWindowModule,
+    PresentationModule,
+    angularFire,
+    CommonModule,
+    HttpClientModule,
+    FeedbackModule,
+    SlidesModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],

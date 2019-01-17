@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
-import { Subject } from 'rxjs/internal/Subject';
+import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 declare const monaco: any;
@@ -53,10 +53,6 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
     this.changeSubject.pipe(debounceTime(this.debounce)).subscribe((a => this.change.emit(a)));
   }
 
-  get actualFontSize() {
-    return this.fontSize;
-  }
-
   registerOnTouched(fn: any): void {
   }
 
@@ -78,8 +74,10 @@ export class SimpleEditorComponent implements ControlValueAccessor, AfterViewIni
   @HostListener('window:resize')
   resize() {
     if (this.editor && this.code) {
+      const actualFontSize = this.fontSize * document.documentElement.clientWidth / 1800;
+      this.editor.updateOptions({fontSize: actualFontSize});
       const lines = this.code.split('\n').length;
-      const lineHeight = this.actualFontSize * 1.6;
+      const lineHeight = actualFontSize * 1.6;
       const height = Math.max(lines * lineHeight, lineHeight * this.minLines);
 
       if (this.height !== height) {

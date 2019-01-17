@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 
-import { MonacoConfigService } from '../../../../../../../../libs/exercise/src/lib/services/monaco-config.service';
+import { MonacoConfigService } from '../../../../../exercise/src/lib/services/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
 import ITextModel = editor.ITextModel;
 

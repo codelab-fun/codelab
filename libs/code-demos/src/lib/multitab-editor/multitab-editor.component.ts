@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnDestroy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
-import { MonacoConfigService } from '../../../../../../../libs/exercise/src/lib/services/monaco-config.service';
+import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
@@ -42,11 +42,12 @@ export class MultitabEditorComponent
   @Input() slidesSimpleHighlightMatch = [];
   @Input() highlights = {};
   files = [];
+  openModels: MonacoModel[];
   private onChange: any;
-  private fileNames: string[];
+  private fileNames: string[] = [];
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
-  private openModels: MonacoModel[];
+
 
   constructor(readonly monacoConfigService: MonacoConfigService,
               readonly cdr: ChangeDetectorRef) {

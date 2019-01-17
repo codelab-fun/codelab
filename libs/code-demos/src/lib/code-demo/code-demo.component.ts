@@ -1,0 +1,127 @@
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { filter, map, publishReplay, refCount, startWith, tap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
+import { compileTsFilesWatch } from '../runner/compile-ts-files';
+
+function filterByFileType(type: string, files: Record<string, string>) {
+  return Object.entries(files).reduce((changedFiles, [path, code]) => {
+    if (path.match(new RegExp(`\\\.${type}$`))) {
+      changedFiles[path] = code;
+    }
+    return changedFiles;
+  }, {});
+}
+
+export function extractSolutions(files: any[]) {
+  return files.reduce((result, file) => {
+    if (file.solution) {
+      result[file.path] = file.solution || file.template;
+    }
+
+    return result;
+  }, {});
+}
+
+export function getChanges(current, previous) {
+  return Object.keys(current).reduce((changedFiles, path) => {
+    if (current[path] !== previous[path]) {
+      changedFiles[path] = current[path];
+    }
+    return changedFiles;
+  }, {});
+}
+
+@Component({
+  selector: 'code-demo',
+  templateUrl: 'code-demo.component.html',
+  styleUrls: ['./code-demo.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CodeDemo),
+      multi: true
+    }
+  ]
+})
+export class CodeDemo implements ControlValueAccessor {
+  @Input() bootstrapTest;
+  @Input() milestone = '';
+  @Input() url = 'about:blank';
+  @Input() translations = {};
+  @Input() slidesSimpleHighlightMatch = [];
+  @Input() testRunner: 'babel' | 'iframe' = 'iframe';
+  @Input() files: string[];
+  @Input() presets = ['angular'];
+  @Input() bootstrap = 'bootstrap';
+
+  openFileIndex = 0;
+  code: any = {};
+  solutions = {};
+  filesConfig: any;
+  changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
+  changedStaticFilesSubject = new ReplaySubject<Record<string, string>>(1);
+
+  public files$: Observable<Record<string, string>>;
+  @Input() highlights: Record<string, string>;
+  private codeCache: Record<string, string> = {};
+
+  constructor() {
+    const ts = this.changedTsFilesSubject.pipe(
+      map(files =>
+        Object.entries(files).reduce((result, [file, code]) => {
+          result[file] = this.retrieveFile(file, code);
+          return result;
+        }, {})
+      ),
+      filter(value => Object.keys(value).length > 0),
+      compileTsFilesWatch()
+    );
+
+    const staticFiles = this.changedStaticFilesSubject.pipe(
+      filter(value => Object.keys(value).length > 0),
+      tap(a => console.log(a)),
+      startWith({})
+    );
+
+    this.files$ = combineLatest(ts, staticFiles).pipe(
+      map(([js, staticFiles]) => ({...staticFiles, ...js})),
+      map(files => ({...this.code, ...files})),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
+  retrieveFile(file, code) {
+    return code;
+  }
+
+  registerOnTouched() {
+  }
+
+  registerOnChange() {
+  }
+
+  writeValue(code: Record<string, string>) {
+    if (code) {
+      this.code = code;
+      this.files = this.files || [Object.keys(this.code)[0]];
+      this.update(code);
+    }
+  }
+
+  update(code: Record<string, string>) {
+    const changesTs = getChanges(
+      filterByFileType('ts', code),
+      filterByFileType('ts', this.codeCache)
+    );
+    const changesStatic = getChanges(
+      filterByFileType('html|css', code),
+      filterByFileType('html|css', this.codeCache)
+    );
+
+    this.codeCache = {...code};
+    this.changedTsFilesSubject.next(changesTs);
+    this.changedStaticFilesSubject.next(changesStatic);
+  }
+}

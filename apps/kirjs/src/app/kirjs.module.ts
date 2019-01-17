@@ -19,14 +19,6 @@ const routes = [
     prod: true
   },
   {
-    path: 'hooks',
-    loadChildren: './modules/hooks/hooks.module#BinaryModule',
-    name: 'Hooks',
-    description: 'Learn about Binary in JS',
-    page: 'bonus',
-    prod: true
-  },
-  {
     path: 'gomoku',
     loadChildren: './modules/gomoku/gomoku.module#GomokuModule',
     name: 'Gomoku',

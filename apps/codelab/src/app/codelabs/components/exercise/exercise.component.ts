@@ -1,10 +1,7 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
-import { compileTsFilesWatch } from '../../../../../../../libs/code-demos/src/lib/runner/compile-ts-files';
-import { filter, map, publishReplay, refCount, startWith, tap } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
+import { CodeDemo } from '../../../../../../../libs/code-demos/src/lib/code-demo/code-demo.component';
 
 function filterByFileType(type: string, files: Record<string, string>) {
   return Object.entries(files).reduce((changedFiles, [path, code]) => {
@@ -38,63 +35,8 @@ export function getChanges(current, previous) {
   selector: 'slides-codelab-exercise',
   templateUrl: 'exercise.component.html',
   styleUrls: ['./exercise.component.css'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CodelabExerciseComponent),
-      multi: true
-    }
-  ]
 })
-export class CodelabExerciseComponent {
-  @Input() bootstrapTest;
-  @Input() milestone = '';
-  @Input() url = 'about:blank';
-  @Input() translations = {};
-  @Input() slidesSimpleHighlightMatch = [];
-  @Input() testRunner: 'babel' | 'iframe' = 'iframe';
-  @Input() files: string[];
-  @Input() presets = ['angular'];
-
-  openFileIndex = 0;
-  code: any = {};
-  solutions = {};
-  filesConfig: any;
-  changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
-  changedStaticFilesSubject = new ReplaySubject<Record<string, string>>(1);
-  public bootstrap: string;
-
-  public files$: Observable<Record<string, string>>;
-  @Input() highlights: Record<string, string>;
-  private codeCache: Record<string, string> = {};
-
-  constructor() {
-    const ts = this.changedTsFilesSubject.pipe(
-      map(files =>
-        Object.entries(files).reduce((result, [file, code]) => {
-          const f = this.filesConfig.files.find(f => f.path === file);
-          result[file] = (f.before || '') + code + (f.after || '');
-          return result;
-        }, {})
-      ),
-      filter(value => Object.keys(value).length > 0),
-      compileTsFilesWatch()
-    );
-
-    const staticFiles = this.changedStaticFilesSubject.pipe(
-      filter(value => Object.keys(value).length > 0),
-      tap(a => console.log(a)),
-      startWith({})
-    );
-
-    this.files$ = combineLatest(ts, staticFiles).pipe(
-      map(([js, staticFiles]) => ({...staticFiles, ...js})),
-      map(files => ({...this.code, ...files})),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
+export class CodelabExerciseComponent extends CodeDemo {
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
 
@@ -112,18 +54,8 @@ export class CodelabExerciseComponent {
     this.update(map.code);
   }
 
-  update(code: Record<string, string>) {
-    const changesTs = getChanges(
-      filterByFileType('ts', code),
-      filterByFileType('ts', this.codeCache)
-    );
-    const changesStatic = getChanges(
-      filterByFileType('html|css', code),
-      filterByFileType('html|css', this.codeCache)
-    );
-
-    this.codeCache = {...code};
-    this.changedTsFilesSubject.next(changesTs);
-    this.changedStaticFilesSubject.next(changesStatic);
+  retrieveFile(file, code) {
+    const f = this.filesConfig.files.find(f => f.path === file);
+    return (f.before || '') + code + (f.after || '');
   }
 }
