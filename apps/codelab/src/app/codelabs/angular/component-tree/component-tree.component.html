@@ -79,13 +79,13 @@
     <div row>
       <div column-5>
         <slides-file-path path="box.component.ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.other.boxNoParams"
-                              [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.other.boxNoParams"
+                              [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></code-demo-editor>
       </div>
       <div column-5>
         <slides-file-path path="circle.component..ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[0].code"
-                              [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[0].code"
+                              [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></code-demo-editor>
       </div>
     </div>
     <slides-browser-window style="margin-top: 280px;">
@@ -165,8 +165,8 @@
     </h1>
     <h2 i18n>Components won't know about each other unless they're declared in the same module</h2>
     <slides-file-path path="app.module.ts"></slides-file-path>
-    <slides-simple-editor [(ngModel)]="code.appModule.code"
-                          [slidesSimpleHighlightMatch]="code.appModule.match"></slides-simple-editor>
+    <code-demo-editor [(ngModel)]="code.appModule.code"
+                          [slidesSimpleHighlightMatch]="code.appModule.match"></code-demo-editor>
   </div>
 
   <div *slide id="recap" milestone="component-tree-2">
@@ -180,20 +180,20 @@
         <div column-5>
 
           <slides-file-path path="box.component.ts"></slides-file-path>
-          <slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[1].code"
-                                [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>
+          <code-demo-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[1].code"
+                                [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></code-demo-editor>
         </div>
         <div column-5>
           <slides-file-path path="circle.component.ts"></slides-file-path>
-          <slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[0].code"
-                                [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></slides-simple-editor>
+          <code-demo-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[0].code"
+                                [slidesSimpleHighlightMatch]="code.parentComponentSkeleton.match"></code-demo-editor>
         </div>
       </div>
       <div row>
         <div column-5>
           <slides-file-path path="module.ts"></slides-file-path>
-          <slides-simple-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[2].code"
-                                [slidesSimpleHighlightMatch]="code.appModule.match"></slides-simple-editor>
+          <code-demo-editor [fontSize]="15" [(ngModel)]="code.circleAndBox.files[2].code"
+                                [slidesSimpleHighlightMatch]="code.appModule.match"></code-demo-editor>
         </div>
         <slides-browser-window style="display: block;width: 50vw; height: 50vh;">
           <div style="border: 1px #ddd solid; width: 100px">

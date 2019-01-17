@@ -1,7 +1,7 @@
 <div fxLayout style="height: 100%;">
   <div [style.height]="'100%'" fxFlex="1 0">
-    <slides-simple-editor [(ngModel)]="code" [lineNumbers]="false"
-                          [fontSize]="'30'"></slides-simple-editor>
+    <code-demo-editor [(ngModel)]="code" [lineNumbers]="false"
+                          [fontSize]="'30'"></code-demo-editor>
   </div>
   <div fxFlex="1 0" style="height: 100%;">
     <div style="height: 100%;" [innerHTML]="code|safeHtml"></div>

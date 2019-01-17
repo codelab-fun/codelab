@@ -87,14 +87,14 @@
     <h1>Structural directives ngIf</h1>
     <div>
       <slides-file-path path="before"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
-                            [(ngModel)]="code.structuralDirectives.ngIfBefore"></slides-simple-editor>
+      <code-demo-editor [fontSize]="fontSize" [minLines]="3" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngIfBefore"></code-demo-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
       <slides-file-path path="after"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
-                            [(ngModel)]="code.structuralDirectives.ngIfAfter"></slides-simple-editor>
+      <code-demo-editor [fontSize]="fontSize" [minLines]="3" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngIfAfter"></code-demo-editor>
     </div>
   </div>
 
@@ -103,14 +103,14 @@
     <h1>Structural directives ngFor</h1>
     <div>
       <slides-file-path path="before"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
-                            [(ngModel)]="code.structuralDirectives.ngForBefore"></slides-simple-editor>
+      <code-demo-editor [fontSize]="fontSize" [minLines]="3" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngForBefore"></code-demo-editor>
       <br><br>
       <h2>Desugars into</h2>
       <br><br>
       <slides-file-path path="after"></slides-file-path>
-      <slides-simple-editor [fontSize]="fontSize" [minLines]="3" language="html"
-                            [(ngModel)]="code.structuralDirectives.ngForAfter"></slides-simple-editor>
+      <code-demo-editor [fontSize]="fontSize" [minLines]="3" language="html"
+                            [(ngModel)]="code.structuralDirectives.ngForAfter"></code-demo-editor>
     </div>
   </div>
 
@@ -119,8 +119,8 @@
     <h1>Angular MicroSyntax</h1>
     <div>
       <slides-file-path path="before"></slides-file-path>
-      <slides-simple-editor language="text" readonly="false" [fontSize]="fontSize" [minLines]="3"
-                            [(ngModel)]="code.structuralDirectives.microSyntax"></slides-simple-editor>
+      <code-demo-editor language="text" readonly="false" [fontSize]="fontSize" [minLines]="3"
+                            [(ngModel)]="code.structuralDirectives.microSyntax"></code-demo-editor>
     </div>
     <a href="https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855#file-microsyntax-md">More details</a>
   </div>

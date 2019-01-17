@@ -1,5 +1,4 @@
-<slides-deck  slidesShortcuts slidesRouting slides-tracking>
-
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
       <a href="https://github.com/AngularNYC/angular-presentation">
@@ -84,10 +83,10 @@
   <!--  PIPES WITH ARGUMENT -->
   <div *slide id="argument-pipes" milestone="Pipes">
     <h1>Pipes with arguments:</h1>
-    <slides-simple-editor
+    <code-demo-editor
       [(ngModel)]="code.argumentPipes.template"
       language="html">
-    </slides-simple-editor>
+    </code-demo-editor>
     <div class="info" milestone="Pipes">
       To add parameters to a pipe, append a colon ( : ) followed by the parameters' values
       e.g. currency:'AUD'
@@ -97,31 +96,31 @@
   <!--  PIPES AS FILTERS  -->
   <div *slide id="pipes-as-filters" milestone="Pipes">
     <h1>Using custom pipes to filter data</h1>
-    <slides-simple-editor
+    <code-demo-editor
       [(ngModel)]="code.filterPipes.template"
       language="html">
-    </slides-simple-editor>
+    </code-demo-editor>
   </div>
 
   <!--  CREATING A PIPE  -->
   <div *slide id="crating-pipe" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-simple-editor
+    <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.exportClass">
-    </slides-simple-editor>
+    </code-demo-editor>
     <h2>A pipe is a class decorated with pipe metadata.</h2>
   </div>
 
   <!--  PIPE TRANSFORM  -->
   <div *slide id="pipeTransform" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-simple-editor
+    <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.pipeTransform">
-    </slides-simple-editor>
+    </code-demo-editor>
     <h2>
       The pipe class implements the PipeTransform interface.
     </h2>
@@ -130,11 +129,11 @@
   <!--  PIPE TRANSFORM METHOD  -->
   <div *slide id="pipe-transform-method" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-simple-editor
+    <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.method">
-    </slides-simple-editor>
+    </code-demo-editor>
     <h2>
       The transform method accepts an input value followed by optional parameters and returns the transformed value.
     </h2>
@@ -143,11 +142,11 @@
   <!--  PIPE DECORATOR  -->
   <div *slide id="pipe-decorator" milestone="Pipes">
     <h1>Creating a pipe</h1>
-    <slides-simple-editor
+    <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [slidesSimpleHighlightMatch]="code.creatingAPipe.matches.decorator">
-    </slides-simple-editor>
+    </code-demo-editor>
     <h2>
       The @Pipe decorator allows you to define the pipe name that you'll use within template expressions.
     </h2>

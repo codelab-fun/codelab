@@ -1,9 +1,9 @@
 <div style="display: flex;" class="wrapper">
   <div class="code" style="flex: 0 0 36vw; display: flex;flex-direction: column">
     <h2 i18n>Data as JSON (<b>{{codeLength}} bytes</b>)</h2>
-    <slides-simple-editor
+    <code-demo-editor
       style="" (lineChange)="handleLineChange($event)" [(ngModel)]="code"
-      [fontSize]="40" [lineNumbers]="false" [slidesSimpleHighlightMatch]="match"></slides-simple-editor>
+      [fontSize]="40" [lineNumbers]="false" [slidesSimpleHighlightMatch]="match"></code-demo-editor>
 
   </div>
   <div class="binary" style="flex: 0 0 60vw; display: flex;flex-direction: column">

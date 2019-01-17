@@ -11,7 +11,7 @@ import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/b
 import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
-import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
@@ -35,7 +35,7 @@ const routes = RouterModule.forChild(
     CodeDemoModule,
     CodelabComponentsModule,
     SlidesModule,
-    SimpleEditorModule,
+    
     FormsModule,
   ],
   declarations: [CustomEventsComponent],

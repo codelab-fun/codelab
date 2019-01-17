@@ -19,7 +19,7 @@ declare const monaco: any;
 declare const require: any;
 
 @Component({
-  selector: 'slides-simple-editor',
+  selector: 'code-demo-editor',
   template: `
     <div #editor class="monaco-editor"></div>`,
   styleUrls: ['editor.component.css'],

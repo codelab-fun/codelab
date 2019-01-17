@@ -5,9 +5,9 @@
     <div class="box-row-fill">
       <slides-file-path path="app.module.ts"></slides-file-path>
 
-      <slides-simple-editor [fontSize]="30" [(ngModel)]="code.moduleAnatomy.code"
+      <code-demo-editor [fontSize]="30" [(ngModel)]="code.moduleAnatomy.code"
                             style="height: 400px;"
-                            [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"></slides-simple-editor>
+                            [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"></code-demo-editor>
     </div>
     <slides-browser-window style="width: 490px; height: 300px;">
       <h1>Hello World</h1>
@@ -21,8 +21,8 @@
   <h2 i18n>With Angular we build mobile apps using NativeScript or Ionic.</h2>
   <div class="box-row">
     <div class="box-row-fill">
-      <slides-simple-editor [fontSize]="30" [(ngModel)]="code.moduleAnatomy.codeMobile"
-                            [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"></slides-simple-editor>
+      <code-demo-editor [fontSize]="30" [(ngModel)]="code.moduleAnatomy.codeMobile"
+                            [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"></code-demo-editor>
     </div>
     <img style="height: 340px; padding-top: 10px;" src="/assets/images/helloworldapp.png">
   </div>
@@ -31,7 +31,7 @@
   <h2 i18n>With Angular you can build VR apps with A-FRAME or WEBGL.</h2>
   <div class="box-row">
     <div class="box-row-fill">
-      <slides-simple-editor [fontSize]="30" [(ngModel)]="code.moduleAnatomy.codeVR"></slides-simple-editor>
+      <code-demo-editor [fontSize]="30" [(ngModel)]="code.moduleAnatomy.codeVR"></code-demo-editor>
     </div>
     <img style="width: 680px; padding-top: 10px;" src="/assets/images/vrhelloworld.png">
   </div>

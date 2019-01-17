@@ -5,13 +5,13 @@
         {{i}}
       </div>
     </div>
-    <slides-simple-editor
+    <code-demo-editor
       [fontSize]="40"
       [lineNumbers]="false"
       [(ngModel)]="code"
       style="width:50vw; height: 100vh;flex: none"
       language="javascript"
-      (ngModelChange)="generateCode()"></slides-simple-editor>
+      (ngModelChange)="generateCode()"></code-demo-editor>
   </div>
   <div>
 
@@ -24,11 +24,11 @@
       [highlightedMap]="{boolean: true, number: true, hex: true, string: true}"
       [spacing]="true"></slides-fake-gif>
     <code class="output error" *ngIf="error">{{error}}</code>
-    <slides-simple-editor
+    <code-demo-editor
       [fontSize]="40"
       language="json"
       [lineNumbers]="false"
       [(ngModel)]="result"
-      style="width:50vw; height: 100vh;flex: none"></slides-simple-editor>
+      style="width:50vw; height: 100vh;flex: none"></code-demo-editor>
   </div>
 </div>

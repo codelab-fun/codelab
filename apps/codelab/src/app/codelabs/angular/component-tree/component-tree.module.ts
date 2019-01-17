@@ -8,7 +8,7 @@ import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/b
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
-import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
@@ -31,7 +31,7 @@ const routes = RouterModule.forChild(
     CodeDemoModule,
     FeedbackModule,
     CodelabComponentsModule,
-    SimpleEditorModule,
+
     SlidesModule,
     FormsModule,
   ],

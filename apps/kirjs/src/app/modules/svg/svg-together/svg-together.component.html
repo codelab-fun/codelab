@@ -7,8 +7,8 @@
       </button>
       <button (click)="submit()" mat-raised-button color="primary">Submit</button>
     </div>
-    <slides-simple-editor [(ngModel)]="code" [lineNumbers]="false"
-                          [fontSize]="'30'"></slides-simple-editor>
+    <code-demo-editor [(ngModel)]="code" [lineNumbers]="false"
+                          [fontSize]="'30'"></code-demo-editor>
   </div>
   <div style="height: 500px; width: 500px; flex-shrink: 0;flex-grow: 0">
     <div style="height: 100%;" [innerHTML]="allCode|safeHtml"></div>

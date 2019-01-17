@@ -44,12 +44,12 @@
   <div *slide id="binary-file-upload">
     <input type="file"/>
     <hr>
-    <slides-simple-editor
+    <code-demo-editor
       [lineNumbers]="false"
       [fontSize]="40"
       [(ngModel)]="code.fileHandler"
       [slidesSimpleHighlightMatch]="code.fileHandlerHighlight"
-      language="javascript"></slides-simple-editor>
+      language="javascript"></code-demo-editor>
   </div>
 
   <div *slide id="binary-file-value-2" vertical-split>
@@ -69,11 +69,11 @@
   </div>
 
   <div *slide id="binary-file-upload-buffer">
-    <slides-simple-editor
+    <code-demo-editor
       [lineNumbers]="false"
       [fontSize]="40"
       [(ngModel)]="code.fileHandlerBinary"
-      language="javascript"></slides-simple-editor>
+      language="javascript"></code-demo-editor>
   </div>
 
   <div *slide id="binary-file-value" vertical-split>
@@ -322,8 +322,8 @@ Columbus, Ohio
   <!--</div>-->
   <!--<div *slide id="binary-message-decoded" vertical-split>-->
   <!--<div>-->
-  <!--<slides-simple-editor language="javascript" [fontSize]="40" [(ngModel)]="code.message"-->
-  <!--(ngModelChange)="evalMessage()"></slides-simple-editor>-->
+  <!--<code-demo-editor language="javascript" [fontSize]="40" [(ngModel)]="code.message"-->
+  <!--(ngModelChange)="evalMessage()"></code-demo-editor>-->
   <!--</div>-->
   <!--<div style="font-size: 5vw; word-wrap: break-word">{{evaledMessage}}</div>-->
   <!--</div>-->
@@ -596,8 +596,8 @@ console.log(a[1])"></codelab-memory>
   </div>
 
   <div *slide id="binary-operations">
-    <slides-simple-editor [lineNumbers]="false" [fontSize]="50" language="javascript"
-                          [(ngModel)]="code.simpleBinaryOperations"></slides-simple-editor>
+    <code-demo-editor [lineNumbers]="false" [fontSize]="50" language="javascript"
+                          [(ngModel)]="code.simpleBinaryOperations"></code-demo-editor>
   </div>
 
   <div *slide id="angular-flags">

@@ -8,7 +8,7 @@ import { StructuralDirectivesComponent } from './structural-directives.component
 
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
-import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
@@ -25,7 +25,7 @@ const routes = RouterModule.forChild(
     BrowserWindowModule,
     FeedbackModule,
     CodelabComponentsModule,
-    SimpleEditorModule,
+    
     SlidesModule,
     FormsModule,
 

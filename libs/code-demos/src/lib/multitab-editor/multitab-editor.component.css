@@ -32,7 +32,7 @@ mat-form-field {
 
 }
 
-slides-simple-editor {
+code-demo-editor {
   height: 100%;
   flex-grow: 1;
   display: flex;

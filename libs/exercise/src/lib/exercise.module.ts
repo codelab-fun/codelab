@@ -15,8 +15,7 @@ import { DepsService } from './services/deps-order.service';
 
 
 import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/size-picker/size-picker.module';
-import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
-import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-editor.module';
+
 
 @NgModule({
   imports: [
@@ -25,7 +24,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     TooltipsModule,
     BrowserWindowModule,
     SizePickerModule,
-    SimpleEditorModule,
   ],
   declarations: [
     EditorsComponent,
@@ -33,7 +31,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     SlidesPreviewComponent,
     FileTreeComponent,
     FileStructureComponent,
-    RealtimeEvalComponent,
   ],
   providers:
     [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
@@ -41,7 +38,6 @@ import { SimpleEditorModule } from '../../../code-demos/src/lib/editor/simple-ed
     [
       EditorComponent,
       SlidesPreviewComponent,
-      RealtimeEvalComponent,
     ]
 })
 

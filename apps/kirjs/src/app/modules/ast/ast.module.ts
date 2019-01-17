@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
 import { AstPreviewRunnerModule } from './ast-preview-runner/ast-preview-runner.module';
 import { BrowserWindowModule } from '@codelab/browser';
-import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+
 import { NewProgressBarModule } from './new-progress-bar/new-progress-bar.module';
 import { AstComponent } from './ast.component';
 import { DebuggerComponent } from './debugger/debugger.component';
@@ -36,7 +36,7 @@ const routes = RouterModule.forChild(
     SlidesModule,
     BrowserWindowModule,
     FeedbackModule,
-    SimpleEditorModule,
+    
     FlexLayoutModule,
     FormsModule,
     TooltipsModule,

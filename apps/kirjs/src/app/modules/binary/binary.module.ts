@@ -12,7 +12,7 @@ import { AsciiComponent } from './ascii/ascii.component';
 import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
 import { JsonComponent } from './json/json.component';
-import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+
 import { TooltipsModule } from '../../../../../../libs/tooltips/src/index';
 import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule, MatSelectModule } from '@angular/material';
@@ -45,7 +45,7 @@ const routes = RouterModule.forChild(
     FormsModule,
     CommonModule,
     BinaryViewModule,
-    SimpleEditorModule,
+    
     TooltipsModule,
     MatAutocompleteModule,
     SharedPipeModule,

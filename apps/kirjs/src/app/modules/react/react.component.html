@@ -4,8 +4,8 @@
   <div *slide id="react-description" no-padding>
     <h1 i18n="@@introduction">Introduction</h1>
     <div fxLayout style="height: 100%">
-      <slides-simple-editor style="width: 50%;" [fontSize]="30" [(ngModel)]="code.hook1" language="javascript"
-                            [lineNumbers]="false"></slides-simple-editor>
+      <code-demo-editor style="width: 50%;" [fontSize]="30" [(ngModel)]="code.hook1" language="javascript"
+                            [lineNumbers]="false"></code-demo-editor>
       <slides-react-preview-runner style="width: 50%;" [code]="code.hook1"></slides-react-preview-runner>
     </div>
   </div>

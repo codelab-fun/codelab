@@ -1,9 +1,9 @@
 <div class="wrapper">
   <div class="console">
     <div class="input">
-      <slides-simple-editor [language]="language" [lineNumbers]="false" style="height: 100px;" [fontSize]="60"
+      <code-demo-editor [language]="language" [lineNumbers]="false" style="height: 100px;" [fontSize]="60"
                             [(ngModel)]="code"
-                            (ngModelChange)="evaluate()"></slides-simple-editor>
+                            (ngModelChange)="evaluate()"></code-demo-editor>
     </div>
     <code class="output result" *ngIf="result">{{result}}</code>
     <code class="output error" *ngIf="error">{{error}}</code>

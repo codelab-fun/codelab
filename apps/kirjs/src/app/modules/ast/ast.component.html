@@ -60,12 +60,12 @@
 
   <div *slide id="parser-code">
     <h2>Парсим с помощью babylon:</h2>
-    <slides-simple-editor class="editor"
+    <code-demo-editor class="editor"
                           language="javascript"
                           [lineNumbers]="false"
                           [(ngModel)]="code.parser"
                           [fontSize]="fontSize * 1.5"
-    ></slides-simple-editor>
+    ></code-demo-editor>
   </div>
 
   <div *slide id="babylon-update">
@@ -79,15 +79,15 @@
     <h1>Пример Абстрактного Синтаксического Дерева:</h1>
 
     <div style="display: flex;">
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLog"
                             type="javascript"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
 
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLogAst"
                             type="JSON"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
     </div>
 
   </div>
@@ -98,31 +98,31 @@
 
   <div *slide id="console-log-ast-highlight-body">
     <div style="display: flex;">
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLog"
                             type="javascript"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
 
 
       <!--// TODO(kirjs): [slidesBabelHighlightMatch]="matchTreePartsBody"-->
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLogAstJs"
                             type="JSON"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
     </div>
   </div>
 
   <div *slide id="console-log-ast-just-body">
     <div style="display: flex;">
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLog"
                             type="javascript"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
 
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLogBodyAstCode"
                             type="JSON"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
     </div>
   </div>
 
@@ -130,37 +130,37 @@
 
   <div *slide id="console-log-ast-just-body-highlight-loc">
     <div style="display: flex;">
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLog"
                             type="javascript"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
 
       <!--// TODO(kirjs): [babelHighlightMatch]="matchTreePartsLoc"-->
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLogBodyAstCode"
                             type="JSON"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
     </div>
   </div>
 
 
   <div *slide id="console-log-ast-no-loc">
     <div style="display: flex;">
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLog"
                             type="javascript"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
 
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLogNoLocCode"
                             type="JSON"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
     </div>
   </div>
 
   <div *slide id="console-log-structure" no-padding>
     <div fxLayout style="height: 200px;flex-shrink: 0">
-      <slides-simple-editor [minLines]="1"
+      <code-demo-editor [minLines]="1"
                             [slidesSimpleHighlight]="asthighlight"
                             [autoSize]="false"
                             class="editor"
@@ -168,7 +168,7 @@
                             [fontSize]="fontSize * 2"
                             [lineNumbers]="false"
                             style="width: 70%;"
-      ></slides-simple-editor>
+      ></code-demo-editor>
       <div class="ast-preview-helper-list">
         <ul>
           <li (click)="code.astPreview = 'log'">log</li>
@@ -188,15 +188,15 @@
 
   <div *slide id="console-log-ast-no-loc2">
     <div style="display: flex;">
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLog"
                             type="javascript"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
 
-      <slides-simple-editor style="width: 50%"
+      <code-demo-editor style="width: 50%"
                             [(ngModel)]="code.consoleLogNoLocCode"
                             type="JSON"
-                            lineNumbers="on"></slides-simple-editor>
+                            lineNumbers="on"></code-demo-editor>
     </div>
   </div>
 
@@ -216,21 +216,21 @@
   </div>
 
   <div *slide id="babel-types-identifier" no-padding>
-    <slides-simple-editor class="editor"
+    <code-demo-editor class="editor"
                           language="javascript"
                           [lineNumbers]="false"
                           [(ngModel)]="code.types.identifier"
                           [fontSize]="fontSize * 1.5"
-    ></slides-simple-editor>
+    ></code-demo-editor>
   </div>
 
   <div *slide id="babel-types-name" no-padding>
-    <slides-simple-editor class="editor"
+    <code-demo-editor class="editor"
                           language="javascript"
                           [lineNumbers]="false"
                           [(ngModel)]="code.types.name"
                           [fontSize]="fontSize* 1.5"
-    ></slides-simple-editor>
+    ></code-demo-editor>
   </div>
 
 
@@ -257,11 +257,11 @@
 
   <div *slide id="debugger-structure2" no-padding>
     <div fxLayout style="height: 200px;flex-shrink: 0">
-      <slides-simple-editor class="editor"
+      <code-demo-editor class="editor"
                             [(ngModel)]="code.astPreviewDebugger"
                             [fontSize]="fontSize"
                             style="width: 70%;"
-      ></slides-simple-editor>
+      ></code-demo-editor>
       <div class="ast-preview-helper-list" style="font-size: 2vw;padding: 20px;">
         <a href="http://astexplorer.net/">astexplorer.net</a>
       </div>

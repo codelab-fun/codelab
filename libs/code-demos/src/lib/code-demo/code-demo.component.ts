@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { filter, map, publishReplay, refCount, startWith, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
 import { compileTsFilesWatch } from '../runner/compile-ts-files';
-import { Code } from '@codelab/code-demos/src/lib/shared';
+import { Code } from '../shared/types';
 
 function filterByFileType(type: string, files: Record<string, string>) {
   return Object.entries(files).reduce((changedFiles, [path, code]) => {

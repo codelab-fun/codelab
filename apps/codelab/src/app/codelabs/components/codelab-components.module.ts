@@ -3,7 +3,7 @@ import { CodelabExerciseComponent } from './exercise/exercise.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatSelectModule } from '@angular/material';
-import { SimpleEditorModule } from '../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+
 import { CodeDemoModule } from '../../../../../../libs/code-demos/src';
 import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-test-runner.component';
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
@@ -26,7 +26,7 @@ import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-ani
     FormsModule,
     MatButtonModule,
     MatSelectModule,
-    SimpleEditorModule,
+    
     CodeDemoModule
   ],
   declarations: [

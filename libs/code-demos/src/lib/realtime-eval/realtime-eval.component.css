@@ -21,7 +21,7 @@
   border-radius: 20px;
 }
 
-slides-simple-editor::before {
+code-demo-editor::before {
   content: ">";
   font-size: 60px;
   position: absolute;
@@ -42,7 +42,7 @@ slides-simple-editor::before {
   content: "🙀"
 }
 
-slides-simple-editor {
+code-demo-editor {
   padding-left: 50px;
   display: block;
   border-bottom: 1px #444 solid;

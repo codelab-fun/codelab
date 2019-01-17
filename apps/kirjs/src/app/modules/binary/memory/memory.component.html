@@ -1,6 +1,6 @@
 <div style="">
-  <slides-simple-editor language="java" style="height: 120px; margin-bottom: 2vw;" [fontSize]="40" [lineNumbers]="false"
-                        [(ngModel)]="code"></slides-simple-editor>
+  <code-demo-editor language="java" style="height: 120px; margin-bottom: 2vw;" [fontSize]="40" [lineNumbers]="false"
+                        [(ngModel)]="code"></code-demo-editor>
   <div class="memory">
     <div *ngFor="let cell of memory; let i = index" class="cell cell-{{cell.type}}">
       <span class="index">{{i}}</span>

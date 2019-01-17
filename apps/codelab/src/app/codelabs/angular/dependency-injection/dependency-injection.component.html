@@ -60,15 +60,15 @@
     <div style="display: flex;">
       <div class="col-6">
         <slides-file-path path="person.ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15" [(ngModel)]="code.withOutDI.code"
-                              [slidesSimpleHighlightMatch]="[code.withOutDI.matches.noDI, 'profession']"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15" [(ngModel)]="code.withOutDI.code"
+                              [slidesSimpleHighlightMatch]="[code.withOutDI.matches.noDI, 'profession']"></code-demo-editor>
         <h2 class="comparision" i18n>Without Dependency Injection, <b>Profession</b> has to be instantiated in the <b>Person</b>
           class</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
         <slides-file-path path="person-di.ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15" [(ngModel)]="code.withDI.code"
-                              [slidesSimpleHighlightMatch]="[code.withDI.matches.constructor]"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15" [(ngModel)]="code.withDI.code"
+                              [slidesSimpleHighlightMatch]="[code.withDI.matches.constructor]"></code-demo-editor>
         <h2 class="comparision" i18n>With Dependency Injection, <b>Person</b> class just "requires" an instance of
           <b>Job</b>
           in the constructor, and Angular takes care of instantiating it</h2></div>
@@ -86,14 +86,14 @@
     <div class="content-container">
       <div class="col-6">
         <slides-file-path path="person.ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15" [(ngModel)]="code.withOutDI.code2"
-                              [slidesSimpleHighlightMatch]="[code.withOutDI.matches.noDI]"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15" [(ngModel)]="code.withOutDI.code2"
+                              [slidesSimpleHighlightMatch]="[code.withOutDI.matches.noDI]"></code-demo-editor>
         <h2 class="comparision">Without Dependency Injection, you have to figure out all the parameters yourself</h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
         <slides-file-path path="person-di.ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15" [(ngModel)]="code.withDI.code"
-                              [slidesSimpleHighlightMatch]="[code.withDI.matches.constructor]"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15" [(ngModel)]="code.withDI.code"
+                              [slidesSimpleHighlightMatch]="[code.withDI.matches.constructor]"></code-demo-editor>
         <h2 class="comparision" i18n>With Dependency Injection, Angular takes care of it</h2>
       </div>
     </div>
@@ -113,12 +113,12 @@
     <div class="content-container">
       <div class="col-6">
         <slides-file-path path="person-di.ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15" [(ngModel)]="code.withDI.code"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15" [(ngModel)]="code.withDI.code"></code-demo-editor>
       </div>
       <div class="col-6">
         <slides-file-path path="person-di.spec.ts"></slides-file-path>
-        <slides-simple-editor [fontSize]="15"
-                              [(ngModel)]="code.withDITesting.code"></slides-simple-editor>
+        <code-demo-editor [fontSize]="15"
+                              [(ngModel)]="code.withDITesting.code"></code-demo-editor>
       </div>
     </div>
   </div>
@@ -150,8 +150,8 @@
     <h2 i18n>Mark the class as <b>@Injectable()</b>.
       This lets Angular know that this class is part of Angular Dependency Injection system</h2>
     <slides-file-path path="unit-converter-service.ts"></slides-file-path>
-    <slides-simple-editor [(ngModel)]="code.classAsInjectable.code"
-                          [slidesSimpleHighlightMatch]="[code.classAsInjectable.matches.injectable]"></slides-simple-editor>
+    <code-demo-editor [(ngModel)]="code.classAsInjectable.code"
+                          [slidesSimpleHighlightMatch]="[code.classAsInjectable.matches.injectable]"></code-demo-editor>
     <div class="info" i18n>
       If a service class is marked as injectable, it can require other services in its constructor.
     </div>
@@ -166,8 +166,8 @@
     </h1>
     <h2 i18n>Provide the injectable to the <b>providers</b> section of <b>NgModule</b></h2>
     <slides-file-path path="app.module.ts"></slides-file-path>
-    <slides-simple-editor [(ngModel)]="code.provideInjectable.code"
-                          [slidesSimpleHighlightMatch]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></slides-simple-editor>
+    <code-demo-editor [(ngModel)]="code.provideInjectable.code"
+                          [slidesSimpleHighlightMatch]="[code.provideInjectable.matches.providers, 'UnitConverterService']"></code-demo-editor>
     <div class="info" i18n>Now, this service becomes available for every <b>Component</b> and other service in this <b>NgModule</b>.
     </div>
   </div>
@@ -181,8 +181,8 @@
     </h1>
     <h2 i18n>Consume the Injectable in the component</h2>
     <slides-file-path path="unit-conversion.component.ts"></slides-file-path>
-    <slides-simple-editor [(ngModel)]="code.consumeInjectable.code"
-                          [slidesSimpleHighlightMatch]="[code.consumeInjectable.matches.constructor]"></slides-simple-editor>
+    <code-demo-editor [(ngModel)]="code.consumeInjectable.code"
+                          [slidesSimpleHighlightMatch]="[code.consumeInjectable.matches.constructor]"></code-demo-editor>
     <div class="info" i18n>Because of the <b>private</b> access modifier the service becomes accessible across the class
       as
       <b>this.converter</b>.

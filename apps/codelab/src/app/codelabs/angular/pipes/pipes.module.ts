@@ -7,8 +7,9 @@ import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedb
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
-import { SimpleEditorModule } from '../../../../../../../libs/code-demos/src/lib/editor/simple-editor.module';
+
 import { FormsModule } from '@angular/forms';
+import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
 
 const routes = RouterModule.forChild(
@@ -19,12 +20,11 @@ const routes = RouterModule.forChild(
   imports: [
     routes,
     PresentationModule,
-
+    CodeDemoModule,
     BrowserWindowModule,
     FeedbackModule,
     CodelabComponentsModule,
     SlidesModule,
-    SimpleEditorModule,
     FormsModule,
   ],
   declarations: [PipesComponent],

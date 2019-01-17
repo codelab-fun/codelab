@@ -1,12 +1,12 @@
 <div fxLayout>
-  <slides-simple-editor
+  <code-demo-editor
     [lineNumbers]="false"
     [fontSize]="fontSize"
     language="javascript"
     style="height: 100vh;width: 55vw;"
     [(ngModel)]="files[0].code"
     (ngModelChange)="runner.runTests()"
-  ></slides-simple-editor>
+  ></code-demo-editor>
   <div (click)="files[0].code = files[0].solution; runner.runTests()" class="show-solution">
     <div class="icon">🙀</div>
   </div>
