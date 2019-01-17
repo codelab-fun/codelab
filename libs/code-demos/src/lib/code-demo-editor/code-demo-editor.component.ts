@@ -6,6 +6,7 @@ import {
   HostListener,
   Input,
   OnChanges,
+  OnDestroy,
   Output,
   SimpleChanges,
   ViewChild
@@ -14,6 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 declare const monaco: any;
 declare const require: any;
@@ -31,7 +33,7 @@ declare const require: any;
     }
   ],
 })
-export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
+export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnDestroy {
   height: number;
   @Input() minLines = 6;
   model: any;
@@ -48,9 +50,10 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
   @Output() lineChange = new EventEmitter();
   @ViewChild('editor') editorEl;
   code: string;
+  private subscription: Subscription;
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
-    this.changeSubject.pipe(debounceTime(this.debounce)).subscribe((a => this.change.emit(a)));
+    this.subscription = this.changeSubject.pipe(debounceTime(this.debounce)).subscribe((a => this.change.emit(a)));
   }
 
   registerOnTouched(fn: any): void {
@@ -106,6 +109,7 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
 
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
+    console.log('Yo, new model');
     this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);
     if (this.theme) {
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
@@ -144,6 +148,12 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
       () => this.changeSubject.next(this.editor.getModel().getValue()));
 
     this.resize();
+  }
+
+  ngOnDestroy() {
+    this.model.dispose();
+    this.editor.dispose();
+    this.subscription.unsubscribe();
   }
 }
 
