@@ -56,7 +56,6 @@ export class MultitabEditorComponent
   }
 
   @Input('files') set setFiles(files: string | string[]) {
-    console.log(files);
     if (typeof files === 'string') {
       files = files.split(',');
     }
@@ -133,7 +132,6 @@ export class MultitabEditorComponent
 
   writeValue(code: Code): void {
     if (code) {
-      console.log('MTE', code);
       this.code = {...code};
       this.fileNames = Object.keys(this.code);
       this.generateModels();

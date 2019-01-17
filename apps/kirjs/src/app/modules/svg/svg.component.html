@@ -156,18 +156,16 @@
 
   <div *slide id="svg-chart" no-padding>
     <h1>Let's create a simple barchart</h1>
-    <slides-simple-angular-playground
-      [(ngModel)]="code.basicChart"
-      file="app.component.ts"></slides-simple-angular-playground>
+    <code-demo [(ngModel)]="code.basicChart"
+               file="app.component.ts"></code-demo>
   </div>
 
   <div *slide id="svg-chart-2" no-padding>
     <h1>Custom SVG Elements</h1>
 
-    <slides-simple-angular-playground
-      [(ngModel)]="code.chart2"
-      [solutions]="code.chart2Solutions"
-      file="app.component.ts"></slides-simple-angular-playground>
+    <code-demo [(ngModel)]="code.chart2"
+               [solutions]="code.chart2Solutions"
+               file="app.component.ts"></code-demo>
   </div>
 
   <!--<div *slide id="svg-chart3" no-padding>-->

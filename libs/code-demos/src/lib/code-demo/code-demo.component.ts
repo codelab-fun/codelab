@@ -55,10 +55,10 @@ export class CodeDemo implements ControlValueAccessor {
   @Input() files: string[];
   @Input() presets = ['angular'];
   @Input() bootstrap = 'bootstrap';
+  @Input() solutions: Code;
 
   openFileIndex = 0;
   code: Code = {};
-  solutions = {};
   filesConfig: any;
   changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
   changedStaticFilesSubject = new ReplaySubject<Record<string, string>>(1);
@@ -105,7 +105,6 @@ export class CodeDemo implements ControlValueAccessor {
 
   writeValue(code: Record<string, string>) {
     if (code) {
-      console.log('cd', code);
       this.code = code;
       this.files = this.files || [Object.keys(this.code)[0]];
       this.update(code);

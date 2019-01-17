@@ -51,8 +51,6 @@ export class SimpleAngularRunnerComponent implements OnChanges {
   }
 
   async runAngular(sandbox) {
-    console.log(this.code);
-
     await (experimentRequestAnimationFrame);
     sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app>');
 
