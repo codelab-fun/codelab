@@ -8,7 +8,8 @@ import { CodeDemo } from './code-demo/code-demo.component';
 import { EditorFromModelComponent } from './multitab-editor/editor-from-model/editor-from-model.component';
 import { MultitabEditorComponent } from './multitab-editor/multitab-editor.component';
 import { FilePathComponent } from './file-path/file-path.component';
-import { CodeDemoRunnerComponent } from './code-demo-runner/code-demo-runner.component';
+import { CodeDemoRunnerComponent } from '@codelab/code-demos/src/lib/code-demo-runner/code-demo-runner.component';
+
 
 @NgModule({
   imports: [
