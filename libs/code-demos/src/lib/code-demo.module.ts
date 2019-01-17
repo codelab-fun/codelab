@@ -9,7 +9,7 @@ import { MultitabEditorComponent } from './multitab-editor/multitab-editor.compo
 import { FilePathComponent } from './file-path/file-path.component';
 import { CodeDemoRunnerComponent } from './code-demo-runner/code-demo-runner.component';
 import { SimpleHighlightMatchDirective } from './code-demo-editor/simple-highlight-match.directive';
-import { SimpleEditorComponent } from './code-demo-editor/simple-editor.component';
+import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.component';
 import { SimpleHighlightDirective } from './code-demo-editor/simple-highlight.directive';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 
@@ -29,7 +29,7 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     CodeDemoRunnerComponent,
     CodeDemo,
     SimpleHighlightMatchDirective,
-    SimpleEditorComponent,
+    CodeDemoEditorComponent,
     SimpleHighlightDirective,
     RealtimeEvalComponent,
   ],
@@ -40,7 +40,7 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     EditorFromModelComponent,
     CodeDemo,
     SimpleHighlightMatchDirective,
-    SimpleEditorComponent,
+    CodeDemoEditorComponent,
     SimpleHighlightDirective,
     RealtimeEvalComponent,
   ],

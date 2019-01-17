@@ -1,5 +1,5 @@
 import { Directive, Input, OnChanges } from '@angular/core';
-import { SimpleEditorComponent } from './simple-editor.component';
+import { CodeDemoEditorComponent } from './code-demo-editor.component';
 
 @Directive({
   selector: '[slidesSimpleHighlight]'
@@ -9,7 +9,7 @@ export class SimpleHighlightDirective implements OnChanges {
   decorators: any;
   @Input() slidesSimpleHighlight;
 
-  constructor(private readonly editorComponent: SimpleEditorComponent) {
+  constructor(private readonly editorComponent: CodeDemoEditorComponent) {
   }
 
   ngOnChanges() {

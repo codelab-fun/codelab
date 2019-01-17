@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, Host, Input, OnChanges, Optional } from '@angular/core';
-import { SimpleEditorComponent } from './simple-editor.component';
+import { CodeDemoEditorComponent } from './code-demo-editor.component';
 import { findPosition } from '../../../../tooltips/src/lib/utils';
 import { EditorFromModelComponent } from '../multitab-editor/editor-from-model/editor-from-model.component';
 
@@ -11,10 +11,10 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
   decorators = [];
   @Input() slidesSimpleHighlightMatch;
   @Input() ngModel;
-  private editorComponent: SimpleEditorComponent | EditorFromModelComponent;
+  private editorComponent: CodeDemoEditorComponent | EditorFromModelComponent;
 
   constructor(
-    @Optional() @Host() editor1: SimpleEditorComponent,
+    @Optional() @Host() editor1: CodeDemoEditorComponent,
     @Optional() @Host() editor2: EditorFromModelComponent
   ) {
     this.editorComponent = editor1 || editor2;

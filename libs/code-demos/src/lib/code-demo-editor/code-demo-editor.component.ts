@@ -26,12 +26,12 @@ declare const require: any;
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SimpleEditorComponent),
+      useExisting: forwardRef(() => CodeDemoEditorComponent),
       multi: true
     }
   ],
 })
-export class SimpleEditorComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
+export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
   height: number;
   @Input() minLines = 6;
   model: any;
