@@ -108,7 +108,7 @@ export class MultitabEditorComponent
           code, language, 'file:///' + path
         );
 
-        const subscription = model.onDidChangeContent(() => {
+        model.onDidChangeContent(() => {
           this.code[path] = model.getValue();
           this.onChange({...this.code});
         });
@@ -116,8 +116,7 @@ export class MultitabEditorComponent
         return {
           highlight: this.highlights[path],
           path,
-          model,
-          subscription
+          model
         };
       }
     });
