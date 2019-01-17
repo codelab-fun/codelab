@@ -109,12 +109,11 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
 
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
-    console.log('Yo, new model');
     this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);
+
     if (this.theme) {
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
     }
-
 
     this.editor = this.monacoConfigService.monaco.editor.create(editor,
       {
