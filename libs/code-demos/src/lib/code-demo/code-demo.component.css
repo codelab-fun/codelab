@@ -1,13 +1,10 @@
-.quarter {
-  width: 50vw;
-  height: 50vh;
+.wrapper > * {
+  flex: 1;
 }
 
-.row {
+.wrapper {
   display: flex;
-}
+  height: 100%;
+  width: 100%;
 
-.tests {
-  padding: 0.5vw;
-  box-sizing: border-box;
 }

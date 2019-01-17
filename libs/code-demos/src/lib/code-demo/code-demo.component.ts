@@ -3,6 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { filter, map, publishReplay, refCount, startWith, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
 import { compileTsFilesWatch } from '../runner/compile-ts-files';
+import { Code } from '@codelab/code-demos/src/lib/shared';
 
 function filterByFileType(type: string, files: Record<string, string>) {
   return Object.entries(files).reduce((changedFiles, [path, code]) => {
@@ -56,7 +57,7 @@ export class CodeDemo implements ControlValueAccessor {
   @Input() bootstrap = 'bootstrap';
 
   openFileIndex = 0;
-  code: any = {};
+  code: Code = {};
   solutions = {};
   filesConfig: any;
   changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
@@ -104,6 +105,7 @@ export class CodeDemo implements ControlValueAccessor {
 
   writeValue(code: Record<string, string>) {
     if (code) {
+      console.log('cd', code);
       this.code = code;
       this.files = this.files || [Object.keys(this.code)[0]];
       this.update(code);

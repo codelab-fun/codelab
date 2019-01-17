@@ -19,6 +19,8 @@ interface MonacoModel {
   highlight: RegExp
 }
 
+type Code = Record<string, string>;
+
 
 @Component({
   selector: 'slides-multitab-editor',
@@ -35,8 +37,8 @@ interface MonacoModel {
 })
 export class MultitabEditorComponent
   implements OnDestroy, ControlValueAccessor {
-  @Input() code: any = {};
-  @Input() solutions: any = {};
+  @Input() code: Code = {};
+  @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
   @Input() slidesSimpleHighlightMatch = [];
@@ -54,6 +56,7 @@ export class MultitabEditorComponent
   }
 
   @Input('files') set setFiles(files: string | string[]) {
+    console.log(files);
     if (typeof files === 'string') {
       files = files.split(',');
     }
@@ -128,9 +131,10 @@ export class MultitabEditorComponent
 
   }
 
-  writeValue(code: any): void {
+  writeValue(code: Code): void {
     if (code) {
-      this.code = code;
+      console.log('MTE', code);
+      this.code = {...code};
       this.fileNames = Object.keys(this.code);
       this.generateModels();
     }
