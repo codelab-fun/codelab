@@ -8,7 +8,6 @@ import { LoopProtectionService } from './services/loop-protection.service';
 import { MonacoConfigService } from './services/monaco-config.service';
 import { NgModule } from '@angular/core';
 import { ScriptLoaderService } from './services/script-loader.service';
-import { SlidesPreviewComponent } from './slides-preview/slides-preview.component';
 import { TooltipsModule } from '../../../tooltips/src/lib/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { DepsService } from './services/deps-order.service';
@@ -28,16 +27,19 @@ import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/siz
   declarations: [
     EditorsComponent,
     EditorComponent,
-    SlidesPreviewComponent,
     FileTreeComponent,
     FileStructureComponent,
   ],
   providers:
-    [LoopProtectionService, ScriptLoaderService, MonacoConfigService, DepsService],
+    [
+      LoopProtectionService,
+      ScriptLoaderService,
+      MonacoConfigService,
+      DepsService
+    ],
   exports:
     [
       EditorComponent,
-      SlidesPreviewComponent,
     ]
 })
 
