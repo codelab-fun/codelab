@@ -162,7 +162,6 @@ export class MultitabEditorComponent
     if (this.models) {
       this.models.forEach(model => {
         model.model.dispose();
-        // TODO(kirjs): subscription
       });
       this.models = null;
     }
