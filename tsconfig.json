@@ -35,6 +35,9 @@
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
-    "module": "es2015"
+    "module": "es2015",
+    "@angular-presentation/firebase-login": [
+      "libs/firebase-login/src/index.ts"
+    ]
   }
 }
