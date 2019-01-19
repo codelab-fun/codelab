@@ -22,8 +22,8 @@ export class SlidesDeckComponent implements SlideControls {
   @Input() theme = 'basic';
   @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
   activeSlideIndex = 0;
-  @Output() onSlideChange = new EventEmitter<number>();
-  @Output() onSlideAdded = new EventEmitter<{ index: number; id: string }>();
+  @Output() slideChange = new EventEmitter<number>();
+  @Output() slideAdded = new EventEmitter<{ index: number; id: string }>();
   @HostBinding('class.has-milestone') hasMilestone = false;
   private milestone = '';
 
@@ -40,7 +40,7 @@ export class SlidesDeckComponent implements SlideControls {
 
   goToSlide(index: number) {
     this.activeSlideIndex = index;
-    this.onSlideChange.emit(index);
+    this.slideChange.emit(index);
   }
 
   nextSlide() {

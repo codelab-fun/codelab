@@ -20,7 +20,7 @@ export class CodelabProgressBarComponent implements AfterViewInit {
       this.activeSlideIndex = this.deck.activeSlideIndex;
     });
 
-    this.deck.onSlideChange.subscribe(index => {
+    this.deck.slideChange.subscribe(index => {
       this.activeSlideIndex = index;
     });
   }

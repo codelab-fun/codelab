@@ -27,7 +27,7 @@ export class TrackingDirective {
     this.lastSlideChange = Date.now();
   }
 
-  @HostListener('onSlideChange', ['$event']) onSlideChange(index) {
+  @HostListener('slideChange', ['$event']) slideChange(index) {
     if (this.auth) {
       const dateNow = Date.now();
       const diffMinutes = dateNow - this.lastSlideChange;

@@ -38,7 +38,7 @@ export class SlidesRoutingDirective implements OnInit {
     });
   }
 
-  @HostListener('onSlideChange', ['$event']) slideChange(index) {
+  @HostListener('slideChange', ['$event']) slideChange(index) {
     this.navigate(this.getId(index));
   }
 

@@ -29,8 +29,8 @@ export class PresentationComponent implements AfterViewInit, SlideControls {
   @Input() activeSlideIndex = 0;
   @Input() milestone?: string;
   @Input() public zoom = 1;
-  @Output() onSlideChange = new EventEmitter<number>();
-  @Output() onSlideAdded = new EventEmitter<{ index: number; id: string }>();
+  @Output() slideChange = new EventEmitter<number>();
+  @Output() slideAdded = new EventEmitter<{ index: number; id: string }>();
   slides = [];
   private generatedSlideIndex = 0;
 
@@ -60,7 +60,7 @@ export class PresentationComponent implements AfterViewInit, SlideControls {
       this.activeSlideIndex = index;
     }
     this.slides.push({ id, index });
-    this.onSlideAdded.next({ index, id });
+    this.slideAdded.next({ index, id });
     return index;
   }
 
@@ -114,7 +114,7 @@ export class PresentationComponent implements AfterViewInit, SlideControls {
 
   goToSlide(index) {
     this.activeSlideIndex = index;
-    this.onSlideChange.next(index);
+    this.slideChange.next(index);
     this.index.next(index);
     this.trackProgress();
   }
