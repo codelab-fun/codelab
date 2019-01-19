@@ -13,7 +13,7 @@
       [file]="test.filename"
       [pass]="test.pass"
       [class.first-unsolved]="test.isFirstUnresolved"
-      (onSelectFile)="onSelectFile.emit($event)"
+      (selectFile)="selectFile.emit($event)"
     ></slides-simple-test-description>
     <div class="result" *ngIf="test.isFirstUnresolved">{{ test.result }}</div>
   </div>

@@ -14,7 +14,7 @@
     *ngIf="showFileTree"
     [files]="files"
     [active]="currentFile"
-    (onSelectFile)="onSelectFile.emit($event)"
+    (selectFile)="selectFile.emit($event)"
   >
   </slides-file-tree>
 </div>

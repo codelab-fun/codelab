@@ -38,7 +38,7 @@ export class FeedbackWidgetComponent implements OnInit {
     }
 
     const belongsToPopup =
-      event.srcElement && findMatchingDOMAncestor(event.srcElement);
+      event.target && findMatchingDOMAncestor(event.target);
     if (!belongsToPopup) {
       this.open = false;
     }

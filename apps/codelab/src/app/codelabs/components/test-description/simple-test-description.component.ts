@@ -9,7 +9,7 @@ export class SimpleTestDescriptionComponent {
   @Input() title: string;
   @Input() file: string;
   @Input() pass: boolean;
-  @Output() onSelectFile = new EventEmitter<string>();
+  @Output() selectFile = new EventEmitter<string>();
 
   constructor() {}
 }

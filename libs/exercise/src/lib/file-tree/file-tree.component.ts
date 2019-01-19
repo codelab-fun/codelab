@@ -24,7 +24,7 @@ export class FileTreeComponent implements OnChanges {
   @Input()
   public active: FileConfig;
   @Output()
-  public onSelectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
+  public selectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
 
   nodes: Node[] = [];
 
@@ -60,7 +60,7 @@ export class FileTreeComponent implements OnChanges {
 
   clickFile(fileConfig: FileConfig): void {
     fileConfig.opened = true;
-    this.onSelectFile.emit(fileConfig);
+    this.selectFile.emit(fileConfig);
     this.active = fileConfig;
   }
 

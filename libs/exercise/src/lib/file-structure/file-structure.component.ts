@@ -10,7 +10,7 @@ export class FileStructureComponent implements OnInit {
   showFileTree = false;
   @Input() files: Array<FileConfig>;
   @Input() currentFile: FileConfig;
-  @Output() onSelectFile = new EventEmitter<string>();
+  @Output() selectFile = new EventEmitter<string>();
 
   constructor() {}
 

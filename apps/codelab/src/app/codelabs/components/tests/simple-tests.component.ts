@@ -15,7 +15,7 @@ export class SimpleTestsComponent implements OnInit {
   @Input() code: any;
   @Input() translations: { [key: string]: string } = {};
   @Output()
-  public onSelectFile: EventEmitter<string> = new EventEmitter<string>();
+  public selectFile: EventEmitter<string> = new EventEmitter<string>();
   seeAll = false;
   tests: Array<TestInfo>;
 

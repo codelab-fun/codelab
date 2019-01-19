@@ -3,7 +3,7 @@ import { Component, ContentChildren, EventEmitter, HostBinding, Input, Optional,
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'slides-deck',
+  selector: 'slide-deck',
   templateUrl: './deck.component.html',
   styleUrls: ['./deck.component.scss']
 })

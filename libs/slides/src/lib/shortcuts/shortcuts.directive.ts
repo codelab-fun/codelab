@@ -2,7 +2,7 @@ import { Directive, HostListener, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
-  selector: '[slidesShortcuts]'
+  selector: '[slideShortcuts]'
 })
 export class ShortcutsDirective {
   constructor(@Optional() private deck: SlidesDeckComponent) {}

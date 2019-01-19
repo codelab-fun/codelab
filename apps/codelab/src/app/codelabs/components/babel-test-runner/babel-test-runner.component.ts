@@ -38,7 +38,7 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  onSelectFile(file: FileConfig) {
+  selectFile(file: FileConfig) {
     // this.parent.currentFile = file;
   }
 

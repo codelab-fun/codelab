@@ -20,7 +20,7 @@ export class EditorsComponent implements OnInit {
   @Input() public fontSize = 16;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
-  @Output() public onSelectFile: EventEmitter<any> = new EventEmitter<
+  @Output() public selectFile: EventEmitter<any> = new EventEmitter<
     FileConfig
   >();
   @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<
@@ -78,7 +78,7 @@ export class EditorsComponent implements OnInit {
 
   showFile(file): void {
     this.currentFile = file;
-    this.onSelectFile.emit(file);
+    this.selectFile.emit(file);
   }
 
   trackFile(index, file) {
