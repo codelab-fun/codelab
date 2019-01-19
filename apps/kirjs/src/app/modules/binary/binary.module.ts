@@ -34,6 +34,7 @@ import { AngularFlagsComponent } from './angular-flags/angular-flags.component';
 import { ColorIndexingComponent } from './color-indexing/color-indexing.component';
 import { BitwiseComponent } from './bitwise/bitwise.component';
 import { ToReadComponent } from './to-read/to-read.component';
+import { CodeDemoModule } from '@codelab/code-demos';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(BinaryComponent)
@@ -45,7 +46,7 @@ const routes = RouterModule.forChild(
     FormsModule,
     CommonModule,
     BinaryViewModule,
-    
+    CodeDemoModule,
     TooltipsModule,
     MatAutocompleteModule,
     SharedPipeModule,
