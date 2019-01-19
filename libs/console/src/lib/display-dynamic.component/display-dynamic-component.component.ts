@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'slides-display-dynamic-component',
+  selector: 'console-display-dynamic-component',
   templateUrl: './display-dynamic-component.component.html',
   styleUrls: ['./display-dynamic-component.component.css']
 })

@@ -135,7 +135,7 @@ function watch(
         const {
           line,
           character
-        } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start!);
+        } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
         console.log(
           `  Error ${diagnostic.file.fileName} (${line + 1},${character +
             1}): ${message}`

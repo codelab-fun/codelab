@@ -8,10 +8,10 @@
         [innerHTML]="block.code | safeHtml"
       ></div>
       <div *ngIf="block.type === 'dynamic'" class="code dynamic">
-        <slides-display-dynamic-component
+        <console-display-dynamic-component
           [component]="block.code"
           [param]="block.param"
-        ></slides-display-dynamic-component>
+        ></console-display-dynamic-component>
       </div>
     </div>
   </div>

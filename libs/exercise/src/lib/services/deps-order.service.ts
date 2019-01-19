@@ -10,9 +10,6 @@ export class DepsService {
   /**
    * Takes a file path, and another path relative to the first one.
    * Returns the fulle
-   *
-   * @param path
-   * @param file
    */
   static normalizePathRelativeToFile(path: string, file: string) {
     // TODO: Simplify

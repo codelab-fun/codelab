@@ -15,7 +15,7 @@ function escapeHtml(str) {
 }
 
 @Component({
-  selector: 'slides-console',
+  selector: 'console-console',
   templateUrl: './console.component.html',
   styleUrls: ['./console.component.css']
 })
