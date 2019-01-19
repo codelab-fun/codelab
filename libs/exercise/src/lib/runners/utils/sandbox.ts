@@ -133,8 +133,8 @@ export function injectIframe(
       }
 
       function setError(html) {
-        iframe.contentDocument.querySelector('.error') ||
-          iframe.contentDocument.body.innerHTML;
+        (iframe.contentDocument.querySelector('.error') ||
+          iframe.contentDocument.body).innerHTML = html;
       }
 
       iframe.contentWindow.console.log = function() {

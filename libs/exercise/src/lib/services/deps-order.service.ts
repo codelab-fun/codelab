@@ -6,7 +6,6 @@ import { simpleVisitor } from './visitor';
 
 @Injectable()
 export class DepsService {
-  constructor() {}
 
   /**
    * Takes a file path, and another path relative to the first one.
@@ -28,6 +27,7 @@ export class DepsService {
   static isLocalDep(string) {
     return !string.match(/\/code\b/) && !!string.match(/^\./);
   }
+  constructor() {}
 
   order(files: Array<FileConfig>) {
     let deps: { [key: string]: string } = files.reduce((result, file) => {
