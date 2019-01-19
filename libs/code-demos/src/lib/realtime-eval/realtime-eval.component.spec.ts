@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RealtimeEvalComponent } from './realtime-eval.component';
+import { RealtimeEvalComponent } from './code-demo-realtime-eval.component';
 
 describe('RealtimeEvalComponent', () => {
   let component: RealtimeEvalComponent;

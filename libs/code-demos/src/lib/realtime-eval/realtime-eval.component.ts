@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'realtime-eval',
-  templateUrl: './realtime-eval.component.html',
-  styleUrls: ['./realtime-eval.component.css']
+  selector: 'code-demo-realtime-eval',
+  templateUrl: './code-demo-realtime-eval.component.html',
+  styleUrls: ['./code-demo-realtime-eval.component.css']
 })
 export class RealtimeEvalComponent implements OnInit {
   @Input() code = '';

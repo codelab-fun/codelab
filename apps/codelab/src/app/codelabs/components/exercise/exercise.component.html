@@ -1,13 +1,13 @@
 <div *ngIf="code">
   <div class="row">
-    <slides-multitab-editor
+    <code-demo-multitab-editor
       [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
       class="quarter"
       [files]="files"
       [solutions]="solutions"
       [(ngModel)]="code"
       (ngModelChange)="update($event)"
-    ></slides-multitab-editor>
+    ></code-demo-multitab-editor>
     <div class="quarter tests">
       <ng-content select=".description"></ng-content>
       <slides-simple-angular-test-runner

@@ -1,12 +1,12 @@
 <div *ngIf="(files$ | async) as compiledCode" class="wrapper">
-  <slides-multitab-editor
+  <code-demo-multitab-editor
     [slidesSimpleHighlightMatch]="slidesSimpleHighlightMatch"
     class="quarter"
     [files]="files"
     [solutions]="solutions"
     [(ngModel)]="code"
     (ngModelChange)="update($event)"
-  ></slides-multitab-editor>
+  ></code-demo-multitab-editor>
   <code-demo-runner
     class="quarter"
     [url]="url"

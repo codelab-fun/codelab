@@ -11,7 +11,7 @@ import { CodeDemoRunnerComponent } from './code-demo-runner/code-demo-runner.com
 import { SimpleHighlightMatchDirective } from './code-demo-editor/simple-highlight-match.directive';
 import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.component';
 import { SimpleHighlightDirective } from './code-demo-editor/simple-highlight.directive';
-import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
+import { RealtimeEvalComponent } from './code-demo-realtime-eval/code-demo-realtime-eval.component';
 
 @NgModule({
   imports: [

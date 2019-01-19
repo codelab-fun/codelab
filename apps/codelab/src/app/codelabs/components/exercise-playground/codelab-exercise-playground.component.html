@@ -8,7 +8,7 @@
 <div style=" display: flex;height: 100%;">
   <div style="width: 50%;flex-grow: 0; display: flex;">
     <div *ngIf="path" style="margin-left: 20px;color: red;">{{ path }}</div>
-    <slides-multitab-editor
+    <code-demo-multitab-editor
       style="width: 100%"
       [displayFileName]="true"
       [allowSwitchingFiles]="allowSwitchingFiles"
@@ -19,7 +19,7 @@
       [solutions]="solutions"
       [(ngModel)]="code"
       (ngModelChange)="update($event)"
-    ></slides-multitab-editor>
+    ></code-demo-multitab-editor>
   </div>
 
   <code-demo-runner

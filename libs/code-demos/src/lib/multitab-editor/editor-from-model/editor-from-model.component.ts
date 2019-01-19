@@ -11,7 +11,7 @@ import { editor, IDisposable } from 'monaco-editor';
 import ITextModel = editor.ITextModel;
 
 @Component({
-  selector: 'slides-editor-from-model',
+  selector: 'code-demo-editor-from-model',
   templateUrl: './editor-from-model.component.html',
   styleUrls: ['./editor-from-model.component.css']
 })

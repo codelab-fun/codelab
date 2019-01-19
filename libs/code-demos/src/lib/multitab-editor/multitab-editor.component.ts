@@ -29,7 +29,7 @@ interface MonacoModel {
 type Code = Record<string, string>;
 
 @Component({
-  selector: 'slides-multitab-editor',
+  selector: 'code-demo-multitab-editor',
   templateUrl: './multitab-editor.component.html',
   styleUrls: ['./multitab-editor.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
