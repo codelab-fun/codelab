@@ -1,6 +1,6 @@
 interface RouteConfig {
-  path: string,
-  component: any
+  path: string;
+  component: any;
 }
 
 declare module '@angular/core' {
@@ -28,9 +28,7 @@ declare module '@angular/core' {
 
   export function Directive(config: DirectiveConfig);
 
-
-  export class TemplateRef<T> {
-  }
+  export class TemplateRef<T> {}
 
   export class ViewContainerRef {
     clear: () => void;
@@ -44,7 +42,6 @@ declare module '@angular/core' {
   export interface OnInit {
     ngOnInit: () => void;
   }
-
 
   export interface NgModuleConfig {
     imports?: any[];
@@ -63,12 +60,11 @@ declare module '@angular/core' {
   export function Input();
 
   export interface OnChanges {
-    ngOnChanges:
-
-    function(simpleChanges: any)
+    ngOnChanges: (simpleChanges: SimpleChange[]) => void;
   }
 
-  export interface SimpleChanges {
+  export interface SimpleChange {
+    [key: string]: any;
   }
 
   export function Pipe(config: PipeConfig);
@@ -79,17 +75,14 @@ declare module '@angular/core' {
 }
 
 declare module '@angular/forms' {
-  export class FormsModule {
-  }
+  export class FormsModule {}
 }
 declare module '@angular/platform-browser' {
-  export class BrowserModule {
-  }
+  export class BrowserModule {}
 }
 
 declare module '@angular/platform-browser/animations' {
-  export class NoopAnimationsModule {
-  }
+  export class NoopAnimationsModule {}
 }
 declare module '@angular/platform-browser-dynamic' {
   export class Platform {
@@ -100,21 +93,18 @@ declare module '@angular/platform-browser-dynamic' {
 }
 
 declare module '@angular/compiler' {
-  export class ResourceLoader {
-  }
+  export class ResourceLoader {}
 }
 
 declare class Observable<T> {
   subscribe: (T) => void;
 }
 
-
 declare module '@angular/router' {
   export type Routes = Array<RouteConfig>;
 
   export class RouterModule {
-    static forRoot(routes: Routes) {
-    }
+    static forRoot: (routes: Routes) => any;
   }
 }
 
@@ -134,27 +124,20 @@ declare module '@angular/material' {
     selectChange: Observable<any>;
   }
 
-  export class MatInputModule {
-  }
+  export class MatInputModule {}
 
-  export class MatTabsModule {
-  }
+  export class MatTabsModule {}
 
-  export class MatToolbarModule {
-  }
+  export class MatToolbarModule {}
 
-  export class MatCardModule {
-  }
+  export class MatCardModule {}
 
-  export class MatButtonModule {
-  }
+  export class MatButtonModule {}
 }
 
 declare class Babylon {
-  parse(code: string) {
-  }
+  parse: (code: string) => any;
 }
-
 
 // Object.keys(t.vendors).filter(function(t) {
 //   return t.endsWith(".d.ts") || t.endsWith("package.json") || t.endsWith(".metadata.json")
@@ -184,5 +167,3 @@ declare class Babylon {
 //     noSemanticValidation: !1,
 //     noSyntaxValidation: !1
 //   }),
-
-
