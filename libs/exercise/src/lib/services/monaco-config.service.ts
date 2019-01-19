@@ -3,7 +3,7 @@ import { FileConfig } from '../interfaces/file-config';
 import { DepsService } from './deps-order.service';
 
 declare const require;
-const monacoLoaderCode = require('!raw-loader!../../../assets/monaco/dev/vs/loader');
+const monacoLoaderCode = require('!raw-loader!monaco-editor/dev/vs/loader');
 
 const win = window as any;
 declare const monaco;
