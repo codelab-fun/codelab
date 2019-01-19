@@ -3,10 +3,10 @@
   *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
 >
   <div class="panel" *ngIf="displayFileName">
-    <slides-file-path
+    <code-demo-file-path
       style="margin: 1px 0 10px 0;display: block;"
       [path]="openModels[i].path"
-    ></slides-file-path>
+    ></code-demo-file-path>
   </div>
   <div class="panel" *ngIf="allowSwitchingFiles">
     <mat-form-field>
@@ -15,11 +15,11 @@
         (selectionChange)="handleFileChange(i, $event)"
       >
         <mat-select-trigger>
-          <slides-file-path [path]="openModels[i].path"></slides-file-path>
+          <code-demo-file-path [path]="openModels[i].path"></code-demo-file-path>
         </mat-select-trigger>
 
         <mat-option *ngFor="let m of models" [value]="m">
-          <slides-file-path [path]="m.path"></slides-file-path>
+          <code-demo-file-path [path]="m.path"></code-demo-file-path>
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -35,6 +35,6 @@
 
   <code-demo-editor-from-model
     [model]="model.model"
-    [slidesSimpleHighlightMatch]="model.highlight"
+    [codeDemoSimpleHighlightMatch]="model.highlight"
   ></code-demo-editor-from-model>
 </div>

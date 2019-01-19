@@ -74,11 +74,11 @@
     </h1>
     <div style="display: flex;">
       <div class="col-6">
-        <slides-file-path path="person.ts"></slides-file-path>
+        <code-demo-file-path path="person.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withOutDI.code"
-          [slidesSimpleHighlightMatch]="[
+          [codeDemoSimpleHighlightMatch]="[
             code.withOutDI.matches.noDI,
             'profession'
           ]"
@@ -89,11 +89,11 @@
         </h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
-        <slides-file-path path="person-di.ts"></slides-file-path>
+        <code-demo-file-path path="person-di.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
-          [slidesSimpleHighlightMatch]="[code.withDI.matches.constructor]"
+          [codeDemoSimpleHighlightMatch]="[code.withDI.matches.constructor]"
         ></code-demo-editor>
         <h2 class="comparision" i18n>
           With Dependency Injection, <b>Person</b> class just "requires" an
@@ -116,11 +116,11 @@
     </h1>
     <div class="content-container">
       <div class="col-6">
-        <slides-file-path path="person.ts"></slides-file-path>
+        <code-demo-file-path path="person.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withOutDI.code2"
-          [slidesSimpleHighlightMatch]="[code.withOutDI.matches.noDI]"
+          [codeDemoSimpleHighlightMatch]="[code.withOutDI.matches.noDI]"
         ></code-demo-editor>
         <h2 class="comparision">
           Without Dependency Injection, you have to figure out all the
@@ -128,11 +128,11 @@
         </h2>
       </div>
       <div class="col-6" style="margin-left: 10px;">
-        <slides-file-path path="person-di.ts"></slides-file-path>
+        <code-demo-file-path path="person-di.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
-          [slidesSimpleHighlightMatch]="[code.withDI.matches.constructor]"
+          [codeDemoSimpleHighlightMatch]="[code.withDI.matches.constructor]"
         ></code-demo-editor>
         <h2 class="comparision" i18n>
           With Dependency Injection, Angular takes care of it
@@ -157,14 +157,14 @@
     </h2>
     <div class="content-container">
       <div class="col-6">
-        <slides-file-path path="person-di.ts"></slides-file-path>
+        <code-demo-file-path path="person-di.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
         ></code-demo-editor>
       </div>
       <div class="col-6">
-        <slides-file-path path="person-di.spec.ts"></slides-file-path>
+        <code-demo-file-path path="person-di.spec.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withDITesting.code"
@@ -207,10 +207,10 @@
       Mark the class as <b>@Injectable()</b>. This lets Angular know that this
       class is part of Angular Dependency Injection system
     </h2>
-    <slides-file-path path="unit-converter-service.ts"></slides-file-path>
+    <code-demo-file-path path="unit-converter-service.ts"></code-demo-file-path>
     <code-demo-editor
       [(ngModel)]="code.classAsInjectable.code"
-      [slidesSimpleHighlightMatch]="[code.classAsInjectable.matches.injectable]"
+      [codeDemoSimpleHighlightMatch]="[code.classAsInjectable.matches.injectable]"
     ></code-demo-editor>
     <div class="info" i18n>
       If a service class is marked as injectable, it can require other services
@@ -230,10 +230,10 @@
     <h2 i18n>
       Provide the injectable to the <b>providers</b> section of <b>NgModule</b>
     </h2>
-    <slides-file-path path="app.module.ts"></slides-file-path>
+    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
     <code-demo-editor
       [(ngModel)]="code.provideInjectable.code"
-      [slidesSimpleHighlightMatch]="[
+      [codeDemoSimpleHighlightMatch]="[
         code.provideInjectable.matches.providers,
         'UnitConverterService'
       ]"
@@ -254,10 +254,10 @@
       <ng-container i18n="@@step3">Step 3</ng-container>
     </h1>
     <h2 i18n>Consume the Injectable in the component</h2>
-    <slides-file-path path="unit-conversion.component.ts"></slides-file-path>
+    <code-demo-file-path path="unit-conversion.component.ts"></code-demo-file-path>
     <code-demo-editor
       [(ngModel)]="code.consumeInjectable.code"
-      [slidesSimpleHighlightMatch]="[
+      [codeDemoSimpleHighlightMatch]="[
         code.consumeInjectable.matches.constructor
       ]"
     ></code-demo-editor>

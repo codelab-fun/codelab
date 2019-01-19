@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatSelectModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '../../../../libs/browser/src/lib/browser.module';
-import { CodeDemo } from './code-demo/code-demo.component';
+import { CodeDemoComponent } from './code-demo/code-demo.component';
 import { EditorFromModelComponent } from './multitab-editor/editor-from-model/editor-from-model.component';
 import { MultitabEditorComponent } from './multitab-editor/multitab-editor.component';
 import { FilePathComponent } from './file-path/file-path.component';
@@ -26,7 +26,7 @@ import { RealtimeEvalComponent } from './code-demo-realtime-eval/code-demo-realt
     EditorFromModelComponent,
     FilePathComponent,
     CodeDemoRunnerComponent,
-    CodeDemo,
+    CodeDemoComponent,
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
     SimpleHighlightDirective,
@@ -37,7 +37,7 @@ import { RealtimeEvalComponent } from './code-demo-realtime-eval/code-demo-realt
     MultitabEditorComponent,
     CodeDemoRunnerComponent,
     EditorFromModelComponent,
-    CodeDemo,
+    CodeDemoComponent,
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
     SimpleHighlightDirective,

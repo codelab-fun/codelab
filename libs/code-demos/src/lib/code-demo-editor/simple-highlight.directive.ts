@@ -2,11 +2,11 @@ import { Directive, Input, OnChanges } from '@angular/core';
 import { CodeDemoEditorComponent } from './code-demo-editor.component';
 
 @Directive({
-  selector: '[slidesSimpleHighlight]'
+  selector: '[codeDemoSimpleHighlight]'
 })
 export class SimpleHighlightDirective implements OnChanges {
   decorators: any;
-  @Input() slidesSimpleHighlight;
+  @Input() codeDemoSimpleHighlight;
 
   constructor(private readonly editorComponent: CodeDemoEditorComponent) {}
 
@@ -14,10 +14,10 @@ export class SimpleHighlightDirective implements OnChanges {
     if (this.editorComponent.editor) {
       const ranges = [];
 
-      if (this.slidesSimpleHighlight) {
+      if (this.codeDemoSimpleHighlight) {
         ranges.push({
           range: new this.editorComponent.monacoConfigService.monaco.Range(
-            ...this.slidesSimpleHighlight
+            ...this.codeDemoSimpleHighlight
           ),
           options: { inlineClassName: 'highlighted-code' }
         });

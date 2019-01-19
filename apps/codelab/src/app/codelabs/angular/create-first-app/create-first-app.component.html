@@ -100,12 +100,12 @@
       <ng-container i18n="@@intro">Intro</ng-container>
     </h1>
     <h2 i18n>Given an HTML file:</h2>
-    <slides-file-path path="index.html"></slides-file-path>
+    <code-demo-file-path path="index.html"></code-demo-file-path>
     <code-demo-editor
       language="html"
       [fontSize]="30"
       [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
-      [slidesSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
+      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
     ></code-demo-editor>
     <h2 i18n>
       Let's create an Angular app which replaces the <b>hello-world</b> HTML
@@ -140,13 +140,13 @@
       Start by creating an angular <b>Component</b>. Components in Angular are
       responsible for the visual part of the app
     </h2>
-    <slides-file-path path="app.component.ts"></slides-file-path>
+    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
       [lineNumbers]="false"
-      [slidesSimpleHighlightMatch]="[code.componentAnatomy.matches.exportClass]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.exportClass]"
     ></code-demo-editor>
     <h2 i18n>
       An Angular component is just a class. Properties and behavior can be added
@@ -163,12 +163,12 @@
       /
       <ng-container i18n="@@decorators">Decorators</ng-container>
     </h1>
-    <slides-file-path path="app.component.ts"></slides-file-path>
+    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [slidesSimpleHighlightMatch]="[code.componentAnatomy.matches.decorator]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.decorator]"
     ></code-demo-editor>
     <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
     <div class="info" i18n>
@@ -216,12 +216,12 @@
       and render the component inside of it
     </h2>
 
-    <slides-file-path path="app.component.ts"></slides-file-path>
+    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [slidesSimpleHighlightMatch]="[code.componentAnatomy.matches.selector]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.selector]"
     ></code-demo-editor>
   </div>
 
@@ -235,12 +235,12 @@
       <ng-container i18n>Inline Template</ng-container>
     </h1>
     <h2 i18n>Template defines the HTML code that the component generates</h2>
-    <slides-file-path path="app.component.ts"></slides-file-path>
+    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [slidesSimpleHighlightMatch]="[code.componentAnatomy.matches.template]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.template]"
     ></code-demo-editor>
     <div class="info" i18n>
       If the amount of HTML grows out of hand, it's possible (and recommended)
@@ -307,12 +307,12 @@
       <ng-container i18n>Module Class</ng-container>
     </h1>
     <h2 i18n>Like a component, the <b>Angular</b> module is just a class</h2>
-    <slides-file-path path="app.module.ts"></slides-file-path>
+    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.exportClass]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.exportClass]"
     ></code-demo-editor>
   </div>
 
@@ -329,13 +329,13 @@
       Like a component, the <b>Angular</b> module is adorned with a decorator
       providing metadata
     </h2>
-    <slides-file-path path="app.module.ts"></slides-file-path>
+    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
     <code-demo-editor
       language="typescript"
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.ngModule]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.ngModule]"
     ></code-demo-editor>
   </div>
 
@@ -364,12 +364,12 @@
       The <b>Declarations array</b> specifies components belonging to the
       AppModule
     </h2>
-    <slides-file-path path="app.module.ts"></slides-file-path>
+    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [slidesSimpleHighlightMatch]="[
+      [codeDemoSimpleHighlightMatch]="[
         code.moduleAnatomy.matches.declarationsArr
       ]"
     ></code-demo-editor>
@@ -388,12 +388,12 @@
       The component passed into the <b>bootstrap</b> array will be created and
       displayed in your <b>index.html</b> file
     </h2>
-    <slides-file-path path="app.module.ts"></slides-file-path>
+    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
     ></code-demo-editor>
   </div>
 
@@ -445,7 +445,7 @@
       Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will
       start up all the components from that module's bootstrap section
     </h2>
-    <slides-file-path path="main.ts"></slides-file-path>
+    <code-demo-file-path path="main.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="25"
@@ -474,12 +474,12 @@
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
     </h2>
-    <slides-file-path path="main.ts"></slides-file-path>
+    <code-demo-file-path path="main.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.moduleBootstrapping.code.mainTs"
-      [slidesSimpleHighlightMatch]="code.moduleBootstrapping.matches.bootstrap"
+      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.bootstrap"
     ></code-demo-editor>
 
     <div class="info">
@@ -505,12 +505,12 @@
       2. Angular initializes the component from the <b>bootstrap</b> array in
       <b>app.module.ts</b> (<b>HelloWorldComponent</b> in this case)
     </h2>
-    <slides-file-path path="app.module.ts"></slides-file-path>
+    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.moduleAnatomy.code"
-      [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
     ></code-demo-editor>
 
     <div class="info">
@@ -537,13 +537,13 @@
       defined in <b>HelloWorldComponent</b> (<b>'hello-world'</b> in our case)
       and inserts the component inside that element
     </h2>
-    <slides-file-path path="index.html"></slides-file-path>
+    <code-demo-file-path path="index.html"></code-demo-file-path>
 
     <code-demo-editor
       [fontSize]="25"
       language="html"
       [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
-      [slidesSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
+      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
     ></code-demo-editor>
 
     <div class="info">
@@ -598,18 +598,18 @@
 
     <div row>
       <div class="col-6">
-        <slides-file-path path="index.html"></slides-file-path>
+        <code-demo-file-path path="index.html"></code-demo-file-path>
 
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [slidesSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
+          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
           language="html"
           [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
         ></code-demo-editor>
       </div>
       <div class="col-6">
-        <slides-file-path path="main.ts"></slides-file-path>
+        <code-demo-file-path path="main.ts"></code-demo-file-path>
 
         <code-demo-editor
           style="height: 50vh"
@@ -620,7 +620,7 @@
     </div>
     <div row>
       <div class="col-6">
-        <slides-file-path path="app.module.ts"></slides-file-path>
+        <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
         <code-demo-editor
           style="height: 50vh"
@@ -629,12 +629,12 @@
         ></code-demo-editor>
       </div>
       <div class="col-6">
-        <slides-file-path path="app.component.ts"></slides-file-path>
+        <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [slidesSimpleHighlightMatch]="code.moduleBootstrapping.matches.hello"
+          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.hello"
           [(ngModel)]="code.componentAnatomy.code"
         ></code-demo-editor>
       </div>

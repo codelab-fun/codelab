@@ -1,13 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-  ViewChild
-} from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
@@ -52,7 +43,8 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   presets = ['angular'];
   private subscription: SubscriptionLike;
 
-  constructor(public scriptLoaderService: ScriptLoaderService) {}
+  constructor(public scriptLoaderService: ScriptLoaderService) {
+  }
 
   @Input('presets')
   public set setPresets(presets: any) {
@@ -79,7 +71,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
 
     sandbox.setHtml(
       this.code['index.html'] ||
-        '<app-root></app-root><my-app></my-app><div class="error"></div>'
+      '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
     this.presets.forEach(preset =>
@@ -117,7 +109,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
         });
 
       if (!this.bootstrap) {
-        debugger;
+        console.error('Bootstrap missing');
       }
 
       sandbox.evalJs(`System.import('${this.bootstrap}')`);

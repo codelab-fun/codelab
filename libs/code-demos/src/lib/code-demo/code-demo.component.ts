@@ -52,17 +52,17 @@ export function getChanges(current, previous) {
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CodeDemo),
+      useExisting: forwardRef(() => CodeDemoComponent),
       multi: true
     }
   ]
 })
-export class CodeDemo implements ControlValueAccessor {
+export class CodeDemoComponent implements ControlValueAccessor {
   @Input() bootstrapTest;
   @Input() milestone = '';
   @Input() url = 'about:blank';
   @Input() translations = {};
-  @Input() slidesSimpleHighlightMatch = [];
+  @Input() codeDemoSimpleHighlightMatch = [];
   @Input() testRunner: 'babel' | 'iframe' = 'iframe';
   @Input() files: string[];
   @Input() presets = ['angular'];

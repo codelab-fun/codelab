@@ -47,7 +47,7 @@ export class MultitabEditorComponent
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
-  @Input() slidesSimpleHighlightMatch = [];
+  @Input() codeDemoSimpleHighlightMatch = [];
   @Input() highlights = {};
   files = [];
   openModels: MonacoModel[];

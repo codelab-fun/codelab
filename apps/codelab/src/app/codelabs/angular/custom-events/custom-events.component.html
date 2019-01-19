@@ -30,11 +30,11 @@
 
     <div row>
       <div column-5>
-        <slides-file-path path="parent.ts"></slides-file-path>
+        <code-demo-file-path path="parent.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.exercise1a.code"
-          [slidesSimpleHighlightMatch]="code.exercise1a.match"
+          [codeDemoSimpleHighlightMatch]="code.exercise1a.match"
         ></code-demo-editor>
         <h1>
           To 'listen' to a child's event, we bind to the child's event
@@ -42,11 +42,11 @@
         </h1>
       </div>
       <div column-5>
-        <slides-file-path path="child.ts"></slides-file-path>
+        <code-demo-file-path path="child.ts"></code-demo-file-path>
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.exercise1b.code"
-          [slidesSimpleHighlightMatch]="code.exercise1a.match"
+          [codeDemoSimpleHighlightMatch]="code.exercise1a.match"
         ></code-demo-editor>
         <h1>
           To let the parent know that there is an event. We emit an event from

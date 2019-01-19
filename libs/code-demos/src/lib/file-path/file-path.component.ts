@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-file-path',
+  selector: 'code-demo-file-path',
   templateUrl: './file-path.component.html',
   styleUrls: ['./file-path.component.css']
 })

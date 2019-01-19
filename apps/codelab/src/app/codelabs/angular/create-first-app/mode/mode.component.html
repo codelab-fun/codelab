@@ -5,13 +5,13 @@
   </h2>
   <div class="box-row">
     <div class="box-row-fill">
-      <slides-file-path path="app.module.ts"></slides-file-path>
+      <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
       <code-demo-editor
         [fontSize]="30"
         [(ngModel)]="code.moduleAnatomy.code"
         style="height: 400px;"
-        [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"
+        [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"
       ></code-demo-editor>
     </div>
     <preview-browser-window style="width: 490px; height: 300px;">
@@ -29,7 +29,7 @@
       <code-demo-editor
         [fontSize]="30"
         [(ngModel)]="code.moduleAnatomy.codeMobile"
-        [slidesSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"
+        [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"
       ></code-demo-editor>
     </div>
     <img
