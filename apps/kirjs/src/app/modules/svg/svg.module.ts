@@ -18,9 +18,10 @@ import { SvgTogetherComponent } from './svg-together/svg-together.component';
 import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
-import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
+import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
 import { SlidesModule } from '@codelab/slides';
 import { CodeDemoModule } from '@codelab/code-demos';
+
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(SvgComponent)

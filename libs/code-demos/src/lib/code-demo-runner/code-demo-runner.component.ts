@@ -4,7 +4,8 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
 import { compileTemplates } from '../runner/prepare-templates';
 import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
-import { addMetaInformation } from '../../../../../apps/codelab/src/app/codelabs/components/angular-test-runner/angular-test-runner.component';
+import { addMetaInformation } from '@codelab/code-demos/src/lib/shared/helpers';
+
 
 interface CodeFiles {
   [key: string]: string;

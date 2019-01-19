@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatSelectModule } from '@angular/material';
 
 import { CodeDemoModule } from '../../../../../../libs/code-demos/src';
-import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-test-runner.component';
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
 import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
@@ -30,7 +29,6 @@ import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-ani
   ],
   declarations: [
     CodelabExerciseComponent,
-    SimpleAngularTestRunnerComponent,
     SimpleTestsProgressComponent,
     SimpleTestsComponent,
     SimpleTestDescriptionComponent,
@@ -45,7 +43,7 @@ import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-ani
   ],
   exports: [
     CodelabExerciseComponent,
-    SimpleAngularTestRunnerComponent,
+
     TitleSlideComponent,
     CodelabSlidesPreviewComponent,
     CodelabClosingSlideComponent,

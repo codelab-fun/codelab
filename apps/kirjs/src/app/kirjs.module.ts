@@ -50,12 +50,6 @@ const routes = [
     description: 'Musicja',
   },
   {
-    path: 'react',
-    loadChildren: './modules/react/react.module#ReactModule',
-    name: 'React',
-    description: 'React',
-  },
-  {
     path: 'svg',
     loadChildren: './modules/svg/svg.module#SvgModule',
     name: 'Svg + Angular',
