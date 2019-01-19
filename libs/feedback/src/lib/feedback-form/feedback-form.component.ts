@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'slides-feedback-form',
+  selector: 'feedback-rating',
   templateUrl: './feedback-form.component.html',
   styleUrls: ['./feedback-form.component.css']
 })

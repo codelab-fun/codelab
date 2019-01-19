@@ -5,7 +5,7 @@ import { Message } from '../message';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'slides-feedback-widget',
+  selector: 'feedback-widget',
   templateUrl: './feedback-widget.component.html',
   styleUrls: ['./feedback-widget.component.css']
 })

@@ -3,7 +3,7 @@ import { FeedbackService } from '../feedback.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'slides-feedback-rating',
+  selector: 'feedback-rating',
   templateUrl: './feedback-rating.component.html',
   styleUrls: ['./feedback-rating.component.css']
 })
