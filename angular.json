@@ -42,19 +42,19 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
               "fileReplacements": [
                 {
-                  "replace": "apps/codelab/ru/src/environments/environment.ts",
-                  "with": "apps/codelab/ru/src/environments/environment.prod.ts"
+                  "replace": "apps/codelab/src/environments/environment.ts",
+                  "with": "apps/codelab/src/environments/environment.prod.ts"
                 }
               ],
               "outputPath": "dist/apps/codelab/ru",
-              "i18nFile": "apps/kirjs/src/locale/kirjs.ru.xtb",
+              "i18nFile": "apps/codelab/src/locale/codelab.ru.xtb",
               "i18nFormat": "xtb",
               "i18nLocale": "ru"
             },
