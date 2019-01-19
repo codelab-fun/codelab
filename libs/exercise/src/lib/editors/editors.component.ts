@@ -23,7 +23,7 @@ export class EditorsComponent implements OnInit {
   @Output() public selectFile: EventEmitter<any> = new EventEmitter<
     FileConfig
   >();
-  @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<
+  @Output() public loadSolution: EventEmitter<any> = new EventEmitter<
     FileConfig
   >();
   private debug: boolean;
@@ -86,6 +86,6 @@ export class EditorsComponent implements OnInit {
   }
 
   loadSolution(file: FileConfig): void {
-    this.onLoadSolution.next(file);
+    this.loadSolution.next(file);
   }
 }

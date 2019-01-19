@@ -19,7 +19,6 @@ export class TrackingDirective {
     private router: Router,
     private presentation: PresentationComponent
   ) {
-    debugger;
     afAuth.auth.signInAnonymously();
     afAuth.authState.subscribe(authData => {
       this.auth = authData;
