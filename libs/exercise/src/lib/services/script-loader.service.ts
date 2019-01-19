@@ -8,8 +8,8 @@ export class ScriptLoaderService {
 
   scripts = {
     SystemJS: require('!!raw-loader!systemjs/dist/system'),
-    mocha: require('!!raw-loader!../../../assets/runner/js/mocha'),
-    chai: require('!!raw-loader!../../../assets/runner/js/chai.min'),
+    mocha: require('!!raw-loader!mocha/mocha'),
+    chai: require('!!raw-loader!chai/chai'),
     'test-bootstrap': require('!!raw-loader!../../../assets/runner/js/test-bootstrap'),
     shim: require('!!raw-loader!core-js/client/shim.min.js'),
     zone: require('!!raw-loader!zone.js/dist/zone.js'),
