@@ -39,19 +39,19 @@
       <button class="learn-box typescript" routerLink="/typescript/0">
         <span aria-hidden="true">▶</span>
         <div>
-          <div class="title">Learn TypeScript</div>
-          <div class="hint">Skip if you're familiar with TypeScript</div>
+          <div class="title" i18n>Learn TypeScript</div>
+          <div class="hint" i18n>Skip if you're familiar with TypeScript</div>
         </div>
         <img src="/assets/images/ts.png" alt="" class="">
       </button>
       <button class="learn-box" routerLink="/create-first-app/0">
         <span aria-hidden="true">▶</span>
-        <div>Learn Angular</div>
+        <div i18n>Learn Angular</div>
         <img src="/assets/images/angular.png" alt="" class="angular">
       </button>
     </div>
 
-    <button class="contents" (click)="showContents=!showContents">Or click here to see full contents...</button>
+    <button class="contents" (click)="showContents=!showContents" i18n>Or click here to see full contents...</button>
     <ol *ngIf="showContents">
       <li *ngFor="let route of getMainPageRoutes()">
         <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>

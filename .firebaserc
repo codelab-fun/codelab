@@ -11,6 +11,9 @@
         ],
         "kirjs": [
           "kirjs-home"
+        ],
+        "codelab-next": [
+          "codelab-next"
         ]
       }
     }

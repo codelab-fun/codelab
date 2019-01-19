@@ -41,6 +41,10 @@
   </msg>
   <msg id="learnToBindToEvents"><source>src/app/codelabs/index/index.component.html:20</source>Learn to bind to events.</msg>
   <msg id="2339071718884287683"><source>src/app/codelabs/index/index.component.html:35</source>Angular Codelab</msg>
+  <msg id="7759544910570343367"><source>src/app/codelabs/index/index.component.html:42</source>Learn TypeScript</msg>
+  <msg id="3142775397600131493"><source>src/app/codelabs/index/index.component.html:43</source>Skip if you&apos;re familiar with TypeScript</msg>
+  <msg id="4686588615295148276"><source>src/app/codelabs/index/index.component.html:49</source>Learn Angular</msg>
+  <msg id="5344330933193007815"><source>src/app/codelabs/index/index.component.html:54</source>Or click here to see full contents...</msg>
   <msg id="2969609887538562311"><source>src/app/codelabs/angular/angular-cli/angular-cli.component.html:148</source>End of The Angular-cli Milestone</msg>
   <msg id="5532839647985128848"><source>src/app/codelabs/angular/angular-cli/angular-cli.component.html:152,153</source>This is <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>the end<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> of the codelab, but it&apos;s just the beginning of your Angular journey. Below
           are some links that can help you continue learning.</msg>

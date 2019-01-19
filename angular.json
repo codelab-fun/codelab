@@ -47,6 +47,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "baseHref": "/ru/",
+              "deployUrl": "/ru/",
               "fileReplacements": [
                 {
                   "replace": "apps/codelab/src/environments/environment.ts",
