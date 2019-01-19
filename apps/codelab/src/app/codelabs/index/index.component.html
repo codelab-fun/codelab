@@ -36,22 +36,22 @@
     <h2>Welcome to the interactive Angular Codelab. Here you can learn the basics of <a href="https://angular.io">Angular</a>!
     </h2>
     <div class="play">
-      <div class="learn-box typescript" routerLink="/typescript/0">
-        ▶
+      <button class="learn-box typescript" routerLink="/typescript/0">
+        <span aria-hidden="true">▶</span>
         <div>
           <div class="title">Learn TypeScript</div>
           <div class="hint">Skip if you're familiar with TypeScript</div>
         </div>
-        <img src="/assets/images/ts.png" alt="TypeScript" class="">
-      </div>
-      <div class="learn-box" routerLink="/create-first-app/0">
-        ▶
+        <img src="/assets/images/ts.png" alt="" class="">
+      </button>
+      <button class="learn-box" routerLink="/create-first-app/0">
+        <span aria-hidden="true">▶</span>
         <div>Learn Angular</div>
-        <img src="/assets/images/angular.png" alt="angular" class="angular">
-      </div>
+        <img src="/assets/images/angular.png" alt="" class="angular">
+      </button>
     </div>
 
-    <h2 class="contents" (click)="showContents=!showContents">Or click here to see full contents...</h2>
+    <button class="contents" (click)="showContents=!showContents">Or click here to see full contents...</button>
     <ol *ngIf="showContents">
       <li *ngFor="let route of getMainPageRoutes()">
         <h2><a [routerLink]="route.path + '/0'">{{route.name}}</a></h2>
