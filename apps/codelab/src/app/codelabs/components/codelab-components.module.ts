@@ -26,7 +26,6 @@ import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-ani
     FormsModule,
     MatButtonModule,
     MatSelectModule,
-    
     CodeDemoModule
   ],
   declarations: [

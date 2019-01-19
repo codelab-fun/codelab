@@ -55,7 +55,7 @@ export class CodeDemo implements ControlValueAccessor {
   @Input() files: string[];
   @Input() presets = ['angular'];
   @Input() bootstrap = 'bootstrap';
-  @Input() solutions: Code;
+  @Input() solutions: Code = {};
 
   openFileIndex = 0;
   code: Code = {};
