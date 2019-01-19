@@ -9,8 +9,7 @@ describe('CodelabClosingSlideComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CodelabClosingSlideComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

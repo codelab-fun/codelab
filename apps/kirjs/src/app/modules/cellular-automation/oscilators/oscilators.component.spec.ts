@@ -8,9 +8,8 @@ describe('OscilatorsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OscilatorsComponent ]
-    })
-    .compileComponents();
+      declarations: [OscilatorsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

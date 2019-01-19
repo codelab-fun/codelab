@@ -6,7 +6,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../../../../../apps/codelab/src/environments/environment';
 
-export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
 
 @NgModule({
   imports: [
@@ -18,5 +20,4 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
   declarations: [TrackingDirective],
   exports: [TrackingDirective]
 })
-export class TrackingModule {
-}
+export class TrackingModule {}

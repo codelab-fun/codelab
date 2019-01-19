@@ -3,8 +3,7 @@ import { BinaryReader, BinaryReaderResult } from './abstract-reader';
 export class StringBinaryReader implements BinaryReader {
   private index = 0;
 
-  constructor(private s: string) {
-  }
+  constructor(private s: string) {}
 
   hasMore() {
     return this.index < this.s.length;

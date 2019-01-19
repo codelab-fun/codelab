@@ -6,16 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./rule.component.css']
 })
 export class RuleComponent implements OnInit {
-
   @Input() before = [];
   @Input() after = [];
   @Input() arrow = false;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }

@@ -20,29 +20,29 @@
   flex-grow: 1;
   height: 3px;
   transition-duration: 0.5s;
-  background: #ABB7B7;
+  background: #abb7b7;
 }
 
 .slide-block:hover {
-  background: #DADFE1;
+  background: #dadfe1;
 }
 
 .exercise-block {
-  background: #D35400;
+  background: #d35400;
 }
 
 .exercise-block:hover {
-  background: #F9690E;
+  background: #f9690e;
 }
 
 .completed-slide {
-  background: #F89406;
+  background: #f89406;
 }
 
 .completed-slide:hover {
-  background: #E9D460;
+  background: #e9d460;
 }
 
 .completed-slide.exercise-block {
-  background: #E67E22;
+  background: #e67e22;
 }

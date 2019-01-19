@@ -10,8 +10,12 @@ import { TaetLedComponent } from './taet-led.component';
 
 @NgModule({
   imports: [BrowserModule, MatTabsModule, NoopAnimationsModule],
-  declarations: [AppComponent, AlertComponent, BreakMyComputerComponent, TaetLedComponent],
+  declarations: [
+    AppComponent,
+    AlertComponent,
+    BreakMyComputerComponent,
+    TaetLedComponent
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

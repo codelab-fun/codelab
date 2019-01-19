@@ -9,10 +9,7 @@ export class BrowserWindowComponent implements OnInit {
   @Input() height = '';
   @Input() url = 'http://localhost:4200/';
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

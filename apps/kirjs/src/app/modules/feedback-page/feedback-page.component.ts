@@ -18,13 +18,14 @@ function groupBy(feedback: Array<Message>, grouping: Grouping) {
     return comment;
   }, {});
 
-  return Object.keys(result).map(key => ({key, value: result[key]}));
+  return Object.keys(result).map(key => ({ key, value: result[key] }));
 }
 
 function normalize(feedback: Array<any>) {
-  return feedback.map(item => ({...(item.payload && item.payload.val()), key: item.key}));
-
-
+  return feedback.map(item => ({
+    ...(item.payload && item.payload.val()),
+    key: item.key
+  }));
 }
 
 function group([feedback, grouping]) {
@@ -62,13 +63,17 @@ function filter([feedback, filterName]) {
   styleUrls: ['./feedback-page.component.css']
 })
 export class FeedbackPageComponent implements OnInit {
-  messages$: Observable<{ key: string; value: Message; }[]>;
+  messages$: Observable<{ key: string; value: Message }[]>;
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
   githubAuth;
   private feedback$: AngularFireList<any[]>;
 
-  constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth, private ghService: GithubService) {
+  constructor(
+    private database: AngularFireDatabase,
+    private afAuth: AngularFireAuth,
+    private ghService: GithubService
+  ) {
     afAuth.authState.subscribe(authData => {
       if (authData === null) {
         this.login();
@@ -76,7 +81,6 @@ export class FeedbackPageComponent implements OnInit {
         this.githubAuth = authData;
       }
     });
-
   }
 
   async login() {
@@ -85,13 +89,17 @@ export class FeedbackPageComponent implements OnInit {
   }
 
   isDone(message) {
-    this.database.object(`feedback/${message.key}`).update({isDone: !message.isDone});
+    this.database
+      .object(`feedback/${message.key}`)
+      .update({ isDone: !message.isDone });
   }
 
   generateIssueBody(message) {
     return `${message.comment}
 Author: ${message.name}
-Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
+Slide: [Local](http://localhost:4200${
+      message.href
+    }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
   }
 
   async createAnIssue(message) {
@@ -99,14 +107,21 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
       await this.login();
     }
 
-    this.ghService.createIssue({
-      title: message.comment.substring(0, 150),
-      body: this.generateIssueBody(message)
-    }, this.githubAuth.credential.accessToken).subscribe((responseData: any) => {
-      this.isDone(message);
-      this.database.object(`feedback/${message.key}`).update({url: responseData.html_url});
-      window.open(responseData.html_url);
-    });
+    this.ghService
+      .createIssue(
+        {
+          title: message.comment.substring(0, 150),
+          body: this.generateIssueBody(message)
+        },
+        this.githubAuth.credential.accessToken
+      )
+      .subscribe((responseData: any) => {
+        this.isDone(message);
+        this.database
+          .object(`feedback/${message.key}`)
+          .update({ url: responseData.html_url });
+        window.open(responseData.html_url);
+      });
   }
 
   async createClosedIssue(message, reason) {
@@ -114,26 +129,42 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
       await this.login();
     }
 
-    this.ghService.createIssue({
-      title: reason + ' ' + message.comment.substring(0, 150),
-      body: this.generateIssueBody(message),
-    }, this.githubAuth.credential.accessToken).subscribe((responseData: any) => {
-      // Until we get a better UI
-      console.log(responseData.html_url);
-      this.database.object(`feedback/${message.key}`).update({url: responseData.html_url});
-      this.ghService.closeIssue({state: 'closed'}, responseData.number, this.githubAuth.credential.accessToken)
-        .subscribe((res) => {
-          if (res) {
-            this.isDone(message);
-          }
-        });
-
-    });
+    this.ghService
+      .createIssue(
+        {
+          title: reason + ' ' + message.comment.substring(0, 150),
+          body: this.generateIssueBody(message)
+        },
+        this.githubAuth.credential.accessToken
+      )
+      .subscribe((responseData: any) => {
+        // Until we get a better UI
+        console.log(responseData.html_url);
+        this.database
+          .object(`feedback/${message.key}`)
+          .update({ url: responseData.html_url });
+        this.ghService
+          .closeIssue(
+            { state: 'closed' },
+            responseData.number,
+            this.githubAuth.credential.accessToken
+          )
+          .subscribe(res => {
+            if (res) {
+              this.isDone(message);
+            }
+          });
+      });
   }
 
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');
-    const filteredMessages$ = combineLatest(this.feedback$.snapshotChanges().pipe(map(normalize)), this.filter$).pipe(map(filter));
-    this.messages$ = combineLatest(filteredMessages$, this.group$).pipe(map(group));
+    const filteredMessages$ = combineLatest(
+      this.feedback$.snapshotChanges().pipe(map(normalize)),
+      this.filter$
+    ).pipe(map(filter));
+    this.messages$ = combineLatest(filteredMessages$, this.group$).pipe(
+      map(group)
+    );
   }
 }

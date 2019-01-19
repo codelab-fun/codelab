@@ -1,7 +1,10 @@
 <div
-  data-step="3" data-intro="You can reference the slides for this milestone here." data-position="top"
+  data-step="3"
+  data-intro="You can reference the slides for this milestone here."
+  data-position="top"
   class="slides-preview"
-  [class.expanded]="isExpanded">
+  [class.expanded]="isExpanded"
+>
   <div class="preview-header">
     <button class="button-expand" (click)="expandToggle()"></button>
   </div>
@@ -9,4 +12,3 @@
     <iframe *ngIf="milestone" [src]="iframeSource"></iframe>
   </div>
 </div>
-

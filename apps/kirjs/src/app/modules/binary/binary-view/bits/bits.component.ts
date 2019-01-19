@@ -10,11 +10,9 @@ export class BitsComponent {
   @Input() data;
   @Input() showMeta = false;
 
-  constructor(private readonly root: BinaryParentComponent) {
-  }
+  constructor(private readonly root: BinaryParentComponent) {}
 
   update(value) {
     this.root.update(this.data, Number(value).toString());
   }
-
 }

@@ -14,15 +14,14 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { FormsModule } from '@angular/forms';
 
-const routes = RouterModule.forChild(
-  [
-    {
-      path: '',
-      redirectTo: '/forms/intro',
-      pathMatch: 'full'
-    }, ...SlidesRoutes.get(FormsComponent)
-  ]
-);
+const routes = RouterModule.forChild([
+  {
+    path: '',
+    redirectTo: '/forms/intro',
+    pathMatch: 'full'
+  },
+  ...SlidesRoutes.get(FormsComponent)
+]);
 
 @NgModule({
   imports: [
@@ -35,12 +34,11 @@ const routes = RouterModule.forChild(
 
     CodelabComponentsModule,
     SlidesModule,
-    
-    FormsModule,
+
+    FormsModule
   ],
   declarations: [FormsComponent],
   exports: [FormsComponent],
-  providers: [Ng2TsExercises],
+  providers: [Ng2TsExercises]
 })
-export class FormsCodelabModule {
-}
+export class FormsCodelabModule {}

@@ -1,6 +1,5 @@
 .tools {
   display: flex;
-
 }
 
 .tool.selected {
@@ -18,32 +17,32 @@
 }
 
 .tool-next:before {
-  content: "?";
+  content: '?';
 }
 
 .tool-clear:before {
-  content: "X";
+  content: 'X';
 }
 
 .tool-undo:before {
-  content: "⎌";
+  content: '⎌';
 }
 
 .tool-redo {
-  content: "⎌";
+  content: '⎌';
   transform: scale(-1, 1);
 }
 
 .tool-red-maybe:before {
-  content: "🔴";
+  content: '🔴';
   opacity: 0.5;
 }
 
 .tool-highlight:before {
-  content: "▩";
+  content: '▩';
 }
 
 .tool-black-maybe:before {
-  content: "⚫";
+  content: '⚫';
   opacity: 0.5;
 }

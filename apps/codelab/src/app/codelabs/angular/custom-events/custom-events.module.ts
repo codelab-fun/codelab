@@ -15,15 +15,14 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
-const routes = RouterModule.forChild(
-  [
-    {
-      path: '',
-      redirectTo: '/custom-events/intro',
-      pathMatch: 'full'
-    }, ...SlidesRoutes.get(CustomEventsComponent)
-  ]
-);
+const routes = RouterModule.forChild([
+  {
+    path: '',
+    redirectTo: '/custom-events/intro',
+    pathMatch: 'full'
+  },
+  ...SlidesRoutes.get(CustomEventsComponent)
+]);
 
 @NgModule({
   imports: [
@@ -35,11 +34,10 @@ const routes = RouterModule.forChild(
     CodeDemoModule,
     CodelabComponentsModule,
     SlidesModule,
-    
-    FormsModule,
+
+    FormsModule
   ],
   declarations: [CustomEventsComponent],
   exports: [CustomEventsComponent]
 })
-export class CustomEventsModule {
-}
+export class CustomEventsModule {}

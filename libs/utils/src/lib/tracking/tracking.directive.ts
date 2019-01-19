@@ -13,8 +13,12 @@ export class TrackingDirective {
   lastSlideChange;
   history: Array<any> = [];
 
-  constructor(private afDb: AngularFireDatabase, private afAuth: AngularFireAuth,
-              private router: Router, private presentation: PresentationComponent) {
+  constructor(
+    private afDb: AngularFireDatabase,
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private presentation: PresentationComponent
+  ) {
     debugger;
     afAuth.auth.signInAnonymously();
     afAuth.authState.subscribe(authData => {
@@ -35,7 +39,7 @@ export class TrackingDirective {
         msDiff: diffMinutes, // time user spent on the prev. slide
         route: this.router.url,
         totalSlides: this.presentation.totalSlides,
-        milestone: this.router.url.split('\/')[1]
+        milestone: this.router.url.split('/')[1]
       });
     }
     // TODO: use observables to preserve all data

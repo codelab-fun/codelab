@@ -8,9 +8,8 @@ describe('BinaryPlainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BinaryPlainComponent ]
-    })
-    .compileComponents();
+      declarations: [BinaryPlainComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

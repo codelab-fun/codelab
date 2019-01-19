@@ -4,7 +4,6 @@ import { By } from '@angular/platform-browser';
 import { RippleAnimationComponent } from '../ripple-animation/ripple-animation.component';
 import { TitleSlideComponent } from './title-slide.component';
 
-
 describe('TitleSlideComponent', () => {
   let component: TitleSlideComponent;
   let fixture: ComponentFixture<TitleSlideComponent>;
@@ -12,8 +11,7 @@ describe('TitleSlideComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RippleAnimationComponent, TitleSlideComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-
 import * as babylon from 'babylon';
 import * as types from 'babel-types';
 import babelTraverse from 'babel-traverse';
@@ -31,11 +30,11 @@ export class BabelTestRunner {
       babelTraverse,
       babelGenerator,
       types,
-      log: (value) => {
+      log: value => {
         this.logs.push(value);
-      },
+      }
     };
-    const callback = (result) => {
+    const callback = result => {
       if (result) {
         this.tests = result;
         this.firstFailing = this.tests.find(test => !test.pass);

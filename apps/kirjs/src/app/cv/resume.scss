@@ -35,10 +35,8 @@ ul {
     padding-top: 0px;
     padding-bottom: 10px;
     margin-bottom: 0;
-
   }
   h3 {
-
     margin: 0;
     font-size: 0.8em;
     font-weight: 600;
@@ -76,7 +74,7 @@ ul {
     float: left;
   }
   .spanstart:after {
-    content: " - ";
+    content: ' - ';
   }
   .date_duration {
     font-weight: 400;
@@ -114,7 +112,6 @@ ul {
     line-height: 25px;
   }
 
-
   .skills {
     overflow: hidden;
     margin: 0;
@@ -122,5 +119,4 @@ ul {
       float: left;
     }
   }
-
 }

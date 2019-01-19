@@ -9,8 +9,10 @@ export class SlideDirective {
 
   constructor(
     private presentation: SlidesDeckComponent,
-    private template: TemplateRef<any>) {
-    const attrs = (template as any)._def.element.template.nodes[0].element.attrs;
+    private template: TemplateRef<any>
+  ) {
+    const attrs = (template as any)._def.element.template.nodes[0].element
+      .attrs;
     const idAttr = attrs.find(([_, name]) => name === 'id');
     // TODO: Move this to the codelab
     const milestoneAttr = attrs.find(([_, name]) => name === 'milestone');
@@ -19,8 +21,6 @@ export class SlideDirective {
       id: idAttr && idAttr[2],
       milestone: milestoneAttr && milestoneAttr[2],
       template
-    })
+    });
   }
-
-
 }

@@ -7,7 +7,6 @@ import { displayAngularComponent } from '../../../../../../../libs/exercise/src/
   styleUrls: ['./pipes.component.css']
 })
 export class PipesComponent {
-
   code = {
     chainedPipesExample: {
       template: displayAngularComponent(`import {Component} from '@angular/core';
@@ -77,7 +76,5 @@ export class SubstringPipe implements PipeTransform {
     }
   };
 
-  constructor() {
-  }
-
+  constructor() {}
 }

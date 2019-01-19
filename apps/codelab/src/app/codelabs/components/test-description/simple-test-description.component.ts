@@ -11,6 +11,5 @@ export class SimpleTestDescriptionComponent {
   @Input() pass: boolean;
   @Output() onSelectFile = new EventEmitter<string>();
 
-  constructor() {
-  }
+  constructor() {}
 }

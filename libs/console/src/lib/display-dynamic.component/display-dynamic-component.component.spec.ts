@@ -8,9 +8,8 @@ describe('DisplayDynamicComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplayDynamicComponent ]
-    })
-    .compileComponents();
+      declarations: [DisplayDynamicComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

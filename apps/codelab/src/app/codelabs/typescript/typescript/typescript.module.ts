@@ -16,15 +16,14 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { TypescriptSvgComponent } from './typescript-svg/typescript-svg.component';
 import { PresentationModule } from '../../../../../../../libs/presentation/src';
 
-const routes = RouterModule.forChild(
-  [
-    {
-      path: '',
-      redirectTo: '/typescript/intro',
-      pathMatch: 'full'
-    }, ...SlidesRoutes.get(TypescriptComponent)
-  ]
-);
+const routes = RouterModule.forChild([
+  {
+    path: '',
+    redirectTo: '/typescript/intro',
+    pathMatch: 'full'
+  },
+  ...SlidesRoutes.get(TypescriptComponent)
+]);
 
 @NgModule({
   imports: [
@@ -39,12 +38,10 @@ const routes = RouterModule.forChild(
 
     CodelabComponentsModule,
     FormsModule,
-    
-    PresentationModule,
+
+    PresentationModule
   ],
   declarations: [TypescriptComponent, TypescriptSvgComponent],
   exports: [TypescriptComponent]
 })
-export class TypescriptModule {
-
-}
+export class TypescriptModule {}

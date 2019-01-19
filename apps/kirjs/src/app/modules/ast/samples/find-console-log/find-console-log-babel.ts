@@ -1,4 +1,3 @@
-function findConsoleLogBabel(code, {babylon, babelTraverse, log}) {
+function findConsoleLogBabel(code, { babylon, babelTraverse, log }) {
   // Find debugger!!
 }
-

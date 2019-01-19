@@ -1,5 +1,4 @@
 export interface FileConfig {
-
   opened?: boolean;
   /**
    * typescript or html.
@@ -47,7 +46,6 @@ export interface FileConfig {
    * If this is true
    */
   bootstrap?: boolean;
-
 
   excludeFromTesting?: boolean;
 

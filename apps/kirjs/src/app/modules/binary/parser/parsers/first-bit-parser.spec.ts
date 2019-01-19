@@ -24,6 +24,4 @@ fdescribe('FirstBitParse', () => {
     const result = new FirstBitParser().read(reader);
     expect(result.rawValue).toEqual('111111111111111101111111');
   });
-
-
 });

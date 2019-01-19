@@ -14,6 +14,5 @@ export class SvgDemoComponent implements OnInit {
     this.code = '<svg>\n' + value + '\n</svg>';
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

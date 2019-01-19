@@ -1,7 +1,6 @@
 import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
 
-
 export class FirstBitParser extends AbstractBinaryParser {
   type = 'bits';
 
@@ -14,7 +13,10 @@ export class FirstBitParser extends AbstractBinaryParser {
     return parseInt(n, 2);
   }
 
-  read(reader: BinaryReader, data: BinaryReaderResult = {}): BinaryReaderResult {
+  read(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {}
+  ): BinaryReaderResult {
     let hasNext = true;
     let value = '';
     let rawValue = '';
@@ -22,7 +24,7 @@ export class FirstBitParser extends AbstractBinaryParser {
     let i = 100;
     while (hasNext) {
       const firstBit = reader.read(1);
-      hasNext = !!+(firstBit);
+      hasNext = !!+firstBit;
       rawValue += firstBit;
       const result = reader.read(7);
       value += result;
@@ -32,12 +34,15 @@ export class FirstBitParser extends AbstractBinaryParser {
       }
     }
 
-
     const converter = this.config.converter || this.converter;
-    return {value: converter(rawValue), rawValue};
+    return { value: converter(rawValue), rawValue };
   }
 
-  readOrdered(reader: BinaryReader, data: BinaryReaderResult = {}, start = 0): BinaryReaderResult {
-    return {...this.read(reader, data), type: this.type};
+  readOrdered(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {},
+    start = 0
+  ): BinaryReaderResult {
+    return { ...this.read(reader, data), type: this.type };
   }
 }

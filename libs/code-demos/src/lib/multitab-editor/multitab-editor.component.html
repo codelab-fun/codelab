@@ -1,10 +1,19 @@
-<div class="wrapper" *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index;">
+<div
+  class="wrapper"
+  *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
+>
   <div class="panel" *ngIf="displayFileName">
-    <slides-file-path style="margin: 1px 0 10px 0;display: block;" [path]="openModels[i].path"></slides-file-path>
+    <slides-file-path
+      style="margin: 1px 0 10px 0;display: block;"
+      [path]="openModels[i].path"
+    ></slides-file-path>
   </div>
   <div class="panel" *ngIf="allowSwitchingFiles">
     <mat-form-field>
-      <mat-select [ngModel]="openModels[i]" (selectionChange)="handleFileChange(i, $event)">
+      <mat-select
+        [ngModel]="openModels[i]"
+        (selectionChange)="handleFileChange(i, $event)"
+      >
         <mat-select-trigger>
           <slides-file-path [path]="openModels[i].path"></slides-file-path>
         </mat-select-trigger>
@@ -14,13 +23,18 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]"
-            style="cursor: pointer"
-            (click)="loadSolution(model.path)">Load
-      solution
+    <button
+      mat-button
+      *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]"
+      style="cursor: pointer"
+      (click)="loadSolution(model.path)"
+    >
+      Load solution
     </button>
   </div>
 
-  <slides-editor-from-model [model]="model.model"
-                            [slidesSimpleHighlightMatch]="model.highlight"></slides-editor-from-model>
+  <slides-editor-from-model
+    [model]="model.model"
+    [slidesSimpleHighlightMatch]="model.highlight"
+  ></slides-editor-from-model>
 </div>

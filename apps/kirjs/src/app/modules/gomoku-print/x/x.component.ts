@@ -6,5 +6,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './x.component.html',
   styleUrls: ['./x.component.css']
 })
-export class XComponent {
-}
+export class XComponent {}

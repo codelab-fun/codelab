@@ -4,7 +4,6 @@ import { MatCardModule, MatToolbarModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -15,6 +14,4 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
-
+export class AppModule {}

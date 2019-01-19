@@ -10,11 +10,13 @@ export class NumberComponent implements OnInit {
   @Input() data: any;
   @Input() showMeta = false;
 
-  constructor(private readonly root: BinaryParentComponent) {
-  }
+  constructor(private readonly root: BinaryParentComponent) {}
 
   update(value) {
-    const val = (Number(value).toString(2) as any).padStart(this.data.length, 0);
+    const val = (Number(value).toString(2) as any).padStart(
+      this.data.length,
+      0
+    );
     this.root.update(this.data, val.slice(8) + val.slice(0, 8));
   }
 
@@ -22,7 +24,5 @@ export class NumberComponent implements OnInit {
     this.root.update(this.data, binary);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

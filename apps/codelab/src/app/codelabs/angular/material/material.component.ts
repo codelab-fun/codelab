@@ -1,7 +1,10 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { CodelabFile } from '../../../../../../../libs/exercise/src/lib/helpers/codelabFile';
-import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
+import {
+  ExerciseConfigTemplate,
+  Ng2TsExercises
+} from '../../../../../../../ng2ts/ng2ts';
 
 declare const require;
 
@@ -10,16 +13,34 @@ interface FileHighlights {
   appHtml?: RegExp;
 }
 
-function matExercise(modules, html, highlights: FileHighlights = {}, theme = 'purple') {
-  const moduleCode = require('!!raw-loader!./samples/basic/app.module.ts').replace(/MatCardModule, MatToolbarModule/g, modules);
+function matExercise(
+  modules,
+  html,
+  highlights: FileHighlights = {},
+  theme = 'purple'
+) {
+  const moduleCode = require('!!raw-loader!./samples/basic/app.module.ts').replace(
+    /MatCardModule, MatToolbarModule/g,
+    modules
+  );
 
   return {
     files: [
-      CodelabFile.TypeScriptFile('app.module').setCode(moduleCode).withHighlight(highlights.appModule),
-      CodelabFile.Html('app').setCode(html).withHighlight(highlights.appHtml),
-      CodelabFile.TypeScriptFile('app.component').setCode(require('!!raw-loader!./samples/basic/app.component.ts')),
-      CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./samples/basic/main.ts')).makeBootstrappable(),
-      CodelabFile.Css('styles').setCode(require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')),
+      CodelabFile.TypeScriptFile('app.module')
+        .setCode(moduleCode)
+        .withHighlight(highlights.appModule),
+      CodelabFile.Html('app')
+        .setCode(html)
+        .withHighlight(highlights.appHtml),
+      CodelabFile.TypeScriptFile('app.component').setCode(
+        require('!!raw-loader!./samples/basic/app.component.ts')
+      ),
+      CodelabFile.TypeScriptFile('bootstrap')
+        .setCode(require('!!raw-loader!./samples/basic/main.ts'))
+        .makeBootstrappable(),
+      CodelabFile.Css('styles').setCode(
+        require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
+      ),
       CodelabFile.Css('extra').setCode('body {padding: 0; margin: 0;}')
     ]
   };
@@ -39,9 +60,8 @@ export class MaterialComponent {
     indigo: require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
     deeppurple: require('!!raw-loader!@angular/material/prebuilt-themes/deeppurple-amber.css'),
     pink: require('!!raw-loader!@angular/material/prebuilt-themes/pink-bluegrey.css'),
-    purple: require('!!raw-loader!@angular/material/prebuilt-themes/purple-green.css'),
+    purple: require('!!raw-loader!@angular/material/prebuilt-themes/purple-green.css')
   };
-
 
   code = {
     material: {
@@ -79,20 +99,16 @@ export class MaterialComponent {
       theme: matExercise(
         `MatToolbarModule,\n    MatCardModule,\n    MatButtonModule`,
         require('!!raw-loader!./samples/basic/app.4.html')
-      ),
-
+      )
     },
     samples: {
       button: `<button md-button md-raised-button>
    I'm a button
 </button>`,
-      card:
-        `<md-card>I'm material card</md-card>`,
-      input:
-        `<md-form-field>
+      card: `<md-card>I'm material card</md-card>`,
+      input: `<md-form-field>
   <input mdInput placeholder="All your secrets">
 </md-form-field>`
-
     }
   };
   private theme = 'indigo';
@@ -105,6 +121,6 @@ export class MaterialComponent {
     this.theme = theme;
     const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
     cssFile.template = this.themes[theme];
-    this.code.material.theme = {...this.code.material.theme};
+    this.code.material.theme = { ...this.code.material.theme };
   }
 }

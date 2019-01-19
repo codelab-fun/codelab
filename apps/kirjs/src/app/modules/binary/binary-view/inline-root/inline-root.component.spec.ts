@@ -8,9 +8,8 @@ describe('InlineRootComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InlineRootComponent ]
-    })
-    .compileComponents();
+      declarations: [InlineRootComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

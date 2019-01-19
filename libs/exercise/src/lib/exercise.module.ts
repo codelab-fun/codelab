@@ -12,9 +12,7 @@ import { TooltipsModule } from '../../../tooltips/src/lib/tooltips.module';
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { DepsService } from './services/deps-order.service';
 
-
 import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/size-picker/size-picker.module';
-
 
 @NgModule({
   imports: [
@@ -22,26 +20,20 @@ import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/siz
     FormsModule,
     TooltipsModule,
     BrowserWindowModule,
-    SizePickerModule,
+    SizePickerModule
   ],
   declarations: [
     EditorsComponent,
     EditorComponent,
     FileTreeComponent,
-    FileStructureComponent,
+    FileStructureComponent
   ],
-  providers:
-    [
-      LoopProtectionService,
-      ScriptLoaderService,
-      MonacoConfigService,
-      DepsService
-    ],
-  exports:
-    [
-      EditorComponent,
-    ]
+  providers: [
+    LoopProtectionService,
+    ScriptLoaderService,
+    MonacoConfigService,
+    DepsService
+  ],
+  exports: [EditorComponent]
 })
-
-export class ExerciseModule {
-}
+export class ExerciseModule {}

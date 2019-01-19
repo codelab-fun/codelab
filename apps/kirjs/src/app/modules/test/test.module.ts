@@ -4,17 +4,11 @@ import { TestComponent } from './test.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(TestComponent)
-);
+const routes = RouterModule.forChild(SlidesRoutes.get(TestComponent));
 
 @NgModule({
-  imports: [
-    CommonModule,
-    routes
-  ],
+  imports: [CommonModule, routes],
   declarations: [TestComponent],
-  entryComponents: [TestComponent],
+  entryComponents: [TestComponent]
 })
-export class TestModule {
-}
+export class TestModule {}

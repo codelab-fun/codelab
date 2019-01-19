@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 function strToBin(s: string) {
-  return Array.from(new TextEncoder().encode(s)).map(a => a.toString(2).padStart(8, '0')).join('')
+  return Array.from(new TextEncoder().encode(s))
+    .map(a => a.toString(2).padStart(8, '0'))
+    .join('');
 }
-
 
 @Component({
   selector: 'slides-json',
@@ -27,10 +28,9 @@ export class JsonComponent implements OnInit {
   schemaLength: number;
   error: string;
 
-  constructor() {
-  }
+  constructor() {}
 
-  handleLineChange({value: code, lineNumber}) {
+  handleLineChange({ value: code, lineNumber }) {
     this.binaries = [
       {
         binary: '',
@@ -47,57 +47,70 @@ export class JsonComponent implements OnInit {
       return;
     }
 
+    this.binaries = this.binaries.concat(
+      Object.keys(val).map(key => {
+        const value = val[key];
+        const data: any = {};
 
-    this.binaries = this.binaries.concat(Object.keys(val).map((key) => {
-      const value = val[key];
-      const data: any = {};
+        data.key = key;
+        data.key = key;
+        if (typeof value === 'boolean') {
+          data.binary = Number(value);
+          data.type = 'boolean';
+          data.comment = 'just one bit!';
+        } else if (typeof value === 'number') {
+          data.binary = value
+            .toString(2)
+            .padStart(Math.ceil(Math.log2(value + 1) / 8) * 8, '0');
+          data.type = 'number';
+          data.comment = 'Number';
+        } else if (typeof value === 'string') {
+          data.binary = strToBin(value) + '0000000000000000';
+          data.display = value
+            .split('')
+            .map(value => ({
+              value,
+              bin: (value.charCodeAt(0).toString(2) as any).padStart(8, 0)
+            }))
+            .concat({ value: 'Separator', bin: '000000000000000000' });
+          data.type = 'string';
+          data.comment = 'String!';
+        }
+        data.value = value;
 
-      data.key = key;
-      data.key = key;
-      if (typeof value === 'boolean') {
-        data.binary = Number(value);
-        data.type = 'boolean';
-        data.comment = 'just one bit!';
-      } else if (typeof value === 'number') {
-        data.binary = value.toString(2).padStart(Math.ceil(Math.log2(value + 1) / 8) * 8, '0');
-        data.type = 'number';
-        data.comment = 'Number';
-      } else if (typeof value === 'string') {
-        data.binary = strToBin(value) + '0000000000000000';
-        data.display = value.split('').map((value => ({
-          value,
-          bin: (value.charCodeAt(0).toString(2) as any).padStart(8, 0)
-        }))).concat({value: 'Separator', bin: '000000000000000000'});
-        data.type = 'string';
-        data.comment = 'String!';
-      }
-      data.value = value;
-
-      return data;
-    }));
+        return data;
+      })
+    );
 
     this.schema = [
       {
         value: 'message {',
         className: ''
       }
-    ].concat(this.binaries.slice(1).map(((b, i) => ({
-      value: `    ${b.type} ${b.key} = ${i};`,
-      className: 'highlight-' + i
-    })))).concat({
-      value: '}',
-      className: ''
-    });
+    ]
+      .concat(
+        this.binaries.slice(1).map((b, i) => ({
+          value: `    ${b.type} ${b.key} = ${i};`,
+          className: 'highlight-' + i
+        }))
+      )
+      .concat({
+        value: '}',
+        className: ''
+      });
 
     this.schemaLength = this.schema.map(s => s.value).join('').length;
-    this.match = code.split('\n').map((a, i) => ({match: a.trim(), className: `highlight-${i}`}));
+    this.match = code
+      .split('\n')
+      .map((a, i) => ({ match: a.trim(), className: `highlight-${i}` }));
     this.index = lineNumber - 1;
     this.codeLength = code.replace(/\s/g, '').length;
-    this.binariesLength = Math.ceil(this.binaries.map(a => a.binary.toString().length).reduce((a, b) => a + b, 0) / 8);
+    this.binariesLength = Math.ceil(
+      this.binaries
+        .map(a => a.binary.toString().length)
+        .reduce((a, b) => a + b, 0) / 8
+    );
   }
 
-  ngOnInit() {
-  }
-
-
+  ngOnInit() {}
 }

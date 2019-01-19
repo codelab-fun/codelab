@@ -54,12 +54,10 @@ export class CustomEventsComponent {
     }
   };
 
-  exercises = [
-    ng2tsConfig.milestones[5].exercises[1]
-  ];
+  exercises = [ng2tsConfig.milestones[5].exercises[1]];
 
-//   constructor(private exercises: Ng2TsExercises) {
-//     // this.exercise = exercises.getExercises(4, 1);
-//     // this.exercise2 = exercises.getExercises(4, 2);
-//   }
+  //   constructor(private exercises: Ng2TsExercises) {
+  //     // this.exercise = exercises.getExercises(4, 1);
+  //     // this.exercise2 = exercises.getExercises(4, 2);
+  //   }
 }

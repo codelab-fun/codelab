@@ -23,11 +23,11 @@ import { debounceTime, publish, switchMap } from 'rxjs/operators';
 declare const monaco: any;
 declare const require: any;
 
-
 @Component({
   selector: 'slides-editor',
   template: `
-    <div #editor class="monaco-editor"></div>`,
+    <div #editor class="monaco-editor"></div>
+  `,
   styleUrls: ['editor.component.css'],
   providers: [
     {
@@ -35,7 +35,7 @@ declare const require: any;
       useExisting: forwardRef(() => EditorComponent),
       multi: true
     }
-  ],
+  ]
 })
 export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   editSubscription: Subscription;
@@ -53,7 +53,14 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   private editSub: Subject<String> = new Subject<String>();
 
   constructor(public monacoConfigService: MonacoConfigService) {
-    this.editSubscription = this.editSub.pipe(publish(A => this.autorun.pipe(switchMap(a => a ? A.pipe(debounceTime(1500)) : A))))
+    this.editSubscription = this.editSub
+      .pipe(
+        publish(A =>
+          this.autorun.pipe(
+            switchMap(a => (a ? A.pipe(debounceTime(1500)) : A))
+          )
+        )
+      )
       .subscribe(this.onCodeChange);
   }
 
@@ -82,14 +89,14 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @HostListener('window:resize')
   resize() {
     this.calcActualFontSize();
-    this.editor.updateOptions({fontSize: this.actialFontSize});
+    this.editor.updateOptions({ fontSize: this.actialFontSize });
     this.updateHeight(this.code);
   }
 
   calcActualFontSize() {
-    this.actialFontSize = this.fontSize * document.documentElement.clientWidth / 1800;
+    this.actialFontSize =
+      (this.fontSize * document.documentElement.clientWidth) / 1800;
   }
-
 
   ngAfterViewInit(): void {
     // TODO: This will not work on resize
@@ -98,36 +105,36 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     assert(this.fontSize, 'Incorrect font-size passed');
 
     const myDiv: HTMLDivElement = this.editorContent.nativeElement;
-    const model = this.monacoConfigService.monaco.editor.getModel(this.file.path);
+    const model = this.monacoConfigService.monaco.editor.getModel(
+      this.file.path
+    );
 
     this.code = this.file.code;
-    this.editor = this.monacoConfigService.monaco.editor.create(myDiv,
-      {
-        model: model,
-        scrollBeyondLastLine: true,
-        readOnly: this.file.readonly,
-        tabCompletion: true,
-        wordBasedSuggestions: true,
-        lineNumbersMinChars: 3,
-        automaticLayout: true,
-        fontSize: this.actialFontSize,
-        lineNumbers: this.lineNumbers,
-        folding: true,
-      });
+    this.editor = this.monacoConfigService.monaco.editor.create(myDiv, {
+      model: model,
+      scrollBeyondLastLine: true,
+      readOnly: this.file.readonly,
+      tabCompletion: true,
+      wordBasedSuggestions: true,
+      lineNumbersMinChars: 3,
+      automaticLayout: true,
+      fontSize: this.actialFontSize,
+      lineNumbers: this.lineNumbers,
+      folding: true
+    });
 
     this.editor.getModel().onDidChangeContent(() => {
       this.updateValue(this.editor.getModel().getValue());
     });
 
-
     // Re-running the code on Ctrl + Enter
     // TODO
     /* tslint:disable */
-    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-      () => this.updateValue(this.editor.getModel().getValue()));
+    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () =>
+      this.updateValue(this.editor.getModel().getValue())
+    );
     /* tslint:enable */
     this.updateHeight(this.file.code);
-
   }
 
   updateHeight(value: string) {
@@ -160,7 +167,15 @@ export class EditorComponent implements AfterViewInit, OnChanges, OnDestroy {
     const oldModelValueLength = model.getValueLengthInRange(oldFullModelRange);
     const endLineNumber = model.getLineCount();
     const endColumn = model.getLineMaxColumn(endLineNumber);
-    model._emitContentChanged2(1, 1, endLineNumber, endColumn, oldModelValueLength, model.getValue(), false, false);
+    model._emitContentChanged2(
+      1,
+      1,
+      endLineNumber,
+      endColumn,
+      oldModelValueLength,
+      model.getValue(),
+      false,
+      false
+    );
   }
 }
-

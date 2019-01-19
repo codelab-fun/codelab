@@ -9,17 +9,13 @@ export class FilePathComponent implements OnInit {
   path: string;
   extension: string;
 
-
-  constructor() {
-  }
+  constructor() {}
 
   @Input('path') set pathSetter(path: string) {
     this.path = path;
     const match = this.path.match(/.(\w+)$/);
-    this.extension = match && match[1] || 'unknown'
+    this.extension = (match && match[1]) || 'unknown';
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

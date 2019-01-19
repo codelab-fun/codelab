@@ -6,24 +6,23 @@ import { Message } from '../message';
 import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
-
 @Component({
   selector: 'slides-feedback-form',
   templateUrl: './feedback-form.component.html',
   styleUrls: ['./feedback-form.component.css']
 })
 export class FeedbackFormComponent implements OnInit {
-
   messages$: Observable<Message[]>;
   formGroup: FormGroup;
   statusMessage = '';
   error = false;
 
-  constructor(private fb: FormBuilder,
-              private activatedRoute: ActivatedRoute,
-              private feedbackService: FeedbackService,
-              private router: Router) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private feedbackService: FeedbackService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.messages$ = this.feedbackService.getMessages(this.activatedRoute);
@@ -35,7 +34,7 @@ export class FeedbackFormComponent implements OnInit {
       email: [localStorage.getItem('userEmail') || '', []]
     });
 
-    this.formGroup.valueChanges.pipe(debounceTime(500)).subscribe((data) => {
+    this.formGroup.valueChanges.pipe(debounceTime(500)).subscribe(data => {
       localStorage[`feedback-${this.router.url}-comment`] = data.comment;
     });
   }
@@ -44,14 +43,21 @@ export class FeedbackFormComponent implements OnInit {
     const formValues: any = this.formGroup.getRawValue();
     localStorage.setItem('userName', formValues.name);
     localStorage.setItem('userEmail', formValues.email);
-    this.feedbackService.addMessage(formValues.name, formValues.email, formValues.comment, this.getHeaderText())
+    this.feedbackService
+      .addMessage(
+        formValues.name,
+        formValues.email,
+        formValues.comment,
+        this.getHeaderText()
+      )
       .then(() => {
         // Reset comment field
         this.formGroup.get('comment').reset();
-      }).catch(() => {
-      this.statusMessage = 'Error while sending feedback';
-      this.error = true;
-    });
+      })
+      .catch(() => {
+        this.statusMessage = 'Error while sending feedback';
+        this.error = true;
+      });
   }
 
   private getHeaderText(): string {

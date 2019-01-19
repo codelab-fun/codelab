@@ -29,9 +29,10 @@ console.log('hi');`,
     {
       title: `'hi'; debugger; 'bye';`,
       test(func, args) {
-
-        return `'hi';
-'bye';` === func(this.title, args);
+        return (
+          `'hi';
+'bye';` === func(this.title, args)
+        );
       }
     },
     {
@@ -64,7 +65,7 @@ console.log('hi');`,
        */ debugger; \`
         \` + '';`,
       test(func, args) {
-        return  !func(this.title, args).includes('debugger');
+        return !func(this.title, args).includes('debugger');
       }
     },
     {
@@ -73,9 +74,7 @@ console.log('hi');`,
         return `function hello() {}` === func(this.title, args);
       }
     }
-
   ];
-
 
   let results = [];
   let failed = false;
@@ -84,17 +83,17 @@ console.log('hi');`,
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = (value) => {
+        args.log = value => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);
-        results.push(({title: test.title, pass: pass}));
+        results.push({ title: test.title, pass: pass });
         if (!pass) {
           failed = true;
           logs.map(log);
         }
       } else {
-        results.push(({title: test.title, pass: false}));
+        results.push({ title: test.title, pass: false });
       }
     }
   }

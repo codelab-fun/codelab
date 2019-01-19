@@ -56,7 +56,6 @@
     background-color: #fff;
     margin: 0 auto;
   }
-
 }
 
 :host ::ng-deep .theme-basic .monaco-menu li {
@@ -67,7 +66,13 @@
 :host ::ng-deep .theme-basic {
   font-family: Roboto, sans-serif;
 
-  h1, h2, h3, h4, h5, h6, li {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li {
     margin: 0;
     padding: 0;
     font-weight: 300;
@@ -79,7 +84,8 @@
     background-color: #ffe;
   }
 
-  h2, li {
+  h2,
+  li {
     font-size: 3vw;
     margin-bottom: 1vw;
   }
@@ -88,7 +94,8 @@
     margin-bottom: 20px;
   }
 
-  .info, .exercise {
+  .info,
+  .exercise {
     font-size: 2vw;
   }
 

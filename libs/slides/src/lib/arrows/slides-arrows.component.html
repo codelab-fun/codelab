@@ -1,2 +1,10 @@
-<button *ngIf="canGoPrevious()" class="arrow-left arrow" (click)="goToPreviousSlide()">◀</button>
-<button *ngIf="canGoNext()" class="arrow-right arrow" (click)="goToNextSlide()">▶</button>
+<button
+  *ngIf="canGoPrevious()"
+  class="arrow-left arrow"
+  (click)="goToPreviousSlide()"
+>
+  ◀
+</button>
+<button *ngIf="canGoNext()" class="arrow-right arrow" (click)="goToNextSlide()">
+  ▶
+</button>

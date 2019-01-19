@@ -20,23 +20,22 @@ export class StringComponent implements OnInit {
 
   _data: any;
 
-  constructor(private readonly root: BinaryParentComponent) {
-  }
+  constructor(private readonly root: BinaryParentComponent) {}
 
   updateBinary(binary) {
     this.root.update(this.data, binary);
   }
 
   update(value) {
-    const val = value.split('')
+    const val = value
+      .split('')
       .map(a => a.charCodeAt(0))
       .map(a => a.toString(2))
-      .map(a => (a as any).padStart(8, 0)).join('');
+      .map(a => (a as any).padStart(8, 0))
+      .join('');
 
     this.root.update(this.data, val);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

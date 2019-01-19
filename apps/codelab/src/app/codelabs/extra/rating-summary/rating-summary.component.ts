@@ -6,6 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rating-summary.component.css']
 })
 export class RatingSummaryComponent implements OnInit {
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

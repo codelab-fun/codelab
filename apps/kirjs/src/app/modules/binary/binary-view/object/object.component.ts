@@ -9,19 +9,15 @@ export class ObjectComponent implements OnInit {
   @Input() data: any;
   @Input() showMeta = true;
 
-  constructor(private cdr: ChangeDetectorRef) {
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   trackBy(i, data) {
     return data.name;
   }
 
   init() {
-
     this.cdr.detectChanges();
-  };
-
+  }
 }

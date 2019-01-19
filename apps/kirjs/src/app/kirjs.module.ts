@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { monacoReady } from '@codelab/exercise/src/lib/services/monaco-config.service';
 
-
 const routes = [
   {
     path: 'binary',
@@ -28,51 +27,54 @@ const routes = [
   },
   {
     path: 'cellular-automation',
-    loadChildren: './modules/cellular-automation/cellular-automation.module#CellularAutomationModule',
+    loadChildren:
+      './modules/cellular-automation/cellular-automation.module#CellularAutomationModule',
     name: 'Image inclusion',
-    description: 'Image inclusion',
+    description: 'Image inclusion'
   },
   {
     path: 'feedback-page',
-    loadChildren: './modules/feedback-page/feedback-page.module#FeedbackPageModule',
+    loadChildren:
+      './modules/feedback-page/feedback-page.module#FeedbackPageModule',
     name: 'Feedback page',
-    description: 'Feedback page',
+    description: 'Feedback page'
   },
   {
     path: 'ii',
     loadChildren: './modules/ii/ii.module#IiModule',
     name: 'Image inclusion',
-    description: 'Image inclusion',
-  }, {
+    description: 'Image inclusion'
+  },
+  {
     path: 'music',
     loadChildren: './modules/music/music.module#MusicModule',
     name: 'Music',
-    description: 'Musicja',
+    description: 'Musicja'
   },
   {
     path: 'svg',
     loadChildren: './modules/svg/svg.module#SvgModule',
     name: 'Svg + Angular',
-    description: 'SVG ',
+    description: 'SVG '
   },
   {
     path: 'ast',
     loadChildren: './modules/ast/ast.module#AstModule',
     name: 'Ast + Angular',
-    description: 'SVG ',
+    description: 'SVG '
   },
   {
     path: '',
     loadChildren: './modules/home/home.module#HomeModule',
     name: 'Home',
-    description: 'Home',
+    description: 'Home'
   },
   {
     path: 'test',
     loadChildren: './modules/test/test.module#TestModule',
     name: 'Home',
-    description: 'Home',
-  },
+    description: 'Home'
+  }
 ];
 
 @NgModule({
@@ -92,9 +94,8 @@ const routes = [
     {
       provide: 'ROUTES',
       useValue: []
-    },
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {
-}
+export class KirjsModule {}

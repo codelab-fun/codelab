@@ -28,15 +28,25 @@ export class TooltipsDirective implements AfterViewInit {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('slidesTooltips') tooltips: Array<any> = [];
 
-  constructor(private el: ElementRef, private editorComponent: EditorComponent) {
-  }
+  constructor(
+    private el: ElementRef,
+    private editorComponent: EditorComponent
+  ) {}
 
   ngAfterViewInit(): void {
     // only generate tooltip when the slide is active
     const decorations = this.tooltips.map((tooltip, i) => {
-      const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, tooltip.match);
+      const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(
+        this.editorComponent.code,
+        tooltip.match
+      );
       return {
-        range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
+        range: new this.editorComponent.monacoConfigService.monaco.Range(
+          lineStart,
+          indexStart,
+          lineEnd,
+          indexEnd
+        ),
         options: {
           inlineClassName: 'tooltip-text-' + i
         }
@@ -80,11 +90,9 @@ export class TooltipsDirective implements AfterViewInit {
         }
         this.el.nativeElement.append(newPopup);
         newPopup.style.position = 'fixed';
-        newPopup.style.top = offsetTop - (newPopup.offsetHeight) + 5 + 'px';
-        newPopup.style.left = offsetLeft + (text.offsetWidth) + 'px';
+        newPopup.style.top = offsetTop - newPopup.offsetHeight + 5 + 'px';
+        newPopup.style.left = offsetLeft + text.offsetWidth + 'px';
       });
     }, 500);
-
-
   }
 }

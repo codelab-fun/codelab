@@ -8,10 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HexComponent implements OnInit {
   @Input() data;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

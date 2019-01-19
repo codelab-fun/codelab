@@ -5,14 +5,14 @@ import { ActivatedRoute } from '@angular/router';
   providedIn: 'root'
 })
 export class PresentationConfigService {
-
   milestone = '';
   hideControls = false;
 
   constructor(@Optional() private route: ActivatedRoute) {
     if (route) {
       this.milestone = this.route.snapshot.queryParams['milestone'];
-      this.hideControls = this.route.snapshot.queryParams['hideControls'] || this.hideControls;
+      this.hideControls =
+        this.route.snapshot.queryParams['hideControls'] || this.hideControls;
     }
   }
 
@@ -21,6 +21,12 @@ export class PresentationConfigService {
   }
 
   get path() {
-    return this.route && this.route.parent && this.route.parent.snapshot.routeConfig && this.route.parent.snapshot.routeConfig.path || 'index';
+    return (
+      (this.route &&
+        this.route.parent &&
+        this.route.parent.snapshot.routeConfig &&
+        this.route.parent.snapshot.routeConfig.path) ||
+      'index'
+    );
   }
 }

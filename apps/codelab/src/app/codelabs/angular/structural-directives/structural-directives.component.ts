@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { bootstrap, builder, exercise, html, stylesheet } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
+import {
+  bootstrap,
+  builder,
+  exercise,
+  html,
+  stylesheet
+} from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 
 declare const require;
 
@@ -14,41 +20,85 @@ export class StructuralDirectivesComponent {
   code = {
     materialTabs: {
       files: [
-        html('app', require('!!raw-loader!./samples/material-tabs/app.html'),
-          require('!!raw-loader!./samples/material-tabs/app.solved.html')),
-        exercise('app.component', require('!!raw-loader!./samples/material-tabs/app.component.ts')),
-        exercise('alert.component', require('!!raw-loader!./samples/material-tabs/alert.component.ts')),
-        exercise('taet-led.component', require('!!raw-loader!./samples/material-tabs/taet-led.component.ts')),
-        exercise('app.module', require('!!raw-loader!./samples/material-tabs/app.module.ts')),
-        exercise('break-my-computer.component', require('!!raw-loader!./samples/material-tabs/break-my-computer.component.ts')),
+        html(
+          'app',
+          require('!!raw-loader!./samples/material-tabs/app.html'),
+          require('!!raw-loader!./samples/material-tabs/app.solved.html')
+        ),
+        exercise(
+          'app.component',
+          require('!!raw-loader!./samples/material-tabs/app.component.ts')
+        ),
+        exercise(
+          'alert.component',
+          require('!!raw-loader!./samples/material-tabs/alert.component.ts')
+        ),
+        exercise(
+          'taet-led.component',
+          require('!!raw-loader!./samples/material-tabs/taet-led.component.ts')
+        ),
+        exercise(
+          'app.module',
+          require('!!raw-loader!./samples/material-tabs/app.module.ts')
+        ),
+        exercise(
+          'break-my-computer.component',
+          require('!!raw-loader!./samples/material-tabs/break-my-computer.component.ts')
+        ),
         stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
-        bootstrap('main', builder.bootstrap()),
+        bootstrap('main', builder.bootstrap())
       ]
     },
     materialTabsStructuralDirective: [
-      html('app', require('!!raw-loader!./samples/material-tabs-structural-directive/app.html'),
-        require('!!raw-loader!./samples/material-tabs-structural-directive/app.solved.html')),
-      exercise('app.component', require('!!raw-loader!./samples/material-tabs-structural-directive/app.component.ts')),
-      exercise('hideme.directive', require('!!raw-loader!./samples/material-tabs-structural-directive/hideme.directive.ts'),
-        require('!!raw-loader!./samples/material-tabs-structural-directive/hideme.directive.solved.ts')),
-      exercise('alert.component', require('!!raw-loader!./samples/material-tabs-structural-directive/alert.component.ts')),
-      exercise('app.module', require('!!raw-loader!./samples/material-tabs-structural-directive/app.module.ts')),
+      html(
+        'app',
+        require('!!raw-loader!./samples/material-tabs-structural-directive/app.html'),
+        require('!!raw-loader!./samples/material-tabs-structural-directive/app.solved.html')
+      ),
+      exercise(
+        'app.component',
+        require('!!raw-loader!./samples/material-tabs-structural-directive/app.component.ts')
+      ),
+      exercise(
+        'hideme.directive',
+        require('!!raw-loader!./samples/material-tabs-structural-directive/hideme.directive.ts'),
+        require('!!raw-loader!./samples/material-tabs-structural-directive/hideme.directive.solved.ts')
+      ),
+      exercise(
+        'alert.component',
+        require('!!raw-loader!./samples/material-tabs-structural-directive/alert.component.ts')
+      ),
+      exercise(
+        'app.module',
+        require('!!raw-loader!./samples/material-tabs-structural-directive/app.module.ts')
+      ),
       stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
-      bootstrap('main', builder.bootstrap()),
-    ]
-    ,
+      bootstrap('main', builder.bootstrap())
+    ],
     microSyntax: [
       html('app', `<div *ngFor="let x of 122"></div>`),
       bootstrap('main', require('!!raw-loader!./samples/micro-syntax/ms.ts'))
     ],
 
     mdTabNavBar: [
-      exercise('app.component', require('!!raw-loader!./samples/mat-tab-nav-bar/app.component.ts')),
-      exercise('alert.component', require('!!raw-loader!./samples/mat-tab-nav-bar/alert.component.ts')),
-      exercise('tab.component', require('!!raw-loader!./samples/mat-tab-nav-bar/tab.component.ts')),
+      exercise(
+        'app.component',
+        require('!!raw-loader!./samples/mat-tab-nav-bar/app.component.ts')
+      ),
+      exercise(
+        'alert.component',
+        require('!!raw-loader!./samples/mat-tab-nav-bar/alert.component.ts')
+      ),
+      exercise(
+        'tab.component',
+        require('!!raw-loader!./samples/mat-tab-nav-bar/tab.component.ts')
+      ),
       stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
-      exercise('app.module', require('!!raw-loader!./samples/mat-tab-nav-bar/app.module.ts')),
-      bootstrap('main', builder.bootstrap()),
+      exercise(
+        'app.module',
+        require('!!raw-loader!./samples/mat-tab-nav-bar/app.module.ts')
+      ),
+      bootstrap('main', builder.bootstrap())
     ],
 
     structuralDirectives: {
@@ -60,9 +110,7 @@ export class StructuralDirectivesComponent {
     }
   };
 
-  constructor() {
-
-  }
+  constructor() {}
 
   updateFontSize(diff) {
     this.fontSize += diff;

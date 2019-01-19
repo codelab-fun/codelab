@@ -10,8 +10,7 @@ export class FocusHighlightDirective implements AfterViewInit {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('slides-focus-highlight-match') matches: Array<string> | string = [];
 
-  constructor(private editorComponent: EditorComponent) {
-  }
+  constructor(private editorComponent: EditorComponent) {}
 
   ngAfterViewInit(): void {
     if (!this.matches) {
@@ -23,26 +22,43 @@ export class FocusHighlightDirective implements AfterViewInit {
     }
 
     const decorations = this.matches.reduce((ranges, match) => {
-      const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(this.editorComponent.code, match);
+      const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(
+        this.editorComponent.code,
+        match
+      );
 
       ranges.push({
-        range: new this.editorComponent.monacoConfigService.monaco.Range(1, 1, lineStart, indexStart),
-        options: {inlineClassName: 'grayed-out-code'}
+        range: new this.editorComponent.monacoConfigService.monaco.Range(
+          1,
+          1,
+          lineStart,
+          indexStart
+        ),
+        options: { inlineClassName: 'grayed-out-code' }
       });
 
       ranges.push({
-        range: new this.editorComponent.monacoConfigService.monaco.Range(lineEnd, indexEnd, 10000, 10000),
-        options: {inlineClassName: 'grayed-out-code'}
+        range: new this.editorComponent.monacoConfigService.monaco.Range(
+          lineEnd,
+          indexEnd,
+          10000,
+          10000
+        ),
+        options: { inlineClassName: 'grayed-out-code' }
       });
 
       ranges.push({
-        range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
-        options: {inlineClassName: 'highlighted-code'}
+        range: new this.editorComponent.monacoConfigService.monaco.Range(
+          lineStart,
+          indexStart,
+          lineEnd,
+          indexEnd
+        ),
+        options: { inlineClassName: 'highlighted-code' }
       });
 
       return ranges;
     }, []);
-
 
     this.editorComponent.editor.deltaDecorations([], decorations);
   }

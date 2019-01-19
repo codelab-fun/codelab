@@ -1,4 +1,4 @@
-function findFit(code, {babylon, babelTraverse, babelGenerator, log}) {
+function findFit(code, { babylon, babelTraverse, babelGenerator, log }) {
   const ast = babylon.parse(code);
 
   babelTraverse(ast);

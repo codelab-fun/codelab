@@ -13,9 +13,7 @@ import { CommonModule } from '@angular/common';
 import { GomokuBoardModule } from './board/board.module';
 import { SlidesModule } from '@codelab/slides';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(GomokuComponent)
-);
+const routes = RouterModule.forChild(SlidesRoutes.get(GomokuComponent));
 
 @NgModule({
   imports: [
@@ -27,11 +25,9 @@ const routes = RouterModule.forChild(
     CommonModule,
     TooltipsModule,
     GomokuBoardModule,
-    SlidesModule,
+    SlidesModule
   ],
   declarations: [GomokuComponent],
   exports: [GomokuComponent]
 })
-export class GomokuModule {
-
-}
+export class GomokuModule {}

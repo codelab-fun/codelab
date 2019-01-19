@@ -1,6 +1,7 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -73,9 +74,10 @@ body, html {
   padding: 0;
 }
 
-.browser-frame, .runner,
-.browser-frame, .frame {
-
+.browser-frame,
+.runner,
+.browser-frame,
+.frame {
 }
 
 .slide [large-font] {
@@ -83,15 +85,15 @@ body, html {
 }
 
 .slide [p20] {
-  padding-top: 20px
+  padding-top: 20px;
 }
 
 .slide [m20] {
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .slide [m40] {
-  margin-top: 40px
+  margin-top: 40px;
 }
 
 .slide [column-5] {
@@ -150,15 +152,16 @@ body, html {
   border-top: 8px solid black;
 }
 
-.monaco-editor.vs .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
-
+.monaco-editor.vs
+  .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
 }
 
 .monaco-editor.vs .loc.loc.loc.loc {
   background: yellow;
 }
 
-.monaco-editor.vs .highlighted-code.highlighted-code.highlighted-code.highlighted-code {
+.monaco-editor.vs
+  .highlighted-code.highlighted-code.highlighted-code.highlighted-code {
   background: yellow;
 }
 
@@ -170,7 +173,7 @@ p {
 }
 
 .info:before {
-  content: "ⓘ";
+  content: 'ⓘ';
   margin-right: 10px;
 }
 
@@ -224,11 +227,11 @@ a {
   padding: 10px;
   margin-top: 20px;
   font-weight: 300;
-  border: 1px #ddd solid
+  border: 1px #ddd solid;
 }
 
 .exercise:before {
-  content: "💡";
+  content: '💡';
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -240,7 +243,7 @@ a {
 }
 
 .exercise.solved:before {
-  content: "✔";
+  content: '✔';
   background: none;
 }
 
@@ -250,7 +253,6 @@ a {
   top: 0 !important;
   left: 0 !important;
 }
-
 
 .preload {
   position: absolute;
@@ -269,42 +271,40 @@ a {
   height: 40%;
   position: absolute;
   border-radius: 50%;
-  animation: spin 2s ease infinite
+  animation: spin 2s ease infinite;
 }
 
 .preload :first-child {
-  background: #19A68C;
-  animation-delay: -1.5s
+  background: #19a68c;
+  animation-delay: -1.5s;
 }
 
 .preload :nth-child(2) {
-  background: #F63D3A;
-  animation-delay: -1s
+  background: #f63d3a;
+  animation-delay: -1s;
 }
 
 .preload :nth-child(3) {
-  background: #FDA543;
-  animation-delay: -0.5s
+  background: #fda543;
+  animation-delay: -0.5s;
 }
 
 .preload :last-child {
-  background: #193B48
+  background: #193b48;
 }
 
 @keyframes spin {
-  0%, 100% {
-    transform: translate(0)
+  0%,
+  100% {
+    transform: translate(0);
   }
   25% {
-    transform: translate(160%)
+    transform: translate(160%);
   }
   50% {
-    transform: translate(160%, 160%)
+    transform: translate(160%, 160%);
   }
   75% {
-    transform: translate(0, 160%)
+    transform: translate(0, 160%);
   }
 }
-
-
-

@@ -4,13 +4,13 @@ import { TooltipsDirective } from './tooltips.directive';
 import { FocusHighlightDirective } from './focus-highlight-match.directive';
 import { BabelHighlightDirective } from './babel-highlight-match.directive';
 
-
 @NgModule({
-  imports: [
-    CommonModule
+  imports: [CommonModule],
+  declarations: [
+    TooltipsDirective,
+    FocusHighlightDirective,
+    BabelHighlightDirective
   ],
-  declarations: [TooltipsDirective, FocusHighlightDirective, BabelHighlightDirective ],
-  exports: [TooltipsDirective, FocusHighlightDirective, BabelHighlightDirective ]
+  exports: [TooltipsDirective, FocusHighlightDirective, BabelHighlightDirective]
 })
-export class TooltipsModule {
-}
+export class TooltipsModule {}

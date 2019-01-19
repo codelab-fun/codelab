@@ -1,9 +1,14 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
 import { FileConfig } from '../../../../../../../libs/exercise/src/lib/interfaces/file-config';
 import { TestInfo } from '../../../../../../../libs/exercise/src/lib/interfaces/test-info';
 
 declare const require;
-
 
 @Component({
   selector: 'slides-babel-test-runner',
@@ -13,11 +18,10 @@ declare const require;
 export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
   @Input() bootstrap: string;
   tests: Array<TestInfo> = [];
-  @Input() translations: { [key: string]: string; } = {};
+  @Input() translations: { [key: string]: string } = {};
   @Input() code: any;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.code) {

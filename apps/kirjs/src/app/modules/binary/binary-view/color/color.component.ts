@@ -9,8 +9,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 export class ColorComponent implements OnInit {
   color: string;
 
-  constructor(private readonly root: BinaryParentComponent) {
-  }
+  constructor(private readonly root: BinaryParentComponent) {}
 
   private _data: any;
 
@@ -25,7 +24,10 @@ export class ColorComponent implements OnInit {
   }
 
   update(value) {
-    const val = (parseInt(value.slice(1), 16).toString(2) as any).padStart(24, 0);
+    const val = (parseInt(value.slice(1), 16).toString(2) as any).padStart(
+      24,
+      0
+    );
     this.root.update(this._data, val);
   }
 
@@ -33,7 +35,5 @@ export class ColorComponent implements OnInit {
     this.root.update(this.data, binary);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

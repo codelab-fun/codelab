@@ -8,16 +8,15 @@ describe('BoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardComponent ]
-    })
-    .compileComponents();
+      declarations: [BoardComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BoardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }, );
+  });
 
   it('should be created', () => {
     expect(component).toBeTruthy();

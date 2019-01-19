@@ -4,11 +4,11 @@
     <br />
     <h1>Rate this lesson ...</h1>
     <div row>
-      <div *ngFor="let rate of rates; let i=index;" class="rateoption">
+      <div *ngFor="let rate of rates; let i = index" class="rateoption">
         <div [class]="rateClass(i)" (click)="selectRate(i)">
-          <img [src]="'assets/images/'+rate.src" />
+          <img [src]="'assets/images/' + rate.src" />
         </div>
-        <h1>{{rate.text}}</h1>
+        <h1>{{ rate.text }}</h1>
       </div>
     </div>
   </div>
@@ -17,20 +17,22 @@
   <table class="summarytable">
     <thead>
       <tr>
-        <th style="width: 40%; text-align: left; vertical-align: bottom;"><h1>Lesson</h1></th>
+        <th style="width: 40%; text-align: left; vertical-align: bottom;">
+          <h1>Lesson</h1>
+        </th>
         <th *ngFor="let rate of rates" class="rateheading">
-          <div class="rate">
-            <img [src]="'assets/images/'+rate.src" />
-          </div>
-          <b>{{rate.text}}</b>
+          <div class="rate"><img [src]="'assets/images/' + rate.src" /></div>
+          <b>{{ rate.text }}</b>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rating of ratings$ | async; let i=index;">
-        <td><h3>{{rating.lesson}}</h3></td>
+      <tr *ngFor="let rating of (ratings$ | async); let i = index">
+        <td>
+          <h3>{{ rating.lesson }}</h3>
+        </td>
         <td *ngFor="let rate of rates" class="rateheading">
-          <h3>{{rating[rate.value]}}</h3>
+          <h3>{{ rating[rate.value] }}</h3>
         </td>
       </tr>
     </tbody>

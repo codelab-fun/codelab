@@ -41,12 +41,12 @@ slides-tools {
 
 .theme-print {
   .cell-1:before {
-    content: "x";
+    content: 'x';
     color: #c53a00;
   }
 
   .cell-2:before {
-    content: "o";
+    content: 'o';
     color: #666;
   }
   .cell-1:before,
@@ -57,19 +57,19 @@ slides-tools {
 
 .theme-gomoku {
   .cell-1:before {
-    content: "⚫";
+    content: '⚫';
   }
 
   .cell-2:before {
-    content: "🔴";
+    content: '🔴';
   }
   .cell-3:before {
-    content: "⚫";
+    content: '⚫';
     opacity: 0.5;
   }
 
   .cell-4:before {
-    content: "🔴";
+    content: '🔴';
     opacity: 0.5;
   }
   .cell-1:before,
@@ -80,21 +80,17 @@ slides-tools {
 
 .theme-xo {
   .cell-1:before {
-    content: "×";
+    content: '×';
     color: red;
-
   }
 
   .cell-2:before {
-    content: "⚬";
+    content: '⚬';
     color: blue;
   }
 
   .cell-1:before,
   .cell-2:before {
     font-size: 200px;
-
   }
 }
-
-

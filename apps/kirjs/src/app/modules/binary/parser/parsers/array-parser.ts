@@ -2,7 +2,6 @@ import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
 import { resolveFunctionOrvalue, resolveLengthOrdered } from '../utils';
 
-
 export class BinaryArrayParser extends AbstractBinaryParser {
   type = 'array';
 
@@ -10,7 +9,10 @@ export class BinaryArrayParser extends AbstractBinaryParser {
     super();
   }
 
-  read(reader: BinaryReader, data: BinaryReaderResult = {}): BinaryReaderResult {
+  read(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {}
+  ): BinaryReaderResult {
     let len = resolveFunctionOrvalue(this.config.length, data) || Infinity;
     let raw = '';
     const value = [];
@@ -22,11 +24,16 @@ export class BinaryArrayParser extends AbstractBinaryParser {
       len--;
     }
 
-    return {value, raw};
+    return { value, raw };
   }
 
-  readOrdered(reader: BinaryReader, data: BinaryReaderResult = {}, start = 0): BinaryReaderResult {
-    let numberOfElements = resolveLengthOrdered(this.config.length, data) || Infinity;
+  readOrdered(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {},
+    start = 0
+  ): BinaryReaderResult {
+    let numberOfElements =
+      resolveLengthOrdered(this.config.length, data) || Infinity;
     let rawValue = '';
     const value = [];
 
@@ -52,7 +59,14 @@ export class BinaryArrayParser extends AbstractBinaryParser {
       numberOfElements--;
     }
 
-    return {name: this.config.name, start, length: len, end: start + len, value, rawValue, type: this.type};
+    return {
+      name: this.config.name,
+      start,
+      length: len,
+      end: start + len,
+      value,
+      rawValue,
+      type: this.type
+    };
   }
 }
-

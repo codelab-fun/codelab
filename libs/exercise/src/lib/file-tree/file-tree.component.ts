@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 
 interface Node {
@@ -13,7 +19,6 @@ interface Node {
   styleUrls: ['./file-tree.component.css']
 })
 export class FileTreeComponent implements OnChanges {
-
   @Input()
   public files: FileConfig[];
   @Input()
@@ -23,8 +28,7 @@ export class FileTreeComponent implements OnChanges {
 
   nodes: Node[] = [];
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnChanges() {
     if (!!this.files) {
@@ -37,7 +41,9 @@ export class FileTreeComponent implements OnChanges {
   }
 
   getIcon(fileConfig: FileConfig): string {
-    const ext = fileConfig.path.slice(fileConfig.path.lastIndexOf('.')).toLowerCase();
+    const ext = fileConfig.path
+      .slice(fileConfig.path.lastIndexOf('.'))
+      .toLowerCase();
     switch (ext) {
       case '.ts':
         return '/assets/images/file-ts.png';
@@ -46,7 +52,6 @@ export class FileTreeComponent implements OnChanges {
       default:
         return '/assets/images/file.png';
     }
-
   }
 
   isActive(fileConfig: FileConfig): boolean {
@@ -61,22 +66,24 @@ export class FileTreeComponent implements OnChanges {
 
   private fileConfigsToNodes(files: FileConfig[]): Node[] {
     const paths: { [path: string]: Node } = {};
-    files.filter(f => !f.hidden).forEach(f => {
-      // Parts of the path up to the file level
-      const parts = f.path.split('/').slice(0, -1);
-      parts.unshift('app');
-      // String representation of path
-      const path = parts[parts.length - 1];
-      // Initialize slot in map for path at depth
-      if (!paths[path]) {
-        paths[path] = {path, depth: parts.length, files: []};
-      }
-      // Add file configs to existing path
-      paths[path].files.push(f);
-    });
+    files
+      .filter(f => !f.hidden)
+      .forEach(f => {
+        // Parts of the path up to the file level
+        const parts = f.path.split('/').slice(0, -1);
+        parts.unshift('app');
+        // String representation of path
+        const path = parts[parts.length - 1];
+        // Initialize slot in map for path at depth
+        if (!paths[path]) {
+          paths[path] = { path, depth: parts.length, files: [] };
+        }
+        // Add file configs to existing path
+        paths[path].files.push(f);
+      });
     // Return a sorted array
-    return Object.keys(paths).map(key => paths[key])
-      .sort((a, b) => a.path > b.path ? 1 : -1);
+    return Object.keys(paths)
+      .map(key => paths[key])
+      .sort((a, b) => (a.path > b.path ? 1 : -1));
   }
-
 }

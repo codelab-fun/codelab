@@ -1,4 +1,4 @@
-function traverseDebuggerSolved(code, {babylon, babelTraverse, log}) {
+function traverseDebuggerSolved(code, { babylon, babelTraverse, log }) {
   const ast = babylon.parse(code);
 
   let hasCode = false;
@@ -9,4 +9,3 @@ function traverseDebuggerSolved(code, {babylon, babelTraverse, log}) {
   });
   return hasCode;
 }
-

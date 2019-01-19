@@ -15,16 +15,21 @@ describe('differ', () => {
   });
 
   it('Works for multiline strings', () => {
-    const commits = differ(`hi/*d:first*/, wor
-  ld!/*/d*/`, ['first']);
+    const commits = differ(
+      `hi/*d:first*/, wor
+  ld!/*/d*/`,
+      ['first']
+    );
     expect(commits['initial']).toEqual('hi');
     expect(commits['first']).toEqual(`hi, wor
   ld!`);
   });
 
   it('Progressively adds the text for multiple commits.', () => {
-    const commits = differ(`/*d:first*/bu/*/d*//*d:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
-      ['first', 'second', 'third', 'forth']);
+    const commits = differ(
+      `/*d:first*/bu/*/d*//*d:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+      ['first', 'second', 'third', 'forth']
+    );
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');
     expect(commits['second']).toEqual('bura');
@@ -32,34 +37,39 @@ describe('differ', () => {
     expect(commits['forth']).toEqual('buratino');
   });
 
-
   // TODO(kirjs): Nested diffs sound like a fun idea, maybe I'll implement them later.
   xit('Disallows nested diffs, and throws if they are present', () => {
-    const commits = differ(`/*d:first*/AA/*d:second*/OO/*/d*/AA/*/d*/`,
-      ['first', 'second']);
+    const commits = differ(`/*d:first*/AA/*d:second*/OO/*/d*/AA/*/d*/`, [
+      'first',
+      'second'
+    ]);
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('AAAA');
     expect(commits['second']).toEqual('AAOOAA');
   });
 
-
   it('Throws if not all commits have been used.', () => {
-    expect(() => differ(`/*d:first*/AAOO/*/d*/OO/*d:second*/AA/*/d*/`,
-      ['first'])).toThrow();
+    expect(() =>
+      differ(`/*d:first*/AAOO/*/d*/OO/*d:second*/AA/*/d*/`, ['first'])
+    ).toThrow();
   });
 
   it('Allows multi-line tags for nicer formatting', () => {
-    const commits = differ(`hi/*
+    const commits = differ(
+      `hi/*
     d:first
-    */, world!/*/d*/`, ['first']);
+    */, world!/*/d*/`,
+      ['first']
+    );
     expect(commits['initial']).toEqual('hi');
     expect(commits['first']).toEqual('hi, world!');
   });
 
-
   it('Allows to specify a range of commits.', () => {
-    const commits = differ(`/*d:first*/bu/*/d*//*d:second:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
-      ['first', 'second', 'third', 'forth']);
+    const commits = differ(
+      `/*d:first*/bu/*/d*//*d:second:second*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+      ['first', 'second', 'third', 'forth']
+    );
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');
     expect(commits['second']).toEqual('bura');
@@ -68,8 +78,12 @@ describe('differ', () => {
   });
 
   it('Allows to specify a range of commits for initial', () => {
-    const commits = differ(`/*d:initial:initial*/hi/*/d*//*d:last*/bye/*/d*/`,
-      ['first', 'second', 'third', 'last']);
+    const commits = differ(`/*d:initial:initial*/hi/*/d*//*d:last*/bye/*/d*/`, [
+      'first',
+      'second',
+      'third',
+      'last'
+    ]);
     expect(commits['initial']).toEqual('hi');
     expect(commits['second']).toEqual('');
     expect(commits['third']).toEqual('');
@@ -77,8 +91,10 @@ describe('differ', () => {
   });
 
   it('Allows to specify a wider range of commits.', () => {
-    const commits = differ(`/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
-      ['first', 'second', 'third', 'forth']);
+    const commits = differ(
+      `/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+      ['first', 'second', 'third', 'forth']
+    );
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');
     expect(commits['second']).toEqual('bura');
@@ -87,8 +103,10 @@ describe('differ', () => {
   });
 
   it('Keeps existing version for the unknown commits.', () => {
-    const commits = differ(`/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
-      ['first', 'second', 'secondandahalf', 'third', 'forth']);
+    const commits = differ(
+      `/*d:first*/bu/*/d*//*d:second:third*/ra/*/d*//*d:third*/ti/*/d*//*d:forth*/no/*/d*/`,
+      ['first', 'second', 'secondandahalf', 'third', 'forth']
+    );
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('bu');
     expect(commits['second']).toEqual('bura');

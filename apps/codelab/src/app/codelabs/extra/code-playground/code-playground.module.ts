@@ -6,15 +6,11 @@ import { CodePlaygroundComponent } from './code-playground.component';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
-
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(CodePlaygroundComponent)
-);
+const routes = RouterModule.forChild(SlidesRoutes.get(CodePlaygroundComponent));
 
 @NgModule({
   imports: [routes, SlidesModule, FeedbackModule, CommonModule],
   declarations: [CodePlaygroundComponent],
   exports: [CodePlaygroundComponent]
 })
-export class CodePlaygroundModule {
-}
+export class CodePlaygroundModule {}

@@ -8,9 +8,8 @@ describe('SvgPlaygroundComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvgPlaygroundComponent ]
-    })
-    .compileComponents();
+      declarations: [SvgPlaygroundComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

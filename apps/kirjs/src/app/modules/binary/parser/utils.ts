@@ -2,12 +2,15 @@ export function resolveLengthOrdered(functionOrValue, arg) {
   if (typeof functionOrValue === 'string') {
     debugger;
   }
-  return (typeof functionOrValue === 'function') ? functionOrValue(arg) : functionOrValue;
+  return typeof functionOrValue === 'function'
+    ? functionOrValue(arg)
+    : functionOrValue;
 }
 
-
 export function resolveFunctionOrvalue(functionOrValue, arg) {
-  return (typeof functionOrValue === 'function') ? functionOrValue(arg) : functionOrValue;
+  return typeof functionOrValue === 'function'
+    ? functionOrValue(arg)
+    : functionOrValue;
 }
 
 export function resolveFunctionKeyOrValue(val, data, resolve) {
@@ -23,7 +26,7 @@ export function resolveFunctionKeyOrValue(val, data, resolve) {
 }
 
 export function resolveOrderedByKey(key: string, data: any[]) {
-  return Object.values(data).find((a) => a.name === key).value;
+  return Object.values(data).find(a => a.name === key).value;
 }
 
 export function resolveByKey(key: string, data: any) {

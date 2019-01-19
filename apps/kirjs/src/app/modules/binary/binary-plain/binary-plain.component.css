@@ -41,7 +41,8 @@ button {
   color: black;
 }
 
-.hex .color, .hex .hex {
+.hex .color,
+.hex .hex {
   background: #00a4ff;
   color: black;
 }
@@ -94,8 +95,8 @@ button {
   height: 2vw;
 }
 
-.mini input[type=checkbox] {
-  zoom: 2 !important
+.mini input[type='checkbox'] {
+  zoom: 2 !important;
 }
 
 .mini .spacing {

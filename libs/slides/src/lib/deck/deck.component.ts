@@ -1,13 +1,21 @@
-import { Component, ContentChildren, EventEmitter, HostBinding, Input, Optional, Output, QueryList, TemplateRef } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Optional,
+  Output,
+  QueryList,
+  TemplateRef
+} from '@angular/core';
 import { SlideControls } from '../../../../presentation/src/lib/presentation/presentation.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'slides-deck',
   templateUrl: './deck.component.html',
-  styleUrls: [
-    './deck.component.scss'
-  ]
+  styleUrls: ['./deck.component.scss']
 })
 export class SlidesDeckComponent implements SlideControls {
   slides: any[] = [];
@@ -15,7 +23,7 @@ export class SlidesDeckComponent implements SlideControls {
   @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
   activeSlideIndex = 0;
   @Output() onSlideChange = new EventEmitter<number>();
-  @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
+  @Output() onSlideAdded = new EventEmitter<{ index: number; id: string }>();
   @HostBinding('class.has-milestone') hasMilestone = false;
   private milestone = '';
 
@@ -26,7 +34,7 @@ export class SlidesDeckComponent implements SlideControls {
 
   addSlide(slide) {
     if (!this.milestone || this.milestone === slide.milestone) {
-      this.slides.push(slide)
+      this.slides.push(slide);
     }
   }
 

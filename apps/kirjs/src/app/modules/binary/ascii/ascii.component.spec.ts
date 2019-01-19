@@ -8,9 +8,8 @@ describe('AsciiComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AsciiComponent ]
-    })
-    .compileComponents();
+      declarations: [AsciiComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

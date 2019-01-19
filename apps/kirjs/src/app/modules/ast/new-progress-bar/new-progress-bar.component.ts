@@ -9,5 +9,4 @@ export class NewProgressBarComponent {
   @Input() fontSize = 28;
   @Input() title = 'JavaScript AST';
   @Output() fontSizeChange = new EventEmitter();
-
 }

@@ -6,16 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./codelab-closing-slide.component.css']
 })
 export class CodelabClosingSlideComponent implements OnInit {
-
   @Input() header: String;
   @Input() body: String;
   @Input() footer: String;
 
-  constructor() {
+  constructor() {}
 
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

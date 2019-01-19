@@ -1,24 +1,24 @@
-var path = require("path");
+var path = require('path');
 var Builder = require('systemjs-builder');
-const rel = "libs/exercise/assets/runner/ng2/";
+const rel = 'libs/exercise/assets/runner/ng2/';
 
 const config = {
-  transpiler: "ts",
+  transpiler: 'ts',
   warnings: true,
   typescriptOptions: {
-    "target": "es5",
-    "module": "system",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": ["es2015", "dom"],
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
+    target: 'es5',
+    module: 'system',
+    moduleResolution: 'node',
+    sourceMap: true,
+    emitDecoratorMetadata: true,
+    experimentalDecorators: true,
+    lib: ['es2015', 'dom'],
+    noImplicitAny: true,
+    suppressImplicitAnyIndexErrors: true
   },
   meta: {
     typescript: {
-      exports: "ts"
+      exports: 'ts'
     }
   },
   paths: {
@@ -36,8 +36,10 @@ const config = {
     '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
     '@angular/common/http': 'npm:@angular/common/bundles/common-http.umd.js',
     '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
-    '@angular/compiler/testing': 'npm:@angular/compiler/bundles/compiler-testing.umd.js',
-    '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
+    '@angular/compiler/testing':
+      'npm:@angular/compiler/bundles/compiler-testing.umd.js',
+    '@angular/platform-browser':
+      'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
     '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
     '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
     '@angular/cdk/bidi': 'npm:@angular/cdk/bundles/cdk-bidi.umd.js',
@@ -55,35 +57,39 @@ const config = {
     '@angular/cdk/scrolling': 'npm:@angular/cdk/bundles/cdk-scrolling.umd.js',
     '@angular/cdk/observers': 'npm:@angular/cdk/bundles/cdk-observers.umd.js',
     '@angular/cdk/overlay': 'npm:@angular/cdk/bundles/cdk-overlay.umd.js',
-    '@angular/cdk/collections': 'npm:@angular/cdk/bundles/cdk-collections.umd.js',
+    '@angular/cdk/collections':
+      'npm:@angular/cdk/bundles/cdk-collections.umd.js',
     '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
-    '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
-    '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
-    '@angular/platform-browser/testing': 'npm:@angular/platform-browser/bundles/platform-browser-testing.umd.js',
-    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
-    '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
+    '@angular/animations/browser':
+      'npm:@angular/animations/bundles/animations-browser.umd.js',
+    '@angular/platform-browser/animations':
+      'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+    '@angular/platform-browser/testing':
+      'npm:@angular/platform-browser/bundles/platform-browser-testing.umd.js',
+    '@angular/platform-browser-dynamic':
+      'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+    '@angular/platform-browser-dynamic/testing':
+      'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
     '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
     '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
     '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
     // other libraries
     'rxjs/operators': 'npm:rxjs/operators',
-    'rxjs': 'npm:rxjs',
-    'typescript': 'npm:typescript/lib/typescript.js',
-    'ts': "npm:plugin-typescript/lib",
+    rxjs: 'npm:rxjs',
+    typescript: 'npm:typescript/lib/typescript.js',
+    ts: 'npm:plugin-typescript/lib',
     'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
-    'googlemaps': 'npm:googlemaps/lib/index.js'
-
+    googlemaps: 'npm:googlemaps/lib/index.js'
   },
   // packages tells the System loader how to load when no filename and/or no extension
   packages: {
-
-    'app': {
+    app: {
       main: './main',
       defaultExtension: 'ts'
     },
-    'ts': {
-      "main": "plugin.js"
+    ts: {
+      main: 'plugin.js'
     },
     'rxjs/operators': {
       main: 'index'
@@ -103,10 +109,10 @@ const builder = new Builder('./', config);
 
 builder
   .bundle(rel + 'basic.ts', rel + 'ng-bundle.js')
-  .then(function () {
+  .then(function() {
     console.log('Build complete');
   })
-  .catch(function (err) {
+  .catch(function(err) {
     console.log('Build error');
     console.log(err);
   });

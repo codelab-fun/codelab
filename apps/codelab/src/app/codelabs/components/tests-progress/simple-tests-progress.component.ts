@@ -12,10 +12,7 @@ export class SimpleTestsProgressComponent implements OnInit {
     return (this.tests || []).filter(test => test.pass).length;
   }
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

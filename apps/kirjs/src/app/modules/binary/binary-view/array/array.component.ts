@@ -9,13 +9,11 @@ export class ArrayComponent implements OnInit {
   @Input() data;
   @Input() showMeta: boolean;
 
-  constructor() {
-  }
+  constructor() {}
 
   trackBy(i, data) {
     return data.index;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

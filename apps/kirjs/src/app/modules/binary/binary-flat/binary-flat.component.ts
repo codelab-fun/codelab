@@ -3,13 +3,27 @@ import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { BinaryParentComponent } from '../binary-view/binary-parent/binary-parent.component';
 
-export function flatten(structure: any[], nesting = 0, parent = null, path = []) {
+export function flatten(
+  structure: any[],
+  nesting = 0,
+  parent = null,
+  path = []
+) {
   return structure.reduce((result, item) => {
     if (item.type === 'object' || item.type === 'array') {
       item.data = false;
       item.nesting = nesting;
       item.className = 'tbd';
-      result = result.concat(item).concat(flatten(item.value, nesting + 1, item, item.name ? [...path, item.name] : [...path]))
+      result = result
+        .concat(item)
+        .concat(
+          flatten(
+            item.value,
+            nesting + 1,
+            item,
+            item.name ? [...path, item.name] : [...path]
+          )
+        );
     } else {
       item.data = true;
       item.nesting = nesting;
@@ -34,17 +48,17 @@ export class BinaryFlatComponent implements OnInit {
   detailIndex = 30;
   structure: { start: number };
 
-  constructor(private readonly root: BinaryParentComponent) {
-  }
+  constructor(private readonly root: BinaryParentComponent) {}
 
   @Input() set binary(binary: string) {
-    this.structure = flatten(this.parser.readOrdered(new StringBinaryReader(binary)).value);
+    this.structure = flatten(
+      this.parser.readOrdered(new StringBinaryReader(binary)).value
+    );
   }
 
   update(event, item) {
     this.root.update(item, event.target.textContent);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

@@ -26,7 +26,7 @@
   height: 35px;
   padding: 0;
   border: 0;
-  background-image: url("/assets/images/expand.png");
+  background-image: url('/assets/images/expand.png');
   background-color: #fff;
   background-size: 100% 100%;
   cursor: pointer;
@@ -37,11 +37,12 @@
 }
 
 iframe {
- box-shadow: 0 0 1px #dddddd;
+  box-shadow: 0 0 1px #dddddd;
   border: 0 solid;
 }
 
-.body, iframe {
+.body,
+iframe {
   width: 100%;
   height: 100%;
 }

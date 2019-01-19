@@ -11,10 +11,10 @@
   background: black;
 }
 
-.board, .cell {
+.board,
+.cell {
   display: inline-block;
 }
 
 .line {
-
 }

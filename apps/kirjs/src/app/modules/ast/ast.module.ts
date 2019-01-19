@@ -23,9 +23,7 @@ import { SlidesModule } from '@codelab/slides';
 import { BabelTestRunner } from './test-set/babel-test-runner/babel-test-runner.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(AstComponent)
-);
+const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
 
 @NgModule({
   imports: [
@@ -44,16 +42,14 @@ const routes = RouterModule.forChild(
     SizePickerModule,
     MatCardModule,
     NewProgressBarModule,
-    AngularSlidesToPdfModule,
+    AngularSlidesToPdfModule
   ],
   declarations: [
     AstComponent,
     BabelTestRunner,
     DebuggerComponent,
-    TestSetComponent,
+    TestSetComponent
   ],
   exports: [AstComponent]
 })
-export class AstModule {
-
-}
+export class AstModule {}

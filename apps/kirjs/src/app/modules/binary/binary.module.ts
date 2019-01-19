@@ -36,9 +36,7 @@ import { BitwiseComponent } from './bitwise/bitwise.component';
 import { ToReadComponent } from './to-read/to-read.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(BinaryComponent)
-);
+const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
 
 @NgModule({
   imports: [
@@ -56,7 +54,7 @@ const routes = RouterModule.forChild(
     NewProgressBarModule,
     MatSelectModule,
     SlidesModule,
-    FeedbackModule,
+    FeedbackModule
   ],
   declarations: [
     BinaryComponent,
@@ -77,7 +75,7 @@ const routes = RouterModule.forChild(
     AngularFlagsComponent,
     ColorIndexingComponent,
     BitwiseComponent,
-    ToReadComponent,
+    ToReadComponent
   ],
   entryComponents: [
     FakeGifComponent,
@@ -87,10 +85,8 @@ const routes = RouterModule.forChild(
     MessageComponent,
     JsonComponent,
     HtmlPostComponent,
-    CompareComponent,
+    CompareComponent
   ],
   exports: [BinaryComponent]
 })
-export class BinaryModule {
-
-}
+export class BinaryModule {}

@@ -4,41 +4,48 @@ import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
 export class BinaryObjectParser extends AbstractBinaryParser {
   type = 'object';
   steps: {
-    name: string,
-    description?: string,
-    parser: AbstractBinaryParser
+    name: string;
+    description?: string;
+    parser: AbstractBinaryParser;
   }[] = [];
 
-
   addStep(name: string, parser: AbstractBinaryParser) {
-    this.steps.push({name, parser});
+    this.steps.push({ name, parser });
   }
 
-  read(reader: BinaryReader, data: BinaryReaderResult = {}): BinaryReaderResult {
+  read(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {}
+  ): BinaryReaderResult {
     let raw = '';
     const val = this.steps.reduce((result, step) => {
-      const {value, rawValue} = step.parser.read(reader, result);
+      const { value, rawValue } = step.parser.read(reader, result);
       result[step.name] = value;
       raw += rawValue;
       return result;
     }, {});
 
-    return {value: val, rawValue: raw}
+    return { value: val, rawValue: raw };
   }
 
-
-  readOrdered(reader: BinaryReader, data: BinaryReaderResult = [], start = 0): BinaryReaderResult {
+  readOrdered(
+    reader: BinaryReader,
+    data: BinaryReaderResult = [],
+    start = 0
+  ): BinaryReaderResult {
     let raw = '';
     let len = 0;
 
-
     const value = this.steps.reduce((result, step) => {
-      const {value, rawValue, type, description} = step.parser.readOrdered(reader, {_parent: data, ...result}, start + len);
+      const { value, rawValue, type, description } = step.parser.readOrdered(
+        reader,
+        { _parent: data, ...result },
+        start + len
+      );
       raw += rawValue;
       if (!type) {
         debugger;
       }
-
 
       len += rawValue.length;
       result.push({
@@ -54,7 +61,6 @@ export class BinaryObjectParser extends AbstractBinaryParser {
 
       return result;
     }, []);
-
 
     return {
       start,

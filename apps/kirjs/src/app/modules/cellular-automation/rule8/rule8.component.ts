@@ -9,14 +9,10 @@ export class Rule8Component implements OnInit {
   after: Array<Array<Array<string | number>>>;
   before: Array<Array<Array<string | number>>>;
 
-
   @Input() rule = 0;
   @Input() arrow = false;
 
-
-  constructor() {
-  }
-
+  constructor() {}
 
   ngOnInit() {
     const numbers = new Array(1024).fill(0, 0, 1024);
@@ -26,10 +22,8 @@ export class Rule8Component implements OnInit {
       return [
         arr.substr(0, 3).split(''),
         arr.substr(3, 3).split(''),
-        arr.substr(6, 3).split(''),
+        arr.substr(6, 3).split('')
       ];
     });
-
   }
-
 }

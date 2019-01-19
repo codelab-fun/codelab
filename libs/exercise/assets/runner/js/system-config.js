@@ -1,7 +1,7 @@
 function loadSystemModule(name, code) {
-  window.define = function (deps, callback) {
+  window.define = function(deps, callback) {
     console.log(window.System.x);
-    window.System.amdDefine(name, deps, callback)
+    window.System.amdDefine(name, deps, callback);
   };
   window.define.amd = true;
   eval(code);
@@ -14,8 +14,10 @@ System.config({
     '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
     '@angular/common/http': 'npm:@angular/common/bundles/common-http.umd.js',
     '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
-    '@angular/compiler/testing': 'npm:@angular/compiler/bundles/compiler-testing.umd.js',
-    '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
+    '@angular/compiler/testing':
+      'npm:@angular/compiler/bundles/compiler-testing.umd.js',
+    '@angular/platform-browser':
+      'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
     '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
     '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
     '@angular/cdk/bidi': 'npm:@angular/cdk/bundles/cdk-bidi.umd.js',
@@ -33,20 +35,26 @@ System.config({
     '@angular/cdk/scrolling': 'npm:@angular/cdk/bundles/cdk-scrolling.umd.js',
     '@angular/cdk/observers': 'npm:@angular/cdk/bundles/cdk-observers.umd.js',
     '@angular/cdk/overlay': 'npm:@angular/cdk/bundles/cdk-overlay.umd.js',
-    '@angular/cdk/collections': 'npm:@angular/cdk/bundles/cdk-collections.umd.js',
+    '@angular/cdk/collections':
+      'npm:@angular/cdk/bundles/cdk-collections.umd.js',
     '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
-    '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
-    '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
-    '@angular/platform-browser/testing': 'npm:@angular/platform-browser/bundles/platform-browser-testing.umd.js',
-    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
-    '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
+    '@angular/animations/browser':
+      'npm:@angular/animations/bundles/animations-browser.umd.js',
+    '@angular/platform-browser/animations':
+      'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+    '@angular/platform-browser/testing':
+      'npm:@angular/platform-browser/bundles/platform-browser-testing.umd.js',
+    '@angular/platform-browser-dynamic':
+      'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+    '@angular/platform-browser-dynamic/testing':
+      'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
     '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
     '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
     '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
     // other libraries
     'rxjs/operators': 'npm:rxjs/operators',
-    'rxjs': 'npm:rxjs',
+    rxjs: 'npm:rxjs'
   },
   warnings: true,
   packages: {
@@ -55,6 +63,6 @@ System.config({
     },
     rxjs: {
       main: 'index'
-    },
+    }
   }
 });

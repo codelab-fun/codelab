@@ -3,4 +3,3 @@ function findConsoleLog(code) {
     .replace(/\/\/.*|'.*?[^\\]'|".*?"|`[\s\S]*`|\/\*[\s\S]*\*\//)
     .match(/\bconsole\s*.log\(/);
 }
-

@@ -1,13 +1,12 @@
-function removeDebugger(code, {babylon, babelTraverse, babelGenerator, log}) {
+function removeDebugger(code, { babylon, babelTraverse, babelGenerator, log }) {
   const ast = babylon.parse(code);
 
   let hasDebugger = false;
   babelTraverse(ast, {
-    DebuggerStatement: (node) => {
+    DebuggerStatement: node => {
       hasDebugger = true;
     }
   });
 
   return hasDebugger;
 }
-

@@ -11,9 +11,7 @@ export class CodelabProgressBarComponent implements AfterViewInit {
   activeSlideIndex = 0;
   tempSlideId = 0;
 
-  constructor(public deck: SlidesDeckComponent) {
-
-  }
+  constructor(public deck: SlidesDeckComponent) {}
 
   ngAfterViewInit() {
     // Change detection complains if updating it right away.
@@ -22,7 +20,7 @@ export class CodelabProgressBarComponent implements AfterViewInit {
       this.activeSlideIndex = this.deck.activeSlideIndex;
     });
 
-    this.deck.onSlideChange.subscribe((index) => {
+    this.deck.onSlideChange.subscribe(index => {
       this.activeSlideIndex = index;
     });
   }

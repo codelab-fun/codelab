@@ -6,12 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./to-read.component.css']
 })
 export class ToReadComponent implements OnInit {
-
   @Input() author: string;
   @Input() title: string;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

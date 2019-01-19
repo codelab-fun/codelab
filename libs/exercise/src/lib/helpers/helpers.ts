@@ -1,9 +1,9 @@
 import { FileConfig } from '../interfaces/file-config';
 
-
 function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
   return {
-    ...exercise(moduleName, code, code2), before: `
+    ...exercise(moduleName, code, code2),
+    before: `
     export const value = {};
     function display( newValue ){
       value.value = newValue;
@@ -14,7 +14,8 @@ function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
 
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
-    ...exercise(moduleName, code, code2), before: `
+    ...exercise(moduleName, code, code2),
+    before: `
 
     export const value = {};
 
@@ -44,8 +45,11 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   };
 }
 
-
-export function exercise(moduleName: string, template: string, solution?: string): FileConfig {
+export function exercise(
+  moduleName: string,
+  template: string,
+  solution?: string
+): FileConfig {
   solution = solution || template;
 
   return {
@@ -73,7 +77,7 @@ export function test(moduleName: string, template: string): FileConfig {
     bootstrap: true,
     before: 'mochaBefore();',
     after: 'mochaAfter();',
-    hidden: true,
+    hidden: true
   };
 }
 
@@ -90,12 +94,15 @@ export const builder = {
     return `[${components.map(c => c.name).join(',')}]`;
   },
 
-  ngModule(declarations: Array<SimpleImport> = [
-    {
-      name: 'AppComponent',
-      path: './app.component'
-    }
-  ], bootstrapComponent?: Array<SimpleImport>) {
+  ngModule(
+    declarations: Array<SimpleImport> = [
+      {
+        name: 'AppComponent',
+        path: './app.component'
+      }
+    ],
+    bootstrapComponent?: Array<SimpleImport>
+  ) {
     bootstrapComponent = bootstrapComponent || declarations;
 
     return `import {BrowserModule} from \'@angular/platform-browser\';
@@ -110,7 +117,9 @@ ${this.imports(declarations)}
 export class AppModule {}`;
   },
 
-  bootstrap(module: SimpleImport = {name: 'AppModule', path: './app.module'}): string {
+  bootstrap(
+    module: SimpleImport = { name: 'AppModule', path: './app.module' }
+  ): string {
     return `import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 ${this.imports([module])}
 
@@ -162,7 +171,11 @@ export function stylesheet(code, solution = '') {
   };
 }
 
-export function bootstrap(moduleName: string, template: string, solution?: string) {
+export function bootstrap(
+  moduleName: string,
+  template: string,
+  solution?: string
+) {
   solution = solution || template;
   return {
     bootstrap: true,
@@ -175,7 +188,6 @@ export function bootstrap(moduleName: string, template: string, solution?: strin
     solution
   };
 }
-
 
 export function circleAndBox() {
   const result = boxAndCircle();
@@ -261,15 +273,15 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       }
     ]
   };
-
-
 }
 
-export function displayAngularComponent(componentCode: string, testCode?: string) {
+export function displayAngularComponent(
+  componentCode: string,
+  testCode?: string
+) {
   // tslint:disable-next-line:max-line-length TODO: Clean up next line and remove this comment.
   const moduleCode = builder.ngModule();
   const bootstrapCode = builder.bootstrap();
-
 
   return {
     files: [
@@ -303,22 +315,23 @@ export function displayAngularComponent(componentCode: string, testCode?: string
 export function vueJsExercise(code: string) {
   return {
     runner: 'Vue',
-    files: [
-      exercise('main.ts', code)
-    ]
+    files: [exercise('main.ts', code)]
   };
 }
 
 export function reactExercise(code: string) {
   return {
     runner: 'React',
-    files: [
-      {...exercise('main.ts', code), type: 'jsx'}
-    ]
+    files: [{ ...exercise('main.ts', code), type: 'jsx' }]
   };
 }
 
-export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
+export function typeScriptWithConsoleLog(
+  code: string,
+  bootstrapCode = 'import "./app";',
+  testCode = '',
+  otherCode = ''
+) {
   const files = [
     exerciseWithConsoleLog('app', code, code),
     bootstrap('main', bootstrapCode, bootstrapCode),
@@ -337,14 +350,26 @@ export function typeScriptWithConsoleLog(code: string, bootstrapCode = 'import "
   };
 }
 
-export function javaScriptWithConsoleLog(code: string, bootstrapCode = 'import "./app";', testCode = '', otherCode = '') {
-  const result = typeScriptWithConsoleLog(code, bootstrapCode, testCode, otherCode);
+export function javaScriptWithConsoleLog(
+  code: string,
+  bootstrapCode = 'import "./app";',
+  testCode = '',
+  otherCode = ''
+) {
+  const result = typeScriptWithConsoleLog(
+    code,
+    bootstrapCode,
+    testCode,
+    otherCode
+  );
   (result.files[0] as FileConfig).editorType = 'javascript';
   return result;
 }
 
-
-export function displayAngularComponentWithHtml(componentCode: string, code: string) {
+export function displayAngularComponentWithHtml(
+  componentCode: string,
+  code: string
+) {
   return {
     files: [
       {
@@ -353,17 +378,17 @@ export function displayAngularComponentWithHtml(componentCode: string, code: str
         solution: '',
         type: 'html'
       },
-      ...
-        displayAngularComponent(componentCode).files
+      ...displayAngularComponent(componentCode).files
     ]
   };
 }
 
 export function solve(exerciseConfig) {
   return {
-    ...exerciseConfig, files: exerciseConfig.files.map(file => (
-      {...file, code: file.solution || file.code}
-    ))
+    ...exerciseConfig,
+    files: exerciseConfig.files.map(file => ({
+      ...file,
+      code: file.solution || file.code
+    }))
   };
 }
-

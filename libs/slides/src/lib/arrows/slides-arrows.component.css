@@ -17,7 +17,8 @@
   opacity: 0.5;
 }
 
-.arrow-left, .arrow-right {
+.arrow-left,
+.arrow-right {
   top: calc(44.7% - 6vh / 2);
   position: fixed;
   font-size: 6vh;

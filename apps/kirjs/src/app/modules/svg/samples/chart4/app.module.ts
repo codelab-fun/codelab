@@ -8,5 +8,4 @@ import { TicksComponent } from './ticks.component';
   declarations: [AppComponent, TicksComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

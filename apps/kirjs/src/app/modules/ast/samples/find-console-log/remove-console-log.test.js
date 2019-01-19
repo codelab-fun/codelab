@@ -3,56 +3,46 @@ function testThings(findConsoleLog, callback, args) {
   const tests = [
     {
       code: `console.log('🐶🐶🐶')`,
-      expected: '',
-
-
+      expected: ''
     },
     {
       code: `lolconsole.log();`,
-      expected: 'lolconsole.log();',
-
+      expected: 'lolconsole.log();'
     },
     {
       code: `console.lol();`,
-      expected: `console.lol();`,
+      expected: `console.lol();`
     },
     {
       code: `// don't use console.log();`,
-      expected: `// don't use console.log();`,
-
+      expected: `// don't use console.log();`
     },
     {
       code: `'console.log()';`,
-      expected: `'console.log()';`,
-
+      expected: `'console.log()';`
     },
     {
       code: `'hi'; console.log(123); 'bye';`,
-      expected: `'hi';\n'bye';`,
-
+      expected: `'hi';\n'bye';`
     },
     {
       code: `console
       .log()`,
-      expected: ``,
-
+      expected: ``
     },
     {
       code: `"console.log(123)";`,
-      expected: `"console.log(123)";`,
-
+      expected: `"console.log(123)";`
     },
     {
       code: `\`
        console.log(1234)\`;`,
       expected: `\`
-       console.log(1234)\`;`,
-
+       console.log(1234)\`;`
     },
     {
       code: `' \\' console.log(123)';`,
-      expected: `' \\' console.log(123)';`,
-
+      expected: `' \\' console.log(123)';`
     },
     {
       code: `/* \` 
@@ -60,17 +50,13 @@ function testThings(findConsoleLog, callback, args) {
         \` + '';`,
       expected: `\`
         \` + ''; /* \` 
-                       */`,
-
+                       */`
     },
     {
       code: `hello(console.log);`,
-      expected: `hello(console.log);`,
-
+      expected: `hello(console.log);`
     }
-
   ];
-
 
   let results = [];
   let failed = false;
@@ -79,7 +65,7 @@ function testThings(findConsoleLog, callback, args) {
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = (value) => {
+        args.log = value => {
           logs.push(value);
         };
 
@@ -94,13 +80,19 @@ function testThings(findConsoleLog, callback, args) {
 
         const pass = result === test.expected;
 
-        results.push(({code: test.code, expected: test.expected, result, pass, error}));
+        results.push({
+          code: test.code,
+          expected: test.expected,
+          result,
+          pass,
+          error
+        });
         if (!pass) {
           failed = true;
           logs.map(log);
         }
       } else {
-        results.push(({code: test.code, pass: false}));
+        results.push({ code: test.code, pass: false });
       }
     }
   }

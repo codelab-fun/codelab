@@ -8,7 +8,6 @@ import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/sli
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
 
-
 const routes = RouterModule.forChild(
   SlidesRoutes.get(VisualStudioCodeComponent)
 );
@@ -25,5 +24,4 @@ const routes = RouterModule.forChild(
   declarations: [VisualStudioCodeComponent],
   exports: [VisualStudioCodeComponent]
 })
-export class VisualStudioCodeModule {
-}
+export class VisualStudioCodeModule {}

@@ -13,23 +13,22 @@ function getFileName(file: string) {
 })
 export class SimpleTestsComponent implements OnInit {
   @Input() code: any;
-  @Input() translations: { [key: string]: string; } = {};
+  @Input() translations: { [key: string]: string } = {};
   @Output()
   public onSelectFile: EventEmitter<string> = new EventEmitter<string>();
   seeAll = false;
   tests: Array<TestInfo>;
 
-  constructor(private sanitizer: DomSanitizer) {
-  };
+  constructor(private sanitizer: DomSanitizer) {}
 
   @Input('tests') set testsSetter(tests: Array<TestInfo>) {
     this.tests = (tests || []).map(test => ({
       ...test,
       filename: this.getTestFile(test),
       title: this.getTitle(test),
-      isFirstUnresolved: this.isFirstUnsolved(test, tests),
+      isFirstUnresolved: this.isFirstUnsolved(test, tests)
     }));
-  };
+  }
 
   ngOnInit(): void {
     this.translations = this.translations || {};
@@ -52,7 +51,9 @@ export class SimpleTestsComponent implements OnInit {
   }
 
   getTestFile(test: TestInfo): string {
-    return Object.keys(this.code).find(file => this.getTranslation(test.title).includes(getFileName(file)));
+    return Object.keys(this.code).find(file =>
+      this.getTranslation(test.title).includes(getFileName(file))
+    );
   }
 
   getTitle(test: TestInfo) {

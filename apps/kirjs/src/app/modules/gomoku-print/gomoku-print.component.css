@@ -1,5 +1,5 @@
-
-#intro, #outro {
+#intro,
+#outro {
   /*  background: url(./browser/landscape-with-trees-1.jpg) no-repeat; */
   background-size: 100% auto;
   display: inline-block;
@@ -54,7 +54,8 @@ li {
   margin: 0 auto;
 }
 
-.left, .right  {
+.left,
+.right {
   width: 512px;
   box-sizing: border-box;
   padding: 20px;
@@ -98,4 +99,3 @@ li {
   margin-right: 30px;
   margin-bottom: 20px;
 }
-

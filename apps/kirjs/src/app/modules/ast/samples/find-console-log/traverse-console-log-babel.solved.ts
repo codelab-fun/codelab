@@ -1,4 +1,7 @@
-function traverseConsoleLogSolved(code, {babylon, babelTraverse, types, log}) {
+function traverseConsoleLogSolved(
+  code,
+  { babylon, babelTraverse, types, log }
+) {
   const ast = babylon.parse(code);
   let hasConsoleLog = false;
   babelTraverse(ast, {
@@ -13,12 +16,8 @@ function traverseConsoleLogSolved(code, {babylon, babelTraverse, types, log}) {
       ) {
         hasConsoleLog = true;
       }
-
     }
   });
 
   return hasConsoleLog;
-
-
 }
-

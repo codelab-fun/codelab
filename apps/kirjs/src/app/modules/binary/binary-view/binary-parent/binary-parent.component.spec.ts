@@ -8,9 +8,8 @@ describe('BinaryParentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BinaryParentComponent ]
-    })
-    .compileComponents();
+      declarations: [BinaryParentComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

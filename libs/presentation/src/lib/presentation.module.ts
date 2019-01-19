@@ -5,22 +5,10 @@ import { MenuShortcutComponent } from '../../../../apps/codelab/src/app/codelabs
 import { AnalyticsService } from './analytics.service';
 
 @NgModule({
-  declarations: [
-    PresentationComponent,
-    MenuShortcutComponent
-  ],
-  exports: [
-    PresentationComponent,
-    MenuShortcutComponent
-  ],
-  imports: [
-    CommonModule,
-  ],
-  providers: [
-    AnalyticsService
-  ],
+  declarations: [PresentationComponent, MenuShortcutComponent],
+  exports: [PresentationComponent, MenuShortcutComponent],
+  imports: [CommonModule],
+  providers: [AnalyticsService],
   bootstrap: []
 })
-export class PresentationModule {
-
-}
+export class PresentationModule {}

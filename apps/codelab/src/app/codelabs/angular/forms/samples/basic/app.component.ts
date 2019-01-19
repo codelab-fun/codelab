@@ -9,4 +9,3 @@ export class AppComponent {
   username = 'Pirojok';
   email = 'pirojok@angular.io';
 }
-

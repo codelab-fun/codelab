@@ -1,19 +1,28 @@
-<slides-simple-tests-progress [tests]="tests" *ngIf="hasTests()"></slides-simple-tests-progress>
-<ng-container *ngFor="let test of tests; trackBy: trackTest; let i=index;">
-  <div *ngIf="seeAll || test.isFirstUnresolved" class="test-panel" title="{{test.result}}">
-    <slides-simple-test-description [title]="test.title"
-                                    [file]="test.filename"
-                                    [pass]="test.pass"
-                                    [class.first-unsolved]="test.isFirstUnresolved"
-                                    (onSelectFile)="onSelectFile.emit($event)"
+<slides-simple-tests-progress
+  [tests]="tests"
+  *ngIf="hasTests()"
+></slides-simple-tests-progress>
+<ng-container *ngFor="let test of tests; trackBy: trackTest; let i = index">
+  <div
+    *ngIf="seeAll || test.isFirstUnresolved"
+    class="test-panel"
+    title="{{ test.result }}"
+  >
+    <slides-simple-test-description
+      [title]="test.title"
+      [file]="test.filename"
+      [pass]="test.pass"
+      [class.first-unsolved]="test.isFirstUnresolved"
+      (onSelectFile)="onSelectFile.emit($event)"
     ></slides-simple-test-description>
-    <div class="result" *ngIf="test.isFirstUnresolved">{{test.result}}</div>
+    <div class="result" *ngIf="test.isFirstUnresolved">{{ test.result }}</div>
   </div>
 </ng-container>
 
-<div *ngIf="hasMoreThanOneTest()" (click)="toggleSeeAll($event)" style="margin-top: 10px; margin-left: 20px;">
-  <a *ngIf="seeAll">see only next step</a>
-  <a *ngIf="!seeAll">see all steps</a>
+<div
+  *ngIf="hasMoreThanOneTest()"
+  (click)="toggleSeeAll($event)"
+  style="margin-top: 10px; margin-left: 20px;"
+>
+  <a *ngIf="seeAll">see only next step</a> <a *ngIf="!seeAll">see all steps</a>
 </div>
-
-

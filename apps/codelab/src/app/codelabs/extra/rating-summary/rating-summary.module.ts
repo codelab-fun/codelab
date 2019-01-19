@@ -13,12 +13,11 @@ import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedb
 import { RatingSummaryComponent } from './rating-summary.component';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
+const routes = RouterModule.forChild(SlidesRoutes.get(RatingSummaryComponent));
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(RatingSummaryComponent)
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
 );
-
-export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
 
 @NgModule({
   imports: [
@@ -37,6 +36,4 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
   providers: [],
   exports: [RatingSummaryComponent]
 })
-export class RatingSummaryModule {
-
-}
+export class RatingSummaryModule {}

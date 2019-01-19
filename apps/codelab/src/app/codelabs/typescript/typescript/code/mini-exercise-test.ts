@@ -3,7 +3,6 @@ import { app_ts_AST, ts } from './code';
 
 declare const it, describe;
 
-
 function getFunctionNode(code) {
   let functionNode = undefined;
 
@@ -11,7 +10,10 @@ function getFunctionNode(code) {
    * Fancy: Require the actual source code, and search in it.
    */
   function findFunctionNode(node) {
-    if (node.kind === ts.SyntaxKind.FunctionDeclaration && node.name.text === 'add') {
+    if (
+      node.kind === ts.SyntaxKind.FunctionDeclaration &&
+      node.name.text === 'add'
+    ) {
       functionNode = node;
     }
     ts.forEachChild(node, findFunctionNode);
@@ -21,11 +23,14 @@ function getFunctionNode(code) {
   return functionNode;
 }
 
-
 describe('value', () => {
   it(`@@specifyTheTypeForB`, () => {
     const func = getFunctionNode(app_ts_AST);
-    chai.assert(func.parameters[1].type && func.parameters[1].type.kind === ts.SyntaxKind.NumberKeyword, 'Test failed: b is not a number');
+    chai.assert(
+      func.parameters[1].type &&
+        func.parameters[1].type.kind === ts.SyntaxKind.NumberKeyword,
+      'Test failed: b is not a number'
+    );
   });
 
   it(`@@typescriptHighlightsErrorFix224`, () => {

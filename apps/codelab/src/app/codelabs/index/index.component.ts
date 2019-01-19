@@ -2,8 +2,6 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { extractMessages } from '../../../../../../libs/presentation/src/lib/i18n-tools';
 import { MenuShortcutRoute } from '../components/menu-shortcut/menu-shortcut.component';
 
-
-
 @Component({
   selector: 'slides-index',
   templateUrl: './index.component.html',
@@ -36,7 +34,5 @@ export class IndexComponent implements OnInit {
     this.routes = routes.filter(route => route.name);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -34,7 +34,7 @@ export function getChanges(current, previous) {
 @Component({
   selector: 'slides-codelab-exercise',
   templateUrl: 'exercise.component.html',
-  styleUrls: ['./exercise.component.css'],
+  styleUrls: ['./exercise.component.css']
 })
 export class CodelabExerciseComponent extends CodeDemo {
   @Input() set exercise(exercise) {

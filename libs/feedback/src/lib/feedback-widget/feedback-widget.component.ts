@@ -10,13 +10,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./feedback-widget.component.css']
 })
 export class FeedbackWidgetComponent implements OnInit {
-
   messages$: Observable<Message[]>;
   open: boolean;
 
-  constructor(private feedbackService: FeedbackService,
-              private activatedRoute: ActivatedRoute) {
-  }
+  constructor(
+    private feedbackService: FeedbackService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.messages$ = this.feedbackService.getMessages(this.activatedRoute);
@@ -27,14 +27,18 @@ export class FeedbackWidgetComponent implements OnInit {
     // TODO: Move out to a directive
     function findMatchingDOMAncestor(element) {
       while (element.parentNode) {
-        if (element.className && element.className.indexOf('feedback-container') >= 0) {
+        if (
+          element.className &&
+          element.className.indexOf('feedback-container') >= 0
+        ) {
           return true;
         }
         element = element.parentNode;
       }
     }
 
-    const belongsToPopup = event.srcElement && findMatchingDOMAncestor(event.srcElement);
+    const belongsToPopup =
+      event.srcElement && findMatchingDOMAncestor(event.srcElement);
     if (!belongsToPopup) {
       this.open = false;
     }
@@ -43,5 +47,4 @@ export class FeedbackWidgetComponent implements OnInit {
   buttonClicked() {
     this.open = !this.open;
   }
-
 }

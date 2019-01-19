@@ -9,9 +9,12 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
 
   get type() {
     return 'bich';
-  };
+  }
 
-  read(reader: BinaryReader, data: BinaryReaderResult = {}): BinaryReaderResult {
+  read(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {}
+  ): BinaryReaderResult {
     return this.getParser(data, resolveByKey).read(reader, data);
   }
 
@@ -34,9 +37,17 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
     return parser;
   }
 
-  readOrdered(reader: BinaryReader, data: BinaryReaderResult = [], start = 0): BinaryReaderResult {
+  readOrdered(
+    reader: BinaryReader,
+    data: BinaryReaderResult = [],
+    start = 0
+  ): BinaryReaderResult {
     const parser = this.getParser(data, resolveOrderedByKey);
-    const {value, rawValue, description} = parser.readOrdered(reader, data, start);
-    return {start, value, rawValue, type: parser.type, description};
+    const { value, rawValue, description } = parser.readOrdered(
+      reader,
+      data,
+      start
+    );
+    return { start, value, rawValue, type: parser.type, description };
   }
 }

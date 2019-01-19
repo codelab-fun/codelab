@@ -8,19 +8,19 @@
 }
 
 .file.ts:before {
-  content: "ts";
+  content: 'ts';
   background: #1885ff;
   color: #eeeeee;
 }
 
 .file.html:before {
-  content: "<>";
+  content: '<>';
   background: #fbff20;
   color: #424242;
 }
 
 .file.css:before {
-  content: "{}";
+  content: '{}';
   background: #6cff37;
   color: #424242;
 }
@@ -37,4 +37,3 @@
   line-height: 18px;
   text-align: center;
 }
-

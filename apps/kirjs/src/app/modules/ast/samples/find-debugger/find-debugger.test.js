@@ -64,7 +64,7 @@ console.log('hi');`,
       test(func, args) {
         return !func(this.title, args);
       },
-      shouldPass: false,
+      shouldPass: false
     },
     {
       title: `/* \` 
@@ -89,9 +89,7 @@ console.log('hi');`,
         return func(this.title, args);
       }
     }
-
   ];
-
 
   let results = [];
   let failed = false;
@@ -100,17 +98,25 @@ console.log('hi');`,
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = (value) => {
+        args.log = value => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);
-        results.push(({shouldPass: test.shouldPass, title: test.title, pass: pass}));
+        results.push({
+          shouldPass: test.shouldPass,
+          title: test.title,
+          pass: pass
+        });
         if (!pass) {
           failed = true;
           logs.map(log);
         }
       } else {
-        results.push(({shouldPass: test.shouldPass, title: test.title, pass: false}));
+        results.push({
+          shouldPass: test.shouldPass,
+          title: test.title,
+          pass: false
+        });
       }
     }
   }

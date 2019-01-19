@@ -8,9 +8,8 @@ describe('GifPaletteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GifPaletteComponent ]
-    })
-    .compileComponents();
+      declarations: [GifPaletteComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

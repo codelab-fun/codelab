@@ -18,7 +18,5 @@ export class DebuggerComponent implements OnInit {
     eval(this.code + ';weird()');
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

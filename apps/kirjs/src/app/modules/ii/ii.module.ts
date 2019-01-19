@@ -4,21 +4,11 @@ import { IiComponent } from './ii.component';
 import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
 import { RouterModule } from '@angular/router';
 
-
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(IiComponent)
-);
+const routes = RouterModule.forChild(SlidesRoutes.get(IiComponent));
 
 @NgModule({
-  imports: [
-    routes,
-    CommonModule
-  ],
-  declarations: [
-    IiComponent,
-
-  ],
+  imports: [routes, CommonModule],
+  declarations: [IiComponent],
   exports: [IiComponent]
 })
-export class IiModule {
-}
+export class IiModule {}

@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-
 function encode(from: number, to: number, encoding: string) {
-  return new TextDecoder(encoding).decode(new Uint8Array(to - from).map((a, i) => i + from).buffer as any).split('')
+  return new TextDecoder(encoding)
+    .decode(new Uint8Array(to - from).map((a, i) => i + from).buffer as any)
+    .split('')
     .map((value, i) => ({
       key: i + from,
       value
@@ -37,7 +38,7 @@ export class AsciiComponent implements OnInit {
     {
       key: 'utf-8',
       value: encode(1000, 1255, 'utf-16')
-    },
+    }
   ];
   encoding = this.encodings[0];
 
@@ -49,7 +50,5 @@ export class AsciiComponent implements OnInit {
     this.encoding = this.encodings.find(a => a.key === key);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

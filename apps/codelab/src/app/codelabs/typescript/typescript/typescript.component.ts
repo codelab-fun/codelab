@@ -1,10 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
+import {
+  javaScriptWithConsoleLog,
+  typeScriptWithConsoleLog
+} from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
-import { convertExerciseToMap, ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
+import {
+  convertExerciseToMap,
+  ng2tsConfig
+} from '../../../../../../../ng2ts/ng2ts';
 
 declare const require;
-
 
 @Component({
   selector: 'slides-typescript',
@@ -12,10 +17,8 @@ declare const require;
   styleUrls: ['./typescript.component.css']
 })
 export class TypescriptComponent implements OnInit {
-  t: { [key: string]: string; };
-  exercises = [
-    ng2tsConfig.milestones[0].exercises[1]
-  ];
+  t: { [key: string]: string };
+  exercises = [ng2tsConfig.milestones[0].exercises[1]];
   exercise = convertExerciseToMap(ng2tsConfig.milestones[0].exercises[1]);
 
   @ViewChild('translations') translation;
@@ -50,7 +53,9 @@ const realPuppy: Puppy = {
 const notRealPuppy: Puppy = {
   says: 'meow' // ${this.t.errorNotAPuppy}
 }`,
-        codeArrays: typeScriptWithConsoleLog(`// ${this.t.defineArrayAsArray}<Type>
+        codeArrays: typeScriptWithConsoleLog(`// ${
+          this.t.defineArrayAsArray
+        }<Type>
 const cats: Array<string> = ['Simba', 'Aslan'];
 // ${this.t.typeDoesSameThing}
 const cats2: string[] = ['Simba', 'Aslan'];
@@ -92,7 +97,6 @@ console.log(ll); // undefined
 // ${this.t.constLikeLet}
 const x = 1;
 x = 2;`
-
       },
       stringType: {
         code: `let fullName: string = 'Bob Bobbington';
@@ -133,23 +137,30 @@ var hotdog = new Puppy('Édouard');
 console.log(hotdog.bark());
 // ${this.t.letsCreateMorePuppies}
 var oscar = new Puppy('Oscar-Claude');
-console.log(oscar.bark());`), codeExport: typeScriptWithConsoleLog(`export class Puppy {
-  constructor(public name: string){}
-  bark(){
-    return 'Gav! my name is ' + this.name;
-  }
-}`), codeImport: typeScriptWithConsoleLog(`import {Puppy} from './puppy';
-
-var hotdog = new Puppy('Édouard');
-console.log(hotdog.bark());
-// ${this.t.letsCreateMorePuppies}
-var oscar = new Puppy('Oscar-Claude');
-console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
+console.log(oscar.bark());`),
+        codeExport: typeScriptWithConsoleLog(`export class Puppy {
   constructor(public name: string){}
   bark(){
     return 'Gav! my name is ' + this.name;
   }
 }`),
+        codeImport: typeScriptWithConsoleLog(
+          `import {Puppy} from './puppy';
+
+var hotdog = new Puppy('Édouard');
+console.log(hotdog.bark());
+// ${this.t.letsCreateMorePuppies}
+var oscar = new Puppy('Oscar-Claude');
+console.log(oscar.bark());`,
+          'import "./app";',
+          undefined,
+          `export class Puppy {
+  constructor(public name: string){}
+  bark(){
+    return 'Gav! my name is ' + this.name;
+  }
+}`
+        ),
         matches: {
           classPuppyMatch: /class Puppy/,
           classMatch: /class/,
@@ -163,7 +174,7 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
           publicMatch: /public name/,
           thisMatch: /this.name/,
           edouardMatch: /Édouard/,
-          oscarMatch: /Oscar-Claude/,
+          oscarMatch: /Oscar-Claude/
         }
       },
       tsExercise: typeScriptWithConsoleLog(
@@ -171,25 +182,28 @@ console.log(oscar.bark());`, 'import "./app";', undefined, `export class Puppy {
   return a+b;
 };
 
-console.log(add(2, '2'));`, undefined, require(`!raw-loader!./code/mini-exercise-test.ts`)
+console.log(add(2, '2'));`,
+        undefined,
+        require(`!raw-loader!./code/mini-exercise-test.ts`)
           .replace('@@specifyTheTypeForB', this.t.specifyTheTypeForB)
-          .replace('@@typescriptHighlightsErrorFix224', this.t.typescriptHighlightsErrorFix224)
+          .replace(
+            '@@typescriptHighlightsErrorFix224',
+            this.t.typescriptHighlightsErrorFix224
+          )
       ),
 
       js2And2: (() => {
-
         const code = javaScriptWithConsoleLog(
           `function add(a, b){
   return a+b;
 };
 
-console.log(add(2, '2'));`);
+console.log(add(2, '2'));`
+        );
         (code.files[2] as any).bootstrap = false;
         return code;
       })(),
       tsExerciseMatch: /'.*'/
     };
-
   }
-
 }

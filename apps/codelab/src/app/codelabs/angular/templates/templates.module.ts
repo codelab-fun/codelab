@@ -13,15 +13,14 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
-const routes = RouterModule.forChild(
-  [
-    {
-      path: '',
-      redirectTo: '/templates/intro',
-      pathMatch: 'full'
-    }, ...SlidesRoutes.get(TemplatesComponent)
-  ]
-);
+const routes = RouterModule.forChild([
+  {
+    path: '',
+    redirectTo: '/templates/intro',
+    pathMatch: 'full'
+  },
+  ...SlidesRoutes.get(TemplatesComponent)
+]);
 
 @NgModule({
   imports: [
@@ -30,13 +29,11 @@ const routes = RouterModule.forChild(
     CodeDemoModule,
     FeedbackModule,
     CodelabComponentsModule,
-    
+
     SlidesModule,
-    FormsModule,
+    FormsModule
   ],
   declarations: [TemplatesComponent],
   exports: [TemplatesComponent]
 })
-export class TemplatesModule {
-
-}
+export class TemplatesModule {}

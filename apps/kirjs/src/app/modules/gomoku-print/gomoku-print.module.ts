@@ -5,15 +5,12 @@ import { GomokuBoardModule } from '../gomoku/board/board.module';
 import { XComponent } from './x/x.component';
 import { OComponent } from './o/o.component';
 
-
 @NgModule({
   imports: [
-    RouterModule.forChild([{path: `**`, component: GomokuPrintComponent}]),
+    RouterModule.forChild([{ path: `**`, component: GomokuPrintComponent }]),
     GomokuBoardModule
   ],
   declarations: [GomokuPrintComponent, XComponent, OComponent],
   exports: [GomokuPrintComponent]
 })
-export class GomokuPrintModule {
-
-}
+export class GomokuPrintModule {}

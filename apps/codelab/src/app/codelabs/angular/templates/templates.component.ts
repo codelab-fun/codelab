@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
-import { displayAngularComponent, displayAngularComponentWithHtml } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
+import {
+  displayAngularComponent,
+  displayAngularComponentWithHtml
+} from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
 
 const baseCode = 'TODO';
@@ -11,19 +14,18 @@ const baseCode = 'TODO';
   styleUrls: ['./templates.component.css']
 })
 export class TemplatesComponent implements OnInit {
-  t: { [key: string]: string; };
+  t: { [key: string]: string };
   exercises = [
     ng2tsConfig.milestones[2].exercises[1],
     ng2tsConfig.milestones[2].exercises[2],
-    ng2tsConfig.milestones[2].exercises[3],
+    ng2tsConfig.milestones[2].exercises[3]
   ];
   curlies = '{{ property }}';
 
   @ViewChild('translations') translation;
   code: any = {};
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.t = extractMessages(this.translation);
@@ -40,13 +42,14 @@ export class AppComponent {
 }`),
 
         matches: {
-          curlies: {'app.component.ts': [/{{.*}}/, /firstName = .*/]},
-          curliesFullName: {'app.component.ts': [/{{.*}}/, /fullName\(\){/]},
-          curliesAttribute: {'app.component.ts': [/"{{.*}}"/, /avatar = .*/]},
-          template: {'app.component.ts': /<h1>.*<\/h1>/},
-          squares: {'app.component.ts': /\[.*]/}
+          curlies: { 'app.component.ts': [/{{.*}}/, /firstName = .*/] },
+          curliesFullName: { 'app.component.ts': [/{{.*}}/, /fullName\(\){/] },
+          curliesAttribute: { 'app.component.ts': [/"{{.*}}"/, /avatar = .*/] },
+          template: { 'app.component.ts': /<h1>.*<\/h1>/ },
+          squares: { 'app.component.ts': /\[.*]/ }
         },
-        interpolation: displayAngularComponent(`import {Component} from '@angular/core';
+        interpolation: displayAngularComponent(
+          `import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -57,7 +60,9 @@ export class AppComponent {
 export class AppComponent {
   firstName = 'Pierre-Auguste';
   lastName = 'Renoir';
-}`, '', ),
+}`,
+          ''
+        ),
         interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
@@ -108,7 +113,7 @@ export class AppComponent {
 <!-- ${this.t.orStyleProps} -->
 <button [style.color]="isSpecial ? 'red' : 'green'">
 <!-- ${this.t.worksWithCustomComponents} -->
-<birthday-card [date]="person.birthday"> `,
+<birthday-card [date]="person.birthday"> `
       },
       ngIfDirective: {
         template: displayAngularComponent(`import {Component} from '@angular/core';
@@ -124,7 +129,7 @@ export class AppComponent {
   onDisplay(){  return false } // ${this.t.tryChangingToTrue}
 }`),
         matches: {
-          ngIf: {'app.component.ts': /\*ngIf/}
+          ngIf: { 'app.component.ts': /\*ngIf/ }
         }
       },
       ngForDirectivePre: {
@@ -139,9 +144,11 @@ export class AppComponent {
 export class AppComponent {
   puppies = ['Schumann', 'Mendelssohn', 'Bach'];
 }`),
-        matches: {'app.component.ts': ['???', /puppies.*;/]}
-      }, ngForDirective: {
-        template: displayAngularComponent(`import {Component} from '@angular/core';
+        matches: { 'app.component.ts': ['???', /puppies.*;/] }
+      },
+      ngForDirective: {
+        template: displayAngularComponent(
+          `import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -155,7 +162,8 @@ export class AppComponent {
 })
 export class AppComponent {
   puppies = ['Schumann', 'Mendelssohn', 'Bach'];
-}`, `
+}`,
+          `
 import {AppComponent} from './app.component';
 
 describe('AppComponent', ()=>{
@@ -165,9 +173,10 @@ describe('AppComponent', ()=>{
   })
 })
 
-`),
+`
+        ),
         matches: {
-          ngFor: {'app.component.ts': '*ngFor'}
+          ngFor: { 'app.component.ts': '*ngFor' }
         }
       },
 
@@ -182,7 +191,10 @@ describe('AppComponent', ()=>{
       <img src="{{person.pic}}" alt="Photo of {{person.name}}">
     `,
       templateInterpolationMatch: /{{person.name}}/,
-      templateInterpolationExercise: displayAngularComponentWithHtml(baseCode, `<h1>Hello, {{user.firstName}}</h1>`),
+      templateInterpolationExercise: displayAngularComponentWithHtml(
+        baseCode,
+        `<h1>Hello, {{user.firstName}}</h1>`
+      ),
       templateInterpolationExerciseMatch: /user.firstName/,
       bindingProp: `<!-- Bind [property] to the template express property. -->
 <img [src]="person.photoUrl">
@@ -197,7 +209,10 @@ describe('AppComponent', ()=>{
 <!-- This also works on your own components! -->
 <birthday-card [date]="person.birthday"> `,
       bindingPropMatch: /person.photoUrl/,
-      bindingPropExercise: displayAngularComponentWithHtml(baseCode, `<h1 [innerText]="user.fullName()"></h1>`),
+      bindingPropExercise: displayAngularComponentWithHtml(
+        baseCode,
+        `<h1 [innerText]="user.fullName()"></h1>`
+      ),
       bindingPropExerciseMatch: /user.pic/,
       bindingRef: `<div>
   <input #userName>
@@ -209,7 +224,10 @@ describe('AppComponent', ()=>{
 </div>`,
       bindingRefMatch: /#userName/,
       bindingRef2Match: /userName.value/,
-      bindingRefExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here -->`),
+      bindingRefExercise: displayAngularComponentWithHtml(
+        baseCode,
+        `<!--Type your template here -->`
+      ),
       bindingRefExerciseMatch: /#userinput/,
       eventBinding: `<!-- ${this.t.whenUserClicksItCallsSaveUser} -->
 <button (click)="saveUser($event)">
@@ -221,23 +239,30 @@ describe('AppComponent', ()=>{
 <textarea (keydown.control.enter)="submit()"></textarea>
 `,
       eventBindingMatch: /\(click\)/,
-      eventBindingExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here onButtonClick -->`),
+      eventBindingExercise: displayAngularComponentWithHtml(
+        baseCode,
+        `<!--Type your template here onButtonClick -->`
+      ),
       conditionalDisplay: `<!-- ngIf conditionally toggles the visibility of a section of the UI. -->
 <section *ngIf="showSection">Howdy!</section>
 <!-- The '*' means this directive alters the component tree's structure. -->
 <!-- Note also that *ngIf is case-sensitive! -->
 `,
       conditionalDisplayMatch: /ngIf/,
-      conditionalDisplayExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here displayUser -->`),
+      conditionalDisplayExercise: displayAngularComponentWithHtml(
+        baseCode,
+        `<!--Type your template here displayUser -->`
+      ),
       conditionalDisplayFor: `<ul>
   <li *ngFor="let puppy of puppies">
     {{puppy.name}}
   </li>
 </ul>`,
       conditionalDisplayForMatch: /ngFor/,
-      conditionalDisplayForExercise: displayAngularComponentWithHtml(baseCode, `<!--Type your template here heros -->`),
-
+      conditionalDisplayForExercise: displayAngularComponentWithHtml(
+        baseCode,
+        `<!--Type your template here heros -->`
+      )
     };
   }
-
 }

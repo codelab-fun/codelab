@@ -7,8 +7,17 @@ import { PreviewWindowComponent } from './preview-window/preview-window.componen
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [BrowserWindowComponent, ConsoleWindowComponent, TerminalWindowComponent, PreviewWindowComponent],
-  exports: [BrowserWindowComponent, ConsoleWindowComponent, TerminalWindowComponent, PreviewWindowComponent]
+  declarations: [
+    BrowserWindowComponent,
+    ConsoleWindowComponent,
+    TerminalWindowComponent,
+    PreviewWindowComponent
+  ],
+  exports: [
+    BrowserWindowComponent,
+    ConsoleWindowComponent,
+    TerminalWindowComponent,
+    PreviewWindowComponent
+  ]
 })
-export class BrowserWindowModule {
-}
+export class BrowserWindowModule {}

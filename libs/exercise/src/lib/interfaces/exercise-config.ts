@@ -9,5 +9,3 @@ export interface ExerciseConfig {
   skipTests?: boolean;
   tests?: Array<TestInfo>;
 }
-
-

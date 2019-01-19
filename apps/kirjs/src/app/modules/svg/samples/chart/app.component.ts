@@ -1,25 +1,30 @@
 import { Component } from '@angular/core';
 
 function generateData() {
-  return Array.from(new Array(10)).map(index => Math.round(Math.random() * 300));
+  return Array.from(new Array(10)).map(index =>
+    Math.round(Math.random() * 300)
+  );
 }
 
 @Component({
   selector: 'my-app',
   template: `
     <svg>
-      <g *ngFor="let item of data; let i = index; trackBy:getIndex"
-         [style.transform]="'translate('+(barSpace*i)+'px, '+(320-item)+'px)'">
-        <rect [attr.width]="barWidth"
-              [attr.height]="item"
-              fill="pink"
-              stroke="black"
-              stroke-width="4"
+      <g
+        *ngFor="let item of data; let i = index; trackBy: getIndex"
+        [style.transform]="
+          'translate(' + barSpace * i + 'px, ' + (320 - item) + 'px)'
+        "
+      >
+        <rect
+          [attr.width]="barWidth"
+          [attr.height]="item"
+          fill="pink"
+          stroke="black"
+          stroke-width="4"
         ></rect>
 
-        <text [attr.x]="barWidth/2" y=-10>
-          {{item}}
-        </text>
+        <text [attr.x]="barWidth / 2" y="-10">{{ item }}</text>
       </g>
     </svg>
   `
@@ -36,7 +41,6 @@ export class AppComponent {
       this.data = generateData();
     }, 1000);
   }
-
 
   getIndex(a, b) {
     return a;

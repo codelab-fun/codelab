@@ -19,13 +19,10 @@ export class BinaryPlainComponent {
 
   show = [];
 
-  types = [
-    'boolean', 'number', 'hex', 'string', 'const', 'enums',
-  ];
+  types = ['boolean', 'number', 'hex', 'string', 'const', 'enums'];
 
   @Input()
   spacing = false;
-
 
   @Input()
   highlightedMap = this.types.reduce((r, v) => {
@@ -35,25 +32,28 @@ export class BinaryPlainComponent {
 
   structure: any;
 
-  constructor(private readonly root: FakeGifComponent) {
-  }
+  constructor(private readonly root: FakeGifComponent) {}
 
   get highlighted() {
-    return Object.keys(this.highlightedMap).filter(key => this.highlightedMap[key]).join(' ');
+    return Object.keys(this.highlightedMap)
+      .filter(key => this.highlightedMap[key])
+      .join(' ');
   }
 
   @Input() set binary(binary: string) {
     try {
-      this.structure = flatten(this.parser.readOrdered(new StringBinaryReader(binary)).value)
-        .filter(a => a.className.match(this.filterClassName));
+      this.structure = flatten(
+        this.parser.readOrdered(new StringBinaryReader(binary)).value
+      ).filter(a => a.className.match(this.filterClassName));
 
-      console.log(this.parser.readOrdered(new StringBinaryReader(binary)).value);
+      console.log(
+        this.parser.readOrdered(new StringBinaryReader(binary)).value
+      );
       console.log(this.structure);
     } catch (e) {
       console.log(e);
       //  lol
     }
-
   }
 
   update(item, value) {

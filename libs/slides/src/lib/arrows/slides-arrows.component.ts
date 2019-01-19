@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
-
 @Component({
   selector: 'slides-arrows',
   templateUrl: './slides-arrows.component.html',
   styleUrls: ['./slides-arrows.component.css']
 })
 export class SlidesArrowsComponent {
-  constructor(private presentation: SlidesDeckComponent) {
-  }
+  constructor(private presentation: SlidesDeckComponent) {}
 
   goToPreviousSlide() {
     this.presentation.previousSlide();

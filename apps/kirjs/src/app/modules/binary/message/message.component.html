@@ -11,9 +11,12 @@
 <!--<span (click)="setDisplay('string')">string</span>-->
 <!--</div>-->
 <div [class]="display + ' blocks'">
-  <div [class]="block.className" [class.block]="true" *ngFor="let block of blocks">
-    <div class="bin">{{block.bin}}</div>
-    <div class="human">{{block.human}}</div>
+  <div
+    [class]="block.className"
+    [class.block]="true"
+    *ngFor="let block of blocks"
+  >
+    <div class="bin">{{ block.bin }}</div>
+    <div class="human">{{ block.human }}</div>
   </div>
 </div>
-

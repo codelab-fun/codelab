@@ -18,27 +18,46 @@ import { FormsModule } from '@angular/forms';
 import { NgxPopper } from 'angular-popper';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AutoSizeInputModule,
-    FormsModule,
-    NgxPopper
-  ],
+  imports: [CommonModule, AutoSizeInputModule, FormsModule, NgxPopper],
   declarations: [
-    BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
-    BinaryParentComponent, BinaryFlatComponent,
-    HexComponent, InlineComponent, InlineRootComponent, BinaryPlainComponent,
+    BlockComponent,
+    ObjectComponent,
+    BitsComponent,
+    StringComponent,
+    NumberComponent,
+    ArrayComponent,
+    ColorComponent,
+    BinaryParentComponent,
+    BinaryFlatComponent,
+    HexComponent,
+    InlineComponent,
+    InlineRootComponent,
+    BinaryPlainComponent
   ],
   exports: [
-    BinaryFlatComponent, BinaryPlainComponent,
-    BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
-    BinaryParentComponent, HexComponent
+    BinaryFlatComponent,
+    BinaryPlainComponent,
+    BlockComponent,
+    ObjectComponent,
+    BitsComponent,
+    StringComponent,
+    NumberComponent,
+    ArrayComponent,
+    ColorComponent,
+    BinaryParentComponent,
+    HexComponent
   ],
   entryComponents: [
     BinaryFlatComponent,
-    BlockComponent, ObjectComponent, BitsComponent, StringComponent, NumberComponent, ArrayComponent, ColorComponent,
-    HexComponent, BinaryPlainComponent,
+    BlockComponent,
+    ObjectComponent,
+    BitsComponent,
+    StringComponent,
+    NumberComponent,
+    ArrayComponent,
+    ColorComponent,
+    HexComponent,
+    BinaryPlainComponent
   ]
 })
-export class BinaryViewModule {
-}
+export class BinaryViewModule {}

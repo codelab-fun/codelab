@@ -12,7 +12,6 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
-
 const routes = RouterModule.forChild(
   SlidesRoutes.get(StructuralDirectivesComponent)
 );
@@ -25,14 +24,11 @@ const routes = RouterModule.forChild(
     BrowserWindowModule,
     FeedbackModule,
     CodelabComponentsModule,
-    
-    SlidesModule,
-    FormsModule,
 
+    SlidesModule,
+    FormsModule
   ],
   declarations: [StructuralDirectivesComponent],
   exports: [StructuralDirectivesComponent]
 })
-export class StructuralDirectivesModule {
-
-}
+export class StructuralDirectivesModule {}

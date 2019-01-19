@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <svg>
-    </svg>
+    <svg></svg>
   `
 })
 export class AppComponent {
@@ -12,7 +11,7 @@ export class AppComponent {
 
   constructor() {
     window.setInterval(() => {
-      this.y = Math.random() * 300
+      this.y = Math.random() * 300;
     }, 200);
   }
 }

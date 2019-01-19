@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: '' + 'app-alert',
-  template: `Hi ALert`
+  template: `
+    Hi ALert
+  `
 })
 export class AlertComponent {
   constructor() {

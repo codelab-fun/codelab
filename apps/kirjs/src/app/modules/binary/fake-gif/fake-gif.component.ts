@@ -1,8 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { gifParser } from './gif-parser';
 import { extractMessages } from '@codelab/presentation/src/lib/i18n-tools';
-
 
 interface Chunk {
   name: string;
@@ -11,14 +17,13 @@ interface Chunk {
   start?: number;
 }
 
-
 @Component({
   selector: 'slides-fake-gif',
   templateUrl: './fake-gif.component.html',
   styleUrls: ['./fake-gif.component.css']
 })
 export class FakeGifComponent implements OnInit {
-  t: { [key: string]: string; };
+  t: { [key: string]: string };
   @Input()
   spacing = false;
   showMeta = true;
@@ -33,19 +38,18 @@ export class FakeGifComponent implements OnInit {
   gif: string;
   parser: BinaryParser;
 
-
   @ViewChild('translations') translation;
 
-  constructor() {
-
-  }
+  constructor() {}
 
   upload(file) {
     const reader = new FileReader();
 
     reader.onloadend = (e: any) => {
       const result = new Uint8Array(e.target.result);
-      const binaries = Array.from(result).map(a => a.toString(2)).map(a => (a as any).padStart(8, 0));
+      const binaries = Array.from(result)
+        .map(a => a.toString(2))
+        .map(a => (a as any).padStart(8, 0));
       this.binary = binaries.join('');
     };
 
@@ -55,10 +59,10 @@ export class FakeGifComponent implements OnInit {
   update(chunk, value) {
     const len = chunk.end - chunk.start;
     value = value.padEnd(len, 0).slice(0, len);
-    this.binary = this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
+    this.binary =
+      this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
     this.onBinaryUpdate.emit(this.binary);
   }
-
 
   ngOnInit() {
     this.t = extractMessages(this.translation);
@@ -69,8 +73,3 @@ export class FakeGifComponent implements OnInit {
     this.binary = binary;
   }
 }
-
-
-
-
-

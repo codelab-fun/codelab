@@ -10,11 +10,9 @@ export class InlineRootComponent implements OnInit {
 
   displayData: any;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   display(displayData: any) {
     this.displayData = displayData;

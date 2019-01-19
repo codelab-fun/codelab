@@ -11,10 +11,7 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
-
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(PipesComponent)
-);
+const routes = RouterModule.forChild(SlidesRoutes.get(PipesComponent));
 
 @NgModule({
   imports: [
@@ -25,11 +22,9 @@ const routes = RouterModule.forChild(
     FeedbackModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule,
+    FormsModule
   ],
   declarations: [PipesComponent],
   exports: [PipesComponent]
 })
-export class PipesModule {
-
-}
+export class PipesModule {}

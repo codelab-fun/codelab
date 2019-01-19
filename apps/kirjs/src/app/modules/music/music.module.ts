@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MusicComponent } from './music.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [MusicComponent]
 })
-export class MusicModule { }
+export class MusicModule {}

@@ -5,10 +5,7 @@ import { SlidesDeckComponent } from '../deck/deck.component';
   selector: '[slidesShortcuts]'
 })
 export class ShortcutsDirective {
-  constructor(
-    @Optional() private deck: SlidesDeckComponent,
-  ) {
-  }
+  constructor(@Optional() private deck: SlidesDeckComponent) {}
 
   @HostListener('window:keydown.ArrowRight', ['$event.target'])
   @HostListener('window:keydown.PageDown', ['$event.target'])
@@ -25,5 +22,4 @@ export class ShortcutsDirective {
       this.deck.previousSlide();
     }
   }
-
 }

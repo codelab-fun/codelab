@@ -16,7 +16,5 @@ export class HtmlPostComponent {
   @Input()
   set param(html: string) {
     this.html = this.sanitizer.bypassSecurityTrustHtml(html);
-  };
-
-
+  }
 }

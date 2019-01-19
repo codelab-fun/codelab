@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 import { AnalyticsService } from '../analytics.service';
 import { BehaviorSubject } from 'rxjs';
@@ -14,7 +21,7 @@ export interface SlideControls {
 @Component({
   selector: 'slides-presentation',
   templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.scss'],
+  styleUrls: ['./presentation.component.scss']
   // TODO(kirjs): changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements AfterViewInit, SlideControls {
@@ -23,15 +30,15 @@ export class PresentationComponent implements AfterViewInit, SlideControls {
   @Input() milestone?: string;
   @Input() public zoom = 1;
   @Output() onSlideChange = new EventEmitter<number>();
-  @Output() onSlideAdded = new EventEmitter<{ index: number, id: string }>();
+  @Output() onSlideAdded = new EventEmitter<{ index: number; id: string }>();
   slides = [];
   private generatedSlideIndex = 0;
-
 
   constructor(
     public el: ElementRef,
     readonly config: PresentationConfigService,
-    private analytics: AnalyticsService) {
+    private analytics: AnalyticsService
+  ) {
     this.milestone = config.milestone;
   }
 
@@ -44,7 +51,6 @@ export class PresentationComponent implements AfterViewInit, SlideControls {
     this.goToSlide(this.activeSlideIndex);
   }
 
-
   registerSlide(id: string, milestone: string) {
     if (this.milestone && milestone !== this.milestone) {
       return;
@@ -53,8 +59,8 @@ export class PresentationComponent implements AfterViewInit, SlideControls {
     if (this.config.activeSlideIndex === id) {
       this.activeSlideIndex = index;
     }
-    this.slides.push({id, index});
-    this.onSlideAdded.next({index, id});
+    this.slides.push({ id, index });
+    this.onSlideAdded.next({ index, id });
     return index;
   }
 
@@ -67,13 +73,19 @@ export class PresentationComponent implements AfterViewInit, SlideControls {
       const time = +Date.now();
       localStorage.setItem(key, time.toString());
       this.analytics.sendEvent('milestone', 'start', path);
-
     }
 
-    if (this.generatedSlideIndex > 0 && this.activeSlideIndex === this.generatedSlideIndex - 1) {
+    if (
+      this.generatedSlideIndex > 0 &&
+      this.activeSlideIndex === this.generatedSlideIndex - 1
+    ) {
       const key = `been-here-mileston-end-${path}`;
-      const startTime = parseInt(localStorage.getItem(`been-here-mileston-start-${path}`), 10) || (+Date.now());
-      const time = (+Date.now()) - startTime;
+      const startTime =
+        parseInt(
+          localStorage.getItem(`been-here-mileston-start-${path}`),
+          10
+        ) || +Date.now();
+      const time = +Date.now() - startTime;
       localStorage.setItem(key, 'yes');
       this.analytics.sendEvent('milestone', 'end', path);
       this.analytics.sendTiming('milestone', 'complete', time, path);

@@ -8,9 +8,8 @@ describe('BitComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BitComponent ]
-    })
-    .compileComponents();
+      declarations: [BitComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

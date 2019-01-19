@@ -3,10 +3,11 @@
   [translations]="translations"
   (selectFile)="files = [$event]"
   [bootstrap]="bootstrapTest"
-  [code]="files$ | async"></slides-simple-angular-test-runner>
+  [code]="files$ | async"
+></slides-simple-angular-test-runner>
 <div style=" display: flex;height: 100%;">
   <div style="width: 50%;flex-grow: 0; display: flex;">
-    <div *ngIf="path" style="margin-left: 20px;color: red;">{{path}}</div>
+    <div *ngIf="path" style="margin-left: 20px;color: red;">{{ path }}</div>
     <slides-multitab-editor
       style="width: 100%"
       [displayFileName]="true"
@@ -21,10 +22,12 @@
     ></slides-multitab-editor>
   </div>
 
-  <code-demo-runner [url]="url"
-                    style="width: 50%;flex-grow: 0"
-                    [ui]="ui"
-                    [presets]="presets"
-                    [bootstrap]="bootstrap"
-                    [code]="files$ | async"></code-demo-runner>
+  <code-demo-runner
+    [url]="url"
+    style="width: 50%;flex-grow: 0"
+    [ui]="ui"
+    [presets]="presets"
+    [bootstrap]="bootstrap"
+    [code]="files$ | async"
+  ></code-demo-runner>
 </div>

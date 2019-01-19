@@ -1,12 +1,29 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 
-const systemKeys = new Set(['type', 'start', 'end', 'loc', 'comments', 'tokens', 'sourceType', 'directives', 'extra']);
+const systemKeys = new Set([
+  'type',
+  'start',
+  'end',
+  'loc',
+  'comments',
+  'tokens',
+  'sourceType',
+  'directives',
+  'extra'
+]);
 
 @Component({
   selector: 'ast-viz',
   templateUrl: './ast-tree.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./ast-tree.component.css'],
+  styleUrls: ['./ast-tree.component.css']
 })
 export class AstTreeComponent implements OnInit {
   @Input() node = {};
@@ -15,7 +32,7 @@ export class AstTreeComponent implements OnInit {
   @Output() selectNode = new EventEmitter();
 
   split(value) {
-    return value.replace(/([A-Z])/g, " $1");
+    return value.replace(/([A-Z])/g, ' $1');
   }
 
   get specialKeys() {
@@ -23,22 +40,23 @@ export class AstTreeComponent implements OnInit {
   }
 
   get stringKeys() {
-    return this.specialKeys.filter(key => typeof this.node[key] === 'string' || typeof this.node[key] === 'number');
+    return this.specialKeys.filter(
+      key =>
+        typeof this.node[key] === 'string' || typeof this.node[key] === 'number'
+    );
   }
 
   get objectKeys() {
-    return this.specialKeys.filter(key => typeof this.node[key] === 'object').reverse();
+    return this.specialKeys
+      .filter(key => typeof this.node[key] === 'object')
+      .reverse();
   }
 
   get isArray() {
     return Array.isArray(this.node);
   }
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
-

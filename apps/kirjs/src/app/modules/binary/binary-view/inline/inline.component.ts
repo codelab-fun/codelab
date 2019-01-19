@@ -11,9 +11,10 @@ export class InlineComponent implements OnInit {
   isArray: boolean;
   private value: any;
 
-  constructor(private readonly root: InlineRootComponent,
-              private readonly binaryRoot: BinaryParentComponent) {
-  }
+  constructor(
+    private readonly root: InlineRootComponent,
+    private readonly binaryRoot: BinaryParentComponent
+  ) {}
 
   private _data: any;
 
@@ -28,13 +29,11 @@ export class InlineComponent implements OnInit {
     this.isArray = Array.isArray(data.value);
   }
 
-
   updateValue(value) {
     this.binaryRoot.update(this.data, value);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   display() {
     this.root.display(this.data);

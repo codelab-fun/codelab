@@ -1,11 +1,14 @@
-function removeConsoleLog(code, {babelGenerator, babylon, babelTraverse, types}) {
+function removeConsoleLog(
+  code,
+  { babelGenerator, babylon, babelTraverse, types }
+) {
   const ast = babylon.parse(code);
   let hasConsoleLog = false;
   babelTraverse(ast, {
     MemberExpression(path) {
       if (
-        types.isIdentifier(path.node.object, { name: 'console'}) &&
-        types.isIdentifier(path.node.property, { name: 'log'}) &&
+        types.isIdentifier(path.node.object, { name: 'console' }) &&
+        types.isIdentifier(path.node.property, { name: 'log' }) &&
         types.isCallExpression(path.parent) &&
         path.parentKey === 'callee'
       ) {
@@ -16,4 +19,3 @@ function removeConsoleLog(code, {babelGenerator, babylon, babelTraverse, types})
 
   return hasConsoleLog;
 }
-

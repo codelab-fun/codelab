@@ -4,12 +4,9 @@ import { FileConfig } from '../interfaces/file-config';
 import * as ts from 'typescript';
 import { simpleVisitor } from './visitor';
 
-
 @Injectable()
 export class DepsService {
-
-  constructor() {
-  }
+  constructor() {}
 
   /**
    * Takes a file path, and another path relative to the first one.
@@ -34,17 +31,28 @@ export class DepsService {
 
   order(files: Array<FileConfig>) {
     let deps: { [key: string]: string } = files.reduce((result, file) => {
-      result[file.path] = {file, deps: []};
-      const source = ts.createSourceFile(file.path, file.code, ts.ScriptTarget.ES5);
-      simpleVisitor(source, node => node.kind === ts.SyntaxKind.ImportDeclaration, (node: any) => {
-        if (DepsService.isLocalDep((node).moduleSpecifier.text)) {
-          result[file.path].deps.push(DepsService.normalizePathRelativeToFile(file.path, node.moduleSpecifier.text + '.ts'));
+      result[file.path] = { file, deps: [] };
+      const source = ts.createSourceFile(
+        file.path,
+        file.code,
+        ts.ScriptTarget.ES5
+      );
+      simpleVisitor(
+        source,
+        node => node.kind === ts.SyntaxKind.ImportDeclaration,
+        (node: any) => {
+          if (DepsService.isLocalDep(node.moduleSpecifier.text)) {
+            result[file.path].deps.push(
+              DepsService.normalizePathRelativeToFile(
+                file.path,
+                node.moduleSpecifier.text + '.ts'
+              )
+            );
+          }
         }
-
-      });
+      );
       return result;
     }, {});
-
 
     let orderedFiles = [];
 
@@ -53,19 +61,25 @@ export class DepsService {
       const depLen = keys.length;
 
       // Iterate over deps, grab each file with no dependencies, and add it to the list. Repeat.
-      [deps, orderedFiles] = keys.reduce(([result, orderedFiles_]: any, key): [{ [key: string]: string }, Array<FileConfig>] => {
-        if (result[key].deps.length === 0) {
-          orderedFiles_.push(result[key].file);
+      [deps, orderedFiles] = keys.reduce(
+        (
+          [result, orderedFiles_]: any,
+          key
+        ): [{ [key: string]: string }, Array<FileConfig>] => {
+          if (result[key].deps.length === 0) {
+            orderedFiles_.push(result[key].file);
 
-          Object.keys(result).forEach((key_) => {
-            result[key_].deps = result[key_].deps.filter(dep => dep !== key);
-          });
+            Object.keys(result).forEach(key_ => {
+              result[key_].deps = result[key_].deps.filter(dep => dep !== key);
+            });
 
-          delete deps[key];
-        }
+            delete deps[key];
+          }
 
-        return [result, orderedFiles_];
-      }, [deps, orderedFiles]);
+          return [result, orderedFiles_];
+        },
+        [deps, orderedFiles]
+      );
 
       if (depLen === Object.keys(deps).length) {
         throw new Error('cyclic dependencies found, or missing dependencies');
@@ -74,5 +88,4 @@ export class DepsService {
 
     return orderedFiles;
   }
-
 }

@@ -1,16 +1,17 @@
-
-#intro, #outro {
+#intro,
+#outro {
   /*  background: url(./browser/landscape-with-trees-1.jpg) no-repeat; */
   background-size: 100% auto;
   display: inline-block;
   height: 100vh;
 }
 
-input[type=checkbox] {
+input[type='checkbox'] {
   transform: scale(2);
 }
 
-.hb, cake {
+.hb,
+cake {
   width: 100vw;
   height: 200px;
   background-position: center center;
@@ -43,12 +44,12 @@ h1 {
   font-size: 100px;
 }
 
-
 tr:first-child td {
   background: #ff6e00;
 }
 
-td, th {
+td,
+th {
   font-size: 40px;
   padding: 20px;
 }

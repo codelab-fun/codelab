@@ -14,7 +14,10 @@ describe('Service: MonacoConfig', () => {
     delete (window as any).monaco;
   });
 
-  it('should exist', inject([MonacoConfigService], (service: MonacoConfigService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should exist', inject(
+    [MonacoConfigService],
+    (service: MonacoConfigService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

@@ -12,23 +12,20 @@ export class SvgTogetherResultComponent implements OnInit {
   @Input() fontSize;
   allCode = 'TBD';
 
-
   constructor(af: AngularFireDatabase) {
     this.angularFireList = af.list('/svg-together');
-    this.angularFireList.snapshotChanges().subscribe((a) => {
-      this.allCode = '<svg viewBox="0 0 500 500">' + a.map(a => a.payload.val()).join('\n') + '</svg>';
+    this.angularFireList.snapshotChanges().subscribe(a => {
+      this.allCode =
+        '<svg viewBox="0 0 500 500">' +
+        a.map(a => a.payload.val()).join('\n') +
+        '</svg>';
     });
-
   }
-
 
   @Input('code')
   set codeInput(value) {
     this.code = '<svg>\n' + value + '\n</svg>';
   }
 
-
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

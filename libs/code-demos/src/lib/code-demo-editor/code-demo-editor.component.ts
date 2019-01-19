@@ -23,7 +23,8 @@ declare const require: any;
 @Component({
   selector: 'code-demo-editor',
   template: `
-    <div #editor class="monaco-editor"></div>`,
+    <div #editor class="monaco-editor"></div>
+  `,
   styleUrls: ['editor.component.css'],
   providers: [
     {
@@ -31,9 +32,10 @@ declare const require: any;
       useExisting: forwardRef(() => CodeDemoEditorComponent),
       multi: true
     }
-  ],
+  ]
 })
-export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnDestroy {
+export class CodeDemoEditorComponent
+  implements ControlValueAccessor, AfterViewInit, OnChanges, OnDestroy {
   height: number;
   @Input() minLines = 6;
   model: any;
@@ -53,14 +55,15 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
   private subscription: Subscription;
 
   constructor(readonly monacoConfigService: MonacoConfigService) {
-    this.subscription = this.changeSubject.pipe(debounceTime(this.debounce)).subscribe((a => this.change.emit(a)));
+    this.subscription = this.changeSubject
+      .pipe(debounceTime(this.debounce))
+      .subscribe(a => this.change.emit(a));
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
   registerOnChange(onChange: (code: string) => void): void {
-    this.change.subscribe(onChange)
+    this.change.subscribe(onChange);
   }
 
   writeValue(value: string): void {
@@ -77,8 +80,9 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
   @HostListener('window:resize')
   resize() {
     if (this.editor && this.code) {
-      const actualFontSize = this.fontSize * document.documentElement.clientWidth / 1800;
-      this.editor.updateOptions({fontSize: actualFontSize});
+      const actualFontSize =
+        (this.fontSize * document.documentElement.clientWidth) / 1800;
+      this.editor.updateOptions({ fontSize: actualFontSize });
       const lines = this.code.split('\n').length;
       const lineHeight = actualFontSize * 1.6;
       const height = Math.max(lines * lineHeight, lineHeight * this.minLines);
@@ -109,30 +113,32 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
 
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
-    this.model = this.monacoConfigService.monaco.editor.createModel(this.code, this.language);
+    this.model = this.monacoConfigService.monaco.editor.createModel(
+      this.code,
+      this.language
+    );
 
     if (this.theme) {
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
     }
 
-    this.editor = this.monacoConfigService.monaco.editor.create(editor,
-      {
-        wrappingColumn: 10,
-        model: this.model,
-        scrollBeyondLastLine: false,
-        tabCompletion: true,
-        wordBasedSuggestions: true,
-        lineNumbersMinChars: 3,
-        cursorBlinking: 'phase',
-        renderIndentGuides: false,
-        lineNumbers: this.lineNumbers,
-        automaticLayout: true,
-        fontSize: this.fontSize,
-        // folding: true,
-        minimap: {
-          enabled: false
-        }
-      });
+    this.editor = this.monacoConfigService.monaco.editor.create(editor, {
+      wrappingColumn: 10,
+      model: this.model,
+      scrollBeyondLastLine: false,
+      tabCompletion: true,
+      wordBasedSuggestions: true,
+      lineNumbersMinChars: 3,
+      cursorBlinking: 'phase',
+      renderIndentGuides: false,
+      lineNumbers: this.lineNumbers,
+      automaticLayout: true,
+      fontSize: this.fontSize,
+      // folding: true,
+      minimap: {
+        enabled: false
+      }
+    });
 
     this.editor.onDidChangeCursorPosition(() => {
       this.onLineChange();
@@ -142,9 +148,9 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
       this.changeSubject.next(this.editor.getModel().getValue());
     });
 
-
-    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-      () => this.changeSubject.next(this.editor.getModel().getValue()));
+    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () =>
+      this.changeSubject.next(this.editor.getModel().getValue())
+    );
 
     this.resize();
   }
@@ -155,4 +161,3 @@ export class CodeDemoEditorComponent implements ControlValueAccessor, AfterViewI
     this.subscription.unsubscribe();
   }
 }
-

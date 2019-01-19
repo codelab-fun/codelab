@@ -1,5 +1,11 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Directive, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output
+} from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
@@ -11,18 +17,25 @@ export class SlidesRoutingDirective implements OnInit {
   @Output() change = new EventEmitter();
   private ids: { [index: number]: string } = {};
 
-  constructor(private router: Router,
-              private route:
-                ActivatedRoute, private deck: SlidesDeckComponent) {
-
-  }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private deck: SlidesDeckComponent
+  ) {}
 
   getId(index: number) {
-    return (this.deck.slides && this.deck.slides[index] && this.deck.slides[index].id) ? this.deck.slides[index].id : index
+    return this.deck.slides &&
+      this.deck.slides[index] &&
+      this.deck.slides[index].id
+      ? this.deck.slides[index].id
+      : index;
   }
 
   navigate(url: string) {
-    this.router.navigate(['../' + url], {relativeTo: this.route, queryParamsHandling: 'merge'});
+    this.router.navigate(['../' + url], {
+      relativeTo: this.route,
+      queryParamsHandling: 'merge'
+    });
   }
 
   @HostListener('onSlideChange', ['$event']) slideChange(index) {

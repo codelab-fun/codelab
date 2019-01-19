@@ -12,15 +12,11 @@ export class FileStructureComponent implements OnInit {
   @Input() currentFile: FileConfig;
   @Output() onSelectFile = new EventEmitter<string>();
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 
   toggleTree(): void {
     this.showFileTree = !this.showFileTree;
   }
-
 }

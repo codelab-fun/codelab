@@ -1,14 +1,14 @@
 .wrapper {
   word-break: break-all;
   padding: 40px;
-
 }
 
 .binary {
   letter-spacing: 2vw;
 }
 
-.item, .detail-item {
+.item,
+.detail-item {
   font-size: 3vw;
 }
 
@@ -41,7 +41,7 @@
 button {
   display: block;
   width: 100%;
-  background: #E51400;
+  background: #e51400;
   color: #fff;
   padding: 1vw;
   font-size: 4vw;

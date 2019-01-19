@@ -6,10 +6,13 @@ import { extractMessages } from '../../../../../../../libs/presentation/src/lib/
 @Component({
   selector: 'slides-create-first-app',
   templateUrl: './create-first-app.component.html',
-  styleUrls: ['../../components/css/codelab-styles.scss', './create-first-app.component.css']
+  styleUrls: [
+    '../../components/css/codelab-styles.scss',
+    './create-first-app.component.css'
+  ]
 })
 export class CreateFirstAppComponent implements OnInit {
-  t: { [key: string]: string; };
+  t: { [key: string]: string };
 
   @ViewChild('translations') translation;
   //  Exercises
@@ -18,17 +21,17 @@ export class CreateFirstAppComponent implements OnInit {
     ng2tsConfig.milestones[1].exercises[2],
     ng2tsConfig.milestones[1].exercises[3],
     {
-      'name': 'Create a component',
-      'description': '<p>Create first Angular component!</p>',
-      'files': [
+      name: 'Create a component',
+      description: '<p>Create first Angular component!</p>',
+      files: [
         {
-          'bootstrap': false,
-          'excludeFromTesting': false,
-          'type': 'typescript',
-          'path': 'app.component.ts',
-          'template': 'import {Component} from \'@angular/core\';\n\n',
-          'moduleName': 'app.component',
-          'code': `import { Component } from '@angular/core';
+          bootstrap: false,
+          excludeFromTesting: false,
+          type: 'typescript',
+          path: 'app.component.ts',
+          template: "import {Component} from '@angular/core';\n\n",
+          moduleName: 'app.component',
+          code: `import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -37,30 +40,35 @@ export class CreateFirstAppComponent implements OnInit {
 export class AppComponent {
 }
 `,
-          'solution': 'import { Component } from \'@angular/core\';\n\n@Component({\n  selector: \'my-app\',\n  template: \'<h1>Hello MewTube!</h1>\',\n})\nexport class AppComponent {\n}\n',
-          'after': 'export function evalJs( js ){ return eval(js);}'
+          solution:
+            "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: '<h1>Hello MewTube!</h1>',\n})\nexport class AppComponent {\n}\n",
+          after: 'export function evalJs( js ){ return eval(js);}'
         },
         {
-          'bootstrap': false,
-          'excludeFromTesting': false,
-          'type': 'typescript',
-          'path': 'app.module.ts',
-          'template': 'import { BrowserWindowModule } from \'@angular/platform-browser\';\nimport { NgModule } from \'@angular/core\';\nimport { AppComponent } from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n',
-          'moduleName': 'app.module',
-          'code': 'import { BrowserWindowModule } from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\nimport { AppComponent } from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n',
-          'readonly': true,
-          'collapsed': true
+          bootstrap: false,
+          excludeFromTesting: false,
+          type: 'typescript',
+          path: 'app.module.ts',
+          template:
+            "import { BrowserWindowModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n",
+          moduleName: 'app.module',
+          code:
+            "import { BrowserWindowModule } from '@angular/platform-browser';\nimport {NgModule} from '@angular/core';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n",
+          readonly: true,
+          collapsed: true
         },
         {
-          'bootstrap': true,
-          'excludeFromTesting': true,
-          'type': 'typescript',
-          'path': 'main.ts',
-          'template': 'import { platformBrowserDynamic } from \'@angular/platform-browser-dynamic\';\nimport {AppModule} from \'./app.module\';\n\nconst platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n',
-          'moduleName': 'main',
-          'code': 'import { platformBrowserDynamic } from \'@angular/platform-browser-dynamic\';\nimport {AppModule} from \'./app.module\';\n\nconst platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n',
-          'readonly': true,
-          'collapsed': true
+          bootstrap: true,
+          excludeFromTesting: true,
+          type: 'typescript',
+          path: 'main.ts',
+          template:
+            "import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport {AppModule} from './app.module';\n\nconst platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n",
+          moduleName: 'main',
+          code:
+            "import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport {AppModule} from './app.module';\n\nconst platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n",
+          readonly: true,
+          collapsed: true
         }
       ]
     }
@@ -85,7 +93,8 @@ export class AppComponent {
   // ${this.t.componentNameIsClassName}
 }`
       },
-      componentAnatomy: {   // Component Anatomy - Milestone #1
+      componentAnatomy: {
+        // Component Anatomy - Milestone #1
         code: `import { Component } from '@angular/core';
 @Component({
   selector: 'hello-world',
@@ -103,7 +112,8 @@ export class HelloWorldComponent {}`,
         type: 'typescript'
       },
 
-      moduleAnatomy: {  // Module Anatomy - Milestone #1
+      moduleAnatomy: {
+        // Module Anatomy - Milestone #1
         code: `/* Imports */
 
 @NgModule({
@@ -117,14 +127,13 @@ export class AppModule {}`,
           ngModule: /@N[^]*?\)[^]/,
           importsArr: /imports.*/,
 
-
           declarationsArr: /declarations.*/,
           bootstrapArr: /bootstrap.*/
-
         },
-        readonly: true,
+        readonly: true
       },
-      moduleBootstrapping: {  // Module Bootstrapping - Milestone #1
+      moduleBootstrapping: {
+        // Module Bootstrapping - Milestone #1
         code: {
           mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';

@@ -13,14 +13,13 @@ import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.com
 import { SimpleHighlightDirective } from './code-demo-editor/simple-highlight.directive';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
     BrowserWindowModule,
     MatSelectModule,
     MatButtonModule,
-    FormsModule,
+    FormsModule
   ],
   declarations: [
     MultitabEditorComponent,
@@ -31,7 +30,7 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
     SimpleHighlightDirective,
-    RealtimeEvalComponent,
+    RealtimeEvalComponent
   ],
   exports: [
     FilePathComponent,
@@ -42,8 +41,7 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
     SimpleHighlightDirective,
-    RealtimeEvalComponent,
-  ],
+    RealtimeEvalComponent
+  ]
 })
-export class CodeDemoModule {
-}
+export class CodeDemoModule {}

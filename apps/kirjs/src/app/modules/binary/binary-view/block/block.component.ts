@@ -35,10 +35,11 @@ export class BlockComponent implements OnInit, OnChanges {
   @Input() showMeta: boolean;
   private componentRef: any;
 
-  constructor(private vcr: ViewContainerRef,
-              private readonly cdr: ChangeDetectorRef,
-              private componentFactoryResolver: ComponentFactoryResolver) {
-  }
+  constructor(
+    private vcr: ViewContainerRef,
+    private readonly cdr: ChangeDetectorRef,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
 
   ngOnChanges(changes) {
     if (this.componentRef && changes.showMeta) {
@@ -56,7 +57,9 @@ export class BlockComponent implements OnInit, OnChanges {
       debugger;
     }
 
-    const cf = this.componentFactoryResolver.resolveComponentFactory(componentMap[this.data.type]);
+    const cf = this.componentFactoryResolver.resolveComponentFactory(
+      componentMap[this.data.type]
+    );
     this.vcr.clear();
     this.componentRef = this.vcr.createComponent(cf) as any;
     this.componentRef.instance.data = this.data;

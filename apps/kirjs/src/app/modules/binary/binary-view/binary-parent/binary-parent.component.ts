@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output
+} from '@angular/core';
 import { BinaryParser } from '../../parser/binary-parser';
 import { StringBinaryReader } from '../../parser/readers/string-reader';
 
@@ -14,12 +21,10 @@ export class BinaryParentComponent implements OnInit, OnChanges {
   @Input() type = 'structure';
   @Input() spacing = false;
 
-
   @Output() updateBinary = new EventEmitter();
   structure: any;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.regenerate();
@@ -30,13 +35,16 @@ export class BinaryParentComponent implements OnInit, OnChanges {
   }
 
   regenerate() {
-    this.structure = this.parser.readOrdered(new StringBinaryReader(this.binary));
+    this.structure = this.parser.readOrdered(
+      new StringBinaryReader(this.binary)
+    );
   }
 
   update(chunk, value) {
     const len = chunk.end - chunk.start;
     value = value.padEnd(len, 0).slice(0, len);
-    this.binary = this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
+    this.binary =
+      this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
     this.updateBinary.emit(this.binary);
     this.regenerate();
   }
@@ -45,7 +53,8 @@ export class BinaryParentComponent implements OnInit, OnChanges {
     const len = chunk.end - chunk.start;
     value = value.padEnd(len, 0).slice(0, len);
 
-    this.binary = this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end)
+    this.binary =
+      this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
     //
   }
 }

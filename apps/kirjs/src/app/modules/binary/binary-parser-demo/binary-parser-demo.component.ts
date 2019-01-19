@@ -20,8 +20,7 @@ export class BinaryParserDemoComponent implements OnInit {
   error = '';
   onCodeChange = new EventEmitter();
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.code = this.helpers[0];
@@ -32,8 +31,15 @@ export class BinaryParserDemoComponent implements OnInit {
     this.onCodeChange.emit(this.code);
     this.error = '';
     try {
-      const parser = new Function('Parser', 'const parser = ' + this.code + '; return parser;')(Parser);
-      this.result = JSON.stringify(parser.parse(Buffer.from(bin2hex(this.binary), 'hex')), null, '  ');
+      const parser = new Function(
+        'Parser',
+        'const parser = ' + this.code + '; return parser;'
+      )(Parser);
+      this.result = JSON.stringify(
+        parser.parse(Buffer.from(bin2hex(this.binary), 'hex')),
+        null,
+        '  '
+      );
     } catch (e) {
       this.error = e.message;
     }

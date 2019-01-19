@@ -7,14 +7,18 @@
     [(ngModel)]="files[0].code"
     (ngModelChange)="runner.runTests()"
   ></code-demo-editor>
-  <div (click)="files[0].code = files[0].solution; runner.runTests()" class="show-solution">
+  <div
+    (click)="files[0].code = files[0].solution; runner.runTests()"
+    class="show-solution"
+  >
     <div class="icon">🙀</div>
   </div>
   <kirjs-babel-test-runner
     #runner
     class="tests"
     [showAst]="showAst"
-    [files]="files">
+    [files]="files"
+  >
     <ng-content></ng-content>
   </kirjs-babel-test-runner>
 </div>

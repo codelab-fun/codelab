@@ -7,15 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
 
 @NgModule({
-  imports: [
-    SharedPipeModule,
-    CommonModule,
-    FormsModule,
-    MatAutocompleteModule
-
-  ],
+  imports: [SharedPipeModule, CommonModule, FormsModule, MatAutocompleteModule],
   declarations: [ConsoleComponent, DisplayDynamicComponent],
   exports: [ConsoleComponent]
 })
-export class ConsoleModule {
-}
+export class ConsoleModule {}

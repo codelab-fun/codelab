@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2p);
 
 .container {
   display: flex;
@@ -39,7 +39,9 @@ p {
   }
 }
 
-#bsod, #bsod-2, #bsod-beautiful {
+#bsod,
+#bsod-2,
+#bsod-beautiful {
   color: white;
   background: #084fdd;
   display: inline-block;
@@ -56,7 +58,8 @@ p {
 }
 
 #bsod-beautiful {
-  background: url(./pics/bebbf81f5402fbbec1cff6eb687aa90a.jpg) no-repeat center center fixed;
+  background: url(./pics/bebbf81f5402fbbec1cff6eb687aa90a.jpg) no-repeat center
+    center fixed;
   background-size: 100%;
   color: black;
 }

@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
 function inPlace(rule) {
-  const map = (256 + rule).toString(2).substr(1).split('').map(Number).reduce((a, v, i) => {
-    a[(15 - i).toString(2).substr(1)] = v;
-    return a;
-  }, {});
+  const map = (256 + rule)
+    .toString(2)
+    .substr(1)
+    .split('')
+    .map(Number)
+    .reduce((a, v, i) => {
+      a[(15 - i).toString(2).substr(1)] = v;
+      return a;
+    }, {});
 
   function transformRow(row) {
     const result = [];
@@ -17,7 +22,7 @@ function inPlace(rule) {
     return result;
   }
 
-  return function (grid) {
+  return function(grid) {
     return grid.map(transformRow);
   };
 }
@@ -32,7 +37,7 @@ function transform2d(rule) {
     return a;
   }, {});
 
-  return function (grid) {
+  return function(grid) {
     return grid.map((row, y) => {
       return row.map((cell, x) => {
         const px = (row.length + x - 1) % row.length;
@@ -40,9 +45,15 @@ function transform2d(rule) {
         const py = (grid.length + y - 1) % grid.length;
         const ny = (y + 1) % grid.length;
 
-        const score = grid[py][px] + grid[py][x] + grid[py][nx] +
-          grid[y][px] + grid[y][nx] +
-          grid[ny][px] + grid[ny][x] + grid[ny][nx];
+        const score =
+          grid[py][px] +
+          grid[py][x] +
+          grid[py][nx] +
+          grid[y][px] +
+          grid[y][nx] +
+          grid[ny][px] +
+          grid[ny][x] +
+          grid[ny][nx];
 
         if ((cell === 0 && born[score]) || (cell === 1 && survive[score])) {
           return 1;
@@ -56,7 +67,7 @@ function transform2d(rule) {
 
 function appendTransform(rule) {
   const transform = inPlace(rule);
-  return function (grid) {
+  return function(grid) {
     const lastRow = grid[grid.length - 1];
     grid.push(transform([lastRow])[0]);
     return grid;
@@ -65,32 +76,33 @@ function appendTransform(rule) {
 
 const rand = Math.floor(Math.random() * 255);
 
-const randomRules = new Array(8).fill(0).reduce((a, v, i) => {
+const randomRules = new Array(8).fill(0).reduce(
+  (a, v, i) => {
+    if (Math.random() < 0.3) {
+      a.survive.push(i);
+    }
+    if (Math.random() < 0.3) {
+      a.born.push(i);
+    }
+    return a;
+  },
+  { survive: [], born: [] }
+);
 
-  if (Math.random() < 0.3) {
-    a.survive.push(i);
-  }
-  if (Math.random() < 0.3) {
-    a.born.push(i);
-  }
-  return a;
-}, {survive: [], born: []});
-
-const gameOfLifeRules = {survive: [2, 3], born: [3]};
+const gameOfLifeRules = { survive: [2, 3], born: [3] };
 const gameOfLife = transform2d(gameOfLifeRules);
-const randomPattern = new Array(30).fill(0).map(() =>
-  new Array(60).fill(0).map(() => Math.random() < 0.3 ? 1 : 0)
-);
-const randomPatternSparce = new Array(30).fill(0).map(() =>
-  new Array(60).fill(0).map(() => Math.random() < 0.04 ? 1 : 0)
-);
+const randomPattern = new Array(30)
+  .fill(0)
+  .map(() => new Array(60).fill(0).map(() => (Math.random() < 0.3 ? 1 : 0)));
+const randomPatternSparce = new Array(30)
+  .fill(0)
+  .map(() => new Array(60).fill(0).map(() => (Math.random() < 0.04 ? 1 : 0)));
 
-const labyrynthRules = {survive: [0, 1, 2, 3], born: [1]};
+const labyrynthRules = { survive: [0, 1, 2, 3], born: [1] };
 
-
-const labRules4 = {survive: [0, 1, 2, 3, 4], born: [1]};
-const labRules5 = {survive: [0, 1, 2, 3, 4, 5], born: [1]};
-const labRules6 = {survive: [0, 1, 2, 3, 4, 5, 6], born: [1]};
+const labRules4 = { survive: [0, 1, 2, 3, 4], born: [1] };
+const labRules5 = { survive: [0, 1, 2, 3, 4, 5], born: [1] };
+const labRules6 = { survive: [0, 1, 2, 3, 4, 5, 6], born: [1] };
 
 @Component({
   selector: 'slides-cellular-automation',
@@ -116,7 +128,7 @@ export class CellularAutomationComponent {
         [0, 0, 0, 1, 0, 0, 0, 0],
         [0, 0, 0, 1, 0, 0, 0, 0],
         [0, 0, 0, 1, 0, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0]
       ]
     },
     life: {
@@ -135,18 +147,13 @@ export class CellularAutomationComponent {
       pattern: {
         randomPattern,
         randomPatternSparce,
-        stillLife: [
-          [0, 0, 0, 0],
-          [0, 1, 1, 0],
-          [0, 1, 1, 0],
-          [0, 0, 0, 0],
-        ],
+        stillLife: [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]],
         oscilator: [
           [0, 0, 0, 0, 0],
           [0, 0, 1, 0, 0],
           [0, 0, 1, 0, 0],
           [0, 0, 1, 0, 0],
-          [0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0]
         ],
         oscilatorClock: [
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -162,7 +169,7 @@ export class CellularAutomationComponent {
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ],
 
         glider: [
@@ -179,28 +186,566 @@ export class CellularAutomationComponent {
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ],
 
         copperhead: [
-          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        ],
-
-
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
       }
     }
   };

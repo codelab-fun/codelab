@@ -1,11 +1,24 @@
 export function lzw(minCodeSize, data, pixelCount) {
-
   const MAX_STACK_SIZE = 4096;
   const nullCode = -1;
 
   const npix = pixelCount;
-  let available, clear, code_mask, code_size, end_of_information, in_code, old_code, bits, code, i, datum, data_size,
-    first, top, bi, pi;
+  let available,
+    clear,
+    code_mask,
+    code_size,
+    end_of_information,
+    in_code,
+    old_code,
+    bits,
+    code,
+    i,
+    datum,
+    data_size,
+    first,
+    top,
+    bi,
+    pi;
 
   const dstPixels = new Array(pixelCount);
   const prefix = new Array(MAX_STACK_SIZE);
@@ -28,7 +41,7 @@ export function lzw(minCodeSize, data, pixelCount) {
   // Decode GIF pixel stream.
   datum = bits = first = top = pi = bi = 0;
 
-  for (i = 0; i < npix;) {
+  for (i = 0; i < npix; ) {
     if (top === 0) {
       if (bits < code_size) {
         // get the next byte
@@ -43,7 +56,7 @@ export function lzw(minCodeSize, data, pixelCount) {
       datum >>= code_size;
       bits -= code_size;
       // Interpret the code
-      if ((code > available) || (code == end_of_information)) {
+      if (code > available || code == end_of_information) {
         break;
       }
 
@@ -81,7 +94,7 @@ export function lzw(minCodeSize, data, pixelCount) {
         prefix[available] = old_code;
         suffix[available] = first;
         available++;
-        if (((available & code_mask) === 0) && (available < MAX_STACK_SIZE)) {
+        if ((available & code_mask) === 0 && available < MAX_STACK_SIZE) {
           code_size++;
           code_mask += available;
         }

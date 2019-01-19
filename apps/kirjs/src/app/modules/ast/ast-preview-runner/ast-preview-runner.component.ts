@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { parse } from 'babylon';
 
 declare const require;
@@ -16,12 +23,16 @@ export class AstPreviewRunnerComponent implements OnChanges {
   @Output() highlight = new EventEmitter();
 
   update() {
-    this.run()
+    this.run();
   }
 
-
-  selectNode({loc}) {
-    this.highlight.emit([loc.start.line, loc.start.column + 1, loc.end.line, loc.end.column + 1]);
+  selectNode({ loc }) {
+    this.highlight.emit([
+      loc.start.line,
+      loc.start.column + 1,
+      loc.end.line,
+      loc.end.column + 1
+    ]);
   }
 
   run() {
@@ -37,10 +48,8 @@ export class AstPreviewRunnerComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.run()
+    this.run();
   }
 
-
-  constructor() {
-  }
+  constructor() {}
 }

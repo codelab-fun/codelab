@@ -22,11 +22,7 @@ import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
 import { SlidesModule } from '@codelab/slides';
 import { CodeDemoModule } from '@codelab/code-demos';
 
-
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(SvgComponent)
-);
-
+const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));
 
 @NgModule({
   imports: [
@@ -35,14 +31,14 @@ const routes = RouterModule.forChild(
     PresentationModule,
     FeedbackModule,
     ExerciseModule,
-    
+
     FormsModule,
     FlexLayoutModule,
     MatButtonModule,
     NewProgressBarModule,
     SharedPipeModule,
     SlidesModule,
-    CodeDemoModule,
+    CodeDemoModule
   ],
   declarations: [
     SvgComponent,
@@ -54,6 +50,4 @@ const routes = RouterModule.forChild(
   ],
   exports: [SvgComponent]
 })
-export class SvgModule {
-
-}
+export class SvgModule {}

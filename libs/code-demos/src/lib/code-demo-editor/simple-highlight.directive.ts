@@ -5,12 +5,10 @@ import { CodeDemoEditorComponent } from './code-demo-editor.component';
   selector: '[slidesSimpleHighlight]'
 })
 export class SimpleHighlightDirective implements OnChanges {
-
   decorators: any;
   @Input() slidesSimpleHighlight;
 
-  constructor(private readonly editorComponent: CodeDemoEditorComponent) {
-  }
+  constructor(private readonly editorComponent: CodeDemoEditorComponent) {}
 
   ngOnChanges() {
     if (this.editorComponent.editor) {
@@ -18,13 +16,17 @@ export class SimpleHighlightDirective implements OnChanges {
 
       if (this.slidesSimpleHighlight) {
         ranges.push({
-          range: new this.editorComponent.monacoConfigService.monaco.Range(...this.slidesSimpleHighlight),
-          options: {inlineClassName: 'highlighted-code'}
+          range: new this.editorComponent.monacoConfigService.monaco.Range(
+            ...this.slidesSimpleHighlight
+          ),
+          options: { inlineClassName: 'highlighted-code' }
         });
       }
 
-      this.decorators = this.editorComponent.editor.deltaDecorations(this.decorators || [], ranges);
+      this.decorators = this.editorComponent.editor.deltaDecorations(
+        this.decorators || [],
+        ranges
+      );
     }
   }
-
 }

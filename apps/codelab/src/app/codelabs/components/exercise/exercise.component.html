@@ -15,22 +15,28 @@
         [translations]="translations"
         (selectFile)="files = [$event]"
         [bootstrap]="bootstrapTest"
-        [code]="files$ | async"></slides-simple-angular-test-runner>
+        [code]="files$ | async"
+      ></slides-simple-angular-test-runner>
 
-
-      <slides-babel-test-runner *ngIf="testRunner === 'babel'" [translations]="translations"
-                                [bootstrap]="bootstrapTest"
-                                [code]="code"></slides-babel-test-runner>
+      <slides-babel-test-runner
+        *ngIf="testRunner === 'babel'"
+        [translations]="translations"
+        [bootstrap]="bootstrapTest"
+        [code]="code"
+      ></slides-babel-test-runner>
     </div>
-
   </div>
   <div class="row">
-    <codelab-slides-preview class="quarter" [milestone]="milestone"></codelab-slides-preview>
+    <codelab-slides-preview
+      class="quarter"
+      [milestone]="milestone"
+    ></codelab-slides-preview>
     <code-demo-runner
       class="quarter"
       [url]="url"
       [presets]="presets"
       [bootstrap]="bootstrap"
-      [code]="files$ | async"></code-demo-runner>
+      [code]="files$ | async"
+    ></code-demo-runner>
   </div>
 </div>

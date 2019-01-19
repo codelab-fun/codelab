@@ -8,9 +8,8 @@ describe('BinaryParserDemoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BinaryParserDemoComponent ]
-    })
-    .compileComponents();
+      declarations: [BinaryParserDemoComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

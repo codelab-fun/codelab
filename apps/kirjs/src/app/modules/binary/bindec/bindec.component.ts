@@ -11,27 +11,27 @@ export class BindecComponent implements OnInit {
   displaySign = false;
   sign = false;
 
-  constructor() {
-  }
+  constructor() {}
 
   get size() {
     return this.digits.length;
   }
 
   get convertedValue() {
-    return (this.sign ? -1 : 1) * this.result
-      .reduce((result, value, index) => result + value * this.getBaseValue(index), 0);
+    return (
+      (this.sign ? -1 : 1) *
+      this.result.reduce(
+        (result, value, index) => result + value * this.getBaseValue(index),
+        0
+      )
+    );
   }
 
   getBaseValue(i: number) {
     return 2 ** (this.size - i - 1);
   }
 
-  update(value) {
+  update(value) {}
 
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -18,7 +18,9 @@ export class BitComponent implements OnInit, OnDestroy {
   }
 
   generate() {
-    this.bitValue = Array.from({length: this.param}).map(a => Math.round(Math.random()));
+    this.bitValue = Array.from({ length: this.param }).map(a =>
+      Math.round(Math.random())
+    );
   }
 
   ngOnDestroy() {
@@ -28,5 +30,4 @@ export class BitComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.generate();
   }
-
 }

@@ -5,10 +5,12 @@ import * as babel_types from 'babel-types';
 
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
-  (sandbox.iframe.contentWindow as any).System.register('code', [], function (exports) {
+  (sandbox.iframe.contentWindow as any).System.register('code', [], function(
+    exports
+  ) {
     return {
       setters: [],
-      execute: function () {
+      execute: function() {
         exports('ts', ts);
         exports('babylon', babylon);
         exports('babel_traverse', babel_traverse);
@@ -17,7 +19,10 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
           .filter(([moduleName]) => moduleName.match(/\.ts$/))
           .forEach(([path, code]) => {
             exports(path.replace(/[\/.-]/gi, '_'), code);
-            exports(path.replace(/[\/.-]/gi, '_') + '_AST', ts.createSourceFile(path, code, ts.ScriptTarget.ES5));
+            exports(
+              path.replace(/[\/.-]/gi, '_') + '_AST',
+              ts.createSourceFile(path, code, ts.ScriptTarget.ES5)
+            );
           });
         Object.entries(files)
           .filter(([moduleName]) => moduleName.match(/\.html/))
@@ -28,6 +33,4 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
       }
     };
   });
-
 }
-

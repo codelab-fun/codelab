@@ -13,30 +13,51 @@ export class StringParser extends AbstractBinaryParser {
     super();
   }
 
-  read(reader: BinaryReader, data: BinaryReaderResult = {}, start = 0): BinaryReaderResult {
+  read(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {},
+    start = 0
+  ): BinaryReaderResult {
     if (this.config.readUntil) {
       let value = '';
       let rawValue = '';
 
-      while (reader.peak(this.config.readUntil.length) !== this.config.readUntil && reader.peak(this.config.readUntil.length) > 0) {
+      while (
+        reader.peak(this.config.readUntil.length) !== this.config.readUntil &&
+        reader.peak(this.config.readUntil.length) > 0
+      ) {
         const letter = reader.read(8);
         value += bytesToChar(letter);
         rawValue += letter;
       }
 
-      return {value, rawValue};
+      return { value, rawValue };
     } else {
       const len = resolveFunctionOrvalue(this.config.length, data) * 8;
       const rawValue = reader.read(len);
-      const value = rawValue.match(/.{8}/g).map(bytesToChar).join('');
-      return {value, rawValue};
+      const value = rawValue
+        .match(/.{8}/g)
+        .map(bytesToChar)
+        .join('');
+      return { value, rawValue };
     }
   }
 
-  readOrdered(reader: BinaryReader, data: BinaryReaderResult = {}, start = 0): BinaryReaderResult {
+  readOrdered(
+    reader: BinaryReader,
+    data: BinaryReaderResult = {},
+    start = 0
+  ): BinaryReaderResult {
     const result = this.read(reader, data);
     const length = start + result.rawValue.length;
     const end = start + length;
-    return {...result, type: this.type, description: this.config.description, start, end, length};
+    return {
+      ...result,
+      type: this.type,
+      description: this.config.description,
+      start,
+      end,
+      length
+    };
   }
 }

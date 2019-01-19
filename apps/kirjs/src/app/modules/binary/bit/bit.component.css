@@ -18,7 +18,7 @@
   font-size: 10vw;
   margin-left: 1vw;
   color: #444;
-  border-bottom: .2vw #888 solid;
+  border-bottom: 0.2vw #888 solid;
 }
 
 .label {
@@ -28,7 +28,5 @@
 }
 
 :host ::ng-deep .content.content.content table td {
-
   font-size: 4vw;
-
 }

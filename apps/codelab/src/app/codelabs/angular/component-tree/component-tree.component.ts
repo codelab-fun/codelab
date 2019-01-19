@@ -1,6 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate } from '../../../../../../../ng2ts/ng2ts';
-import { boxAndCircle, circleAndBox } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
+import {
+  ExerciseConfigTemplate,
+  Ng2TsExercises,
+  SlideTemplate
+} from '../../../../../../../ng2ts/ng2ts';
+import {
+  boxAndCircle,
+  circleAndBox
+} from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
 
 const circleAndBoxCode = circleAndBox();
@@ -8,13 +15,15 @@ const circleAndBoxCode = circleAndBox();
 @Component({
   selector: 'slides-component-tree',
   templateUrl: './component-tree.component.html',
-  styleUrls: ['../../components/css/codelab-styles.scss', './component-tree.component.css']
+  styleUrls: [
+    '../../components/css/codelab-styles.scss',
+    './component-tree.component.css'
+  ]
 })
 export class ComponentTreeComponent implements OnInit {
-  t: { [key: string]: string; };
+  t: { [key: string]: string };
 
   @ViewChild('translations') translation;
-
 
   exercise: ExerciseConfigTemplate | SlideTemplate;
   exercise2: ExerciseConfigTemplate | SlideTemplate;
@@ -34,7 +43,7 @@ export class ComponentTreeComponent implements OnInit {
 export class HelloComponent {}
 `,
       path: 'parent.component.ts',
-      type: 'typescript',
+      type: 'typescript'
     },
     childComponentSkeleton: {
       code: `import { Component } from '@angular/core';
@@ -46,7 +55,7 @@ export class HelloComponent {}
 export class WorldComponent {}
 `,
       path: 'child.component.ts',
-      type: 'typescript',
+      type: 'typescript'
     },
     appModule: {
       match: /decla.*/,
@@ -59,7 +68,7 @@ import { ParentComponent } from './parent.component';
 })
 export class AppModule {}`,
       path: 'app.module.ts',
-      type: 'typescript',
+      type: 'typescript'
     },
     parentComponent: {
       code: `import { Component } from '@angular/core';
@@ -74,7 +83,7 @@ export class Parent {
   results(): Result[] {...}
 }`,
       path: 'parent.component.ts',
-      type: 'typescript',
+      type: 'typescript'
     },
     childComponent: {
       code: `import { Component, Input } from '@angular/core';
@@ -88,7 +97,7 @@ export class Child {
   @Input() data: Result[];
 }`,
       path: 'child.component.ts',
-      type: 'typescript',
+      type: 'typescript'
     },
 
     boxAndCircle: boxAndCircle(),

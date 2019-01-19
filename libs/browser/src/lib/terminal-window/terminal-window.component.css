@@ -1,11 +1,11 @@
 .terminal-frame {
   width: 100%;
   height: 100%;
- box-shadow: 0 0 1px #dddddd;
+  box-shadow: 0 0 1px #dddddd;
 }
 
 .frame {
- box-shadow: 0 0 1px #dddddd;
+  box-shadow: 0 0 1px #dddddd;
   margin-top: 0;
   color: #444;
   width: 100%;
@@ -13,7 +13,6 @@
   white-space: pre-wrap;
   font-family: monospace;
 }
-
 
 .img-full {
   width: 100%;
@@ -31,7 +30,6 @@
 ::ng-deep .success {
   color: green;
 }
-
 
 ::ng-deep .skipped {
   color: #ddd;

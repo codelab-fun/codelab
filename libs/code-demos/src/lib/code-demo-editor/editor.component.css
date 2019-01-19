@@ -8,8 +8,7 @@
   display: block;
 }
 
-::ng-deep .decorationsOverviewRuler, ::ng-deep .current-line {
-  display: none !important
+::ng-deep .decorationsOverviewRuler,
+::ng-deep .current-line {
+  display: none !important;
 }
-
-

@@ -3,4 +3,3 @@ function findDebugger(code) {
     .replace(/\/\/.*|'.*?[^\\]'|".*?"|`[\s\S]*`|\/\*[\s\S]*\*\//)
     .match(/\bdebugger\b/);
 }
-

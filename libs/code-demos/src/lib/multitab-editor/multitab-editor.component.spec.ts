@@ -8,9 +8,8 @@ describe('MultitabEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultitabEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [MultitabEditorComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,11 +1,19 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
 import { compileTemplates } from '../runner/prepare-templates';
 import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
 import { addMetaInformation } from '../shared/helpers';
-
 
 interface CodeFiles {
   [key: string]: string;
@@ -44,8 +52,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   presets = ['angular'];
   private subscription: SubscriptionLike;
 
-  constructor(public scriptLoaderService: ScriptLoaderService) {
-  }
+  constructor(public scriptLoaderService: ScriptLoaderService) {}
 
   @Input('presets')
   public set setPresets(presets: any) {
@@ -62,15 +69,25 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   }
 
   async ngOnInit() {
-    const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
-      id: 'testing', 'url': this.url
-    });
+    const sandbox = await createSystemJsSandbox(
+      this.runnerElement.nativeElement,
+      {
+        id: 'testing',
+        url: this.url
+      }
+    );
 
-    sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app><div class="error"></div>');
+    sandbox.setHtml(
+      this.code['index.html'] ||
+        '<app-root></app-root><my-app></my-app><div class="error"></div>'
+    );
 
-    this.presets.forEach(preset => presets[preset](sandbox, this.scriptLoaderService));
+    this.presets.forEach(preset =>
+      presets[preset](sandbox, this.scriptLoaderService)
+    );
 
-    Object.entries(this.code).filter(([moduleName]) => moduleName.match(/\.css/))
+    Object.entries(this.code)
+      .filter(([moduleName]) => moduleName.match(/\.css/))
       .forEach(([moduleName, code]) => {
         sandbox.addCss(code);
       });
@@ -80,20 +97,28 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
     this.subscription = this.changedFilesSubject.subscribe(files => {
       addMetaInformation(sandbox, files);
 
-      Object.entries(files).filter(([path]) => path.match(/\.js$/)).forEach(([path, code]) => {
-        sandbox.evalJs(`System.registry.delete(System.normalizeSync('./${path.replace('.js', '')}'));`);
-        sandbox.evalJs(code);
-      });
+      Object.entries(files)
+        .filter(([path]) => path.match(/\.js$/))
+        .forEach(([path, code]) => {
+          sandbox.evalJs(
+            `System.registry.delete(System.normalizeSync('./${path.replace(
+              '.js',
+              ''
+            )}'));`
+          );
+          sandbox.evalJs(code);
+        });
 
-      Object.entries(files).filter(([path]) => path.match(/\.css$/)).forEach(([path, code]) => {
-        // TODO(kirjs): Consider deleting old CSS.
-        sandbox.addCss(code);
-      });
+      Object.entries(files)
+        .filter(([path]) => path.match(/\.css$/))
+        .forEach(([path, code]) => {
+          // TODO(kirjs): Consider deleting old CSS.
+          sandbox.addCss(code);
+        });
 
       if (!this.bootstrap) {
         debugger;
       }
-
 
       sandbox.evalJs(`System.import('${this.bootstrap}')`);
     });
@@ -104,7 +129,10 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   trackIframeUrl(iframe) {
     const interval = window.setInterval(() => {
       if (iframe.contentWindow) {
-        const url = iframe.contentWindow.location.href.replace('assets/runner/', ''); // .replace(this.urlBase, '')
+        const url = iframe.contentWindow.location.href.replace(
+          'assets/runner/',
+          ''
+        ); // .replace(this.urlBase, '')
         if (this.url !== url) {
           this.url = url;
         }

@@ -45,8 +45,8 @@ input {
   float: right;
 }
 
-.link, .link a {
+.link,
+.link a {
   color: #aaa;
   font-size: 80%;
 }
-

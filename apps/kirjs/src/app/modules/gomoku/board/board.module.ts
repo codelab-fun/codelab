@@ -8,5 +8,4 @@ import { ToolsComponent } from '../tools/tools.component';
   declarations: [BoardComponent, ToolsComponent],
   exports: [BoardComponent]
 })
-export class GomokuBoardModule {
-}
+export class GomokuBoardModule {}

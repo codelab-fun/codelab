@@ -1,4 +1,3 @@
-function traverseConsoleLog(code, {babylon, babelTraverse, log}) {
+function traverseConsoleLog(code, { babylon, babelTraverse, log }) {
   const ast = babylon.parse(code);
 }
-

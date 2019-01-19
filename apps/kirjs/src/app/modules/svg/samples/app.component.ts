@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   selector: 'slides-app',
   template: ''
 })
-export class AppComponent {
-
-}
+export class AppComponent {}

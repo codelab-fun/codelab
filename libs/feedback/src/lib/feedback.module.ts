@@ -11,7 +11,9 @@ import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.compo
 
 // Note! We are using AngularFire2 v4. There are a lot of breaking changes.
 // See: https://github.com/angular/@angular/fire/issues/854
-export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
 
 @NgModule({
   imports: [
@@ -23,9 +25,15 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
     AngularFireDatabaseModule
   ],
   providers: [FeedbackService],
-  declarations: [FeedbackWidgetComponent, FeedbackFormComponent, FeedbackRatingComponent],
-  exports: [FeedbackWidgetComponent, FeedbackFormComponent, FeedbackRatingComponent]
+  declarations: [
+    FeedbackWidgetComponent,
+    FeedbackFormComponent,
+    FeedbackRatingComponent
+  ],
+  exports: [
+    FeedbackWidgetComponent,
+    FeedbackFormComponent,
+    FeedbackRatingComponent
+  ]
 })
-export class FeedbackModule {
-
-}
+export class FeedbackModule {}

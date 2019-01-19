@@ -8,9 +8,8 @@ describe('PolaroidComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PolaroidComponent ]
-    })
-    .compileComponents();
+      declarations: [PolaroidComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

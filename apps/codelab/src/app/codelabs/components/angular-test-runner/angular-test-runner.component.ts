@@ -1,4 +1,13 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import { handleTestMessage } from './tests';
 import { createSystemJsSandbox } from '../../../../../../../libs/exercise/src/lib/runners/utils/sandbox';
 import { ScriptLoaderService } from '../../../../../../../libs/exercise/src/lib/services/script-loader.service';
@@ -13,10 +22,12 @@ declare const require;
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
-  (sandbox.iframe.contentWindow as any).System.register('code', [], function (exports) {
+  (sandbox.iframe.contentWindow as any).System.register('code', [], function(
+    exports
+  ) {
     return {
       setters: [],
-      execute: function () {
+      execute: function() {
         exports('ts', ts);
         exports('babylon', babylon);
         exports('babel_traverse', babel_traverse);
@@ -25,7 +36,10 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
           .filter(([moduleName]) => moduleName.match(/\.ts$/))
           .forEach(([path, code]) => {
             exports(path.replace(/[\/.-]/gi, '_'), code);
-            exports(path.replace(/[\/.-]/gi, '_') + '_AST', ts.createSourceFile(path, code, ts.ScriptTarget.ES5));
+            exports(
+              path.replace(/[\/.-]/gi, '_') + '_AST',
+              ts.createSourceFile(path, code, ts.ScriptTarget.ES5)
+            );
           });
         Object.entries(files)
           .filter(([moduleName]) => moduleName.match(/\.html/))
@@ -46,8 +60,10 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
 export class SimpleAngularTestRunnerComponent implements OnChanges {
   handleMessageBound: any;
   @Output() solved = new EventEmitter();
-  @Output() public selectFile: EventEmitter<string> = new EventEmitter<string>();
-  @Input() translations: { [key: string]: string; } = {};
+  @Output() public selectFile: EventEmitter<string> = new EventEmitter<
+    string
+  >();
+  @Input() translations: { [key: string]: string } = {};
   @Input() code: any;
   @Input() bootstrap: string;
 
@@ -57,8 +73,8 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
   tests: any;
   private subscription: Subscription;
 
-  constructor(private  scriptLoaderService: ScriptLoaderService) {
-    this.handleMessageBound = (message) => {
+  constructor(private scriptLoaderService: ScriptLoaderService) {
+    this.handleMessageBound = message => {
       this.tests = handleTestMessage(message, this.tests);
 
       if (message.data.type === 'testEnd') {
@@ -77,11 +93,18 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
   }
 
   async ngOnInit() {
-    const sandbox = await createSystemJsSandbox(this.runnerElement.nativeElement, {
-      id: 'testing', 'url': '/assets/runner'
-    });
+    const sandbox = await createSystemJsSandbox(
+      this.runnerElement.nativeElement,
+      {
+        id: 'testing',
+        url: '/assets/runner'
+      }
+    );
 
-    sandbox.setHtml(this.code['index.html'] || '<app-root></app-root><my-app></my-app><div class="error"></div>');
+    sandbox.setHtml(
+      this.code['index.html'] ||
+        '<app-root></app-root><my-app></my-app><div class="error"></div>'
+    );
 
     sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
     sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
@@ -93,11 +116,18 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
     sandbox.addDep('reflect-metadata', Reflect);
 
     this.subscription = this.changedFilesSubject.subscribe(files => {
-      Object.entries(files).filter(([path]) => path.match(/\.js$/)).forEach(([path, code]) => {
-        sandbox.evalJs(`System.registry.delete(System.normalizeSync('./${path.replace('.js', '')}'));`);
-        addMetaInformation(sandbox, this.code);
-        sandbox.evalJs(code);
-      });
+      Object.entries(files)
+        .filter(([path]) => path.match(/\.js$/))
+        .forEach(([path, code]) => {
+          sandbox.evalJs(
+            `System.registry.delete(System.normalizeSync('./${path.replace(
+              '.js',
+              ''
+            )}'));`
+          );
+          addMetaInformation(sandbox, this.code);
+          sandbox.evalJs(code);
+        });
 
       sandbox.evalJs(`System.import('${this.bootstrap}')`);
     });

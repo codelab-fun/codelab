@@ -15,12 +15,11 @@ import { GithubService } from './github.service';
 import { environment } from '../../../environments/environment';
 import { SlidesModule } from '@codelab/slides';
 
+const routes = RouterModule.forChild(SlidesRoutes.get(FeedbackPageComponent));
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(FeedbackPageComponent)
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
 );
-
-export const angularFire = AngularFireModule.initializeApp(environment.firebaseConfig);
 
 @NgModule({
   imports: [
@@ -33,12 +32,10 @@ export const angularFire = AngularFireModule.initializeApp(environment.firebaseC
     FormsModule,
     CommonModule,
     HttpClientModule,
-    SlidesModule,
+    SlidesModule
   ],
   declarations: [FeedbackPageComponent],
   providers: [GithubService],
   exports: [FeedbackPageComponent]
 })
-export class FeedbackPageModule {
-
-}
+export class FeedbackPageModule {}

@@ -22,7 +22,7 @@
 }
 
 code-demo-editor::before {
-  content: ">";
+  content: '>';
   font-size: 60px;
   position: absolute;
   margin-left: -30px;
@@ -30,7 +30,7 @@ code-demo-editor::before {
 }
 
 .output::before {
-  content: "<";
+  content: '<';
   font-size: 50px;
   position: absolute;
   margin-left: -60px;
@@ -38,8 +38,8 @@ code-demo-editor::before {
 }
 
 .output.error::before {
-  color: #E51400;
-  content: "🙀"
+  color: #e51400;
+  content: '🙀';
 }
 
 code-demo-editor {
@@ -59,7 +59,7 @@ code-demo-editor {
 }
 
 .error {
-  color: #E51400;
-  border: 1px #E51400 solid;
+  color: #e51400;
+  border: 1px #e51400 solid;
   border-radius: 12px;
 }

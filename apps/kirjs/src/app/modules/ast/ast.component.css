@@ -1,6 +1,6 @@
 .bg {
   background: #fff;
-  opacity: .7;
+  opacity: 0.7;
   padding: 2vw 5vw;
   margin: 5vw 0;
   border: 1px solid #000;
@@ -9,18 +9,20 @@
 #intro h1 {
   font-size: 9vw;
   font-weight: 100;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 a {
   color: #9c2600;
 }
 
-#intro h2, #outro h2 {
+#intro h2,
+#outro h2 {
   font-size: 12vw;
 }
 
-#intro h2, #outro h1 {
+#intro h2,
+#outro h1 {
   font-size: 6vw;
 }
 
@@ -56,7 +58,9 @@ a {
   font-size: 5vw;
 }
 
-#babel-traverse .bg, #babel-transform .bg, #renoir .bg {
+#babel-traverse .bg,
+#babel-transform .bg,
+#renoir .bg {
   margin: 30vw 0;
 }
 
@@ -219,7 +223,8 @@ a {
   height: 100vh;
 }
 
-#intro, #outro {
+#intro,
+#outro {
   background: url(pics/landscape-with-trees-1.jpg) no-repeat;
   background-size: 100% auto;
   display: inline-block;
@@ -261,7 +266,6 @@ a {
 }
 
 :host /deep/ #debugger-regex .solution {
-
 }
 
 .ast-preview-helper-list li:hover {
@@ -353,4 +357,3 @@ a {
   font-size: 3vw;
   margin: 2vw;
 }
-

@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { FileConfig } from '../interfaces/file-config';
 
 @Component({
@@ -13,8 +20,12 @@ export class EditorsComponent implements OnInit {
   @Input() public fontSize = 16;
   @Output() public onChanges: EventEmitter<any> = new EventEmitter<any>();
   @Output() public onToggle: EventEmitter<any> = new EventEmitter<FileConfig>();
-  @Output() public onSelectFile: EventEmitter<any> = new EventEmitter<FileConfig>();
-  @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<FileConfig>();
+  @Output() public onSelectFile: EventEmitter<any> = new EventEmitter<
+    FileConfig
+  >();
+  @Output() public onLoadSolution: EventEmitter<any> = new EventEmitter<
+    FileConfig
+  >();
   private debug: boolean;
 
   constructor() {

@@ -15,7 +15,6 @@ import { PolaroidComponent } from './polaroid/polaroid.component';
     ])
   ],
   declarations: [HomeComponent, PolaroidComponent],
-  entryComponents: [HomeComponent],
+  entryComponents: [HomeComponent]
 })
-export class HomeModule {
-}
+export class HomeModule {}

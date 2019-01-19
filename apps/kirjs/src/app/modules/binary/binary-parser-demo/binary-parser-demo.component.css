@@ -1,12 +1,11 @@
-
 .error::before {
-  color: #E51400;
-  content: "🙀"
+  color: #e51400;
+  content: '🙀';
 }
 
 .error {
-  color: #E51400;
-  border: 1px #E51400 solid;
+  color: #e51400;
+  border: 1px #e51400 solid;
   border-radius: 12px;
   font-size: 3vw;
   padding: 2vw;

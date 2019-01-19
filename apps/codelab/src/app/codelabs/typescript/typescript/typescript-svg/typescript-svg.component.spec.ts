@@ -8,9 +8,8 @@ describe('TypescriptSvgComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypescriptSvgComponent ]
-    })
-    .compileComponents();
+      declarations: [TypescriptSvgComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -10,10 +10,13 @@ export function findPosition(code: string, match: string | RegExp) {
   }
   const textBeforeMatch = code.split(match as any)[0];
   const lineStart = textBeforeMatch.split('\n').length;
-  const lineStartPosition = textBeforeMatch.lastIndexOf('\n') + /*compensate for \n */1;
+  const lineStartPosition =
+    textBeforeMatch.lastIndexOf('\n') + /*compensate for \n */ 1;
   const indexStart = textBeforeMatch.length - lineStartPosition + 1;
   const lastMatchNewLinePosition = match.lastIndexOf('\n') + 1;
   const lineEnd = lineStart + match.split('\n').length - 1;
-  const indexEnd = match.includes('\n') ? match.length - lastMatchNewLinePosition : indexStart + match.length;
-  return {lineStart, indexStart, indexEnd, lineEnd};
+  const indexEnd = match.includes('\n')
+    ? match.length - lastMatchNewLinePosition
+    : indexStart + match.length;
+  return { lineStart, indexStart, indexEnd, lineEnd };
 }

@@ -3,8 +3,7 @@ import * as ts from 'typescript';
 
 @Injectable()
 export class LoopProtectionService {
-  public static loopBreaker =
-    `// Breaks out of infinite loops.
+  public static loopBreaker = `// Breaks out of infinite loops.
 const loopBreaker = (function(){
   let iterationsLeft = 100;
   return function(){
@@ -16,9 +15,7 @@ const loopBreaker = (function(){
 }());
       `;
 
-  constructor() {
-  }
-
+  constructor() {}
 
   findAllLoops(source) {
     const messages = [];
@@ -33,7 +30,10 @@ const loopBreaker = (function(){
         messages.push({
           start: statement.getStart(source),
           end: statement.getEnd(),
-          text: source.text.substring(statement.getStart(source), statement.getEnd())
+          text: source.text.substring(
+            statement.getStart(source),
+            statement.getEnd()
+          )
         });
       }
 
@@ -52,19 +52,17 @@ const loopBreaker = (function(){
     const source = ts.createSourceFile(filename, code, ts.ScriptTarget.ES5);
     const messages = this.findAllLoops(source);
     const replacementsReversed = messages.reverse();
-    for (const {start, end, text} of replacementsReversed) {
-
-      const replacement = (text.slice(0, 1) === '{') ?
-        `{loopBreaker();${text.slice(1)}` :
-        `{loopBreaker();${text}}`;
+    for (const { start, end, text } of replacementsReversed) {
+      const replacement =
+        text.slice(0, 1) === '{'
+          ? `{loopBreaker();${text.slice(1)}`
+          : `{loopBreaker();${text}}`;
 
       code = code.slice(0, start) + replacement + code.slice(end);
-
     }
     if (messages.length > 0) {
       code = LoopProtectionService.loopBreaker + code;
     }
     return code;
   }
-
 }

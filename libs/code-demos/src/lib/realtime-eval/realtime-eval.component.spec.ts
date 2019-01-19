@@ -9,8 +9,7 @@ describe('RealtimeEvalComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RealtimeEvalComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

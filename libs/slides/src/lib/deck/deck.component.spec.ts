@@ -7,8 +7,7 @@ describe('Deck', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PresentationComponentV2]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

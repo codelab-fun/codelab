@@ -28,7 +28,6 @@ describe('test', ()=>{
     }
   ];
 
-
   let results = [];
   let failed = false;
   for (let i in tests) {
@@ -36,17 +35,17 @@ describe('test', ()=>{
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = (value) => {
+        args.log = value => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);
-        results.push(({title: test.title, pass: pass}));
+        results.push({ title: test.title, pass: pass });
         if (!pass) {
           failed = true;
           logs.map(log);
         }
       } else {
-        results.push(({title: test.title, pass: false}));
+        results.push({ title: test.title, pass: false });
       }
     }
   }
@@ -59,5 +58,3 @@ describe('test', ()=>{
  .replace(/\/\/.*|'.*?[^\\]'|".*"|`[\s\S]+`/)
  .match(/\bdebugger\b/)
  */
-
-

@@ -1,4 +1,11 @@
-import { AfterViewInit, Directive, Host, Input, OnChanges, Optional } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  Host,
+  Input,
+  OnChanges,
+  Optional
+} from '@angular/core';
 import { CodeDemoEditorComponent } from './code-demo-editor.component';
 import { findPosition } from '../../../../tooltips/src/lib/utils';
 import { EditorFromModelComponent } from '../multitab-editor/editor-from-model/editor-from-model.component';
@@ -7,7 +14,6 @@ import { EditorFromModelComponent } from '../multitab-editor/editor-from-model/e
   selector: '[slidesSimpleHighlightMatch]'
 })
 export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
-
   decorators = [];
   @Input() slidesSimpleHighlightMatch;
   @Input() ngModel;
@@ -24,7 +30,7 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
     this.highlight();
     // TODO(kirjs): Get rid of the timeout
     window.setTimeout(() => {
-      this.highlight()
+      this.highlight();
     }, 1000);
   }
 
@@ -51,24 +57,38 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
         return;
       }
 
+      const decorations = this.slidesSimpleHighlightMatch
+        .map(match => ({ match }))
+        .reduce((ranges, { match, className }) => {
+          const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(
+            code,
+            match
+          );
+          ranges.push({
+            range: new this.editorComponent.monacoConfigService.monaco.Range(
+              lineStart,
+              indexStart,
+              lineEnd,
+              indexEnd
+            ),
+            options: { inlineClassName: className || 'highlighted-code' }
+          });
 
-      const decorations = this.slidesSimpleHighlightMatch.map(match => ({match})).reduce((ranges, {match, className}) => {
-        const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(code, match);
-        ranges.push({
-          range: new this.editorComponent.monacoConfigService.monaco.Range(lineStart, indexStart, lineEnd, indexEnd),
-          options: {inlineClassName: className || 'highlighted-code'}
-        });
+          return ranges;
+        }, []);
 
-        return ranges;
-      }, []);
-
-      this.decorators = this.editorComponent.editor.deltaDecorations(this.decorators, []);
-      this.decorators = this.editorComponent.editor.deltaDecorations(this.decorators, decorations);
+      this.decorators = this.editorComponent.editor.deltaDecorations(
+        this.decorators,
+        []
+      );
+      this.decorators = this.editorComponent.editor.deltaDecorations(
+        this.decorators,
+        decorations
+      );
     }
   }
 
   ngOnChanges() {
     this.highlight();
   }
-
 }

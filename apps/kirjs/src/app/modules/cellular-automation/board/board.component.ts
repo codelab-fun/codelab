@@ -6,7 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-
   @Input() pattern;
   @Input() cellHeight = 50;
   @Input() cellWidth = 50;
@@ -14,8 +13,7 @@ export class BoardComponent implements OnInit {
   @Input() playing = false;
   @Input() delay = 500;
 
-  constructor() {
-  }
+  constructor() {}
 
   public play() {
     this.playing = true;
@@ -35,5 +33,4 @@ export class BoardComponent implements OnInit {
       this.runTransform();
     }
   }
-
 }

@@ -1,11 +1,12 @@
 <div *ngIf="open" class="menu-index">
-
   <ul class="menu-list">
     <li class="menu-item">
       <p><a href="/">Index</a></p>
     </li>
     <li class="menu-item" *ngFor="let route of routes">
-      <p><a [href]="route.path">{{route.name}}</a></p>
+      <p>
+        <a [href]="route.path">{{ route.name }}</a>
+      </p>
     </li>
   </ul>
 
@@ -13,5 +14,3 @@
 </div>
 
 <div (click)="onDisplay($event)" class="menu-btn menu-bar-btn"></div>
-
-

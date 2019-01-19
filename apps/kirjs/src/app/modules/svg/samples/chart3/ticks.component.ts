@@ -3,10 +3,15 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: '[renderTicks]',
   template: `
-    <svg:text *ngFor="let item of data; let i = index; trackBy:getIndex"
-              [attr.x]="barSpace*(i+0.3)"
-              style = "text-anchor: center"
-              fill=black>{{i}}</text>`
+    <svg:text
+      *ngFor="let item of data; let i = index; trackBy: getIndex"
+      [attr.x]="barSpace * (i + 0.3)"
+      style="text-anchor: center"
+      fill="black"
+    >
+      {{ i }}
+    </svg:text>
+  `
 })
 export class TicksComponent {
   @Input() data;
@@ -14,7 +19,7 @@ export class TicksComponent {
   padding = 10;
   barSpace = this.padding + this.barWidth;
 
-  getIndex(i: number){
+  getIndex(i: number) {
     return i;
   }
 }

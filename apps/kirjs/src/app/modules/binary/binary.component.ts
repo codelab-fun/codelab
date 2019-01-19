@@ -6,7 +6,11 @@ const littleGif = require('!binary-loader!./pics/little.gif');
 const chikinGif = require('!binary-loader!./pics/chikin.gif');
 
 function strToBin(str) {
-  return str.split('').map(a => a.charCodeAt(0)).map(a => a.toString(2).padStart(8, 0)).join('');
+  return str
+    .split('')
+    .map(a => a.charCodeAt(0))
+    .map(a => a.toString(2).padStart(8, 0))
+    .join('');
 }
 
 @Component({
@@ -40,8 +44,7 @@ export class BinaryComponent {
 //   parseInt(a, 2)))
 //   .join('');
 `,
-    simpleBinaryOperations:
-      `let i = 7; // 7 = 1 + 2 + 4
+    simpleBinaryOperations: `let i = 7; // 7 = 1 + 2 + 4
 !!(i & 1) // true
 !!(i & 2) // true
 !!(i & 4) // true
@@ -64,13 +67,14 @@ i = i | 2  // 7 = 1 + 2 + 4
   "name": "Sarah",
   "test": true,
   "something": 1212
-}`, jsonOne: `{
+}`,
+    jsonOne: `{
   "str": "1",
   "number": 1,
   "bool": true
 }`,
     inputFile: '<input id = "" type="file">',
-    fileHandlerHighlight: {match: /read/, className: 'highlighted-code'},
+    fileHandlerHighlight: { match: /read/, className: 'highlighted-code' },
     fileHandler: `const input = document.getElementById('file');
 input.addEventListener('change', (e) => {
   const reader = new FileReader();
@@ -141,7 +145,7 @@ input.addEventListener('change', (e) => {
       .bit3('paletteSize')
       .uint8('background')
       .uint8('ratio')
-    `,
+    `
   ];
 
   binaryParserPaletteMatch = /parent-palette/;
@@ -210,38 +214,36 @@ input.addEventListener('change', (e) => {
         length: (result) =>
             2 ** (result.paletteSize + 1)
         }
-      )`,
-
+      )`
   ];
 
+  //
+  // `file.byteLength`,
+  // `String.fromCharCode(...new Uint8Array(file))`,
+  //   // `// Let's test how many arguments we can apply
+  //   // String.fromCharCode(...Array.from(new Array(100)))`,
+  //   // `String.fromCharCode(...Array.from(new Array(10000)))`,
+  //   // `String.fromCharCode(...Array.from(new Array(100000)))`,
+  //   // `String.fromCharCode(...Array.from(new Array(1000000)))`,
+  //   // `String.fromCharCode(...Array.from(new Array(125307)))`,
+  //   // `
+  //   // // read more:
+  //   https://stackoverflow.com/questions/22747068/is-there-a-max-number-of-arguments-javascript-functions-can-accept
+  //   // String.fromCharCode(...Array.from(new Array(125306)))`,
+  // `String.fromCharCode(...new Uint8Array(file))`,
+  // `Array.from(new Uint8Array(file)).map(a=>a.toString(2).padStart(8, 0)).join('')`,
 
-//
-// `file.byteLength`,
-// `String.fromCharCode(...new Uint8Array(file))`,
-//   // `// Let's test how many arguments we can apply
-//   // String.fromCharCode(...Array.from(new Array(100)))`,
-//   // `String.fromCharCode(...Array.from(new Array(10000)))`,
-//   // `String.fromCharCode(...Array.from(new Array(100000)))`,
-//   // `String.fromCharCode(...Array.from(new Array(1000000)))`,
-//   // `String.fromCharCode(...Array.from(new Array(125307)))`,
-//   // `
-//   // // read more:
-//   https://stackoverflow.com/questions/22747068/is-there-a-max-number-of-arguments-javascript-functions-can-accept
-//   // String.fromCharCode(...Array.from(new Array(125306)))`,
-// `String.fromCharCode(...new Uint8Array(file))`,
-// `Array.from(new Uint8Array(file)).map(a=>a.toString(2).padStart(8, 0)).join('')`,
-
-// <input id="file" type="file">
-//   document.getElementById('file').addEventListener('change', (e)=>{
-//   const reader = new FileReader();
-//
-//   reader.onloadend = (e) => {
-//     file = e.target.result;
-//     console.log(file);
-//   };
-//
-//   reader.readAsArrayBuffer(e.target.files[0]);
-// })
+  // <input id="file" type="file">
+  //   document.getElementById('file').addEventListener('change', (e)=>{
+  //   const reader = new FileReader();
+  //
+  //   reader.onloadend = (e) => {
+  //     file = e.target.result;
+  //     console.log(file);
+  //   };
+  //
+  //   reader.readAsArrayBuffer(e.target.files[0]);
+  // })
 
   // gif = {
   //   width: "4",
@@ -295,7 +297,6 @@ input.addEventListener('change', (e) => {
     `String.fromCharCode(...new Uint8Array(file))`,
     `Array.from(new Uint8Array(file)).map(a=>a.toString(2).padStart(8, 0)).join('')`,
 
-
     `explain('message', 'basic')`,
     `explain('message', 'bytes')`,
     `explain('bindec', 'uint8')`,
@@ -304,7 +305,6 @@ input.addEventListener('change', (e) => {
     `explain('message', 'uint8')`,
     `explain('ascii')`,
     `explain('message', 'string')`,
-
 
     `explain('compare')`,
     `explain('json')`,
@@ -324,7 +324,8 @@ input.addEventListener('change', (e) => {
         ]
      }
 
-    `, `
+    `,
+    `
      // Let's index the colors
 
 
@@ -351,13 +352,9 @@ input.addEventListener('change', (e) => {
 
     `explain('gif')`,
 
-
-    `// How to read binary data?`,
-
-
+    `// How to read binary data?`
   ];
   private evaledMessage: string;
-
 
   evalMessage() {
     this.evaledMessage = eval(this.code.message);

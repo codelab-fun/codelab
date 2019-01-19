@@ -8,9 +8,8 @@ describe('SvgTogetherComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvgTogetherComponent ]
-    })
-    .compileComponents();
+      declarations: [SvgTogetherComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

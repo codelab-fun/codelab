@@ -8,9 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SvgPlaygroundComponent implements OnInit {
   @Input() code: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

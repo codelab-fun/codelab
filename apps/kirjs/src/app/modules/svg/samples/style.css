@@ -1,14 +1,17 @@
-svg, body, html  {
+svg,
+body,
+html {
   width: 100%;
   height: 100%;
 }
-
 
 text {
   font-family: sans-serif;
   text-anchor: middle;
 }
 
-rect, text, g {
+rect,
+text,
+g {
   transition: 1s;
 }

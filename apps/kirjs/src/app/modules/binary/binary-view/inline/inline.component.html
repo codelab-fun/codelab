@@ -3,6 +3,12 @@
     <slides-inline [data]="v"></slides-inline>
   </span>
 </ng-container>
-<input class="item" [style.width.px]="data.rawValue ? data.rawValue.length * 28 + 12 : 10" (focus)="display(data)"
-       *ngIf="!isArray" [value]="data.rawValue" (keyup)="updateValue(i.value)" #i>
-
+<input
+  class="item"
+  [style.width.px]="data.rawValue ? data.rawValue.length * 28 + 12 : 10"
+  (focus)="display(data)"
+  *ngIf="!isArray"
+  [value]="data.rawValue"
+  (keyup)="updateValue(i.value)"
+  #i
+/>

@@ -1,4 +1,4 @@
-<slides-deck  slidesShortcuts slidesRouting slides-tracking>
+<slides-deck slidesShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <slides-feedback-widget></slides-feedback-widget>
     <slides-menu-shortcut></slides-menu-shortcut>
@@ -8,15 +8,19 @@
 
   <!--  INTRO -->
   <div *slide id="intro" no-padding>
-    <codelab-title-slide title="Custom Events" description="Learn to bind to custom events using @Output()"
-                        prereqs="Component-Tree"></codelab-title-slide>
+    <codelab-title-slide
+      title="Custom Events"
+      description="Learn to bind to custom events using @Output()"
+      prereqs="Component-Tree"
+    ></codelab-title-slide>
   </div>
 
   <!--  Slide 1-->
   <div *slide id="custom-event-slide-1" milestone="CustomEvents">
     <h1>Custom Events / Intro</h1>
-    <h1>In this milestone, you will learn to use @Output() to communicate from child to parent component and handle
-      custom events.
+    <h1>
+      In this milestone, you will learn to use @Output() to communicate from
+      child to parent component and handle custom events.
     </h1>
   </div>
 
@@ -27,28 +31,43 @@
     <div row>
       <div column-5>
         <slides-file-path path="parent.ts"></slides-file-path>
-        <code-demo-editor [fontSize]="15" [(ngModel)]="code.exercise1a.code"
-                              [slidesSimpleHighlightMatch]="code.exercise1a.match"></code-demo-editor>
-        <h1>To 'listen' to a child's event, we bind to the child's event childDidSomething.</h1>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.exercise1a.code"
+          [slidesSimpleHighlightMatch]="code.exercise1a.match"
+        ></code-demo-editor>
+        <h1>
+          To 'listen' to a child's event, we bind to the child's event
+          childDidSomething.
+        </h1>
       </div>
       <div column-5>
         <slides-file-path path="child.ts"></slides-file-path>
-        <code-demo-editor [fontSize]="15" [(ngModel)]="code.exercise1b.code"
-                              [slidesSimpleHighlightMatch]="code.exercise1a.match"></code-demo-editor>
-        <h1>To let the parent know that there is an event. We emit an event from the child.</h1>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.exercise1b.code"
+          [slidesSimpleHighlightMatch]="code.exercise1a.match"
+        ></code-demo-editor>
+        <h1>
+          To let the parent know that there is an event. We emit an event from
+          the child.
+        </h1>
       </div>
     </div>
   </div>
 
-
   <!--  Slide 3 -->
   <div *slide id="custom-event-slide-3" milestone="CustomEvents">
     <h1>Custom Events / Exercise - Intro</h1>
-    <h1>Let's implement a ThumbsUp and ThumbsDown button for the VideoComponent you worked on before.
+    <h1>
+      Let's implement a ThumbsUp and ThumbsDown button for the VideoComponent
+      you worked on before.
     </h1>
 
-    <slides-codelab-exercise-preview column-5 [exercise]="exercises[0]"></slides-codelab-exercise-preview>
-
+    <slides-codelab-exercise-preview
+      column-5
+      [exercise]="exercises[0]"
+    ></slides-codelab-exercise-preview>
   </div>
 
   <!--  Slide 4 -->
@@ -56,7 +75,8 @@
     <slides-codelab-exercise
       milestone="CustomEvents"
       [translations]="t"
-      [exercise]="exercises[0]">
+      [exercise]="exercises[0]"
+    >
     </slides-codelab-exercise>
   </div>
 </slides-deck>

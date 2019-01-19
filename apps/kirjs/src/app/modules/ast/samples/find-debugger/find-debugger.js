@@ -1,4 +1,1 @@
-function findDebugger(code) {
-
-}
-
+function findDebugger(code) {}

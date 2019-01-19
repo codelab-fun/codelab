@@ -38,8 +38,7 @@ img .angular {
   width: 30vw;
 }
 
-
-.learn-box:hover  {
+.learn-box:hover {
   background: #eee;
 }
 
@@ -49,7 +48,7 @@ img .angular {
 
 .hint {
   color: #999;
-  font-size: 3vw ;
+  font-size: 3vw;
 }
 
 .learn-box.typescript {
@@ -75,7 +74,6 @@ img .angular {
 
 ::ng-deep .slide {
   display: block;
-
 }
 .play {
   margin: 4vw 0;

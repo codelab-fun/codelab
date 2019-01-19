@@ -8,7 +8,6 @@ export type PreviewWindowType = 'console' | 'browser';
   styleUrls: ['./preview-window.component.scss']
 })
 export class PreviewWindowComponent implements OnInit {
-
   get url() {
     return this._url;
   }
@@ -21,10 +20,7 @@ export class PreviewWindowComponent implements OnInit {
 
   private _url = 'http://';
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

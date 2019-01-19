@@ -1,4 +1,1 @@
-function findConsoleLog(code) {
-
-}
-
+function findConsoleLog(code) {}

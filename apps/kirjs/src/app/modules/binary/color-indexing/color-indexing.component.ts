@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 interface TableItem {
   color: string;
-  index: number
+  index: number;
 }
 
 interface ColorTableHash {
@@ -15,12 +15,10 @@ interface ColorTableHash {
   styleUrls: ['./color-indexing.component.css']
 })
 export class ColorIndexingComponent implements OnInit {
-
-
   noIndexing = [
     ['#ff0000', '#ff0000', '#ff0000'],
     ['#fff000', '#ff0000', '#fff000'],
-    ['#ff0000', '#ff0000', '#ff0000'],
+    ['#ff0000', '#ff0000', '#ff0000']
   ];
 
   colorTable: TableItem[];
@@ -37,18 +35,19 @@ export class ColorIndexingComponent implements OnInit {
         return colors;
       }, colors);
     }, {});
-    return Object.keys(index).map((color, index) => ({color, index}));
+    return Object.keys(index).map((color, index) => ({ color, index }));
   }
 
   generate() {
     this.colorTable = this.index();
-    this.hash = this.colorTable.reduce((hash: ColorTableHash, value: TableItem): ColorTableHash => {
-      hash[value.color] = value.index;
-      return hash;
-    }, {});
+    this.hash = this.colorTable.reduce(
+      (hash: ColorTableHash, value: TableItem): ColorTableHash => {
+        hash[value.color] = value.index;
+        return hash;
+      },
+      {}
+    );
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

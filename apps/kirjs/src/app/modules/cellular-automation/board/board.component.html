@@ -1,6 +1,10 @@
 <div class="board">
   <div *ngFor="let line of pattern">
-    <div *ngFor="let cell of line" class="cell cell-{{cell}}"  [style.height.px]="cellHeight" [style.width.px]="cellWidth">
-    </div>
+    <div
+      *ngFor="let cell of line"
+      class="cell cell-{{ cell }}"
+      [style.height.px]="cellHeight"
+      [style.width.px]="cellWidth"
+    ></div>
   </div>
 </div>

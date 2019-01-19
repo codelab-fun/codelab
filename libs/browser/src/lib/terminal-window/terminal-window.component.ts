@@ -8,10 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TerminalWindowComponent implements OnInit {
   @Input() height = '';
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

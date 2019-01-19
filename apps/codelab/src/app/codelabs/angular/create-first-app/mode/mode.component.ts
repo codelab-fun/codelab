@@ -6,12 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mode.component.css']
 })
 export class ModeComponent implements OnInit {
-
-
   modes = ['web', 'mobile', 'vr'];
   mode = this.modes[0];
   code = {
-    moduleAnatomy: {  // Module Anatomy - Milestone #1
+    moduleAnatomy: {
+      // Module Anatomy - Milestone #1
       code: `/* Imports */
 
 @NgModule({
@@ -37,18 +36,15 @@ export class AppModule {}`,
       matches: {
         exportClass: /export.*/,
         ngModule: /@N[^]*?\)[^]/,
-        importsArr: /imports.*/,
+        importsArr: /imports.*/
       },
       readonly: true,
       path: 'module.anatomy.ts',
       type: 'typescript'
-    },
+    }
   };
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

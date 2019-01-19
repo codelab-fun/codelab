@@ -30,5 +30,4 @@ describe('highlights', () => {
   it('Allows chaning', () => {
     expect(this.highlights.toggle([1, 2], 'a').get([1, 2])).toBe('a');
   });
-
 });

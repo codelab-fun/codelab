@@ -12,13 +12,14 @@ export interface MenuShortcutRoute {
   templateUrl: './menu-shortcut.component.html',
   styleUrls: ['./menu-shortcut.component.css']
 })
-
 export class MenuShortcutComponent {
   routes: MenuShortcutRoute[];
   open = false;
 
   constructor(@Inject('ROUTES') routes: Array<MenuShortcutRoute>) {
-    this.routes = routes.filter(route => route.page === 'main').filter(route => route.name);
+    this.routes = routes
+      .filter(route => route.page === 'main')
+      .filter(route => route.name);
   }
 
   @HostListener('window:click')

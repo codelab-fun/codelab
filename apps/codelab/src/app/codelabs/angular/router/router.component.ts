@@ -1,15 +1,16 @@
 import { CodelabFile } from '../../../../../../../libs/exercise/src/lib/helpers/codelabFile';
 import { Component } from '@angular/core';
-import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
+import {
+  ExerciseConfigTemplate,
+  Ng2TsExercises
+} from '../../../../../../../ng2ts/ng2ts';
 
 declare const require;
-
 
 interface FileHighlights {
   appModule?: RegExp | RegExp[];
   appHtml?: RegExp | RegExp[];
 }
-
 
 function routeExercise(highlights: FileHighlights) {
   return {
@@ -18,17 +19,28 @@ function routeExercise(highlights: FileHighlights) {
         .setCode(require('!!raw-loader!./samples/simple-router/app.module.ts'))
         .withHighlight(highlights.appModule),
       CodelabFile.Html('app.component')
-        .setCode(require('!!raw-loader!./samples/simple-router/app.component.html'))
+        .setCode(
+          require('!!raw-loader!./samples/simple-router/app.component.html')
+        )
         .withHighlight(highlights.appHtml),
-      CodelabFile.TypeScriptFile('app.component').setCode(require('!!raw-loader!./samples/simple-router/app.component.ts')),
-      CodelabFile.TypeScriptFile('components/kitten').setCode(require('!!raw-loader!./samples/simple-router/components/kitten.ts')),
-      CodelabFile.TypeScriptFile('components/puppy').setCode(require('!!raw-loader!./samples/simple-router/components/puppy.ts')),
-      CodelabFile.TypeScriptFile('bootstrap').setCode(require('!!raw-loader!./samples/simple-router/main.ts')).makeBootstrappable(),
-      CodelabFile.Html('index').setCode(require('!!raw-loader!./samples/simple-router/index.html'))
+      CodelabFile.TypeScriptFile('app.component').setCode(
+        require('!!raw-loader!./samples/simple-router/app.component.ts')
+      ),
+      CodelabFile.TypeScriptFile('components/kitten').setCode(
+        require('!!raw-loader!./samples/simple-router/components/kitten.ts')
+      ),
+      CodelabFile.TypeScriptFile('components/puppy').setCode(
+        require('!!raw-loader!./samples/simple-router/components/puppy.ts')
+      ),
+      CodelabFile.TypeScriptFile('bootstrap')
+        .setCode(require('!!raw-loader!./samples/simple-router/main.ts'))
+        .makeBootstrappable(),
+      CodelabFile.Html('index').setCode(
+        require('!!raw-loader!./samples/simple-router/index.html')
+      )
     ]
   };
 }
-
 
 @Component({
   selector: 'slides-router',

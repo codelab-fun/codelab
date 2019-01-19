@@ -15,15 +15,14 @@ import { FormsModule } from '@angular/forms';
 import { ModeComponent } from './mode/mode.component';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
-const routes = RouterModule.forChild(
-  [
-    {
-      path: '',
-      redirectTo: '/create-first-app/intro',
-      pathMatch: 'full'
-    }, ...SlidesRoutes.get(CreateFirstAppComponent)
-  ]
-);
+const routes = RouterModule.forChild([
+  {
+    path: '',
+    redirectTo: '/create-first-app/intro',
+    pathMatch: 'full'
+  },
+  ...SlidesRoutes.get(CreateFirstAppComponent)
+]);
 
 @NgModule({
   imports: [
@@ -34,13 +33,11 @@ const routes = RouterModule.forChild(
     CodeDemoModule,
     BrowserWindowModule,
     CodelabComponentsModule,
-    
+
     SlidesModule,
-    FormsModule,
+    FormsModule
   ],
   declarations: [CreateFirstAppComponent, ModeComponent],
   exports: [CreateFirstAppComponent]
 })
-export class CreateFirstAppModule {
-
-}
+export class CreateFirstAppModule {}

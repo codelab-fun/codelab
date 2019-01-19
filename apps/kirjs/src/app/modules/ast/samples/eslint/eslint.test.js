@@ -21,11 +21,15 @@ function testThings(findDebugger, callback, args) {
 })`,
       test(func, args) {
         let result = func(this.title, args);
-        return result && result.includes && !result.includes('fit(') && result.includes('let fit');
+        return (
+          result &&
+          result.includes &&
+          !result.includes('fit(') &&
+          result.includes('let fit')
+        );
       }
     }
   ];
-
 
   let results = [];
   let failed = false;
@@ -34,17 +38,17 @@ function testThings(findDebugger, callback, args) {
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = (value) => {
+        args.log = value => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);
-        results.push(({title: test.title, pass: pass}));
+        results.push({ title: test.title, pass: pass });
         if (!pass) {
           failed = true;
           logs.map(log);
         }
       } else {
-        results.push(({title: test.title, pass: false}));
+        results.push({ title: test.title, pass: false });
       }
     }
   }
@@ -57,5 +61,3 @@ function testThings(findDebugger, callback, args) {
  .replace(/\/\/.*|'.*?[^\\]'|".*"|`[\s\S]+`/)
  .match(/\bdebugger\b/)
  */
-
-

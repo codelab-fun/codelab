@@ -4,5 +4,4 @@ import { Component } from '@angular/core';
   selector: 'slides--i-am-not-very-important',
   template: '<h1>Kittens</h1>'
 })
-export class KittenComponent {
-}
+export class KittenComponent {}

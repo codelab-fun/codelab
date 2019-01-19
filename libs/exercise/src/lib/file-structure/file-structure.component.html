@@ -1,11 +1,20 @@
 <div class="file-tree-column">
-  <div class="file-tree-column-toggle" [class.active]="showFileTree"
-       (click)="toggleTree()">
+  <div
+    class="file-tree-column-toggle"
+    [class.active]="showFileTree"
+    (click)="toggleTree()"
+  >
     <div class="file-structure-button">
-      <div class="wrapper"><img src="/assets/images/folder.png"/>File structure</div>
+      <div class="wrapper">
+        <img src="/assets/images/folder.png" />File structure
+      </div>
     </div>
   </div>
-  <slides-file-tree *ngIf="showFileTree" [files]="files" [active]="currentFile"
-                    (onSelectFile)="onSelectFile.emit($event)">
+  <slides-file-tree
+    *ngIf="showFileTree"
+    [files]="files"
+    [active]="currentFile"
+    (onSelectFile)="onSelectFile.emit($event)"
+  >
   </slides-file-tree>
 </div>

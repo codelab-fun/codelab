@@ -29,7 +29,6 @@ mat-form-field {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-
 }
 
 code-demo-editor {
@@ -43,7 +42,8 @@ code-demo-editor {
   display: flex;
 }
 
-.monaco-editor, .monaco-editor ::ng-deep > .monaco-single-editor {
+.monaco-editor,
+.monaco-editor ::ng-deep > .monaco-single-editor {
   display: block;
   width: 100%;
   height: 500px;

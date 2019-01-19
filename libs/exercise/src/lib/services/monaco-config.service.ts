@@ -16,7 +16,7 @@ export class MonacoConfigService {
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({paths: {vs: 'assets/monaco/dev/vs'}});
+    win.require.config({ paths: { vs: 'assets/monaco/dev/vs' } });
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
@@ -56,7 +56,6 @@ export class MonacoConfigService {
     this.addExtraLibsTest();
 
     // monaco.languages.typescript.typescriptDefaults.updateExtraLibs();
-
   }
 
   private static addExtraLibsTest() {
@@ -66,7 +65,10 @@ export class MonacoConfigService {
     files.forEach(file => {
       // monaco.languages.typescript.typescriptDefaults._extraLibs[file.path] = file.content;
       // console.log(file.path);
-      monaco.languages.typescript.typescriptDefaults.addExtraLib(file.content, 'file:///' + file.path);
+      monaco.languages.typescript.typescriptDefaults.addExtraLib(
+        file.content,
+        'file:///' + file.path
+      );
     });
 
     // monaco.languages.typescript.typescriptDefaults._onDidChange.fire(monaco.languages.typescript.typescriptDefaults);

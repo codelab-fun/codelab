@@ -4,14 +4,15 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
     <svg>
-      <rect x="100"
-            width="200"
-            y="100"
-            height="200"
-            fill="pink"
-            stroke="black"
-            stroke-width="20">
-      </rect>
+      <rect
+        x="100"
+        width="200"
+        y="100"
+        height="200"
+        fill="pink"
+        stroke="black"
+        stroke-width="20"
+      ></rect>
     </svg>
   `
 })
@@ -20,7 +21,7 @@ export class AppComponent {
 
   constructor() {
     window.setInterval(() => {
-      this.y = Math.random() * 300
+      this.y = Math.random() * 300;
     }, 200);
   }
 }

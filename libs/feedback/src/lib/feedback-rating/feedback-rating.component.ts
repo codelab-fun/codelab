@@ -2,7 +2,6 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'slides-feedback-rating',
   templateUrl: './feedback-rating.component.html',
@@ -34,11 +33,10 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
       src: 'ng-sleepy.svg',
       value: 'hopedformore',
       text: 'Hoped for more!'
-    },
+    }
   ];
 
-  constructor(private feedbackService: FeedbackService) {
-  }
+  constructor(private feedbackService: FeedbackService) {}
 
   ngOnInit() {
     this.ratings$ = this.feedbackService.getRatings();
@@ -63,5 +61,4 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
     this.ratingsClass = 'ratings slidedown';
     this.feedbackService.addRating(this.lesson, this.rates[option].value);
   }
-
 }

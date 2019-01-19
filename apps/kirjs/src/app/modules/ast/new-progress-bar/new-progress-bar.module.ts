@@ -7,7 +7,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   imports: [CommonModule, SizePickerModule, FlexLayoutModule],
   declarations: [NewProgressBarComponent],
-  exports: [NewProgressBarComponent],
+  exports: [NewProgressBarComponent]
 })
-export class NewProgressBarModule {
-}
+export class NewProgressBarModule {}

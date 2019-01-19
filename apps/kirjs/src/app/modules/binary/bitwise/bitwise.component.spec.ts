@@ -8,9 +8,8 @@ describe('BitwiseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BitwiseComponent ]
-    })
-    .compileComponents();
+      declarations: [BitwiseComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -13,15 +13,14 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
-const routes = RouterModule.forChild(
-  [
-    {
-      path: '',
-      redirectTo: '/dependency-injection/intro',
-      pathMatch: 'full'
-    }, ...SlidesRoutes.get(DependencyInjectionComponent)
-  ]
-);
+const routes = RouterModule.forChild([
+  {
+    path: '',
+    redirectTo: '/dependency-injection/intro',
+    pathMatch: 'full'
+  },
+  ...SlidesRoutes.get(DependencyInjectionComponent)
+]);
 
 @NgModule({
   imports: [
@@ -31,15 +30,12 @@ const routes = RouterModule.forChild(
     BrowserWindowModule,
     CodeDemoModule,
     CodelabComponentsModule,
-    
+
     SlidesModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [Ng2TsExercises],
   declarations: [DependencyInjectionComponent],
   exports: [DependencyInjectionComponent]
 })
-export class DependencyInjectionModule {
-
-}
-
+export class DependencyInjectionModule {}

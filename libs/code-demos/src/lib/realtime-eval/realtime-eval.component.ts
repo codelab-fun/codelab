@@ -11,11 +11,9 @@ export class RealtimeEvalComponent implements OnInit {
   result: string;
   error: string;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   evaluate() {
     try {
@@ -25,7 +23,5 @@ export class RealtimeEvalComponent implements OnInit {
       this.result = '';
       this.error = e.message;
     }
-
   }
-
 }

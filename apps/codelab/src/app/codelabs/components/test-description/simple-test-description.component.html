@@ -1,4 +1,6 @@
-<div class="test" [class.pass]="pass" [class.fail]="pass===false">
-  <span class="filename" *ngIf="file" (click)="onSelectFile.emit(file)">{{file}}</span>
-  <span class="title">{{title}}</span>
+<div class="test" [class.pass]="pass" [class.fail]="pass === false">
+  <span class="filename" *ngIf="file" (click)="onSelectFile.emit(file)">{{
+    file
+  }}</span>
+  <span class="title">{{ title }}</span>
 </div>
