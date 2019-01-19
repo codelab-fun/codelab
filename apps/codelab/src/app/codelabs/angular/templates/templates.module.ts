@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { TemplatesComponent } from './templates.component';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
@@ -25,7 +25,7 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-    PresentationModule,
+
     CodeDemoModule,
     FeedbackModule,
     CodelabComponentsModule,

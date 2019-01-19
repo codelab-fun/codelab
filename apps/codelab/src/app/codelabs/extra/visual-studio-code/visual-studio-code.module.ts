@@ -1,6 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VisualStudioCodeComponent } from './visual-studio-code.component';
@@ -17,7 +17,7 @@ const routes = RouterModule.forChild(
     SlidesModule,
     CodelabComponentsModule,
     routes,
-    PresentationModule,
+
     FeedbackModule,
     CommonModule
   ],

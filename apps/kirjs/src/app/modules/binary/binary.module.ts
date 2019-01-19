@@ -19,7 +19,7 @@ import { MatAutocompleteModule, MatSelectModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
 import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
 import { ConsoleModule } from '../../../../../../libs/console/src/index';
-import { PresentationModule } from '../../../../../../libs/presentation/src/index';
+
 import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { BinaryGifComponent } from './binary-gif/binary-gif.component';
@@ -49,7 +49,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
     MatAutocompleteModule,
     SharedPipeModule,
     ConsoleModule,
-    PresentationModule,
+
     ExerciseModule,
     NewProgressBarModule,
     MatSelectModule,

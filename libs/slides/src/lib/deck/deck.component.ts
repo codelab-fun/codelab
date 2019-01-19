@@ -1,15 +1,5 @@
-import {
-  Component,
-  ContentChildren,
-  EventEmitter,
-  HostBinding,
-  Input,
-  Optional,
-  Output,
-  QueryList,
-  TemplateRef
-} from '@angular/core';
-import { SlideControls } from '../../../../presentation/src/lib/presentation/presentation.component';
+import { Component, ContentChildren, EventEmitter, HostBinding, Input, Optional, Output, QueryList, TemplateRef } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './deck.component.html',
   styleUrls: ['./deck.component.scss']
 })
-export class SlidesDeckComponent implements SlideControls {
+export class SlidesDeckComponent {
   slides: any[] = [];
   @Input() theme = 'basic';
   @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;

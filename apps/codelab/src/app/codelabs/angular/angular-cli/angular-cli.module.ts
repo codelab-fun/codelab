@@ -8,7 +8,7 @@ import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedb
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
@@ -26,7 +26,7 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-    PresentationModule,
+
     FeedbackModule,
     CommonModule,
     BrowserWindowModule,

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { StructuralDirectivesComponent } from './structural-directives.component';
@@ -19,7 +19,7 @@ const routes = RouterModule.forChild(
 @NgModule({
   imports: [
     routes,
-    PresentationModule,
+
     CodeDemoModule,
     BrowserWindowModule,
     FeedbackModule,

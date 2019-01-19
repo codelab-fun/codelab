@@ -8,7 +8,7 @@ import { monacoReady } from '../../../../../libs/exercise/src/lib/services/monac
 import { ExerciseModule } from '../../../../../libs/exercise/src/lib/exercise.module';
 import { TooltipsModule } from '../../../../../libs/tooltips/src/lib/tooltips.module';
 import { IndexComponent } from './index/index.component';
-import { PresentationModule } from '../../../../../libs/presentation/src/lib/presentation.module';
+
 
 import { environment } from '../../environments/environment';
 import { NxModule } from '@nrwl/nx';
@@ -158,7 +158,7 @@ if (environment.production) {
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    PresentationModule,
+
     ExerciseModule,
     SlidesModule,
     RouterModule.forRoot(routes),

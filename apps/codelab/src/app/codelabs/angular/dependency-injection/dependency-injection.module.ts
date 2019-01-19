@@ -3,7 +3,7 @@ import { DependencyInjectionComponent } from './dependency-injection.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 
@@ -25,7 +25,7 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-    PresentationModule,
+
     FeedbackModule,
     BrowserWindowModule,
     CodeDemoModule,

@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +23,7 @@ export const angularFire = AngularFireModule.initializeApp(
   imports: [
     routes,
     BrowserWindowModule,
-    PresentationModule,
+
     angularFire,
     CommonModule,
     HttpClientModule,

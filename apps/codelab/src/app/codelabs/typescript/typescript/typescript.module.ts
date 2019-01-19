@@ -14,7 +14,7 @@ import { CodelabComponentsModule } from '../../components/codelab-components.mod
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { TypescriptSvgComponent } from './typescript-svg/typescript-svg.component';
-import { PresentationModule } from '../../../../../../../libs/presentation/src';
+
 
 const routes = RouterModule.forChild([
   {
@@ -35,11 +35,8 @@ const routes = RouterModule.forChild([
     CommonModule,
     FormsModule,
     BrowserWindowModule,
-
     CodelabComponentsModule,
     FormsModule,
-
-    PresentationModule
   ],
   declarations: [TypescriptComponent, TypescriptSvgComponent],
   exports: [TypescriptComponent]

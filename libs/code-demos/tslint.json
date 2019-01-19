@@ -4,7 +4,7 @@
     "directive-selector": [
       true,
       "attribute",
-      "code-demo",
+      "codeDemo",
       "camelCase"
     ],
     "component-selector": [

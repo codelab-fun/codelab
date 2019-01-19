@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { CommonModule } from '@angular/common';
 import { CreateFirstAppComponent } from './create-first-app.component';
@@ -27,7 +27,7 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-    PresentationModule,
+
     FeedbackModule,
     CommonModule,
     CodeDemoModule,

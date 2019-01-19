@@ -16,7 +16,7 @@ import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';
 import { SizePickerModule } from './size-picker/size-picker.module';
 import { TooltipsModule } from '@codelab/tooltips';
 
-import { PresentationModule } from '@codelab/presentation';
+
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
 import { SlidesModule } from '@codelab/slides';
@@ -30,7 +30,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
     routes,
     CommonModule,
     AstPreviewRunnerModule,
-    PresentationModule,
+
     ExerciseModule,
     SlidesModule,
     BrowserWindowModule,

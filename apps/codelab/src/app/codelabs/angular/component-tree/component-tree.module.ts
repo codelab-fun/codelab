@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ComponentTreeComponent } from './component-tree.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { PresentationModule } from '../../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
@@ -25,7 +25,7 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-    PresentationModule,
+
     BrowserWindowModule,
     CodeDemoModule,
     FeedbackModule,

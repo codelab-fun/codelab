@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { SvgComponent } from './svg.component';
-import { PresentationModule } from '../../../../../../libs/presentation/src/lib/presentation.module';
+
 import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
 
 import { FormsModule } from '@angular/forms';
@@ -28,7 +28,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));
   imports: [
     routes,
     CommonModule,
-    PresentationModule,
+
     FeedbackModule,
     ExerciseModule,
 
