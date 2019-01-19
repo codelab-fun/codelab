@@ -75,7 +75,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "module": "es2015"
   },
   "exclude": [
     "src/assets"

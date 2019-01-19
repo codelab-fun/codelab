@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
 import { compileTemplates } from '../runner/prepare-templates';
 import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
-import { addMetaInformation } from '@codelab/code-demos/src/lib/shared/helpers';
+import { addMetaInformation } from '../shared/helpers';
 
 
 interface CodeFiles {
