@@ -37,6 +37,27 @@
             "scripts": []
           },
           "configurations": {
+            "ru": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/codelab/ru/src/environments/environment.ts",
+                  "with": "apps/codelab/ru/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputPath": "dist/apps/codelab/ru",
+              "i18nFile": "apps/kirjs/src/locale/kirjs.ru.xtb",
+              "i18nFormat": "xtb",
+              "i18nLocale": "ru"
+            },
             "production": {
               "optimization": true,
               "outputHashing": "all",

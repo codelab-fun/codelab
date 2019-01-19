@@ -32,9 +32,6 @@
       "convert-source-map": [
         "../../apps/codelab/src/dummy.ts"
       ],
-      "@codelab/*": [
-        "libs/*"
-      ],
       "@codelab/presentation": [
         "libs/presentation/src/index.ts"
       ],
