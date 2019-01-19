@@ -15,8 +15,8 @@
       "public": "dist/apps/codelab",
       "rewrites": [
         {
-          "source": "ru/**",
-          "destination": "ru/index.html"
+          "source": "/ru/**",
+          "destination": "/ru/index.html"
         },
         {
           "source": "**",
