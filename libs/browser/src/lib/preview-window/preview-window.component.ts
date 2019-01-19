@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export type PreviewWindowType = 'console' | 'browser';
 
 @Component({
-  selector: 'slides-preview-window',
+  selector: 'preview-window',
   templateUrl: './preview-window.component.html',
   styleUrls: ['./preview-window.component.scss']
 })

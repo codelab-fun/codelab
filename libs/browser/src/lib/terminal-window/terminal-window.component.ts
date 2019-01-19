@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-terminal-window',
+  selector: 'preview-terminal-window',
   templateUrl: './terminal-window.component.html',
   styleUrls: ['./terminal-window.component.css']
 })

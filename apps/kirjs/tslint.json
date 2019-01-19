@@ -1,19 +1,19 @@
 {
   "extends": "../../tslint.json",
   "linterOptions": {
-    "exclude": "src/**/*.json"
+    "exclude": ["src/**/*.json"]
   },
   "rules": {
     "directive-selector": [
       true,
       "attribute",
-      "angular-presentation",
+      "kirjs",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "angular-presentation",
+      "kirjs",
       "kebab-case"
     ]
   }
