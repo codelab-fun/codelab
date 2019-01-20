@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CodelabRippleAnimationComponent } from './codelab-ripple-animation.component';
 
-import { CodelabRippleAnimationComponent } from './ripple-animation.component';
+
 
 describe('CodelabRippleAnimationComponent', () => {
   let component: CodelabRippleAnimationComponent;

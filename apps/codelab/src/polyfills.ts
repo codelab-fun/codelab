@@ -39,9 +39,6 @@
 /** IE10 and IE11 requires the following to support `@angular/animation`. */
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
-/** Evergreen browsers require these. **/
-import 'core-js/es6/reflect';
-
 /** ALL Firefox browsers require the following to support `@angular/animation`. **/
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
@@ -51,7 +48,7 @@ import 'core-js/es6/reflect';
 import 'zone.js/dist/zone'; // Included with Angular CLI.
 
 (window as any).process = {
-  env: { DEBUG: undefined },
+  env: {DEBUG: undefined},
   argv: {
     indexOf() {
       return 0;
