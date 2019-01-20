@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { monacoReady } from '../../../../../libs/exercise/src/lib/services/monaco-config.service';
-import { ExerciseModule } from '../../../../../libs/exercise/src/lib/exercise.module';
+
 
 import { IndexComponent } from './index/index.component';
 
@@ -159,7 +159,7 @@ if (environment.production) {
     FormsModule,
     HttpClientModule,
 
-    ExerciseModule,
+
     SlidesModule,
     RouterModule.forRoot(routes),
         FeedbackModule,

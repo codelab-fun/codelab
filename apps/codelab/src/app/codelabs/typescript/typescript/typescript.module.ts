@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { TypescriptComponent } from './typescript.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { ExerciseModule } from '../../../../../../../libs/exercise/src/lib/exercise.module';
+
 
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 import { CommonModule } from '@angular/common';
@@ -29,7 +29,7 @@ const routes = RouterModule.forChild([
   imports: [
     routes,
     SlidesModule,
-    ExerciseModule,
+
     FeedbackModule,
     CodeDemoModule,
     CommonModule,

@@ -5,7 +5,7 @@ import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { SvgComponent } from './svg.component';
 
-import { ExerciseModule } from '../../../../../../libs/exercise/src/lib/exercise.module';
+
 
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -30,7 +30,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));
     CommonModule,
 
     FeedbackModule,
-    ExerciseModule,
+
 
     FormsModule,
     FlexLayoutModule,
