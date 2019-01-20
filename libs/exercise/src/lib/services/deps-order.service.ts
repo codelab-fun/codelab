@@ -4,9 +4,14 @@ import { FileConfig } from '../interfaces/file-config';
 import * as ts from 'typescript';
 import { simpleVisitor } from './visitor';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DepsService {
+  constructor() {
+  }
 
+  // TODO(kirjs): Retire this
   /**
    * Takes a file path, and another path relative to the first one.
    * Returns the fulle
@@ -24,11 +29,10 @@ export class DepsService {
   static isLocalDep(string) {
     return !string.match(/\/code\b/) && !!string.match(/^\./);
   }
-  constructor() {}
 
   order(files: Array<FileConfig>) {
     let deps: { [key: string]: string } = files.reduce((result, file) => {
-      result[file.path] = { file, deps: [] };
+      result[file.path] = {file, deps: []};
       const source = ts.createSourceFile(
         file.path,
         file.code,

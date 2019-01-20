@@ -8,7 +8,9 @@ const monacoLoaderCode = require('!raw-loader!monaco-editor/dev/vs/loader');
 const win = window as any;
 declare const monaco;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MonacoConfigService {
   public static monacoReady = new Promise(resolve => {
     const script = document.createElement('script');
@@ -16,7 +18,7 @@ export class MonacoConfigService {
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({ paths: { vs: 'assets/monaco/dev/vs' } });
+    win.require.config({paths: {vs: 'assets/monaco/dev/vs'}});
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
@@ -25,6 +27,10 @@ export class MonacoConfigService {
   });
   static initialized = false;
   public monaco: any;
+
+  constructor(private depsService: DepsService) {
+    this.monaco = monaco;
+  }
 
   static configureMonaco() {
     if (MonacoConfigService.initialized) {
@@ -87,10 +93,6 @@ export class MonacoConfigService {
     //     noSyntaxValidation: !1
     //   }),
     //
-  }
-
-  constructor(private depsService: DepsService) {
-    this.monaco = monaco;
   }
 
   sortFiles(files: FileConfig[]) {

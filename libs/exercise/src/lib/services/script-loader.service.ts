@@ -3,7 +3,9 @@ import { assert } from './utils';
 
 declare const require;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ScriptLoaderService {
   scripts = {
     SystemJS: require('!!raw-loader!systemjs/dist/system'),
@@ -20,7 +22,8 @@ export class ScriptLoaderService {
     'react-dom': require('!!raw-loader!react-dom/umd/react-dom.development.js')
   };
 
-  constructor() {}
+  constructor() {
+  }
 
   getScript(url) {
     assert(this.scripts[url]);
