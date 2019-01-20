@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { monacoReady } from '../../../../../libs/exercise/src/lib/services/monaco-config.service';
 import { ExerciseModule } from '../../../../../libs/exercise/src/lib/exercise.module';
-import { TooltipsModule } from '../../../../../libs/tooltips/src/lib/tooltips.module';
+
 import { IndexComponent } from './index/index.component';
 
 
@@ -162,8 +162,7 @@ if (environment.production) {
     ExerciseModule,
     SlidesModule,
     RouterModule.forRoot(routes),
-    TooltipsModule,
-    FeedbackModule,
+        FeedbackModule,
     NxModule.forRoot()
   ],
   providers: [

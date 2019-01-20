@@ -84,8 +84,4 @@ export class EditorsComponent implements OnInit {
   trackFile(index, file) {
     return file.path;
   }
-
-  loadSolution(file: FileConfig): void {
-    this.loadSolution.next(file);
-  }
 }

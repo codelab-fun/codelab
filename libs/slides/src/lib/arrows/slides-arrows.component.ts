@@ -3,11 +3,12 @@ import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Component({
   selector: 'slide-arrows',
-  templateUrl: './slide-arrows.component.html',
-  styleUrls: ['./slide-arrows.component.css']
+  templateUrl: './slides-arrows.component.html',
+  styleUrls: ['./slides-arrows.component.css']
 })
 export class SlidesArrowsComponent {
-  constructor(private presentation: SlidesDeckComponent) {}
+  constructor(private presentation: SlidesDeckComponent) {
+  }
 
   goToPreviousSlide() {
     this.presentation.previousSlide();

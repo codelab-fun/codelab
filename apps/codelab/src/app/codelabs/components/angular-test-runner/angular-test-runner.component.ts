@@ -139,8 +139,4 @@ export class SimpleAngularTestRunnerComponent implements OnChanges {
       this.subscription = null;
     }
   }
-
-  selectFile(file: any) {
-    this.selectFile.emit(file);
-  }
 }

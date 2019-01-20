@@ -14,7 +14,7 @@ import { DebuggerComponent } from './debugger/debugger.component';
 import { TestSetComponent } from './test-set/test-set.component';
 import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';
 import { SizePickerModule } from './size-picker/size-picker.module';
-import { TooltipsModule } from '@codelab/tooltips';
+
 
 
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
@@ -38,8 +38,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
     CodeDemoModule,
     FlexLayoutModule,
     FormsModule,
-    TooltipsModule,
-    SizePickerModule,
+        SizePickerModule,
     MatCardModule,
     NewProgressBarModule,
     AngularSlidesToPdfModule

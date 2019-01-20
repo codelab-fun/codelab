@@ -2,6 +2,6 @@
   [translations]="translations"
   [tests]="tests"
   [code]="code"
-  (selectFile)="selectFile($event)"
+  (selectFile)="selectFile.emit($event)"
 ></slides-simple-tests>
 <div #runner class="runner"></div>

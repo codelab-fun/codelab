@@ -13,7 +13,7 @@ import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
 import { JsonComponent } from './json/json.component';
 
-import { TooltipsModule } from '../../../../../../libs/tooltips/src/index';
+
 import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule, MatSelectModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
@@ -45,8 +45,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
     CommonModule,
     BinaryViewModule,
     CodeDemoModule,
-    TooltipsModule,
-    MatAutocompleteModule,
+        MatAutocompleteModule,
     SharedPipeModule,
     ConsoleModule,
 

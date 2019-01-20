@@ -8,7 +8,7 @@ import { LoopProtectionService } from './services/loop-protection.service';
 import { MonacoConfigService } from './services/monaco-config.service';
 import { NgModule } from '@angular/core';
 import { ScriptLoaderService } from './services/script-loader.service';
-import { TooltipsModule } from '../../../tooltips/src/lib/tooltips.module';
+
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { DepsService } from './services/deps-order.service';
 
@@ -18,8 +18,7 @@ import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/siz
   imports: [
     CommonModule,
     FormsModule,
-    TooltipsModule,
-    BrowserWindowModule,
+        BrowserWindowModule,
     SizePickerModule
   ],
   declarations: [

@@ -44,9 +44,6 @@
       "@codelab/console": [
         "libs/console/src/index.ts"
       ],
-      "@codelab/tooltips": [
-        "libs/tooltips/src/index.ts"
-      ],
       "@codelab/utils": [
         "libs/utils/src/index.ts"
       ],

@@ -28,7 +28,7 @@
       <div
         class="solution"
         *ngIf="isActiveFile(file) && !file.readonly"
-        (click)="loadSolution(file)"
+        (click)="loadSolution.next(file);"
       >
         Load solution
       </div>
