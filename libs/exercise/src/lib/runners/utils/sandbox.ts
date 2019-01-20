@@ -1,7 +1,7 @@
 declare const require;
 
 export function jsScriptInjector(iframe) {
-  return function(code) {
+  return function (code) {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.innerHTML = code;
@@ -10,7 +10,7 @@ export function jsScriptInjector(iframe) {
 }
 
 export function cssInjector(iframe) {
-  return function(css) {
+  return function (css) {
     const s = iframe.contentDocument.createElement('style');
     s.innerHTML = css;
     iframe.contentDocument.getElementsByTagName('head')[0].appendChild(s);
@@ -51,7 +51,7 @@ export interface SandBoxWithLoader extends SandBox {
 
 const iframes = new WeakMap();
 
-function injectSystemJs({ evalJs }) {
+function injectSystemJs({evalJs}) {
   const systemCode = require('!!raw-loader!systemjs/dist/system.src');
   // SystemJS expects document.baseURI to be set on the document.
   // Since it's a readonly property, I'm faking whole document property.
@@ -78,12 +78,12 @@ export function createSystemJsSandbox(
     injectSystemJs(sandbox);
 
     function addDep(name, code) {
-      (sandbox.iframe.contentWindow as any).System.register(name, [], function(
+      (sandbox.iframe.contentWindow as any).System.register(name, [], function (
         exports
       ) {
         return {
           setters: [],
-          execute: function() {
+          execute: function () {
             exports(code);
           }
         };
@@ -95,7 +95,7 @@ export function createSystemJsSandbox(
       (sandbox.iframe.contentWindow as any).loadSystemModule(name, code);
     }
 
-    return { ...sandbox, addDep, loadSystemJsDep };
+    return {...sandbox, addDep, loadSystemJsDep};
   });
 }
 
@@ -133,18 +133,21 @@ export function injectIframe(
       }
 
       function setError(html) {
-        (iframe.contentDocument.querySelector('.error') ||
-          iframe.contentDocument.body).innerHTML = html;
+        const error = iframe.contentDocument.querySelector('.error');
+        if (error) {
+          // TODO(kirjs): Uncommit
+          // error.innerHTML = html;
+        }
       }
 
-      iframe.contentWindow.console.log = function() {
+      iframe.contentWindow.console.log = function () {
         console.log.apply(console, arguments);
       };
 
-      iframe.contentWindow.onerror = function(error, message) {
+      iframe.contentWindow.onerror = function (error, message) {
         logError(error, message);
       };
-      iframe.contentWindow.console.error = function(error, message) {
+      iframe.contentWindow.console.error = function (error, message) {
         // handle Angular error 1/3
         logError(error, message);
 

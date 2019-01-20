@@ -63,7 +63,7 @@ const preloadedFiles = {
   'thumbs.app.module.ts': require('!raw-loader!./thumbs.app.module.ts'),
   'video.app.module.ts': require('!raw-loader!./video.app.module.ts'),
   'toggle-panel.app.module.ts': require('!raw-loader!./toggle-panel.app.module.ts'),
-  'index.html': '<base href="/assets/runner/"><my-app></my-app>'
+  'index.html': '<base href="/assets/runner/"><my-app></my-app><div class="error"></div>'
   // 'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
 };
 
