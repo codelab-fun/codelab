@@ -1,7 +1,6 @@
 import { BrowserWindowModule } from '../../../browser/src/lib/browser.module';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
-import { EditorsComponent } from './editors/editors.component';
 import { FileTreeComponent } from './file-tree/file-tree.component';
 import { FormsModule } from '@angular/forms';
 import { LoopProtectionService } from './services/loop-protection.service';
@@ -18,11 +17,10 @@ import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/siz
   imports: [
     CommonModule,
     FormsModule,
-        BrowserWindowModule,
+    BrowserWindowModule,
     SizePickerModule
   ],
   declarations: [
-    EditorsComponent,
     EditorComponent,
     FileTreeComponent,
     FileStructureComponent
@@ -35,4 +33,5 @@ import { SizePickerModule } from '../../../../apps/kirjs/src/app/modules/ast/siz
   ],
   exports: [EditorComponent]
 })
-export class ExerciseModule {}
+export class ExerciseModule {
+}
