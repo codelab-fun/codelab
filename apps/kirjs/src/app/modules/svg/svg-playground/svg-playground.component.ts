@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-svg-playground',
+  selector: 'kirjs-svg-playground',
   templateUrl: './svg-playground.component.html',
   styleUrls: ['./svg-playground.component.css']
 })

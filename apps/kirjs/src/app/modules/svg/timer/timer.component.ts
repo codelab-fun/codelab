@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-timer',
+  selector: 'kirjs-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })

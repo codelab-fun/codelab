@@ -1,12 +1,4 @@
-import {
-  Component,
-  HostListener,
-  Input,
-  OnInit,
-  Type,
-  ViewChild,
-  ViewChildren
-} from '@angular/core';
+import { AfterViewInit, Component, HostListener, Input, OnInit, Type, ViewChild, ViewChildren } from '@angular/core';
 
 function escapeHtml(str) {
   const div = document.createElement('div');
@@ -19,7 +11,7 @@ function escapeHtml(str) {
   templateUrl: './console.component.html',
   styleUrls: ['./console.component.css']
 })
-export class ConsoleComponent implements OnInit {
+export class ConsoleComponent implements OnInit, AfterViewInit {
   fontSize = 40;
   output = [];
   input = '';
@@ -36,11 +28,9 @@ export class ConsoleComponent implements OnInit {
 
   currentCommand = 0;
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if (event.keyCode === 27) {
+  @HostListener('document:keydown.esc', ['$event'])
+  handleKeyboardEvent() {
       this.inputEl.nativeElement.focus();
-    }
   }
 
   trackByFn(a, i) {
@@ -55,7 +45,7 @@ export class ConsoleComponent implements OnInit {
         type: 'dynamic'
       });
     } else {
-      this.output.push({ code: code, type });
+      this.output.push({code: code, type});
     }
   }
 
@@ -81,7 +71,7 @@ export class ConsoleComponent implements OnInit {
     (window as any).explain = (component: string, param: string) =>
       this.explain(component, param);
 
-    console.log = function() {
+    console.log = function () {
       Array.from(arguments).map(a => that.post(a, 'log'));
     };
 

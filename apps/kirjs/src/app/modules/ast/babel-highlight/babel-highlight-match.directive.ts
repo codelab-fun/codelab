@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, Input } from '@angular/core';
-import { EditorComponent } from '../../../../../../../libs/exercise/src/lib/editor/editor.component';
+import { CodeDemoEditorComponent } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.component';
 
 
 // TODO(kirjs): Uncommit
@@ -11,7 +11,7 @@ export class BabelHighlightDirective implements AfterViewInit {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('slidesBabelHighlightMatch') callback;
 
-  constructor(private editorComponent: EditorComponent) {
+  constructor(private editorComponent: CodeDemoEditorComponent) {
   }
 
   ngAfterViewInit(): void {

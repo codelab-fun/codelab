@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Component({
-  selector: 'slides-svg-together-result',
+  selector: 'kirjs-svg-together-result',
   templateUrl: './svg-together-result.component.html',
   styleUrls: ['./svg-together-result.component.css']
 })
