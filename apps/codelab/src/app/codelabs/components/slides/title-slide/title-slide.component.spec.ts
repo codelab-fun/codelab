@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { RippleAnimationComponent } from '../ripple-animation/ripple-animation.component';
+
 import { TitleSlideComponent } from './title-slide.component';
+import { CodelabRippleAnimationComponent } from './ripple-animation/codelab-ripple-animation.component';
 
 describe('TitleSlideComponent', () => {
   let component: TitleSlideComponent;
@@ -10,7 +11,7 @@ describe('TitleSlideComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RippleAnimationComponent, TitleSlideComponent]
+      declarations: [CodelabRippleAnimationComponent, TitleSlideComponent]
     }).compileComponents();
   }));
 
