@@ -18,6 +18,7 @@ import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-prog
 import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
 import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-animation/codelab-ripple-animation.component';
 import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-test-runner.component';
+import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-
     CodelabProgressBarComponent,
     BabelTestRunnerComponent,
     CodelabRippleAnimationComponent,
-    SimpleAngularTestRunnerComponent
+    SimpleAngularTestRunnerComponent,
+    MenuShortcutComponent
   ],
   exports: [
     CodelabExerciseComponent,
@@ -51,7 +53,8 @@ import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-
     CodelabExercisePreviewComponent,
     CodelabExercisePlayground,
     CodelabProgressBarComponent,
-    BabelTestRunnerComponent
+    BabelTestRunnerComponent,
+    MenuShortcutComponent
   ]
 })
 export class CodelabComponentsModule {}
