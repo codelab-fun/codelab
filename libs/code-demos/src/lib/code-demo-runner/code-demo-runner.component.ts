@@ -89,18 +89,25 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
     this.subscription = this.changedFilesSubject.subscribe(files => {
       addMetaInformation(sandbox, files);
 
-      Object.entries(files)
+      const hasErrors = Object.entries(files)
         .filter(([path]) => path.match(/\.js$/))
-        .forEach(([path, code]) => {
+        .some(([path, code]) => {
           sandbox.evalJs(
             `System.registry.delete(System.normalizeSync('./${path.replace(
               '.js',
               ''
             )}'));`
           );
-          sandbox.evalJs(code);
-        });
 
+          try {
+            sandbox.evalJs(code);
+          } catch (e) {
+            console.log(e);
+            return true;
+          }
+          return false;
+        });
+      
       Object.entries(files)
         .filter(([path]) => path.match(/\.css$/))
         .forEach(([path, code]) => {
@@ -112,7 +119,9 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
         console.error('Bootstrap missing');
       }
 
-      sandbox.evalJs(`System.import('${this.bootstrap}')`);
+      if (!hasErrors) {
+        sandbox.evalJs(`System.import('${this.bootstrap}')`);
+      }
     });
 
     this.trackIframeUrl(sandbox.iframe);

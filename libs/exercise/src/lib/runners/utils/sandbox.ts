@@ -2,10 +2,7 @@ declare const require;
 
 export function jsScriptInjector(iframe) {
   return function (code) {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.innerHTML = code;
-    iframe.contentWindow.document.head.appendChild(script);
+    iframe.contentWindow.eval(code);
   };
 }
 
