@@ -10,7 +10,7 @@ import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/b
 
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 import { FormsModule } from '@angular/forms';
-import { CodelabComponentsModule } from '../../components/codelab-components.module';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { TypescriptSvgComponent } from './typescript-svg/typescript-svg.component';

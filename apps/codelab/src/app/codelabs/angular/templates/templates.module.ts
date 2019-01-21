@@ -7,7 +7,7 @@ import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/sli
 
 import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
 
-import { CodelabComponentsModule } from '../../components/codelab-components.module';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { FormsModule } from '@angular/forms';

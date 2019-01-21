@@ -3,7 +3,7 @@ import {
   CodelabExerciseComponent,
   extractSolutions
 } from '../exercise/exercise.component';
-import { convertExerciseToMap } from '../../../../../../../ng2ts/ng2ts';
+import { convertExerciseToMap } from '../../../../../../ng2ts/ng2ts';
 
 @Component({
   selector: 'slides-codelab-exercise-preview',

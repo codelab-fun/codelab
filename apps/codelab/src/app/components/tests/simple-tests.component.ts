@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TestInfo } from '../../../../../../../libs/exercise/src/lib/interfaces/test-info';
+import { TestInfo } from '../../../../../../libs/exercise/src/lib/interfaces/test-info';
 
 function getFileName(file: string) {
   return file.split('/').pop();

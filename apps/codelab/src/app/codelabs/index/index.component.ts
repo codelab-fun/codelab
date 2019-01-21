@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { extractMessages } from '../../../../../../libs/presentation/src/lib/i18n-tools';
-import { MenuShortcutRoute } from '../components/menu-shortcut/menu-shortcut.component';
+import { MenuShortcutRoute } from '../../components/menu-shortcut/menu-shortcut.component';
 
 @Component({
   selector: 'slides-index',

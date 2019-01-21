@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatSelectModule } from '@angular/material';
 
-import { CodeDemoModule } from '../../../../../../libs/code-demos/src';
+import { CodeDemoModule } from '../../../../../libs/code-demos/src';
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
 import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';

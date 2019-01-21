@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { SlidesDeckComponent } from '../../../../../../../libs/slides/src/lib/deck/deck.component';
+import { SlidesDeckComponent } from '../../../../../../libs/slides/src/lib/deck/deck.component';
 
 @Component({
   selector: 'codelab-progress-bar',

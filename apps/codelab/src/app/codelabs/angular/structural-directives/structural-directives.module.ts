@@ -6,7 +6,7 @@ import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedb
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { StructuralDirectivesComponent } from './structural-directives.component';
 
-import { CodelabComponentsModule } from '../../components/codelab-components.module';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { FormsModule } from '@angular/forms';

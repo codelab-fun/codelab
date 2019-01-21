@@ -7,7 +7,7 @@ import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedb
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 
-import { CodelabComponentsModule } from '../../components/codelab-components.module';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { FormsModule } from '@angular/forms';

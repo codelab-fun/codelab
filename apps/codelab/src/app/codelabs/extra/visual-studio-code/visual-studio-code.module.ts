@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { VisualStudioCodeComponent } from './visual-studio-code.component';
 import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
-import { CodelabComponentsModule } from '../../components/codelab-components.module';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(VisualStudioCodeComponent)

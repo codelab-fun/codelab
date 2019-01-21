@@ -5,8 +5,8 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
-import { FileConfig } from '../../../../../../../libs/exercise/src/lib/interfaces/file-config';
-import { TestInfo } from '../../../../../../../libs/exercise/src/lib/interfaces/test-info';
+import { FileConfig } from '../../../../../../libs/exercise/src/lib/interfaces/file-config';
+import { TestInfo } from '../../../../../../libs/exercise/src/lib/interfaces/test-info';
 
 declare const require;
 

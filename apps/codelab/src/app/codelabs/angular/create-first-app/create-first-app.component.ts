@@ -7,7 +7,7 @@ import { extractMessages } from '../../../../../../../libs/presentation/src/lib/
   selector: 'slides-create-first-app',
   templateUrl: './create-first-app.component.html',
   styleUrls: [
-    '../../components/css/codelab-styles.scss',
+    '../../../components/css/codelab-styles.scss',
     './create-first-app.component.css'
   ]
 })

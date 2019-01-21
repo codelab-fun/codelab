@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 
 
-import { CodelabComponentsModule } from '../../components/codelab-components.module';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { FormsModule } from '@angular/forms';

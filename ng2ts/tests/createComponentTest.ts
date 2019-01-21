@@ -4,7 +4,7 @@ import {
   expectDecorator,
   expectDecoratorPropertyStringValue,
   expectExportedClass
-} from '../../apps/codelab/src/app/codelabs/components/babel-test-runner/babel-helpers';
+} from '../../apps/codelab/src/app/components/babel-test-runner/babel-helpers';
 
 const tests = [
   {

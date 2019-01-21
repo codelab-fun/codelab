@@ -16,7 +16,7 @@ const circleAndBoxCode = circleAndBox();
   selector: 'slides-component-tree',
   templateUrl: './component-tree.component.html',
   styleUrls: [
-    '../../components/css/codelab-styles.scss',
+    '../../../components/css/codelab-styles.scss',
     './component-tree.component.css'
   ]
 })
