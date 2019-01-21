@@ -1,1 +1,1 @@
-export * from './lib/console.module';
+export const lol = 1;
