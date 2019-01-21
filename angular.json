@@ -202,6 +202,34 @@
         }
       }
     },
+    "dummy": {
+      "root": "libs/dummy",
+      "sourceRoot": "libs/dummy/src",
+      "projectType": "library",
+      "prefix": "codelab",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/dummy/src/test.ts",
+            "tsConfig": "libs/dummy/tsconfig.spec.json",
+            "karmaConfig": "libs/dummy/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/dummy/tsconfig.lib.json",
+              "libs/dummy/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "utils": {
       "root": "libs/utils",
       "sourceRoot": "libs/utils/src",
@@ -252,7 +280,12 @@
                 "output": "./assets/monaco/"
               },
               "apps/kirjs/src/favicon.ico",
-              "apps/kirjs/src/assets"
+              "apps/kirjs/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/exercise/assets/runner/",
+                "output": "./assets/runner/"
+              }
             ],
             "styles": [
               "apps/kirjs/src/styles.css"

@@ -16,9 +16,7 @@ import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';
 import { SizePickerModule } from './size-picker/size-picker.module';
 
 
-
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
-
 import { SlidesModule } from '@codelab/slides';
 import { BabelTestRunner } from './test-set/babel-test-runner/babel-test-runner.component';
 import { CodeDemoModule } from '@codelab/code-demos';

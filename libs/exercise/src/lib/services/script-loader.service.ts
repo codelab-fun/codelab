@@ -9,7 +9,7 @@ declare const require;
 export class ScriptLoaderService {
   scripts = {
     SystemJS: require('!!raw-loader!systemjs/dist/system'),
-    mocha: require('!!raw-loader!mocha/mocha'),
+    mocha: require('!!raw-loader!../../../assets/runner/js/mocha'),
     chai: require('!!raw-loader!chai/chai'),
     'test-bootstrap': require('!!raw-loader!../../../assets/runner/js/test-bootstrap'),
     shim: require('!!raw-loader!core-js/client/shim.min.js'),

@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "angularCompilerOptions": {
     "enableIvy": false,
-    "pizda": 1
+    "pizza": 1
   },
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
@@ -18,19 +18,19 @@
         "node_modules/jszip/dist/jszip.min.js"
       ],
       "crypto": [
-        "../../apps/codelab/src/dummy.ts"
+        "libs/dummy/src/index.ts"
       ],
       "source-map-support": [
-        "../../apps/codelab/src/dummy.ts"
+        "libs/dummy/src/index.ts"
       ],
       "path": [
-        "../../apps/codelab/src/dummy.ts"
+        "libs/dummy/src/index.ts"
       ],
       "process": [
-        "../../apps/codelab/src/dummy.ts"
+        "libs/dummy/src/index.ts"
       ],
       "convert-source-map": [
-        "../../apps/codelab/src/dummy.ts"
+        "libs/dummy/src/index.ts"
       ],
       "@codelab/*": [
         "libs/*"
@@ -74,8 +74,5 @@
       "dom"
     ],
     "module": "es2015"
-  },
-  "exclude": [
-    "src/assets"
-  ]
+  }
 }

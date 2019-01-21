@@ -1,6 +1,5 @@
-import { AfterViewInit, Directive, Input } from '@angular/core';
+import { AfterViewInit, Directive, Input, NgModule } from '@angular/core';
 import { CodeDemoEditorComponent } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.component';
-
 
 // TODO(kirjs): Uncommit
 @Directive({
@@ -31,3 +30,8 @@ export class BabelHighlightDirective implements AfterViewInit {
     }
   }
 }
+
+@NgModule({
+  declarations: [ BabelHighlightDirective ]
+})
+export class MockaADASDASDASDASDASDModule {}

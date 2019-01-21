@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc/apps/angular-presentation",
     "module": "es2015",
-    "baseUrl": "",
     "types": []
   },
   "exclude": ["test.ts", "**/*.spec.ts"]
