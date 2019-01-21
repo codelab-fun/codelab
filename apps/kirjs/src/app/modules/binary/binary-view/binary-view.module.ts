@@ -15,10 +15,10 @@ import { AutoSizeInputModule } from 'ngx-autosize-input';
 import { BinaryFlatComponent } from '../binary-flat/binary-flat.component';
 import { BinaryPlainComponent } from '../binary-plain/binary-plain.component';
 import { FormsModule } from '@angular/forms';
-import { NgxPopper } from 'angular-popper';
+
 
 @NgModule({
-  imports: [CommonModule, AutoSizeInputModule, FormsModule, NgxPopper],
+  imports: [CommonModule, AutoSizeInputModule, FormsModule],
   declarations: [
     BlockComponent,
     ObjectComponent,
