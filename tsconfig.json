@@ -2,7 +2,6 @@
   "compileOnSave": false,
   "angularCompilerOptions": {
     "enableIvy": false,
-    "pizza": 1
   },
   "compilerOptions": {
     "outDir": "./dist/out-tsc",

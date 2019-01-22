@@ -53,7 +53,7 @@ function updateSlidesModule(schema: any): Rule {
       recorder.insertLeft(change.pos, change.toAdd);
     });
 
-    const classDeclaration = sourceFile.statements.find(s =>
+    const classDeclaration = [...sourceFile.statements].find(s =>
       ts.isClassDeclaration(s)
     );
     recorder.insertLeft(classDeclaration.pos, code);
