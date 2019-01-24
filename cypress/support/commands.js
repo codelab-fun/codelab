@@ -7,7 +7,8 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
+//import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+
 //
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
@@ -23,3 +24,11 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+
+addMatchImageSnapshotCommand({
+    failureThreshold: 0.03, // threshold for entire image
+    failureThresholdType: 'percent', // percent of image or number of pixels
+    customDiffConfig: { threshold: 0.1 }, // threshold for each pixel
+    capture: 'runner'
+});
