@@ -17,6 +17,7 @@
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
     "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && npm run sw  && firebase deploy --only hosting:codelab",
+    "cypress": "cypress",
     "//--------------- KIRJS   ---------------------": "",
     "deploy:kirjs": "ng build kirjs --prod --aot && npm run sw && firebase deploy  --only hosting:kirjs",
     "deploy:kirjs:ru": "ng build kirjs --configuration ru --prod --aot && npm run sw && firebase deploy  --only hosting:kirjs",
