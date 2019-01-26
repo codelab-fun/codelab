@@ -12,6 +12,8 @@ import { SimpleHighlightMatchDirective } from './code-demo-editor/simple-highlig
 import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.component';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 
+import { CodeDemoEditorAutoFolding } from './code-demo-editor/code-demo-editor.auto-folding';
+import { CodeDemoEditorLineChange } from './code-demo-editor/code-demo-editor.line-change';
 
 @NgModule({
   imports: [
@@ -29,7 +31,9 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     CodeDemoComponent,
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
-    RealtimeEvalComponent
+    RealtimeEvalComponent,
+    CodeDemoEditorLineChange,
+    CodeDemoEditorAutoFolding
   ],
   exports: [
     FilePathComponent,
@@ -39,7 +43,9 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     CodeDemoComponent,
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
-    RealtimeEvalComponent
+    RealtimeEvalComponent,
+    CodeDemoEditorLineChange,
+    CodeDemoEditorAutoFolding
   ]
 })
 export class CodeDemoModule {

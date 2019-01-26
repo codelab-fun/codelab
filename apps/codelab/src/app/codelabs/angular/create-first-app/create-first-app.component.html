@@ -53,7 +53,7 @@
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
       <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png" />
+        <img src="/assets/images/github-icon.png"/>
       </a>
     </div>
     <feedback-widget></feedback-widget>
@@ -143,6 +143,7 @@
     <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
     <code-demo-editor
+      [autoFolding]="true"
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
       [lineNumbers]="false"
@@ -310,6 +311,7 @@
     <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
     <code-demo-editor
+      autoFolding
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
       [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.exportClass]"
@@ -469,7 +471,7 @@
       <ng-container i18n>Bootstrapping 1</ng-container>
     </h1>
     <h2 i18n>How does bootstrapping work in Angular?</h2>
-    <br />
+    <br/>
     <h2 i18n>
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
@@ -484,7 +486,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -515,7 +517,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -548,7 +550,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
