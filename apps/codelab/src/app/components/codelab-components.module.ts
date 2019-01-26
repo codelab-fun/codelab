@@ -19,6 +19,7 @@ import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.
 import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-animation/codelab-ripple-animation.component';
 import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-test-runner.component';
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
+import { ExternalLinkDirectiveDirective } from './external-link-directive/external-link-directive.directive';
 
 @NgModule({
   imports: [
