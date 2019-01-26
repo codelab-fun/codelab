@@ -646,6 +646,29 @@
     </div>
   </div>
 
+  <!--@-selectorgame-->
+  <div *slide id="selectorgame">
+    <div class="header" header><h1 i18n>Selector Game</h1></div>
+      <code-demo-file-path path="index.html"></code-demo-file-path>
+      <code-demo-editor
+        language="html"
+        style="height: 50vh"
+        [fontSize]="18"
+        [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.hello"
+        [(ngModel)]="code.gameComponent.code"
+      ></code-demo-editor>
+
+      <code-demo-file-path path="app.component.ts"></code-demo-file-path>
+      <code-demo-editor
+        style="height: 50vh"
+        [fontSize]="18"
+        [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.hello"
+        [(ngModel)]="code.componentAnatomy.code"
+      ></code-demo-editor>
+      What selector goes here?<br>
+      <input type="text" size="10">
+
+  </div>
   <div *slide id="end">
     <codelab-closing-slide>
       <div class="header" header><h1 i18n>End of Bootstrap Section</h1></div>

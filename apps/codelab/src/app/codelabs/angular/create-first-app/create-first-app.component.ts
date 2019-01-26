@@ -93,14 +93,35 @@ export class AppComponent {
   // ${this.t.componentNameIsClassName}
 }`
       },
+      gameComponent: {
+        // Component Anatomy - Milestone #1
+        code: `<!DOCTYPE>
+<body>
+  <store>
+    <item></item>
+  </store>
+
+  <!--this is main.ts compiled.
+    Often build system will insert the script tag for you-->
+  <script src="main.js"></script>
+</body>`,
+        matches: {
+          exportClass: /export.*/,
+          decorator: /@C[^]*?\)[^]/,
+          selector: /selector.*'.*'/,
+          template: /template.*'.*'/
+        },
+        readonly: true,
+        type: 'typescript'
+      },
       componentAnatomy: {
         // Component Anatomy - Milestone #1
         code: `import { Component } from '@angular/core';
 @Component({
-  selector: 'hello-world',
-  template: '<h1>Hello World!</h1>',
+  selector: '<what selector goes here>',
+  template: '<h1>Welcome to my store!</h1>',
 })
-export class HelloWorldComponent {}`,
+export class StoreComponent {}`,
         matches: {
           exportClass: /export.*/,
           decorator: /@C[^]*?\)[^]/,
