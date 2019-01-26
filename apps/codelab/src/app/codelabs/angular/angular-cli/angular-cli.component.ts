@@ -9,5 +9,4 @@ import { Component } from '@angular/core';
   ]
 })
 export class AngularCliComponent {
-  // static ExternalLinkDirectiveDirective: any;
 }
