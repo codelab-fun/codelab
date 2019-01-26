@@ -4,17 +4,9 @@ import { Directive, Input, ElementRef } from '@angular/core';
   selector: '[href]'
 })
 export class ExternalLinkDirectiveDirective {
-
-
   constructor(
-    private element: ElementRef
+    {nativeElement}: ElementRef
   ) {
-    console.log('stuff', this.element.nativeElement);
-    this.element.nativeElement.target = '_blank';
+    nativeElement.target = '_blank';
   }
-
-  onNavigate(){
-    // window.open(this.href, "_blank");
-}
-
 }
