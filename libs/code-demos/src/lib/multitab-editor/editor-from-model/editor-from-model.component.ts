@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnDestroy,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 
 import { MonacoConfigService } from '../../../../../exercise/src/lib/services/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
@@ -23,7 +17,8 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   private didChangeListener: IDisposable;
   private model: ITextModel;
 
-  constructor(readonly monacoConfigService: MonacoConfigService) {}
+  constructor(readonly monacoConfigService: MonacoConfigService) {
+  }
 
   @Input('model') set setModel(model: ITextModel) {
     this.model = model;
@@ -58,9 +53,12 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
       .split('\n').length;
     const lineHeight = this.fontSize * 1.6;
     const height = Math.max(lines * lineHeight, lineHeight * 5);
+
     if (this.height !== height) {
       this.height = height;
       this.el.nativeElement.style.height = height + 'px';
+      // Needed for firefox
+      this.el.nativeElement.parentElement.style.height = height + 'px';
       this.editor.layout();
     }
   }
