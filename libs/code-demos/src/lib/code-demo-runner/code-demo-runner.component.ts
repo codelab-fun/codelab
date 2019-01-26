@@ -1,4 +1,15 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
@@ -30,7 +41,8 @@ const presets = {
 @Component({
   selector: 'code-demo-runner',
   templateUrl: './code-demo-runner.component.html',
-  styleUrls: ['./code-demo-runner.component.css']
+  styleUrls: ['./code-demo-runner.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   @Input() code: CodeFiles = {};
@@ -43,7 +55,17 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   presets = ['angular'];
   private subscription: SubscriptionLike;
 
-  constructor(public scriptLoaderService: ScriptLoaderService) {
+  constructor(
+    public scriptLoaderService: ScriptLoaderService,
+    private cdr: ChangeDetectorRef) {
+  }
+
+  get displayUrl() {
+    console.log(this.url);
+    if (this.url === '/assets/runner') {
+      return 'http://localhost:4200';
+    }
+    return this.url.replace('assets/runner', '');
   }
 
   @Input('presets')
@@ -107,7 +129,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
           }
           return false;
         });
-      
+
       Object.entries(files)
         .filter(([path]) => path.match(/\.css$/))
         .forEach(([path, code]) => {
@@ -136,6 +158,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
         ); // .replace(this.urlBase, '')
         if (this.url !== url) {
           this.url = url;
+          this.cdr.markForCheck();
         }
       } else {
         window.clearInterval(interval);
