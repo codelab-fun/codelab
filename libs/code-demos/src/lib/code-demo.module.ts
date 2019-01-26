@@ -10,7 +10,6 @@ import { FilePathComponent } from './file-path/file-path.component';
 import { CodeDemoRunnerComponent } from './code-demo-runner/code-demo-runner.component';
 import { SimpleHighlightMatchDirective } from './code-demo-editor/simple-highlight-match.directive';
 import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.component';
-import { SimpleHighlightDirective } from './code-demo-editor/simple-highlight.directive';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 
 
@@ -30,7 +29,6 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     CodeDemoComponent,
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
-    SimpleHighlightDirective,
     RealtimeEvalComponent
   ],
   exports: [
@@ -41,7 +39,6 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     CodeDemoComponent,
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
-    SimpleHighlightDirective,
     RealtimeEvalComponent
   ]
 })
