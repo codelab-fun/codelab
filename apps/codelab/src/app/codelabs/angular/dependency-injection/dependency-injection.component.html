@@ -78,7 +78,7 @@
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withOutDI.code"
-          [codeDemoSimpleHighlightMatch]="[
+          [codeDemoHighlight]="[
             code.withOutDI.matches.noDI,
             'profession'
           ]"
@@ -93,7 +93,7 @@
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
-          [codeDemoSimpleHighlightMatch]="[code.withDI.matches.constructor]"
+          [codeDemoHighlight]="[code.withDI.matches.constructor]"
         ></code-demo-editor>
         <h2 class="comparision" i18n>
           With Dependency Injection, <b>Person</b> class just "requires" an
@@ -120,7 +120,7 @@
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withOutDI.code2"
-          [codeDemoSimpleHighlightMatch]="[code.withOutDI.matches.noDI]"
+          [codeDemoHighlight]="[code.withOutDI.matches.noDI]"
         ></code-demo-editor>
         <h2 class="comparision">
           Without Dependency Injection, you have to figure out all the
@@ -132,7 +132,7 @@
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
-          [codeDemoSimpleHighlightMatch]="[code.withDI.matches.constructor]"
+          [codeDemoHighlight]="[code.withDI.matches.constructor]"
         ></code-demo-editor>
         <h2 class="comparision" i18n>
           With Dependency Injection, Angular takes care of it
@@ -210,7 +210,7 @@
     <code-demo-file-path path="unit-converter-service.ts"></code-demo-file-path>
     <code-demo-editor
       [(ngModel)]="code.classAsInjectable.code"
-      [codeDemoSimpleHighlightMatch]="[code.classAsInjectable.matches.injectable]"
+      [codeDemoHighlight]="[code.classAsInjectable.matches.injectable]"
     ></code-demo-editor>
     <div class="info" i18n>
       If a service class is marked as injectable, it can require other services
@@ -233,7 +233,7 @@
     <code-demo-file-path path="app.module.ts"></code-demo-file-path>
     <code-demo-editor
       [(ngModel)]="code.provideInjectable.code"
-      [codeDemoSimpleHighlightMatch]="[
+      [codeDemoHighlight]="[
         code.provideInjectable.matches.providers,
         'UnitConverterService'
       ]"
@@ -257,7 +257,7 @@
     <code-demo-file-path path="unit-conversion.component.ts"></code-demo-file-path>
     <code-demo-editor
       [(ngModel)]="code.consumeInjectable.code"
-      [codeDemoSimpleHighlightMatch]="[
+      [codeDemoHighlight]="[
         code.consumeInjectable.matches.constructor
       ]"
     ></code-demo-editor>

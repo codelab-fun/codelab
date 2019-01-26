@@ -47,7 +47,7 @@ export class MultitabEditorComponent
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
-  @Input() codeDemoSimpleHighlightMatch = [];
+  @Input() codeDemoHighlight = [];
   @Input() highlights = {};
   files = [];
   openModels: MonacoModel[];

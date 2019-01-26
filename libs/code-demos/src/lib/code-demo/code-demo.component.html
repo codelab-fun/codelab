@@ -1,6 +1,6 @@
 <div *ngIf="(files$ | async) as compiledCode" class="wrapper">
   <code-demo-multitab-editor
-    [codeDemoSimpleHighlightMatch]="codeDemoSimpleHighlightMatch"
+    [codeDemoHighlight]="codeDemoHighlight"
     class="quarter"
     [files]="files"
     [solutions]="solutions"

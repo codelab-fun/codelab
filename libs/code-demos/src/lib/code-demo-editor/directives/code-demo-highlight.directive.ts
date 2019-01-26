@@ -11,11 +11,11 @@ import { findPosition } from '../utils/utils';
 import { EditorFromModelComponent } from '../../multitab-editor/editor-from-model/editor-from-model.component';
 
 @Directive({
-  selector: '[codeDemoSimpleHighlightMatch]'
+  selector: '[codeDemoHighlight]'
 })
-export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
+export class CodeDemoHighlightDirective implements OnChanges, AfterViewInit {
   decorators = [];
-  @Input() codeDemoSimpleHighlightMatch;
+  @Input() codeDemoHighlight;
   @Input() ngModel;
   private editorComponent: CodeDemoEditorComponent | EditorFromModelComponent;
 
@@ -40,12 +40,12 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
     }
 
     if (this.editorComponent.editor) {
-      if (!this.codeDemoSimpleHighlightMatch) {
+      if (!this.codeDemoHighlight) {
         return;
       }
 
-      if (!Array.isArray(this.codeDemoSimpleHighlightMatch)) {
-        this.codeDemoSimpleHighlightMatch = [this.codeDemoSimpleHighlightMatch];
+      if (!Array.isArray(this.codeDemoHighlight)) {
+        this.codeDemoHighlight = [this.codeDemoHighlight];
       }
 
       if (!this.editorComponent.editor.getModel()) {
@@ -57,7 +57,7 @@ export class SimpleHighlightMatchDirective implements OnChanges, AfterViewInit {
         return;
       }
 
-      const decorations = this.codeDemoSimpleHighlightMatch
+      const decorations = this.codeDemoHighlight
         .map(match => ({ match }))
         .reduce((ranges, { match, className }) => {
           const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(

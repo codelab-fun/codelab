@@ -11,7 +11,7 @@
         [fontSize]="30"
         [(ngModel)]="code.moduleAnatomy.code"
         style="height: 400px;"
-        [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"
+        [codeDemoHighlight]="[code.moduleAnatomy.matches.importsArr]"
       ></code-demo-editor>
     </div>
     <preview-browser-window style="width: 490px; height: 300px;">
@@ -29,7 +29,7 @@
       <code-demo-editor
         [fontSize]="30"
         [(ngModel)]="code.moduleAnatomy.codeMobile"
-        [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.importsArr]"
+        [codeDemoHighlight]="[code.moduleAnatomy.matches.importsArr]"
       ></code-demo-editor>
     </div>
     <img

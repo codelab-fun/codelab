@@ -62,7 +62,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
   @Input() milestone = '';
   @Input() url = 'about:blank';
   @Input() translations = {};
-  @Input() codeDemoSimpleHighlightMatch = [];
+  @Input() codeDemoHighlight = [];
   @Input() testRunner: 'babel' | 'iframe' = 'iframe';
   @Input() files: string[];
   @Input() presets = ['angular'];

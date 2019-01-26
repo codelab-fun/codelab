@@ -105,7 +105,7 @@
       language="html"
       [fontSize]="30"
       [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
-      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
+      [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
     ></code-demo-editor>
     <h2 i18n>
       Let's create an Angular app which replaces the <b>hello-world</b> HTML
@@ -147,7 +147,7 @@
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
       [lineNumbers]="false"
-      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.exportClass]"
+      [codeDemoHighlight]="[code.componentAnatomy.matches.exportClass]"
     ></code-demo-editor>
     <h2 i18n>
       An Angular component is just a class. Properties and behavior can be added
@@ -169,7 +169,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.decorator]"
+      [codeDemoHighlight]="[code.componentAnatomy.matches.decorator]"
     ></code-demo-editor>
     <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
     <div class="info" i18n>
@@ -222,7 +222,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.selector]"
+      [codeDemoHighlight]="[code.componentAnatomy.matches.selector]"
     ></code-demo-editor>
   </div>
 
@@ -241,7 +241,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.template]"
+      [codeDemoHighlight]="[code.componentAnatomy.matches.template]"
     ></code-demo-editor>
     <div class="info" i18n>
       If the amount of HTML grows out of hand, it's possible (and recommended)
@@ -314,7 +314,7 @@
       autoFolding
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.exportClass]"
+      [codeDemoHighlight]="[code.moduleAnatomy.matches.exportClass]"
     ></code-demo-editor>
   </div>
 
@@ -337,7 +337,7 @@
       language="typescript"
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.ngModule]"
+      [codeDemoHighlight]="[code.moduleAnatomy.matches.ngModule]"
     ></code-demo-editor>
   </div>
 
@@ -371,7 +371,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[
+      [codeDemoHighlight]="[
         code.moduleAnatomy.matches.declarationsArr
       ]"
     ></code-demo-editor>
@@ -395,7 +395,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
+      [codeDemoHighlight]="[code.moduleAnatomy.matches.bootstrapArr]"
     ></code-demo-editor>
   </div>
 
@@ -481,7 +481,7 @@
     <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.moduleBootstrapping.code.mainTs"
-      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.bootstrap"
+      [codeDemoHighlight]="code.moduleBootstrapping.matches.bootstrap"
     ></code-demo-editor>
 
     <div class="info">
@@ -512,7 +512,7 @@
     <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
+      [codeDemoHighlight]="[code.moduleAnatomy.matches.bootstrapArr]"
     ></code-demo-editor>
 
     <div class="info">
@@ -545,7 +545,7 @@
       [fontSize]="25"
       language="html"
       [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
-      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
+      [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
     ></code-demo-editor>
 
     <div class="info">
@@ -605,7 +605,7 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
+          [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
           language="html"
           [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
         ></code-demo-editor>
@@ -636,7 +636,7 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.hello"
+          [codeDemoHighlight]="code.moduleBootstrapping.matches.hello"
           [(ngModel)]="code.componentAnatomy.code"
         ></code-demo-editor>
       </div>
