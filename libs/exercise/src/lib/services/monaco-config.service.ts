@@ -52,7 +52,7 @@ export class MonacoConfigService {
       provideFoldingRanges: function(model, context, token) {
         const code = model.getValue();
 
-        const numberOfImports = (code.match(/(^|\n)import /g) || []).length;
+        const numberOfImports = code.substr(0, code.lastIndexOf('import {') ).split('\n').length
         if (numberOfImports > 1) {
           return [
             {
@@ -62,16 +62,6 @@ export class MonacoConfigService {
             }
           ];
         }
-
-
-        // debugger;
-        // const lines = code.split('\r\n');
-        // const linesWithImport =
-        //   lines.map((code, line) => ({ hasImport: code.math(/^import /), line }))
-        //   .filter(({ hasImport }) => hasImport)
-        //   .reduce(({ line }) => line, [ [],  ]);
-
-
       }
     });
 

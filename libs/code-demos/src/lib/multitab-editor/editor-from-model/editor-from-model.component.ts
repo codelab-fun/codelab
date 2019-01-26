@@ -3,11 +3,13 @@ import { AfterViewInit, Component, Input, OnDestroy, ViewChild } from '@angular/
 import { MonacoConfigService } from '../../../../../exercise/src/lib/services/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
 import ITextModel = editor.ITextModel;
+import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 
 @Component({
   selector: 'code-demo-editor-from-model',
   templateUrl: './editor-from-model.component.html',
-  styleUrls: ['./editor-from-model.component.css']
+  styleUrls: ['./editor-from-model.component.css'],
+  providers: [CodeDemoEditorInjector]
 })
 export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   @ViewChild('editor') el;
@@ -17,7 +19,8 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   private didChangeListener: IDisposable;
   private model: ITextModel;
 
-  constructor(readonly monacoConfigService: MonacoConfigService) {
+  constructor(private editorInjector: CodeDemoEditorInjector,
+              readonly monacoConfigService: MonacoConfigService) {
   }
 
   @Input('model') set setModel(model: ITextModel) {
@@ -64,7 +67,7 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.editor = this.setUpEditor(this.el.nativeElement);
+    this.editor = this.editorInjector.editor = this.setUpEditor(this.el.nativeElement);
 
     this.resize();
     this.didChangeListener = this.editor.onDidChangeModelContent(() =>

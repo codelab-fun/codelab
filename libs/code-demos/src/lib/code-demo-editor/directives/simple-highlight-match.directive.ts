@@ -6,9 +6,9 @@ import {
   OnChanges,
   Optional
 } from '@angular/core';
-import { CodeDemoEditorComponent } from './code-demo-editor.component';
-import { findPosition } from './utils/utils';
-import { EditorFromModelComponent } from '../multitab-editor/editor-from-model/editor-from-model.component';
+import { CodeDemoEditorComponent } from '../code-demo-editor.component';
+import { findPosition } from '../utils/utils';
+import { EditorFromModelComponent } from '../../multitab-editor/editor-from-model/editor-from-model.component';
 
 @Directive({
   selector: '[codeDemoSimpleHighlightMatch]'

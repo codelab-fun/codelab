@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, EventEmitter, OnDestroy, Output, Self } from '@angular/core';
-import { CodeDemoEditorInjector } from './code-demo-editor.injector';
+import { CodeDemoEditorInjector } from '../code-demo-editor.injector';
 import { IDisposable } from 'monaco-editor';
 
 interface LineChangeContext {
@@ -11,7 +11,7 @@ interface LineChangeContext {
 @Directive({
   selector: '[codeDemoLineChange]'
 })
-export class CodeDemoEditorLineChange implements AfterViewInit, OnDestroy {
+export class CodeDemoEditorLineChangeDirectiveSpec implements AfterViewInit, OnDestroy {
 
   @Output() codeDemoLineChange: EventEmitter<LineChangeContext> = new EventEmitter();
 

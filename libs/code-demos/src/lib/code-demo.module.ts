@@ -8,12 +8,12 @@ import { EditorFromModelComponent } from './multitab-editor/editor-from-model/ed
 import { MultitabEditorComponent } from './multitab-editor/multitab-editor.component';
 import { FilePathComponent } from './file-path/file-path.component';
 import { CodeDemoRunnerComponent } from './code-demo-runner/code-demo-runner.component';
-import { SimpleHighlightMatchDirective } from './code-demo-editor/simple-highlight-match.directive';
+import { SimpleHighlightMatchDirective } from './code-demo-editor/directives/simple-highlight-match.directive';
 import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.component';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 
-import { CodeDemoEditorAutoFolding } from './code-demo-editor/code-demo-editor.auto-folding';
-import { CodeDemoEditorLineChange } from './code-demo-editor/code-demo-editor.line-change';
+import { CodeDemoEditorAutoFoldingDirective } from './code-demo-editor/directives/code-demo-editor.auto-folding.directive';
+import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives/code-demo-editor.line-change.directive';
 
 @NgModule({
   imports: [
@@ -32,8 +32,8 @@ import { CodeDemoEditorLineChange } from './code-demo-editor/code-demo-editor.li
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
-    CodeDemoEditorLineChange,
-    CodeDemoEditorAutoFolding
+    CodeDemoEditorLineChangeDirective,
+    CodeDemoEditorAutoFoldingDirective
   ],
   exports: [
     FilePathComponent,
@@ -44,8 +44,8 @@ import { CodeDemoEditorLineChange } from './code-demo-editor/code-demo-editor.li
     SimpleHighlightMatchDirective,
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
-    CodeDemoEditorLineChange,
-    CodeDemoEditorAutoFolding
+    CodeDemoEditorLineChangeDirective,
+    CodeDemoEditorAutoFoldingDirective
   ]
 })
 export class CodeDemoModule {
