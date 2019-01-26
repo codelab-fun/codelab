@@ -1,25 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CreateFirstAppBetaComponent } from './create-first-app-beta.component';
-
-describe('CreateFirstAppBetaComponent', () => {
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { CreateFirstAppBetaComponent } from "./create-first-app-beta.component";
+describe("CreateFirstAppBetaComponent", () => {
   let component: CreateFirstAppBetaComponent;
   let fixture: ComponentFixture<CreateFirstAppBetaComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CreateFirstAppBetaComponent ]
-    })
-    .compileComponents();
-  }));
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [CreateFirstAppBetaComponent]
+    });
     fixture = TestBed.createComponent(CreateFirstAppBetaComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
-
-  it('should create', () => {
+  it("can load instance", () => {
     expect(component).toBeTruthy();
   });
 });
