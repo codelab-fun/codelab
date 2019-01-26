@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
     './angular-cli.component.css'
   ]
 })
-export class AngularCliComponent {
-}
+export class AngularCliComponent {}
