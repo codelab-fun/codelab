@@ -4,26 +4,25 @@ import {
   Host,
   Input,
   OnChanges,
-  Optional
+  Optional, Self
 } from '@angular/core';
 import { CodeDemoEditorComponent } from '../code-demo-editor.component';
 import { findPosition } from '../utils/utils';
 import { EditorFromModelComponent } from '../../multitab-editor/editor-from-model/editor-from-model.component';
+import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
+import { MonacoConfigService } from '@codelab/exercise/src/lib/services/monaco-config.service';
 
 @Directive({
   selector: '[codeDemoHighlight]'
 })
-export class CodeDemoHighlightDirective implements OnChanges, AfterViewInit {
+export class CodeDemoEditorHighlightDirective implements OnChanges, AfterViewInit {
   decorators = [];
   @Input() codeDemoHighlight;
   @Input() ngModel;
-  private editorComponent: CodeDemoEditorComponent | EditorFromModelComponent;
 
-  constructor(
-    @Optional() @Host() editor1: CodeDemoEditorComponent,
-    @Optional() @Host() editor2: EditorFromModelComponent
+  constructor(@Self() @Optional() private editorInjector: CodeDemoEditorInjector,
+              readonly monacoConfigService: MonacoConfigService
   ) {
-    this.editorComponent = editor1 || editor2;
   }
 
   ngAfterViewInit() {
@@ -35,11 +34,12 @@ export class CodeDemoHighlightDirective implements OnChanges, AfterViewInit {
   }
 
   highlight() {
-    if (!this.editorComponent) {
+    if (!this.editorInjector) {
       return;
     }
 
-    if (this.editorComponent.editor) {
+    const editor = this.editorInjector.editor;
+    if (editor) {
       if (!this.codeDemoHighlight) {
         return;
       }
@@ -48,10 +48,10 @@ export class CodeDemoHighlightDirective implements OnChanges, AfterViewInit {
         this.codeDemoHighlight = [this.codeDemoHighlight];
       }
 
-      if (!this.editorComponent.editor.getModel()) {
+      if (!editor.getModel()) {
         return;
       }
-      const code = this.editorComponent.editor.getModel().getValue();
+      const code = editor.getModel().getValue();
 
       if (!code.length) {
         return;
@@ -65,7 +65,7 @@ export class CodeDemoHighlightDirective implements OnChanges, AfterViewInit {
             match
           );
           ranges.push({
-            range: new this.editorComponent.monacoConfigService.monaco.Range(
+            range: new this.monacoConfigService.monaco.Range(
               lineStart,
               indexStart,
               lineEnd,
@@ -77,11 +77,11 @@ export class CodeDemoHighlightDirective implements OnChanges, AfterViewInit {
           return ranges;
         }, []);
 
-      this.decorators = this.editorComponent.editor.deltaDecorations(
+      this.decorators = editor.deltaDecorations(
         this.decorators,
         []
       );
-      this.decorators = this.editorComponent.editor.deltaDecorations(
+      this.decorators = editor.deltaDecorations(
         this.decorators,
         decorations
       );
