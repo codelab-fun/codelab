@@ -13,6 +13,7 @@ import { CodelabComponentsModule } from '../../../components/codelab-components.
 import { SlidesModule } from '../../../../../../../libs/slides/src';
 
 import { FormsModule } from '@angular/forms';
+import { ExternalLinkDirectiveDirective } from '../../../components/external-link-directive/external-link-directive.directive';
 
 const routes = RouterModule.forChild([
   {
@@ -35,7 +36,7 @@ const routes = RouterModule.forChild([
     SlidesModule,
     FormsModule
   ],
-  declarations: [AngularCliComponent],
+  declarations: [AngularCliComponent, ExternalLinkDirectiveDirective],
   exports: [AngularCliComponent]
 })
 export class AngularCliModule {}
