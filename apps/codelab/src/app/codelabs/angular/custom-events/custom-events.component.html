@@ -34,7 +34,7 @@
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.exercise1a.code"
-          [codeDemoSimpleHighlightMatch]="code.exercise1a.match"
+          [codeDemoHighlight]="code.exercise1a.match"
         ></code-demo-editor>
         <h1>
           To 'listen' to a child's event, we bind to the child's event
@@ -46,7 +46,7 @@
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.exercise1b.code"
-          [codeDemoSimpleHighlightMatch]="code.exercise1a.match"
+          [codeDemoHighlight]="code.exercise1a.match"
         ></code-demo-editor>
         <h1>
           To let the parent know that there is an event. We emit an event from

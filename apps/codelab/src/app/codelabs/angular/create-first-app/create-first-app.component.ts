@@ -114,7 +114,9 @@ export class HelloWorldComponent {}`,
 
       moduleAnatomy: {
         // Module Anatomy - Milestone #1
-        code: `/* Imports */
+        code: `import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [ BrowserModule ],

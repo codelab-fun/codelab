@@ -18,7 +18,7 @@ export class MonacoConfigService {
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({paths: {vs: 'assets/monaco/dev/vs'}});
+    win.require.config({ paths: { vs: 'assets/monaco/dev/vs' } });
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
@@ -46,6 +46,23 @@ export class MonacoConfigService {
       module: monaco.languages.typescript.ModuleKind.CommonJS,
       noEmit: true,
       typeRoots: ['node_modules/@types']
+    });
+
+    monaco.languages.registerFoldingRangeProvider('typescript', {
+      provideFoldingRanges: function(model, context, token) {
+        const code = model.getValue();
+
+        const numberOfImports = code.substr(0, code.lastIndexOf('import {') ).split('\n').length
+        if (numberOfImports > 1) {
+          return [
+            {
+              start: 1,
+              end: numberOfImports,
+              kind: monaco.languages.FoldingRangeKind.Imports
+            }
+          ];
+        }
+      }
     });
 
     // Some fake Angular deps, good for catching silly errors.
