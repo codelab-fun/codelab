@@ -8,11 +8,12 @@ import { EditorFromModelComponent } from './multitab-editor/editor-from-model/ed
 import { MultitabEditorComponent } from './multitab-editor/multitab-editor.component';
 import { FilePathComponent } from './file-path/file-path.component';
 import { CodeDemoRunnerComponent } from './code-demo-runner/code-demo-runner.component';
-import { SimpleHighlightMatchDirective } from './code-demo-editor/simple-highlight-match.directive';
+import { CodeDemoEditorHighlightDirective } from './code-demo-editor/directives/code-demo-editor.highlight.directive';
 import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.component';
-import { SimpleHighlightDirective } from './code-demo-editor/simple-highlight.directive';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 
+import { CodeDemoEditorAutoFoldingDirective } from './code-demo-editor/directives/code-demo-editor.auto-folding.directive';
+import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives/code-demo-editor.line-change.directive';
 
 @NgModule({
   imports: [
@@ -28,10 +29,11 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     FilePathComponent,
     CodeDemoRunnerComponent,
     CodeDemoComponent,
-    SimpleHighlightMatchDirective,
+    CodeDemoEditorHighlightDirective,
     CodeDemoEditorComponent,
-    SimpleHighlightDirective,
-    RealtimeEvalComponent
+    RealtimeEvalComponent,
+    CodeDemoEditorLineChangeDirective,
+    CodeDemoEditorAutoFoldingDirective
   ],
   exports: [
     FilePathComponent,
@@ -39,10 +41,11 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
     CodeDemoRunnerComponent,
     EditorFromModelComponent,
     CodeDemoComponent,
-    SimpleHighlightMatchDirective,
+    CodeDemoEditorHighlightDirective,
     CodeDemoEditorComponent,
-    SimpleHighlightDirective,
-    RealtimeEvalComponent
+    RealtimeEvalComponent,
+    CodeDemoEditorLineChangeDirective,
+    CodeDemoEditorAutoFoldingDirective
   ]
 })
 export class CodeDemoModule {

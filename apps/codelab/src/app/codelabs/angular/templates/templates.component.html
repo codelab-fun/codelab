@@ -285,7 +285,7 @@
     <code-demo-editor
       [(ngModel)]="code.eventBinding"
       [fontSize]="25"
-      [codeDemoSimpleHighlightMatch]="[code.eventBindingMatch]"
+      [codeDemoHighlight]="[code.eventBindingMatch]"
       language="html"
     >
     </code-demo-editor>
@@ -312,7 +312,7 @@
     <code-demo-editor
       [(ngModel)]="code.bindingRef"
       [fontSize]="25"
-      [codeDemoSimpleHighlightMatch]="[
+      [codeDemoHighlight]="[
         code.bindingRefMatch,
         code.bindingRef2Match
       ]"

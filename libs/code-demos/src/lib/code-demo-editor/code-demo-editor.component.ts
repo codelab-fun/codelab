@@ -16,6 +16,8 @@ import { MonacoConfigService } from '../../../../exercise/src/lib/services/monac
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { editor } from 'monaco-editor';
+import { CodeDemoEditorInjector } from './code-demo-editor.injector';
 
 declare const monaco: any;
 declare const require: any;
@@ -27,6 +29,7 @@ declare const require: any;
   `,
   styleUrls: ['editor.component.css'],
   providers: [
+    CodeDemoEditorInjector,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CodeDemoEditorComponent),
@@ -49,12 +52,11 @@ export class CodeDemoEditorComponent
   changeSubject = new Subject();
 
   @Output() change = new EventEmitter();
-  @Output() lineChange = new EventEmitter();
   @ViewChild('editor') editorEl;
   code: string;
   private subscription: Subscription;
 
-  constructor(readonly monacoConfigService: MonacoConfigService) {
+  constructor(private editorInjector: CodeDemoEditorInjector, readonly monacoConfigService: MonacoConfigService) {
     this.subscription = this.changeSubject
       .pipe(debounceTime(this.debounce))
       .subscribe(a => this.change.emit(a));
@@ -101,16 +103,6 @@ export class CodeDemoEditorComponent
     }
   }
 
-  onLineChange() {
-    const lineNumber = this.editor.getPosition().lineNumber;
-
-    this.lineChange.emit({
-      lineNumber,
-      line: this.model.getLineContent(lineNumber),
-      value: this.model.getValue()
-    });
-  }
-
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
     this.model = this.monacoConfigService.monaco.editor.createModel(
@@ -122,7 +114,7 @@ export class CodeDemoEditorComponent
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
     }
 
-    this.editor = this.monacoConfigService.monaco.editor.create(editor, {
+    this.editor = this.editorInjector.editor = this.monacoConfigService.monaco.editor.create(editor, {
       wrappingColumn: 10,
       model: this.model,
       scrollBeyondLastLine: false,
@@ -134,23 +126,15 @@ export class CodeDemoEditorComponent
       lineNumbers: this.lineNumbers,
       automaticLayout: true,
       fontSize: this.fontSize,
-      // folding: true,
+      folding: true,
       minimap: {
         enabled: false
       }
     });
 
-    this.editor.onDidChangeCursorPosition(() => {
-      this.onLineChange();
-    });
-
     this.model.onDidChangeContent(() => {
       this.changeSubject.next(this.editor.getModel().getValue());
     });
-
-    this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () =>
-      this.changeSubject.next(this.editor.getModel().getValue())
-    );
 
     this.resize();
   }

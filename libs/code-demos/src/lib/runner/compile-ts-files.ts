@@ -165,7 +165,7 @@ export function compileTsFilesWatch(): MonoTypeOperatorFunction<Record<string, s
           try {
             host.dispose();
           } catch (e) {
-            console.log(e);
+            // Ignore
           }
           host = null;
         }
