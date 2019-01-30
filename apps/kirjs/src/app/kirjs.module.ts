@@ -58,6 +58,12 @@ const routes = [
     description: 'SVG '
   },
   {
+    path: 'regex',
+    loadChildren: './modules/regex/regex.module#RegexModule',
+    name: 'Regex',
+    description: 'Regex '
+  },
+  {
     path: 'ast',
     loadChildren: './modules/ast/ast.module#AstModule',
     name: 'Ast + Angular',
@@ -98,4 +104,5 @@ const routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {}
+export class KirjsModule {
+}
