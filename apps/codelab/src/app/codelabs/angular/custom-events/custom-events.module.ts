@@ -18,7 +18,7 @@ import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 const routes = RouterModule.forChild([
   {
     path: '',
-    redirectTo: '/custom-events/intro',
+    redirectTo: '/angular/custom-events/intro',
     pathMatch: 'full'
   },
   ...SlidesRoutes.get(CustomEventsComponent)

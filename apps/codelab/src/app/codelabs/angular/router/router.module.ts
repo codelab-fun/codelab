@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 const routes = RouterModule.forChild([
   {
     path: '',
-    redirectTo: '/router/intro',
+    redirectTo: '/angular/router/intro',
     pathMatch: 'full'
   },
   ...SlidesRoutes.get(RouterComponent)

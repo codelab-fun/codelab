@@ -16,7 +16,7 @@ import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 const routes = RouterModule.forChild([
   {
     path: '',
-    redirectTo: '/templates/intro',
+    redirectTo: '/angular/templates/intro',
     pathMatch: 'full'
   },
   ...SlidesRoutes.get(TemplatesComponent)
