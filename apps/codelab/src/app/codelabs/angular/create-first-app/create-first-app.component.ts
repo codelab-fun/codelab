@@ -93,26 +93,71 @@ export class AppComponent {
   // ${this.t.componentNameIsClassName}
 }`
       },
-      gameComponent: {
-        // Component Anatomy - Milestone #1
-        code: `<!DOCTYPE>
-<body>
-  <store>
-    <item></item>
-  </store>
-
-  <!--this is main.ts compiled.
-    Often build system will insert the script tag for you-->
-  <script src="main.js"></script>
-</body>`,
-        matches: {
-          exportClass: /export.*/,
-          decorator: /@C[^]*?\)[^]/,
-          selector: /selector.*'.*'/,
-          template: /template.*'.*'/
+      selectorExercise: {
+        storeComponentHTML: {
+          code:`
+<h1>My Store</h1>
+<div *ngFor="let category of categories">
+  <app-categories category={{category}}></app-categories>
+  <ul>
+    <li *ngFor="let item of items[category]">
+      <app-item itemName={{item}}></app-item>
+    </li>
+  </ul>
+</div>`,
         },
-        readonly: true,
-        type: 'typescript'
+        storeComponentTS: {
+          code:`
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'app-store',
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.css']
+})
+export class StoreComponent implements OnInit {
+  categories: string[] = ['Fruits', 'Vegetables']
+  items = {
+    "Fruits": ['Apples', 'Oranges', 'Bananas'],
+    "Vegetables": ['Lettuce', 'Tomato', 'Cucumber']
+  }
+  ngOnInit() {}
+}`
+        },
+        categoriesComponentHTML: {
+          code:`
+<h2>{{category}}</h2>
+          `
+        },
+        categoriesComponentTS: {
+          code:`
+import { Component, OnInit, Input } from '@angular/core';
+@Component({
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.css']
+})
+export class CategoriesComponent implements OnInit {
+  @Input() category: string
+  ngOnInit() {}
+}`
+        },
+        itemComponentHTML: {
+          code:`
+<b><i><font color="gray">{{itemName}}</font></i></b>`
+        },
+        itemComponentTS: {
+          code:`
+import { Component, OnInit, Input } from '@angular/core';
+@Component({
+  selector: 'app-item',
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.css']
+})
+export class ItemComponent implements OnInit {
+  @Input() itemName: string
+  ngOnInit() {}
+}`
+        }
       },
       componentAnatomy: {
         // Component Anatomy - Milestone #1
