@@ -16,20 +16,56 @@
 ]>
 <translationbundle lang="ru">
   <translation id="2339071718884287683">Angular Codelab</translation>
+  <translation id="1477095887109447756">Пока в нашем приложении только один компонент, но со временем в нем вырастет дерево компонентов</translation>
+  <translation id="958527444286373588">Любой компонент может отображать другой компонент, используя HTML элемент, соответствующий селектору этого компонента</translation>
+  <translation id="3767405923334084568">Поменяйте значения <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>size<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> на <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>100<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> и <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>color<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> на <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>red<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> чтобы получить флаг Японии.</translation>
+  <translation id="6502697971057653879">Дочерний класс должен содержать специальный декоратор:
+<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Input()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></translation>
+  <translation id="242686228345857569">Это первый раз, когда мы применяем декораторы к свойствам (а не к классам).</translation>
+  <translation id="6993248291969541113">Теперь мы знаем как создать компонент. Давайте переместим всю информацию, связанную с видео, в новый компонент с именем 
+VideoComponent.</translation>
+  <translation id="8535569169237447692">Мы загрузим компонент для Вас, результат будет следующий:</translation>
   <translation id="1902505859733550335">Милый котенок</translation>
+  <translation id="2676566827453590169">Компоненты не будут знать друг о друге, если они не объявлены в одном и том же модуле</translation>
   <translation id="1036270088685658131">В следующем упражнении вы будете использовать созданный ранее компонент</translation>
+  <translation id="5532839647985128848">Вот мы и прошли <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>the end<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> курс Codelab. Теперь вы готовы начать путешествие в мир Angular. Ссылки ниже помогут вам продолжить обучение!</translation>
   <translation id="9154976499052576586">Документация, описание функций и событий перечислены здесь</translation>
+  <translation id="8354723802427223197">делает создание работающего приложения лёгким, и позволяет генерировать новые компоненты.
+                    Также делает работу с системами сборки за вас.</translation>
+  <translation id="1566812974294525535">Angular - это <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>платформа разработки<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> для создания приложений для мобильных телефонов и компьютеров. Angular позволяет вам <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>расширить HTML синтаксис<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> , чтобы кратко и удобно описать компоненты приложения. Привязка данных (data binding) и внедрение зависимостей (Dependency Injection)  позволят вам написать существенно меньше кода.</translation>
   <translation id="7127434905431284986">Допустим у нас есть HTML файл:</translation>
   <translation id="5463471054765192731">Это может быть сделано в три этапа.</translation>
   <translation id="7109785117359301161">Три этапа для создания приложения:</translation>
   <translation id="8986953020363470779">Создайте Angular компонент</translation>
   <translation id="7117530673690701168">Создайте Angular модуль</translation>
   <translation id="1813487159288766093">Запустите (Bootstrap) модуль</translation>
+  <translation id="4795937685905293259">В Angular основу компонента составляет класс, который может содержать свойства и методы.</translation>
   <translation id="7834786013480490982">К классу привязан декоратор <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></translation>
+  <translation id="8311779527003716911">Декораторы привязывают необходимую <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> информацию к классу, оставляя сам класс неизменным.</translation>
+  <translation id="7939755324517272859">Декораторы - новая функциональность TypeScript. Они привязывают мета-данные к классу, функции, свойству или переменной.</translation>
   <translation id="7184413576755920741">Создатели декораторов вдохновлены аналогичной функциональностью на языке Python.</translation>
+  <translation id="6417780443340936933">Шаблон определяет HTML-код, который генерирует компонент</translation>
+  <translation id="2517889020498444165">Если у вас больше пары строчек HTML рекомендуем использовать параметр <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>templateUrl<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, который позволяет указать ссылку на HTML файл</translation>
+  <translation id="924140808641999413">На следующем слайде вы создадите ваш первый <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> компонент! Мы сами подключим и запустим его. Результат должен выглядеть вот так:</translation>
   <translation id="61555616227480717">Создайте первый Angular компонент!</translation>
+  <translation id="5472566057749492330">Мы узнаем больше о NgModules на следующих этапах</translation>
   <translation id="5238272395469026108">Как и компонент, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> модуль это всего лишь класс</translation>
+  <translation id="3904962908062507807">Как и компонент, модуль в <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>  имеет декоратор, содержащий метаданные</translation>
+  <translation id="789632209497668485">Массив <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Declarations<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> содержит компоненты, принадлежащие AppModule</translation>
+  <translation id="8368596314185297476">Компонент, переданный в массив <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrap<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, будет создан и отображен в Вашем <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>index.html<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> файле</translation>
+  <translation id="4226122571544649251">На следующем слайде вы создадите свой первый <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> модуль! Мы будем использовать все компоненты из предыдущего упражнения и свяжем их между собой. Результат будет выглядеть следующим образом:</translation>
+  <translation id="9406456874883877">Все готово, осталось запустить наше приложение</translation>
+  <translation id="7313415582983155780">Как запуск (bootstrap) приложения работает в Angular?</translation>
+  <translation id="354134427043166608">1. Запускает среду выполнения. <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>platformBrowserDynamic()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> cообщает Angular, что мы работаем в браузере
+</translation>
+  <translation id="3843563559252369284">2. Angular инциализирует компонент из массива <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrap<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> в <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>app.module.ts<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      (в этом случае <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>HelloWorldComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>)</translation>
+  <translation id="1478913304849792970">3. Angular ищет в документе элемент по соответствующему селектору, определенному в компоненте <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>HelloWorldComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>&apos;hello-world&apos;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> в нашем случае), и вставляет содержимое компонента в найденный элемент</translation>
+  <translation id="6926283110773507163">Все готово! На следующей странице вы запустите свое первое <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> приложение!</translation>
+  <translation id="2268943717929526857">Теперь, когда у нас есть и NgModule, и готовый компонент, давайте загрузим приложение!</translation>
   <translation id="8145952131430725333">порядок загрузки  index -&gt; main -&gt; app.module -&gt; app.component</translation>
+  <translation id="6142704255682990541">Пока Angular загружается, содержимое элементов не меняется (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Загрузка...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>)</translation>
   <translation id="4135298275558664404">Конец раздела загрузки (Bootstrap)</translation>
   <translation id="470651207723290753">Отлично сработано! Упражнение выполнено!
 </translation>
@@ -37,22 +73,56 @@
   <translation id="dependencyInjection">Внедрение зависимостей</translation>
   <translation id="dependencyInjectionLearnMore">Узнайте больше про систему внедрения зависимости в Angular
 </translation>
+  <translation id="4375448281315274325" desc="Есть что-нить лучше чем &quot;хардкодить&quot;?"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Система внедрения зависимости позволяет<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> передать зависимости вашему коду вместо того чтобы хардкодить их</translation>
+  <translation id="538295435595855313">Без системы внедрения зависимости, класс <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Profession<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> инстанциируется внутри класса <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></translation>
+  <translation id="6525744507050405173">При использовании внедрения зависимости (DI) Angular делает это за нас</translation>
+  <translation id="4400493199164893517">Допустим у нас есть сервис - <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>UnitConverterService<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, который мы хотим использовать в классе <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>UnitConversionComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.
+Для этого нужно будет сделать 3 простых действия:</translation>
   <translation id="3957097669887217853">Отметим  зависимость декоратором @Injectable()</translation>
   <translation id="5662947366104784178">Передать модулю</translation>
   <translation id="9143596698887173150">Запросить в компоненте</translation>
+  <translation id="1117670596218842167">Отметим класс декоратором <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>@Injectable()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>
+      Такое обозначение говорит Angular, что данный класс является частью системы внедрения зависимостей</translation>
+  <translation id="1349378066640773383">Если сервис отмечен декоратором @Injectable он может запрашивать другие сервисы в своем конструкторе</translation>
+  <translation id="2735369781715347846">Передайте все экспортируемые (injectable) зависимости в секцию <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>providers<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> вашего <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></translation>
+  <translation id="4525370649719280544">Теперь этот сервис становится доступным для всех <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>компонентов<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> и других сервисов в  <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</translation>
   <translation id="9193697677313937686" desc="Внедрение?">Затраты на инъекцию компонентов</translation>
+  <translation id="261676783640894862">Благодаря модификатору доступа <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>private<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> , сервис становится доступным внутри класса, и к нему можно обратиться так:   
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>this.converter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</translation>
+  <translation id="2179039829273699885">На следующем слайде вы будете использовать сервис VideoService, в котором будет еще больше котиков!!! Результат будет таким:</translation>
+  <translation id="7541582794652430956">Далее: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>Изучите как собирать компоненты вместе<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></translation>
+  <translation id="4326093281669549121">Обратные кавычки <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>` `<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> — так называемые волшебные кавычки, поддерживающие многострочную запись и интерполированные строки</translation>
+  <translation id="4394745758352985330">Простые выражения также разрешены, вы можете выполнить метод компонента (например fullName() ниже), или вычислить 
+      <ph name="START_TAG_CODE"><ex>&lt;code&gt;</ex></ph>323213+34234<ph name="CLOSE_TAG_CODE"><ex>&lt;/code&gt;</ex></ph></translation>
   <translation id="6385657961263768030">При привязке можно использовать произвольные выражения</translation>
+  <translation id="2604621775941411917">Angular поддерживает более сложные привязки свойств чем имя атрибута</translation>
+  <translation id="1674481147821860289">Все директивы привязки, которые мы видели до сих пор, передают данные в одном направлении: от компонента к элементу</translation>
+  <translation id="1414288142928384130">Хотя скобки используются для привязки событий: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>(event)<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, мы также можем использовать префикс &quot;on-&quot;, например <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>on-click<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</translation>
   <translation id="2089936986742209282">Шаблоны / Условное отображение (*ngIf)</translation>
+  <translation id="1248112144489322049">Условные выражения добавляют или удаляют элемент из DOM, в зависимости от значения переданного выражения</translation>
+  <translation id="4068857581424650411">На следующем слайде вы добавите обработчик события для кнопки поиска который покажет сообщения в случае, если видео не найдено. Результат будет выглядеть вот так:</translation>
+  <translation id="4741557658120551532">В примере ниже <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> повторяет HTML элемент, к которому *ngFor  относится (в нашем случае li), для каждого элемента puppy из массива puppies</translation>
+  <translation id="7691190167897559246">HTML атрибуты в <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> чувствительны к регистру. Например <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph><ph name="START_STRIKETHROUGH_TEXT"><ex>&lt;s&gt;</ex></ph>*ngfor<ph name="CLOSE_STRIKETHROUGH_TEXT"><ex>&lt;/s&gt;</ex></ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> не будет работать, а <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> будет</translation>
+  <translation id="595166160893731252">Ура! На следующем слайде вы добавите информацию видео! Результат:</translation>
+  <translation id="8787586021636577494">Далее: <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph> Изучим как использовать Внедрение зависимостей в Angular <ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></translation>
   <translation id="6225777299423953966">Почему TypeScript?</translation>
   <translation id="4845793289318766506">TypeScript</translation>
+  <translation id="2918183727702284411">Более того, в TypeScript включена дополнительная  система типов и декораторов</translation>
+  <translation id="5379917036245705937">Вы можете редактировать код выше</translation>
+  <translation id="5973606507353383362"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>const<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> новый способ объявления переменных (появился в <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>ES6<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>). Похоже на <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>var<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>,
+но имеет блочную область видимости (живет только внутри фигурных скобок), и выдаст ошибку если попытаться его переопределить.</translation>
+  <translation id="6027504298282045432">TypeScript позволяет объявлять сложные типы с помощью интерфейсов</translation>
   <translation id="702106966820398853">Здесь, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>realPuppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> является экземпляром <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> интерфейса.</translation>
   <translation id="4690830357394206486">В TypeScript есть<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph> классы<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, и Angular часто их использует.</translation>
+  <translation id="832290230708229550">private и protected свойства недоступны вне класса</translation>
   <translation id="5575767639565396335">Теперь мы можем использовать класс <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> в другом файле.</translation>
+  <translation id="5612117993680767924">TypeScript поддерживает множество других крутых штук, например:</translation>
   <translation id="3591838911718818191">Интерфейсы</translation>
   <translation id="2778796732744507615">Перечисляемые типы (enums)</translation>
   <translation id="554505692155626925">Асинхронность / Ожидания</translation>
   <translation id="2854346138345342774">Деструктурирование</translation>
   <translation id="4818010747810947110">И много чего еще!</translation>
+  <translation id="7824265004931736949">Мы не будем рассматривать их детально, для ознакомления посмотрите на сайте  <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>TypeScript<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></translation>
   <translation id="1966301836895698534">На следующем слайде будет дано упражнение по TypeScript</translation>
   <translation id="2921334658251839102">Выглядеть будет вот так:</translation>
   <translation id="564343607900892103">Теперь вы знаете достаточно о <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>TypeScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> чтобы перейти к изучению <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>! Узнайте больше о TypeScript на <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>сайте TypeScript<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph></translation>
@@ -156,11 +226,17 @@
   <translation id="CreateYFirstAgApp">Первое приложение на Angular</translation>
   <translation id="2628877838206351210">Вы узнаете как создать Angular компонент, добавить его в модуль и запустить приложение.</translation>
   <translation id="3602849743531844327">Знание основ TypeScript</translation>
+  <translation id="4175894725989485587">Когда вы передадите <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>AppModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> методу <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>bootstrapModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, Angular запустит все компоненты, указанные в свойстве bootstrap этого модуля</translation>
+  <translation id="7616600771060273557">Для большинства несложных приложений можно просто скопировать и вставить эти строки.</translation>
   <translation id="templates">Шаблоны</translation>
   <translation id="6346332284188948979">Узнайте больше о шаблонах в Angular!</translation>
   <translation id="createClassCodelab">Создайте класс  с именем &apos;Codelab&apos;</translation>
   <translation id="1425139040251941806">Необходимы базовые знания языка JavaScript.</translation>
+  <translation id="6184719411681719003">JS не строго типизированный язык, из-за чего бывает сложно разрабатывать большие масштабные приложения</translation>
+  <translation id="1567156650998154030">Новые возможности последнего стандарта JS  (ES6, ES7) не до конца поддерживаются в некоторых браузерах</translation>
+  <translation id="3897582982358500728">Декораторы выглядят так @twitter_handles, позже мы познакомимся с ними ближе</translation>
   <translation id="typeSystem">Система типов</translation>
+  <translation id="6273594692169782871">Ниже представлена функция сложения чисел <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>, мы складываем 2 + 2. Казалось бы, что может пойти не так?</translation>
   <translation id="addComponentDecoratorAndSetSelectorToMyVideo">video.component.ts: Отметьте компонент декоратором &apos;@Component&apos;  и добавьте в него селектор  &apos;my-video&apos;.</translation>
   <translation id="addVideoComponentToAppModule">app.module.ts: Объявите компонент VideoComponent в свойстве  &apos;declarations&apos; модуля AppModule.</translation>
   <translation id="setTemplateUrlToLoadAppropriateFile">video.component.ts Добавьте ссылку на соответствующий HTML файл с шаблоном в свойство templateUrl , чтобы загрузить шаблон в компонент</translation>
@@ -209,6 +285,7 @@
   <translation id="makeParemeterPublic">Отметьте параметр ключевым словом public (обратите внимание, что теперь вы можете получить к нему доступ в классе, обратившись к this.guests)</translation>
   <translation id="createNewMethodGetGuestsComing">Создайте метод &apos;getGuestsComing&apos;</translation>
   <translation id="modifyGetGuestsComingToFilter">Измените метод getGuestsComing так, чтобы он возвращал массив из  элементов &apos;guests&apos;, у которых свойство &apos;coming&apos; равно true.</translation>
+  <translation id="5246563406729441831">Поэтому был создан  <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>TypeScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> Он траспайлится в JavaScript, а значит результат можно будет увидеть в любом браузере.</translation>
   <translation id="createFirstNgApp">Создайте ваше первое Angular приложение</translation>
   <translation id="customEvents">Пользовательские события</translation>
   <translation id="angularWrittenInTypescript">Angular написан на TypeScript, который, в свою очередь, является расширением JavaScript. Узнайте больше о TypeScript.</translation>
@@ -218,134 +295,72 @@
   <translation id="learnToStructureAppWithReusableComponents">Узнайте как лучше всего организовать ваше приложение с помощью пользовательских компонентов.</translation>
   <translation id="learnToBindToEvents">Узнайте как привязывать события</translation>
   <translation id="2969609887538562311">Конец раздела Angular-cli</translation>
+  <translation id="2341364040664647079">Родительский компонент передает свои данные потомкам через свойства</translation>
   <translation id="5517859412360989740">Конец раздела Дерево компонента</translation>
   <translation id="4642174669863123789">Далее: ext: <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Узнайте о маршрутизации в Angular<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph></translation>
+  <translation id="846527321118814759">Давайте создадим Angular приложение, которое заменит <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>hello-world<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> HTML элементы наполнением приложения.</translation>
+  <translation id="1530303971968447462">Начнем с создания компонента <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>. Компоненты в Angular отвечают за видимую часть приложения</translation>
+  <translation id="8118966197626902883">Selectors определяют место нахождение компонента. Когда Angular отрисовывает компонент, он находит <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>hello-world<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
+      HTML элемент в документе и отрисовывает этот компонент внутри него</translation>
   <translation id="3356116837774924473">
 Следующий шаг это определить компонент в <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>.</translation>
+  <translation id="2523071058337090781"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> не имеет никакого визуального представления и испоьзуется исключительно для группирования блоков привязок Angular вместе</translation>
+  <translation id="2927986224967435730">Почитайте больше про корневой модуль и загрузку в Angular</translation>
+  <translation id="8207999948726652808">Поскольку мы создаем приложение для вэб браузера, мы должны передать <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>BrowserModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>imports<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
+    массив</translation>
   <translation id="3156349100343034471">С Angular мы создаем мобильные приложения, используя NativeScript или Ionic</translation>
   <translation id="300734632059872629">С Angular мы можем создать VR приложения с помощью A-FRAME или WEDGL</translation>
+  <translation id="9187573734938183951">  <ph name="START_TAG_DIV"><ex>&lt;div&gt;</ex>&lt;div&gt;</ph>
+    Angular это не только вэб приложения; его можно использовать для создания мобильных приложений и даже
+    VR зарисовок.
+  <ph name="CLOSE_TAG_DIV"><ex>&lt;/div&gt;</ex>&lt;/div&gt;</ph>
+  <ph name="START_TAG_DIV_1"><ex>&lt;div&gt;</ex>&lt;div&gt;</ph>
+    <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph><ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
+  <ph name="CLOSE_TAG_DIV"><ex>&lt;/div&gt;</ex>&lt;/div&gt;</ph></translation>
+  <translation id="5942842029908579620">С внедрением зависимостей, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> класс &quot;требует&quot; объект
+          <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Job<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
+          в конструкторе, и Angular сам создает экземпляр нужного класса</translation>
+  <translation id="1576306873939022256">Так же, внедрение зависимостей значительно упрощает процесс тестирования, поскольку можно просто отправить вместо зависимостей заглушки как параметры конструктора</translation>
+  <translation id="8408791979161842309">[(NgModel)] - <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Банан в коробке<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> это простая мнемоника чтобы запомнить порядок скобочек.</translation>
   <translation id="4295828568066353117">Конец раздела Формы</translation>
   <translation id="3893830132734928426">Конец раздела Библиотека Material</translation>
   <translation id="548749131188154528"/>
   <translation id="5879655922336578318"/>
+  <translation id="2454403873505344406"/>
+  <translation id="8973825181697784965"/>
+  <translation id="5188319674624334723"/>
+  <translation id="204166739121845714"/>
+  <translation id="2249469029341259996"/>
+  <translation id="4809937829312056524"/>
+  <translation id="697512088423081605"/>
+  <translation id="7635170467387258781"/>
   <translation id="specifyTheTypeForB"/>
   <translation id="typescriptHighlightsErrorFix224"/>
   <translation id="AngularIsWrittenInTypescript"/>
+  <translation id="599136773381019887"/>
+  <translation id="1179660474786144252"/>
+  <translation id="2705004390173819794"/>
+  <translation id="7622443268195786088"/>
+  <translation id="11533551419675311"/>
+  <translation id="6406522534980669684"/>
   <translation id="7555895897701490119"/>
-  <translation id="7759544910570343367"/>
-  <translation id="3142775397600131493"/>
-  <translation id="4686588615295148276"/>
-  <translation id="7394559216825981545"/>
-  <translation id="5456916239811751709"/>
-  <translation id="1799412098578230242"/>
-  <translation id="1166207354981984344"/>
-  <translation id="5463254600145635312"/>
-  <translation id="2842394284573918883"/>
-  <translation id="8392567546535132259"/>
-  <translation id="6462196081007759452"/>
-  <translation id="2816636294709814885"/>
-  <translation id="2478337245338174731"/>
-  <translation id="7500497445913951281"/>
-  <translation id="3013712804500806977"/>
-  <translation id="3933358723756013068"/>
-  <translation id="8621797738551294959"/>
-  <translation id="4335494429592099313">Angular - это <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>платформа разработки<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> для создания приложений для мобильных телефонов и компьютеров. Angular позволяет вам <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>расширить HTML синтаксис<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> , чтобы кратко и удобно описать компоненты приложения. Привязка данных (data binding) и внедрение зависимостей (Dependency Injection)  позволят вам написать существенно меньше кода.</translation>
-  <translation id="6161264726933372468"/>
-  <translation id="4486808421693997510"/>
-  <translation id="3518604211309075388"/>
-  <translation id="3814368736458744789"/>
-  <translation id="8963391977207807015"/>
-  <translation id="901484278635100487"/>
-  <translation id="5776232626408915586"/>
-  <translation id="3490030044563966992"/>
-  <translation id="7639270097778554357"/>
-  <translation id="5126304564648715351"/>
-  <translation id="5509161378825547695"/>
-  <translation id="2770285560154661080"/>
-  <translation id="6207292630730452152"/>
-  <translation id="6679702569828672754"/>
-  <translation id="5729375766021589223"/>
-  <translation id="6827469684284953312"/>
-  <translation id="5839300755199336558"/>
-  <translation id="4399973873640793995"/>
-  <translation id="6908434431695362158"/>
-  <translation id="6874245697228107216"/>
-  <translation id="3128495234135543796"/>
-  <translation id="7573108776950995216"/>
-  <translation id="8154401785955657985"/>
-  <translation id="2407260837719515490"/>
-  <translation id="1313383644474336301"/>
-  <translation id="4850683624715159256"/>
-  <translation id="1349735316800599429"/>
-  <translation id="5369563118314675128"/>
-  <translation id="2454551784035429356"/>
-  <translation id="7427941055850419603"/>
-  <translation id="916298212817351454"/>
-  <translation id="1220299404805905128"/>
-  <translation id="5041678758489152197"/>
-  <translation id="6910202098357920279"/>
-  <translation id="2585772558422043391"/>
-  <translation id="6496971683817494188"/>
-  <translation id="287816816593865864"/>
-  <translation id="3053323241161491226"/>
-  <translation id="4224784797203649406"/>
-  <translation id="8777170680797795530"/>
-  <translation id="1774638288818436875"/>
-  <translation id="3770170783025031996"/>
-  <translation id="4470367031861826651"/>
-  <translation id="1775873765805142503"/>
-  <translation id="8908084104333691137"/>
-  <translation id="6743006858339549834"/>
-  <translation id="2708214618841180970"/>
-  <translation id="3402523483542521336"/>
-  <translation id="8669367464399341938"/>
-  <translation id="1929429019008245822"/>
-  <translation id="5131679624196947189"/>
-  <translation id="5629074571678985645"/>
-  <translation id="4973035912800777134"/>
-  <translation id="2004222703338135354"/>
-  <translation id="5621752484434623785"/>
-  <translation id="3782868128792375360"/>
-  <translation id="2098931711932592374"/>
-  <translation id="2278439158834501962"/>
-  <translation id="6900873423530266803"/>
-  <translation id="1916497009459167443"/>
-  <translation id="1363051509037506858"/>
-  <translation id="3450228617967699820"/>
-  <translation id="3881848011430809362"/>
-  <translation id="4438449082485368187"/>
-  <translation id="7378420032672625836"/>
-  <translation id="162188329386733219"/>
-  <translation id="5976919598666406306"/>
-  <translation id="5115878500409160133"/>
-  <translation id="1603010177589300581"/>
-  <translation id="519638442093250618"/>
-  <translation id="8469244833465514706"/>
-  <translation id="3382055352600412380"/>
-  <translation id="7706542074780362578"/>
-  <translation id="4416420426193040614"/>
-  <translation id="7771455845560642518"/>
-  <translation id="1802568424157681452"/>
-  <translation id="1181951662288037843"/>
-  <translation id="5300204482622127378"/>
-  <translation id="952111865578275945"/>
-  <translation id="5150753083587849200"/>
-  <translation id="462788382585371115"/>
-  <translation id="4472178753190540128"/>
-  <translation id="6571723708298379001"/>
-  <translation id="4191295442202083523"/>
-  <translation id="687605542005054114"/>
-  <translation id="2776231080049358900"/>
-  <translation id="802921996609745552"/>
-  <translation id="2824004502397491284"/>
-  <translation id="425764765304851377"/>
-  <translation id="6106271638521818742"/>
-  <translation id="2882317708431502799"/>
-  <translation id="1232468595022253521"/>
-  <translation id="7684186891767163500"/>
-  <translation id="8826294926629434573"/>
-  <translation id="5784427236154138130"/>
-  <translation id="643059253899545925"/>
-  <translation id="7034028115313507184"/>
-  <translation id="2396430173482915571"/>
+  <translation id="4608901841304013912"/>
+  <translation id="2297409428574300382"/>
+  <translation id="6928931330940820266"/>
+  <translation id="479713578361946676"/>
+  <translation id="1340674580306338318"/>
+  <translation id="1137822156465375184"/>
+  <translation id="3197623231967295541"/>
+  <translation id="4201926240246235516"/>
+  <translation id="3713515765040164069"/>
+  <translation id="2068345166343383288"/>
+  <translation id="6616853655909301920"/>
+  <translation id="6448975034968186570"/>
+  <translation id="5499416274506109062"/>
+  <translation id="8794380282989826581"/>
+  <translation id="7351129024902593075"/>
+  <translation id="6118490965246647388"/>
+  <translation id="6190090632190394225"/>
+  <translation id="5107838485151473796"/>
+  <translation id="3886381017593379560"/>
 </translationbundle>
