@@ -18,7 +18,16 @@ let routes = [
         description:
           'Learn how pipes transform input values to output values for display in a view',
         page: 'extra'
-      }
+      },
+      {
+        path: 'rating-summary',
+        loadChildren:
+          './rating-summary/rating-summary.module#RatingSummaryModule',
+        name: 'rating-summary',
+        description:
+          'Learn how pipes transform input values to output values for display in a view',
+        page: 'extra'
+      },
     ]
   }
 ];
