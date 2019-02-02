@@ -87,6 +87,9 @@
           "configurations": {
             "production": {
               "browserTarget": "codelab:build:production"
+            },
+            "ru": {
+              "browserTarget": "codelab:build:ru"
             }
           }
         },
