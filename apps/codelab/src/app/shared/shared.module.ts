@@ -32,7 +32,6 @@ import { FullLayoutComponent } from '../containers';
 
     HttpClientModule,
     FormsModule,
-    RouterModule,
 
     CodeDemoModule,
     CodelabComponentsModule,

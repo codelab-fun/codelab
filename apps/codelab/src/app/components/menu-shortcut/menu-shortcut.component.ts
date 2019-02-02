@@ -1,4 +1,5 @@
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface MenuShortcutRoute {
   name: string;
@@ -7,19 +8,22 @@ export interface MenuShortcutRoute {
   translationIds?: string[];
 }
 
+
 @Component({
   selector: 'slides-menu-shortcut',
   templateUrl: './menu-shortcut.component.html',
   styleUrls: ['./menu-shortcut.component.css']
 })
 export class MenuShortcutComponent {
-  routes: MenuShortcutRoute[];
+
+  navigationRoutes = [];
   open = false;
 
-  constructor(@Inject('ROUTES') routes: Array<MenuShortcutRoute>) {
-    this.routes = routes
-      .filter(route => route.page === 'main')
-      .filter(route => route.name);
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.navigationRoutes = this.route.routeConfig.children;
   }
 
   @HostListener('window:click')

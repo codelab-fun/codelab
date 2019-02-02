@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 
 import { FullLayoutComponent } from '../../containers/full-layout';
 
+
 let routes = [
   {
     path: '',
@@ -126,6 +127,5 @@ if (environment.production) {
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-
 export class AngularRoutingModule {
 }
