@@ -1,22 +1,34 @@
+import { ActivatedRoute } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SlidesDeckComponent } from './deck.component';
 
 describe('Deck', () => {
-  let component: PresentationComponentV2;
-  let fixture: ComponentFixture<PresentationComponentV2>;
+  let component: SlidesDeckComponent;
+  let fixture: ComponentFixture<SlidesDeckComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PresentationComponentV2]
+      declarations: [SlidesDeckComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          snapshot: {
+            queryParams: {
+              milestone: 'Hi World'
+            }
+          }
+        }
+      }]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PresentationComponentV2);
+    fixture = TestBed.createComponent(SlidesDeckComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test.only('should create', () => {
     expect(component).toBeTruthy();
   });
 });
