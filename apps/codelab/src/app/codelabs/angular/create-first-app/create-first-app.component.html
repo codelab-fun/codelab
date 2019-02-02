@@ -649,73 +649,36 @@
   <!--@-selectorgame-->
   <div *slide id="selectorexercise">
     <div class="header" header><h1 i18n>Selector Exercise</h1></div>
-    
-    <img src="/assets/images/selector-exercise-output.png" style="width:400px" />
+
+    <h1>Select This</h1>
+    <div>
+      <ng-container *ngIf="isDiv==true">
+        <span style="color:blue">&lt;div class="x"&gt;</span>
+      </ng-container>
+      <ng-container *ngIf="isDiv==false">
+        <span>&lt;div class="x"&gt;</span>
+      </ng-container>
+      <br>
+      <ng-container *ngIf="isDiv==true">
+        <span style="color:blue">&lt;div class="y"&gt;</span>
+      </ng-container>
+      <ng-container *ngIf="isDiv==false">
+        &lt;div class="y"&gt;
+      </ng-container>
+    </div>
     <br>
-    <h3><b>Use the output above to answer the following questions</b></h3><br>
+    <h1>Not This</h1>
+    <div>
+      &lt;p&gt;<br>
+      &lt;span&gt;
+    </div>
+    <br>
+    <input type="text" style="width:30%" (keyup)="onKey($event)">
+<!-- 
     Which selector displays the category? <br>
     <input type="text" style="width:30%"><br>
     Which selector displays the items? <br>
-    <input type="text" style="width:30%"><br>
-
-    Code reference below
-    <div row style="min-height: 370px">
-      <div class="col-6">
-        <code-demo-file-path path="store.component.html"></code-demo-file-path>
-        <code-demo-editor
-          language="html"
-          style="height: 50vh"
-          [fontSize]="18"
-          [(ngModel)]="code.selectorExercise.storeComponentHTML.code"
-        ></code-demo-editor>
-      </div>
-      <div class="col-6">
-        <code-demo-file-path path="store.component.ts"></code-demo-file-path>
-        <code-demo-editor
-          style="height: 50vh"
-          [fontSize]="18"
-          [(ngModel)]="code.selectorExercise.storeComponentTS.code"
-        ></code-demo-editor>
-      </div>
-    </div>
-    <div row style="min-height: 280px">
-      <div class="col-6">
-        <code-demo-file-path path="categories.component.html"></code-demo-file-path>
-        <code-demo-editor
-          language="html"
-          style="height: 50vh"
-          [fontSize]="18"
-          [(ngModel)]="code.selectorExercise.categoriesComponentHTML.code"
-        ></code-demo-editor>
-      </div>
-      <div class="col-6">
-        <code-demo-file-path path="categories.component.ts"></code-demo-file-path>
-        <code-demo-editor
-          style="height: 50vh"
-          [fontSize]="18"
-          [(ngModel)]="code.selectorExercise.categoriesComponentTS.code"
-        ></code-demo-editor>
-      </div>
-    </div>
-    <div row>
-      <div class="col-6">
-        <code-demo-file-path path="item.component.html"></code-demo-file-path>
-        <code-demo-editor
-          language="html"
-          style="height: 50vh"
-          [fontSize]="18"
-          [(ngModel)]="code.selectorExercise.itemComponentHTML.code"
-        ></code-demo-editor>
-      </div>
-      <div class="col-6">
-        <code-demo-file-path path="item.component.ts"></code-demo-file-path>
-        <code-demo-editor
-          style="height: 50vh"
-          [fontSize]="18"
-          [(ngModel)]="code.selectorExercise.itemComponentTS.code"
-        ></code-demo-editor>
-      </div>
-    </div>
+    <input type="text" style="width:30%"><br> -->
   </div>
   <div *slide id="end">
     <codelab-closing-slide>
