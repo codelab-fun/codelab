@@ -14,13 +14,14 @@ export class PollComponent {
 @Component({
   selector: 'slides-poll-answer',
   template: `
-    <li>
+    <li (click)="service.storeMyData(value)">
       <ng-content></ng-content>
     </li>
   `,
   styleUrls: ['./poll.component.css']
 })
 export class SlidesAnswerComponent implements OnInit {
+  @Input() value: string;
   constructor(readonly service: LiveService) {
   }
 

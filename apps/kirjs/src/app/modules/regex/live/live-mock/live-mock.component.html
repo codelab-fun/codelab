@@ -1,6 +1,10 @@
-<select [(ngModel)]="data.status">
-  <option value="presenter">Presenter</option>
-  <option value="viewer">Viewer</option>
-</select>
+<form [formGroup]="form">
+  <select formControlName="status">
+    <option value="presenter">Presenter</option>
+    <option value="viewer">Viewer</option>
+  </select>
 
-<pre>{{ data | json }}</pre>
+  <input formControlName="user">
+
+  <pre>{{ data | json }}</pre>
+</form>

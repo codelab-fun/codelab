@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface LiveInfo {
   // Login service
@@ -15,18 +16,58 @@ export interface LiveInfo {
   slide: string;
 }
 
+type AllData<T = any> = Record<string, T>;
+
 @Injectable({
   providedIn: 'root'
 })
-export class LiveService {
+export class LiveService<T = any> {
 
-  data: Observable<LiveInfo> = of({
+  private liveInfoSubject: BehaviorSubject<LiveInfo> = new BehaviorSubject<LiveInfo>({
     user: 'code',
     sessionId: 'test',
     status: 'presenter', // 'viewer'
     presentationId: 'regex',
     slide: 'poll'
   } as LiveInfo);
+  liveInfo: Observable<LiveInfo> = this.liveInfoSubject.asObservable();
 
-  constructor() { }
+  private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<AllData<T>>({} as AllData<T>);
+  allData = this.allDataSubject.asObservable();
+
+  myData = combineLatest(this.allData, this.liveInfo)
+    .pipe(
+      map(([allData, { user }]) => {
+        return allData[user];
+      })
+    );
+
+  constructor() {
+  }
+  
+  storeLiveInfo(data: LiveInfo): void {
+    const liveInfo = this.liveInfoSubject.getValue();
+    this.liveInfoSubject.next({ ...liveInfo, ...data });
+  }
+
+  // Viewer
+  storeMyData(data: T): void {
+    // firebase.store
+    const liveInfo = this.liveInfoSubject.getValue();
+    const allData = this.allDataSubject.getValue();
+    const value = { ...allData, [liveInfo.user]: data };
+
+    this.allDataSubject.next(value);
+  }
+
+  ngOnDestroy() {
+    if (this.allDataSubject) {
+      this.allDataSubject.complete();
+      this.allDataSubject = null;
+    }
+    if (this.liveInfoSubject) {
+      this.liveInfoSubject.complete();
+      this.liveInfoSubject = null;
+    }
+  }
 }

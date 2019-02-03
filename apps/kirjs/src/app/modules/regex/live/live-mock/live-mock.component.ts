@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LiveService, LiveInfo } from '../live.service';
-import { SubscriptionLike } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'slides-live-mock-component',
@@ -10,19 +12,28 @@ import { SubscriptionLike } from 'rxjs';
 export class LiveMockComponent implements OnInit, OnDestroy {
   data: LiveInfo;
 
-  private subscription: SubscriptionLike;
+  form: FormGroup = this.fb.group({
+    user: this.fb.control(''),
+    status: this.fb.control('')
+  });
 
-  constructor(private service: LiveService) { }
+  private onDestroy: Subject<null> = new Subject<null>();
+
+  constructor(private service: LiveService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.subscription = this.service.data.subscribe((data) => {
+    this.form.valueChanges.subscribe((data) => {
+      this.service.storeLiveInfo(data);
+    });
+
+    this.service.liveInfo.pipe(takeUntil(this.onDestroy)).subscribe((data) => {
       this.data = data;
+      this.form.patchValue(data, { emitEvent: false });
     });
   }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.onDestroy.next(null);
+    this.onDestroy.complete();
   }
 }
