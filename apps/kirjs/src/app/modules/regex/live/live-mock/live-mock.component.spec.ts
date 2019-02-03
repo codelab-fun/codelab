@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KirjsPollComponent } from './kirjs-poll.component';
+import { LiveMockComponent } from './live-mock.component';
 
-describe('KirjsPollComponent', () => {
-  let component: KirjsPollComponent;
-  let fixture: ComponentFixture<KirjsPollComponent>;
+describe('LiveMockComponent', () => {
+  let component: LiveMockComponent;
+  let fixture: ComponentFixture<LiveMockComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KirjsPollComponent ]
+      declarations: [ LiveMockComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KirjsPollComponent);
+    fixture = TestBed.createComponent(LiveMockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

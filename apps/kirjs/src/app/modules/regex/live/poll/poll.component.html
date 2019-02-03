@@ -1,0 +1,23 @@
+<ng-container *ngIf="service.data | async as data">
+  <ng-container *ngIf="data.status === 'presenter'">
+    <ul>
+      <ng-content></ng-content>
+    </ul>
+  </ng-container>
+  <ng-container *ngIf="data.status === 'viewer'">
+    Results are here!!!
+  </ng-container>
+</ng-container>
+
+
+<!--<slides-live>-->
+<!--<slides-live-presenter>-->
+<!--&lt;!&ndash;Poll&ndash;&gt;-->
+<!--&lt;!&ndash;Yes | No&ndash;&gt;-->
+<!---->
+
+<!--</slides-live-presenter>-->
+<!--<slides-live-viewer>-->
+<!--...-->
+<!--</slides-live-viewer>-->
+<!--</slides-live>-->
