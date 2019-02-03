@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-ng-module-mode',
+  selector: 'codelab-slides-ng-module-mode',
   templateUrl: './mode.component.html',
   styleUrls: ['./mode.component.css']
 })

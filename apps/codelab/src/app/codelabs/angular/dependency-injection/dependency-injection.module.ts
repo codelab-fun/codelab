@@ -16,7 +16,7 @@ import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 const routes = RouterModule.forChild([
   {
     path: '',
-    redirectTo: '/dependency-injection/intro',
+    redirectTo: '/angular/dependency-injection/intro',
     pathMatch: 'full'
   },
   ...SlidesRoutes.get(DependencyInjectionComponent)

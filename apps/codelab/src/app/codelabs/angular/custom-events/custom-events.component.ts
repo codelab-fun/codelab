@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
 
 @Component({
-  selector: 'slides-custom-events',
+  selector: 'codelab-slides-custom-events',
   templateUrl: './custom-events.component.html',
   styleUrls: ['./custom-events.component.css']
 })

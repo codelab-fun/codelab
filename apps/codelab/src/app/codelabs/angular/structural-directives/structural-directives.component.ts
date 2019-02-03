@@ -10,7 +10,7 @@ import {
 declare const require;
 
 @Component({
-  selector: 'slides-structural-directives',
+  selector: 'codelab-slides-structural-directives',
   templateUrl: './structural-directives.component.html',
   styleUrls: ['./structural-directives.component.css', './bsod.css']
 })

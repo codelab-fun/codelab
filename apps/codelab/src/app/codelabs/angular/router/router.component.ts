@@ -43,7 +43,7 @@ function routeExercise(highlights: FileHighlights) {
 }
 
 @Component({
-  selector: 'slides-router',
+  selector: 'codelab-slides-router',
   templateUrl: './router.component.html',
   styleUrls: ['./router.component.css']
 })

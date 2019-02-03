@@ -13,7 +13,7 @@ import { extractMessages } from '../../../../../../../libs/presentation/src/lib/
 const circleAndBoxCode = circleAndBox();
 
 @Component({
-  selector: 'slides-component-tree',
+  selector: 'codelab-slides-component-tree',
   templateUrl: './component-tree.component.html',
   styleUrls: [
     '../../../components/css/codelab-styles.scss',

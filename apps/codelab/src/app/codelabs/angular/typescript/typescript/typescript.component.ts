@@ -2,17 +2,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   javaScriptWithConsoleLog,
   typeScriptWithConsoleLog
-} from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
-import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
+} from '../../../../../../../../libs/exercise/src/lib/helpers/helpers';
+import { extractMessages } from '../../../../../../../../libs/presentation/src/lib/i18n-tools';
 import {
   convertExerciseToMap,
   ng2tsConfig
-} from '../../../../../../../ng2ts/ng2ts';
+} from '../../../../../../../../ng2ts/ng2ts';
 
 declare const require;
 
 @Component({
-  selector: 'slides-typescript',
+  selector: 'codelab-slides-typescript',
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })

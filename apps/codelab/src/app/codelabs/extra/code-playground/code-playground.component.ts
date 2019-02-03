@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'code-playground',
+  selector: 'codelab-code-playground',
   templateUrl: './code-playground.component.html',
   styleUrls: ['./code-playground.component.css']
 })
-export class CodePlaygroundComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class CodePlaygroundComponent {
 }
 
 //

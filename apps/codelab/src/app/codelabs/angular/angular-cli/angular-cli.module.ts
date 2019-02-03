@@ -18,7 +18,7 @@ import { ExternalLinkDirectiveDirective } from '../../../components/external-lin
 const routes = RouterModule.forChild([
   {
     path: '',
-    redirectTo: '/angular-cli/intro',
+    redirectTo: '/angular/angular-cli/intro',
     pathMatch: 'full'
   },
   ...SlidesRoutes.get(AngularCliComponent)
