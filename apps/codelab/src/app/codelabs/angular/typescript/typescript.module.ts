@@ -4,7 +4,7 @@ import { TypescriptComponent } from './typescript/typescript.component';
 import { TypescriptRoutingModule } from './typescript-routing.module';
 
 import { TypescriptSvgComponent } from './typescript/typescript-svg/typescript-svg.component';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../../shared/shared.module';
 
 
 @NgModule({

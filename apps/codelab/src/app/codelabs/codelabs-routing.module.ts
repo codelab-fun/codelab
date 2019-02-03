@@ -14,10 +14,6 @@ const routes: Routes = [
     loadChildren: './angular/angular.module#AngularModule'
   },
   {
-    path: 'typescript',
-    loadChildren: './typescript/typescript.module#TypescriptModule'
-  },
-  {
     path: 'extra',
     loadChildren: './extra/extra.module#ExtraModule'
   }

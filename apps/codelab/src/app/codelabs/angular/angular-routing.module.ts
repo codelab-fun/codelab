@@ -113,6 +113,15 @@ let routes = [
         description: 'Learn about structural directives in angular',
         page: 'bonus',
         prod: true
+      },
+      {
+        path: 'typescript',
+        loadChildren:
+          './typescript/typescript.module#TypescriptModule',
+        name: 'Typescript',
+        description: 'Learn about typescript',
+        page: 'typescript',
+        prod: true
       }
     ]
   }
