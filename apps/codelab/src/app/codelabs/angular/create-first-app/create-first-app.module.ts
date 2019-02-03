@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
 
-import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
+import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
-import { CreateFirstAppComponent } from './create-first-app.component';
+import { BrowserWindowModule } from '@codelab/browser';
 
-import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-import { SlidesModule } from '../../../../../../../libs/slides/src';
-
+import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
+import { SlidesModule } from '@codelab/slides';
+
 import { ModeComponent } from './mode/mode.component';
-import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
+
+import { CreateFirstAppComponent } from './create-first-app.component';
 
 const routes = RouterModule.forChild([
   {

@@ -60,6 +60,7 @@ export class CodeDemoEditorHighlightDirective implements OnChanges, AfterViewIni
       const decorations = this.codeDemoHighlight
         .map(match => ({ match }))
         .reduce((ranges, { match, className }) => {
+          console.log(code, match);
           const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(
             code,
             match

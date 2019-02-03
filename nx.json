@@ -1,5 +1,5 @@
 {
-  "npmScope": "angular-presentation",
+  "npmScope": "codelab",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -27,6 +27,9 @@
       "tags": []
     },
     "kirjs": {
+      "tags": []
+    },
+    "dummy": {
       "tags": []
     },
     "kirjs-e2e": {
