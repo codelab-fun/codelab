@@ -29,10 +29,8 @@ import { FullLayoutComponent } from '../containers';
   ],
   exports: [
     FullLayoutComponent,
-
     HttpClientModule,
     FormsModule,
-
     CodeDemoModule,
     CodelabComponentsModule,
     FeedbackModule,
