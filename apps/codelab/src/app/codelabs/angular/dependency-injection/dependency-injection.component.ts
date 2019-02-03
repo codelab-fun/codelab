@@ -3,7 +3,7 @@ import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
 
 @Component({
-  selector: 'slides-dependency-injection',
+  selector: 'codelab-slides-dependency-injection',
   templateUrl: './dependency-injection.component.html',
   styleUrls: ['./dependency-injection.component.css']
 })

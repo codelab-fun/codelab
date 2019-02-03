@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'typescript-svg',
+  selector: 'codelab-typescript-svg',
   templateUrl: './typescript-svg.component.html'
 })
 export class TypescriptSvgComponent implements OnInit {

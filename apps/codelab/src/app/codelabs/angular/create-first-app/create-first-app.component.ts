@@ -4,7 +4,7 @@ import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '../../../../../../../libs/presentation/src/lib/i18n-tools';
 
 @Component({
-  selector: 'slides-create-first-app',
+  selector: 'codelab-slides-create-first-app',
   templateUrl: './create-first-app.component.html',
   styleUrls: [
     '../../../components/css/codelab-styles.scss',

@@ -4,7 +4,7 @@ import { routes as angularComponentRoutes } from '../angular/angular-routing.mod
 
 
 @Component({
-  selector: 'slides-index',
+  selector: 'codelab-slides-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })

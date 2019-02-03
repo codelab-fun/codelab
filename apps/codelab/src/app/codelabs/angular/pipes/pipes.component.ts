@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { displayAngularComponent } from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
 
 @Component({
-  selector: 'slides-pipes',
+  selector: 'codelab-slides-pipes',
   templateUrl: './pipes.component.html',
   styleUrls: ['./pipes.component.css']
 })

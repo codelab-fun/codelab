@@ -51,7 +51,7 @@ function formsConfig(code, highlights: FileHighlights = {}) {
 }
 
 @Component({
-  selector: 'slides-forms',
+  selector: 'codelab-slides-forms',
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.css']
 })

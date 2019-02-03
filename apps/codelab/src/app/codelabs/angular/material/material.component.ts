@@ -47,7 +47,7 @@ function matExercise(
 }
 
 @Component({
-  selector: 'slides-material',
+  selector: 'codelab-slides-material',
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.css'],
   encapsulation: ViewEncapsulation.None

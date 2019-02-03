@@ -9,7 +9,7 @@ import { extractMessages } from '../../../../../../../libs/presentation/src/lib/
 const baseCode = 'TODO';
 
 @Component({
-  selector: 'slides-templates',
+  selector: 'codelab-slides-templates',
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.css']
 })

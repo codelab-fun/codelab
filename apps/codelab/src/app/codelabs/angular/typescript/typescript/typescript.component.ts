@@ -12,7 +12,7 @@ import {
 declare const require;
 
 @Component({
-  selector: 'slides-typescript',
+  selector: 'codelab-slides-typescript',
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })
