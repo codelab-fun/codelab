@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'kirjs-main',

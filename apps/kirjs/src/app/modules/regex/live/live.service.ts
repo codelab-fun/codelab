@@ -44,7 +44,7 @@ export class LiveService<T = any> {
 
   constructor() {
   }
-  
+
   storeLiveInfo(data: LiveInfo): void {
     const liveInfo = this.liveInfoSubject.getValue();
     this.liveInfoSubject.next({ ...liveInfo, ...data });
