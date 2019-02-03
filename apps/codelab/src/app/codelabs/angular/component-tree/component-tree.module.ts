@@ -19,7 +19,7 @@ import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 const routes = RouterModule.forChild([
   {
     path: '',
-    redirectTo: '/component-tree/intro',
+    redirectTo: '/angular/component-tree/intro',
     pathMatch: 'full'
   },
   ...SlidesRoutes.get(ComponentTreeComponent)

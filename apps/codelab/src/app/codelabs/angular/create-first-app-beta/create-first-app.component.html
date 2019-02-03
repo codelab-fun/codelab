@@ -94,7 +94,7 @@
       language="html"
       [fontSize]="30"
       [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
-      [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
+      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
     ></code-demo-editor>
     <h2 i18n>
       Let's create an Angular app which replaces the <b>hello-world</b> HTML
@@ -132,11 +132,10 @@
     <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
     <code-demo-editor
-      [autoFolding]="true"
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
       [lineNumbers]="false"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.exportClass]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.exportClass]"
     ></code-demo-editor>
     <h2 i18n>
       An Angular component is just a class. Properties and behavior can be added
@@ -158,7 +157,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.decorator]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.decorator]"
     ></code-demo-editor>
     <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
     <div class="info" i18n>
@@ -211,7 +210,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.selector]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.selector]"
     ></code-demo-editor>
   </div>
 
@@ -230,7 +229,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.template]"
+      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.template]"
     ></code-demo-editor>
     <div class="info" i18n>
       If the amount of HTML grows out of hand, it's possible (and recommended)
@@ -300,10 +299,9 @@
     <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
     <code-demo-editor
-      autoFolding
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.exportClass]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.exportClass]"
     ></code-demo-editor>
   </div>
 
@@ -326,7 +324,7 @@
       language="typescript"
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.ngModule]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.ngModule]"
     ></code-demo-editor>
   </div>
 
@@ -360,7 +358,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[
+      [codeDemoSimpleHighlightMatch]="[
         code.moduleAnatomy.matches.declarationsArr
       ]"
     ></code-demo-editor>
@@ -384,7 +382,7 @@
     <code-demo-editor
       [fontSize]="30"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.bootstrapArr]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
     ></code-demo-editor>
   </div>
 
@@ -460,7 +458,7 @@
       <ng-container i18n>Bootstrapping 1</ng-container>
     </h1>
     <h2 i18n>How does bootstrapping work in Angular?</h2>
-    <br/>
+    <br />
     <h2 i18n>
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
@@ -470,12 +468,12 @@
     <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.moduleBootstrapping.code.mainTs"
-      [codeDemoHighlight]="code.moduleBootstrapping.matches.bootstrap"
+      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.bootstrap"
     ></code-demo-editor>
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-      >Read more about root module and bootstrapping in Angular
+        >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -501,12 +499,12 @@
     <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.bootstrapArr]"
+      [codeDemoSimpleHighlightMatch]="[code.moduleAnatomy.matches.bootstrapArr]"
     ></code-demo-editor>
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-      >Read more about root module and bootstrapping in Angular
+        >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -534,12 +532,12 @@
       [fontSize]="25"
       language="html"
       [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
-      [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
+      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
     ></code-demo-editor>
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-      >Read more about root module and bootstrapping in Angular
+        >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -594,7 +592,7 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
+          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
           language="html"
           [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
         ></code-demo-editor>
@@ -625,7 +623,7 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoHighlight]="code.moduleBootstrapping.matches.hello"
+          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.hello"
           [(ngModel)]="code.componentAnatomy.code"
         ></code-demo-editor>
       </div>

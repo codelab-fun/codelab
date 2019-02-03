@@ -1,38 +1,21 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { extractMessages } from '../../../../../../libs/presentation/src/lib/i18n-tools';
-import { MenuShortcutRoute } from '../../components/menu-shortcut/menu-shortcut.component';
+import { Component, ViewChild } from '@angular/core';
+
+import { routes as angularComponentRoutes } from '../angular/angular-routing.module';
+
 
 @Component({
   selector: 'slides-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit {
-  routes: Array<MenuShortcutRoute>;
+export class IndexComponent {
+
   @ViewChild('translations') translations;
 
+  showContents: boolean;
+
   getMainPageRoutes() {
-    const t = extractMessages(this.translations); // translations from the template
-    return this.getPageRoutes('main').map(route => {
-      if (route.translationIds) {
-        route.name = t[route.translationIds[0]] || route.name;
-        route.description = t[route.translationIds[1]] || route.name;
-      }
-      return route;
-    });
+    return angularComponentRoutes[0]['children'];
   }
 
-  getBonusPageRoutes() {
-    return this.getPageRoutes('bonus');
-  }
-
-  getPageRoutes(page: string) {
-    return this.routes.filter(route => route.page === page);
-  }
-
-  constructor(@Inject('ROUTES') routes: Array<MenuShortcutRoute>) {
-    this.routes = routes.filter(route => route.name);
-  }
-
-  ngOnInit() {}
 }
