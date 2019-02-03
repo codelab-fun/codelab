@@ -160,9 +160,5 @@ ${message}
         iframe
       });
     };
-
-    if (config.url === 'about:blank') {
-      iframe.contentWindow.onload({} as any);
-    }
   });
 }

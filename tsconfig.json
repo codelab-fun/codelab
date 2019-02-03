@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "angularCompilerOptions": {
-    "enableIvy": false,
+    "enableIvy": false
   },
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
@@ -13,65 +13,29 @@
     "experimentalDecorators": true,
     "target": "es5",
     "paths": {
-      "jszip": [
-        "node_modules/jszip/dist/jszip.min.js"
-      ],
-      "crypto": [
-        "libs/dummy/src/index.ts"
-      ],
-      "source-map-support": [
-        "libs/dummy/src/index.ts"
-      ],
-      "path": [
-        "libs/dummy/src/index.ts"
-      ],
-      "process": [
-        "libs/dummy/src/index.ts"
-      ],
-      "convert-source-map": [
-        "libs/dummy/src/index.ts"
-      ],
-      "@codelab/*": [
-        "libs/*"
-      ],
-      "@codelab/presentation": [
-        "libs/presentation/src/index.ts"
-      ],
-      "@codelab/browser": [
-        "libs/browser/src/index.ts"
-      ],
-      "@codelab/console": [
-        "libs/console/src/index.ts"
-      ],
-      "@codelab/utils": [
-        "libs/utils/src/index.ts"
-      ],
-      "@codelab/slides": [
-        "libs/slides/src/index.ts"
-      ],
-      "@codelab/angular-ast-viz": [
-        "libs/angular-ast-viz/src/index.ts"
-      ],
+      "jszip": ["node_modules/jszip/dist/jszip.min.js"],
+      "crypto": ["libs/dummy/src/index.ts"],
+      "source-map-support": ["libs/dummy/src/index.ts"],
+      "path": ["libs/dummy/src/index.ts"],
+      "process": ["libs/dummy/src/index.ts"],
+      "convert-source-map": ["libs/dummy/src/index.ts"],
+      "@codelab/*": ["libs/*"],
+      "@codelab/presentation": ["libs/presentation/src/index.ts"],
+      "@codelab/browser": ["libs/browser/src/index.ts"],
+      "@codelab/console": ["libs/console/src/index.ts"],
+      "@codelab/utils": ["libs/utils/src/index.ts"],
+      "@codelab/slides": ["libs/slides/src/index.ts"],
+      "@codelab/angular-ast-viz": ["libs/angular-ast-viz/src/index.ts"],
       "@codelab/angular-slides-to-pdf": [
         "libs/angular-slides-to-pdf/src/index.ts"
       ],
-      "vm": [
-        "node_modules/vm-shim"
-      ],
-      "@codelab/feedback": [
-        "libs/feedback/src/index.ts"
-      ],
-      "@codelab/code-demos": [
-        "libs/code-demos/src/index.ts"
-      ]
+      "vm": ["node_modules/vm-shim"],
+      "@codelab/feedback": ["libs/feedback/src/index.ts"],
+      "@codelab/code-demos": ["libs/code-demos/src/index.ts"],
+      "@angular-presentation/live": ["libs/live/src/index.ts"]
     },
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
     "module": "es2015"
   }
 }

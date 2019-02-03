@@ -98,6 +98,7 @@
     "vue": "^2.5.22"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.13.0",
     "@angular-devkit/build-ng-packagr": "~0.12.2",
     "@angular/animations": "7.2.3",
     "@angular/cdk": "^7.3.0",

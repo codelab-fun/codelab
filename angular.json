@@ -31,9 +31,7 @@
                 "output": "./assets/runner/"
               }
             ],
-            "styles": [
-              "apps/codelab/src/styles.scss"
-            ],
+            "styles": ["apps/codelab/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -104,9 +102,7 @@
             "polyfills": "apps/codelab/src/polyfills.ts",
             "tsConfig": "apps/codelab/tsconfig.spec.json",
             "scripts": [],
-            "styles": [
-              "apps/codelab/src/styles.scss"
-            ],
+            "styles": ["apps/codelab/src/styles.scss"],
             "assets": [
               "apps/codelab/src/assets",
               "apps/codelab/src/favicon.ico",
@@ -167,9 +163,7 @@
               "libs/browser/tsconfig.lib.json",
               "libs/browser/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -195,9 +189,7 @@
               "libs/console/tsconfig.lib.json",
               "libs/console/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -223,9 +215,7 @@
               "libs/dummy/tsconfig.lib.json",
               "libs/dummy/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -251,9 +241,7 @@
               "libs/utils/tsconfig.lib.json",
               "libs/utils/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -287,9 +275,7 @@
                 "output": "./assets/runner/"
               }
             ],
-            "styles": [
-              "apps/kirjs/src/styles.css"
-            ],
+            "styles": ["apps/kirjs/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -354,14 +340,9 @@
             "polyfills": "apps/kirjs/src/polyfills.ts",
             "tsConfig": "apps/kirjs/tsconfig.spec.json",
             "karmaConfig": "apps/kirjs/karma.conf.js",
-            "styles": [
-              "apps/kirjs/src/styles.css"
-            ],
+            "styles": ["apps/kirjs/src/styles.css"],
             "scripts": [],
-            "assets": [
-              "apps/kirjs/src/favicon.ico",
-              "apps/kirjs/src/assets"
-            ]
+            "assets": ["apps/kirjs/src/favicon.ico", "apps/kirjs/src/assets"]
           }
         },
         "lint": {
@@ -371,9 +352,7 @@
               "apps/kirjs/tsconfig.app.json",
               "apps/kirjs/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -398,9 +377,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/kirjs-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -438,9 +415,7 @@
               "libs/presentation/tsconfig.lib.json",
               "libs/presentation/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -478,9 +453,7 @@
               "libs/angular-ast-viz/tsconfig.lib.json",
               "libs/angular-ast-viz/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -518,9 +491,7 @@
               "libs/angular-slides-to-pdf/tsconfig.lib.json",
               "libs/angular-slides-to-pdf/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -553,9 +524,7 @@
               "libs/feedback/tsconfig.lib.json",
               "libs/feedback/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -580,9 +549,7 @@
               "libs/slides/tsconfig.lib.json",
               "libs/slides/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -615,9 +582,7 @@
               "libs/code-demos/tsconfig.lib.json",
               "libs/code-demos/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -629,6 +594,39 @@
           }
         }
       }
+    },
+    "live": {
+      "root": "libs/live",
+      "sourceRoot": "libs/live/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/live/tsconfig.lib.json",
+            "project": "libs/live/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/live/tsconfig.lib.json",
+              "libs/live/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/live/jest.config.js",
+            "tsConfig": "libs/live/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "defaultProject": "codelab",
