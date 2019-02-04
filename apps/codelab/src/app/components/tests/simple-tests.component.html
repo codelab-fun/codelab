@@ -1,20 +1,20 @@
-<slides-simple-tests-progress
+<codelab-simple-tests-progress
   [tests]="tests"
   *ngIf="hasTests()"
-></slides-simple-tests-progress>
+></codelab-simple-tests-progress>
 <ng-container *ngFor="let test of tests; trackBy: trackTest; let i = index">
   <div
     *ngIf="seeAll || test.isFirstUnresolved"
     class="test-panel"
     title="{{ test.result }}"
   >
-    <slides-simple-test-description
+    <codelab-simple-test-description
       [title]="test.title"
       [file]="test.filename"
       [pass]="test.pass"
       [class.first-unsolved]="test.isFirstUnresolved"
       (selectFile)="selectFile.emit($event)"
-    ></slides-simple-test-description>
+    ></codelab-simple-test-description>
     <div class="result" *ngIf="test.isFirstUnresolved">{{ test.result }}</div>
   </div>
 </ng-container>

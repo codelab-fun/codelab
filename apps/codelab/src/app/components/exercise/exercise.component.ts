@@ -32,7 +32,7 @@ export function getChanges(current, previous) {
 }
 
 @Component({
-  selector: 'slides-codelab-exercise',
+  selector: 'codelab-codelab-exercise',
   templateUrl: 'exercise.component.html',
   styleUrls: ['./exercise.component.css']
 })

@@ -11,7 +11,7 @@ import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
 
 import { TitleSlideComponent } from './slides/title-slide/title-slide.component';
-import { CodelabSlidesPreviewComponent } from './slides-preview/codelab-slides-preview.component';
+import { CodelabSlidesPreviewComponent } from './codelab-preview/codelab-codelab-preview.component';
 import { CodelabClosingSlideComponent } from './slides/closing-slide/codelab-closing-slide.component';
 import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { CodelabExercisePlayground } from './exercise-playground/codelab-exercise-playground.component';

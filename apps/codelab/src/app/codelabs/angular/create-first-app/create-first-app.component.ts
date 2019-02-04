@@ -29,7 +29,7 @@ export class CreateFirstAppComponent implements OnInit {
           excludeFromTesting: false,
           type: 'typescript',
           path: 'app.component.ts',
-          template: "import {Component} from '@angular/core';\n\n",
+          template: `import {Component} from '@angular/core';\n\n`,
           moduleName: 'app.component',
           code: `import { Component } from '@angular/core';
 

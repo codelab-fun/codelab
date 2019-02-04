@@ -6,6 +6,6 @@ export class AngularPresentationPage {
   }
 
   getParagraphText() {
-    return element(by.css('slides-root h1')).getText();
+    return element(by.css('codelab-root h1')).getText();
   }
 }

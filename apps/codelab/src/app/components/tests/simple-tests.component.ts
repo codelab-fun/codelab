@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { TestInfo } from '../../../../../../libs/exercise/src/lib/interfaces/test-info';
 
 function getFileName(file: string) {
@@ -7,7 +6,7 @@ function getFileName(file: string) {
 }
 
 @Component({
-  selector: 'slides-simple-tests',
+  selector: 'codelab-simple-tests',
   templateUrl: './simple-tests.component.html',
   styleUrls: ['./simple-tests.component.css']
 })
@@ -19,7 +18,8 @@ export class SimpleTestsComponent implements OnInit {
   seeAll = false;
   tests: Array<TestInfo>;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor() {
+  }
 
   @Input('tests') set testsSetter(tests: Array<TestInfo>) {
     this.tests = (tests || []).map(test => ({

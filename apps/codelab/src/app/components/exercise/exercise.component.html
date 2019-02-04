@@ -18,19 +18,19 @@
         [code]="files$ | async"
       ></codelab-simple-angular-test-runner>
 
-      <slides-babel-test-runner
+      <codelab-babel-test-runner
         *ngIf="testRunner === 'babel'"
         [translations]="translations"
         [bootstrap]="bootstrapTest"
         [code]="code"
-      ></slides-babel-test-runner>
+      ></codelab-babel-test-runner>
     </div>
   </div>
   <div class="row">
-    <codelab-slides-preview
+    <codelab-codelab-preview
       class="quarter"
       [milestone]="milestone"
-    ></codelab-slides-preview>
+    ></codelab-codelab-preview>
     <!--<code-demo-runner-->
     <!--class="quarter"-->
     <!--[url]="url"-->

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'slides-root',
+  selector: 'codelab-root',
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {}

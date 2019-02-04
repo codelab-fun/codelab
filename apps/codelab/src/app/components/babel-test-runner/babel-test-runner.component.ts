@@ -5,13 +5,13 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
-import { FileConfig } from '../../../../../../libs/exercise/src/lib/interfaces/file-config';
-import { TestInfo } from '../../../../../../libs/exercise/src/lib/interfaces/test-info';
+import { FileConfig } from '@codelab/exercise/src/lib/interfaces/file-config';
+import { TestInfo } from '@codelab/exercise/src/lib/interfaces/test-info';
 
 declare const require;
 
 @Component({
-  selector: 'slides-babel-test-runner',
+  selector: 'codelab-babel-test-runner',
   templateUrl: './babel-test-runner.component.html',
   styleUrls: ['./babel-test-runner.component.css']
 })

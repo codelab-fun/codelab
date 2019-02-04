@@ -4,9 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'codelab-slides-preview',
-  templateUrl: './codelab-slides-preview.component.html',
-  styleUrls: ['./codelab-slides-preview.component.scss']
+  selector: 'codelab-codelab-preview',
+  templateUrl: './codelab-codelab-preview.component.html',
+  styleUrls: ['./codelab-codelab-preview.component.scss']
 })
 export class CodelabSlidesPreviewComponent implements OnInit {
   @Input() milestone;

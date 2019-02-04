@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'slides-simple-test-description',
+  selector: 'codelab-simple-test-description',
   templateUrl: './simple-test-description.component.html',
   styleUrls: ['./simple-test-description.component.css']
 })
