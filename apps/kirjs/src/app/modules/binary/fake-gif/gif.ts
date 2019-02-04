@@ -56,11 +56,11 @@ export function lzw(minCodeSize, data, pixelCount) {
       datum >>= code_size;
       bits -= code_size;
       // Interpret the code
-      if (code > available || code == end_of_information) {
+      if (code > available || code === end_of_information) {
         break;
       }
 
-      if (code == clear) {
+      if (code === clear) {
         // Reset decoder.
         code_size = data_size + 1;
         code_mask = (1 << code_size) - 1;
@@ -68,14 +68,14 @@ export function lzw(minCodeSize, data, pixelCount) {
         old_code = nullCode;
         continue;
       }
-      if (old_code == nullCode) {
+      if (old_code === nullCode) {
         pixelStack[top++] = suffix[code];
         old_code = code;
         first = code;
         continue;
       }
       in_code = code;
-      if (code == available) {
+      if (code === available) {
         pixelStack[top++] = first;
         code = old_code;
       }

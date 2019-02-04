@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { exercise } from '../../../../../../libs/exercise/src/lib/helpers/helpers';
+import { exercise } from '@codelab/exercise/src/lib/helpers/helpers';
 import { parse } from 'babylon';
 import {
   findHighlightsObjectProp,
@@ -61,7 +61,7 @@ export class SimpleEditorComponent implements ControlValueAccessor {
   }
 }`;
 
-const consoleLog = "console.log('holy')";
+const consoleLog = `console.log('hello')`;
 const consoleLogAst = parse(consoleLog);
 const consoleLogCode = JSON.stringify(consoleLogAst, null, '  ');
 const consoleLogBodyAst = consoleLogAst.program.body;

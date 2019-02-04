@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'codelab-memory',
+  selector: 'kirjs-memory',
   templateUrl: './memory.component.html',
   styleUrls: ['./memory.component.css']
 })

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'binary-gif',
+  selector: 'kirjs-binary-gif',
   templateUrl: './binary-gif.component.html',
   styleUrls: ['./binary-gif.component.css']
 })

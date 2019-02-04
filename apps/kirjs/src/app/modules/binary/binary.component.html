@@ -57,7 +57,7 @@
     <code style="font-size: 2vw;font-weight: 300;word-break: break-word">
       {{ chikinGif }}
     </code>
-    <binary-gif [binary]="binaryChikinGif"></binary-gif>
+    <kirjs-binary-gif [binary]="binaryChikinGif"></kirjs-binary-gif>
   </div>
 
   <div *slide id="binary-file-string-value" vertical-split>
@@ -68,7 +68,7 @@
     >
       {{ littleGif }}
     </code>
-    <binary-gif [binary]="binaryLittleGif"></binary-gif>
+    <kirjs-binary-gif [binary]="binaryLittleGif"></kirjs-binary-gif>
   </div>
 
   <div *slide id="binary-file-upload-buffer">
@@ -84,7 +84,7 @@
     <code style="font-size: 3vw; font-weight: 300;word-break: break-word">
       {{ binaryLittleGif }}
     </code>
-    <binary-gif [binary]="binaryLittleGif"></binary-gif>
+    <kirjs-binary-gif [binary]="binaryLittleGif"></kirjs-binary-gif>
   </div>
 
   <div *slide id="schema" binary-schema>
@@ -591,86 +591,86 @@ Columbus, Ohio
 
   <div *slide id="binary-memory-1">
     <h2 i18n>Let's see how memory works in typed arrays</h2>
-    <codelab-memory></codelab-memory>
+    <kirjs-memory></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-2">
-    <codelab-memory
+    <kirjs-memory
       [param]="1"
       code="Boolean[] b = new Boolean[5];"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-3">
-    <codelab-memory
+    <kirjs-memory
       [param]="2"
       code="Boolean[] b = new Boolean[5];
 System.out.println(b[3]);"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-4">
-    <codelab-memory
+    <kirjs-memory
       [param]="3"
       code="Uint8[] b = new Uint8[5];"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-5">
-    <codelab-memory
+    <kirjs-memory
       [param]="4"
       code="Uint8[] b = new Uint8[5];
 System.out.println(b[3]);"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-6">
-    <codelab-memory
+    <kirjs-memory
       [param]="5"
       code="a = [true, false, true, false, true];
 console.log(a[3]);"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-7">
-    <codelab-memory
+    <kirjs-memory
       [param]="6"
       code="a = [true, 3, true, false, true];
 console.log(a[3]);"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-8">
-    <codelab-memory
+    <kirjs-memory
       [param]="7"
       code="a = [true, 3, true, false, true];
 console.log(a[3]);"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-9">
-    <codelab-memory
+    <kirjs-memory
       [param]="8"
       code="a = [true, 3, true, false, true];
 console.log(a[3]);"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-10">
-    <codelab-memory
+    <kirjs-memory
       [param]="9"
       code="a = [true, 3, true, false, true];
 a[1] = false;
 console.log(a[3]);"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-11">
-    <codelab-memory
+    <kirjs-memory
       [param]="4"
       code="cons a = new Uint8Array(5);
 console.log(a[1])"
-    ></codelab-memory>
+    ></kirjs-memory>
   </div>
 
   <div *slide id="binary-operations">

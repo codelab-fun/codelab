@@ -38,7 +38,7 @@ export function flatten(
 }
 
 @Component({
-  selector: 'binary-flat',
+  selector: 'kirjs-binary-flat',
   templateUrl: './binary-flat.component.html',
   styleUrls: ['./binary-flat.component.css']
 })
