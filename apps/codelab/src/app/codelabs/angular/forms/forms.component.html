@@ -1,7 +1,7 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <feedback-widget></feedback-widget>
-    <slides-menu-shortcut></slides-menu-shortcut>
+    <codelab-menu-shortcut></codelab-menu-shortcut>
   </div>
   <codelab-progress-bar></codelab-progress-bar>
   <slide-arrows></slide-arrows>
@@ -171,13 +171,13 @@
       In the next slide there is an exercise. We're going to add a form to the
       upload page.
     </h2>
-    <slides-codelab-exercise-preview
+    <codelab-exercise-preview
       style="height:50vh"
       column-5
       [exercise]="exercise"
       [url]="'/assets/runner/'"
     >
-    </slides-codelab-exercise-preview>
+    </codelab-exercise-preview>
     <div class="info">
       Note: you'd have to manually click on the "upload link" to see the result,
       we're working on the fix.
@@ -185,12 +185,12 @@
   </div>
 
   <div *slide id="exercise" no-padding>
-    <slides-codelab-exercise
+    <codelab-exercise
       milestone="forms"
       [translations]="t"
       [exercise]="exercise"
     >
-    </slides-codelab-exercise>
+    </codelab-exercise>
   </div>
 
   <div *slide id="end">

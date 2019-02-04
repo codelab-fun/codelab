@@ -9,7 +9,7 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <feedback-widget></feedback-widget>
-    <slides-menu-shortcut></slides-menu-shortcut>
+    <codelab-menu-shortcut></codelab-menu-shortcut>
   </div>
   <codelab-progress-bar></codelab-progress-bar>
   <slide-arrows></slide-arrows>
@@ -113,11 +113,11 @@
       In the next slide there is an exercise. We're going to add 2 routes:
       <b>Search</b> and <b>Upload</b>, and a menu for switching between them.
     </h2>
-    <slides-codelab-exercise-preview
+    <codelab-exercise-preview
       column-5
       [exercise]="exercise"
       [url]="'/assets/runner/'"
-    ></slides-codelab-exercise-preview>
+    ></codelab-exercise-preview>
     <div class="info">
       Note: We have already created empty Upload component and SearchComponent
       containing search logic.
@@ -125,13 +125,13 @@
   </div>
 
   <div *slide id="exercise" no-padding>
-    <slides-codelab-exercise
+    <codelab-exercise
       milestone="Router"
       [translations]="t"
       url="/assets/runner"
       [exercise]="exercise"
     >
-    </slides-codelab-exercise>
+    </codelab-exercise>
   </div>
 
   <div *slide id="end">

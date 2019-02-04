@@ -6,7 +6,7 @@ import {
 import { convertExerciseToMap } from '../../../../../../ng2ts/ng2ts';
 
 @Component({
-  selector: 'codelab-codelab-exercise-preview',
+  selector: 'codelab-exercise-preview',
   templateUrl: 'exercise-preview.component.html'
   // styleUrls: ['../exercise/code-demo-code-demo.component.css'],
 })

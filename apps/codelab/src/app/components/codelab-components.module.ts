@@ -21,7 +21,7 @@ import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-ani
 import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-test-runner.component';
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 import { CodeDemoModule } from '@codelab/code-demos';
-import { CodelabSlidesPreviewComponent } from './slides-preview/codelab-slides-preview.component';
+import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 
 @NgModule({
   imports: [
@@ -38,7 +38,7 @@ import { CodelabSlidesPreviewComponent } from './slides-preview/codelab-slides-p
     SimpleTestsComponent,
     SimpleTestDescriptionComponent,
     TitleSlideComponent,
-    CodelabSlidesPreviewComponent,
+    CodelabPreviewComponent,
     CodelabClosingSlideComponent,
     CodelabExercisePreviewComponent,
     CodelabExercisePlaygroundComponent,
@@ -52,7 +52,7 @@ import { CodelabSlidesPreviewComponent } from './slides-preview/codelab-slides-p
     CodelabExerciseComponent,
     SimpleAngularTestRunnerComponent,
     TitleSlideComponent,
-    CodelabSlidesPreviewComponent,
+    CodelabPreviewComponent,
     CodelabClosingSlideComponent,
     CodelabExercisePreviewComponent,
     CodelabExercisePlaygroundComponent,

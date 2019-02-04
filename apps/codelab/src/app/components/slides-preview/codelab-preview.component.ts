@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'codelab-codelab-preview',
-  templateUrl: './codelab-codelab-preview.component.html',
-  styleUrls: ['./codelab-codelab-preview.component.scss']
+  selector: 'codelab-preview',
+  templateUrl: './codelab-preview.component.html',
+  styleUrls: ['./codelab-preview.component.scss']
 })
-export class CodelabSlidesPreviewComponent implements OnInit {
+export class CodelabPreviewComponent implements OnInit {
   @Input() milestone;
   public isExpanded: boolean;
   private iframeSource;

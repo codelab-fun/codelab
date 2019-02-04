@@ -1,7 +1,7 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
   <div class="btn-bar">
     <feedback-widget></feedback-widget>
-    <slides-menu-shortcut></slides-menu-shortcut>
+    <codelab-menu-shortcut></codelab-menu-shortcut>
   </div>
   <codelab-progress-bar></codelab-progress-bar>
   <slide-arrows></slide-arrows>
@@ -64,19 +64,19 @@
       you worked on before.
     </h1>
 
-    <slides-codelab-exercise-preview
+    <codelab-exercise-preview
       column-5
       [exercise]="exercises[0]"
-    ></slides-codelab-exercise-preview>
+    ></codelab-exercise-preview>
   </div>
 
   <!--  Slide 4 -->
   <div *slide id="custom-event-slide-4" no-padding>
-    <slides-codelab-exercise
+    <codelab-exercise
       milestone="CustomEvents"
       [translations]="t"
       [exercise]="exercises[0]"
     >
-    </slides-codelab-exercise>
+    </codelab-exercise>
   </div>
 </slide-deck>
