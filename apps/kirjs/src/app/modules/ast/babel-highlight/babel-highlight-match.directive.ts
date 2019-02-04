@@ -10,8 +10,7 @@ export class BabelHighlightDirective implements AfterViewInit {
   // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
   @Input('slidesBabelHighlightMatch') callback;
 
-  constructor(private editorComponent: CodeDemoEditorComponent) {
-  }
+  constructor(private editorComponent: CodeDemoEditorComponent) {}
 
   ngAfterViewInit(): void {
     if (this.callback) {
@@ -22,7 +21,7 @@ export class BabelHighlightDirective implements AfterViewInit {
           range: new this.editorComponent.monacoConfigService.monaco.Range(
             ...match.loc
           ),
-          options: {inlineClassName: match.className}
+          options: { inlineClassName: match.className }
         };
       });
 
@@ -32,6 +31,6 @@ export class BabelHighlightDirective implements AfterViewInit {
 }
 
 @NgModule({
-  declarations: [ BabelHighlightDirective ]
+  declarations: [BabelHighlightDirective]
 })
 export class MockaADASDASDASDASDASDModule {}

@@ -48,5 +48,4 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorAutoFoldingDirective
   ]
 })
-export class CodeDemoModule {
-}
+export class CodeDemoModule {}

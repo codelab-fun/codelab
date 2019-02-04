@@ -4,7 +4,8 @@ import {
   Host,
   Input,
   OnChanges,
-  Optional, Self
+  Optional,
+  Self
 } from '@angular/core';
 import { CodeDemoEditorComponent } from '../code-demo-editor.component';
 import { findPosition } from '../utils/utils';
@@ -15,15 +16,16 @@ import { MonacoConfigService } from '@codelab/exercise/src/lib/services/monaco-c
 @Directive({
   selector: '[codeDemoHighlight]'
 })
-export class CodeDemoEditorHighlightDirective implements OnChanges, AfterViewInit {
+export class CodeDemoEditorHighlightDirective
+  implements OnChanges, AfterViewInit {
   decorators = [];
   @Input() codeDemoHighlight;
   @Input() ngModel;
 
-  constructor(@Self() @Optional() private editorInjector: CodeDemoEditorInjector,
-              readonly monacoConfigService: MonacoConfigService
-  ) {
-  }
+  constructor(
+    @Self() @Optional() private editorInjector: CodeDemoEditorInjector,
+    readonly monacoConfigService: MonacoConfigService
+  ) {}
 
   ngAfterViewInit() {
     this.highlight();
@@ -78,14 +80,8 @@ export class CodeDemoEditorHighlightDirective implements OnChanges, AfterViewIni
           return ranges;
         }, []);
 
-      this.decorators = editor.deltaDecorations(
-        this.decorators,
-        []
-      );
-      this.decorators = editor.deltaDecorations(
-        this.decorators,
-        decorations
-      );
+      this.decorators = editor.deltaDecorations(this.decorators, []);
+      this.decorators = editor.deltaDecorations(this.decorators, decorations);
     }
   }
 

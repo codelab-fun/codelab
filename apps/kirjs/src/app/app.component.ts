@@ -20,7 +20,6 @@ export class AppComponent {
       localStorage.setItem(key, path);
       alert(`Linker stored ${path}!`);
     }
-
   }
 
   constructor(private router: Router) {

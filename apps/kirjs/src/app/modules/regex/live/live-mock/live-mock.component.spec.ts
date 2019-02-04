@@ -8,9 +8,8 @@ describe('LiveMockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LiveMockComponent ]
-    })
-    .compileComponents();
+      declarations: [LiveMockComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,12 +4,7 @@ import { AngularRoutingModule } from './angular-routing.module';
 
 import { SharedModule } from '../../shared/shared.module';
 
-
 @NgModule({
-  imports: [
-    AngularRoutingModule,
-    SharedModule
-  ]
+  imports: [AngularRoutingModule, SharedModule]
 })
-export class AngularModule {
-}
+export class AngularModule {}

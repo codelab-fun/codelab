@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, HostListener, Input, OnInit, Type, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+  Type,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 
 function escapeHtml(str) {
   const div = document.createElement('div');
@@ -30,7 +39,7 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
 
   @HostListener('document:keydown.esc', ['$event'])
   handleKeyboardEvent() {
-      this.inputEl.nativeElement.focus();
+    this.inputEl.nativeElement.focus();
   }
 
   trackByFn(a, i) {
@@ -45,7 +54,7 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
         type: 'dynamic'
       });
     } else {
-      this.output.push({code: code, type});
+      this.output.push({ code: code, type });
     }
   }
 
@@ -71,7 +80,7 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
     (window as any).explain = (component: string, param: string) =>
       this.explain(component, param);
 
-    console.log = function () {
+    console.log = function() {
       Array.from(arguments).map(a => that.post(a, 'log'));
     };
 

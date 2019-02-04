@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-
 import { TitleSlideComponent } from './title-slide.component';
 import { CodelabRippleAnimationComponent } from './ripple-animation/codelab-ripple-animation.component';
 

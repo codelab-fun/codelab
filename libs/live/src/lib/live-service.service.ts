@@ -9,5 +9,5 @@ export class LiveServiceService {
   @Input() session = 'live-share';
   @Input() bucket = 'poll';
 
-  constructor() { }
+  constructor() {}
 }

@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
 
-
-
 import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
 import { BrowserWindowModule } from '../../../../../../libs/browser/src/lib/browser.module';
 
@@ -19,11 +17,10 @@ const routes = RouterModule.forChild(SlidesRoutes.get(GomokuComponent));
   imports: [
     routes,
 
-
     BrowserWindowModule,
     FeedbackModule,
     CommonModule,
-        GomokuBoardModule,
+    GomokuBoardModule,
     SlidesModule
   ],
   declarations: [GomokuComponent],

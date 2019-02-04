@@ -69,10 +69,7 @@
         <code-demo-editor
           [fontSize]="15"
           [(ngModel)]="code.withOutDI.code"
-          [codeDemoHighlight]="[
-            code.withOutDI.matches.noDI,
-            'profession'
-          ]"
+          [codeDemoHighlight]="[code.withOutDI.matches.noDI, 'profession']"
         ></code-demo-editor>
         <h2 class="comparision" i18n>
           Without Dependency Injection, <b>Profession</b> has to be instantiated
@@ -245,12 +242,12 @@
       <ng-container i18n="@@step3">Step 3</ng-container>
     </h1>
     <h2 i18n>Consume the Injectable in the component</h2>
-    <code-demo-file-path path="unit-conversion.component.ts"></code-demo-file-path>
+    <code-demo-file-path
+      path="unit-conversion.component.ts"
+    ></code-demo-file-path>
     <code-demo-editor
       [(ngModel)]="code.consumeInjectable.code"
-      [codeDemoHighlight]="[
-        code.consumeInjectable.matches.constructor
-      ]"
+      [codeDemoHighlight]="[code.consumeInjectable.matches.constructor]"
     ></code-demo-editor>
     <div class="info" i18n>
       Because of the <b>private</b> access modifier the service becomes

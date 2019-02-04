@@ -1,16 +1,14 @@
-<ng-container *ngIf="service.liveInfo | async as data">
+<ng-container *ngIf="(service.liveInfo | async) as data">
   <ng-container *ngIf="data.status === 'viewer'">
     <ng-container *ngIf="!(service.myData | async)">
       2
       <ul *ngTemplateOutlet="answers"></ul>
     </ng-container>
 
-    <ng-container *ngIf="service.myData | async">
-      {{ service.allData | async | json }}
-      3
+    <ng-container *ngIf="(service.myData | async)">
+      {{ service.allData | async | json }} 3
       <ul *ngTemplateOutlet="answers"></ul>
     </ng-container>
-
   </ng-container>
   <ng-container *ngIf="data.status === 'presenter'">
     Results are here!!!
@@ -19,7 +17,6 @@
 
 <!--*ngIf="showResult then result"-->
 <!--*ngIf="showAnswers then answers"-->
-
 
 <!--<ng-container [ngSwitch]="(service.liveInfo | async)?.status">-->
 <!--<ng-container *ngSwitchCase="'presenter'">-->
@@ -32,19 +29,16 @@
 <!--</ng-container>-->
 <!--</ng-container>-->
 
-
 <!--<live-info viewer="viewer" presenter="presenter"></live-info>-->
 
 <ng-template #answers let-data>
-  // results
-  myDAta
+  // results myDAta
   <ng-content></ng-content>
 </ng-template>
 
 <!--<ng-template #presenter>-->
 <!--// Result-->
 <!--</ng-template>-->
-
 
 <!--<live-info>-->
 <!--<my-custom-viewer *viewer="let data" [data]="data"></my-custom-viewer>-->

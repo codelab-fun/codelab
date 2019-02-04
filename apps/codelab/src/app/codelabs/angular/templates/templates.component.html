@@ -302,10 +302,7 @@
     <code-demo-editor
       [(ngModel)]="code.bindingRef"
       [fontSize]="25"
-      [codeDemoHighlight]="[
-        code.bindingRefMatch,
-        code.bindingRef2Match
-      ]"
+      [codeDemoHighlight]="[code.bindingRefMatch, code.bindingRef2Match]"
       language="html"
     >
     </code-demo-editor>
@@ -435,8 +432,7 @@
             >Learn how to use Angular Dependency Injection</a
           >
         </h2>
-        <feedback-rating lesson="AngularTemplates">
-        </feedback-rating>
+        <feedback-rating lesson="AngularTemplates"> </feedback-rating>
       </div>
     </codelab-closing-slide>
   </div>

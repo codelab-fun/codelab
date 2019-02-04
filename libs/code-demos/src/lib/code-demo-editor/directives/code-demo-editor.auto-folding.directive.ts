@@ -4,11 +4,10 @@ import { CodeDemoEditorInjector } from '../code-demo-editor.injector';
 @Directive({
   selector: '[autoFolding]'
 })
-export class CodeDemoEditorAutoFoldingDirective implements AfterViewInit{
+export class CodeDemoEditorAutoFoldingDirective implements AfterViewInit {
+  @Input() autoFolding = true;
 
-  @Input() autoFolding: boolean = true;
-
-  constructor(@Self() private editorInjector: CodeDemoEditorInjector) { }
+  constructor(@Self() private editorInjector: CodeDemoEditorInjector) {}
 
   ngAfterViewInit(): void {
     const editor = this.editorInjector.editor;
@@ -17,5 +16,4 @@ export class CodeDemoEditorAutoFoldingDirective implements AfterViewInit{
       folding.run();
     }
   }
-
 }

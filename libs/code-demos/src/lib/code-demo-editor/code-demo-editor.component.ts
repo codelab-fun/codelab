@@ -56,7 +56,10 @@ export class CodeDemoEditorComponent
   code: string;
   private subscription: Subscription;
 
-  constructor(private editorInjector: CodeDemoEditorInjector, readonly monacoConfigService: MonacoConfigService) {
+  constructor(
+    private editorInjector: CodeDemoEditorInjector,
+    readonly monacoConfigService: MonacoConfigService
+  ) {
     this.subscription = this.changeSubject
       .pipe(debounceTime(this.debounce))
       .subscribe(a => this.change.emit(a));
@@ -114,23 +117,26 @@ export class CodeDemoEditorComponent
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
     }
 
-    this.editor = this.editorInjector.editor = this.monacoConfigService.monaco.editor.create(editor, {
-      wrappingColumn: 10,
-      model: this.model,
-      scrollBeyondLastLine: false,
-      tabCompletion: true,
-      wordBasedSuggestions: true,
-      lineNumbersMinChars: 3,
-      cursorBlinking: 'phase',
-      renderIndentGuides: false,
-      lineNumbers: this.lineNumbers,
-      automaticLayout: true,
-      fontSize: this.fontSize,
-      folding: true,
-      minimap: {
-        enabled: false
+    this.editor = this.editorInjector.editor = this.monacoConfigService.monaco.editor.create(
+      editor,
+      {
+        wrappingColumn: 10,
+        model: this.model,
+        scrollBeyondLastLine: false,
+        tabCompletion: true,
+        wordBasedSuggestions: true,
+        lineNumbersMinChars: 3,
+        cursorBlinking: 'phase',
+        renderIndentGuides: false,
+        lineNumbers: this.lineNumbers,
+        automaticLayout: true,
+        fontSize: this.fontSize,
+        folding: true,
+        minimap: {
+          enabled: false
+        }
       }
-    });
+    );
 
     this.model.onDidChangeContent(() => {
       this.changeSubject.next(this.editor.getModel().getValue());

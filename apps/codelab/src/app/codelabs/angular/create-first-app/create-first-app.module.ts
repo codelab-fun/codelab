@@ -41,5 +41,4 @@ const routes = RouterModule.forChild([
   declarations: [CreateFirstAppComponent, ModeComponent],
   exports: [CreateFirstAppComponent]
 })
-export class CreateFirstAppModule {
-}
+export class CreateFirstAppModule {}

@@ -8,9 +8,8 @@ describe('ComponentsHierarchySvgComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComponentsHierarchySvgComponent ]
-    })
-    .compileComponents();
+      declarations: [ComponentsHierarchySvgComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

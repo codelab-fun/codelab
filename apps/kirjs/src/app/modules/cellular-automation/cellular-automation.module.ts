@@ -18,7 +18,7 @@ const routes = RouterModule.forChild(
 );
 
 @NgModule({
-  imports: [routes, SlidesModule, FeedbackModule,  CommonModule],
+  imports: [routes, SlidesModule, FeedbackModule, CommonModule],
   declarations: [
     CellularAutomationComponent,
     BoardComponent,

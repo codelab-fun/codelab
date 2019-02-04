@@ -28,8 +28,7 @@ export class FeedbackWidgetComponent implements OnInit {
   constructor(
     private feedbackService: FeedbackService,
     private activatedRoute: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.messages$ = this.feedbackService.getMessages(this.activatedRoute);

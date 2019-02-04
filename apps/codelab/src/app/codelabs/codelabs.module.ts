@@ -11,12 +11,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { monacoReady } from '@codelab/exercise/src/lib/services/monaco-config.service';
 
-
 @NgModule({
-  declarations: [
-    IndexComponent,
-    AppComponent
-  ],
+  declarations: [IndexComponent, AppComponent,],
   imports: [
     CommonModule,
     BrowserModule,
@@ -33,5 +29,4 @@ import { monacoReady } from '@codelab/exercise/src/lib/services/monaco-config.se
   ],
   bootstrap: [AppComponent]
 })
-export class CodelabsModule {
-}
+export class CodelabsModule {}

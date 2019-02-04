@@ -17,7 +17,7 @@ describe('SlidesRoutingDirective', () => {
     };
 
     const slidesDeckComponentStub = {
-      slides: [{id: 1}, {id: 2}],
+      slides: [{ id: 1 }, { id: 2 }],
       goToSlide(n: number) {
         this.activeSlideIndex = n;
         this.slideChange.emit(n);
@@ -66,9 +66,14 @@ describe('SlidesRoutingDirective', () => {
 
   describe('getId', () => {
     it('should return the id prop of the slide at the given index', () => {
-      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.get(SlidesDeckComponent);
+      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.get(
+        SlidesDeckComponent
+      );
 
-      slidesDeckComponentStub.slides = [{id: 'typescript'}, {id: 'javascript'}];
+      slidesDeckComponentStub.slides = [
+        { id: 'typescript' },
+        { id: 'javascript' }
+      ];
 
       slidesDeckComponentStub.slides.forEach((slide, index, arr) => {
         const retrievedId = pipe.getId(index);
@@ -76,5 +81,4 @@ describe('SlidesRoutingDirective', () => {
       });
     });
   });
-
 });

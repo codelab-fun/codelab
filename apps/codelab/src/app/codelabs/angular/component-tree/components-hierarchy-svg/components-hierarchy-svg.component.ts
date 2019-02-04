@@ -5,6 +5,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './components-hierarchy-svg.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ComponentsHierarchySvgComponent {
-
-}
+export class ComponentsHierarchySvgComponent {}

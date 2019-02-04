@@ -16,15 +16,8 @@ describe('ModeComponent', () => {
   it('can load instance', () => {
     expect(component).toBeTruthy();
   });
-  it('modes defaults to: ['
-  web;
-  ', ';
-  mobile;
-  ', ';
-  vr;
-  ']', () => {
-    expect(component.modes).toEqual(['web', 'mobile', 'vr']);
-  };
-)
-  ;
+  it('modes defaults to: [\'web\', \'mobile\', \'vr\']',
+    () => {
+      expect(component.modes).toEqual(['web', 'mobile', 'vr']);
+    });
 });

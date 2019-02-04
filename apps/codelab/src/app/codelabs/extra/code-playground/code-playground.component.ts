@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './code-playground.component.html',
   styleUrls: ['./code-playground.component.css']
 })
-export class CodePlaygroundComponent {
-}
+export class CodePlaygroundComponent {}
 
 //
 //

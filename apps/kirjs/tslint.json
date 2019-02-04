@@ -4,17 +4,7 @@
     "exclude": ["src/**/*.json"]
   },
   "rules": {
-    "directive-selector": [
-      true,
-      "attribute",
-      "kirjs",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "kirjs",
-      "kebab-case"
-    ]
+    "directive-selector": [true, "attribute", "kirjs", "camelCase"],
+    "component-selector": [true, "element", "kirjs", "kebab-case"]
   }
 }

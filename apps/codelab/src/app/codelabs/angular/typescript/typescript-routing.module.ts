@@ -9,9 +9,7 @@ const routes = [
   {
     path: '',
     component: FullLayoutComponent,
-    children: [
-      ...SlidesRoutes.get(TypescriptComponent)
-    ]
+    children: [...SlidesRoutes.get(TypescriptComponent)]
   }
 ];
 
@@ -19,6 +17,4 @@ const routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-
-export class TypescriptRoutingModule {
-}
+export class TypescriptRoutingModule {}

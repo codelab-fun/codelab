@@ -57,8 +57,8 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
 
   constructor(
     public scriptLoaderService: ScriptLoaderService,
-    private cdr: ChangeDetectorRef) {
-  }
+    private cdr: ChangeDetectorRef
+  ) {}
 
   get displayUrl() {
     console.log(this.url);
@@ -93,7 +93,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
 
     sandbox.setHtml(
       this.code['index.html'] ||
-      '<app-root></app-root><my-app></my-app><div class="error"></div>'
+        '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
     this.presets.forEach(preset =>

@@ -7,8 +7,7 @@ import { SlidesDeckComponent } from '../deck/deck.component';
   styleUrls: ['./slides-arrows.component.css']
 })
 export class SlidesArrowsComponent {
-  constructor(private presentation: SlidesDeckComponent) {
-  }
+  constructor(private presentation: SlidesDeckComponent) {}
 
   goToPreviousSlide() {
     this.presentation.previousSlide();

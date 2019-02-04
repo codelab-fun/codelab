@@ -4,17 +4,7 @@
     "exclude": ["src/**/*.json"]
   },
   "rules": {
-    "directive-selector": [
-      true,
-      "attribute",
-      "codelab",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "codelab",
-      "kebab-case"
-    ]
+    "directive-selector": [true, "attribute", "codelab", "camelCase"],
+    "component-selector": [true, "element", "codelab", "kebab-case"]
   }
 }

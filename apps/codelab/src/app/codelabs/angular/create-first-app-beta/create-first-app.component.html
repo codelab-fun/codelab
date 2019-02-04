@@ -135,7 +135,9 @@
       [fontSize]="30"
       [(ngModel)]="code.componentAnatomy.code"
       [lineNumbers]="false"
-      [codeDemoSimpleHighlightMatch]="[code.componentAnatomy.matches.exportClass]"
+      [codeDemoSimpleHighlightMatch]="[
+        code.componentAnatomy.matches.exportClass
+      ]"
     ></code-demo-editor>
     <h2 i18n>
       An Angular component is just a class. Properties and behavior can be added
@@ -468,7 +470,9 @@
     <code-demo-editor
       [fontSize]="25"
       [(ngModel)]="code.moduleBootstrapping.code.mainTs"
-      [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.bootstrap"
+      [codeDemoSimpleHighlightMatch]="
+        code.moduleBootstrapping.matches.bootstrap
+      "
     ></code-demo-editor>
 
     <div class="info">
@@ -592,7 +596,9 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.index"
+          [codeDemoSimpleHighlightMatch]="
+            code.moduleBootstrapping.matches.index
+          "
           language="html"
           [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
         ></code-demo-editor>
@@ -623,7 +629,9 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoSimpleHighlightMatch]="code.moduleBootstrapping.matches.hello"
+          [codeDemoSimpleHighlightMatch]="
+            code.moduleBootstrapping.matches.hello
+          "
           [(ngModel)]="code.componentAnatomy.code"
         ></code-demo-editor>
       </div>
@@ -645,8 +653,7 @@
         <h2 i18n>
           Next <a routerLink="/templates/0">Go to the templates Milestone</a>
         </h2>
-        <feedback-rating lesson="FirstAngularApp">
-        </feedback-rating>
+        <feedback-rating lesson="FirstAngularApp"> </feedback-rating>
       </div>
     </codelab-closing-slide>
   </div>

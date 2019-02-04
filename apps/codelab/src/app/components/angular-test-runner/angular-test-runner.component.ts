@@ -1,7 +1,18 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import { handleTestMessage } from './tests';
-import { createSystemJsSandbox } from '../../../../../../libs/exercise/src/lib/runners/utils/sandbox';
-import { ScriptLoaderService } from '../../../../../../libs/exercise/src/lib/services/script-loader.service';
+import { createSystemJsSandbox } from '@codelab/exercise/src/lib/runners/utils/sandbox';
+import { ScriptLoaderService } from '@codelab/exercise/src/lib/services/script-loader.service';
 import * as ts from 'typescript';
 import babel_traverse from 'babel-traverse';
 import * as babylon from 'babylon';
@@ -14,12 +25,12 @@ declare const require;
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
-  (sandbox.iframe.contentWindow as any).System.register('code', [], function (
+  (sandbox.iframe.contentWindow as any).System.register('code', [], function(
     exports
   ) {
     return {
       setters: [],
-      execute: function () {
+      execute: function() {
         exports('ts', ts);
         exports('babylon', babylon);
         exports('babel_traverse', babel_traverse);
@@ -49,10 +60,13 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   templateUrl: './angular-test-runner.component.html',
   styleUrls: ['./angular-test-runner.component.css']
 })
-export class SimpleAngularTestRunnerComponent implements OnChanges, OnInit, OnDestroy {
+export class SimpleAngularTestRunnerComponent
+  implements OnChanges, OnInit, OnDestroy {
   handleMessageBound: any;
   @Output() solved = new EventEmitter();
-  @Output() public selectFile: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public selectFile: EventEmitter<string> = new EventEmitter<
+    string
+  >();
   @Input() translations: { [key: string]: string } = {};
   @Input() code: any;
   @Input() bootstrap: string;
@@ -93,7 +107,7 @@ export class SimpleAngularTestRunnerComponent implements OnChanges, OnInit, OnDe
 
     sandbox.setHtml(
       this.code['index.html'] ||
-      '<app-root></app-root><my-app></my-app><div class="error"></div>'
+        '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
     sandbox.evalJs(this.scriptLoaderService.getScript('chai'));

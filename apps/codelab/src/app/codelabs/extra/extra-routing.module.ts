@@ -27,7 +27,7 @@ let routes = [
         description:
           'Learn how pipes transform input values to output values for display in a view',
         page: 'extra'
-      },
+      }
     ]
   }
 ];
@@ -36,11 +36,8 @@ if (environment.production) {
   routes = routes.filter(r => r['prod']);
 }
 
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-
-export class ExtraRoutingModule {
-}
+export class ExtraRoutingModule {}

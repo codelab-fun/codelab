@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { ExtraRoutingModule } from './extra-routing.module';
 
-
 @NgModule({
   imports: [
     SharedModule,
@@ -16,5 +15,4 @@ import { ExtraRoutingModule } from './extra-routing.module';
     FormsModule
   ]
 })
-export class ExtraModule {
-}
+export class ExtraModule {}

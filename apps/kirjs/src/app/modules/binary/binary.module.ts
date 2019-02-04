@@ -13,13 +13,11 @@ import { BindecComponent } from './bindec/bindec.component';
 import { MessageComponent } from './message/message.component';
 import { JsonComponent } from './json/json.component';
 
-
 import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule, MatSelectModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
 import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
 import { ConsoleModule } from '../../../../../../libs/console/src/index';
-
 
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { BinaryGifComponent } from './binary-gif/binary-gif.component';
@@ -45,10 +43,9 @@ const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
     CommonModule,
     BinaryViewModule,
     CodeDemoModule,
-        MatAutocompleteModule,
+    MatAutocompleteModule,
     SharedPipeModule,
     ConsoleModule,
-
 
     NewProgressBarModule,
     MatSelectModule,

@@ -104,5 +104,4 @@ const routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {
-}
+export class KirjsModule {}

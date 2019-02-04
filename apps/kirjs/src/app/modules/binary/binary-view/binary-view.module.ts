@@ -16,7 +16,6 @@ import { BinaryFlatComponent } from '../binary-flat/binary-flat.component';
 import { BinaryPlainComponent } from '../binary-plain/binary-plain.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   imports: [CommonModule, AutoSizeInputModule, FormsModule],
   declarations: [

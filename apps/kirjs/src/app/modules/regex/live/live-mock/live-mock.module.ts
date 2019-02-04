@@ -4,12 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LiveMockComponent } from './live-mock.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   declarations: [LiveMockComponent],
   exports: [LiveMockComponent]
 })
-export class LiveMockModule {
-}
+export class LiveMockModule {}

@@ -15,8 +15,7 @@ import { TestSetComponent } from './test-set/test-set.component';
 import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';
 import { SizePickerModule } from './size-picker/size-picker.module';
 
-
-import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
+import { FeedbackModule } from '@codelab/feedback';
 import { SlidesModule } from '@codelab/slides';
 import { BabelTestRunner } from './test-set/babel-test-runner/babel-test-runner.component';
 import { CodeDemoModule } from '@codelab/code-demos';
@@ -29,14 +28,13 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
     CommonModule,
     AstPreviewRunnerModule,
 
-
     SlidesModule,
     BrowserWindowModule,
     FeedbackModule,
     CodeDemoModule,
     FlexLayoutModule,
     FormsModule,
-        SizePickerModule,
+    SizePickerModule,
     MatCardModule,
     NewProgressBarModule,
     AngularSlidesToPdfModule

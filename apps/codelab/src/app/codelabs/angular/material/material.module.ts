@@ -30,12 +30,9 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-
-
     FeedbackModule,
     CommonModule,
     BrowserWindowModule,
-
     MatButtonModule,
     MatCardModule,
     MatInputModule,

@@ -22,8 +22,7 @@ export class ScriptLoaderService {
     'react-dom': require('!!raw-loader!react-dom/umd/react-dom.development.js')
   };
 
-  constructor() {
-  }
+  constructor() {}
 
   getScript(url) {
     assert(this.scripts[url]);

@@ -7,7 +7,6 @@ import { ShortcutsDirective } from './shortcuts/shortcuts.directive';
 import { SlidesRoutingDirective } from './routing/slides-routing.directive';
 import { SlidesArrowsComponent } from './arrows/slides-arrows.component';
 
-
 @NgModule({
   declarations: [
     SlidesDeckComponent,
@@ -25,5 +24,4 @@ import { SlidesArrowsComponent } from './arrows/slides-arrows.component';
   ],
   imports: [CommonModule, RouterModule]
 })
-export class SlidesModule {
-}
+export class SlidesModule {}

@@ -84,9 +84,7 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
         filter(event => event instanceof NavigationEnd)
       )
       .subscribe(() => {
-        this.deck.goToSlide(
-          this.getIndexFromRouteParam()
-        );
+        this.deck.goToSlide(this.getIndexFromRouteParam());
       });
   }
 }

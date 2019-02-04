@@ -5,21 +5,12 @@ import { SlidesModule } from '@codelab/slides';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
 
-import { LiveModule }from './live';
+import { LiveModule } from './live';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(RegexComponent)
-);
-
+const routes = RouterModule.forChild(SlidesRoutes.get(RegexComponent));
 
 @NgModule({
   declarations: [RegexComponent],
-  imports: [
-    routes,
-    CommonModule,
-    SlidesModule,
-    LiveModule
-  ]
+  imports: [routes, CommonModule, SlidesModule, LiveModule]
 })
-export class RegexModule {
-}
+export class RegexModule {}

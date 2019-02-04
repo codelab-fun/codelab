@@ -7,8 +7,7 @@ import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component
   template: ''
 })
 export class AngularSlidesToPdfComponent {
-  constructor(private presentation: SlidesDeckComponent) {
-  }
+  constructor(private presentation: SlidesDeckComponent) {}
 
   async toPdf() {
     const width = 1024;

@@ -5,9 +5,7 @@ import { Directive, Input, ElementRef } from '@angular/core';
 })
 // TODO(meinou): Remove the second postfix
 export class ExternalLinkDirectiveDirective {
-  constructor(
-    {nativeElement}: ElementRef
-  ) {
+  constructor({ nativeElement }: ElementRef) {
     nativeElement.target = '_blank';
   }
 }

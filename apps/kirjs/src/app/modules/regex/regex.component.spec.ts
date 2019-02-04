@@ -8,9 +8,8 @@ describe('RegexComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegexComponent ]
-    })
-    .compileComponents();
+      declarations: [RegexComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

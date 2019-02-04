@@ -8,9 +8,6 @@
     "types": ["jasmine", "node"]
   },
   "include": ["**/*.ts"],
-  "lib": [
-    "es2018",
-    "dom"
-  ],
+  "lib": ["es2018", "dom"],
   "module": "es2015"
 }

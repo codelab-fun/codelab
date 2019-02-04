@@ -19,14 +19,14 @@ export class LiveMockComponent implements OnInit, OnDestroy {
 
   private onDestroy: Subject<null> = new Subject<null>();
 
-  constructor(private service: LiveService, private fb: FormBuilder) { }
+  constructor(private service: LiveService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.form.valueChanges.subscribe((data) => {
+    this.form.valueChanges.subscribe(data => {
       this.service.storeLiveInfo(data);
     });
 
-    this.service.liveInfo.pipe(takeUntil(this.onDestroy)).subscribe((data) => {
+    this.service.liveInfo.pipe(takeUntil(this.onDestroy)).subscribe(data => {
       this.data = data;
       this.form.patchValue(data, { emitEvent: false });
     });

@@ -15,7 +15,9 @@
         (selectionChange)="handleFileChange(i, $event)"
       >
         <mat-select-trigger>
-          <code-demo-file-path [path]="openModels[i].path"></code-demo-file-path>
+          <code-demo-file-path
+            [path]="openModels[i].path"
+          ></code-demo-file-path>
         </mat-select-trigger>
 
         <mat-option *ngFor="let m of models" [value]="m">

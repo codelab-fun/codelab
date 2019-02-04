@@ -8,8 +8,7 @@ import { simpleVisitor } from './visitor';
   providedIn: 'root'
 })
 export class DepsService {
-  constructor() {
-  }
+  constructor() {}
 
   // TODO(kirjs): Retire this
   /**
@@ -32,7 +31,7 @@ export class DepsService {
 
   order(files: Array<FileConfig>) {
     let deps: { [key: string]: string } = files.reduce((result, file) => {
-      result[file.path] = {file, deps: []};
+      result[file.path] = { file, deps: [] };
       const source = ts.createSourceFile(
         file.path,
         file.code,

@@ -11,11 +11,8 @@ import { NxModule } from '@nrwl/nx';
 
 import { FullLayoutComponent } from '../containers';
 
-
 @NgModule({
-  declarations: [
-    FullLayoutComponent
-  ],
+  declarations: [FullLayoutComponent],
   imports: [
     HttpClientModule,
     FormsModule,
@@ -36,6 +33,4 @@ import { FullLayoutComponent } from '../containers';
     SlidesModule
   ]
 })
-
-export class SharedModule {
-}
+export class SharedModule {}

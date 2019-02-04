@@ -1,20 +1,16 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'slides-menu-shortcut',
   templateUrl: './menu-shortcut.component.html',
   styleUrls: ['./menu-shortcut.component.css']
 })
 export class MenuShortcutComponent {
-
   navigationRoutes = [];
   open = false;
 
-  constructor(
-    private route: ActivatedRoute
-  ) {
+  constructor(private route: ActivatedRoute) {
     this.navigationRoutes = this.route.routeConfig.children;
   }
 

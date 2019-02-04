@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, Input, OnDestroy, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
 
 import { MonacoConfigService } from '../../../../../exercise/src/lib/services/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
@@ -19,9 +25,10 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   private didChangeListener: IDisposable;
   private model: ITextModel;
 
-  constructor(private editorInjector: CodeDemoEditorInjector,
-              readonly monacoConfigService: MonacoConfigService) {
-  }
+  constructor(
+    private editorInjector: CodeDemoEditorInjector,
+    readonly monacoConfigService: MonacoConfigService
+  ) {}
 
   @Input('model') set setModel(model: ITextModel) {
     this.model = model;
@@ -67,7 +74,9 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.editor = this.editorInjector.editor = this.setUpEditor(this.el.nativeElement);
+    this.editor = this.editorInjector.editor = this.setUpEditor(
+      this.el.nativeElement
+    );
 
     this.resize();
     this.didChangeListener = this.editor.onDidChangeModelContent(() =>

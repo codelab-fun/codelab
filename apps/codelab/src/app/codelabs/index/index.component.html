@@ -9,7 +9,8 @@
   <div i18n="@@componentTree" id="componentTree">Component-Tree</div>
   <div i18n="@@customEvents" id="customEvents">Custom-Events</div>
   <div i18n="@@angularWrittenInTypescript" id="angularWrittenInTypescript">
-    Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript.
+    Angular is written in TypeScript, a superset of JavaScript. Learn
+    TypeScript.
   </div>
   <div i18n="@@learnHowToBootstrapApp" id="learnHowToBootstrapApp">
     Learn how to create and bootstrap your first Angular application
@@ -20,7 +21,10 @@
   <div i18n="@@learnToProvideDependencies" id="learnToProvideDependencies">
     Learn how to provide dependencies to your code instead of hard-coding them
   </div>
-  <div i18n="@@learnToStructureAppWithReusableComponents" id="learnToStructureAppWithReusableComponents">
+  <div
+    i18n="@@learnToStructureAppWithReusableComponents"
+    id="learnToStructureAppWithReusableComponents"
+  >
     Learn how to structure your app with reusable components
   </div>
   <div i18n="@@learnToBindToEvents" id="learnToBindToEvents">
@@ -32,7 +36,7 @@
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
       <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png"/>
+        <img src="/assets/images/github-icon.png" />
       </a>
     </div>
 
@@ -46,18 +50,24 @@
       of <a href="https://angular.io">Angular</a>!
     </h2>
     <div class="play">
-      <button class="learn-box typescript" [routerLink]="['/angular', 'typescript', 'intro']">
+      <button
+        class="learn-box typescript"
+        [routerLink]="['/angular', 'typescript', 'intro']"
+      >
         <span aria-hidden="true">▶</span>
         <div>
           <div class="title" i18n>Learn TypeScript</div>
           <div class="hint" i18n>Skip if you're familiar with TypeScript</div>
         </div>
-        <img src="/assets/images/ts.png" alt="" class=""/>
+        <img src="/assets/images/ts.png" alt="" class="" />
       </button>
-      <button [routerLink]="['/angular', 'create-first-app', 'intro']" class="learn-box">
+      <button
+        [routerLink]="['/angular', 'create-first-app', 'intro']"
+        class="learn-box"
+      >
         <span aria-hidden="true">▶</span>
         <div i18n>Learn Angular</div>
-        <img src="/assets/images/angular.png" alt="" class="angular"/>
+        <img src="/assets/images/angular.png" alt="" class="angular" />
       </button>
     </div>
 
@@ -68,7 +78,9 @@
       <ol>
         <ng-container *ngFor="let route of getMainPageRoutes()">
           <li>
-            <h2><a [routerLink]="['/angular', route.path]">{{ route.name }}</a></h2>
+            <h2>
+              <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
+            </h2>
             <div>{{ route.description }}</div>
           </li>
         </ng-container>

@@ -1,19 +1,14 @@
 import { CustomEventsComponent } from './custom-events.component';
 import { NgModule } from '@angular/core';
-
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-
-import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
+import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
+import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
-import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
-
-
+import { BrowserWindowModule } from '@codelab/browser';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-import { SlidesModule } from '../../../../../../../libs/slides/src';
-
+import { SlidesModule } from '@codelab/slides';
 import { FormsModule } from '@angular/forms';
-import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
+import { CodeDemoModule } from '@codelab/code-demos';
 
 const routes = RouterModule.forChild([
   {

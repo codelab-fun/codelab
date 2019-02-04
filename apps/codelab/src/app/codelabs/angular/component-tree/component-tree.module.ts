@@ -9,7 +9,6 @@ import { BrowserWindowModule } from '@codelab/browser';
 import { ComponentTreeComponent } from './component-tree.component';
 import { ComponentsHierarchySvgComponent } from './components-hierarchy-svg';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
-
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
 
@@ -25,21 +24,15 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-
     BrowserWindowModule,
     CodeDemoModule,
     FeedbackModule,
     CodelabComponentsModule,
-
     SlidesModule,
     FormsModule
   ],
   providers: [Ng2TsExercises],
-  declarations: [
-    ComponentTreeComponent,
-    ComponentsHierarchySvgComponent
-  ],
+  declarations: [ComponentTreeComponent, ComponentsHierarchySvgComponent],
   exports: [ComponentTreeComponent]
 })
-export class ComponentTreeModule {
-}
+export class ComponentTreeModule {}

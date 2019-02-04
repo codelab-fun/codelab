@@ -4,7 +4,6 @@ import { environment } from '../../../environments/environment';
 
 import { FullLayoutComponent } from '../../containers/full-layout';
 
-
 export let routes = [
   {
     path: '',
@@ -12,10 +11,10 @@ export let routes = [
     children: [
       {
         path: 'typescript',
-        loadChildren:
-          './typescript/typescript.module#TypescriptModule',
+        loadChildren: './typescript/typescript.module#TypescriptModule',
         name: 'Typescript',
-        description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript',
+        description:
+          'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript',
         page: 'typescript',
         prod: true
       },
@@ -131,10 +130,8 @@ if (environment.production) {
   routes = routes.filter(r => r['prod']);
 }
 
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AngularRoutingModule {
-}
+export class AngularRoutingModule {}

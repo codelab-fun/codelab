@@ -41,8 +41,8 @@ export class AppComponent {
 }
 `,
           solution:
-            'import { Component } from \'@angular/core\';\n\n@Component({\n  selector: \'my-app\',\n' +
-            '  template: \'<h1>Hello MewTube!</h1>\',\n})\nexport class AppComponent {\n}\n',
+            `import { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n
+              template: '<h1>Hello MewTube!</h1>',\n})\nexport class AppComponent {\n}\n`,
           after: 'export function evalJs( js ){ return eval(js);}'
         },
         {
@@ -51,14 +51,14 @@ export class AppComponent {
           type: 'typescript',
           path: 'app.module.ts',
           template:
-            'import { BrowserWindowModule } from \'@angular/platform-browser\';\nimport { NgModule } from \'@angular/core\';\n' +
-            'import { AppComponent } from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],' +
-            '\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n',
+            `import { BrowserWindowModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\n
+            import { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],
+            \n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n`,
           moduleName: 'app.module',
           code:
-            'import { BrowserWindowModule } from \'@angular/platform-browser\';\nimport {NgModule} from \'@angular/core\';\n' +
-            'import { AppComponent } from \'./app.component\';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],' +
-            '\n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n',
+            `import { BrowserWindowModule } from '@angular/platform-browser';\nimport {NgModule} from '@angular/core';\n
+            import { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],
+            \n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n`,
           readonly: true,
           collapsed: true
         },
@@ -68,12 +68,12 @@ export class AppComponent {
           type: 'typescript',
           path: 'main.ts',
           template:
-            'import { platformBrowserDynamic } from \'@angular/platform-browser-dynamic\';\nimport {AppModule} from \'./app.module\';\n\n' +
-            'const platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n',
+            `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport {AppModule} from './app.module';\n\n
+            const platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n`,
           moduleName: 'main',
           code:
-            'import { platformBrowserDynamic } from \'@angular/platform-browser-dynamic\';\nimport {AppModule} from \'./app.module\';\n\n' +
-            'const platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n',
+            `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport {AppModule} from './app.module';\n\n
+            const platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n`,
           readonly: true,
           collapsed: true
         }

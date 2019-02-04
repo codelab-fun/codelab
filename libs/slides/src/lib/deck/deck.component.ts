@@ -1,4 +1,14 @@
-import { Component, ContentChildren, EventEmitter, HostBinding, Input, Optional, Output, QueryList, TemplateRef } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Optional,
+  Output,
+  QueryList,
+  TemplateRef
+} from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
