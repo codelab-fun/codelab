@@ -10,5 +10,4 @@ import { SharedModule } from '../../../shared/shared.module';
   declarations: [TypescriptComponent, TypescriptSvgComponent],
   imports: [SharedModule, TypescriptRoutingModule]
 })
-export class TypescriptModule {
-}
+export class TypescriptModule {}

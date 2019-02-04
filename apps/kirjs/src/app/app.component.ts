@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'kirjs';
 
-  @HostListener('window:keydown.meta.\'')
+  @HostListener("window:keydown.meta.'")
   HandleLinker() {
     const key = 'linker';
     if (localStorage.getItem(key)) {
