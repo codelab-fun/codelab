@@ -14,18 +14,6 @@ import { extractMessages } from '../../../../../../../libs/presentation/src/lib/
 export class CreateFirstAppComponent implements OnInit {
   t: { [key: string]: string };
 
-  isDiv:Boolean = false
-  value = ""
-  onKey(event: KeyboardEvent) {
-    this.value = (<HTMLInputElement>event.target).value;
-    console.log(this.value)
-    if(this.value=="div") {
-      this.isDiv = true
-    } else {
-      this.isDiv = false
-    }
-  }
-
   @ViewChild('translations') translation;
   //  Exercises
   exercises = [

@@ -14,6 +14,7 @@ import { SlidesModule } from '../../../../../../../libs/slides/src';
 import { FormsModule } from '@angular/forms';
 import { ModeComponent } from './mode/mode.component';
 import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
+import { OutputsComponent } from './outputs.component';
 
 const routes = RouterModule.forChild([
   {
@@ -37,7 +38,8 @@ const routes = RouterModule.forChild([
     SlidesModule,
     FormsModule
   ],
-  declarations: [CreateFirstAppComponent, ModeComponent],
+  entryComponents:[OutputsComponent],
+  declarations: [CreateFirstAppComponent, ModeComponent, OutputsComponent],
   exports: [CreateFirstAppComponent]
 })
 export class CreateFirstAppModule {}
