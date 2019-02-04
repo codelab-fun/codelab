@@ -22,14 +22,12 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-
     FeedbackModule,
     CommonModule,
     BrowserWindowModule,
     CodeDemoModule,
     CodelabComponentsModule,
     SlidesModule,
-
     FormsModule
   ],
   declarations: [CustomEventsComponent],

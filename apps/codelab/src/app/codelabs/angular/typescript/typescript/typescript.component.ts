@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   javaScriptWithConsoleLog,
   typeScriptWithConsoleLog
-} from '../../../../../../../../libs/exercise/src/lib/helpers/helpers';
-import { extractMessages } from '../../../../../../../../libs/presentation/src/lib/i18n-tools';
+} from '@codelab/exercise/src/lib/helpers/helpers';
+import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import {
   convertExerciseToMap,
   ng2tsConfig
