@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-rule8',
+  selector: 'kirjs-rule8',
   templateUrl: './rule8.component.html',
   styleUrls: ['./rule8.component.css']
 })

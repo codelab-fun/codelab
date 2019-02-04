@@ -38,23 +38,23 @@
     <ng-container *ngIf="showAst">
       <div class="label">AST:</div>
       <div class="ast" (click)="showFull = true">
-        <slides-ast-preview-runner
+        <kirjs-ast-preview-runner
           [code]="test.code.trim()"
-        ></slides-ast-preview-runner>
+        ></kirjs-ast-preview-runner>
       </div>
 
       <div class="ast-full" *ngIf="showFull">
         <span style="float: right" (click)="showFull = false">╳</span>
         <pre><code>{{test.code.trim()}}</code></pre>
-        <slides-size-picker
+        <kirjs-size-picker
           (sizeChange)="scale = scale + $event"
           [step]="1"
           [size]="scale"
-        ></slides-size-picker>
-        <slides-ast-preview-runner
+        ></kirjs-size-picker>
+        <kirjs-ast-preview-runner
           [style.zoom]="scale / 10"
           [code]="test.code.trim()"
-        ></slides-ast-preview-runner>
+        ></kirjs-ast-preview-runner>
       </div>
     </ng-container>
   </div>

@@ -2,7 +2,7 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Highlights } from '../highlights';
 
 @Component({
-  selector: 'slides-tools',
+  selector: 'kirjs-tools',
   templateUrl: './tools.component.html',
   styleUrls: ['./tools.component.css']
 })

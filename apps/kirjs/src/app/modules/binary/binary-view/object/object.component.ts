@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-object',
+  selector: 'kirjs-object',
   templateUrl: './object.component.html',
   styleUrls: ['./object.component.css']
 })

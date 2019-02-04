@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { BinaryParentComponent } from '../binary-parent/binary-parent.component';
 
 @Component({
-  selector: 'slides-bits',
+  selector: 'kirjs-bits',
   templateUrl: './bits.component.html',
   styleUrls: ['./bits.component.css']
 })

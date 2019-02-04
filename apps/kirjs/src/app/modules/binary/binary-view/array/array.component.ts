@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-array',
+  selector: 'kirjs-array',
   templateUrl: './array.component.html',
   styleUrls: ['./array.component.css']
 })

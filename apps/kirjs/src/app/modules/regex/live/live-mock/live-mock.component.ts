@@ -5,7 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'slides-live-mock-component',
+  selector: 'kirjs-live-mock-component',
   templateUrl: './live-mock.component.html',
   styleUrls: ['./live-mock.component.css']
 })

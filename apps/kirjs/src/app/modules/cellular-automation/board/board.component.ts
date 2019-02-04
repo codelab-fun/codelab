@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-board',
+  selector: 'kirjs-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })

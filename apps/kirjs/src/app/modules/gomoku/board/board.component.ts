@@ -3,7 +3,7 @@ import { Gomoku } from 'gomoku-tools';
 import { Highlights } from '../highlights';
 
 @Component({
-  selector: 'slides-board',
+  selector: 'kirjs-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })

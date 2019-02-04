@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 // Just an empty component to make everything compile
 @Component({
-  selector: 'slides-app',
+  selector: 'kirjs-app',
   template: ''
 })
 export class AppComponent {}

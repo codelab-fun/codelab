@@ -58,7 +58,7 @@ function filter([feedback, filterName]) {
 }
 
 @Component({
-  selector: 'slides-feedback-page',
+  selector: 'kirjs-feedback-page',
   templateUrl: './feedback-page.component.html',
   styleUrls: ['./feedback-page.component.css']
 })

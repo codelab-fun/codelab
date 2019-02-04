@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-inline-root',
+  selector: 'kirjs-inline-root',
   templateUrl: './inline-root.component.html',
   styleUrls: ['./inline-root.component.css']
 })

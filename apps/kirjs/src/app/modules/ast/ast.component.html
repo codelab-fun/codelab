@@ -1,5 +1,5 @@
-<slide-deck slideShortcuts slidesRouting slides-tracking>
-  <!--<slides-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></slides-new-progress-bar>-->
+<slide-deck slideShortcuts slidesRouting kirjs-tracking>
+  <!--<kirjs-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></kirjs-new-progress-bar>-->
   <slide-arrows></slide-arrows>
 
   <div *slide id="intro" no-padding>
@@ -34,9 +34,9 @@
   </div>
 
   <div *slide id="console-log-regex" no-padding>
-    <slides-test-set [files]="code.findConsoleLog" [fontSize]="fontSize">
+    <kirjs-test-set [files]="code.findConsoleLog" [fontSize]="fontSize">
       <div class="success-complete-dancing"></div>
-    </slides-test-set>
+    </kirjs-test-set>
   </div>
 
   <div no-padding *slide id="two-buttons-push">
@@ -192,12 +192,12 @@
         </ul>
       </div>
     </div>
-    <slides-ast-preview-runner
+    <kirjs-ast-preview-runner
       (highlight)="asthighlight = $event"
       #astPreview
       [code]="code.astPreview"
       class="ast-preview"
-    ></slides-ast-preview-runner>
+    ></kirjs-ast-preview-runner>
     <div
       class="collie ast-preview"
       [class.display]="displayCallee"
@@ -228,13 +228,13 @@
   </div>
 
   <div *slide id="console-log-babel-traverse" no-padding>
-    <slides-test-set
+    <kirjs-test-set
       [files]="code.traverseConsoleLogBabel"
       [fontSize]="fontSize"
       [showAst]="true"
     >
       <div class="success-complete-husky"></div>
-    </slides-test-set>
+    </kirjs-test-set>
   </div>
 
   <div *slide id="babel-types" no-padding>
@@ -262,12 +262,12 @@
   </div>
 
   <div *slide id="console-log-babel-traverse1" no-padding>
-    <slides-test-set
+    <kirjs-test-set
       [files]="code.traverseConsoleLogBabel2"
       [fontSize]="fontSize"
     >
       <div class="success-complete-husky"></div>
-    </slides-test-set>
+    </kirjs-test-set>
   </div>
 
   <div *slide id="babel-transform" no-padding>
@@ -275,9 +275,9 @@
   </div>
 
   <div *slide id="console-log-babel-transform" no-padding>
-    <slides-test-set [files]="code.removeConsoleLogBabel" [fontSize]="fontSize">
+    <kirjs-test-set [files]="code.removeConsoleLogBabel" [fontSize]="fontSize">
       <div class="success-complete-disco"></div>
-    </slides-test-set>
+    </kirjs-test-set>
   </div>
 
   <div *slide id="eslint" no-padding>
@@ -299,11 +299,11 @@
         <a href="http://astexplorer.net/">astexplorer.net</a>
       </div>
     </div>
-    <slides-ast-preview-runner
+    <kirjs-ast-preview-runner
       #astPreview
       [code]="code.astPreviewDebugger"
       class="ast-preview"
-    ></slides-ast-preview-runner>
+    ></kirjs-ast-preview-runner>
   </div>
 
   <div *slide id="eslint" no-padding>

@@ -2,7 +2,7 @@ import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { LiveService } from '../live.service';
 
 @Component({
-  selector: 'slides-poll',
+  selector: 'kirjs-poll',
   templateUrl: './poll.component.html',
   styleUrls: ['./poll.component.css']
 })
@@ -12,7 +12,7 @@ export class PollComponent {
 }
 
 @Component({
-  selector: 'slides-poll-answer',
+  selector: 'kirjs-poll-answer',
   template: `
     <li (click)="service.storeMyData(value)"><ng-content></ng-content></li>
   `,

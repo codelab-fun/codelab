@@ -8,7 +8,7 @@ interface Chunk {
 }
 
 @Component({
-  selector: 'slides-gif-palette',
+  selector: 'kirjs-gif-palette',
   templateUrl: './gif-palette.component.html',
   styleUrls: ['./gif-palette.component.css']
 })

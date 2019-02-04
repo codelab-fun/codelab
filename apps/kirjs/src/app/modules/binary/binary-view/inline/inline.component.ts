@@ -3,7 +3,7 @@ import { InlineRootComponent } from '../inline-root/inline-root.component';
 import { BinaryParentComponent } from '../binary-parent/binary-parent.component';
 
 @Component({
-  selector: 'slides-inline',
+  selector: 'kirjs-inline',
   templateUrl: './inline.component.html',
   styleUrls: ['./inline.component.css']
 })

@@ -7,7 +7,7 @@ function strToBin(s: string) {
 }
 
 @Component({
-  selector: 'slides-json',
+  selector: 'kirjs-json',
   templateUrl: './json.component.html',
   styleUrls: ['./json.component.scss']
 })

@@ -11,7 +11,7 @@ import * as JSZip from 'jszip';
 import * as saveAs from 'file-saver';
 
 @Component({
-  selector: 'slides-ii',
+  selector: 'kirjs-ii',
   templateUrl: './ii.component.html',
   styleUrls: ['./ii.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

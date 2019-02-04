@@ -71,7 +71,7 @@ const consoleLogNoLocCode = removeDoubleWhiteLines(
 );
 
 @Component({
-  selector: 'slides-ast',
+  selector: 'kirjs-ast',
   templateUrl: './ast.component.html',
   styleUrls: ['./ast.component.css']
 })

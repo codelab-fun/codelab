@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-compare',
+  selector: 'kirjs-compare',
   templateUrl: './compare.component.html',
   styleUrls: ['./compare.component.css']
 })

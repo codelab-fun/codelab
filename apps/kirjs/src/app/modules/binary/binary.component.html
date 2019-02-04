@@ -1,8 +1,8 @@
 <slide-deck slideShortcuts class="binary-presentation" slidesRouting>
   <slide-arrows></slide-arrows>
-  <!--<slides-new-progress-bar [fontSize]="fontSize"-->
+  <!--<kirjs-new-progress-bar [fontSize]="fontSize"-->
   <!--title="Binary ❤️ JavaScript"-->
-  <!--(fontSizeChange)="fontSize = fontSize + $event"></slides-new-progress-bar>-->
+  <!--(fontSizeChange)="fontSize = fontSize + $event"></kirjs-new-progress-bar>-->
   <!--<feedback-widget></feedback-widget>-->
 
   <div *slide id="intro" bg intro no-padding>
@@ -154,27 +154,27 @@ Columbus, Ohio
   </div>
 
   <div *slide id="gif-unspaced">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [binary]="binaryLittleGif"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="gif-spaced">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [binary]="binaryLittleGif"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="gif-spaced-sections">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [binary]="binaryLittleGif"
       [spacing]="true"
       [highlightGroups]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="gif-structure" vc>
@@ -200,35 +200,35 @@ Columbus, Ohio
   <kirjs-color-indexing *slide id="color-indexing"></kirjs-color-indexing>
 
   <div *slide id="gif-spaced-sections-2">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [binary]="binaryLittleGif"
       [spacing]="true"
       [highlightGroups]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="gif-boolean">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [showPopups]="true"
       [binary]="binaryLittleGif"
       [highlightedMap]="{ boolean: true }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="gif-number">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [showPopups]="true"
       [binary]="binaryLittleGif"
       [highlightedMap]="{ boolean: true, number: true }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="bin-dec"><slides-bindec param="uint8"></slides-bindec></div>
+  <div *slide id="bin-dec"><kirjs-bindec param="uint8"></kirjs-bindec></div>
 
   <div *slide id="convert-bin-to-dec">
     <h2 i18n>Convert binary to decimal with JavaScript</h2>
@@ -245,23 +245,23 @@ Columbus, Ohio
   </div>
 
   <div *slide id="gif-spaced-bin-dec">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [showPopups]="true"
       [binary]="binaryLittleGif"
       [highlightedMap]="{ boolean: true, number: true }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="gif-spaced-hex">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [showPopups]="true"
       [binary]="binaryLittleGif"
       [highlightedMap]="{ boolean: true, number: true, hex: true }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="bin-hex-explained"><kirjs-hexdec></kirjs-hexdec></div>
@@ -280,17 +280,17 @@ Columbus, Ohio
   </div>
 
   <div *slide id="gif-spaced-bin-hex">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [showPopups]="true"
       [binary]="binaryLittleGif"
       [highlightedMap]="{ boolean: true, number: true, hex: true }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="gif-spaced-string">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [showPopups]="true"
       [binary]="binaryLittleGif"
@@ -301,17 +301,17 @@ Columbus, Ohio
         string: true
       }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="ascii"><slides-ascii></slides-ascii></div>
+  <div *slide id="ascii"><kirjs-ascii></kirjs-ascii></div>
 
   <div *slide id="ascii-2">
-    <slides-ascii param="ascii - Page 2"></slides-ascii>
+    <kirjs-ascii param="ascii - Page 2"></kirjs-ascii>
   </div>
 
   <div *slide id="windows-1251">
-    <slides-ascii param="windows-1251"></slides-ascii>
+    <kirjs-ascii param="windows-1251"></kirjs-ascii>
   </div>
 
   <div *slide id="pelmen">
@@ -323,7 +323,7 @@ Columbus, Ohio
     </a>
   </div>
 
-  <div *slide id="KOI8-R"><slides-ascii param="KOI8-R"></slides-ascii></div>
+  <div *slide id="KOI8-R"><kirjs-ascii param="KOI8-R"></kirjs-ascii></div>
   <div *slide id="boxes">
     <pre style="font-size: 2vw;font-family: monospace; line-height: 1.8vw;">
 ┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕
@@ -342,7 +342,7 @@ Columbus, Ohio
 
   <div *slide id="krakoziabry" bg krakoziabry></div>
 
-  <div *slide id="utf-8"><slides-ascii param="utf-8"></slides-ascii></div>
+  <div *slide id="utf-8"><kirjs-ascii param="utf-8"></kirjs-ascii></div>
 
   <div *slide id="str-to-charcode">
     <h2 i18n>Get charcode from string</h2>
@@ -369,7 +369,7 @@ Columbus, Ohio
   <!--</div>-->
 
   <div *slide id="gif-string-2">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryLittleGif = $event"
       [showPopups]="true"
       [binary]="binaryLittleGif"
@@ -380,11 +380,11 @@ Columbus, Ohio
         string: true
       }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <div *slide id="chikin">
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binaryChikinGif = $event"
       [showPopups]="true"
       [binary]="binaryChikinGif"
@@ -395,7 +395,7 @@ Columbus, Ohio
         string: true
       }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
   </div>
 
   <!--<div *slide id="charcode-to-str">-->
@@ -440,10 +440,10 @@ Columbus, Ohio
     <h1 i18n>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
   </div>
 
-  <div *slide id="json"><slides-json></slides-json></div>
+  <div *slide id="json"><kirjs-json></kirjs-json></div>
 
   <div *slide id="json-1">
-    <slides-json [code]="code.jsonOne"></slides-json>
+    <kirjs-json [code]="code.jsonOne"></kirjs-json>
   </div>
 
   <div *slide id="compare-size">

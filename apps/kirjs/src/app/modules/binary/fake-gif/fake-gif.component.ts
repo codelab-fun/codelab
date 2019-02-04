@@ -18,7 +18,7 @@ interface Chunk {
 }
 
 @Component({
-  selector: 'slides-fake-gif',
+  selector: 'kirjs-fake-gif',
   templateUrl: './fake-gif.component.html',
   styleUrls: ['./fake-gif.component.css']
 })

@@ -26,7 +26,7 @@ const componentMap = {
 };
 
 @Component({
-  selector: 'slides-block',
+  selector: 'kirjs-block',
   templateUrl: './block.component.html',
   styleUrls: ['./block.component.css']
 })

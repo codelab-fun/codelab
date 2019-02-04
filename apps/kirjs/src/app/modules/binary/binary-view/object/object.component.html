@@ -4,9 +4,9 @@
   *ngFor="let item of data.value; trackBy: trackBy"
 >
   <span class="name">{{ item.name }}</span>
-  <slides-block
+  <kirjs-block
     [showMeta]="showMeta"
     [class]="item.name"
     [data]="item"
-  ></slides-block>
+  ></kirjs-block>
 </span>

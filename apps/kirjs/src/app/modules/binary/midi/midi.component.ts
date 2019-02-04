@@ -5,7 +5,7 @@ import { StringBinaryReader } from '../parser/readers/string-reader';
 import { StringParser } from '../parser/parsers/string-parser';
 
 @Component({
-  selector: 'slides-midi',
+  selector: 'kirjs-midi',
   templateUrl: './midi.component.html',
   styleUrls: ['./midi.component.css']
 })

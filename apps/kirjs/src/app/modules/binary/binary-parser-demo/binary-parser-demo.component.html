@@ -20,7 +20,7 @@
     ></code-demo-editor>
   </div>
   <div>
-    <slides-fake-gif
+    <kirjs-fake-gif
       (onBinaryUpdate)="binary = $event; generateCode()"
       [mini]="true"
       [showPopups]="true"
@@ -34,7 +34,7 @@
         string: true
       }"
       [spacing]="true"
-    ></slides-fake-gif>
+    ></kirjs-fake-gif>
     <code class="output error" *ngIf="error">{{ error }}</code>
     <code-demo-editor
       [fontSize]="40"

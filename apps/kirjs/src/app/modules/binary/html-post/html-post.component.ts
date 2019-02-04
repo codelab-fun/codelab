@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'slides-html-post',
+  selector: 'kirjs-html-post',
   templateUrl: './html-post.component.html',
   styleUrls: ['./html-post.component.css']
 })

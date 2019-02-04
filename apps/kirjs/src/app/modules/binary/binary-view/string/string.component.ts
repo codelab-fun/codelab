@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BinaryParentComponent } from '../binary-parent/binary-parent.component';
 
 @Component({
-  selector: 'slides-string',
+  selector: 'kirjs-string',
   templateUrl: './string.component.html',
   styleUrls: ['./string.component.css']
 })

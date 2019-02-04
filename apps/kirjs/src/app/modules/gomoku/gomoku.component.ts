@@ -116,7 +116,7 @@ class RenlibGame {
 }
 
 @Component({
-  selector: 'slides-gomoku',
+  selector: 'kirjs-gomoku',
   templateUrl: './gomoku.component.html',
   styleUrls: ['./gomoku.component.css']
 })

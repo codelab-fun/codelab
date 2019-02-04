@@ -14,7 +14,7 @@ function strToBin(str) {
 }
 
 @Component({
-  selector: 'slides-binary',
+  selector: 'kirjs-binary',
   templateUrl: './binary.component.html',
   styleUrls: ['./binary.component.scss']
 })

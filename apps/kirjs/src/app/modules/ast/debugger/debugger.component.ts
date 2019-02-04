@@ -4,7 +4,7 @@ declare const require;
 const code = require('!!raw-loader!./debugger.ts');
 
 @Component({
-  selector: 'slides-debugger-sample',
+  selector: 'kirjs-debugger-sample',
   templateUrl: './debugger.component.html',
   styleUrls: ['./debugger.component.css']
 })

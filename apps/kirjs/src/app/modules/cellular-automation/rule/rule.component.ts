@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-rule',
+  selector: 'kirjs-rule',
   templateUrl: './rule.component.html',
   styleUrls: ['./rule.component.css']
 })

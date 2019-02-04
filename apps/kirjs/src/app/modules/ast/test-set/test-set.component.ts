@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'slides-test-set',
+  selector: 'kirjs-test-set',
   templateUrl: './test-set.component.html',
   styleUrls: ['./test-set.component.css']
 })

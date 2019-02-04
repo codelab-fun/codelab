@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-bindec',
+  selector: 'kirjs-bindec',
   templateUrl: './bindec.component.html',
   styleUrls: ['./bindec.component.css']
 })

@@ -105,7 +105,7 @@ const labRules5 = { survive: [0, 1, 2, 3, 4, 5], born: [1] };
 const labRules6 = { survive: [0, 1, 2, 3, 4, 5, 6], born: [1] };
 
 @Component({
-  selector: 'slides-cellular-automation',
+  selector: 'kirjs-cellular-automation',
   templateUrl: './cellular-automation.component.html',
   styleUrls: ['./cellular-automation.component.css']
 })

@@ -242,7 +242,7 @@ export function convertExerciseToMap(exercise) {
     bootstrap: bootstrapFiles && bootstrapFiles.moduleName,
     bootstrapTest: testBootstrap && testBootstrap.moduleName,
     file: exercise.files[0].path
-  }
+  };
 }
 
 export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */any = {

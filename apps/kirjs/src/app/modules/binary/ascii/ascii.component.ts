@@ -13,7 +13,7 @@ function encode(from: number, to: number, encoding: string) {
 const layouts = {};
 
 @Component({
-  selector: 'slides-ascii',
+  selector: 'kirjs-ascii',
   templateUrl: './ascii.component.html',
   styleUrls: ['./ascii.component.css']
 })

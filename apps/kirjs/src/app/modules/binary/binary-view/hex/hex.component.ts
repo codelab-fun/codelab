@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-hex',
+  selector: 'kirjs-hex',
   templateUrl: './hex.component.html',
   styleUrls: ['./hex.component.css']
 })

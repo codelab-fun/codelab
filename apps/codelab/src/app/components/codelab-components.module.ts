@@ -14,7 +14,7 @@ import { TitleSlideComponent } from './slides/title-slide/title-slide.component'
 import { CodelabSlidesPreviewComponent } from './codelab-preview/codelab-codelab-preview.component';
 import { CodelabClosingSlideComponent } from './slides/closing-slide/codelab-closing-slide.component';
 import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
-import { CodelabExercisePlayground } from './exercise-playground/codelab-exercise-playground.component';
+import { CodelabExercisePlaygroundComponent } from './exercise-playground/codelab-exercise-playground.component';
 import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-progress-bar.component';
 import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
 import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-animation/codelab-ripple-animation.component';
@@ -40,7 +40,7 @@ import { ExternalLinkDirectiveDirective } from './external-link-directive/extern
     CodelabSlidesPreviewComponent,
     CodelabClosingSlideComponent,
     CodelabExercisePreviewComponent,
-    CodelabExercisePlayground,
+    CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
     BabelTestRunnerComponent,
     CodelabRippleAnimationComponent,
@@ -54,7 +54,7 @@ import { ExternalLinkDirectiveDirective } from './external-link-directive/extern
     CodelabSlidesPreviewComponent,
     CodelabClosingSlideComponent,
     CodelabExercisePreviewComponent,
-    CodelabExercisePlayground,
+    CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
     BabelTestRunnerComponent,
     MenuShortcutComponent

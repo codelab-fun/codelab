@@ -5,7 +5,7 @@ import { TicTacToe, Gomoku } from 'gomoku-tools';
 declare const require;
 
 @Component({
-  selector: 'slides-gomoku',
+  selector: 'kirjs-gomoku',
   templateUrl: './gomoku-print.component.html',
   styleUrls: ['./gomoku-print.component.css']
 })

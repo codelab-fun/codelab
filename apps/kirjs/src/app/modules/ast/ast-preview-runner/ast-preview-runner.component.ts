@@ -11,7 +11,7 @@ import { parse } from 'babylon';
 declare const require;
 
 @Component({
-  selector: 'slides-ast-preview-runner',
+  selector: 'kirjs-ast-preview-runner',
   templateUrl: './ast-preview-runner.component.html',
   styleUrls: ['./ast-preview-runner.component.css']
 })
