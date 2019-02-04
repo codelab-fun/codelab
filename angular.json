@@ -561,7 +561,7 @@
       "root": "libs/live",
       "sourceRoot": "libs/live/src",
       "projectType": "library",
-      "prefix": "angular-presentation",
+      "prefix": "live",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
