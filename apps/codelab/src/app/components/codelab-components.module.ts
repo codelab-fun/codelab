@@ -5,13 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatSelectModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
-import { CodeDemoModule } from '../../../../../libs/code-demos/src';
+
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
 import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
 
 import { TitleSlideComponent } from './slides/title-slide/title-slide.component';
-import { CodelabSlidesPreviewComponent } from './codelab-preview/codelab-codelab-preview.component';
+
 import { CodelabClosingSlideComponent } from './slides/closing-slide/codelab-closing-slide.component';
 import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
 import { CodelabExercisePlaygroundComponent } from './exercise-playground/codelab-exercise-playground.component';
@@ -20,7 +20,8 @@ import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.
 import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-animation/codelab-ripple-animation.component';
 import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-test-runner.component';
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
-import { ExternalLinkDirectiveDirective } from './external-link-directive/external-link-directive.directive';
+import { CodeDemoModule } from '@codelab/code-demos';
+import { CodelabSlidesPreviewComponent } from './slides-preview/codelab-slides-preview.component';
 
 @NgModule({
   imports: [
@@ -60,4 +61,5 @@ import { ExternalLinkDirectiveDirective } from './external-link-directive/extern
     MenuShortcutComponent
   ]
 })
-export class CodelabComponentsModule {}
+export class CodelabComponentsModule {
+}
