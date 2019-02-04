@@ -34,7 +34,7 @@ export class FakeGifComponent implements OnInit {
   @Input() filterClassName = /./;
   @Input() mini = false;
   @Input() showPopups = false;
-  @Output() onBinaryUpdate = new EventEmitter();
+  @Output() binaryUpdate = new EventEmitter();
   gif: string;
   parser: BinaryParser;
 
@@ -61,7 +61,7 @@ export class FakeGifComponent implements OnInit {
     value = value.padEnd(len, 0).slice(0, len);
     this.binary =
       this.binary.slice(0, chunk.start) + value + this.binary.substr(chunk.end);
-    this.onBinaryUpdate.emit(this.binary);
+    this.binaryUpdate.emit(this.binary);
   }
 
   ngOnInit() {

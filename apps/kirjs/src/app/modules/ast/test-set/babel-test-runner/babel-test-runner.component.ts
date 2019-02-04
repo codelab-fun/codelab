@@ -13,7 +13,7 @@ declare const require;
   templateUrl: './babel-test-runner.component.html',
   styleUrls: ['./babel-test-runner.component.css']
 })
-export class BabelTestRunner {
+export class BabelTestRunnerComponent {
   tests: Array<TestInfo> = [];
   logs = [];
   @Input() files: any[];

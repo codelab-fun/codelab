@@ -42,6 +42,7 @@ export class BitParser extends AbstractBinaryParser {
     start = 0
   ): BinaryReaderResult {
     if (start === 0) {
+      // tslint:disable-next-line:no-debugger
       debugger;
     }
 

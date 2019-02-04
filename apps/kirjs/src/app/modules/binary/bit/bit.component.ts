@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'codelab-bit',
+  selector: 'kirjs-bit',
   templateUrl: './bit.component.html',
   styleUrls: ['./bit.component.css']
 })

@@ -17,7 +17,7 @@ import { SizePickerModule } from './size-picker/size-picker.module';
 
 import { FeedbackModule } from '@codelab/feedback';
 import { SlidesModule } from '@codelab/slides';
-import { BabelTestRunner } from './test-set/babel-test-runner/babel-test-runner.component';
+import { BabelTestRunnerComponent } from './test-set/babel-test-runner/babel-test-runner.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
@@ -41,7 +41,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
   ],
   declarations: [
     AstComponent,
-    BabelTestRunner,
+    BabelTestRunnerComponent,
     DebuggerComponent,
     TestSetComponent
   ],

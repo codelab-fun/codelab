@@ -31,6 +31,7 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
     }
 
     if (!parser) {
+      // tslint:disable-next-line:no-debugger
       debugger;
     }
 

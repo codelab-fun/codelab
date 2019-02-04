@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -16,7 +17,7 @@ import * as saveAs from 'file-saver';
   styleUrls: ['./ii.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IiComponent implements OnInit {
+export class IiComponent implements OnInit, AfterViewInit {
   items: any[];
   src?: string;
 
@@ -86,7 +87,7 @@ export class IiComponent implements OnInit {
     const answer = await domtoimage.toPng(parent);
     let question = '';
 
-    for (let i in items) {
+    for (const i in items) {
       if (items.hasOwnProperty(i)) {
         items[i].style.display = 'block';
         questions[i] = await domtoimage.toPng(parent);

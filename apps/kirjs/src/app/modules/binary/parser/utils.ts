@@ -1,5 +1,6 @@
 export function resolveLengthOrdered(functionOrValue, arg) {
   if (typeof functionOrValue === 'string') {
+    // tslint:disable-next-line:no-debugger
     debugger;
   }
   return typeof functionOrValue === 'function'
