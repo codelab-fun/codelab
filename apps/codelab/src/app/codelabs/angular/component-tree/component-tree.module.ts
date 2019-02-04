@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-
+import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
+import { SlidesModule } from '@codelab/slides';
+import { CodeDemoModule } from '@codelab/code-demos';
+import { FeedbackModule } from '@codelab/feedback';
+import { BrowserWindowModule } from '@codelab/browser';
 import { ComponentTreeComponent } from './component-tree.component';
 import { ComponentsHierarchySvgComponent } from './components-hierarchy-svg';
-
-import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
-import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
-import { SlidesModule } from '../../../../../../../libs/slides/src';
-import { CodeDemoModule } from '../../../../../../../libs/code-demos/src';
 
 const routes = RouterModule.forChild([
   {
