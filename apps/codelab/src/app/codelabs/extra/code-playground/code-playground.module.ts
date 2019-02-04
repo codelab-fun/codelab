@@ -1,10 +1,10 @@
 import { RouterModule } from '@angular/router';
-import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
+import { FeedbackModule } from '@codelab/feedback';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodePlaygroundComponent } from './code-playground.component';
-import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { SlidesModule } from '../../../../../../../libs/slides/src';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesModule } from '@codelab/slides';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(CodePlaygroundComponent));
 

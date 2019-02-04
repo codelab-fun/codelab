@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
-
-import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
-import { BrowserWindowModule } from '../../../../../../libs/browser/src/lib/browser.module';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { FeedbackModule } from '@codelab/feedback';
+import { BrowserWindowModule } from '@codelab/browser';
 
 import { GomokuComponent } from './gomoku.component';
 

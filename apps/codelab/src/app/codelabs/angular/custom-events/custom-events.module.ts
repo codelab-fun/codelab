@@ -1,7 +1,7 @@
 import { CustomEventsComponent } from './custom-events.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '@codelab/browser';

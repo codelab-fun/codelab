@@ -3,15 +3,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
-import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { BrowserWindowModule } from '@codelab/browser';
 
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
+import { FeedbackModule } from '@codelab/feedback';
 import { RatingSummaryComponent } from './rating-summary.component';
-import { SlidesModule } from '../../../../../../../libs/slides/src';
+import { SlidesModule } from '@codelab/slides';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(RatingSummaryComponent));
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IiComponent } from './ii.component';
-import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 import { RouterModule } from '@angular/router';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(IiComponent));

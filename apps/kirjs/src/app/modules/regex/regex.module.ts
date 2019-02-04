@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegexComponent } from './regex.component';
 import { SlidesModule } from '@codelab/slides';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 
 import { LiveModule } from './live';
 

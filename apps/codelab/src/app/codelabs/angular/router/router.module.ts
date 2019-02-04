@@ -2,7 +2,7 @@ import { RouterComponent } from './router.component';
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';

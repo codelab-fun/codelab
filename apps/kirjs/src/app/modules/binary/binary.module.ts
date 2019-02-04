@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '../../../../../../libs/slides/src/lib/routing/slide-routes';
 import { BinaryComponent } from './binary.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,15 +16,15 @@ import { JsonComponent } from './json/json.component';
 import { CompareComponent } from './compare/compare.component';
 import { MatAutocompleteModule, MatSelectModule } from '@angular/material';
 import { HtmlPostComponent } from './html-post/html-post.component';
-import { SharedPipeModule } from '../../../../../../libs/utils/src/lib/pipes/pipes.module';
-import { ConsoleModule } from '../../../../../../libs/console/src/index';
+import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
+import { ConsoleModule } from '@codelab/console';
 
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { BinaryGifComponent } from './binary-gif/binary-gif.component';
 import { BitComponent } from './bit/bit.component';
 import { MemoryComponent } from './memory/memory.component';
 
-import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
+import { FeedbackModule } from '@codelab/feedback';
 import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-demo.component';
 import { HexdecComponent } from './hexdec/hexdec.component';
 import { SlidesModule } from '@codelab/slides';

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
-import { FeedbackModule } from '../../../../../../libs/feedback/src/lib/feedback.module';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { FeedbackModule } from '@codelab/feedback';
 import { SvgComponent } from './svg.component';
 
 import { FormsModule } from '@angular/forms';

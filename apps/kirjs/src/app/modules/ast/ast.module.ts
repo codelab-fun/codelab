@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
-import { SlidesRoutes } from '@codelab/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 import { AstPreviewRunnerModule } from './ast-preview-runner/ast-preview-runner.module';
 import { BrowserWindowModule } from '@codelab/browser';
 

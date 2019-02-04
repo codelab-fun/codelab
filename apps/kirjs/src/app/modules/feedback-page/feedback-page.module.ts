@@ -4,9 +4,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgModule } from '@angular/core';
 import { FeedbackPageComponent } from './feedback-page.component';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../../../../libs/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 import { FormsModule } from '@angular/forms';
-import { BrowserWindowModule } from '../../../../../../libs/browser/src/lib/browser.module';
+import { BrowserWindowModule } from '@codelab/browser';
 
 import { CommonModule } from '@angular/common';
 

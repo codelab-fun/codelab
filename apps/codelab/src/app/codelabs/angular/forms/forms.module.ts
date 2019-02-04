@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { SlidesRoutes } from '../../../../../../../libs/presentation/src/lib/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/slides/src/lib/routing/slide-routes';
 
-import { FeedbackModule } from '../../../../../../../libs/feedback/src/lib/feedback.module';
+import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
-import { BrowserWindowModule } from '../../../../../../../libs/browser/src/lib/browser.module';
+import { BrowserWindowModule } from '@codelab/browser';
 
 import { RouterModule } from '@angular/router';
 import { FormsComponent } from './forms.component';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-import { SlidesModule } from '../../../../../../../libs/slides/src';
+import { SlidesModule } from '@codelab/slides';
 
 import { FormsModule } from '@angular/forms';
 
