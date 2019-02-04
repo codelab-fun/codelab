@@ -4,7 +4,7 @@ import { app_ts_AST, ts } from './code';
 declare const it, describe;
 
 function getFunctionNode(code) {
-  let functionNode = undefined;
+  let functionNode;
 
   /**
    * Fancy: Require the actual source code, and search in it.
