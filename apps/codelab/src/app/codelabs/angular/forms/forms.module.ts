@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SlidesRoutes } from '../../../../../../../libs/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';

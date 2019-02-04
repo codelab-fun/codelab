@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { convertExerciseToMap } from '../../../../../../ng2ts/ng2ts';
-import { CodeDemoComponent } from '../../../../../../libs/code-demos/src/lib/code-demo/code-demo.component';
+import { CodeDemoComponent } from '@codelab/code-demos/src/lib/code-demo/code-demo.component';
 
 function filterByFileType(type: string, files: Record<string, string>) {
   return Object.entries(files).reduce((changedFiles, [path, code]) => {

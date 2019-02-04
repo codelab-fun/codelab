@@ -5,7 +5,7 @@ import {
   exercise,
   html,
   stylesheet
-} from '../../../../../../../libs/exercise/src/lib/helpers/helpers';
+} from '@codelab/exercise/src/lib/helpers/helpers';
 
 declare const require;
 

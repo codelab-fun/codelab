@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 
-import { CodelabFile } from '../../../../../../../libs/exercise/src/lib/helpers/codelabFile';
+import { CodelabFile } from '@codelab/exercise/src/lib/helpers/codelabFile';
 import {
   ExerciseConfigTemplate,
   Ng2TsExercises

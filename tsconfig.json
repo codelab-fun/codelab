@@ -20,7 +20,6 @@
       "process": ["libs/dummy/src/index.ts"],
       "convert-source-map": ["libs/dummy/src/index.ts"],
       "@codelab/*": ["libs/*"],
-      "@codelab/presentation": ["libs/presentation/src/index.ts"],
       "@codelab/browser": ["libs/browser/src/index.ts"],
       "@codelab/console": ["libs/console/src/index.ts"],
       "@codelab/utils": ["libs/utils/src/index.ts"],
