@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: '[renderTicks]',
+  selector: 'kirjs-ticks',
   template: `
     <svg:text
       *ngFor="let item of data; let i = index; trackBy: getIndex"

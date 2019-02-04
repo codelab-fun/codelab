@@ -134,7 +134,7 @@ export class BinaryParser {
     if (typeof config.length === 'function') {
       // tslint:disable-next-line:no-debugger
       debugger;
-      //TODO
+      // TODO
     }
 
     return this.bit(name, {

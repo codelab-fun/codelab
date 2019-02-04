@@ -8,7 +8,7 @@ import { Component, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: '[kirjsTicks]',
+  selector: 'kirjs-ticks',
   template: ''
 })
 export class FakeTicksComponent {

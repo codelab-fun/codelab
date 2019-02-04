@@ -8,7 +8,7 @@ function generateData() {
 }
 
 @Component({
-  selector: 'my-app',
+  selector: 'kirjs-app',
   template: `
     <svg>
       <g
@@ -34,16 +34,15 @@ export class AppComponent {
   barWidth = 30;
   padding = 10;
   barSpace = this.padding + this.barWidth;
-
-  getIndex(a, b) {
-    return a;
-  }
-
   data = generateData();
 
   constructor() {
     window.setInterval(() => {
       this.data = generateData();
     }, 1000);
+  }
+
+  getIndex(a, b) {
+    return a;
   }
 }

@@ -7,7 +7,7 @@ function generateData() {
 }
 
 @Component({
-  selector: 'my-app',
+  selector: 'kirjs-app',
   template: `
     <svg>
       <g

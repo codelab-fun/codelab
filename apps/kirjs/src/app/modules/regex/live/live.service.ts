@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface LiveInfo {
@@ -21,10 +21,13 @@ type AllData<T = any> = Record<string, T>;
 @Injectable({
   providedIn: 'root'
 })
-export class LiveService<T = any> {
-  private liveInfoSubject: BehaviorSubject<LiveInfo> = new BehaviorSubject<
-    LiveInfo
-  >({
+export class LiveService<T = any> implements OnDestroy {
+  myData = combineLatest(this.allData, this.liveInfo).pipe(
+    map(([allData, {user}]) => {
+      return allData[user];
+    })
+  );
+  private liveInfoSubject: BehaviorSubject<LiveInfo> = new BehaviorSubject<LiveInfo>({
     user: 'code',
     sessionId: 'test',
     status: 'presenter', // 'viewer'
@@ -32,23 +35,15 @@ export class LiveService<T = any> {
     slide: 'poll'
   } as LiveInfo);
   liveInfo: Observable<LiveInfo> = this.liveInfoSubject.asObservable();
-
-  private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<
-    AllData<T>
-  >({} as AllData<T>);
+  private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<AllData<T>>({} as AllData<T>);
   allData = this.allDataSubject.asObservable();
 
-  myData = combineLatest(this.allData, this.liveInfo).pipe(
-    map(([allData, { user }]) => {
-      return allData[user];
-    })
-  );
-
-  constructor() {}
+  constructor() {
+  }
 
   storeLiveInfo(data: LiveInfo): void {
     const liveInfo = this.liveInfoSubject.getValue();
-    this.liveInfoSubject.next({ ...liveInfo, ...data });
+    this.liveInfoSubject.next({...liveInfo, ...data});
   }
 
   // Viewer
@@ -56,7 +51,7 @@ export class LiveService<T = any> {
     // firebase.store
     const liveInfo = this.liveInfoSubject.getValue();
     const allData = this.allDataSubject.getValue();
-    const value = { ...allData, [liveInfo.user]: data };
+    const value = {...allData, [liveInfo.user]: data};
 
     this.allDataSubject.next(value);
   }
