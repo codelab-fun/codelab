@@ -22,11 +22,6 @@ type AllData<T = any> = Record<string, T>;
   providedIn: 'root'
 })
 export class LiveService<T = any> implements OnDestroy {
-  myData = combineLatest(this.allData, this.liveInfo).pipe(
-    map(([allData, {user}]) => {
-      return allData[user];
-    })
-  );
   private liveInfoSubject: BehaviorSubject<LiveInfo> = new BehaviorSubject<LiveInfo>({
     user: 'code',
     sessionId: 'test',
@@ -37,6 +32,11 @@ export class LiveService<T = any> implements OnDestroy {
   liveInfo: Observable<LiveInfo> = this.liveInfoSubject.asObservable();
   private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<AllData<T>>({} as AllData<T>);
   allData = this.allDataSubject.asObservable();
+  myData = combineLatest(this.allData, this.liveInfo).pipe(
+    map(([allData, {user}]) => {
+      return allData[user];
+    })
+  );
 
   constructor() {
   }

@@ -12,13 +12,14 @@ import { NewProgressBarModule } from './new-progress-bar/new-progress-bar.module
 import { AstComponent } from './ast.component';
 import { DebuggerComponent } from './debugger/debugger.component';
 import { TestSetComponent } from './test-set/test-set.component';
-import { AngularSlidesToPdfModule } from '@codelab/angular-kirjs-to-pdf';
+
 import { SizePickerModule } from './size-picker/size-picker.module';
 
 import { FeedbackModule } from '@codelab/feedback';
 import { SlidesModule } from '@codelab/slides';
 import { BabelTestRunnerComponent } from './test-set/babel-test-runner/babel-test-runner.component';
 import { CodeDemoModule } from '@codelab/code-demos';
+import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
 
