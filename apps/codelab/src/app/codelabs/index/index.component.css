@@ -83,4 +83,5 @@ img .angular {
   border-bottom: 1px #999 dashed;
   display: inline-block;
   cursor: pointer;
+  min-height: 20px;
 }
