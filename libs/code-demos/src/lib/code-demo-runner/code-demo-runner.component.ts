@@ -12,9 +12,9 @@ import {
 } from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { createSystemJsSandbox } from '../../../../exercise/src/lib/runners/utils/sandbox';
+import { createSystemJsSandbox } from '@codelab/exercise/src/lib/runners/utils/sandbox';
 import { compileTemplates } from '../runner/prepare-templates';
-import { ScriptLoaderService } from '../../../../exercise/src/lib/services/script-loader.service';
+import { ScriptLoaderService } from '@codelab/exercise/src/lib/services/script-loader.service';
 import { addMetaInformation } from '../shared/helpers';
 
 interface CodeFiles {

@@ -1,8 +1,15 @@
+<div #translations style="display: none">
+  <div i18n="@@perfect" id="perfect">Perfect</div>
+  <div i18n="@@good" id="good">good</div>
+  <div i18n="@@ok" id="ok">ok</div>
+  <div i18n="@@hopedForMore" id="hopedForMore">Hoped for more</div>
+</div>
+
 <div *ngIf="!showSummary" style="height: 340px; overflow: hidden">
   <div [class]="ratingsClass">
     <br />
     <br />
-    <h1>Rate this lesson ...</h1>
+    <h1 i18n>Rate this lesson ...</h1>
     <div row>
       <div *ngFor="let rate of rates; let i = index" class="rateoption">
         <div [class]="rateClass(i)" (click)="selectRate(i)">
