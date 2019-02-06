@@ -15,30 +15,32 @@
   </div>
 
   <div *slide id="angular-cli">
-    <h1>Angular CLI / Intro</h1>
-    <h2>
+    <h1 i18n>Angular CLI / Intro</h1>
+    <h2 i18n>
       Angular CLI is a command line tool that can be used to quickly get up to
       speed with running your angular app.
     </h2>
 
     <preview-terminal-window>
-      $ ng hello<span class="success">
+      $ ng hello<span class="success" i18n>
         Hi, I'm <b>angular-cli</b>, I'm a command line tool!
       </span>
-      It may sound scary, but I'm really easy to use!
+      <span i18n>
+        It may sound scary, but I'm really easy to use!
+      </span>
     </preview-terminal-window>
   </div>
 
   <div *slide id="npm">
     <h1>Angular CLI / node</h1>
-    <h2>Before you start, make sure you have node.js on your machine.</h2>
-    <h2>Open terminal and type in: <code>node -v</code></h2>
+    <h2 i18n>Before you start, make sure you have node.js on your machine.</h2>
+    <h2 i18n>Open terminal and type in: <code>node -v</code></h2>
     <ul>
-      <li>
+      <li i18n>
         If there is an error, follow the
         <a href="https://nodejs.org/en/download/">NodeJS setup instructions</a>
       </li>
-      <li>If the output is a number, you're good, move to the next slide.</li>
+      <li i18n>If the output is a number, you're good, move to the next slide.</li>
     </ul>
     <preview-terminal-window>
       $ node -v<span class="success"> v6.11.3</span>
@@ -46,8 +48,8 @@
   </div>
 
   <div *slide id="install">
-    <h1>Angular CLI / installing</h1>
-    <h2>
+    <h1 i18n>Angular CLI / installing</h1>
+    <h2 i18n>
       Run <code>sudo npm install -g @angular/cli</code> to install
       <b>Angular cli</b> on your machine
     </h2>
@@ -76,8 +78,8 @@
   </div>
 
   <div *slide id="new-app">
-    <h1>Angular CLI / Creating new Angular app</h1>
-    <h2>
+    <h1 i18n>Angular CLI / Creating new Angular app</h1>
+    <h2 i18n>
       Creating new Angular app is easy, just run
       <code>ng new awesome-app</code>, then <code>cd awesome-app</code>
     </h2>
@@ -102,8 +104,8 @@
   </div>
 
   <div *slide id="starting">
-    <h1>Angular CLI / Starting the app</h1>
-    <h2>
+    <h1 i18n>Angular CLI / Starting the app</h1>
+    <h2 i18n>
       Once you're in the app folder, start the app with <code>ng serve</code>
     </h2>
     <preview-terminal-window
@@ -127,7 +129,7 @@
     </pre>
     </preview-terminal-window>
 
-    <h2>
+    <h2 i18n>
       Once the app is started just open
       <a href="http://localhost:4200/">http://localhost:4200/</a> in your
       browser
@@ -135,8 +137,8 @@
   </div>
 
   <div *slide id="generating">
-    <h1>Angular CLI / Generating components</h1>
-    <h2>
+    <h1 i18n>Angular CLI / Generating components</h1>
+    <h2 i18n>
       You can easily generate new components
       <code>ng generate component my-component</code>
     </h2>
@@ -152,8 +154,8 @@
       >
     </preview-terminal-window>
 
-    <h2>You can also generate modules, services and pipes</h2>
-    <div class="info">
+    <h2 i18n>You can also generate modules, services and pipes</h2>
+    <div class="info" i18n>
       You can use a shorter version: <code>ng g c my-component</code>
     </div>
   </div>
