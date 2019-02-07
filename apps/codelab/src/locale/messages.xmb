@@ -566,7 +566,51 @@
   <msg id="548749131188154528"><source>src/app/codelabs/angular/material/material.component.html:195,197</source>
           Next <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>⏭️ Go to the Forms Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
+  <msg id="3831198700050621279"><source>src/app/codelabs/angular/router/router.component.html:27</source><source>src/app/codelabs/angular/router/router.component.html:47</source>Router - intro</msg>
+  <msg id="7769810255332901578"><source>src/app/codelabs/angular/router/router.component.html:28</source>Router is used to give <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>URLs<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to different parts of your app.</msg>
+  <msg id="1931968164617039768"><source>src/app/codelabs/angular/router/router.component.html:35</source>Kittens</msg>
+  <msg id="6707280048767596762"><source>src/app/codelabs/angular/router/router.component.html:42</source>Puppies</msg>
+  <msg id="3361138951435877566"><source>src/app/codelabs/angular/router/router.component.html:48</source>It takes 3 simple steps to set up routing in Angular:</msg>
+  <msg id="6382596231037789146"><source>src/app/codelabs/angular/router/router.component.html:50,53</source>
+        Configure the mapping and specify which component to display for which
+        URL
+      </msg>
+  <msg id="5711045063225432498"><source>src/app/codelabs/angular/router/router.component.html:54</source>Create the menu</msg>
+  <msg id="5553583971169159914"><source>src/app/codelabs/angular/router/router.component.html:55</source>Find a place to display selected component</msg>
+  <msg id="733845560418565640"><source>src/app/codelabs/angular/router/router.component.html:60</source><source>src/app/codelabs/angular/router/router.component.html:72</source>Router - configuration</msg>
+  <msg id="3551990840956328687"><source>src/app/codelabs/angular/router/router.component.html:61,64</source> 
+      Routes are configured by defining an array of mapping between URL path and
+      a component
+    </msg>
+  <msg id="1258665563482381976"><source>src/app/codelabs/angular/router/router.component.html:73</source>Then we have to pass the config to our module.</msg>
+  <msg id="7206914066261457043"><source>src/app/codelabs/angular/router/router.component.html:78,81</source>
+      Note that we&apos;re using <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>RouterModule.forRoot<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> which creates an Angular
+      Module out of our configuration.
+    </msg>
+  <msg id="836385187316285915"><source>src/app/codelabs/angular/router/router.component.html:85</source>Router - Outlet</msg>
+  <msg id="2601425993761834840"><source>src/app/codelabs/angular/router/router.component.html:86,89</source>
+      Now we have to find a place where the router would display selected
+      component.
+    </msg>
+  <msg id="2385039709831220213"><source>src/app/codelabs/angular/router/router.component.html:90</source>It can be marked by placing <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>router-outlet tag<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
+  <msg id="5881063251338145280"><source>src/app/codelabs/angular/router/router.component.html:100</source>Router - Menu</msg>
+  <msg id="1472582053378549544"><source>src/app/codelabs/angular/router/router.component.html:101</source>The last part is creating the menu.</msg>
+  <msg id="2583626845709708422"><source>src/app/codelabs/angular/router/router.component.html:102</source>Use <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>routerLink<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> directive to provide the URL</msg>
+  <msg id="6975195956783193984"><source>src/app/codelabs/angular/router/router.component.html:111</source>Router / Exercise</msg>
+  <msg id="7666470893157840853"><source>src/app/codelabs/angular/router/router.component.html:112,115</source>
+      In the next slide there is an exercise. We&apos;re going to add 2 routes:
+      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Search<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> and <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Upload<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, and a menu for switching between them.
+    </msg>
+  <msg id="6990537880445556268"><source>src/app/codelabs/angular/router/router.component.html:121,124</source>
+      Note: We have already created empty Upload component and SearchComponent
+      containing search logic.
+    </msg>
   <msg id="5879655922336578318"><source>src/app/codelabs/angular/router/router.component.html:140</source>End of The Routing Milestone</msg>
+  <msg id="33440573074633014"><source>src/app/codelabs/angular/router/router.component.html:144,148</source>
+          Check out
+          <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular Router Guide<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> for
+          more fun and advanced techniques.
+        </msg>
   <msg id="4470367031861826651"><source>src/app/codelabs/angular/router/router.component.html:151,154</source>
           Next
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>⏭️ Go to the Material Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
