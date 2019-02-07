@@ -1,5 +1,8 @@
 import { Component, HostListener } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+
+import { environment } from '../../../environments/environment';
+
+import { routes as angularComponentRoutes } from '../../codelabs/angular/angular-routing.module';
 
 @Component({
   selector: 'codelab-menu-shortcut',
@@ -7,11 +10,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./menu-shortcut.component.css']
 })
 export class MenuShortcutComponent {
-  navigationRoutes = [];
+
   open = false;
 
-  constructor(private route: ActivatedRoute) {
-    this.navigationRoutes = this.route.routeConfig.children;
+  getNavigationRoutes() {
+    return environment.production ?
+      angularComponentRoutes[0]['children'].filter(x => x['prod']) :
+      angularComponentRoutes[0]['children'];
   }
 
   @HostListener('window:click')

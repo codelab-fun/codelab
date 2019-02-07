@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { environment } from '../../../environments/environment';
 
 import { FullLayoutComponent } from '../../containers/full-layout';
 
-export let routes = [
+export const routes = [
   {
     path: '',
     component: FullLayoutComponent,
@@ -111,7 +110,8 @@ export let routes = [
         name: 'Pipes',
         description:
           'Learn how pipes transform input values to output values for display in a view',
-        page: 'bonus'
+        page: 'bonus',
+        prod: false
       },
       {
         path: 'structural-directives',
@@ -120,15 +120,12 @@ export let routes = [
         name: 'Structural Directives',
         description: 'Learn about structural directives in angular',
         page: 'bonus',
-        prod: true
+        prod: false
       }
     ]
   }
 ];
 
-if (environment.production) {
-  routes = routes.filter(r => r['prod']);
-}
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
