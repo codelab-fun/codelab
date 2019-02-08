@@ -43,7 +43,7 @@
     Create your first Angular app
   </msg>
   <msg id="templates"><source>src/app/codelabs/index/index.component.html:5</source><source>src/app/codelabs/angular/templates/templates.component.html:119</source>Templates</msg>
-  <msg id="dependencyInjection"><source>src/app/codelabs/index/index.component.html:6,8</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:40</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:50</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:61</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:98</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:135</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:168</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:189</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:213</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:239</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:261</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:292</source>
+  <msg id="dependencyInjection"><source>src/app/codelabs/index/index.component.html:6,8</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:40</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:51,53</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:73,75</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:91,93</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:128,130</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:166,167</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:200,201</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:222,223</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:247,248</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:274,275</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:297,298</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:329,330</source>
     Dependency-Injection
   </msg>
   <msg id="componentTree"><source>src/app/codelabs/index/index.component.html:9</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:76</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:87</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:125</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:146</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:168</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:204</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:221</source><source>src/app/codelabs/angular/component-tree/component-tree.component.html:268</source>Component-Tree</msg>
@@ -215,7 +215,7 @@
   <msg id="7430680760319628492"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:223</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:584</source>Review</msg>
   <msg id="5353140049958069641"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:270</source><source>src/app/codelabs/angular/templates/templates.component.html:328</source>Exercise 2</msg>
   <msg id="1036270088685658131"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:272</source>In the next exercise you will use the newly created component</msg>
-  <msg id="5517859412360989740"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:292</source>Component Tree Milestone Completed!</msg>
+  <msg id="4985288594861826441"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:292</source><source>src/app/codelabs/angular/templates/templates.component.html:424</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:518</source>Milestone Completed</msg>
   <msg id="4642174669863123789"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:294,296</source>
           Next: <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Learn about angular router<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
@@ -287,7 +287,7 @@
   <msg id="8986953020363470779"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:115</source>Create an Angular component</msg>
   <msg id="7117530673690701168"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:116</source>Create an Angular module</msg>
   <msg id="1813487159288766093"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:117</source>Bootstrap the module</msg>
-  <msg id="step1"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:126</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:152</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:175</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:199</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:223</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:246</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:192</source>Step 1</msg>
+  <msg id="step1"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:126</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:152</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:175</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:199</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:223</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:246</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:226</source>Step 1</msg>
   <msg id="4486808421693997510"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:128,131</source>
       Start by creating an angular <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>. Components in Angular are
       responsible for the visual part of the app
@@ -321,13 +321,13 @@
       If the amount of HTML grows out of hand, it&apos;s possible (and recommended)
       to use a <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>templateUrl<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> instead and provide a path to the HTML file.
     </msg>
-  <msg id="exercise"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:248</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:396</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:551</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:264</source><source>src/app/codelabs/angular/templates/templates.component.html:185</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:487</source>Exercise</msg>
+  <msg id="exercise"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:248</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:396</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:551</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:301</source><source>src/app/codelabs/angular/templates/templates.component.html:185</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:487</source>Exercise</msg>
   <msg id="7639270097778554357"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:250,253</source>
       In the next slide you&apos;ll create your first <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> component! We&apos;ll
       do all the wiring for you. The result will look like this:
     </msg>
   <msg id="61555616227480717"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:269</source>Create first Angular component!</msg>
-  <msg id="step2"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:278</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:295</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:315</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:338</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:350</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:372</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:394</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:216</source>Step 2</msg>
+  <msg id="step2"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:278</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:295</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:315</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:338</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:350</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:372</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:394</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:251</source>Step 2</msg>
   <msg id="3356116837774924473"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:280</source>Next step is to declare the component in an <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>.</msg>
   <msg id="5126304564648715351"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:281,284</source>
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> does not have any visual representation and is used
@@ -360,7 +360,7 @@
       you. The result will look like this:
     </msg>
   <msg id="4814190538810111436"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:417</source>Create first NgModule.</msg>
-  <msg id="step3"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:426</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:456</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:489</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:520</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:549</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:242</source>Step 3</msg>
+  <msg id="step3"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:426</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:456</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:489</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:520</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:549</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:278</source>Step 3</msg>
   <msg id="7662751436458775011"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:428</source>Bootstrapping</msg>
   <msg id="6827469684284953312"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:430,432</source>
       We have everything ready, so now it&apos;s time to start (bootstrap) the app!
@@ -447,64 +447,64 @@
     videoService&apos;s search method
   </msg>
   <msg id="dependencyInjectionLearnMore"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:42</source>Learn more about Angular&apos;s powerful Dependency Injection system</msg>
-  <msg id="2454551784035429356"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:51,54</source>
-      <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Dependency Injection<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> is a way to provide dependencies to your code
-      instead of hard-coding them
-    </msg>
-  <msg id="comparison"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:64</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:101</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:138</source>Comparison</msg>
-  <msg id="7427941055850419603"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:74,77</source>
+  <msg id="comparison"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:55</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:77</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:95</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:132</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:170</source>Example of a dependency</msg>
+  <msg id="7427941055850419603"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:105,108</source>
           Without Dependency Injection, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Profession<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> has to be instantiated
           in the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> class
         </msg>
-  <msg id="916298212817351454"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:86,90</source>
+  <msg id="916298212817351454"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:117,121</source>
           With Dependency Injection, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Person<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> class just &quot;requires&quot; an
           instance of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Job<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> in the constructor, and Angular takes care of
           instantiating it
         </msg>
-  <msg id="2250922476634643797"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:103</source>Parameters</msg>
-  <msg id="1220299404805905128"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:125,127</source>
+  <msg id="2250922476634643797"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:134</source>Parameters</msg>
+  <msg id="2050435296171660186"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:144,147</source>
+          Without Dependency Injection, you have to figure out all the
+          parameters yourself
+        </msg>
+  <msg id="1220299404805905128"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:156,158</source>
           With Dependency Injection, Angular takes care of it
         </msg>
-  <msg id="8985868511640294928"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:140</source>Testing</msg>
-  <msg id="5041678758489152197"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:142,145</source>
+  <msg id="8985868511640294928"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:172</source>Testing</msg>
+  <msg id="5041678758489152197"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:174,177</source>
       Also Dependency Injection simplifies testing a lot, because you can just
       pass mock dependencies as constructor parameters
     </msg>
-  <msg id="2384026219516877038"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:171</source>Example</msg>
-  <msg id="6910202098357920279"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:173,177</source>
+  <msg id="2384026219516877038"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:204</source>Example</msg>
+  <msg id="6910202098357920279"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:206,210</source>
       Let&apos;s say we have an existing <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>UnitConverterService<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> and we want to
       start using it in <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>UnitConversionComponent<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>. It will take 3 simple
       steps:
     </msg>
-  <msg id="3957097669887217853"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:179</source>Mark dependency as @Injectable()</msg>
-  <msg id="5662947366104784178"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:180</source>Provide in the module</msg>
-  <msg id="9143596698887173150"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:181</source>Require in the component</msg>
-  <msg id="2585772558422043391"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:194,197</source>
+  <msg id="3957097669887217853"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:212</source>Mark dependency as @Injectable()</msg>
+  <msg id="5662947366104784178"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:213</source>Provide in the module</msg>
+  <msg id="9143596698887173150"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:214</source>Require in the component</msg>
+  <msg id="2585772558422043391"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:228,231</source>
       Mark the class as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>@Injectable()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>. This lets Angular know that this
       class is part of Angular Dependency Injection system
     </msg>
-  <msg id="6496971683817494188"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:203,206</source>
+  <msg id="6496971683817494188"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:237,240</source>
       If a service class is marked as injectable, it can require other services
       in its constructor.
     </msg>
-  <msg id="287816816593865864"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:218,220</source>
+  <msg id="287816816593865864"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:253,255</source>
       Provide the injectable to the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>providers<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> section of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
     </msg>
-  <msg id="3053323241161491226"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:229,232</source>
+  <msg id="3053323241161491226"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:264,267</source>
       Now, this service becomes available for every <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Component<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> and other
       service in this <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>.
     </msg>
-  <msg id="9193697677313937686"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:244</source>Consume the Injectable in the component</msg>
-  <msg id="4224784797203649406"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:252,255</source>
+  <msg id="9193697677313937686"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:280</source>Consume the Injectable in the component</msg>
+  <msg id="4224784797203649406"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:288,291</source>
       Because of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>private<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> access modifier the service becomes
       accessible across the class as <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>this.converter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>.
     </msg>
-  <msg id="8777170680797795530"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:266,269</source>
+  <msg id="8777170680797795530"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:303,306</source>
       In the next slide you&apos;ll use videoService which has even more cats!!! The
       result will look like this:
     </msg>
-  <msg id="4122311947132294677"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:295</source><source>src/app/codelabs/angular/templates/templates.component.html:424</source>Milestone Completed!</msg>
-  <msg id="1774638288818436875"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:300,305</source>
+  <msg id="175777071655863497"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:333</source>Milestone Completeds</msg>
+  <msg id="1774638288818436875"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:338,343</source>
           Next:
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Learn how to combine components together<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
@@ -1129,7 +1129,6 @@
       coming.
     </msg>
   <msg id="2921334658251839102"><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:495</source>The result will be as follows:</msg>
-  <msg id="4985288594861826441"><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:518</source>Milestone Completed</msg>
   <msg id="564343607900892103"><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:522,526</source>
           Now you should know enough <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>TypeScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to learn <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>!
           Read more about TypeScript on
