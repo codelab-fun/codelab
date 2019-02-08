@@ -6,7 +6,7 @@
           <a href="/"> <span class="menu-item-text"> Index </span> </a>
         </p>
       </li>
-      <ng-container *ngFor="let navigationRoute of getNavigationRoutes()">
+      <ng-container *ngFor="let navigationRoute of menuRoutes">
         <li class="menu-item">
           <p>
             <a [routerLink]="[navigationRoute['path']]">

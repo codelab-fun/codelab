@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { routes as angularComponentRoutes } from '../angular/angular-routing.module';
+import { menuRoutes } from '../angular/angular-routing.module';
 
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'codelab-slides-index',
@@ -14,10 +13,6 @@ export class IndexComponent {
   @ViewChild('translations') translations;
 
   showContents: boolean;
+  menuRoutes = menuRoutes;
 
-  getMainPageRoutes() {
-    return environment.production ?
-      angularComponentRoutes[0]['children'].filter(x => x['prod']) :
-      angularComponentRoutes[0]['children'];
-  }
 }

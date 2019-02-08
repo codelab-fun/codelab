@@ -1,8 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
+import { menuRoutes } from '../../codelabs/angular/angular-routing.module';
 
-import { routes as angularComponentRoutes } from '../../codelabs/angular/angular-routing.module';
 
 @Component({
   selector: 'codelab-menu-shortcut',
@@ -12,12 +11,7 @@ import { routes as angularComponentRoutes } from '../../codelabs/angular/angular
 export class MenuShortcutComponent {
 
   open = false;
-
-  getNavigationRoutes() {
-    return environment.production ?
-      angularComponentRoutes[0]['children'].filter(x => x['prod']) :
-      angularComponentRoutes[0]['children'];
-  }
+  menuRoutes = menuRoutes;
 
   @HostListener('window:click')
   handleDialogClose() {

@@ -76,7 +76,7 @@
     </button>
     <ng-container *ngIf="showContents">
       <ol>
-        <ng-container *ngFor="let route of getMainPageRoutes()">
+        <ng-container *ngFor="let route of menuRoutes">
           <li>
             <h2>
               <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>

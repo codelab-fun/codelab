@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { FullLayoutComponent } from '../../containers/full-layout';
+import { environment } from '../../../environments/environment';
 
-export const routes = [
+const routes = [
   {
     path: '',
     component: FullLayoutComponent,
@@ -126,9 +127,14 @@ export const routes = [
   }
 ];
 
+export const menuRoutes = environment.production ?
+  routes[0].children.filter(x => x.prod && x.page === 'main') :
+  routes[0].children;
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AngularRoutingModule {}
+export class AngularRoutingModule {
+}
