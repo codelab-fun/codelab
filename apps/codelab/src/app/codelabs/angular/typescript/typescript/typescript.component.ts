@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   javaScriptWithConsoleLog,
   typeScriptWithConsoleLog
-} from '@codelab/exercise/src/lib/helpers/helpers';
+} from '@codelab/../../../../shared/helpers/helpers';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import {
   convertExerciseToMap,

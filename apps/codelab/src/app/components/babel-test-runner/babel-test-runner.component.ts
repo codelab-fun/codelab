@@ -5,8 +5,8 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
-import { FileConfig } from '@codelab/exercise/src/lib/interfaces/file-config';
-import { TestInfo } from '@codelab/exercise/src/lib/interfaces/test-info';
+import { FileConfig } from '@codelab/../../shared/interfaces/file-config';
+import { TestInfo } from '@codelab/../../shared/interfaces/test-info';
 
 declare const require;
 

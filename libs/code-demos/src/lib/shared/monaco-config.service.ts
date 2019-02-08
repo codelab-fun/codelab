@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FileConfig } from '../interfaces/file-config';
+import { FileConfig } from '../../../../../apps/codelab/src/app/shared/interfaces/file-config';
 import { DepsService } from './deps-order.service';
 
 declare const require;

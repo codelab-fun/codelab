@@ -1,17 +1,5 @@
 import { FileConfig } from '../interfaces/file-config';
 
-function exerciseWithDisplay(moduleName: string, code: any, code2: any) {
-  return {
-    ...exercise(moduleName, code, code2),
-    before: `
-    export const value = {};
-    function display( newValue ){
-      value.value = newValue;
-    }
-  `
-  };
-}
-
 function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
   return {
     ...exercise(moduleName, code, code2),
@@ -309,20 +297,6 @@ export function displayAngularComponent(
       },
       ...(testCode ? [test('test', testCode)] : [])
     ]
-  };
-}
-
-export function vueJsExercise(code: string) {
-  return {
-    runner: 'Vue',
-    files: [exercise('main.ts', code)]
-  };
-}
-
-export function reactExercise(code: string) {
-  return {
-    runner: 'React',
-    files: [{ ...exercise('main.ts', code), type: 'jsx' }]
   };
 }
 

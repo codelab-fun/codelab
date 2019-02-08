@@ -11,8 +11,8 @@ import {
   ViewChild
 } from '@angular/core';
 import { handleTestMessage } from './tests';
-import { createSystemJsSandbox } from '@codelab/exercise/src/lib/runners/utils/sandbox';
-import { ScriptLoaderService } from '@codelab/exercise/src/lib/services/script-loader.service';
+import { createSystemJsSandbox } from '@codelab/code-demos/src/lib/shared/sandbox';
+import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
 import * as ts from 'typescript';
 import babel_traverse from 'babel-traverse';
 import * as babylon from 'babylon';

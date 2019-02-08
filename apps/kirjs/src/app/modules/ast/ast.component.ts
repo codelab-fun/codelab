@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { exercise } from '@codelab/exercise/src/lib/helpers/helpers';
+import { exercise } from '@codelab/../../../../../codelab/src/app/shared/helpers/helpers';
 import { parse } from 'babylon';
 import {
   findHighlightsObjectProp,

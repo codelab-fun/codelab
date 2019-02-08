@@ -1,4 +1,4 @@
-import { CodelabFile } from '@codelab/exercise/src/lib/helpers/codelabFile';
+import { CodelabFile } from '@codelab/../../../shared/helpers/codelabFile';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,

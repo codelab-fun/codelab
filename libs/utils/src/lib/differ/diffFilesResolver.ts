@@ -1,6 +1,6 @@
 import { differ } from './differ';
 import { evaled, hidden, justForReference, test } from './fileHelpers';
-import { FileConfig } from '@codelab/exercise/src/lib/interfaces/file-config';
+import { FileConfig } from '@codelab/../../../../../apps/codelab/src/app/shared/interfaces/file-config';
 
 interface Override {
   [key: string]: {

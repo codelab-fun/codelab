@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { displayAngularComponent } from '@codelab/exercise/src/lib/helpers/helpers';
+import { displayAngularComponent } from '@codelab/../../../shared/helpers/helpers';
 
 @Component({
   selector: 'codelab-slides-pipes',
