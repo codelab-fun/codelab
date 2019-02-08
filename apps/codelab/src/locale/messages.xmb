@@ -31,7 +31,7 @@
   </msg>
   <msg id="3723990239834236534"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:27</source>Email is optional and, will not displayed</msg>
   <msg id="4712788926759159307"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:32</source>Describe your issue or share your ideas</msg>
-  <msg id="6672095411961477302"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:44,46</source>
+  <msg id="6672095411961477302"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:45,47</source>
           Send
         </msg>
   <msg id="perfect"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:2</source>Perfect</msg>
@@ -78,6 +78,7 @@
   <msg id="7394559216825981545"><source>src/app/codelabs/index/index.component.html:74,76</source>
       Or click here to see full contents...
     </msg>
+  <msg id="4201318520171370271"><source>src/app/components/tests/simple-tests.component.html:27</source>see only next step</msg>
   <msg id="1305440418386932412"><source>src/app/codelabs/angular/angular-cli/angular-cli.component.html:13</source>angular-cli</msg>
   <msg id="5047002157177956173"><source>src/app/codelabs/angular/angular-cli/angular-cli.component.html:15</source>Learn how to quickly start working on your Angular app</msg>
   <msg id="1892813585843859469"><source>src/app/codelabs/angular/angular-cli/angular-cli.component.html:20</source>Angular CLI / Intro</msg>
@@ -408,7 +409,7 @@
       (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Loading...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>) in this case
     </msg>
   <msg id="4135298275558664404"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:640</source>End of Bootstrap Section</msg>
-  <msg id="470651207723290753"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:642</source><source>src/app/codelabs/angular/forms/forms.component.html:213</source><source>src/app/codelabs/angular/material/material.component.html:208</source><source>src/app/codelabs/angular/router/router.component.html:152</source>Well done! This is the end of the milestone!</msg>
+  <msg id="470651207723290753"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:642</source><source>src/app/codelabs/angular/forms/forms.component.html:213</source><source>src/app/codelabs/angular/material/material.component.html:207</source><source>src/app/codelabs/angular/router/router.component.html:152</source>Well done! This is the end of the milestone!</msg>
   <msg id="7793166881121401916"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:645,647</source>
           Next <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Go to the templates Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
@@ -642,81 +643,80 @@
   <msg id="AddMatImage"><source>src/app/codelabs/angular/material/material.component.html:14,16</source>video.component.html: Mark img with mat-card-image attribute (inside of the
     mat-card) so that it takes full card size
   </msg>
-  <msg id="MoveDataToNewComponent"><source>src/app/codelabs/angular/material/material.component.html:17,20</source>video.component.html: move date/views/likes info
-    inside
-    of mat-card-content (inside of the mat-card)
+  <msg id="MoveDataToNewComponent"><source>src/app/codelabs/angular/material/material.component.html:17,19</source>video.component.html: move date/views/likes info
+    inside of mat-card-content (inside of the mat-card)
   </msg>
-  <msg id="4263648592710459003"><source>src/app/codelabs/angular/material/material.component.html:37</source>Material design</msg>
-  <msg id="794755284646120063"><source>src/app/codelabs/angular/material/material.component.html:38</source>Learn how to use Angular Material</msg>
-  <msg id="6256847568521448866"><source>src/app/codelabs/angular/material/material.component.html:43,47</source>
+  <msg id="4263648592710459003"><source>src/app/codelabs/angular/material/material.component.html:36</source>Material design</msg>
+  <msg id="794755284646120063"><source>src/app/codelabs/angular/material/material.component.html:37</source>Learn how to use Angular Material</msg>
+  <msg id="1590022389491166903"><source>src/app/codelabs/angular/material/material.component.html:42,46</source>
       Now let&apos;s use
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular Material<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
-      to make our app look beautiful ✨
+      to make our app look beautiful ✨✨
     </msg>
-  <msg id="7905973063691315028"><source>src/app/codelabs/angular/material/material.component.html:48,52</source>
+  <msg id="7905973063691315028"><source>src/app/codelabs/angular/material/material.component.html:47,51</source>
       Angular material provides you with a set of
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Material Design<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
       components for Angular
     </msg>
-  <msg id="1048302075193478813"><source>src/app/codelabs/angular/material/material.component.html:54</source>Fast and Consistent</msg>
-  <msg id="7436636522347025101"><source>src/app/codelabs/angular/material/material.component.html:55</source>Versatile</msg>
-  <msg id="6362038180167515562"><source>src/app/codelabs/angular/material/material.component.html:56</source>Accessible</msg>
-  <msg id="4824840533916827883"><source>src/app/codelabs/angular/material/material.component.html:57</source>Optimized for Angular</msg>
-  <msg id="332404582323211180"><source>src/app/codelabs/angular/material/material.component.html:58</source>Look great on mobile</msg>
-  <msg id="1384935740236089810"><source>src/app/codelabs/angular/material/material.component.html:61,68</source>
+  <msg id="1048302075193478813"><source>src/app/codelabs/angular/material/material.component.html:53</source>Fast and Consistent</msg>
+  <msg id="7436636522347025101"><source>src/app/codelabs/angular/material/material.component.html:54</source>Versatile</msg>
+  <msg id="6362038180167515562"><source>src/app/codelabs/angular/material/material.component.html:55</source>Accessible</msg>
+  <msg id="4824840533916827883"><source>src/app/codelabs/angular/material/material.component.html:56</source>Optimized for Angular</msg>
+  <msg id="332404582323211180"><source>src/app/codelabs/angular/material/material.component.html:57</source>Look great on mobile</msg>
+  <msg id="1384935740236089810"><source>src/app/codelabs/angular/material/material.component.html:60,67</source>
       See the list of components
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>here<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
     </msg>
-  <msg id="1286445925609008603"><source>src/app/codelabs/angular/material/material.component.html:72</source>Material / NavBar</msg>
-  <msg id="974377790133964101"><source>src/app/codelabs/angular/material/material.component.html:73</source>Adding a Navigation Bar takes 2 simple steps:</msg>
-  <msg id="5179157556117527268"><source>src/app/codelabs/angular/material/material.component.html:75</source>Add <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>MatToolbarModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to the imports</msg>
-  <msg id="5392852815080322940"><source>src/app/codelabs/angular/material/material.component.html:76</source>Use the component in the template</msg>
-  <msg id="4611890716836134126"><source>src/app/codelabs/angular/material/material.component.html:83,87</source>
+  <msg id="1286445925609008603"><source>src/app/codelabs/angular/material/material.component.html:71</source>Material / NavBar</msg>
+  <msg id="974377790133964101"><source>src/app/codelabs/angular/material/material.component.html:72</source>Adding a Navigation Bar takes 2 simple steps:</msg>
+  <msg id="5179157556117527268"><source>src/app/codelabs/angular/material/material.component.html:74</source>Add <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>MatToolbarModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to the imports</msg>
+  <msg id="5392852815080322940"><source>src/app/codelabs/angular/material/material.component.html:75</source>Use the component in the template</msg>
+  <msg id="4611890716836134126"><source>src/app/codelabs/angular/material/material.component.html:82,86</source>
       Note that Angular animations come in a separate module. We&apos;re including
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NoopAnimationsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> here, but could have used
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>BrowserAnimationsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> instead, to have full-fledged animations.
     </msg>
-  <msg id="6482753736155454822"><source>src/app/codelabs/angular/material/material.component.html:91</source>Material / Card</msg>
-  <msg id="9159121920453591417"><source>src/app/codelabs/angular/material/material.component.html:92</source>Now let&apos;s add material card.</msg>
-  <msg id="8521331566231809319"><source>src/app/codelabs/angular/material/material.component.html:100</source>Material / Card Header</msg>
-  <msg id="7240476994819291465"><source>src/app/codelabs/angular/material/material.component.html:101</source>Header and an image.</msg>
-  <msg id="8487881877251298357"><source>src/app/codelabs/angular/material/material.component.html:109</source>Material / Buttons</msg>
-  <msg id="9206609904661056407"><source>src/app/codelabs/angular/material/material.component.html:110</source>Adding some actions....</msg>
-  <msg id="5230163445973304109"><source>src/app/codelabs/angular/material/material.component.html:115,118</source>
+  <msg id="6482753736155454822"><source>src/app/codelabs/angular/material/material.component.html:90</source>Material / Card</msg>
+  <msg id="9159121920453591417"><source>src/app/codelabs/angular/material/material.component.html:91</source>Now let&apos;s add material card.</msg>
+  <msg id="8521331566231809319"><source>src/app/codelabs/angular/material/material.component.html:99</source>Material / Card Header</msg>
+  <msg id="7240476994819291465"><source>src/app/codelabs/angular/material/material.component.html:100</source>Header and an image.</msg>
+  <msg id="8487881877251298357"><source>src/app/codelabs/angular/material/material.component.html:108</source>Material / Buttons</msg>
+  <msg id="9206609904661056407"><source>src/app/codelabs/angular/material/material.component.html:109</source>Adding some actions....</msg>
+  <msg id="5230163445973304109"><source>src/app/codelabs/angular/material/material.component.html:114,117</source>
       Note that for the button we&apos;re using <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>mat-button<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> attribute instead
       of a separate tag.
     </msg>
-  <msg id="1111775927131371286"><source>src/app/codelabs/angular/material/material.component.html:122</source>Material / Themes</msg>
-  <msg id="4466032727173398230"><source>src/app/codelabs/angular/material/material.component.html:123,126</source>
+  <msg id="1111775927131371286"><source>src/app/codelabs/angular/material/material.component.html:121</source>Material / Themes</msg>
+  <msg id="4466032727173398230"><source>src/app/codelabs/angular/material/material.component.html:122,125</source>
       All material components allow to apply themes. Try different themes by
       clicking the buttons below:
     </msg>
-  <msg id="5274217387047721869"><source>src/app/codelabs/angular/material/material.component.html:134,136</source>
+  <msg id="5274217387047721869"><source>src/app/codelabs/angular/material/material.component.html:133,135</source>
         Indigo
       </msg>
-  <msg id="7493644276322780505"><source>src/app/codelabs/angular/material/material.component.html:143,145</source>
+  <msg id="7493644276322780505"><source>src/app/codelabs/angular/material/material.component.html:142,144</source>
         Deep purple
       </msg>
-  <msg id="1453230058388265146"><source>src/app/codelabs/angular/material/material.component.html:152,154</source>
+  <msg id="1453230058388265146"><source>src/app/codelabs/angular/material/material.component.html:151,153</source>
         Pink
       </msg>
-  <msg id="6699275925990014857"><source>src/app/codelabs/angular/material/material.component.html:161,163</source>
+  <msg id="6699275925990014857"><source>src/app/codelabs/angular/material/material.component.html:160,162</source>
         Purple
       </msg>
-  <msg id="4823680948317313952"><source>src/app/codelabs/angular/material/material.component.html:170,173</source>
+  <msg id="4823680948317313952"><source>src/app/codelabs/angular/material/material.component.html:169,172</source>
       Read more on theming Anglar Material
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>in this guide<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
     </msg>
-  <msg id="147289449221499591"><source>src/app/codelabs/angular/material/material.component.html:177</source>Material / Exercise</msg>
-  <msg id="8974626884127165311"><source>src/app/codelabs/angular/material/material.component.html:178,181</source>
+  <msg id="147289449221499591"><source>src/app/codelabs/angular/material/material.component.html:176</source>Material / Exercise</msg>
+  <msg id="8974626884127165311"><source>src/app/codelabs/angular/material/material.component.html:177,180</source>
       In the next slide there is an exercise. We&apos;re going to materialize our
       application
     </msg>
-  <msg id="943558698651917560"><source>src/app/codelabs/angular/material/material.component.html:187,189</source>
+  <msg id="943558698651917560"><source>src/app/codelabs/angular/material/material.component.html:186,188</source>
       Note: the final app won&apos;t be super beautiful, we&apos;re still working on that.
     </msg>
-  <msg id="3893830132734928426"><source>src/app/codelabs/angular/material/material.component.html:205</source>End of The Material Milestone</msg>
-  <msg id="548749131188154528"><source>src/app/codelabs/angular/material/material.component.html:220,222</source>
+  <msg id="3893830132734928426"><source>src/app/codelabs/angular/material/material.component.html:204</source>End of The Material Milestone</msg>
+  <msg id="548749131188154528"><source>src/app/codelabs/angular/material/material.component.html:219,221</source>
           Next <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>⏭️ Go to the Forms Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
   <msg id="UseRouterModule"><source>src/app/codelabs/angular/router/router.component.html:9</source>app.module.ts: Using RouterModule.forRoot provide an empty array to the module</msg>
