@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TestInfo } from '@codelab/exercise/src/lib/interfaces/test-info';
+import { TestInfo } from '../../shared/interfaces/test-info';
+
 
 function getFileName(file: string) {
   return file.split('/').pop();
@@ -31,7 +32,6 @@ export class SimpleTestsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
     this.translations = this.translations || {};
   }
 

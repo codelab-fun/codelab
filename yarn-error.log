@@ -1,17 +1,30 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/lib/node_modules/yarn/bin/yarn.js install
+  /Users/kirjs/.nvm/versions/node/v10.11.0/bin/node /Users/kirjs/.nvm/versions/node/v10.11.0/bin/yarn add @latest
 
 PATH: 
-  /usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/Users/kirts
+  /Users/kirjs/google-cloud-sdk/bin:/Users/kirjs/.nvm/versions/node/v10.11.0/bin:/Users/kirjs/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/Users/kirjs/code/angular-presentation/node_modules/.bin:/Users/kirjs/.fzf/bin
 
 Yarn version: 
-  1.5.1
+  1.13.0
 
 Node version: 
-  10.10.0
+  10.11.0
 
 Platform: 
   darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@latest: Request "https://registry.yarnpkg.com/@latest" returned a 405
+      at Request.params.callback [as _callback] (/Users/kirjs/.nvm/versions/node/v10.11.0/lib/node_modules/yarn/lib/cli.js:66264:18)
+      at Request.self.callback (/Users/kirjs/.nvm/versions/node/v10.11.0/lib/node_modules/yarn/lib/cli.js:129397:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/Users/kirjs/.nvm/versions/node/v10.11.0/lib/node_modules/yarn/lib/cli.js:130369:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/Users/kirjs/.nvm/versions/node/v10.11.0/lib/node_modules/yarn/lib/cli.js:130291:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1092:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
 
 npm manifest: 
   {
@@ -19,7 +32,7 @@ npm manifest:
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-      "ng": "ng",
+      "ng": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng",
       "//--------------- CODELAB ---------------------": "",
       "start": "ng serve",
       "build": "ng build",
@@ -29,6 +42,7 @@ npm manifest:
       "i18n": "ng xi18n codelab --i18n-format xmb --output-path src/locale",
       "build:ru": "ng build codelab --configuration ru",
       "deploy:ru": "npm run build:prod && npm run build:ru && firebase deploy --only hosting:codelab-next",
+      "serve:ru": "ng serve --configuration ru",
       "sw": "sw-precache --root=dist --config=sw-precache-config.js",
       "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
       "deploy": "ng build --prod --aot && npm run sw  && firebase deploy --only hosting:codelab",
@@ -15298,13 +15312,3 @@ Lockfile:
     version "0.8.28"
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.28.tgz#fd55df8743514b233613f8e4f5bb8e27207a48c3"
     integrity sha512-MjwlvV0wr65IQiT0WSHedo/zUhAqtypMdTUjqroV81RohGj1XANwHuC37dwYxphTRbZBYidk0gNS0dQrU2Q3Pw==
-
-Trace: 
-  Error: Found incompatible module
-      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at checkOne (/usr/local/lib/node_modules/yarn/lib/cli.js:62444:11)
-      at Object.check (/usr/local/lib/node_modules/yarn/lib/cli.js:62463:5)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:22803:73
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13

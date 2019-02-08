@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
-import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
+import { MonacoConfigService } from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 

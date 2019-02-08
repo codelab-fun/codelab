@@ -27,7 +27,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/exercise/assets/runner/",
+                "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
               }
             ],
@@ -274,7 +274,7 @@
               "apps/kirjs/src/assets",
               {
                 "glob": "**/*",
-                "input": "libs/exercise/assets/runner/",
+                "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
               }
             ],

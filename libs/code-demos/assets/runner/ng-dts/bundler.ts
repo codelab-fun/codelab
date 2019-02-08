@@ -26,4 +26,6 @@ writeFileSync(
   JSON.stringify(vendors, null, 2),
   'utf-8'
 );
+
+// tslint:disable-next-line:no-console
 console.info('Done: ', vendors.length);

@@ -11,7 +11,7 @@ import { CodeDemoEditorComponent } from '../code-demo-editor.component';
 import { findPosition } from '../utils/utils';
 import { EditorFromModelComponent } from '../../multitab-editor/editor-from-model/editor-from-model.component';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
-import { MonacoConfigService } from '@codelab/exercise/src/lib/services/monaco-config.service';
+import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 
 @Directive({
   selector: '[codeDemoHighlight]'
