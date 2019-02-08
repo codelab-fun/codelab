@@ -1,10 +1,8 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { CodelabFile } from '@codelab/exercise/src/lib/helpers/codelabFile';
-import {
-  ExerciseConfigTemplate,
-  Ng2TsExercises
-} from '../../../../../../../ng2ts/ng2ts';
+import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
+import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
 declare const require;
 
@@ -23,6 +21,7 @@ function matExercise(
     /MatCardModule, MatToolbarModule/g,
     modules
   );
+
 
   return {
     files: [
@@ -52,9 +51,10 @@ function matExercise(
   styleUrls: ['./material.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class MaterialComponent {
+export class MaterialComponent implements OnInit {
   exercise: ExerciseConfigTemplate;
   @ViewChild('themePlayground') themePlayground;
+  @ViewChild('translations') translations;
 
   themes = {
     indigo: require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
@@ -112,15 +112,20 @@ export class MaterialComponent {
     }
   };
   private theme = 'indigo';
+  private t: Record<string, string>;
 
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(6, 0);
+  }
+
+  ngOnInit() {
+    this.t = extractMessages(this.translations);
   }
 
   setTheme(theme) {
     this.theme = theme;
     const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
     cssFile.template = this.themes[theme];
-    this.code.material.theme = { ...this.code.material.theme };
+    this.code.material.theme = {...this.code.material.theme};
   }
 }

@@ -31,6 +31,7 @@ export class SimpleTestsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    debugger;
     this.translations = this.translations || {};
   }
 

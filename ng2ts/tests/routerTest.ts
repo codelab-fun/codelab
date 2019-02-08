@@ -31,12 +31,11 @@ function getRoutes() {
 }
 
 describe('router', () => {
-
-  it('app.module.ts: Using RouterModule.forRoot provide an empty array to the module', () => {
+  it('UseRouterModule', () => {
     chai.expect(Array.isArray(getRoutes()), 'Can\'t find any routes provided').to.be.true;
   });
 
-  it('app.module.ts: Add a route with an empty (\'\') path to display SearchComponent', () => {
+  it('AddEmptyRoute', () => {
     const routes = getRoutes();
     chai.expect(routes.length, 'Empty array was provided, need actual routes.').to.be.above(0);
     const route = routes.find(r => r.path === '');
@@ -46,7 +45,7 @@ describe('router', () => {
       .to.be.true;
   });
 
-  it('app.module.ts: Add a route with path of "upload" to display UploadComponent', () => {
+  it('AddUploadRoute', () => {
     const routes = getRoutes();
     chai.expect(routes.length, 'Empty array was provided, need actual routes.').to.be.above(0);
     const route = routes.find(r => r.path === 'upload');
@@ -56,13 +55,13 @@ describe('router', () => {
       .to.be.true;
   });
 
-  it('app.html: Add router-outlet', () => {
+  it('AddRouterOutlet', () => {
     const div = document.createElement('div');
     div.innerHTML = app_html;
     chai.expect(!!div.querySelector('router-outlet'), 'Can\'t find router outlet').to.be.true;
   });
 
-  it('app.html: Add a menu item with a text Search pointing to "/"', () => {
+  it('AddSearchMenu', () => {
     const div = document.createElement('div');
     div.innerHTML = app_html;
     const search = div.querySelector('[routerLink="/"]');
@@ -70,7 +69,7 @@ describe('router', () => {
     chai.expect(search.innerHTML.toLowerCase().includes('search'), 'The menu item should contain word "search"').to.be.true;
   });
 
-  it('app.html: Add a menu item with a text Upload pointing to "/upload"', () => {
+  it('AddUploadMenu', () => {
     const div = document.createElement('div');
     div.innerHTML = app_html;
     const search = div.querySelector('[routerLink="/upload"]');
