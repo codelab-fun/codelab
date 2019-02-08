@@ -32,7 +32,8 @@ export class BinaryPlainComponent {
 
   structure: any;
 
-  constructor(private readonly root: FakeGifComponent) {}
+  constructor(private readonly root: FakeGifComponent) {
+  }
 
   get highlighted() {
     return Object.keys(this.highlightedMap)
@@ -45,11 +46,6 @@ export class BinaryPlainComponent {
       this.structure = flatten(
         this.parser.readOrdered(new StringBinaryReader(binary)).value
       ).filter(a => a.className.match(this.filterClassName));
-
-      console.log(
-        this.parser.readOrdered(new StringBinaryReader(binary)).value
-      );
-      console.log(this.structure);
     } catch (e) {
       console.log(e);
       //  lol

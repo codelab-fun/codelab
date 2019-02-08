@@ -22,6 +22,8 @@ import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-
 import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { BreadcrumbComponent } from './breadcrumbs/breadcrumb/breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -46,7 +48,9 @@ import { CodelabPreviewComponent } from './slides-preview/codelab-preview.compon
     BabelTestRunnerComponent,
     CodelabRippleAnimationComponent,
     SimpleAngularTestRunnerComponent,
-    MenuShortcutComponent
+    MenuShortcutComponent,
+    BreadcrumbsComponent,
+    BreadcrumbComponent
   ],
   exports: [
     CodelabExerciseComponent,
