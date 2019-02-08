@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TestInfo } from '@codelab/../../shared/interfaces/test-info';
+import { TestInfo } from '../../shared/interfaces/test-info';
+
 
 function getFileName(file: string) {
   return file.split('/').pop();

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
-import { CodelabFile } from '@codelab/../../../shared/helpers/codelabFile';
+
 import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
+import { CodelabFile } from '../../../shared/helpers/codelabFile';
 
 declare const require;
 

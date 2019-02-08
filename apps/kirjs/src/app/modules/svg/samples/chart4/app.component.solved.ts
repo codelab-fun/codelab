@@ -27,7 +27,7 @@ function generateData() {
 
         <text [attr.x]="barWidth / 2" y="-10">{{ item.value }}</text>
       </g>
-      <g kirjsTicks style="transform: translate(0, 350px);a:1" [data]="data"></g>
+      <g kirjs-ticks style="transform: translate(0, 350px);a:1" [data]="data"></g>
     </svg>
   `
 })
