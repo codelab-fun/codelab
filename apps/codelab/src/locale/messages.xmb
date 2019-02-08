@@ -68,6 +68,10 @@
     Learn to bind to events.
   </msg>
   <msg id="2339071718884287683"><source>src/app/codelabs/index/index.component.html:47</source>Angular Codelab</msg>
+  <msg id="4302113860648465389"><source>src/app/codelabs/index/index.component.html:48,51</source>
+      Welcome to the interactive Angular Codelab. Here you can learn the basics
+      of <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>!
+    </msg>
   <msg id="7759544910570343367"><source>src/app/codelabs/index/index.component.html:59</source>Learn TypeScript</msg>
   <msg id="3142775397600131493"><source>src/app/codelabs/index/index.component.html:60</source>Skip if you&apos;re familiar with TypeScript</msg>
   <msg id="4686588615295148276"><source>src/app/codelabs/index/index.component.html:69</source>Learn Angular</msg>
@@ -404,7 +408,7 @@
       (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Loading...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>) in this case
     </msg>
   <msg id="4135298275558664404"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:640</source>End of Bootstrap Section</msg>
-  <msg id="470651207723290753"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:642</source><source>src/app/codelabs/angular/forms/forms.component.html:202</source><source>src/app/codelabs/angular/material/material.component.html:185</source><source>src/app/codelabs/angular/router/router.component.html:145</source>Well done! This is the end of the milestone!</msg>
+  <msg id="470651207723290753"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:642</source><source>src/app/codelabs/angular/forms/forms.component.html:213</source><source>src/app/codelabs/angular/material/material.component.html:208</source><source>src/app/codelabs/angular/router/router.component.html:152</source>Well done! This is the end of the milestone!</msg>
   <msg id="7793166881121401916"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:645,647</source>
           Next <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Go to the templates Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
@@ -508,233 +512,267 @@
           Next:
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Learn how to combine components together<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
-  <msg id="2078785402028999261"><source>src/app/codelabs/angular/forms/forms.component.html:14</source>Forms</msg>
-  <msg id="8668858903892446127"><source>src/app/codelabs/angular/forms/forms.component.html:15</source>Adding basic forms into your app</msg>
-  <msg id="5057726332165049261"><source>src/app/codelabs/angular/forms/forms.component.html:20</source><source>src/app/codelabs/angular/forms/forms.component.html:31</source>Forms / Simple Form</msg>
-  <msg id="7762953763922284011"><source>src/app/codelabs/angular/forms/forms.component.html:21,24</source>
+  <msg id="5139467519566265783" desc="AddFormsModule"><source>src/app/codelabs/angular/forms/forms.component.html:2,3</source>app.module.ts: Add FormsModule and MatInputModule, to the imports.
+  </msg>
+  <msg id="188463647961616112" desc="AddTitle"><source>src/app/codelabs/angular/forms/forms.component.html:4,6</source>upload.component.html: Add &quot;title&quot; input bound to the title property of the
+    component
+  </msg>
+  <msg id="3598794920248145257" desc="AddDescription"><source>src/app/codelabs/angular/forms/forms.component.html:7,10</source>upload.component.html: Add &quot;description&quot; textarea bound to the
+    description property of the
+    component
+  </msg>
+  <msg id="2078785402028999261"><source>src/app/codelabs/angular/forms/forms.component.html:25</source>Forms</msg>
+  <msg id="8668858903892446127"><source>src/app/codelabs/angular/forms/forms.component.html:26</source>Adding basic forms into your app</msg>
+  <msg id="5057726332165049261"><source>src/app/codelabs/angular/forms/forms.component.html:31</source><source>src/app/codelabs/angular/forms/forms.component.html:42</source>Forms / Simple Form</msg>
+  <msg id="7762953763922284011"><source>src/app/codelabs/angular/forms/forms.component.html:32,35</source>
       We have this simple form, let&apos;s find out how to map input values with the
       ones from our Angular component!
     </msg>
-  <msg id="6425132401823114131"><source>src/app/codelabs/angular/forms/forms.component.html:32</source>First we have to add <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>FormsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to our NgModule.</msg>
-  <msg id="4286466567094338794"><source>src/app/codelabs/angular/forms/forms.component.html:41</source>Forms / NgModel</msg>
-  <msg id="7747367449350171293"><source>src/app/codelabs/angular/forms/forms.component.html:42,45</source>
+  <msg id="6425132401823114131"><source>src/app/codelabs/angular/forms/forms.component.html:43</source>First we have to add <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>FormsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to our NgModule.</msg>
+  <msg id="4286466567094338794"><source>src/app/codelabs/angular/forms/forms.component.html:52</source>Forms / NgModel</msg>
+  <msg id="7747367449350171293"><source>src/app/codelabs/angular/forms/forms.component.html:53,56</source>
       Now let&apos;s use ngModel to bind the inputs to the appropriate fields on the
       component.
     </msg>
-  <msg id="4133557133353776426"><source>src/app/codelabs/angular/forms/forms.component.html:46</source>Try changing the inputs and see the values updated.</msg>
-  <msg id="3770170783025031996"><source>src/app/codelabs/angular/forms/forms.component.html:50,53</source>
+  <msg id="4133557133353776426"><source>src/app/codelabs/angular/forms/forms.component.html:57</source>Try changing the inputs and see the values updated.</msg>
+  <msg id="3770170783025031996"><source>src/app/codelabs/angular/forms/forms.component.html:61,64</source>
       [(NgModel)] - <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Banana in the box<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> is a simple mnemonic for the braces
       order.
     </msg>
-  <msg id="2270216528188676158"><source>src/app/codelabs/angular/forms/forms.component.html:57</source>Forms / Validation</msg>
-  <msg id="8067433423004740793"><source>src/app/codelabs/angular/forms/forms.component.html:58,61</source>
+  <msg id="2270216528188676158"><source>src/app/codelabs/angular/forms/forms.component.html:68</source>Forms / Validation</msg>
+  <msg id="8067433423004740793"><source>src/app/codelabs/angular/forms/forms.component.html:69,72</source>
       It&apos;s really easy to add validation for your inputs using predefined
       angular directives.
     </msg>
-  <msg id="6063238187884699771"><source>src/app/codelabs/angular/forms/forms.component.html:62</source>Let&apos;s make username <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>required<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
-  <msg id="3134376646529061458"><source>src/app/codelabs/angular/forms/forms.component.html:66,69</source>
+  <msg id="6063238187884699771"><source>src/app/codelabs/angular/forms/forms.component.html:73</source>Let&apos;s make username <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>required<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
+  <msg id="3134376646529061458"><source>src/app/codelabs/angular/forms/forms.component.html:77,80</source>
       If you clear the input it&apos;ll be marked with ad error, however no error
       will be displayed. We&apos;ll learn how to display it in the next slide
     </msg>
-  <msg id="579927852368958474"><source>src/app/codelabs/angular/forms/forms.component.html:73</source>Forms / Displaying Validation Errors</msg>
-  <msg id="8993640169220425895"><source>src/app/codelabs/angular/forms/forms.component.html:74</source>Now we let&apos;s display validation error. It takes 2 steps:</msg>
-  <msg id="2140417106288915448"><source>src/app/codelabs/angular/forms/forms.component.html:76,78</source>
+  <msg id="579927852368958474"><source>src/app/codelabs/angular/forms/forms.component.html:84</source>Forms / Displaying Validation Errors</msg>
+  <msg id="8993640169220425895"><source>src/app/codelabs/angular/forms/forms.component.html:85</source>Now we let&apos;s display validation error. It takes 2 steps:</msg>
+  <msg id="2140417106288915448"><source>src/app/codelabs/angular/forms/forms.component.html:87,89</source>
         Get ahold of the input ngModel using <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>#name=&quot;ngModel&quot;<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> binding
       </msg>
-  <msg id="5910204214213293332"><source>src/app/codelabs/angular/forms/forms.component.html:79</source>Use <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>usernameModel<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>&apos;s <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>errors<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> property.</msg>
-  <msg id="4692187312954805852"><source>src/app/codelabs/angular/forms/forms.component.html:84,86</source>
+  <msg id="5910204214213293332"><source>src/app/codelabs/angular/forms/forms.component.html:90</source>Use <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>usernameModel<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>&apos;s <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>errors<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> property.</msg>
+  <msg id="4692187312954805852"><source>src/app/codelabs/angular/forms/forms.component.html:95,97</source>
       Try clearing the username input and see the error displayed.
     </msg>
-  <msg id="5310187501199327809"><source>src/app/codelabs/angular/forms/forms.component.html:89</source>Forms / validators</msg>
-  <msg id="8486095358633987531"><source>src/app/codelabs/angular/forms/forms.component.html:90,96</source>
+  <msg id="5310187501199327809"><source>src/app/codelabs/angular/forms/forms.component.html:100</source>Forms / validators</msg>
+  <msg id="8486095358633987531"><source>src/app/codelabs/angular/forms/forms.component.html:101,107</source>
       Here&apos;s the list of
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>built-in validators<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
       that Angular provides out of the box
     </msg>
-  <msg id="3901733599428143571"><source>src/app/codelabs/angular/forms/forms.component.html:98</source>min</msg>
-  <msg id="5386793486940113646"><source>src/app/codelabs/angular/forms/forms.component.html:99</source>max</msg>
-  <msg id="1555721751742522708"><source>src/app/codelabs/angular/forms/forms.component.html:100</source>required</msg>
-  <msg id="3347261489424376125"><source>src/app/codelabs/angular/forms/forms.component.html:101</source>requiredTrue</msg>
-  <msg id="7315714079098881460"><source>src/app/codelabs/angular/forms/forms.component.html:102</source>email</msg>
-  <msg id="2218960621606808970"><source>src/app/codelabs/angular/forms/forms.component.html:103</source>minLength</msg>
-  <msg id="2060941282153877777"><source>src/app/codelabs/angular/forms/forms.component.html:104</source>maxLength</msg>
-  <msg id="7676249558622794260"><source>src/app/codelabs/angular/forms/forms.component.html:105</source>pattern</msg>
-  <msg id="4722824416758060415"><source>src/app/codelabs/angular/forms/forms.component.html:107,113</source>
+  <msg id="3901733599428143571"><source>src/app/codelabs/angular/forms/forms.component.html:109</source>min</msg>
+  <msg id="5386793486940113646"><source>src/app/codelabs/angular/forms/forms.component.html:110</source>max</msg>
+  <msg id="1555721751742522708"><source>src/app/codelabs/angular/forms/forms.component.html:111</source>required</msg>
+  <msg id="3347261489424376125"><source>src/app/codelabs/angular/forms/forms.component.html:112</source>requiredTrue</msg>
+  <msg id="7315714079098881460"><source>src/app/codelabs/angular/forms/forms.component.html:113</source>email</msg>
+  <msg id="2218960621606808970"><source>src/app/codelabs/angular/forms/forms.component.html:114</source>minLength</msg>
+  <msg id="2060941282153877777"><source>src/app/codelabs/angular/forms/forms.component.html:115</source>maxLength</msg>
+  <msg id="7676249558622794260"><source>src/app/codelabs/angular/forms/forms.component.html:116</source>pattern</msg>
+  <msg id="4722824416758060415"><source>src/app/codelabs/angular/forms/forms.component.html:118,124</source>
       It&apos;s also possible to create custom validators, but it&apos;s out of scope for
       this milestone, you can read more:
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>here<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
     </msg>
-  <msg id="275482627623351193"><source>src/app/codelabs/angular/forms/forms.component.html:117</source>Forms / Error Always displayed</msg>
-  <msg id="6090593566257988703"><source>src/app/codelabs/angular/forms/forms.component.html:118,121</source>
+  <msg id="275482627623351193"><source>src/app/codelabs/angular/forms/forms.component.html:128</source>Forms / Error Always displayed</msg>
+  <msg id="6090593566257988703"><source>src/app/codelabs/angular/forms/forms.component.html:129,132</source>
       There&apos;s one small issue though, if we don&apos;t have initial values, the error
       is displayed right away.
     </msg>
-  <msg id="206369080223574774"><source>src/app/codelabs/angular/forms/forms.component.html:129</source>Forms / Touched &amp; Dirty</msg>
-  <msg id="7933306550899658878"><source>src/app/codelabs/angular/forms/forms.component.html:130,133</source>
+  <msg id="206369080223574774"><source>src/app/codelabs/angular/forms/forms.component.html:140</source>Forms / Touched &amp; Dirty</msg>
+  <msg id="7933306550899658878"><source>src/app/codelabs/angular/forms/forms.component.html:141,144</source>
       Luckily we can check if the user interacted with an input using
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>touched<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> property.
     </msg>
-  <msg id="6229428459706480294"><source>src/app/codelabs/angular/forms/forms.component.html:135</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>dirty<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> is true if the user changed the value of the input.</msg>
-  <msg id="7424734033590338116"><source>src/app/codelabs/angular/forms/forms.component.html:136,139</source>
+  <msg id="6229428459706480294"><source>src/app/codelabs/angular/forms/forms.component.html:146</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>dirty<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> is true if the user changed the value of the input.</msg>
+  <msg id="7424734033590338116"><source>src/app/codelabs/angular/forms/forms.component.html:147,150</source>
         <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>touched<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> is true if the user focused on the input, and then blured
         without changing the value.
       </msg>
-  <msg id="4624575175624080439"><source>src/app/codelabs/angular/forms/forms.component.html:144,147</source>
+  <msg id="4624575175624080439"><source>src/app/codelabs/angular/forms/forms.component.html:155,158</source>
       Try focusing/bluring the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>username<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> field, or adding some value and
       then removing to see the error.
     </msg>
-  <msg id="6200661647536218778"><source>src/app/codelabs/angular/forms/forms.component.html:151</source>Forms / Material Inputs (Bonus!)</msg>
-  <msg id="3876627808167319645"><source>src/app/codelabs/angular/forms/forms.component.html:152,155</source>
+  <msg id="6200661647536218778"><source>src/app/codelabs/angular/forms/forms.component.html:162</source>Forms / Material Inputs (Bonus!)</msg>
+  <msg id="3876627808167319645"><source>src/app/codelabs/angular/forms/forms.component.html:163,166</source>
       Now let&apos;s make our forms beautiful using Material Design inputs! Main
       building blocks are:
     </msg>
-  <msg id="3286433456748135142"><source>src/app/codelabs/angular/forms/forms.component.html:157</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>mat-form-field<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> - Wraps the input</msg>
-  <msg id="304466263354781991"><source>src/app/codelabs/angular/forms/forms.component.html:158</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>matInput<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> - has to be put on the input</msg>
-  <msg id="8297804625326045690"><source>src/app/codelabs/angular/forms/forms.component.html:159</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>mat-error<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> - Smarter error wrapper</msg>
-  <msg id="3440673282637430108"><source>src/app/codelabs/angular/forms/forms.component.html:165,167</source>
+  <msg id="3286433456748135142"><source>src/app/codelabs/angular/forms/forms.component.html:168</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>mat-form-field<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> - Wraps the input</msg>
+  <msg id="304466263354781991"><source>src/app/codelabs/angular/forms/forms.component.html:169</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>matInput<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> - has to be put on the input</msg>
+  <msg id="8297804625326045690"><source>src/app/codelabs/angular/forms/forms.component.html:170</source><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>mat-error<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> - Smarter error wrapper</msg>
+  <msg id="3440673282637430108"><source>src/app/codelabs/angular/forms/forms.component.html:176,178</source>
       Note that we don&apos;t need to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>#name<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> the input anymore.
     </msg>
-  <msg id="8782335588513428200"><source>src/app/codelabs/angular/forms/forms.component.html:171</source>Forms / Exercise</msg>
-  <msg id="1410328259781563181"><source>src/app/codelabs/angular/forms/forms.component.html:172,175</source>
+  <msg id="8782335588513428200"><source>src/app/codelabs/angular/forms/forms.component.html:182</source>Forms / Exercise</msg>
+  <msg id="1410328259781563181"><source>src/app/codelabs/angular/forms/forms.component.html:183,186</source>
       In the next slide there is an exercise. We&apos;re going to add a form to the
       upload page.
     </msg>
-  <msg id="2445797033343456600"><source>src/app/codelabs/angular/forms/forms.component.html:183,186</source>
+  <msg id="2445797033343456600"><source>src/app/codelabs/angular/forms/forms.component.html:194,197</source>
       Note: you&apos;d have to manually click on the &quot;upload link&quot; to see the result,
       we&apos;re working on the fix.
     </msg>
-  <msg id="4295828568066353117"><source>src/app/codelabs/angular/forms/forms.component.html:200</source>End of The Forms Milestone</msg>
-  <msg id="5553423473844264824"><source>src/app/codelabs/angular/forms/forms.component.html:203,207</source>
+  <msg id="4295828568066353117"><source>src/app/codelabs/angular/forms/forms.component.html:211</source>End of The Forms Milestone</msg>
+  <msg id="5553423473844264824"><source>src/app/codelabs/angular/forms/forms.component.html:214,218</source>
           There are more than one way to handle forms in Angular. While
           <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Advanced forms<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> milestone is in works, check out
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular docs<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
-  <msg id="2031537765120261706"><source>src/app/codelabs/angular/forms/forms.component.html:208,214</source>
+  <msg id="2031537765120261706"><source>src/app/codelabs/angular/forms/forms.component.html:219,225</source>
           Next
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>⏭️ Learn how to start working on your angular app in the
             Angular-cli Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
-  <msg id="4263648592710459003"><source>src/app/codelabs/angular/material/material.component.html:14</source>Material design</msg>
-  <msg id="794755284646120063"><source>src/app/codelabs/angular/material/material.component.html:15</source>Learn how to use Angular Material</msg>
-  <msg id="6256847568521448866"><source>src/app/codelabs/angular/material/material.component.html:20,24</source>
+  <msg id="AddMatModules"><source>src/app/codelabs/angular/material/material.component.html:2,4</source>app.module.ts: Add MatCardModule and MatToolbarModule, to the
+    imports.
+  </msg>
+  <msg id="AddMatToolbar"><source>src/app/codelabs/angular/material/material.component.html:5</source>app.html: Add material toolbar containing the title</msg>
+  <msg id="UseMatCard"><source>src/app/codelabs/angular/material/material.component.html:6</source>video.component.html: Use material card to display the date</msg>
+  <msg id="AddMatCardTitle"><source>src/app/codelabs/angular/material/material.component.html:7,10</source>video.component.html: Add mat-card-title (inside of the mat-card)
+    to
+    display video title
+  </msg>
+  <msg id="AddMatCardSubtitle"><source>src/app/codelabs/angular/material/material.component.html:11,13</source>video.component.html: Add mat-card-subtitle (inside of the
+    mat-card) to display video description
+  </msg>
+  <msg id="AddMatImage"><source>src/app/codelabs/angular/material/material.component.html:14,16</source>video.component.html: Mark img with mat-card-image attribute (inside of the
+    mat-card) so that it takes full card size
+  </msg>
+  <msg id="MoveDataToNewComponent"><source>src/app/codelabs/angular/material/material.component.html:17,20</source>video.component.html: move date/views/likes info
+    inside
+    of mat-card-content (inside of the mat-card)
+  </msg>
+  <msg id="4263648592710459003"><source>src/app/codelabs/angular/material/material.component.html:37</source>Material design</msg>
+  <msg id="794755284646120063"><source>src/app/codelabs/angular/material/material.component.html:38</source>Learn how to use Angular Material</msg>
+  <msg id="6256847568521448866"><source>src/app/codelabs/angular/material/material.component.html:43,47</source>
       Now let&apos;s use
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular Material<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
       to make our app look beautiful ✨
     </msg>
-  <msg id="7905973063691315028"><source>src/app/codelabs/angular/material/material.component.html:25,29</source>
+  <msg id="7905973063691315028"><source>src/app/codelabs/angular/material/material.component.html:48,52</source>
       Angular material provides you with a set of
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Material Design<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
       components for Angular
     </msg>
-  <msg id="1048302075193478813"><source>src/app/codelabs/angular/material/material.component.html:31</source>Fast and Consistent</msg>
-  <msg id="7436636522347025101"><source>src/app/codelabs/angular/material/material.component.html:32</source>Versatile</msg>
-  <msg id="6362038180167515562"><source>src/app/codelabs/angular/material/material.component.html:33</source>Accessible</msg>
-  <msg id="4824840533916827883"><source>src/app/codelabs/angular/material/material.component.html:34</source>Optimized for Angular</msg>
-  <msg id="332404582323211180"><source>src/app/codelabs/angular/material/material.component.html:35</source>Look great on mobile</msg>
-  <msg id="1384935740236089810"><source>src/app/codelabs/angular/material/material.component.html:38,45</source>
+  <msg id="1048302075193478813"><source>src/app/codelabs/angular/material/material.component.html:54</source>Fast and Consistent</msg>
+  <msg id="7436636522347025101"><source>src/app/codelabs/angular/material/material.component.html:55</source>Versatile</msg>
+  <msg id="6362038180167515562"><source>src/app/codelabs/angular/material/material.component.html:56</source>Accessible</msg>
+  <msg id="4824840533916827883"><source>src/app/codelabs/angular/material/material.component.html:57</source>Optimized for Angular</msg>
+  <msg id="332404582323211180"><source>src/app/codelabs/angular/material/material.component.html:58</source>Look great on mobile</msg>
+  <msg id="1384935740236089810"><source>src/app/codelabs/angular/material/material.component.html:61,68</source>
       See the list of components
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>here<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
     </msg>
-  <msg id="1286445925609008603"><source>src/app/codelabs/angular/material/material.component.html:49</source>Material / NavBar</msg>
-  <msg id="974377790133964101"><source>src/app/codelabs/angular/material/material.component.html:50</source>Adding a Navigation Bar takes 2 simple steps:</msg>
-  <msg id="5179157556117527268"><source>src/app/codelabs/angular/material/material.component.html:52</source>Add <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>MatToolbarModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to the imports</msg>
-  <msg id="5392852815080322940"><source>src/app/codelabs/angular/material/material.component.html:53</source>Use the component in the template</msg>
-  <msg id="4611890716836134126"><source>src/app/codelabs/angular/material/material.component.html:60,64</source>
+  <msg id="1286445925609008603"><source>src/app/codelabs/angular/material/material.component.html:72</source>Material / NavBar</msg>
+  <msg id="974377790133964101"><source>src/app/codelabs/angular/material/material.component.html:73</source>Adding a Navigation Bar takes 2 simple steps:</msg>
+  <msg id="5179157556117527268"><source>src/app/codelabs/angular/material/material.component.html:75</source>Add <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>MatToolbarModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to the imports</msg>
+  <msg id="5392852815080322940"><source>src/app/codelabs/angular/material/material.component.html:76</source>Use the component in the template</msg>
+  <msg id="4611890716836134126"><source>src/app/codelabs/angular/material/material.component.html:83,87</source>
       Note that Angular animations come in a separate module. We&apos;re including
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NoopAnimationsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> here, but could have used
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>BrowserAnimationsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> instead, to have full-fledged animations.
     </msg>
-  <msg id="6482753736155454822"><source>src/app/codelabs/angular/material/material.component.html:68</source>Material / Card</msg>
-  <msg id="9159121920453591417"><source>src/app/codelabs/angular/material/material.component.html:69</source>Now let&apos;s add material card.</msg>
-  <msg id="8521331566231809319"><source>src/app/codelabs/angular/material/material.component.html:77</source>Material / Card Header</msg>
-  <msg id="7240476994819291465"><source>src/app/codelabs/angular/material/material.component.html:78</source>Header and an image.</msg>
-  <msg id="8487881877251298357"><source>src/app/codelabs/angular/material/material.component.html:86</source>Material / Buttons</msg>
-  <msg id="9206609904661056407"><source>src/app/codelabs/angular/material/material.component.html:87</source>Adding some actions....</msg>
-  <msg id="5230163445973304109"><source>src/app/codelabs/angular/material/material.component.html:92,95</source>
+  <msg id="6482753736155454822"><source>src/app/codelabs/angular/material/material.component.html:91</source>Material / Card</msg>
+  <msg id="9159121920453591417"><source>src/app/codelabs/angular/material/material.component.html:92</source>Now let&apos;s add material card.</msg>
+  <msg id="8521331566231809319"><source>src/app/codelabs/angular/material/material.component.html:100</source>Material / Card Header</msg>
+  <msg id="7240476994819291465"><source>src/app/codelabs/angular/material/material.component.html:101</source>Header and an image.</msg>
+  <msg id="8487881877251298357"><source>src/app/codelabs/angular/material/material.component.html:109</source>Material / Buttons</msg>
+  <msg id="9206609904661056407"><source>src/app/codelabs/angular/material/material.component.html:110</source>Adding some actions....</msg>
+  <msg id="5230163445973304109"><source>src/app/codelabs/angular/material/material.component.html:115,118</source>
       Note that for the button we&apos;re using <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>mat-button<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> attribute instead
       of a separate tag.
     </msg>
-  <msg id="1111775927131371286"><source>src/app/codelabs/angular/material/material.component.html:99</source>Material / Themes</msg>
-  <msg id="4466032727173398230"><source>src/app/codelabs/angular/material/material.component.html:100,103</source>
+  <msg id="1111775927131371286"><source>src/app/codelabs/angular/material/material.component.html:122</source>Material / Themes</msg>
+  <msg id="4466032727173398230"><source>src/app/codelabs/angular/material/material.component.html:123,126</source>
       All material components allow to apply themes. Try different themes by
       clicking the buttons below:
     </msg>
-  <msg id="5274217387047721869"><source>src/app/codelabs/angular/material/material.component.html:111,113</source>
+  <msg id="5274217387047721869"><source>src/app/codelabs/angular/material/material.component.html:134,136</source>
         Indigo
       </msg>
-  <msg id="7493644276322780505"><source>src/app/codelabs/angular/material/material.component.html:120,122</source>
+  <msg id="7493644276322780505"><source>src/app/codelabs/angular/material/material.component.html:143,145</source>
         Deep purple
       </msg>
-  <msg id="1453230058388265146"><source>src/app/codelabs/angular/material/material.component.html:129,131</source>
+  <msg id="1453230058388265146"><source>src/app/codelabs/angular/material/material.component.html:152,154</source>
         Pink
       </msg>
-  <msg id="6699275925990014857"><source>src/app/codelabs/angular/material/material.component.html:138,140</source>
+  <msg id="6699275925990014857"><source>src/app/codelabs/angular/material/material.component.html:161,163</source>
         Purple
       </msg>
-  <msg id="4823680948317313952"><source>src/app/codelabs/angular/material/material.component.html:147,150</source>
+  <msg id="4823680948317313952"><source>src/app/codelabs/angular/material/material.component.html:170,173</source>
       Read more on theming Anglar Material
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>in this guide<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
     </msg>
-  <msg id="147289449221499591"><source>src/app/codelabs/angular/material/material.component.html:154</source>Material / Exercise</msg>
-  <msg id="8974626884127165311"><source>src/app/codelabs/angular/material/material.component.html:155,158</source>
+  <msg id="147289449221499591"><source>src/app/codelabs/angular/material/material.component.html:177</source>Material / Exercise</msg>
+  <msg id="8974626884127165311"><source>src/app/codelabs/angular/material/material.component.html:178,181</source>
       In the next slide there is an exercise. We&apos;re going to materialize our
       application
     </msg>
-  <msg id="943558698651917560"><source>src/app/codelabs/angular/material/material.component.html:164,166</source>
+  <msg id="943558698651917560"><source>src/app/codelabs/angular/material/material.component.html:187,189</source>
       Note: the final app won&apos;t be super beautiful, we&apos;re still working on that.
     </msg>
-  <msg id="3893830132734928426"><source>src/app/codelabs/angular/material/material.component.html:182</source>End of The Material Milestone</msg>
-  <msg id="548749131188154528"><source>src/app/codelabs/angular/material/material.component.html:197,199</source>
+  <msg id="3893830132734928426"><source>src/app/codelabs/angular/material/material.component.html:205</source>End of The Material Milestone</msg>
+  <msg id="548749131188154528"><source>src/app/codelabs/angular/material/material.component.html:220,222</source>
           Next <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>⏭️ Go to the Forms Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
-  <msg id="3035675235126347102"><source>src/app/codelabs/angular/router/router.component.html:22</source>Routing</msg>
-  <msg id="5735074005289672847"><source>src/app/codelabs/angular/router/router.component.html:23</source>Learn how to add routing to your app</msg>
-  <msg id="3831198700050621279"><source>src/app/codelabs/angular/router/router.component.html:29</source><source>src/app/codelabs/angular/router/router.component.html:49</source>Router - intro</msg>
-  <msg id="7769810255332901578"><source>src/app/codelabs/angular/router/router.component.html:30</source>Router is used to give <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>URLs<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to different parts of your app.</msg>
-  <msg id="1931968164617039768"><source>src/app/codelabs/angular/router/router.component.html:37</source>Kittens</msg>
-  <msg id="6707280048767596762"><source>src/app/codelabs/angular/router/router.component.html:44</source>Puppies</msg>
-  <msg id="3361138951435877566"><source>src/app/codelabs/angular/router/router.component.html:50</source>It takes 3 simple steps to set up routing in Angular:</msg>
-  <msg id="6382596231037789146"><source>src/app/codelabs/angular/router/router.component.html:52,55</source>
+  <msg id="UseRouterModule"><source>src/app/codelabs/angular/router/router.component.html:9</source>app.module.ts: Using RouterModule.forRoot provide an empty array to the module</msg>
+  <msg id="AddEmptyRoute"><source>src/app/codelabs/angular/router/router.component.html:10</source>app.module.ts: Add a route with an empty (\&apos;\&apos;) path to display SearchComponent</msg>
+  <msg id="AddUploadRoute"><source>src/app/codelabs/angular/router/router.component.html:11</source>app.module.ts: Add a route with path of &quot;upload&quot; to display UploadComponent</msg>
+  <msg id="AddRouterOutlet"><source>src/app/codelabs/angular/router/router.component.html:12</source>app.html: Add router-outlet</msg>
+  <msg id="AddSearchMenu"><source>src/app/codelabs/angular/router/router.component.html:13</source>app.html: Add a menu item with a text Search pointing to &quot;/&quot;</msg>
+  <msg id="AddUploadMenu"><source>src/app/codelabs/angular/router/router.component.html:14</source>app.html: Add a menu item with a text Upload pointing to &quot;/upload&quot;</msg>
+  <msg id="3035675235126347102"><source>src/app/codelabs/angular/router/router.component.html:29</source>Routing</msg>
+  <msg id="5735074005289672847"><source>src/app/codelabs/angular/router/router.component.html:30</source>Learn how to add routing to your app</msg>
+  <msg id="3831198700050621279"><source>src/app/codelabs/angular/router/router.component.html:36</source><source>src/app/codelabs/angular/router/router.component.html:56</source>Router - intro</msg>
+  <msg id="7769810255332901578"><source>src/app/codelabs/angular/router/router.component.html:37</source>Router is used to give <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>URLs<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> to different parts of your app.</msg>
+  <msg id="1931968164617039768"><source>src/app/codelabs/angular/router/router.component.html:44</source>Kittens</msg>
+  <msg id="6707280048767596762"><source>src/app/codelabs/angular/router/router.component.html:51</source>Puppies</msg>
+  <msg id="3361138951435877566"><source>src/app/codelabs/angular/router/router.component.html:57</source>It takes 3 simple steps to set up routing in Angular:</msg>
+  <msg id="6382596231037789146"><source>src/app/codelabs/angular/router/router.component.html:59,62</source>
         Configure the mapping and specify which component to display for which
         URL
       </msg>
-  <msg id="5711045063225432498"><source>src/app/codelabs/angular/router/router.component.html:56</source>Create the menu</msg>
-  <msg id="5553583971169159914"><source>src/app/codelabs/angular/router/router.component.html:57</source>Find a place to display selected component</msg>
-  <msg id="733845560418565640"><source>src/app/codelabs/angular/router/router.component.html:62</source><source>src/app/codelabs/angular/router/router.component.html:74</source>Router - configuration</msg>
-  <msg id="3551990840956328687"><source>src/app/codelabs/angular/router/router.component.html:63,66</source> 
+  <msg id="5711045063225432498"><source>src/app/codelabs/angular/router/router.component.html:63</source>Create the menu</msg>
+  <msg id="5553583971169159914"><source>src/app/codelabs/angular/router/router.component.html:64</source>Find a place to display selected component</msg>
+  <msg id="733845560418565640"><source>src/app/codelabs/angular/router/router.component.html:69</source><source>src/app/codelabs/angular/router/router.component.html:81</source>Router - configuration</msg>
+  <msg id="3551990840956328687"><source>src/app/codelabs/angular/router/router.component.html:70,73</source> 
       Routes are configured by defining an array of mapping between URL path and
       a component
     </msg>
-  <msg id="1258665563482381976"><source>src/app/codelabs/angular/router/router.component.html:75</source>Then we have to pass the config to our module.</msg>
-  <msg id="7206914066261457043"><source>src/app/codelabs/angular/router/router.component.html:80,83</source>
+  <msg id="1258665563482381976"><source>src/app/codelabs/angular/router/router.component.html:82</source>Then we have to pass the config to our module.</msg>
+  <msg id="7206914066261457043"><source>src/app/codelabs/angular/router/router.component.html:87,90</source>
       Note that we&apos;re using <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>RouterModule.forRoot<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> which creates an Angular
       Module out of our configuration.
     </msg>
-  <msg id="836385187316285915"><source>src/app/codelabs/angular/router/router.component.html:87</source>Router - Outlet</msg>
-  <msg id="2601425993761834840"><source>src/app/codelabs/angular/router/router.component.html:88,91</source>
+  <msg id="836385187316285915"><source>src/app/codelabs/angular/router/router.component.html:94</source>Router - Outlet</msg>
+  <msg id="2601425993761834840"><source>src/app/codelabs/angular/router/router.component.html:95,98</source>
       Now we have to find a place where the router would display selected
       component.
     </msg>
-  <msg id="2385039709831220213"><source>src/app/codelabs/angular/router/router.component.html:92</source>It can be marked by placing <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>router-outlet tag<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
-  <msg id="5881063251338145280"><source>src/app/codelabs/angular/router/router.component.html:102</source>Router - Menu</msg>
-  <msg id="1472582053378549544"><source>src/app/codelabs/angular/router/router.component.html:103</source>The last part is creating the menu.</msg>
-  <msg id="2583626845709708422"><source>src/app/codelabs/angular/router/router.component.html:104</source>Use <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>routerLink<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> directive to provide the URL</msg>
-  <msg id="6975195956783193984"><source>src/app/codelabs/angular/router/router.component.html:113</source>Router / Exercise</msg>
-  <msg id="7666470893157840853"><source>src/app/codelabs/angular/router/router.component.html:114,117</source>
+  <msg id="2385039709831220213"><source>src/app/codelabs/angular/router/router.component.html:99</source>It can be marked by placing <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>router-outlet tag<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
+  <msg id="5881063251338145280"><source>src/app/codelabs/angular/router/router.component.html:109</source>Router - Menu</msg>
+  <msg id="1472582053378549544"><source>src/app/codelabs/angular/router/router.component.html:110</source>The last part is creating the menu.</msg>
+  <msg id="2583626845709708422"><source>src/app/codelabs/angular/router/router.component.html:111</source>Use <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>routerLink<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> directive to provide the URL</msg>
+  <msg id="6975195956783193984"><source>src/app/codelabs/angular/router/router.component.html:120</source>Router / Exercise</msg>
+  <msg id="7666470893157840853"><source>src/app/codelabs/angular/router/router.component.html:121,124</source>
       In the next slide there is an exercise. We&apos;re going to add 2 routes:
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Search<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> and <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Upload<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, and a menu for switching between them.
     </msg>
-  <msg id="6990537880445556268"><source>src/app/codelabs/angular/router/router.component.html:123,126</source>
+  <msg id="6990537880445556268"><source>src/app/codelabs/angular/router/router.component.html:130,133</source>
       Note: We have already created empty Upload component and SearchComponent
       containing search logic.
     </msg>
-  <msg id="5879655922336578318"><source>src/app/codelabs/angular/router/router.component.html:142</source>End of The Routing Milestone</msg>
-  <msg id="33440573074633014"><source>src/app/codelabs/angular/router/router.component.html:146,150</source>
+  <msg id="5879655922336578318"><source>src/app/codelabs/angular/router/router.component.html:149</source>End of The Routing Milestone</msg>
+  <msg id="33440573074633014"><source>src/app/codelabs/angular/router/router.component.html:153,157</source>
           Check out
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular Router Guide<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> for
           more fun and advanced techniques.
         </msg>
-  <msg id="4470367031861826651"><source>src/app/codelabs/angular/router/router.component.html:153,156</source>
+  <msg id="4470367031861826651"><source>src/app/codelabs/angular/router/router.component.html:160,163</source>
           Next
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>⏭️ Go to the Material Milestone<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
