@@ -121,7 +121,7 @@ const routes = [
         name: 'Structural Directives',
         description: 'Learn about structural directives in angular',
         page: 'bonus',
-        prod: false
+        prod: true
       }
     ]
   }
