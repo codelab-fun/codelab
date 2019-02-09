@@ -126,11 +126,7 @@
 
   <!--  COMPONENT -->
   <div *slide id="component" milestone="Templates">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n="@@intro">Intro</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
     <h2 i18n>
       Angular has a very expressive template system, which takes HTML as a base,
       and extends it with custom elements
@@ -143,11 +139,7 @@
 
   <!--  INTERPOLATION-->
   <div *slide id="interpolation" milestone="Templates">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Interpolation</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Interpolation</codelab-breadcrumb>
     <h2 i18n>
       Double curlies include the appropriate component property value
     </h2>
@@ -163,11 +155,7 @@
 
   <!--INTERPOLATION-METHOD-->
   <div *slide id="interpolation-method" milestone="Templates">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Interpolation</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Interpolation</codelab-breadcrumb>
     <h2 i18n>
       Simple expressions are also allowed, you can run a component method (like
       fullName() below), or calculate <code>323213+34234</code>
@@ -179,11 +167,7 @@
   </div>
 
   <div *slide id="exercise-pre" milestone="Templates">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n="@@exercise">Exercise</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
     <h2 i18n>
       In the next slide you'll edit a component template to create a simple
       header and search form. The result will look like this:
@@ -206,13 +190,7 @@
 
   <!--  PRE DATA BINDING-->
   <div *slide id="data-binding-pre" milestone="Templates2">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Interpolation</ng-container>
-      /
-      <ng-container i18n>Properties</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Properties</codelab-breadcrumb>
     <h2 i18n>
       String interpolation <b>{{ curlies }}</b> can also be used to pass a value
       to a child element's attribute
@@ -225,11 +203,7 @@
 
   <!--  DATA BINDING  -->
   <div *slide id="data-binding" milestone="Templates2">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Property Binding</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Property Binding</codelab-breadcrumb>
     <h2 i18n>
       Better option is to use property binding <b>[attribute] = property</b>
     </h2>
@@ -244,11 +218,7 @@
 
   <!--  DATA BINDING EXTRAS-->
   <div *slide id="data-binding-extras" milestone="Templates2">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Data binding extras</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Data binding extras</codelab-breadcrumb>
     <h2 i18n>
       Angular supports more advanced property bindings than just attribute name
     </h2>
@@ -262,11 +232,7 @@
 
   <!--  BINDING EVENT -->
   <div *slide id="event-binding" milestone="Templates2">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Event binding: (event)</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Event binding: (event)</codelab-breadcrumb>
     <h2 i18n>
       The bindings directives you've met so far flow data in one direction: from
       a component to an element
@@ -287,11 +253,7 @@
 
   <!--  REFERENCE BINDING -->
   <div *slide id="reference-binding" milestone="Templates2">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Reference binding ( #var )</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Reference binding ( #var )</codelab-breadcrumb>
     <h2 i18n>
       Sometimes we need to access an HTML element or Angular component from the
       template. We can mark it with <b>#userName</b>, and it becomes available
@@ -322,11 +284,7 @@
   </div>
 
   <div *slide id="exercise-2-pre" milestone="Templates2">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Exercise 2</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Exercise 2</codelab-breadcrumb>
     <h2 i18n>
       In the next slide you'll add a click handler to the search button, and
       display a message for the case where no videos were found. The result will
@@ -349,11 +307,7 @@
   </div>
 
   <div *slide id="repeating" milestone="Templates3">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Repeating elements</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Repeating elements</codelab-breadcrumb>
     <h2 i18n>
       Let's say you have an array of puppies, and want to display all of them on
       the page. Angular has a special syntax for that called <b>*ngFor</b>,
@@ -366,11 +320,7 @@
   </div>
 
   <div *slide id="conditional-display-ngfor" milestone="Templates3">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Repeating elements (*ngFor)</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Repeating elements (*ngFor)</codelab-breadcrumb>
     <h2 i18n>
       Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case)
       for every single puppy in the puppies array
@@ -387,11 +337,7 @@
   </div>
 
   <div *slide id="exercise-3-pre" milestone="Templates3">
-    <h1>
-      <ng-container i18n>Templates</ng-container>
-      /
-      <ng-container i18n>Exercise 3</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Exercise 3</codelab-breadcrumb>
     <div flex style="height: 100%;">
       <div column-5>
         <h2 i18n>
@@ -418,16 +364,12 @@
   <div *slide id="end">
     <codelab-closing-slide>
       <div class="header" header>
-        <h1>
-          <ng-container i18n>Templates</ng-container>
-          /
-          <ng-container i18n>Milestone Completed</ng-container>
-        </h1>
+        <codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb>
       </div>
       <div class="body" body></div>
       <div class="footer" footer>
         <h2>
-          <ng-container i18n>next:</ng-container>
+          <ng-container i18n>Next:</ng-container>
           <a routerLink="../../dependency-injection/0" i18n>
             Learn how to use Angular Dependency Injection
           </a>
