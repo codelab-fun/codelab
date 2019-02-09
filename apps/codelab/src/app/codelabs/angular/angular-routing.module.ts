@@ -127,9 +127,11 @@ const routes = [
   }
 ];
 
-export const menuRoutes = environment.production ?
-  routes[0].children.filter(x => x.prod && x.page === 'main') :
-  routes[0].children;
+const isProd = environment.production;
+export const menuRoutes = routes[0].children
+  .filter(x => x.page === 'main')
+  // Hide non-prod routes in prod
+  .filter(x => (!isProd) || x.prod);
 
 
 @NgModule({
