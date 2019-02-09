@@ -2,7 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { LoginPanelComponent } from '../login-panel/login-panel.component';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { LoginService } from '@codelab/firebase-login/src/lib/login.service';
 
 @Component({
   selector: 'codelab-login-button',
@@ -14,7 +14,7 @@ export class LoginButtonComponent {
   constructor(
     private overlay: Overlay,
     private el: ElementRef,
-    private auth: AngularFireAuth) {
+    readonly  loginService: LoginService) {
   }
 
   open() {

@@ -1,5 +1,5 @@
 <button class="menu-bar-btn"  (click)="open()">
-  <ng-container *ngIf="auth.user | async else showLogin">
+  <ng-container *ngIf="loginService.user$ | async else showLogin">
     👩‍💻
   </ng-container>
 </button>
