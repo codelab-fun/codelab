@@ -168,7 +168,7 @@ console.log(oscar.bark());`,
             'app.ts': /import/
           },
           constants: /const /,
-          constructorMatch: /constructor/,
+          constructorMatch: /(public name: string)/,
           publicMatch: /public name/,
           thisMatch: /this.name/,
           edouardMatch: /Édouard/,
