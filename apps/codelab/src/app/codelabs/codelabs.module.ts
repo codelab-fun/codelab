@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeedbackModule } from '@codelab/feedback';
 import { SlidesModule } from '@codelab/slides';
 import { FirebaseLoginModule } from '@codelab/firebase-login/src';
+import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 
 @NgModule({
   declarations: [IndexComponent, AppComponent],
@@ -17,6 +18,13 @@ import { FirebaseLoginModule } from '@codelab/firebase-login/src';
     SlidesModule,
     CodelabsRoutingModule,
     FirebaseLoginModule,
+  ],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue: monacoReady,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

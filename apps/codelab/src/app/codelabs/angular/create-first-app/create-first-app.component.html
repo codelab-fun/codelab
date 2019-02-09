@@ -458,7 +458,7 @@
       <ng-container i18n>Bootstrapping 1</ng-container>
     </h1>
     <h2 i18n>How does bootstrapping work in Angular?</h2>
-    <br />
+    <br/>
     <h2 i18n>
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
@@ -473,7 +473,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -504,7 +504,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -537,7 +537,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -642,10 +642,13 @@
         <h2 i18n>Well done! This is the end of the milestone!</h2>
       </div>
       <div class="footer" footer>
-        <h2 i18n>
-          Next <a routerLink="/templates/0">Go to the templates Milestone</a>
+        <h2>
+          <ng-container i18n>next:</ng-container>
+          <a routerLink="../../templates/0" i18n>
+            Go to the templates Milestone
+          </a>
         </h2>
-        <feedback-rating lesson="FirstAngularApp"> </feedback-rating>
+        <feedback-rating lesson="FirstAngularApp"></feedback-rating>
       </div>
     </codelab-closing-slide>
   </div>
