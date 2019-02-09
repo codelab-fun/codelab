@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import { LoginService } from '@codelab/firebase-login/src/lib/login.service';
 
 @Component({
   selector: 'codelab-login-panel',
@@ -9,7 +10,8 @@ import { auth } from 'firebase/app';
 })
 export class LoginPanelComponent implements OnInit {
 
-  constructor(private auth: AngularFireAuth) {
+  constructor(private auth: AngularFireAuth,
+              readonly  loginService: LoginService) {
   }
 
   ngOnInit() {
