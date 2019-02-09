@@ -9,14 +9,16 @@ import { auth } from 'firebase/app';
 })
 export class LoginPanelComponent implements OnInit {
 
-  constructor(private auth: AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth) {
+  }
 
   ngOnInit() {
   }
-  
+
   login() {
     this.auth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
+
   logout() {
     this.auth.auth.signOut();
   }

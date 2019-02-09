@@ -1,31 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { LoginPanelComponent } from '../login-panel/login-panel.component';
-import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'angular-presentation-login-button',
   templateUrl: './login-button.component.html',
   styleUrls: ['./login-button.component.css']
 })
-export class LoginButtonComponent implements OnInit {
+export class LoginButtonComponent {
 
-  constructor(private overlay: Overlay, private el: ElementRef) { }
-
-  ngOnInit() {
-
+  constructor(private overlay: Overlay, private el: ElementRef) {
   }
 
   open() {
     const positionStrategy = this.overlay.position()
-      .connectedTo(this.el, {
-        originY: 'top',
-        originX: 'center'
-      }, {
-          overlayY: 'bottom',
-          overlayX: 'center'
-        });
+      .flexibleConnectedTo(this.el);
     const overlayConfig = new OverlayConfig({
       hasBackdrop: true,
       positionStrategy
