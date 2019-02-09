@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 
 @Component({
-  selector: 'angular-presentation-login-panel',
+  selector: 'codelab-login-panel',
   templateUrl: './login-panel.component.html',
   styleUrls: ['./login-panel.component.css']
 })

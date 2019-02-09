@@ -10,6 +10,7 @@ import { FeedbackModule } from '@codelab/feedback';
 import { NxModule } from '@nrwl/nx';
 
 import { FullLayoutComponent } from '../containers';
+import { FirebaseLoginModule } from '@codelab/firebase-login/src';
 
 @NgModule({
   declarations: [FullLayoutComponent],
@@ -21,6 +22,7 @@ import { FullLayoutComponent } from '../containers';
     CodelabComponentsModule,
     SlidesModule,
     FeedbackModule,
+    FirebaseLoginModule,
     NxModule.forRoot()
   ],
   exports: [
@@ -33,4 +35,5 @@ import { FullLayoutComponent } from '../containers';
     SlidesModule
   ]
 })
-export class SharedModule {}
+export class SharedModule {
+}

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../shared/shared.module';
 
 import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+import { FirebaseLoginModule } from '@codelab/firebase-login/src';
 
 @NgModule({
   declarations: [IndexComponent, AppComponent],
@@ -18,7 +19,8 @@ import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.se
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
-    CodelabsRoutingModule
+    CodelabsRoutingModule,
+    FirebaseLoginModule,
   ],
   providers: [
     {

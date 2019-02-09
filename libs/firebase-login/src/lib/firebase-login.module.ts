@@ -12,4 +12,5 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   ],
   exports: [LoginButtonComponent]
 })
-export class FirebaseLoginModule {}
+export class FirebaseLoginModule {
+}
