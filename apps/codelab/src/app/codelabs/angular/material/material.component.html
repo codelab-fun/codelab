@@ -216,8 +216,11 @@
         </h2>
       </div>
       <div class="footer" footer>
-        <h2 i18n>
-          Next <a routerLink="/forms/0">⏭️ Go to the Forms Milestone</a>
+        <h2>
+          <ng-container i18n>next:</ng-container>
+          <a routerLink="../../forms/0" i18n>
+            Learn how to create simple forms with Angular
+          </a>
         </h2>
         <feedback-rating lesson="Material"></feedback-rating>
       </div>

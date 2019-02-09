@@ -157,9 +157,11 @@
         </h2>
       </div>
       <div class="footer" footer>
-        <h2 i18n>
-          Next
-          <a routerLink="/material/intro">⏭️ Go to the Material Milestone</a>
+        <h2>
+          <ng-container i18n>next:</ng-container>
+          <a routerLink="../../material/0" i18n>
+            Learn how to create beautiful UIs with Angular Material
+          </a>
         </h2>
         <feedback-rating lesson="Router"> </feedback-rating>
       </div>
