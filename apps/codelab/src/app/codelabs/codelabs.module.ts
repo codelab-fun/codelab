@@ -19,13 +19,6 @@ import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.se
     CodelabsRoutingModule,
     FirebaseLoginModule,
   ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useValue: monacoReady,
-      multi: true
-    }
-  ],
   bootstrap: [AppComponent]
 })
 export class CodelabsModule {
