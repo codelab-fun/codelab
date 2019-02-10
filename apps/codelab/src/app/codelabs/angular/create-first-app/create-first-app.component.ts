@@ -86,7 +86,8 @@ export class AppComponent {
 
     this.code = {
       decorators: {
-        code: `// ${this.t.componentIsDecorator}
+        code: `import {Component} from '@angular/core';
+// ${this.t.componentIsDecorator}
 @Component({
   // metadata
 }) // ${this.t.noSemicolon}
@@ -118,7 +119,7 @@ export class HelloWorldComponent {}`,
         // Module Anatomy - Milestone #1
         code: `import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { HelloWorldComponent } from './hello-world.component';
 
 @NgModule({
   imports: [ BrowserModule ],
