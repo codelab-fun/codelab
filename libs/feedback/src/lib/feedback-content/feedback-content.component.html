@@ -1,0 +1,41 @@
+<div class="form-container">
+  <div class="feedback-items">
+    <div class="feedback-item" *ngFor="let item of (messages$ | async)">
+      <div class="header">
+        <span class="name">{{ item.name }}</span>
+        <span class="date">{{ item.timestamp | date }}</span>
+      </div>
+      <div class="comment">{{ item.comment }}</div>
+    </div>
+  </div>
+  <form [formGroup]="formGroup" novalidate (submit)="submit()">
+    <div>
+      <input formControlName="name"
+             placeholder="Enter your name"
+             type="text"
+             i18n/>
+    </div>
+    <div class="email">
+      <input formControlName="email"
+             type="email"
+             placeholder="Enter your email (optional)"/>
+      <label i18n>Email is optional and, will not displayed</label>
+    </div>
+    <div>
+        <textarea i18n-placeholder
+                  placeholder="Describe your issue or share your ideas"
+                  formControlName="comment"
+                  (keydown.control.enter)="submit()">
+        </textarea>
+    </div>
+    <div>
+      <button (click)="submit()"
+              [disabled]="formGroup.invalid"
+              [style.opacity]="formGroup.invalid ? 0.5 : 1"
+              type="button"
+              i18n> Send
+      </button>
+    </div>
+    <div [class.error]="error">{{ statusMessage }}</div>
+  </form>
+</div>

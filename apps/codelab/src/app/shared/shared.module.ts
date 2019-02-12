@@ -7,6 +7,9 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabComponentsModule } from '../components/codelab-components.module';
 import { SlidesModule } from '@codelab/slides';
 import { FeedbackModule } from '@codelab/feedback';
+import { MenuShortcutModule } from '../components/menu-shortcut/menu-shortcut.module';
+import { MenuGithubModule } from '../components/menu-github/menu-github.module';
+
 import { NxModule } from '@nrwl/nx';
 
 import { FullLayoutComponent } from '../containers';
@@ -22,6 +25,8 @@ import { FirebaseLoginModule } from '@codelab/firebase-login/src';
     CodelabComponentsModule,
     SlidesModule,
     FeedbackModule,
+    MenuShortcutModule,
+    MenuGithubModule,
     FirebaseLoginModule,
     NxModule.forRoot()
   ],

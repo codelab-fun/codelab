@@ -1,20 +1,22 @@
 import { Component, ElementRef } from '@angular/core';
+
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { LoginPanelComponent } from '../login-panel/login-panel.component';
-import { LoginService } from '@codelab/firebase-login/src/lib/login.service';
+
+import { MenuGithubContentComponent } from '../menu-github-content/menu-github-content.component';
+
 
 @Component({
-  selector: 'codelab-login-button',
-  templateUrl: './login-button.component.html',
-  styleUrls: ['./login-button.component.css']
+  selector: 'codelab-menu-github-widget',
+  templateUrl: './menu-github-widget.component.html',
+  styleUrls: ['./menu-github-widget.component.css']
 })
-export class LoginButtonComponent {
+export class MenuGithubWidgetComponent {
 
   constructor(
     private overlay: Overlay,
-    private el: ElementRef,
-    readonly  loginService: LoginService) {
+    private el: ElementRef
+  ) {
   }
 
   open() {
@@ -32,7 +34,7 @@ export class LoginButtonComponent {
       positionStrategy
     });
     const overlayRef = this.overlay.create(overlayConfig);
-    const portal = new ComponentPortal(LoginPanelComponent);
+    const portal = new ComponentPortal(MenuGithubContentComponent);
 
     overlayRef.attach(portal);
     overlayRef.backdropClick().subscribe(() => overlayRef.dispose());

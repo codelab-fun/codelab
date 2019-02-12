@@ -1,6 +1,6 @@
 <div *ngIf="loginService.user$ | async as user; else showLogin">
   <h1>Hello {{ user.displayName }}!</h1>
-  <h2>More features coming soon!s</h2>
+  <h2>More features coming soon!</h2>
   <button (click)="logout()">Logout</button>
 </div>
 <ng-template #showLogin>

@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'feedback-form',
-  templateUrl: './feedback-form.component.html',
-  styleUrls: ['./feedback-form.component.css']
+  selector: 'feedback-content',
+  templateUrl: './feedback-content.component.html',
+  styleUrls: ['./feedback-content.component.css']
 })
-export class FeedbackFormComponent implements OnInit {
+export class FeedbackContentComponent implements OnInit {
   messages$: Observable<Message[]>;
   formGroup: FormGroup;
   statusMessage = '';

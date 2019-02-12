@@ -1,0 +1,32 @@
+:host {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu-list .menu-item a {
+    display: inline-block;
+    width: 100%;
+    color: #000;
+    text-decoration: none;
+}
+
+.menu-list .menu-item a .menu-item-text {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.menu-list .menu-item a:hover {
+    color: #fff;
+    background-color: #982a2a;
+}
+
+.menu-icon:hover {
+    cursor: pointer;
+}

@@ -5,7 +5,7 @@ import { FeedbackService } from './feedback.service';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+import { FeedbackContentComponent } from './feedback-content/feedback-content.component';
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
 
@@ -27,13 +27,17 @@ export const angularFire = AngularFireModule.initializeApp(
   providers: [FeedbackService],
   declarations: [
     FeedbackWidgetComponent,
-    FeedbackFormComponent,
+    FeedbackContentComponent,
     FeedbackRatingComponent
   ],
   exports: [
     FeedbackWidgetComponent,
-    FeedbackFormComponent,
+    FeedbackContentComponent,
     FeedbackRatingComponent
+  ],
+  entryComponents: [
+    FeedbackContentComponent
   ]
 })
-export class FeedbackModule {}
+export class FeedbackModule {
+}

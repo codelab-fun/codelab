@@ -29,9 +29,9 @@
     This codelab is written in Angular and
     <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>available on Github<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>. Please ⭐ if you enjoyed it.
   </msg>
-  <msg id="3723990239834236534"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:27</source>Email is optional and, will not displayed</msg>
-  <msg id="4712788926759159307"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:32</source>Describe your issue or share your ideas</msg>
-  <msg id="6672095411961477302"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:45,47</source>
+  <msg id="3723990239834236534"><source>../../libs/feedback/src/lib/feedback-content/feedback-content.component.html:27</source>Email is optional and, will not displayed</msg>
+  <msg id="4712788926759159307"><source>../../libs/feedback/src/lib/feedback-content/feedback-content.component.html:32</source>Describe your issue or share your ideas</msg>
+  <msg id="6672095411961477302"><source>../../libs/feedback/src/lib/feedback-content/feedback-content.component.html:45,47</source>
           Send
         </msg>
   <msg id="perfect"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:2</source>Perfect</msg>

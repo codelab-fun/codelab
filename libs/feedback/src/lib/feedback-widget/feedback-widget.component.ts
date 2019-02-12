@@ -1,20 +1,12 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
 import { Observable } from 'rxjs';
+import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { FeedbackContentComponent } from '@codelab/feedback/src/lib/feedback-content/feedback-content.component';
 
-function findMatchingDOMAncestor(element) {
-  while (element.parentNode) {
-    if (
-      element.className &&
-      element.className.indexOf('feedback-container') >= 0
-    ) {
-      return true;
-    }
-    element = element.parentNode;
-  }
-}
 
 @Component({
   selector: 'feedback-widget',
@@ -22,29 +14,40 @@ function findMatchingDOMAncestor(element) {
   styleUrls: ['./feedback-widget.component.css']
 })
 export class FeedbackWidgetComponent implements OnInit {
+
   messages$: Observable<Message[]>;
-  open: boolean;
 
   constructor(
+    private overlay: Overlay,
+    private el: ElementRef,
     private feedbackService: FeedbackService,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.messages$ = this.feedbackService.getMessages(this.activatedRoute);
   }
 
-  @HostListener('window:mousedown', ['$event'])
-  handleDialogClose(event: MouseEvent) {
-    // TODO: Move out to a directive and optimize this
-    const belongsToPopup =
-      event.target && findMatchingDOMAncestor(event.target);
-    if (!belongsToPopup) {
-      this.open = false;
-    }
+  open() {
+    const positionStrategy = this.overlay.position()
+      .flexibleConnectedTo(this.el).withPositions([
+        {
+          originX: 'center',
+          overlayX: 'center',
+          originY: 'top',
+          overlayY: 'bottom',
+        },
+      ]);
+    const overlayConfig = new OverlayConfig({
+      hasBackdrop: true,
+      positionStrategy
+    });
+    const overlayRef = this.overlay.create(overlayConfig);
+    const portal = new ComponentPortal(FeedbackContentComponent);
+
+    overlayRef.attach(portal);
+    overlayRef.backdropClick().subscribe(() => overlayRef.dispose());
   }
 
-  buttonClicked() {
-    this.open = !this.open;
-  }
 }
