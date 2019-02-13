@@ -19,14 +19,15 @@ import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.se
     CodelabsRoutingModule,
     FirebaseLoginModule,
   ],
+  bootstrap: [AppComponent],
+  // TODO(kirjs): Move this out of the main page
   providers: [
     {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
       multi: true
     }
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
 export class CodelabsModule {
 }
