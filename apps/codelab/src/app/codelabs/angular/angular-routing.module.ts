@@ -99,7 +99,7 @@ const routes = [
       {
         path: 'angular-cli',
         loadChildren: './angular-cli/angular-cli.module#AngularCliModule',
-        name: 'angular-cli',
+        name: 'Angular-cli',
         description:
           '[🚧 Work In Progress] Learn how to quickly start working with angular',
         page: 'main',
