@@ -42,8 +42,8 @@
   </div>
 
   <div *slide id="binary-file-upload">
-    <input type="file" />
-    <hr />
+    <input type="file"/>
+    <hr/>
     <code-demo-editor
       [lineNumbers]="false"
       [fontSize]="40"
@@ -228,7 +228,9 @@ Columbus, Ohio
     ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="bin-dec"><kirjs-bindec param="uint8"></kirjs-bindec></div>
+  <div *slide id="bin-dec">
+    <kirjs-bindec param="uint8"></kirjs-bindec>
+  </div>
 
   <div *slide id="convert-bin-to-dec">
     <h2 i18n>Convert binary to decimal with JavaScript</h2>
@@ -264,7 +266,9 @@ Columbus, Ohio
     ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="bin-hex-explained"><kirjs-hexdec></kirjs-hexdec></div>
+  <div *slide id="bin-hex-explained">
+    <kirjs-hexdec></kirjs-hexdec>
+  </div>
   <div *slide id="bin-hex">
     <h2 i18n>Convert binary to hexadecimal with JavaScript</h2>
     <code-demo-realtime-eval
@@ -304,7 +308,9 @@ Columbus, Ohio
     ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="ascii"><kirjs-ascii></kirjs-ascii></div>
+  <div *slide id="ascii">
+    <kirjs-ascii></kirjs-ascii>
+  </div>
 
   <div *slide id="ascii-2">
     <kirjs-ascii param="ascii - Page 2"></kirjs-ascii>
@@ -315,6 +321,7 @@ Columbus, Ohio
   </div>
 
   <div *slide id="pelmen">
+    <h1 i18n>ПЕЛЬМЕНЬ!!!</h1>
     <h1 i18n>ПЕЉМЕЊ!!!</h1>
     <a
       href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%B1%D1%83%D0%BA%D0%B2_%D0%BA%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%B8%D1%86%D1%8B"
@@ -323,7 +330,9 @@ Columbus, Ohio
     </a>
   </div>
 
-  <div *slide id="KOI8-R"><kirjs-ascii param="KOI8-R"></kirjs-ascii></div>
+  <div *slide id="KOI8-R">
+    <kirjs-ascii param="KOI8-R"></kirjs-ascii>
+  </div>
   <div *slide id="boxes">
     <pre style="font-size: 2vw;font-family: monospace; line-height: 1.8vw;">
 ┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕
@@ -331,8 +340,8 @@ Columbus, Ohio
 ├─┼┤  ╠═╬╣  ╟─╫╢  ╞═╪╡
 └─┴┘  ╚═╩╝  ╙─╨╜  ╘═╧╛
 ┌───────────────────┐
-│  ╔═══╗ Мама мыла  │
-│  ╚═╦═╝ раму       │
+│  ╔═══╗            │
+│  ╚═╦═╝            │
 ╞═╤══╩══╤═══════════╡
 │ ├──┬──┤           │
 │ └──┴──┘           │
@@ -342,7 +351,9 @@ Columbus, Ohio
 
   <div *slide id="krakoziabry" bg krakoziabry></div>
 
-  <div *slide id="utf-8"><kirjs-ascii param="utf-8"></kirjs-ascii></div>
+  <div *slide id="utf-8">
+    <kirjs-ascii param="utf-8"></kirjs-ascii>
+  </div>
 
   <div *slide id="str-to-charcode">
     <h2 i18n>Get charcode from string</h2>
@@ -436,11 +447,35 @@ Columbus, Ohio
     </ul>
   </div>
 
+
+  <div *slide id="files">
+    <h2 i18n>File header constants</h2>
+    <ul>
+      <li i18n>Gif - GIF87a (or GIF89a)</li>
+      <li i18n>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9'</li>
+      <li i18n>Java class - CAFEBABE</li>
+      <li i18n>ZIP files begin with ‘PK‘ (50 4B)</li>
+      <li i18n>PDF files start with ‘%PDF‘ (25 50 44 46)</li>
+      <li i18n>
+        PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A
+        1A 0A)
+      </li>
+      <li i18n>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
+    </ul>
+  </div>
+
+  <div *slide id="kaitai" bg kaitai>
+    <h1 i18n>Big library of binary formats</h1>
+    <h2 i18n>https://formats.kaitai.io/</h2>
+  </div>
+
   <div *slide id="binary-json" bg vc json>
     <h1 i18n>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
   </div>
 
-  <div *slide id="json"><kirjs-json></kirjs-json></div>
+  <div *slide id="json">
+    <kirjs-json></kirjs-json>
+  </div>
 
   <div *slide id="json-1">
     <kirjs-json [code]="code.jsonOne"></kirjs-json>
@@ -545,12 +580,12 @@ Columbus, Ohio
     </div>
   </div>
 
-  <div *slide id="compare-examles">
+  <div *slide id="compare-examples">
     <h2 i18n>Existing solutions</h2>
     <ul>
       <li i18n>
         <a href="https://developers.google.com/protocol-buffers/"
-          >Protocol buffers</a
+        >Protocol buffers</a
         >
         (Google)
       </li>
@@ -563,26 +598,6 @@ Columbus, Ohio
     </ul>
   </div>
 
-  <div *slide id="files">
-    <h2 i18n>File header constants</h2>
-    <ul>
-      <li i18n>Gif - GIF87a (or GIF89a)</li>
-      <li i18n>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9'</li>
-      <li i18n>Java class - CAFEBABE</li>
-      <li i18n>ZIP files begin with ‘PK‘ (50 4B)</li>
-      <li i18n>PDF files start with ‘%PDF‘ (25 50 44 46)</li>
-      <li i18n>
-        PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A
-        1A 0A)
-      </li>
-      <li i18n>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
-    </ul>
-  </div>
-
-  <div *slide id="kaitai" bg kaitai>
-    <h1 i18n>Big library of binary formats</h1>
-    <h2 i18n>https://formats.kaitai.io/</h2>
-  </div>
 
   <div *slide id="binary-memory" bg vc>
     <h1 i18n>Thought experiment</h1>
@@ -687,6 +702,12 @@ console.log(a[1])"
     <kirjs-angular-flags></kirjs-angular-flags>
   </div>
 
+  <div *slide id="react-flags">
+    <h2 i18n>ReactDOM Flags (bitmask)</h2>
+    <code-demo-editor fontSize="40" [ngModel]="reactBitmask">
+    </code-demo-editor>
+  </div>
+
   <div *slide id="bitwise-to-read" bg>
     <kirjs-to-read
       title="Hacker's delight "
@@ -709,6 +730,6 @@ console.log(a[1])"
     <h1 i18n>@kirjs</h1>
     <h2 i18n>Binary ❤️ JavaScript</h2>
     <h2 i18n>kirjs.com/binary/0</h2>
-    <h3 i18n>Thanks @andrey_sitnik, @_bmsdave for review</h3>
+    <h3 i18n>Thanks @andrey_sitnik, @_bmsdave, @NisamProgramer for review</h3>
   </div>
 </slide-deck>
