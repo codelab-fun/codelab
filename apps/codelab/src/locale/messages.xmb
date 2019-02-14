@@ -575,7 +575,7 @@
       this milestone, you can read more:
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>here<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
     </msg>
-  <msg id="6737720939221508808"><source>src/app/codelabs/angular/forms/forms.component.html:128</source>Error Always Sisplayed</msg>
+  <msg id="4915312620327409019"><source>src/app/codelabs/angular/forms/forms.component.html:128</source>Error Always Displayed</msg>
   <msg id="6090593566257988703"><source>src/app/codelabs/angular/forms/forms.component.html:129,132</source>
       There&apos;s one small issue though, if we don&apos;t have initial values, the error
       is displayed right away.
@@ -1091,8 +1091,8 @@
       braces block), and errors out if the value is reassigned.
     </msg>
   <msg id="3591838911718818191"><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:245</source>Interfaces</msg>
-  <msg id="1802568424157681452"><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:246,248</source>
-      TypeScript allows to define more complex objects using interfaces:
+  <msg id="8151978260829356079"><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:246,248</source>
+      TypeScript allows to define more complex object structure using interfaces:
     </msg>
   <msg id="8930981603461909094"><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:258,260</source>
       Here, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>realPuppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> is an implementation of the <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Puppy<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> Interface.

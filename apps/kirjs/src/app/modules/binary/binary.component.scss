@@ -59,6 +59,16 @@ h1 {
       background-size: 80vw !important;
     }
 
+    .slide [pelmen] {
+      background: url(pics/pelmeni.jpg);
+      background-size: cover;
+
+      h1 {
+        font-size: 10vw;
+        text-shadow: 0 0 1vw #FFFFFF;
+      }
+    }
+
     .slide [kaitai] {
       background: url(pics/kaitai.png);
       background-size: 400px 400px !important;
