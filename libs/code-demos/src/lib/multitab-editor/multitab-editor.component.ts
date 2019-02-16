@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
+import { Subject, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
@@ -49,17 +51,29 @@ export class MultitabEditorComponent
   @Input() displayFileName = false;
   @Input() codeDemoHighlight = [];
   @Input() highlights = {};
+  @Input() debounce = 250;
   files = [];
   openModels: MonacoModel[];
+  changeSubject = new Subject();
+
   private onChange: any;
   private fileNames: string[] = [];
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
+  private subscription: Subscription;
 
   constructor(
     readonly monacoConfigService: MonacoConfigService,
     readonly cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    this.subscription = this.changeSubject
+      .pipe(debounceTime(this.debounce))
+      .subscribe(changes => {
+        if (this.onChange) {
+          this.onChange(changes);
+        }
+      });
+  }
 
   @Input('files') set setFiles(files: string | string[]) {
     if (typeof files === 'string') {
@@ -117,7 +131,7 @@ export class MultitabEditorComponent
 
         model.onDidChangeContent(() => {
           this.code[path] = model.getValue();
-          this.onChange({ ...this.code });
+          this.changeSubject.next({ ...this.code });
         });
 
         return {
@@ -145,6 +159,10 @@ export class MultitabEditorComponent
 
   ngOnDestroy() {
     this.dispose();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
 
   trackByEditorIndex(index, model) {

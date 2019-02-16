@@ -18,7 +18,7 @@ beforeEach(() => {
       template: toggle_panel_toggle_panel_html
     }
   });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Content projection', () => {

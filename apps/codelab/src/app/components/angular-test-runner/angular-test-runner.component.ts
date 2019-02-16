@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -77,7 +78,7 @@ export class SimpleAngularTestRunnerComponent
   tests: any;
   private subscription: Subscription;
 
-  constructor(private scriptLoaderService: ScriptLoaderService) {
+  constructor(private scriptLoaderService: ScriptLoaderService, private cd: ChangeDetectorRef) {
     this.handleMessageBound = message => {
       this.tests = handleTestMessage(message, this.tests);
 
@@ -86,6 +87,8 @@ export class SimpleAngularTestRunnerComponent
           this.solved.emit();
         }
       }
+
+      this.cd.markForCheck();
     };
     window.addEventListener('message', this.handleMessageBound, false);
   }
@@ -117,12 +120,11 @@ export class SimpleAngularTestRunnerComponent
     sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
     sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
     sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
-    sandbox.addDep('reflect-metadata', Reflect);
 
     this.subscription = this.changedFilesSubject.subscribe(files => {
-      Object.entries(files)
+      const hasErrors = Object.entries(files)
         .filter(([path]) => path.match(/\.js$/))
-        .forEach(([path, code]) => {
+        .some(([path, code]) => {
           sandbox.evalJs(
             `System.registry.delete(System.normalizeSync('./${path.replace(
               '.js',
@@ -130,10 +132,20 @@ export class SimpleAngularTestRunnerComponent
             )}'));`
           );
           addMetaInformation(sandbox, this.code);
-          sandbox.evalJs(code);
+          try {
+            sandbox.evalJs(code);
+          } catch (e) {
+            console.groupCollapsed(e.message);
+            console.log(e);
+            console.groupEnd();
+            return true;
+          }
+          return false;
         });
 
-      sandbox.evalJs(`System.import('${this.bootstrap}')`);
+      if (!hasErrors) {
+        sandbox.evalJs(`System.import('${ this.bootstrap }')`);
+      }
     });
   }
 

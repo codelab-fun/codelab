@@ -93,7 +93,6 @@ export class CodeDemoComponent implements ControlValueAccessor {
 
     const staticFiles = this.changedStaticFilesSubject.pipe(
       filter(value => Object.keys(value).length > 0),
-      tap(a => console.log(a)),
       startWith({})
     );
 

@@ -23,7 +23,7 @@ beforeEach(() => {
       template: thumbs_thumbs_html
     }
   });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Component Tree', () => {
