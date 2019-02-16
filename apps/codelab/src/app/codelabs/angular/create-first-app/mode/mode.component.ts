@@ -20,6 +20,7 @@ export class ModeComponent implements OnInit {
 })
 export class AppModule {}`,
       codeMobile: `/* Imports */
+
 @NgModule({
   imports: [ NativeScriptModule ],
   declarations: [ HelloWorldComponent ],
@@ -27,6 +28,7 @@ export class AppModule {}`,
 })
 export class AppModule {}`,
       codeVR: `/* Imports */
+
 @NgModule({
   imports: [ SomeMagicVRModule ],
   declarations: [ HelloWorldComponent ],
