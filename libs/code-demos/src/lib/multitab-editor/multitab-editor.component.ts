@@ -18,7 +18,8 @@ declare const monaco;
 const extenstionToLang = {
   ts: 'typescript',
   js: 'javascript',
-  html: 'html'
+  html: 'html',
+  css: 'css'
 };
 
 interface MonacoModel {

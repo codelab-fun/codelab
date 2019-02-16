@@ -14,6 +14,7 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 
 import { CodeDemoEditorAutoFoldingDirective } from './code-demo-editor/directives/code-demo-editor.auto-folding.directive';
 import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives/code-demo-editor.line-change.directive';
+import { CodeDemoEditorEmmetDirective } from './code-demo-editor/directives/code-demo-editor.emmet.directive';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
+    CodeDemoEditorEmmetDirective
   ],
   exports: [
     FilePathComponent,
@@ -45,7 +47,8 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
+    CodeDemoEditorEmmetDirective
   ]
 })
 export class CodeDemoModule {}
