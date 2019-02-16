@@ -53,8 +53,6 @@ export class CodeDemoEditorHighlightDirective
       const decorations = this.codeDemoHighlight
         .map(match => (match.match ? match : {match}))
         .reduce((ranges, {match, className}) => {
-
-          console.log(code, match, className);
           const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(
             code,
             match

@@ -61,7 +61,6 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   ) {}
 
   get displayUrl() {
-    console.log(this.url);
     if (this.url === '/assets/runner') {
       return 'http://localhost:4200';
     }

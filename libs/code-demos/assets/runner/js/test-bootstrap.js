@@ -1,5 +1,10 @@
 function mochaBefore() {
   mocha.suite.suites = [];
+  mocha.suite._afterAll = [];
+  mocha.suite._afterEach = [];
+  mocha.suite._beforeAll = [];
+  mocha.suite._beforeEach = [];
+  console.log(mocha.suite);
   mocha.setup('bdd').reporter(function() {});
 }
 
@@ -54,8 +59,8 @@ function mochaAfter(runId) {
     '*'
   );
 
-  mocha
-    .run()
+  const runner = mocha.run();
+  runner
     .on('pass', function(test, result) {
       parentFrame.postMessage(
         {
@@ -91,5 +96,8 @@ function mochaAfter(runId) {
         },
         '*'
       );
+      runner.removeAllListeners('pass');
+      runner.removeAllListeners('fail');
+      runner.removeAllListeners('end');
     });
 }
