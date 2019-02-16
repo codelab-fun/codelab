@@ -14,7 +14,7 @@ declare const require;
   templateUrl: './typescript.component.html',
   styleUrls: ['./typescript.component.css']
 })
-export class TypescriptComponent implements OnInit {
+export class TypeScriptComponent implements OnInit {
   t: { [key: string]: string };
   exercises = [ng2tsConfig.milestones[0].exercises[1]];
   exercise = convertExerciseToMap(ng2tsConfig.milestones[0].exercises[1]);
@@ -51,9 +51,7 @@ const realPuppy: Puppy = {
 const notRealPuppy: Puppy = {
   says: 'meow' // ${this.t.errorNotAPuppy}
 }`,
-        codeArrays: typeScriptWithConsoleLog(`// ${
-          this.t.defineArrayAsArray
-        }<Type>
+        codeArrays: typeScriptWithConsoleLog(`// Array<Type>
 const cats: Array<string> = ['Simba', 'Aslan'];
 // ${this.t.typeDoesSameThing}
 const cats2: string[] = ['Simba', 'Aslan'];

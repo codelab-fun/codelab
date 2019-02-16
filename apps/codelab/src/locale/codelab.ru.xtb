@@ -77,7 +77,7 @@
   <translation id="699691489139693623">Bootstrapping 1</translation>
   <translation id="4470411477201731376">Bootstrapping 2</translation>
   <translation id="3263507238146950325">Bootstrapping 3</translation>
-  <translation id="shorthandMakesProfessionAvailable">*Сокращения в Typescript  делают &apos;profession&apos; доступным в объекте компонента</translation>
+  <translation id="shorthandMakesProfessionAvailable">*Сокращения в TypeScript  делают &apos;profession&apos; доступным в объекте компонента</translation>
   <translation id="assumingJobHasPropTitle">предполагая, что Job имеет свойство &apos;.title&apos;</translation>
   <translation id="2250922476634643797">Параметры</translation>
   <translation id="8985868511640294928">Тестирование</translation>
@@ -193,7 +193,7 @@
   <translation id="modifyGetGuestsComingToFilter">Измените метод getGuestsComing так, чтобы он возвращал массив из  элементов &apos;guests&apos;, у которых свойство &apos;coming&apos; равно true.</translation>
   <translation id="createFirstNgApp">Создайте ваше первое Angular приложение</translation>
   <translation id="customEvents">Пользовательские события</translation>
-  <translation id="angularWrittenInTypescript">Angular написан на TypeScript, который, в свою очередь, является расширением JavaScript. Узнайте больше о TypeScript.</translation>
+  <translation id="angularWrittenInTypeScript">Angular написан на TypeScript, который, в свою очередь, является расширением JavaScript. Узнайте больше о TypeScript.</translation>
   <translation id="learnHowToBootstrapApp">Узнайте как создать и запустить ваше первое Angular приложение</translation>
   <translation id="learnUsingTemplates">Узнайте как пользоваться шаблонами в Angular</translation>
   <translation id="learnToProvideDependencies">Узнайте как использовать систему внедрения звисимостей вместо того, чтобы хардкодить их</translation>
@@ -209,7 +209,7 @@
   <translation id="5879655922336578318">Конец раздела Маршрутизация (Routing)</translation>
   <translation id="specifyTheTypeForB">Переменная &apos;b&apos; в коде ниже отмечена как ошибка, так как тип отсутствует. задайте тип переменной &apos;b&apos;</translation>
   <translation id="typescriptHighlightsErrorFix224">Благодаря этой информации TypeScript может выделить ошибку. Исправьте ошибку чтобы 2 + 2 снова стало равно 4!</translation>
-  <translation id="AngularIsWrittenInTypescript">Angular написан на TypeScript. Узнайте больше про основы языка.</translation>
+  <translation id="AngularIsWrittenInTypeScript">Angular написан на TypeScript. Узнайте больше про основы языка.</translation>
   <translation id="7555895897701490119">Другие типы, которые можно использовать</translation>
   <translation id="7759544910570343367">TypeScript</translation>
   <translation id="3142775397600131493">Пропустите, если вы уже знакомы с TypeScript</translation>

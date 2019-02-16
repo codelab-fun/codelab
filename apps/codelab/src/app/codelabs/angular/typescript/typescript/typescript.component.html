@@ -24,9 +24,6 @@
   <div i18n="@@cantSliceNum" id="cantSliceNum">Can't slice a number</div>
   <div i18n="@@canSliceString" id="canSliceString">But can slice a string!</div>
   <div i18n="@@works" id="works">Works!</div>
-  <div i18n="@@defineArrayAsArray" id="defineArrayAsArray">
-    define array as Array
-  </div>
   <div i18n="@@typeDoesSameThing" id="typeDoesSameThing">
     Type[] does the same thing.
   </div>
@@ -118,7 +115,7 @@
       title="TypeScript"
       i18n-title="@@typescript"
       description="Angular is written in TypeScript. Learn more about the language basics."
-      i18n-description="@@AngularIsWrittenInTypescript"
+      i18n-description="@@AngularIsWrittenInTypeScript"
       prereqs="Basic understanding of JavaScript is required."
       i18n-prereqs=""
     ></codelab-title-slide>
@@ -131,11 +128,11 @@
     </h2>
     <ul>
       <li i18n>
-        JS is not types safe which makes it harder to develop large scale
+        JS is not type safe which makes it harder to develop large scale
         applications
       </li>
       <li i18n>
-        New features of the latest versions of JS standards (ES6, ES7) are not
+        New features of the latest versions of JS standards (ES2018, ES2019) are not
         supported well across all the browsers
       </li>
     </ul>
@@ -149,26 +146,22 @@
   <div *slide id="about-typescript-2" milestone="TypeScript">
     <codelab-breadcrumb i18n>TypeScript</codelab-breadcrumb>
     <h2 i18n>
-      This is why <b>TypeScript</b> was created. It transpiles to JavaScript, so
-      it can be used in any browser.
+      This is why <b>TypeScript</b> has been created. Since TypeScript can be compiled to JavaScript, it can be used in
+      any modern browser.
     </h2>
     <div row>
       <div>
         <ul>
           <li i18n>
-            TypeScript extends the latest version of JavaScript (ES6*)
+            TypeScript extends the latest version of JavaScript
           </li>
           <li i18n>
-            TypeScript adds some features from the next version (ES7)
+            TypeScript adds new features from the next version of JavaScript
           </li>
           <li i18n>
             On top of it, TypeScript adds an optional type system and decorators
           </li>
         </ul>
-        <div style="font-size:1vw">
-          *ES stands for
-          <a href="https://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a>
-        </div>
       </div>
       <div class="space-left">
         <codelab-typescript-svg></codelab-typescript-svg>
@@ -234,18 +227,14 @@
     >
     </code-demo-editor>
 
-    <div class="info" i18n>
-      <b>const</b> is a new way to declare variables (introduced in <b>ES6</b>).
-      Similar to <b>var</b>, but is block scoped (only exist inside of curly
-      braces block), and errors out if the value is reassigned.
-    </div>
   </div>
 
   <div *slide id="types-more" milestone="TypeScript">
     <codelab-breadcrumb i18n>Interfaces</codelab-breadcrumb>
     <h2 i18n>
-      TypeScript allows to define more complex object structure using interfaces:
+      TypeScript Interfaces allow to specify properties and methods for an object.
     </h2>
+    <!--Интерфейсы в Typescript позволяют указывать, какие свойства и методы должны быть у объекта -->
     <code-demo-file-path path="puppies.ts"></code-demo-file-path>
     <code-demo-editor
       style="height: 400px;"
@@ -263,8 +252,9 @@
   <div *slide id="types-arrays" milestone="TypeScript">
     <codelab-breadcrumb i18n>Arrays</codelab-breadcrumb>
     <h2 i18n>
-      Arrays are defined as <b>Array{{ '<' }}Type{{ '>' }}</b> or <b>Type[]</b>
+      Array types are defined as <b>Array{{ '<' }}Type{{ '>' }}</b> or <b>Type[]</b>
     </h2>
+    <!--Типы массивов указываются с помощью <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Array<ph name="INTERPOLATION"><ex>{{ '&lt;' }}</ex>{{ '&lt;' }}</ph> тип <ph name="INTERPOLATION_1"><ex>{{ '&gt;' }}</ex>{{ '&gt;' }}</ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> или <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Type[]<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>-->
     <codelab-exercise-playground
       presets=""
       ui="console"
@@ -361,9 +351,10 @@
       [exercise]="code.classDescription.codeImport"
     ></codelab-exercise-playground>
     <div class="info" i18n>
-      Imports and exports are not just for classes. They work with variables,
+      <b>import</b> and <b>export</b> keywords are not just for classes. They work with variables,
       functions and other things!
     </div>
+    <!--"Import" и "Export" предназначены не только для классов. Они работают и с переменными, функциями и другими конструкциями!-->
   </div>
 
   <div *slide id="filter" milestone="TypeScript">
@@ -468,7 +459,7 @@
             Learn how to create your first Angular app!
           </a>
         </h2>
-        <feedback-rating lesson="Typescript"></feedback-rating>
+        <feedback-rating lesson="TypeScript"></feedback-rating>
       </div>
     </codelab-closing-slide>
   </div>
