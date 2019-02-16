@@ -11,8 +11,8 @@ const routes = [
     children: [
       {
         path: 'typescript',
-        loadChildren: './typescript/typescript.module#TypescriptModule',
-        name: 'Typescript',
+        loadChildren: './typescript/typescript.module#TypeScriptModule',
+        name: 'TypeScript',
         description:
           'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript',
         page: 'typescript',

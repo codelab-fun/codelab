@@ -43,8 +43,10 @@
     <h2 i18n>
       Angular Material provides you with a set of
       <a href="https://material.io/" target="_blank">Material Design</a>
-      components for Angular
+      components for Angular:
     </h2>
+    <!--Angular Material предоставляет множество Angular-компонентов в стиле-->
+    <!--<ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Material Design<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>:-->
     <ul>
       <li i18n>Fast and Consistent</li>
       <li i18n>Versatile</li>
@@ -64,13 +66,13 @@
   </div>
 
   <div *slide id="toolbar" milestone="material">
-    <codelab-breadcrumb i18n>NavBar</codelab-breadcrumb>
-    <h2 i18n>Adding a Navigation Bar takes 2 simple steps:</h2>
+    <codelab-breadcrumb i18n>MatToolBar</codelab-breadcrumb>
+    <h2 i18n>Adding a toolbar takes 2 simple steps:</h2>
     <ul>
       <li i18n>Add <b>MatToolbarModule</b> to the imports</li>
       <li i18n>Use the component in the template</li>
     </ul>
-
+    <!--MatToolBar-->
     <codelab-exercise-playground
       files="app.module.ts,app.html"
       [exercise]="code.material.step1"
@@ -201,7 +203,7 @@
       </div>
       <div class="body" body>
         <h2 i18n>Well done! This is the end of the milestone!</h2>
-        <h2>
+        <h2 i18n>
           Check out Angular Material
           <a
             href="https://material.angular.io/guide/getting-started"
@@ -213,7 +215,7 @@
       </div>
       <div class="footer" footer>
         <h2>
-          <ng-container i18n>Next:</ng-container>
+          <ng-container i18n>Next: </ng-container>
           <a routerLink="../../forms/0" i18n>
             Learn how to create simple forms with Angular
           </a>
