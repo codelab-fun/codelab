@@ -29,7 +29,7 @@
     h4,
     h5,
     h6,
-    li {
+    li:not(.action-item) {
       margin: 0;
       padding: 0;
       font-weight: 300;
@@ -42,7 +42,7 @@
     }
 
     h2,
-    li {
+    li:not(.action-item) {
       font-size: 3vw;
       margin-bottom: 1vw;
     }
