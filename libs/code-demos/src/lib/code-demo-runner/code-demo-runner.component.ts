@@ -124,7 +124,10 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
           try {
             sandbox.evalJs(code);
           } catch (e) {
+            const [ errorLabel ] = e.toString().split('\r\n');
+            console.groupCollapsed(errorLabel);
             console.log(e);
+            console.groupEnd();
             return true;
           }
           return false;

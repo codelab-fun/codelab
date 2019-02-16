@@ -2,7 +2,7 @@ import { BehaviorSubject, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { exhaustMap, finalize } from 'rxjs/operators';
 import * as ts from 'typescript';
 
-const compilerOptions = {
+const compilerOptions: ts.CompilerOptions = {
   module: ts.ModuleKind.System,
   target: ts.ScriptTarget.ES5,
   experimentalDecorators: true,
@@ -111,9 +111,7 @@ function watch(
   function emitFile(fileName: string) {
     const output = services.getEmitOutput(fileName);
 
-    if (!output.emitSkipped) {
-    } else {
-      console.log(`Emitting ${fileName} failed`);
+    if (output.emitSkipped) {
       logErrors(fileName);
     }
 
@@ -121,6 +119,7 @@ function watch(
   }
 
   function logErrors(fileName: string) {
+    console.groupCollapsed(`Emitting ${fileName} failed`);
     const allDiagnostics = services
       .getCompilerOptionsDiagnostics()
       .concat(services.getSyntacticDiagnostics(fileName))
@@ -137,13 +136,14 @@ function watch(
           character
         } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
         console.log(
-          `  Error ${diagnostic.file.fileName} (${line + 1},${character +
+          `Error ${diagnostic.file.fileName} (${line + 1},${character +
             1}): ${message}`
         );
       } else {
         console.log(`  Error: ${message}`);
       }
     });
+    console.groupEnd();
   }
 }
 

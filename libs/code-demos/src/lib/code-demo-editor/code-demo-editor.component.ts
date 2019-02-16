@@ -43,7 +43,7 @@ export class CodeDemoEditorComponent
   @Input() minLines = 6;
   model: any;
   editor: any;
-  @Input() debounce = 1;
+  @Input() debounce = 250;
   @Input() fontSize = 20;
   @Input() language = 'typescript';
   @Input() theme = '';
