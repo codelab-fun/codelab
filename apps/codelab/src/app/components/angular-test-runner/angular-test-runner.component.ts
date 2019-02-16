@@ -120,7 +120,6 @@ export class SimpleAngularTestRunnerComponent
     sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
     sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
     sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
-    // sandbox.addDep('reflect-metadata', Reflect);
 
     this.subscription = this.changedFilesSubject.subscribe(files => {
       const hasErrors = Object.entries(files)
