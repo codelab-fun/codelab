@@ -6,6 +6,11 @@ import IModelLanguageChangedEvent = editor.IModelLanguageChangedEvent;
 
 declare const monaco: any;
 
+enum Languages {
+  css = 'css',
+  html = 'html'
+}
+
 @Directive({
   selector: 'code-demo-editor, code-demo-editor-from-model'
 })
@@ -39,38 +44,37 @@ export class CodeDemoEditorEmmetDirective implements AfterViewInit {
   }
 
   private onChangeLanguageEventHandler(event: IModelLanguageChangedEvent) {
-    const isHtmlDeactivated = isDeactivatedLanguage('html', event);
-    const isCssDeactivated = isDeactivatedLanguage('css', event);
+    const isHtmlDeactivated = isDeactivatedLanguage(Languages.html, event);
+    const isCssDeactivated = isDeactivatedLanguage(Languages.css, event);
     if (isHtmlDeactivated || isCssDeactivated) {
       this.deactivateEmmet();
     }
 
-    const isHtmlActivated = isActivatedLanguage('html', event);
+    const isHtmlActivated = isActivatedLanguage(Languages.html, event);
     if (isHtmlActivated) {
-      this.activateEmmetWith('html');
+      this.activateEmmetWith(Languages.html);
     }
 
-    const isCssActivated = isActivatedLanguage('css', event);
+    const isCssActivated = isActivatedLanguage(Languages.css, event);
     if (isCssActivated) {
-      console.warn('Css are not supported css yet!');
-      this.activateEmmetWith('css');
+      this.activateEmmetWith(Languages.css);
     }
   }
 
-  private activateEmmetWith(language: 'html' | 'css') {
+  private activateEmmetWith(language: Languages) {
     const editor = this.editorInjector.editor;
-    if (language === 'html') {
+    if (language === Languages.html) {
       this.emmet = emmetHTML(editor, monaco);
     }
 
-    if (language === 'css') {
+    if (language === Languages.css) {
       this.emmet = emmetCSS(editor, monaco);
     }
   }
 
   private deactivateEmmet() {
     console.warn(
-      `Emmet is now cannot deactivated yet. https://github.com/troy351/emmet-monaco-es/issues/3`
+      `Emmet cannot be deactivated until https://github.com/troy351/emmet-monaco-es/issues/3 is completed.`
     );
   }
 }
