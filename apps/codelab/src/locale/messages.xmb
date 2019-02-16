@@ -225,7 +225,7 @@
   <msg id="5353140049958069641"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:239</source><source>src/app/codelabs/angular/templates/templates.component.html:287</source>Exercise 2</msg>
   <msg id="1036270088685658131"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:240</source>In the next exercise you will use the newly created component</msg>
   <msg id="4985288594861826441"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:260</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:259</source><source>src/app/codelabs/angular/templates/templates.component.html:367</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:441</source>Milestone Completed</msg>
-  <msg id="5801908609593051593"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:265</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:526</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:264</source><source>src/app/codelabs/angular/forms/forms.component.html:216</source><source>src/app/codelabs/angular/material/material.component.html:218</source><source>src/app/codelabs/angular/router/router.component.html:157</source><source>src/app/codelabs/angular/templates/templates.component.html:372</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:454</source>Next: </msg>
+  <msg id="5801908609593051593"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:265</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:526</source><source>src/app/codelabs/angular/forms/forms.component.html:216</source><source>src/app/codelabs/angular/material/material.component.html:218</source><source>src/app/codelabs/angular/router/router.component.html:157</source><source>src/app/codelabs/angular/templates/templates.component.html:372</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:454</source>Next: </msg>
   <msg id="2606744025024635328"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:266,268</source>
             Learn how to set up routing in your Angular app
           </msg>
@@ -453,6 +453,14 @@
   </msg>
   <msg id="dependencyInjectionLearnMore"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:42</source>Learn more about Angular&apos;s powerful Dependency Injection system</msg>
   <msg id="8221226883715428312"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:50</source>Example of a dependency</msg>
+  <msg id="1455726964620680511"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:51,52</source>We display a list of hard-coded videos in our component, but in the real world we&apos;d load them from the
+      server.</msg>
+  <msg id="2660184585276917197"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:53</source>The code for fetching the data would live in a separate class (service) called VideoService</msg>
+  <msg id="239501121574257057"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:54</source>Therefore our component will depend on the VideoService:</msg>
+  <msg id="225485774638925026"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:70,72</source>As our app grows, number of dependencies will increase. Dependencies, in order, will have their own
+      dependencies. Managing all of them manually becomes increasingly harder.
+    </msg>
+  <msg id="3226036148375671474"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:73</source>To simplify that <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> provides a mechanism called <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Dependency injection<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
   <msg id="6832879550227262389"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:80</source>Comparison</msg>
   <msg id="7427941055850419603"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:89,92</source>
           Without Dependency Injection, <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Profession<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> has to be instantiated
@@ -510,6 +518,7 @@
       In the next slide you&apos;ll use videoService which has even more cats!!! The
       result will look like this:
     </msg>
+  <msg id="7872178699271799911"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:264</source>Next:</msg>
   <msg id="6756063415709931138"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:265,267</source>
             Learn how to combine components together
           </msg>
