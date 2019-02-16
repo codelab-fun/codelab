@@ -27,7 +27,7 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
     {
       src: 'ng-soso.svg',
       value: 'soso',
-      text: 'ok'
+      text: 'Ok'
     },
     {
       src: 'ng-sleepy.svg',
