@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { TypescriptComponent } from './typescript/typescript.component';
+import { TypeScriptComponent } from './typescript/typescript.component';
 
-import { TypescriptRoutingModule } from './typescript-routing.module';
+import { TypeScriptRoutingModule } from './typescript-routing.module';
 
-import { TypescriptSvgComponent } from './typescript/typescript-svg/typescript-svg.component';
+import { TypeScriptSvgComponent } from './typescript/typescript-svg/typescript-svg.component';
 import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
-  declarations: [TypescriptComponent, TypescriptSvgComponent],
-  imports: [SharedModule, TypescriptRoutingModule]
+  declarations: [TypeScriptComponent, TypeScriptSvgComponent],
+  imports: [SharedModule, TypeScriptRoutingModule]
 })
-export class TypescriptModule {}
+export class TypeScriptModule {}

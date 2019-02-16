@@ -39,7 +39,7 @@ describe('router', () => {
     const routes = getRoutes();
     chai.expect(routes.length, 'Empty array was provided, need actual routes.').to.be.above(0);
     const route = routes.find(r => r.path === '');
-    chai.expect(route, 'Can\'t find a route with empty path').to.be.defined;
+    chai.expect(route, 'Can\'t find a route with empty path').not.to.be.undefined;
     chai.expect(route.component && route.component.toString()
       .includes('SearchComponent'), 'There\'s a module with empty path, but it doesn\'t display SearchComponent')
       .to.be.true;
@@ -49,7 +49,7 @@ describe('router', () => {
     const routes = getRoutes();
     chai.expect(routes.length, 'Empty array was provided, need actual routes.').to.be.above(0);
     const route = routes.find(r => r.path === 'upload');
-    chai.expect(route, 'Can\'t find a route with empty path').to.be.defined;
+    chai.expect(route, 'Can\'t find a route with empty path').not.to.be.undefined;
     chai.expect(route.component && route.component.toString()
       .includes('UploadComponent'), 'There\'s a module with empty path, but it doesn\'t display SearchComponent')
       .to.be.true;

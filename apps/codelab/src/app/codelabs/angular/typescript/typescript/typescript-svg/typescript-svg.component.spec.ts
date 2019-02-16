@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TypescriptSvgComponent } from './typescript-svg.component';
+import { TypeScriptSvgComponent } from './typescript-svg.component';
 
-describe('TypescriptSvgComponent', () => {
-  let component: TypescriptSvgComponent;
-  let fixture: ComponentFixture<TypescriptSvgComponent>;
+describe('TypeScriptSvgComponent', () => {
+  let component: TypeScriptSvgComponent;
+  let fixture: ComponentFixture<TypeScriptSvgComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TypescriptSvgComponent]
+      declarations: [TypeScriptSvgComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TypescriptSvgComponent);
+    fixture = TestBed.createComponent(TypeScriptSvgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
