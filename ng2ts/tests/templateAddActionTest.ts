@@ -13,7 +13,12 @@ beforeEach(() => {
       templateUrl: undefined
     }
   });
-  TestBed.compileComponents();
+  try {
+    TestBed.compileComponents();
+  } catch(e) {
+    console.error(e);
+    console.log('lolololololololololololololololololololololololololololololo')
+  }
 });
 
 describe('Blabla', () => {

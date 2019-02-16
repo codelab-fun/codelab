@@ -97,6 +97,7 @@ export function createSystemJsSandbox(
 }
 
 function logError(error, message) {
+  debugger;
   console.groupCollapsed(
     'ERROR in your app:  ' + ((error && error.message) || '').split('\n')[0]
   );

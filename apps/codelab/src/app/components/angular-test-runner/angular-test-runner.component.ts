@@ -123,7 +123,7 @@ export class SimpleAngularTestRunnerComponent
     sandbox.addDep('reflect-metadata', Reflect);
 
     this.subscription = this.changedFilesSubject.subscribe(files => {
-      const hasErros = Object.entries(files)
+      const hasErrors = Object.entries(files)
         .filter(([path]) => path.match(/\.js$/))
         .some(([path, code]) => {
           sandbox.evalJs(
@@ -145,7 +145,7 @@ export class SimpleAngularTestRunnerComponent
           return false;
         });
 
-      if (!hasErros) {
+      if (!hasErrors) {
         sandbox.evalJs(`System.import('${ this.bootstrap }')`);
       }
     });
