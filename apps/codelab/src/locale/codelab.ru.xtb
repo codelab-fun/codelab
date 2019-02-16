@@ -153,7 +153,7 @@
   <translation id="displayNumberOfVideoViews">video.component.html: Отобразите количество просмотров видео(views)</translation>
   <translation id="displayNumberOfVideoLikes">video.component.html: Отобразите количество отметок &quot;нравится&quot;(likes)</translation>
   <translation id="replaceTitleAndThumbnail"/>
-  <translation id="useDataBindingToPassVideoToComponent">app.html: С помощью биндинга передайте объект &quot;video&quot; в компонент <my-video/> (не забудьте про квадратные скобки)</translation>
+  <translation id="useDataBindingToPassVideoToComponent">app.html: С помощью биндинга передайте объект &quot;video&quot; в компонент my-video (не забудьте про квадратные скобки)</translation>
   <translation id="createClassAppComponent">Создайте класс &apos;AppComponent&apos;</translation>
   <translation id="createClassAppModule">Создайте класс &apos;AppModule&apos;</translation>
   <translation id="allSetBootstrapApp">Всё готово! Загружайте приложение</translation>
@@ -394,8 +394,7 @@
   <translation id="3440673282637430108">Обратите внимание, что нам больше не нужно добавлять <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>#name<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> на поле ввода.</translation>
   <translation id="1410328259781563181">На следующем слайде будет упражнение, в котором мы добавим форму на страницу загрузки.</translation>
   <translation id="2445797033343456600">Обратите внимание: вам нужно будет вручную нажать на кнопку upload, чтобы увидеть результат</translation>
-  <translation id="5553423473844264824">Есть два основных способа работы с формами в Angular. Пока мы работаем над разделом <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Продвинутые формы<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> прочитайте 
-          <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>документацию Angular<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph></translation>
+  <translation id="5553423473844264824">Есть два основных способа работы с формами в Angular. Пока раздел <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Продвинутых форм<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> в разработке, прочитайте <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph> документацию Angular <ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph></translation>
   <translation id="1048302075193478813">Быстрые</translation>
   <translation id="7436636522347025101">Гибкие в использовании</translation>
   <translation id="6362038180167515562">Поддерживают Accessibility(доступность в использовании)</translation>
