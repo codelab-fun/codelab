@@ -51,7 +51,7 @@ export class MultitabEditorComponent
   @Input() displayFileName = false;
   @Input() codeDemoHighlight = [];
   @Input() highlights = {};
-  @Input() debounce: number = 250;
+  @Input() debounce = 250;
   files = [];
   openModels: MonacoModel[];
   changeSubject = new Subject();
