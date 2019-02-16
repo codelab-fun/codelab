@@ -1,14 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "outDir": "../../dist/out-tsc/apps/kirjs",
+    "module": "es2015",
     "types": []
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "**/*.ts"
-  ]
+  "exclude": ["test.ts", "**/*.spec.ts"]
 }

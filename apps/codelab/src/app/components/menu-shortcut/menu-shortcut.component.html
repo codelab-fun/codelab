@@ -1,0 +1,26 @@
+<ng-container *ngIf="open">
+  <div class="menu-index">
+    <ul class="menu-list">
+      <li class="menu-item">
+        <p>
+          <a href="/"> <span class="menu-item-text"> Index </span> </a>
+        </p>
+      </li>
+      <ng-container *ngFor="let navigationRoute of menuRoutes">
+        <li class="menu-item">
+          <p>
+            <a [routerLink]="[navigationRoute['path']]">
+              <span class="menu-item-text">
+                {{ navigationRoute['name'] }}
+              </span>
+            </a>
+          </p>
+        </li>
+      </ng-container>
+    </ul>
+
+    <div class="tri-box"></div>
+  </div>
+</ng-container>
+
+<div (click)="onDisplay($event)" class="menu-btn menu-bar-btn"></div>

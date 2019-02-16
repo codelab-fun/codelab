@@ -1,9 +1,0 @@
-.error {
-  color: red;
-  font-size: 50px;
-}
-
-:host ::ng-deep .header.header.header.header {
-  font-size: inherit;
-
-}

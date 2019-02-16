@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
+import { PolaroidComponent } from './polaroid/polaroid.component';
 
 @NgModule({
   imports: [
@@ -13,8 +14,7 @@ import { RouterModule } from '@angular/router';
       }
     ])
   ],
-  declarations: [HomeComponent],
-  entryComponents: [HomeComponent],
+  declarations: [HomeComponent, PolaroidComponent],
+  entryComponents: [HomeComponent]
 })
-export class HomeModule {
-}
+export class HomeModule {}

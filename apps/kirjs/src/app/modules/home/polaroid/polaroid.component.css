@@ -1,0 +1,22 @@
+::ng-deep .picture {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  box-shadow: 0 0 10px #444 inset;
+  border-radius: 50%;
+}
+
+.frame-outer {
+  width: 240px;
+  height: 400px;
+  background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.text {
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  font-size: 1.3vw;
+}

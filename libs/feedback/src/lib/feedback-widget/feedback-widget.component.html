@@ -1,0 +1,12 @@
+<!--  FEEDBACK BUTTON-->
+<div
+  (click)="buttonClicked()"
+  class="feedback-container feedback-button menu-bar-btn"
+  title="Feedback"
+>
+  <ng-container *ngIf="(messages$ | async) as msgs">
+    <span *ngIf="msgs.length" class="messages-count"> {{ msgs.length }} </span>
+  </ng-container>
+</div>
+<!--  FEEDBACK FORM -->
+<feedback-form *ngIf="open"></feedback-form>

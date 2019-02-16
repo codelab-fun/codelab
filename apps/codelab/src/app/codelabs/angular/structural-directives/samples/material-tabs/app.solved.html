@@ -1,0 +1,12 @@
+<h1>Alfred Sisley</h1>
+
+<mat-tab-group #tabs>
+  <mat-tab label="Art works">
+    <div *ngIf="tabs.selectedIndex===0">
+      <img src="../images/sisley/img1.jpeg" alt="" />
+    </div>
+  </mat-tab>
+  <mat-tab label="TBD">
+    <div *ngIf="tabs.selectedIndex===1"><app-alert></app-alert></div>
+  </mat-tab>
+</mat-tab-group>

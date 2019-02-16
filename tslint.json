@@ -1,9 +1,10 @@
 {
   "rulesDirectory": [
-    "./node_modules/codelyzer",
+    "node_modules/codelyzer",
     "node_modules/@nrwl/schematics/src/tslint"
   ],
   "rules": {
+    "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
     "comment-format": [
@@ -11,14 +12,16 @@
       "check-space"
     ],
     "curly": true,
+    "deprecation": {
+      "severity": "warn"
+    },
     "eofline": true,
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs"
+      "rxjs/Rx"
     ],
     "import-spacing": true,
-    "import-destructuring-spacing": true,
     "indent": [
       true,
       "spaces"
@@ -27,13 +30,19 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      200
     ],
     "member-access": false,
     "member-ordering": [
       true,
-      "static-before-instance",
-      "variables-before-functions"
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
     ],
     "no-arg": true,
     "no-bitwise": false,
@@ -47,7 +56,7 @@
     ],
     "no-construct": true,
     "no-debugger": true,
-    "no-duplicate-variable": true,
+    "no-duplicate-super": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": false,
@@ -55,11 +64,15 @@
       true,
       "ignore-params"
     ],
+    "no-misused-new": true,
+    "no-non-null-assertion": true,
+    "no-redundant-jsdoc": true,
     "no-shadowed-variable": false,
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
@@ -78,6 +91,7 @@
     ],
     "radix": true,
     "semicolon": [
+      true,
       "always"
     ],
     "triple-equals": [
@@ -94,30 +108,17 @@
         "variable-declaration": "nospace"
       }
     ],
-    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
       true,
       "check-branch",
       "check-decl",
-      "check-module",
       "check-operator",
       "check-separator",
       "check-type"
     ],
-    "directive-selector": [
-      true,
-      "attribute",
-      "slides",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "slides",
-      "kebab-case"
-    ],
+    "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
@@ -126,23 +127,6 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true,
-    "no-access-missing-member": true,
-    "templates-use-public": true,
-    "invoke-injectable": true
-  },
-  "nx-enforce-module-boundaries": [
-    true,
-    {
-      "allow": [],
-      "depConstraints": [
-        {
-          "sourceTag": "*",
-          "onlyDependOnLibsWithTags": [
-            "*"
-          ]
-        }
-      ]
-    }
-  ]
+    "directive-class-suffix": true
+  }
 }

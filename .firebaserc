@@ -7,10 +7,13 @@
     "angular-presentation": {
       "hosting": {
         "codelab": [
-          "angular-presentation"
+          "codelabs"
         ],
         "kirjs": [
           "kirjs-home"
+        ],
+        "codelab-next": [
+          "codelab-next"
         ]
       }
     }

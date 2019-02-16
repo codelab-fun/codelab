@@ -1,6 +1,7 @@
 import { differ } from './differ';
 import { evaled, hidden, justForReference, test } from './fileHelpers';
-import { FileConfig } from '../../../../../apps/angular-presentation/src/app/exercise/interfaces/file-config';
+import { FileConfig } from '../../../../../apps/codelab/src/app/shared/interfaces/file-config';
+
 
 interface Override {
   [key: string]: {
@@ -13,43 +14,56 @@ interface Overrides {
   stage: Override;
 }
 
-
 export class DiffFilesResolver {
-  constructor(private files: { [key: string]: string },
-              private stages: Array<string>,
-              private overrides: Overrides) {
-  }
+  constructor(
+    private files: { [key: string]: string },
+    private stages: Array<string>,
+    private overrides: Overrides
+  ) {}
 
   resolve(stage: string, files) {
-
-
     const result = [];
     const bootstrap = (files.bootstrap || []) as Array<string>;
     if (files.exercise) {
       files.exercise.forEach(file => {
-        result.push(evaled(this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)));
+        result.push(
+          evaled(
+            this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
+          )
+        );
       });
     }
 
     if (files.reference) {
       files.reference.forEach(file => {
-        result.push(...justForReference(this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)));
+        result.push(
+          ...justForReference(
+            this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
+          )
+        );
       });
     }
     if (files.hidden) {
       files.hidden.forEach(file => {
-        result.push(...hidden(this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)));
+        result.push(
+          ...hidden(
+            this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
+          )
+        );
       });
     }
 
     if (files.test) {
       files.test.forEach(file => {
-        result.push(...test(this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)));
+        result.push(
+          ...test(
+            this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
+          )
+        );
       });
     }
     return result;
   }
-
 
   getFileByPath(path: string) {
     if (!this.files[path]) {
@@ -61,14 +75,24 @@ export class DiffFilesResolver {
     return this.files[path];
   }
 
-
-  getFileCodeForStage(path: string, stage: string, bootstrap: boolean): FileConfig {
+  getFileCodeForStage(
+    path: string,
+    stage: string,
+    bootstrap: boolean
+  ): FileConfig {
     const type = path.substr(path.lastIndexOf('.') + 1);
-    stage = (this.overrides.stage[path] && this.overrides.stage[path][stage]) || stage;
+    stage =
+      (this.overrides.stage[path] && this.overrides.stage[path][stage]) ||
+      stage;
 
     // Using overrides path, but keeping the original path for display purposes.
     // TODO: This get broken if files are ind different folders
-    const diffs = differ(this.getFileByPath((this.overrides.file[path] && this.overrides.file[path][stage]) || path), this.stages);
+    const diffs = differ(
+      this.getFileByPath(
+        (this.overrides.file[path] && this.overrides.file[path][stage]) || path
+      ),
+      this.stages
+    );
 
     if (type === 'ts') {
       return {

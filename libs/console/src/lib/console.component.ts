@@ -1,5 +1,13 @@
-import { Component, HostListener, Input, OnInit, Type, ViewChild, ViewChildren } from '@angular/core';
-
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+  Type,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 
 function escapeHtml(str) {
   const div = document.createElement('div');
@@ -8,11 +16,11 @@ function escapeHtml(str) {
 }
 
 @Component({
-  selector: 'slides-console',
+  selector: 'console-console',
   templateUrl: './console.component.html',
   styleUrls: ['./console.component.css']
 })
-export class ConsoleComponent implements OnInit {
+export class ConsoleComponent implements OnInit, AfterViewInit {
   fontSize = 40;
   output = [];
   input = '';
@@ -29,30 +37,30 @@ export class ConsoleComponent implements OnInit {
 
   currentCommand = 0;
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if (event.keyCode === 27) {
-      this.inputEl.nativeElement.focus();
-    }
+  @HostListener('document:keydown.esc', ['$event'])
+  handleKeyboardEvent() {
+    this.inputEl.nativeElement.focus();
   }
-
 
   trackByFn(a, i) {
     return i;
-  };
+  }
 
   post(code: any, type: string = 'output') {
     if (code && code.dynamicComponent) {
-      this.output.push({code: code.dynamicComponent, param: code.param, type: 'dynamic'});
+      this.output.push({
+        code: code.dynamicComponent,
+        param: code.param,
+        type: 'dynamic'
+      });
     } else {
-      this.output.push({code: code, type});
+      this.output.push({ code: code, type });
     }
   }
 
   evalCode(code: string) {
-    return (new Function('return (' + code + ')'))();
+    return new Function('return (' + code + ')')();
   }
-
 
   ngOnInit() {
     this.updateAutocomplete();
@@ -69,12 +77,12 @@ export class ConsoleComponent implements OnInit {
 
   ngAfterViewInit() {
     const that = this;
-    (window as any).explain = (component: string, param: string) => this.explain(component, param);
+    (window as any).explain = (component: string, param: string) =>
+      this.explain(component, param);
 
-    console.log = function () {
+    console.log = function() {
       Array.from(arguments).map(a => that.post(a, 'log'));
     };
-
 
     const addChar = () => {
       if (this.typeInQueue.length > 0) {
@@ -84,11 +92,9 @@ export class ConsoleComponent implements OnInit {
         } else {
           this.input += next;
         }
-
       }
       window.setTimeout(() => addChar(), Math.random() * 1);
     };
-
 
     requestAnimationFrame(() => {
       this.next();
@@ -112,7 +118,7 @@ export class ConsoleComponent implements OnInit {
     }
 
     try {
-      this.post(this.evalCode(code), 'result')
+      this.post(this.evalCode(code), 'result');
     } catch (e) {
       this.post(e.message, 'error');
     }
@@ -128,20 +134,20 @@ export class ConsoleComponent implements OnInit {
 
   typeIn(code) {
     this.typeInQueue = this.typeInQueue.concat(code.split(''));
-    this.typeInQueue.push('execute')
+    this.typeInQueue.push('execute');
   }
 
   updateAutocomplete() {
     if (this.input.length < 3) {
       this.autocomplete = [];
     } else {
-      this.autocomplete = this.commands.filter(a => a.includes(this.input))
+      this.autocomplete = this.commands.filter(a => a.includes(this.input));
     }
   }
 
   private explain(s: string, param: string) {
     if (!this.componentMap[s]) {
-      throw new Error(`Unknown component type: ${s}`)
+      throw new Error(`Unknown component type: ${s}`);
     }
     return {
       dynamicComponent: this.componentMap[s],

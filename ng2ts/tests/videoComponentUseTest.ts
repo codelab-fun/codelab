@@ -35,12 +35,13 @@ describe('Component Tree', () => {
     prepareTestingModule();
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].declarations, `Video component not found`).contains(VideoComponent);
-    chai.expect(metadata[0].declarations, `Keep the app component`).contains(AppComponent);
+
+    chai.expect(metadata.declarations || [], `Video component not found`).contains(VideoComponent);
+    chai.expect(metadata.declarations || [], `Keep the app component`).contains(AppComponent);
   });
 
   it(`@@replaceTitleAndThumbnail`, () => {

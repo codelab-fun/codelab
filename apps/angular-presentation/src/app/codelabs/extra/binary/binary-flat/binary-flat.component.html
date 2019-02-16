@@ -1,9 +1,0 @@
-<div class="wrapper">
-  <ng-container *ngFor="let item of structure; let i = index">
-    <span *ngIf="detailIndex <= i" class="item item-{{i % 2}} binary">{{item.rawValue}}</span>
-    <div *ngIf="detailIndex > i" class="detail-item item-{{i % 2}}">
-      <h3>{{item.type}}</h3>
-      {{item.rawValue}}
-    </div>
-  </ng-container>
-</div>

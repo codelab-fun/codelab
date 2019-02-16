@@ -63,7 +63,7 @@ const preloadedFiles = {
   'thumbs.app.module.ts': require('!raw-loader!./thumbs.app.module.ts'),
   'video.app.module.ts': require('!raw-loader!./video.app.module.ts'),
   'toggle-panel.app.module.ts': require('!raw-loader!./toggle-panel.app.module.ts'),
-  'index.html': '<base href="/assets/runner/"><my-app></my-app>'
+  'index.html': '<base href="/assets/runner/"><my-app></my-app><div class="error"></div>'
   // 'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
 };
 
@@ -218,6 +218,31 @@ function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
     }
     return file;
   });
+}
+
+export function convertExerciseToMap(exercise) {
+  const convertFilesToMap = (prop = 'template') => (result, file) => {
+    if (file[prop]) {
+      result[file.path] = file[prop];
+
+      if (file.execute) {
+        result[file.path + '.execute'] = file.execute;
+      }
+    }
+    return result;
+  };
+
+  const testBootstrap = exercise.files.find(({bootstrap, excludeFromTesting, template}) => template && bootstrap && !excludeFromTesting);
+  const bootstrapFiles = exercise.files.find(({bootstrap, excludeFromTesting, template}) => template && bootstrap && excludeFromTesting);
+  return {
+    highlights: exercise.files.filter(({highlight}) => highlight).reduce((result, {highlight, path}) => (result[path] = highlight, result), {}),
+    code: exercise.files.reduce(convertFilesToMap(), {}),
+    codeSolutions: exercise.files.map(file => ((file.solution = file.solution || file.template), file)).reduce(convertFilesToMap('solution'), {}),
+    test: exercise.files.filter(file => !file.excludeFromTesting).reduce(convertFilesToMap(), {}),
+    bootstrap: bootstrapFiles && bootstrapFiles.moduleName,
+    bootstrapTest: testBootstrap && testBootstrap.moduleName,
+    file: exercise.files[0].path
+  };
 }
 
 export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */any = {

@@ -1,34 +1,40 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
-import * as interact from 'interactjs'
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit
+} from '@angular/core';
+import * as interact from 'interactjs';
 import * as domtoimage from 'dom-to-image';
 import * as JSZip from 'jszip';
 import * as saveAs from 'file-saver';
 
-
 @Component({
-  selector: 'slides-ii',
+  selector: 'kirjs-ii',
   templateUrl: './ii.component.html',
   styleUrls: ['./ii.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IiComponent implements OnInit {
+export class IiComponent implements OnInit, AfterViewInit {
   items: any[];
   src?: string;
 
-  constructor(private readonly el: ElementRef,
-              private readonly cdr: ChangeDetectorRef) {
+  constructor(
+    private readonly el: ElementRef,
+    private readonly cdr: ChangeDetectorRef
+  ) {
     this.src = localStorage.getItem('pic');
     this.items = JSON.parse(localStorage.getItem('items') || '[]');
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   loadImage(e) {
     const reader = new FileReader();
 
     reader.onload = (e: ProgressEvent) => {
-
       this.src = e.target['result'];
       localStorage.setItem('pic', this.src);
     };
@@ -45,7 +51,7 @@ export class IiComponent implements OnInit {
       left: x,
       top: y,
       width: 100,
-      height: 40,
+      height: 40
     };
     this.items.push(savedItem);
     this.displayBox(savedItem);
@@ -81,8 +87,7 @@ export class IiComponent implements OnInit {
     const answer = await domtoimage.toPng(parent);
     let question = '';
 
-
-    for (let i in items) {
+    for (const i in items) {
       if (items.hasOwnProperty(i)) {
         items[i].style.display = 'block';
         questions[i] = await domtoimage.toPng(parent);
@@ -94,13 +99,13 @@ export class IiComponent implements OnInit {
     const zip = new JSZip();
     zip.file('deck.csv', question);
 
-    zip.file('a.png', answer.slice(22), {base64: true});
+    zip.file('a.png', answer.slice(22), { base64: true });
 
     questions.forEach((q, i) => {
-      zip.file(`q${i}.png`, q.slice(22), {base64: true});
+      zip.file(`q${i}.png`, q.slice(22), { base64: true });
     });
 
-    const content = await zip.generateAsync({type: 'blob'});
+    const content = await zip.generateAsync({ type: 'blob' });
 
     // see FileSaver.js
     saveAs(content, 'anki-cards.zip');
@@ -111,18 +116,17 @@ export class IiComponent implements OnInit {
   }
 
   makeDraggable(item, savedItem) {
-    interact(item)
+    (interact as any)(item)
       .draggable({
-        onmove: (event) => {
+        onmove: event => {
           const target = event.target,
             // keep the dragged position in the data-x/data-y attributes
             x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
             y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
           // translate the element
-          target.style.webkitTransform =
-            target.style.transform =
-              'translate(' + x + 'px, ' + y + 'px)';
+          target.style.webkitTransform = target.style.transform =
+            'translate(' + x + 'px, ' + y + 'px)';
 
           // update the posiion attributes
           target.setAttribute('data-x', x);
@@ -130,34 +134,33 @@ export class IiComponent implements OnInit {
           savedItem.left = Number(target.style.left.replace('px', '')) + x;
           savedItem.top = Number(target.style.top.replace('px', '')) + y;
           this.saveState();
-
         },
         restrict: {
           restriction: 'parent',
-          elementRect: {top: 0, left: 0, bottom: 1, right: 1}
-        },
+          elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+        }
       })
       .resizable({
         // resize from all edges and corners
-        edges: {left: true, right: true, bottom: true, top: true},
+        edges: { left: true, right: true, bottom: true, top: true },
 
         // keep the edges inside the parent
         restrictEdges: {
           outer: 'parent',
-          endOnly: true,
+          endOnly: true
         },
 
         // minimum size
         restrictSize: {
-          min: {width: 100, height: 20},
+          min: { width: 100, height: 20 }
         },
 
-        inertia: true,
+        inertia: true
       } as any)
       .on('resizemove', (event: any) => {
         const target = event.target;
-        let x = (parseFloat(target.getAttribute('data-x')) || 0);
-        let y = (parseFloat(target.getAttribute('data-y')) || 0);
+        let x = parseFloat(target.getAttribute('data-x')) || 0;
+        let y = parseFloat(target.getAttribute('data-y')) || 0;
 
         // update the element's style
         target.style.width = event.rect.width + 'px';
@@ -182,7 +185,5 @@ export class IiComponent implements OnInit {
 
   ngAfterViewInit() {
     this.items.forEach(i => this.displayBox(i));
-
   }
-
 }

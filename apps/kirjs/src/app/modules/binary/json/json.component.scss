@@ -1,0 +1,89 @@
+.wrapper {
+  font-size: 3vw;
+  word-break: break-all;
+}
+
+.code {
+  white-space: pre-wrap;
+  font-size: 2vw;
+  margin-right: 2vw;
+  margin-left: 1vw;
+}
+
+.binary .selected {
+  display: block;
+  box-shadow: 0 0 4px 1px #444;
+  background: #eee;
+  font-size: 3vw;
+}
+
+.code .selected {
+  color: #444;
+  font-size: 3vw;
+  box-shadow: 0 0 4px 1px #444;
+  background: #eee;
+}
+
+.detail {
+  display: none;
+}
+
+.selected .detail {
+  display: block;
+}
+
+.selected .value {
+  display: none;
+}
+
+:host ::ng-deep {
+  .highlight-0 {
+    background: rgba(255, 124, 0, 0.47);
+  }
+
+  .highlight-1 {
+    background: rgba(255, 239, 0, 0.47);
+  }
+
+  .highlight-2 {
+    background: #00ff29;
+  }
+
+  .highlight-3 {
+    background: #00ffe7;
+  }
+
+  .highlight-4 {
+    background: rgba(0, 177, 255, 0.46);
+  }
+
+  .highlight-5 {
+    background: rgba(185, 0, 255, 0.29);
+  }
+
+  .highlight-6 {
+    background: rgba(255, 0, 89, 0.47);
+  }
+
+  .highlight-7 {
+    background: rgba(255, 115, 0, 0.4);
+  }
+}
+
+h2 {
+  font-size: 3vw !important;
+}
+
+.error::before {
+  color: #e51400;
+  content: '🙀';
+}
+
+.error {
+  color: #e51400;
+  border: 1px #e51400 solid;
+  border-radius: 12px;
+  font-size: 3vw;
+  padding: 2vw;
+  display: block;
+}

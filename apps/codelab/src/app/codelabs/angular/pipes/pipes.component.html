@@ -1,0 +1,174 @@
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <div *slide id="intro" no-padding milestone="Pipes">
+    <codelab-title-slide
+      title="Pipes"
+      description="Learn how pipes transform input values to output values for display in a view."
+      prereqs="Interpolation expressions"
+    ></codelab-title-slide>
+  </div>
+
+  <!-- WHAT ARE PIPES  -->
+  <div *slide id="pipes-description" milestone="Pipes">
+    <h1>Introduction</h1>
+    <div class="centered-vertically">
+      <h2>
+        Every application starts out with what seems like a simple task: get
+        data, transform it, and show it to users. Getting data could be as
+        simple as creating a local variable or as complex as streaming data over
+        a WebSocket.<br /><br />
+        An Angular pipe is a <b>function</b> that transforms input values to
+        output values for display in a view. Let's see how it works.
+      </h2>
+    </div>
+  </div>
+
+  <!--  HOW DO PIPES WORK -->
+  <div *slide id="how-pipes-work" milestone="Pipes">
+    <h1>How do pipes work?</h1>
+    <h2>
+      A pipe takes in data as input and transforms it to a desired output.
+    </h2>
+    <h3>
+      Inside the interpolation expression, we use the pipe
+      <b>( &#124; )</b> operator to pass the App Component's 'dob' through the
+      the 'date' pipe on the right, transforming a long timestamp into a more
+      human-readable output. All pipes follow this signature.
+      <codelab-exercise-playground
+        [exercise]="code.workingPipes.template"
+        [codeDemoHighlight]="[code.workingPipes.matches.pipeOperator]"
+      ></codelab-exercise-playground>
+    </h3>
+  </div>
+
+  <!--  BUILT-IN PIPES -->
+  <div *slide id="built-in-pipes" milestone="Pipes">
+    <h1>Built-in Pipes</h1>
+    <div class="centered-vertically">
+      <h2>
+        Angular comes with a variety of built-in pipes that can be used in any
+        template or binding expression. Some of these pipes are:
+      </h2>
+      <ul>
+        <li>DatePipe</li>
+        <li>UpperCasePipe</li>
+        <li>LowerCasePipe</li>
+        <li>CurrencyPipe</li>
+        <li>PercentPipe</li>
+      </ul>
+      <h2>
+        You can check out all the pipes
+        <a href="https://angular.io/docs/ts/latest/api/#!?query=pipe"
+          >in the docs.</a
+        >
+      </h2>
+    </div>
+  </div>
+
+  <!--  CHAINED PIPES -->
+  <div *slide id="chained-pipes" milestone="Pipes">
+    <h1>Chained Pipes</h1>
+    <h2>
+      Translate Dali's birthday to a more human-friendly format. While you're at
+      it, make his birthday uppercase, too.
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.chainedPipesExample.template"
+    ></codelab-exercise-playground>
+    <div class="info" milestone="Pipes">Hint: dob ... date ... uppercase</div>
+  </div>
+
+  <!--  PIPES WITH ARGUMENT -->
+  <div *slide id="argument-pipes" milestone="Pipes">
+    <h1>Pipes with arguments:</h1>
+    <code-demo-editor [(ngModel)]="code.argumentPipes.template" language="html">
+    </code-demo-editor>
+    <div class="info" milestone="Pipes">
+      To add parameters to a pipe, append a colon ( : ) followed by the
+      parameters' values e.g. currency:'AUD'
+    </div>
+  </div>
+
+  <!--  PIPES AS FILTERS  -->
+  <div *slide id="pipes-as-filters" milestone="Pipes">
+    <h1>Using custom pipes to filter data</h1>
+    <code-demo-editor [(ngModel)]="code.filterPipes.template" language="html">
+    </code-demo-editor>
+  </div>
+
+  <!--  CREATING A PIPE  -->
+  <div *slide id="crating-pipe" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <code-demo-editor
+      [fontSize]="25"
+      [(ngModel)]="code.creatingAPipe.template"
+      [codeDemoHighlight]="code.creatingAPipe.matches.exportClass"
+    >
+    </code-demo-editor>
+    <h2>A pipe is a class decorated with pipe metadata.</h2>
+  </div>
+
+  <!--  PIPE TRANSFORM  -->
+  <div *slide id="pipeTransform" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <code-demo-editor
+      [fontSize]="25"
+      [(ngModel)]="code.creatingAPipe.template"
+      [codeDemoHighlight]="code.creatingAPipe.matches.pipeTransform"
+    >
+    </code-demo-editor>
+    <h2>The pipe class implements the PipeTransform interface.</h2>
+  </div>
+
+  <!--  PIPE TRANSFORM METHOD  -->
+  <div *slide id="pipe-transform-method" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <code-demo-editor
+      [fontSize]="25"
+      [(ngModel)]="code.creatingAPipe.template"
+      [codeDemoHighlight]="code.creatingAPipe.matches.method"
+    >
+    </code-demo-editor>
+    <h2>
+      The transform method accepts an input value followed by optional
+      parameters and returns the transformed value.
+    </h2>
+  </div>
+
+  <!--  PIPE DECORATOR  -->
+  <div *slide id="pipe-decorator" milestone="Pipes">
+    <h1>Creating a pipe</h1>
+    <code-demo-editor
+      [fontSize]="25"
+      [(ngModel)]="code.creatingAPipe.template"
+      [codeDemoHighlight]="code.creatingAPipe.matches.decorator"
+    >
+    </code-demo-editor>
+    <h2>
+      The @Pipe decorator allows you to define the pipe name that you'll use
+      within template expressions.
+    </h2>
+    <div class="info" milestone="Pipes">
+      Don't forget to import the @Pipe decorator from the core Angular library.
+    </div>
+  </div>
+
+  <!--  END -->
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div class="header" header><h1>End of the Pipes Section</h1></div>
+      <div class="body" body>
+        <h2>Well done! This is the end of the milestone!</h2>
+      </div>
+      <div class="footer" footer>
+        <h2>
+          <a routerLink="/visual-studio-code/0"
+            >Go to the next Bonus Milestone</a
+          >
+        </h2>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

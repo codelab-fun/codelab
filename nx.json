@@ -1,5 +1,5 @@
 {
-  "npmScope": "angular-presentation",
+  "npmScope": "codelab",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -8,13 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "angular-presentation": {
+    "codelab": {
       "tags": []
     },
-    "angular-presentation-e2e": {
-      "tags": []
-    },
-    "presentation": {
+    "codelab-e2e": {
       "tags": []
     },
     "browser": {
@@ -23,28 +20,37 @@
     "console": {
       "tags": []
     },
-    "tooltips": {
-      "tags": []
-    },
     "utils": {
       "tags": []
     },
     "kirjs": {
       "tags": []
     },
+    "dummy": {
+      "tags": []
+    },
     "kirjs-e2e": {
-      "tags": []
-    },
-    "radix": {
-      "tags": []
-    },
-    "radix-e2e": {
       "tags": []
     },
     "angular-ast-viz": {
       "tags": []
     },
     "angular-slides-to-pdf": {
+      "tags": []
+    },
+    "feedback": {
+      "tags": []
+    },
+    "slides": {
+      "tags": []
+    },
+    "code-demos": {
+      "tags": []
+    },
+    "live": {
+      "tags": []
+    },
+    "firebase-login": {
       "tags": []
     }
   }

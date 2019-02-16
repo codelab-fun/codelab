@@ -1,0 +1,48 @@
+.tools {
+  display: flex;
+}
+
+.tool.selected {
+  outline: 1px #888 solid;
+  background: #eeeeee;
+}
+
+.tool {
+  outline: 1px #ddd solid;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tool-next:before {
+  content: '?';
+}
+
+.tool-clear:before {
+  content: 'X';
+}
+
+.tool-undo:before {
+  content: '⎌';
+}
+
+.tool-redo {
+  content: '⎌';
+  transform: scale(-1, 1);
+}
+
+.tool-red-maybe:before {
+  content: '🔴';
+  opacity: 0.5;
+}
+
+.tool-highlight:before {
+  content: '▩';
+}
+
+.tool-black-maybe:before {
+  content: '⚫';
+  opacity: 0.5;
+}

@@ -2,11 +2,11 @@ dist: trusty
 language: node_js
 node_js:
   # - 7 # Node.js v7 is defined in the build matrix below. This line would cause this build to run twice. 
-  - 6
+  - 10
   
 matrix:
   include:
-    - node_js: 7
+    - node_js: 8
       env: REPORT_COVERAGE=true # Only run coverage reporting on one build.
 
 before_install:
@@ -23,9 +23,7 @@ before_install:
 
 script:
   - npm run lint
-  - npm test -- --single-run --code-coverage
   - npm run ng build -- --aot --prod
-  - if [ "$REPORT_COVERAGE" == "true" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
 
 notifications:
   email: false

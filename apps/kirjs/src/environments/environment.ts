@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  // Firebase
+  firebaseConfig: {
+    apiKey: 'AIzaSyBDg_JEXDrn7iuvGR-xrcU1bmjWc-uxmgA',
+    authDomain: 'ng2-codelab.firebaseapp.com',
+    databaseURL: 'https://ng2-codelab.firebaseio.com',
+    storageBucket: 'ng2-codelab.appspot.com'
+  }
 };
 
 /*
@@ -12,4 +20,4 @@ export const environment = {
  * below file. Don't forget to comment it out in production mode
  * because it will have a performance impact when errors are thrown
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import 'zone.js/dist/zone-error'; // Included with Angular CLI.

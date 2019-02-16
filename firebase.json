@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "codelab",
-      "public": "dist/apps/angular-presentation",
+      "public": "dist/apps/codelab",
       "rewrites": [
         {
           "source": "**",
@@ -11,8 +11,21 @@
       ]
     },
     {
+      "target": "codelab-next",
+      "public": "dist/apps/codelab",
+      "rewrites": [
+        {
+          "source": "/ru/**",
+          "destination": "/ru/index.html"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "kirjs",
-      // "app" is the applied target-name for the Hosting site myapp-app.
       "public": "dist/apps/kirjs",
       "rewrites": [
         {

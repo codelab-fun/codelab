@@ -1,0 +1,95 @@
+.memory {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.cell {
+  font-size: 1vw;
+  color: #999;
+  width: 5.7vw;
+  box-sizing: border-box;
+
+  margin-right: 0.3vw;
+  height: 6vw;
+  background: #ddd;
+  margin-bottom: 0.5vw;
+  padding: 0.5vw;
+  border: 1px #999 solid;
+}
+
+.value {
+  font-size: 3vw;
+}
+
+.index {
+  font-size: 1.5vw;
+  vertical-align: top;
+  padding: 0.2vw;
+  color: #444;
+  width: 2vw;
+  display: inline-block;
+}
+
+.cell.cell-empty {
+  background: #ffffff;
+}
+
+.cell.cell-boolean {
+  background: #444444;
+  color: #bbb;
+}
+
+.cell.selected2.selected2.selected2,
+.cell.cell-selected2 {
+  background: #ff9900;
+  color: #444;
+}
+
+.cell.cell-number.selected,
+.cell.cell-selected.cell-selected.cell-selected {
+  background: #ffff00;
+  color: #444;
+}
+
+.cell.cell-number-end-highlight,
+.cell.cell-number-highlight {
+  background: #ff0;
+  color: #444;
+}
+
+.cell.cell-cell-number-end,
+.cell.cell-number {
+  background: #444444;
+  color: #bbb;
+}
+
+.cell.cell-cell-number-end .index,
+.cell.cell-number .index {
+  color: #999;
+}
+
+.cell.cell-number.cell-selected,
+.cell.cell-number-highlight,
+.cell.cell-number {
+  width: 6vw;
+  margin-right: 0;
+  border-right: 0;
+  border-left-style: dotted;
+}
+
+.number.number {
+  background: #9f0;
+  color: black;
+}
+
+.bool.bool {
+  background: #f90;
+  color: black;
+}
+
+.link.link {
+  background: #00c8ff;
+  color: black;
+}

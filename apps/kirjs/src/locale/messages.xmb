@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="297943560492772582"><source>src/app/modules/binary/binary.component.html:10</source><source>src/app/modules/binary/binary.component.html:588</source>@kirjs</msg>
+  <msg id="2822488826106826578"><source>src/app/modules/binary/binary.component.html:11</source>️JavaScript ❤️ Binary </msg>
+  <msg id="fontSize"><source>src/app/modules/binary/binary.component.html:16,18</source>
+      If you can&apos;t read the numbers below, move closer or go to <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>kirjs.com/binary/0<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
+    </msg>
+  <msg id="199796482994564583"><source>src/app/modules/binary/binary.component.html:25</source>Binary is hidden behind many layers of abstraction</msg>
+  <msg id="4149332726076272416"><source>src/app/modules/binary/binary.component.html:29</source>In this talk:</msg>
+  <msg id="8136286563521868281"><source>src/app/modules/binary/binary.component.html:31</source>Binary in files (images, video, other media, zip)</msg>
+  <msg id="2538222517770638672"><source>src/app/modules/binary/binary.component.html:32</source>Binary for data transfer (instead of JSON)</msg>
+  <msg id="12850250970925130"><source>src/app/modules/binary/binary.component.html:33</source>Javascript using binary in memory</msg>
+  <msg id="4749058246803727552"><source>src/app/modules/binary/binary.component.html:41</source>Let&apos;s see what&apos;s inside of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>gif<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></msg>
+  <msg id="4240264931790119622"><source>src/app/modules/binary/binary.component.html:87</source><source>src/app/modules/binary/binary.component.html:111</source> Binary data makes no sense without a schema</msg>
+  <msg id="1001352917033632569"><source>src/app/modules/binary/binary.component.html:90</source><source>src/app/modules/binary/binary.component.html:114</source>Binary data</msg>
+  <msg id="6599425442176006164"><source>src/app/modules/binary/binary.component.html:91</source><source>src/app/modules/binary/binary.component.html:115</source>01101000 01101111 01101100 01111001 00101110 01101010 01110011</msg>
+  <msg id="1721827980245086554"><source>src/app/modules/binary/binary.component.html:97</source><source>src/app/modules/binary/binary.component.html:121</source><source>src/app/modules/binary/binary.component.html:449</source>Schema</msg>
+  <msg id="1818723279872967225"><source>src/app/modules/binary/binary.component.html:98</source>Lol, what&apos;s this?</msg>
+  <msg id="3222970134911157017"><source>src/app/modules/binary/binary.component.html:122</source>This is UTF-8 string!</msg>
+  <msg id="3597932961286677186"><source>src/app/modules/binary/binary.component.html:167</source>Header</msg>
+  <msg id="8989873612204787281"><source>src/app/modules/binary/binary.component.html:169</source>Contains size, global pallets specs, transparency.</msg>
+  <msg id="534812795985958361"><source>src/app/modules/binary/binary.component.html:171</source>Palette (Optional, size defined ) </msg>
+  <msg id="3938479736078443805"><source>src/app/modules/binary/binary.component.html:173</source>Contains indexed colors</msg>
+  <msg id="3548048205965117162"><source>src/app/modules/binary/binary.component.html:175</source>Extensions (Optional)</msg>
+  <msg id="489855084993879246"><source>src/app/modules/binary/binary.component.html:178</source>Actual image data</msg>
+  <msg id="5838521644867201449"><source>src/app/modules/binary/binary.component.html:179</source>Image Control</msg>
+  <msg id="931491989303959259"><source>src/app/modules/binary/binary.component.html:180</source>Animation Control</msg>
+  <msg id="3807699453257291879"><source>src/app/modules/binary/binary.component.html:181</source>Comments</msg>
+  <msg id="5510336295069197234"><source>src/app/modules/binary/binary.component.html:214</source>Convert binary to decimal with JavaScript</msg>
+  <msg id="8654618120168558452"><source>src/app/modules/binary/binary.component.html:219</source>Convert decimal to binary</msg>
+  <msg id="6328086056731380089"><source>src/app/modules/binary/binary.component.html:241</source>Convert binary to hexadecimal with JavaScript</msg>
+  <msg id="3610726963919885246"><source>src/app/modules/binary/binary.component.html:246</source>Convert hexadecimal to binary with JavaScript</msg>
+  <msg id="4735883542091123359"><source>src/app/modules/binary/binary.component.html:278</source>ПЕЉМЕЊ!!!</msg>
+  <msg id="5377037856556160771"><source>src/app/modules/binary/binary.component.html:293</source>Get charcode from string</msg>
+  <msg id="7025121863698322477"><source>src/app/modules/binary/binary.component.html:298</source>Get letter from charcode</msg>
+  <msg id="7931653459498650396"><source>src/app/modules/binary/binary.component.html:334</source>Parsing binary(with <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary-parser<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>)</msg>
+  <msg id="3731160866778187040"><source>src/app/modules/binary/binary.component.html:355</source>Can we use <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>binary<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> instead of <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>JSON<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>?</msg>
+  <msg id="7852133356596779874"><source>src/app/modules/binary/binary.component.html:368</source>Serialized Size</msg>
+  <msg id="2742664813202759813"><source>src/app/modules/binary/binary.component.html:372</source><source>src/app/modules/binary/binary.component.html:391</source><source>src/app/modules/binary/binary.component.html:410</source><source>src/app/modules/binary/binary.component.html:432</source><source>src/app/modules/binary/binary.component.html:452</source>JSON</msg>
+  <msg id="2044194570562448530"><source>src/app/modules/binary/binary.component.html:374</source>Bigger</msg>
+  <msg id="793068249425686908"><source>src/app/modules/binary/binary.component.html:379</source><source>src/app/modules/binary/binary.component.html:398</source><source>src/app/modules/binary/binary.component.html:420</source><source>src/app/modules/binary/binary.component.html:440</source><source>src/app/modules/binary/binary.component.html:460</source>Binary</msg>
+  <msg id="7774873943331135334"><source>src/app/modules/binary/binary.component.html:381</source>Smaller</msg>
+  <msg id="641664010209157570"><source>src/app/modules/binary/binary.component.html:388</source>Serialization speed</msg>
+  <msg id="2985059781575755822"><source>src/app/modules/binary/binary.component.html:393</source>Slower</msg>
+  <msg id="659233733431508399"><source>src/app/modules/binary/binary.component.html:400</source>Faster</msg>
+  <msg id="675502942307621158"><source>src/app/modules/binary/binary.component.html:407</source>Debugging</msg>
+  <msg id="74488306490404477"><source>src/app/modules/binary/binary.component.html:413</source>Easy to understand</msg>
+  <msg id="7679521196114828675"><source>src/app/modules/binary/binary.component.html:414</source>Human readable</msg>
+  <msg id="4290458654577941433"><source>src/app/modules/binary/binary.component.html:422</source><source>src/app/modules/binary/binary.component.html:442</source>Requires special tooling</msg>
+  <msg id="9105483695831392309"><source>src/app/modules/binary/binary.component.html:429</source>Tooling</msg>
+  <msg id="2186589438043615872"><source>src/app/modules/binary/binary.component.html:434</source>For JS works out of the box</msg>
+  <msg id="2979028920132715625"><source>src/app/modules/binary/binary.component.html:454</source>No schema</msg>
+  <msg id="7108226176298610135"><source>src/app/modules/binary/binary.component.html:462</source>Needs a schema</msg>
+  <msg id="8657754663266965278"><source>src/app/modules/binary/binary.component.html:463</source>Comes with type checking</msg>
+  <msg id="9170265368266877102"><source>src/app/modules/binary/binary.component.html:464</source>Comes with validation</msg>
+  <msg id="1257397640951538252"><source>src/app/modules/binary/binary.component.html:471</source>Existing solutions</msg>
+  <msg id="8643348940092477927"><source>src/app/modules/binary/binary.component.html:473</source><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Protocol buffers<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Google)</msg>
+  <msg id="5480246874668908377"><source>src/app/modules/binary/binary.component.html:474</source><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Flatbuffers<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Google)</msg>
+  <msg id="3516009209791088102"><source>src/app/modules/binary/binary.component.html:475</source><ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Thrift<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> (Apache/Facebook)</msg>
+  <msg id="501698005128033255"><source>src/app/modules/binary/binary.component.html:480</source>File header constants</msg>
+  <msg id="497452967189052368"><source>src/app/modules/binary/binary.component.html:482</source>Gif - GIF87a (or GIF89a)</msg>
+  <msg id="734429310122802487"><source>src/app/modules/binary/binary.component.html:483</source>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9&apos;</msg>
+  <msg id="6451047679707134711"><source>src/app/modules/binary/binary.component.html:484</source>Java class - CAFEBABE</msg>
+  <msg id="8107803807883105295"><source>src/app/modules/binary/binary.component.html:485</source>ZIP files begin with ‘PK‘ (50 4B)</msg>
+  <msg id="2598847161910848616"><source>src/app/modules/binary/binary.component.html:486</source>PDF files start with ‘%PDF‘ (25 50 44 46)</msg>
+  <msg id="7492675950271746195"><source>src/app/modules/binary/binary.component.html:487</source>PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A 1A 0A)</msg>
+  <msg id="4799145408495606287"><source>src/app/modules/binary/binary.component.html:488</source>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</msg>
+  <msg id="2428219673022947728"><source>src/app/modules/binary/binary.component.html:493</source>Big library of binary formats</msg>
+  <msg id="4964093976179230239"><source>src/app/modules/binary/binary.component.html:494</source>https://formats.kaitai.io/</msg>
+  <msg id="7117028634376204882"><source>src/app/modules/binary/binary.component.html:499</source>Let&apos;s look at memory management in JS</msg>
+  <msg id="3362352357730335601"><source>src/app/modules/binary/binary.component.html:503</source>Let&apos;s see how memory works in typed arrays</msg>
+  <msg id="5747803473977552853"><source>src/app/modules/binary/binary.component.html:575</source>Gif facts</msg>
+  <msg id="3264831671739289198"><source>src/app/modules/binary/binary.component.html:577</source>Image size: 1х1 to 65535х65535</msg>
+  <msg id="6873436420290828569"><source>src/app/modules/binary/binary.component.html:578</source>Colors: 2 - 256</msg>
+  <msg id="8160048133378270611"><source>src/app/modules/binary/binary.component.html:579</source>True color gifs are possible</msg>
+  <msg id="8642911668882581757"><source>src/app/modules/binary/binary.component.html:580</source>Max number of animation frames - unlimited</msg>
+  <msg id="3688153131129835544"><source>src/app/modules/binary/binary.component.html:581</source>Animation delay 1/100 - 655 seconds</msg>
+  <msg id="336946060573563813"><source>src/app/modules/binary/binary.component.html:582</source>There&apos;s a plain text extension</msg>
+  <msg id="8788288170627730529"><source>src/app/modules/binary/binary.component.html:583</source>24 pages + 12 pages appendix in gif89 standard</msg>
+  <msg id="8031342257135808239"><source>src/app/modules/binary/binary.component.html:589</source>Binary ❤️ JavaScript</msg>
+  <msg id="6802387164374652684"><source>src/app/modules/binary/binary.component.html:590</source>kirjs.com/binary/0</msg>
+  <msg id="876108112502141396"><source>src/app/modules/binary/binary.component.html:591</source>Thanks @andrey_sitnik, @_bmsdave for review</msg>
+  <msg id="1742016744700285395"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:7</source>This is always &quot;GIF&quot;</msg>
+  <msg id="1966011271871898521"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:8</source>This is always &quot;87a&quot; or &quot;89a&quot;</msg>
+  <msg id="2907179763619097754"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:9</source><source>src/app/modules/binary/fake-gif/fake-gif.component.html:43</source>Width of the image</msg>
+  <msg id="7454178759479297421"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:10</source><source>src/app/modules/binary/fake-gif/fake-gif.component.html:44</source>Height of the image</msg>
+  <msg id="2190517453154346128"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:12</source>Whether global palette is present</msg>
+  <msg id="7419758577762656600"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:13</source>Number of bits per primary color available</msg>
+  <msg id="6279072752355765626"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:14</source>Whether the palette is sorted</msg>
+  <msg id="6362281559063974384"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:15,17</source>Specifies number of colors in the palette proportional a power of
+    two. e.g.
+  </msg>
+  <msg id="4799068399800745526"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:18,19</source>If present specifies index of a color in the global color table that would be transparent
+  </msg>
+  <msg id="7155961055090586288"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:20</source>Ratio of the pixel</msg>
+  <msg id="8178615203242634427"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:22</source>Reserved bits</msg>
+  <msg id="6797144872680228343"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:23,36</source>Disposal Method - Indicates the way in which the graphic is to
+    be treated after being displayed.
+
+    Values : 0 - No disposal specified. The decoder is
+    not required to take any action.
+    1 - Do not dispose. The graphic is to be left
+    in place.
+    2 - Restore to background color. The area used by the
+    graphic must be restored to the background color.
+    3 - Restore to previous. The decoder is required to
+    restore the area overwritten by the graphic with
+    what was there prior to rendering the graphic.
+    4-7 - To be defined.
+  </msg>
+  <msg id="4537070299235731007"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:37</source>Not used, the initial intention was to allow user interactions</msg>
+  <msg id="7895980228479043030"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:38</source>Whether the frame should have a transparent color</msg>
+  <msg id="288524084616596078"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:39</source>Animation delay for next image</msg>
+  <msg id="2564139578844670282"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:40</source>Optional transparent color index</msg>
+  <msg id="7752598573515737652"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:41</source>Horizontal shift in pixels</msg>
+  <msg id="3589525053629068000"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:42</source>Vertical shift in pixels</msg>
+  <msg id="1085666956292885352"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:45</source>Whether the image has local palette</msg>
+  <msg id="1603151697351855061"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:46</source>Indicates if the image is interlaced.</msg>
+  <msg id="8035016501244287343"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:47</source>Whether local palette is sorted</msg>
+  <msg id="2408340429265484547"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:48</source>Bucket of sizes of local palette.</msg>
+  <msg id="1537375986743181008"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:50,52</source>Identifies the Netscape Looping Extension. This field contains the fixed
+    value 0x01
+  </msg>
+  <msg id="6828342527983665872"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:53</source>Size of the extension block in bytes</msg>
+  <msg id="3076441160662364443"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:54</source>Number of animation loops</msg>
+  <msg id="8535614733470597054"><source>src/app/modules/binary/fake-gif/fake-gif.component.html:55</source>This is the actual image encoded with LZW</msg>
+  <msg id="5260619836644538424"><source>src/app/modules/binary/json/json.component.html:3</source>Data as JSON (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph><ph name="INTERPOLATION"><ex>{{codeLength}}</ex>{{codeLength}}</ph> bytes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>)</msg>
+  <msg id="1409409630239345307"><source>src/app/modules/binary/json/json.component.html:10</source>Binary data (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph><ph name="INTERPOLATION"><ex>{{binariesLength}}</ex>{{binariesLength}}</ph> bytes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>)</msg>
+  <msg id="6442265859744523188"><source>src/app/modules/binary/json/json.component.html:34</source>Schema (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph><ph name="INTERPOLATION"><ex>{{schemaLength}}</ex>{{schemaLength}}</ph> bytes<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>)</msg>
+  <msg id="2648443831787605149"><source>src/app/modules/binary/color-indexing/color-indexing.component.html:3</source>Unindexed image</msg>
+  <msg id="3694360292158869661"><source>src/app/modules/binary/color-indexing/color-indexing.component.html:13</source>Color table (Palette)</msg>
+  <msg id="6121157875507934433"><source>src/app/modules/binary/color-indexing/color-indexing.component.html:17</source>Indexed image</msg>
+  <msg id="introduction"><source>src/app/modules/react/react.component.html:5</source>Introduction</msg>
+</messagebundle>

@@ -1,0 +1,105 @@
+:host {
+  height: 100%;
+  display: block;
+
+  ::ng-deep iframe {
+    display: block;
+    width: 100%;
+    flex-grow: 1;
+    height: 100%;
+  }
+}
+
+.preview-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .img-full {
+    width: 100%;
+    flex-shrink: 0;
+    height: 2vw;
+    background-image: url(../browser-window/pics/browsertop-middle.png);
+    background-repeat: repeat;
+    background-size: 2vw 2vw;
+    display: flex;
+    justify-content: space-between;
+
+    .img-left {
+      background-size: cover;
+    }
+
+    .img-right {
+      background-size: cover;
+    }
+  }
+
+  .frame {
+    box-shadow: 0 0 1px #dddddd;
+    margin-top: 0;
+    width: 100%;
+    background-color: #fff;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    & ::ng-deep *:first-child {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.console-frame {
+  .url {
+    display: none;
+  }
+
+  .img-full {
+    background-image: url(./pics/console/consoletop-middle.png);
+
+    .img-left {
+      width: 9vw;
+      height: 2vw;
+      background-image: url(./pics/console/consoletop-left.png);
+    }
+
+    .img-right {
+      width: 3.3vw;
+      height: 2vw;
+      background-image: url(./pics/console/consoletop-right.png);
+    }
+  }
+}
+
+.browser-frame {
+  .img-full img {
+    height: 2vw;
+  }
+
+  .img-full {
+    background-image: url(./pics/browser/browsertop-middle.png);
+
+    .img-left {
+      width: 10vw;
+      height: 2vw;
+      background-image: url(./pics/browser/browsertop-left.png);
+    }
+
+    .img-right {
+      width: 3vw;
+      height: 2vw;
+      background-image: url(../browser-window/pics/browsertop-right.png);
+    }
+  }
+
+  .url {
+    position: absolute;
+    left: 3.2vw;
+    top: 1.2vw;
+    font-size: 0.5vw;
+    background-color: #fff;
+  }
+}
