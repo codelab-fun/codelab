@@ -1,0 +1,33 @@
+.menu-bar-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: no-repeat center white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.content-wrapper {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.modal-title {
+    margin: 0 0 10px 0;
+}

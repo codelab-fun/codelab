@@ -166,7 +166,6 @@ html {
 }
 
 p {
-  font-size: 1.2vw;
   margin: 0;
   margin-bottom: 10px;
   padding: 0;
@@ -198,29 +197,6 @@ a {
   right: 4%;
   display: flex;
   flex-direction: row;
-}
-
-/*  BUTTONS BAR   */
-.menu-bar-btn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: no-repeat center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin-left: 10px;
-}
-
-.menu-bar-btn:hover {
-  cursor: pointer;
-}
-
-.github-icon {
-  background: white;
-}
-
-.github-icon img {
-  width: 100%;
-  height: 100%;
 }
 
 .exercise {

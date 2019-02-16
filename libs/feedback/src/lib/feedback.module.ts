@@ -5,9 +5,9 @@ import { FeedbackService } from './feedback.service';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
+import { ButtonWithMenuModule } from '../../../../apps/codelab/src/app/components/buttons-nav-bar/button-with-menu/button-with-menu.module';
 
 // Note! We are using AngularFire2 v4. There are a lot of breaking changes.
 // See: https://github.com/angular/@angular/fire/issues/854
@@ -22,18 +22,19 @@ export const angularFire = AngularFireModule.initializeApp(
     AngularFireDatabaseModule,
     angularFire,
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ButtonWithMenuModule
   ],
   providers: [FeedbackService],
   declarations: [
     FeedbackWidgetComponent,
-    FeedbackFormComponent,
     FeedbackRatingComponent
   ],
   exports: [
     FeedbackWidgetComponent,
-    FeedbackFormComponent,
-    FeedbackRatingComponent
+    FeedbackRatingComponent,
+    ButtonWithMenuModule
   ]
 })
-export class FeedbackModule {}
+export class FeedbackModule {
+}
