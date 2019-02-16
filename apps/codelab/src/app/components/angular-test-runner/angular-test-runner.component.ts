@@ -134,7 +134,7 @@ export class SimpleAngularTestRunnerComponent
           addMetaInformation(sandbox, this.code);
           try {
             sandbox.evalJs(code);
-          } catch (e) {           
+          } catch (e) {
             console.groupCollapsed(e.message);
             console.log(e);
             console.groupEnd();
