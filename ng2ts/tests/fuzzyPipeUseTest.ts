@@ -32,7 +32,7 @@ beforeEach(() => {
   TestBed.overrideComponent(ThumbsComponent, {set: {template: thumbs_thumbs_html}});
   TestBed.overrideComponent(TogglePanelComponent, {set: {template: toggle_panel_toggle_panel_html}});
   TestBed.overrideComponent(ContextComponent, {set: {template: context_context_html}});
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 function sampleFuzzy(value) {
   const date = new Date(value);

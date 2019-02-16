@@ -20,7 +20,7 @@ beforeEach(() => {
         templateUrl: undefined
       }
     });
-    TestBed.compileComponents();
+    try { TestBed.compileComponents(); } catch(e) { console.log(e); }
   } catch (e) {
     // whatever
   }

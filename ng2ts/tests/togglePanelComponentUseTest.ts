@@ -26,7 +26,7 @@ beforeEach(() => {
   TestBed.overrideComponent(ThumbsComponent, { set: { template: thumbs_thumbs_html } });
   TestBed.overrideComponent(VideoComponent, { set: { template: video_video_component_html } });
   TestBed.overrideComponent(TogglePanelComponent, { set: { template: toggle_panel_toggle_panel_html } });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Component Tree', () => {
