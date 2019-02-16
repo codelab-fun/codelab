@@ -13,7 +13,7 @@
     "i18n": "ng xi18n codelab --i18n-format xmb --output-path src/locale",
     "build:ru": "ng build codelab --configuration ru",
     "deploy:ru": "npm run build:prod && npm run build:ru && firebase deploy --only hosting:codelab-next",
-    "serve:ru": "ng serve --configuration ru",
+    "serve:ru": "npm run ng -- serve --configuration ru",
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
     "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "deploy": "ng build --prod --aot && npm run sw  && firebase deploy --only hosting:codelab",
