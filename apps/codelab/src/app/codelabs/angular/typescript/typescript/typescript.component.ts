@@ -1,10 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
-import {
-  convertExerciseToMap,
-  ng2tsConfig
-} from '../../../../../../../../ng2ts/ng2ts';
+import { convertExerciseToMap, ng2tsConfig } from '../../../../../../../../ng2ts/ng2ts';
 import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../../shared/helpers/helpers';
 
 declare const require;
@@ -51,6 +48,7 @@ const realPuppy: Puppy = {
 const notRealPuppy: Puppy = {
   says: 'meow' // ${this.t.errorNotAPuppy}
 }`,
+        codeArraysMatch: /Array/,
         codeArrays: typeScriptWithConsoleLog(`// Array<Type>
 const cats: Array<string> = ['Simba', 'Aslan'];
 // ${this.t.typeDoesSameThing}
@@ -158,18 +156,20 @@ console.log(oscar.bark());`,
 }`
         ),
         matches: {
-          classPuppyMatch: /class Puppy/,
+          classPuppyMatch: {'app.ts': /class Puppy/},
           classMatch: /class/,
           exportMatch: /export/,
           importMatch: {
             'puppy.ts': /export/,
             'app.ts': /import/
           },
+          arrayMatch: {
+            'app.ts': [/Array<string>/, /string\[]/],
+          },
           constants: /const /,
-          constructorMatch: /(public name: string)/,
-          publicMatch: /public name/,
-          thisMatch: /this.name/,
-          edouardMatch: /Édouard/,
+
+          constructorMatch: {'app.ts': [/(public name: string)/, /Édouard/]},
+          modifierMatch: {'app.ts': [/public name/, /this.name/]},
           oscarMatch: /Oscar-Claude/
         }
       },
@@ -199,7 +199,7 @@ console.log(add(2, '2'));`
         (code.files[2] as any).bootstrap = false;
         return code;
       })(),
-      tsExerciseMatch: /'.*'/
+      tsExerciseMatch: {'app.ts': /'.*'/}
     };
   }
 }

@@ -41,6 +41,7 @@ export class CodeDemoEditorHighlightDirective
         this.codeDemoHighlight = [this.codeDemoHighlight];
       }
 
+
       if (!editor.getModel()) {
         return;
       }

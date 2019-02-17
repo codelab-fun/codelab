@@ -187,7 +187,7 @@
     <codelab-exercise-playground
       presets=""
       ui="console"
-      [codeDemoHighlight]="[code.tsExerciseMatch]"
+      [highlights]="code.tsExerciseMatch"
       [exercise]="code.js2And2"
     ></codelab-exercise-playground>
     <h2 i18n>
@@ -256,6 +256,7 @@
     <codelab-exercise-playground
       presets=""
       ui="console"
+      [highlights]="code.classDescription.matches.arrayMatch"
       [exercise]="code.moreTypes.codeArrays"
     ></codelab-exercise-playground>
     <div class="info" i18n>
@@ -275,7 +276,7 @@
     <codelab-exercise-playground
       presets=""
       ui="console"
-      [codeDemoHighlight]="[code.classDescription.matches.classPuppyMatch]"
+      [highlights]="code.classDescription.matches.classPuppyMatch"
       [exercise]="code.classDescription.code"
     ></codelab-exercise-playground>
   </div>
@@ -290,10 +291,7 @@
       presets=""
       ui="console"
       [exercise]="code.classDescription.codeConstructor"
-      [codeDemoHighlight]="[
-        code.classDescription.matches.constructorMatch,
-        code.classDescription.matches.edouardMatch
-      ]"
+      [highlights]="code.classDescription.matches.constructorMatch"
     ></codelab-exercise-playground>
   </div>
 
@@ -307,10 +305,7 @@
     <codelab-exercise-playground
       presets=""
       ui="console"
-      [codeDemoHighlight]="[
-        code.classDescription.matches.thisMatch,
-        code.classDescription.matches.publicMatch
-      ]"
+      [highlights]="code.classDescription.matches.modifierMatch"
       [exercise]="code.classDescription.codeConstructor"
     ></codelab-exercise-playground>
     <div class="info" i18n>
@@ -451,7 +446,7 @@
         <br/>
         <br/>
         <h2>
-          <ng-container i18n>Next: </ng-container>
+          <ng-container i18n>Next:</ng-container>
           <a routerLink="../../create-first-app/0" i18n>
             Learn how to create your first Angular app!
           </a>
