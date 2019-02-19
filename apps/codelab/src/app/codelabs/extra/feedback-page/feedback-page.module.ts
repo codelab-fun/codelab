@@ -4,7 +4,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgModule } from '@angular/core';
 import { FeedbackPageComponent } from './feedback-page.component';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from '../../../../../../../libs/slides/src/lib/routing/slide-routes';
 import { FormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '@codelab/browser';
 
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
 import { GithubService } from './github.service';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../../../kirjs/src/environments/environment';
 import { SlidesModule } from '@codelab/slides';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(FeedbackPageComponent));
