@@ -83,8 +83,8 @@
     //TODO(kirjs): find a better way to assign a class name
     & > div {
       height: 100%;
-      // this causes bug with scroll
-      // padding: 2vw; 
+      padding: 2vw;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
 
