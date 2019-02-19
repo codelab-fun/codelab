@@ -15,24 +15,17 @@ enum Languages {
   selector: 'code-demo-editor, code-demo-editor-from-model'
 })
 export class CodeDemoEditorEmmetDirective implements AfterViewInit {
-  // Todo: is now unsupported https://github.com/troy351/emmet-monaco-es/issues/3
-  private emmet: any;
+  private emmetDisposeFn: Function;
   private subscription: IDisposable;
 
   constructor(@Self() private editorInjector: CodeDemoEditorInjector) {}
 
   ngAfterViewInit(): void {
     const editor = this.editorInjector.editor;
-    this.subscription = editor.onDidChangeModelLanguage(
-      (event: IModelLanguageChangedEvent) =>
-        this.onChangeLanguageEventHandler(event)
+    this.subscription = editor.onDidChangeModel(() =>
+      this.onChangeModel()
     );
-
-    const model = editor.getModel();
-    const language = model && model['_languageIdentifier'].language;
-    if (language) {
-      this.onChangeLanguageEventHandler({ oldLanguage: undefined, newLanguage: language })
-    }
+    this.onChangeModel();
   }
 
   ngOnDestroy(): void {
@@ -40,6 +33,18 @@ export class CodeDemoEditorEmmetDirective implements AfterViewInit {
     if (this.subscription) {
       this.subscription.dispose();
       this.subscription = null;
+    }
+  }
+
+  private onChangeModel() {
+    const editor = this.editorInjector.editor;
+    const model = editor.getModel();
+    const language = model && model['_languageIdentifier'].language;
+    if (language) {
+      this.onChangeLanguageEventHandler({
+        oldLanguage: undefined,
+        newLanguage: language
+      });
     }
   }
 
@@ -62,20 +67,22 @@ export class CodeDemoEditorEmmetDirective implements AfterViewInit {
   }
 
   private activateEmmetWith(language: Languages) {
+    console.log(`Emmet activated with`, language);
     const editor = this.editorInjector.editor;
     if (language === Languages.html) {
-      this.emmet = emmetHTML(editor, monaco);
+      this.emmetDisposeFn = emmetHTML(editor, monaco);
     }
 
     if (language === Languages.css) {
-      this.emmet = emmetCSS(editor, monaco);
+      this.emmetDisposeFn = emmetCSS(editor, monaco);
     }
   }
 
   private deactivateEmmet() {
-    console.warn(
-      `Emmet cannot be deactivated until https://github.com/troy351/emmet-monaco-es/issues/3 is completed.`
-    );
+    if (this.emmetDisposeFn) {
+      this.emmetDisposeFn();
+      this.emmetDisposeFn = null;
+    }
   }
 }
 
