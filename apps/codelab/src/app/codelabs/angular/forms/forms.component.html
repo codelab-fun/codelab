@@ -197,6 +197,7 @@
     <codelab-exercise
       milestone="forms"
       [translations]="t"
+      url="/assets/runner"
       [exercise]="exercise"
     >
     </codelab-exercise>
@@ -204,7 +205,9 @@
 
   <div *slide id="end">
     <codelab-closing-slide>
-      <div class="header" header><codelab-breadcrumb i18n>End of The Forms Milestone</codelab-breadcrumb></div>
+      <div class="header" header>
+        <codelab-breadcrumb i18n>End of The Forms Milestone</codelab-breadcrumb>
+      </div>
       <div class="body" body>
         <h2 i18n>Well done! This is the end of the milestone!</h2>
         <h2 i18n>
@@ -213,7 +216,7 @@
           <a href="https://angular.io/guide/dynamic-form">Angular docs</a>
         </h2>
         <h2>
-          <ng-container i18n>Next: </ng-container>
+          <ng-container i18n>Next:</ng-container>
           <a routerLink="../../angular-cli/0" i18n>
             Learn how to start working on your angular app in the
             Angular-cli Milestone
