@@ -1,5 +1,5 @@
 import { Component, ContentChild, ElementRef, OnDestroy, ViewContainerRef } from '@angular/core';
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ButtonWithMenuModalDirective } from './button-with-menu-modal.directive';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
@@ -15,6 +15,8 @@ export class ButtonWithMenuComponent implements OnDestroy {
   @ContentChild(ButtonWithMenuModalDirective) modal;
 
   destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
+
+  overlayRef: OverlayRef;
 
   constructor(
     private _vcr: ViewContainerRef,
@@ -37,11 +39,15 @@ export class ButtonWithMenuComponent implements OnDestroy {
       hasBackdrop: true,
       positionStrategy
     });
-    const overlayRef = this.overlay.create(overlayConfig);
+    if (this.overlayRef) {
+      this.overlayRef.dispose();
+    }
+    const overlayRef = this.overlayRef = this.overlay.create(overlayConfig);
     const portal = new TemplatePortal(this.modal.template, this._vcr, {
       $implicit: {
         close: () => {
           overlayRef.detach();
+          this.overlayRef.dispose();
         }
       }
     });
@@ -54,5 +60,8 @@ export class ButtonWithMenuComponent implements OnDestroy {
   ngOnDestroy() {
     this.destroy.next(null);
     this.destroy.complete();
+    if (this.overlayRef) {
+      this.overlayRef.dispose();
+    }
   }
 }
