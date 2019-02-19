@@ -1,0 +1,34 @@
+.menu-bar-btn {
+    background-color: #ff594b !important;
+}
+
+img {
+    width: 60%;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.menu-list .menu-item a {
+    display: inline-block;
+    width: 100%;
+    color: #000;
+    text-decoration: none;
+}
+
+.menu-list .menu-item a .menu-item-text {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.menu-list .menu-item a:hover {
+    color: #fff;
+    background-color: #982a2a;
+}
+
+.menu-icon:hover {
+    cursor: pointer;
+}
