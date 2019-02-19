@@ -59,7 +59,7 @@ interface Cat {
   age: number
 }
 
-const betterCats: Array<Cat> = [
+const betterCats: Cat[] = [
   {name: 'Simba', age: 22},
   {name: 'Aslan', age: 9999}
 ];

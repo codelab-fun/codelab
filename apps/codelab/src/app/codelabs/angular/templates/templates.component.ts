@@ -111,9 +111,9 @@ export class AppComponent {
 <!-- ${this.t.allowsToConditionallyBindClass}-->
 <div [class.special]="isSpecial">Special</div>
 <!-- ${this.t.orStyleProps} -->
-<button [style.color]="isSpecial ? 'red' : 'green'">
+<button [style.color]="isSpecial ? 'red' : 'green'"></button>
 <!-- ${this.t.worksWithCustomComponents} -->
-<birthday-card [date]="person.birthday"> `
+<birthday-card [date]="person.birthday"></birthday-card> `
       },
       ngIfDirective: {
         template: displayAngularComponent(`import {Component} from '@angular/core';

@@ -26,7 +26,7 @@
           <div>
             <b (click)="group$.next('name')">{{ message.name }}</b>
             <span class="link">
-              (<a [routerLink]="message.href">{{
+              (<a [routerLink]="'/angular'+message.href">{{
                 message.header || 'No header'
               }}</a
               >)
