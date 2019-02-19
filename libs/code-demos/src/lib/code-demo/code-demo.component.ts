@@ -1,19 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  filter,
-  map,
-  publishReplay,
-  refCount,
-  startWith,
-  tap
-} from 'rxjs/operators';
-import {
-  BehaviorSubject,
-  combineLatest,
-  Observable,
-  ReplaySubject
-} from 'rxjs';
+import { filter, map, publishReplay, refCount, startWith } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
 import { compileTsFilesWatch } from '../runner/compile-ts-files';
 import { Code } from '../shared/types';
 
@@ -97,8 +85,8 @@ export class CodeDemoComponent implements ControlValueAccessor {
     );
 
     this.files$ = combineLatest(ts, staticFiles).pipe(
-      map(([js, staticFiles]) => ({ ...staticFiles, ...js })),
-      map(files => ({ ...this.code, ...files })),
+      map(([js, staticFiles]) => ({...staticFiles, ...js})),
+      map(files => ({...this.code, ...files})),
       publishReplay(1),
       refCount()
     );
@@ -108,9 +96,11 @@ export class CodeDemoComponent implements ControlValueAccessor {
     return code;
   }
 
-  registerOnTouched() {}
+  registerOnTouched() {
+  }
 
-  registerOnChange() {}
+  registerOnChange() {
+  }
 
   writeValue(code: Record<string, string>) {
     if (code) {
@@ -130,7 +120,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
       filterByFileType('html|css', this.codeCache)
     );
 
-    this.codeCache = { ...code };
+    this.codeCache = {...code};
     this.changedTsFilesSubject.next(changesTs);
     this.changedStaticFilesSubject.next(changesStatic);
   }

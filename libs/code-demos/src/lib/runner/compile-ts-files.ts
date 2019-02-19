@@ -22,9 +22,7 @@ function watch(
   inputFiles$: ObservableFiles,
   options: ts.CompilerOptions
 ): AdapterHost {
-  const outputFiles: BehaviorSubject<
-    Record<string, string>
-  > = new BehaviorSubject<Record<string, string>>({});
+  const outputFiles: BehaviorSubject<Record<string, string>> = new BehaviorSubject<Record<string, string>>({});
   // const rootFileNames = [];
   const files: ts.MapLike<{ version: number; file: string }> = {};
 
@@ -68,7 +66,7 @@ function watch(
 
     filteredFiles.forEach(([fileName, file]) => {
       if (!files[fileName]) {
-        files[fileName] = { version: 0, file };
+        files[fileName] = {version: 0, file};
       }
       files[fileName].version++;
       files[fileName].file = file;
@@ -90,10 +88,8 @@ function watch(
   function emitFiles(fileNames: string[]) {
     const updated = fileNames
       .map(emitFile)
-      .map(output => output.outputFiles)
-      ['flat']()
       .reduce((acc, outputFile) => {
-        if (outputFile.name.match(/\.js$/)) {
+        if (outputFile) {
           return {
             ...acc,
             [outputFile.name]: outputFile.text
@@ -115,7 +111,13 @@ function watch(
       logErrors(fileName);
     }
 
-    return output;
+    const file = output.outputFiles.find(file => /\.js$/.test(file.name));
+
+    if (file) {
+      file.name = file.name.replace(/^\//, '');
+    }
+
+    return file;
   }
 
   function logErrors(fileName: string) {
@@ -137,7 +139,7 @@ function watch(
         } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
         console.log(
           `Error ${diagnostic.file.fileName} (${line + 1},${character +
-            1}): ${message}`
+          1}): ${message}`
         );
       } else {
         console.log(`  Error: ${message}`);
@@ -147,9 +149,7 @@ function watch(
   }
 }
 
-export function compileTsFilesWatch(): MonoTypeOperatorFunction<
-  Record<string, string>
-> {
+export function compileTsFilesWatch(): MonoTypeOperatorFunction<Record<string, string>> {
   let host: AdapterHost;
   return (source: Observable<Record<string, string>>) => {
     return source.pipe(
