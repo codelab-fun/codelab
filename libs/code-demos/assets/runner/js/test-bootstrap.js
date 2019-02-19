@@ -4,7 +4,6 @@ function mochaBefore() {
   mocha.suite._afterEach = [];
   mocha.suite._beforeAll = [];
   mocha.suite._beforeEach = [];
-  console.log(mocha.suite);
   mocha.setup('bdd').reporter(function() {});
 }
 

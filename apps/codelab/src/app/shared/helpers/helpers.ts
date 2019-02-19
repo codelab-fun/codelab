@@ -5,7 +5,7 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
     ...exercise(moduleName, code, code2),
     before: `
 
-    export const value = {};
+    export const value = window.value = window.value || {};
 
     function wrap(context, prop, callback){
       if(!context[prop].patched){
