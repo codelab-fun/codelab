@@ -131,7 +131,6 @@ export class SimpleAngularTestRunnerComponent
               )}'));`
             );
             addMetaInformation(sandbox, this.code);
-            path.match(/component/) && console.log(path, code.substr(100));
             sandbox.evalJs(code);
           } catch (e) {
             console.groupCollapsed(e.message);
