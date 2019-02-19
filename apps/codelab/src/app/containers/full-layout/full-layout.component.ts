@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./full-layout.component.scss']
 })
 export class FullLayoutComponent {
-  private displayButtons: boolean;
+  displayButtons: boolean;
   constructor(@Optional() route: ActivatedRoute) {
     this.displayButtons = !route.snapshot.queryParams.milestone;
   }
