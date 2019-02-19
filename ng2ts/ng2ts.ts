@@ -6,7 +6,6 @@ import { createModuleTest } from './tests/createModuleTest';
 import { createComponentTest } from './tests/createComponentTest';
 import { createBootstrapTest } from './tests/bootstrapTest';
 import { DiffFilesResolver } from '../libs/utils/src/lib/differ/diffFilesResolver';
-import { createDITest } from './tests/diInjectServiceTestBabel';
 
 declare const require;
 
@@ -357,14 +356,14 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
         },
         {
           name: 'Service injection',
-          files: patchATestWithAFunctionINAHackyWay(diffFilesResolver.resolve('diInjectService', {
+          files: diffFilesResolver.resolve('diInjectService', {
             exercise: [files.video_videoService, files.appModule, files.appComponent],
             reference: [
               files.appHtml, files.apiService, files.video_videoItem, files.main, files.style_css, files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
-          }), 'tests/test.ts', createDITest),
+          })
         }
       ]
     }
