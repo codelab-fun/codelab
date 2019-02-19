@@ -11,6 +11,5 @@ export class FullLayoutComponent {
   private displayButtons: boolean;
   constructor(@Optional() route: ActivatedRoute) {
     this.displayButtons = !route.snapshot.queryParams.milestone;
-
   }
 }
