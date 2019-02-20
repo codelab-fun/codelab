@@ -1,4 +1,4 @@
-<button-with-menu>
+<codelab-button-with-menu>
 
   <button class="menu-bar-btn">
     <ng-container *ngIf="loginService.user$ | async else showLogin"> 👩‍💻</ng-container>
@@ -6,7 +6,7 @@
 
   <ng-template #showLogin> 🗝</ng-template>
 
-  <ng-container *modalContent>
+  <ng-container *codelabModalContent>
     <div class="buttons-nav-bar-modal-content-wrapper">
       <h2 class="modal-title"> Login </h2>
       <div *ngIf="loginService.user$ | async as user; else showLogin">
@@ -23,4 +23,4 @@
     </div>
   </ng-container>
 
-</button-with-menu>
+</codelab-button-with-menu>

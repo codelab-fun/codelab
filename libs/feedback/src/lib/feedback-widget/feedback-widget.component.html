@@ -1,4 +1,4 @@
-<button-with-menu>
+<codelab-button-with-menu>
 
   <button class="menu-bar-btn">
     <img alt="MenuShortcut" src="/assets/images/chat.png"/>
@@ -9,7 +9,7 @@
     </ng-container>
   </button>
 
-  <ng-container *modalContent>
+  <ng-container *codelabModalContent>
     <div class="buttons-nav-bar-modal-content-wrapper">
       <h2 class="modal-title"> Feedback </h2>
       <ng-container *ngIf="(messages$ | async) as message">
@@ -59,4 +59,4 @@
     </div>
   </ng-container>
 
-</button-with-menu>
+</codelab-button-with-menu>

@@ -1,7 +1,7 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[modalContent]'
+  selector: '[codelabModalContent]'
 })
 export class ButtonWithMenuModalDirective {
 

@@ -6,7 +6,7 @@ import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'button-with-menu',
+  selector: 'codelab-button-with-menu',
   templateUrl: './button-with-menu.component.html',
   styleUrls: ['./button-with-menu.component.scss']
 })
