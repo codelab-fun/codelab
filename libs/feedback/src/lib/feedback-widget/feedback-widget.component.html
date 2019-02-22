@@ -1,6 +1,6 @@
 <codelab-button-with-menu>
   <button class="menu-bar-btn">
-    <img alt="MenuShortcut" src="/assets/images/chat.png"/>
+    <img alt="MenuShortcut" src="/assets/images/chat.png" />
     <ng-container *ngIf="(messages$ | async) as message">
       <ng-container *ngIf="message.length">
         <span class="messages-count"> {{ message.length }} </span>
@@ -43,21 +43,20 @@
           placeholder="Enter your email"
         />
         <small class="text-muted" i18n
-        >Email is optional and, will not displayed
-        </small
-        >
+          >Email is optional and, will not displayed
+        </small>
         <div>
           <textarea
             i18n-placeholder
             placeholder="Describe your issue or share your ideas"
             formControlName="comment"
-            (keydown.control.enter)="submit();modal.close()"
+            (keydown.control.enter)="submit(); modal.close()"
           >
           </textarea>
         </div>
         <div>
           <button
-            (click)="submit();modal.close()"
+            (click)="submit(); modal.close()"
             [disabled]="formGroup.invalid"
             [style.opacity]="formGroup.invalid ? 0.5 : 1"
             type="button"

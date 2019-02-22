@@ -249,7 +249,7 @@
   <translation id="2407260837719515490">Готово! На следующей странице вы запустите свое первое <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>-приложение</translation>
   <translation id="1313383644474336301">Теперь, когда у нас есть и NgModule, и готовый компонент, давайте загрузим приложение!</translation>
   <translation id="4850683624715159256">Пока Angular загружается, содержимое элемента остается неизменным: в нашем случае, &quot;<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Loading...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>&quot;</translation>
-  <translation id="1349735316800599429">мы пишем браузерное веб-приложение,  таким образом в списке <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>imports<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> необходимо указать <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>BrowserModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
+  <translation id="1349735316800599429">Мы пишем браузерное веб-приложение,  таким образом в списке <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>imports<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> необходимо указать <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>BrowserModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
   <translation id="5369563118314675128"><ph name="START_TAG_DIV"><ex>&lt;div&gt;</ex>&lt;div&gt;</ph>
     Angular применяется не только для веб-приложений. Вы также можете создавать мобильные приложения и даже VR-зарисовки.
   <ph name="CLOSE_TAG_DIV"><ex>&lt;/div&gt;</ex>&lt;/div&gt;</ph>
