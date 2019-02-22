@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatSelectModule, MatIconModule, MatSidenavModule, MatTabsModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { BrowserWindowModule } from '../../../../libs/browser/src/lib/browser.module';
+import { BrowserWindowModule } from '@codelab/browser';
 import { CodeDemoComponent } from './code-demo/code-demo.component';
 import { EditorFromModelComponent } from './multitab-editor/editor-from-model/editor-from-model.component';
 import { MultitabEditorComponent } from './multitab-editor/multitab-editor.component';

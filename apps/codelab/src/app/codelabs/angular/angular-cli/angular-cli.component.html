@@ -1,24 +1,22 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
-  <div class="btn-bar">
-    <feedback-widget></feedback-widget>
-    <codelab-menu-shortcut></codelab-menu-shortcut>
-  </div>
   <codelab-progress-bar></codelab-progress-bar>
   <slide-arrows></slide-arrows>
 
   <!--  INTRO -->
   <div *slide id="intro" no-padding>
     <codelab-title-slide
-      title="angular-cli"
+      i18n-title
+      title="Angular-cli"
+      i18n-description
       description="Learn how to quickly start working on your Angular app"
     ></codelab-title-slide>
   </div>
 
   <div *slide id="angular-cli">
-    <h1 i18n>Angular CLI / Intro</h1>
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
     <h2 i18n>
       Angular CLI is a command line tool that can be used to quickly get up to
-      speed with running your angular app.
+      speed with running your Angular app.
     </h2>
 
     <preview-terminal-window>
@@ -48,7 +46,7 @@
   </div>
 
   <div *slide id="install">
-    <h1 i18n>Angular CLI / installing</h1>
+    <codelab-breadcrumb i18n>installing</codelab-breadcrumb>
     <h2 i18n>
       Run <code>sudo npm install -g @angular/cli</code> to install
       <b>Angular cli</b> on your machine
@@ -78,7 +76,7 @@
   </div>
 
   <div *slide id="new-app">
-    <h1 i18n>Angular CLI / Creating new Angular app</h1>
+    <codelab-breadcrumb i18n>Creating new Angular app</codelab-breadcrumb>
     <h2 i18n>
       Creating new Angular app is easy, just run
       <code>ng new awesome-app</code>, then <code>cd awesome-app</code>
@@ -104,7 +102,7 @@
   </div>
 
   <div *slide id="starting">
-    <h1 i18n>Angular CLI / Starting the app</h1>
+    <codelab-breadcrumb i18n>Starting the app</codelab-breadcrumb>
     <h2 i18n>
       Once you're in the app folder, start the app with <code>ng serve</code>
     </h2>
@@ -137,7 +135,7 @@
   </div>
 
   <div *slide id="generating">
-    <h1 i18n>Angular CLI / Generating components</h1>
+    <codelab-breadcrumb i18n>Generating components</codelab-breadcrumb>
     <h2 i18n>
       You can easily generate new components
       <code>ng generate component my-component</code>
@@ -163,7 +161,7 @@
   <div *slide id="end">
     <codelab-closing-slide>
       <div class="header" header>
-        <h1 i18n>End of The Angular-cli Milestone</h1>
+        <codelab-breadcrumb i18n>End of The Angular-cli Milestone</codelab-breadcrumb>
       </div>
       <div class="body" body>
         <h2 i18n>

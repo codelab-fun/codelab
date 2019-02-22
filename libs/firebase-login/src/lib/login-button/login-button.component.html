@@ -1,0 +1,9 @@
+<button class="menu-bar-btn"  (click)="open()">
+  <ng-container *ngIf="loginService.user$ | async else showLogin">
+    👩‍💻
+  </ng-container>
+</button>
+
+<ng-template #showLogin>
+  🗝
+</ng-template>

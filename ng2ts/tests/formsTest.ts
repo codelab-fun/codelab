@@ -1,5 +1,5 @@
 import { upload_upload_component_html } from '../code';
-import { async, TestBed, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MatInputModule } from '@angular/material';
 import { AppModule } from '../app.module';
 import { UploadComponent } from '../upload/upload.component';
@@ -36,7 +36,7 @@ describe('forms', () => {
     }
   });
 
-  it('app.module.ts: Add FormsModule and MatInputModule, to the imports.', () => {
+  it('AddFormsModule', () => {
     let metadata;
     try {
       metadata = AppModule['__annotations__'][0];
@@ -48,7 +48,7 @@ describe('forms', () => {
   });
 
 
-  it('upload.component.html: Add "title" input bound to the title property of the component', (done) => {
+  it('AddTitle', (done) => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.title = 'hello';
     fixture.detectChanges();
@@ -66,7 +66,7 @@ describe('forms', () => {
     });
   });
 
-  it('upload.component.html: Add "description" textarea bound to the description property of the component', (done) => {
+  it('AddDescription', (done) => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.description = 'hello';
     fixture.detectChanges();

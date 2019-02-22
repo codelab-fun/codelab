@@ -18,7 +18,6 @@ function getCard() {
 }
 
 describe('material', () => {
-
   beforeEach(() => {
     try {
       TestBed.resetTestingModule();
@@ -46,7 +45,7 @@ describe('material', () => {
     }
   });
 
-  it('app.module.ts: Add MatCardModule and MatToolbarModule, to the imports.', () => {
+  it('AddMatModules', () => {
     let metadata;
     try {
       metadata = AppModule['__annotations__'][0];
@@ -57,7 +56,7 @@ describe('material', () => {
     chai.expect(metadata.imports).to.contain(MatToolbarModule);
   });
 
-  it('app.html: Add material toolbar containing the title', () => {
+  it('AddMatToolbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
 
@@ -67,29 +66,29 @@ describe('material', () => {
     // TODO(kirjs): Make sure the title is there only once.
   });
 
-  it('video.component.html: Use material card to display the date', () => {
+  it('UseMatCard', () => {
     chai.expect(getCard()).is.ok;
   });
 
-  it('video.component.html: Add mat-card-title (inside of the mat-card) to display video title', () => {
+  it('AddMatCardTitle', () => {
     const title = getCard().querySelector('mat-card-title');
     chai.expect(title).is.ok;
     chai.expect(title.innerText).to.contain(Api.fetch('')[0].title);
   });
 
-  it('video.component.html: Add mat-card-subtitle (inside of the mat-card)  to display video description', () => {
+  it('AddMatCardSubtitle', () => {
     const subTitle = getCard().querySelector('mat-card-subtitle');
     chai.expect(subTitle).is.ok;
     chai.expect(subTitle.innerText).to.contain(Api.fetch('')[0].description);
   });
 
 
-  it('video.component.html: Mark img with mat-card-image attribute (inside of the mat-card)  so that it takes full card size', () => {
+  it('AddMatImage', () => {
     const img = getCard().querySelector('img[mat-card-image]');
     chai.expect(img).is.ok;
   });
 
-  it('video.component.html:  move date/views/likes info inside of mat-card-content (inside of the mat-card) ', () => {
+  it('MoveDataToNewComponent', () => {
     const content = getCard().querySelector('mat-card-content');
     chai.expect(content).is.ok;
     chai.expect(content.innerText).contains(Api.fetch('')[0].likes);

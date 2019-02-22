@@ -1,9 +1,10 @@
-import { CodelabFile } from '@codelab/exercise/src/lib/helpers/codelabFile';
-import { Component } from '@angular/core';
+import { CodelabFile } from '../../../shared/helpers/codelabFile';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
   Ng2TsExercises
 } from '../../../../../../../ng2ts/ng2ts';
+import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
 declare const require;
 
@@ -55,8 +56,10 @@ function formsConfig(code, highlights: FileHighlights = {}) {
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.css']
 })
-export class FormsComponent {
+export class FormsComponent implements OnInit {
+  @ViewChild('translations') translations;
   exercise: ExerciseConfigTemplate;
+  private t: Record<string, string>;
   samples = {
     basicForm: formsConfig(
       { appHtml: require('!!raw-loader!./samples/basic/app.1.html') },
@@ -121,5 +124,8 @@ export class FormsComponent {
 
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(7, 0);
+  }
+  ngOnInit() {
+    this.t = extractMessages(this.translations);
   }
 }

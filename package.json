@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
+    "ng": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng",
     "//--------------- CODELAB ---------------------": "",
     "start": "ng serve",
     "build": "ng build",

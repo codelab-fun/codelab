@@ -12,7 +12,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
+import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Subscription } from 'rxjs/internal/Subscription';

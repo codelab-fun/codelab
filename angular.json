@@ -27,7 +27,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/exercise/assets/runner/",
+                "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
               }
             ],
@@ -274,7 +274,7 @@
               "apps/kirjs/src/assets",
               {
                 "glob": "**/*",
-                "input": "libs/exercise/assets/runner/",
+                "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
               }
             ],
@@ -592,6 +592,41 @@
         }
       },
       "schematics": {}
+    },
+    "firebase-login": {
+      "root": "libs/firebase-login",
+      "sourceRoot": "libs/firebase-login/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/firebase-login/tsconfig.lib.json",
+            "project": "libs/firebase-login/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/firebase-login/src/test.ts",
+            "tsConfig": "libs/firebase-login/tsconfig.spec.json",
+            "karmaConfig": "libs/firebase-login/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/firebase-login/tsconfig.lib.json",
+              "libs/firebase-login/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "codelab",

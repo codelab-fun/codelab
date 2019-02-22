@@ -63,7 +63,9 @@
 
   <div *slide id="intro" no-padding>
     <codelab-title-slide
+      i18n-title
       title="Component Tree"
+      i18n-description
       description="Combine components together"
       prereqs=""
     ></codelab-title-slide>
@@ -71,7 +73,7 @@
 
   <!--  COMPONENT TREE  -->
   <div *slide id="description" milestone="component-tree">
-    <h1 i18n="@@componentTree">Component Tree</h1>
+    <codelab-breadcrumb i18n>Component Tree</codelab-breadcrumb>
     <h2 i18n>
       So far we have only one component, but as your app grows it will form a
       tree of components
@@ -81,11 +83,7 @@
 
   <!--  Parent/Child COMPONENTS-->
   <div *slide id="parent-child-component" milestone="Component Tree">
-    <h1>
-      <ng-container i18n="@@componentTree">Component Tree</ng-container>
-      /
-      <ng-container i18n>Parent and Child</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Parent and Child</codelab-breadcrumb>
     <h2 i18n>
       Any component can render another one by using an HTML element that matches
       the selector of the other component
@@ -119,13 +117,7 @@
 
   <!--  PASSING DATA  -->
   <div *slide id="passing-data" milestone="component-tree">
-    <h1>
-      <ng-container i18n="@@componentTree">Component Tree</ng-container>
-      /
-      <ng-container i18n="@@passingDataParentChild"
-        >Passing Data Parent -> Child</ng-container
-      >
-    </h1>
+    <codelab-breadcrumb i18n>Passing Data from Parent to Child</codelab-breadcrumb>
     <h2 i18n>
       Parent component passes its data to the child component via properties
     </h2>
@@ -140,13 +132,7 @@
 
   <!--  PASSING DATA  -->
   <div *slide id="passing-data-child" milestone="component-tree">
-    <h1>
-      <ng-container i18n="@@componentTree">Component Tree</ng-container>
-      /
-      <ng-container i18n="@@passingDataParentChild"
-        >Passing Data Parent -> Child</ng-container
-      >
-    </h1>
+    <codelab-breadcrumb i18n>Passing Data from Parent to Child</codelab-breadcrumb>
     <h2 i18n>
       The child class must decorate its properties with a special
       <b>@Input()</b> decorator
@@ -162,11 +148,7 @@
   </div>
 
   <div *slide id="exercise-1-pre" milestone="component-tree">
-    <h1>
-      <ng-container i18n="@@componentTree">Component Tree</ng-container>
-      /
-      <ng-container i18n="@@exercise1">Exercise 1</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Exercise 1</codelab-breadcrumb>
     <h2 i18n>
       We already know how to create a component. Let's move all the
       video-related information into a new component called VideoComponent.
@@ -177,7 +159,7 @@
     <preview-browser-window>
       <div>
         <h2 i18n>Cute kitten</h2>
-        <img src="/assets/images/cat-00.png" />
+        <img src="/assets/images/cat-00.png"/>
         <div>Date 2016-11-25</div>
         <div>Views 100</div>
         <div>Likes 49329</div>
@@ -198,11 +180,7 @@
 
   <!-- NgModule -->
   <div *slide id="module" milestone="component-tree-2">
-    <h1>
-      <ng-container i18n="@@componentTree">Component Tree</ng-container>
-      /
-      <ng-container i18n>Parent and Child component</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Parent and Child component</codelab-breadcrumb>
     <h2 i18n>
       Components won't know about each other unless they're declared in the same
       module
@@ -215,11 +193,7 @@
   </div>
 
   <div *slide id="recap" milestone="component-tree-2">
-    <h1>
-      <ng-container i18n="@@componentTree">Component Tree</ng-container>
-      /
-      <ng-container i18n>Review</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Review</codelab-breadcrumb>
     <div>
       <div row>
         <div column-5>
@@ -262,11 +236,7 @@
   </div>
 
   <div *slide id="exercise-2-pre" milestone="component-tree-2">
-    <h1>
-      <ng-container i18n="@@componentTree">Component Tree</ng-container>
-      /
-      <ng-container i18n>Exercise 2</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Exercise 2</codelab-breadcrumb>
     <h2 i18n>In the next exercise you will use the newly created component</h2>
     <codelab-exercise-preview
       column-5
@@ -287,14 +257,17 @@
   <!--  COMPONENT TREE EXERCISE 2-->
   <div *slide id="end">
     <codelab-closing-slide>
-      <div header><h1 i18n>Component Tree Milestone Completed!</h1></div>
+      <div header><codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb></div>
       <div body>
-        <h2 i18n>
-          Next: <a routerLink="/router/0">Learn about angular router</a>
-        </h2>
       </div>
       <div footer>
-        <feedback-rating lesson="AngularComponentTree"> </feedback-rating>
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../router/0" i18n>
+            Learn how to set up routing in your Angular app
+          </a>
+        </h2>
+        <feedback-rating lesson="AngularComponentTree"></feedback-rating>
       </div>
     </codelab-closing-slide>
   </div>

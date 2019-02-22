@@ -36,7 +36,7 @@
   <div class="btn-bar">
     <div class="menu-bar-btn github-icon">
       <a href="https://github.com/AngularNYC/angular-presentation">
-        <img src="/assets/images/github-icon.png" />
+        <img  alt="GitHub" src="/assets/images/icons/github-icon.png"/>
       </a>
     </div>
 
@@ -45,7 +45,7 @@
 
   <div *slide id="index">
     <h1 i18n>Angular Codelab</h1>
-    <h2>
+    <h2 i18n>
       Welcome to the interactive Angular Codelab. Here you can learn the basics
       of <a href="https://angular.io">Angular</a>!
     </h2>
@@ -59,7 +59,7 @@
           <div class="title" i18n>Learn TypeScript</div>
           <div class="hint" i18n>Skip if you're familiar with TypeScript</div>
         </div>
-        <img src="/assets/images/ts.png" alt="" class="" />
+        <img src="/assets/images/ts.png" alt="" class=""/>
       </button>
       <button
         [routerLink]="['/angular', 'create-first-app', 'intro']"
@@ -67,7 +67,7 @@
       >
         <span aria-hidden="true">▶</span>
         <div i18n>Learn Angular</div>
-        <img src="/assets/images/angular.png" alt="" class="angular" />
+        <img src="/assets/images/angular.png" alt="" class="angular"/>
       </button>
     </div>
 
@@ -76,7 +76,7 @@
     </button>
     <ng-container *ngIf="showContents">
       <ol>
-        <ng-container *ngFor="let route of getMainPageRoutes()">
+        <ng-container *ngFor="let route of menuRoutes">
           <li>
             <h2>
               <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>

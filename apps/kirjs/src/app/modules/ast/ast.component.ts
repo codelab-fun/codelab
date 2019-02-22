@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { exercise } from '@codelab/exercise/src/lib/helpers/helpers';
+
 import { parse } from 'babylon';
 import {
   findHighlightsObjectProp,
@@ -10,6 +10,7 @@ import {
   removeDoubleWhiteLines,
   removeLoc
 } from './parse-hello-world-ast';
+import { exercise } from '../../../../../codelab/src/app/shared/helpers/helpers';
 
 declare const require;
 

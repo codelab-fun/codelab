@@ -49,6 +49,9 @@
     },
     "live": {
       "tags": []
+    },
+    "firebase-login": {
+      "tags": []
     }
   }
 }

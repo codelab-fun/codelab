@@ -1,22 +1,27 @@
 <div #translations style="display: none">
-  <div i18n="@@componentIsDecorator" id="componentIsDecorator">
-    @Component is an Angular decorator
+  <div i18n="@@UseRouterModule" id="UseRouterModule">app.module.ts: Using RouterModule.forRoot provide an empty array to
+    the module
   </div>
-  <div i18n="@@noSemicolon" id="noSemicolon">
-    No semicolon here (as it attaches itself to the class below
+  <div i18n="@@AddEmptyRoute" id="AddEmptyRoute">app.module.ts: Add a route with an empty (\'\') path to display
+    SearchComponent
+  </div>
+  <div i18n="@@AddUploadRoute" id="AddUploadRoute">app.module.ts: Add a route with path of "upload" to display
+    UploadComponent
+  </div>
+  <div i18n="@@AddRouterOutlet" id="AddRouterOutlet">app.html: Add router-outlet</div>
+  <div i18n="@@AddSearchMenu" id="AddSearchMenu">app.html: Add a menu item with a text Search pointing to "/"</div>
+  <div i18n="@@AddUploadMenu" id="AddUploadMenu">app.html: Add a menu item with a text Upload pointing to "/upload"
   </div>
 </div>
 <slide-deck slideShortcuts slidesRouting slides-tracking>
-  <div class="btn-bar">
-    <feedback-widget></feedback-widget>
-    <codelab-menu-shortcut></codelab-menu-shortcut>
-  </div>
   <codelab-progress-bar></codelab-progress-bar>
   <slide-arrows></slide-arrows>
 
   <!--  INTRO -->
   <div *slide id="intro" no-padding>
     <codelab-title-slide
+      i18n-title
+      i18n-description
       title="Routing"
       description="Learn how to add routing to your app"
     ></codelab-title-slide>
@@ -24,41 +29,41 @@
 
   <!--  Slide 2-->
   <div *slide id="router-intro" milestone="Router">
-    <h1>Router - intro</h1>
-    <h2>Router is used to give <b>URLs</b> to different parts of your app.</h2>
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+    <h2 i18n>Router is used to give <b>URLs</b> to different parts of your app.</h2>
     <div class="router-preview">
       <preview-browser-window
         column-5
         url="http://localhost:4200/kittens"
         style="height: 40vh"
       >
-        <h1>Kittens</h1>
+        <h1 i18n>Kittens</h1>
       </preview-browser-window>
       <preview-browser-window
         column-5
         url="http://localhost:4200/puppies"
         style="height: 40vh"
       >
-        <h1>Puppies</h1>
+        <h1 i18n>Puppies</h1>
       </preview-browser-window>
     </div>
   </div>
   <div *slide id="router-intro2" milestone="Router">
-    <h1>Router - intro</h1>
-    <h2>It takes 3 simple steps to set up routing in Angular:</h2>
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+    <h2 i18n>It takes 3 simple steps to set up routing in Angular:</h2>
     <ol>
-      <li>
+      <li i18n>
         Configure the mapping and specify which component to display for which
         URL
       </li>
-      <li>Create the menu</li>
-      <li>Find a place to display selected component</li>
+      <li i18n>Create the menu</li>
+      <li i18n>Find a place to display selected component</li>
     </ol>
   </div>
 
   <div *slide id="router-config" milestone="Router">
-    <h1>Router - configuration</h1>
-    <h2>
+    <codelab-breadcrumb i18n>Configuration</codelab-breadcrumb>
+    <h2 i18n>
       Routes are configured by defining an array of mapping between URL path and
       a component
     </h2>
@@ -69,25 +74,25 @@
   </div>
 
   <div *slide id="router-config-pass-to-module" milestone="Router">
-    <h1>Router - configuration</h1>
-    <h2>Then we have to pass the config to our module.</h2>
+    <codelab-breadcrumb i18n>Configuration</codelab-breadcrumb>
+    <h2 i18n>Then we have to pass the config to our module.</h2>
     <codelab-exercise-playground
       url="/assets/runner"
       [exercise]="code.routerConfigPass"
     ></codelab-exercise-playground>
-    <div class="info">
+    <div class="info" i18n>
       Note that we're using <b>RouterModule.forRoot</b> which creates an Angular
       Module out of our configuration.
     </div>
   </div>
 
   <div *slide id="router-outlet" milestone="Router">
-    <h1>Router - Outlet</h1>
-    <h2>
+    <codelab-breadcrumb i18n>router-outlet</codelab-breadcrumb>
+    <h2 i18n>
       Now we have to find a place where the router would display selected
       component.
     </h2>
-    <h2>It can be marked by placing <b>router-outlet tag</b></h2>
+    <h2 i18n>It can be marked by placing <b>router-outlet tag</b></h2>
     <!--[openFilesIndex]="[1]"-->
     <codelab-exercise-playground
       files="app.component.html"
@@ -97,9 +102,9 @@
   </div>
 
   <div *slide id="menu" milestone="Router">
-    <h1>Router - Menu</h1>
-    <h2>The last part is creating the menu.</h2>
-    <h2>Use <b>routerLink</b> directive to provide the URL</h2>
+    <codelab-breadcrumb i18n>Menu</codelab-breadcrumb>
+    <h2 i18n>The last part is creating the menu.</h2>
+    <h2 i18n>Use <b>routerLink</b> directive to provide the URL</h2>
     <codelab-exercise-playground
       files="app.component.html"
       url="/assets/runner"
@@ -108,8 +113,8 @@
   </div>
 
   <div *slide id="exercise-pre">
-    <h1>Router / Exercise</h1>
-    <h2>
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
       In the next slide there is an exercise. We're going to add 2 routes:
       <b>Search</b> and <b>Upload</b>, and a menu for switching between them.
     </h2>
@@ -118,7 +123,7 @@
       [exercise]="exercise"
       [url]="'/assets/runner/'"
     ></codelab-exercise-preview>
-    <div class="info">
+    <div class="info" i18n>
       Note: We have already created empty Upload component and SearchComponent
       containing search logic.
     </div>
@@ -137,22 +142,24 @@
   <div *slide id="end">
     <codelab-closing-slide>
       <div class="header" header>
-        <h1 i18n>End of The Routing Milestone</h1>
+        <codelab-breadcrumb i18n>End of The Routing Milestone</codelab-breadcrumb>
       </div>
       <div class="body" body>
         <h2 i18n>Well done! This is the end of the milestone!</h2>
-        <h2>
+        <h2 i18n>
           Check out
           <a href="https://angular.io/guide/router">Angular Router Guide</a> for
           more fun and advanced techniques.
         </h2>
       </div>
       <div class="footer" footer>
-        <h2 i18n>
-          Next
-          <a routerLink="/material/intro">⏭️ Go to the Material Milestone</a>
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../material/0" i18n>
+            Learn how to create beautiful UIs with Angular Material
+          </a>
         </h2>
-        <feedback-rating lesson="Router"> </feedback-rating>
+        <feedback-rating lesson="Router"></feedback-rating>
       </div>
     </codelab-closing-slide>
   </div>

@@ -1,9 +1,10 @@
-import { CodelabFile } from '@codelab/exercise/src/lib/helpers/codelabFile';
-import { Component } from '@angular/core';
+import { CodelabFile } from '../../../shared/helpers/codelabFile';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
   Ng2TsExercises
 } from '../../../../../../../ng2ts/ng2ts';
+import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
 declare const require;
 
@@ -47,7 +48,9 @@ function routeExercise(highlights: FileHighlights) {
   templateUrl: './router.component.html',
   styleUrls: ['./router.component.css']
 })
-export class RouterComponent {
+export class RouterComponent implements OnInit {
+  @ViewChild('translations') translations;
+  private t: Record<string, string>;
   exercise: ExerciseConfigTemplate;
 
   code = {
@@ -75,5 +78,9 @@ export class RouterComponent {
 
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(5, 0);
+  }
+
+  ngOnInit() {
+    this.t = extractMessages(this.translations);
   }
 }

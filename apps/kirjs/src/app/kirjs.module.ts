@@ -6,7 +6,7 @@ import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { monacoReady } from '@codelab/exercise/src/lib/services/monaco-config.service';
+import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 
 const routes = [
   {

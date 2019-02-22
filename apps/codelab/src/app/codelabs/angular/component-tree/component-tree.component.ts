@@ -4,11 +4,9 @@ import {
   Ng2TsExercises,
   SlideTemplate
 } from '../../../../../../../ng2ts/ng2ts';
-import {
-  boxAndCircle,
-  circleAndBox
-} from '@codelab/exercise/src/lib/helpers/helpers';
+
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
+import { boxAndCircle, circleAndBox } from '../../../shared/helpers/helpers';
 
 const circleAndBoxCode = circleAndBox();
 

@@ -46,23 +46,38 @@
 
   <!--  MILESTONE #3  Dependency Injection  -->
   <!-- RECAP -->
-  <div *slide id="recap" milestone="dependency-injection">
-    <h1 i18n="@@dependencyInjection">Dependency injection</h1>
-    <h2 i18n>
-      <b>Dependency Injection</b> is a way to provide dependencies to your code
-      instead of hard-coding them
+  <div *slide id="dependency" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Example of a dependency</codelab-breadcrumb>
+    <h2>We display a list of hard-coded videos in our component, but in the real world we'd load them from the
+      server.</h2>
+    <h2>The code for fetching the data would live in a separate class (service) called VideoService</h2>
+    <h2>Therefore our component will depend on the VideoService:</h2>
+    <svg viewBox="99 99 601 201" style="margin-top: 2vw">
+      <rect x="100" y="100" width="200" height="100" fill="#fff" stroke="#000" rx="15" ry="15"
+            stroke-width="1.5"></rect>
+      <text x="200" y="150" fill="#000" text-anchor="middle" alignment-baseline="middle">AppComponent</text>
+      <rect x="400" y="100" width="200" height="100" fill="#fff" stroke="#000" rx="15" ry="15"
+            stroke-width="1.5"></rect>
+      <text x="500" y="150" fill="#000" text-anchor="middle" alignment-baseline="middle">VideoService</text>
+      <line x1="300" x2="400" y1="150" y2="150" stroke="#000"></line>
+      <path d="M 300 150 l 10 6 l -3 -6 l 3 -6 " stroke="#444"></path>
+    </svg>
+  </div>
+
+  <div *slide id="dependency-injection-intro" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+
+    <h2>As our app grows, number of dependencies will increase. Dependencies, in order, will have their own
+      dependencies. Managing all of them manually becomes increasingly harder.
     </h2>
+    <h2>To simplify that <b>Angular</b> provides a mechanism called <b>Dependency injection</b></h2>
+
+    <div class="di-diagram"></div>
   </div>
 
   <!--  COMPARISON -->
   <div *slide id="comparison" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n="@@comparison">Comparison</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Comparison</codelab-breadcrumb>
     <div style="display: flex;">
       <div class="col-6">
         <code-demo-file-path path="person.ts"></code-demo-file-path>
@@ -93,15 +108,7 @@
   </div>
 
   <div *slide id="comparison-2" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n="@@comparison">Comparison</ng-container>
-      /
-      <ng-container i18n>Parameters</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Parameters</codelab-breadcrumb>
     <div class="content-container">
       <div class="col-6">
         <code-demo-file-path path="person.ts"></code-demo-file-path>
@@ -110,7 +117,7 @@
           [(ngModel)]="code.withOutDI.code2"
           [codeDemoHighlight]="[code.withOutDI.matches.noDI]"
         ></code-demo-editor>
-        <h2 class="comparision">
+        <h2 class="comparision" i18n>
           Without Dependency Injection, you have to figure out all the
           parameters yourself
         </h2>
@@ -130,15 +137,7 @@
   </div>
 
   <div *slide id="comparison-3" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n="@@comparison">Comparison</ng-container>
-      /
-      <ng-container i18n>Testing</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Testing</codelab-breadcrumb>
     <h2 i18n>
       Also Dependency Injection simplifies testing a lot, because you can just
       pass mock dependencies as constructor parameters
@@ -163,13 +162,7 @@
 
   <!--  Steps to create an Angular app -->
   <div *slide id="angular-app" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n>Example</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Example</codelab-breadcrumb>
     <h2 i18n>
       Let's say we have an existing <b>UnitConverterService</b> and we want to
       start using it in <b>UnitConversionComponent</b>. It will take 3 simple
@@ -184,13 +177,7 @@
 
   <!--  IMPLEMENTATION STEP #1  -->
   <div *slide id="make-injectable" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n="@@step1">Step 1</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Step 1</codelab-breadcrumb>
     <h2 i18n>
       Mark the class as <b>@Injectable()</b>. This lets Angular know that this
       class is part of Angular Dependency Injection system
@@ -208,13 +195,7 @@
 
   <!--  IMPLEMENTATION STEP #2  -->
   <div *slide id="provide-injectable" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n="@@step2">Step 2</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Step 2</codelab-breadcrumb>
     <h2 i18n>
       Provide the injectable to the <b>providers</b> section of <b>NgModule</b>
     </h2>
@@ -234,13 +215,7 @@
 
   <!--  IMPLEMENTATION STEP #3  -->
   <div *slide id="consume-injectable" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n="@@step3">Step 3</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Step 3</codelab-breadcrumb>
     <h2 i18n>Consume the Injectable in the component</h2>
     <code-demo-file-path
       path="unit-conversion.component.ts"
@@ -256,13 +231,7 @@
   </div>
 
   <div *slide id="exercise-pre" milestone="dependency-injection">
-    <h1>
-      <ng-container i18n="@@dependencyInjection"
-        >Dependency injection</ng-container
-      >
-      /
-      <ng-container i18n="@@exercise">Exercise</ng-container>
-    </h1>
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
     <h2 i18n>
       In the next slide you'll use videoService which has even more cats!!! The
       result will look like this:
@@ -287,22 +256,17 @@
   <div *slide id="end">
     <codelab-closing-slide>
       <div class="header" header>
-        <h1>
-          <ng-container i18n="@@dependencyInjection"
-            >Dependency injection</ng-container
-          >
-          /
-          <ng-container i18n>Milestone Completed!</ng-container>
-        </h1>
+        <codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb>
       </div>
       <div class="body" body></div>
       <div class="footer" footer>
-        <h2 i18n>
-          Next:
-          <a routerLink="/component-tree/0"
-            >Learn how to combine components together</a
-          >
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../component-tree/0" i18n>
+            Learn how to combine components together
+          </a>
         </h2>
+
         <feedback-rating lesson="Angulardependency-injection">
         </feedback-rating>
       </div>

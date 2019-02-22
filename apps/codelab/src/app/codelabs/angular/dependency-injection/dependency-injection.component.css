@@ -18,3 +18,11 @@
 .comparision {
   padding: 0.5em;
 }
+
+.di-diagram {
+  width: 800px;
+  height: 308px;
+  background: url(./pics/deps.svg);
+  background-size: cover;
+  margin: 2vw auto 0 auto;
+}

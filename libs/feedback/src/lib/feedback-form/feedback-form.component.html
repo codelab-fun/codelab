@@ -13,6 +13,7 @@
       <div>
         <input
           type="text"
+          i18n
           placeholder="Enter your name"
           formControlName="name"
         />
@@ -23,10 +24,11 @@
           placeholder="Enter your email (optional)"
           formControlName="email"
         />
-        <label>Email is optional and, will not displayed</label>
+        <label i18n>Email is optional and, will not displayed</label>
       </div>
       <div>
         <textarea
+          i18n-placeholder
           placeholder="Describe your issue or share your ideas"
           formControlName="comment"
           (keydown.control.enter)="submit()"
@@ -37,7 +39,9 @@
           [disabled]="formGroup.invalid"
           [style.opacity]="formGroup.invalid ? 0.5 : 1"
           type="button"
+          i18n
           (click)="submit()"
+          i18n
         >
           Send
         </button>

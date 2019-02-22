@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { environment } from '../../../environments/environment';
 
 import { FullLayoutComponent } from '../../containers/full-layout';
+import { environment } from '../../../environments/environment';
 
-export let routes = [
+const routes = [
   {
     path: '',
     component: FullLayoutComponent,
@@ -99,7 +99,7 @@ export let routes = [
       {
         path: 'angular-cli',
         loadChildren: './angular-cli/angular-cli.module#AngularCliModule',
-        name: 'angular-cli',
+        name: 'Angular-cli',
         description:
           '[🚧 Work In Progress] Learn how to quickly start working with angular',
         page: 'main',
@@ -111,7 +111,8 @@ export let routes = [
         name: 'Pipes',
         description:
           'Learn how pipes transform input values to output values for display in a view',
-        page: 'bonus'
+        page: 'bonus',
+        prod: false
       },
       {
         path: 'structural-directives',
@@ -126,12 +127,16 @@ export let routes = [
   }
 ];
 
-if (environment.production) {
-  routes = routes.filter(r => r['prod']);
-}
+const isProd = environment.production;
+export const menuRoutes = routes[0].children
+  .filter(x => x.page === 'main')
+  // Hide non-prod routes in prod
+  .filter(x => (!isProd) || x.prod);
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AngularRoutingModule {}
+export class AngularRoutingModule {
+}

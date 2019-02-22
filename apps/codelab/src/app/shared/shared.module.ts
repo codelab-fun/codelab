@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -10,6 +10,8 @@ import { FeedbackModule } from '@codelab/feedback';
 import { NxModule } from '@nrwl/nx';
 
 import { FullLayoutComponent } from '../containers';
+import { FirebaseLoginModule } from '@codelab/firebase-login/src';
+import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 
 @NgModule({
   declarations: [FullLayoutComponent],
@@ -21,6 +23,7 @@ import { FullLayoutComponent } from '../containers';
     CodelabComponentsModule,
     SlidesModule,
     FeedbackModule,
+    FirebaseLoginModule,
     NxModule.forRoot()
   ],
   exports: [
@@ -31,6 +34,8 @@ import { FullLayoutComponent } from '../containers';
     CodelabComponentsModule,
     FeedbackModule,
     SlidesModule
-  ]
+  ],
+  providers: [],
 })
-export class SharedModule {}
+export class SharedModule {
+}
