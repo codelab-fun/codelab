@@ -11,7 +11,9 @@ import { editor } from 'monaco-editor';
 import { MonacoConfigService } from '../../../../exercise/src/lib/services/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
-
+import { NestedTreeControl } from '@angular/cdk/tree';
+import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { createFolderStructure, FileFolder } from './multitab-editor.utilities';
 declare const monaco;
 const extenstionToLang = {
   ts: 'typescript',
@@ -41,20 +43,35 @@ type Code = Record<string, string>;
     }
   ]
 })
-export class MultitabEditorComponent
-  implements OnDestroy, ControlValueAccessor {
+export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor {
+
   @Input() code: Code = {};
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
   @Input() codeDemoHighlight = [];
   @Input() highlights = {};
+
   files = [];
-  openModels: MonacoModel[];
-  private onChange: any;
-  private fileNames: string[] = [];
+  openModels: MonacoModel[] = [];
+  fileNames: string[] = [];
+
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
+  private onChange: any;
+
+/**
+ * The following items are for the structure of the material tree nodes.
+ *
+ * Used to create data structure required by the material tree component.
+ */
+  dataSource = new MatTreeNestedDataSource<any>();
+  fileRootNode: FileFolder[] = [];
+  treeControl = new NestedTreeControl<any>(node => node.children);
+  opened = true;
+
+  /** Determines if tree node has a child. Utility for material tree component */
+  hasChild = (_: number, node: any) => !!node.children && node.children.length > 0;
 
   constructor(
     readonly monacoConfigService: MonacoConfigService,
@@ -139,6 +156,8 @@ export class MultitabEditorComponent
     if (code) {
       this.code = { ...code };
       this.fileNames = Object.keys(this.code);
+      createFolderStructure(this.fileRootNode, this.fileNames.filter(f => !f.match(new RegExp(`^.*\.(execute)$`))));
+      this.dataSource.data = [...this.fileRootNode];
       this.generateModels();
     }
   }
@@ -147,8 +166,49 @@ export class MultitabEditorComponent
     this.dispose();
   }
 
-  trackByEditorIndex(index, model) {
-    return model.editorIndex;
+  trackByEditorIndex(index: number, model: MonacoModel) {
+    return model.path;
+  }
+
+  getFileOnlyFromPath(path: string): string {
+    const pathFrags = path.split('/');
+    return pathFrags.length > 0 ? pathFrags.pop() : path;
+  }
+
+  getActiveModel(pathName: string) {
+    return (this.models.find(m => m.path === pathName) || {model: null, highlight: null});
+  }
+
+  _activeTabIndex = 0;
+  onFileSelectFromSideNav(model: FileFolder) {
+    const alreadyShownInTab = this.openModels.findIndex(v => v.path === model.path);
+
+    if (alreadyShownInTab < 0) {
+      const monacoModel = this.models.find(m => m.path === model.path);
+      // console.log(monacoModel);
+      this.openModels = [...this.openModels, monacoModel];
+      this._activeTabIndex = this.openModels.length - 1;
+    } else {
+      this._activeTabIndex = alreadyShownInTab;
+    }
+  }
+
+  onCloseTab(model: FileFolder) {
+    const index = this.openModels.findIndex(m => m.path === model.path);
+    if (index === this.openModels.length - 1) {
+      this._activeTabIndex--;
+    }
+
+    this.openModels = this.openModels.filter(m => m.path !== model.path);
+  }
+
+  get activeTab() {
+    return this._activeTabIndex;
+  }
+
+  isActiveFile(node: FileFolder) {
+    const activeModel = this.openModels[this._activeTabIndex];
+    return activeModel && activeModel.path === node.path;
   }
 
   private updateOpenModels() {
@@ -158,7 +218,6 @@ export class MultitabEditorComponent
         model.editorIndex = index;
         return model;
       });
-      this.cdr.markForCheck();
     }
   }
 
