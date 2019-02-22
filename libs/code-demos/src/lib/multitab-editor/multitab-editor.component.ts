@@ -70,6 +70,8 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   treeControl = new NestedTreeControl<any>(node => node.children);
   opened = true;
 
+  activeTabIndex = 0;
+
   /** Determines if tree node has a child. Utility for material tree component */
   hasChild = (_: number, node: any) => !!node.children && node.children.length > 0;
 
@@ -179,35 +181,39 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
     return (this.models.find(m => m.path === pathName) || {model: null, highlight: null});
   }
 
-  _activeTabIndex = 0;
-  onFileSelectFromSideNav(model: FileFolder) {
+  onSelectedTabChange({ index }) {
+    const model = this.openModels[index];
+    if (model) {
+      this.updateActiveFileSelected(model);
+    }
+  }
+
+
+  updateActiveFileSelected(model: FileFolder|MonacoModel) {
     const alreadyShownInTab = this.openModels.findIndex(v => v.path === model.path);
 
     if (alreadyShownInTab < 0) {
       const monacoModel = this.models.find(m => m.path === model.path);
-      // console.log(monacoModel);
       this.openModels = [...this.openModels, monacoModel];
-      this._activeTabIndex = this.openModels.length - 1;
+      this.activeTabIndex = this.openModels.length - 1;
     } else {
-      this._activeTabIndex = alreadyShownInTab;
+      this.activeTabIndex = alreadyShownInTab;
     }
   }
+
 
   onCloseTab(model: FileFolder) {
     const index = this.openModels.findIndex(m => m.path === model.path);
     if (index === this.openModels.length - 1) {
-      this._activeTabIndex--;
+      this.activeTabIndex--;
     }
 
     this.openModels = this.openModels.filter(m => m.path !== model.path);
   }
 
-  get activeTab() {
-    return this._activeTabIndex;
-  }
 
   isActiveFile(node: FileFolder) {
-    const activeModel = this.openModels[this._activeTabIndex];
+    const activeModel = this.openModels[this.activeTabIndex];
     return activeModel && activeModel.path === node.path;
   }
 
