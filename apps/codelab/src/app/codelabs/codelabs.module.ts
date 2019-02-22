@@ -8,12 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlidesModule } from '@codelab/slides';
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
 
-
 @NgModule({
-  declarations: [
-    IndexComponent,
-    AppComponent
-  ],
+  declarations: [IndexComponent, AppComponent],
   imports: [
     CodelabsRoutingModule,
     BrowserAnimationsModule,
@@ -31,5 +27,4 @@ import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-b
     }
   ]
 })
-export class CodelabsModule {
-}
+export class CodelabsModule {}

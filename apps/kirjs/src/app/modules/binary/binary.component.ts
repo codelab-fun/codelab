@@ -74,7 +74,7 @@ i = i | 2  // 7 = 1 + 2 + 4
   "bool": true
 }`,
     inputFile: '<input id = "" type="file">',
-    fileHandlerHighlight: {match: /read/, className: 'highlighted-code'},
+    fileHandlerHighlight: { match: /read/, className: 'highlighted-code' },
     fileHandler: `const input = document.getElementById('file');
 input.addEventListener('change', (e) => {
   const reader = new FileReader();
@@ -172,7 +172,6 @@ var HostEffectMask = /*        */1023;
 
 var Incomplete = /*            */1024;
 var ShouldCapture = /*         */2048;`;
-
 
   binaryParserPaletteMatch = /parent-palette/;
   binaryParserPaletteHelpers = [

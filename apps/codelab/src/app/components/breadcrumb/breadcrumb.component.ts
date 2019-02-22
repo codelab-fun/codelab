@@ -11,10 +11,10 @@ export class BreadcrumbComponent implements OnInit {
   readonly separator = '/';
 
   constructor(activatedRoute: ActivatedRoute) {
-    this.milestone = activatedRoute.pathFromRoot.find(route => route.routeConfig && route.routeConfig['name']).routeConfig['name'];
+    this.milestone = activatedRoute.pathFromRoot.find(
+      route => route.routeConfig && route.routeConfig['name']
+    ).routeConfig['name'];
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

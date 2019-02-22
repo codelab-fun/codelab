@@ -28,15 +28,11 @@ export const angularFire = AngularFireModule.initializeApp(
     ButtonWithMenuModule
   ],
   providers: [FeedbackService],
-  declarations: [
-    FeedbackWidgetComponent,
-    FeedbackRatingComponent
-  ],
+  declarations: [FeedbackWidgetComponent, FeedbackRatingComponent],
   exports: [
     FeedbackWidgetComponent,
     FeedbackRatingComponent,
     ButtonWithMenuModule
   ]
 })
-export class FeedbackModule {
-}
+export class FeedbackModule {}

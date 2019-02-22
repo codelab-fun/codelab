@@ -15,17 +15,15 @@ export class MidiComponent implements OnInit {
   parser: BinaryParser;
   s: BinaryReaderResult;
 
-  constructor() {
-  }
+  constructor() {}
 
-  updateBinary(e: Event) {
-  }
+  updateBinary(e: Event) {}
 
   ngOnInit() {
     this.binary = localStorage.getItem('midi');
 
     const header = new BinaryParser()
-      .string('headerConst', {length: 4})
+      .string('headerConst', { length: 4 })
       .uInt32('6')
       .uInt16('Single multi-channel track')
       .uInt16('Number of tracs')
@@ -51,8 +49,8 @@ export class MidiComponent implements OnInit {
             .values(data)
             .find(l => l.name === 'length').value;
           const parsers = {
-            '00000011': new StringParser({length}),
-            '00000010': new StringParser({length}),
+            '00000011': new StringParser({ length }),
+            '00000010': new StringParser({ length }),
             '01011000': timeSignatureParser,
             // tempo
             '01010001': new BinaryParser().uInt24('value'),
@@ -71,7 +69,6 @@ export class MidiComponent implements OnInit {
     const noteSwitch = new BinaryParser()
       .uInt8('note number')
       .uInt8('velocity');
-
 
     const instrumentChannel = new BinaryParser().uInt8('instrument');
     const track = new BinaryParser()
@@ -98,9 +95,9 @@ export class MidiComponent implements OnInit {
       });
 
     const tracks = new BinaryParser()
-      .string('headerConst', {length: 4})
+      .string('headerConst', { length: 4 })
       .uInt32('tracklen')
-      .array('tracks', {parser: track, length: 12});
+      .array('tracks', { parser: track, length: 12 });
 
     this.parser = new BinaryParser()
       .block('header', header)

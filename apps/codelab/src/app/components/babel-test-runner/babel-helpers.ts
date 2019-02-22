@@ -3,15 +3,15 @@ import * as babylon from 'babylon';
 import babel_traverse from 'babel-traverse';
 import * as ts from 'typescript';
 
-export const expectClass = name => ({node, parent}) =>
-  T.isIdentifier(node, {name}) &&
-  T.isClassDeclaration(parent, {superClass: null});
+export const expectClass = name => ({ node, parent }) =>
+  T.isIdentifier(node, { name }) &&
+  T.isClassDeclaration(parent, { superClass: null });
 
-export const expectExportedClass = name => ({node, parent, parentPath}) =>
-  expectClass(name)({node, parent}) &&
+export const expectExportedClass = name => ({ node, parent, parentPath }) =>
+  expectClass(name)({ node, parent }) &&
   T.isExportNamedDeclaration(parentPath.parent);
 
-export const expectDecorator = name => ({node}) =>
+export const expectDecorator = name => ({ node }) =>
   T.isDecorator(node) && node.expression.callee.name === name;
 
 export const expectDecoratorPropertyStringValue = (
@@ -20,7 +20,7 @@ export const expectDecoratorPropertyStringValue = (
   value
 ) => path => {
   return (
-    T.isStringLiteral(path.node, {value}) &&
+    T.isStringLiteral(path.node, { value }) &&
     T.isObjectProperty(path.parent) &&
     path.parent.key.name === keyName &&
     path.findParent(T.isDecorator).node.expression.callee.name === decoratorName
@@ -29,7 +29,7 @@ export const expectDecoratorPropertyStringValue = (
 
 export function babelTestSuite(filePath, tests) {
   return function test(files) {
-    const results = tests.map(({title}) => ({title, pass: false}));
+    const results = tests.map(({ title }) => ({ title, pass: false }));
     const code = files[filePath];
 
     const ast = babylon.parse(code, {
@@ -54,18 +54,15 @@ export function babelTestSuite(filePath, tests) {
   };
 }
 
-
 export type Predicate = (node: ts.Node) => boolean;
 
 export class MiniTsQuery {
-  constructor(private readonly ast: ts.Node) {
-
-  }
+  constructor(private readonly ast: ts.Node) {}
 
   some(predicate: Predicate) {
     let result = false;
 
-    this.traverse(this.ast, (node) => {
+    this.traverse(this.ast, node => {
       if (predicate(node)) {
         result = true;
       }
@@ -77,7 +74,7 @@ export class MiniTsQuery {
   findOne(predicate) {
     let result;
 
-    this.traverse(this.ast, (node) => {
+    this.traverse(this.ast, node => {
       if (!result && predicate(node)) {
         result = node;
       }
@@ -95,19 +92,22 @@ export class MiniTsQuery {
   }
 
   getIdentifier(identifier: string) {
-    return this.findOne(node => ts.isIdentifier(node) && node.text === identifier);
+    return this.findOne(
+      node => ts.isIdentifier(node) && node.text === identifier
+    );
   }
 
   hasConstructorParam(identifier: string, type: string) {
-    const node = this.findOne(node => ts.isIdentifier(node) && node.text === identifier);
+    const node = this.findOne(
+      node => ts.isIdentifier(node) && node.text === identifier
+    );
 
     return node ? node.parent.type.typeName.text === type : undefined;
   }
 
-
   hasVariableDeclaration(identifier: string) {
     const node = this.getIdentifier(identifier);
-    return (node && ts.isVariableDeclaration(node.parent)) ? node : undefined;
+    return node && ts.isVariableDeclaration(node.parent) ? node : undefined;
   }
 
   hasDecorator(type: string) {
@@ -116,15 +116,18 @@ export class MiniTsQuery {
 
   hasDecoratorValue(decoratorType: string, property: string, type: string) {
     const decorator = this.getDecorator(decoratorType);
-    if (decorator.expression &&
-      ts.isCallExpression(decorator.expression)
-      && decorator.expression.arguments
-      && decorator.expression.arguments[0]
-      && ts.isObjectLiteralExpression(decorator.expression.arguments[0])) {
-
+    if (
+      decorator.expression &&
+      ts.isCallExpression(decorator.expression) &&
+      decorator.expression.arguments &&
+      decorator.expression.arguments[0] &&
+      ts.isObjectLiteralExpression(decorator.expression.arguments[0])
+    ) {
       return (decorator.expression.arguments[0] as any).properties
         .filter(prop => prop && prop.name && prop.name.text === property)
-        .some(arrayValue => arrayValue.initializer.elements.some(a => a.text === type));
+        .some(arrayValue =>
+          arrayValue.initializer.elements.some(a => a.text === type)
+        );
     }
     return false;
   }
@@ -134,40 +137,41 @@ export class MiniTsQuery {
   }
 
   getDecorator(type: string): ts.Decorator {
-    return this.findOne((node) => {
-      return ts.isDecorator(node)
-        && node.expression
-        && ts.isCallExpression(node.expression)
-        && node.expression.expression
-        && ts.isIdentifier(node.expression.expression)
-        && node.expression.expression.text === type;
+    return this.findOne(node => {
+      return (
+        ts.isDecorator(node) &&
+        node.expression &&
+        ts.isCallExpression(node.expression) &&
+        node.expression.expression &&
+        ts.isIdentifier(node.expression.expression) &&
+        node.expression.expression.text === type
+      );
     });
   }
 
-
   private traverse(node, callback) {
     callback(node);
-    ts.forEachChild(node, (node) => this.traverse(node, callback));
+    ts.forEachChild(node, node => this.traverse(node, callback));
   }
 }
 
-
 export function tsAstTestSuite(tests) {
   return function test(files) {
-    const results = tests.map(({title}) => ({title, pass: false}));
+    const results = tests.map(({ title }) => ({ title, pass: false }));
     const astCache = {};
 
     function getAst(filePath) {
       if (!astCache[filePath]) {
-        astCache[filePath] = new MiniTsQuery(ts.createSourceFile(
-          filePath,
-          files[filePath],
-          ts.ScriptTarget.ES2015,
-          /*setParentNodes */ true
-        ));
+        astCache[filePath] = new MiniTsQuery(
+          ts.createSourceFile(
+            filePath,
+            files[filePath],
+            ts.ScriptTarget.ES2015,
+            /*setParentNodes */ true
+          )
+        );
       }
       return astCache[filePath];
-
     }
 
     tests.forEach((testConfig, index) => {
@@ -175,7 +179,8 @@ export function tsAstTestSuite(tests) {
         if (!testConfig.file) {
           throw new Error('test must specify a file');
         }
-        results[index].pass = results[index].pass || testConfig.condition(getAst(testConfig.file));
+        results[index].pass =
+          results[index].pass || testConfig.condition(getAst(testConfig.file));
       } catch (e) {
         console.log(e);
       }

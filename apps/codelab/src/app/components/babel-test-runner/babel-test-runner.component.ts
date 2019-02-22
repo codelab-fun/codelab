@@ -8,7 +8,6 @@ import {
 import { TestInfo } from '../../shared/interfaces/test-info';
 import { FileConfig } from '../../shared/interfaces/file-config';
 
-
 declare const require;
 
 @Component({

@@ -1,4 +1,11 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Observable } from 'rxjs';
 
@@ -40,8 +47,7 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
   constructor(
     private ref: ChangeDetectorRef,
     private feedbackService: FeedbackService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.ratings$ = this.feedbackService.getRatings();

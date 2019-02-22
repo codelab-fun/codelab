@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
-
-import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
+import {
+  ExerciseConfigTemplate,
+  Ng2TsExercises
+} from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import { CodelabFile } from '../../../shared/helpers/codelabFile';
 
@@ -22,7 +24,6 @@ function matExercise(
     /MatCardModule, MatToolbarModule/g,
     modules
   );
-
 
   return {
     files: [
@@ -127,6 +128,6 @@ export class MaterialComponent implements OnInit {
     this.theme = theme;
     const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
     cssFile.template = this.themes[theme];
-    this.code.material.theme = {...this.code.material.theme};
+    this.code.material.theme = { ...this.code.material.theme };
   }
 }

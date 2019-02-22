@@ -13,7 +13,6 @@ import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
   styleUrls: ['./feedback-widget.component.css']
 })
 export class FeedbackWidgetComponent implements OnInit, OnDestroy {
-
   messages$: Observable<Message[]>;
 
   formGroup: FormGroup;
@@ -31,7 +30,10 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.router.events
       .pipe(takeUntil(this.destroy))
       .subscribe(
-        () => this.messages$ = this.feedbackService.getMessages(this.activatedRoute)
+        () =>
+          (this.messages$ = this.feedbackService.getMessages(
+            this.activatedRoute
+          ))
       );
   }
 
@@ -46,7 +48,10 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     });
 
     this.formGroup.valueChanges
-      .pipe(debounceTime(500), takeUntil(this.destroy))
+      .pipe(
+        debounceTime(500),
+        takeUntil(this.destroy)
+      )
       .subscribe(data => {
         localStorage[`feedback-${this.router.url}-comment`] = data.comment;
       });
@@ -81,5 +86,4 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.destroy.next(null);
     this.destroy.complete();
   }
-
 }

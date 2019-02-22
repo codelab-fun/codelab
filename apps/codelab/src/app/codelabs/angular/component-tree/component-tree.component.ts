@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ExerciseConfigTemplate, Ng2TsExercises, SlideTemplate } from '../../../../../../../ng2ts/ng2ts';
+import {
+  ExerciseConfigTemplate,
+  Ng2TsExercises,
+  SlideTemplate
+} from '../../../../../../../ng2ts/ng2ts';
 
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import { boxAndCircle, circleAndBox } from '../../../shared/helpers/helpers';
@@ -96,7 +100,9 @@ export class Child {
 
     boxAndCircle: boxAndCircle(),
     circleAndBox: circleAndBoxCode,
-    passingDataToChildHighlights: {'circle.component.ts': [/@Input\(\) size/, /@Input\(\) color/]}
+    passingDataToChildHighlights: {
+      'circle.component.ts': [/@Input\(\) size/, /@Input\(\) color/]
+    }
   };
 
   constructor(private exercises: Ng2TsExercises) {

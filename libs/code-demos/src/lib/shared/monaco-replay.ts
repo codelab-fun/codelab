@@ -10,7 +10,7 @@ export function replay(editor: any) {
         key
       });
     });
-    editor.trigger('keyboard', 'type', {text: 'test'});
+    editor.trigger('keyboard', 'type', { text: 'test' });
     editor.trigger('keyboard', monaco.editor.Handler.CursorLeft);
   });
   editor.addCommand(monaco.KeyCode.F8, () => {

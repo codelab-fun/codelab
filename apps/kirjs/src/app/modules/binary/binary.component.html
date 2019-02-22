@@ -42,8 +42,8 @@
   </div>
 
   <div *slide id="binary-file-upload">
-    <input type="file"/>
-    <hr/>
+    <input type="file" />
+    <hr />
     <code-demo-editor
       [lineNumbers]="false"
       [fontSize]="40"
@@ -93,7 +93,8 @@
       <tr>
         <td i18n style="width: 30%">Binary data</td>
         <td i18n>
-          01001110 01101111 01110110 01101001 00100000 01110011 01100001 01100100
+          01001110 01101111 01110110 01101001 00100000 01110011 01100001
+          01100100
         </td>
       </tr>
       <tr>
@@ -120,7 +121,8 @@
       <tr>
         <td i18n style="width: 30%">Binary data</td>
         <td i18n>
-          01001110 01101111 01110110 01101001 00100000 01110011 01100001 01100100
+          01001110 01101111 01110110 01101001 00100000 01110011 01100001
+          01100100
         </td>
       </tr>
       <tr>
@@ -228,9 +230,7 @@ Columbus, Ohio
     ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="bin-dec">
-    <kirjs-bindec param="uint8"></kirjs-bindec>
-  </div>
+  <div *slide id="bin-dec"><kirjs-bindec param="uint8"></kirjs-bindec></div>
 
   <div *slide id="convert-bin-to-dec">
     <h2 i18n>Convert binary to decimal with JavaScript</h2>
@@ -266,9 +266,7 @@ Columbus, Ohio
     ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="bin-hex-explained">
-    <kirjs-hexdec></kirjs-hexdec>
-  </div>
+  <div *slide id="bin-hex-explained"><kirjs-hexdec></kirjs-hexdec></div>
   <div *slide id="bin-hex">
     <h2 i18n>Convert binary to hexadecimal with JavaScript</h2>
     <code-demo-realtime-eval
@@ -308,9 +306,7 @@ Columbus, Ohio
     ></kirjs-fake-gif>
   </div>
 
-  <div *slide id="ascii">
-    <kirjs-ascii></kirjs-ascii>
-  </div>
+  <div *slide id="ascii"><kirjs-ascii></kirjs-ascii></div>
 
   <div *slide id="ascii-2">
     <kirjs-ascii param="ascii - Page 2"></kirjs-ascii>
@@ -320,18 +316,14 @@ Columbus, Ohio
     <kirjs-ascii param="windows-1251"></kirjs-ascii>
   </div>
 
-  <div *slide id="pelmen" pelmen>
-    <h1 i18n>ПЕЛЬМЕНЬ</h1>
-  </div>
+  <div *slide id="pelmen" pelmen><h1 i18n>ПЕЛЬМЕНЬ</h1></div>
 
   <div *slide id="pelmen2" pelmen>
     <h1 i18n>ПЕЛЬМЕНЬ</h1>
     <h1 i18n>ПЕЉМЕЊ</h1>
   </div>
 
-  <div *slide id="KOI8-R">
-    <kirjs-ascii param="KOI8-R"></kirjs-ascii>
-  </div>
+  <div *slide id="KOI8-R"><kirjs-ascii param="KOI8-R"></kirjs-ascii></div>
   <div *slide id="boxes">
     <pre style="font-size: 3vw;font-family: monospace; line-height: 1.8vw;">
 ┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕
@@ -350,9 +342,7 @@ Columbus, Ohio
 
   <div *slide id="krakoziabry" bg krakoziabry></div>
 
-  <div *slide id="utf-8">
-    <kirjs-ascii param="utf-8"></kirjs-ascii>
-  </div>
+  <div *slide id="utf-8"><kirjs-ascii param="utf-8"></kirjs-ascii></div>
 
   <div *slide id="str-to-charcode">
     <h2 i18n>Get charcode from string</h2>
@@ -446,7 +436,6 @@ Columbus, Ohio
     </ul>
   </div>
 
-
   <div *slide id="files">
     <h2 i18n>File header constants</h2>
     <ul>
@@ -472,13 +461,9 @@ Columbus, Ohio
     <h1 i18n>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
   </div>
 
-  <div *slide id="json">
-    <kirjs-json></kirjs-json>
-  </div>
+  <div *slide id="json"><kirjs-json></kirjs-json></div>
 
-  <div *slide id="json-1">
-    <kirjs-json [code]="code.jsonOne"></kirjs-json>
-  </div>
+  <div *slide id="json-1"><kirjs-json [code]="code.jsonOne"></kirjs-json></div>
 
   <div *slide id="compare-size">
     <h1 i18n>Serialized Size</h1>
@@ -584,7 +569,7 @@ Columbus, Ohio
     <ul>
       <li i18n>
         <a href="https://developers.google.com/protocol-buffers/"
-        >Protocol buffers</a
+          >Protocol buffers</a
         >
         (Google)
       </li>
@@ -596,7 +581,6 @@ Columbus, Ohio
       </li>
     </ul>
   </div>
-
 
   <div *slide id="binary-memory" bg vc>
     <h1 i18n>Thought experiment</h1>
@@ -624,10 +608,7 @@ System.out.println(b[3]);"
   </div>
 
   <div *slide id="binary-memory-4">
-    <kirjs-memory
-      [param]="3"
-      code="Uint8[] b = new Uint8[5];"
-    ></kirjs-memory>
+    <kirjs-memory [param]="3" code="Uint8[] b = new Uint8[5];"></kirjs-memory>
   </div>
 
   <div *slide id="binary-memory-5">
@@ -708,10 +689,7 @@ console.log(a[1])"
   </div>
 
   <div *slide id="bitwise-to-read" bg>
-    <kirjs-to-read
-      title="Hacker's delight "
-      author="Henry S. Warren"
-    >
+    <kirjs-to-read title="Hacker's delight " author="Henry S. Warren">
       <div class="book"></div>
     </kirjs-to-read>
   </div>

@@ -4,10 +4,5 @@ import { Directive, TemplateRef } from '@angular/core';
   selector: '[codelabModalContent]'
 })
 export class ButtonWithMenuModalDirective {
-
-  constructor(
-    readonly template: TemplateRef<any>
-  ) {
-  }
-
+  constructor(readonly template: TemplateRef<any>) {}
 }

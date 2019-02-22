@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './menu-github-widget.component.html',
   styleUrls: ['./menu-github-widget.component.css']
 })
-export class MenuGithubWidgetComponent {
-}
+export class MenuGithubWidgetComponent {}

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TestInfo } from '../../shared/interfaces/test-info';
 
-
 function getFileName(file: string) {
   return file.split('/').pop();
 }
@@ -19,8 +18,7 @@ export class SimpleTestsComponent implements OnInit {
   seeAll = false;
   tests: Array<TestInfo>;
 
-  constructor() {
-  }
+  constructor() {}
 
   @Input('tests') set testsSetter(tests: Array<TestInfo>) {
     this.tests = (tests || []).map(test => ({

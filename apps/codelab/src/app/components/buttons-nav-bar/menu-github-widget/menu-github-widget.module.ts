@@ -8,5 +8,4 @@ import { MenuGithubWidgetComponent } from './menu-github-widget.component';
   declarations: [MenuGithubWidgetComponent],
   exports: [MenuGithubWidgetComponent, ButtonWithMenuModule]
 })
-export class MenuGithubWidgetModule {
-}
+export class MenuGithubWidgetModule {}

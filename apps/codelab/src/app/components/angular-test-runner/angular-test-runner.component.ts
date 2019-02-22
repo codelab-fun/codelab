@@ -26,12 +26,12 @@ declare const require;
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
-  (sandbox.iframe.contentWindow as any).System.register('code', [], function (
+  (sandbox.iframe.contentWindow as any).System.register('code', [], function(
     exports
   ) {
     return {
       setters: [],
-      execute: function () {
+      execute: function() {
         exports('ts', ts);
         exports('babylon', babylon);
         exports('babel_traverse', babel_traverse);
@@ -65,7 +65,9 @@ export class SimpleAngularTestRunnerComponent
   implements OnChanges, OnInit, OnDestroy {
   handleMessageBound: any;
   @Output() solved = new EventEmitter();
-  @Output() public selectFile: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public selectFile: EventEmitter<string> = new EventEmitter<
+    string
+  >();
   @Input() translations: { [key: string]: string } = {};
   @Input() code: any;
   @Input() bootstrap: string;
@@ -76,7 +78,10 @@ export class SimpleAngularTestRunnerComponent
   tests: any;
   private subscription: Subscription;
 
-  constructor(private scriptLoaderService: ScriptLoaderService, private cd: ChangeDetectorRef) {
+  constructor(
+    private scriptLoaderService: ScriptLoaderService,
+    private cd: ChangeDetectorRef
+  ) {
     this.handleMessageBound = message => {
       this.tests = handleTestMessage(message, this.tests);
 
@@ -108,7 +113,7 @@ export class SimpleAngularTestRunnerComponent
 
     sandbox.setHtml(
       this.code['index.html'] ||
-      '<app-root></app-root><my-app></my-app><div class="error"></div>'
+        '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
     sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
@@ -139,7 +144,8 @@ export class SimpleAngularTestRunnerComponent
             return true;
           }
           return false;
-        }).some(a => a);
+        })
+        .some(a => a);
 
       if (!hasErrors) {
         sandbox.evalJs(`System.import('${this.bootstrap}')`);

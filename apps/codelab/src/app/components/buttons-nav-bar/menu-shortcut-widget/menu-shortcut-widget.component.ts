@@ -7,7 +7,5 @@ import { menuRoutes } from '../../../codelabs/angular/angular-routing.module';
   styleUrls: ['./menu-shortcut-widget.component.css']
 })
 export class MenuShortcutWidgetComponent {
-
   menuRoutes = menuRoutes;
-
 }

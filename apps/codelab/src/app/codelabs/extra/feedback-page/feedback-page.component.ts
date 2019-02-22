@@ -58,7 +58,7 @@ function filter([feedback, filterName]) {
 }
 
 @Component({
-  selector: 'kirjs-feedback-page',
+  selector: 'codelab-feedback-page',
   templateUrl: './feedback-page.component.html',
   styleUrls: ['./feedback-page.component.css']
 })

@@ -21,8 +21,7 @@ let routes = [
       },
       {
         path: 'feedback-page',
-        loadChildren:
-          './feedback-page/feedback-page.module#FeedbackPageModule',
+        loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule',
         name: 'Feedback page',
         description: 'Feedback page'
       },

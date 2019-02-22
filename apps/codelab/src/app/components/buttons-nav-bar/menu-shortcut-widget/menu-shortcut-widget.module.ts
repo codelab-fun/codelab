@@ -9,5 +9,4 @@ import { MenuShortcutWidgetComponent } from './menu-shortcut-widget.component';
   declarations: [MenuShortcutWidgetComponent],
   exports: [MenuShortcutWidgetComponent, ButtonWithMenuModule]
 })
-export class MenuShortcutWidgetModule {
-}
+export class MenuShortcutWidgetModule {}

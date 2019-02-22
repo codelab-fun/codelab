@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './buttons-nav-bar.component.html',
   styleUrls: ['./buttons-nav-bar.component.css']
 })
-export class ButtonsNavBarComponent {
-}
+export class ButtonsNavBarComponent {}
