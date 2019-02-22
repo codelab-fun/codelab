@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
-import { Message } from '../../../../../../../libs/feedback/src/lib/message';
+import { Message } from '@codelab/feedback/src/lib/message';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GithubService } from './github.service';
