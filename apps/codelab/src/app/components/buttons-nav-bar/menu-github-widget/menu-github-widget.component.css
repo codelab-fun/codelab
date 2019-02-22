@@ -1,7 +1,23 @@
 img {
-    width: 100%;
+  width: 100%;
 }
 
-.mb-0 {
-    margin-bottom: 0;
+.octocat {
+  width: 224px;
+  margin: 0 auto;
+  height: 224px;
+  background: url(images/octocat.png) no-repeat;
+  margin-right: 16px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.content {
+  width: 300px;
+}
+
+h3 {
+  font-weight: 300;
 }

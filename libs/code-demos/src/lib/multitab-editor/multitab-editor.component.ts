@@ -49,7 +49,6 @@ export class MultitabEditorComponent
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
-  @Input() codeDemoHighlight = [];
   @Input() highlights = {};
   @Input() debounce = 250;
   files = [];
@@ -57,7 +56,6 @@ export class MultitabEditorComponent
   changeSubject = new Subject();
 
   private onChange: any;
-  private fileNames: string[] = [];
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
   private subscription: Subscription;
@@ -152,7 +150,6 @@ export class MultitabEditorComponent
   writeValue(code: Code): void {
     if (code) {
       this.code = { ...code };
-      this.fileNames = Object.keys(this.code);
       this.generateModels();
     }
   }

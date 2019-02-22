@@ -8,6 +8,7 @@ export function findPosition(code: string, match: string | RegExp) {
       match = '';
     }
   }
+
   const textBeforeMatch = code.split(match as any)[0];
   const lineStart = textBeforeMatch.split('\n').length;
   const lineStartPosition =

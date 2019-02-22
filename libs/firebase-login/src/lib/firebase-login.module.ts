@@ -9,5 +9,4 @@ import { LoginWidgetComponent } from './login-widget/login-widget.component';
   declarations: [LoginWidgetComponent],
   exports: [LoginWidgetComponent, ButtonWithMenuModule]
 })
-export class FirebaseLoginModule {
-}
+export class FirebaseLoginModule {}

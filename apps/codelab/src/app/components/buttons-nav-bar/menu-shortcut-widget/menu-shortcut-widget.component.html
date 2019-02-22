@@ -1,29 +1,21 @@
 <codelab-button-with-menu>
-
-  <button class="menu-bar-btn">
-    <img alt="MenuShortcut" src="/assets/images/home.png"/>
+  <button class="menu-bar-btn index-menu">
+    <img alt="MenuShortcut" src="/assets/images/home.png" />
   </button>
 
   <ng-container *codelabModalContent="let modal">
     <div class="buttons-nav-bar-modal-content-wrapper">
-      <h2 class="modal-title"> Navigation </h2>
-      <div class="menu-index">
-        <ul class="menu-list">
-          <li class="menu-item">
-            <p><a href="/"> <span class="menu-item-text"> Index </span> </a></p>
-          </li>
-          <ng-container *ngFor="let navigationRoute of menuRoutes">
-            <li (click)="modal.close()" class="menu-item">
-              <p>
-                <a [routerLink]="['/angular', navigationRoute['path']]">
-                  <span class="menu-item-text"> {{ navigationRoute['name'] }} </span>
-                </a>
-              </p>
-            </li>
-          </ng-container>
-        </ul>
-      </div>
+      <ul>
+        <li><a routerLink="/" (click)="modal.close()">🏡 Index </a></li>
+        <li *ngFor="let navigationRoute of menuRoutes">
+          <a
+            (click)="modal.close()"
+            [routerLink]="['/angular', navigationRoute['path']]"
+          >
+            {{ navigationRoute['name'] }}
+          </a>
+        </li>
+      </ul>
     </div>
   </ng-container>
-
 </codelab-button-with-menu>

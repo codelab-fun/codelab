@@ -9,12 +9,10 @@ import { auth } from 'firebase';
   styleUrls: ['./login-widget.component.css']
 })
 export class LoginWidgetComponent {
-
   constructor(
     private auth: AngularFireAuth,
-    readonly  loginService: LoginService
-  ) {
-  }
+    readonly loginService: LoginService
+  ) {}
 
   login() {
     this.auth.auth.signInWithPopup(new auth.GoogleAuthProvider());
@@ -23,5 +21,4 @@ export class LoginWidgetComponent {
   logout() {
     this.auth.auth.signOut();
   }
-
 }

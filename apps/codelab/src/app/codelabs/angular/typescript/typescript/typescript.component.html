@@ -132,8 +132,8 @@
         applications
       </li>
       <li i18n>
-        New features of the latest versions of JS standards (ES2018, ES2019) are not
-        supported well across all the browsers
+        New features of the latest versions of JS standards (ES2018, ES2019) are
+        not supported well across all the browsers
       </li>
     </ul>
     <div class="info" i18n>
@@ -146,15 +146,13 @@
   <div *slide id="about-typescript-2" milestone="TypeScript">
     <codelab-breadcrumb i18n>TypeScript</codelab-breadcrumb>
     <h2 i18n>
-      This is why <b>TypeScript</b> has been created. Since TypeScript can be compiled to JavaScript, it can be used in
-      any modern browser.
+      This is why <b>TypeScript</b> has been created. Since TypeScript can be
+      compiled to JavaScript, it can be used in any modern browser.
     </h2>
     <div row>
       <div>
         <ul>
-          <li i18n>
-            TypeScript extends the latest version of JavaScript
-          </li>
+          <li i18n>TypeScript extends the latest version of JavaScript</li>
           <li i18n>
             TypeScript adds new features from the next version of JavaScript
           </li>
@@ -187,7 +185,7 @@
     <codelab-exercise-playground
       presets=""
       ui="console"
-      [codeDemoHighlight]="[code.tsExerciseMatch]"
+      [highlights]="code.tsExerciseMatch"
       [exercise]="code.js2And2"
     ></codelab-exercise-playground>
     <h2 i18n>
@@ -214,7 +212,9 @@
   </div>
 
   <div *slide id="types-primitives" milestone="TypeScript">
-    <codelab-breadcrumb i18n>Primitives (strings, numbers, etc...)</codelab-breadcrumb>
+    <codelab-breadcrumb i18n
+      >Primitives (strings, numbers, etc...)</codelab-breadcrumb
+    >
     <h2 i18n>Below are more types we can use</h2>
 
     <code-demo-file-path path="types.ts"></code-demo-file-path>
@@ -226,13 +226,13 @@
       [(ngModel)]="code.moreTypes.code"
     >
     </code-demo-editor>
-
   </div>
 
   <div *slide id="types-more" milestone="TypeScript">
     <codelab-breadcrumb i18n>Interfaces</codelab-breadcrumb>
     <h2 i18n>
-      TypeScript Interfaces allow to specify properties and methods for an object.
+      TypeScript Interfaces allow to specify properties and methods for an
+      object.
     </h2>
     <code-demo-file-path path="puppies.ts"></code-demo-file-path>
     <code-demo-editor
@@ -251,11 +251,13 @@
   <div *slide id="types-arrays" milestone="TypeScript">
     <codelab-breadcrumb i18n>Arrays</codelab-breadcrumb>
     <h2 i18n>
-      Array types are defined as <b>Array{{ '<' }}Type{{ '>' }}</b> or <b>Type[]</b>
+      Array types are defined as <b>Array{{ '<' }}Type{{ '>' }}</b> or
+      <b>Type[]</b>
     </h2>
     <codelab-exercise-playground
       presets=""
       ui="console"
+      [highlights]="code.classDescription.matches.arrayMatch"
       [exercise]="code.moreTypes.codeArrays"
     ></codelab-exercise-playground>
     <div class="info" i18n>
@@ -275,7 +277,7 @@
     <codelab-exercise-playground
       presets=""
       ui="console"
-      [codeDemoHighlight]="[code.classDescription.matches.classPuppyMatch]"
+      [highlights]="code.classDescription.matches.classPuppyMatch"
       [exercise]="code.classDescription.code"
     ></codelab-exercise-playground>
   </div>
@@ -290,10 +292,7 @@
       presets=""
       ui="console"
       [exercise]="code.classDescription.codeConstructor"
-      [codeDemoHighlight]="[
-        code.classDescription.matches.constructorMatch,
-        code.classDescription.matches.edouardMatch
-      ]"
+      [highlights]="code.classDescription.matches.constructorMatch"
     ></codelab-exercise-playground>
   </div>
 
@@ -307,10 +306,7 @@
     <codelab-exercise-playground
       presets=""
       ui="console"
-      [codeDemoHighlight]="[
-        code.classDescription.matches.thisMatch,
-        code.classDescription.matches.publicMatch
-      ]"
+      [highlights]="code.classDescription.matches.modifierMatch"
       [exercise]="code.classDescription.codeConstructor"
     ></codelab-exercise-playground>
     <div class="info" i18n>
@@ -349,8 +345,8 @@
       [exercise]="code.classDescription.codeImport"
     ></codelab-exercise-playground>
     <div class="info" i18n>
-      <b>import</b> and <b>export</b> keywords are not just for classes. They work with variables,
-      functions and other things!
+      <b>import</b> and <b>export</b> keywords are not just for classes. They
+      work with variables, functions and other things!
     </div>
   </div>
 
@@ -372,33 +368,33 @@
     <ul>
       <li>
         <a i18n href="https://www.typescriptlang.org/docs/handbook/enums.html"
-        >Enums</a
+          >Enums</a
         >
       </li>
       <li>
         <a
           i18n
           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
-        >Async / Await</a
+          >Async / Await</a
         >
       </li>
       <li>
         <a i18n href="https://www.typescriptlang.org/docs/handbook/classes.html"
-        >Accessors (Getters / Setters</a
+          >Accessors (Getters / Setters</a
         >)
       </li>
       <li>
         <a
           i18n
           href="https://www.typescriptlang.org/docs/handbook/variable-declarations.html"
-        >Destructuring</a
+          >Destructuring</a
         >
       </li>
       <li>
         <a
           i18n
           href="https://www.typescriptlang.org/docs/handbook/functions.html"
-        >Arrow functions</a
+          >Arrow functions</a
         >
       </li>
       <li i18n>And more!</li>
@@ -448,10 +444,10 @@
         </h2>
       </div>
       <div footer>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <h2>
-          <ng-container i18n>Next: </ng-container>
+          <ng-container i18n>Next:</ng-container>
           <a routerLink="../../create-first-app/0" i18n>
             Learn how to create your first Angular app!
           </a>

@@ -1,4 +1,11 @@
-import { AfterViewInit, Directive, Input, OnChanges, Optional, Self } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  Input,
+  OnChanges,
+  Optional,
+  Self
+} from '@angular/core';
 import { findPosition } from '../utils/utils';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
@@ -15,8 +22,7 @@ export class CodeDemoEditorHighlightDirective
   constructor(
     @Self() @Optional() private editorInjector: CodeDemoEditorInjector,
     readonly monacoConfigService: MonacoConfigService
-  ) {
-  }
+  ) {}
 
   ngAfterViewInit() {
     this.highlight();
@@ -51,9 +57,9 @@ export class CodeDemoEditorHighlightDirective
       }
 
       const decorations = this.codeDemoHighlight
-        .map(match => (match.match ? match : {match}))
-        .reduce((ranges, {match, className}) => {
-          const {indexStart, lineStart, indexEnd, lineEnd} = findPosition(
+        .map(match => (match.match ? match : { match }))
+        .reduce((ranges, { match, className }) => {
+          const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(
             code,
             match
           );
@@ -64,7 +70,7 @@ export class CodeDemoEditorHighlightDirective
               lineEnd,
               indexEnd
             ),
-            options: {inlineClassName: className || 'highlighted-code'}
+            options: { inlineClassName: className || 'highlighted-code' }
           });
 
           return ranges;

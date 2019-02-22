@@ -78,7 +78,10 @@ export class SimpleAngularTestRunnerComponent
   tests: any;
   private subscription: Subscription;
 
-  constructor(private scriptLoaderService: ScriptLoaderService, private cd: ChangeDetectorRef) {
+  constructor(
+    private scriptLoaderService: ScriptLoaderService,
+    private cd: ChangeDetectorRef
+  ) {
     this.handleMessageBound = message => {
       this.tests = handleTestMessage(message, this.tests);
 
@@ -124,15 +127,15 @@ export class SimpleAngularTestRunnerComponent
     this.subscription = this.changedFilesSubject.subscribe(files => {
       const hasErrors = Object.entries(files)
         .filter(([path]) => path.match(/\.js$/))
-        .some(([path, code]) => {
-          sandbox.evalJs(
-            `System.registry.delete(System.normalizeSync('./${path.replace(
-              '.js',
-              ''
-            )}'));`
-          );
-          addMetaInformation(sandbox, this.code);
+        .map(([path, code]) => {
           try {
+            sandbox.evalJs(
+              `System.registry.delete(System.normalizeSync('./${path.replace(
+                '.js',
+                ''
+              )}'));`
+            );
+            addMetaInformation(sandbox, this.code);
             sandbox.evalJs(code);
           } catch (e) {
             console.groupCollapsed(e.message);
@@ -141,10 +144,11 @@ export class SimpleAngularTestRunnerComponent
             return true;
           }
           return false;
-        });
+        })
+        .some(a => a);
 
       if (!hasErrors) {
-        sandbox.evalJs(`System.import('${ this.bootstrap }')`);
+        sandbox.evalJs(`System.import('${this.bootstrap}')`);
       }
     });
   }

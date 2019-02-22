@@ -7,6 +7,5 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LoginService {
   readonly user$ = this.auth.user;
 
-  constructor(private auth: AngularFireAuth) {
-  }
+  constructor(private auth: AngularFireAuth) {}
 }

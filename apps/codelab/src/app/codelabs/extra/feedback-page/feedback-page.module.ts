@@ -12,8 +12,9 @@ import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
 import { GithubService } from './github.service';
-import { environment } from '../../../environments/environment';
+
 import { SlidesModule } from '@codelab/slides';
+import { environment } from '../../../../environments/environment';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(FeedbackPageComponent));
 
@@ -27,7 +28,6 @@ export const angularFire = AngularFireModule.initializeApp(
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserWindowModule,
-
     angularFire,
     FormsModule,
     CommonModule,

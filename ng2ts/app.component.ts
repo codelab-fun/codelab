@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 /*d:templateAddAction/trimLeading*/
 import { VideoItem } from './video/video-item';

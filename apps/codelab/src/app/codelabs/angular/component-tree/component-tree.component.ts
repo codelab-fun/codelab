@@ -99,7 +99,10 @@ export class Child {
     },
 
     boxAndCircle: boxAndCircle(),
-    circleAndBox: circleAndBoxCode
+    circleAndBox: circleAndBoxCode,
+    passingDataToChildHighlights: {
+      'circle.component.ts': [/@Input\(\) size/, /@Input\(\) color/]
+    }
   };
 
   constructor(private exercises: Ng2TsExercises) {

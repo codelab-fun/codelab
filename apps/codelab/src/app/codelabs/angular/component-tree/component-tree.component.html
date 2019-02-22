@@ -117,7 +117,9 @@
 
   <!--  PASSING DATA  -->
   <div *slide id="passing-data" milestone="component-tree">
-    <codelab-breadcrumb i18n>Passing Data from Parent to Child</codelab-breadcrumb>
+    <codelab-breadcrumb i18n
+      >Passing Data from Parent to Child</codelab-breadcrumb
+    >
     <h2 i18n>
       Parent component passes its data to the child component via properties
     </h2>
@@ -132,14 +134,16 @@
 
   <!--  PASSING DATA  -->
   <div *slide id="passing-data-child" milestone="component-tree">
-    <codelab-breadcrumb i18n>Passing Data from Parent to Child</codelab-breadcrumb>
+    <codelab-breadcrumb i18n
+      >Passing Data from Parent to Child</codelab-breadcrumb
+    >
     <h2 i18n>
       The child class must decorate its properties with a special
       <b>@Input()</b> decorator
     </h2>
     <codelab-exercise-playground
       [exercise]="code.circleAndBox"
-      [codeDemoHighlight]="['@Input() size', '@Input() color']"
+      [highlights]="code.passingDataToChildHighlights"
     ></codelab-exercise-playground>
     <div class="info" i18n>
       This is the first time we're applying decorators to properties (as opposed
@@ -159,7 +163,7 @@
     <preview-browser-window>
       <div>
         <h2 i18n>Cute kitten</h2>
-        <img src="/assets/images/cat-00.png"/>
+        <img src="/assets/images/cat-00.png" />
         <div>Date 2016-11-25</div>
         <div>Views 100</div>
         <div>Likes 49329</div>
@@ -178,7 +182,6 @@
     </codelab-exercise>
   </div>
   <!--TODO: looks like exercise is broken: after entering "selector: 'my-video'" it has error 'undefined in selector-->
-
 
   <!-- NgModule -->
   <div *slide id="module" milestone="component-tree-2">
@@ -259,9 +262,10 @@
   <!--  COMPONENT TREE EXERCISE 2-->
   <div *slide id="end">
     <codelab-closing-slide>
-      <div header><codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb></div>
-      <div body>
+      <div header>
+        <codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb>
       </div>
+      <div body></div>
       <div footer>
         <h2>
           <ng-container i18n>Next: </ng-container>

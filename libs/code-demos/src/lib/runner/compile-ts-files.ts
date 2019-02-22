@@ -88,19 +88,15 @@ function watch(
   };
 
   function emitFiles(fileNames: string[]) {
-    const updated = fileNames
-      .map(emitFile)
-      .map(output => output.outputFiles)
-      ['flat']()
-      .reduce((acc, outputFile) => {
-        if (outputFile.name.match(/\.js$/)) {
-          return {
-            ...acc,
-            [outputFile.name]: outputFile.text
-          };
-        }
-        return acc;
-      }, {});
+    const updated = fileNames.map(emitFile).reduce((acc, outputFile) => {
+      if (outputFile) {
+        return {
+          ...acc,
+          [outputFile.name]: outputFile.text
+        };
+      }
+      return acc;
+    }, {});
 
     outputFiles.next({
       ...outputFiles.getValue(),
@@ -115,7 +111,13 @@ function watch(
       logErrors(fileName);
     }
 
-    return output;
+    const file = output.outputFiles.find(file => /\.js$/.test(file.name));
+
+    if (file) {
+      file.name = file.name.replace(/^\//, '');
+    }
+
+    return file;
   }
 
   function logErrors(fileName: string) {

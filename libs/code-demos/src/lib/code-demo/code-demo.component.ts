@@ -5,8 +5,7 @@ import {
   map,
   publishReplay,
   refCount,
-  startWith,
-  tap
+  startWith
 } from 'rxjs/operators';
 import {
   BehaviorSubject,

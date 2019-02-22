@@ -6,6 +6,12 @@
 >
   ◀
 </button>
-<button *ngIf="canGoNext()" i18n-aria-label aria-label="Next slide" class="arrow-right arrow" (click)="goToNextSlide()">
+<button
+  *ngIf="canGoNext()"
+  i18n-aria-label
+  aria-label="Next slide"
+  class="arrow-right arrow"
+  (click)="goToNextSlide()"
+>
   ▶
 </button>

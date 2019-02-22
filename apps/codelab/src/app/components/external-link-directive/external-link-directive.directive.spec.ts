@@ -2,7 +2,9 @@ import { ExternalLinkDirectiveDirective } from './external-link-directive.direct
 
 describe('ExternalLinkDirectiveDirective', () => {
   it('should create an instance', () => {
-    const directive = new ExternalLinkDirectiveDirective({nativeElement: document.createElement('a')});
+    const directive = new ExternalLinkDirectiveDirective({
+      nativeElement: document.createElement('a')
+    });
     expect(directive).toBeTruthy();
   });
 });

@@ -22,7 +22,9 @@ type AllData<T = any> = Record<string, T>;
   providedIn: 'root'
 })
 export class LiveService<T = any> implements OnDestroy {
-  private liveInfoSubject: BehaviorSubject<LiveInfo> = new BehaviorSubject<LiveInfo>({
+  private liveInfoSubject: BehaviorSubject<LiveInfo> = new BehaviorSubject<
+    LiveInfo
+  >({
     user: 'code',
     sessionId: 'test',
     status: 'presenter', // 'viewer'
@@ -30,20 +32,21 @@ export class LiveService<T = any> implements OnDestroy {
     slide: 'poll'
   } as LiveInfo);
   liveInfo: Observable<LiveInfo> = this.liveInfoSubject.asObservable();
-  private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<AllData<T>>({} as AllData<T>);
+  private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<
+    AllData<T>
+  >({} as AllData<T>);
   allData = this.allDataSubject.asObservable();
   myData = combineLatest(this.allData, this.liveInfo).pipe(
-    map(([allData, {user}]) => {
+    map(([allData, { user }]) => {
       return allData[user];
     })
   );
 
-  constructor() {
-  }
+  constructor() {}
 
   storeLiveInfo(data: LiveInfo): void {
     const liveInfo = this.liveInfoSubject.getValue();
-    this.liveInfoSubject.next({...liveInfo, ...data});
+    this.liveInfoSubject.next({ ...liveInfo, ...data });
   }
 
   // Viewer
@@ -51,7 +54,7 @@ export class LiveService<T = any> implements OnDestroy {
     // firebase.store
     const liveInfo = this.liveInfoSubject.getValue();
     const allData = this.allDataSubject.getValue();
-    const value = {...allData, [liveInfo.user]: data};
+    const value = { ...allData, [liveInfo.user]: data };
 
     this.allDataSubject.next(value);
   }

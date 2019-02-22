@@ -14,9 +14,7 @@ import { MenuShortcutWidgetModule } from './menu-shortcut-widget/menu-shortcut-w
     MenuGithubWidgetModule,
     MenuShortcutWidgetModule
   ],
-  declarations: [
-    ButtonsNavBarComponent
-  ],
+  declarations: [ButtonsNavBarComponent],
   exports: [
     ButtonsNavBarComponent,
     FeedbackModule,
@@ -25,5 +23,4 @@ import { MenuShortcutWidgetModule } from './menu-shortcut-widget/menu-shortcut-w
     MenuShortcutWidgetModule
   ]
 })
-export class ButtonsNavBarModule {
-}
+export class ButtonsNavBarModule {}
