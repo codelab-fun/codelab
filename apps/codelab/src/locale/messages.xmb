@@ -21,17 +21,19 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <messagebundle>
-  <msg id="3723990239834236534"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:27</source>Email is optional and, will not displayed</msg>
-  <msg id="4712788926759159307"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:32</source>Describe your issue or share your ideas</msg>
-  <msg id="6672095411961477302"><source>../../libs/feedback/src/lib/feedback-form/feedback-form.component.html:45,47</source>
-          Send
-        </msg>
+  <msg id="6930162363603699164"><source>../../libs/slides/src/lib/arrows/slides-arrows.component.html:9</source>Next slide</msg>
+  <msg id="3723990239834236534"><source>../../libs/feedback/src/lib/feedback-widget/feedback-widget.component.html:40</source>Email is optional and, will not displayed</msg>
+  <msg id="4712788926759159307"><source>../../libs/feedback/src/lib/feedback-widget/feedback-widget.component.html:43</source>Describe your issue or share your ideas</msg>
+  <msg id="4865704288308654691"><source>../../libs/feedback/src/lib/feedback-widget/feedback-widget.component.html:54,55</source> Send
+          </msg>
   <msg id="perfect"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:2</source>Perfect</msg>
   <msg id="good"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:3</source>good</msg>
   <msg id="ok"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:4</source>ok</msg>
   <msg id="hopedForMore"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:5</source>Hoped for more</msg>
   <msg id="3134509873264839334"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:12</source>Rate this lesson ...</msg>
-  <msg id="6930162363603699164"><source>../../libs/slides/src/lib/arrows/slides-arrows.component.html:9</source>Next slide</msg>
+  <msg id="2147809403253510571"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:10</source> We also have a repository on Github, </msg>
+  <msg id="8826244115529912047"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:11</source> Join to our friendly community! </msg>
+  <msg id="833791204024048128"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:12</source> Go to Codelab repository </msg>
   <msg id="createFirstNgApp"><source>src/app/codelabs/index/index.component.html:2,4</source>
     Create your first Angular app
   </msg>
@@ -60,15 +62,15 @@
   <msg id="learnToBindToEvents"><source>src/app/codelabs/index/index.component.html:30,32</source>
     Learn to bind to events.
   </msg>
-  <msg id="2339071718884287683"><source>src/app/codelabs/index/index.component.html:47</source>Angular Codelab</msg>
-  <msg id="4302113860648465389"><source>src/app/codelabs/index/index.component.html:48,51</source>
+  <msg id="2339071718884287683"><source>src/app/codelabs/index/index.component.html:43</source>Angular Codelab</msg>
+  <msg id="4302113860648465389"><source>src/app/codelabs/index/index.component.html:44,47</source>
       Welcome to the interactive Angular Codelab. Here you can learn the basics
       of <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>!
     </msg>
-  <msg id="7759544910570343367"><source>src/app/codelabs/index/index.component.html:59</source>Learn TypeScript</msg>
-  <msg id="3142775397600131493"><source>src/app/codelabs/index/index.component.html:60</source>Skip if you&apos;re familiar with TypeScript</msg>
-  <msg id="4686588615295148276"><source>src/app/codelabs/index/index.component.html:69</source>Learn Angular</msg>
-  <msg id="7394559216825981545"><source>src/app/codelabs/index/index.component.html:74,76</source>
+  <msg id="7759544910570343367"><source>src/app/codelabs/index/index.component.html:55</source>Learn TypeScript</msg>
+  <msg id="3142775397600131493"><source>src/app/codelabs/index/index.component.html:56</source>Skip if you&apos;re familiar with TypeScript</msg>
+  <msg id="4686588615295148276"><source>src/app/codelabs/index/index.component.html:65</source>Learn Angular</msg>
+  <msg id="7394559216825981545"><source>src/app/codelabs/index/index.component.html:70,72</source>
       Or click here to see full contents...
     </msg>
   <msg id="1697699319086615837"><source>src/app/components/slides/title-slide/title-slide.component.html:6,8</source>
@@ -226,7 +228,7 @@
   <msg id="5353140049958069641"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:241</source><source>src/app/codelabs/angular/templates/templates.component.html:286</source>Exercise 2</msg>
   <msg id="1036270088685658131"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:242</source>In the next exercise you will use the newly created component</msg>
   <msg id="4985288594861826441"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:262</source><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:259</source><source>src/app/codelabs/angular/templates/templates.component.html:366</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:436</source>Milestone Completed</msg>
-  <msg id="5801908609593051593"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:267</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:526</source><source>src/app/codelabs/angular/forms/forms.component.html:216</source><source>src/app/codelabs/angular/material/material.component.html:218</source><source>src/app/codelabs/angular/router/router.component.html:157</source><source>src/app/codelabs/angular/templates/templates.component.html:371</source>Next: </msg>
+  <msg id="5801908609593051593"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:267</source><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:526</source><source>src/app/codelabs/angular/material/material.component.html:218</source><source>src/app/codelabs/angular/router/router.component.html:157</source><source>src/app/codelabs/angular/templates/templates.component.html:371</source>Next: </msg>
   <msg id="2606744025024635328"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:268,270</source>
             Learn how to set up routing in your Angular app
           </msg>
@@ -407,7 +409,7 @@
       (<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Loading...<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>) in this case
     </msg>
   <msg id="4135298275558664404"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:519</source>End of Bootstrap Section</msg>
-  <msg id="470651207723290753"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:522</source><source>src/app/codelabs/angular/forms/forms.component.html:209</source><source>src/app/codelabs/angular/material/material.component.html:205</source><source>src/app/codelabs/angular/router/router.component.html:148</source>Well done! This is the end of the milestone!</msg>
+  <msg id="470651207723290753"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:522</source><source>src/app/codelabs/angular/forms/forms.component.html:212</source><source>src/app/codelabs/angular/material/material.component.html:205</source><source>src/app/codelabs/angular/router/router.component.html:148</source>Well done! This is the end of the milestone!</msg>
   <msg id="5354338296880936637"><source>src/app/codelabs/angular/create-first-app/create-first-app.component.html:527,529</source>
             Go to the templates Milestone
           </msg>
@@ -516,7 +518,7 @@
       In the next slide you&apos;ll use videoService which has even more cats!!! The
       result will look like this:
     </msg>
-  <msg id="7872178699271799911"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:264</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:449</source>Next:</msg>
+  <msg id="7872178699271799911"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:264</source><source>src/app/codelabs/angular/forms/forms.component.html:219</source><source>src/app/codelabs/angular/typescript/typescript/typescript.component.html:449</source>Next:</msg>
   <msg id="6756063415709931138"><source>src/app/codelabs/angular/dependency-injection/dependency-injection.component.html:265,267</source>
             Learn how to combine components together
           </msg>
@@ -623,13 +625,13 @@
       Note: you&apos;d have to manually click on the &quot;upload link&quot; to see the result,
       we&apos;re working on the fix.
     </msg>
-  <msg id="4295828568066353117"><source>src/app/codelabs/angular/forms/forms.component.html:207</source>End of The Forms Milestone</msg>
-  <msg id="5553423473844264824"><source>src/app/codelabs/angular/forms/forms.component.html:210,214</source>
+  <msg id="4295828568066353117"><source>src/app/codelabs/angular/forms/forms.component.html:209</source>End of The Forms Milestone</msg>
+  <msg id="5553423473844264824"><source>src/app/codelabs/angular/forms/forms.component.html:213,217</source>
           There are more than one way to handle forms in Angular. While
           <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Advanced forms<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> milestone is in works, check out
           <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular docs<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>
         </msg>
-  <msg id="4716111442710614539"><source>src/app/codelabs/angular/forms/forms.component.html:217,220</source>
+  <msg id="4716111442710614539"><source>src/app/codelabs/angular/forms/forms.component.html:220,223</source>
             Learn how to start working on your angular app in the
             Angular-cli Milestone
           </msg>
