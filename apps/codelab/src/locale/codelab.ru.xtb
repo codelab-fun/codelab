@@ -288,8 +288,9 @@
   <translation id="6900873423530266803"> HTML-атрибуты в <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> регистрозависимы:
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph><ph name="START_STRIKETHROUGH_TEXT"><ex>&lt;s&gt;</ex>&lt;s&gt;</ph>*ngfor<ph name="CLOSE_STRIKETHROUGH_TEXT"><ex>&lt;/s&gt;</ex>&lt;/s&gt;</ph><ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> не сработает, а <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>*ngFor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> сработает</translation>
   <translation id="1916497009459167443">На следующем слайде вы, наконец, покажете видео! Результат будет выглядеть следующим образом:</translation>
-  <translation id="3450228617967699820" desc="&quot;отличный язык, но ему есть куда стремиться&quot;&#13;&#10;Я бы написал &quot;отличный язык, однако при его использовании есть некоторая специфика&quot;&#13;&#10;Потому что JS по задумке как раз лишен строгой типизации. Это не его недостаток или недоработка создателей, это именно особенность"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>JavaScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> – отличный язык, однако при его использовании есть некоторая специфика:</translation>
-  <translation id="7378420032672625836"/>
+  <translation id="3450228617967699820" desc="&quot;отличный язык, но ему есть куда стремиться&quot;&#13;&#10;Я бы написал &quot;отличный язык, однако при его использовании есть некоторая специфика&quot;&#13;&#10;Потому что JS по задумке как раз лишен строгой типизации. Это не его недостаток или недоработка создателей, это именно особенность"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>JavaScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> – отличный язык, однако, при его использовании есть некоторая специфика:</translation>
+  <translation id="7378420032672625836"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>ES<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> расшифровывается как
+      <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>ECMAScript<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph><ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> - стандарт языка JavaScript.</translation>
   <translation id="1603010177589300581">Кроме этого, TypeScript расширяет систему типов и декораторов</translation>
   <translation id="519638442093250618">Декораторы выглядят как @twitter_handles, мы изучим их позже</translation>
   <translation id="8469244833465514706">Ниже приведена функция <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>add<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, где мы складываем 2 + 2. Что может пойти не так?</translation>
@@ -322,7 +323,6 @@
   <translation id="9018170935953099606">Необходимые знания</translation>
   <translation id="3723990239834236534">Email не обязателен и будет спрятан</translation>
   <translation id="4712788926759159307">Опишите ошибку, или поделитесь идеями</translation>
-  <translation id="6672095411961477302">Отправить</translation>
   <translation id="perfect">Отлично</translation>
   <translation id="good">Хорошо</translation>
   <translation id="ok">Норм</translation>
@@ -537,4 +537,8 @@
   <translation id="416866894337861725">Декораторы в TypeScript были созданы по образу и подобию аналогичной функциональности в языке Python.</translation>
   <translation id="1166483087717315973">Биндинги событий принимают колбэк, который может быть вызван из компонента с различными параметрами.</translation>
   <translation id="387888043502947069">Условное отображение (*ngIf)</translation>
+  <translation id="4865704288308654691">Отправить</translation>
+  <translation id="7650606661639729179">Этот курс написан на Angular.</translation>
+  <translation id="8629047074530426603">Все исходники 100% открыты и доступны на <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph> Github <ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph></translation>
+  <translation id="7247528943225057900">Поставьте нам  ⭐ если вы выучили что-то полезное</translation>
 </translationbundle>

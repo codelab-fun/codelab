@@ -31,9 +31,10 @@
   <msg id="ok"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:4</source>ok</msg>
   <msg id="hopedForMore"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:5</source>Hoped for more</msg>
   <msg id="3134509873264839334"><source>../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.html:12</source>Rate this lesson ...</msg>
-  <msg id="2147809403253510571"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:10</source> We also have a repository on Github, </msg>
-  <msg id="8826244115529912047"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:11</source> Join to our friendly community! </msg>
-  <msg id="833791204024048128"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:12</source> Go to Codelab repository </msg>
+  <msg id="7650606661639729179"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:12</source>This Codelab is written in Angular!</msg>
+  <msg id="8629047074530426603"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:13,15</source>It&apos;s 100% open-source and is available on
+            <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph> Github <ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph></msg>
+  <msg id="7247528943225057900"><source>src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html:16</source>Please ⭐ the repo if you find it useful.</msg>
   <msg id="createFirstNgApp"><source>src/app/codelabs/index/index.component.html:2,4</source>
     Create your first Angular app
   </msg>
