@@ -1,4 +1,5 @@
-:host {
+:host,
+.mat-sidenav-container {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -109,4 +110,20 @@ li,
 
 :host ::ng-deep .mat-tab-label {
     height: 32px;
+}
+
+.cta-close-tab {
+    position: absolute;
+    right: 0;
+}
+
+.code-demo-container {
+    padding-left: 16px;
+    padding-top: 16px;
+    height: 100%;
+}
+
+.file-tree-container {
+    min-width: 30%;
+    padding: 0 8px;
 }

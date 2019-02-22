@@ -1,4 +1,4 @@
-<mat-sidenav-container class="example-container" style="height: 100%">
+<mat-sidenav-container class="mat-sidenav-container">
     <mat-sidenav #sidenav mode="side" [(opened)]="opened">
         <ng-container [ngTemplateOutlet]="filetreeTemplate"></ng-container>
     </mat-sidenav>
@@ -13,17 +13,17 @@
 <ng-template #contentTemplate>
     <div class="filenav-tabs">
         <mat-tab-group [selectedIndex]="activeTabIndex" (selectedTabChange)="onSelectedTabChange($event)" class="tab-group">
-            <mat-tab *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index" style="display: flex; height: 100%">
+            <mat-tab *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index">
                 <!-- LABEL of the TAB -->
                 <ng-template mat-tab-label>
                     <span>{{getFileOnlyFromPath(model.path)}}</span>
-                    <div class="file-icon file-icon__close" (click)="onCloseTab(model)" style="position: absolute; right: 0"></div>
+                    <div class="file-icon file-icon__close cta-close-tab" (click)="onCloseTab(model)"></div>
                 </ng-template>
                 <!-- CONTENT of the tab -->
                 <button class="load-solution-cta" *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]" (click)="loadSolution(model.path)">
                 Load solution
               </button>
-                <div style="padding-left: 16px; padding-top: 16px; height: 100%">
+                <div class="code-demo-container">
                     <code-demo-editor-from-model [model]="model.model" [codeDemoHighlight]="model.highlight"></code-demo-editor-from-model>
                 </div>
             </mat-tab>
@@ -32,7 +32,7 @@
 </ng-template>
 
 <ng-template #filetreeTemplate>
-    <div style="min-width: 30%; padding: 0 8px;">
+    <div class="file-tree-container">
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree" #tree>
             <!-- This is the tree node template for leaf nodes -->
             <mat-tree-node *matTreeNodeDef="let node">
@@ -47,7 +47,7 @@
                         <div *ngIf="node.children.length" class="file-icon file-icon__folder-opened"></div>
                         {{node.name}}
                     </div>
-                    <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+                    <ul>
                         <ng-container matTreeNodeOutlet></ng-container>
                     </ul>
                 </li>
