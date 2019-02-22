@@ -8,7 +8,7 @@
     </ng-container>
   </button>
 
-  <ng-container *codelabModalContent>
+  <ng-container *codelabModalContent="let modal">
     <div class="buttons-nav-bar-modal-content-wrapper">
       <h2 class="modal-title">Feedback</h2>
       <ng-container *ngIf="(messages$ | async) as message">
@@ -27,7 +27,7 @@
       <form
         [formGroup]="formGroup"
         novalidate
-        (submit)="submit()"
+        (submit)="submit(); modal.close()"
         class="form-container"
       >
         <input
@@ -43,20 +43,20 @@
           placeholder="Enter your email"
         />
         <small class="text-muted" i18n
-          >Email is optional and, will not displayed</small
-        >
+          >Email is optional and, will not displayed
+        </small>
         <div>
           <textarea
             i18n-placeholder
             placeholder="Describe your issue or share your ideas"
             formControlName="comment"
-            (keydown.control.enter)="submit()"
+            (keydown.control.enter)="submit(); modal.close()"
           >
           </textarea>
         </div>
         <div>
           <button
-            (click)="submit()"
+            (click)="submit(); modal.close()"
             [disabled]="formGroup.invalid"
             [style.opacity]="formGroup.invalid ? 0.5 : 1"
             type="button"

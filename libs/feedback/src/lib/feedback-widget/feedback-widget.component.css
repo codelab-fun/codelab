@@ -20,6 +20,7 @@
 
 .form-container {
   max-width: 300px;
+  margin-right: 10px;
 }
 
 textarea {
@@ -50,6 +51,7 @@ textarea {
 
 .feedback-item {
   background: #f0f3f5;
+  border-radius: 4px;
   padding: 8px;
   margin: 5px 0;
 }
