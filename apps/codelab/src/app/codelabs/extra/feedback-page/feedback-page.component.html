@@ -18,6 +18,7 @@
         <option value="href">Slide URL</option>
         <option value="name">Name</option>
       </select>
+      <date-range (range)="dateFilter$.next($event)"></date-range>
     </div>
     <div *slide id="main">
       <div *ngFor="let item of (this.messages$ | async)" class="group">

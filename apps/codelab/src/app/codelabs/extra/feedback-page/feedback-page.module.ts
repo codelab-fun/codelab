@@ -15,6 +15,7 @@ import { GithubService } from './github.service';
 
 import { SlidesModule } from '@codelab/slides';
 import { environment } from '../../../../environments/environment';
+import { DateRangeComponent } from './date-range/date-range.component';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(FeedbackPageComponent));
 
@@ -34,7 +35,7 @@ export const angularFire = AngularFireModule.initializeApp(
     HttpClientModule,
     SlidesModule
   ],
-  declarations: [FeedbackPageComponent],
+  declarations: [FeedbackPageComponent, DateRangeComponent],
   providers: [GithubService],
   exports: [FeedbackPageComponent]
 })
