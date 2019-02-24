@@ -15,6 +15,14 @@ export class ShortcutsDirective {
     }
   }
 
+  @HostListener('window:keydown.ArrowLeft', ['$event.target'])
+  @HostListener('window:keydown.PageUp', ['$event.target'])
+  previous(target) {
+    if (target === document.body && this.deck.canGoPrevious()) {
+      this.deck.previousSlide();
+    }
+  }
+
   @HostListener('window:keydown.control.f5', ['$event'])
   fullScreenModeToggle(e) {
     // prevent page reload
@@ -25,15 +33,6 @@ export class ShortcutsDirective {
       document.exitFullscreen();
     } else {
       document.documentElement.requestFullscreen();
-    }
-  }
-
-
-  @HostListener('window:keydown.ArrowLeft', ['$event.target'])
-  @HostListener('window:keydown.PageUp', ['$event.target'])
-  previous(target) {
-    if (target === document.body && this.deck.canGoPrevious()) {
-      this.deck.previousSlide();
     }
   }
 }
