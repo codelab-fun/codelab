@@ -19,6 +19,7 @@
 }
 
 .form-container {
+  padding: 10px 10px 10px 0px;
   max-width: 300px;
   margin-right: 10px;
 }
@@ -34,14 +35,6 @@ textarea {
   border: 1px #ddd solid;
   padding: 4px;
   margin-top: 10px;
-}
-
-.main {
-  position: fixed;
-  top: 30px;
-  right: 30px;
-  width: 300px;
-  z-index: 99;
 }
 
 .feedback-items {
