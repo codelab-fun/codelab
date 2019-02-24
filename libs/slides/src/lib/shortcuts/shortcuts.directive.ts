@@ -15,6 +15,17 @@ export class ShortcutsDirective {
     }
   }
 
+  @HostListener('window:keydown.control.f5', ['$event'])
+  fullScreenModeToggle(e) {
+    e.preventDefault();
+    if (document['fullscreenElement']) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen();
+    }
+  }
+
+
   @HostListener('window:keydown.ArrowLeft', ['$event.target'])
   @HostListener('window:keydown.PageUp', ['$event.target'])
   previous(target) {
