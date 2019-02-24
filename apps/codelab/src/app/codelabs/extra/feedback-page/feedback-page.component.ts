@@ -59,7 +59,7 @@ function filter([feedback, filterName, [fromDate, toDate]]) {
 
   const fromMs = fromDate ? new Date(fromDate).getTime() : null;
   const toMs = toDate ? new Date(toDate).getTime() + 86400000 : null; // add 24hrs to include the day of upper bound
-  
+
   result = result.filter(msg => {
     const timestampMs = new Date(msg.timestamp).getTime();
     return (fromMs ? timestampMs >= fromMs : true) && (toMs ? timestampMs <= toMs : true);
