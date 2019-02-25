@@ -1,0 +1,62 @@
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <div *slide id="typeselector">
+    <div style="max-width: 700px;margin: 0 auto;">
+      <h2>Type Selector</h2><br>
+      Type selector selects HTML elements based on tags. Consider the following as an example:<br>
+      <br>
+      Input the selector will affect the HTML tags in the "Select Below" section but not "Not Below" section<br><br>
+      
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Exercise 1
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <exercise questionIndex=0></exercise>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Exercise 2
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <exercise questionIndex=1></exercise>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <div *slide id="start">
+    <div>
+      <div *ngFor="let t of questiontypes">
+          <b>{{t.outputText}}</b><br>
+          <div *ngFor="let ex of exer[this.questionIndex][t.type]">
+              <div [ngClass]="{
+                  'item-incorrect': ex.highlight==true && t.type=='incorrect',
+                  'item-correct': ex.highlight==true && t.type=='correct',
+                  'item-width': ex.highlight==true
+              }">
+                  {{ ex.htmlStr }}
+              </div>
+          </div>
+          <br><br>
+      </div>
+      
+      <input type="text" [(ngModel)]="stylestr">
+      <button (click)="onCheck()">check</button>
+      
+      <br><br>
+      <p *ngIf="shouldShowStatus">{{isCorrectText}}</p>
+      
+      <br><br>
+      <button (click)="onNextQ()">Next Question</button>
+    </div>
+  </div>
+
+  <div *slide id="list">
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </div>
+</slide-deck>

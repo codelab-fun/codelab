@@ -11,6 +11,12 @@ let routes = [
     component: FullLayoutComponent,
     children: [
       {
+        path: 'css',
+        loadChildren: './css-game/css-game.module#CssGameModule',
+        name: 'css game',
+        description: 'css game'
+      },
+      {
         path: 'code-playground',
         loadChildren:
           './code-playground/code-playground.module#CodePlaygroundModule',

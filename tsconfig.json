@@ -12,6 +12,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "paths": {
       "jszip": ["node_modules/jszip/dist/jszip.min.js"],
       "crypto": ["libs/dummy/src/index.ts"],

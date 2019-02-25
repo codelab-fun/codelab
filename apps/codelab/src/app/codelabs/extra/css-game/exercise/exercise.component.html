@@ -1,0 +1,24 @@
+<div style="max-width:350px; min-width:350px;">
+  <div *ngFor="let t of questiontypes">
+    <b class="normal-bold">{{t.outputText}}</b><br>
+    <div *ngFor="let ex of exer[this.questionIndex][t.type]">
+      <div [ngClass]="{
+          'item-incorrect': ex.highlight==true && t.type=='incorrect',
+          'item-correct': ex.highlight==true && t.type=='correct',
+          'item-width': ex.highlight==true
+      }">
+      {{ ex.htmlStr }}
+      </div>
+    </div>
+    <br>
+  </div>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Selector" [(ngModel)]="stylestr" name="styles">
+      <mat-hint style="color: red" *ngIf="showHint == true && isCorrect == false">Incorrect</mat-hint>
+      <mat-hint style="color: green" *ngIf="showHint == true && isCorrect == true">Correct</mat-hint>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <button (click)="onCheck()" mat-raised-button color="primary">Check</button>
+  </form>
+</div>
