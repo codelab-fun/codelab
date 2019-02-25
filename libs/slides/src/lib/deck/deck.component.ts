@@ -28,8 +28,10 @@ export class SlidesDeckComponent {
   private milestone = '';
 
   constructor(@Optional() route: ActivatedRoute) {
-    this.milestone = route.snapshot.queryParams.milestone;
-    this.hasMilestone = !!this.milestone;
+    if (route) {
+      this.milestone = route.snapshot.queryParams.milestone;
+      this.hasMilestone = !!this.milestone;
+    }
   }
 
   addSlide(slide) {
