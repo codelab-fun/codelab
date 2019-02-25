@@ -28,7 +28,6 @@ export class SlidesDeckComponent {
   private milestone = '';
 
   constructor(@Optional() route: ActivatedRoute) {
-    /// @Optional allows a possibility of null injection
     if (route) {
       this.milestone = route.snapshot.queryParams.milestone;
       this.hasMilestone = !!this.milestone;
