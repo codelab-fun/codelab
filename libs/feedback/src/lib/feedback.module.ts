@@ -10,6 +10,8 @@ import { FeedbackService } from './feedback.service';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GithubModule } from '@codelab/github/src';
 
 // Note! We are using AngularFire2 v4. There are a lot of breaking changes.
 // See: https://github.com/angular/@angular/fire/issues/854
@@ -25,7 +27,9 @@ export const angularFire = AngularFireModule.initializeApp(
     angularFire,
     FormsModule,
     AngularFireDatabaseModule,
-    ButtonWithMenuModule
+    ButtonWithMenuModule,
+    HttpClientModule,
+    GithubModule
   ],
   providers: [FeedbackService],
   declarations: [FeedbackWidgetComponent, FeedbackRatingComponent],
@@ -35,4 +39,5 @@ export const angularFire = AngularFireModule.initializeApp(
     ButtonWithMenuModule
   ]
 })
-export class FeedbackModule {}
+export class FeedbackModule {
+}

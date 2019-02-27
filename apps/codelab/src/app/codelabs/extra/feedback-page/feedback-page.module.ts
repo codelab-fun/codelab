@@ -10,9 +10,6 @@ import { BrowserWindowModule } from '@codelab/browser';
 
 import { CommonModule } from '@angular/common';
 
-import { HttpClientModule } from '@angular/common/http';
-import { GithubService } from './github.service';
-
 import { SlidesModule } from '@codelab/slides';
 import { environment } from '../../../../environments/environment';
 
@@ -31,11 +28,9 @@ export const angularFire = AngularFireModule.initializeApp(
     angularFire,
     FormsModule,
     CommonModule,
-    HttpClientModule,
     SlidesModule
   ],
   declarations: [FeedbackPageComponent],
-  providers: [GithubService],
   exports: [FeedbackPageComponent]
 })
 export class FeedbackPageModule {}

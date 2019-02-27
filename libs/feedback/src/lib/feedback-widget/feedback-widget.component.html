@@ -1,6 +1,6 @@
 <codelab-button-with-menu>
   <button class="menu-bar-btn">
-    <img alt="MenuShortcut" src="/assets/images/chat.png" />
+    <img alt="" src="/assets/images/chat.png"/>
     <ng-container *ngIf="(messages$ | async) as message">
       <ng-container *ngIf="message.length">
         <span class="messages-count"> {{ message.length }} </span>
@@ -14,56 +14,76 @@
       <ng-container *ngIf="(messages$ | async) as message">
         <ng-container *ngIf="message.length">
           <div class="feedback-items">
-            <div class="feedback-item" *ngFor="let item of (messages$ | async)">
-              <div class="header">
-                <span class="name">{{ item.name }}</span>
-                <span class="date"> {{ item.timestamp | date }}</span>
+            <ng-container *ngFor="let item of (messages$ | async)">
+              <div class="feedback-item">
+                <div class="dropdown">
+                  <button class="dropdown-btn">
+                    <img alt="" src="/assets/images/icons/icon-tools.png"/>
+                  </button>
+                  <div class="dropdown-content">
+                    <a (click)="createAnIssue(item)"
+                       class="dropdown-content-item">
+                      Take
+                    </a>
+                    <a (click)="createClosedIssue(item, '[Duplicate]')"
+                       class="dropdown-content-item">
+                      Close [Duplicate] </a>
+                    <a (click)="createClosedIssue(item, '[No fix]')"
+                       class="dropdown-content-item">
+                      Close [No fix]
+                    </a>
+                    <a (click)="createClosedIssue(item, '[Done]')"
+                       class="dropdown-content-item">
+                      Close [Done]
+                    </a>
+                    <a (click)="createClosedIssue(item, '[Nice message, though not a real bug]')"
+                       class="dropdown-content-item">
+                      Close [Nice message]
+                    </a>
+                    <a (click)="createClosedIssue(item, '[Can\'t repcoduce]')"
+                       class="dropdown-content-item">
+                      Close [Can't reproduce]
+                    </a>
+                  </div>
+                </div>
+                <div class="header">
+                  <span class="name">{{ item.name }}</span>
+                  <span class="date"> {{ item.timestamp | date }}</span>
+                </div>
+                <div class="comment">{{ item.comment }}</div>
               </div>
-              <div class="comment">{{ item.comment }}</div>
-            </div>
+            </ng-container>
+
           </div>
         </ng-container>
       </ng-container>
-      <form
-        [formGroup]="formGroup"
-        novalidate
-        (submit)="submit(); modal.close()"
-        class="form-container"
-      >
-        <input
-          formControlName="name"
-          placeholder="Enter your name"
-          type="text"
-          class="mt-0"
-          i18n
-        />
-        <input
-          formControlName="email"
-          type="email"
-          placeholder="Enter your email"
-        />
-        <small class="text-muted" i18n
-          >Email is optional and, will not displayed
-        </small>
+      <form [formGroup]="formGroup"
+            novalidate
+            (submit)="submit(); modal.close()"
+            class="form-container">
+        <input formControlName="name"
+               placeholder="Enter your name"
+               type="text"
+               class="mt-0"
+               i18n/>
+        <input formControlName="email"
+               type="email"
+               placeholder="Enter your email"/>
+        <small class="text-muted" i18n> Email is optional and, will not displayed</small>
         <div>
-          <textarea
-            i18n-placeholder
-            placeholder="Describe your issue or share your ideas"
-            formControlName="comment"
-            (keydown.control.enter)="submit(); modal.close()"
-          >
+          <textarea i18n-placeholder
+                    placeholder="Describe your issue or share your ideas"
+                    formControlName="comment"
+                    (keydown.control.enter)="submit(); modal.close()">
           </textarea>
         </div>
         <div>
-          <button
-            (click)="submit(); modal.close()"
-            [disabled]="formGroup.invalid"
-            [style.opacity]="formGroup.invalid ? 0.5 : 1"
-            type="button"
-            class="btn"
-            i18n
-          >
-            Send
+          <button (click)="submit(); modal.close()"
+                  [disabled]="formGroup.invalid"
+                  [style.opacity]="formGroup.invalid ? 0.5 : 1"
+                  type="button"
+                  class="btn"
+                  i18n> Send
           </button>
         </div>
         <div [class.error]="error">{{ statusMessage }}</div>

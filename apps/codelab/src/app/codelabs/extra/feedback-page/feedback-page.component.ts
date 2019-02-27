@@ -5,7 +5,7 @@ import * as firebase from 'firebase/app';
 import { Message } from '@codelab/feedback/src/lib/message';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GithubService } from './github.service';
+import { GithubService } from '@codelab/github';
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';

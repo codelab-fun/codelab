@@ -6,11 +6,15 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { GithubService } from '@codelab/github';
 
 @Component({
   selector: 'feedback-widget',
   templateUrl: './feedback-widget.component.html',
-  styleUrls: ['./feedback-widget.component.css']
+  styleUrls: ['./feedback-widget.component.scss']
 })
 export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   messages$: Observable<Message[]>;
@@ -21,10 +25,15 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
 
   destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
 
+  githubAuth;
+
   constructor(
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private feedbackService: FeedbackService,
+    private afAuth: AngularFireAuth,
+    private ghService: GithubService,
+    private database: AngularFireDatabase,
     private router: Router
   ) {
     this.router.events
@@ -35,6 +44,15 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
             this.activatedRoute
           ))
       );
+
+    afAuth.authState.subscribe(authData => {
+      if (authData === null) {
+        this.login();
+      } else {
+        this.githubAuth = authData;
+      }
+    });
+
   }
 
   ngOnInit() {
@@ -81,6 +99,83 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     const el = document.body.querySelector('h1');
     return el ? el.innerHTML : '';
   }
+
+
+  async login() {
+    const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
+    this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
+  }
+
+  async createAnIssue(message) {
+
+    if (!this.githubAuth.credential) {
+      await this.login();
+    }
+
+    this.ghService
+      .createIssue(
+        {
+          title: message.comment.substring(0, 150),
+          body: this.generateIssueBody(message)
+        },
+        this.githubAuth.credential.accessToken
+      )
+      .subscribe((responseData: any) => {
+        this.isDone(message);
+        this.database
+          .object(`feedback/${message.key}`)
+          .update({url: responseData.html_url});
+        window.open(responseData.html_url);
+      });
+  }
+
+  async createClosedIssue(message, reason) {
+    if (!this.githubAuth.credential) {
+      await this.login();
+    }
+
+    this.ghService
+      .createIssue(
+        {
+          title: reason + ' ' + message.comment.substring(0, 150),
+          body: this.generateIssueBody(message)
+        },
+        this.githubAuth.credential.accessToken
+      )
+      .subscribe((responseData: any) => {
+        // Until we get a better UI
+        console.log(responseData.html_url);
+        this.database
+          .object(`feedback/${message.key}`)
+          .update({ url: responseData.html_url });
+        this.ghService
+          .closeIssue(
+            { state: 'closed' },
+            responseData.number,
+            this.githubAuth.credential.accessToken
+          )
+          .subscribe(res => {
+            if (res) {
+              this.isDone(message);
+            }
+          });
+      });
+  }
+
+  generateIssueBody(message) {
+    return `${message.comment}
+Author: ${message.name}
+Slide: [Local](http://localhost:4200${
+      message.href
+      }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
+  }
+
+  isDone(message) {
+    this.database
+      .object(`feedback/${message.key}`)
+      .update({isDone: !message.isDone});
+  }
+
 
   ngOnDestroy() {
     this.destroy.next(null);
