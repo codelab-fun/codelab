@@ -10,7 +10,7 @@ export class MenuFullscreenWidgetComponent implements OnInit {
   constructor() { }
 
   handleClick() {
-    const event = new KeyboardEvent("keydown", {
+    const event = new KeyboardEvent('keydown', {
       // dispatching the combination defined in shortcuts.directive.ts
       'key': 'Enter',
       'altKey': true
