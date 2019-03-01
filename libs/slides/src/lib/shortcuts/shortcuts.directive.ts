@@ -1,11 +1,12 @@
 import { Directive, HostListener, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
+import { FullScreenModeService } from '@codelab/utils';
 
 @Directive({
   selector: '[slideShortcuts]'
 })
 export class ShortcutsDirective {
-  constructor(@Optional() private deck: SlidesDeckComponent) {}
+  constructor(@Optional() private deck: SlidesDeckComponent, private fullScreenService: FullScreenModeService) {}
 
   @HostListener('window:keydown.ArrowRight', ['$event.target'])
   @HostListener('window:keydown.PageDown', ['$event.target'])
@@ -28,11 +29,6 @@ export class ShortcutsDirective {
     // prevent page reload
     e.preventDefault();
 
-    // check if page is in fullscreen
-    if (document['fullscreenElement']) {
-      document.exitFullscreen();
-    } else {
-      document.documentElement.requestFullscreen();
-    }
+    this.fullScreenService.toggleFullScreen();
   }
 }
