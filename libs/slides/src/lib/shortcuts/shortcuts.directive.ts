@@ -23,12 +23,12 @@ export class ShortcutsDirective {
     }
   }
 
-  @HostListener('window:keydown.control.f5', ['$event'])
+  @HostListener('window:keydown.alt.enter', ['$event'])
   fullScreenModeToggle(e) {
     // prevent page reload
     e.preventDefault();
 
-    // chek if page is in fullscreen
+    // check if page is in fullscreen
     if (document['fullscreenElement']) {
       document.exitFullscreen();
     } else {
