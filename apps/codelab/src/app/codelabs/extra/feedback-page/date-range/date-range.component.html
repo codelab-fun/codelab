@@ -1,5 +1,7 @@
-<span>
-  from: <input type="date" [value]="from | async" (input)="from.next($event.target.value)"/>
-  to: <input type="date" [value]="to | async" (input)="to.next($event.target.value)"/>
-  <button (click)="clear()">Clear</button>
-</span>
+<form [formGroup]="rangeForm">
+  <span>
+    from: <input type="date" formControlName="from" />
+    to: <input type="date" formControlName="to" />
+    <button (click)="clear()">Clear</button>
+  </span>
+</form>

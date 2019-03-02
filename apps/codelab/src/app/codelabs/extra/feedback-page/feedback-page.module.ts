@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FeedbackPageComponent } from './feedback-page.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '@codelab/browser';
 
 import { CommonModule } from '@angular/common';
@@ -31,9 +31,10 @@ export const angularFire = AngularFireModule.initializeApp(
     BrowserWindowModule,
     angularFire,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    SlidesModule
+    SlidesModule,
   ],
   declarations: [FeedbackPageComponent, DateRangeComponent],
   providers: [GithubService],
