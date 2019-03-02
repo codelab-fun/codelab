@@ -647,8 +647,7 @@
             "tsConfig": "apps/blog/tsconfig.app.json",
             "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
             "styles": ["apps/blog/src/styles.scss"],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
