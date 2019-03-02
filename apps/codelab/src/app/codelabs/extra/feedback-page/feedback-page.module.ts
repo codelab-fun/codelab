@@ -34,7 +34,7 @@ export const angularFire = AngularFireModule.initializeApp(
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    SlidesModule,
+    SlidesModule
   ],
   declarations: [FeedbackPageComponent, DateRangeComponent],
   providers: [GithubService],
