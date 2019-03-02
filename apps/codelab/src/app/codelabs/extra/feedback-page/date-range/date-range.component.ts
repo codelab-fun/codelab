@@ -18,4 +18,9 @@ export class DateRangeComponent implements OnInit {
     });
   }
 
+  clear() {
+    this.from.next('');
+    this.to.next('');
+  }
+
 }

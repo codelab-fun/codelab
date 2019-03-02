@@ -1,4 +1,5 @@
 <span>
-  from: <input type="date" (input)="from.next($event.target.value)"/>
-  to: <input type="date" (input)="to.next($event.target.value)"/>
+  from: <input type="date" [value]="from | async" (input)="from.next($event.target.value)"/>
+  to: <input type="date" [value]="to | async" (input)="to.next($event.target.value)"/>
+  <button (click)="clear()">Clear</button>
 </span>
