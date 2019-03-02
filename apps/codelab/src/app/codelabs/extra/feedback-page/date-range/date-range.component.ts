@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -6,7 +6,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'codelab-date-range',
   templateUrl: './date-range.component.html',
-  styleUrls: ['./date-range.component.css']
+  styleUrls: ['./date-range.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DateRangeComponent implements OnInit {
   @Output() range = new EventEmitter<[string, string]>();
