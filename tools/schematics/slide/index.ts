@@ -1,18 +1,12 @@
-import {
-  chain,
-  externalSchematic,
-  Rule,
-  Tree,
-  SchematicContext,
-  url
-} from '@angular-devkit/schematics';
+import { chain, externalSchematic, Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import * as ts from 'typescript';
 import * as fs from 'fs';
 import { join } from 'path';
 import { InsertChange } from '@schematics/angular/utility/change';
+import { classify } from '@angular-devkit/core/src/utils/strings';
 
-function overrideHtml(schema: any): Rule {
+function overrideHtml(): Rule {
   return (host: Tree, context: SchematicContext) => {
     const path: string = host.actions.find(a =>
       a.path.endsWith('.component.html')
@@ -24,12 +18,17 @@ function overrideHtml(schema: any): Rule {
   };
 }
 
-function updateSlidesModule(schema: any): Rule {
+interface SlideSchema {
+  name: string;
+  project: string;
+}
+
+function updateSlidesModule(schema: SlideSchema): Rule {
   return (host: Tree, context: SchematicContext) => {
     const modulePath: string = host.actions.find(a =>
       a.path.endsWith('.module.ts')
     ).path;
-    // @codelab/slides
+
     const sourceFile = ts.createSourceFile(
       modulePath,
       host.read(modulePath).toString('utf-8'),
@@ -37,9 +36,13 @@ function updateSlidesModule(schema: any): Rule {
       true
     );
 
-    const code = fs
+    let code = fs
       .readFileSync(join(__dirname, './files/code.bs'), 'utf-8')
       .toString();
+
+    const componentName = classify(schema.name.split('/').pop()) + 'Component';
+
+    code = code.replace('EmptyComponent', componentName);
 
     const changes = addImportToModule(
       sourceFile,
@@ -61,18 +64,17 @@ function updateSlidesModule(schema: any): Rule {
   };
 }
 
-export default function(schema: any): Rule {
-  console.log('schema', schema);
+export default function (schema: SlideSchema): Rule {
   return chain([
     externalSchematic('@schematics/angular', 'module', {
       name: schema.name,
       project: schema.project
     }),
+    updateSlidesModule(schema),
     externalSchematic('@schematics/angular', 'component', {
       name: schema.name,
       project: schema.project
     }),
-    updateSlidesModule(schema),
-    overrideHtml(schema)
+    overrideHtml()
   ]);
 }
