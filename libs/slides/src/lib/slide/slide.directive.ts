@@ -13,9 +13,9 @@ export class SlideDirective {
   ) {
     const attrs = (template as any)._def.element.template.nodes[0].element
       .attrs;
-    const idAttr = attrs.find(([_, name]) => name === 'id');
+    const idAttr = attrs.find(([, name]) => name === 'id');
     // TODO: Move this to the codelab
-    const milestoneAttr = attrs.find(([_, name]) => name === 'milestone');
+    const milestoneAttr = attrs.find(([, name]) => name === 'milestone');
 
     presentation.addSlide({
       id: idAttr && idAttr[2],
