@@ -44,12 +44,22 @@ function updateSlidesModule(schema: SlideSchema): Rule {
 
     code = code.replace('EmptyComponent', componentName);
 
-    const changes = addImportToModule(
+    const moduleImportChanges = addImportToModule(
       sourceFile,
       modulePath,
       'SlidesModule',
       '@codelab/slides'
     );
+
+    const routingImportChanges = addImportToModule(
+      sourceFile,
+      modulePath,
+      'routes',
+      null
+    );
+
+    const changes = [...moduleImportChanges, ...routingImportChanges];
+
 
     const recorder = host.beginUpdate(modulePath);
     changes.forEach((change: InsertChange) => {
@@ -60,6 +70,11 @@ function updateSlidesModule(schema: SlideSchema): Rule {
       ts.isClassDeclaration(s)
     );
     recorder.insertLeft(classDeclaration.pos, code);
+
+    [...sourceFile.statements].find(s =>
+      ts.isIdentifier(s)
+    );
+
     host.commitUpdate(recorder);
   };
 }
