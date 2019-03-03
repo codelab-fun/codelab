@@ -27,20 +27,26 @@ export class ButtonWithMenuComponent implements OnDestroy {
     private _vcr: ViewContainerRef,
     readonly el: ElementRef,
     readonly overlay: Overlay
-  ) {}
+  ) {
+  }
 
   open() {
-    const positionStrategy = this.overlay
-      .position()
-      .flexibleConnectedTo(this.el.nativeElement)
-      .withPositions([
-        {
-          originX: 'center',
-          overlayX: 'center',
-          originY: 'top',
-          overlayY: 'bottom'
-        }
-      ]);
+    const positionStrategy = window.innerWidth < 350
+      ? this.overlay
+        .position()
+        .global()
+        .bottom('55px')
+      : this.overlay
+        .position()
+        .flexibleConnectedTo(this.el.nativeElement)
+        .withPositions([
+          {
+            originX: 'center',
+            overlayX: 'center',
+            originY: 'top',
+            overlayY: 'bottom'
+          }
+        ]);
     const overlayConfig = new OverlayConfig({
       hasBackdrop: true,
       positionStrategy
