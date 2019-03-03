@@ -6,6 +6,13 @@ import { Observable } from 'rxjs';
 import { getRef } from '@angular/fire/database/utils';
 import { map, switchMap } from 'rxjs/operators';
 
+function normalize(feedback: Array<any>) {
+  return feedback.map(item => ({
+    ...(item.payload && item.payload.val()),
+    key: item.key
+  }));
+}
+
 @Injectable()
 export class FeedbackService {
   private repo$: AngularFireList<any>;
@@ -23,7 +30,8 @@ export class FeedbackService {
       switchMap(url => {
         return this.database
           .list('/feedback', ref => ref.orderByChild('href').equalTo(url))
-          .valueChanges();
+          .snapshotChanges()
+          .pipe(map(normalize));
       }),
       map((items: Message[]) => items.filter(item => !item.isDone))
     );

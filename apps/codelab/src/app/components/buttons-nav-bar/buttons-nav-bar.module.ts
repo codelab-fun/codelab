@@ -5,6 +5,7 @@ import { FeedbackModule } from '@codelab/feedback';
 import { FirebaseLoginModule } from '@codelab/firebase-login';
 import { MenuGithubWidgetModule } from './menu-github-widget/menu-github-widget.module';
 import { MenuShortcutWidgetModule } from './menu-shortcut-widget/menu-shortcut-widget.module';
+import { MenuFullscreenWidgetComponent } from './menu-fullscreen-widget/menu-fullscreen-widget.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { MenuShortcutWidgetModule } from './menu-shortcut-widget/menu-shortcut-w
     MenuGithubWidgetModule,
     MenuShortcutWidgetModule
   ],
-  declarations: [ButtonsNavBarComponent],
+  declarations: [ButtonsNavBarComponent, MenuFullscreenWidgetComponent],
   exports: [
     ButtonsNavBarComponent,
     FeedbackModule,
