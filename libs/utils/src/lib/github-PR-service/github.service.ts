@@ -58,8 +58,6 @@ export class GithubService {
 
   async createClosedIssue(message, reason) {
 
-    console.log(this.githubAuth);
-
     if (!this.githubAuth.credential) {
       await this.login();
     }
