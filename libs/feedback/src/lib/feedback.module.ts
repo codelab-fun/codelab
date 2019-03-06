@@ -11,7 +11,7 @@ import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.compo
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GithubModule } from '@codelab/github/src';
+import { GithubModule } from '@codelab/utils';
 
 // Note! We are using AngularFire2 v4. There are a lot of breaking changes.
 // See: https://github.com/angular/@angular/fire/issues/854

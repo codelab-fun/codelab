@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
-import { GithubService } from '@codelab/github';
+import { GithubService } from '@codelab/utils';
 
 @Component({
   selector: 'feedback-widget',
