@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/map';
 import {
   ReactiveFormsModule,
   FormGroup,
@@ -56,13 +56,13 @@ export class FormComponent implements OnInit {
   }
 
   createpost() {
-    const data: Post  = {
-      title: this.title, 
-      author: this.author, 
-      text: this.text, 
-      date: Date.now()
-    };
-    this.post =  this.http.post(this.endpoint + '/posts', data);
+    // const data: Post  = {
+    //   title: this.title, 
+    //   author: this.author, 
+    //   text: this.text, 
+    //   date: Date.now()
+    // };
+    // this.post =  this.http.post(this.endpoint + '/posts', data);
   }
 
   onSubmit() {
