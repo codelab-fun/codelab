@@ -3,6 +3,7 @@ img {
 }
 
 .octocat {
+  float: left;
   width: 224px;
   margin: 0 auto;
   height: 224px;
@@ -10,12 +11,23 @@ img {
   margin-right: 16px;
 }
 
-.wrapper {
-  display: flex;
+.content {
+  float: right;
+  width: 250px;
 }
 
-.content {
-  width: 300px;
+@media screen and (max-width: 350px) {
+  .octocat {
+    float: none;
+    margin: 5px auto;
+    display: block;
+  }
+
+  .content {
+    margin: 0 auto;
+    float: none;
+    text-align: center;
+  }
 }
 
 h3 {
