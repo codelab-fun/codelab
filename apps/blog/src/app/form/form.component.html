@@ -1,3 +1,18 @@
-<p>
-  form works!
-</p>
+<h3>Post to blog</h3>
+<form class="container" 
+  [formGroup]="myform"
+  (ngSubmit)="onSubmit()">
+
+  <input type="text"
+  class="form-control"
+  formControlName="title"
+  required>
+
+  <input type="text"
+  class="form-control"
+  formControlName="text"
+  required>
+
+  <button type="submit" class="btn btn-primary" >Submit</button>
+</form>
+
