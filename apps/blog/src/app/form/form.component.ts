@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormGroup, FormControl } from '@angular/forms';
-// import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms'
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 import {
   ReactiveFormsModule,
-  FormsModule,
   FormGroup,
   FormControl,
   Validators,
-  FormBuilder
 } from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
+export interface Post {
+  title: string;
+  author: string;
+  text: string;
+  date: any;
+}
 
 @Component({
   selector: 'codelab-form',
@@ -22,11 +25,14 @@ export class FormComponent implements OnInit {
 
   myform: FormGroup;
   title: FormControl;
+  author: FormControl;
   text: FormControl;
   date: Date;
-  endpoint: String;
+  endpoint: string;
+  // post: Post;
+  post: Observable<Post>;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.createFormControls();
@@ -36,6 +42,7 @@ export class FormComponent implements OnInit {
 
   createFormControls() {
     this.title = new FormControl('', Validators.required);
+    this.author = new FormControl('', Validators.required);
     this.text = new FormControl('', Validators.required);
 
   }
@@ -43,8 +50,19 @@ export class FormComponent implements OnInit {
   createForm() {
     this.myform = new FormGroup({
       title: this.title,
+      author: this.author,
       text: this.text
     });
+  }
+
+  createpost() {
+    const data: Post  = {
+      title: this.title, 
+      author: this.author, 
+      text: this.text, 
+      date: Date.now()
+    };
+    this.post =  this.http.post(this.endpoint + '/posts', data);
   }
 
   onSubmit() {
