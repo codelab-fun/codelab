@@ -1,0 +1,22 @@
+.menu-bar-btn.index-menu {
+  background-color: #ff594b;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 6px 10px;
+}
+
+a:hover {
+  background-color: #982a2a;
+  color: white;
+}

@@ -1,12 +1,4 @@
 <router-outlet></router-outlet>
-
-<header class="btn-bar">
-  <codelab-login-button></codelab-login-button>
-  <div class="menu-bar-btn github-icon">
-    <a href="https://github.com/AngularNYC/angular-presentation">
-      <img alt="GitHub" src="/assets/images/icons/github-icon.png" />
-    </a>
-  </div>
-  <feedback-widget></feedback-widget>
-  <codelab-menu-shortcut></codelab-menu-shortcut>
-</header>
+<codelab-buttons-nav-bar
+  [style.display]="displayButtons ? '' : 'none'"
+></codelab-buttons-nav-bar>

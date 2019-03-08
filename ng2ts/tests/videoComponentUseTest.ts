@@ -27,7 +27,7 @@ function prepareTestingModule(videoComponent: any = VideoComponent) {
       templateUrl: undefined
     }
   });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 }
 
 describe('Component Tree', () => {

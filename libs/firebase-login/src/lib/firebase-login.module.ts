@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginButtonComponent } from './login-button/login-button.component';
-import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ButtonWithMenuModule } from '@codelab/utils';
+import { LoginWidgetComponent } from './login-widget/login-widget.component';
 
 @NgModule({
-  imports: [CommonModule, AngularFireAuthModule],
-  declarations: [LoginButtonComponent, LoginPanelComponent],
-  entryComponents: [
-    LoginPanelComponent
-  ],
-  exports: [LoginButtonComponent]
+  imports: [CommonModule, AngularFireAuthModule, ButtonWithMenuModule],
+  declarations: [LoginWidgetComponent],
+  exports: [LoginWidgetComponent, ButtonWithMenuModule]
 })
-export class FirebaseLoginModule {
-}
+export class FirebaseLoginModule {}

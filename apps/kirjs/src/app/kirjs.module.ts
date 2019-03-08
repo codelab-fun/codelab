@@ -33,13 +33,6 @@ const routes = [
     description: 'Image inclusion'
   },
   {
-    path: 'feedback-page',
-    loadChildren:
-      './modules/feedback-page/feedback-page.module#FeedbackPageModule',
-    name: 'Feedback page',
-    description: 'Feedback page'
-  },
-  {
     path: 'ii',
     loadChildren: './modules/ii/ii.module#IiModule',
     name: 'Image inclusion',
@@ -105,3 +98,4 @@ const routes = [
   bootstrap: [AppComponent]
 })
 export class KirjsModule {}
+

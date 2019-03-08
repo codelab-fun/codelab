@@ -1,24 +1,31 @@
-<div #translations style="display: none">¬
-  <div i18n="@@AddMatModules" id="AddMatModules">app.module.ts: Add MatCardModule and MatToolbarModule, to the
-    imports.
+<div #translations style="display: none">
+  ¬
+  <div i18n="@@AddMatModules" id="AddMatModules">
+    app.module.ts: Add MatCardModule and MatToolbarModule, to the imports.
   </div>
-  <div i18n="@@AddMatToolbar" id="AddMatToolbar">app.html: Add material toolbar containing the title</div>
-  <div i18n="@@UseMatCard" id="UseMatCard">video.component.html: Use material card to display the date</div>
-  <div i18n="@@AddMatCardTitle" id="AddMatCardTitle">video.component.html: Add mat-card-title (inside of the mat-card)
-    to
-    display video title
+  <div i18n="@@AddMatToolbar" id="AddMatToolbar">
+    app.html: Add material toolbar containing the title
   </div>
-  <div i18n="@@AddMatCardSubtitle" id="AddMatCardSubtitle">video.component.html: Add mat-card-subtitle (inside of the
-    mat-card) to display video description
+  <div i18n="@@UseMatCard" id="UseMatCard">
+    video.component.html: Use material card to display the date
   </div>
-  <div i18n="@@AddMatImage" id="AddMatImage">video.component.html: Mark img with mat-card-image attribute (inside of the
+  <div i18n="@@AddMatCardTitle" id="AddMatCardTitle">
+    video.component.html: Add mat-card-title (inside of the mat-card) to display
+    video title
+  </div>
+  <div i18n="@@AddMatCardSubtitle" id="AddMatCardSubtitle">
+    video.component.html: Add mat-card-subtitle (inside of the mat-card) to
+    display video description
+  </div>
+  <div i18n="@@AddMatImage" id="AddMatImage">
+    video.component.html: Mark img with mat-card-image attribute (inside of the
     mat-card) so that it takes full card size
   </div>
-  <div i18n="@@MoveDataToNewComponent" id="MoveDataToNewComponent">video.component.html: move date/views/likes info
-    inside of mat-card-content (inside of the mat-card)
+  <div i18n="@@MoveDataToNewComponent" id="MoveDataToNewComponent">
+    video.component.html: move date/views/likes info inside of mat-card-content
+    (inside of the mat-card)
   </div>
 </div>
-
 
 <slide-deck slideShortcuts slidesRouting slides-tracking>
   <codelab-progress-bar></codelab-progress-bar>
@@ -43,8 +50,10 @@
     <h2 i18n>
       Angular Material provides you with a set of
       <a href="https://material.io/" target="_blank">Material Design</a>
-      components for Angular
+      components for Angular:
     </h2>
+    <!--Angular Material предоставляет множество Angular-компонентов в стиле-->
+    <!--<ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Material Design<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>:-->
     <ul>
       <li i18n>Fast and Consistent</li>
       <li i18n>Versatile</li>
@@ -58,19 +67,19 @@
       <a
         href="https://material.angular.io/components/categories"
         target="_blank"
-      >here</a
+        >here</a
       >
     </h2>
   </div>
 
   <div *slide id="toolbar" milestone="material">
-    <codelab-breadcrumb i18n>NavBar</codelab-breadcrumb>
-    <h2 i18n>Adding a Navigation Bar takes 2 simple steps:</h2>
+    <codelab-breadcrumb i18n>MatToolBar</codelab-breadcrumb>
+    <h2 i18n>Adding a toolbar takes 2 simple steps:</h2>
     <ul>
       <li i18n>Add <b>MatToolbarModule</b> to the imports</li>
       <li i18n>Use the component in the template</li>
     </ul>
-
+    <!--MatToolBar-->
     <codelab-exercise-playground
       files="app.module.ts,app.html"
       [exercise]="code.material.step1"
@@ -116,8 +125,8 @@
   <div *slide id="themes" milestone="material">
     <codelab-breadcrumb i18n>Themes</codelab-breadcrumb>
     <h2 i18n>
-      All Angular Material components allow to apply themes. Try different themes by
-      clicking the buttons below:
+      All Angular Material components allow to apply themes. Try different
+      themes by clicking the buttons below:
     </h2>
     <div style="margin-bottom: 1.5vw;">
       <button
@@ -197,23 +206,25 @@
   <div *slide id="end">
     <codelab-closing-slide>
       <div class="header" header>
-        <codelab-breadcrumb i18n>End of The Material Milestone</codelab-breadcrumb>
+        <codelab-breadcrumb i18n
+          >End of The Material Milestone</codelab-breadcrumb
+        >
       </div>
       <div class="body" body>
         <h2 i18n>Well done! This is the end of the milestone!</h2>
-        <h2>
+        <h2 i18n>
           Check out Angular Material
           <a
             href="https://material.angular.io/guide/getting-started"
             target="_blank"
-          >"Getting Started"</a
+            >"Getting Started"</a
           >
           Guide
         </h2>
       </div>
       <div class="footer" footer>
         <h2>
-          <ng-container i18n>Next:</ng-container>
+          <ng-container i18n>Next: </ng-container>
           <a routerLink="../../forms/0" i18n>
             Learn how to create simple forms with Angular
           </a>

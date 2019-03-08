@@ -1,11 +1,13 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
-import { CommonModule } from '@angular/common';
+
+import { ButtonWithMenuModule } from '@codelab/utils';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { FeedbackService } from './feedback.service';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
 
@@ -22,18 +24,15 @@ export const angularFire = AngularFireModule.initializeApp(
     AngularFireDatabaseModule,
     angularFire,
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ButtonWithMenuModule
   ],
   providers: [FeedbackService],
-  declarations: [
-    FeedbackWidgetComponent,
-    FeedbackFormComponent,
-    FeedbackRatingComponent
-  ],
+  declarations: [FeedbackWidgetComponent, FeedbackRatingComponent],
   exports: [
     FeedbackWidgetComponent,
-    FeedbackFormComponent,
-    FeedbackRatingComponent
+    FeedbackRatingComponent,
+    ButtonWithMenuModule
   ]
 })
 export class FeedbackModule {}

@@ -2,7 +2,9 @@
   <div i18n="@@componentIsDecorator" id="componentIsDecorator">
     @Component is an Angular decorator
   </div>
-  <div i18n="@@noSemicolon" id="noSemicolon">No semicolon here (as it attaches itself to the class below</div>
+  <div i18n="@@noSemicolon" id="noSemicolon">
+    No semicolon here (as it attaches itself to the class below
+  </div>
   <div i18n="@@decoratorGoesAboveEntity" id="decoratorGoesAboveEntity">
     The Decorator goes directly above the decorated entity (class in this case)
   </div>
@@ -138,8 +140,7 @@
     ></code-demo-editor>
     <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
     <div class="info" i18n>
-      Decorators attach <b>Angular</b>-specific information to the class without
-      modifying it.
+      Decorators attach <b>Angular</b> specific information to the class.
     </div>
   </div>
 
@@ -157,7 +158,8 @@
     ></code-demo-editor>
 
     <div class="info" i18n>
-      Decorators are inspired by a similar feature in the Python language.
+      TypeScript decorators are inspired by a similar feature in the Python
+      language.
     </div>
   </div>
 
@@ -358,7 +360,7 @@
   >
     <codelab-breadcrumb i18n>Bootstrapping 1</codelab-breadcrumb>
     <h2 i18n>How does bootstrapping work in Angular?</h2>
-    <br/>
+    <br />
     <h2 i18n>
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
@@ -373,7 +375,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-      >Read more about root module and bootstrapping in Angular
+        >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -398,7 +400,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-      >Read more about root module and bootstrapping in Angular
+        >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -425,7 +427,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-      >Read more about root module and bootstrapping in Angular
+        >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -456,6 +458,7 @@
         </p>
       </div>
     </codelab-exercise>
+    <!--TODO: check the result area - it's shown if the test passed for the first time, but doesn't disappear in case if to broke the test-->
   </div>
 
   <!--Whole picture-->
@@ -523,7 +526,7 @@
       </div>
       <div class="footer" footer>
         <h2>
-          <ng-container i18n>Next:</ng-container>
+          <ng-container i18n>Next: </ng-container>
           <a routerLink="../../templates/0" i18n>
             Go to the templates Milestone
           </a>

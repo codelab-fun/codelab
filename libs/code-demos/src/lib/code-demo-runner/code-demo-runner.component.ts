@@ -61,7 +61,6 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   ) {}
 
   get displayUrl() {
-    console.log(this.url);
     if (this.url === '/assets/runner') {
       return 'http://localhost:4200';
     }
@@ -124,7 +123,10 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
           try {
             sandbox.evalJs(code);
           } catch (e) {
+            const [errorLabel] = e.toString().split('\r\n');
+            console.groupCollapsed(errorLabel);
             console.log(e);
+            console.groupEnd();
             return true;
           }
           return false;

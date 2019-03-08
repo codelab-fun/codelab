@@ -2,7 +2,7 @@ import { BehaviorSubject, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { exhaustMap, finalize } from 'rxjs/operators';
 import * as ts from 'typescript';
 
-const compilerOptions = {
+const compilerOptions: ts.CompilerOptions = {
   module: ts.ModuleKind.System,
   target: ts.ScriptTarget.ES5,
   experimentalDecorators: true,
@@ -88,19 +88,15 @@ function watch(
   };
 
   function emitFiles(fileNames: string[]) {
-    const updated = fileNames
-      .map(emitFile)
-      .map(output => output.outputFiles)
-      ['flat']()
-      .reduce((acc, outputFile) => {
-        if (outputFile.name.match(/\.js$/)) {
-          return {
-            ...acc,
-            [outputFile.name]: outputFile.text
-          };
-        }
-        return acc;
-      }, {});
+    const updated = fileNames.map(emitFile).reduce((acc, outputFile) => {
+      if (outputFile) {
+        return {
+          ...acc,
+          [outputFile.name]: outputFile.text
+        };
+      }
+      return acc;
+    }, {});
 
     outputFiles.next({
       ...outputFiles.getValue(),
@@ -111,16 +107,21 @@ function watch(
   function emitFile(fileName: string) {
     const output = services.getEmitOutput(fileName);
 
-    if (!output.emitSkipped) {
-    } else {
-      console.log(`Emitting ${fileName} failed`);
+    if (output.emitSkipped) {
       logErrors(fileName);
     }
 
-    return output;
+    const file = output.outputFiles.find(file => /\.js$/.test(file.name));
+
+    if (file) {
+      file.name = file.name.replace(/^\//, '');
+    }
+
+    return file;
   }
 
   function logErrors(fileName: string) {
+    console.groupCollapsed(`Emitting ${fileName} failed`);
     const allDiagnostics = services
       .getCompilerOptionsDiagnostics()
       .concat(services.getSyntacticDiagnostics(fileName))
@@ -137,13 +138,14 @@ function watch(
           character
         } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
         console.log(
-          `  Error ${diagnostic.file.fileName} (${line + 1},${character +
+          `Error ${diagnostic.file.fileName} (${line + 1},${character +
             1}): ${message}`
         );
       } else {
         console.log(`  Error: ${message}`);
       }
     });
+    console.groupEnd();
   }
 }
 

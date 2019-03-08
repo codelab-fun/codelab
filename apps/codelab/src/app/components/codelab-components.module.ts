@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatSelectModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
-
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
 import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
@@ -19,10 +18,10 @@ import { CodelabProgressBarComponent } from './codelab-progress-bar/codelab-prog
 import { BabelTestRunnerComponent } from './babel-test-runner/babel-test-runner.component';
 import { CodelabRippleAnimationComponent } from './slides/title-slide/ripple-animation/codelab-ripple-animation.component';
 import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-test-runner.component';
-import { MenuShortcutComponent } from './menu-shortcut/menu-shortcut.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+
 
 @NgModule({
   imports: [
@@ -47,7 +46,6 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     BabelTestRunnerComponent,
     CodelabRippleAnimationComponent,
     SimpleAngularTestRunnerComponent,
-    MenuShortcutComponent,
     BreadcrumbComponent
   ],
   exports: [
@@ -60,9 +58,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
     BabelTestRunnerComponent,
-    MenuShortcutComponent,
     BreadcrumbComponent
-  ]
+  ],
+  providers: []
 })
-export class CodelabComponentsModule {
-}
+export class CodelabComponentsModule {}

@@ -1,0 +1,11 @@
+.link {
+  text-decoration: underline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}

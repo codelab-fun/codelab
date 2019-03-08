@@ -2,7 +2,7 @@
 
 Thank you for deciding to contribute! We're excited to have you on the team 🙌
 
-Below you'll find our guidelines for contributing to further development of this codelab, which is hosted at [Angular NYC](https://github.com/angularNYC/angular-presentation) on GitHub.
+Below you'll find our guidelines for contributing to further development of this codelab, which is hosted at [Angular NYC](https://github.com/nycJSorg/angular-presentation) on GitHub.
 
 
 ------

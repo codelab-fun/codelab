@@ -20,17 +20,17 @@
     </h2>
 
     <preview-terminal-window>
-      $ ng hello<span class="success" i18n>
+      $ ng hello
+      <span class="success" i18n>
         Hi, I'm <b>angular-cli</b>, I'm a command line tool!
       </span>
-      <span i18n>
-        It may sound scary, but I'm really easy to use!
-      </span>
+      <span i18n> It may sound scary, but I'm really easy to use! </span>
     </preview-terminal-window>
+    <!--Привет, я - <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>angular-cli<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, я инструмент для командой строки!-->
   </div>
 
   <div *slide id="npm">
-    <h1>Angular CLI / node</h1>
+    <codelab-breadcrumb i18n>node</codelab-breadcrumb>
     <h2 i18n>Before you start, make sure you have node.js on your machine.</h2>
     <h2 i18n>Open terminal and type in: <code>node -v</code></h2>
     <ul>
@@ -38,7 +38,9 @@
         If there is an error, follow the
         <a href="https://nodejs.org/en/download/">NodeJS setup instructions</a>
       </li>
-      <li i18n>If the output is a number, you're good, move to the next slide.</li>
+      <li i18n>
+        If the output is a number, you're good, move to the next slide.
+      </li>
     </ul>
     <preview-terminal-window>
       $ node -v<span class="success"> v6.11.3</span>
@@ -117,7 +119,7 @@
       chunk {{'{'}}main{{'}'}} main.bundle.js, main.bundle.js.map (main) 8.63 kB {{'{'}}vendor{{'}'}} [initial]
       [rendered]
       chunk {{'{'}}polyfills{{'}'}} polyfills.bundle.js, polyfills.bundle.js.map (polyfills) 199 kB {{'{'}}inline{{'}'}}
-      [initial] [rendered]
+        [initial] [rendered]
       chunk {{'{'}}styles{{'}'}} styles.bundle.js, styles.bundle.js.map (styles) 11.3 kB {{'{'}}inline{{'}'}} [initial]
       [rendered]
       chunk {{'{'}}vendor{{'}'}} vendor.bundle.js, vendor.bundle.js.map (vendor) 2.32 MB [initial] [rendered]
@@ -161,7 +163,9 @@
   <div *slide id="end">
     <codelab-closing-slide>
       <div class="header" header>
-        <codelab-breadcrumb i18n>End of The Angular-cli Milestone</codelab-breadcrumb>
+        <codelab-breadcrumb i18n
+          >End of The Angular-cli Milestone</codelab-breadcrumb
+        >
       </div>
       <div class="body" body>
         <h2 i18n>
@@ -171,28 +175,22 @@
         </h2>
         <ul>
           <li>
-            <h2>
-              Learn more
-              <a href="https://cli.angular.io/">about angular-cli </a>
-            </h2>
-          </li>
-          <li>
-            <a href="https://angular.io/" target="_blank">Angular.io</a>
+            <a href="https://angular.io/" target="_blank">Angular.io</a> &mdash;
             <span i18n>Find features, docs and events listed here</span>
           </li>
           <li>
             <a href="https://cli.angular.io/" target="_blank">Angular CLI</a>
-            <span i18n
-              >makes it easy to create an application that already works, right
+            <span i18n>
+              makes it easy to create an application that already works, right
               out of the box and generate new components! It also takes care of
-              the build system for you</span
-            >
+              the build system for you
+            </span>
           </li>
         </ul>
       </div>
 
       <div class="footer" footer>
-        <feedback-rating lesson="AngularCli"> </feedback-rating>
+        <feedback-rating lesson="AngularCli"></feedback-rating>
       </div>
     </codelab-closing-slide>
   </div>

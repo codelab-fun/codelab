@@ -1,12 +1,73 @@
-<!--  FEEDBACK BUTTON-->
-<div
-  (click)="buttonClicked()"
-  class="feedback-container feedback-button menu-bar-btn"
-  title="Feedback"
->
-  <ng-container *ngIf="(messages$ | async) as msgs">
-    <span *ngIf="msgs.length" class="messages-count"> {{ msgs.length }} </span>
+<codelab-button-with-menu>
+  <button class="menu-bar-btn">
+    <img alt="MenuShortcut" src="/assets/images/chat.png" />
+    <ng-container *ngIf="(messages$ | async) as message">
+      <ng-container *ngIf="message.length">
+        <span class="messages-count"> {{ message.length }} </span>
+      </ng-container>
+    </ng-container>
+  </button>
+
+  <ng-container *codelabModalContent="let modal">
+    <div class="buttons-nav-bar-modal-content-wrapper">
+      <h2 class="modal-title">Feedback</h2>
+      <ng-container *ngIf="(messages$ | async) as message">
+        <ng-container *ngIf="message.length">
+          <div class="feedback-items">
+            <div class="feedback-item" *ngFor="let item of (messages$ | async)">
+              <div class="header">
+                <span class="name">{{ item.name }}</span>
+                <span class="date"> {{ item.timestamp | date }}</span>
+              </div>
+              <div class="comment">{{ item.comment }}</div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+      <form
+        [formGroup]="formGroup"
+        novalidate
+        (submit)="submit(); modal.close()"
+        class="form-container"
+      >
+        <input
+          formControlName="name"
+          placeholder="Enter your name"
+          type="text"
+          class="mt-0"
+          i18n
+        />
+        <input
+          formControlName="email"
+          type="email"
+          placeholder="Enter your email"
+        />
+        <small class="text-muted" i18n
+          >Email is optional and, will not displayed
+        </small>
+        <div>
+          <textarea
+            i18n-placeholder
+            placeholder="Describe your issue or share your ideas"
+            formControlName="comment"
+            (keydown.control.enter)="submit(); modal.close()"
+          >
+          </textarea>
+        </div>
+        <div>
+          <button
+            (click)="submit(); modal.close()"
+            [disabled]="formGroup.invalid"
+            [style.opacity]="formGroup.invalid ? 0.5 : 1"
+            type="button"
+            class="btn"
+            i18n
+          >
+            Send
+          </button>
+        </div>
+        <div [class.error]="error">{{ statusMessage }}</div>
+      </form>
+    </div>
   </ng-container>
-</div>
-<!--  FEEDBACK FORM -->
-<feedback-form *ngIf="open"></feedback-form>
+</codelab-button-with-menu>

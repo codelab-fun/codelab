@@ -1,1 +1,1 @@
-export * from './lib/firebase-login.module';
+export * from './lib';

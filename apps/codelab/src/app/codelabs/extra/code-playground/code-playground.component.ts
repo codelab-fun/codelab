@@ -23,7 +23,7 @@ export class CodePlaygroundComponent {}
 // // <code-preview bootstrap="test.ts" ui="tests"></code-preview>
 //
 //
-// /// <code-group><code-preview> Typescript
+// /// <code-group><code-preview> TypeScript
 // /// <code-group><code-preview> Javasdcript
 //
 // @Component({

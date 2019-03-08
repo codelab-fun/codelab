@@ -11,8 +11,8 @@ const routes = [
     children: [
       {
         path: 'typescript',
-        loadChildren: './typescript/typescript.module#TypescriptModule',
-        name: 'Typescript',
+        loadChildren: './typescript/typescript.module#TypeScriptModule',
+        name: 'TypeScript',
         description:
           'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript',
         page: 'typescript',
@@ -131,12 +131,10 @@ const isProd = environment.production;
 export const menuRoutes = routes[0].children
   .filter(x => x.page === 'main')
   // Hide non-prod routes in prod
-  .filter(x => (!isProd) || x.prod);
-
+  .filter(x => !isProd || x.prod);
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AngularRoutingModule {
-}
+export class AngularRoutingModule {}

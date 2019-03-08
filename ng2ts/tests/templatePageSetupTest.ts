@@ -18,7 +18,7 @@ beforeEach(() => {
 
 describe('Blabla', () => {
   it(`@@addH1HeaderWithATitle`, () => {
-    TestBed.compileComponents();
+    try { TestBed.compileComponents(); } catch(e) { console.log(e); }
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const header = fixture.nativeElement.querySelector('h1');
@@ -32,7 +32,7 @@ describe('Blabla', () => {
   });
 
   it(`@@addInputWithPlaceholderVideo`, () => {
-    TestBed.compileComponents();
+    try { TestBed.compileComponents(); } catch(e) { console.log(e); }
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const input = fixture.nativeElement.querySelector('input');
@@ -41,7 +41,7 @@ describe('Blabla', () => {
   });
 
   it(`@@addButtonWithtextSearch`, () => {
-    TestBed.compileComponents();
+    try { TestBed.compileComponents(); } catch(e) { console.log(e); }
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const button = fixture.nativeElement.querySelector('button');

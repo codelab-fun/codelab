@@ -54,7 +54,7 @@ beforeEach(() => {
   TestBed.overrideComponent(ContextComponent, {set: {template: context_context_html}});
   TestBed.overrideComponent(ThumbsComponent, {set: {template: thumbs_thumbs_html}});
 
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Children', () => {

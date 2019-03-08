@@ -1,9 +1,17 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'feedback-rating',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './feedback-rating.component.html',
   styleUrls: ['./feedback-rating.component.css']
 })
@@ -27,7 +35,7 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
     {
       src: 'ng-soso.svg',
       value: 'soso',
-      text: 'ok'
+      text: 'Ok'
     },
     {
       src: 'ng-sleepy.svg',
@@ -36,7 +44,10 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  constructor(private feedbackService: FeedbackService) {}
+  constructor(
+    private ref: ChangeDetectorRef,
+    private feedbackService: FeedbackService
+  ) {}
 
   ngOnInit() {
     this.ratings$ = this.feedbackService.getRatings();
@@ -45,6 +56,8 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.ratingsClass = 'ratings slideup';
+      // TODO: work on animation process
+      this.ref.markForCheck();
     }, 1000);
   }
 

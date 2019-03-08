@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
+import { Subject, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
@@ -49,16 +51,13 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
-  @Input() codeDemoHighlight = [];
   @Input() highlights = {};
+
+  @Input() debounce = 250;
 
   files = [];
   openModels: MonacoModel[] = [];
   fileNames: string[] = [];
-
-  private editor: IStandaloneCodeEditor;
-  private models: MonacoModel[];
-  private onChange: any;
 
 /**
  * The following items are for the structure of the material tree nodes.
@@ -69,8 +68,14 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   fileRootNode: FileFolderNode[] = [];
   treeControl = new NestedTreeControl<any>(node => node.children);
   opened = true;
-
   activeTabIndex = 0;
+
+  changeSubject = new Subject();
+
+  private editor: IStandaloneCodeEditor;
+  private models: MonacoModel[];
+  private onChange: any;
+  private subscription: Subscription;
 
   /** Determines if tree node has a child. Utility for material tree component */
   hasChild = (_: number, node: any) => !!node.children && node.children.length > 0;
@@ -78,7 +83,15 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   constructor(
     readonly monacoConfigService: MonacoConfigService,
     readonly cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    this.subscription = this.changeSubject
+      .pipe(debounceTime(this.debounce))
+      .subscribe(changes => {
+        if (this.onChange) {
+          this.onChange(changes);
+        }
+      });
+  }
 
   @Input('files') set setFiles(files: string | string[]) {
     if (typeof files === 'string') {
@@ -136,7 +149,7 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
 
         model.onDidChangeContent(() => {
           this.code[path] = model.getValue();
-          this.onChange({ ...this.code });
+          this.changeSubject.next({ ...this.code });
         });
 
         return {
@@ -166,6 +179,10 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
 
   ngOnDestroy() {
     this.dispose();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
 
   trackByEditorIndex(index: number, model: MonacoModel) {

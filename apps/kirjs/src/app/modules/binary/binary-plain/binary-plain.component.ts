@@ -32,8 +32,7 @@ export class BinaryPlainComponent {
 
   structure: any;
 
-  constructor(private readonly root: FakeGifComponent) {
-  }
+  constructor(private readonly root: FakeGifComponent) {}
 
   get highlighted() {
     return Object.keys(this.highlightedMap)
