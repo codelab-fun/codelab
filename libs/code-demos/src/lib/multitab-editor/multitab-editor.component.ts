@@ -13,7 +13,7 @@ import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 import { NestedTreeControl } from '@angular/cdk/tree';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
-import { createFolderStructure, FileFolder } from './multitab-editor.utilities';
+import { createFolderStructure, FileFolderNode } from './multitab-editor.utilities';
 declare const monaco;
 const extenstionToLang = {
   ts: 'typescript',
@@ -66,7 +66,7 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
  * Used to create data structure required by the material tree component.
  */
   dataSource = new MatTreeNestedDataSource<any>();
-  fileRootNode: FileFolder[] = [];
+  fileRootNode: FileFolderNode[] = [];
   treeControl = new NestedTreeControl<any>(node => node.children);
   opened = true;
 
@@ -189,7 +189,7 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   }
 
 
-  updateActiveFileSelected(model: FileFolder|MonacoModel) {
+  updateActiveFileSelected(model: FileFolderNode|MonacoModel) {
     const alreadyShownInTab = this.openModels.findIndex(v => v.path === model.path);
 
     if (alreadyShownInTab < 0) {
@@ -202,7 +202,7 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   }
 
 
-  onCloseTab(model: FileFolder) {
+  onCloseTab(model: FileFolderNode) {
     const index = this.openModels.findIndex(m => m.path === model.path);
     if (index === this.openModels.length - 1) {
       this.activeTabIndex--;
@@ -212,7 +212,7 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   }
 
 
-  isActiveFile(node: FileFolder) {
+  isActiveFile(node: FileFolderNode) {
     const activeModel = this.openModels[this.activeTabIndex];
     return activeModel && activeModel.path === node.path;
   }

@@ -1,6 +1,6 @@
-export interface FileFolder {
+export interface FileFolderNode {
   name: string;
-  children: FileFolder[];
+  children: FileFolderNode[];
   path: string;
 }
 
@@ -12,7 +12,7 @@ export interface FileFolder {
  * @param allPaths - collection of files or folders paths to add to the branches of the rootNode
  */
 export function createFolderStructure(
-  rootNode: FileFolder[],
+  rootNode: FileFolderNode[],
   allPaths: string[]
 ) {
   allPaths.forEach(path => {
