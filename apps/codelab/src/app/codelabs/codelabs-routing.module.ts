@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: './angular/angular.module#AngularModule'
   },
   {
+    path: 'angular/30-seconds',
+    loadChildren: './angular-thirty-seconds/angular-thirty-seconds.module#AngularThirtySecondsModule'
+  },
+  {
     path: 'extra',
     loadChildren: './extra/extra.module#ExtraModule'
   }

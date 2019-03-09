@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Adding keyboard shortcuts to elements",
+    "tags": [
+      "tips",
+      "good-to-know"
+    ],
+    "content": "It's really easy to add keyboard shortcuts in the template: \n```\n<textarea (keydown.ctrl.enter)></textarea>\n```",
+    "bonus": "```html\n<input (keydown.enter)=\"...\">\n<input (keydown.a)=\"...\">\n<input (keydown.esc)=\"...\">\n<input (keydown.shift.esc)=\"...\">\n<input (keydown.control)=\"...\">\n<input (keydown.alt)=\"...\">\n<input (keydown.meta)=\"...\">\n<input (keydown.9)=\"...\">\n<input (keydown.tab)=\"...\">\n<input (keydown.backspace)=\"...\">\n<input (keydown.arrowup)=\"...\">\n<input (keydown.shift.arrowdown)=\"...\">\n<input (keydown.shift.control.z)=\"...\">\n<input (keydown.f4)=\"...\">\n```",
+    "links": "TODO: Choose one of th links.\n\nhttps://netbasal.com/lifting-the-veil-insights-into-angulars-eventmanagerplugin-ed9d14cbb31a\n\nhttps://www.bennadel.com/blog/3088-native-key-combination-event-binding-support-in-angular-2-beta-17.htm\n\nhttps://alligator.io/angular/binding-keyup-keydown-events",
+    "componentcode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n  template: `<h1>Hello world</h1>`\n})\nexport class AppComponent {}",
+    "modulecode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [BrowserModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {}"
+  },
+  {
+    "title": "trackBy",
+    "tags": [
+      "tips",
+      "good-to-know"
+    ],
+    "content": "To avoid the expensive operations, we can help Angular to track which items added or removed i.e. customize the default tracking algorithm by providing a trackBy option to NgForOf.\n\nSo you can provide your custom trackBy function that will return unique identifier for each iterated item. \nFor example, some key value of the item. If this key value matches the previous one, then Angular won't detect changes.\n\n**trackBy** takes a function that has _index_ and _item_ args. \n\n```typescript\n@Component({\n  selector: 'app-root',\n  template: `\n    <ul>\n      <li *ngFor=\"let item of items; trackBy: trackByFn\">{{item.id}}</li>\n    </ul>\n  `,\n})\nexport class AppComponent {\n  \n  ...\n  \n  trackByFn(index, item) {\n    return item.id;\n  }\n}\n```\nIf trackBy is given, Angular tracks changes by the return value of the function. \n\nNow when you change the collection, Angular can track which items have been added or removed according to the unique identifier and create/destroy only changed items.",
+    "links": "https://angular.io/api/common/NgForOf\nhttps://angular.io/api/core/TrackByFunction"
+  }
+]
