@@ -7,8 +7,6 @@ import { AngularThirtySecondsComponent } from './angular-thirty-seconds.componen
 import { SnippetComponent } from './snippet/snippet.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
-import { NgxMdModule } from 'ngx-md';
-import 'prismjs/components/prism-typescript';
 import { SlugifyPipe } from './slugify.pipe';
 
 const routes = RouterModule.forChild(
@@ -22,7 +20,6 @@ const routes = RouterModule.forChild(
     CodeDemoModule,
     FormsModule,
     CommonModule,
-    NgxMdModule.forRoot(),
     SlidesModule,
     routes
   ]
