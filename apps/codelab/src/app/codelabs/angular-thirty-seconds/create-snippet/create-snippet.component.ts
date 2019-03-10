@@ -38,7 +38,7 @@ export class CreateSnippetComponent implements OnInit {
       }
 
       if (raw.demo['app.module.ts'] !== this.initialCode['app.module.ts']) {
-        this.snippet.moduleCode = raw.demo['app.component.ts'];
+        this.snippet.moduleCode = raw.demo['app.module.ts'];
       }
     });
 
