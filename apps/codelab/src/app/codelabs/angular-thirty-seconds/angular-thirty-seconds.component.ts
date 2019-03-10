@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 declare const require;
-const data = require('./data.json');
 
 @Component({
   selector: 'codelab-thirty-seconds',
@@ -9,12 +8,17 @@ const data = require('./data.json');
   styleUrls: ['./angular-thirty-seconds.component.css']
 })
 export class AngularThirtySecondsComponent implements OnInit {
-  data = data;
+  data: any;
 
   constructor() {
+    this.fetchData();
+  }
+
+  async fetchData() {
+    const data = (await fetch('https://gitcdn.link/repo/nycJSorg/30-seconds-of-angular/master/data/data.json'));
+    this.data = JSON.parse(await data.text());
   }
 
   ngOnInit() {
   }
-
 }

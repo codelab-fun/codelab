@@ -1,4 +1,4 @@
-<slide-deck slideShortcuts slidesRouting slides-tracking>
+<slide-deck *ngIf="data" slideShortcuts slidesRouting slides-tracking>
   <ng-container *ngFor="let slide of data">
     <div *slide [id]="slide.title | slugify">
       {{slide.title|slugify}}

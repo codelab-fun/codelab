@@ -6,19 +6,27 @@ import { RouterModule } from '@angular/router';
 import { AngularThirtySecondsComponent } from './angular-thirty-seconds.component';
 import { SnippetComponent } from './snippet/snippet.component';
 import { CodeDemoModule } from '@codelab/code-demos';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlugifyPipe } from './slugify.pipe';
+import { CreateSnippetComponent } from './create-snippet/create-snippet.component';
+import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(AngularThirtySecondsComponent)
+  [
+    {path: 'new', component: CreateSnippetComponent},
+    ...SlidesRoutes.get(AngularThirtySecondsComponent)
+  ]
 );
 
 
 @NgModule({
-  declarations: [AngularThirtySecondsComponent, SnippetComponent, SlugifyPipe],
+  declarations: [AngularThirtySecondsComponent, SnippetComponent, SlugifyPipe, CreateSnippetComponent],
   imports: [
     CodeDemoModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
     CommonModule,
     SlidesModule,
     routes
@@ -26,3 +34,5 @@ const routes = RouterModule.forChild(
 })
 export class AngularThirtySecondsModule {
 }
+
+

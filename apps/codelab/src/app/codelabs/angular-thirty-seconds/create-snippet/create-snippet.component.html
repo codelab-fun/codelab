@@ -1,0 +1,67 @@
+<form [formGroup]="snippetForm">
+  <input type="text" class="title" formControlName="title" placeholder="Snippet title">
+
+  <label>Author</label>
+  <input type="text" formControlName="author" placeholder="Your name here">
+
+  <label>Level</label>
+  <mat-form-field>
+    <mat-select formControlName="level">
+      <mat-option value="beginner">beginner</mat-option>
+      <mat-option value="intermediate">intermediate</mat-option>
+      <mat-option value="advanced">advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <label>Tags, comma-separated</label>
+  <!--TODO: Use dropdown-->
+  <input type="text" formControlName="tags" placeholder="comma-separated">
+
+  <label>Content (Markdown)</label>
+  <!--TODO: Autoadjust height-->
+  <!--TODO: Show a warning of more than 50 lines-->
+  <!--TODO: Validate and preview markdown -->
+  <textarea formControlName="content"></textarea>
+
+  <label>Bonus, this section is collapseable optional (Markdown)</label>
+  <textarea formControlName="bonus" class="bonus"></textarea>
+
+  <!--TODO: Make this collapseable? -->
+  <label>Links, optional (Markdown)</label>
+  <textarea formControlName="bonus" class="bonus"></textarea>
+
+  <label>Demo (You can edit component and module)</label>
+  <code-demo formControlName="demo" bootstrap="main"></code-demo>
+</form>
+
+<h1>Generated snippet</h1>
+<pre>
+---
+title: {{snippet.title}}
+author: {{snippet.author}}
+level: {{snippet.level}}
+<ng-container *ngIf="snippet.tags?.length">tags:
+<ng-container *ngFor="let tag of snippet.tags">  - {{tag}}</ng-container></ng-container>
+---
+# Content
+{{snippet.content}}
+
+<ng-container *ngIf="snippet.bonus">
+# Bonus
+{{snippet.bonus}}
+</ng-container>
+<ng-container *ngIf="snippet.links">
+# Links
+  {{snippet.links}}
+</ng-container>
+<ng-container *ngIf="snippet.componentCode">
+# ComponentCode
+  {{snippet.componentCode}}
+</ng-container>
+<ng-container *ngIf="snippet.moduleCode">
+# ModuleCode
+  {{snippet.moduleCode}}
+</ng-container>
+</pre>
+
