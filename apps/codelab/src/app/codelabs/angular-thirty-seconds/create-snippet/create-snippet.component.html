@@ -1,67 +1,144 @@
-<form [formGroup]="snippetForm">
-  <input type="text" class="title" formControlName="title" placeholder="Snippet title">
+<div class="container">
+  <h1>New Snippet *
+    <button (click)="onSubmit()"
+            mat-button
+            class="btn-submit"> Generate Snippet
+    </button>
+  </h1>
 
-  <label>Author</label>
-  <input type="text" formControlName="author" placeholder="Your name here">
+  <codelab-snippet-info></codelab-snippet-info>
 
-  <label>Level</label>
-  <mat-form-field>
-    <mat-select formControlName="level">
-      <mat-option value="beginner">beginner</mat-option>
-      <mat-option value="intermediate">intermediate</mat-option>
-      <mat-option value="advanced">advanced</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <form [formGroup]="snippetForm">
+    <section>
+      <div class="input-block">
+        <div>
+          <label for="snippetTitle">
+            Title <span class="required">*</span>
+          </label>
+          <mat-form-field>
+            <input formControlName="title"
+                   maxlength="120"
+                   id="snippetTitle"
+                   type="text"
+                   matInput>
+          </mat-form-field>
+          <span class="input-info"> Maximum 120 symbols </span>
+        </div>
+        <div>
+          <label for="snippetLevel">
+            Level <span class="required">*</span>
+          </label>
+          <mat-form-field>
+            <mat-select formControlName="level"
+                        id="snippetLevel">
+              <mat-option value="Beginner">Beginner</mat-option>
+              <mat-option value="Intermediate">Intermediate</mat-option>
+              <mat-option value="Advanced">Advanced</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <label for="tags">
+            Tags <span class="required">*</span>
+          </label>
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let tag of tags"
+                        [removable]="true"
+                        (removed)="removeTag(tag)"> {{tag}}
+              </mat-chip>
+              <input #tagInput
+                     formControlName="tags"
+                     id="tags"
+                     [matAutocomplete]="auto"
+                     [matChipInputFor]="chipList"
+                     [matChipInputAddOnBlur]="true"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     (matChipInputTokenEnd)="addTag($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedTags($event)">
+              <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+                {{tag}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <span class="input-info"> Maximum 5 tags </span>
+        </div>
+      </div>
+    </section>
 
+    <section>
+      <div class="w-50">
+        <label for="content">
+          Content <span class="required">*</span>
+        </label>
+        <mat-form-field>
+          <textarea formControlName="content"
+                    id="content"
+                    type="text"
+                    matInput>
+          </textarea>
+        </mat-form-field>
+      </div>
+      <div class="markdown-info">
+        <markdown [data]="snippetForm.get('content').value"></markdown>
+      </div>
+    </section>
 
-  <label>Tags, comma-separated</label>
-  <!--TODO: Use dropdown-->
-  <input type="text" formControlName="tags" placeholder="comma-separated">
+    <p (click)="isBonus=!isBonus" class="cursor-pointer">
+      <span *ngIf="!isBonus" class="icon-plus">  Add Bonus section </span>
+      <span *ngIf="isBonus" class="icon-minus">  Remove Bonus section </span>
+    </p>
+    <ng-container *ngIf="isBonus">
+      <section>
+        <div class="w-50">
+          <label for="bonus"> Bonus </label>
+          <mat-form-field>
+          <textarea formControlName="bonus"
+                    id="bonus"
+                    type="text"
+                    matInput>
+          </textarea>
+          </mat-form-field>
+        </div>
+        <div class="markdown-info">
+          <markdown [data]="snippetForm.get('bonus').value"></markdown>
+        </div>
+      </section>
+    </ng-container>
 
-  <label>Content (Markdown)</label>
-  <!--TODO: Autoadjust height-->
-  <!--TODO: Show a warning of more than 50 lines-->
-  <!--TODO: Validate and preview markdown -->
-  <textarea formControlName="content"></textarea>
+    <p (click)="isLinks=!isLinks" class="cursor-pointer">
+      <span *ngIf="!isLinks" class="icon-plus">  Add Links section </span>
+      <span *ngIf="isLinks" class="icon-minus">  Remove Links section </span>
+    </p>
+    <ng-container *ngIf="isLinks">
+      <section>
+        <div class="w-50">
+          <label for="links"> Links </label>
+          <mat-form-field>
+          <textarea formControlName="links"
+                    id="links"
+                    type="text"
+                    matInput>
+          </textarea>
+          </mat-form-field>
+        </div>
+        <div class="markdown-info">
+          <markdown [data]="snippetForm.get('links').value"></markdown>
+        </div>
+      </section>
+    </ng-container>
 
-  <label>Bonus, this section is collapseable optional (Markdown)</label>
-  <textarea formControlName="bonus" class="bonus"></textarea>
-
-  <!--TODO: Make this collapseable? -->
-  <label>Links, optional (Markdown)</label>
-  <textarea formControlName="bonus" class="bonus"></textarea>
-
-  <label>Demo (You can edit component and module)</label>
-  <code-demo url="/assets/runner" formControlName="demo" bootstrap="main"></code-demo>
-</form>
-
-<h1>Generated snippet</h1>
-<pre>
----
-title: {{snippet.title}}
-author: {{snippet.author}}
-level: {{snippet.level}}
-<ng-container *ngIf="snippet.tags?.length">tags:
-<ng-container *ngFor="let tag of snippet.tags">  - {{tag}}</ng-container></ng-container>
----
-# Content
-{{snippet.content}}
-
-<ng-container *ngIf="snippet.bonus">
-# Bonus
-{{snippet.bonus}}
-</ng-container>
-<ng-container *ngIf="snippet.links">
-# Links
-  {{snippet.links}}
-</ng-container>
-<ng-container *ngIf="snippet.componentCode">
-# ComponentCode
-  {{snippet.componentCode}}
-</ng-container>
-<ng-container *ngIf="snippet.moduleCode">
-# ModuleCode
-  {{snippet.moduleCode}}
-</ng-container>
-</pre>
-
+    <p (click)="isDemo=!isDemo" class="cursor-pointer">
+      <span *ngIf="!isDemo" class="icon-plus">  Add Demo section </span>
+      <span *ngIf="isDemo" class="icon-minus">  Remove Demo section </span>
+    </p>
+    <ng-container *ngIf="isDemo">
+      <section>
+        <div class="w-100">
+          <code-demo formControlName="demo" bootstrap="main"></code-demo>
+        </div>
+      </section>
+    </ng-container>
+  </form>
+</div>

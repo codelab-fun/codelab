@@ -32,9 +32,17 @@
               }
             ],
             "styles": [
-              "apps/codelab/src/styles.scss"
+              "apps/codelab/src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/marked/lib/marked.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+            ]
           },
           "configurations": {
             "ru": {
@@ -106,9 +114,17 @@
             "karmaConfig": "apps/codelab/karma.conf.js",
             "polyfills": "apps/codelab/src/polyfills.ts",
             "tsConfig": "apps/codelab/tsconfig.spec.json",
-            "scripts": [],
+            "scripts": [
+              "node_modules/marked/lib/marked.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+            ],
             "styles": [
-              "apps/codelab/src/styles.scss"
+              "apps/codelab/src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
             "assets": [
               "apps/codelab/src/assets",
