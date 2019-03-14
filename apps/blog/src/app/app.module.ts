@@ -20,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
