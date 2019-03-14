@@ -52,6 +52,12 @@
     },
     "firebase-login": {
       "tags": []
+    },
+    "blog": {
+      "tags": []
+    },
+    "blog-e2e": {
+      "tags": []
     }
   }
 }
