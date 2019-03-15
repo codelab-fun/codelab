@@ -21,7 +21,7 @@ import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-
 import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { FullScreenModeService } from '@codelab/utils';
+
 
 @NgModule({
   imports: [
@@ -60,8 +60,6 @@ import { FullScreenModeService } from '@codelab/utils';
     BabelTestRunnerComponent,
     BreadcrumbComponent
   ],
-  providers: [
-    FullScreenModeService
-  ]
+  providers: []
 })
 export class CodelabComponentsModule {}
