@@ -1,20 +1,76 @@
-import { Component, Inject, OnDestroy } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { SubscriptionLike } from 'rxjs/internal/types';
 import * as firebase from 'firebase/app';
 import { SnippetService } from '../../shared/services/snippet.service';
 
+function getTagsStringList(tagsArray: Array<string>): string {
+  let tagsStringList = '';
+  tagsArray.forEach(x => {
+    tagsStringList += `- ${x}\n`;
+  });
+  tagsStringList += `\n`;
+  return tagsStringList;
+}
+
+function getSnippet(value): string {
+  return `
+---
+
+title: ${value.title}
+
+author: ${value.author ? `${value.author}` : `*your github username will be added*`}
+
+level: ${value.level}
+
+tags:
+${getTagsStringList(value.tags)}
+---
+
+# Content
+${value.content}
+${value.bonus ? `
+
+# Bonus
+${value.bonus}` : ``}
+${value.links ? `
+
+# Links
+${value.links}` : ``}
+${value.demo['app.component.ts'] ? `
+
+# ComponentCode
+\`\`\`typescript
+${value.demo['app.component.ts']}
+\`\`\`` : ``}
+${value.demo['app.module.ts'] ? `
+
+# ModuleCode
+\`\`\`typescript
+${value.demo['app.module.ts']}
+\`\`\`` : ``}
+${value.demo['main.ts'] ? `
+
+# MainCode
+\`\`\`typescript
+${value.demo['main.ts']}
+\`\`\`` : ``}
+---`;
+}
+
 @Component({
   selector: 'codelab-snippet-overview',
   templateUrl: './snippet-overview.component.html',
   styleUrls: ['./snippet-overview.component.scss']
 })
-export class SnippetOverviewComponent implements OnDestroy {
+export class SnippetOverviewComponent implements OnInit, OnDestroy {
 
   githubAuth;
   createPRSubscription: SubscriptionLike;
   isPRCreating = false;
+
+  snippet: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -22,6 +78,10 @@ export class SnippetOverviewComponent implements OnDestroy {
     public dialogRef: MatDialogRef<SnippetOverviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: object
   ) {
+  }
+
+  ngOnInit() {
+    this.snippet = getSnippet(this.data['formValue']);
   }
 
   ngOnDestroy() {
@@ -37,7 +97,7 @@ export class SnippetOverviewComponent implements OnDestroy {
     }
 
     this.isPRCreating = true;
-    this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.data)
+    this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.snippet)
       .subscribe(
         (res) => {
           this.isPRCreating = false;
@@ -53,25 +113,7 @@ export class SnippetOverviewComponent implements OnDestroy {
   async login() {
     const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
-    const authorName = this.githubAuth.additionalUserInfo.profile.name;
-    this.addAuthorToSnippet(authorName);
-  }
-
-  addAuthorToSnippet(authorName) {
-    this.data['snippetBody'] = this.data['snippetBody'].replace(
-      `
-
-                ---
-
-                `
-      ,
-      `
-
-                ## __Author:__ ${authorName}
-
-                ---
-
-                `
-    );
+    this.data['formValue']['author'] = this.githubAuth.additionalUserInfo.profile.name;
+    this.snippet = getSnippet(this.data['formValue']);
   }
 }

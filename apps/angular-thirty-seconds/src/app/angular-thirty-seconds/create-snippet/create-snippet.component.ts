@@ -24,8 +24,8 @@ export class CreateSnippetComponent {
 
   snippetForm = this.fb.group({
     title: ['', Validators.required],
-    level: ['Beginner', Validators.required],
-    tags: ['Tips', Validators.required],
+    level: ['beginner', Validators.required],
+    tags: [['Tips'], Validators.required],
     content: [MARKDOWN_PLACEHOLDER, Validators.required],
     bonus: [''],
     links: [LINKS_PLACEHOLDER],
@@ -44,82 +44,30 @@ export class CreateSnippetComponent {
   ) {
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
       startWith(null),
-      map((tag: string | null) => tag ? this._filterTags(tag) : this.TAGS_LIST.slice()));
+      map((tags: string | null) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()));
   }
 
   onSubmit() {
     if (this.snippetForm.valid) {
       this.dialog.open(
         SnippetOverviewComponent,
-        {
-          data: {
-            snippetBody: this.getSnippetModel(this.snippetForm.value),
-            snippetTitle: this.snippetForm.get('title').value
-          }
-        }
+        {data: {formValue: this.getPreparedFormValue(this.snippetForm.value)}}
       );
     } else {
       this.markFormControlsAsTouched(this.snippetForm);
     }
   }
 
-  getSnippetModel(value): string {
+  getPreparedFormValue(value) {
+    const isDemoComponentChangedAndNotEmpty = this.hasDemo && value.demo['app.component.ts'] && value.demo['app.component.ts'] !== angularSampleCode['app.component.ts'];
+    const isDemoModuleChangedAndNotEmpty = this.hasDemo && value.demo['app.module.ts'] && value.demo['app.module.ts'] !== angularSampleCode['app.module.ts'];
+    const isDemoMainChangedAndNotEmpty = this.hasDemo && value.demo['main.ts'] && value.demo['main.ts'] !== angularSampleCode['main.ts'];
     value['bonus'] = this.hasBonus ? value['bonus'] : null;
     value['links'] = this.hasLinks ? value['links'] : null;
-    value['demo'] = this.hasDemo ? value['demo'] : null;
-    const isDemoComponentChanged = this.hasDemo && value.demo['app.component.ts'] !== angularSampleCode['app.component.ts'];
-    const isDemoModuleChanged = this.hasDemo && value.demo['app.module.ts'] !== angularSampleCode['app.module.ts'];
-    const isMainChanged = this.hasDemo && value.demo['main.ts'] !== angularSampleCode['main.ts'];
-
-    console.log(isMainChanged);
-
-    return `
----
-
-title: ${value.title}
-
-level: ${value.level}
-
-tags: ${value.tags}
-
----
-
-# Content
-${value.content}
-${this.hasBonus ? `
-
-# Bonus
-${value.bonus}` : ``}
-${this.hasLinks ? `
-
-# Links
-${value.links}` : ``}
-${this.hasDemo && (isDemoModuleChanged || isDemoComponentChanged || isMainChanged) ? `
-
-${isDemoComponentChanged ? `
-
-# ComponentCode
-\`\`\`typescript
-${value.demo['app.component.ts']}
-\`\`\`
-` : ``}
-${isDemoModuleChanged ? `
-
-# ModuleCode
-\`\`\`typescript
-${value.demo['app.module.ts']}
-\`\`\`
-` : ``}
-${isMainChanged ? `
-
-# mainCode
-\`\`\`typescript
-${value.demo['main.ts']}
-\`\`\`
-` : ``}
-` : ``}
-
----`;
+    value.demo['app.component.ts'] = isDemoComponentChangedAndNotEmpty ? value.demo['app.component.ts'] : null;
+    value.demo['app.module.ts'] = isDemoModuleChangedAndNotEmpty ? value.demo['app.module.ts'] : null;
+    value.demo['main.ts'] = isDemoMainChangedAndNotEmpty ? value.demo['main.ts'] : null;
+    return value;
   }
 
   addTag(event: MatChipInputEvent): void {
@@ -135,7 +83,7 @@ ${value.demo['main.ts']}
         input.value = '';
       }
 
-      this.snippetForm.get('tags').patchValue(this.tags.join(', '));
+      this.snippetForm.get('tags').patchValue(this.tags);
     }
   }
 
@@ -144,17 +92,17 @@ ${value.demo['main.ts']}
     if (index >= 0) {
       this.tags.splice(index, 1);
     }
-    this.snippetForm.get('tags').patchValue(this.tags.join(', '));
+    this.snippetForm.get('tags').patchValue(this.tags);
   }
 
   selectedTags(event: MatAutocompleteSelectedEvent): void {
     this.tags.push(event.option.viewValue);
     this.tagInput.nativeElement.value = '';
-    this.snippetForm.get('tags').patchValue(this.tags.join(', '));
+    this.snippetForm.get('tags').patchValue(this.tags);
   }
 
   private _filterTags(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    const filterValue = value ? value.toLowerCase() : null;
     return this.TAGS_LIST.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
   }
 
