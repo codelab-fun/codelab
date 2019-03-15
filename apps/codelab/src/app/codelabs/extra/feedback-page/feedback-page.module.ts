@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FeedbackPageComponent } from './feedback-page.component';
 import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '@codelab/browser';
 
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,7 @@ import { GithubService } from './github.service';
 
 import { SlidesModule } from '@codelab/slides';
 import { environment } from '../../../../environments/environment';
+import { DateRangeComponent } from './date-range/date-range.component';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(FeedbackPageComponent));
 
@@ -30,11 +31,12 @@ export const angularFire = AngularFireModule.initializeApp(
     BrowserWindowModule,
     angularFire,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
     SlidesModule
   ],
-  declarations: [FeedbackPageComponent],
+  declarations: [FeedbackPageComponent, DateRangeComponent],
   providers: [GithubService],
   exports: [FeedbackPageComponent]
 })
