@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CreateSnippetComponent } from './create-snippet/create-snippet.component';
 import { AngularThirtySecondsComponent } from './angular-thirty-seconds.component';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 
-const routes: Routes = [
-  {path: '', component: AngularThirtySecondsComponent},
-  {path: 'new', component: CreateSnippetComponent}
-];
+const routes = RouterModule.forChild(
+  [
+    {path: 'new', component: CreateSnippetComponent},
+    ...SlidesRoutes.get(AngularThirtySecondsComponent)
+  ]
+);
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [routes],
   exports: [RouterModule]
 })
 
