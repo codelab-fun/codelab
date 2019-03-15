@@ -85,11 +85,11 @@
       </div>
     </section>
 
-    <p (click)="isBonus=!isBonus" class="cursor-pointer">
-      <span *ngIf="!isBonus" class="icon-plus">  Add Bonus section </span>
-      <span *ngIf="isBonus" class="icon-minus">  Remove Bonus section </span>
+    <p (click)="hasBonus=!hasBonus" class="cursor-pointer">
+      <span *ngIf="!hasBonus" class="icon-plus">  Add Bonus section </span>
+      <span *ngIf="hasBonus" class="icon-minus">  Remove Bonus section </span>
     </p>
-    <ng-container *ngIf="isBonus">
+    <ng-container *ngIf="hasBonus">
       <section>
         <div class="w-50">
           <label for="bonus"> Bonus </label>
@@ -107,11 +107,11 @@
       </section>
     </ng-container>
 
-    <p (click)="isLinks=!isLinks" class="cursor-pointer">
-      <span *ngIf="!isLinks" class="icon-plus">  Add Links section </span>
-      <span *ngIf="isLinks" class="icon-minus">  Remove Links section </span>
+    <p (click)="hasLinks=!hasLinks" class="cursor-pointer">
+      <span *ngIf="!hasLinks" class="icon-plus">  Add Links section </span>
+      <span *ngIf="hasLinks" class="icon-minus">  Remove Links section </span>
     </p>
-    <ng-container *ngIf="isLinks">
+    <ng-container *ngIf="hasLinks">
       <section>
         <div class="w-50">
           <label for="links"> Links </label>
@@ -129,11 +129,11 @@
       </section>
     </ng-container>
 
-    <p (click)="isDemo=!isDemo" class="cursor-pointer">
-      <span *ngIf="!isDemo" class="icon-plus">  Add Demo section </span>
-      <span *ngIf="isDemo" class="icon-minus">  Remove Demo section </span>
+    <p (click)="hasDemo=!hasDemo" class="cursor-pointer">
+      <span *ngIf="!hasDemo" class="icon-plus">  Add Demo section </span>
+      <span *ngIf="hasDemo" class="icon-minus">  Remove Demo section </span>
     </p>
-    <ng-container *ngIf="isDemo">
+    <ng-container *ngIf="hasDemo">
       <section>
         <div class="w-100">
           <code-demo formControlName="demo" bootstrap="main"></code-demo>

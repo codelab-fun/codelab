@@ -1,19 +1,19 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MARKDOWN_PLACEHOLDER, TAGS_LIST, angularSampleCode } from '../shared';
+import { angularSampleCode, MARKDOWN_PLACEHOLDER, LINKS_PLACEHOLDER, TAGS_LIST } from '../shared';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { Observable } from 'rxjs/internal/Observable';
 import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'codelab-create-snippet',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './create-snippet.component.html',
   styleUrls: ['./create-snippet.component.scss']
 })
 export class CreateSnippetComponent {
-
 
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
@@ -27,14 +27,14 @@ export class CreateSnippetComponent {
     level: ['Beginner', Validators.required],
     tags: ['Tips', Validators.required],
     content: [MARKDOWN_PLACEHOLDER, Validators.required],
-    bonus: [MARKDOWN_PLACEHOLDER, ''],
-    links: [MARKDOWN_PLACEHOLDER, ''],
+    bonus: [''],
+    links: [LINKS_PLACEHOLDER],
     demo: [angularSampleCode]
   });
 
-  isBonus = false;
-  isLinks = false;
-  isDemo = false;
+  hasBonus = false;
+  hasLinks = false;
+  hasDemo = false;
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -64,54 +64,62 @@ export class CreateSnippetComponent {
   }
 
   getSnippetModel(value): string {
-    value['bonus'] = this.isBonus ? value['bonus'] : null;
-    value['links'] = this.isLinks ? value['links'] : null;
-    value['demo'] = this.isDemo ? value['demo'] : null;
-    const isDemoComponentChanged = this.isDemo && value.demo['app.component.ts'] !== angularSampleCode['app.component.ts'];
-    const isDemoModuleChanged = this.isDemo && value.demo['app.module.ts'] !== angularSampleCode['app.module.ts'];
+    value['bonus'] = this.hasBonus ? value['bonus'] : null;
+    value['links'] = this.hasLinks ? value['links'] : null;
+    value['demo'] = this.hasDemo ? value['demo'] : null;
+    const isDemoComponentChanged = this.hasDemo && value.demo['app.component.ts'] !== angularSampleCode['app.component.ts'];
+    const isDemoModuleChanged = this.hasDemo && value.demo['app.module.ts'] !== angularSampleCode['app.module.ts'];
+    const isMainChanged = this.hasDemo && value.demo['main.ts'] !== angularSampleCode['main.ts'];
+
+    console.log(isMainChanged);
 
     return `
 ---
 
-## __Title:__ ${value.title}
+title: ${value.title}
 
-## __Level:__ ${value.level}
+level: ${value.level}
 
-## __Tags:__ ${value.tags}
+tags: ${value.tags}
 
 ---
 
 # Content
-
 ${value.content}
-${this.isBonus ? `
+${this.hasBonus ? `
 
 # Bonus
-
 ${value.bonus}` : ``}
-${this.isLinks ? `
+${this.hasLinks ? `
 
 # Links
-
 ${value.links}` : ``}
-${this.isDemo && (isDemoModuleChanged || isDemoComponentChanged) ? `
+${this.hasDemo && (isDemoModuleChanged || isDemoComponentChanged || isMainChanged) ? `
 
-# Demo
 ${isDemoComponentChanged ? `
 
-### app.component.ts
+# ComponentCode
 \`\`\`typescript
 ${value.demo['app.component.ts']}
 \`\`\`
 ` : ``}
 ${isDemoModuleChanged ? `
 
-### app.module.ts
+# ModuleCode
 \`\`\`typescript
 ${value.demo['app.module.ts']}
 \`\`\`
 ` : ``}
-` : ``}`;
+${isMainChanged ? `
+
+# mainCode
+\`\`\`typescript
+${value.demo['main.ts']}
+\`\`\`
+` : ``}
+` : ``}
+
+---`;
   }
 
   addTag(event: MatChipInputEvent): void {
