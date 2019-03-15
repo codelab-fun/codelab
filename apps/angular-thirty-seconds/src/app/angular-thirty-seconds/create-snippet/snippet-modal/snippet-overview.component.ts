@@ -97,7 +97,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     }
 
     this.isPRCreating = true;
-    this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.snippet)
+    this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
       .subscribe(
         (res) => {
           this.isPRCreating = false;

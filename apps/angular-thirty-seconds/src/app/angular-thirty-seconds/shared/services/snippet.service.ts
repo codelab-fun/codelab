@@ -17,6 +17,7 @@ export class SnippetService {
   private myRepo: string | null = null;
   private options;
   private snippetData;
+  private title: string | null = null;
 
   constructor(
     private http: HttpClient,
@@ -24,11 +25,12 @@ export class SnippetService {
   ) {
   }
 
-  createPR(githubAuth, snippetData): Observable<object> {
+  createPR(githubAuth, snippetData, title): Observable<object> {
 
     this.githubAuth = githubAuth;
     const headers = {Authorization: 'token ' + githubAuth.credential.accessToken};
     this.options = {headers};
+    this.title = title;
 
     this.snippetData = snippetData;
     return this.getRepositories()
@@ -64,7 +66,7 @@ export class SnippetService {
     return this.http.post(
       `${this.apiGithubUrl}/repos/${this.myRepo}/git/refs`,
       {
-        ref: `refs/heads/new_snippet_${this.toLowerCaseAndSlugify(this.snippetData['snippetTitle'])}`,
+        ref: `refs/heads/new_snippet_${this.toLowerCaseAndSlugify(this.title)}`,
         sha: masterSha
       },
       this.options
@@ -77,11 +79,11 @@ export class SnippetService {
     const requestBody = {
       message: 'I have added awesome snippet. Look at my awesome snippet!',
       content: btoa(this.snippetData['snippetBody']),
-      branch: `new_snippet_${this.toLowerCaseAndSlugify(this.snippetData['snippetTitle'])}`
+      branch: `new_snippet_${this.toLowerCaseAndSlugify(this.title)}`
     };
 
     return this.http.put(
-      `${this.apiGithubUrl}/repos/${this.myRepo}/contents/snippets/${this.toLowerCaseAndSlugify(this.snippetData['snippetTitle'])}.md`,
+      `${this.apiGithubUrl}/repos/${this.myRepo}/contents/snippets/${this.toLowerCaseAndSlugify(this.title)}.md`,
       requestBody,
       this.options
     ).pipe(
@@ -92,7 +94,7 @@ export class SnippetService {
   createSnippetPullRequest(): Observable<object> {
     const requestBody = {
       title: `Add - new snippet: ${this.snippetData['snippetTitle']}`,
-      head: `${this.githubAuth.additionalUserInfo.username}:new_snippet_${this.toLowerCaseAndSlugify(this.snippetData['snippetTitle'])}`,
+      head: `${this.githubAuth.additionalUserInfo.username}:new_snippet_${this.toLowerCaseAndSlugify(this.title)}`,
       base: 'master',
       body: 'Here is a new snippet. Hope you like it :)'
     };
