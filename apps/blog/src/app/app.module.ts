@@ -11,8 +11,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { CommonModule } from '@angular/common';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../../../../apps/codelab/src/environments/environment';
+import { FormService } from './form.service';
+import { LentComponent } from './lent/lent.component';
+
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
+
+// debugger;
+
 @NgModule({
-  declarations: [AppComponent, FormComponent],
+  declarations: [AppComponent, FormComponent, LentComponent],
   imports: [
     BrowserModule,
     NxModule.forRoot(),
@@ -21,9 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    angularFire
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [FormService],
+  bootstrap: [AppComponent],
+  exports: [FormComponent]
 })
 export class AppModule {}

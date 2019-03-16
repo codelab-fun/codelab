@@ -1,23 +1,27 @@
+
 <h3>Post to blog</h3>
 <form class="container" 
   [formGroup]="myform"
   (ngSubmit)="onSubmit()">
 
   <input type="text"
+  placeholder="Title"
   class="form-control"
   formControlName="title"
   required>
 
   <input type="text"
+  placeholder="Name"
   class="form-control"
   formControlName="author"
   required>
 
-  <input type="text"
+  <textarea
+  rows="5"
   class="form-control"
   formControlName="text"
-  required>
+  required> </textarea>
 
-  <button type="submit" class="btn btn-primary" >Submit</button>
+  <button type="submit" class="btn btn-primary form-control" >Submit</button>
 </form>
 
