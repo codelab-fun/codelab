@@ -17,10 +17,9 @@ function getTagsStringList(tagsArray: Array<string>): string {
 function getSnippet(value): string {
   return `
 ---
-
 title: ${value.title}
 
-author: ${value.author ? `${value.author}` : `*your github username will be added*`}
+author: ${value.author || `*your github username will be added*`}
 
 level: ${value.level}
 

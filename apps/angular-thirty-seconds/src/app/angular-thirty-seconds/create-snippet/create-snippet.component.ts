@@ -1,11 +1,18 @@
 import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { angularSampleCode, MARKDOWN_PLACEHOLDER, LINKS_PLACEHOLDER, TAGS_LIST } from '../shared';
+import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { Observable } from 'rxjs/internal/Observable';
 import { map, startWith } from 'rxjs/operators';
+
+
+function validatorMaxLines(lines: number) {
+  return (control: AbstractControl) => {
+    return control.value.split('\n').length > lines ? {lines: 'too much'} : null;
+  };
+}
 
 @Component({
   selector: 'codelab-create-snippet',
@@ -19,14 +26,14 @@ export class CreateSnippetComponent {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   TAGS_LIST = TAGS_LIST;
-  tags: Array<string> = ['Tips'];
+  tags: Array<string> = ['tip'];
   filteredTags: Observable<string[]>;
 
   snippetForm = this.fb.group({
-    title: ['', Validators.required],
+    title: ['test', Validators.required],
     level: ['beginner', Validators.required],
-    tags: [['Tips'], Validators.required],
-    content: [MARKDOWN_PLACEHOLDER, Validators.required],
+    tags: [this.tags, Validators.required],
+    content: [MARKDOWN_PLACEHOLDER, [Validators.required, validatorMaxLines(25)]],
     bonus: [''],
     links: [LINKS_PLACEHOLDER],
     demo: [angularSampleCode]
@@ -101,11 +108,6 @@ export class CreateSnippetComponent {
     this.snippetForm.get('tags').patchValue(this.tags);
   }
 
-  private _filterTags(value: string): string[] {
-    const filterValue = value ? value.toLowerCase() : null;
-    return this.TAGS_LIST.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
-  }
-
   markFormControlsAsTouched(formGroup: FormGroup | FormArray): void {
     Object.values(formGroup.controls).forEach(
       (control) => {
@@ -115,6 +117,11 @@ export class CreateSnippetComponent {
           this.markFormControlsAsTouched(control);
         }
       });
+  }
+
+  private _filterTags(value: string): string[] {
+    const filterValue = value ? value.toLowerCase() : null;
+    return this.TAGS_LIST.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
   }
 }
 

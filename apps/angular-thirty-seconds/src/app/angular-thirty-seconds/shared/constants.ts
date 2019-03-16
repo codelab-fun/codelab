@@ -1,7 +1,9 @@
 export const MARKDOWN_PLACEHOLDER = `
-Markdown rulez!
+You can use markdown here.
 
-Typescript syntax highlight:
+Highlight \`important terms\` with backticks.
+
+For examples use:
 \`\`\`typescript
 const language = 'English';
 function theLanguageISpeak(language) {
@@ -10,23 +12,16 @@ function theLanguageISpeak(language) {
 }
 \`\`\`
 
-Lists:
-1. Ordered list
-2. Another bullet point
-  - Unordered list
-  - Another unordered bullet point
-
-Blockquote:
-> Blockquote to the max`;
+`;
 
 export const TAGS_LIST = [
-  'Components',
-  'Tips',
-  'Forms',
-  'Templates',
-  'Styling',
-  'Routing',
-  'Performance'
+  'components',
+  'tip',
+  'forms',
+  'templates',
+  'styling',
+  'routing',
+  'performance'
 ];
 
 export const LINKS_PLACEHOLDER = `
