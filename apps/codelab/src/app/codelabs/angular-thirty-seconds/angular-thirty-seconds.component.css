@@ -1,0 +1,9 @@
+
+
+
+:host ::ng-deep {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  padding: 20px;
+  display: block;
+}

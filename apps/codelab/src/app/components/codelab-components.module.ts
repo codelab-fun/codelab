@@ -22,6 +22,7 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -58,6 +59,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodelabProgressBarComponent,
     BabelTestRunnerComponent,
     BreadcrumbComponent
-  ]
+  ],
+  providers: []
 })
 export class CodelabComponentsModule {}
