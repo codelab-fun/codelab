@@ -1,2 +1,2 @@
 export * from './angular-sample';
-export * from './constatns';
+export * from './constants';

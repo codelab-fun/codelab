@@ -1,0 +1,10 @@
+<button routerLink="new">New</button>
+<div *ngFor="let snippet of snippets; let i = index">
+  <h2 [routerLink]="snippet.slug">{{snippet.title}}</h2>
+  <pre>{{snippet.content}}</pre>
+
+  <button *ngIf="i !== demoIndex" (click)="demoIndex=i">Click here to open the demo</button>
+  <div *ngIf="i === demoIndex">
+    <slides-snippet-demo [code]="snippet"></slides-snippet-demo>
+  </div>
+</div>

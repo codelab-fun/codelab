@@ -48,7 +48,10 @@ export class SnippetService {
       this.options
     ).pipe(
       catchError(() => throwError(new Error(`Cannot get user repos list`))),
-      map((response: any) => this.myRepo = response.filter(x => x['name'] === '30-seconds-of-angular')[0]['full_name'])
+      map((response: any) => {
+          return this.myRepo = response.filter(x => x['name'] === '30-seconds-of-angular')[0]['full_name'];
+        }
+      )
     );
   }
 
