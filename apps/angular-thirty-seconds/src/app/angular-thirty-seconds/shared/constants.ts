@@ -1,8 +1,6 @@
 export const MARKDOWN_PLACEHOLDER = `
-You can use markdown here.
-
-Highlight \`important terms\` with backticks.
-
+You can use markdown here.\n
+Highlight \`important terms\` with backticks.\n
 For examples use:
 \`\`\`typescript
 const language = 'English';
@@ -10,9 +8,7 @@ function theLanguageISpeak(language) {
   // English? No, only typescript!
   return 'typescript'
 }
-\`\`\`
-
-`;
+\`\`\``;
 
 export const TAGS_LIST = [
   'components',
@@ -25,9 +21,6 @@ export const TAGS_LIST = [
 ];
 
 export const LINKS_PLACEHOLDER = `
-https://angular.io/
-
-https://www.typescriptlang.org/
-
-https://t.me/angular_ru
-`;
+https://angular.io/\n
+https://www.typescriptlang.org/\n
+https://t.me/angular_ru`;

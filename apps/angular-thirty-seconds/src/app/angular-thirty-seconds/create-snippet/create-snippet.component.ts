@@ -10,9 +10,16 @@ import { map, startWith } from 'rxjs/operators';
 
 function validatorMaxLines(lines: number) {
   return (control: AbstractControl) => {
-    return control.value.split('\n').length > lines ? {lines: 'too much'} : null;
+    return control.value.split('\n').length > lines ? {linesError: `too much lines: ${lines} maximum`} : null;
   };
 }
+
+function validatorMaxTags(maximumTags: number) {
+  return (control: AbstractControl) => {
+    return Array.isArray(control.value) && control.value.length > maximumTags ? {tagsError: `too much tags: ${maximumTags} maximum`} : null;
+  };
+}
+
 
 @Component({
   selector: 'codelab-create-snippet',
@@ -30,9 +37,9 @@ export class CreateSnippetComponent {
   filteredTags: Observable<string[]>;
 
   snippetForm = this.fb.group({
-    title: ['test', Validators.required],
+    title: ['', Validators.required],
     level: ['beginner', Validators.required],
-    tags: [this.tags, Validators.required],
+    tags: [this.tags, [Validators.required, validatorMaxTags(5)]],
     content: [MARKDOWN_PLACEHOLDER, [Validators.required, validatorMaxLines(25)]],
     bonus: [''],
     links: [LINKS_PLACEHOLDER],
