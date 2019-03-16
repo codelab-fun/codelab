@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'slides-snippet-list',
+  selector: 'codelab-snippet-list',
   templateUrl: './snippet-list.component.html',
   styleUrls: ['./snippet-list.component.css']
 })

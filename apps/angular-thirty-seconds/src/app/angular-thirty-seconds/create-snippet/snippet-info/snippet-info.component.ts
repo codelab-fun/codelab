@@ -6,8 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./snippet-info.component.scss']
 })
 export class SnippetInfoComponent {
-  scrollUp() {
-    window.scroll({top: 0, behavior: 'smooth'});
-  }
-
 }

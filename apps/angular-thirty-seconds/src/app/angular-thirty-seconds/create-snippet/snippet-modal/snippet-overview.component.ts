@@ -18,8 +18,11 @@ function getSnippet(value): string {
   return `
 ---
 title: ${value.title}
+
 author: ${value.author || `*your github username will be added*`}
+
 level: ${value.level}
+
 tags:
 ${getTagsStringList(value.tags)}
 ---
