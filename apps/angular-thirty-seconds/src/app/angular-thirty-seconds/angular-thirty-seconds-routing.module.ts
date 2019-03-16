@@ -17,22 +17,7 @@ class SnippetsResolver implements Resolve<Observable<any>> {
   }
 }
 
-const routes = [
-  {path: 'new', component: CreateSnippetComponent},
-  {path: '', component: SnippetListComponent, resolve: {snippets: SnippetsResolver}},
-  {path: 'list', component: SnippetListComponent, resolve: {snippets: SnippetsResolver}},
-  {path: ':id', component: SnippetComponent, resolve: {snippets: SnippetsResolver}},
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-    SnippetListModule,
-  ],
-  exports: [RouterModule]
-})
-export class AngularThirtySecondsRoutingModule {
-}
+const routes = RouterModule.forChild(
   [
     {path: 'new', component: CreateSnippetComponent},
     {path: '', component: SnippetListComponent, resolve: {snippets: SnippetsResolver}},
