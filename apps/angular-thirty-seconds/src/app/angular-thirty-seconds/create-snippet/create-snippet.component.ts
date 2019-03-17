@@ -16,7 +16,7 @@ function validatorMaxLines(lines: number) {
 
 function validatorMaxTags(maximumTags: number) {
   return (control: AbstractControl) => {
-    return Array.isArray(control.value) && control.value.length > maximumTags ? {tagsError: `too much tags: ${maximumTags} maximum`} : null;
+    return Array.isArray(control.value) && control.value.length > maximumTags ? {tagsError: `Number of tags should be below ${maximumTags + 1}`} : null;
   };
 }
 
