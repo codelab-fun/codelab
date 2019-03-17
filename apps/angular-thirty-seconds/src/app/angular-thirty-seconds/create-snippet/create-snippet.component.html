@@ -26,7 +26,7 @@
           <span class="input-info"> Maximum 120 symbols </span>
           <div *ngIf="snippetForm.get('title').touched && snippetForm.get('title').invalid">
             <div *ngIf="snippetForm.get('title').errors['required']" class="validation-message">
-              need to fill
+              This field is required
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
           <span class="input-info"> Maximum 5 tags </span>
           <div *ngIf="snippetForm.get('tags').touched && snippetForm.get('tags').invalid">
             <div *ngIf="snippetForm.get('tags').errors['required']" class="validation-message">
-              need to fill
+              This field is required
             </div>
             <div *ngIf="snippetForm.get('tags').errors['tagsError']" class="validation-message">
               {{snippetForm.get('tags').errors['tagsError']}}
@@ -100,7 +100,7 @@
         </mat-form-field>
         <div *ngIf="snippetForm.get('content').touched && snippetForm.get('content').invalid">
           <div *ngIf="snippetForm.get('content').errors['required']" class="validation-message">
-            need to fill
+              This field is required
           </div>
           <div *ngIf="snippetForm.get('content').errors['lines']" class="validation-message">
             {{snippetForm.get('content').errors['linesError']}}
