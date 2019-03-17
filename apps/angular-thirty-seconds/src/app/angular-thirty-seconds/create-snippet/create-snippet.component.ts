@@ -10,7 +10,7 @@ import { map, startWith } from 'rxjs/operators';
 
 function validatorMaxLines(lines: number) {
   return (control: AbstractControl) => {
-    return control.value.split('\n').length > lines ? {linesError: `too much lines: ${lines} maximum`} : null;
+    return control.value.split('\n').length > lines ? {linesError: `This field shouldn't have more than ${lines} lines`} : null;
   };
 }
 
