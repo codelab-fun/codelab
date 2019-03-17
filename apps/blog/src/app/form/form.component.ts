@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import 'rxjs/add/operator/map';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   ReactiveFormsModule,
@@ -35,7 +34,7 @@ export class FormComponent implements OnInit {
   statusMessage = '';
   error = false;
 
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
     private formService: FormService,
     private activatedRoute: ActivatedRoute,
     private router: Router

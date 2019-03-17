@@ -21,14 +21,8 @@ export class FormService {
   repo$: AngularFireList<any> = this.database.list('/posts');
 
   constructor(
-    private database: AngularFireDatabase, 
-    private router: Router) {
-    // this.repo$ = this.database.list('/posts');
-    // debugger;
-    // this.repo$.subscribe((u) => {
-      
-    // });
-  }
+    private database: AngularFireDatabase,
+    private router: Router) {  }
 
   getPosts(activatedRoute: ActivatedRoute): Observable<Post[]> {
     return activatedRoute.url.pipe(
@@ -43,7 +37,7 @@ export class FormService {
     );
   }
 
-  addPost(  
+  addPost(
     title: string,
     author: string,
     text: string
