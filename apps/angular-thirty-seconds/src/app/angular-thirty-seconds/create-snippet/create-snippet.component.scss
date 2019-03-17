@@ -105,4 +105,15 @@
       width: 50%;
     }
   }
+
+  .validation-message {
+    color: red;
+    position: absolute;
+    width: 100%;
+    height: 1em;
+    margin-top: 5px;
+    line-height: 1em;
+    font-size: 0.75em;
+    text-align: left;
+  }
 }

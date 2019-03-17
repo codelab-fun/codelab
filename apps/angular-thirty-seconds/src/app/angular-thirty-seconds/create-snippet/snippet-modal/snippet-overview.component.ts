@@ -17,40 +17,31 @@ function getTagsStringList(tagsArray: Array<string>): string {
 function getSnippet(value): string {
   return `
 ---
-title: ${value.title}
-
-author: ${value.author || `*your github username will be added*`}
-
-level: ${value.level}
-
+title: ${value.title}\n
+author: ${value.author || `*your github username will be added*`}\n
+level: ${value.level}\n
 tags:
 ${getTagsStringList(value.tags)}
 ---
-
 # Content
 ${value.content}
-${value.bonus ? `
-
+${value.bonus ? `\n
 # Bonus
 ${value.bonus}` : ``}
-${value.links ? `
-
+${value.links ? `\n
 # Links
 ${value.links}` : ``}
-${value.demo['app.component.ts'] ? `
-
+${value.demo['app.component.ts'] ? `\n
 # ComponentCode
 \`\`\`typescript
 ${value.demo['app.component.ts']}
 \`\`\`` : ``}
-${value.demo['app.module.ts'] ? `
-
+${value.demo['app.module.ts'] ? `\n
 # ModuleCode
 \`\`\`typescript
 ${value.demo['app.module.ts']}
 \`\`\`` : ``}
-${value.demo['main.ts'] ? `
-
+${value.demo['main.ts'] ? `\n
 # MainCode
 \`\`\`typescript
 ${value.demo['main.ts']}

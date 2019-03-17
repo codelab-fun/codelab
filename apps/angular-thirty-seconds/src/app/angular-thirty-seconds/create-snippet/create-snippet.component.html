@@ -24,6 +24,11 @@
                    matInput>
           </mat-form-field>
           <span class="input-info"> Maximum 120 symbols </span>
+          <div *ngIf="snippetForm.get('title').touched && snippetForm.get('title').invalid">
+            <div *ngIf="snippetForm.get('title').errors['required']" class="validation-message">
+              This field is required
+            </div>
+          </div>
         </div>
         <div>
           <label for="snippetLevel">
@@ -37,6 +42,11 @@
               <mat-option value="advanced">advanced</mat-option>
             </mat-select>
           </mat-form-field>
+          <div *ngIf="snippetForm.get('level').touched && snippetForm.get('level').invalid">
+            <div *ngIf="snippetForm.get('level').errors['required']" class="validation-message">
+              This field is required
+            </div>
+          </div>
         </div>
         <div>
           <label for="tags">
@@ -64,6 +74,14 @@
             </mat-autocomplete>
           </mat-form-field>
           <span class="input-info"> Maximum 5 tags </span>
+          <div *ngIf="snippetForm.get('tags').touched && snippetForm.get('tags').invalid">
+            <div *ngIf="snippetForm.get('tags').errors['required']" class="validation-message">
+              This field is required
+            </div>
+            <div *ngIf="snippetForm.get('tags').errors['tagsError']" class="validation-message">
+              {{snippetForm.get('tags').errors['tagsError']}}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -79,8 +97,15 @@
                     type="text"
                     matInput>
           </textarea>
-
         </mat-form-field>
+        <div *ngIf="snippetForm.get('content').touched && snippetForm.get('content').invalid">
+          <div *ngIf="snippetForm.get('content').errors['required']" class="validation-message">
+              This field is required
+          </div>
+          <div *ngIf="snippetForm.get('content').errors['lines']" class="validation-message">
+            {{snippetForm.get('content').errors['linesError']}}
+          </div>
+        </div>
       </div>
       <div class="markdown-info">
         <markdown [data]="snippetForm.get('content').value"></markdown>
