@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
-import { GithubService } from '@codelab/utils';
 
 @Component({
   selector: 'feedback-widget',
@@ -27,7 +26,6 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private feedbackService: FeedbackService,
-    private ghService: GithubService,
     private router: Router
   ) {
     this.router.events
@@ -78,14 +76,6 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   private getHeaderText(): string {
     const el = document.body.querySelector('h1');
     return el ? el.innerHTML : '';
-  }
-
-  createIssue(message) {
-    this.ghService.createIssue(message);
-  }
-
-  createClosedIssue(message, reason) {
-    this.ghService.createClosedIssue(message, reason);
   }
 
   ngOnDestroy() {

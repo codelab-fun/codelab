@@ -7,7 +7,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable()
 export class GithubService {
-  repo = 'AngularNYC/angular-presentation';
+  repo = 'codelab-fun/codelab';
   githubAuth;
 
   constructor(

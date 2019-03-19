@@ -16,36 +16,7 @@
           <div class="feedback-items">
             <ng-container *ngFor="let item of (messages$ | async)">
               <div class="feedback-item">
-                <div class="dropdown">
-                  <button class="dropdown-btn">
-                    <img alt="" src="/assets/images/icons/icon-tools.png"/>
-                  </button>
-                  <div class="dropdown-content">
-                    <a (click)="createIssue(item)"
-                       class="dropdown-content-item">
-                      Take
-                    </a>
-                    <a (click)="createClosedIssue(item, '[Duplicate]')"
-                       class="dropdown-content-item">
-                      Close [Duplicate] </a>
-                    <a (click)="createClosedIssue(item, '[No fix]')"
-                       class="dropdown-content-item">
-                      Close [No fix]
-                    </a>
-                    <a (click)="createClosedIssue(item, '[Done]')"
-                       class="dropdown-content-item">
-                      Close [Done]
-                    </a>
-                    <a (click)="createClosedIssue(item, '[Nice message, though not a real bug]')"
-                       class="dropdown-content-item">
-                      Close [Nice message]
-                    </a>
-                    <a (click)="createClosedIssue(item, '[Can\'t repcoduce]')"
-                       class="dropdown-content-item">
-                      Close [Can't reproduce]
-                    </a>
-                  </div>
-                </div>
+                <feedback-issue-dropdown [message]="item"></feedback-issue-dropdown>
                 <div class="header">
                   <span class="name">{{ item.name }}</span>
                   <span class="date"> {{ item.timestamp | date }}</span>

@@ -1,0 +1,30 @@
+<div class="dropdown">
+  <button class="dropdown-btn">
+    <img alt="" src="/assets/images/icons/icon-tools.png"/>
+  </button>
+  <div class="dropdown-content">
+    <a (click)="createIssue()"
+       class="dropdown-content-item">
+      Take
+    </a>
+    <a (click)="createClosedIssue('[Duplicate]')"
+       class="dropdown-content-item">
+      Close [Duplicate] </a>
+    <a (click)="createClosedIssue('[No fix]')"
+       class="dropdown-content-item">
+      Close [No fix]
+    </a>
+    <a (click)="createClosedIssue('[Done]')"
+       class="dropdown-content-item">
+      Close [Done]
+    </a>
+    <a (click)="createClosedIssue('[Nice message, though not a real bug]')"
+       class="dropdown-content-item">
+      Close [Nice message]
+    </a>
+    <a (click)="createClosedIssue('[Can\'t repcoduce]')"
+       class="dropdown-content-item">
+      Close [Can't reproduce]
+    </a>
+  </div>
+</div>

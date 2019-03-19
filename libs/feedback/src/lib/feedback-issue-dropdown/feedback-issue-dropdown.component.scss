@@ -1,0 +1,48 @@
+:host {
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-top: -7px;
+    margin-right: -7px;
+
+    &-btn {
+      cursor: pointer;
+      border: none;
+      background: #f0f3f5;
+
+      img {
+        width: 15px;
+      }
+    }
+
+    &-content {
+      display: none;
+      padding: 10px;
+      position: fixed;
+      margin-left: -180px;
+      border: 1px #999 solid;
+      background-color: #f9f9f9;
+      min-width: 150px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+      z-index: 1;
+
+      &-item {
+        cursor: pointer;
+        padding: 6px 10px;
+        text-decoration: none;
+        display: block;
+      }
+    }
+  }
+
+  .dropdown-content-item:hover {
+    background-color: #982a2a;
+    color: white;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
