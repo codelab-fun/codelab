@@ -15,8 +15,6 @@ import { GithubModule } from '@codelab/utils';
 
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 
-// Note! We are using AngularFire2 v4. There are a lot of breaking changes.
-// See: https://github.com/angular/@angular/fire/issues/854
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
 );
