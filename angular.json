@@ -790,7 +790,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/angular-thirty-seconds",
+            "outputPath": "dist/apps/codelab/30",
             "index": "apps/angular-thirty-seconds/src/index.html",
             "main": "apps/angular-thirty-seconds/src/main.ts",
             "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
@@ -829,6 +829,8 @@
                   "with": "apps/angular-thirty-seconds/src/environments/environment.prod.ts"
                 }
               ],
+              "baseHref": "/30/",
+              "deployUrl": "/30/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -841,8 +843,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "6mb",
+                  "maximumError": "7mb"
                 }
               ]
             }
