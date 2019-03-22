@@ -9,7 +9,7 @@ import { SnippetComponent } from './snippet/snippet.component';
 @Injectable({
   providedIn: 'root'
 })
-class SnippetsResolver implements Resolve<Observable<any>> {
+export class SnippetsResolver implements Resolve<Observable<any>> {
   resolve() {
     return from(fetch('https://gitcdn.link/repo/nycJSorg/30-seconds-of-angular/master/data/data.json')
       .then(data => data.json())

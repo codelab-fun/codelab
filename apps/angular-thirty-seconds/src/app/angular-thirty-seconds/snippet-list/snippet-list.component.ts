@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SnippetListComponent {
   demoIndex = -1;
-  private snippets: any[];
+  snippets: any[];
 
   constructor(private route: ActivatedRoute) {
     this.snippets = route.snapshot.data.snippets;
