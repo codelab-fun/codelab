@@ -30,6 +30,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   ) {
     this.router.events
       .pipe(takeUntil(this.destroy))
+      // TODO get rid of this subscribe
       .subscribe(() => this.messages$ = this.feedbackService.getMessages(this.activatedRoute));
   }
 
