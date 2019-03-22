@@ -14,7 +14,7 @@
       <ng-container *ngIf="(messages$ | async) as message">
         <ng-container *ngIf="message.length">
           <div class="feedback-items">
-            <ng-container *ngFor="let item of (messages$ | async)">
+            <ng-container *ngFor="let item of message">
               <div class="feedback-item">
                 <feedback-issue-dropdown [message]="item"></feedback-issue-dropdown>
                 <div class="header">
@@ -29,14 +29,13 @@
         </ng-container>
       </ng-container>
       <form [formGroup]="formGroup"
-            novalidate
             (submit)="submit(); modal.close()"
             class="form-container">
         <input formControlName="name"
                placeholder="Enter your name"
                type="text"
                class="mt-0"
-               i18n/>
+               i18n-placeholder/>
         <input formControlName="email"
                type="email"
                placeholder="Enter your email"/>
@@ -51,7 +50,7 @@
         <div>
           <button (click)="submit(); modal.close()"
                   [disabled]="formGroup.invalid"
-                  [style.opacity]="formGroup.invalid ? 0.5 : 1"
+                  mat-button
                   type="button"
                   class="btn"
                   i18n> Send

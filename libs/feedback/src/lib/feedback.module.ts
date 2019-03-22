@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
+import { MatButtonModule, MatMenuModule } from '@angular/material';
 
 import { ButtonWithMenuModule } from '@codelab/utils';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +30,9 @@ export const angularFire = AngularFireModule.initializeApp(
     AngularFireDatabaseModule,
     ButtonWithMenuModule,
     HttpClientModule,
-    GithubModule
+    GithubModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [FeedbackService],
   declarations: [
