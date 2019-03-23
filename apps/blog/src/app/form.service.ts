@@ -33,8 +33,7 @@ export class FormService {
       title,
       author,
       text,
-      date: new Date().toUTCString(),
-      href: this.router.url
+      date: new Date().toUTCString()
     };
 
     return this.repo$.push(post);

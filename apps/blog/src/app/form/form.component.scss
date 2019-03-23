@@ -5,13 +5,14 @@
 }
 
 .container > * {
-  width: 100%;
+  width: 600px;
 }
 
 .form-control {
   margin: 2px;
 }
 
-.disabled {
-  color: red;
+textarea {
+  overflow:auto;
+  resize: vertical;
 }
