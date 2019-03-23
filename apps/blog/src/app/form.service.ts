@@ -7,8 +7,8 @@ import { getRef } from '@angular/fire/database/utils';
 import { map, switchMap } from 'rxjs/operators';
 
 
-function normalize(feedback: Array<any>) {
-  return feedback.map(item => ({
+function normalize(posts: Array<any>) {
+  return posts.map(item => ({
     ...(item.payload && item.payload.val()),
     key: item.key
   }));
@@ -22,34 +22,21 @@ export class FormService {
 
   constructor(
     private database: AngularFireDatabase,
-    private router: Router) {  }
-
-  getPosts(activatedRoute: ActivatedRoute): Observable<Post[]> {
-    return activatedRoute.url.pipe(
-      map(() => this.router.url),
-      switchMap(url => {
-        return this.database
-          .list('/posts', ref => ref.orderByChild('href').equalTo(url))
-          .snapshotChanges()
-          .pipe(map(normalize));
-      }),
-      map((items: Post[]) => items)
-    );
-  }
+    private router: Router) { }
 
   addPost(
     title: string,
     author: string,
     text: string
-    ): any {
-      const post = {
-        title,
-        author,
-        text,
-        date: new Date().toUTCString(),
-        href: this.router.url
-      };
+  ): any {
+    const post = {
+      title,
+      author,
+      text,
+      date: new Date().toUTCString(),
+      href: this.router.url
+    };
 
-      return this.repo$.push(post);
+    return this.repo$.push(post);
   }
 }

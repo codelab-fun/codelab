@@ -1,12 +1,13 @@
 .container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .container > * {
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
 
-  .form-control {
-    margin: 2px;
-  }
+.container > * {
+  width: 100%;
+}
+
+.form-control {
+  margin: 2px;
+}

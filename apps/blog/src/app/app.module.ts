@@ -16,7 +16,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FormService } from './form.service';
-import { LentComponent } from './lent/lent.component';
+import { FeedComponent } from './feed/feed.component';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -25,7 +25,7 @@ export const angularFire = AngularFireModule.initializeApp(
 // debugger;
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, LentComponent],
+  declarations: [AppComponent, FormComponent, FeedComponent],
   imports: [
     BrowserModule,
     NxModule.forRoot(),

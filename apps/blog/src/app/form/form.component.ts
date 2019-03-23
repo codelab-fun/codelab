@@ -30,7 +30,6 @@ export class FormComponent implements OnInit {
   text: FormControl;
   date: Date;
   post: Observable<Post>;
-  // posts$: Observable<Post[]>;
   statusMessage = '';
   error = false;
 
@@ -38,14 +37,11 @@ export class FormComponent implements OnInit {
     private formService: FormService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-    ) {
-      // this.posts$ = this.formService.repo$.valueChanges();
-     }
+  ) { }
 
   ngOnInit() {
     this.createFormControls();
     this.createForm();
-    // console.l
   }
 
   createFormControls() {
