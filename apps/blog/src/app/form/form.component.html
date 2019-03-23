@@ -22,6 +22,6 @@
   formControlName="text"
   required> </textarea>
 
-  <button type="submit" class="btn btn-primary form-control" >Submit</button>
+  <button type="submit" class="btn btn-primary form-control" [attr.disabled]="myform.valid ? null : true"  >Submit</button>
 </form>
 

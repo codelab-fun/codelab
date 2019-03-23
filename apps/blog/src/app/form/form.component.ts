@@ -59,13 +59,8 @@ export class FormComponent implements OnInit {
     });
   }
 
-  createpost() {
-  }
-
   onSubmit() {
-    if (this.myform.valid) {
       const formValues: any = this.myform.getRawValue();
-      // console.log(formValues.title);
       this.formService
         .addPost(
           formValues.title,
@@ -76,10 +71,8 @@ export class FormComponent implements OnInit {
           this.myform.reset();
         })
         .catch(() => {
-          this.statusMessage = 'Error while sending feedback';
+          this.statusMessage = 'Error';
           this.error = true;
         });
     }
-  }
-
 }
