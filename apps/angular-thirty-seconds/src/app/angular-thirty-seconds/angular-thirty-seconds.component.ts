@@ -15,7 +15,7 @@ export class AngularThirtySecondsComponent implements OnInit {
   }
 
   async fetchData() {
-    const data = (await fetch('https://gitcdn.link/repo/nycJSorg/30-seconds-of-angular/master/data/data.json'));
+    const data = await fetch('https://gitcdn.link/repo/nycJSorg/30-seconds-of-angular/master/data/data.json');
     this.data = JSON.parse(await data.text());
   }
 

@@ -5,11 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NxModule } from '@nrwl/nx';
 import { monacoReady } from '@codelab/code-demos';
+import { HeaderComponent } from './angular-thirty-seconds/header/header.component';
+import { MatButtonModule } from '@angular/material';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'angular-30-seconds', pathMatch: 'full'},
   {
-    path: 'angular-30-seconds',
+    path: 'angular',
     loadChildren: './angular-thirty-seconds/angular-thirty-seconds.module#AngularThirtySecondsModule'
   }
 ];
@@ -19,9 +20,13 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     NxModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatButtonModule,
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+  ],
   providers: [
     {
       provide: APP_INITIALIZER,

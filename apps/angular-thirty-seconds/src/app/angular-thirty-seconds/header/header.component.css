@@ -1,0 +1,12 @@
+.logo {
+  background: url("logo.png");
+  background-size: cover;
+  height: 75px;
+  width: 225px;
+}
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
