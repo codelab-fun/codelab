@@ -1,25 +1,20 @@
-:host ::ng-deep {
-  button:focus {
-    outline: 0;
+::ng-deep {
+  .btn-bar {
+    z-index: 110;
   }
 
   .menu-bar-btn {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: no-repeat center white;
+    background: no-repeat center #3498db;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-left: 10px;
     cursor: pointer;
     border: none;
     padding: 0;
   }
-}
 
-::ng-deep {
-  .modal-title {
-    margin: 0 0 10px 0;
-  }
 
   .buttons-nav-bar-modal-content-wrapper {
     border-radius: 4px;

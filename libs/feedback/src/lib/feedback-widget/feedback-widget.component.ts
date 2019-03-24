@@ -1,14 +1,14 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 
 @Component({
   selector: 'feedback-widget',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './feedback-widget.component.html',
   styleUrls: ['./feedback-widget.component.scss']
 })
@@ -21,17 +21,13 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
 
   destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
 
-
   constructor(
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private feedbackService: FeedbackService,
     private router: Router
   ) {
-    this.router.events
-      .pipe(takeUntil(this.destroy))
-      // TODO get rid of this subscribe
-      .subscribe(() => this.messages$ = this.feedbackService.getMessages(this.activatedRoute));
+    this.messages$ = this.feedbackService.getMessagesByCurrentPage();
   }
 
   ngOnInit() {

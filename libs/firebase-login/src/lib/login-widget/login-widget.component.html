@@ -1,25 +1,23 @@
-<codelab-button-with-menu>
-  <button class="menu-bar-btn">
-    <ng-container *ngIf="(loginService.user$ | async); else showLogin">
-      👩‍💻</ng-container
-    >
-  </button>
-
-  <ng-template #showLogin> 🗝</ng-template>
-
-  <ng-container *codelabModalContent>
-    <div class="buttons-nav-bar-modal-content-wrapper">
-      <h2 class="modal-title">Login</h2>
-      <div *ngIf="(loginService.user$ | async) as user; else showLogin">
-        <h1>Hello {{ user.displayName }}!</h1>
-        <h2>More features coming soon!</h2>
-        <button (click)="logout()">Logout</button>
-      </div>
-      <ng-template #showLogin>
-        <p class="mb-0">To open an issue in feedback widget,</p>
-        <p>please log in</p>
-        <a class="link cursor-pointer" (click)="login()">Login with Google</a>
-      </ng-template>
-    </div>
+<button class="menu-bar-btn" [matMenuTriggerFor]="menu">
+  <ng-container *ngIf="(loginService.user$ | async); else showLogin">
+    👩‍💻
   </ng-container>
-</codelab-button-with-menu>
+</button>
+
+<ng-template #showLogin> 🗝</ng-template>
+
+<mat-menu #menu="matMenu">
+  <div class="buttons-nav-bar-modal-content-wrapper">
+    <h2 class="modal-title">Login</h2>
+    <div *ngIf="(loginService.user$ | async) as user; else showLogin">
+      <h1>Hello {{ user.displayName }}!</h1>
+      <h2>More features coming soon!</h2>
+      <button (click)="logout()">Logout</button>
+    </div>
+    <ng-template #showLogin>
+      <p class="mb-0">To open an issue in feedback widget,</p>
+      <p>please log in</p>
+      <a class="link cursor-pointer" (click)="login()">Login with Google</a>
+    </ng-template>
+  </div>
+</mat-menu>

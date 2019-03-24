@@ -30,10 +30,6 @@
   bottom: 1vh;
 }
 
-.btn-bar {
-  z-index: 110;
-}
-
 img .angular {
   width: 30vw;
 }
@@ -75,6 +71,7 @@ img .angular {
 ::ng-deep .slide {
   display: block;
 }
+
 .play {
   margin: 4vw 0;
 }
@@ -84,4 +81,35 @@ img .angular {
   display: inline-block;
   cursor: pointer;
   min-height: 20px;
+}
+
+::ng-deep {
+
+  .btn-bar {
+    z-index: 110;
+  }
+
+  .menu-bar-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: no-repeat center #3498db;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+
+
+  .buttons-nav-bar-modal-content-wrapper {
+    border-radius: 4px;
+    border: 1px #999 solid;
+    background: white;
+    padding: 10px;
+    margin: 10px;
+    font-weight: 300;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
 }

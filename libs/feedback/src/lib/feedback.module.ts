@@ -4,7 +4,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { MatButtonModule, MatMenuModule } from '@angular/material';
 
-import { ButtonWithMenuModule } from '@codelab/utils';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FeedbackService } from './feedback.service';
@@ -28,7 +27,6 @@ export const angularFire = AngularFireModule.initializeApp(
     angularFire,
     FormsModule,
     AngularFireDatabaseModule,
-    ButtonWithMenuModule,
     HttpClientModule,
     GithubModule,
     MatMenuModule,
@@ -42,8 +40,7 @@ export const angularFire = AngularFireModule.initializeApp(
   ],
   exports: [
     FeedbackWidgetComponent,
-    FeedbackRatingComponent,
-    ButtonWithMenuModule
+    FeedbackRatingComponent
   ]
 })
 export class FeedbackModule {

@@ -1,10 +1,10 @@
-import { ActivatedRoute, Router } from '@angular/router';
+import { Event, NavigationEnd, Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
-import { Message } from './message';
-import { Observable } from 'rxjs';
 import { getRef } from '@angular/fire/database/utils';
-import { map, switchMap } from 'rxjs/operators';
+import { Message } from './message';
+import { Observable, of, defer } from 'rxjs';
+import { filter, map, publishReplay, refCount, repeatWhen, switchMap } from 'rxjs/operators';
 
 function normalize(feedback: Array<any>) {
   return feedback.map(item => ({
@@ -24,16 +24,30 @@ export class FeedbackService {
   }
 
   // Get a stream of messages filtered by href (of a message)
-  getMessages(activatedRoute: ActivatedRoute): Observable<Message[]> {
-    return activatedRoute.url.pipe(
-      map(() => this.router.url),
-      switchMap(url => {
-        return this.database
-          .list('/feedback', ref => ref.orderByChild('href').equalTo(url))
-          .snapshotChanges()
-          .pipe(map(normalize));
-      }),
-      map((items: Message[]) => items.filter(item => !item.isDone))
+  getMessages(url: string): Observable<Message[]> {
+    return this.database
+      .list('/feedback', ref => ref.orderByChild('href').equalTo(url))
+      .snapshotChanges()
+      .pipe(
+        map(normalize),
+        map((items: Message[]) => items.filter(item => !item.isDone))
+      );
+  }
+
+  getMessagesByCurrentPage(): Observable<Message[]> {
+    const onNavigationEnd: Observable<Event> =
+      this.router.events
+        .pipe(filter(val => val instanceof NavigationEnd));
+
+    const url: Observable<string> =
+      defer(() => of(this.router.url)).pipe(
+        repeatWhen(() => onNavigationEnd)
+      );
+
+    return url.pipe(
+      switchMap((url) => this.getMessages(url)),
+      publishReplay(1),
+      refCount()
     );
   }
 
