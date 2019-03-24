@@ -27,7 +27,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     private feedbackService: FeedbackService,
     private router: Router
   ) {
-    this.messages$ = this.feedbackService.getMessagesByCurrentPage();
+    this.messages$ = this.feedbackService.getMessagesForCurrentPage();
   }
 
   ngOnInit() {

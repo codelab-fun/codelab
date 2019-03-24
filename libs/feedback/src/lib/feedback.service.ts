@@ -34,7 +34,7 @@ export class FeedbackService {
       );
   }
 
-  getMessagesByCurrentPage(): Observable<Message[]> {
+  getMessagesForCurrentPage(): Observable<Message[]> {
     const onNavigationEnd: Observable<Event> =
       this.router.events
         .pipe(filter(val => val instanceof NavigationEnd));

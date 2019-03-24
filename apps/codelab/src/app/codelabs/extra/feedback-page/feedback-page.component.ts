@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Message } from '@codelab/feedback/src/lib/message';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
@@ -60,25 +60,24 @@ function filter([feedback, filterName]) {
   templateUrl: './feedback-page.component.html',
   styleUrls: ['./feedback-page.component.css']
 })
-export class FeedbackPageComponent implements OnInit {
-  messages$: Observable<{ key: string; value: Message }[]>;
+export class FeedbackPageComponent {
+
+  feedback$: AngularFireList<any[]> = this.database.list('/feedback');
   filter$ = new BehaviorSubject<Filter>('notDone');
   group$ = new BehaviorSubject<Grouping>('href');
-  private feedback$: AngularFireList<any[]>;
+
+  // TODO make it more understandable
+  messages$: Observable<{ key: string; value: Message }[]> = combineLatest(
+    combineLatest(
+      this.feedback$.snapshotChanges().pipe(map(normalize)),
+      this.filter$
+    ).pipe(map(filter)), this.group$)
+    .pipe(map(group));
 
   constructor(
     private database: AngularFireDatabase,
     private ghService: GithubService
   ) {
-  }
-
-  ngOnInit() {
-    this.feedback$ = this.database.list('/feedback');
-    const filteredMessages$ = combineLatest(
-      this.feedback$.snapshotChanges().pipe(map(normalize)),
-      this.filter$
-    ).pipe(map(filter));
-    this.messages$ = combineLatest(filteredMessages$, this.group$).pipe(map(group));
   }
 
   createIssue(message) {

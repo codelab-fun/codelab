@@ -29,6 +29,8 @@ export class GithubService {
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
   }
 
+  // TODO clean up 'createIssue' and 'createClosedIssue' methods as 60% of code is the same
+
   async createIssue(message) {
 
     if (!this.githubAuth.credential) {
@@ -36,7 +38,7 @@ export class GithubService {
     }
 
     const issueData = {
-      title: message.comment.substring(0, 150),
+      title: message.comment,
       body: this.generateIssueBody(message)
     };
     const accessToken = this.githubAuth.credential.accessToken;
@@ -48,7 +50,7 @@ export class GithubService {
       issueData,
       options
     ).subscribe((responseData: any) => {
-      this.isDone(message);
+      this.markAsDone(message);
       this.database
         .object(`feedback/${message.key}`)
         .update({url: responseData.html_url});
@@ -63,7 +65,7 @@ export class GithubService {
     }
 
     const issueData = {
-      title: reason + ' ' + message.comment.substring(0, 150),
+      title: reason + ' ' + message.comment,
       body: this.generateIssueBody(message)
     };
     const accessToken = this.githubAuth.credential.accessToken;
@@ -92,7 +94,7 @@ export class GithubService {
           options
         ).subscribe(res => {
             if (res) {
-              this.isDone(message);
+              this.markAsDone(message);
             }
           }
         );
@@ -109,7 +111,7 @@ Slide: [Local](http://localhost:4200${
       }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
   }
 
-  isDone(message) {
+  markAsDone(message) {
     this.database
       .object(`feedback/${message.key}`)
       .update({isDone: !message.isDone});
