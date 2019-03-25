@@ -5,6 +5,8 @@ import { SnippetDemoComponent } from '../snippet-demo/snippet-demo.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [SnippetListComponent, SnippetDemoComponent],
@@ -14,7 +16,9 @@ import { RouterModule } from '@angular/router';
     CodeDemoModule,
     CommonModule,
     FormsModule,
+    MatButtonModule,
     RouterModule,
+    MarkdownModule.forRoot()
   ]
 })
 export class SnippetListModule {

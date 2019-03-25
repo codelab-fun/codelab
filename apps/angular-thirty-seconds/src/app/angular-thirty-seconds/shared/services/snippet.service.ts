@@ -30,9 +30,10 @@ export class SnippetService {
     this.githubAuth = githubAuth;
     const headers = {Authorization: 'token ' + githubAuth.credential.accessToken};
     this.options = {headers};
-    this.title = title;
 
+    this.title = title;
     this.snippetData = snippetData;
+
     return this.getRepositories()
       .pipe(
         switchMap(() => this.getMasterBranchSha()),
@@ -81,7 +82,7 @@ export class SnippetService {
   createSnippetCommit(): Observable<object> {
     const requestBody = {
       message: 'I have added awesome snippet. Look at my awesome snippet!',
-      content: btoa(this.snippetData['snippetBody']),
+      content: btoa(this.snippetData),
       branch: `new_snippet_${this.toLowerCaseAndSlugify(this.title)}`
     };
 
@@ -96,7 +97,7 @@ export class SnippetService {
 
   createSnippetPullRequest(): Observable<object> {
     const requestBody = {
-      title: `Add - new snippet: ${this.snippetData['snippetTitle']}`,
+      title: `Add - new snippet: ${this.title}`,
       head: `${this.githubAuth.additionalUserInfo.username}:new_snippet_${this.toLowerCaseAndSlugify(this.title)}`,
       base: 'master',
       body: 'Here is a new snippet. Hope you like it :)'

@@ -26,6 +26,7 @@ import { SnippetSpinnerComponent } from './create-snippet/snippet-spinner/snippe
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../../codelab/src/environments/environment';
+import { HeaderComponent } from './header/header.component';
 
 
 export const angularFire = AngularFireModule.initializeApp(
@@ -57,7 +58,6 @@ export const angularFire = AngularFireModule.initializeApp(
     MatInputModule,
     MatSelectModule,
     MatChipsModule,
-    MarkdownModule,
     HttpClientModule,
     MarkdownModule.forRoot()
   ],
