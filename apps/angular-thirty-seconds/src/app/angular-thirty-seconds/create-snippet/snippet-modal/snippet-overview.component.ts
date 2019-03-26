@@ -13,8 +13,7 @@ function getSnippet(value): string {
 
   const result: Array<string> = [];
 
-  result.push(`
----
+  result.push(`---
 title: ${value.title}
 
 author: ${value.author || `*your github username will be added*`}
