@@ -15,39 +15,67 @@ function getTagsStringList(tagsArray: Array<string>): string {
 }
 
 function getSnippet(value): string {
-  return `
+
+  const result: Array<string> = [];
+
+  result.push(`
 ---
-title: ${value.title}\n
-author: ${value.author || `*your github username will be added*`}\n
-level: ${value.level}\n
+title: ${value.title}
+
+author: ${value.author || `*your github username will be added*`}
+
+level: ${value.level}
+
 tags:
 ${getTagsStringList(value.tags)}
----
+---`);
+
+  result.push(`
 # Content
-${value.content}
-${value.bonus ? `\n
+${value.content}`);
+
+  if (value.bonus) {
+    result.push(`
 # Bonus
-${value.bonus}` : ``}
-${value.links ? `\n
+${value.bonus}`);
+  }
+
+  if (value.links) {
+    result.push(`
 # Links
-${value.links}` : ``}
-${value.demo['app.component.ts'] ? `\n
+${value.links}`
+    );
+  }
+
+  if (value.demo['app.component.ts']) {
+    result.push(`
 # ComponentCode
 \`\`\`typescript
 ${value.demo['app.component.ts']}
-\`\`\`` : ``}
-${value.demo['app.module.ts'] ? `\n
+\`\`\``);
+  }
+
+  if (value.demo['app.module.ts']) {
+    result.push(`
 # ModuleCode
 \`\`\`typescript
 ${value.demo['app.module.ts']}
-\`\`\`` : ``}
-${value.demo['main.ts'] ? `\n
+\`\`\``);
+  }
+
+  if (value.demo['main.ts']) {
+    result.push(`
 # MainCode
 \`\`\`typescript
 ${value.demo['main.ts']}
-\`\`\`` : ``}
----`;
+\`\`\``);
+  }
+
+  result.push(`---`);
+
+  return result.join(`\n`);
 }
+
 
 @Component({
   selector: 'codelab-snippet-overview',

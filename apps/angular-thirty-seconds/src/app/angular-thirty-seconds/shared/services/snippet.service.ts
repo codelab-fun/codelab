@@ -12,9 +12,9 @@ interface User {
 interface Repo {
   name: string;
   full_name: string;
-  sha?: string;
-  url?: string;
-  git_refs_url?: string;
+  sha: string;
+  url: string;
+  git_refs_url: string;
 }
 
 interface Branch {
@@ -28,10 +28,11 @@ interface Branch {
   };
 }
 
-interface CreateCommit {
+interface CommitInfo {
   message: string;
   content: string;
-  branch: string;
+  branchName: string;
+  filePath: string;
 }
 
 interface Commit {
@@ -40,7 +41,7 @@ interface Commit {
 interface CreatePullRequest {
   title: string;
   body: string;
-  branch: string;
+  branchName: string;
 }
 
 interface PullRequest {
@@ -76,6 +77,16 @@ export class GitHubService {
     };
   }
 
+  getRepo(owner: string, repoName: string): Observable<Repo> {
+    requires(owner, 'Owner is required');
+    requires(repoName, 'Repo name is required');
+
+    const requestUrl = `${this.apiGithubUrl}/repos/${owner}/${repoName}`;
+    return this.http.get<Repo>(requestUrl, this.options).pipe(
+      catchError(() => throwError(new Error(`Can't get repo`)))
+    );
+  }
+
   getMyRepos(user: User): Observable<Repo[]> {
     requires(user, 'User is required');
 
@@ -84,10 +95,10 @@ export class GitHubService {
     );
   }
 
-  forkRepo(repoName: string): Observable<Repo> {
-    requires(repoName, 'Repository name is required');
+  forkRepo(repo: Repo): Observable<Repo> {
+    requires(repo, 'Repository is required');
 
-    const requestUrl = `${this.apiGithubUrl}/repos/${repoName}/forks`;
+    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/forks`;
     return this.http.post<Repo>(requestUrl, {}, this.options).pipe(
       catchError(() => throwError(new Error(`Can't fork 30 secs repo`)))
     );
@@ -119,13 +130,16 @@ export class GitHubService {
     );
   }
 
-  createCommit(repo: Repo, commit: CreateCommit, filePath: string): Observable<Commit> {
+  createCommit(repo: Repo, commitInfo: CommitInfo): Observable<Commit> {
     requires(repo, 'Repository is required');
-    requires(commit, 'Commit is required');
-    requires(filePath, 'File path is required');
+    requires(commitInfo, 'Commit is required');
 
-    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/${filePath}`;
-    const requestData = {...commit};
+    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/${commitInfo.filePath}`;
+    const requestData = {
+      message: commitInfo.message,
+      branch: commitInfo.branchName,
+      content: commitInfo.content
+    };
 
     return this.http.put(requestUrl, requestData, this.options).pipe(
       catchError(() => throwError(new Error(`Can't create commit`)))
@@ -140,7 +154,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/pulls`;
     const requestData = {
       title: pullRequest.title,
-      head: `${user.login}:${pullRequest.branch}`,
+      head: `${user.login}:${pullRequest.branchName}`,
       base: 'master',
       body: pullRequest.body
     };
@@ -157,10 +171,8 @@ export class GitHubService {
 })
 export class SnippetService {
 
-  private globalRepo: Repo = {
-    name: '30-seconds-of-angular',
-    full_name: 'nycJSorg/30-seconds-of-angular'
-  };
+  private owner = 'nycJSorg';
+  private repoName = '30-seconds-of-angular';
 
   constructor(
     private github: GitHubService,
@@ -179,33 +191,36 @@ export class SnippetService {
     const filePath = `contents/new_snippet_${this.toLowerCaseAndSlugify(title)}.md`;
 
     const user: User = githubAuth.additionalUserInfo.profile;
-    return this.github.getMyRepos(user).pipe(
-      switchMap((repos: Repo[]) => {
-        const repoName = '30-seconds-of-angular';
-        const repo = repos.find((r) => r.name === repoName);
-        return repo ? of(repo) : this.github.forkRepo(this.globalRepo.full_name);
-      }),
-      switchMap((repo: Repo) => {
-        return this.github.getMasterBranch(repo).pipe(
-          debounceTime(1000),
-          switchMap((masterBranch: Branch) => {
-            return this.github.createBranch(repo, masterBranch, branchName);
+    return this.github.getRepo(this.owner, this.repoName).pipe(
+      switchMap((baseRepo: Repo) => {
+        return this.github.getMyRepos(user).pipe(
+          switchMap((repos: Repo[]) => {
+            const repo = repos.find((r) => r.name === this.repoName);
+            return repo ? of(repo) : this.github.forkRepo(baseRepo).pipe(debounceTime(5000));
           }),
-          switchMap(() => {
-            const commit: CreateCommit = {
-              message: 'I have added awesome snippet. Look at my awesome snippet!',
-              content: btoa(snippetData),
-              branch: branchName
-            };
-            return this.github.createCommit(repo, commit, filePath);
-          }),
-          switchMap(() => {
-            const pullRequest: CreatePullRequest = {
-              title: `Add - new snippet: ${title}`,
-              body: 'Here is a new snippet. Hope you like it :)',
-              branch: branchName
-            };
-            return this.github.createPullRequest(this.globalRepo, user, pullRequest);
+          switchMap((userRepo: Repo) => {
+            return this.github.getMasterBranch(userRepo).pipe(
+              switchMap((masterBranch: Branch) => {
+                return this.github.createBranch(userRepo, masterBranch, branchName);
+              }),
+              switchMap(() => {
+                const commit: CommitInfo = {
+                  message: 'I have added awesome snippet. Look at my awesome snippet!',
+                  content: btoa(snippetData),
+                  branchName: branchName,
+                  filePath: filePath
+                };
+                return this.github.createCommit(userRepo, commit);
+              }),
+              switchMap(() => {
+                const pullRequest: CreatePullRequest = {
+                  title: `Add - new snippet: ${title}`,
+                  body: 'Here is a new snippet. Hope you like it :)',
+                  branchName: branchName
+                };
+                return this.github.createPullRequest(baseRepo, user, pullRequest);
+              })
+            );
           })
         );
       })
