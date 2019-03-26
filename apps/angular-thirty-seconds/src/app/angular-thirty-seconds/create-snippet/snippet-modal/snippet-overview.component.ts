@@ -82,6 +82,8 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit() {
+    console.log('You can copy the snippet here: ', this.snippet);
+
     if (!(this.githubAuth && this.githubAuth.credential)) {
       await this.login();
     }

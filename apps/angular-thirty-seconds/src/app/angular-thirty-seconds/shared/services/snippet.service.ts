@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError, debounceTime, switchMap } from 'rxjs/operators';
 import { SlugifyPipe } from '../../slugify.pipe';
 
 interface User {
@@ -12,9 +12,9 @@ interface User {
 interface Repo {
   name: string;
   full_name: string;
-  sha: string;
-  url: string;
-  git_refs_url: string;
+  sha?: string;
+  url?: string;
+  git_refs_url?: string;
 }
 
 interface Branch {
@@ -31,7 +31,7 @@ interface Branch {
 interface CreateCommit {
   message: string;
   content: string;
-  branchName: string;
+  branch: string;
 }
 
 interface Commit {
@@ -127,7 +127,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/${filePath}`;
     const requestData = {...commit};
 
-    return this.http.post(requestUrl, requestData, this.options).pipe(
+    return this.http.put(requestUrl, requestData, this.options).pipe(
       catchError(() => throwError(new Error(`Can't create commit`)))
     );
   }
@@ -156,14 +156,11 @@ export class GitHubService {
   providedIn: 'root'
 })
 export class SnippetService {
-  protected apiGithubUrl = 'https://api.github.com';
 
-  private githubAuth;
-  private globalRepo = 'nycJSorg/30-seconds-of-angular';
-  private myRepo: string | null = null;
-  private options;
-  private snippetData;
-  private title: string | null = null;
+  private globalRepo: Repo = {
+    name: '30-seconds-of-angular',
+    full_name: 'nycJSorg/30-seconds-of-angular'
+  };
 
   constructor(
     private github: GitHubService,
@@ -179,35 +176,36 @@ export class SnippetService {
     this.github.setToken(githubAuth.credential.accessToken);
 
     const branchName = `new_snippet_${this.toLowerCaseAndSlugify(title)}`;
-    const filePath = `contents/snippets/${this.toLowerCaseAndSlugify(title)}.md`;
+    const filePath = `contents/new_snippet_${this.toLowerCaseAndSlugify(title)}.md`;
 
     const user: User = githubAuth.additionalUserInfo.profile;
     return this.github.getMyRepos(user).pipe(
       switchMap((repos: Repo[]) => {
         const repoName = '30-seconds-of-angular';
         const repo = repos.find((r) => r.name === repoName);
-        return repo ? of(repo) : this.github.forkRepo(this.globalRepo);
+        return repo ? of(repo) : this.github.forkRepo(this.globalRepo.full_name);
       }),
       switchMap((repo: Repo) => {
         return this.github.getMasterBranch(repo).pipe(
+          debounceTime(1000),
           switchMap((masterBranch: Branch) => {
             return this.github.createBranch(repo, masterBranch, branchName);
           }),
-          switchMap((branch: Branch) => {
+          switchMap(() => {
             const commit: CreateCommit = {
               message: 'I have added awesome snippet. Look at my awesome snippet!',
               content: btoa(snippetData),
-              branchName: branchName
+              branch: branchName
             };
             return this.github.createCommit(repo, commit, filePath);
           }),
-          switchMap((commit: Commit) => {
+          switchMap(() => {
             const pullRequest: CreatePullRequest = {
               title: `Add - new snippet: ${title}`,
               body: 'Here is a new snippet. Hope you like it :)',
               branch: branchName
             };
-            return this.github.createPullRequest(repo, user, pullRequest);
+            return this.github.createPullRequest(this.globalRepo, user, pullRequest);
           })
         );
       })
