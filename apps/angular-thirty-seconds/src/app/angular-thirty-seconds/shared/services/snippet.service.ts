@@ -1,15 +1,161 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError, map, switchMap } from 'rxjs/operators';
-import { throwError } from 'rxjs/internal/observable/throwError';
 import { HttpClient } from '@angular/common/http';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
 import { SlugifyPipe } from '../../slugify.pipe';
 
+interface User {
+  login: string;
+  repos_url: string;
+}
+
+interface Repo {
+  name: string;
+  full_name: string;
+  sha: string;
+  url: string;
+  git_refs_url: string;
+}
+
+interface Branch {
+  ref: string;
+  node_id: string;
+  url: string;
+  object: {
+    type: string;
+    sha: string;
+    url: string;
+  };
+}
+
+interface CreateCommit {
+  message: string;
+  content: string;
+  branchName: string;
+}
+
+interface Commit {
+}
+
+interface CreatePullRequest {
+  title: string;
+  body: string;
+  branch: string;
+}
+
+interface PullRequest {
+}
+
+interface GithubAuth {
+  additionalUserInfo: {
+    profile: User;
+  };
+  credential: {
+    accessToken: string;
+  };
+}
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
+})
+export class GitHubService {
+
+  private apiGithubUrl = 'https://api.github.com';
+  private options: object;
+
+  constructor(
+    private http: HttpClient
+  ) {
+  }
+
+  setToken(token: string) {
+    this.options = {
+      headers: {
+        Authorization: `token ${token}`
+      }
+    };
+  }
+
+  getMyRepos(user: User): Observable<Repo[]> {
+    requires(user, 'User is required');
+
+    return this.http.get<Repo[]>(user.repos_url, this.options).pipe(
+      catchError(() => throwError(new Error(`Can't fetch user repos`)))
+    );
+  }
+
+  forkRepo(repoName: string): Observable<Repo> {
+    requires(repoName, 'Repository name is required');
+
+    const requestUrl = `${this.apiGithubUrl}/repos/${repoName}/forks`;
+    return this.http.post<Repo>(requestUrl, {}, this.options).pipe(
+      catchError(() => throwError(new Error(`Can't fork 30 secs repo`)))
+    );
+  }
+
+  getMasterBranch(repo: Repo): Observable<Branch> {
+    requires(repo, 'Repository is required');
+
+    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/git/refs/heads/master`;
+    return this.http.get<Branch>(requestUrl, this.options).pipe(
+      catchError(() => throwError(new Error(`Can't fetch master branch of ${repo.full_name}`)))
+    );
+  }
+
+  createBranch(repo: Repo, baseBranch: Branch, branchName: string): Observable<Branch> {
+    requires(repo, 'Repository is required');
+    requires(baseBranch, 'Base branch is required');
+    requires(branchName, 'Branch name is required');
+
+    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/git/refs`;
+    const branchRef = `refs/heads/${branchName}`;
+    const requestData = {
+      ref: branchRef,
+      sha: baseBranch.object.sha
+    };
+
+    return this.http.post<Branch>(requestUrl, requestData, this.options).pipe(
+      catchError(() => throwError(new Error(`Can't create branch ${branchName} of base branch ${baseBranch.object.url}`)))
+    );
+  }
+
+  createCommit(repo: Repo, commit: CreateCommit, filePath: string): Observable<Commit> {
+    requires(repo, 'Repository is required');
+    requires(commit, 'Commit is required');
+    requires(filePath, 'File path is required');
+
+    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/${filePath}`;
+    const requestData = {...commit};
+
+    return this.http.post(requestUrl, requestData, this.options).pipe(
+      catchError(() => throwError(new Error(`Can't create commit`)))
+    );
+  }
+
+  createPullRequest(repo: Repo, user: User, pullRequest: CreatePullRequest): Observable<PullRequest> {
+    requires(repo, 'Repository is required');
+    requires(user, 'User is required');
+    requires(pullRequest, 'Pull request is required');
+
+    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/pulls`;
+    const requestData = {
+      title: pullRequest.title,
+      head: `${user.login}:${pullRequest.branch}`,
+      base: 'master',
+      body: pullRequest.body
+    };
+
+    return this.http.post(requestUrl, requestData, this.options).pipe(
+      catchError(() => throwError(new Error(`Can't create pull request`)))
+    );
+  }
+
+}
+
+@Injectable({
+  providedIn: 'root'
 })
 export class SnippetService {
-
   protected apiGithubUrl = 'https://api.github.com';
 
   private githubAuth;
@@ -20,99 +166,61 @@ export class SnippetService {
   private title: string | null = null;
 
   constructor(
-    private http: HttpClient,
+    private github: GitHubService,
     private slugify: SlugifyPipe
   ) {
   }
 
-  createPR(githubAuth, snippetData, title): Observable<object> {
+  createPR(githubAuth: GithubAuth, snippetData: string, title: string): Observable<PullRequest> {
+    requires(githubAuth, 'Github auth is required');
+    requires(snippetData, 'Snippet is required');
+    requires(title, 'Snippet title is required');
 
-    this.githubAuth = githubAuth;
-    const headers = {Authorization: 'token ' + githubAuth.credential.accessToken};
-    this.options = {headers};
+    this.github.setToken(githubAuth.credential.accessToken);
 
-    this.title = title;
-    this.snippetData = snippetData;
+    const branchName = `new_snippet_${this.toLowerCaseAndSlugify(title)}`;
+    const filePath = `contents/snippets/${this.toLowerCaseAndSlugify(title)}.md`;
 
-    return this.getRepositories()
-      .pipe(
-        switchMap(() => this.getMasterBranchSha()),
-        switchMap((masterSha) => this.createSnippetBranch(masterSha)),
-        switchMap(() => this.createSnippetCommit()),
-        switchMap(() => this.createSnippetPullRequest())
-      );
-  }
-
-  getRepositories(): Observable<object> {
-    return this.http.get(
-      this.githubAuth.additionalUserInfo.profile.repos_url,
-      this.options
-    ).pipe(
-      catchError(() => throwError(new Error(`Cannot get user repos list`))),
-      map((response: any) => {
-          return this.myRepo = response.filter(x => x['name'] === '30-seconds-of-angular')[0]['full_name'];
-        }
-      )
+    const user: User = githubAuth.additionalUserInfo.profile;
+    return this.github.getMyRepos(user).pipe(
+      switchMap((repos: Repo[]) => {
+        const repoName = '30-seconds-of-angular';
+        const repo = repos.find((r) => r.name === repoName);
+        return repo ? of(repo) : this.github.forkRepo(this.globalRepo);
+      }),
+      switchMap((repo: Repo) => {
+        return this.github.getMasterBranch(repo).pipe(
+          switchMap((masterBranch: Branch) => {
+            return this.github.createBranch(repo, masterBranch, branchName);
+          }),
+          switchMap((branch: Branch) => {
+            const commit: CreateCommit = {
+              message: 'I have added awesome snippet. Look at my awesome snippet!',
+              content: btoa(snippetData),
+              branchName: branchName
+            };
+            return this.github.createCommit(repo, commit, filePath);
+          }),
+          switchMap((commit: Commit) => {
+            const pullRequest: CreatePullRequest = {
+              title: `Add - new snippet: ${title}`,
+              body: 'Here is a new snippet. Hope you like it :)',
+              branch: branchName
+            };
+            return this.github.createPullRequest(repo, user, pullRequest);
+          })
+        );
+      })
     );
   }
 
-  getMasterBranchSha(): Observable<string> {
-    return this.http.get(
-      `${this.apiGithubUrl}/repos/${this.myRepo}/git/refs/heads/master`,
-      this.options
-    ).pipe(
-      catchError(() => throwError(new Error(`Cannot get user master branch sha`))),
-      map((response) => response['object']['sha'])
-    );
-  }
-
-  createSnippetBranch(masterSha: string): Observable<object> {
-    return this.http.post(
-      `${this.apiGithubUrl}/repos/${this.myRepo}/git/refs`,
-      {
-        ref: `refs/heads/new_snippet_${this.toLowerCaseAndSlugify(this.title)}`,
-        sha: masterSha
-      },
-      this.options
-    ).pipe(
-      catchError(() => throwError(new Error(`Try to change snippet name, cannot get create a new snippet branch`)))
-    );
-  }
-
-  createSnippetCommit(): Observable<object> {
-    const requestBody = {
-      message: 'I have added awesome snippet. Look at my awesome snippet!',
-      content: btoa(this.snippetData),
-      branch: `new_snippet_${this.toLowerCaseAndSlugify(this.title)}`
-    };
-
-    return this.http.put(
-      `${this.apiGithubUrl}/repos/${this.myRepo}/contents/snippets/${this.toLowerCaseAndSlugify(this.title)}.md`,
-      requestBody,
-      this.options
-    ).pipe(
-      catchError(() => throwError(new Error(`Cannot create commit with new md file`)))
-    );
-  }
-
-  createSnippetPullRequest(): Observable<object> {
-    const requestBody = {
-      title: `Add - new snippet: ${this.title}`,
-      head: `${this.githubAuth.additionalUserInfo.username}:new_snippet_${this.toLowerCaseAndSlugify(this.title)}`,
-      base: 'master',
-      body: 'Here is a new snippet. Hope you like it :)'
-    };
-
-    return this.http.post(
-      `${this.apiGithubUrl}/repos/${this.globalRepo}/pulls`,
-      requestBody,
-      this.options
-    ).pipe(
-      catchError(() => throwError(new Error(`Cannot add new pull request`)))
-    );
-  }
-
-  toLowerCaseAndSlugify(str: string) {
+  private toLowerCaseAndSlugify(str: string) {
     return this.slugify.transform(str.toLowerCase());
+  }
+}
+
+function requires(expression: any, message: string) {
+  if (!expression) {
+    throw new Error(message);
   }
 }
