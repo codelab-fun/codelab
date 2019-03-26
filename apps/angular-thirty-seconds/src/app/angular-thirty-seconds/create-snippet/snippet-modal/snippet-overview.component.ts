@@ -6,12 +6,7 @@ import * as firebase from 'firebase/app';
 import { SnippetService } from '../../shared/services/snippet.service';
 
 function getTagsStringList(tagsArray: Array<string>): string {
-  let tagsStringList = '';
-  tagsArray.forEach(x => {
-    tagsStringList += `- ${x}\n`;
-  });
-  tagsStringList += `\n`;
-  return tagsStringList;
+  return tagsArray.map(x => `- ${x}`).join(`\n`);
 }
 
 function getSnippet(value): string {
@@ -28,6 +23,7 @@ level: ${value.level}
 
 tags:
 ${getTagsStringList(value.tags)}
+
 ---`);
 
   result.push(`
@@ -70,8 +66,6 @@ ${value.demo['app.module.ts']}
 ${value.demo['main.ts']}
 \`\`\``);
   }
-
-  result.push(`---`);
 
   return result.join(`\n`);
 }
