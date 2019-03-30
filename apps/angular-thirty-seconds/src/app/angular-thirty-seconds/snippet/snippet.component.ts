@@ -22,6 +22,7 @@ export class SnippetComponent implements OnInit {
   @Output() openDemo = new EventEmitter();
   @Input() isDemoOpen = false;
   slug: string;
+  private fullSnippet: any;
 
   constructor(private route: ActivatedRoute) {
     const id = route.snapshot.params.id;
@@ -32,6 +33,8 @@ export class SnippetComponent implements OnInit {
 
   @Input() set snippet(snippet) {
     if (snippet) {
+      // TODO: Just use snippet everywhere
+      this.fullSnippet = snippet;
       this.slug = snippet.slug;
       this.title = snippet.title;
       this.tags = snippet.tags;

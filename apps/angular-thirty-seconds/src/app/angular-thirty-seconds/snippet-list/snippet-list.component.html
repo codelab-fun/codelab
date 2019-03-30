@@ -2,6 +2,13 @@
   <a routerLink="../../"> 🔙</a> Filtering by tag: <b>{{tag}}</b> &nbsp;
 </div>
 
+<div *ngIf="id">
+  <div><a routerLink="../../"> 🔙 Back to all snippets </a> <b>{{id}}</b> &nbsp;</div>
+  <div>Share on twitter</div>
+
+</div>
+
+
 <div *ngFor="let snippet of snippets;">
   <codelab-snippet [isDemoOpen]="activeSnippet === snippet"
                    [snippet]="snippet"

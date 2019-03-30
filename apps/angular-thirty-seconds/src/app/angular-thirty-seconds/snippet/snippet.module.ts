@@ -6,9 +6,10 @@ import { SnippetComponent } from './snippet.component';
 import { FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { RouterModule } from '@angular/router';
+import { ShareComponent } from './share/share.component';
 
 @NgModule({
-  declarations: [SnippetComponent],
+  declarations: [SnippetComponent, ShareComponent],
   exports: [SnippetComponent],
   entryComponents: [SnippetComponent],
   imports: [

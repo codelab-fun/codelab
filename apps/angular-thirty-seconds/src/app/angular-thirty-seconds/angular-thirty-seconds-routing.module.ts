@@ -4,7 +4,6 @@ import { CreateSnippetComponent } from './create-snippet/create-snippet.componen
 import { SnippetListComponent } from './snippet-list/snippet-list.component';
 import { from, Observable } from 'rxjs';
 import { SnippetListModule } from './snippet-list/snippet-list.module';
-import { SnippetComponent } from './snippet/snippet.component';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +30,7 @@ const routes = RouterModule.forChild(
         {path: '', component: SnippetListComponent},
         {path: 'list', component: SnippetListComponent},
         {path: 'tag/:tag', component: SnippetListComponent},
-        {path: ':id', component: SnippetComponent},
+        {path: ':id', component: SnippetListComponent},
       ],
     },
   ]
