@@ -1,7 +1,30 @@
-<h2>{{title}}</h2>
-<pre>
-  <!-- TODO: Markdown -->
-  {{content}}
-</pre>
-<h2>Demo:</h2>
-<code-demo [(ngModel)]="code" bootstrap="main"></code-demo>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title routerLink="/angular/{{slug}}">{{title}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <markdown [data]="content"></markdown>
+  </mat-card-content>
+
+  <mat-card-actions>
+
+    <div>
+      <button mat-button *ngIf="!isDemoOpen" (click)="isDemoOpen = true; openDemo.emit(true)">
+        ⚙️Click here to open the demo
+      </button>
+    </div>
+    <div>
+      <mat-chip-list>
+        <ng-container *ngFor="let tag of tags; let l = last">
+          <mat-chip mat-button routerLink="/angular/tag/{{tag}}">{{tag}}</mat-chip>
+        </ng-container>
+      </mat-chip-list>
+    </div>
+
+  </mat-card-actions>
+  <div *ngIf="isDemoOpen">
+    <code-demo [ngModel]="code" bootstrap="main"></code-demo>
+  </div>
+
+</mat-card>

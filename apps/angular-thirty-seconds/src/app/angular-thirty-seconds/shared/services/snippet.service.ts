@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, debounceTime, switchMap } from 'rxjs/operators';
 import { SlugifyPipe } from '../../slugify.pipe';
 
@@ -36,6 +36,7 @@ interface CommitInfo {
 }
 
 type Commit = any;
+type PullRequest = any;
 
 interface CreatePullRequest {
   title: string;
@@ -43,7 +44,6 @@ interface CreatePullRequest {
   branchName: string;
 }
 
-type PullRequest = any;
 
 interface GithubAuth {
   additionalUserInfo: {

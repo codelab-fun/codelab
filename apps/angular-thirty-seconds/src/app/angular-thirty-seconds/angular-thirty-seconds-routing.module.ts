@@ -10,9 +10,13 @@ import { SnippetComponent } from './snippet/snippet.component';
   providedIn: 'root'
 })
 export class SnippetsResolver implements Resolve<Observable<any>> {
-  resolve() {
+  resolve(a) {
     return from(fetch('https://gitcdn.xyz/repo/nycJSorg/30-seconds-of-angular/master/data/data.json')
       .then(data => data.json())
+      .then(data => data.map(item => {
+        item.tags.push(item.level);
+        return item;
+      }))
     );
   }
 }
@@ -20,9 +24,16 @@ export class SnippetsResolver implements Resolve<Observable<any>> {
 const routes = RouterModule.forChild(
   [
     {path: 'new', component: CreateSnippetComponent},
-    {path: '', component: SnippetListComponent, resolve: {snippets: SnippetsResolver}},
-    {path: 'list', component: SnippetListComponent, resolve: {snippets: SnippetsResolver}},
-    {path: ':id', component: SnippetComponent, resolve: {snippets: SnippetsResolver}},
+    {
+      path: '',
+      resolve: {snippets: SnippetsResolver},
+      children: [
+        {path: '', component: SnippetListComponent},
+        {path: 'list', component: SnippetListComponent},
+        {path: 'tag/:tag', component: SnippetListComponent},
+        {path: ':id', component: SnippetComponent},
+      ],
+    },
   ]
 );
 

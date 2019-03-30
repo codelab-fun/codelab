@@ -11,6 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'angular',
+    pathMatch: 'full',
+  },
+  {
     path: 'angular',
     loadChildren: './angular-thirty-seconds/angular-thirty-seconds.module#AngularThirtySecondsModule'
   }

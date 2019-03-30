@@ -108,7 +108,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     if (!(this.githubAuth && this.githubAuth.credential)) {
       await this.login();
     }
-
+    console.log(this.snippet);
     this.isPRCreating = true;
     this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
       .subscribe(

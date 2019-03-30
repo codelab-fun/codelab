@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlidesModule } from '@codelab/slides';
 import { AngularThirtySecondsComponent } from './angular-thirty-seconds.component';
-import { SnippetComponent } from './snippet/snippet.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlugifyPipe } from './slugify.pipe';
@@ -20,12 +19,13 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MarkdownModule } from 'ngx-markdown';
 import { SnippetOverviewComponent } from './create-snippet/snippet-modal/snippet-overview.component';
 import { SnippetInfoComponent } from './create-snippet/snippet-info/snippet-info.component';
+import { HttpClientModule } from '@angular/common/http';
 import { SnippetService } from './shared/services/snippet.service';
 import { SnippetSpinnerComponent } from './create-snippet/snippet-spinner/snippet-spinner.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../../codelab/src/environments/environment';
-
+import { SnippetModule } from './snippet/snippet.module';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -34,7 +34,6 @@ export const angularFire = AngularFireModule.initializeApp(
 @NgModule({
   declarations: [
     AngularThirtySecondsComponent,
-    SnippetComponent,
     SlugifyPipe,
     CreateSnippetComponent,
     SnippetOverviewComponent,
@@ -56,7 +55,9 @@ export const angularFire = AngularFireModule.initializeApp(
     MatInputModule,
     MatSelectModule,
     MatChipsModule,
-    MarkdownModule.forRoot()
+    HttpClientModule,
+    MarkdownModule.forRoot(),
+    SnippetModule,
   ],
   providers: [
     SlugifyPipe,
