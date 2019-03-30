@@ -7,6 +7,7 @@ import { NxModule } from '@nrwl/nx';
 import { monacoReady } from '@codelab/code-demos';
 import { HeaderComponent } from './angular-thirty-seconds/header/header.component';
 import { MatButtonModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
     NxModule.forRoot(),
     RouterModule.forRoot(routes),
     MatButtonModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
