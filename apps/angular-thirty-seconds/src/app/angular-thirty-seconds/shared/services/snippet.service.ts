@@ -35,8 +35,7 @@ interface CommitInfo {
   filePath: string;
 }
 
-interface Commit {
-}
+type Commit = any;
 
 interface CreatePullRequest {
   title: string;
@@ -44,8 +43,7 @@ interface CreatePullRequest {
   branchName: string;
 }
 
-interface PullRequest {
-}
+type PullRequest = any;
 
 interface GithubAuth {
   additionalUserInfo: {
