@@ -91,6 +91,7 @@
     "mime": "^2.4.0",
     "mocha": "^5.2.0",
     "monaco-editor": "^0.15.6",
+    "ng-slides": "^1.0.2",
     "ngx-autosize-input": "^2.2.2",
     "ngx-markdown": "^7.1.4",
     "node-sass": "^4.11.0",

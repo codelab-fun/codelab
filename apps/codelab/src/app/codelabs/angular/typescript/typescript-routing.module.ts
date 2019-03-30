@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { TypeScriptComponent } from './typescript/typescript.component';
 import { FullLayoutComponent } from '../../../containers/full-layout';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from 'ng-slides';
 
 const routes = [
   {

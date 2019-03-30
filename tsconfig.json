@@ -23,7 +23,6 @@
       "@codelab/browser": ["libs/browser/src/index.ts"],
       "@codelab/console": ["libs/console/src/index.ts"],
       "@codelab/utils": ["libs/utils/src/index.ts"],
-      "@codelab/slides": ["libs/slides/src/index.ts"],
       "@codelab/angular-ast-viz": ["libs/angular-ast-viz/src/index.ts"],
       "@codelab/angular-slides-to-pdf": [
         "libs/angular-slides-to-pdf/src/index.ts"

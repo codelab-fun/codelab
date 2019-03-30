@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegexComponent } from './regex.component';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from 'ng-slides';
 
 import { LiveModule } from './live';
 

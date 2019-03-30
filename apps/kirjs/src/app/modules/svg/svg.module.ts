@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from 'ng-slides';
 import { FeedbackModule } from '@codelab/feedback';
 import { SvgComponent } from './svg.component';
 
@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 import { CodeDemoModule } from '@codelab/code-demos';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));

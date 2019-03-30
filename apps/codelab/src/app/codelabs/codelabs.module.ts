@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { CodelabsRoutingModule } from './codelabs-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
 
 @NgModule({

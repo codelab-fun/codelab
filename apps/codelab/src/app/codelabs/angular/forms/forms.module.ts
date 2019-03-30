@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from 'ng-slides';
 
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { FormsComponent } from './forms.component';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 
 import { FormsModule } from '@angular/forms';
 

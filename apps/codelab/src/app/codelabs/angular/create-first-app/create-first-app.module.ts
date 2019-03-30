@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from 'ng-slides';
 
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { BrowserWindowModule } from '@codelab/browser';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 
 import { ModeComponent } from './mode/mode.component';
 

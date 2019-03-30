@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from 'ng-slides';
 import { BinaryComponent } from './binary.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +27,7 @@ import { MemoryComponent } from './memory/memory.component';
 import { FeedbackModule } from '@codelab/feedback';
 import { BinaryParserDemoComponent } from './binary-parser-demo/binary-parser-demo.component';
 import { HexdecComponent } from './hexdec/hexdec.component';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 import { AngularFlagsComponent } from './angular-flags/angular-flags.component';
 import { ColorIndexingComponent } from './color-indexing/color-indexing.component';
 import { BitwiseComponent } from './bitwise/bitwise.component';

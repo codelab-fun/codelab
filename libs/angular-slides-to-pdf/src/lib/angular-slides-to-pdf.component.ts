@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as JsPDF from 'jspdf';
-import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { SlidesDeckComponent } from 'ng-slides';
 
 @Component({
   selector: 'slides-codelab-to-pdf',

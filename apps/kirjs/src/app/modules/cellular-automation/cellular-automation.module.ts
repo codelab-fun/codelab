@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from 'ng-slides';
 import { FeedbackModule } from '@codelab/feedback';
 
 import { CellularAutomationComponent } from './cellular-automation.component';
@@ -11,7 +11,7 @@ import { Rule3Component } from './rule3/rule3.component';
 import { RuleComponent } from './rule/rule.component';
 import { Rule8Component } from './rule8/rule8.component';
 import { OscilatorsComponent } from './oscilators/oscilators.component';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(CellularAutomationComponent)

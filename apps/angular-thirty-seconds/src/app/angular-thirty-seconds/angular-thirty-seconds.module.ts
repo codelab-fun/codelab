@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from 'ng-slides';
 import { AngularThirtySecondsComponent } from './angular-thirty-seconds.component';
 import { SnippetComponent } from './snippet/snippet.component';
 import { CodeDemoModule } from '@codelab/code-demos';
