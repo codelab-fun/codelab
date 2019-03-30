@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlidesModule } from '@codelab/slides';
-import { AngularThirtySecondsComponent } from './angular-thirty-seconds.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlugifyPipe } from './slugify.pipe';
@@ -33,7 +32,6 @@ export const angularFire = AngularFireModule.initializeApp(
 
 @NgModule({
   declarations: [
-    AngularThirtySecondsComponent,
     SlugifyPipe,
     CreateSnippetComponent,
     SnippetOverviewComponent,

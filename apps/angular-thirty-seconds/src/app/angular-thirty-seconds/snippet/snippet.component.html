@@ -21,7 +21,7 @@
         </ng-container>
       </mat-chip-list>
     </div>
-
+    <codelab-share [snippet]="fullSnippet"></codelab-share>
   </mat-card-actions>
   <div *ngIf="isDemoOpen">
     <code-demo [ngModel]="code" bootstrap="main"></code-demo>

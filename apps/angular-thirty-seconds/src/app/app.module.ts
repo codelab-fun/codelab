@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NxModule } from '@nrwl/nx';
 import { monacoReady } from '@codelab/code-demos';
 import { HeaderComponent } from './angular-thirty-seconds/header/header.component';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
@@ -28,7 +28,8 @@ const routes: Routes = [
     NxModule.forRoot(),
     RouterModule.forRoot(routes),
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
   ],
   declarations: [
     AppComponent,
