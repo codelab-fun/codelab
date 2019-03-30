@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { angularSampleCode } from '../shared/angular-sample';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'codelab-snippet',
@@ -11,8 +12,12 @@ export class SnippetComponent implements OnInit {
   code = angularSampleCode;
   title: string;
   content: string;
+  private snippets: any;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+    const id = route.snapshot.params.id;
+    this.snippet = route.snapshot.data.snippets.find(a => a.slug === id);
+
   }
 
   @Input() set snippet(snippet) {
@@ -20,7 +25,6 @@ export class SnippetComponent implements OnInit {
     this.content = snippet.content;
     this.code['app.component.ts'] = snippet.componentcode || this.code['app.component.ts'];
     this.code['app.module.ts'] = snippet.modulecode || this.code['app.module.ts'];
-
   }
 
   ngOnInit() {
