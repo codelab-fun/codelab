@@ -1,6 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { angularSampleCode } from '../shared/angular-sample';
 import { ActivatedRoute } from '@angular/router';
+
+
+function stripMarkdown(str = '') {
+
+  return str.replace(/```typescript\s*\n([\s\S]*)\n```/, '$1').trim();
+}
 
 @Component({
   selector: 'codelab-snippet',
@@ -9,22 +15,30 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SnippetComponent implements OnInit {
 
-  code = angularSampleCode;
+  code = {...angularSampleCode};
   title: string;
+  tags: string[];
   content: string;
-  private snippets: any;
+  @Output() openDemo = new EventEmitter();
+  @Input() isDemoOpen = false;
+  slug: string;
 
   constructor(private route: ActivatedRoute) {
     const id = route.snapshot.params.id;
-    this.snippet = route.snapshot.data.snippets.find(a => a.slug === id);
-
+    if (id) {
+      this.snippet = route.snapshot.data.snippets.find(a => a.slug === id);
+    }
   }
 
   @Input() set snippet(snippet) {
-    this.title = snippet.title;
-    this.content = snippet.content;
-    this.code['app.component.ts'] = snippet.componentcode || this.code['app.component.ts'];
-    this.code['app.module.ts'] = snippet.modulecode || this.code['app.module.ts'];
+    if (snippet) {
+      this.slug = snippet.slug;
+      this.title = snippet.title;
+      this.tags = snippet.tags;
+      this.content = snippet.content;
+      this.code['app.component.ts'] = stripMarkdown(snippet.componentcode) || this.code['app.component.ts'];
+      this.code['app.module.ts'] = stripMarkdown(snippet.modulecode) || this.code['app.module.ts'];
+    }
   }
 
   ngOnInit() {

@@ -3,6 +3,7 @@
   background-size: cover;
   height: 75px;
   width: 225px;
+  border: 0 none;
 }
 
 :host {
