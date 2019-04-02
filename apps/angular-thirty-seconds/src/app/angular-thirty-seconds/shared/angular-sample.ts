@@ -1,14 +1,12 @@
 export const angularSampleCode =  {
-  'app.component.ts': `
-import { Component } from '@angular/core';
+  'app.component.ts': `import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
   template: \`<h1>Edit me </h1>\`
 })
 export class AppComponent {}`,
-  'app.module.ts': `
-import { BrowserModule } from '@angular/platform-browser';
+  'app.module.ts': `import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
@@ -19,8 +17,7 @@ import { AppComponent } from './app.component';
 })
 export class AppModule {}`,
 
-  'main.ts': `
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+  'main.ts': `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);

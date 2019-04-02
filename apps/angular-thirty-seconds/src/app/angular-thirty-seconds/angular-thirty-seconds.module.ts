@@ -20,7 +20,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MarkdownModule } from 'ngx-markdown';
 import { SnippetOverviewComponent } from './create-snippet/snippet-modal/snippet-overview.component';
 import { SnippetInfoComponent } from './create-snippet/snippet-info/snippet-info.component';
-import { HttpClientModule } from '@angular/common/http';
 import { SnippetService } from './shared/services/snippet.service';
 import { SnippetSpinnerComponent } from './create-snippet/snippet-spinner/snippet-spinner.component';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -57,8 +56,6 @@ export const angularFire = AngularFireModule.initializeApp(
     MatInputModule,
     MatSelectModule,
     MatChipsModule,
-    MarkdownModule,
-    HttpClientModule,
     MarkdownModule.forRoot()
   ],
   providers: [
