@@ -3,7 +3,10 @@
     <li class="post" *ngFor="let post of posts$ | async">
       <p class="head"><span class="title">{{ post.title }}</span> <span class="date">{{ post.date }}</span></p>
       <p>{{ post.author }}</p>
-      <div [innerHTML]="post.preview"></div>
+      <div class="container">
+        <div class="text" [innerHTML]="post.text"></div>
+        <div class="gradient"></div>
+      </div>
     </li>
   </ul>
 </div>

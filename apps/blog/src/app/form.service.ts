@@ -25,29 +25,22 @@ export class FormService {
     private router: Router) { }
 
     getPreview(text) {
-      const all = text.length;
-      const tag = text.indexOf('<');
       const sentences = text.split('.').slice(0, 3);
       let s = 0;
       for (let i = 0; i < sentences.length; i++) {
         s += sentences[i].length;
       }
-      const limit = 4;
+      const limit = 200;
       const a = [];
       a.push(s);
-      a.push(tag);
+      a.push(text.indexOf('<'));
       a.push(limit);
-      a.push(all);
-
+      a.push(text.length);
       a.sort();
       console.log(a);
-
-      let i = 0;
-      while (a[i] < 0) {
-        i++;
-      }
+      let i = 0; while (a[i] < 0) {i++; }
       const p = a[i];
-      console.log('p: ', p);
+      console.log(p);
       return text.substring(0, p) + '...';
     }
 
@@ -63,7 +56,7 @@ export class FormService {
       preview: this.getPreview(text),
       date: new Date().toUTCString()
     };
-    console.log(this.getPreview(text));
+    // console.log(this.getPreview(text));
     return this.repo$.push(post);
   }
 }
