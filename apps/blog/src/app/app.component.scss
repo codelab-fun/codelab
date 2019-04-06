@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Droid Sans';
+  src: url('/assets/fonts/droid-sans/DroidSans.ttf') format("opentype");
+}
+
+@font-face {
+  font-family: 'Droid Sans Bold';
+  src: url('/assets/fonts/droid-sans/DroidSans-Bold.ttf') format("opentype");
+}
+
+
+h2 {
+
+  font-family: 'Droid Sans', 'Droid Sans Bold';
+  color: white;
+  text-align: center;
+  height: 70px;
+  background-image: linear-gradient(to right, red , white);
+  width: 90%;
+}
+div {
+  width: 100%;
+  display: flex;
+}
+
+span {
+  margin:auto;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+img {
+  height: 100px;
+  margin-left: auto;
+}

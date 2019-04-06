@@ -1,5 +1,5 @@
 
-<h3>Post to blog</h3>
+<h3>Tell us what's new</h3>
 <form class="container" 
   [formGroup]="myform"
   (ngSubmit)="onSubmit()">
@@ -25,4 +25,6 @@
 
   <button type="submit" class="btn btn-primary form-control" [attr.disabled]="myform.valid ? null : true"  >Submit</button>
 </form>
+
+
 

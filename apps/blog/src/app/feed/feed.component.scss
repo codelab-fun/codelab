@@ -1,21 +1,37 @@
+@font-face {
+  font-family: 'Droid Sans';
+  src: url('/assets/fonts/droid-sans/DroidSans.ttf') format("opentype");
+}
+
 li {
-    
+  font-family: 'Droid Sans';
 }
 
 ul {
-    list-style: none;
-   padding: 0px;
+  list-style: none;
+  padding: 0px;
 }
 
 .post {
-    border-style: solid;
+  border-style: solid;
   border-color: red;
   margin-right: 5px;
-  padding-right: 5px;
   margin: 5px;
 }
 
 .date {
-    float: right;
-    margin-right: 5px;
+  float: right;
+  margin-right: 5px;
+}
+
+.title {
+  margin-top: 0px;
+  margin-top:0px;
+  padding-left: 5px;
+}
+
+.head {
+  height: 30px;
+  background-color: grey;
+  margin-top: 0px;
 }

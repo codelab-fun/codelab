@@ -10,12 +10,14 @@ import { Post } from '../form/form.component';
 })
 export class FeedComponent implements OnInit {
   posts$: Observable<Post[]>;
-  constructor(
-    private formService: FormService
-  ) {
-    this.posts$ = this.formService.repo$.valueChanges();
+
+  constructor(private formService: FormService) {
+      this.posts$ = this.formService.repo$.valueChanges();
   }
 
+  revert() {
+
+  }
   ngOnInit() {
   }
 

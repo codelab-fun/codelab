@@ -1,9 +1,9 @@
 <div >
   <ul>
     <li class="post" *ngFor="let post of posts$ | async">
-      <p>{{ post.title }} <span class="date">{{ post.date }}</span></p>
+      <p class="head"><span class="title">{{ post.title }}</span> <span class="date">{{ post.date }}</span></p>
       <p>{{ post.author }}</p>
-      <p>{{ post.text }}</p>
+      <div [innerHTML]="post.preview"></div>
     </li>
   </ul>
 </div>
