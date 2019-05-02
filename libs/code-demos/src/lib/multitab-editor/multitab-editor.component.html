@@ -1,6 +1,6 @@
 <mat-sidenav-container class="mat-sidenav-container">
     <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-        <ng-container [ngTemplateOutlet]="filetreeTemplate"></ng-container>
+        <codelab-file-tree (fileSelect)="updateActiveFileSelected($event)" [activeModel]="openModels[activeTabIndex]" [dataSource]="dataSource" [treeControl]="treeControl"></codelab-file-tree>
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -28,30 +28,5 @@
                 </div>
             </mat-tab>
         </mat-tab-group>
-    </div>
-</ng-template>
-
-<ng-template #filetreeTemplate>
-    <div class="file-tree-container">
-        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree" #tree>
-            <!-- This is the tree node template for leaf nodes -->
-            <mat-tree-node *matTreeNodeDef="let node">
-                <li class="mat-tree-node" [class.file-node]="!node.children.length" [class.active-tree-node]="isActiveFile(node) && !node.children.length" (click)="updateActiveFileSelected(node)">
-                    <div *ngIf="!node.children.length" class="file-icon file-icon__folder-typescript"></div> {{node.name}}
-                </li>
-            </mat-tree-node>
-            <!-- This is the tree node template for expandable nodes -->
-            <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-                <li>
-                    <div class="mat-tree-node">
-                        <div *ngIf="node.children.length" class="file-icon file-icon__folder-opened"></div>
-                        {{node.name}}
-                    </div>
-                    <ul>
-                        <ng-container matTreeNodeOutlet></ng-container>
-                    </ul>
-                </li>
-            </mat-nested-tree-node>
-        </mat-tree>
     </div>
 </ng-template>

@@ -229,11 +229,6 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   }
 
 
-  isActiveFile(node: FileFolderNode) {
-    const activeModel = this.openModels[this.activeTabIndex];
-    return activeModel && activeModel.path === node.path;
-  }
-
   private updateOpenModels() {
     if (this.models) {
       this.openModels = this.files.map((file, index) => {

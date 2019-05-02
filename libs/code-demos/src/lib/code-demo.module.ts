@@ -16,6 +16,7 @@ import { CodeDemoEditorAutoFoldingDirective } from './code-demo-editor/directive
 import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives/code-demo-editor.line-change.directive';
 
 import {MatTreeModule} from '@angular/material/tree';
+import { FileTreeComponent } from './multitab-editor/file-tree/file-tree.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import {MatTreeModule} from '@angular/material/tree';
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
+    FileTreeComponent
   ],
   exports: [
     FilePathComponent,
