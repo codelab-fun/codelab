@@ -5,6 +5,14 @@
       "public": "dist/apps/codelab",
       "rewrites": [
         {
+          "source": "/ru/**",
+          "destination": "/ru/index.html"
+        },
+        {
+          "source": "/30/**",
+          "destination": "/30/index.html"
+        },
+        {
           "source": "**",
           "destination": "/index.html"
         }
@@ -17,6 +25,10 @@
         {
           "source": "/ru/**",
           "destination": "/ru/index.html"
+        },
+        {
+          "source": "/30/**",
+          "destination": "/30/index.html"
         },
         {
           "source": "**",

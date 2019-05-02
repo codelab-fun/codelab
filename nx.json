@@ -52,6 +52,18 @@
     },
     "firebase-login": {
       "tags": []
+    },
+    "angular-thirty-seconds": {
+      "tags": []
+    },
+    "angular-thirty-seconds-e2e": {     
+      "tags": []
+    },
+    "blog": {
+      "tags": []
+    },
+    "blog-e2e": {
+      "tags": []
     }
   }
 }

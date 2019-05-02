@@ -64,6 +64,8 @@ img .angular {
   padding: 2vw;
   margin-bottom: 2vw;
   cursor: pointer;
+  border: 1px #999 solid;
+  border-radius: 10px;
 }
 
 .learn-box img {

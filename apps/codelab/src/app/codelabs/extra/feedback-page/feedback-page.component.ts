@@ -43,18 +43,28 @@ function group([feedback, grouping]) {
   throw new Error('Unknown grouping: ' + grouping);
 }
 
-function filter([feedback, filterName]) {
+function filter([feedback, filterName, [fromDate, toDate]]) {
+  let result;
   if (filterName === 'all') {
-    return feedback;
+    result = feedback;
   }
 
   if (filterName === 'done') {
-    return feedback.filter(message => message.isDone);
+    result = feedback.filter(message => message.isDone);
   }
 
   if (filterName === 'notDone') {
-    return feedback.filter(message => !message.isDone);
+    result = feedback.filter(message => !message.isDone);
   }
+
+  const fromMs = fromDate ? new Date(fromDate).getTime() : null;
+  const toMs = toDate ? new Date(toDate).getTime() + 86400000 : null; // add 24hrs to include the day of upper bound
+
+  result = result.filter(msg => {
+    const timestampMs = new Date(msg.timestamp).getTime();
+    return (fromMs ? timestampMs >= fromMs : true) && (toMs ? timestampMs <= toMs : true);
+  });
+  return result;
 }
 
 @Component({
@@ -65,6 +75,7 @@ function filter([feedback, filterName]) {
 export class FeedbackPageComponent implements OnInit {
   messages$: Observable<{ key: string; value: Message }[]>;
   filter$ = new BehaviorSubject<Filter>('notDone');
+  dateFilter$ = new BehaviorSubject<[string, string]>(['', '']);
   group$ = new BehaviorSubject<Grouping>('href');
   githubAuth;
   private feedback$: AngularFireList<any[]>;
@@ -161,7 +172,8 @@ Slide: [Local](http://localhost:4200${
     this.feedback$ = this.database.list('/feedback');
     const filteredMessages$ = combineLatest(
       this.feedback$.snapshotChanges().pipe(map(normalize)),
-      this.filter$
+      this.filter$,
+      this.dateFilter$
     ).pipe(map(filter));
     this.messages$ = combineLatest(filteredMessages$, this.group$).pipe(
       map(group)
