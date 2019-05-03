@@ -122,6 +122,13 @@ const routes = [
         description: 'Learn about structural directives in angular',
         page: 'bonus',
         prod: true
+      },
+      {
+        path: 'playground',
+        loadChildren:
+          './playground/playground.module#PlaygroundModule',
+        page: 'bonus',
+        prod: true
       }
     ]
   }
@@ -137,4 +144,5 @@ export const menuRoutes = routes[0].children
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AngularRoutingModule {}
+export class AngularRoutingModule {
+}
