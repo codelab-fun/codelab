@@ -1,5 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
-import { FileFolderNode } from '../multitab-editor.utilities';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  EventEmitter,
+  Output
+} from '@angular/core';
+import { FileFolderNode, createFolderStructure } from './file-tree.utils';
+import { MatTreeNestedDataSource } from '@angular/material';
+import { NestedTreeControl } from '@angular/cdk/tree';
 
 @Component({
   selector: 'codelab-file-tree',
@@ -7,11 +16,25 @@ import { FileFolderNode } from '../multitab-editor.utilities';
   styleUrls: ['./file-tree.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FileTreeComponent implements OnInit {
+export class FileTreeComponent {
+  /**
+   * The following items are for the structure of the material tree nodes.
+   *
+   * Used to create data structure required by the material tree component.
+   */
+  dataSource = new MatTreeNestedDataSource<any>();
+  fileRootNode: FileFolderNode[] = [];
+  treeControl = new NestedTreeControl<any>(node => node.children);
+  activeTabIndex = 0;
 
-  @Input() dataSource: any;
-
-  @Input() treeControl: any;
+  /** @TODO: consider passing a reducer instead */
+  @Input() set fileNames(files) {
+    createFolderStructure(
+      this.fileRootNode,
+      files.filter(f => !f.match(new RegExp(`^.*\.(execute)$`)))
+    );
+    this.dataSource.data = [...this.fileRootNode];
+  }
 
   @Input() activeModel: any;
 
@@ -19,17 +42,11 @@ export class FileTreeComponent implements OnInit {
 
   protected hasChild = (_: number, node: any) => !!node.children && node.children.length > 0;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   isActiveFile(node: FileFolderNode) {
-    return this.activeModel && (this.activeModel.path === node.path);
+    return this.activeModel && this.activeModel.path === node.path;
   }
 
   updateActiveFileSelected(node) {
     this.fileSelect.emit(node);
   }
-
 }

@@ -15,7 +15,7 @@ import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 import { NestedTreeControl } from '@angular/cdk/tree';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
-import { createFolderStructure, FileFolderNode } from './multitab-editor.utilities';
+import { createFolderStructure, FileFolderNode } from './file-tree/file-tree.utils';
 declare const monaco;
 const extenstionToLang = {
   ts: 'typescript',
@@ -59,16 +59,8 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   openModels: MonacoModel[] = [];
   fileNames: string[] = [];
 
-/**
- * The following items are for the structure of the material tree nodes.
- *
- * Used to create data structure required by the material tree component.
- */
-  dataSource = new MatTreeNestedDataSource<any>();
-  fileRootNode: FileFolderNode[] = [];
-  treeControl = new NestedTreeControl<any>(node => node.children);
-  opened = true;
   activeTabIndex = 0;
+  opened = true;
 
   changeSubject = new Subject();
 
@@ -76,9 +68,6 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   private models: MonacoModel[];
   private onChange: any;
   private subscription: Subscription;
-
-  /** Determines if tree node has a child. Utility for material tree component */
-  hasChild = (_: number, node: any) => !!node.children && node.children.length > 0;
 
   constructor(
     readonly monacoConfigService: MonacoConfigService,
@@ -171,8 +160,6 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
     if (code) {
       this.code = { ...code };
       this.fileNames = Object.keys(this.code);
-      createFolderStructure(this.fileRootNode, this.fileNames.filter(f => !f.match(new RegExp(`^.*\.(execute)$`))));
-      this.dataSource.data = [...this.fileRootNode];
       this.generateModels();
     }
   }
