@@ -1,17 +1,3 @@
-@font-face {
-  font-family: 'Droid Sans';
-  src: url('/assets/fonts/droid-sans/DroidSans.ttf') format("opentype");
-}
-
-@font-face {
-  font-family: 'Droid Sans Bold';
-  src: url('/assets/fonts/droid-sans/DroidSans-Bold.ttf') format("opentype");
-}
-
-h3 {
-  font-family: 'Droid Sans', 'Droid Sans Bold';
-}
-
 .container {
   display: flex;
   flex-direction: column;

@@ -25,9 +25,9 @@ export interface Post {
 export class FormComponent implements OnInit {
 
   myform: FormGroup;
-  title: FormControl;
-  author: FormControl;
-  text: FormControl;
+  title = new FormControl('', Validators.required);
+  author = new FormControl('', Validators.required);
+  text = new FormControl('', Validators.required);
   date: Date;
   post: Observable<Post>;
   statusMessage = '';
@@ -40,15 +40,7 @@ export class FormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.createFormControls();
-    this.createForm();
-  }
-
-  createFormControls() {
-    this.title = new FormControl('', Validators.required);
-    this.author = new FormControl('', Validators.required);
-    this.text = new FormControl('', Validators.required);
-
+     this.createForm();
   }
 
   createForm() {

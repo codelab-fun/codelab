@@ -1,18 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Post } from './form/form.component';
 import { Observable } from 'rxjs';
-import { getRef } from '@angular/fire/database/utils';
-import { map, switchMap } from 'rxjs/operators';
-
-
-function normalize(posts: Array<any>) {
-  return posts.map(item => ({
-    ...(item.payload && item.payload.val()),
-    key: item.key
-  }));
-}
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +25,10 @@ export class FormService {
       date: new Date().toUTCString()
     };
     return this.repo$.push(post);
+  }
+
+  getPost(id: string): Observable<any> {
+    console.log(id);
+    return this.database.object(`/posts/${id}`).valueChanges();
   }
 }

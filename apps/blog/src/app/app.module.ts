@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormComponent } from './form/form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -17,19 +17,29 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FormService } from './form.service';
 import { FeedComponent } from './feed/feed.component';
+import { PostComponent } from './post/post.component';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
 );
 
+const appRoutes: Routes = [
+  {path: 'post/:id', component: PostComponent},
+  {path: '', component: FeedComponent},
+  {path: 'form', component: FormComponent}
+];
+
 // debugger;
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, FeedComponent],
+  declarations: [AppComponent, FormComponent, FeedComponent, PostComponent],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }),
     BrowserModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
