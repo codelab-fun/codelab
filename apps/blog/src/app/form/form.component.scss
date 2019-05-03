@@ -4,7 +4,7 @@
   width: 40%;
 }
 
-.container > * {
+input, textarea {
   width: 600px;
 }
 
@@ -13,6 +13,6 @@
 }
 
 textarea {
-  overflow:auto;
+  overflow: auto;
   resize: vertical;
 }

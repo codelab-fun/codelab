@@ -1,34 +1,29 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { Post } from './form/form.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
-  repo$: AngularFireList<any> = this.database.list('/posts');
+  repo$: AngularFireList<Post> = this.database.list('/posts');
 
   constructor(
-    private database: AngularFireDatabase,
-    private router: Router) { }
+    private database: AngularFireDatabase) {
+  }
 
   addPost(
-    title: string,
-    author: string,
-    text: string
+    post: Post
   ): any {
-    const post = {
-      title,
-      author,
-      text,
+    const newpost: Post = {
+      ...post,
       date: new Date().toUTCString()
     };
-    return this.repo$.push(post);
+    return this.repo$.push(newpost);
   }
 
   getPost(id: string): Observable<any> {
-    console.log(id);
     return this.database.object(`/posts/${id}`).valueChanges();
   }
 }

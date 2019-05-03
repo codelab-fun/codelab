@@ -29,14 +29,11 @@ const appRoutes: Routes = [
   {path: 'form', component: FormComponent}
 ];
 
-// debugger;
-
 @NgModule({
   declarations: [AppComponent, FormComponent, FeedComponent, PostComponent],
   imports: [
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }),
+      appRoutes),
     BrowserModule,
     NxModule.forRoot(),
 
