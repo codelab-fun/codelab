@@ -25,7 +25,6 @@ tags:
 ${arrayToMarkdownList(value.tags)}
 `);
 
-
   if (value.links) {
     result.push(`
 links:

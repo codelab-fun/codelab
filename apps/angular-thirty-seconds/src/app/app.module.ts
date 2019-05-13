@@ -11,7 +11,6 @@ import { CreateSnippetComponent } from './create-snippet/create-snippet.componen
 import { CreateSnippetModule } from './create-snippet/create-snippet.module';
 import { environment } from '../../../codelab/src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
-import { SlugifyPipe } from './shared/slugify.pipe';
 
 
 export const angularFire = AngularFireModule.initializeApp(
@@ -20,10 +19,6 @@ export const angularFire = AngularFireModule.initializeApp(
 
 
 const routes: Routes = [
-  {
-    path: 'angular',
-    loadChildren: './angular-thirty-seconds/angular-thirty-seconds.module#AngularThirtySecondsModule'
-  },
   {
     path: '',
     component: CreateSnippetComponent,
@@ -43,7 +38,6 @@ const routes: Routes = [
   ],
   declarations: [
     AppComponent,
-    SlugifyPipe,
   ],
   providers: [
     {
