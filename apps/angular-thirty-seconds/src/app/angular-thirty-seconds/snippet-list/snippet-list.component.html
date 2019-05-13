@@ -1,8 +1,0 @@
-<div *ngFor="let snippet of snippets; let i = index">
-  <h2 [routerLink]="snippet.slug">🔥 {{snippet.title}}</h2>
-  <markdown [data]="snippet.content"></markdown>
-  <button mat-button *ngIf="i !== demoIndex" (click)="demoIndex=i">⚙️Click here to open the demo</button>
-  <div *ngIf="i === demoIndex">
-    <codelab-snippet-demo [code]="snippet"></codelab-snippet-demo>
-  </div>
-</div>

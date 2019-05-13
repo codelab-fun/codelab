@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, debounceTime, switchMap } from 'rxjs/operators';
-import { SlugifyPipe } from '../../slugify.pipe';
+import slugify from 'slugify';
 
 interface User {
   login: string;
@@ -174,7 +174,6 @@ export class SnippetService {
 
   constructor(
     private github: GitHubService,
-    private slugify: SlugifyPipe
   ) {
   }
 
@@ -226,7 +225,7 @@ export class SnippetService {
   }
 
   private toLowerCaseAndSlugify(str: string) {
-    return this.slugify.transform(str.toLowerCase());
+    return slugify(str.toLowerCase());
   }
 }
 

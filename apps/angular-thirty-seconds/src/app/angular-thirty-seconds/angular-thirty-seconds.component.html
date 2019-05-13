@@ -1,7 +1,7 @@
 <slide-deck *ngIf="data" slideShortcuts slidesRouting slides-tracking>
   <ng-container *ngFor="let slide of data">
-    <div *slide [id]="slide.title | slugify">
-      {{slide.title|slugify}}
+    <div *slide [id]="slide.title">
+      {{slide.title}}
       <codelab-snippet [snippet]="slide"></codelab-snippet>
     </div>
   </ng-container>
