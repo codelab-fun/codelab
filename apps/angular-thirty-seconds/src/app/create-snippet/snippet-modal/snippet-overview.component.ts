@@ -2,11 +2,12 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { SubscriptionLike } from 'rxjs/internal/types';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 import { SnippetService } from '../../shared/services/snippet.service';
 
-function getTagsStringList(tagsArray: Array<string>): string {
-  return tagsArray.map(x => `- ${x}`).join(`\n`);
+
+function arrayToMarkdownList(tagsArray: Array<string>): string {
+  return tagsArray.filter(a => a).map(x => `- ${x}`).join(`\n`);
 }
 
 function getSnippet(value): string {
@@ -21,9 +22,16 @@ author: ${value.author || `*your github username will be added*`}
 level: ${value.level}
 
 tags:
-${getTagsStringList(value.tags)}
+${arrayToMarkdownList(value.tags)}
+`);
 
----`);
+  if (value.links) {
+    result.push(`
+links:
+${arrayToMarkdownList(value.links.split('\n'))}`);
+  }
+
+  result.push(`---`);
 
   result.push(`
 # Content
@@ -33,13 +41,6 @@ ${value.content}`);
     result.push(`
 # Bonus
 ${value.bonus}`);
-  }
-
-  if (value.links) {
-    result.push(`
-# Links
-${value.links}`
-    );
   }
 
   if (value.demo['app.component.ts']) {

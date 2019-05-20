@@ -5,29 +5,39 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NxModule } from '@nrwl/nx';
 import { monacoReady } from '@codelab/code-demos';
-import { HeaderComponent } from './angular-thirty-seconds/header/header.component';
 import { MatButtonModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateSnippetComponent } from './create-snippet/create-snippet.component';
+import { CreateSnippetModule } from './create-snippet/create-snippet.module';
+import { environment } from '../../../codelab/src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+
+
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
+
 
 const routes: Routes = [
   {
-    path: 'angular',
-    loadChildren: './angular-thirty-seconds/angular-thirty-seconds.module#AngularThirtySecondsModule'
-  }
+    path: '',
+    component: CreateSnippetComponent,
+  },
 ];
 
 @NgModule({
   imports: [
+    angularFire,
     BrowserModule,
     BrowserAnimationsModule,
     NxModule.forRoot(),
     RouterModule.forRoot(routes),
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    CreateSnippetModule,
   ],
   declarations: [
     AppComponent,
-    HeaderComponent,
   ],
   providers: [
     {
