@@ -83,7 +83,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   isPRCreating = false;
 
   snippet: string;
-  private snippetWithFormat: string;
+  snippetWithFormat: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -111,7 +111,6 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   async onSubmit() {
     console.log('You can copy the snippet here: ', this.snippet);
 
-    return ;
     if (!(this.githubAuth && this.githubAuth.credential)) {
       await this.login();
     }
@@ -135,6 +134,5 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
     this.data['formValue']['author'] = this.githubAuth.additionalUserInfo.username;
     this.snippet = getSnippet(this.data['formValue']);
-    //this.snippetWithFormat = this.snippet.rep
   }
 }

@@ -185,7 +185,7 @@ export class SnippetService {
     this.github.setToken(githubAuth.credential.accessToken);
 
     const branchName = `new_snippet_${this.toLowerCaseAndSlugify(title)}`;
-    const filePath = `contents/new_snippet_${this.toLowerCaseAndSlugify(title)}.md`;
+    const filePath = `contents/snippets/${this.toLowerCaseAndSlugify(title)}.md`;
 
     const user: User = githubAuth.additionalUserInfo.profile;
     return this.github.getRepo(this.owner, this.repoName).pipe(
