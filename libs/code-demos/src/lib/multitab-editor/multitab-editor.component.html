@@ -1,42 +1,36 @@
-<div
-  class="wrapper"
-  *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
->
-  <div class="panel" *ngIf="displayFileName">
-    <code-demo-file-path
-      style="margin: 1px 0 10px 0;display: block;"
-      [path]="openModels[i].path"
-    ></code-demo-file-path>
-  </div>
-  <div class="panel" *ngIf="allowSwitchingFiles">
-    <mat-form-field>
-      <mat-select
-        [ngModel]="openModels[i]"
-        (selectionChange)="handleFileChange(i, $event)"
-      >
-        <mat-select-trigger>
-          <code-demo-file-path
-            [path]="openModels[i].path"
-          ></code-demo-file-path>
-        </mat-select-trigger>
+<mat-sidenav-container class="mat-sidenav-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <codelab-file-tree 
+            (fileSelect)="updateActiveFileSelected($event)" 
+            [activeModel]="openModels[activeTabIndex]" 
+            [fileNames]="fileNames"
+        ></codelab-file-tree>
+    </mat-sidenav>
 
-        <mat-option *ngFor="let m of models" [value]="m">
-          <code-demo-file-path [path]="m.path"></code-demo-file-path>
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button
-      mat-button
-      *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]"
-      style="cursor: pointer"
-      (click)="loadSolution(model.path)"
-    >
-      Load solution
-    </button>
-  </div>
+    <mat-sidenav-content>
+        <div class="filenav-trigger" (click)="opened = !opened" i18n>File Nav</div>
+        <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 
-  <code-demo-editor-from-model
-    [model]="model.model"
-    [codeDemoHighlight]="model.highlight"
-  ></code-demo-editor-from-model>
-</div>
+
+<ng-template #contentTemplate>
+    <div class="filenav-tabs">
+        <mat-tab-group [selectedIndex]="activeTabIndex" (selectedTabChange)="onSelectedTabChange($event)" class="tab-group">
+            <mat-tab *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index">
+                <!-- LABEL of the TAB -->
+                <ng-template mat-tab-label>
+                    <span>{{getFileOnlyFromPath(model.path)}}</span>
+                    <div class="file-icon file-icon__close cta-close-tab" (click)="onCloseTab(model)"></div>
+                </ng-template>
+                <!-- CONTENT of the tab -->
+                <button i18n class="load-solution-cta" *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]" (click)="loadSolution(model.path)">
+                Load solution
+              </button>
+                <div class="code-demo-container">
+                    <code-demo-editor-from-model [model]="model.model" [codeDemoHighlight]="model.highlight"></code-demo-editor-from-model>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</ng-template>

@@ -1,0 +1,61 @@
+$file-node-padding-left: 8px;
+$file-node-height: 24px;
+:host {
+    min-width: 30%;
+}
+
+ul,
+li,
+.mat-tree-node {
+    font-size: 12px !important;
+    margin: 0 !important;
+    list-style-type: none !important;
+}
+
+.tree ul ul,
+.tree ul li,
+.tree li ul {
+    padding-left: $file-node-padding-left;
+}
+
+.mat-tree-node {
+    min-height: $file-node-height;
+    height: $file-node-height;
+    padding-left: $file-node-padding-left;
+    cursor: pointer;
+}
+
+.active-tree-node {
+    background: rgba(224, 224, 224, .7);
+    font-weight: 500;
+}
+
+.file-node:hover {
+    background: rgba(224, 224, 224, 1);
+}
+
+.active-tree-node {
+    background: rgba(224, 224, 224, .7);
+    font-weight: 500;
+}
+
+.file-icon {
+    display: block;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position-y: center;
+    background-position-x: left;
+    &__folder-opened {
+        background-image: url(../icons/folder-opened.svg);
+        background-size: 14px 14px;
+    }
+    &__folder-typescript {
+        background-image: url(../icons/typescriptlang-icon.svg);
+    }
+    &__close {
+        background-image: url(../icons/close.svg);
+    }
+}

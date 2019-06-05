@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'codelab-root',
   template: `
     <div class="wrapper">
+      <codelab-header></codelab-header>
       <router-outlet></router-outlet>
     </div>`,
 

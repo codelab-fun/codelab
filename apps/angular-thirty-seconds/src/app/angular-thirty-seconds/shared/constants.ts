@@ -20,5 +20,7 @@ export const TAGS_LIST = [
   'performance'
 ];
 
-export const LINKS_PLACEHOLDER = `https://angular.io/
-https://www.typescriptlang.org/`;
+export const LINKS_PLACEHOLDER = `
+https://angular.io/\n
+https://www.typescriptlang.org/\n
+https://t.me/angular_ru`;

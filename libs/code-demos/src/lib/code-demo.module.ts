@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatSelectModule, MatIconModule, MatSidenavModule, MatTabsModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '@codelab/browser';
 import { CodeDemoComponent } from './code-demo/code-demo.component';
@@ -15,13 +15,20 @@ import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
 import { CodeDemoEditorAutoFoldingDirective } from './code-demo-editor/directives/code-demo-editor.auto-folding.directive';
 import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives/code-demo-editor.line-change.directive';
 
+import {MatTreeModule} from '@angular/material/tree';
+import { FileTreeComponent } from './multitab-editor/file-tree/file-tree.component';
+
 @NgModule({
   imports: [
     CommonModule,
     BrowserWindowModule,
     MatSelectModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatTreeModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatTabsModule
   ],
   declarations: [
     MultitabEditorComponent,
@@ -33,7 +40,8 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
+    FileTreeComponent
   ],
   exports: [
     FilePathComponent,
@@ -45,7 +53,9 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
+    MatTreeModule,
+    MatIconModule
   ]
 })
 export class CodeDemoModule {}

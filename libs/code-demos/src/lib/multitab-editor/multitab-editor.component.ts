@@ -1,18 +1,13 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  forwardRef,
-  Input,
-  OnDestroy
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnDestroy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
+import { FileFolderNode } from './file-tree/file-tree.utils';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
+
 
 declare const monaco;
 const extenstionToLang = {
@@ -33,7 +28,7 @@ type Code = Record<string, string>;
 @Component({
   selector: 'code-demo-multitab-editor',
   templateUrl: './multitab-editor.component.html',
-  styleUrls: ['./multitab-editor.component.css'],
+  styleUrls: ['./multitab-editor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -43,21 +38,28 @@ type Code = Record<string, string>;
     }
   ]
 })
-export class MultitabEditorComponent
-  implements OnDestroy, ControlValueAccessor {
+export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor {
+
   @Input() code: Code = {};
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
   @Input() highlights = {};
+
   @Input() debounce = 250;
+
   files = [];
-  openModels: MonacoModel[];
+  openModels: MonacoModel[] = [];
+  fileNames: string[] = [];
+
+  activeTabIndex = 0;
+  opened = false; // should be set afterViewContentInit if setting to open
+
   changeSubject = new Subject();
 
-  private onChange: any;
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
+  private onChange: any;
   private subscription: Subscription;
 
   constructor(
@@ -87,7 +89,7 @@ export class MultitabEditorComponent
       m.model.setValue(m.model.getValue());
       delete this.openModels[index].editorIndex;
       m.editorIndex = index;
-      this.openModels[index] = m;
+      this.openModels[index] = {...m};
       this.openModels = [...this.openModels];
       this.cdr.markForCheck();
     }
@@ -150,6 +152,7 @@ export class MultitabEditorComponent
   writeValue(code: Code): void {
     if (code) {
       this.code = { ...code };
+      this.fileNames = Object.keys(this.code);
       this.generateModels();
     }
   }
@@ -162,9 +165,49 @@ export class MultitabEditorComponent
     }
   }
 
-  trackByEditorIndex(index, model) {
-    return model.editorIndex;
+  trackByEditorIndex(index: number, model: MonacoModel) {
+    return model.path;
   }
+
+  getFileOnlyFromPath(path: string): string {
+    const pathFrags = path.split('/');
+    return pathFrags.length > 0 ? pathFrags.pop() : path;
+  }
+
+  getActiveModel(pathName: string) {
+    return (this.models.find(m => m.path === pathName) || {model: null, highlight: null});
+  }
+
+  onSelectedTabChange({ index }) {
+    const model = this.openModels[index];
+    if (model) {
+      this.updateActiveFileSelected(model);
+    }
+  }
+
+
+  updateActiveFileSelected(model: FileFolderNode|MonacoModel) {
+    const alreadyShownInTab = this.openModels.findIndex(v => v.path === model.path);
+
+    if (alreadyShownInTab < 0) {
+      const monacoModel = this.models.find(m => m.path === model.path);
+      this.openModels = [...this.openModels, monacoModel];
+      this.activeTabIndex = this.openModels.length - 1;
+    } else {
+      this.activeTabIndex = alreadyShownInTab;
+    }
+  }
+
+
+  onCloseTab(model: FileFolderNode) {
+    const index = this.openModels.findIndex(m => m.path === model.path);
+    if (index === this.openModels.length - 1) {
+      this.activeTabIndex--;
+    }
+
+    this.openModels = this.openModels.filter(m => m.path !== model.path);
+  }
+
 
   private updateOpenModels() {
     if (this.models) {
@@ -173,7 +216,6 @@ export class MultitabEditorComponent
         model.editorIndex = index;
         return model;
       });
-      this.cdr.markForCheck();
     }
   }
 
