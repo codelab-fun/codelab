@@ -8,7 +8,7 @@ import { CodelabComponentsModule } from '../components/codelab-components.module
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
 import { SlidesModule } from '@codelab/slides';
 
-import { NxModule } from '@nrwl/nx';
+import { NxModule } from '@nrwl/angular';
 
 import { FullLayoutComponent } from '../containers';
 

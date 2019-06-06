@@ -3,7 +3,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NxModule } from '@nrwl/nx';
+import { NxModule } from '@nrwl/angular';
 import { monacoReady } from '@codelab/code-demos';
 import { MatButtonModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,17 +12,15 @@ import { CreateSnippetModule } from './create-snippet/create-snippet.module';
 import { environment } from '../../../codelab/src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 
-
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
 );
 
-
 const routes: Routes = [
   {
     path: '',
-    component: CreateSnippetComponent,
-  },
+    component: CreateSnippetComponent
+  }
 ];
 
 @NgModule({
@@ -34,11 +32,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatButtonModule,
     HttpClientModule,
-    CreateSnippetModule,
+    CreateSnippetModule
   ],
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   providers: [
     {
       provide: APP_INITIALIZER,
@@ -48,5 +44,4 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -1,8 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/angular-presentation",
-    "module": "es2015",
+    "outDir": "../../dist/out-tsc",
     "types": []
   },
   "exclude": ["test.ts", "**/*.spec.ts"]

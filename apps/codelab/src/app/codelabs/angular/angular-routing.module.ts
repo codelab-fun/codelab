@@ -11,7 +11,7 @@ const routes = [
     children: [
       {
         path: 'typescript',
-        loadChildren: './typescript/typescript.module#TypeScriptModule',
+        loadChildren: () => import('./typescript/typescript.module').then(m => m.TypeScriptModule),
         name: 'TypeScript',
         description:
           'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript',
@@ -21,7 +21,7 @@ const routes = [
       {
         path: 'create-first-app',
         loadChildren:
-          './create-first-app/create-first-app.module#CreateFirstAppModule',
+          () => import('./create-first-app/create-first-app.module').then(m => m.CreateFirstAppModule),
         name: 'Create your first Angular app',
         description:
           'Learn how to create and bootstrap your first Angular application',
@@ -31,7 +31,7 @@ const routes = [
       },
       {
         path: 'templates',
-        loadChildren: './templates/templates.module#TemplatesModule',
+        loadChildren: () => import('./templates/templates.module').then(m => m.TemplatesModule),
         name: 'Templates',
         description: 'Learn how to use Angular templates',
         page: 'main',
@@ -41,7 +41,7 @@ const routes = [
       {
         path: 'dependency-injection',
         loadChildren:
-          './dependency-injection/dependency-injection.module#DependencyInjectionModule',
+          () => import('./dependency-injection/dependency-injection.module').then(m => m.DependencyInjectionModule),
         name: 'Dependency-Injection',
         description:
           'Learn how to provide dependencies to your code instead of hard-coding them',
@@ -52,7 +52,7 @@ const routes = [
       {
         path: 'component-tree',
         loadChildren:
-          './component-tree/component-tree.module#ComponentTreeModule',
+          () => import('./component-tree/component-tree.module').then(m => m.ComponentTreeModule),
         name: 'Component-Tree',
         description: 'Learn how to structure your app with reusable components',
         page: 'main',
@@ -73,7 +73,7 @@ const routes = [
       },*/
       {
         path: 'router',
-        loadChildren: './router/router.module#RouterCodelabModule',
+        loadChildren: () => import('./router/router.module').then(m => m.RouterCodelabModule),
         name: 'Angular Router',
         description:
           '[🚧 Work In Progress] Learn how to add routes to your Angular application',
@@ -82,7 +82,7 @@ const routes = [
       },
       {
         path: 'material',
-        loadChildren: './material/material.module#MaterialCodelabModule',
+        loadChildren: () => import('./material/material.module').then(m => m.MaterialCodelabModule),
         name: 'Angular Material',
         description: '[🚧 Work In Progress] Learn how to use Angular Material',
         page: 'main',
@@ -90,7 +90,7 @@ const routes = [
       },
       {
         path: 'forms',
-        loadChildren: './forms/forms.module#FormsCodelabModule',
+        loadChildren: () => import('./forms/forms.module').then(m => m.FormsCodelabModule),
         name: 'Forms',
         description: '[🚧 Work In Progress] Learn how to add Forms to your app',
         page: 'main',
@@ -98,7 +98,7 @@ const routes = [
       },
       {
         path: 'angular-cli',
-        loadChildren: './angular-cli/angular-cli.module#AngularCliModule',
+        loadChildren: () => import('./angular-cli/angular-cli.module').then(m => m.AngularCliModule),
         name: 'Angular-cli',
         description:
           '[🚧 Work In Progress] Learn how to quickly start working with angular',
@@ -107,7 +107,7 @@ const routes = [
       },
       {
         path: 'pipes',
-        loadChildren: './pipes/pipes.module#PipesModule',
+        loadChildren: () => import('./pipes/pipes.module').then(m => m.PipesModule),
         name: 'Pipes',
         description:
           'Learn how pipes transform input values to output values for display in a view',
@@ -117,7 +117,7 @@ const routes = [
       {
         path: 'structural-directives',
         loadChildren:
-          './structural-directives/structural-directives.module#StructuralDirectivesModule',
+          () => import('./structural-directives/structural-directives.module').then(m => m.StructuralDirectivesModule),
         name: 'Structural Directives',
         description: 'Learn about structural directives in angular',
         page: 'bonus',
@@ -126,7 +126,7 @@ const routes = [
       {
         path: 'playground',
         loadChildren:
-          './playground/playground.module#PlaygroundModule',
+          () => import('./playground/playground.module').then(m => m.PlaygroundModule),
         page: 'bonus',
         prod: true
       }

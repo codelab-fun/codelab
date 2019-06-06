@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NxModule } from '@nrwl/nx';
+import { NxModule } from '@nrwl/angular';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +11,7 @@ import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.se
 const routes = [
   {
     path: 'binary',
-    loadChildren: './modules/binary/binary.module#BinaryModule',
+    loadChildren: () => import('./modules/binary/binary.module').then(m => m.BinaryModule),
     name: 'Binary',
     description: 'Learn about Binary in JS',
     page: 'bonus',
@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: 'gomoku',
-    loadChildren: './modules/gomoku/gomoku.module#GomokuModule',
+    loadChildren: () => import('./modules/gomoku/gomoku.module').then(m => m.GomokuModule),
     name: 'Gomoku',
     description: 'Gomoku',
     page: 'bonus',
@@ -28,49 +28,49 @@ const routes = [
   {
     path: 'cellular-automation',
     loadChildren:
-      './modules/cellular-automation/cellular-automation.module#CellularAutomationModule',
+      () => import('./modules/cellular-automation/cellular-automation.module').then(m => m.CellularAutomationModule),
     name: 'Image inclusion',
     description: 'Image inclusion'
   },
   {
     path: 'ii',
-    loadChildren: './modules/ii/ii.module#IiModule',
+    loadChildren: () => import('./modules/ii/ii.module').then(m => m.IiModule),
     name: 'Image inclusion',
     description: 'Image inclusion'
   },
   {
     path: 'music',
-    loadChildren: './modules/music/music.module#MusicModule',
+    loadChildren: () => import('./modules/music/music.module').then(m => m.MusicModule),
     name: 'Music',
     description: 'Musicja'
   },
   {
     path: 'svg',
-    loadChildren: './modules/svg/svg.module#SvgModule',
+    loadChildren: () => import('./modules/svg/svg.module').then(m => m.SvgModule),
     name: 'Svg + Angular',
     description: 'SVG '
   },
   {
     path: 'regex',
-    loadChildren: './modules/regex/regex.module#RegexModule',
+    loadChildren: () => import('./modules/regex/regex.module').then(m => m.RegexModule),
     name: 'Regex',
     description: 'Regex '
   },
   {
     path: 'ast',
-    loadChildren: './modules/ast/ast.module#AstModule',
+    loadChildren: () => import('./modules/ast/ast.module').then(m => m.AstModule),
     name: 'Ast + Angular',
     description: 'SVG '
   },
   {
     path: '',
-    loadChildren: './modules/home/home.module#HomeModule',
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     name: 'Home',
     description: 'Home'
   },
   {
     path: 'test',
-    loadChildren: './modules/test/test.module#TestModule',
+    loadChildren: () => import('./modules/test/test.module').then(m => m.TestModule),
     name: 'Home',
     description: 'Home'
   }
@@ -98,4 +98,3 @@ const routes = [
   bootstrap: [AppComponent]
 })
 export class KirjsModule {}
-
