@@ -104,10 +104,10 @@
     "vue": "^2.5.22"
   },
   "devDependencies": {
-    "@nrwl/workspace": "8.0.0",
-    "@nrwl/react": "8.0.0",
-    "@nrwl/jest": "8.0.0",
-    "@nrwl/cypress": "8.0.0",
+    "@nrwl/workspace": "8.1.0",
+    "@nrwl/react": "8.1.0",
+    "@nrwl/jest": "8.1.0",
+    "@nrwl/cypress": "8.1.0",
     "prettier": "1.15.3",
     "@angular-devkit/build-ng-packagr": "~0.800.0",
     "@angular/animations": "8.1.0-next.1",
@@ -135,7 +135,7 @@
     "babel-types": "^6.25.0",
     "babylon": "^6.17.3",
     "codelyzer": "^5.0.1",
-    "cypress": "3.1.4",
+    "cypress": "~3.3.1",
     "cypress-image-snapshot": "^3.0.0",
     "eslint": "^5.12.1",
     "firebase-tools": "^6.3.0",
