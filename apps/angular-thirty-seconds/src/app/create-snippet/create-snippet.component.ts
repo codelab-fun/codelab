@@ -6,6 +6,7 @@ import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST }
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { Observable } from 'rxjs/internal/Observable';
 import { map, startWith } from 'rxjs/operators';
+import { parseMarkdown } from './parse-md-to-json';
 
 
 function validatorMaxLines(lines: number) {
@@ -57,6 +58,7 @@ export class CreateSnippetComponent {
     private fb: FormBuilder,
     public dialog: MatDialog
   ) {
+    parseMarkdown();
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
       startWith(null),
       map((tags: string | null) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()));

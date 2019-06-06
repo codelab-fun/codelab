@@ -78,6 +78,7 @@
     "file-saver": "^2.0.0",
     "firebase": "^5.8.0",
     "glob": "^7.1.3",
+    "gray-matter": "^4.0.2",
     "hammerjs": "^2.0.8",
     "highlight.js": "^9.13.1",
     "interactjs": "^1.3.4",
