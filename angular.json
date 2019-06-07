@@ -903,6 +903,13 @@
     },
     "@nrwl/schematics:node-application": {
       "framework": "express"
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     }
   },
   "cli": {
