@@ -57,6 +57,7 @@ export class CreateSnippetComponent {
     public dialog: MatDialog
   ) {
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
+      // tslint:disable-next-line:deprecation
       startWith(null),
       map((tags: string | null) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()));
   }

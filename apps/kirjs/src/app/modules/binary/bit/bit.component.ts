@@ -8,13 +8,13 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 export class BitComponent implements OnInit, OnDestroy {
   bits = 7;
   @Input() param = 1;
-  
+
   bitValue: number[] = [];
-  
+
   private interval = setInterval(() => {
     this.generate();
   }, 500);
-  
+
   generate() {
     this.bitValue = Array.from({ length: this.param }).map(a =>
       Math.round(Math.random())
