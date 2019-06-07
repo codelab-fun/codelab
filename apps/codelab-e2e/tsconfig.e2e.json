@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../../dist/out-tsc/apps/codelab-e2e",
     "module": "commonjs",
     "target": "es5",
     "types": ["jasmine", "node"]
