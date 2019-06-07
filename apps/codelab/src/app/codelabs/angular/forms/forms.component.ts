@@ -57,7 +57,7 @@ function formsConfig(code, highlights: FileHighlights = {}) {
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  @ViewChild('translations', { static: true }) translations;
+  @ViewChild('translations', { static: false }) translations;
   exercise: ExerciseConfigTemplate;
   private t: Record<string, string>;
   samples = {

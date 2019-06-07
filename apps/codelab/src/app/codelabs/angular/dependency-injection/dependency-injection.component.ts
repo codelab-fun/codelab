@@ -11,7 +11,7 @@ export class DependencyInjectionComponent implements OnInit {
   t: { [key: string]: string };
   exercise;
 
-  @ViewChild('translations', { static: true }) translation;
+  @ViewChild('translations', { static: false }) translation;
   code = {};
 
   constructor(private exercises: Ng2TsExercises) {

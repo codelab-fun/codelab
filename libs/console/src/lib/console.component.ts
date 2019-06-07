@@ -30,7 +30,7 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
   @Input() componentMap: { [key: string]: Type<any> };
   @Input() commands: string[];
 
-  @ViewChild('inp', { static: true }) inputEl;
+  @ViewChild('inp', { static: false }) inputEl;
   @ViewChildren('outputBlock') blocks;
 
   typeInQueue = [];

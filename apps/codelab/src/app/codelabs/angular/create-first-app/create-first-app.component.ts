@@ -14,7 +14,7 @@ import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 export class CreateFirstAppComponent implements OnInit {
   t: { [key: string]: string };
 
-  @ViewChild('translations', { static: true }) translation;
+  @ViewChild('translations', { static: false }) translation;
   //  Exercises
   exercises = [
     ng2tsConfig.milestones[1].exercises[1],

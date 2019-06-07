@@ -51,7 +51,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
   @Input() url = 'about:blank';
   @Input() ui = 'browser';
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
-  @ViewChild('runner', { static: true }) runnerElement: ElementRef;
+  @ViewChild('runner', { static: false }) runnerElement: ElementRef;
   presets = ['angular'];
   private subscription: SubscriptionLike;
 

@@ -72,7 +72,7 @@ export class SimpleAngularTestRunnerComponent
   @Input() code: any;
   @Input() bootstrap: string;
 
-  @ViewChild('runner', { static: true }) runnerElement: ElementRef;
+  @ViewChild('runner', { static: false }) runnerElement: ElementRef;
 
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
   tests: any;

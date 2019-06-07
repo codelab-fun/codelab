@@ -22,7 +22,7 @@ export class TemplatesComponent implements OnInit {
   ];
   curlies = '{{ property }}';
 
-  @ViewChild('translations', { static: true }) translation;
+  @ViewChild('translations', { static: false }) translation;
   code: any = {};
 
   constructor() {}

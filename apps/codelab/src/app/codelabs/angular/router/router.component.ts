@@ -49,7 +49,7 @@ function routeExercise(highlights: FileHighlights) {
   styleUrls: ['./router.component.css']
 })
 export class RouterComponent implements OnInit {
-  @ViewChild('translations', { static: true }) translations;
+  @ViewChild('translations', { static: false }) translations;
   private t: Record<string, string>;
   exercise: ExerciseConfigTemplate;
 
