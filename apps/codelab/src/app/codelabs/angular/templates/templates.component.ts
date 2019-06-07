@@ -22,7 +22,9 @@ export class TemplatesComponent implements OnInit {
   ];
   curlies = '{{ property }}';
 
-  @ViewChild('translations', { static: false }) translation;
+  // TODO(kirjs): we can't access tanslation in OnInit hook iwht static set to false
+  // need to consider changing how we set code
+  @ViewChild('translations', { static: true }) translation;
   code: any = {};
 
   constructor() {}

@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -6,7 +7,6 @@ import {
   Input,
   OnChanges,
   OnDestroy,
-  OnInit,
   Output,
   SimpleChanges,
   ViewChild
@@ -62,7 +62,7 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   styleUrls: ['./angular-test-runner.component.css']
 })
 export class SimpleAngularTestRunnerComponent
-  implements OnChanges, OnInit, OnDestroy {
+  implements OnChanges, AfterViewInit, OnDestroy {
   handleMessageBound: any;
   @Output() solved = new EventEmitter();
   @Output() public selectFile: EventEmitter<string> = new EventEmitter<
@@ -102,7 +102,7 @@ export class SimpleAngularTestRunnerComponent
     }
   }
 
-  async ngOnInit() {
+  async ngAfterViewInit() {
     const sandbox = await createSystemJsSandbox(
       this.runnerElement.nativeElement,
       {

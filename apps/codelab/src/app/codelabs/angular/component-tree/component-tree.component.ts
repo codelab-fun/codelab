@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
   Ng2TsExercises,
@@ -18,7 +18,7 @@ const circleAndBoxCode = circleAndBox();
     './component-tree.component.css'
   ]
 })
-export class ComponentTreeComponent implements OnInit {
+export class ComponentTreeComponent implements AfterViewInit {
   t: { [key: string]: string };
 
   @ViewChild('translations', { static: false }) translation;
@@ -110,7 +110,7 @@ export class Child {
     this.exercise2 = exercises.getExercises(4, 2);
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.t = extractMessages(this.translation);
   }
 }

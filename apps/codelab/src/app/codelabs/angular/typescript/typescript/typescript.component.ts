@@ -22,7 +22,9 @@ export class TypeScriptComponent implements OnInit {
   exercises = [ng2tsConfig.milestones[0].exercises[1]];
   exercise = convertExerciseToMap(ng2tsConfig.milestones[0].exercises[1]);
 
-  @ViewChild('translations', { static: false }) translation;
+  // TODO(kirjs): we can't access tanslation in OnInit hook iwht static set to false
+  // need to consider changing how we set code
+  @ViewChild('translations', { static: true }) translation;
   private code: any = {};
 
   ngOnInit(): void {

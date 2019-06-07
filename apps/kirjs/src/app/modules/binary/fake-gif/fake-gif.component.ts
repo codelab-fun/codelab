@@ -1,8 +1,8 @@
 import {
+  AfterViewInit,
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild
 } from '@angular/core';
@@ -22,7 +22,7 @@ interface Chunk {
   templateUrl: './fake-gif.component.html',
   styleUrls: ['./fake-gif.component.css']
 })
-export class FakeGifComponent implements OnInit {
+export class FakeGifComponent implements AfterViewInit {
   t: { [key: string]: string };
   @Input()
   spacing = false;
@@ -64,7 +64,7 @@ export class FakeGifComponent implements OnInit {
     this.binaryUpdate.emit(this.binary);
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.t = extractMessages(this.translation);
     this.parser = new BinaryParser().block('gif', gifParser(this.t));
   }

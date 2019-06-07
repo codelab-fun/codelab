@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -6,7 +7,6 @@ import {
   Input,
   OnChanges,
   OnDestroy,
-  OnInit,
   SimpleChanges,
   ViewChild
 } from '@angular/core';
@@ -44,7 +44,7 @@ const presets = {
   styleUrls: ['./code-demo-runner.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
+export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChanges {
   @Input() code: CodeFiles = {};
   @Input() jsFiles: CodeFiles = {};
   @Input() bootstrap: string;
@@ -81,7 +81,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, OnInit, OnChanges {
     }
   }
 
-  async ngOnInit() {
+  async ngAfterViewInit() {
     const sandbox = await createSystemJsSandbox(
       this.runnerElement.nativeElement,
       {
