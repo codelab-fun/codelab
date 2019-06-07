@@ -1,5 +1,5 @@
 import { CodelabFile } from '../../../shared/helpers/codelabFile';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
   Ng2TsExercises
@@ -48,8 +48,8 @@ function routeExercise(highlights: FileHighlights) {
   templateUrl: './router.component.html',
   styleUrls: ['./router.component.css']
 })
-export class RouterComponent implements OnInit {
-  @ViewChild('translations') translations;
+export class RouterComponent implements AfterViewInit {
+  @ViewChild('translations', { static: false }) translations;
   private t: Record<string, string>;
   exercise: ExerciseConfigTemplate;
 
@@ -80,7 +80,7 @@ export class RouterComponent implements OnInit {
     this.exercise = exercises.getExercises(5, 0);
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.t = extractMessages(this.translations);
   }
 }

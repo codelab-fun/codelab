@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import {
   ExerciseConfigTemplate,
@@ -53,10 +53,10 @@ function matExercise(
   styleUrls: ['./material.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class MaterialComponent implements OnInit {
+export class MaterialComponent implements AfterViewInit {
   exercise: ExerciseConfigTemplate;
-  @ViewChild('themePlayground') themePlayground;
-  @ViewChild('translations') translations;
+  @ViewChild('themePlayground', { static: false }) themePlayground;
+  @ViewChild('translations', { static: false }) translations;
 
   themes = {
     indigo: require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
@@ -120,7 +120,7 @@ export class MaterialComponent implements OnInit {
     this.exercise = exercises.getExercises(6, 0);
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.t = extractMessages(this.translations);
   }
 

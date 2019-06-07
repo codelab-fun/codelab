@@ -36,7 +36,7 @@ export class LiveService<T = any> implements OnDestroy {
     AllData<T>
   >({} as AllData<T>);
   allData = this.allDataSubject.asObservable();
-  myData = combineLatest(this.allData, this.liveInfo).pipe(
+  myData = combineLatest([this.allData, this.liveInfo]).pipe(
     map(([allData, { user }]) => {
       return allData[user];
     })
