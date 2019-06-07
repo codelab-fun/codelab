@@ -8,7 +8,7 @@ import { menuRoutes } from '../angular/angular-routing.module';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
-  @ViewChild('translations') translations;
+  @ViewChild('translations', { static: true }) translations;
 
   showContents: boolean;
   menuRoutes = menuRoutes;

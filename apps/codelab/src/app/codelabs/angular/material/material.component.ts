@@ -55,8 +55,8 @@ function matExercise(
 })
 export class MaterialComponent implements OnInit {
   exercise: ExerciseConfigTemplate;
-  @ViewChild('themePlayground') themePlayground;
-  @ViewChild('translations') translations;
+  @ViewChild('themePlayground', { static: true }) themePlayground;
+  @ViewChild('translations', { static: true }) translations;
 
   themes = {
     indigo: require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),

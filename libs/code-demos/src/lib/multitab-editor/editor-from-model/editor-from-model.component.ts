@@ -18,7 +18,7 @@ import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-ed
   providers: [CodeDemoEditorInjector]
 })
 export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('editor') el;
+  @ViewChild('editor', { static: true }) el;
   fontSize = 14;
   editor: any;
   height = 0;

@@ -22,7 +22,7 @@ export class TypeScriptComponent implements OnInit {
   exercises = [ng2tsConfig.milestones[0].exercises[1]];
   exercise = convertExerciseToMap(ng2tsConfig.milestones[0].exercises[1]);
 
-  @ViewChild('translations') translation;
+  @ViewChild('translations', { static: true }) translation;
   private code: any = {};
 
   ngOnInit(): void {

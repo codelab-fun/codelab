@@ -21,7 +21,7 @@ const circleAndBoxCode = circleAndBox();
 export class ComponentTreeComponent implements OnInit {
   t: { [key: string]: string };
 
-  @ViewChild('translations') translation;
+  @ViewChild('translations', { static: true }) translation;
 
   exercise: ExerciseConfigTemplate | SlideTemplate;
   exercise2: ExerciseConfigTemplate | SlideTemplate;

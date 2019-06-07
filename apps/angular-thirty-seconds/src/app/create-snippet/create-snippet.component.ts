@@ -29,8 +29,8 @@ function validatorMaxTags(maximumTags: number) {
 })
 export class CreateSnippetComponent {
 
-  @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('tagInput', { static: true }) tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', { static: true }) matAutocomplete: MatAutocomplete;
 
   TAGS_LIST = TAGS_LIST;
   tags: Array<string> = ['tip'];

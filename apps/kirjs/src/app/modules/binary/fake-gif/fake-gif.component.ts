@@ -38,7 +38,7 @@ export class FakeGifComponent implements OnInit {
   gif: string;
   parser: BinaryParser;
 
-  @ViewChild('translations') translation;
+  @ViewChild('translations', { static: true }) translation;
 
   constructor() {}
 
