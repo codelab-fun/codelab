@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NxModule } from '@nrwl/angular';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -81,7 +80,6 @@ const routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NxModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [
