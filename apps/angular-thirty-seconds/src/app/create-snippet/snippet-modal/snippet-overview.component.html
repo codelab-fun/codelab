@@ -14,7 +14,7 @@
             (click)="onSubmit()"
             cdkFocusInitial
             class="btn-submit">
-      Create Snippet
+      {{isSnippetEdit ? 'Edit' : 'Create'}} Snippet
     </button>
   </mat-dialog-actions>
 </div>

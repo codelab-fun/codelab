@@ -4,12 +4,13 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { monacoReady } from '@codelab/code-demos';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatTableModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateSnippetComponent } from './create-snippet/create-snippet.component';
 import { CreateSnippetModule } from './create-snippet/create-snippet.module';
 import { environment } from '../../../codelab/src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
+import { PullRequestsListComponent } from './pull-requests-list/pull-requests-list.component';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -18,7 +19,16 @@ export const angularFire = AngularFireModule.initializeApp(
 const routes: Routes = [
   {
     path: '',
-    component: CreateSnippetComponent
+    redirectTo: 'list',
+    pathMatch: 'full'
+  },
+  {
+    path: 'add-edit-snippet',
+    component: CreateSnippetComponent,
+  },
+  {
+    path: 'list',
+    component: PullRequestsListComponent
   }
 ];
 
@@ -29,10 +39,14 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MatButtonModule,
+    MatTableModule,
     HttpClientModule,
     CreateSnippetModule
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    PullRequestsListComponent
+  ],
   providers: [
     {
       provide: APP_INITIALIZER,

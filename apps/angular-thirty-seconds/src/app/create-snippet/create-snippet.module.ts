@@ -17,6 +17,7 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { SnippetSpinnerComponent } from './snippet-spinner/snippet-spinner.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -24,8 +25,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     CreateSnippetComponent,
     SnippetInfoComponent,
     SnippetOverviewComponent,
-    SnippetSpinnerComponent,
-
+    SnippetSpinnerComponent
   ],
   entryComponents: [
     SnippetOverviewComponent
@@ -43,6 +43,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatInputModule,
     CodeDemoModule,
     MatDialogModule,
+    RouterModule
   ]
 })
 export class CreateSnippetModule {

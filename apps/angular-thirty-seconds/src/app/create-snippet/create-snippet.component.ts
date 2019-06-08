@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -6,6 +6,8 @@ import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST }
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { Observable } from 'rxjs/internal/Observable';
 import { map, startWith } from 'rxjs/operators';
+import { SnippetService } from '../shared/services/snippet.service';
+import { SubscriptionLike } from 'rxjs/internal/types';
 
 
 function validatorMaxLines(lines: number) {
@@ -27,10 +29,16 @@ function validatorMaxTags(maximumTags: number) {
   templateUrl: './create-snippet.component.html',
   styleUrls: ['./create-snippet.component.scss']
 })
-export class CreateSnippetComponent {
+export class CreateSnippetComponent implements OnDestroy {
 
   @ViewChild('tagInput', { static: false }) tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
+
+  snippetToEditSubscription: SubscriptionLike;
+  lastCommitInfoSubscription: SubscriptionLike;
+
+  isSnippetEdit = false;
+  snippetFileInfo: object;
 
   TAGS_LIST = TAGS_LIST;
   tags: Array<string> = ['tip'];
@@ -55,19 +63,79 @@ export class CreateSnippetComponent {
 
   constructor(
     private fb: FormBuilder,
+    private snippetService: SnippetService,
     public dialog: MatDialog
   ) {
+    this.snippetToEditSubscription = this.snippetService.snippetFileInfo
+      .subscribe(value => {
+        if (value) {
+          this.isSnippetEdit = true;
+          this.snippetFileInfo = value;
+          this.patchFormValue(value['snippet']);
+        }
+      });
+
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
       // tslint:disable-next-line:deprecation
       startWith(null),
       map((tags: string | null) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()));
   }
 
+  ngOnDestroy() {
+    if (this.snippetToEditSubscription) {
+      this.snippetToEditSubscription.unsubscribe();
+      this.snippetToEditSubscription = null;
+    }
+    if (this.lastCommitInfoSubscription) {
+      this.lastCommitInfoSubscription.unsubscribe();
+      this.lastCommitInfoSubscription = null;
+    }
+  }
+
+  patchFormValue(value) {
+    this.snippetForm.get('title').patchValue(value['title'] || '');
+    this.snippetForm.get('level').patchValue(value['level'] || 'beginner');
+    if (value['tags']) {
+      this.snippetForm.get('tags').patchValue(value['tags']);
+      this.tags = value['tags'];
+    }
+    if (value['content']) {
+      this.snippetForm.get('content').patchValue(value['content'].replace(/↵/g, '\n'));
+    }
+    if (value['bonus']) {
+      this.hasBonus = true;
+      this.snippetForm.get('bonus').patchValue(value['bonus'].replace(/↵/g, '\n'));
+    }
+    if (value['links']) {
+      this.hasLinks = true;
+      this.snippetForm.get('links').patchValue(value['links'].replace(/↵/g, '\n'));
+    }
+    if (value['demo']) {
+      this.hasDemo = true;
+      this.snippetForm.get('demo').patchValue({
+        'app.component.ts': value['demo']['app.component.ts'] ? value['demo']['app.component.ts'].replace(/↵/g, '\n') : angularSampleCode['app.component.ts'],
+        'app.module.ts': value['demo']['app.module.ts'] ? value['demo']['app.module.ts'].replace(/↵/g, '\n') : angularSampleCode['app.module.ts'],
+        'main.ts': value['demo']['main.ts'] ? value['demo']['main.ts'].replace(/↵/g, '\n') : angularSampleCode['main.ts'],
+        'index.html': value['demo']['index.html'] ? value['demo']['index.html'].replace(/↵/g, '\n') : angularSampleCode['index.html']
+      });
+    }
+  }
+
   onSubmit() {
     if (this.snippetForm.valid) {
       this.dialog.open(
         SnippetOverviewComponent,
-        {data: {formValue: this.getPreparedFormValue(this.snippetForm.value)}}
+        {
+          data: {
+            formValue: this.getPreparedFormValue(this.snippetForm.value),
+            isSnippetEdit: this.isSnippetEdit,
+            fileInfo: this.snippetFileInfo ? {
+              sha: this.snippetFileInfo['sha'],
+              fileName: this.snippetFileInfo['fileName'],
+              branchName: this.snippetFileInfo['branchName']
+            } : null
+          }
+        }
       );
     } else {
       this.markFormControlsAsTouched(this.snippetForm);

@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { SubscriptionLike } from 'rxjs/internal/types';
 import * as firebase from 'firebase';
 import { SnippetService } from '../../shared/services/snippet.service';
+import { Router } from '@angular/router';
 
 
 function arrayToMarkdownList(tagsArray: Array<string>): string {
@@ -80,8 +81,10 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
 
   githubAuth;
   createPRSubscription: SubscriptionLike;
+  updatePRSubscription: SubscriptionLike;
   isPRCreating = false;
 
+  isSnippetEdit: boolean;
   snippet: string;
   snippetWithFormat: string;
 
@@ -89,12 +92,13 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     private afAuth: AngularFireAuth,
     private snippetService: SnippetService,
     public dialogRef: MatDialogRef<SnippetOverviewComponent>,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: object
   ) {
   }
 
   ngOnInit() {
-
+    this.isSnippetEdit = this.data['isSnippetEdit'];
     this.snippet = getSnippet(this.data['formValue']);
     // This is a temporary hack.
     // The version of markdown requires new lines between meta values, but github does not.
@@ -106,6 +110,10 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
       this.createPRSubscription.unsubscribe();
       this.createPRSubscription = null;
     }
+    if (this.updatePRSubscription) {
+      this.updatePRSubscription.unsubscribe();
+      this.updatePRSubscription = null;
+    }
   }
 
   async onSubmit() {
@@ -116,17 +124,32 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     }
 
     this.isPRCreating = true;
-    this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
-      .subscribe(
-        (res) => {
-          this.isPRCreating = false;
-          window.open(res['html_url']);
-        },
-        (err) => {
-          this.isPRCreating = false;
-          console.error(err);
-        }
-      );
+    if (this.isSnippetEdit) {
+      this.updatePRSubscription = this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'])
+        .subscribe(
+          (res) => {
+            this.isPRCreating = false;
+            window.open(res['commit']['html_url']);
+          },
+          (err) => {
+            this.isPRCreating = false;
+            console.error(err);
+          }
+        );
+    } else {
+      this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
+        .subscribe(
+          (res) => {
+            this.isPRCreating = false;
+            window.open(res['html_url']);
+            this.router.navigate(['list']);
+          },
+          (err) => {
+            this.isPRCreating = false;
+            console.error(err);
+          }
+        );
+    }
   }
 
   async login() {

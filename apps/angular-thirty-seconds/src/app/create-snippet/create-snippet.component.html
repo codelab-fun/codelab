@@ -1,9 +1,7 @@
 <div class="container">
-  <h1>New Snippet
-    <button (click)="onSubmit()"
-            mat-button
-            class="btn-submit">
-      Generate Snippet
+  <h1>{{isSnippetEdit ? '' : 'New'}} Snippet
+    <button (click)="onSubmit()" mat-button class="btn-submit">
+      {{isSnippetEdit ? 'Edit' : 'Generate'}} Snippet
     </button>
   </h1>
 
@@ -114,7 +112,7 @@
         </mat-form-field>
         <div *ngIf="snippetForm.get('content').touched && snippetForm.get('content').invalid">
           <div *ngIf="snippetForm.get('content').errors['required']" class="validation-message">
-              This field is required
+            This field is required
           </div>
           <div *ngIf="snippetForm.get('content').errors['lines']" class="validation-message">
             {{snippetForm.get('content').errors['linesError']}}
