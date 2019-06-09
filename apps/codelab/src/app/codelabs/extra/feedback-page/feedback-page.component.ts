@@ -170,12 +170,12 @@ Slide: [Local](http://localhost:4200${
 
   ngOnInit() {
     this.feedback$ = this.database.list('/feedback');
-    const filteredMessages$ = combineLatest(
+    const filteredMessages$ = combineLatest([
       this.feedback$.snapshotChanges().pipe(map(normalize)),
       this.filter$,
       this.dateFilter$
-    ).pipe(map(filter));
-    this.messages$ = combineLatest(filteredMessages$, this.group$).pipe(
+    ]).pipe(map(filter));
+    this.messages$ = combineLatest([filteredMessages$, this.group$]).pipe(
       map(group)
     );
   }

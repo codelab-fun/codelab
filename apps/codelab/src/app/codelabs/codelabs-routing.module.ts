@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'angular',
-    loadChildren: './angular/angular.module#AngularModule'
+    loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule)
   },
   {
     path: 'extra',
-    loadChildren: './extra/extra.module#ExtraModule'
+    loadChildren: () => import('./extra/extra.module').then(m => m.ExtraModule)
   }
 ];
 

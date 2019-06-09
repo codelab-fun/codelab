@@ -14,7 +14,9 @@ import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 export class CreateFirstAppComponent implements OnInit {
   t: { [key: string]: string };
 
-  @ViewChild('translations') translation;
+  // TODO(kirjs): we can't access tanslation in OnInit hook iwht static set to false
+  // need to consider changing how we set code
+  @ViewChild('translations', { static: true }) translation;
   //  Exercises
   exercises = [
     ng2tsConfig.milestones[1].exercises[1],
