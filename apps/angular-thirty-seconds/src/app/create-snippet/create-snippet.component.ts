@@ -38,6 +38,7 @@ export class CreateSnippetComponent {
 
   snippetForm = this.fb.group({
     title: ['', Validators.required],
+    twitter: [''],
     level: ['beginner', Validators.required],
     tags: [this.tags, [Validators.required, validatorMaxTags(5)]],
     content: [MARKDOWN_PLACEHOLDER, [Validators.required, validatorMaxLines(25)]],

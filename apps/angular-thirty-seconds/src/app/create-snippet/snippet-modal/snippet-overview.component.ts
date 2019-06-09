@@ -16,14 +16,14 @@ function getSnippet(value): string {
 
   result.push(`---
 title: ${value.title}
-
-author: ${value.author || `*your github username will be added*`}
-
-level: ${value.level}
-
+author: ${value.author || `*your github username will be added*`}`);
+  if (value.twitter) {
+    result.push(`twitter: ` + value.twitter);
+  }
+  result.push(`level: ${value.level}
 tags:
-${arrayToMarkdownList(value.tags)}
-`);
+${arrayToMarkdownList(value.tags)}`);
+
 
   if (value.links) {
     result.push(`
@@ -83,6 +83,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   isPRCreating = false;
 
   snippet: string;
+  snippetWithFormat: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -93,7 +94,11 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
     this.snippet = getSnippet(this.data['formValue']);
+    // This is a temporary hack.
+    // The version of markdown requires new lines between meta values, but github does not.
+    this.snippetWithFormat = this.snippet.replace(/\n(title|author|twitter|level|tags|links):/g, '\n\n$1:');
   }
 
   ngOnDestroy() {
@@ -127,7 +132,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   async login() {
     const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
-    this.data['formValue']['author'] = this.githubAuth.additionalUserInfo.profile.name;
+    this.data['formValue']['author'] = this.githubAuth.additionalUserInfo.username;
     this.snippet = getSnippet(this.data['formValue']);
   }
 }
