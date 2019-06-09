@@ -85,7 +85,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
       startWith({})
     );
 
-    this.files$ = combineLatest(ts, staticFiles).pipe(
+    this.files$ = combineLatest([ts, staticFiles]).pipe(
       map(([js, staticFiles]) => ({...staticFiles, ...js})),
       map(files => ({...this.code, ...files})),
       publishReplay(1),

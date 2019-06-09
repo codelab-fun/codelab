@@ -17,7 +17,7 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./button-with-menu.component.scss']
 })
 export class ButtonWithMenuComponent implements OnDestroy {
-  @ContentChild(ButtonWithMenuModalDirective) modal;
+  @ContentChild(ButtonWithMenuModalDirective, { static: false }) modal;
 
   destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
 

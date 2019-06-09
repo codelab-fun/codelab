@@ -29,8 +29,8 @@ function validatorMaxTags(maximumTags: number) {
 })
 export class CreateSnippetComponent {
 
-  @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('tagInput', { static: false }) tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
 
   TAGS_LIST = TAGS_LIST;
   tags: Array<string> = ['tip'];
@@ -58,6 +58,7 @@ export class CreateSnippetComponent {
     public dialog: MatDialog
   ) {
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
+      // tslint:disable-next-line:deprecation
       startWith(null),
       map((tags: string | null) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()));
   }
