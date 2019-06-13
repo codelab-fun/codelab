@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../dist/out-tsc/apps/angular-thirty-seconds",
+    "outDir": "../../../dist/out-tsc",
     "types": []
   },
   "exclude": ["test.ts", "**/*.spec.ts"],

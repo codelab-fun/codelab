@@ -48,6 +48,20 @@
             </div>
           </div>
         </div>
+
+
+        <div>
+          <label for="snippetTwitter">
+            Your twitter handle
+          </label>
+          <mat-form-field>
+            <input formControlName="twitter"
+                   id="snippetTwitter"
+                   type="text"
+                   matInput>
+          </mat-form-field>
+        </div>
+
         <div>
           <label for="tags">
             Tags <span class="required">*</span>
@@ -149,9 +163,6 @@
                     matInput>
           </textarea>
           </mat-form-field>
-        </div>
-        <div class="markdown-info">
-          <markdown [data]="snippetForm.get('links').value"></markdown>
         </div>
       </section>
     </ng-container>

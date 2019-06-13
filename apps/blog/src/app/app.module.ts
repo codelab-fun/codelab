@@ -2,8 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
 import { NxModule } from '@nrwl/nx';
 import { RouterModule, Routes } from '@angular/router';
+=======
+import { RouterModule } from '@angular/router';
+>>>>>>> origin/migrate
 import { FormComponent } from './form/form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -35,6 +39,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes),
     BrowserModule,
+<<<<<<< HEAD
     NxModule.forRoot(),
 
     MatFormFieldModule,
@@ -43,6 +48,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     AngularFireDatabaseModule,
     angularFire
+=======
+    RouterModule.forRoot([], { initialNavigation: 'enabled' })
+>>>>>>> origin/migrate
   ],
   providers: [FormService],
   bootstrap: [AppComponent],
