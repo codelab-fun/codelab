@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/blog",
+    "outDir": "../../dist/out-tsc",
     "types": []
   },
   "exclude": ["src/test-setup.ts", "**/*.spec.ts"],

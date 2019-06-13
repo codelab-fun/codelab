@@ -52,7 +52,7 @@ export class CodeDemoEditorComponent
   changeSubject = new Subject();
 
   @Output() change = new EventEmitter();
-  @ViewChild('editor') editorEl;
+  @ViewChild('editor', { static: false }) editorEl;
   code: string;
   private subscription: Subscription;
 

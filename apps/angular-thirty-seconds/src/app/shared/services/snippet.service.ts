@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, debounceTime, switchMap } from 'rxjs/operators';
-import { SlugifyPipe } from '../../slugify.pipe';
+import slugify from 'slugify';
 
 interface User {
   login: string;
@@ -174,7 +174,6 @@ export class SnippetService {
 
   constructor(
     private github: GitHubService,
-    private slugify: SlugifyPipe
   ) {
   }
 
@@ -186,7 +185,7 @@ export class SnippetService {
     this.github.setToken(githubAuth.credential.accessToken);
 
     const branchName = `new_snippet_${this.toLowerCaseAndSlugify(title)}`;
-    const filePath = `contents/new_snippet_${this.toLowerCaseAndSlugify(title)}.md`;
+    const filePath = `contents/snippets/${this.toLowerCaseAndSlugify(title)}.md`;
 
     const user: User = githubAuth.additionalUserInfo.profile;
     return this.github.getRepo(this.owner, this.repoName).pipe(
@@ -226,7 +225,7 @@ export class SnippetService {
   }
 
   private toLowerCaseAndSlugify(str: string) {
-    return this.slugify.transform(str.toLowerCase());
+    return slugify(str.toLowerCase());
   }
 }
 
