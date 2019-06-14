@@ -76,7 +76,7 @@ npm manifest:
     },
     "repository": {
       "type": "git",
-      "url": "git@github.com:nycJSorg/angular-presentation.git"
+      "url": "git@github.com:codelab-fun/codelab.git"
     },
     "public": true,
     "dependencies": {
