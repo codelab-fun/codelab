@@ -1,20 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
-import { NxModule } from '@nrwl/nx';
 import { RouterModule, Routes } from '@angular/router';
-=======
-import { RouterModule } from '@angular/router';
->>>>>>> origin/migrate
 import { FormComponent } from './form/form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
-
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
@@ -28,32 +20,28 @@ export const angularFire = AngularFireModule.initializeApp(
 );
 
 const appRoutes: Routes = [
-  {path: 'post/:id', component: PostComponent},
-  {path: '', component: FeedComponent},
-  {path: 'form', component: FormComponent}
+  { path: 'post/:id', component: PostComponent },
+  { path: '', component: FeedComponent },
+  { path: 'form', component: FormComponent }
 ];
 
 @NgModule({
   declarations: [AppComponent, FormComponent, FeedComponent, PostComponent],
   imports: [
-    RouterModule.forRoot(
-      appRoutes),
     BrowserModule,
-<<<<<<< HEAD
-    NxModule.forRoot(),
 
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireDatabaseModule,
-    angularFire
-=======
+    angularFire,
+
     RouterModule.forRoot([], { initialNavigation: 'enabled' })
->>>>>>> origin/migrate
+
   ],
   providers: [FormService],
   bootstrap: [AppComponent],
   exports: [FormComponent]
 })
-export class AppModule {}
+export class AppModule { }
