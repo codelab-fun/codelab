@@ -1,7 +1,7 @@
 # AngularPresentation
 
 [![Join the chat at https://gitter.im/AngularNYC/angular-presentation](https://badges.gitter.im/AngularNYC/angular-presentation.svg)](https://gitter.im/AngularNYC/angular-presentation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-<a href="https://codeclimate.com/github/nycJSorg/angular-presentation/coverage"><img src="https://codeclimate.com/github/nycJSorg/angular-presentation/badges/coverage.svg" /></a>
+<a href="https://codeclimate.com/github/codelab-fun/codelab/coverage"><img src="https://codeclimate.com/github/nycJSorg/angular-presentation/badges/coverage.svg" /></a>
 
 Demo: [Demo](https://codelab.fun)
 
