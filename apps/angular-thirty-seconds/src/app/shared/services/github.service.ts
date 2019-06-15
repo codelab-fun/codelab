@@ -108,7 +108,8 @@ export class GitHubService {
       title: pullRequest.title,
       head: `${user.login}:${pullRequest.branchName}`,
       base: 'master',
-      body: pullRequest.body
+      body: pullRequest.body,
+      labels: pullRequest.labels
     };
 
     return this.http
@@ -116,16 +117,48 @@ export class GitHubService {
       .pipe(catchError(() => throwError(new Error(`Can't create pull request`))));
   }
 
-  getPullRequests(owner: string, repoName: string): Observable<any> {
+  getPullsList(owner: string, repoName: string): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls`, this.options)
       .pipe(catchError(() => throwError(new Error(`Can't fetch user repos`))));
+  }
+
+  getPullByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
+    return this.http
+      .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}`, this.options)
+      .pipe(catchError(() => throwError(new Error(`Can't get pull request`))));
+  }
+
+  updatePullByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
+    return this.http
+      .patch<any>(
+        `${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}`,
+        {body: `Here you can edit snippet content: https://30.codelab.fun/new/${pullNumber}`},
+        this.options
+      )
+      .pipe(catchError(() => throwError(new Error(`Can't update pull request`))));
+  }
+
+  updateIssueByIssueNumber(owner: string, repoName: string, issueNumber: number) {
+    return this.http
+      .patch<any>(
+        `${this.apiGithubUrl}/repos/${owner}/${repoName}/issues/${issueNumber}`,
+        {labels: ['snippet']},
+        this.options
+      )
+      .pipe(catchError(() => throwError(new Error(`Can't get issues list`))));
   }
 
   getPullFileByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}/files`, this.options)
       .pipe(catchError(() => throwError(new Error(`Can't get pull request file`))));
+  }
+
+  getSnippetBody(url) {
+    return this.http
+      .get<any>(url, this.options)
+      .pipe(catchError(() => throwError(new Error(`Can't get snippet body`))));
   }
 
   updateFile(repoFullName, snippetData, fileInfo): Observable<any> {

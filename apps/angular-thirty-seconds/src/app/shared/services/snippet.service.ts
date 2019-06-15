@@ -4,7 +4,6 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 import slugify from 'slugify';
 import { GitHubService } from './github.service';
 import { Branch, CommitInfo, CreatePullRequest, GithubAuth, Repo, User } from '../interfaces';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 type PullRequest = any;
 
@@ -13,18 +12,12 @@ type PullRequest = any;
 })
 export class SnippetService {
 
-  snippetFileInfo = new BehaviorSubject<object>(null);
-
   private owner = 'nycJSorg';
   private repoName = '30-seconds-of-angular';
 
   constructor(
     private githubService: GitHubService,
   ) {
-  }
-
-  setSnippetToEdit(snippet: object) {
-    this.snippetFileInfo.next(snippet);
   }
 
   updatePR(githubAuth: GithubAuth, snippetData: string, fileInfo: object): Observable<any> {
@@ -77,6 +70,7 @@ export class SnippetService {
                 const pullRequest: CreatePullRequest = {
                   title: `Add - new snippet: ${title}`,
                   body: 'Here is a new snippet. Hope you like it :)',
+                  labels: ['snippet'],
                   branchName: branchName
                 };
                 return this.githubService.createPullRequest(baseRepo, user, pullRequest);

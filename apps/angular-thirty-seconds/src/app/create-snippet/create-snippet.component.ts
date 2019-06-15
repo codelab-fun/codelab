@@ -1,27 +1,45 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
-import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { Observable } from 'rxjs/internal/Observable';
-import { map, startWith } from 'rxjs/operators';
+import { catchError, map, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
+import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
+import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
 import { SnippetService } from '../shared/services/snippet.service';
-import { SubscriptionLike } from 'rxjs/internal/types';
+import { GitHubService } from '../shared/services/github.service';
+import { ValidationsService } from '../shared/services/validations.service';
+import { EMPTY } from 'rxjs/internal/observable/empty';
 
+// @ts-ignore
+window.Buffer = {
+  from() {
+  }
+};
 
-function validatorMaxLines(lines: number) {
-  return (control: AbstractControl) => {
-    return control.value.split('\n').length > lines ? {linesError: `This field shouldn't have more than ${lines} lines`} : null;
-  };
+// @ts-ignore
+const matter = require('gray-matter');
+
+function extractHeaders(str) {
+  const match = ('\n' + str + '\n#').match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
+  return !match ? {content: str} : match
+    .reduce((result, a) => {
+      const {groups} = a.match(/^\n(?<depth>#+)(?<header>.*)\n(?<content>[\s\S]*)$/);
+      result[groups.header.trim().toLocaleLowerCase()] = groups.content.trim();
+      return result;
+    }, {});
 }
 
-function validatorMaxTags(maximumTags: number) {
-  return (control: AbstractControl) => {
-    return Array.isArray(control.value) && control.value.length > maximumTags ? {tagsError: `Number of tags should be below ${maximumTags + 1}`} : null;
-  };
+function mdTextToJson(snippet: string) {
+  const metaData = matter(snippet);
+  const result = ({...extractHeaders(metaData.content), ...metaData.data});
+  if (result['links']) {
+    result['links'] = result['links'].join('\n');
+  }
+  return result;
 }
-
 
 @Component({
   selector: 'codelab-create-snippet',
@@ -34,11 +52,11 @@ export class CreateSnippetComponent implements OnDestroy {
   @ViewChild('tagInput', { static: false }) tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
 
-  snippetToEditSubscription: SubscriptionLike;
-  lastCommitInfoSubscription: SubscriptionLike;
+  destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
 
+  isLoading = false;
   isSnippetEdit = false;
-  snippetFileInfo: object;
+  snippetFileInfo = {};
 
   TAGS_LIST = TAGS_LIST;
   tags: Array<string> = ['tip'];
@@ -48,8 +66,8 @@ export class CreateSnippetComponent implements OnDestroy {
     title: ['', Validators.required],
     twitter: [''],
     level: ['beginner', Validators.required],
-    tags: [this.tags, [Validators.required, validatorMaxTags(5)]],
-    content: [MARKDOWN_PLACEHOLDER, [Validators.required, validatorMaxLines(25)]],
+    tags: [this.tags, [Validators.required, this.validationsService.validatorMaxTags(5)]],
+    content: [MARKDOWN_PLACEHOLDER, [Validators.required, this.validationsService.validatorMaxLines(25)]],
     bonus: [''],
     links: [LINKS_PLACEHOLDER],
     demo: [angularSampleCode]
@@ -63,17 +81,18 @@ export class CreateSnippetComponent implements OnDestroy {
 
   constructor(
     private fb: FormBuilder,
+    private cd: ChangeDetectorRef,
+    private activatedRoute: ActivatedRoute,
     private snippetService: SnippetService,
+    private validationsService: ValidationsService,
+    private githubService: GitHubService,
     public dialog: MatDialog
   ) {
-    this.snippetToEditSubscription = this.snippetService.snippetFileInfo
-      .subscribe(value => {
-        if (value) {
-          this.isSnippetEdit = true;
-          this.snippetFileInfo = value;
-          this.patchFormValue(value['snippet']);
-        }
-      });
+    const pullNumber = this.activatedRoute.snapshot.params['itemId'];
+
+    if (pullNumber) {
+      this.getPullFileByPullNumber(pullNumber);
+    }
 
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
       // tslint:disable-next-line:deprecation
@@ -82,14 +101,47 @@ export class CreateSnippetComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.snippetToEditSubscription) {
-      this.snippetToEditSubscription.unsubscribe();
-      this.snippetToEditSubscription = null;
-    }
-    if (this.lastCommitInfoSubscription) {
-      this.lastCommitInfoSubscription.unsubscribe();
-      this.lastCommitInfoSubscription = null;
-    }
+    this.destroy.next(null);
+    this.destroy.complete();
+  }
+
+  getPullFileByPullNumber(pullNumber) {
+    this.isLoading = true;
+    this.githubService.getPullFileByPullNumber('nycJSorg', '30-seconds-of-angular', pullNumber)
+      .pipe(
+        takeUntil(this.destroy),
+        switchMap(res => {
+            const file = res[0];
+            this.snippetFileInfo = {
+              sha: file['sha'],
+              fileName: file['filename']
+            };
+            return this.githubService.getSnippetBody(file['contents_url'])
+              .pipe(
+                map(res => {
+                  const body = atob(res.content);
+                  return {...res[0], body};
+                }));
+          }
+        ),
+        switchMap(res => {
+            this.snippetFileInfo['snippet'] = mdTextToJson(res['body']);
+            this.patchFormValue(this.snippetFileInfo['snippet']);
+            return this.githubService.getPullByPullNumber('nycJSorg', '30-seconds-of-angular', pullNumber);
+          }
+        )
+      ).subscribe(
+      res => {
+        this.snippetFileInfo['branchName'] = res['head']['ref'];
+        this.isSnippetEdit = true;
+        this.isLoading = false;
+        this.cd.markForCheck();
+      },
+      () => {
+        this.isLoading = false;
+        this.cd.markForCheck();
+      }
+    );
   }
 
   patchFormValue(value) {
@@ -123,22 +175,19 @@ export class CreateSnippetComponent implements OnDestroy {
 
   onSubmit() {
     if (this.snippetForm.valid) {
-      this.dialog.open(
-        SnippetOverviewComponent,
-        {
-          data: {
-            formValue: this.getPreparedFormValue(this.snippetForm.value),
-            isSnippetEdit: this.isSnippetEdit,
-            fileInfo: this.snippetFileInfo ? {
-              sha: this.snippetFileInfo['sha'],
-              fileName: this.snippetFileInfo['fileName'],
-              branchName: this.snippetFileInfo['branchName']
-            } : null
-          }
+      this.dialog.open(SnippetOverviewComponent, {
+        data: {
+          formValue: this.getPreparedFormValue(this.snippetForm.value),
+          isSnippetEdit: this.isSnippetEdit,
+          fileInfo: this.snippetFileInfo ? {
+            sha: this.snippetFileInfo['sha'],
+            fileName: this.snippetFileInfo['fileName'],
+            branchName: this.snippetFileInfo['branchName']
+          } : null
         }
-      );
+      });
     } else {
-      this.markFormControlsAsTouched(this.snippetForm);
+      this.validationsService.markFormControlsAsTouched(this.snippetForm);
     }
   }
 
@@ -158,15 +207,12 @@ export class CreateSnippetComponent implements OnDestroy {
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value = event.value;
-
       if ((value || '').trim()) {
         this.tags.push(value.trim());
       }
-
       if (input) {
         input.value = '';
       }
-
       this.snippetForm.get('tags').patchValue(this.tags);
     }
   }
@@ -183,17 +229,6 @@ export class CreateSnippetComponent implements OnDestroy {
     this.tags.push(event.option.viewValue);
     this.tagInput.nativeElement.value = '';
     this.snippetForm.get('tags').patchValue(this.tags);
-  }
-
-  markFormControlsAsTouched(formGroup: FormGroup | FormArray): void {
-    Object.values(formGroup.controls).forEach(
-      (control) => {
-        if (control instanceof FormControl) {
-          control.markAsTouched({onlySelf: true});
-        } else if (control instanceof FormGroup || control instanceof FormArray) {
-          this.markFormControlsAsTouched(control);
-        }
-      });
   }
 
   private _filterTags(value: string): string[] {

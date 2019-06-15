@@ -1,10 +1,13 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
 import { SubscriptionLike } from 'rxjs/internal/types';
 import * as firebase from 'firebase';
 import { SnippetService } from '../../shared/services/snippet.service';
 import { Router } from '@angular/router';
+import { switchMap, takeUntil } from 'rxjs/operators';
+import { GitHubService } from '../../shared/services/github.service';
+import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 
 
 function arrayToMarkdownList(tagsArray: Array<string>): string {
@@ -79,9 +82,9 @@ ${value.demo['main.ts']}
 })
 export class SnippetOverviewComponent implements OnInit, OnDestroy {
 
+  destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
+
   githubAuth;
-  createPRSubscription: SubscriptionLike;
-  updatePRSubscription: SubscriptionLike;
   isPRCreating = false;
 
   isSnippetEdit: boolean;
@@ -89,9 +92,11 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   snippetWithFormat: string;
 
   constructor(
+    public dialogRef: MatDialogRef<SnippetOverviewComponent>,
     private afAuth: AngularFireAuth,
     private snippetService: SnippetService,
-    public dialogRef: MatDialogRef<SnippetOverviewComponent>,
+    private githubService: GitHubService,
+    private _snackBar: MatSnackBar,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: object
   ) {
@@ -106,30 +111,28 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.createPRSubscription) {
-      this.createPRSubscription.unsubscribe();
-      this.createPRSubscription = null;
-    }
-    if (this.updatePRSubscription) {
-      this.updatePRSubscription.unsubscribe();
-      this.updatePRSubscription = null;
-    }
+    this.destroy.next(null);
+    this.destroy.complete();
   }
 
   async onSubmit() {
     console.log('You can copy the snippet here: ', this.snippet);
+    this.isPRCreating = true;
 
     if (!(this.githubAuth && this.githubAuth.credential)) {
       await this.login();
     }
 
-    this.isPRCreating = true;
     if (this.isSnippetEdit) {
-      this.updatePRSubscription = this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'])
+      this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'])
+        .pipe(takeUntil(this.destroy))
         .subscribe(
           (res) => {
+            this.dialogRef.close();
             this.isPRCreating = false;
-            window.open(res['commit']['html_url']);
+            this.router.navigate(['list']);
+            const snakeBarRef: MatSnackBarRef<SimpleSnackBar> = this._snackBar.open('Here is link to PR changes:', 'Check it now', {duration: 20000});
+            snakeBarRef.onAction().subscribe(() => window.open(res['commit']['html_url']));
           },
           (err) => {
             this.isPRCreating = false;
@@ -137,12 +140,19 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
           }
         );
     } else {
-      this.createPRSubscription = this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
+      this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
+        .pipe(
+          takeUntil(this.destroy),
+          switchMap(res => this.githubService.updatePullByPullNumber('nycJSorg', '30-seconds-of-angular', res['number'])),
+          switchMap(res => this.githubService.updateIssueByIssueNumber('nycJSorg', '30-seconds-of-angular', res['number'])),
+        )
         .subscribe(
           (res) => {
+            this.dialogRef.close();
             this.isPRCreating = false;
-            window.open(res['html_url']);
             this.router.navigate(['list']);
+            const snakeBarRef: MatSnackBarRef<SimpleSnackBar> = this._snackBar.open('Here is link to your pull request:', 'Check it now', {duration: 20000});
+            snakeBarRef.onAction().subscribe(() => window.open(res['html_url']));
           },
           (err) => {
             this.isPRCreating = false;

@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="!isLoading else loadingTmp" class="container">
   <h1>{{isSnippetEdit ? '' : 'New'}} Snippet
     <button (click)="onSubmit()" mat-button class="btn-submit">
       {{isSnippetEdit ? 'Edit' : 'Generate'}} Snippet
@@ -178,3 +178,7 @@
     </ng-container>
   </form>
 </div>
+
+<ng-template #loadingTmp>
+  <codelab-snippet-spinner></codelab-snippet-spinner>
+</ng-template>

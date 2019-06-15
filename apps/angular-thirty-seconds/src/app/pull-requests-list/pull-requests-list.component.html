@@ -1,9 +1,8 @@
-<div class="container">
+<div *ngIf="!isLoading" class="container">
   <h1>Pull requests list
     <button mat-raised-button color="accent"
             style="float: right"
-            [routerLink]="['/add-edit-snippet']">
-      Create new snippet
+            [routerLink]="['/new']"> Create new snippet
     </button>
   </h1>
 
@@ -23,7 +22,9 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let item" style="padding: 0 5px">
-        <button mat-button color="warn" (click)="editPull(item)">Edit</button>
+        <button mat-button color="warn"
+                [routerLink]="['/new', item['number']]"> Edit
+        </button>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
