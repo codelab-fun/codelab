@@ -23,19 +23,19 @@ beforeEach(() => {
       template: thumbs_thumbs_html
     }
   });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Component Tree', () => {
   it(`app.module.ts: Add the ThumbsComponent to the AppModule 'declarations' property`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].declarations, `Thumbs component not found`).contains(ThumbsComponent);
-    chai.expect(metadata[0].declarations, `Keep the app component`).contains(VideoComponent);
+    chai.expect(metadata.declarations || [], `Thumbs component not found`).contains(ThumbsComponent);
+    chai.expect(metadata.declarations || [], `Keep the app component`).contains(VideoComponent);
   });
 
   it(`video.component.html: Use the thumbs component in the template`, () => {

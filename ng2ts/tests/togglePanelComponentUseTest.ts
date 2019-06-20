@@ -26,20 +26,20 @@ beforeEach(() => {
   TestBed.overrideComponent(ThumbsComponent, { set: { template: thumbs_thumbs_html } });
   TestBed.overrideComponent(VideoComponent, { set: { template: video_video_component_html } });
   TestBed.overrideComponent(TogglePanelComponent, { set: { template: toggle_panel_toggle_panel_html } });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Component Tree', () => {
   it(`app.module.ts: Add the TogglePanelComponent to the declarations.`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].declarations, `Keep the video component`).contains(VideoComponent);
-    chai.expect(metadata[0].declarations, `Keep the app component`).contains(AppComponent);
-    chai.expect(metadata[0].declarations, `Add TogglePanelComponent`).contains(TogglePanelComponent);
+    chai.expect(metadata.declarations || [], `Keep the video component`).contains(VideoComponent);
+    chai.expect(metadata.declarations || [], `Keep the app component`).contains(AppComponent);
+    chai.expect(metadata.declarations || [], `Add TogglePanelComponent`).contains(TogglePanelComponent);
   });
 
   it(`video.component.html: Use the TogglePanel component in the template`, () => {

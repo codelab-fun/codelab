@@ -1,0 +1,47 @@
+<div style="display: flex; flex-direction: column">
+  <div>
+    <div #outputBlock *ngFor="let block of output; trackBy: trackByFn">
+      <div
+        *ngIf="block.type !== 'dynamic'"
+        [class]="'code block ' + (block.type || '')"
+        [style.font-size.px]="fontSize"
+        [innerHTML]="block.code | safeHtml"
+      ></div>
+      <div *ngIf="block.type === 'dynamic'" class="code dynamic">
+        <console-display-dynamic-component
+          [component]="block.code"
+          [param]="block.param"
+        ></console-display-dynamic-component>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of autocomplete" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+
+    <textarea
+      #inp
+      [matAutocomplete]="auto"
+      (ngModelChange)="updateAutocomplete()"
+      (keydown.enter)="execute(input); $event.preventDefault()"
+      (keydown.control.])="next(); $event.preventDefault()"
+      (keydown.control.enter)="input = input + '\n'"
+      [(ngModel)]="input"
+      class="code"
+      [style.font-size.px]="fontSize"
+      [style.height.px]="inputHeight"
+      (keyup)="calcInputHeight()"
+      (keydown)="calcInputHeight()"
+    ></textarea>
+
+    <div
+      [style.font-size.px]="fontSize"
+      style="color: #067aff; line-height: 50px;"
+    >
+      &gt;
+    </div>
+  </div>
+</div>

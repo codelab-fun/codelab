@@ -1,5 +1,5 @@
 import { upload_upload_component_html } from '../code';
-import { async, TestBed, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MatInputModule } from '@angular/material';
 import { AppModule } from '../app.module';
 import { UploadComponent } from '../upload/upload.component';
@@ -31,24 +31,24 @@ describe('forms', () => {
           templateUrl: undefined
         }
       });
-      TestBed.compileComponents();
+      try { TestBed.compileComponents(); } catch(e) { console.log(e); }
     } catch (e) {
     }
   });
 
-  it('app.module.ts: Add FormsModule and MatInputModule, to the imports.', () => {
+  it('AddFormsModule', () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].imports).to.contain(MatInputModule);
-    chai.expect(metadata[0].imports).to.contain(FormsModule);
+    chai.expect(metadata.imports).to.contain(MatInputModule);
+    chai.expect(metadata.imports).to.contain(FormsModule);
   });
 
 
-  it('upload.component.html: Add "title" input bound to the title property of the component', (done) => {
+  it('AddTitle', (done) => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.title = 'hello';
     fixture.detectChanges();
@@ -66,7 +66,7 @@ describe('forms', () => {
     });
   });
 
-  it('upload.component.html: Add "description" textarea bound to the description property of the component', (done) => {
+  it('AddDescription', (done) => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.description = 'hello';
     fixture.detectChanges();

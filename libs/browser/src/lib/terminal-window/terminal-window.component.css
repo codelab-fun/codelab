@@ -1,0 +1,36 @@
+.terminal-frame {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 1px #dddddd;
+}
+
+.frame {
+  box-shadow: 0 0 1px #dddddd;
+  margin-top: 0;
+  color: #444;
+  width: 100%;
+  background-color: #fff;
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+
+.img-full {
+  width: 100%;
+  height: 2vw;
+  background-image: url(/assets/images/consoletop-middle.png);
+  background-repeat: repeat;
+  display: flex;
+  justify-content: space-between;
+}
+
+.img-full img {
+  height: 2vw;
+}
+
+::ng-deep .success {
+  color: green;
+}
+
+::ng-deep .skipped {
+  color: #ddd;
+}

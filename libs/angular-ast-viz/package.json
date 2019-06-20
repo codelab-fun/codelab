@@ -1,0 +1,8 @@
+{
+  "name": "angular-ast-viz",
+  "version": "0.3.3",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}

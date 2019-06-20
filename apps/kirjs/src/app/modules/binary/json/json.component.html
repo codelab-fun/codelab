@@ -1,0 +1,85 @@
+<div style="display: flex;" class="wrapper">
+  <div
+    class="code"
+    style="flex: 0 0 36vw; display: flex;flex-direction: column"
+  >
+    <h2 i18n>
+      Data as JSON (<b>{{ codeLength }} bytes</b>)
+    </h2>
+    <code-demo-editor
+      style=""
+      (codeDemoLineChange)="handleLineChange($event)"
+      [(ngModel)]="code"
+      [fontSize]="40"
+      [lineNumbers]="false"
+      [codeDemoHighlight]="match"
+    ></code-demo-editor>
+  </div>
+  <div
+    class="binary"
+    style="flex: 0 0 60vw; display: flex;flex-direction: column"
+  >
+    <h2 i18n>
+      Binary data (<b>{{ binariesLength }} bytes</b>)
+    </h2>
+    <div *ngIf="error" style="padding: 3vw;">{{ error }}</div>
+    <div>
+      <span
+        (click)="index = i"
+        *ngFor="let item of binaries; let i = index"
+        [class.selected]="i === index"
+      >
+        <span class="value highlight-{{ i }}">{{ item.binary }}</span>
+        <span class="detail">
+          {{ item.type }}
+          <span
+            *ngIf="item.type === 'string'"
+            style="display: flex;flex-wrap: wrap"
+          >
+            <span
+              *ngFor="let l of item.display"
+              style="display: flex; flex-direction: column"
+            >
+              <span class="letter" style="text-align: center;"
+                >{{ l.value }}&nbsp;</span
+              >
+              <span class="bin highlight-{{ i }}">{{ l.bin }}</span>
+            </span>
+          </span>
+          <span
+            *ngIf="item.type === 'number'"
+            style="display: flex; flex-direction: column"
+          >
+            <span class="letter" style="text-align: center;">{{
+              item.value
+            }}</span>
+            <span class="bin highlight-{{ i }}">{{ item.binary }}</span>
+          </span>
+          <span
+            *ngIf="item.type === 'boolean'"
+            style="display: flex; flex-direction: column"
+          >
+            <span class="letter" style="text-align: center;">{{
+              item.value
+            }}</span>
+            <span class="bin highlight-{{ i }}">{{ item.binary }}</span>
+          </span>
+        </span>
+      </span>
+    </div>
+    <h2 style="margin-top: 2vw;" i18n>
+      Schema (<b>{{ schemaLength }} bytes</b>)
+    </h2>
+
+    <div
+      (click)="index = i"
+      *ngFor="let item of schema; let i = index"
+      class="bin {{ item.className }}"
+    >
+      <ng-container *ngIf="item.className">&nbsp;&nbsp;</ng-container
+      >{{ item.value }}
+    </div>
+  </div>
+</div>
+
+<div (click)="index = index + 1">Next</div>

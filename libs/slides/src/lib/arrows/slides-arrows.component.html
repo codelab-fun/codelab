@@ -1,0 +1,17 @@
+<button
+  aria-label="Previous slide"
+  *ngIf="canGoPrevious()"
+  class="arrow-left arrow"
+  (click)="goToPreviousSlide()"
+>
+  ◀
+</button>
+<button
+  *ngIf="canGoNext()"
+  i18n-aria-label
+  aria-label="Next slide"
+  class="arrow-right arrow"
+  (click)="goToNextSlide()"
+>
+  ▶
+</button>

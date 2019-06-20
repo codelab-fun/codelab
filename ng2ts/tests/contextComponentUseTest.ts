@@ -54,7 +54,7 @@ beforeEach(() => {
   TestBed.overrideComponent(ContextComponent, {set: {template: context_context_html}});
   TestBed.overrideComponent(ThumbsComponent, {set: {template: thumbs_thumbs_html}});
 
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Children', () => {
@@ -100,11 +100,11 @@ describe('Children', () => {
   it(`app.module.ts: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].declarations, `Video component not found`).contains(ContextComponent);
+    chai.expect(metadata.declarations || [], `Video component not found`).contains(ContextComponent);
   });
 
   it(`video.component.html: Actually display the ad (We actually also did it for you).`, () => {

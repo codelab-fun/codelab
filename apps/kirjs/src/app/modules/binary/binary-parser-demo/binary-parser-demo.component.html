@@ -1,0 +1,47 @@
+<div style="display: flex;">
+  <div>
+    <div style="display: flex;padding: 0 1vw">
+      <div
+        style="padding: 1vw;"
+        *ngFor="let helper of helpers; let i = index"
+        class="helper"
+        (click)="code = helper"
+      >
+        {{ i }}
+      </div>
+    </div>
+    <code-demo-editor
+      [fontSize]="40"
+      [lineNumbers]="false"
+      [(ngModel)]="code"
+      style="width:50vw; height: 100vh;flex: none"
+      language="javascript"
+      (ngModelChange)="generateCode()"
+    ></code-demo-editor>
+  </div>
+  <div>
+    <kirjs-fake-gif
+      (binaryUpdate)="binary = $event; generateCode()"
+      [mini]="true"
+      [showPopups]="true"
+      [preview]="false"
+      [binary]="binary"
+      [filterClassName]="filterClassName"
+      [highlightedMap]="{
+        boolean: true,
+        number: true,
+        hex: true,
+        string: true
+      }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+    <code class="output error" *ngIf="error">{{ error }}</code>
+    <code-demo-editor
+      [fontSize]="40"
+      language="json"
+      [lineNumbers]="false"
+      [(ngModel)]="result"
+      style="width:50vw; height: 100vh;flex: none"
+    ></code-demo-editor>
+  </div>
+</div>

@@ -1,10 +1,11 @@
 // tslint:disable:max-line-length TODO: Clean up this file and remove this comment.
 //  TODO: This should be done using require.context
-import { DiffFilesResolver } from '../src/app/differ/diffFilesResolver';
+
 import { Injectable } from '@angular/core';
 import { createModuleTest } from './tests/createModuleTest';
 import { createComponentTest } from './tests/createComponentTest';
 import { createBootstrapTest } from './tests/bootstrapTest';
+import { DiffFilesResolver } from '../libs/utils/src/lib/differ/diffFilesResolver';
 
 declare const require;
 
@@ -62,7 +63,7 @@ const preloadedFiles = {
   'thumbs.app.module.ts': require('!raw-loader!./thumbs.app.module.ts'),
   'video.app.module.ts': require('!raw-loader!./video.app.module.ts'),
   'toggle-panel.app.module.ts': require('!raw-loader!./toggle-panel.app.module.ts'),
-  'index.html': '<base href="/assets/runner/"><my-app></my-app>'
+  'index.html': '<base href="/assets/runner/"><my-app></my-app><div class="error"></div>'
   // 'index.html': '<my-thumbs></my-thumbs><my-wrapper></my-wrapper>'
 };
 
@@ -219,6 +220,31 @@ function patchATestWithAFunctionINAHackyWay(exercisesFiles, path, callback) {
   });
 }
 
+export function convertExerciseToMap(exercise) {
+  const convertFilesToMap = (prop = 'template') => (result, file) => {
+    if (file[prop]) {
+      result[file.path] = file[prop];
+
+      if (file.execute) {
+        result[file.path + '.execute'] = file.execute;
+      }
+    }
+    return result;
+  };
+
+  const testBootstrap = exercise.files.find(({bootstrap, excludeFromTesting, template}) => template && bootstrap && !excludeFromTesting);
+  const bootstrapFiles = exercise.files.find(({bootstrap, excludeFromTesting, template}) => template && bootstrap && excludeFromTesting);
+  return {
+    highlights: exercise.files.filter(({highlight}) => highlight).reduce((result, {highlight, path}) => (result[path] = highlight, result), {}),
+    code: exercise.files.reduce(convertFilesToMap(), {}),
+    codeSolutions: exercise.files.map(file => ((file.solution = file.solution || file.template), file)).reduce(convertFilesToMap('solution'), {}),
+    test: exercise.files.filter(file => !file.excludeFromTesting).reduce(convertFilesToMap(), {}),
+    bootstrap: bootstrapFiles && bootstrapFiles.moduleName,
+    bootstrapTest: testBootstrap && testBootstrap.moduleName,
+    file: exercise.files[0].path
+  };
+}
+
 export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */any = {
   name: 'Angular 101 Codelab (beta)',
   id: 'ng2ts',
@@ -332,7 +358,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Service injection',
           files: diffFilesResolver.resolve('diInjectService', {
             exercise: [files.video_videoService, files.appModule, files.appComponent],
-            reference: [files.appHtml, files.apiService, files.video_videoItem, files.main, files.style_css, files.indexHtml],
+            reference: [
+              files.appHtml, files.apiService, files.video_videoItem, files.main, files.style_css, files.indexHtml
+            ],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -367,7 +395,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           files: diffFilesResolver.resolve('videoComponentUse', {
             exercise: [files.appModule, files.appHtml],
             reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
+              files.video_video_component_html, files.video_video_component, files.appComponent,
+              files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css,
+              files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -390,7 +420,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
               files.upload_upload_component_html,
             ],
             reference: [
-              files.video_video_component_html, files.video_video_component, files.appComponent, files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css, files.indexHtml
+              files.video_video_component_html, files.video_video_component, files.appComponent,
+              files.video_videoService, files.video_videoItem, files.apiService, files.main, files.style_css,
+              files.indexHtml
             ],
             test: [files.test],
             bootstrap: [files.main]
@@ -511,7 +543,9 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
           name: 'Add TogglePanelComponent',
           files: diffFilesResolver.resolve('togglePanelComponentCreate', {
             exercise: [files.toggle_panel_toggle_panel, files.toggle_panel_toggle_panel_html],
-            reference: [files.wrapperComponent, files.apiService, files.appModule, files.main, files.style_css, files.indexHtml],
+            reference: [
+              files.wrapperComponent, files.apiService, files.appModule, files.main, files.style_css, files.indexHtml
+            ],
             test: [files.test],
             bootstrap: [files.main]
           })
@@ -542,46 +576,51 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
     },
     {
       name: 'Pipes (bonus)',
-      exercises: [{
-        name: 'Create a pipe',
-        files: diffFilesResolver.resolve('fuzzyPipeCreate', {
-          exercise: [files.fuzzyPipe_fuzzyPipe],
-          test: [files.test],
-          bootstrap: [files.main]
-        })
-      }, {
-        name: 'Use the pipe',
-        files: diffFilesResolver.resolve('fuzzyPipeUse', {
-          exercise: [files.appModule, files.video_video_component_html],
-          reference: [files.fuzzyPipe_fuzzyPipe,
-            files.contextService,
-            files.contextComponent,
-            files.context_context_html,
-            files.video_video_component,
-            files.toggle_panel_toggle_panel,
-            files.toggle_panel_toggle_panel_html,
-            files.thumbs_thumbs_component,
-            files.thumbs_thumbs_html,
-            files.appHtml,
-            files.appComponent,
-            files.video_videoService,
-            files.video_videoItem,
-            files.apiService,
-            files.main,
-            files.indexHtml
-          ],
-          test: [files.test],
-          bootstrap: [files.main]
-        })
-      }]
+      exercises: [
+        {
+          name: 'Create a pipe',
+          files: diffFilesResolver.resolve('fuzzyPipeCreate', {
+            exercise: [files.fuzzyPipe_fuzzyPipe],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }, {
+          name: 'Use the pipe',
+          files: diffFilesResolver.resolve('fuzzyPipeUse', {
+            exercise: [files.appModule, files.video_video_component_html],
+            reference: [
+              files.fuzzyPipe_fuzzyPipe,
+              files.contextService,
+              files.contextComponent,
+              files.context_context_html,
+              files.video_video_component,
+              files.toggle_panel_toggle_panel,
+              files.toggle_panel_toggle_panel_html,
+              files.thumbs_thumbs_component,
+              files.thumbs_thumbs_html,
+              files.appHtml,
+              files.appComponent,
+              files.video_videoService,
+              files.video_videoItem,
+              files.apiService,
+              files.main,
+              files.indexHtml
+            ],
+            test: [files.test],
+            bootstrap: [files.main]
+          })
+        }
+      ]
     }
     ,
     {
       name: 'Survey',
-      exercises: [{
-        slide: true,
-        name: 'All done!'
-      }]
+      exercises: [
+        {
+          slide: true,
+          name: 'All done!'
+        }
+      ]
     }
   ]
 };

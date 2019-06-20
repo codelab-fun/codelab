@@ -1,9 +1,9 @@
 # AngularPresentation
 
 [![Join the chat at https://gitter.im/AngularNYC/angular-presentation](https://badges.gitter.im/AngularNYC/angular-presentation.svg)](https://gitter.im/AngularNYC/angular-presentation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-<a href="https://codeclimate.com/github/nycJSorg/angular-presentation/coverage"><img src="https://codeclimate.com/github/nycJSorg/angular-presentation/badges/coverage.svg" /></a>
+<a href="https://codeclimate.com/github/codelab-fun/codelab/coverage"><img src="https://codeclimate.com/github/nycJSorg/angular-presentation/badges/coverage.svg" /></a>
 
-Demo: [Demo](https://angular-presentation.firebaseapp.com/)
+Demo: [Demo](https://codelab.fun)
 
 ## Project structure
 There are 2 folders in the `src/app` folder:
@@ -13,7 +13,7 @@ There are 2 folders in the `src/app` folder:
 
 
 ## How to: 
-- clone: `git clone https://github.com/AngularNYC/angular-presentation.git`
+- clone: `git clone https://github.com/nycJSorg/angular-presentation.git`
 - [Install npm](https://nodejs.org/en/download/). Test with `npm -v`
 - install: `npm install`
 - start: `npm start`

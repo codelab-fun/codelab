@@ -1,0 +1,15 @@
+<div class="title-slide">
+  <div class="header">{{ title }}</div>
+  <div class="contents">
+    <div class="description">{{ description }}</div>
+
+    <div class="instructions" i18n>
+      Use <b>←</b> and <b>→</b> on your keyboard to navigate the slides.
+    </div>
+
+    <div class="prereqs">
+      <strong *ngIf="prereqs" i18n>Prerequisites:</strong> {{ prereqs }}
+    </div>
+  </div>
+</div>
+<codelab-ripple-animation class="left-half-ripple"></codelab-ripple-animation>

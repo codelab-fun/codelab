@@ -1,5 +1,21 @@
 {
   "projects": {
-    "default": "angular-presentation"
+    "default": "angular-presentation",
+    "kirjs": "kirjs-kirjs"
+  },
+  "targets": {
+    "angular-presentation": {
+      "hosting": {
+        "codelab": [
+          "angular-presentation"
+        ],
+        "kirjs": [
+          "kirjs-home"
+        ],
+        "codelab-next": [
+          "codelab-next"
+        ]
+      }
+    }
   }
 }

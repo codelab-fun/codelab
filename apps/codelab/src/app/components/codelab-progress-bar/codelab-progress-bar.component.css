@@ -1,0 +1,48 @@
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.points-container {
+  display: flex;
+  height: 25px;
+}
+
+.points-container:hover .slide-block {
+  transition-duration: 0.5s;
+  height: 15px;
+}
+
+.slide-block {
+  flex-grow: 1;
+  height: 3px;
+  transition-duration: 0.5s;
+  background: #abb7b7;
+}
+
+.slide-block:hover {
+  background: #dadfe1;
+}
+
+.exercise-block {
+  background: #d35400;
+}
+
+.exercise-block:hover {
+  background: #f9690e;
+}
+
+.completed-slide {
+  background: #f89406;
+}
+
+.completed-slide:hover {
+  background: #e9d460;
+}
+
+.completed-slide.exercise-block {
+  background: #e67e22;
+}

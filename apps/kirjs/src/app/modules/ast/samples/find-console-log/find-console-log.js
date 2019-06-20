@@ -1,0 +1,1 @@
+function findConsoleLog(code) {}

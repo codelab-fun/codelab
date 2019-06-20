@@ -1,11 +1,50 @@
 {
-  "hosting": {
-    "public": "dist",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "target": "codelab",
+      "public": "dist/apps/codelab",
+      "rewrites": [
+        {
+          "source": "/ru/**",
+          "destination": "/ru/index.html"
+        },
+        {
+          "source": "/30/**",
+          "destination": "/30/index.html"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "codelab-next",
+      "public": "dist/apps/codelab",
+      "rewrites": [
+        {
+          "source": "/ru/**",
+          "destination": "/ru/index.html"
+        },
+        {
+          "source": "/30/**",
+          "destination": "/30/index.html"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "kirjs",
+      "public": "dist/apps/kirjs",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
 }

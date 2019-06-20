@@ -18,27 +18,29 @@ beforeEach(() => {
       templateUrl: undefined
     }
   });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Blabla', () => {
   it(`@@addIjectableDecoraterToClass`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', VideoService);
+      metadata = VideoService['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
     chai.expect(metadata).not.undefined;
   });
+
   it(`@@addVideoServiceToNgModule`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].providers[0]).equals(VideoService);
+
+    chai.expect(metadata.providers[0]).equals(VideoService);
   });
 
 
