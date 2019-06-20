@@ -17,7 +17,7 @@ import {
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
-  @ViewChild('guess') guess: ElementRef;
+  @ViewChild('guess', {static: true}) guess: ElementRef;
   @Input() path;
   @Input() d = '';
   @Input() color = '#ffffff';

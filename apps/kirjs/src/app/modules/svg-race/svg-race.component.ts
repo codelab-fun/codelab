@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { bootstrap, builder, exercise, stylesheet } from '../../../exercise/helpers/helpers';
+import { bootstrap, builder, exercise, stylesheet } from '../../../../../codelab/src/app/shared/helpers/helpers';
+
 
 declare const require;
 

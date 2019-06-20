@@ -29,7 +29,7 @@ export class RaceComponent implements AfterViewInit {
     }
   ];
   @Input() track: string;
-  @ViewChild('path') path: ElementRef;
+  @ViewChild('path', { static: false }) path: ElementRef;
   name = 'cheburek';
   scores = {};
   trackWidth = 20;

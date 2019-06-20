@@ -1,16 +1,10 @@
 import { NgModule, Pipe } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '../../../presentation/slide-routes';
-import { FeedbackModule } from '../../../feedback/feedback.module';
-import { SvgRaceComponent } from './svg-race.component';
-import { PresentationModule } from '../../../presentation/presentation.module';
-import { ExerciseModule } from '../../../exercise/exercise.module';
-import { SimpleEditorModule } from '../ast/simple-editor/editor.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
-import { RunnersModule } from '../../../exercise/runners/runners.module';
+
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 
@@ -19,9 +13,12 @@ import { RaceComponent } from './race/race.component';
 import { LittleCarComponent } from './little-car/little-car.component';
 import { FinishComponent } from './finish/finish.component';
 import { PlayerComponent } from './player/player.component';
-import { CircleProgressBarModule } from '../../../progress-bar/progress-bar.module';
-import { SyncModule } from '../../../sync/sync.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SvgRaceComponent } from './svg-race.component';
+import { FeedbackModule } from '@codelab/feedback';
+import { SyncModule } from '@codelab/utils/src/lib/sync/sync.module';
+import { SlidesModule } from '@codelab/slides';
+import { CodeDemoModule } from '@codelab/code-demos';
 
 
 const routes = RouterModule.forChild(
@@ -43,15 +40,12 @@ export class SafeHtml {
   imports: [
     routes,
     CommonModule,
-    PresentationModule,
+    SlidesModule,
     FeedbackModule,
-    ExerciseModule,
-    RunnersModule,
-    SimpleEditorModule,
+    CodeDemoModule,
     FormsModule,
     FlexLayoutModule,
     MatButtonModule,
-    CircleProgressBarModule,
     SyncModule
   ],
   declarations: [
