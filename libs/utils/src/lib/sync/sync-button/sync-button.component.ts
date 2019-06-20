@@ -35,7 +35,6 @@ export class SyncButtonComponent implements OnInit {
 
   follow({value}: { value: string }) {
     this.db.list('sync-sessions/' + value).valueChanges().subscribe(([index]) => {
-      debugger
       this.presentation.goToSlide(Number(index));
     });
 
