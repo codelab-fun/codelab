@@ -25,7 +25,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     SnippetInfoComponent,
     SnippetOverviewComponent,
     SnippetSpinnerComponent,
-
   ],
   entryComponents: [
     SnippetOverviewComponent

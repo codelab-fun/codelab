@@ -1,9 +1,9 @@
-<p>
-  post works!
-</p>
+
 <ng-container *ngIf="post$ | async as post">
-  <div>{{ post.title }}</div>
-  <div>{{ post.date }}</div>
-  <div>{{ post.author }}</div>
-  <div class="text" [innerHTML]="post.text"></div>
+    
+  <div> <markdown ngPreserveWhitespaces> # {{ post.title }}</markdown> by {{ post.author }}</div> 
+  <div> <markdown ngPreserveWhitespaces> ## {{ post.date }}</markdown></div>
+  <div></div>
+  <markdown ngPreserveWhitespaces>{{ post.text }}</markdown>
+  <!-- <div class="text" [innerHTML]="post.text"></div> -->
 </ng-container>
