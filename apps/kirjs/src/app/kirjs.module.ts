@@ -41,7 +41,12 @@ const routes = [
     path: 'music',
     loadChildren: () => import('./modules/music/music.module').then(m => m.MusicModule),
     name: 'Music',
-    description: 'Musicja'
+    description: 'Music'
+  },  {
+    path: 'webassembly',
+    loadChildren: () => import('./modules/webassembly/webassembly.module').then(m => m.WebassemblyModule),
+    name: 'webassembly',
+    description: 'webassembly'
   },
   {
     path: 'svg',
