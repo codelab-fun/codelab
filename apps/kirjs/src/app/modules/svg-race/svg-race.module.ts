@@ -1,4 +1,4 @@
-import { NgModule, Pipe } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +27,7 @@ const routes = RouterModule.forChild(
 
 
 @Pipe({name: 'safeHtml'})
-export class SafeHtml {
+export class SafeHtml implements PipeTransform {
   constructor(private readonly sanitizer: DomSanitizer) {
   }
 

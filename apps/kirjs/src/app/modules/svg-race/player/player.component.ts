@@ -12,7 +12,8 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[slides-player]',
+  // tslint:disable-next-line:component-selector
+  selector: '[kirjs-player]',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
@@ -21,7 +22,7 @@ export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() path;
   @Input() d = '';
   @Input() color = '#ffffff';
-  @Output() onScore = new EventEmitter<number>();
+  @Output() scoreChanged = new EventEmitter<number>();
   points = [];
   carPosition = {x: 50, y: 50, angle: 0};
   pathLength = 0;
@@ -50,11 +51,11 @@ export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
           this.score++;
         } else {
           this.pathLength = (i - 3) / 100 * this.path.getTotalLength();
-          this.onScore.emit(this.score);
+          this.scoreChanged.emit(this.score);
           return;
         }
       }
-      this.onScore.emit(this.score);
+      this.scoreChanged.emit(this.score);
     });
   }
 

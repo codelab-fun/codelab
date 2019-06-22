@@ -4,7 +4,7 @@ import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component
 import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'slides-sync-button',
+  selector: 'codelab-sync-button',
   templateUrl: './sync-button.component.html',
   styleUrls: ['./sync-button.component.css']
 })

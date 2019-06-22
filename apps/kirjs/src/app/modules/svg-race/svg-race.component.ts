@@ -5,7 +5,7 @@ import { bootstrap, builder, exercise, stylesheet } from '../../../../../codelab
 declare const require;
 
 @Component({
-  selector: 'slides-svg-race',
+  selector: 'kirjs-svg-race',
   templateUrl: './svg-race.component.html',
   styleUrls: ['./svg-race.component.css']
 })

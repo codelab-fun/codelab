@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'slides-race',
+  selector: 'kirjs-race',
   templateUrl: './race.component.html',
   styleUrls: ['./race.component.css']
 })
@@ -50,7 +50,7 @@ export class RaceComponent implements AfterViewInit {
   setScore(name: string, score: number) {
     const c = this.cars.find(car => name === car.name);
     if (c) {
-      c.score = score
+      c.score = score;
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-timer',
+  selector: 'kirjs-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
@@ -18,7 +18,7 @@ export class TimerComponent implements OnInit {
       if (this.time > 0) {
         this.time--;
       }
-    }, 1000)
+    }, 1000);
   }
 
   ngOnInit() {
