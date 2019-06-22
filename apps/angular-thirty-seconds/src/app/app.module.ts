@@ -17,7 +17,7 @@ export const angularFire = AngularFireModule.initializeApp(
 
 const routes: Routes = [
   {
-    path: '',
+    path: '**',
     component: CreateSnippetComponent
   }
 ];
