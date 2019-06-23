@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { Branch, CommitInfo, CreatePullRequest, Repo, User } from '../interfaces';
+import { MatSnackBar } from '@angular/material';
 
 type Commit = any;
 type PullRequest = any;
@@ -17,8 +18,14 @@ export class GitHubService {
   private options: object;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private _snackBar: MatSnackBar,
   ) {
+  }
+
+  showErrorSnakeBar(errInfo: string) {
+    this._snackBar.open(errInfo, '', {duration: 10000});
+    return throwError(new Error(errInfo));
   }
 
   setToken(token: string) {
@@ -36,7 +43,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${owner}/${repoName}`;
     return this.http
       .get<Repo>(requestUrl, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't get repo`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get repo`)));
   }
 
   getMyRepos(user: User): Observable<Repo[]> {
@@ -44,7 +51,7 @@ export class GitHubService {
 
     return this.http
       .get<Repo[]>(user.repos_url, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't fetch user repos`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fetch user repos`)));
   }
 
   forkRepo(repo: Repo): Observable<Repo> {
@@ -53,7 +60,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/forks`;
     return this.http
       .post<Repo>(requestUrl, {}, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't fork 30 secs repo`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fork 30 secs repo`)));
   }
 
   getMasterBranch(repo: Repo): Observable<Branch> {
@@ -62,7 +69,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/git/refs/heads/master`;
     return this.http
       .get<Branch>(requestUrl, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't fetch master branch of ${repo.full_name}`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fetch master branch of ${repo.full_name}`)));
   }
 
   createBranch(repo: Repo, baseBranch: Branch, branchName: string): Observable<Branch> {
@@ -79,7 +86,7 @@ export class GitHubService {
 
     return this.http
       .post<Branch>(requestUrl, requestData, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't create branch ${branchName} of base branch ${baseBranch.object.url}`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't create branch ${branchName} of base branch ${baseBranch.object.url}`)));
   }
 
   createCommit(repo: Repo, commitInfo: CommitInfo): Observable<Commit> {
@@ -95,7 +102,7 @@ export class GitHubService {
 
     return this.http
       .put(requestUrl, requestData, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't create commit`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't create commit`)));
   }
 
   createPullRequest(repo: Repo, user: User, pullRequest: CreatePullRequest): Observable<PullRequest> {
@@ -114,19 +121,19 @@ export class GitHubService {
 
     return this.http
       .post(requestUrl, requestData, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't create pull request`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't create pull request`)));
   }
 
   getPullsList(owner: string, repoName: string): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls`, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't fetch user repos`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fetch user repos`)));
   }
 
   getPullByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}`, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't get pull request`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get pull request`)));
   }
 
   updatePullByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
@@ -136,7 +143,7 @@ export class GitHubService {
         {body: `Here you can edit snippet content: https://30.codelab.fun/new/${pullNumber}`},
         this.options
       )
-      .pipe(catchError(() => throwError(new Error(`Can't update pull request`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't update pull request`)));
   }
 
   updateIssueByIssueNumber(owner: string, repoName: string, issueNumber: number) {
@@ -146,19 +153,19 @@ export class GitHubService {
         {labels: ['snippet']},
         this.options
       )
-      .pipe(catchError(() => throwError(new Error(`Can't get issues list`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get issues list`)));
   }
 
   getPullFileByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}/files`, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't get pull request file`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get pull request file`)));
   }
 
   getSnippetBody(url) {
     return this.http
       .get<any>(url, this.options)
-      .pipe(catchError(() => throwError(new Error(`Can't get snippet body`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get snippet body`)));
   }
 
   updateFile(repoFullName, snippetData, fileInfo): Observable<any> {
@@ -171,10 +178,9 @@ export class GitHubService {
     };
     return this.http
       .put<any>(requestUrl, requestPayload, this.options)
-      .pipe(catchError(() => throwError(new Error(`Cannot update file`))));
+      .pipe(catchError(() => this.showErrorSnakeBar(`Cannot update file`)));
   }
 }
-
 
 function requires(expression: any, message: string) {
   if (!expression) {

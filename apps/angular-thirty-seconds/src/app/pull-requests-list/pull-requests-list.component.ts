@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GitHubService } from '../shared/services/github.service';
+import { REPO_OWNER, REPO_NAME } from '../shared/constants/repo-info';
 
 @Component({
   selector: 'codelab-pull-requests-list',
@@ -24,9 +25,9 @@ export class PullRequestsListComponent {
 
   getPullsList() {
     this.isLoading = true;
-    this.githubService.getPullsList('nycJSorg', '30-seconds-of-angular')
+    this.githubService.getPullsList(REPO_OWNER, REPO_NAME)
       .subscribe(res => {
-          this.pullsList = res.filter(x => x['labels'].length && x['labels'][0]['name'] === 'snippet');
+          this.pullsList = res.filter(x => x['labels'].length && x['labels'].map(y => y['name']).indexOf('snippet') > -1);
           this.isLoading = false;
         },
         () => this.isLoading = false

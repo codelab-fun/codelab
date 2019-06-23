@@ -1,14 +1,13 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
-import { SubscriptionLike } from 'rxjs/internal/types';
 import * as firebase from 'firebase';
 import { SnippetService } from '../../shared/services/snippet.service';
 import { Router } from '@angular/router';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { GitHubService } from '../../shared/services/github.service';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
-
+import { REPO_NAME, REPO_OWNER } from '../../shared/constants/repo-info';
 
 function arrayToMarkdownList(tagsArray: Array<string>): string {
   return tagsArray.filter(a => a).map(x => `- ${x}`).join(`\n`);
@@ -87,7 +86,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   githubAuth;
   isPRCreating = false;
 
-  isSnippetEdit: boolean;
+  isEdit: boolean;
   snippet: string;
   snippetWithFormat: string;
 
@@ -103,7 +102,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.isSnippetEdit = this.data['isSnippetEdit'];
+    this.isEdit = this.data['isEdit'];
     this.snippet = getSnippet(this.data['formValue']);
     // This is a temporary hack.
     // The version of markdown requires new lines between meta values, but github does not.
@@ -123,7 +122,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
       await this.login();
     }
 
-    if (this.isSnippetEdit) {
+    if (this.isEdit) {
       this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'])
         .pipe(takeUntil(this.destroy))
         .subscribe(
@@ -143,8 +142,8 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
       this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
         .pipe(
           takeUntil(this.destroy),
-          switchMap(res => this.githubService.updatePullByPullNumber('nycJSorg', '30-seconds-of-angular', res['number'])),
-          switchMap(res => this.githubService.updateIssueByIssueNumber('nycJSorg', '30-seconds-of-angular', res['number'])),
+          switchMap(res => this.githubService.updatePullByPullNumber(REPO_OWNER, REPO_NAME, res['number'])),
+          switchMap(res => this.githubService.updateIssueByIssueNumber(REPO_OWNER, REPO_NAME, res['number'])),
         )
         .subscribe(
           (res) => {

@@ -4,6 +4,7 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 import slugify from 'slugify';
 import { GitHubService } from './github.service';
 import { Branch, CommitInfo, CreatePullRequest, GithubAuth, Repo, User } from '../interfaces';
+import { REPO_OWNER, REPO_NAME } from '../constants/repo-info';
 
 type PullRequest = any;
 
@@ -11,9 +12,6 @@ type PullRequest = any;
   providedIn: 'root'
 })
 export class SnippetService {
-
-  private owner = 'nycJSorg';
-  private repoName = '30-seconds-of-angular';
 
   constructor(
     private githubService: GitHubService,
@@ -28,7 +26,7 @@ export class SnippetService {
     return this.githubService.getMyRepos(user)
       .pipe(
         switchMap((repos: Repo[]) => {
-          const repo = repos.find((r) => r.name === this.repoName);
+          const repo = repos.find((r) => r.name === REPO_NAME);
           return this.githubService.updateFile(repo.full_name, snippetData, fileInfo);
         })
       );
@@ -45,11 +43,11 @@ export class SnippetService {
     const filePath = `contents/snippets/${this.toLowerCaseAndSlugify(title)}.md`;
 
     const user: User = githubAuth.additionalUserInfo.profile;
-    return this.githubService.getRepo(this.owner, this.repoName).pipe(
+    return this.githubService.getRepo(REPO_OWNER, REPO_NAME).pipe(
       switchMap((baseRepo: Repo) => {
         return this.githubService.getMyRepos(user).pipe(
           switchMap((repos: Repo[]) => {
-            const repo = repos.find((r) => r.name === this.repoName);
+            const repo = repos.find((r) => r.name === REPO_NAME);
             return repo ? of(repo) : this.githubService.forkRepo(baseRepo).pipe(debounceTime(5000));
           }),
           switchMap((userRepo: Repo) => {

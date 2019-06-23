@@ -4,14 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs/internal/Observable';
-import { catchError, map, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { map, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
 import { SnippetService } from '../shared/services/snippet.service';
 import { GitHubService } from '../shared/services/github.service';
 import { ValidationsService } from '../shared/services/validations.service';
-import { EMPTY } from 'rxjs/internal/observable/empty';
+import { REPO_NAME, REPO_OWNER } from '../shared/constants/repo-info';
+
 
 // @ts-ignore
 window.Buffer = {
@@ -49,13 +50,13 @@ function mdTextToJson(snippet: string) {
 })
 export class CreateSnippetComponent implements OnDestroy {
 
-  @ViewChild('tagInput', { static: false }) tagInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
+  @ViewChild('tagInput', {static: false}) tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
   destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
 
   isLoading = false;
-  isSnippetEdit = false;
+  isEdit = false;
   snippetFileInfo = {};
 
   TAGS_LIST = TAGS_LIST;
@@ -107,7 +108,7 @@ export class CreateSnippetComponent implements OnDestroy {
 
   getPullFileByPullNumber(pullNumber) {
     this.isLoading = true;
-    this.githubService.getPullFileByPullNumber('nycJSorg', '30-seconds-of-angular', pullNumber)
+    this.githubService.getPullFileByPullNumber(REPO_OWNER, REPO_NAME, pullNumber)
       .pipe(
         takeUntil(this.destroy),
         switchMap(res => {
@@ -127,13 +128,13 @@ export class CreateSnippetComponent implements OnDestroy {
         switchMap(res => {
             this.snippetFileInfo['snippet'] = mdTextToJson(res['body']);
             this.patchFormValue(this.snippetFileInfo['snippet']);
-            return this.githubService.getPullByPullNumber('nycJSorg', '30-seconds-of-angular', pullNumber);
+            return this.githubService.getPullByPullNumber(REPO_OWNER, REPO_NAME, pullNumber);
           }
         )
       ).subscribe(
       res => {
         this.snippetFileInfo['branchName'] = res['head']['ref'];
-        this.isSnippetEdit = true;
+        this.isEdit = true;
         this.isLoading = false;
         this.cd.markForCheck();
       },
@@ -178,7 +179,7 @@ export class CreateSnippetComponent implements OnDestroy {
       this.dialog.open(SnippetOverviewComponent, {
         data: {
           formValue: this.getPreparedFormValue(this.snippetForm.value),
-          isSnippetEdit: this.isSnippetEdit,
+          isEdit: this.isEdit,
           fileInfo: this.snippetFileInfo ? {
             sha: this.snippetFileInfo['sha'],
             fileName: this.snippetFileInfo['fileName'],
