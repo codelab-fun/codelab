@@ -22,6 +22,8 @@ Q 250 420 450 320
 
 `
   };
+  input = 'hi';
+  input2: any;
 
 
   constructor() {

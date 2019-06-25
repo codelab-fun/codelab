@@ -1,8 +1,16 @@
 <div style="display: flex">
-  <button mat-button style="cursor:pointer" *ngIf="!syncOn" (click)="start()">⚫️ start</button>
-  <div *ngIf="syncOn">🔴️{{syncId}}</div>
+  <button mat-button style="cursor:pointer"
+          *ngIf="sync.canStartSession$ | async"
+          (click)="start()">⚫️ start
+  </button>
 
-  <mat-select placeholder="Select existing session" (selectionChange)="follow($event)">
-    <mat-option *ngFor="let session of (sessions$ | async)" [value]="session.key">{{session.key}}</mat-option>
+
+  <mat-select placeholder="Select existing session" (selectionChange)="follow($event)"
+              *ngIf="(sync.isInSession$ | async) === false">
+    <mat-option *ngFor="let session of (sync.sessions$ | async)" [value]="session.key">{{session.displayName}}</mat-option>
   </mat-select>
+
+  <div *isPresenting>
+    🔴 ️{{sync.currentSyncId$ | async }}
+  </div>
 </div>

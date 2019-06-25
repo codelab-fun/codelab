@@ -1,42 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { Component } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { filter } from 'rxjs/operators';
+import { filter, switchMap } from 'rxjs/operators';
+import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+
+interface SyncData {
+  slide: number;
+}
 
 @Component({
   selector: 'codelab-sync-button',
   templateUrl: './sync-button.component.html',
   styleUrls: ['./sync-button.component.css']
 })
-export class SyncButtonComponent implements OnInit {
+export class SyncButtonComponent {
 
-  syncOn = false;
-  syncId = '';
-  list = this.db.list('sync-sessions');
-  sessions$ = this.list.snapshotChanges();
-
-  constructor(private db: AngularFireDatabase,
-              private presentation: SlidesDeckComponent) {
-    presentation.slideChange.pipe(filter(() => this.syncOn)).subscribe((slideId) => {
-      this.list.update(this.syncId, {slide: slideId});
+  constructor(
+    private readonly sync: SyncService<SyncData>,
+    private readonly presentation: SlidesDeckComponent) {
+    presentation.slideChange.subscribe((slide) => {
+      this.sync.updateSession({slide});
     });
 
-  }
 
-  ngOnInit() {
+    sync.isPresenting$.pipe(
+      filter(a => !a),
+      switchMap(() => sync.presentersValue$)
+    ).subscribe(({slide}) => {
+      this.presentation.goToSlide(Number(slide));
+    });
   }
 
   start() {
-    this.syncOn = true;
-    this.syncId = this.list.push({
-      slide: this.presentation.activeSlideIndex
-    }).key;
+    this.sync.startSession({
+      slide: this.presentation.activeSlideIndex,
+    });
   }
 
   follow({value}: { value: string }) {
-    this.db.list('sync-sessions/' + value).valueChanges().subscribe(([index]) => {
-      this.presentation.goToSlide(Number(index));
-    });
-
+    this.sync.follow(value);
   }
 }

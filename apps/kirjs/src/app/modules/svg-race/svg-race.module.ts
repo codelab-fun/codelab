@@ -1,7 +1,7 @@
 import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -19,6 +19,8 @@ import { FeedbackModule } from '@codelab/feedback';
 import { SyncModule } from '@codelab/utils/src/lib/sync/sync.module';
 import { SlidesModule } from '@codelab/slides';
 import { CodeDemoModule } from '@codelab/code-demos';
+import { ButtonsNavBarModule } from '../../../../../codelab/src/app/components/buttons-nav-bar/buttons-nav-bar.module';
+import { SyncComponentsModule } from '@codelab/utils/src/lib/sync/components/sync-components.module';
 
 
 const routes = RouterModule.forChild(
@@ -41,12 +43,15 @@ export class SafeHtml implements PipeTransform {
     routes,
     CommonModule,
     SlidesModule,
+    ButtonsNavBarModule,
     FeedbackModule,
     CodeDemoModule,
     FormsModule,
     FlexLayoutModule,
     MatButtonModule,
-    SyncModule
+    SyncModule,
+    ReactiveFormsModule,
+    SyncComponentsModule,
   ],
   declarations: [
     RaceComponent,
