@@ -31,7 +31,7 @@ interface Result {
 }
 
 @Component({
-  selector: 'slides-webassembly-runner',
+  selector: 'kirjs-webassembly-runner',
   templateUrl: './webassembly-runner.component.html',
   styleUrls: ['./webassembly-runner.component.css']
 })
@@ -68,7 +68,7 @@ export class WebassemblyRunnerComponent implements OnChanges {
           setResult(await run(code));
         } catch(e){
           setError(e.message);
-        } 
+        }
       }())
     `);
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-webassembly-playground',
+
+  selector: 'kirjs-webassembly-playground',
   templateUrl: './webassembly-playground.component.html',
   styleUrls: ['./webassembly-playground.component.css']
 })
