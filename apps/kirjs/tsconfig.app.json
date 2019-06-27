@@ -4,8 +4,7 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "outDir": "../../dist/out-tsc/apps/kirjs",
-    "module": "es2015",
+    "outDir": "../../dist/out-tsc",
     "types": []
   },
   "exclude": ["test.ts", "**/*.spec.ts"]

@@ -8,8 +8,6 @@ import { CodelabComponentsModule } from '../components/codelab-components.module
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
 import { SlidesModule } from 'ng-slides';
 
-import { NxModule } from '@nrwl/nx';
-
 import { FullLayoutComponent } from '../containers';
 
 @NgModule({
@@ -21,7 +19,6 @@ import { FullLayoutComponent } from '../containers';
     CodeDemoModule,
     CodelabComponentsModule,
     SlidesModule,
-    NxModule.forRoot(),
     ButtonsNavBarModule
   ],
   exports: [

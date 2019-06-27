@@ -13,7 +13,7 @@ let routes = [
       {
         path: 'code-playground',
         loadChildren:
-          './code-playground/code-playground.module#CodePlaygroundModule',
+          () => import('./code-playground/code-playground.module').then(m => m.CodePlaygroundModule),
         name: 'code-playground',
         description:
           'Learn how pipes transform input values to output values for display in a view',
@@ -21,14 +21,14 @@ let routes = [
       },
       {
         path: 'feedback-page',
-        loadChildren: './feedback-page/feedback-page.module#FeedbackPageModule',
+        loadChildren: () => import('./feedback-page/feedback-page.module').then(m => m.FeedbackPageModule),
         name: 'Feedback page',
         description: 'Feedback page'
       },
       {
         path: 'rating-summary',
         loadChildren:
-          './rating-summary/rating-summary.module#RatingSummaryModule',
+          () => import('./rating-summary/rating-summary.module').then(m => m.RatingSummaryModule),
         name: 'rating-summary',
         description:
           'Learn how pipes transform input values to output values for display in a view',

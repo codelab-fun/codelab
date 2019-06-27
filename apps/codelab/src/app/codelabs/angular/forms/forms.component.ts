@@ -1,5 +1,5 @@
 import { CodelabFile } from '../../../shared/helpers/codelabFile';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
   Ng2TsExercises
@@ -56,8 +56,8 @@ function formsConfig(code, highlights: FileHighlights = {}) {
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.css']
 })
-export class FormsComponent implements OnInit {
-  @ViewChild('translations') translations;
+export class FormsComponent implements AfterViewInit {
+  @ViewChild('translations', { static: false }) translations;
   exercise: ExerciseConfigTemplate;
   private t: Record<string, string>;
   samples = {
@@ -125,7 +125,8 @@ export class FormsComponent implements OnInit {
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(7, 0);
   }
-  ngOnInit() {
+
+  ngAfterViewInit() {
     this.t = extractMessages(this.translations);
   }
 }

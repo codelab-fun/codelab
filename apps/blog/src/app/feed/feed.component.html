@@ -1,0 +1,16 @@
+<div>
+  <a routerLink="/form">Tell us what you have done!</a>
+  <ul>
+    <li class="post" *ngFor="let post of posts$ | async">
+      <p class="head">
+        <span class="title">{{ post.title }}</span>
+        <span class="date">{{ post.date }}</span>
+      </p>
+      <p>{{ post.author }}</p>
+      <a routerLink="/post/{{ post.key}}">More</a>
+      <div class="container">
+        <div class="text" [innerHTML]="post.text"></div>
+      </div>
+    </li>
+  </ul>
+</div>
