@@ -10,9 +10,9 @@ import { REPO_OWNER, REPO_NAME } from '../shared/constants/repo-info';
 })
 export class PullRequestsListComponent {
 
-  isLoading = false;
+  isLoading = true;
 
-  displayedColumns: string[] = ['title', 'created_at', 'action'];
+  displayedColumns = ['number', 'title', 'login', 'created_at', 'action'];
 
   private pullsList;
 
@@ -24,13 +24,8 @@ export class PullRequestsListComponent {
   }
 
   getPullsList() {
-    this.isLoading = true;
     this.githubService.getPullsList(REPO_OWNER, REPO_NAME)
-      .subscribe(res => {
-          this.pullsList = res.filter(x => x['labels'].length && x['labels'].map(y => y['name']).indexOf('snippet') > -1);
-          this.isLoading = false;
-        },
-        () => this.isLoading = false
-      );
+      .subscribe(res => this.pullsList = res.filter(x => x['labels'].length && x['labels'].map(y => y['name']).indexOf('snippet') > -1))
+      .add(() => this.isLoading = false);
   }
 }

@@ -14,7 +14,7 @@ type PullRequest = any;
 export class SnippetService {
 
   constructor(
-    private githubService: GitHubService,
+    private githubService: GitHubService
   ) {
   }
 

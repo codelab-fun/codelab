@@ -9,6 +9,9 @@ import { MatSnackBar } from '@angular/material';
 type Commit = any;
 type PullRequest = any;
 
+// TODO work on github api names
+// Here is an example link: https://github.com/github-tools/github
+
 @Injectable({
   providedIn: 'root'
 })
@@ -136,7 +139,7 @@ export class GitHubService {
       .pipe(catchError(() => this.showErrorSnakeBar(`Can't get pull request`)));
   }
 
-  updatePullByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
+  addLinkToEditForm(owner: string, repoName: string, pullNumber: number): Observable<any> {
     return this.http
       .patch<any>(
         `${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}`,
@@ -146,7 +149,7 @@ export class GitHubService {
       .pipe(catchError(() => this.showErrorSnakeBar(`Can't update pull request`)));
   }
 
-  updateIssueByIssueNumber(owner: string, repoName: string, issueNumber: number) {
+  addSnippetLabel(owner: string, repoName: string, issueNumber: number) {
     return this.http
       .patch<any>(
         `${this.apiGithubUrl}/repos/${owner}/${repoName}/issues/${issueNumber}`,

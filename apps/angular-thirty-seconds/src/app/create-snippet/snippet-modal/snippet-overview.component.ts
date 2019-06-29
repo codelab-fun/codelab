@@ -86,7 +86,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   githubAuth;
   isPRCreating = false;
 
-  isEdit: boolean;
+  isEditing: boolean;
   snippet: string;
   snippetWithFormat: string;
 
@@ -102,7 +102,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.isEdit = this.data['isEdit'];
+    this.isEditing = this.data['isEditing'];
     this.snippet = getSnippet(this.data['formValue']);
     // This is a temporary hack.
     // The version of markdown requires new lines between meta values, but github does not.
@@ -115,50 +115,35 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit() {
-    console.log('You can copy the snippet here: ', this.snippet);
+    console.log('You can copy the snippet here: \n', this.snippet);
     this.isPRCreating = true;
 
     if (!(this.githubAuth && this.githubAuth.credential)) {
       await this.login();
     }
 
-    if (this.isEdit) {
+    if (this.isEditing) {
       this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'])
         .pipe(takeUntil(this.destroy))
-        .subscribe(
-          (res) => {
-            this.dialogRef.close();
-            this.isPRCreating = false;
-            this.router.navigate(['list']);
-            const snakeBarRef: MatSnackBarRef<SimpleSnackBar> = this._snackBar.open('Here is link to PR changes:', 'Check it now', {duration: 20000});
-            snakeBarRef.onAction().subscribe(() => window.open(res['commit']['html_url']));
-          },
-          (err) => {
-            this.isPRCreating = false;
-            console.error(err);
-          }
-        );
+        .subscribe(res => this.navigateAndShowSnakeBar('Success', 'Snippet updated', res['commit']['html_url']))
+        .add(() => this.isPRCreating = false);
     } else {
       this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
         .pipe(
           takeUntil(this.destroy),
-          switchMap(res => this.githubService.updatePullByPullNumber(REPO_OWNER, REPO_NAME, res['number'])),
-          switchMap(res => this.githubService.updateIssueByIssueNumber(REPO_OWNER, REPO_NAME, res['number'])),
+          switchMap(res => this.githubService.addLinkToEditForm(REPO_OWNER, REPO_NAME, res['number'])),
+          switchMap(res => this.githubService.addSnippetLabel(REPO_OWNER, REPO_NAME, res['number'])),
         )
-        .subscribe(
-          (res) => {
-            this.dialogRef.close();
-            this.isPRCreating = false;
-            this.router.navigate(['list']);
-            const snakeBarRef: MatSnackBarRef<SimpleSnackBar> = this._snackBar.open('Here is link to your pull request:', 'Check it now', {duration: 20000});
-            snakeBarRef.onAction().subscribe(() => window.open(res['html_url']));
-          },
-          (err) => {
-            this.isPRCreating = false;
-            console.error(err);
-          }
-        );
+        .subscribe(res => this.navigateAndShowSnakeBar('Pull request created', res['title'], res['html_url']))
+        .add(() => this.isPRCreating = false);
     }
+  }
+
+  navigateAndShowSnakeBar(text: string, linkLabel: string, linkUrl: string) {
+    this.dialogRef.close();
+    this.router.navigate(['list']);
+    const snakeBarRef: MatSnackBarRef<SimpleSnackBar> = this._snackBar.open(text, linkLabel, {duration: 20000});
+    snakeBarRef.onAction().subscribe(() => window.open(linkUrl));
   }
 
   async login() {

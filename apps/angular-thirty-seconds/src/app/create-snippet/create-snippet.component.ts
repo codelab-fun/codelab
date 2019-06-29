@@ -23,6 +23,20 @@ window.Buffer = {
 // @ts-ignore
 const matter = require('gray-matter');
 
+/**
+ *
+ * Takes markdown and returns content.
+ * e.g. input:
+ *
+ * # LOL
+ * 1
+ * # HI
+ * 2
+ *
+ * result:
+ *
+ * {LOL: "1", HI: "2"}
+ */
 function extractHeaders(str) {
   const match = ('\n' + str + '\n#').match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
   return !match ? {content: str} : match
@@ -33,6 +47,31 @@ function extractHeaders(str) {
     }, {});
 }
 
+/**
+ *
+ * Takes markdown and returns content.
+ * e.g. input:
+ *
+ * ---
+ * title: Hello
+ * tags:
+ * - tips
+ * - good-to-know
+ * ---
+ *
+ *
+ *
+ *
+ * # LOL
+ * 1
+ * # HI
+ * 2
+ *
+ * result:
+ *
+ * {title: "Hello", tags: ["tips", "good-to-know"], LOL: "1", HI: "2"}
+ *
+ */
 function mdTextToJson(snippet: string) {
   const metaData = matter(snippet);
   const result = ({...extractHeaders(metaData.content), ...metaData.data});
@@ -56,7 +95,7 @@ export class CreateSnippetComponent implements OnDestroy {
   destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
 
   isLoading = false;
-  isEdit = false;
+  isEditing = false;
   snippetFileInfo = {};
 
   TAGS_LIST = TAGS_LIST;
@@ -89,7 +128,7 @@ export class CreateSnippetComponent implements OnDestroy {
     private githubService: GitHubService,
     public dialog: MatDialog
   ) {
-    const pullNumber = this.activatedRoute.snapshot.params['itemId'];
+    const pullNumber = this.activatedRoute.snapshot.params['pullNumber'];
 
     if (pullNumber) {
       this.getPullFileByPullNumber(pullNumber);
@@ -111,18 +150,13 @@ export class CreateSnippetComponent implements OnDestroy {
     this.githubService.getPullFileByPullNumber(REPO_OWNER, REPO_NAME, pullNumber)
       .pipe(
         takeUntil(this.destroy),
-        switchMap(res => {
-            const file = res[0];
-            this.snippetFileInfo = {
-              sha: file['sha'],
-              fileName: file['filename']
-            };
+        switchMap(([file]) => {
+            this.snippetFileInfo = {sha: file['sha'], fileName: file['filename']};
             return this.githubService.getSnippetBody(file['contents_url'])
-              .pipe(
-                map(res => {
-                  const body = atob(res.content);
-                  return {...res[0], body};
-                }));
+              .pipe(map(res => {
+                const body = atob(res.content);
+                return {...res[0], body};
+              }));
           }
         ),
         switchMap(res => {
@@ -134,7 +168,7 @@ export class CreateSnippetComponent implements OnDestroy {
       ).subscribe(
       res => {
         this.snippetFileInfo['branchName'] = res['head']['ref'];
-        this.isEdit = true;
+        this.isEditing = true;
         this.isLoading = false;
         this.cd.markForCheck();
       },
@@ -174,12 +208,12 @@ export class CreateSnippetComponent implements OnDestroy {
     }
   }
 
-  onSubmit() {
+  openPreview() {
     if (this.snippetForm.valid) {
       this.dialog.open(SnippetOverviewComponent, {
         data: {
           formValue: this.getPreparedFormValue(this.snippetForm.value),
-          isEdit: this.isEdit,
+          isEditing: this.isEditing,
           fileInfo: this.snippetFileInfo ? {
             sha: this.snippetFileInfo['sha'],
             fileName: this.snippetFileInfo['fileName'],

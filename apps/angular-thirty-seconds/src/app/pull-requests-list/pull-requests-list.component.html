@@ -1,5 +1,5 @@
 <div *ngIf="!isLoading" class="container">
-  <h1>Pull requests list
+  <h1>Open pull requests
     <button mat-raised-button color="accent"
             style="float: right"
             [routerLink]="['/new']"> Create new snippet
@@ -7,10 +7,22 @@
   </h1>
 
   <table mat-table [dataSource]="pullsList">
+    <ng-container matColumnDef="number">
+      <th mat-header-cell *matHeaderCellDef> #</th>
+      <td mat-cell *matCellDef="let item" style="padding: 0 5px">
+        {{item.number}}
+      </td>
+    </ng-container>
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Title</th>
       <td mat-cell *matCellDef="let item" style="padding: 0 5px">
         {{item.title}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="login">
+      <th mat-header-cell *matHeaderCellDef> Author</th>
+      <td mat-cell *matCellDef="let item" style="padding: 0 5px">
+        {{item.user.login}}
       </td>
     </ng-container>
     <ng-container matColumnDef="created_at">

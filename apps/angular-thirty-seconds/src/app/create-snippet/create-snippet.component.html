@@ -1,7 +1,7 @@
 <div *ngIf="!isLoading else loadingTmp" class="container">
-  <h1>{{isEdit ? '' : 'New'}} Snippet
-    <button (click)="onSubmit()" mat-button class="btn-submit">
-      {{isEdit ? 'Edit' : 'Create'}} Snippet
+  <h1>{{isEditing ? '' : 'New'}} Snippet
+    <button (click)="openPreview()" mat-button class="btn-submit">
+      {{isEditing ? 'Edit' : 'Create'}} Snippet
     </button>
   </h1>
 

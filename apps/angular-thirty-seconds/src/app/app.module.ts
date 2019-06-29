@@ -19,7 +19,7 @@ export const angularFire = AngularFireModule.initializeApp(
 const routes: Routes = [
   {path: '', redirectTo: 'list', pathMatch: 'full'},
   {path: 'new', component: CreateSnippetComponent},
-  {path: 'new/:itemId', component: CreateSnippetComponent},
+  {path: 'new/:pullNumber', component: CreateSnippetComponent},
   {path: 'list', component: PullRequestsListComponent}
 ];
 
