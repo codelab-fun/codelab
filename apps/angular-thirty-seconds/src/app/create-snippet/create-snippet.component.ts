@@ -5,6 +5,7 @@ import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDi
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs/internal/Observable';
 import { map, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
@@ -131,6 +132,7 @@ export class CreateSnippetComponent implements OnDestroy {
     const pullNumber = this.activatedRoute.snapshot.params['pullNumber'];
 
     if (pullNumber) {
+      this.isEditing = true;
       this.getPullFileByPullNumber(pullNumber);
     }
 
@@ -147,65 +149,54 @@ export class CreateSnippetComponent implements OnDestroy {
 
   getPullFileByPullNumber(pullNumber) {
     this.isLoading = true;
-    this.githubService.getPullFileByPullNumber(REPO_OWNER, REPO_NAME, pullNumber)
-      .pipe(
-        takeUntil(this.destroy),
-        switchMap(([file]) => {
-            this.snippetFileInfo = {sha: file['sha'], fileName: file['filename']};
-            return this.githubService.getSnippetBody(file['contents_url'])
-              .pipe(map(res => {
-                const body = atob(res.content);
-                return {...res[0], body};
-              }));
-          }
-        ),
-        switchMap(res => {
-            this.snippetFileInfo['snippet'] = mdTextToJson(res['body']);
-            this.patchFormValue(this.snippetFileInfo['snippet']);
-            return this.githubService.getPullByPullNumber(REPO_OWNER, REPO_NAME, pullNumber);
-          }
-        )
-      ).subscribe(
-      res => {
-        this.snippetFileInfo['branchName'] = res['head']['ref'];
-        this.isEditing = true;
+    const pr$ = this.githubService.getPullByPullNumber(REPO_OWNER, REPO_NAME, pullNumber);
+    const file$ = this.githubService.getPullFileByPullNumber(REPO_OWNER, REPO_NAME, pullNumber)
+      .pipe(switchMap(([file]) => {
+        return this.githubService.getSnippetBody(file['contents_url'])
+          .pipe(map(res => {
+            const body = atob(res.content);
+            return {...res[0], body, sha: file['sha'], fileName: file['filename']};
+          }));
+      }));
+    combineLatest([file$, pr$])
+      .pipe(takeUntil(this.destroy))
+      .subscribe(([file, pr]) => {
+          this.snippetFileInfo = {
+            sha: file['sha'],
+            fileName: file['fileName'],
+            snippet: mdTextToJson(file['body']),
+            branchName: pr['head']['ref']
+          };
+        this.patchFormValue(this.snippetFileInfo['snippet']);
+        }
+      )
+      .add(() => {
         this.isLoading = false;
         this.cd.markForCheck();
-      },
-      () => {
-        this.isLoading = false;
-        this.cd.markForCheck();
-      }
-    );
+      });
   }
 
   patchFormValue(value) {
-    this.snippetForm.get('title').patchValue(value['title'] || '');
-    this.snippetForm.get('level').patchValue(value['level'] || 'beginner');
-    if (value['tags']) {
-      this.snippetForm.get('tags').patchValue(value['tags']);
-      this.tags = value['tags'];
-    }
-    if (value['content']) {
-      this.snippetForm.get('content').patchValue(value['content'].replace(/↵/g, '\n'));
-    }
+    this.tags = value['tags'] && value['tags'].length ? value['tags'] : [];
+    value['content'] = value['content'] ? value['content'].replace(/↵/g, '\n') : '';
     if (value['bonus']) {
       this.hasBonus = true;
-      this.snippetForm.get('bonus').patchValue(value['bonus'].replace(/↵/g, '\n'));
+      value['bonus'] = value['bonus'].replace(/↵/g, '\n');
     }
     if (value['links']) {
       this.hasLinks = true;
-      this.snippetForm.get('links').patchValue(value['links'].replace(/↵/g, '\n'));
+      value['links'] = value['links'].replace(/↵/g, '\n');
     }
     if (value['demo']) {
       this.hasDemo = true;
-      this.snippetForm.get('demo').patchValue({
+      value['demo'] = {
         'app.component.ts': value['demo']['app.component.ts'] ? value['demo']['app.component.ts'].replace(/↵/g, '\n') : angularSampleCode['app.component.ts'],
         'app.module.ts': value['demo']['app.module.ts'] ? value['demo']['app.module.ts'].replace(/↵/g, '\n') : angularSampleCode['app.module.ts'],
         'main.ts': value['demo']['main.ts'] ? value['demo']['main.ts'].replace(/↵/g, '\n') : angularSampleCode['main.ts'],
         'index.html': value['demo']['index.html'] ? value['demo']['index.html'].replace(/↵/g, '\n') : angularSampleCode['index.html']
-      });
+      };
     }
+    this.snippetForm.patchValue(value);
   }
 
   openPreview() {
