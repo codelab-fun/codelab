@@ -1,0 +1,30 @@
+.function {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+}
+
+.function.disabled {
+  opacity: 0.4;
+  background: #eee;
+}
+
+.inputs {
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.arrow {
+  text-align: center;
+}
+
+
+:host {
+  display: flex;
+}
+
+.stack {
+  margin-left: 30px;
+}
+.item {
+  white-space: nowrap;
+}
