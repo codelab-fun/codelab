@@ -9,31 +9,31 @@
   <table mat-table [dataSource]="pullsList">
     <ng-container matColumnDef="number">
       <th mat-header-cell *matHeaderCellDef> #</th>
-      <td mat-cell *matCellDef="let item" style="padding: 0 5px">
+      <td mat-cell *matCellDef="let item" class="mat-cell-padding">
         {{item.number}}
       </td>
     </ng-container>
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Title</th>
-      <td mat-cell *matCellDef="let item" style="padding: 0 5px">
+      <td mat-cell *matCellDef="let item" class="mat-cell-padding">
         {{item.title}}
       </td>
     </ng-container>
     <ng-container matColumnDef="login">
       <th mat-header-cell *matHeaderCellDef> Author</th>
-      <td mat-cell *matCellDef="let item" style="padding: 0 5px">
+      <td mat-cell *matCellDef="let item" class="mat-cell-padding">
         {{item.user.login}}
       </td>
     </ng-container>
     <ng-container matColumnDef="created_at">
       <th mat-header-cell *matHeaderCellDef> Creation Date</th>
-      <td mat-cell *matCellDef="let item" style="padding: 0 5px">
+      <td mat-cell *matCellDef="let item" class="mat-cell-padding">
         {{item.created_at | date: 'MM/dd/yyyy'}}
       </td>
     </ng-container>
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
-      <td mat-cell *matCellDef="let item" style="padding: 0 5px">
+      <td mat-cell *matCellDef="let item" class="mat-cell-padding">
         <button mat-button color="warn"
                 [routerLink]="['/new', item['number']]"> Edit
         </button>

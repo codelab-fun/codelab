@@ -13,6 +13,7 @@ import { SnippetService } from '../shared/services/snippet.service';
 import { GitHubService } from '../shared/services/github.service';
 import { ValidationsService } from '../shared/services/validations.service';
 import { REPO_NAME, REPO_OWNER } from '../shared/constants/repo-info';
+import { markFormControlsAsTouched } from '../shared/functions/validation';
 
 
 // @ts-ignore
@@ -107,8 +108,8 @@ export class CreateSnippetComponent implements OnDestroy {
     title: ['', Validators.required],
     twitter: [''],
     level: ['beginner', Validators.required],
-    tags: [this.tags, [Validators.required, this.validationsService.validatorMaxTags(5)]],
-    content: [MARKDOWN_PLACEHOLDER, [Validators.required, this.validationsService.validatorMaxLines(25)]],
+    tags: [this.tags, [Validators.required, ValidationsService.validatorMaxTags(5)]],
+    content: [MARKDOWN_PLACEHOLDER, [Validators.required, ValidationsService.validatorMaxLines(25)]],
     bonus: [''],
     links: [LINKS_PLACEHOLDER],
     demo: [angularSampleCode]
@@ -125,7 +126,6 @@ export class CreateSnippetComponent implements OnDestroy {
     private cd: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute,
     private snippetService: SnippetService,
-    private validationsService: ValidationsService,
     private githubService: GitHubService,
     public dialog: MatDialog
   ) {
@@ -167,7 +167,7 @@ export class CreateSnippetComponent implements OnDestroy {
             snippet: mdTextToJson(file['body']),
             branchName: pr['head']['ref']
           };
-        this.patchFormValue(this.snippetFileInfo['snippet']);
+          this.patchFormValue(this.snippetFileInfo['snippet']);
         }
       )
       .add(() => {
@@ -213,7 +213,7 @@ export class CreateSnippetComponent implements OnDestroy {
         }
       });
     } else {
-      this.validationsService.markFormControlsAsTouched(this.snippetForm);
+      markFormControlsAsTouched(this.snippetForm);
     }
   }
 
