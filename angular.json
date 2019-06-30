@@ -913,6 +913,6 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/react"
+    "defaultCollection": "@nrwl/angular"
   }
 }
