@@ -48,7 +48,7 @@ ${value.bonus}`);
 
   if (value.demo['app.component.ts']) {
     result.push(`
-# ComponentCode
+# file:app.component.ts
 \`\`\`typescript
 ${value.demo['app.component.ts']}
 \`\`\``);
@@ -56,7 +56,7 @@ ${value.demo['app.component.ts']}
 
   if (value.demo['app.module.ts']) {
     result.push(`
-# ModuleCode
+# file:app.module.ts
 \`\`\`typescript
 ${value.demo['app.module.ts']}
 \`\`\``);
@@ -64,7 +64,7 @@ ${value.demo['app.module.ts']}
 
   if (value.demo['main.ts']) {
     result.push(`
-# MainCode
+# file:main.ts
 \`\`\`typescript
 ${value.demo['main.ts']}
 \`\`\``);

@@ -83,6 +83,11 @@ function mdTextToJson(snippet: string) {
   return result;
 }
 
+
+function getDemoTsCode(str) {
+  return str ? str.replace(/↵/g, '\n').replace('```typescript\n', '').replace('\n```', '') : null
+}
+
 @Component({
   selector: 'codelab-create-snippet',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -187,13 +192,14 @@ export class CreateSnippetComponent implements OnDestroy {
       this.hasLinks = true;
       value['links'] = value['links'].replace(/↵/g, '\n');
     }
-    if (value['demo']) {
+    const hasDemo = Object.keys(value).some(key => key.startsWith('file:'));
+    if (hasDemo) {
       this.hasDemo = true;
       value['demo'] = {
-        'app.component.ts': value['demo']['app.component.ts'] ? value['demo']['app.component.ts'].replace(/↵/g, '\n') : angularSampleCode['app.component.ts'],
-        'app.module.ts': value['demo']['app.module.ts'] ? value['demo']['app.module.ts'].replace(/↵/g, '\n') : angularSampleCode['app.module.ts'],
-        'main.ts': value['demo']['main.ts'] ? value['demo']['main.ts'].replace(/↵/g, '\n') : angularSampleCode['main.ts'],
-        'index.html': value['demo']['index.html'] ? value['demo']['index.html'].replace(/↵/g, '\n') : angularSampleCode['index.html']
+        'app.component.ts': getDemoTsCode(value['file:app.component.ts']) || angularSampleCode['app.component.ts'],
+        'app.module.ts': getDemoTsCode(value['file:app.module.ts']) || angularSampleCode['app.module.ts'],
+        'main.ts': getDemoTsCode(value['file:main.ts']) || angularSampleCode['main.ts'],
+        'index.html': value['file:index.html'] ? value['file:index.html'].replace(/↵/g, '\n') : angularSampleCode['index.html']
       };
     }
     this.snippetForm.patchValue(value);
