@@ -83,9 +83,11 @@ function mdTextToJson(snippet: string) {
   return result;
 }
 
-
-function getDemoTsCode(str) {
-  return str ? str.replace(/↵/g, '\n').replace('```typescript\n', '').replace('\n```', '') : null
+/**
+ * Drop markdown "```language```" from the code
+ */
+function stripMarkdownLanguageMark(code) {
+  return code ? code.replace(/```\w+\n/, '').replace(/\n```/, '') : null;
 }
 
 @Component({
@@ -192,16 +194,17 @@ export class CreateSnippetComponent implements OnDestroy {
       this.hasLinks = true;
       value['links'] = value['links'].replace(/↵/g, '\n');
     }
-    const hasDemo = Object.keys(value).some(key => key.startsWith('file:'));
-    if (hasDemo) {
+
+    const demoFilesList = Object.keys(value)
+      .filter(key => key.startsWith('file:'))
+      .map(key => key.slice('file:'.length));
+    if (demoFilesList.length) {
       this.hasDemo = true;
-      value['demo'] = {
-        'app.component.ts': getDemoTsCode(value['file:app.component.ts']) || angularSampleCode['app.component.ts'],
-        'app.module.ts': getDemoTsCode(value['file:app.module.ts']) || angularSampleCode['app.module.ts'],
-        'main.ts': getDemoTsCode(value['file:main.ts']) || angularSampleCode['main.ts'],
-        'index.html': value['file:index.html'] ? value['file:index.html'].replace(/↵/g, '\n') : angularSampleCode['index.html']
-      };
+      value['demo'] = {};
+      demoFilesList.forEach(x => value['demo'][x] = stripMarkdownLanguageMark(value[`file:${x}`]) || angularSampleCode[x]);
+      Object.keys(angularSampleCode).forEach(x => value['demo'][x] = value['demo'][x] || angularSampleCode[x]);
     }
+
     this.snippetForm.patchValue(value);
   }
 
@@ -227,11 +230,15 @@ export class CreateSnippetComponent implements OnDestroy {
     const isDemoComponentChangedAndNotEmpty = this.hasDemo && value.demo['app.component.ts'] && value.demo['app.component.ts'] !== angularSampleCode['app.component.ts'];
     const isDemoModuleChangedAndNotEmpty = this.hasDemo && value.demo['app.module.ts'] && value.demo['app.module.ts'] !== angularSampleCode['app.module.ts'];
     const isDemoMainChangedAndNotEmpty = this.hasDemo && value.demo['main.ts'] && value.demo['main.ts'] !== angularSampleCode['main.ts'];
+    const isDemoIndexChangedAndNotEmpty = this.hasDemo && value.demo['index.html'] && value.demo['index.html'] !== angularSampleCode['index.html'];
+    value['demo'] = {
+      'app.component.ts': isDemoComponentChangedAndNotEmpty ? value.demo['app.component.ts'] : null,
+      'app.module.ts': isDemoModuleChangedAndNotEmpty ? value.demo['app.module.ts'] : null,
+      'main.ts': isDemoMainChangedAndNotEmpty ? value.demo['main.ts'] : null,
+      'index.html': isDemoIndexChangedAndNotEmpty ? value.demo['index.html'] : null
+    };
     value['bonus'] = this.hasBonus ? value['bonus'] : null;
     value['links'] = this.hasLinks ? value['links'] : null;
-    value.demo['app.component.ts'] = isDemoComponentChangedAndNotEmpty ? value.demo['app.component.ts'] : null;
-    value.demo['app.module.ts'] = isDemoModuleChangedAndNotEmpty ? value.demo['app.module.ts'] : null;
-    value.demo['main.ts'] = isDemoMainChangedAndNotEmpty ? value.demo['main.ts'] : null;
     return value;
   }
 
