@@ -86,8 +86,8 @@ function mdTextToJson(snippet: string) {
 /**
  * Drop markdown "```language```" from the code
  */
-function stripMarkdownLanguageMark(code) {
-  return code ? code.replace(/```\w+\n/, '').replace(/\n```/, '') : null;
+function stripMarkdownLanguageMark(code = '') {
+  return code.replace(/```\w+\n/, '').replace(/\n```/, '');
 }
 
 @Component({

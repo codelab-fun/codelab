@@ -70,6 +70,14 @@ ${value.demo['main.ts']}
 \`\`\``);
   }
 
+  if (value.demo['index.html']) {
+    result.push(`
+# file:index.html
+\`\`\`html
+${value.demo['index.html']}
+\`\`\``);
+  }
+
   return result.join(`\n`);
 }
 
