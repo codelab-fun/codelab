@@ -30,6 +30,7 @@
     "xi18n:kirjs": "ng xi18n kirjs --i18n-format xmb --output-path src/locale",
     "//--------------- 30s OF ANGULAR   -------------------": "",
     "build:30s": "ng build angular-thirty-seconds --prod --aot",
+    "serve:30s": "ng serve angular-thirty-seconds",
     "//--------------- NX      ---------------------": "",
     "affected:apps": "./node_modules/.bin/nx affected:apps",
     "affected:libs": "./node_modules/.bin/nx affected:libs",
