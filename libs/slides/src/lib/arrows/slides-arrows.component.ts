@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Component({
@@ -7,6 +7,8 @@ import { SlidesDeckComponent } from '../deck/deck.component';
   styleUrls: ['./slides-arrows.component.css']
 })
 export class SlidesArrowsComponent {
+
+  @HostBinding('class.shortcuts-context') context = true;
 
   constructor(private presentation: SlidesDeckComponent) {}
 
