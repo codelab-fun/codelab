@@ -30,6 +30,7 @@
     "xi18n:kirjs": "ng xi18n kirjs --i18n-format xmb --output-path src/locale",
     "//--------------- 30s OF ANGULAR   -------------------": "",
     "build:30s": "ng build angular-thirty-seconds --prod --aot",
+    "serve:30s": "ng serve angular-thirty-seconds",
     "//--------------- NX      ---------------------": "",
     "affected:apps": "./node_modules/.bin/nx affected:apps",
     "affected:libs": "./node_modules/.bin/nx affected:libs",
@@ -81,6 +82,7 @@
     "dom-to-image": "^2.6.0",
     "dts-bundle": "^0.7.3",
     "dts-bundle-generator": "^2.0.0",
+    "external-loader": "^0.1.1",
     "file-saver": "^2.0.0",
     "firebase": "^5.8.0",
     "fullscreen-api-polyfill": "^1.1.2",
@@ -108,6 +110,7 @@
     "slugify": "^1.3.4",
     "source-map-support": "^0.5.10",
     "vm-shim": "0.0.6",
+    "wabt": "^1.0.11",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
