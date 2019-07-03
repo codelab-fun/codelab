@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Component({
@@ -8,10 +8,7 @@ import { SlidesDeckComponent } from '../deck/deck.component';
 })
 export class SlidesArrowsComponent {
 
-  constructor(
-    public elementRef: ElementRef,
-    private presentation: SlidesDeckComponent
-  ) {}
+  constructor(private presentation: SlidesDeckComponent) {}
 
   goToPreviousSlide() {
     this.presentation.previousSlide();

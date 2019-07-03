@@ -1,14 +1,11 @@
-import { Directive, HostListener, Optional, ContentChild } from '@angular/core';
+import { Directive, HostListener, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
-import { SlidesArrowsComponent } from '../arrows/slides-arrows.component';
 import { FullScreenModeService } from '@codelab/utils';
 
 @Directive({
   selector: '[slideShortcuts]'
 })
 export class ShortcutsDirective {
-
-  @ContentChild(SlidesArrowsComponent, { static: false }) private arrows: SlidesArrowsComponent;
 
   constructor(@Optional() private deck: SlidesDeckComponent, private fullScreenService: FullScreenModeService) {}
 
@@ -37,6 +34,19 @@ export class ShortcutsDirective {
   }
 
   private canNavigate(target: HTMLElement) {
-    return target === document.body || (this.arrows && this.arrows.elementRef.nativeElement.contains(target));
+    return target === document.body || this.isFromContext(target);
+  }
+
+  private isFromContext(target: HTMLElement) {
+    let parent = target;
+
+    while (parent && parent.nodeName !== 'BODY') {
+      if (parent.classList.contains('shortcuts-context')) {
+        return true;
+      }
+      parent = parent.parentElement;
+    }
+
+    return false;
   }
 }
