@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SvgPlaygroundComponent } from './svg-playground.component';
+import { RaceComponent } from './race.component';
 
 describe('RaceComponent', () => {
-  let component: SvgPlaygroundComponent;
-  let fixture: ComponentFixture<SvgPlaygroundComponent>;
+  let component: RaceComponent;
+  let fixture: ComponentFixture<RaceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SvgPlaygroundComponent]
-    }).compileComponents();
+      declarations: [ RaceComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SvgPlaygroundComponent);
+    fixture = TestBed.createComponent(RaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
