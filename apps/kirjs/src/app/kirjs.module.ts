@@ -67,6 +67,12 @@ const routes = [
     description: 'SVG '
   },
   {
+    path: 'svg-race',
+    loadChildren: () => import('./modules/svg-race/svg-race.module').then(m => m.SvgRaceModule),
+    name: 'SVG Race',
+    description: 'SVG '
+  },
+  {
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     name: 'Home',
@@ -100,4 +106,5 @@ const routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {}
+export class KirjsModule {
+}
