@@ -2,7 +2,7 @@
   <h1>Open pull requests
     <button mat-raised-button color="accent"
             style="float: right"
-            [routerLink]="['/new']"> Create new snippet
+            [routerLink]="['/new', REPO_NAME, REPO_OWNER]"> Create new snippet
     </button>
   </h1>
 
@@ -35,7 +35,7 @@
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let item" class="mat-cell-padding">
         <button mat-button color="warn"
-                [routerLink]="['/new', item['number']]"> Edit
+                [routerLink]="['/new', REPO_NAME, REPO_OWNER, item['number']]"> Edit
         </button>
       </td>
     </ng-container>

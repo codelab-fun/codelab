@@ -4,7 +4,6 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 import slugify from 'slugify';
 import { GitHubService } from './github.service';
 import { Branch, CommitInfo, CreatePullRequest, GithubAuth, Repo, User } from '../interfaces';
-import { REPO_OWNER, REPO_NAME } from '../constants/repo-info';
 
 type PullRequest = any;
 
@@ -18,7 +17,7 @@ export class SnippetService {
   ) {
   }
 
-  updatePR(githubAuth: GithubAuth, snippetData: string, fileInfo: object): Observable<any> {
+  updatePR(githubAuth: GithubAuth, snippetData: string, fileInfo: object, REPO_NAME): Observable<any> {
 
     this.githubService.setToken(githubAuth.credential.accessToken);
     const user: User = githubAuth.additionalUserInfo.profile;
@@ -32,7 +31,7 @@ export class SnippetService {
       );
   }
 
-  createPR(githubAuth: GithubAuth, snippetData: string, title: string): Observable<PullRequest> {
+  createPR(githubAuth: GithubAuth, snippetData: string, title: string, REPO_NAME, REPO_OWNER): Observable<PullRequest> {
     requires(githubAuth, 'Github auth is required');
     requires(snippetData, 'Snippet is required');
     requires(title, 'Snippet title is required');

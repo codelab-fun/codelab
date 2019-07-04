@@ -12,7 +12,6 @@ import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST }
 import { SnippetService } from '../shared/services/snippet.service';
 import { GitHubService } from '../shared/services/github.service';
 import { ValidationsService } from '../shared/services/validations.service';
-import { REPO_NAME, REPO_OWNER } from '../shared/constants/repo-info';
 import { markFormControlsAsTouched } from '../shared/functions/validation';
 
 
@@ -101,6 +100,9 @@ export class CreateSnippetComponent implements OnDestroy {
   @ViewChild('tagInput', {static: false}) tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
+  REPO_NAME;
+  REPO_OWNER;
+
   destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
 
   isLoading = false;
@@ -137,10 +139,12 @@ export class CreateSnippetComponent implements OnDestroy {
     public dialog: MatDialog
   ) {
     const pullNumber = this.activatedRoute.snapshot.params['pullNumber'];
+    this.REPO_NAME = this.activatedRoute.snapshot.params['REPO_NAME'];
+    this.REPO_OWNER = this.activatedRoute.snapshot.params['REPO_OWNER'];
 
     if (pullNumber) {
       this.isEditing = true;
-      this.getPullFileByPullNumber(pullNumber);
+      this.getPullFileByPullNumber(this.REPO_NAME, this.REPO_OWNER, pullNumber);
     }
 
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
@@ -154,8 +158,9 @@ export class CreateSnippetComponent implements OnDestroy {
     this.destroy.complete();
   }
 
-  getPullFileByPullNumber(pullNumber) {
+  getPullFileByPullNumber(REPO_NAME, REPO_OWNER, pullNumber) {
     this.isLoading = true;
+    // todo move it to service later
     const pr$ = this.githubService.getPullByPullNumber(REPO_OWNER, REPO_NAME, pullNumber);
     const file$ = this.githubService.getPullFileByPullNumber(REPO_OWNER, REPO_NAME, pullNumber)
       .pipe(switchMap(([file]) => {
@@ -218,7 +223,9 @@ export class CreateSnippetComponent implements OnDestroy {
             sha: this.snippetFileInfo['sha'],
             fileName: this.snippetFileInfo['fileName'],
             branchName: this.snippetFileInfo['branchName']
-          } : null
+          } : null,
+          REPO_NAME: this.REPO_NAME,
+          REPO_OWNER: this.REPO_OWNER
         }
       });
     } else {

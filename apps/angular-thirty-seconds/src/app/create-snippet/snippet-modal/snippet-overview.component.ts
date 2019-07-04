@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { GitHubService } from '../../shared/services/github.service';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
-import { REPO_NAME, REPO_OWNER } from '../../shared/constants/repo-info';
 
 function arrayToMarkdownList(tagsArray: Array<string>): string {
   return tagsArray.filter(a => a).map(x => `- ${x}`).join(`\n`);
@@ -131,18 +130,18 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     }
 
     if (this.isEditing) {
-      this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'])
+      this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'], this.data['REPO_NAME'])
         .pipe(takeUntil(this.destroy))
         .subscribe(res => this.navigateAndShowSnakeBar('Success', 'Snippet updated', res['commit']['html_url']))
         .add(() => this.isPRCreating = false);
     } else {
-      this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title)
+      this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title, this.data['REPO_NAME'], this.data['REPO_OWNER'])
         .pipe(
           takeUntil(this.destroy),
-          switchMap(res => this.githubService.addLinkToEditForm(REPO_OWNER, REPO_NAME, res['number'])),
-          switchMap(res => this.githubService.addSnippetLabel(REPO_OWNER, REPO_NAME, res['number'])),
+          switchMap(res => this.githubService.addLinkToEditForm(this.data['REPO_OWNER'], this.data['REPO_NAME'], res['number'])),
+          switchMap(res => this.githubService.addSnippetLabel(this.data['REPO_OWNER'], this.data['REPO_NAME'], res['number'])),
         )
-        .subscribe(res => this.navigateAndShowSnakeBar('Pull request created', res['title'], res['html_url']))
+        .subscribe(res => this.navigateAndShowSnakeBar('Pull request created', res['title'].replace('Add - new snippet: ', ''), res['html_url']))
         .add(() => this.isPRCreating = false);
     }
   }
