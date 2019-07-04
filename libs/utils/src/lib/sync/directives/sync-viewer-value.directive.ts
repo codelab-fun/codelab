@@ -41,22 +41,5 @@ export class SyncViewerValueDirective<T> implements AfterViewInit, OnDestroy {
         this.sync.updateViewerValue(this.syncViewerValue, value);
       });
     });
-
-    // this.sync.whenViewing$
-    //   .pipe(
-    //     switchMap(() => this.sync.getPresenterValue(this.syncViewerValue)),
-    //     takeUntil(this.onDestroy)
-    //   )
-    //   .subscribe((value: string) => {
-    //     if (this.control) {
-    //       this.control.valueAccessor.writeValue(value);
-    //     } else {
-    //       this.value = value;
-    //     }
-    //   });
-
-
   }
-
-
 }

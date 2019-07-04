@@ -27,26 +27,11 @@ export class AllViewerValuesDirective<T> implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-
     this.sync.whenPresenting$.subscribe(() => {
       this.sync.getAllViewersValues(this.syncAllUserValues).subscribe(values => {
         this.values = Object.entries(values).map(([key, value]) => ({key, value}));
       });
     });
-    // this.sync.whenViewing$
-    //   .pipe(
-    //     switchMap(() => this.sync.getPresenterValue(this.syncViewerValue)),
-    //     takeUntil(this.onDestroy)
-    //   )
-    //   .subscribe((value: string) => {
-    //     if (this.control) {
-    //       this.control.valueAccessor.writeValue(value);
-    //     } else {
-    //       this.value = value;
-    //     }
-    //   });
-
-
   }
 
 
