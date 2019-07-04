@@ -7,8 +7,8 @@ import { StackComponent } from './stack.component';
 import { StackGameComponent } from './stack-game/stack-game.component';
 import { SimpleStackComponent } from './simple-stack/simple-stack.component';
 import { StackTestComponent } from './stack-test/stack-test.component';
-import { StackPushPopPracticeComponent } from './stack-push-pop-practice/stack-push-pop-practice.component';
 import { StackFunctionComponent } from './stack-game/stack-function/stack-function.component';
+import { StackFunctionButtonComponent } from './stack-game/stack-function-button/stack-function-button.component';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(StackComponent)
@@ -16,11 +16,12 @@ const routes = RouterModule.forChild(
 
 
 @NgModule({
-  declarations: [StackComponent, StackGameComponent, SimpleStackComponent, StackTestComponent, StackPushPopPracticeComponent, StackFunctionComponent],
+  declarations: [StackComponent, StackGameComponent, SimpleStackComponent, StackTestComponent, StackFunctionComponent, StackFunctionButtonComponent],
   imports: [
     CommonModule,
     SlidesModule,
     routes
   ]
 })
-export class StackModule { }
+export class StackModule {
+}

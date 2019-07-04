@@ -8,6 +8,7 @@ import { Level } from './stack-game/stack-game.component';
   styleUrls: ['./stack.component.css']
 })
 export class StackComponent implements OnInit {
+  itIsALemon = false;
 
   levels: Record<string, Level> = {
     push: {
@@ -38,6 +39,29 @@ export class StackComponent implements OnInit {
       inputs: '🍏🍏🍏🍏🍏',
       outputs: '🍏',
     },
+    together: {
+      functions: [
+        {
+          inputs: '＊',
+          outputs: '',
+          name: 'pop'
+        },
+        {
+          inputs: '',
+          outputs: '🍓',
+          name: 'push 🍓'
+        },
+        {
+          inputs: '',
+          outputs: '🍋',
+          name: 'push 🍋'
+        },
+      ],
+      inputs: '🍏🍏',
+      outputs: '🍓🍋',
+    },
+
+
     level1: {
       functions: [
         {

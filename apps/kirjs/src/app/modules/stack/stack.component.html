@@ -14,13 +14,22 @@
   </div>
 
   <div *slide id="push">
-    <p>First operation is called push.</p>
+    <p>The other operation is <b>push</b>. It adds an element on top of the stack.</p>
     <slides-stack-game [level]="levels.push"></slides-stack-game>
+  </div>
+
+  <div *slide id="peek">
+    <p>There's also a <b>peek operation</b></p>
+    <slides-simple-stack value="🍏🍋"></slides-simple-stack>
+    <slides-stack-function-button (click)="itIsALemon=true" [func]="{name: 'peek'}"></slides-stack-function-button>
+    <div *ngIf="itIsALemon">Congrats! It is a 🍋</div>
+
   </div>
 
 
   <div *slide id="practice">
-    <slides-stack-push-pop-practice></slides-stack-push-pop-practice>
+    <p>Practice: Use the commands you know already to get a stack of: <slides-simple-stack value="🍓🍋"></slides-simple-stack></p>
+    <slides-stack-game [level]="levels.together"></slides-stack-game>
   </div>
 
   <div *slide id="test">

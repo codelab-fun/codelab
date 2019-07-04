@@ -1,0 +1,11 @@
+.logo, .company {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.wrapper div {
+  flex: 1;
+}

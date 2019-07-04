@@ -1,12 +1,10 @@
 <div class="buttons" *ngIf="!isComplete">
-  <button *ngFor="let func of level.functions" [disabled]="!canAddFunction(stack, func)"
-          (click)="canAddFunction(stack, func) && addFunction(func)">
-    <slides-stack-function
+    <slides-stack-function-button *ngFor="let func of level.functions"
+                                  (click)="canAddFunction(stack, func) && addFunction(func)"
       [disabled]="!canAddFunction(stack, func)"
       [func]="func"
     >
-    </slides-stack-function>
-  </button>
+    </slides-stack-function-button>
 </div>
 
 <div class="complete" *ngIf="isComplete">
