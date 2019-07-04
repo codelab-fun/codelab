@@ -16,6 +16,8 @@ import { markFormControlsAsTouched } from '../shared/functions/validation';
 
 
 // @ts-ignore
+// If you delete this you get a run time error.
+// This is needed for gray-matter
 window.Buffer = {
   from() {
   }
