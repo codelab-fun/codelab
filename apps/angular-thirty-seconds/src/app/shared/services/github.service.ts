@@ -16,7 +16,6 @@ type PullRequest = any;
   providedIn: 'root'
 })
 export class GitHubService {
-
   private apiGithubUrl = 'https://api.github.com';
   private options: object;
 
