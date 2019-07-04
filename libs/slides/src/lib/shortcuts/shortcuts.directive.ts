@@ -40,7 +40,7 @@ export class ShortcutsDirective {
   private isFromContext(target: HTMLElement) {
     let parent = target;
 
-    while (parent && parent.nodeName !== 'BODY') {
+    while (parent) {
       if (parent.classList.contains('shortcuts-context')) {
         return true;
       }
