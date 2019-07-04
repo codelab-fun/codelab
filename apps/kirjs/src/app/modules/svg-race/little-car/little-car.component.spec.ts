@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PollComponent } from './poll.component';
+import { LittleCarComponent } from './little-car.component';
 
-describe('SyncPollComponent', () => {
-  let component: PollComponent;
-  let fixture: ComponentFixture<PollComponent>;
+describe('LittleCarComponent', () => {
+  let component: LittleCarComponent;
+  let fixture: ComponentFixture<LittleCarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PollComponent]
-    }).compileComponents();
+      declarations: [ LittleCarComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PollComponent);
+    fixture = TestBed.createComponent(LittleCarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
