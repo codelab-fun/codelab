@@ -37,6 +37,13 @@ export class ShortcutsDirective {
     return target === document.body || this.isFromContext(target);
   }
 
+  /**
+   * Limit keyboard shortcut events to scoped containers
+   * to prevent slide navigation when using keyboard arrows to
+   * navigate an editble field like code editor.
+   * Add '.shortcuts-context' to any component or container containig
+   * focusable elements used for slide navigation.
+   */
   private isFromContext(target: HTMLElement) {
     let parent = target;
 
