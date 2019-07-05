@@ -7,6 +7,7 @@ import { CodelabsRoutingModule } from './codelabs-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlidesModule } from '@codelab/slides';
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
+import { MatButtonModule, MatIconModule, MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [IndexComponent, AppComponent],
@@ -14,8 +15,11 @@ import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-b
     CodelabsRoutingModule,
     BrowserAnimationsModule,
     SlidesModule,
+    MatButtonModule,
     OverlayModule,
-    ButtonsNavBarModule
+    ButtonsNavBarModule,
+    MatIconModule,
+    MatMenuModule
   ],
   bootstrap: [AppComponent],
   // TODO(kirjs): Move this out of the main page

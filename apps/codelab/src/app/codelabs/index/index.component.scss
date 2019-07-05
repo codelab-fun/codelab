@@ -1,0 +1,62 @@
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+div {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
+
+ul, h2 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+p, li, body {
+  font-size: 20px;
+}
+
+header {
+  margin: 40px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    flex-grow: 1;
+  }
+}
+
+
+.wrapper {
+  margin: 0 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
+
+}
+
+.main {
+  button {
+    width: 300px;
+    margin: 12px 0;
+
+    ::ng-deep .mat-button-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 20px;
+      margin-right: 20px;
+    }
+  }
+}

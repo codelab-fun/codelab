@@ -32,54 +32,79 @@
   </div>
 </div>
 
-<slide-deck>
-  <div class="btn-bar">
-    <codelab-menu-github-widget></codelab-menu-github-widget>
-    <feedback-widget></feedback-widget>
-  </div>
+<div class="btn-bar">
+  <feedback-widget></feedback-widget>
+</div>
+<header>
+  <h1 i18n>Angular Codelab 🔥</h1>
 
-  <div *slide id="index">
-    <h1 i18n>Angular Codelab</h1>
-    <h2 i18n>
-      Welcome to the interactive Angular Codelab. Here you can learn the basics
-      of <a href="https://angular.io">Angular</a>!
-    </h2>
-    <div class="play">
-      <button
-        class="learn-box typescript"
-        [routerLink]="['/angular', 'typescript', 'intro']"
-      >
-        <span aria-hidden="true">▶</span>
-        <div>
-          <div class="title" i18n>Learn TypeScript</div>
-          <div class="hint" i18n>Skip if you're familiar with TypeScript</div>
-        </div>
-        <img src="/assets/images/ts.png" alt="" class="" />
-      </button>
-      <button
-        [routerLink]="['/angular', 'create-first-app', 'intro']"
-        class="learn-box"
-      >
-        <span aria-hidden="true">▶</span>
-        <div i18n>Learn Angular</div>
-        <img src="/assets/images/angular.png" alt="" class="angular" />
-      </button>
-    </div>
 
-    <button class="contents" (click)="showContents = !showContents" i18n>
-      Or click here to see full contents...
+  <button mat-raised-button [matMenuTriggerFor]="languageMenu">
+    <span>
+    🇬🇧 English
+    </span>
+    <span>⌄</span>
+  </button>
+  <mat-menu #languageMenu>
+    <ul>
+      <li mat-menu-item>🇬🇧 English</li>
+      <li mat-menu-item>🇷🇺 Russian</li>
+      <li mat-menu-item>Add your own language</li>
+    </ul>
+  </mat-menu>
+</header>
+<div class="wrapper">
+  <section class="main">
+    <p i18n>
+      <a href="https://angular.io">Angular</a> is a UI framework for creating fast cross platform applications.
+    </p>
+
+    <p i18n>
+      In this interactive Angular Codelab we will walk you through creating your first Angular app with routing, forms
+      and material design.
+    </p>
+
+
+    <button mat-raised-button [routerLink]="['angular', 'typescript', 'intro']">
+      <img src="/assets/images/ts.png" alt="TypeScript logo" class="logo"/>
+      <div>
+        <div class="title" i18n>Learn basics of TypeScript</div>
+      </div>
     </button>
-    <ng-container *ngIf="showContents">
-      <ol>
-        <ng-container *ngFor="let route of menuRoutes">
-          <li>
-            <h2>
-              <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
-            </h2>
-            <div>{{ route.description }}</div>
-          </li>
-        </ng-container>
-      </ol>
-    </ng-container>
-  </div>
-</slide-deck>
+    <p>Or if you're already familiar with TypeScript</p>
+
+    <button mat-raised-button [routerLink]="['/angular', 'create-first-app', 'intro']">
+      <img src="/assets/images/angular.png" alt="" class="logo"/>
+      <div i18n>Learn Angular</div>
+    </button>
+
+
+  </section>
+
+
+  <section>
+    <p>Angular codelab is a fully open source project. It's written in Angular by volunteers.</p>
+
+    <ul>
+      <li>Check out the code on GitHub</li>
+    </ul>
+  </section>
+
+  <section>
+    <ol>
+      <ng-container *ngFor="let route of menuRoutes">
+        <li>
+          <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
+          <div>{{ route.description }}</div>
+        </li>
+      </ng-container>
+    </ol>
+  </section>
+
+  <section>
+    Already know Angular? Check out <a href="30.codelab.fun">30 seconds of Angular </a>
+  </section>
+</div>
+
+
+<div class="lol" id="lol">lol</div>

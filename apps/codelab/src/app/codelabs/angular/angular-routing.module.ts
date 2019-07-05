@@ -24,7 +24,7 @@ const routes = [
           () => import('./create-first-app/create-first-app.module').then(m => m.CreateFirstAppModule),
         name: 'Create your first Angular app',
         description:
-          'Learn how to create and bootstrap your first Angular application',
+          'Create and bootstrap your first Angular application',
         page: 'main',
         prod: true,
         translationIds: ['createFirstNgApp', 'learnHowToBootstrapApp']
@@ -33,7 +33,7 @@ const routes = [
         path: 'templates',
         loadChildren: () => import('./templates/templates.module').then(m => m.TemplatesModule),
         name: 'Templates',
-        description: 'Learn how to use Angular templates',
+        description: 'Use Angular templates',
         page: 'main',
         prod: true,
         translationIds: ['templates', 'learnUsingTemplates']
@@ -44,7 +44,7 @@ const routes = [
           () => import('./dependency-injection/dependency-injection.module').then(m => m.DependencyInjectionModule),
         name: 'Dependency-Injection',
         description:
-          'Learn how to provide dependencies to your code instead of hard-coding them',
+          'Provide dependencies to your code instead of hard-coding them',
         page: 'main',
         prod: true,
         translationIds: ['dependencyInjection', 'learnToProvideDependencies']
@@ -54,7 +54,7 @@ const routes = [
         loadChildren:
           () => import('./component-tree/component-tree.module').then(m => m.ComponentTreeModule),
         name: 'Component-Tree',
-        description: 'Learn how to structure your app with reusable components',
+        description: 'Structure your app with reusable components',
         page: 'main',
         prod: true,
         translationIds: [
@@ -76,7 +76,7 @@ const routes = [
         loadChildren: () => import('./router/router.module').then(m => m.RouterCodelabModule),
         name: 'Angular Router',
         description:
-          '[🚧 Work In Progress] Learn how to add routes to your Angular application',
+          'Add routes to your Angular application',
         page: 'main',
         prod: true
       },
@@ -84,7 +84,7 @@ const routes = [
         path: 'material',
         loadChildren: () => import('./material/material.module').then(m => m.MaterialCodelabModule),
         name: 'Angular Material',
-        description: '[🚧 Work In Progress] Learn how to use Angular Material',
+        description: 'Use Angular Material Components to make your app beautiful',
         page: 'main',
         prod: true
       },
@@ -92,7 +92,7 @@ const routes = [
         path: 'forms',
         loadChildren: () => import('./forms/forms.module').then(m => m.FormsCodelabModule),
         name: 'Forms',
-        description: '[🚧 Work In Progress] Learn how to add Forms to your app',
+        description: 'Add Forms to your app',
         page: 'main',
         prod: true
       },
@@ -101,7 +101,7 @@ const routes = [
         loadChildren: () => import('./angular-cli/angular-cli.module').then(m => m.AngularCliModule),
         name: 'Angular-cli',
         description:
-          '[🚧 Work In Progress] Learn how to quickly start working with angular',
+          'Quickly start working with Angular',
         page: 'main',
         prod: true
       },
