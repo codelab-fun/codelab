@@ -9,6 +9,7 @@ import { SimpleStackComponent } from './simple-stack/simple-stack.component';
 import { StackTestComponent } from './stack-test/stack-test.component';
 import { StackFunctionComponent } from './stack-game/stack-function/stack-function.component';
 import { StackFunctionButtonComponent } from './stack-game/stack-function-button/stack-function-button.component';
+import { MatButtonModule } from '@angular/material';
 
 const routes = RouterModule.forChild(
   SlidesRoutes.get(StackComponent)
@@ -16,10 +17,12 @@ const routes = RouterModule.forChild(
 
 
 @NgModule({
-  declarations: [StackComponent, StackGameComponent, SimpleStackComponent, StackTestComponent, StackFunctionComponent, StackFunctionButtonComponent],
+  declarations: [StackComponent,
+    StackGameComponent, SimpleStackComponent, StackTestComponent, StackFunctionComponent, StackFunctionButtonComponent],
   imports: [
     CommonModule,
     SlidesModule,
+    MatButtonModule,
     routes
   ]
 })

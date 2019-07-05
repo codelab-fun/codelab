@@ -19,16 +19,22 @@
   </div>
 
   <div *slide id="peek">
-    <p>There's also a <b>peek operation</b></p>
+    <p>Some implementations also have a <b>peek</b> operation. It tells you what top element on the stack is. You can
+      try it below:</p>
     <slides-simple-stack value="🍏🍋"></slides-simple-stack>
-    <slides-stack-function-button (click)="itIsALemon=true" [func]="{name: 'peek'}"></slides-stack-function-button>
+    <div class="button-wrapper">
+      <slides-stack-function-button (click)="itIsALemon=true" [func]="{name: 'peek'}"></slides-stack-function-button>
+    </div>
     <div *ngIf="itIsALemon">Congrats! It is a 🍋</div>
 
   </div>
 
 
   <div *slide id="practice">
-    <p>Practice: Use the commands you know already to get a stack of: <slides-simple-stack value="🍓🍋"></slides-simple-stack></p>
+    <p>Let's practice!</p>
+    <p>Use the commands you know already to get a stack of:
+      <slides-simple-stack value="🍓🍋"></slides-simple-stack>
+    </p>
     <slides-stack-game [level]="levels.together"></slides-stack-game>
   </div>
 
@@ -41,6 +47,27 @@
     <p>But why are stacks important? And how can I use them in a language like asm</p>
   </div>
 
+
+  <div *slide id="stack-machines">
+    <p>Let's learn stack machine. </p>
+    <p>This is one of the fundamental principles used in JVM Java Byte Code, WebAssembly byte code </p>
+  </div>
+
+  <div *slide id="instructions">
+    <p>Stack machine offers various intructions that can pop and then push multiple element on the stack</p>
+    <p>For example (🌲🍏)=>🍍 takes two elements from the stack (Pine and Apple) and pushes a 🍍 back</p>
+  </div>
+
+  <div *slide id="lemonade">
+    <p>Now use the instructions below to prepare a lemonade drink:</p>
+    <slides-stack-game [level]="levels.lemonade"></slides-stack-game>
+  </div>
+
+
+  <div *slide id="lol">
+    <p>Produce a dog</p>
+    <slides-stack-game [level]="levels.level1"></slides-stack-game>
+  </div>
 
   <div *slide id="list">
     <slides-stack-game></slides-stack-game>

@@ -25,7 +25,7 @@ export class StackComponent implements OnInit {
         },
       ],
       inputs: '',
-      outputs: '',
+      outputs: '🍏🍋🍏',
     },
 
     pop: {
@@ -39,6 +39,7 @@ export class StackComponent implements OnInit {
       inputs: '🍏🍏🍏🍏🍏',
       outputs: '🍏',
     },
+
     together: {
       functions: [
         {
@@ -62,7 +63,53 @@ export class StackComponent implements OnInit {
     },
 
 
+
+    lemonade: {
+      functions: [
+        {
+          inputs: '',
+          outputs: '💦',
+        },
+        {
+          inputs: '',
+          outputs: '🍋',
+        },
+        {
+          inputs: '',
+          outputs: '🍒',
+        },
+        {
+          inputs: '🍒💦🍋',
+          outputs: '🍹',
+        },
+      ],
+      inputs: '',
+      outputs: '🍹',
+    },
     level1: {
+      functions: [
+        {
+          inputs: '',
+          outputs: '🍏🍏',
+        },
+        {
+          inputs: '',
+          outputs: '🍋',
+        },
+        {
+          inputs: '🍋🍋',
+          outputs: '🍒',
+        },
+        {
+          inputs: '＊',
+          outputs: '',
+          name: 'pop'
+        }
+      ],
+      inputs: '🍏',
+      outputs: '🍒',
+    },
+    level2: {
       functions: [
         {
           inputs: '',
