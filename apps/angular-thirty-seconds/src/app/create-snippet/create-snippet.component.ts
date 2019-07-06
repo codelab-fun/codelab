@@ -14,7 +14,6 @@ import { GitHubService } from '../shared/services/github.service';
 import { markFormControlsAsTouched, validatorMaxLines, validatorMaxTags } from '../shared/functions/validation';
 
 
-
 // @ts-ignore
 // If you delete this you get a run time error.
 // This is needed for gray-matter
@@ -150,9 +149,8 @@ export class CreateSnippetComponent implements OnDestroy {
     }
 
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
-      // tslint:disable-next-line:deprecation
-      startWith(null),
-      map((tags: string | null) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()));
+      map((tags: string) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice())
+    );
   }
 
   ngOnDestroy() {

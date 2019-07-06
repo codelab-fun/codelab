@@ -8,7 +8,7 @@ import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetService } from '../../shared/services/snippet.service';
 import { GitHubService } from '../../shared/services/github.service';
 
-interface SnippetInfo {
+interface SnippetOverviewData {
   formValue: object;
   isEditing: boolean;
   fileInfo: {
@@ -101,7 +101,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     private githubService: GitHubService,
     private _snackBar: MatSnackBar,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: SnippetInfo
+    @Inject(MAT_DIALOG_DATA) public data: SnippetOverviewData
   ) {
   }
 
