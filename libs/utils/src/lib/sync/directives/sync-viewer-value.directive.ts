@@ -1,7 +1,7 @@
 import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService, SyncStatus } from '@codelab/utils/src/lib/sync/sync.service';
 import { NgControl } from '@angular/forms';
-import { switchMap, take, takeUntil } from 'rxjs/operators';
+import { first, switchMap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Directive({
@@ -28,18 +28,21 @@ export class SyncViewerValueDirective<T> implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
 
-    this.sync.whenViewing$.pipe(takeUntil(this.onDestroy)).subscribe(() => {
+    this.sync.statusChange$.pipe(takeUntil(this.onDestroy)).subscribe((status) => {
       console.log('when viewing');
-
-      this.sync.getViewerValue(this.syncViewerValue)
-        .pipe(take(1)).pipe(switchMap(value => {
-        this.control.valueAccessor.writeValue(value);
-        console.log('sub here');
-        return this.control.valueChanges;
-      })).subscribe((value) => {
-        console.log('VALUE');
-        this.sync.updateViewerValue(this.syncViewerValue, value);
-      });
+      if (status === SyncStatus.VIEWING) {
+        this.sync
+          .getViewerValue(this.syncViewerValue)
+          .pipe(first())
+          .pipe(switchMap(value => {
+            this.control.valueAccessor.writeValue(value);
+            console.log('sub here');
+            return this.control.valueChanges;
+          })).subscribe((value) => {
+          console.log('VALUE');
+          this.sync.updateViewerValue(this.syncViewerValue, value);
+        });
+      }
     });
   }
 }

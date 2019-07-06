@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService, SyncStatus } from '@codelab/utils/src/lib/sync/sync.service';
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 
@@ -27,11 +27,14 @@ export class AllViewerValuesDirective<T> implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.sync.whenPresenting$.subscribe(() => {
-      this.sync.getAllViewersValues(this.syncAllUserValues).subscribe(values => {
-        this.values = Object.entries(values).map(([key, value]) => ({key, value}));
-      });
-    });
+    // this.sync.statusChange$.pipe(
+    //   status => status === SyncStatus.PRESENTING
+    // )
+    // this.sync.whenPresenting$.subscribe(() => {
+    //   this.sync.getAllViewersValues(this.syncAllUserValues).subscribe(values => {
+    //     this.values = Object.entries(values || {}).map(([key, value]) => ({key, value}));
+    //   });
+    // });
   }
 
 

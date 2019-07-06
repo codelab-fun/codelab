@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 import { filter, switchMap } from 'rxjs/operators';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService, SyncStatus } from '@codelab/utils/src/lib/sync/sync.service';
 
 interface SyncData {
   slide: number;
@@ -22,9 +22,10 @@ export class SyncButtonComponent {
     });
 
 
-    sync.isPresenting$.pipe(
-      filter(a => !a),
-      switchMap(() => sync.presentersValue$)
+    sync.statusChange$.pipe(
+      filter(status => status === SyncStatus.VIEWING),
+      switchMap(() => sync.presentersData$),
+      filter(a => !!a),
     ).subscribe(({slide}) => {
       this.presentation.goToSlide(Number(slide));
     });
@@ -36,7 +37,11 @@ export class SyncButtonComponent {
     });
   }
 
-  follow({value}: { value: string }) {
-    this.sync.follow(value);
+  dropSession() {
+    this.sync.dropCurrentSession();
+  }
+
+  follow(session) {
+    this.sync.follow(session);
   }
 }

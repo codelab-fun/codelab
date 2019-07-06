@@ -4,13 +4,26 @@
           (click)="start()">⚫️ start
   </button>
 
+  <mat-menu #menu="matMenu">
+    <div mat-menu-item *ngFor="let session of (sync.sessions$ | async)"
+         (click)="follow(session.key)">{{session.displayName}}!!
+    </div>
+  </mat-menu>
 
-  <mat-select placeholder="Select existing session" (selectionChange)="follow($event)"
-              *ngIf="(sync.isInSession$ | async) === false">
-    <mat-option *ngFor="let session of (sync.sessions$ | async)" [value]="session.key">{{session.displayName}}</mat-option>
-  </mat-select>
+
+  <button mat-button [matMenuTriggerFor]="menu"
+          *ngIf="(sync.isInSession$ | async) === false && (sync.hasSessions$ | async)">Join
+  </button>
+
+
 
   <div *isPresenting>
-    🔴 ️{{sync.currentSyncId$ | async }}
+    🔴 {{(sync.currentSession$ | async)?.displayName}}
+    <button (click)="dropSession()">Drop session</button>
+  </div>
+
+  <div *isViewing>
+    👀
+    <button (click)="sync.leaveCurrentSession()">Leave session</button>
   </div>
 </div>

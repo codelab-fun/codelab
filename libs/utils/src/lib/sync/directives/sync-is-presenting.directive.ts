@@ -1,5 +1,5 @@
 import { Directive, TemplateRef, ViewContainerRef } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService, SyncStatus } from '@codelab/utils/src/lib/sync/sync.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -11,17 +11,15 @@ export class SyncIsPresentingDirective<T> {
     private readonly templateRef: TemplateRef<any>,
     private readonly sync: SyncService<T>
   ) {
-    sync.isPresenting$.subscribe(isPresening => {
-      this.toggleContentDisplay(isPresening);
+    sync.statusChange$.subscribe(status => {
+      this.toggleContentDisplay(status === SyncStatus.PRESENTING);
     });
   }
 
   toggleContentDisplay(isDisplayed: boolean) {
+    this.viewContainer.clear();
     if (isDisplayed) {
       this.viewContainer.createEmbeddedView(this.templateRef);
-    } else {
-      this.viewContainer.clear();
     }
   }
-
 }

@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { LoginService } from '@codelab/firebase-login';
-import { distinctUntilChanged, filter, first, map, switchMap } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, ReplaySubject, Subject } from 'rxjs';
+import { distinctUntilChanged, first, map, mergeMap, switchMap, take } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, iif, of, ReplaySubject } from 'rxjs';
+
+export enum SyncStatus {
+  OFF = 'off',
+  VIEWING = 'viewing',
+  PRESENTING = 'presenting',
+  ADMIN = 'admin',
+}
 
 interface SyncMeta<T> {
   time: number;
@@ -19,24 +26,47 @@ export class SyncService<T> {
   currentSyncId$ = new BehaviorSubject('');
   currentViewerId$ = new BehaviorSubject('');
   readonly isInSession$ = this.currentSyncId$.pipe(map(syncId => !!syncId));
-  readonly canStartSession$ = combineLatest([this.user.uid$, this.currentSyncId$])
+  readonly canStartSession$ = combineLatest([this.loginService.uid$, this.currentSyncId$])
     .pipe(map(([uid, syncId]) => {
       return !!uid && syncId === '';
     }));
-  readonly currentSession$ = new Subject<SyncMeta<T>>();
-  readonly presentersValue$ = new Subject<T>();
-  readonly isPresenting$ = combineLatest([this.currentSession$, this.user.uid$]).pipe(
-    map(([{uid}, syncId]) => {
-      return uid === syncId;
-    }),
-    distinctUntilChanged());
+  readonly currentSession$ = this.currentSyncId$.pipe(
+    mergeMap(id =>
+      iif(() => !!id, this.db.object<SyncMeta<T>>('sync-sessions/' + id).valueChanges(), of(null))));
 
-  readonly whenPresenting$ = this.isPresenting$.pipe(filter(a => a));
-  readonly whenViewing$ = this.isPresenting$.pipe(filter(a => !a));
+  readonly presentersData$ = this.currentSyncId$.pipe(
+    mergeMap(id =>
+      iif(() => !!id, this.db.object<T>('sync-sessions/' + id + '/presenter').valueChanges(), of(null))));
 
-  readonly isViewing$ = this.isPresenting$.pipe(map(a => !a));
+  readonly statusChange$ = this.currentSyncId$.pipe(switchMap(syncId => {
+    if (!syncId) {
+      return of(SyncStatus.OFF);
+    }
 
-  private list = this.db.list<Partial<SyncMeta<T>>>('sync-sessions',
+    return this.currentSession$.pipe(
+      switchMap(session => {
+        if (!session) {
+          return of(SyncStatus.OFF);
+        }
+
+        return this.loginService.uid$.pipe(map((uid) => {
+          if (session.uid === uid) {
+            return SyncStatus.PRESENTING;
+          }
+          return SyncStatus.VIEWING;
+        }));
+      })
+    );
+
+
+  }), distinctUntilChanged());
+
+
+  // combineLatest([this.loginService.uid$, this.currentSyncId$, this.currentSession$])
+
+
+  readonly hasSessions$;
+  private readonly list = this.db.list<Partial<SyncMeta<T>>>('sync-sessions',
     ref => ref.orderByChild('time').startAt(Date.now() - 1000 * 60 * 10)
   );
   sessions$ = this.list.snapshotChanges().pipe(map(snapshot => {
@@ -47,75 +77,89 @@ export class SyncService<T> {
       };
     });
   }));
-
   private presenterUpdates$ = new ReplaySubject<Partial<T>>(1);
   private viewerUpdates$ = new ReplaySubject<any>(1);
 
 
   constructor(
     private db: AngularFireDatabase,
-    private user: LoginService
+    private loginService: LoginService
   ) {
-
-
-    combineLatest([this.presenterUpdates$, this.currentSyncId$, this.whenPresenting$]).subscribe(
-      ([data, syncId]) => {
-        this.list.update(syncId, {
-          time: Date.now()
+    this.loginService.uid$.subscribe((a) => {
+      console.log('user', a);
+    });
+    combineLatest([this.presenterUpdates$, this.currentSyncId$, this.statusChange$])
+      .subscribe(
+        ([data, syncId, status]) => {
+          // TODO(kirjs): Use rxjs way
+          if (syncId && status === SyncStatus.PRESENTING) {
+            this.list.update(syncId, {
+              time: Date.now()
+            });
+            this.db.object('sync-sessions/' + syncId + '/presenter').update(data);
+          }
         });
-        this.db.object('sync-sessions/' + syncId + '/presenter').update(data);
-      });
 
     this.viewerUpdates$.subscribe((viewerUpdates) => console.log({viewerUpdates}));
     this.currentSyncId$.subscribe((currentSyncId) => console.log({currentSyncId}));
-    this.whenViewing$.subscribe((whenViewing) => console.log({whenViewing}));
     this.currentViewerId$.subscribe((currentViewerId) => console.log({currentViewerId}));
+    this.presenterUpdates$.subscribe((presenterUpdates) => console.log({presenterUpdates}));
 
 
-    combineLatest([this.viewerUpdates$, this.currentSyncId$, this.currentViewerId$, this.whenViewing$]).subscribe(
+    // Formatter breaks this when it's above constructor by moving it before
+    // $sessions declaration on every second format
+    this.hasSessions$ = this.sessions$.pipe(map(sessions => sessions.length > 0));
+
+
+    combineLatest([this.viewerUpdates$, this.currentSyncId$, this.currentViewerId$]).subscribe(
       ([{key, data}, syncId, viewerId]) => {
+        // debugger;
         const update = {[viewerId]: data};
         this.db.object(`sync-sessions/${syncId}/viewer/${key}`).update(update);
       });
 
 
-    combineLatest([this.sessions$, this.user.uid$]).pipe(first()).subscribe(
+    combineLatest([this.sessions$, this.loginService.uid$]).pipe(first()).subscribe(
       ([sessions, uid]) => {
+        // debugger;
         const activeSession = sessions.find((session) => session.uid === uid);
         if (activeSession) {
           this.follow(activeSession.key);
+        } else if (sessions.length === 1) {
+          this.follow(sessions[0].key);
         }
       }
     );
   }
 
-
   startSession(data: T) {
-    this.user.user$.subscribe(user => {
-      this.currentSyncId$.next(this.list.push({
+    this.loginService.user$.subscribe(user => {
+      const syncId = this.list.push({
         displayName: user.displayName || user.email,
         uid: user.uid,
         presenter: data,
         users: {},
         time: Date.now()
-      }).key);
+      }).key;
+      this.currentSyncId$.next(syncId);
     });
   }
 
   updateSession(data: T) {
+    console.log('data');
     this.presenterUpdates$.next(data);
   }
 
 
   follow(syncId: string) {
     this.currentSyncId$.next(syncId);
-    this.db.object('sync-sessions/' + syncId).valueChanges().subscribe(this.currentSession$);
-    this.db.object('sync-sessions/' + syncId + '/presenter').valueChanges().subscribe(this.presentersValue$);
 
-    this.whenViewing$.pipe(first()).subscribe(() => {
-      this.currentViewerId$.next(
-        this.db.list('sync-sessions/' + syncId + '/all-viewers').push({time: Date.now()}).key
-      );
+    this.statusChange$.pipe(first()).subscribe((status) => {
+      if (status === SyncStatus.VIEWING) {
+        this.currentViewerId$.next(
+          this.db.list('sync-sessions/' + syncId + '/all-viewers').push({time: Date.now()}).key
+        );
+      }
     });
   }
 
@@ -143,5 +187,18 @@ export class SyncService<T> {
     return this.currentSyncId$.pipe(switchMap((syncId) => {
       return this.db.object(`sync-sessions/${syncId}/viewer/${key}`).valueChanges();
     }));
+  }
+
+  leaveCurrentSession() {
+    return this.currentSyncId$.pipe(take(1)).subscribe(id => {
+      this.currentSyncId$.next('');
+    });
+  }
+
+  dropCurrentSession() {
+    return this.currentSyncId$.pipe(take(1)).subscribe(id => {
+      this.currentSyncId$.next('');
+      this.list.remove(id);
+    });
   }
 }
