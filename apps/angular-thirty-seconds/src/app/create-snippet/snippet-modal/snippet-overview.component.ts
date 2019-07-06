@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
 import * as firebase from 'firebase';
-import { finalize, switchMap, takeUntil } from 'rxjs/operators';
+import { finalize, switchMap, take, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetService } from '../../shared/services/snippet.service';
 import { GitHubService } from '../../shared/services/github.service';
@@ -146,7 +146,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
     this.router.navigate(['list']);
     const snakeBarRef = this._snackBar.open(text, linkLabel, {duration: 20000});
-    snakeBarRef.onAction().subscribe(() => window.open(linkUrl));
+    snakeBarRef.onAction().pipe(take(1)).subscribe(() => window.open(linkUrl));
   }
 
   async login() {

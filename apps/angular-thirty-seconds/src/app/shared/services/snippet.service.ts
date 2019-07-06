@@ -3,9 +3,7 @@ import { Observable, of } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import slugify from 'slugify';
 import { GitHubService } from './github.service';
-import { Branch, CommitInfo, CreatePullRequest, GithubAuth, Repo, User } from '../interfaces';
-
-type PullRequest = any;
+import { Branch, CommitInfo, CreatePullRequest, GithubAuth, PullRequest, Repo, User } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'

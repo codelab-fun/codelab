@@ -4,3 +4,8 @@ export interface CreatePullRequest {
   branchName: string;
   labels?: Array<string>;
 }
+
+export interface PullRequest {
+  title: string;
+  html_url: string;
+}
