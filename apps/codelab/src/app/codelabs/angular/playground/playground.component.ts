@@ -15,7 +15,6 @@ export class PlaygroundComponent {
     const code = activatedRoute.snapshot.queryParams.code;
     if (code) {
       try {
-
         this.code = {...angularSampleCode, ...JSON.parse(atob(code))};
       } catch (e) {
         console.log('can not parse code', code);
