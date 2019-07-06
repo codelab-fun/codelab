@@ -1,12 +1,25 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
-import * as firebase from 'firebase';
-import { SnippetService } from '../../shared/services/snippet.service';
 import { Router } from '@angular/router';
-import { switchMap, takeUntil } from 'rxjs/operators';
-import { GitHubService } from '../../shared/services/github.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
+import * as firebase from 'firebase';
+import { finalize, switchMap, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
+import { SnippetService } from '../../shared/services/snippet.service';
+import { GitHubService } from '../../shared/services/github.service';
+
+interface SnippetInfo {
+  formValue: object;
+  isEditing: boolean;
+  fileInfo: {
+    sha: string,
+    fileName: string,
+    branchName: string
+  };
+  repoName: string;
+  repoOwner: string;
+}
+
 
 function arrayToMarkdownList(tagsArray: Array<string>): string {
   return tagsArray.filter(a => a).map(x => `- ${x}`).join(`\n`);
@@ -45,39 +58,23 @@ ${value.content}`);
 ${value.bonus}`);
   }
 
-  if (value.demo['app.component.ts']) {
-    result.push(`
-# file:app.component.ts
-\`\`\`typescript
-${value.demo['app.component.ts']}
+  Object.keys(value['demo']).forEach(fileName => {
+    if (value['demo'][fileName]) {
+      result.push(`
+# file:${fileName}
+\`\`\`${getFileCodeType(fileName)}
+${value.demo[fileName]}
 \`\`\``);
-  }
-
-  if (value.demo['app.module.ts']) {
-    result.push(`
-# file:app.module.ts
-\`\`\`typescript
-${value.demo['app.module.ts']}
-\`\`\``);
-  }
-
-  if (value.demo['main.ts']) {
-    result.push(`
-# file:main.ts
-\`\`\`typescript
-${value.demo['main.ts']}
-\`\`\``);
-  }
-
-  if (value.demo['index.html']) {
-    result.push(`
-# file:index.html
-\`\`\`html
-${value.demo['index.html']}
-\`\`\``);
-  }
+    }
+  });
 
   return result.join(`\n`);
+
+  function getFileCodeType(fileName) {
+    const fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length) || fileName;
+    const fileTypeMap = {'ts': 'typescript'};
+    return fileTypeMap[fileExtension] || fileExtension;
+  }
 }
 
 
@@ -88,7 +85,7 @@ ${value.demo['index.html']}
 })
 export class SnippetOverviewComponent implements OnInit, OnDestroy {
 
-  destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
+  destroy = new ReplaySubject<void>(1);
 
   githubAuth;
   isPRCreating = false;
@@ -104,13 +101,13 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     private githubService: GitHubService,
     private _snackBar: MatSnackBar,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: object
+    @Inject(MAT_DIALOG_DATA) public data: SnippetInfo
   ) {
   }
 
   ngOnInit() {
-    this.isEditing = this.data['isEditing'];
-    this.snippet = getSnippet(this.data['formValue']);
+    this.isEditing = this.data.isEditing;
+    this.snippet = getSnippet(this.data.formValue);
     // This is a temporary hack.
     // The version of markdown requires new lines between meta values, but github does not.
     this.snippetWithFormat = this.snippet.replace(/\n(title|author|twitter|level|tags|links):/g, '\n\n$1:');
@@ -130,33 +127,32 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     }
 
     if (this.isEditing) {
-      this.snippetService.updatePR(this.githubAuth, this.snippet, this.data['fileInfo'], this.data['REPO_NAME'])
-        .pipe(takeUntil(this.destroy))
-        .subscribe(res => this.navigateAndShowSnakeBar('Success', 'Snippet updated', res['commit']['html_url']))
-        .add(() => this.isPRCreating = false);
+      this.snippetService.updatePR(this.githubAuth, this.snippet, this.data.fileInfo, this.data.repoName)
+        .pipe(finalize(() => this.isPRCreating = false), takeUntil(this.destroy))
+        .subscribe(res => this.navigateAndShowSnackBar('Success', 'Snippet updated', res['commit']['html_url']));
     } else {
-      this.snippetService.createPR(this.githubAuth, this.snippet, this.data['formValue'].title, this.data['REPO_NAME'], this.data['REPO_OWNER'])
+      this.snippetService.createPR(this.githubAuth, this.snippet, this.data.formValue['title'], this.data.repoName, this.data.repoOwner)
         .pipe(
-          takeUntil(this.destroy),
-          switchMap(res => this.githubService.addLinkToEditForm(this.data['REPO_OWNER'], this.data['REPO_NAME'], res['number'])),
-          switchMap(res => this.githubService.addSnippetLabel(this.data['REPO_OWNER'], this.data['REPO_NAME'], res['number'])),
+          switchMap(res => this.githubService.addLinkToEditForm(this.data.repoOwner, this.data.repoName, res['number'])),
+          switchMap(res => this.githubService.addSnippetLabel(this.data.repoOwner, this.data.repoName, res['number'])),
+          finalize(() => this.isPRCreating = false),
+          takeUntil(this.destroy)
         )
-        .subscribe(res => this.navigateAndShowSnakeBar('Pull request created', res['title'].replace('Add - new snippet: ', ''), res['html_url']))
-        .add(() => this.isPRCreating = false);
+        .subscribe(res => this.navigateAndShowSnackBar('Pull request created', res['title'].replace('Add - new snippet: ', ''), res['html_url']));
     }
   }
 
-  navigateAndShowSnakeBar(text: string, linkLabel: string, linkUrl: string) {
+  navigateAndShowSnackBar(text: string, linkLabel: string, linkUrl: string) {
     this.dialogRef.close();
     this.router.navigate(['list']);
-    const snakeBarRef: MatSnackBarRef<SimpleSnackBar> = this._snackBar.open(text, linkLabel, {duration: 20000});
+    const snakeBarRef = this._snackBar.open(text, linkLabel, {duration: 20000});
     snakeBarRef.onAction().subscribe(() => window.open(linkUrl));
   }
 
   async login() {
     const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
-    this.data['formValue']['author'] = this.githubAuth.additionalUserInfo.username;
-    this.snippet = getSnippet(this.data['formValue']);
+    this.data.formValue['author'] = this.githubAuth.additionalUserInfo.username;
+    this.snippet = getSnippet(this.data.formValue);
   }
 }

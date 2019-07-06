@@ -19,8 +19,8 @@ export const angularFire = AngularFireModule.initializeApp(
 const routes: Routes = [
   {path: '', redirectTo: 'list', pathMatch: 'full'},
   {path: 'list', component: PullRequestsListComponent},
-  {path: 'new/:REPO_NAME/:REPO_OWNER', component: CreateSnippetComponent},
-  {path: 'new/:REPO_NAME/:REPO_OWNER/:pullNumber', component: CreateSnippetComponent},
+  {path: 'new/:repoName/:repoOwner', component: CreateSnippetComponent},
+  {path: 'new/:repoName/:repoOwner/:pullNumber', component: CreateSnippetComponent},
 ];
 
 @NgModule({

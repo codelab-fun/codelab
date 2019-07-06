@@ -4,15 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs/internal/Observable';
-import { map, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { finalize, map, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
 import { SnippetService } from '../shared/services/snippet.service';
 import { GitHubService } from '../shared/services/github.service';
-import { ValidationsService } from '../shared/services/validations.service';
-import { markFormControlsAsTouched } from '../shared/functions/validation';
+import { markFormControlsAsTouched, validatorMaxLines, validatorMaxTags } from '../shared/functions/validation';
+
 
 
 // @ts-ignore
@@ -102,10 +102,10 @@ export class CreateSnippetComponent implements OnDestroy {
   @ViewChild('tagInput', {static: false}) tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
-  REPO_NAME;
-  REPO_OWNER;
+  repoName: string;
+  repoOwner: string;
 
-  destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
+  destroy = new ReplaySubject<void>(1);
 
   isLoading = false;
   isEditing = false;
@@ -119,8 +119,8 @@ export class CreateSnippetComponent implements OnDestroy {
     title: ['', Validators.required],
     twitter: [''],
     level: ['beginner', Validators.required],
-    tags: [this.tags, [Validators.required, ValidationsService.validatorMaxTags(5)]],
-    content: [MARKDOWN_PLACEHOLDER, [Validators.required, ValidationsService.validatorMaxLines(25)]],
+    tags: [this.tags, [Validators.required, validatorMaxTags(5)]],
+    content: [MARKDOWN_PLACEHOLDER, [Validators.required, validatorMaxLines(25)]],
     bonus: [''],
     links: [LINKS_PLACEHOLDER],
     demo: [angularSampleCode]
@@ -141,12 +141,12 @@ export class CreateSnippetComponent implements OnDestroy {
     public dialog: MatDialog
   ) {
     const pullNumber = this.activatedRoute.snapshot.params['pullNumber'];
-    this.REPO_NAME = this.activatedRoute.snapshot.params['REPO_NAME'];
-    this.REPO_OWNER = this.activatedRoute.snapshot.params['REPO_OWNER'];
+    this.repoName = this.activatedRoute.snapshot.params['repoName'];
+    this.repoOwner = this.activatedRoute.snapshot.params['repoOwner'];
 
     if (pullNumber) {
       this.isEditing = true;
-      this.getPullFileByPullNumber(this.REPO_NAME, this.REPO_OWNER, pullNumber);
+      this.getPullFileByPullNumber(this.repoName, this.repoOwner, pullNumber);
     }
 
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
@@ -160,11 +160,11 @@ export class CreateSnippetComponent implements OnDestroy {
     this.destroy.complete();
   }
 
-  getPullFileByPullNumber(REPO_NAME, REPO_OWNER, pullNumber) {
+  getPullFileByPullNumber(repoName: string, repoOwner: string, pullNumber: number) {
     this.isLoading = true;
     // todo move it to service later
-    const pr$ = this.githubService.getPullByPullNumber(REPO_OWNER, REPO_NAME, pullNumber);
-    const file$ = this.githubService.getPullFileByPullNumber(REPO_OWNER, REPO_NAME, pullNumber)
+    const pr$ = this.githubService.getPullByPullNumber(repoOwner, repoName, pullNumber);
+    const file$ = this.githubService.getPullFileByPullNumber(repoOwner, repoName, pullNumber)
       .pipe(switchMap(([file]) => {
         return this.githubService.getSnippetBody(file['contents_url'])
           .pipe(map(res => {
@@ -173,7 +173,12 @@ export class CreateSnippetComponent implements OnDestroy {
           }));
       }));
     combineLatest([file$, pr$])
-      .pipe(takeUntil(this.destroy))
+      .pipe(
+        takeUntil(this.destroy),
+        finalize(() => {
+          this.isLoading = false;
+          this.cd.markForCheck();
+        }))
       .subscribe(([file, pr]) => {
           this.snippetFileInfo = {
             sha: file['sha'],
@@ -183,11 +188,7 @@ export class CreateSnippetComponent implements OnDestroy {
           };
           this.patchFormValue(this.snippetFileInfo['snippet']);
         }
-      )
-      .add(() => {
-        this.isLoading = false;
-        this.cd.markForCheck();
-      });
+      );
   }
 
   patchFormValue(value) {
@@ -226,8 +227,8 @@ export class CreateSnippetComponent implements OnDestroy {
             fileName: this.snippetFileInfo['fileName'],
             branchName: this.snippetFileInfo['branchName']
           } : null,
-          REPO_NAME: this.REPO_NAME,
-          REPO_OWNER: this.REPO_OWNER
+          repoName: this.repoName,
+          repoOwner: this.repoOwner
         }
       });
     } else {

@@ -114,7 +114,7 @@
           <div *ngIf="snippetForm.get('content').errors['required']" class="validation-message">
             This field is required
           </div>
-          <div *ngIf="snippetForm.get('content').errors['lines']" class="validation-message">
+          <div *ngIf="snippetForm.get('content').errors['linesError']" class="validation-message">
             {{snippetForm.get('content').errors['linesError']}}
           </div>
         </div>

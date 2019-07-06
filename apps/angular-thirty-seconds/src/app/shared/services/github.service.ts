@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs/internal/observable/throwError';
-import { Branch, CommitInfo, CreatePullRequest, Repo, User } from '../interfaces';
 import { MatSnackBar } from '@angular/material';
-
-type Commit = any;
-type PullRequest = any;
+import { Observable } from 'rxjs/internal/Observable';
+import { catchError, map } from 'rxjs/operators';
+import { throwError } from 'rxjs/internal/observable/throwError';
+import { MonoTypeOperatorFunction } from 'rxjs/internal/types';
+import { Branch, CommitInfo, CreatePullRequest, Repo, User } from '../interfaces';
 
 // TODO work on github api names
 // Here is an example link: https://github.com/github-tools/github
@@ -25,17 +23,15 @@ export class GitHubService {
   ) {
   }
 
-  showErrorSnakeBar(errInfo: string) {
-    this._snackBar.open(errInfo, '', {duration: 10000});
-    return throwError(new Error(errInfo));
+  showSnackbarOnError<T>(message: string): MonoTypeOperatorFunction<T> {
+    return catchError(() => {
+      this._snackBar.open(message, '', {duration: 10000});
+      return throwError(new Error(message));
+    });
   }
 
   setToken(token: string) {
-    this.options = {
-      headers: {
-        Authorization: `token ${token}`
-      }
-    };
+    this.options = {headers: {Authorization: `token ${token}`}};
   }
 
   getRepo(owner: string, repoName: string): Observable<Repo> {
@@ -45,7 +41,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${owner}/${repoName}`;
     return this.http
       .get<Repo>(requestUrl, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get repo`)));
+      .pipe(this.showSnackbarOnError('Can\'t get repo'));
   }
 
   getMyRepos(user: User): Observable<Repo[]> {
@@ -53,7 +49,7 @@ export class GitHubService {
 
     return this.http
       .get<Repo[]>(user.repos_url, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fetch user repos`)));
+      .pipe(this.showSnackbarOnError('Can\'t fetch user repos'));
   }
 
   forkRepo(repo: Repo): Observable<Repo> {
@@ -62,7 +58,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/forks`;
     return this.http
       .post<Repo>(requestUrl, {}, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fork 30 secs repo`)));
+      .pipe(this.showSnackbarOnError('Can\'t fork 30 secs repo'));
   }
 
   getMasterBranch(repo: Repo): Observable<Branch> {
@@ -71,7 +67,7 @@ export class GitHubService {
     const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/git/refs/heads/master`;
     return this.http
       .get<Branch>(requestUrl, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fetch master branch of ${repo.full_name}`)));
+      .pipe(this.showSnackbarOnError(`Can't fetch master branch of ${repo.full_name}`));
   }
 
   createBranch(repo: Repo, baseBranch: Branch, branchName: string): Observable<Branch> {
@@ -88,10 +84,10 @@ export class GitHubService {
 
     return this.http
       .post<Branch>(requestUrl, requestData, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't create branch ${branchName} of base branch ${baseBranch.object.url}`)));
+      .pipe(this.showSnackbarOnError(`Can't create branch ${branchName} of base branch ${baseBranch.object.url}`));
   }
 
-  createCommit(repo: Repo, commitInfo: CommitInfo): Observable<Commit> {
+  createCommit(repo: Repo, commitInfo: CommitInfo): Observable<any> {
     requires(repo, 'Repository is required');
     requires(commitInfo, 'Commit is required');
 
@@ -104,10 +100,10 @@ export class GitHubService {
 
     return this.http
       .put(requestUrl, requestData, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't create commit`)));
+      .pipe(this.showSnackbarOnError('Can\'t create commit'));
   }
 
-  createPullRequest(repo: Repo, user: User, pullRequest: CreatePullRequest): Observable<PullRequest> {
+  createPullRequest(repo: Repo, user: User, pullRequest: CreatePullRequest): Observable<any> {
     requires(repo, 'Repository is required');
     requires(user, 'User is required');
     requires(pullRequest, 'Pull request is required');
@@ -123,19 +119,22 @@ export class GitHubService {
 
     return this.http
       .post(requestUrl, requestData, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't create pull request`)));
+      .pipe(this.showSnackbarOnError('Can\'t create pull request'));
   }
 
   getPullsList(owner: string, repoName: string): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls`, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't fetch user repos`)));
+      .pipe(
+        map(res => res.filter(x => x['labels'].length && x['labels'].map(y => y['name']).indexOf('snippet') > -1)),
+        this.showSnackbarOnError('Can\'t fetch user repos')
+      );
   }
 
   getPullByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}`, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get pull request`)));
+      .pipe(this.showSnackbarOnError('Can\'t get pull request'));
   }
 
   addLinkToEditForm(owner: string, repoName: string, pullNumber: number): Observable<any> {
@@ -145,7 +144,7 @@ export class GitHubService {
         {body: `Here you can edit snippet content: https://30.codelab.fun/new/${pullNumber}`},
         this.options
       )
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't update pull request`)));
+      .pipe(this.showSnackbarOnError('Can\'t update pull request'));
   }
 
   addSnippetLabel(owner: string, repoName: string, issueNumber: number) {
@@ -155,19 +154,20 @@ export class GitHubService {
         {labels: ['snippet']},
         this.options
       )
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get issues list`)));
+      .pipe(this.showSnackbarOnError('Can\'t get issues list'));
+
   }
 
   getPullFileByPullNumber(owner: string, repoName: string, pullNumber: number): Observable<any> {
     return this.http
       .get<any>(`${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}/files`, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get pull request file`)));
+      .pipe(this.showSnackbarOnError('Can\'t get pull request file'));
   }
 
   getSnippetBody(url) {
     return this.http
       .get<any>(url, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Can't get snippet body`)));
+      .pipe(this.showSnackbarOnError('Can\'t get snippet body'));
   }
 
   updateFile(repoFullName, snippetData, fileInfo): Observable<any> {
@@ -180,7 +180,7 @@ export class GitHubService {
     };
     return this.http
       .put<any>(requestUrl, requestPayload, this.options)
-      .pipe(catchError(() => this.showErrorSnakeBar(`Cannot update file`)));
+      .pipe(this.showSnackbarOnError('Cannot update file'));
   }
 }
 

@@ -16,3 +16,12 @@ table {
 .mat-cell-padding {
   padding: 0 5px;
 }
+
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-center {
+  align-self: center;
+}

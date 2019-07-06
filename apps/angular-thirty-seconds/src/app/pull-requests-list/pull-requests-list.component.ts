@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GitHubService } from '../shared/services/github.service';
 
+const REPO_OWNER = 'nycJSorg';
+const REPO_NAME = '30-seconds-of-angular';
+
 @Component({
   selector: 'codelab-pull-requests-list',
   templateUrl: './pull-requests-list.component.html',
@@ -9,25 +12,16 @@ import { GitHubService } from '../shared/services/github.service';
 })
 export class PullRequestsListComponent {
 
-  REPO_OWNER = 'nycJSorg';
-  REPO_NAME = '30-seconds-of-angular';
+  repoOwner = REPO_OWNER;
+  repoName = REPO_NAME;
 
-  isLoading = true;
+  pullsList$ = this.githubService.getPullsList(this.repoOwner, this.repoName);
 
   displayedColumns = ['number', 'title', 'login', 'created_at', 'action'];
-
-  private pullsList;
 
   constructor(
     private router: Router,
     private githubService: GitHubService
   ) {
-    this.getPullsList();
-  }
-
-  getPullsList() {
-    this.githubService.getPullsList(this.REPO_OWNER, this.REPO_NAME)
-      .subscribe(res => this.pullsList = res.filter(x => x['labels'].length && x['labels'].map(y => y['name']).indexOf('snippet') > -1))
-      .add(() => this.isLoading = false);
   }
 }

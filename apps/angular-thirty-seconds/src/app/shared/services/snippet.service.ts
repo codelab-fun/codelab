@@ -17,7 +17,7 @@ export class SnippetService {
   ) {
   }
 
-  updatePR(githubAuth: GithubAuth, snippetData: string, fileInfo: object, REPO_NAME): Observable<any> {
+  updatePR(githubAuth: GithubAuth, snippetData: string, fileInfo: object, repoName: string): Observable<any> {
 
     this.githubService.setToken(githubAuth.credential.accessToken);
     const user: User = githubAuth.additionalUserInfo.profile;
@@ -25,13 +25,13 @@ export class SnippetService {
     return this.githubService.getMyRepos(user)
       .pipe(
         switchMap((repos: Repo[]) => {
-          const repo = repos.find((r) => r.name === REPO_NAME);
+          const repo = repos.find((r) => r.name === repoName);
           return this.githubService.updateFile(repo.full_name, snippetData, fileInfo);
         })
       );
   }
 
-  createPR(githubAuth: GithubAuth, snippetData: string, title: string, REPO_NAME, REPO_OWNER): Observable<PullRequest> {
+  createPR(githubAuth: GithubAuth, snippetData: string, title: string, repoName: string, repoOwner: string): Observable<PullRequest> {
     requires(githubAuth, 'Github auth is required');
     requires(snippetData, 'Snippet is required');
     requires(title, 'Snippet title is required');
@@ -42,11 +42,11 @@ export class SnippetService {
     const filePath = `contents/snippets/${this.toLowerCaseAndSlugify(title)}.md`;
 
     const user: User = githubAuth.additionalUserInfo.profile;
-    return this.githubService.getRepo(REPO_OWNER, REPO_NAME).pipe(
+    return this.githubService.getRepo(repoOwner, repoName).pipe(
       switchMap((baseRepo: Repo) => {
         return this.githubService.getMyRepos(user).pipe(
           switchMap((repos: Repo[]) => {
-            const repo = repos.find((r) => r.name === REPO_NAME);
+            const repo = repos.find((r) => r.name === repoName);
             return repo ? of(repo) : this.githubService.forkRepo(baseRepo).pipe(debounceTime(5000));
           }),
           switchMap((userRepo: Repo) => {

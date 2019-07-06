@@ -1,12 +1,12 @@
-<div *ngIf="!isLoading" class="container">
-  <h1>Open pull requests
-    <button mat-raised-button color="accent"
-            style="float: right"
-            [routerLink]="['/new', REPO_NAME, REPO_OWNER]"> Create new snippet
+<div class="container">
+  <div class="flex-header">
+    <h1>Open pull requests</h1>
+    <button mat-raised-button color="accent" class="align-center"
+            [routerLink]="['/new', repoName, repoOwner]"> Create new snippet
     </button>
-  </h1>
+  </div>
 
-  <table mat-table [dataSource]="pullsList">
+  <table *ngIf="(pullsList$ | async) as pullsList else loading" mat-table [dataSource]="pullsList">
     <ng-container matColumnDef="number">
       <th mat-header-cell *matHeaderCellDef> #</th>
       <td mat-cell *matCellDef="let item" class="mat-cell-padding">
@@ -35,7 +35,7 @@
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let item" class="mat-cell-padding">
         <button mat-button color="warn"
-                [routerLink]="['/new', REPO_NAME, REPO_OWNER, item['number']]"> Edit
+                [routerLink]="['/new', repoName, repoOwner, item['number']]"> Edit
         </button>
       </td>
     </ng-container>
@@ -43,3 +43,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
+
+
+<ng-template #loading>
+  loading ...
+</ng-template>
