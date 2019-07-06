@@ -235,16 +235,10 @@ export class CreateSnippetComponent implements OnDestroy {
   }
 
   getPreparedFormValue(value) {
-    const isDemoComponentChangedAndNotEmpty = this.hasDemo && value.demo['app.component.ts'] && value.demo['app.component.ts'] !== angularSampleCode['app.component.ts'];
-    const isDemoModuleChangedAndNotEmpty = this.hasDemo && value.demo['app.module.ts'] && value.demo['app.module.ts'] !== angularSampleCode['app.module.ts'];
-    const isDemoMainChangedAndNotEmpty = this.hasDemo && value.demo['main.ts'] && value.demo['main.ts'] !== angularSampleCode['main.ts'];
-    const isDemoIndexChangedAndNotEmpty = this.hasDemo && value.demo['index.html'] && value.demo['index.html'] !== angularSampleCode['index.html'];
-    value['demo'] = {
-      'app.component.ts': isDemoComponentChangedAndNotEmpty ? value.demo['app.component.ts'] : null,
-      'app.module.ts': isDemoModuleChangedAndNotEmpty ? value.demo['app.module.ts'] : null,
-      'main.ts': isDemoMainChangedAndNotEmpty ? value.demo['main.ts'] : null,
-      'index.html': isDemoIndexChangedAndNotEmpty ? value.demo['index.html'] : null
-    };
+    Object.keys(value['demo']).forEach(x => {
+      const isChangedAndNotEmpty = this.hasDemo && value.demo[x] && value.demo[x] !== angularSampleCode[x];
+      value['demo'][x] = isChangedAndNotEmpty ? value.demo[x] : null;
+    });
     value['bonus'] = this.hasBonus ? value['bonus'] : null;
     value['links'] = this.hasLinks ? value['links'] : null;
     return value;
