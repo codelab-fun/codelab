@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SyncComponent } from './sync.component';
 import { SyncButtonComponent } from './sync-button/sync-button.component';
-import { MatButtonModule, MatMenuModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatMenuModule, MatSelectModule } from '@angular/material';
 import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -15,6 +15,11 @@ import { AllViewerValuesDirective } from '@codelab/utils/src/lib/sync/directives
 import { SyncPlaygroundComponent } from './sync-playground/sync-playground.component';
 import { SyncPlaygroundPresenterComponent } from './sync-playground/sync-playground-presenter/sync-playground-presenter.component';
 import { SyncPlaygroundTestComponent } from './sync-playground/sync-playground-test/sync-playground-test.component';
+import { SyncPollComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.component';
+import { SyncPollPresenterComponent } from './components/poll/sync-poll-presenter/sync-poll-presenter.component';
+import { SlidesModule } from '@codelab/slides';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -24,6 +29,9 @@ import { SyncPlaygroundTestComponent } from './sync-playground/sync-playground-t
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MatMenuModule,
+    MatInputModule,
+    SlidesModule,
+    FormsModule,
   ],
   providers: [SyncService, LoginService],
   declarations: [
@@ -37,6 +45,9 @@ import { SyncPlaygroundTestComponent } from './sync-playground/sync-playground-t
     SyncPlaygroundComponent,
     SyncPlaygroundPresenterComponent,
     SyncPlaygroundTestComponent,
+    SyncPollComponent,
+    SyncPollPresenterComponent,
+    RegistrationComponent,
   ],
   exports: [
     SyncComponent,

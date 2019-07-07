@@ -16,7 +16,6 @@
   </button>
 
 
-
   <div *isPresenting>
     🔴 {{(sync.currentSession$ | async)?.displayName}}
     <button (click)="dropSession()">Drop session</button>
@@ -25,5 +24,6 @@
   <div *isViewing>
     👀
     <button (click)="sync.leaveCurrentSession()">Leave session</button>
+    {{sync.currentViewerId$ | async}}
   </div>
 </div>

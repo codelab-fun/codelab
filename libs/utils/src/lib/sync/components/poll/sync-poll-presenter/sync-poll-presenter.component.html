@@ -1,0 +1,18 @@
+<ng-container *ngIf="allUserValues | async as values">
+  <div *ngIf="values.length === 0">
+    Waiting for votes
+  </div>
+  <div class="results">
+    <ng-container *ngFor="let v of values">
+      <div class="answer-result">{{poll.answers[v.key - 1]}}</div>
+      <div>{{v.value}}</div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="isRunning$|async">
+    <button mat-button (click)="stop()">stop</button>
+  </div>
+  <div *ngIf="!(isRunning$|async)">
+    <button mat-button (click)="start()">start</button>
+  </div>
+</ng-container>

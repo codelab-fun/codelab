@@ -20,7 +20,6 @@ import { SyncModule } from '@codelab/utils/src/lib/sync/sync.module';
 import { SlidesModule } from '@codelab/slides';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { ButtonsNavBarModule } from '../../../../../codelab/src/app/components/buttons-nav-bar/buttons-nav-bar.module';
-import { SyncComponentsModule } from '@codelab/utils/src/lib/sync/components/sync-components.module';
 
 
 const routes = RouterModule.forChild(
@@ -51,7 +50,6 @@ export class SafeHtml implements PipeTransform {
     MatButtonModule,
     SyncModule,
     ReactiveFormsModule,
-    SyncComponentsModule,
   ],
   declarations: [
     RaceComponent,

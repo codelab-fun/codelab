@@ -6,6 +6,13 @@ import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../../../codelab/src/environments/environment';
+
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
+
 
 const routes = [
   {
@@ -77,6 +84,11 @@ const routes = [
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     name: 'Home',
     description: 'Home'
+  },  {
+    path: 'sync',
+    loadChildren: () => import('./modules/sync/sync.module').then(m => m.SyncModule),
+    name: 'Home',
+    description: 'Home'
   },
   {
     path: 'test',
@@ -91,7 +103,8 @@ const routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    angularFire
   ],
   providers: [
     {

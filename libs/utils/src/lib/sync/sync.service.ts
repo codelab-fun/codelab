@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { LoginService } from '@codelab/firebase-login';
 import { distinctUntilChanged, first, map, mergeMap, switchMap, take } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, iif, of, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, combineLatest, forkJoin, iif, of, ReplaySubject } from 'rxjs';
 
 export enum SyncStatus {
   OFF = 'off',
@@ -85,9 +85,6 @@ export class SyncService<T> {
     private db: AngularFireDatabase,
     private loginService: LoginService
   ) {
-    this.loginService.uid$.subscribe((a) => {
-      console.log('user', a);
-    });
     combineLatest([this.presenterUpdates$, this.currentSyncId$, this.statusChange$])
       .subscribe(
         ([data, syncId, status]) => {
@@ -146,7 +143,6 @@ export class SyncService<T> {
   }
 
   updateSession(data: T) {
-    console.log('data');
     this.presenterUpdates$.next(data);
   }
 
@@ -154,11 +150,27 @@ export class SyncService<T> {
   follow(syncId: string) {
     this.currentSyncId$.next(syncId);
 
-    this.statusChange$.pipe(first()).subscribe((status) => {
+    forkJoin([
+      this.statusChange$.pipe(first()),
+      this.loginService.uid$.pipe(first())
+    ]).subscribe(([status, uid]) => {
       if (status === SyncStatus.VIEWING) {
-        this.currentViewerId$.next(
-          this.db.list('sync-sessions/' + syncId + '/all-viewers').push({time: Date.now()}).key
-        );
+
+        this.db.list('sync-sessions/' + syncId + '/all-viewers', ref => ref.orderByChild('uid').equalTo(uid))
+          .snapshotChanges()
+          .pipe(first())
+          .subscribe(a => {
+            if (a.length > 0) {
+              this.currentViewerId$.next(a[0].key);
+            } else {
+              this.currentViewerId$.next(
+                this.db.list('sync-sessions/' + syncId + '/all-viewers').push({
+                  time: Date.now(),
+                  uid,
+                }).key
+              );
+            }
+          });
       }
     });
   }
