@@ -1,9 +1,7 @@
-<div class="container">
-  <h1>New Snippet
-    <button (click)="onSubmit()"
-            mat-button
-            class="btn-submit">
-      Generate Snippet
+<div *ngIf="!isLoading else loadingTmp" class="container">
+  <h1>{{isEditing ? '' : 'New'}} Snippet
+    <button (click)="openPreview()" mat-button class="btn-submit">
+      {{isEditing ? 'Edit' : 'Create'}} Snippet
     </button>
   </h1>
 
@@ -114,9 +112,9 @@
         </mat-form-field>
         <div *ngIf="snippetForm.get('content').touched && snippetForm.get('content').invalid">
           <div *ngIf="snippetForm.get('content').errors['required']" class="validation-message">
-              This field is required
+            This field is required
           </div>
-          <div *ngIf="snippetForm.get('content').errors['lines']" class="validation-message">
+          <div *ngIf="snippetForm.get('content').errors['linesError']" class="validation-message">
             {{snippetForm.get('content').errors['linesError']}}
           </div>
         </div>
@@ -180,3 +178,7 @@
     </ng-container>
   </form>
 </div>
+
+<ng-template #loadingTmp>
+  <codelab-snippet-spinner></codelab-snippet-spinner>
+</ng-template>
