@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class GithubService {
-  repo = 'AngularNYC/angular-presentation';
+  repo = 'codelab-fun/codelab';
 
   constructor(private http: HttpClient) {}
 
