@@ -98,8 +98,8 @@ export class CreateSnippetComponent implements OnDestroy {
       })).subscribe((snippetFileInfo: SnippetFileInfo) => {
 
       this.snippetFileInfo = snippetFileInfo;
-      const snippet = importSnippet(parseSnippet(snippetFileInfo.snippet));
 
+      const snippet = importSnippet(parseSnippet(snippetFileInfo.snippet));
       if (snippet.demo) {
         this.hasDemo = true;
       }
