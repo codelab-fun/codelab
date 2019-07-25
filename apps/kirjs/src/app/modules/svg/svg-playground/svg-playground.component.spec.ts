@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SvgPlaygroundComponent } from './svg-playground.component';
 
-describe('SvgPlaygroundComponent', () => {
+describe('RaceComponent', () => {
   let component: SvgPlaygroundComponent;
   let fixture: ComponentFixture<SvgPlaygroundComponent>;
 

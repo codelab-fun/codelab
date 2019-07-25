@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DateRangeComponent } from './date-range.component';
+import { FeedbackPageModule } from '../feedback-page.module';
+import { ActivatedRoute } from '@angular/router';
+
 
 describe('DateRangeComponent', () => {
   let component: DateRangeComponent;
@@ -8,7 +11,11 @@ describe('DateRangeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DateRangeComponent ]
+      imports: [FeedbackPageModule],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {}
+      }]
     })
     .compileComponents();
   }));

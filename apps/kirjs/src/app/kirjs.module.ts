@@ -41,7 +41,12 @@ const routes = [
     path: 'music',
     loadChildren: () => import('./modules/music/music.module').then(m => m.MusicModule),
     name: 'Music',
-    description: 'Musicja'
+    description: 'Music'
+  },  {
+    path: 'webassembly',
+    loadChildren: () => import('./modules/webassembly/webassembly.module').then(m => m.WebassemblyModule),
+    name: 'webassembly',
+    description: 'webassembly'
   },
   {
     path: 'svg',
@@ -59,6 +64,12 @@ const routes = [
     path: 'ast',
     loadChildren: () => import('./modules/ast/ast.module').then(m => m.AstModule),
     name: 'Ast + Angular',
+    description: 'SVG '
+  },
+  {
+    path: 'svg-race',
+    loadChildren: () => import('./modules/svg-race/svg-race.module').then(m => m.SvgRaceModule),
+    name: 'SVG Race',
     description: 'SVG '
   },
   {
@@ -95,4 +106,5 @@ const routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {}
+export class KirjsModule {
+}

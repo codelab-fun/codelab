@@ -10,13 +10,26 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { MarkdownModule } from 'ngx-markdown';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { SnippetSpinnerComponent } from './snippet-spinner/snippet-spinner.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { RouterModule } from '@angular/router';
+
+const MAT_MODULES = [
+  MatButtonModule,
+  MatFormFieldModule,
+  MatChipsModule,
+  MatAutocompleteModule,
+  MatSelectModule,
+  MatInputModule,
+  MatDialogModule,
+  MatSnackBarModule
+];
 
 
 @NgModule({
@@ -24,24 +37,19 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     CreateSnippetComponent,
     SnippetInfoComponent,
     SnippetOverviewComponent,
-    SnippetSpinnerComponent,
+    SnippetSpinnerComponent
   ],
   entryComponents: [
     SnippetOverviewComponent
   ],
   imports: [
+    ...MAT_MODULES,
     CommonModule,
-    MatButtonModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
     AngularFireAuthModule,
-    MatChipsModule,
     MarkdownModule.forRoot(),
-    MatAutocompleteModule,
-    MatSelectModule,
-    MatInputModule,
     CodeDemoModule,
-    MatDialogModule,
+    RouterModule
   ]
 })
 export class CreateSnippetModule {
