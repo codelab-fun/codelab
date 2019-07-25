@@ -29,14 +29,6 @@ mat-card {
   height: 130px;
   bottom: 0;
   width: 100%;
-
-  background: rgba(246,246,246,0.66);
-  background: -moz-linear-gradient(top, rgba(246,246,246,0.03) 50%,  rgba(255,255,255,1) 90%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246,246,246,0.03)), color-stop(100%, rgba(255,255,255,1)));
-  background: -webkit-linear-gradient(top, rgba(246,246,246,0.03) 50%,  rgba(255,255,255,1) 90%);
-  background: -o-linear-gradient(top, rgba(246,246,246,0.03) 50%, rgba(255,255,255,1) 90%);
-  background: -ms-linear-gradient(top, rgba(246,246,246,0.03) 50%, rgba(255,255,255,1) 90%);
-  background: linear-gradient(to bottom, rgba(246, 246, 246, 0.03) 50%, white 90%);
 }
 
 .container {
