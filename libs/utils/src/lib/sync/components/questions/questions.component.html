@@ -1,29 +1,38 @@
 <ng-container *isViewing>
   <input type="text" (keydown.enter)="add(question.value)" #question>
 
-  <section class="question" *ngFor="let question of questions$|async; let i = index">
+  <mat-card class="question" *ngFor="let question of questions$|async; let i = index">
     <div>{{question.question}}</div>
     <!--    <div>author: {{question.author}}</div>-->
     <!--    <div>key: {{question.key}}</div>-->
-    <div>
-      {{question.score || 0}}
 
-      <button (click)="setVote(question.key, 1)"
-              class="upvote"
-              [class.voted]="question.myVote === 1">👍
+    {{question.score || 0}}
+
+    <mat-card-actions>
+      <button mat-raised-button class="upvote" (click)="setVote(question.key, 1)"
+              [class.voted]="question.myVote === 1">
+        +
       </button>
-      <button class="downvote"
+      <button mat-raised-button  class="downvote"
               (click)="setVote(question.key, -1)"
-              [class.voted]="question.myVote === -1">👎
+              [class.voted]="question.myVote === -1">
+        -
       </button>
-    </div>
-  </section>
+    </mat-card-actions>
+
+
+  </mat-card>
 </ng-container>
 
 <ng-container *isPresenting>
   <h2>Questions</h2>
-  <section class="question" *ngFor="let question of questions$|async; let i = index">
-    <div>  {{question.score || 0}}</div>
+  <mat-card class="question" *ngFor="let question of questions$|async; let i = index">
+    <div>{{question.score || 0}}</div>
     <div>{{question.question}}</div>
-  </section>
+  </mat-card>
+</ng-container>
+
+<ng-container *isAdmin>
+  <h2>Admin</h2>
+
 </ng-container>

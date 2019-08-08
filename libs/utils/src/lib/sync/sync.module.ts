@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SyncComponent } from './sync.component';
 import { SyncButtonComponent } from './sync-button/sync-button.component';
-import { MatButtonModule, MatInputModule, MatMenuModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatMenuModule, MatSelectModule } from '@angular/material';
 import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginService } from '@codelab/firebase-login';
-import { SyncIsPresentingDirective } from './directives/sync-is-presenting.directive';
-import { SyncIsViewingDirective } from '@codelab/utils/src/lib/sync/directives/sync-is-viewing.directive';
 import { SyncPresenterValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-presenter-value.directive';
 import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-viewer-value.directive';
 import { AllViewerValuesDirective } from '@codelab/utils/src/lib/sync/directives/all-viewer-values.directive';
@@ -21,6 +19,11 @@ import { SlidesModule } from '@codelab/slides';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
 import { QuestionsComponent } from './components/questions/questions.component';
+import {
+  SyncIsAdminDirective,
+  SyncIsPresentingDirective,
+  SyncIsViewingDirective
+} from '@codelab/utils/src/lib/sync/directives/is-status.directive';
 
 @NgModule({
   imports: [
@@ -33,12 +36,14 @@ import { QuestionsComponent } from './components/questions/questions.component';
     MatInputModule,
     SlidesModule,
     FormsModule,
+    MatCardModule,
   ],
   providers: [SyncService, LoginService],
   declarations: [
     SyncComponent,
     SyncButtonComponent,
     SyncIsPresentingDirective,
+    SyncIsAdminDirective,
     SyncIsViewingDirective,
     SyncPresenterValueDirective,
     SyncViewerValueDirective,

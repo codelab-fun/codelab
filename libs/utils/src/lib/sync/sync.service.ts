@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { LoginService } from '@codelab/firebase-login';
 import { distinctUntilChanged, first, map, mergeMap, switchMap, take } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, forkJoin, iif, of, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, combineLatest, forkJoin, iif, Observable, of, ReplaySubject } from 'rxjs';
 
 export enum SyncStatus {
   OFF = 'off',
@@ -38,7 +38,7 @@ export class SyncService<T> {
     mergeMap(id =>
       iif(() => !!id, this.db.object<T>('sync-sessions/' + id + '/presenter').valueChanges(), of(null))));
 
-  readonly statusChange$ = this.currentSyncId$.pipe(switchMap(syncId => {
+  readonly statusChange$: Observable<SyncStatus> = this.currentSyncId$.pipe(switchMap(syncId => {
     if (!syncId) {
       return of(SyncStatus.OFF);
     }
@@ -50,6 +50,10 @@ export class SyncService<T> {
         }
 
         return this.loginService.uid$.pipe(map((uid) => {
+          if (uid === 'admin') {
+            return SyncStatus.ADMIN;
+          }
+
           if (session.uid === uid) {
             return SyncStatus.PRESENTING;
           }
