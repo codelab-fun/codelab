@@ -1,0 +1,22 @@
+.question {
+  padding: 20px;
+  border-bottom: 1px #ddd solid;
+}
+
+button {
+  border-radius: 50%;
+  background: #eee;
+  padding: 4px;
+  border: 1px #bbb solid;
+  text-align: center;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.upvote.voted {
+  background: #a6e0c1;
+}
+.downvote.voted {
+  background: #ffaf9e;
+}

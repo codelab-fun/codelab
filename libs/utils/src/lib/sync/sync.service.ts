@@ -58,7 +58,6 @@ export class SyncService<T> {
       })
     );
 
-
   }), distinctUntilChanged());
 
 
@@ -109,10 +108,19 @@ export class SyncService<T> {
 
 
     combineLatest([this.viewerUpdates$, this.currentSyncId$, this.currentViewerId$]).subscribe(
-      ([{key, data}, syncId, viewerId]) => {
-        // debugger;
+      ([{key, data, type}, syncId, viewerId]) => {
         const update = {[viewerId]: data};
-        this.db.object(`sync-sessions/${syncId}/viewer/${key}`).update(update);
+        if (syncId === '') {
+          throw new Error('No viewver ID, you might be a presenter');
+        }
+
+        if (type === 'update') {
+          this.db.object(`sync-sessions/${syncId}/viewer/${key}`).update(update);
+        }
+
+        if (type === 'push') {
+          this.db.list(`sync-sessions/${syncId}/viewer/${key}`).push(update);
+        }
       });
 
 
@@ -182,7 +190,7 @@ export class SyncService<T> {
   }
 
   updateViewerValue(key: string, data: any) {
-    this.viewerUpdates$.next({key, data});
+    this.viewerUpdates$.next({key, data, type: 'update'});
   }
 
   updatePresenterValue(data: Partial<T>) {
@@ -212,5 +220,9 @@ export class SyncService<T> {
       this.currentSyncId$.next('');
       this.list.remove(id);
     });
+  }
+
+  pushViewerValue(key: string, data: any) {
+    this.viewerUpdates$.next({key, data, type: 'push'});
   }
 }

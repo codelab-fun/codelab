@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { filter, switchMap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
 import { SyncService, SyncStatus } from '@codelab/utils/src/lib/sync/sync.service';
 
 interface SyncData {
@@ -26,8 +26,10 @@ export class SyncButtonComponent {
       filter(status => status === SyncStatus.VIEWING),
       switchMap(() => sync.presentersData$),
       filter(a => !!a),
-    ).subscribe(({slide}) => {
-      this.presentation.goToSlide(Number(slide));
+      map(a => Number(a.slide)),
+      distinctUntilChanged()
+    ).subscribe((slide) => {
+      this.presentation.goToSlide(slide);
     });
   }
 

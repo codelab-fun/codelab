@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -25,8 +25,7 @@ export class SyncPollComponent implements OnInit {
   config$: Observable<any | null>;
   isRunning$: Observable<any | null>;
 
-  constructor(private readonly syncService: SyncService<any>,
-              private readonly cdr: ChangeDetectorRef) {
+  constructor(private readonly syncService: SyncService<any>,) {
   }
 
   ngOnInit() {

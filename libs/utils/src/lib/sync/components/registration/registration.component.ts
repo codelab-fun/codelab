@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  @Input() key = name;
+  @Input() key = 'name';
   name = '';
   saved = false;
   readonly value = new Subject();
@@ -17,7 +17,6 @@ export class RegistrationComponent implements OnInit {
 
 
   constructor(private readonly syncService: SyncService<any>) {
-
   }
 
   save() {
@@ -33,7 +32,7 @@ export class RegistrationComponent implements OnInit {
     this.syncService.getViewerValue(this.key).subscribe(this.value);
     this.syncService.getAllViewersValues(this.key)
       .pipe(map(a => {
-        return Object.values(a);
+        return a ? Object.values(a) : [];
       })).subscribe(this.allValues);
   }
 

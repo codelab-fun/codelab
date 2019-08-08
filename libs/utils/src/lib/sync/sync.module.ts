@@ -20,6 +20,7 @@ import { SyncPollPresenterComponent } from './components/poll/sync-poll-presente
 import { SlidesModule } from '@codelab/slides';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { FormsModule } from '@angular/forms';
     SyncPollComponent,
     SyncPollPresenterComponent,
     RegistrationComponent,
+    QuestionsComponent,
   ],
   exports: [
     SyncComponent,
