@@ -29,7 +29,7 @@ export class SyncPollComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.values = this.syncService.getViewerValue(this.poll.key);
+    this.values = this.syncService.getCurrentViewerValue(this.poll.key);
     this.config$ = this.syncService.getPresenterValue(this.poll.key);
     this.isRunning$ = this.config$.pipe(map(config => config && config.running));
   }

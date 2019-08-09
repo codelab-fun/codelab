@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SyncComponent } from './sync.component';
 import { SyncButtonComponent } from './sync-button/sync-button.component';
-import { MatButtonModule, MatCardModule, MatInputModule, MatMenuModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatMenuModule, MatSelectModule, MatTabsModule } from '@angular/material';
 import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -24,6 +24,7 @@ import {
   SyncIsPresentingDirective,
   SyncIsViewingDirective
 } from '@codelab/utils/src/lib/sync/directives/is-status.directive';
+import { QuestionsAdminComponent } from './components/questions/questions-admin/questions-admin.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import {
     SlidesModule,
     FormsModule,
     MatCardModule,
+    MatTabsModule,
   ],
   providers: [SyncService, LoginService],
   declarations: [
@@ -55,6 +57,7 @@ import {
     SyncPollPresenterComponent,
     RegistrationComponent,
     QuestionsComponent,
+    QuestionsAdminComponent,
   ],
   exports: [
     SyncComponent,

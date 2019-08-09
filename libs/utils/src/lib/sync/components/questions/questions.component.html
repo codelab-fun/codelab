@@ -1,38 +1,30 @@
 <ng-container *isViewing>
-  <input type="text" (keydown.enter)="add(question.value)" #question>
+  <input type="text" (keydown.enter)="questionsService.add(question.value)" #question>
 
-  <mat-card class="question" *ngFor="let question of questions$|async; let i = index">
+  <mat-card class="question" *ngFor="let question of questionsService.approvedQuestions$ |async; let i = index">
     <div>{{question.question}}</div>
-    <!--    <div>author: {{question.author}}</div>-->
-    <!--    <div>key: {{question.key}}</div>-->
-
     {{question.score || 0}}
 
     <mat-card-actions>
-      <button mat-raised-button class="upvote" (click)="setVote(question.key, 1)"
+      <button mat-raised-button class="upvote" (click)="questionsService.setVote(question.key, 1)"
               [class.voted]="question.myVote === 1">
         +
       </button>
-      <button mat-raised-button  class="downvote"
-              (click)="setVote(question.key, -1)"
+      <button mat-raised-button class="downvote"
+              (click)="questionsService.setVote(question.key, -1)"
               [class.voted]="question.myVote === -1">
         -
       </button>
     </mat-card-actions>
-
-
   </mat-card>
 </ng-container>
 
 <ng-container *isPresenting>
   <h2>Questions</h2>
-  <mat-card class="question" *ngFor="let question of questions$|async; let i = index">
+  <mat-card class="question" *ngFor="let question of questionsService.approvedQuestions$ |async; let i = index">
     <div>{{question.score || 0}}</div>
     <div>{{question.question}}</div>
   </mat-card>
 </ng-container>
 
-<ng-container *isAdmin>
-  <h2>Admin</h2>
-
-</ng-container>
+<slides-questions-admin *isAdmin></slides-questions-admin>

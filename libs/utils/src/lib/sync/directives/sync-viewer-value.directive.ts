@@ -32,7 +32,7 @@ export class SyncViewerValueDirective<T> implements AfterViewInit, OnDestroy {
       console.log('when viewing');
       if (status === SyncStatus.VIEWING) {
         this.sync
-          .getViewerValue(this.syncViewerValue)
+          .getCurrentViewerValue(this.syncViewerValue)
           .pipe(first())
           .pipe(switchMap(value => {
             this.control.valueAccessor.writeValue(value);

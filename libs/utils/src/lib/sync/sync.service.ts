@@ -113,17 +113,18 @@ export class SyncService<T> {
 
     combineLatest([this.viewerUpdates$, this.currentSyncId$, this.currentViewerId$]).subscribe(
       ([{key, data, type}, syncId, viewerId]) => {
-        const update = {[viewerId]: data};
+
         if (syncId === '') {
           throw new Error('No viewver ID, you might be a presenter');
         }
 
         if (type === 'update') {
+          const update = {[viewerId]: data};
           this.db.object(`sync-sessions/${syncId}/viewer/${key}`).update(update);
         }
 
         if (type === 'push') {
-          this.db.list(`sync-sessions/${syncId}/viewer/${key}`).push(update);
+          this.db.list(`sync-sessions/${syncId}/viewer/${key}/${viewerId}`).push(data);
         }
       });
 
@@ -201,8 +202,13 @@ export class SyncService<T> {
     this.presenterUpdates$.next(data);
   }
 
-  getViewerValue(key: string) {
-    return combineLatest([this.currentSyncId$, this.currentViewerId$]).pipe(switchMap(([syncId, viewerId]) => {
+  getCurrentViewerValue(key: string) {
+    return this.currentViewerId$.pipe(
+      mergeMap(viewerId => viewerId ? this.getViewerValueByViewerId(key, viewerId) : of({})));
+  }
+
+  getViewerValueByViewerId(key: string, viewerId: string) {
+    return this.currentSyncId$.pipe(switchMap((syncId) => {
       return this.db.object(`sync-sessions/${syncId}/viewer/${key}/${viewerId}`).valueChanges();
     }));
   }
@@ -228,5 +234,12 @@ export class SyncService<T> {
 
   pushViewerValue(key: string, data: any) {
     this.viewerUpdates$.next({key, data, type: 'push'});
+  }
+
+  adminModifyViewerValue(key, user, callback) {
+    const newValue$ = this.getViewerValueByViewerId(key, user).pipe(map(callback), first());
+    forkJoin([this.currentSyncId$.pipe(first()), newValue$]).subscribe(([syncId, newValue]) => {
+      this.db.object(`sync-sessions/${syncId}/viewer/${key}/${user}`).update(newValue);
+    });
   }
 }

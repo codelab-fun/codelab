@@ -1,0 +1,24 @@
+<h2>Admin</h2>
+
+<mat-tab-group>
+  <ng-container *ngIf="questionsByStatus$ | async as questionsByStatus">
+    <ng-container *ngFor="let status of statuses">
+      <mat-tab [label]="status + ' (' + questionsByStatus[status]?.length + ')'"
+               *ngIf="questionsByStatus[status]?.length">
+        <mat-card class="question" *ngFor="let question of questionsByStatus[status];">
+          <div>{{question.score || 0}}</div>
+          <div>{{question.question}}</div>
+
+          <mat-card-actions>
+            <ng-container *ngFor="let s of statuses">
+              <button mat-raised-button class="upvote" *ngIf="s !== status"
+                      (click)="questionsService.updateQuestionStatus(question, s)">
+                {{s}}
+              </button>
+            </ng-container>
+          </mat-card-actions>
+        </mat-card>
+      </mat-tab>
+    </ng-container>
+  </ng-container>
+</mat-tab-group>

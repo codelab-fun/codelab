@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
 
 
   ngOnInit() {
-    this.syncService.getViewerValue(this.key).subscribe(this.value);
+    this.syncService.getCurrentViewerValue(this.key).subscribe(this.value);
     this.syncService.getAllViewersValues(this.key)
       .pipe(map(a => {
         return a ? Object.values(a) : [];
