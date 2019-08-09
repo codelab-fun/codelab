@@ -22,8 +22,10 @@
   </div>
 
   <div *isViewing>
-    👀
-    <button (click)="sync.leaveCurrentSession()">Leave session</button>
-    {{sync.currentViewerId$ | async}}
+    👀 <span>
+    <ng-container *ngIf="registrationService.currentUser$| async as user else anon">{{user.name}}</ng-container>
+    <ng-template #anon>Anonymous</ng-template>
+
+  </span>
   </div>
 </div>

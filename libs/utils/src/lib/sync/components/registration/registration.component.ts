@@ -1,39 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
-import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { RegistrationService } from '@codelab/utils/src/lib/sync/components/registration/registration.service';
 
 @Component({
   selector: 'slides-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
+  providers: [RegistrationService],
 })
-export class RegistrationComponent implements OnInit {
-  @Input() key = 'name';
-  name = '';
-  saved = false;
-  readonly value = new Subject();
-  readonly allValues = new Subject();
+export class RegistrationComponent {
 
-
-  constructor(private readonly syncService: SyncService<any>) {
-  }
-
-  save() {
-    this.syncService.updateViewerValue(this.key, this.name);
-  }
-
-  clear() {
-    this.syncService.updateViewerValue(this.key, null);
-  }
-
-
-  ngOnInit() {
-    this.syncService.getCurrentViewerValue(this.key).subscribe(this.value);
-    this.syncService.getAllViewersValues(this.key)
-      .pipe(map(a => {
-        return a ? Object.values(a) : [];
-      })).subscribe(this.allValues);
-  }
 
 }

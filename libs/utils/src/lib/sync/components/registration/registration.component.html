@@ -1,16 +1,3 @@
-<div *isViewing>
-  <h2>What is your name?</h2>
-  <ng-container *ngIf="!(value | async)">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Name" required [(ngModel)]="name">
-    </mat-form-field>
-    <button mat-button (click)="save()">Save</button>
-  </ng-container>
-  <ng-container *ngIf="(value | async) as value">
-    <h2>{{value}}</h2>
-    <button mat-button (click)="clear()">Change</button>
-  </ng-container>
-</div>
-<h2 *isPresenting>Waiting for people to register
-  {{allValues|async|json}}
-</h2>
+<slides-registration-viewer *isViewing></slides-registration-viewer>
+<slides-registration-presenter *isPresenting></slides-registration-presenter>
+<slides-registration-admin *isAdmin></slides-registration-admin>

@@ -1,0 +1,10 @@
+<div *ngIf="registrationService.users$ | async as users else lol">
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.name}}
+    </li>
+  </ul>
+</div>
+<ng-template #lol>
+  No names
+</ng-template>

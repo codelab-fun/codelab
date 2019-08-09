@@ -25,6 +25,9 @@ import {
   SyncIsViewingDirective
 } from '@codelab/utils/src/lib/sync/directives/is-status.directive';
 import { QuestionsAdminComponent } from './components/questions/questions-admin/questions-admin.component';
+import { RegistrationPresenterComponent } from './components/registration/registration-presenter/registration-presenter.component';
+import { RegistrationViewerComponent } from './components/registration/registration-viewer/registration-viewer.component';
+import { RegistrationAdminComponent } from './components/registration/registration-admin/registration-admin.component';
 
 @NgModule({
   imports: [
@@ -58,6 +61,9 @@ import { QuestionsAdminComponent } from './components/questions/questions-admin/
     RegistrationComponent,
     QuestionsComponent,
     QuestionsAdminComponent,
+    RegistrationPresenterComponent,
+    RegistrationViewerComponent,
+    RegistrationAdminComponent,
   ],
   exports: [
     SyncComponent,

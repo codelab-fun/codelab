@@ -1,0 +1,7 @@
+<div *ngIf="registrationService.users$ | async as users">
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.name}} <button mat-button (click)="drop(user.userId)">🗑</button>
+    </li>
+  </ul>
+</div>

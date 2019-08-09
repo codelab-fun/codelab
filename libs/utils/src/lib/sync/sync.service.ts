@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { LoginService } from '@codelab/firebase-login';
-import { distinctUntilChanged, first, map, mergeMap, switchMap, take } from 'rxjs/operators';
+import { distinctUntilChanged, first, map, mergeMap, pairwise, startWith, switchMap, take } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, forkJoin, iif, Observable, of, ReplaySubject } from 'rxjs';
 
 export enum SyncStatus {
@@ -100,22 +100,21 @@ export class SyncService<T> {
           }
         });
 
-    this.viewerUpdates$.subscribe((viewerUpdates) => console.log({viewerUpdates}));
-    this.currentSyncId$.subscribe((currentSyncId) => console.log({currentSyncId}));
-    this.currentViewerId$.subscribe((currentViewerId) => console.log({currentViewerId}));
-    this.presenterUpdates$.subscribe((presenterUpdates) => console.log({presenterUpdates}));
+    // this.viewerUpdates$.subscribe((viewerUpdates) => console.log({viewerUpdates}));
+    // this.currentSyncId$.subscribe((currentSyncId) => console.log({currentSyncId}));
+    // this.currentViewerId$.subscribe((currentViewerId) => console.log({currentViewerId}));
+    // this.presenterUpdates$.subscribe((presenterUpdates) => console.log({presenterUpdates}));
 
 
     // Formatter breaks this when it's above constructor by moving it before
     // $sessions declaration on every second format
     this.hasSessions$ = this.sessions$.pipe(map(sessions => sessions.length > 0));
 
-
     combineLatest([this.viewerUpdates$, this.currentSyncId$, this.currentViewerId$]).subscribe(
       ([{key, data, type}, syncId, viewerId]) => {
 
         if (syncId === '') {
-          throw new Error('No viewver ID, you might be a presenter');
+          throw new Error('No viewer ID, you might be a presenter');
         }
 
         if (type === 'update') {
@@ -128,18 +127,25 @@ export class SyncService<T> {
         }
       });
 
+    /**
+     * AutoJoin
+     */
 
-    combineLatest([this.sessions$, this.loginService.uid$]).pipe(first()).subscribe(
-      ([sessions, uid]) => {
-        // debugger;
-        const activeSession = sessions.find((session) => session.uid === uid);
-        if (activeSession) {
-          this.follow(activeSession.key);
-        } else if (sessions.length === 1) {
-          this.follow(sessions[0].key);
+    this.sessions$.pipe(
+      startWith([]),
+      map(sessions => {
+        if (sessions.length === 0) {
+          return '';
         }
+        return sessions[0].key;
+      }),
+      distinctUntilChanged(),
+      pairwise(),
+    ).subscribe(([oldId, newId]) => {
+      if (newId) {
+        this.follow(newId);
       }
-    );
+    });
   }
 
   startSession(data: T) {
@@ -204,7 +210,7 @@ export class SyncService<T> {
 
   getCurrentViewerValue(key: string) {
     return this.currentViewerId$.pipe(
-      mergeMap(viewerId => viewerId ? this.getViewerValueByViewerId(key, viewerId) : of({})));
+      mergeMap(viewerId => viewerId ? this.getViewerValueByViewerId(key, viewerId) : of(null)));
   }
 
   getViewerValueByViewerId(key: string, viewerId: string) {

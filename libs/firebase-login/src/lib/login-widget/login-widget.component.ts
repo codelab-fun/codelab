@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login/src/lib/login.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase';
+import { auth } from 'firebase/app';
 
 @Component({
   selector: 'codelab-login-widget',
