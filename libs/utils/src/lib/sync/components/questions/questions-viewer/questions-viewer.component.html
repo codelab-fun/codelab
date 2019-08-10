@@ -1,0 +1,9 @@
+<h2>Ask a question:</h2>
+<mat-form-field>
+  <mat-label>Your question:</mat-label>
+  <textarea matInput cdkTextareaAutosize #q></textarea>
+</mat-form-field>
+<button mat-raised-button (click)="questionsService.addQuestion(q.value.trim()); q.value = ''">Submit</button>
+<h2>All questions:</h2>
+
+<slides-question-list [questions]="questionsService.approvedQuestions$ |async"></slides-question-list>

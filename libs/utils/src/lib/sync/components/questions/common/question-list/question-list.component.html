@@ -1,0 +1,6 @@
+<slides-question *ngIf="questionsService.starredQuestion$ | async as question"
+                 [question]="question" class="starred"></slides-question>
+
+<div @questionList *ngFor="let question of questions; trackBy: trackBy">
+  <slides-question [question]="question"></slides-question>
+</div>

@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
 import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
 
-
-
-
 @Component({
-  selector: 'slides-questions',
-  templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css'],
-  providers: [QuestionsService],
+  selector: 'slides-questions-presenter',
+  templateUrl: './questions-presenter.component.html',
+  styleUrls: ['./questions-presenter.component.css']
 })
-export class QuestionsComponent {
+export class QuestionsPresenterComponent {
   constructor(public readonly questionsService: QuestionsService) {
   }
+
 }

@@ -1,0 +1,7 @@
+textarea, mat-form-field {
+  width: 100%
+}
+
+.question-body {
+  white-space: pre-line;
+}

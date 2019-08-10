@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { QuestionsService, QuestionStatus } from '@codelab/utils/src/lib/sync/components/questions/questions.service';
+import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
 import { map } from 'rxjs/operators';
+import { statuses } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 
 @Component({
   selector: 'slides-questions-admin',
@@ -9,7 +10,7 @@ import { map } from 'rxjs/operators';
   providers: [QuestionsService],
 })
 export class QuestionsAdminComponent {
-  statuses = [QuestionStatus.NEW, QuestionStatus.APPROVED, QuestionStatus.ARCHIVED, QuestionStatus.DELETED];
+  statuses = statuses;
 
   public readonly questionsByStatus$ = this.questionsService.questions$.pipe(map(questions => {
     return questions.reduce((result, question) => {

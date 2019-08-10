@@ -2,22 +2,25 @@
 
 <mat-tab-group>
   <ng-container *ngIf="questionsByStatus$ | async as questionsByStatus">
+    {{statuses|json}}!
     <ng-container *ngFor="let status of statuses">
       <mat-tab [label]="status + ' (' + questionsByStatus[status]?.length + ')'"
                *ngIf="questionsByStatus[status]?.length">
-        <mat-card class="question" *ngFor="let question of questionsByStatus[status];">
-          <div>{{question.score || 0}}</div>
-          <div>{{question.question}}</div>
+        <slides-question-list [questions]="questionsByStatus[status]">
+        </slides-question-list>
+        <!--        <mat-card class="question" *ngFor="let question of questionsByStatus[status];">-->
+        <!--          <div>{{question.score || 0}}</div>-->
+        <!--          <div class="question-body">{{question.question}}</div>-->
 
-          <mat-card-actions>
-            <ng-container *ngFor="let s of statuses">
-              <button mat-raised-button class="upvote" *ngIf="s !== status"
-                      (click)="questionsService.updateQuestionStatus(question, s)">
-                {{s}}
-              </button>
-            </ng-container>
-          </mat-card-actions>
-        </mat-card>
+        <!--          <mat-card-actions>-->
+        <!--            <ng-container *ngFor="let s of statuses">-->
+        <!--              <button mat-raised-button class="upvote" *ngIf="s !== status"-->
+        <!--                      (click)="questionsService.updateQuestionStatus(question, s)">-->
+        <!--                {{s}}-->
+        <!--              </button>-->
+        <!--            </ng-container>-->
+        <!--          </mat-card-actions>-->
+        <!--        </mat-card>-->
       </mat-tab>
     </ng-container>
   </ng-container>

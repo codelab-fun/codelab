@@ -3,23 +3,7 @@ import { filter, first, map, startWith } from 'rxjs/operators';
 import { combineLatest, Observable } from 'rxjs';
 import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import produce from 'immer';
-
-
-export enum QuestionStatus {
-  NEW = 'new',
-  APPROVED = 'approved',
-  ARCHIVED = 'archived',
-  DELETED = 'deleted',
-}
-
-export interface Question {
-  key: string;
-  score: number;
-  time: number;
-  status: QuestionStatus;
-  myVote: 1 | 0 | -1;
-  author: string;
-}
+import { Question, QuestionStatus } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 
 
 const groupVotesByQuestionId = a => {
@@ -34,6 +18,7 @@ const groupVotesByQuestionId = a => {
 })
 export class QuestionsService {
   readonly approvedQuestions$;
+  readonly starredQuestion$;
   private readonly key = 'qna7';
   private readonly votesKey = 'votes';
   private readonly votes$ = this.syncService.getAllViewersValues(this.votesKey).pipe(
@@ -69,12 +54,20 @@ export class QuestionsService {
       }),
       map(questions => questions.sort((a, b) => b.score - a.score)));
 
+
   constructor(private readonly syncService: SyncService<any>) {
     // TODO(kirjs): webstorm bug moves it before questions$ when reformatting
     this.approvedQuestions$ = this.questions$.pipe(map(questions => questions.filter(q => q.status === QuestionStatus.APPROVED)));
+
+    this.starredQuestion$ = combineLatest([
+      this.syncService.getPresenterValue('starredQuestionKey'),
+      this.questions$
+    ]).pipe(map(([key, questions]) =>
+      key ? questions.find((q) => q.key === key) : null
+    ));
   }
 
-  add(question: string) {
+  addQuestion(question: string) {
     this.syncService.pushViewerValue(this.key, {
       question,
       score: 0,
@@ -110,5 +103,9 @@ export class QuestionsService {
 
   unapprove(question: Question) {
     this.updateQuestionStatus(question, QuestionStatus.NEW);
+  }
+
+  starQuestion(starredQuestionKey: string) {
+    this.syncService.updatePresenterValue({starredQuestionKey});
   }
 }

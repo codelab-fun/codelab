@@ -91,8 +91,9 @@ export class SyncService<T> {
     combineLatest([this.presenterUpdates$, this.currentSyncId$, this.statusChange$])
       .subscribe(
         ([data, syncId, status]) => {
+
           // TODO(kirjs): Use rxjs way
-          if (syncId && status === SyncStatus.PRESENTING) {
+          if (syncId && (status === SyncStatus.PRESENTING || status === SyncStatus.ADMIN)) {
             this.list.update(syncId, {
               time: Date.now()
             });
@@ -137,7 +138,11 @@ export class SyncService<T> {
         if (sessions.length === 0) {
           return '';
         }
-        return sessions[0].key;
+        if (sessions.length === 1) {
+          return sessions[0].key;
+        }
+
+        console.log('There are ' + sessions.length + ' sessions. Not sure which session to join');
       }),
       distinctUntilChanged(),
       pairwise(),

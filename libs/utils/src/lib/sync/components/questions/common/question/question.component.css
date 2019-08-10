@@ -1,0 +1,22 @@
+mat-card {
+  margin-bottom: 10px;
+}
+.questions {
+  display: flex;
+}
+
+.upvote, .downvote {
+  color: #999;
+}
+
+.voted {
+  color: #000;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.question-body {
+  white-space: pre-line;
+}

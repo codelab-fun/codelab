@@ -39,6 +39,7 @@ export class SyncIsViewingDirective<T> extends SyncIsStatusDirective<T> {
     sync: SyncService<T>
   ) {
     super(viewContainer, templateRef, sync);
+    console.log('init');
   }
 }
 

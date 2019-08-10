@@ -18,19 +18,20 @@ import { SyncPollPresenterComponent } from './components/poll/sync-poll-presente
 import { SlidesModule } from '@codelab/slides';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
-import { QuestionsComponent } from './components/questions/questions.component';
 import {
   SyncIsAdminDirective,
   SyncIsPresentingDirective,
   SyncIsViewingDirective
 } from '@codelab/utils/src/lib/sync/directives/is-status.directive';
-import { QuestionsAdminComponent } from './components/questions/questions-admin/questions-admin.component';
 import { RegistrationPresenterComponent } from './components/registration/registration-presenter/registration-presenter.component';
 import { RegistrationViewerComponent } from './components/registration/registration-viewer/registration-viewer.component';
 import { RegistrationAdminComponent } from './components/registration/registration-admin/registration-admin.component';
+import { QuestionsModule } from '@codelab/utils/src/lib/sync/components/questions/questions.module';
+import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 
 @NgModule({
   imports: [
+    SyncDirectivesModule,
     CommonModule,
     MatButtonModule,
     MatSelectModule,
@@ -42,14 +43,12 @@ import { RegistrationAdminComponent } from './components/registration/registrati
     FormsModule,
     MatCardModule,
     MatTabsModule,
+    QuestionsModule,
   ],
   providers: [SyncService, LoginService],
   declarations: [
     SyncComponent,
     SyncButtonComponent,
-    SyncIsPresentingDirective,
-    SyncIsAdminDirective,
-    SyncIsViewingDirective,
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
     AllViewerValuesDirective,
@@ -59,8 +58,6 @@ import { RegistrationAdminComponent } from './components/registration/registrati
     SyncPollComponent,
     SyncPollPresenterComponent,
     RegistrationComponent,
-    QuestionsComponent,
-    QuestionsAdminComponent,
     RegistrationPresenterComponent,
     RegistrationViewerComponent,
     RegistrationAdminComponent,
@@ -68,8 +65,6 @@ import { RegistrationAdminComponent } from './components/registration/registrati
   exports: [
     SyncComponent,
     SyncButtonComponent,
-    SyncIsPresentingDirective,
-    SyncIsViewingDirective,
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
     AllViewerValuesDirective,

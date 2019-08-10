@@ -1,0 +1,10 @@
+<ng-container *isPresenting>
+  <h2>Questions</h2>
+  <ng-container *ngIf="questionsService.approvedQuestions$ | async as questions">
+    <slides-question-list [questions]="questions">
+    </slides-question-list>
+    <div *ngIf="questions.length===0">
+      Waiting for questions...
+    </div>
+  </ng-container>
+</ng-container>
