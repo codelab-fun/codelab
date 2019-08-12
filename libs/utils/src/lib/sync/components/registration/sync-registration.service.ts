@@ -5,7 +5,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RegistrationService {
+export class SyncRegistrationService {
   readonly key = 'name';
   name = '';
 

@@ -13,16 +13,11 @@ import { SyncPlaygroundComponent } from './sync-playground/sync-playground.compo
 import { SyncPlaygroundPresenterComponent } from './sync-playground/sync-playground-presenter/sync-playground-presenter.component';
 import { SyncPlaygroundTestComponent } from './sync-playground/sync-playground-test/sync-playground-test.component';
 import { SlidesModule } from '@codelab/slides';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
-import { RegistrationPresenterComponent } from './components/registration/registration-presenter/registration-presenter.component';
-import { RegistrationViewerComponent } from './components/registration/registration-viewer/registration-viewer.component';
-import { RegistrationAdminComponent } from './components/registration/registration-admin/registration-admin.component';
 import { QuestionsModule } from '@codelab/utils/src/lib/sync/components/questions/questions.module';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
-import { SyncPollViewerComponent } from './components/poll/sync-poll-viewer/sync-poll-viewer.component';
-import { SyncPollAdminComponent } from './components/poll/sync-poll-admin/sync-poll-admin.component';
 import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
+import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.module';
 
 @NgModule({
   imports: [
@@ -38,6 +33,7 @@ import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync
     FormsModule,
     MatCardModule,
     MatTabsModule,
+    SyncRegistrationModule,
     QuestionsModule,
     SyncPollModule,
   ],
@@ -50,10 +46,6 @@ import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync
     SyncPlaygroundComponent,
     SyncPlaygroundPresenterComponent,
     SyncPlaygroundTestComponent,
-    RegistrationComponent,
-    RegistrationPresenterComponent,
-    RegistrationViewerComponent,
-    RegistrationAdminComponent,
   ],
   exports: [
     SyncComponent,

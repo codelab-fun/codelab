@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
-import { RegistrationService } from '@codelab/utils/src/lib/sync/components/registration/registration.service';
+import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({
   selector: 'slides-registration-viewer',
@@ -8,6 +8,6 @@ import { RegistrationService } from '@codelab/utils/src/lib/sync/components/regi
   styleUrls: ['./registration-viewer.component.css']
 })
 export class RegistrationViewerComponent {
-  constructor(private readonly registrationService: RegistrationService) {
+  constructor(private readonly registrationService: SyncRegistrationService) {
   }
 }

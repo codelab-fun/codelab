@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RegistrationService } from '@codelab/utils/src/lib/sync/components/registration/registration.service';
+import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({
   selector: 'slides-registration-admin',
@@ -8,7 +8,7 @@ import { RegistrationService } from '@codelab/utils/src/lib/sync/components/regi
 })
 export class RegistrationAdminComponent {
 
-  constructor(private readonly registrationService: RegistrationService) {
+  constructor(private readonly registrationService: SyncRegistrationService) {
   }
 
 
