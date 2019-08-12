@@ -23,7 +23,7 @@
 
   <div *isViewing>
     👀 <span>
-    <ng-container *ngIf="registrationService.currentUser$| async as user else anon">{{user.name}}</ng-container>
+    <ng-container *ngIf="registrationService.currentUser$| async as user else anon">{{user}}</ng-container>
     <ng-template #anon>Anonymous</ng-template>
 
   </span>

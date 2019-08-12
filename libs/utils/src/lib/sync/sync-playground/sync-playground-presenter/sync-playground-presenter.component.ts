@@ -3,6 +3,7 @@ import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { LoginService } from '@codelab/firebase-login';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { User } from 'firebase';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
 
 @Component({
   selector: 'slides-sync-playground-presenter',
@@ -10,6 +11,7 @@ import { User } from 'firebase';
   styleUrls: ['./sync-playground-presenter.component.css'],
   providers: [
     SyncService,
+    SyncDataService,
     {
       provide: LoginService,
       useFactory: () => ({

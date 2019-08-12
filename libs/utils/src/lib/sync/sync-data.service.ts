@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
-import { filter, first, map, switchMap, tap } from 'rxjs/operators';
+import { filter, first, map, switchMap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 
 function mergeValues(value, defaultValue) {
@@ -12,10 +12,9 @@ function mergeValues(value, defaultValue) {
 }
 
 export class SyncDataObject<T> {
-  db$ = this.key$.pipe(map(key => this.syncService.getObjectByKey<T>(key)));
-
-  readonly values$ = new BehaviorSubject(this.defaultValue);
-  readonly valueChanges$ = this.db$.pipe(
+  private readonly db$ = this.key$.pipe(map(key => this.syncService.getObjectByKey<T>(key)));
+  private readonly values$ = new BehaviorSubject(this.defaultValue);
+  private readonly valueChanges$ = this.db$.pipe(
     switchMap(db => {
       return db.valueChanges();
     }))

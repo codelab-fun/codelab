@@ -20,9 +20,7 @@ export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
     private readonly syncDataService: SyncDataService,
     @Optional() private readonly control: NgControl
   ) {
-
   }
-
 
   ngOnDestroy(): void {
     this.onDestroy$.next();
