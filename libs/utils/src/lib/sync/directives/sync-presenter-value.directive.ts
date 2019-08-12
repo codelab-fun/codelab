@@ -1,7 +1,7 @@
 import { Directive, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { filter, takeUntil } from 'rxjs/operators';
 
 @Directive({
@@ -46,7 +46,7 @@ export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$)
       )
       .subscribe(newValue => {
-        data.update(newValue);
+        data.set(newValue);
       });
   }
 }

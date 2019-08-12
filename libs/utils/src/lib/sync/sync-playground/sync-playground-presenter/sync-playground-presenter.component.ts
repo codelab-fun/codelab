@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService } from '@codelab/utils/src/lib/sync/services/sync.service';
 import { LoginService } from '@codelab/firebase-login';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { ReplaySubject, Subject } from 'rxjs';
 import { User } from 'firebase';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 
 @Component({
   selector: 'slides-sync-playground-presenter',
@@ -12,11 +14,13 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
   providers: [
     SyncService,
     SyncDataService,
+    SyncSessionService,
+    SyncDbService,
     {
       provide: LoginService,
       useFactory: () => ({
-        uid$: new BehaviorSubject<string>(''),
-        user$: new BehaviorSubject<any>({})
+        uid$: new ReplaySubject<string>(1),
+        user$: new ReplaySubject<any>(1)
       })
     },
   ]

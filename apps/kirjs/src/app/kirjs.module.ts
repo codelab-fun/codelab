@@ -87,8 +87,8 @@ const routes = [
   },  {
     path: 'sync',
     loadChildren: () => import('./modules/sync/sync.module').then(m => m.SyncModule),
-    name: 'Home',
-    description: 'Home'
+    name: 'Sync',
+    description: 'Sync Session'
   },
   {
     path: 'test',

@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
-import { SyncService} from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService} from '@codelab/utils/src/lib/sync/services/sync.service';
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';

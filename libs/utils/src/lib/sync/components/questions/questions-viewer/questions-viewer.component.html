@@ -1,10 +1,12 @@
 <h2>Ask a question:</h2>
-<mat-form-field>
-  <mat-label>Your question:</mat-label>
-  <textarea matInput cdkTextareaAutosize #q (keydown.control.enter)="addQuestion(q)"
-            (keydown.command.enter)="addQuestion(q)"></textarea>
-</mat-form-field>
-<button mat-raised-button (click)="addQuestion(q)">Submit</button>
+<div class="question-form">
+  <mat-form-field>
+    <mat-label>Your question:</mat-label>
+    <textarea matInput cdkTextareaAutosize #q (keydown.control.enter)="addQuestion(q)"
+              (keydown.command.enter)="addQuestion(q)"></textarea>
+  </mat-form-field>
+  <button mat-raised-button (click)="addQuestion(q)">Submit</button>
+</div>
 <ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
   <ng-container *ngIf="questions.length">
     <h2>All questions:</h2>

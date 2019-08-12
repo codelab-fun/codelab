@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { LoginService } from '@codelab/firebase-login';
-import { distinctUntilChanged, filter, first, map, mergeMap, mergeMapTo, pairwise, startWith, switchMap, take } from 'rxjs/operators';
+import { distinctUntilChanged, first, map, mergeMap, pairwise, startWith, switchMap, take } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, forkJoin, iif, Observable, of, ReplaySubject } from 'rxjs';
-import { canWritePresenterData, SyncMeta, SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import { SyncMeta, SyncStatus } from '@codelab/utils/src/lib/sync/common';
 
 @Injectable({
   providedIn: 'root'
@@ -82,9 +82,7 @@ export class SyncService<T> {
 
           // TODO(kirjs): Use rxjs way
           if (syncId && (status === SyncStatus.PRESENTING || status === SyncStatus.ADMIN)) {
-            this.list.update(syncId, {
-              time: Date.now()
-            });
+            this.touch();
             this.db.object('sync-sessions/' + syncId + '/presenter').update(data);
           }
         });
@@ -163,11 +161,6 @@ export class SyncService<T> {
     });
   }
 
-  updateSession(data: T) {
-    this.presenterUpdates$.next(data);
-  }
-
-
   follow(syncId: string) {
     this.currentSyncId$.next(syncId);
 
@@ -196,20 +189,6 @@ export class SyncService<T> {
     });
   }
 
-  getPresenterValue<T>(key: string) {
-    return this.currentSyncId$.pipe(switchMap((syncId) => {
-      return this.db.object<T>(`sync-sessions/${syncId}/presenter/${key}`).valueChanges();
-    }));
-  }
-
-  updateViewerValue(key: string, data: any) {
-    this.viewerUpdates$.next({key, data, type: 'update'});
-  }
-
-  updatePresenterValue(data: Partial<T>) {
-    this.presenterUpdates$.next(data);
-  }
-
   touch() {
     this.currentSyncId$
       .pipe(first())
@@ -221,57 +200,10 @@ export class SyncService<T> {
 
   }
 
-  setPresenterValue(key, data: any) {
-    this.statusChange$.pipe(
-      first(),
-      filter(canWritePresenterData),
-      mergeMapTo(this.currentSyncId$),
-      first(),
-      filter(syncId => !!syncId),
-    ).subscribe(syncId => {
-      this.touch();
-      this.db.object('sync-sessions/' + syncId + '/presenter' + (key ? '/' + key : '')).set(data);
-    });
-  }
-
-  getCurrentViewerValue(key: string) {
-    return this.currentViewerId$.pipe(
-      mergeMap(viewerId => viewerId ? this.getViewerValueByViewerId(key, viewerId) : of(null)));
-  }
-
-  getViewerValueByViewerId(key: string, viewerId: string) {
-    return this.currentSyncId$.pipe(switchMap((syncId) => {
-      return this.db.object(`sync-sessions/${syncId}/viewer/${key}/${viewerId}`).valueChanges();
-    }));
-  }
-
-  getAllViewersValues(key: string) {
-    return this.currentSyncId$.pipe(switchMap((syncId) => {
-      return this.db.object(`sync-sessions/${syncId}/viewer/${key}`).valueChanges();
-    }));
-  }
-
-  leaveCurrentSession() {
-    return this.currentSyncId$.pipe(take(1)).subscribe(id => {
-      this.currentSyncId$.next('');
-    });
-  }
-
   dropCurrentSession() {
     return this.currentSyncId$.pipe(take(1)).subscribe(id => {
       this.currentSyncId$.next('');
       this.list.remove(id);
-    });
-  }
-
-  pushViewerValue(key: string, data: any) {
-    this.viewerUpdates$.next({key, data, type: 'push'});
-  }
-
-  adminModifyViewerValue(key, user, callback) {
-    const newValue$ = this.getViewerValueByViewerId(key, user).pipe(map(callback), first());
-    forkJoin([this.currentSyncId$.pipe(first()), newValue$]).subscribe(([syncId, newValue]) => {
-      this.db.object(`sync-sessions/${syncId}/viewer/${key}/${user}`).update(newValue);
     });
   }
 }

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { filter, first, map, switchMap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { AngularFireList, AngularFireObject } from '@angular/fire/database';
 
 function mergeValues(value, defaultValue) {
   if (typeof value === 'object' && typeof defaultValue === 'object') {
@@ -12,7 +14,6 @@ function mergeValues(value, defaultValue) {
 }
 
 export class SyncDataObject<T> {
-  private readonly db$ = this.key$.pipe(map(key => this.syncService.getObjectByKey<T>(key)));
   private readonly values$ = new BehaviorSubject(this.defaultValue);
   private readonly valueChanges$ = this.db$.pipe(
     switchMap(db => {
@@ -25,9 +26,10 @@ export class SyncDataObject<T> {
     );
 
   constructor(
-    protected readonly syncService: SyncService<any>,
+    protected readonly db$: Observable<AngularFireObject<T>>,
     protected readonly key$: Observable<string>,
-    protected readonly defaultValue?: T
+    protected readonly syncDbService: SyncDbService,
+    protected readonly defaultValue?: T,
   ) {
     this.valueChanges$.subscribe(this.values$);
   }
@@ -42,29 +44,30 @@ export class SyncDataObject<T> {
     this.valueChanges$.pipe(
       map(callback),
       first()
-    ).subscribe(value => this.update(value));
+    ).subscribe(value => this.set(value));
   }
 
-  update(value: T) {
+  set(value: T) {
     return this.db$.pipe(first()).subscribe(db => {
       db.set(value);
     });
   }
 
-  getObject(key: keyof T) {
+  object(key: keyof T) {
     const key$ = this.key$.pipe(map(k => `${k}/${key}`));
-    return new SyncDataObject(this.syncService, key$, this.defaultValue[key]);
+    return this.syncDbService.object(key$, this.defaultValue ? this.defaultValue[key] : this.defaultValue);
   }
 }
 
 export class SyncDataList<T> {
-  db$ = this.key$.pipe(map(key => this.syncService.getListByKey<T>(key)));
   values$ = this.db$.pipe(switchMap(db => db.valueChanges()));
+  snapshots$ = this.db$.pipe(switchMap(db => db.snapshotChanges()));
 
   constructor(
-    protected readonly syncService: SyncService<any>,
+    protected readonly db$: Observable<AngularFireList<T>>,
     protected readonly key$: Observable<string>,
-    protected readonly defaultValue?: T
+    protected readonly syncDbService: SyncDbService,
+    protected readonly defaultValue?: T[]
   ) {
   }
 
@@ -84,9 +87,11 @@ export class SyncDataList<T> {
   providedIn: 'root'
 })
 export class SyncDataService {
-  private readonly syncId$ = this.syncService.currentSyncId$.pipe(filter(a => !!a));
+  private readonly syncId$ = this.syncSesionService.sessionId$.pipe(filter(a => !!a));
 
-  constructor(private readonly syncService: SyncService<any>) {
+  constructor(
+    private readonly syncSesionService: SyncSessionService,
+    private readonly dbService: SyncDbService) {
   }
 
   getPresenterObject<T>(key: string, defaultValue?: T) {
@@ -94,20 +99,19 @@ export class SyncDataService {
       map((syncId) => `sync-sessions/${syncId}/presenter/${key}`)
     );
 
-    return new SyncDataObject(this.syncService, key$, defaultValue);
+    return this.dbService.object(key$, defaultValue);
   }
 
   getCurrentViewerObject<T>(key: string, defaultValue?: T) {
     const key$ = combineLatest([
       this.syncId$,
-      this.syncService.currentViewerId$.pipe(filter(a => !!a))
+      this.syncSesionService.viewerId$.pipe(filter(a => !!a))
     ]).pipe(
       map(([syncId, viewerId]) => {
         return `sync-sessions/${syncId}/viewer/${key}/${viewerId}`;
       })
     );
-
-    return new SyncDataObject(this.syncService, key$, defaultValue);
+    return this.dbService.object(key$, defaultValue);
   }
 
   getViewerObject<T>(key: string, viewerId: string, defaultValue?: T) {
@@ -115,18 +119,18 @@ export class SyncDataService {
       map((syncId) => `sync-sessions/${syncId}/viewer/${key}/${viewerId}`)
     );
 
-    return new SyncDataObject(this.syncService, key$, defaultValue);
+    return this.dbService.object(key$, defaultValue);
   }
 
-  getCurrentViewerList<T>(key: string, defaultValue?: T) {
+  getCurrentViewerList<T>(key: string, defaultValue?: T[]) {
     const key$ = combineLatest([
       this.syncId$,
-      this.syncService.currentViewerId$.pipe(filter(a => !!a))
+      this.syncSesionService.viewerId$.pipe(filter(a => !!a))
     ]).pipe(
       map(([syncId, viewerId]) => `sync-sessions/${syncId}/viewer/${key}/${viewerId}`)
     );
 
-    return new SyncDataList(this.syncService, key$, defaultValue);
+    return this.dbService.list(key$, defaultValue);
   }
 
   getAdminAllUserData<T>(key: string, defaultValue?: T) {
@@ -134,6 +138,6 @@ export class SyncDataService {
       map((syncId) => `sync-sessions/${syncId}/viewer/${key}`)
     );
 
-    return new SyncDataObject(this.syncService, key$, defaultValue);
+    return this.dbService.object(key$, defaultValue);
   }
 }

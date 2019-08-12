@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from '@codelab/firebase-login';
+import { Component } from '@angular/core';
 import { Poll } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.component';
 
 @Component({
@@ -7,7 +6,7 @@ import { Poll } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.comp
   templateUrl: './sync-playground-test.component.html',
   styleUrls: ['./sync-playground-test.component.css']
 })
-export class SyncPlaygroundTestComponent implements OnInit {
+export class SyncPlaygroundTestComponent {
   readonly polls: Poll[] = [
     {
       key: 'fruit',
@@ -24,12 +23,4 @@ export class SyncPlaygroundTestComponent implements OnInit {
       ]
     }
   ];
-
-  constructor(readonly loginService: LoginService) { }
-
-
-
-  ngOnInit() {
-  }
-
 }

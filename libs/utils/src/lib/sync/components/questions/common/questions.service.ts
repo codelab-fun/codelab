@@ -9,7 +9,7 @@ import {
   QuestionStatus,
   UserVotes
 } from '@codelab/utils/src/lib/sync/components/questions/common/common';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 
 const groupVotesByQuestionId = a => {
@@ -47,7 +47,7 @@ export class QuestionsService {
         .flat();
     }));
 
-  private readonly starredQuestionKeyData = this.presenterObject.getObject('starredQuestionKey');
+  private readonly starredQuestionKeyData = this.presenterObject.object('starredQuestionKey');
 
   private readonly votesKey = 'votes';
 
@@ -132,10 +132,10 @@ export class QuestionsService {
   }
 
   starQuestion(starredQuestionKey: string) {
-    this.starredQuestionKeyData.update(starredQuestionKey);
+    this.starredQuestionKeyData.set(starredQuestionKey);
   }
 
   updateRequiresApproval(requireApproval: boolean) {
-    this.presenterObject.getObject('requireApproval').update(requireApproval);
+    this.presenterObject.object('requireApproval').set(requireApproval);
   }
 }

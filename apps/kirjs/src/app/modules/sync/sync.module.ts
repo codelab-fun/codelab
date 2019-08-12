@@ -8,7 +8,10 @@ import { SyncModule as SyncLibModule } from '@codelab/utils/src/lib/sync/sync.mo
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const routes = RouterModule.forChild(
-  SlidesRoutes.get(SyncComponent)
+  [
+    // {path: 'sessions', component:}
+    ...SlidesRoutes.get(SyncComponent)
+  ]
 );
 
 
@@ -22,4 +25,5 @@ const routes = RouterModule.forChild(
     AngularFireAuthModule,
   ]
 })
-export class SyncModule { }
+export class SyncModule {
+}

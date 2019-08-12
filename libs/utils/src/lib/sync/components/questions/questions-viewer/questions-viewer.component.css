@@ -5,3 +5,7 @@ textarea, mat-form-field {
 .question-body {
   white-space: pre-line;
 }
+
+.question-form {
+  margin-bottom: 20px;
+}

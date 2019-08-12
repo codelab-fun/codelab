@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
 import { map } from 'rxjs/operators';
 
@@ -30,7 +30,7 @@ export class SyncPoll {
   }
 
   vote(answer: string) {
-    this.viewerData.update(answer);
+    this.viewerData.set(answer);
   }
 }
 

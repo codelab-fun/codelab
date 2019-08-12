@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
-import { SyncService} from '@codelab/utils/src/lib/sync/sync.service';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
-import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 
 interface SyncData {
   slide: number;
@@ -17,37 +16,43 @@ interface SyncData {
 })
 export class SyncButtonComponent {
 
+  sync = {};
+
   constructor(
-    private readonly sync: SyncService<SyncData>,
+    private readonly syncDataService: SyncDataService,
+    private readonly syncSessionService: SyncSessionService,
     private readonly registrationService: SyncRegistrationService,
     private readonly presentation: SlidesDeckComponent) {
-    presentation.slideChange.subscribe((slide) => {
-      this.sync.updateSession({slide});
-    });
+    this.syncSessionService.autoJoin();
+    // presentation.slideChange.subscribe((slide) => {
+    //   this.sync.updateSession({slide});
+    // });
 
 
-    sync.statusChange$.pipe(
-      filter(status => status === SyncStatus.VIEWING),
-      switchMap(() => sync.presentersData$),
-      filter(a => !!a),
-      map(a => Number(a.slide)),
-      distinctUntilChanged()
-    ).subscribe((slide) => {
-      this.presentation.goToSlide(slide);
-    });
+    // sync.statusChange$.pipe(
+    //   filter(status => status === SyncStatus.VIEWING),
+    //   switchMap(() => sync.presentersData$),
+    //   filter(a => !!a),
+    //   map(a => Number(a.slide)),
+    //   distinctUntilChanged()
+    // ).subscribe((slide) => {
+    //   this.presentation.goToSlide(slide);
+    // });
   }
 
   start() {
-    this.sync.startSession({
-      slide: this.presentation.activeSlideIndex,
-    });
+    this.syncSessionService.create();
+  }
+
+  stop() {
+    this.syncSessionService.dropCurrentSession();
   }
 
   dropSession() {
-    this.sync.dropCurrentSession();
+    // this.sync.dropCurrentSession();
   }
 
   follow(session) {
-    this.sync.follow(session);
+    // this.sync.follow(session);
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/sync-data.service';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,15 +24,15 @@ export class SyncRegistrationService {
   }
 
   save() {
-    this.nameObject.update(this.name);
+    this.nameObject.set(this.name);
   }
 
   clear() {
-    this.nameObject.update(null);
+    this.nameObject.set(null);
   }
 
   drop(userId: string) {
-    this.syncDataService.getViewerObject(this.key, userId).update(null);
+    this.syncDataService.getViewerObject(this.key, userId).set(null);
 
   }
 }

@@ -1,31 +1,46 @@
-<div style="display: flex">
-  <button mat-button style="cursor:pointer"
-          *ngIf="sync.canStartSession$ | async"
-          (click)="start()">⚫️ start
-  </button>
-
-  <mat-menu #menu="matMenu">
-    <div mat-menu-item *ngFor="let session of (sync.sessions$ | async)"
-         (click)="follow(session.key)">{{session.displayName}}!!
-    </div>
-  </mat-menu>
-
-
-  <button mat-button [matMenuTriggerFor]="menu"
-          *ngIf="(sync.isInSession$ | async) === false && (sync.hasSessions$ | async)">Join
-  </button>
-
-
-  <div *isPresenting>
-    🔴 {{(sync.currentSession$ | async)?.displayName}}
-    <button (click)="dropSession()">Drop session</button>
-  </div>
-
-  <div *isViewing>
-    👀 <span>
-    <ng-container *ngIf="registrationService.currentUser$| async as user else anon">{{user}}</ng-container>
-    <ng-template #anon>Anonymous</ng-template>
-
-  </span>
+<div *ngIf="syncSessionService.hasActiveSession$ | async else noSession">
+  <div *isAdmin>
+    <span>🔴</span>
+    <button mat-button (click)="stop()">Drop session</button>
   </div>
 </div>
+
+<ng-template #noSession>
+  <button mat-raised-button
+          *ngIf="syncSessionService.canStartSession$ | async"
+          style="cursor:pointer"
+          (click)="start()">⚫️ start
+  </button>
+</ng-template>
+
+<!--<div style="display: flex">-->
+<!--  <button mat-button style="cursor:pointer"-->
+<!--          *ngIf="sync.canStartSession$ | async"-->
+<!--          (click)="start()">⚫️ start-->
+<!--  </button>-->
+
+<!--  <mat-menu #menu="matMenu">-->
+<!--    <div mat-menu-item *ngFor="let session of (sync.sessions$ | async)"-->
+<!--         (click)="follow(session.key)">{{session.displayName}}!!-->
+<!--    </div>-->
+<!--  </mat-menu>-->
+
+
+<!--  <button mat-button [matMenuTriggerFor]="menu"-->
+<!--          *ngIf="(sync.isInSession$ | async) === false && (sync.hasSessions$ | async)">Join-->
+<!--  </button>-->
+
+
+<!--  <div *isPresenting>-->
+<!--    🔴 {{(sync.currentSession$ | async)?.displayName}}-->
+<!--    <button (click)="dropSession()">Drop session</button>-->
+<!--  </div>-->
+
+<!--  <div *isViewing>-->
+<!--    👀 <span>-->
+<!--    <ng-container *ngIf="registrationService.currentUser$| async as user else anon">{{user}}</ng-container>-->
+<!--    <ng-template #anon>Anonymous</ng-template>-->
+
+<!--  </span>-->
+<!--  </div>-->
+<!--</div>-->

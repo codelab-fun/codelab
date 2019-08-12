@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService } from '@codelab/utils/src/lib/sync/services/sync.service';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({
