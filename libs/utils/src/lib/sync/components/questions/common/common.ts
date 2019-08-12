@@ -1,18 +1,31 @@
 export enum QuestionStatus {
-  NEW = 'new',
   APPROVED = 'approved',
+  NEW = 'new',
   ARCHIVED = 'archived',
-  DELETED = 'deleted',
 }
 
 export const statuses = Object.values(QuestionStatus);
 
-export interface Question {
+export interface QuestionDb {
   question: string;
-  key: string;
   score: number;
   time: number;
   status: QuestionStatus;
+}
+
+export interface Question  extends QuestionDb {
+  key: string;
+  starred: boolean;
+  public: boolean;
   myVote: 1 | 0 | -1;
   author: string;
+}
+
+export interface QuestionConfig {
+  starredQuestionKey: string;
+  requireApproval: boolean;
+}
+
+export interface UserVotes {
+  [key: string]: number;
 }

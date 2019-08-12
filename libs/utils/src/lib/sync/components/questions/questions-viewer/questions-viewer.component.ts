@@ -9,4 +9,9 @@ import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questio
 export class QuestionsViewerComponent {
   constructor(public readonly questionsService: QuestionsService) {
   }
+
+  addQuestion(input: HTMLTextAreaElement) {
+    this.questionsService.addQuestion(input.value.trim());
+    input.value = '';
+  }
 }

@@ -1,7 +1,8 @@
 import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
-import { SyncService, SyncStatus } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService} from '@codelab/utils/src/lib/sync/sync.service';
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
+import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

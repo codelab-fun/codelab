@@ -19,13 +19,14 @@
     </ng-container>
     <div *isAdmin>
       <ng-container *ngFor="let status of statuses">
-        <button mat-raised-button   *ngIf="question.status !== status"
+        <button mat-raised-button *ngIf="question.status !== status"
                 (click)="questionsService.updateQuestionStatus(question, status)">
           {{status}}
         </button>
       </ng-container>
-      <button mat-icon-button (click)="questionsService.starQuestion(question.key)">
-        <mat-icon>star</mat-icon>
+      <button mat-icon-button *ngIf="question.status === QuestionStatus.APPROVED"
+              (click)="questionsService.starQuestion(question.starred ? null : question.key)">
+        <mat-icon>{{question.starred ? 'star' : 'star_border'}}</mat-icon>
       </button>
     </div>
   </mat-card-actions>

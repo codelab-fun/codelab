@@ -19,6 +19,7 @@ export class QuestionsAdminComponent {
       return result;
     }, {});
   }));
+  requireApproval: boolean;
 
 
   constructor(public readonly questionsService: QuestionsService) {

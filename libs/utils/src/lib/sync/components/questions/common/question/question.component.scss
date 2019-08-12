@@ -1,6 +1,7 @@
 mat-card {
   margin-bottom: 10px;
 }
+
 .questions {
   display: flex;
 }
@@ -19,4 +20,12 @@ h2 {
 
 .question-body {
   white-space: pre-line;
+}
+
+:host.starred > mat-card {
+  background: #e7ff00;
+
+  .question-body {
+    font-size: 20px;
+  }
 }

@@ -1,9 +1,16 @@
 <h2>Ask a question:</h2>
 <mat-form-field>
   <mat-label>Your question:</mat-label>
-  <textarea matInput cdkTextareaAutosize #q></textarea>
+  <textarea matInput cdkTextareaAutosize #q (keydown.control.enter)="addQuestion(q)"
+            (keydown.command.enter)="addQuestion(q)"></textarea>
 </mat-form-field>
-<button mat-raised-button (click)="questionsService.addQuestion(q.value.trim()); q.value = ''">Submit</button>
-<h2>All questions:</h2>
+<button mat-raised-button (click)="addQuestion(q)">Submit</button>
+<ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
+  <ng-container *ngIf="questions.length">
+    <h2>All questions:</h2>
+    <slides-question *ngIf="questionsService.starredQuestion$ | async as question"
+                     tabindex="0" [question]="question" class="starred"></slides-question>
 
-<slides-question-list [questions]="questionsService.approvedQuestions$ |async"></slides-question-list>
+    <slides-question-list [questions]="questions"></slides-question-list>
+  </ng-container>
+</ng-container>

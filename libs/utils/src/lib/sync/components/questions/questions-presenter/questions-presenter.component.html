@@ -1,6 +1,10 @@
 <ng-container *isPresenting>
   <h2>Questions</h2>
-  <ng-container *ngIf="questionsService.approvedQuestions$ | async as questions">
+
+  <ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
+    <slides-question *ngIf="questionsService.starredQuestion$ | async as question"
+                     tabindex="0" [question]="question" class="starred"></slides-question>
+
     <slides-question-list [questions]="questions">
     </slides-question-list>
     <div *ngIf="questions.length===0">

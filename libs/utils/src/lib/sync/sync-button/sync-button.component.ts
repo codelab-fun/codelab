@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 import { distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
-import { SyncService, SyncStatus } from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService} from '@codelab/utils/src/lib/sync/sync.service';
 import { RegistrationService } from '@codelab/utils/src/lib/sync/components/registration/registration.service';
+import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 
 interface SyncData {
   slide: number;

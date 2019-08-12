@@ -1,30 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { LoginService } from '@codelab/firebase-login';
-import { distinctUntilChanged, first, map, mergeMap, pairwise, startWith, switchMap, take } from 'rxjs/operators';
+import { distinctUntilChanged, filter, first, map, mergeMap, mergeMapTo, pairwise, startWith, switchMap, take } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, forkJoin, iif, Observable, of, ReplaySubject } from 'rxjs';
-
-export enum SyncStatus {
-  OFF = 'off',
-  VIEWING = 'viewing',
-  PRESENTING = 'presenting',
-  ADMIN = 'admin',
-}
-
-interface SyncMeta<T> {
-  time: number;
-  uid: string;
-  displayName: string;
-  presenter: Partial<T>;
-  users: Record<string, any>;
-}
+import { canWritePresenterData, SyncMeta, SyncStatus } from '@codelab/utils/src/lib/sync/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SyncService<T> {
   currentSyncId$ = new BehaviorSubject('');
-  currentViewerId$ = new BehaviorSubject('');
+  currentViewerIdSubject = new BehaviorSubject('');
+  currentViewerId$ = this.currentViewerIdSubject.pipe(distinctUntilChanged());
+
   readonly isInSession$ = this.currentSyncId$.pipe(map(syncId => !!syncId));
   readonly canStartSession$ = combineLatest([this.loginService.uid$, this.currentSyncId$])
     .pipe(map(([uid, syncId]) => {
@@ -153,6 +141,15 @@ export class SyncService<T> {
     });
   }
 
+
+  getObjectByKey<T>(key: string) {
+    return this.db.object<T>(key);
+  }
+
+  getListByKey<T>(key: string) {
+    return this.db.list<T>(key);
+  }
+
   startSession(data: T) {
     this.loginService.user$.subscribe(user => {
       const syncId = this.list.push({
@@ -185,9 +182,9 @@ export class SyncService<T> {
           .pipe(first())
           .subscribe(a => {
             if (a.length > 0) {
-              this.currentViewerId$.next(a[0].key);
+              this.currentViewerIdSubject.next(a[0].key);
             } else {
-              this.currentViewerId$.next(
+              this.currentViewerIdSubject.next(
                 this.db.list('sync-sessions/' + syncId + '/all-viewers').push({
                   time: Date.now(),
                   uid,
@@ -199,9 +196,9 @@ export class SyncService<T> {
     });
   }
 
-  getPresenterValue(key: string) {
+  getPresenterValue<T>(key: string) {
     return this.currentSyncId$.pipe(switchMap((syncId) => {
-      return this.db.object(`sync-sessions/${syncId}/presenter/${key}`).valueChanges();
+      return this.db.object<T>(`sync-sessions/${syncId}/presenter/${key}`).valueChanges();
     }));
   }
 
@@ -211,6 +208,30 @@ export class SyncService<T> {
 
   updatePresenterValue(data: Partial<T>) {
     this.presenterUpdates$.next(data);
+  }
+
+  touch() {
+    this.currentSyncId$
+      .pipe(first())
+      .subscribe((syncId) => {
+        this.list.update(syncId, {
+          time: Date.now()
+        });
+      });
+
+  }
+
+  setPresenterValue(key, data: any) {
+    this.statusChange$.pipe(
+      first(),
+      filter(canWritePresenterData),
+      mergeMapTo(this.currentSyncId$),
+      first(),
+      filter(syncId => !!syncId),
+    ).subscribe(syncId => {
+      this.touch();
+      this.db.object('sync-sessions/' + syncId + '/presenter' + (key ? '/' + key : '')).set(data);
+    });
   }
 
   getCurrentViewerValue(key: string) {

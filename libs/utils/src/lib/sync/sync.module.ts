@@ -7,7 +7,6 @@ import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginService } from '@codelab/firebase-login';
-import { SyncPresenterValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-presenter-value.directive';
 import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-viewer-value.directive';
 import { AllViewerValuesDirective } from '@codelab/utils/src/lib/sync/directives/all-viewer-values.directive';
 import { SyncPlaygroundComponent } from './sync-playground/sync-playground.component';
@@ -18,11 +17,6 @@ import { SyncPollPresenterComponent } from './components/poll/sync-poll-presente
 import { SlidesModule } from '@codelab/slides';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
-import {
-  SyncIsAdminDirective,
-  SyncIsPresentingDirective,
-  SyncIsViewingDirective
-} from '@codelab/utils/src/lib/sync/directives/is-status.directive';
 import { RegistrationPresenterComponent } from './components/registration/registration-presenter/registration-presenter.component';
 import { RegistrationViewerComponent } from './components/registration/registration-viewer/registration-viewer.component';
 import { RegistrationAdminComponent } from './components/registration/registration-admin/registration-admin.component';
@@ -49,7 +43,6 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
   declarations: [
     SyncComponent,
     SyncButtonComponent,
-    SyncPresenterValueDirective,
     SyncViewerValueDirective,
     AllViewerValuesDirective,
     SyncPlaygroundComponent,
@@ -65,7 +58,6 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
   exports: [
     SyncComponent,
     SyncButtonComponent,
-    SyncPresenterValueDirective,
     SyncViewerValueDirective,
     AllViewerValuesDirective,
     SyncPlaygroundComponent,

@@ -2,26 +2,31 @@
 
 <mat-tab-group>
   <ng-container *ngIf="questionsByStatus$ | async as questionsByStatus">
-    {{statuses|json}}!
     <ng-container *ngFor="let status of statuses">
       <mat-tab [label]="status + ' (' + questionsByStatus[status]?.length + ')'"
                *ngIf="questionsByStatus[status]?.length">
+        <slides-question *ngIf="questionsService.starredQuestion$ | async as question"
+                         tabindex="0" [question]="question" class="starred"></slides-question>
+
         <slides-question-list [questions]="questionsByStatus[status]">
         </slides-question-list>
-        <!--        <mat-card class="question" *ngFor="let question of questionsByStatus[status];">-->
-        <!--          <div>{{question.score || 0}}</div>-->
-        <!--          <div class="question-body">{{question.question}}</div>-->
-
-        <!--          <mat-card-actions>-->
-        <!--            <ng-container *ngFor="let s of statuses">-->
-        <!--              <button mat-raised-button class="upvote" *ngIf="s !== status"-->
-        <!--                      (click)="questionsService.updateQuestionStatus(question, s)">-->
-        <!--                {{s}}-->
-        <!--              </button>-->
-        <!--            </ng-container>-->
-        <!--          </mat-card-actions>-->
-        <!--        </mat-card>-->
       </mat-tab>
     </ng-container>
   </ng-container>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>settings</mat-icon>
+    </ng-template>
+
+    <mat-card>
+      <mat-card-content>
+        <mat-checkbox [(ngModel)]="requireApproval"
+                      [syncPresenterValueDefault]="true"
+                      syncPresenterValue="{{questionsService.key}}/requireApproval">
+          Require
+          approval
+        </mat-checkbox>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
 </mat-tab-group>
