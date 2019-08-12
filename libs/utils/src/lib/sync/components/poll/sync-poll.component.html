@@ -1,24 +1,6 @@
 <h1>{{poll.question}}</h1>
-
-
-<div *isViewing>
-  <div *ngIf="(isRunning$ | async) else wait">
-    <div *ngIf="(values|async) as value">
-      <div class="answer-result">{{poll.answers[value - 1]}}</div>
-      <button mat-raised-button (click)="vote(null)">Re-vote</button>
-    </div>
-
-    <div *ngIf="(values|async) == null">
-      <button (click)="vote(i + 1)" *ngFor="let answers of poll.answers; let i = index" mat-raised-button
-              class="answer">{{answers}}</button>
-    </div>
-  </div>
-  <ng-template #wait>
-    <h1>not started</h1>
-  </ng-template>
-</div>
-
-
-<slides-sync-poll-presenter *isPresenting [poll]="poll"></slides-sync-poll-presenter>
+<slides-sync-poll-presenter *isPresenting [config]="poll"></slides-sync-poll-presenter>
+<slides-sync-poll-admin *isAdmin [config]="poll"></slides-sync-poll-admin>
+<slides-sync-poll-viewer *isViewing [config]="poll"></slides-sync-poll-viewer>
 
 

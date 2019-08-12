@@ -1,5 +1,5 @@
 import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { SyncService} from '@codelab/utils/src/lib/sync/sync.service';
+import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 
 export class SyncIsStatusDirective<T> implements OnInit {

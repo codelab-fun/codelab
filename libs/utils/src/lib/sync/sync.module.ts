@@ -12,8 +12,6 @@ import { AllViewerValuesDirective } from '@codelab/utils/src/lib/sync/directives
 import { SyncPlaygroundComponent } from './sync-playground/sync-playground.component';
 import { SyncPlaygroundPresenterComponent } from './sync-playground/sync-playground-presenter/sync-playground-presenter.component';
 import { SyncPlaygroundTestComponent } from './sync-playground/sync-playground-test/sync-playground-test.component';
-import { SyncPollComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.component';
-import { SyncPollPresenterComponent } from './components/poll/sync-poll-presenter/sync-poll-presenter.component';
 import { SlidesModule } from '@codelab/slides';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +20,9 @@ import { RegistrationViewerComponent } from './components/registration/registrat
 import { RegistrationAdminComponent } from './components/registration/registration-admin/registration-admin.component';
 import { QuestionsModule } from '@codelab/utils/src/lib/sync/components/questions/questions.module';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
+import { SyncPollViewerComponent } from './components/poll/sync-poll-viewer/sync-poll-viewer.component';
+import { SyncPollAdminComponent } from './components/poll/sync-poll-admin/sync-poll-admin.component';
+import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
     MatCardModule,
     MatTabsModule,
     QuestionsModule,
+    SyncPollModule,
   ],
   providers: [SyncService, LoginService],
   declarations: [
@@ -48,8 +50,6 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
     SyncPlaygroundComponent,
     SyncPlaygroundPresenterComponent,
     SyncPlaygroundTestComponent,
-    SyncPollComponent,
-    SyncPollPresenterComponent,
     RegistrationComponent,
     RegistrationPresenterComponent,
     RegistrationViewerComponent,

@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
+import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 
 export interface Poll {
   key: string;
@@ -16,25 +14,30 @@ export interface Poll {
   // tslint:disable-next-line:component-selector
   selector: 'slides-poll',
   templateUrl: './sync-poll.component.html',
-  styleUrls: ['./sync-poll.component.css']
+  styleUrls: ['./sync-poll.component.css'],
+  providers: [
+    SyncPollService,
+  ],
 })
-export class SyncPollComponent implements OnInit {
-
+export class SyncPollComponent {
+  // private readonly valuesObject = this.syncDataService.getCurrentViewerObject('config');
+  // private readonly config = this.syncDataService.getCurrentViewerObject('config');
+  //
   @Input() poll: Poll;
-  values: Observable<any | null>;
-  config$: Observable<any | null>;
-  isRunning$: Observable<any | null>;
-
-  constructor(private readonly syncService: SyncService<any>,) {
-  }
-
-  ngOnInit() {
-    this.values = this.syncService.getCurrentViewerValue(this.poll.key);
-    this.config$ = this.syncService.getPresenterValue(this.poll.key);
-    this.isRunning$ = this.config$.pipe(map(config => config && config.running));
-  }
-
-  vote(i: number) {
-    this.syncService.updateViewerValue(this.poll.key, i);
-  }
+  // // values: Observable<any | null>;
+  // // config$: Observable<any | null>;
+  // // isRunning$: Observable<any | null>;
+  //
+  // constructor() {
+  // }
+  //
+  // ngOnInit() {
+  //   // this.values = this.syncService.getCurrentViewerValue(this.config.key);
+  //   // this.config$ = this.syncService.getPresenterValue(this.config.key);
+  //   // this.isRunning$ = this.config$.pipe(map(config => config && config.running));
+  // }
+  //
+  // vote(i: number) {
+  //   // this.syncService.updateViewerValue(this.config.key, i);
+  // }
 }
