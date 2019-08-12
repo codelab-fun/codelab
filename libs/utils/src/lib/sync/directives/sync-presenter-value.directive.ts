@@ -39,8 +39,8 @@ export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
     data.valueChanges()
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(value => {
-        console.log({value});
-        this.control.valueAccessor.writeValue(value)});
+        this.control.valueAccessor.writeValue(value);
+      });
 
     this.control.valueChanges
       .pipe(
@@ -48,8 +48,6 @@ export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$)
       )
       .subscribe(newValue => {
-        console.log({newValue});
-
         data.update(newValue);
       });
   }

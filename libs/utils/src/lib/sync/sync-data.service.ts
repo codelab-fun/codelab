@@ -16,7 +16,6 @@ export class SyncDataObject<T> {
 
   readonly values$ = new BehaviorSubject(this.defaultValue);
   readonly valueChanges$ = this.db$.pipe(
-    tap(a => console.log({a})),
     switchMap(db => {
       return db.valueChanges();
     }))
