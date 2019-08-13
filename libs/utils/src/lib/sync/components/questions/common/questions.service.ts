@@ -26,7 +26,7 @@ const groupVotesByQuestionId = a => {
 export class QuestionsService {
   readonly publicQuestions$;
   readonly starredQuestion$;
-  private readonly key = 'qna7';
+  readonly key = 'qna7';
 
   readonly presenterObject = this.syncDataService.getPresenterObject<QuestionConfig>(this.key, {
     requireApproval: true,

@@ -9,9 +9,11 @@ import { SyncPoll, SyncPollService } from '@codelab/utils/src/lib/sync/component
 })
 export class SyncPollViewerComponent implements OnInit {
   @Input() config: SyncPollConfig;
-  private poll: SyncPoll;
-  stars: any;
-  constructor(private readonly pollService: SyncPollService) { }
+  stars: string;
+  poll: SyncPoll;
+
+  constructor(private readonly pollService: SyncPollService) {
+  }
 
   ngOnInit() {
     this.poll = this.pollService.getPoll(this.config);

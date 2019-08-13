@@ -10,18 +10,19 @@ import { statuses } from '@codelab/utils/src/lib/sync/components/questions/commo
   providers: [QuestionsService],
 })
 export class QuestionsAdminComponent {
-  statuses = statuses;
+  readonly statuses = statuses;
 
-  public readonly questionsByStatus$ = this.questionsService.questions$.pipe(map(questions => {
+  requireApproval: boolean;
+
+  readonly questionsByStatus$ = this.questionsService.questions$.pipe(map(questions => {
     return questions.reduce((result, question) => {
       result[question.status] = result[question.status] || [];
       result[question.status].push(question);
       return result;
     }, {});
   }));
-  requireApproval: boolean;
 
 
-  constructor(public readonly questionsService: QuestionsService) {
+  constructor(readonly questionsService: QuestionsService) {
   }
 }

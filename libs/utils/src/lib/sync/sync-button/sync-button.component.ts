@@ -3,6 +3,8 @@ import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import { distinctUntilChanged, filter, mergeMapTo } from 'rxjs/operators';
 
 interface SyncData {
   slide: number;
@@ -16,18 +18,32 @@ interface SyncData {
 })
 export class SyncButtonComponent {
   sync = {};
+  private readonly currentSlide = this.syncDataService.getPresenterObject<number>('currentSlide');
 
   constructor(
     private readonly syncDataService: SyncDataService,
-    private readonly syncSessionService: SyncSessionService,
-    private readonly registrationService: SyncRegistrationService,
+    readonly syncSessionService: SyncSessionService,
     private readonly presentation: SlidesDeckComponent) {
     this.syncSessionService.autoJoin();
-    // presentation.slideChange.subscribe((slide) => {
-    //   this.sync.updateSession({slide});
-    // });
 
+    this.syncSessionService.status$.pipe(
+      filter(s => s === SyncStatus.PRESENTING),
+      mergeMapTo(presentation.slideChange),
+      distinctUntilChanged(),
+    )
+      .subscribe((slide: number) => {
+        this.currentSlide.set(slide);
+      });
 
+    this.syncSessionService.status$.pipe(
+      filter(s => s !== SyncStatus.PRESENTING),
+      mergeMapTo(this.currentSlide.valueChanges()),
+      distinctUntilChanged(),
+      filter(s => s !== null)
+    )
+      .subscribe((slide: number) => {
+        presentation.goToSlide(slide);
+      });
     // sync.statusChange$.pipe(
     //   filter(status => status === SyncStatus.VIEWING),
     //   switchMap(() => sync.presentersData$),

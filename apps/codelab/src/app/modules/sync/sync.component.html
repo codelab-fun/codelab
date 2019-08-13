@@ -1,1 +1,23 @@
-<h1>LOL</h1>
+<div class="survey">
+  <h1>Quick Survey</h1>
+
+  <slide-deck>
+    <div *slide id="poll-0">
+      <slides-poll [poll]="polls[0]">
+        <div class="question"></div>
+      </slides-poll>
+    </div>
+
+    <div *slide id="poll-1">
+      <slides-poll [poll]="polls[1]">
+        <div class="question"></div>
+      </slides-poll>
+    </div>
+
+    <div *slide id="poll-2">
+      <slides-poll [poll]="polls[2]">
+        <div class="question"></div>
+      </slides-poll>
+    </div>
+  </slide-deck>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
   styleUrls: ['./registration-presenter.component.css']
 })
 export class RegistrationPresenterComponent {
-  constructor(private readonly registrationService: SyncRegistrationService) {
+  constructor(readonly registrationService: SyncRegistrationService) {
   }
 
 }

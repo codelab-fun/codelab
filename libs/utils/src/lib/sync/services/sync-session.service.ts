@@ -54,6 +54,8 @@ export class SyncSessionService {
 
       return SyncStatus.VIEWING;
     }));
+
+    this.autoJoin();
   }
 
   create() {

@@ -8,11 +8,11 @@ import { SyncPoll, SyncPollService } from '@codelab/utils/src/lib/sync/component
   styleUrls: ['./sync-poll-presenter.component.css']
 })
 export class SyncPollPresenterComponent implements OnInit {
-
-
   @Input() config: SyncPollConfig;
-  private poll: SyncPoll;
-  constructor(private readonly pollService: SyncPollService) { }
+  poll: SyncPoll;
+
+  constructor(private readonly pollService: SyncPollService) {
+  }
 
   ngOnInit() {
     this.poll = this.pollService.getPoll(this.config);
