@@ -1,4 +1,6 @@
-<div *ngIf="registrationService.users$ | async as users else lol">
+<slides-sync-join-instructions></slides-sync-join-instructions>
+<div *ngIf="registrationService.users$ | async as users">
+  <ng-container *ngIf="users.length else lol"></ng-container>
   <ul>
     <li *ngFor="let user of users">
       {{user.name}}
@@ -6,5 +8,7 @@
   </ul>
 </div>
 <ng-template #lol>
-  No names
+  <div>
+    Waiting for users to connect...
+  </div>
 </ng-template>

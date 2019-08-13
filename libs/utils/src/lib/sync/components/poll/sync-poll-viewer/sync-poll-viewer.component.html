@@ -1,13 +1,10 @@
 <div *ngIf="(poll.isPollEnabled$ | async ) else wait">
-  <div *ngIf="(poll.myVote$ | async) as value else picker">
-    <div class="answer-result">{{value}}</div>
-    <button mat-raised-button (click)="poll.vote(null)">Re-vote</button>
-  </div>
+  <slides-stars *ngIf="config.type === 'stars'" [(ngModel)]="stars" [syncViewerValue]="this.poll.key"></slides-stars>
 
-  <ng-template #picker>
+  <ng-container *ngIf="config.type === 'choice'">
     <button (click)="poll.vote(answer)" *ngFor="let answer of config.answers; let i = index" mat-raised-button
             class="answer">{{answer}}</button>
-  </ng-template>
+  </ng-container>
 </div>
 <ng-template #wait>
   <h1>not started</h1>

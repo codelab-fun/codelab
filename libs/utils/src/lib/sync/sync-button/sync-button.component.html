@@ -1,4 +1,5 @@
 <slides-online-indicator></slides-online-indicator>
+
 <div style="position: relative;">
   <ng-container *ngIf="syncSessionService.hasActiveSession$ | async else noSession">
     <mat-card *isAdmin>
@@ -16,7 +17,7 @@
     </button>
 
     <mat-menu #appMenu="matMenu">
-      <button mat-icon-button (click)="administer()">
+      <button mat-menu-item (click)="administer()">
         <mat-icon>present_to_all</mat-icon>
         Admin
       </button>

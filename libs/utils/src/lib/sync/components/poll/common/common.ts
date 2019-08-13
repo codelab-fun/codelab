@@ -1,4 +1,8 @@
 export interface SyncPollConfig {
+  type: string;
   key: string;
-  answers: string[]
+  answers?: string[];
+  question: string;
+
 }
+

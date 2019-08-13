@@ -1,5 +1,7 @@
 <mat-card>
   <mat-card-content *ngIf="config">
-    <mat-checkbox syncPresenterValue="poll/{{config.key}}" [(ngModel)]="pollEnabled">Enable the poll</mat-checkbox>
+    <mat-checkbox syncPresenterValue="poll/{{config.key}}" [syncPresenterValueDefault]=true [(ngModel)]="pollEnabled">
+      Enable the poll
+    </mat-checkbox>
   </mat-card-content>
 </mat-card>

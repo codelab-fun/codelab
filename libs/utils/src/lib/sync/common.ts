@@ -31,3 +31,7 @@ export interface SyncSession {
 export function toValuesWithKey<T>(list: AngularFireAction<DatabaseSnapshot<T>>[]) {
   return list.map(action => ({key: action.key, ...action.payload.val()}));
 }
+
+export function sum(array) {
+  return array.reduce((a, b) => a + b, 0);
+}

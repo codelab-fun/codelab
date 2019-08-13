@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { SyncDataList, SyncDataObject } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { SyncDataList, SyncDataObject } from '@codelab/utils/src/lib/sync/services/common';
 
 @Injectable({
   providedIn: 'root'

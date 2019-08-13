@@ -7,6 +7,7 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
   styleUrls: ['./registration-admin.component.css']
 })
 export class RegistrationAdminComponent {
+  url: any;
 
   constructor(private readonly registrationService: SyncRegistrationService) {
   }

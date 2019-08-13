@@ -6,19 +6,22 @@ import {
   SyncIsViewingDirective
 } from '@codelab/utils/src/lib/sync/directives/is-status.directive';
 import { SyncPresenterValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-presenter-value.directive';
+import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-viewer-value.directive';
 
 @NgModule({
   declarations: [
     SyncIsViewingDirective,
     SyncIsPresentingDirective,
     SyncIsAdminDirective,
-    SyncPresenterValueDirective
+    SyncPresenterValueDirective,
+    SyncViewerValueDirective,
   ],
   exports: [
     SyncIsViewingDirective,
     SyncIsPresentingDirective,
     SyncIsAdminDirective,
-    SyncPresenterValueDirective
+    SyncPresenterValueDirective,
+    SyncViewerValueDirective,
   ],
   imports: [
     CommonModule

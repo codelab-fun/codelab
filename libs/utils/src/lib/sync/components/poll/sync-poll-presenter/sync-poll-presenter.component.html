@@ -1,15 +1,13 @@
 <ng-container *ngIf="poll.isPollEnabled$ | async else wait">
-  <ng-container *ngIf="poll.votes$ | async as values">
-    <div *ngIf="values.length === 0">
-      Waiting for votes
-    </div>
+  <ng-container *ngIf="poll.hasVotes$ | async else waiting">
     <div class="results">
-      <ng-container *ngFor="let v of values">
-        <div class="answer-result">{{v.key}}</div>
-        <div>{{v.value}}</div>
-      </ng-container>
+      <slides-choice-presenter *ngIf="config.type === 'choice'" [votes]="poll.votes$ | async"></slides-choice-presenter>
+      <slides-stars-presenter *ngIf="config.type === 'stars'" [votes]="poll.votes$ | async"></slides-stars-presenter>
     </div>
   </ng-container>
+  <ng-template #waiting>
+    Waiting for votes
+  </ng-template>
 </ng-container>
 
 <ng-template #wait>

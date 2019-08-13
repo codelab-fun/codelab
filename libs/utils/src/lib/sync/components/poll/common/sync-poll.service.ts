@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 export class SyncPoll {
@@ -10,23 +11,17 @@ export class SyncPoll {
   readonly isPollEnabled$ = this.syncDataService
     .getPresenterObject(this.key, true)
     .valueChanges();
-
-  private readonly viewerData = this.syncDataService.getCurrentViewerObject(this.key);
-  readonly myVote$ = this.viewerData.valueChanges();
-
-  private readonly votesData = this.syncDataService.getAdminAllUserData(this.key, {});
-
-  readonly votes$ = this.votesData.valueChanges().pipe(map(data => {
-    const breakup = Object.values(data).reduce((result, value: string) => {
-      result[value] = (result[value] || 0) + 1;
-      return result;
-    }, {} as { [k: string]: string });
-    return Object.entries(breakup).map(([key, value]) => ({key, value}));
+  readonly hasVotes$: Observable<boolean>;
+  private readonly viewerData = this.syncDataService.getCurrentViewerObject(this.key, null);
+  readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => {
+    return a;
   }));
-
+  private readonly votesData = this.syncDataService.getAdminAllUserData(this.key, {});
+  readonly votes$ = this.votesData.valueChanges();
 
   constructor(private readonly syncDataService: SyncDataService, private readonly config: SyncPollConfig) {
-
+    // Reformattin breaks this if it's out of the constructor.
+    this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
   }
 
   vote(answer: string) {

@@ -1,7 +1,9 @@
 <div *ngIf="registrationService.users$ | async as users">
+  <slides-sync-join-instructions></slides-sync-join-instructions>
   <ul>
     <li *ngFor="let user of users">
-      {{user.name}} <button mat-button (click)="drop(user.userId)">🗑</button>
+      {{user.name}}
+      <button mat-button (click)="drop(user.userId)">🗑</button>
     </li>
   </ul>
 </div>

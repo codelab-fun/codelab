@@ -17,29 +17,4 @@ export class SyncPollPresenterComponent implements OnInit {
   ngOnInit() {
     this.poll = this.pollService.getPoll(this.config);
   }
-  // readonly allUserValues = new Subject();
-  // private config$: Observable<any | null>;
-  // private isRunning$: Observable<boolean>;
-  //
-  // constructor(private readonly syncService: SyncService<any>,
-  //             private readonly cdr: ChangeDetectorRef) {
-  // }
-  //
-  // ngOnInit() {
-  //   this.config$ = this.syncService.getPresenterValue(this.config.key);
-  //   this.isRunning$ = this.config$.pipe(map(config => {
-  //     return config && config.running;
-  //   }));
-  //   this.syncService.getAllViewersValues(this.config.key)
-  //     .pipe(map((data ) => {
-  //       data = data || {};
-  //       const breakup = Object.values(data).reduce((result, value) => {
-  //         result[value] = (result[value] || 0) + 1;
-  //         return result;
-  //       }, {});
-  //       return Object.entries(breakup).map(([key, value]) => ({key, value}));
-  //     }))
-  //     .subscribe(this.allUserValues);
-  // }
-  //
 }

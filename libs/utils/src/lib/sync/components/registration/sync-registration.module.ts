@@ -7,6 +7,7 @@ import { RegistrationAdminComponent } from '@codelab/utils/src/lib/sync/componen
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
+import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/components/sync-join-instructions/sync-join-instructions.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
     RegistrationComponent
   ],
   imports: [
+    SyncJoinInstructionsModule,
     CommonModule,
     FormsModule,
     MatFormFieldModule,

@@ -4,7 +4,6 @@ import { MatButtonModule, MatCardModule, MatInputModule, MatMenuModule, MatSelec
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginService } from '@codelab/firebase-login';
-import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-viewer-value.directive';
 import { AllViewerValuesDirective } from '@codelab/utils/src/lib/sync/directives/all-viewer-values.directive';
 import { SyncPlaygroundComponent } from './sync-playground/sync-playground.component';
 import { SyncPlaygroundPresenterComponent } from './sync-playground/sync-playground-presenter/sync-playground-presenter.component';
@@ -40,14 +39,12 @@ import { SyncSessionsModule } from '@codelab/utils/src/lib/sync/components/sync-
   ],
   providers: [LoginService],
   declarations: [
-    SyncViewerValueDirective,
     AllViewerValuesDirective,
     SyncPlaygroundComponent,
     SyncPlaygroundPresenterComponent,
     SyncPlaygroundTestComponent,
   ],
   exports: [
-    SyncViewerValueDirective,
     AllViewerValuesDirective,
     SyncPlaygroundComponent,
   ],

@@ -15,7 +15,6 @@ interface SyncData {
   providers: [SyncRegistrationService],
 })
 export class SyncButtonComponent {
-
   sync = {};
 
   constructor(

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
-import { filter, first, map, share, switchMap, takeUntil } from 'rxjs/operators';
+import { filter, first, map, switchMap, takeUntil } from 'rxjs/operators';
 import { SyncSession, SyncSessionConfig, SyncStatus, toValuesWithKey } from '@codelab/utils/src/lib/sync/common';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import produce from 'immer';
@@ -14,8 +14,10 @@ export class SyncSessionService {
   readonly viewerId$ = this.loginService.uid$;
   readonly canStartSession$ = this.viewerId$
     .pipe(
-      share(),
-      switchMap(uid => this.dbService.object(of('authorized_users/' + uid), false).valueChanges()),
+      switchMap(uid => {
+        return this.dbService.object(of('authorized_users/' + uid), false)
+          .valueChanges();
+      }),
     );
 
   private readonly sessionId = new BehaviorSubject(null);
@@ -92,7 +94,6 @@ export class SyncSessionService {
 
   dropCurrentSession() {
     this.sessionConfig.object('active').set(false);
-    this.sessionId.next(null);
   }
 
   remove(key: string) {

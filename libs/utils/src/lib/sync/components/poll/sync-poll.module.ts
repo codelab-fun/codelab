@@ -4,10 +4,14 @@ import { SyncPollAdminComponent } from '@codelab/utils/src/lib/sync/components/p
 import { SyncPollPresenterComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-presenter/sync-poll-presenter.component';
 import { SyncPollViewerComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-viewer/sync-poll-viewer.component';
 import { SyncPollComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.component';
-import { MatButtonModule, MatCardModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule } from '@angular/material';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import { StarsModule } from '@codelab/utils/src/lib/sync/components/poll/common/stars/stars.module';
+import { StarsPresenterComponent } from './sync-poll-presenter/stars-presenter/stars-presenter.component';
+import { ChoicePresenterComponent } from './sync-poll-presenter/choice-presenter/choice-presenter.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     SyncPollPresenterComponent,
     SyncPollViewerComponent,
     SyncPollComponent,
+    StarsPresenterComponent,
+    ChoicePresenterComponent,
   ],
   exports: [
     SyncPollComponent,
@@ -27,6 +33,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireDatabaseModule,
     FormsModule,
     MatButtonModule,
+    MatIconModule,
+    StarsModule,
   ]
 })
 export class SyncPollModule {

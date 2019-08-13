@@ -13,7 +13,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
   @Input() syncPresenterValue: string;
   @Input() syncPresenterValueDefault: T;
-  private value: any;
+
   private onDestroy$ = new Subject();
 
   constructor(

@@ -1,3 +1,10 @@
 .answer {
   margin-right: 10px;
 }
+
+slides-stars {
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 60px;
+}

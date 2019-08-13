@@ -19,6 +19,7 @@ export class SyncIsStatusDirective<T> implements OnInit {
   }
 
   toggleContentDisplay(isDisplayed: boolean) {
+
     this.viewContainer.clear();
     if (isDisplayed) {
       this.viewContainer.createEmbeddedView(this.templateRef);
