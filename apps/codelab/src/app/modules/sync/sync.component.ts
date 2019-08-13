@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sync',
+  selector: 'slides-sync-survey',
   templateUrl: './sync.component.html',
   styleUrls: ['./sync.component.css']
 })

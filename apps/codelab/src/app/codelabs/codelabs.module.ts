@@ -7,6 +7,7 @@ import { CodelabsRoutingModule } from './codelabs-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlidesModule } from '@codelab/slides';
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
+import { SyncModule } from '../modules/sync/sync.module';
 
 @NgModule({
   declarations: [IndexComponent, AppComponent],
@@ -15,7 +16,8 @@ import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-b
     BrowserAnimationsModule,
     SlidesModule,
     OverlayModule,
-    ButtonsNavBarModule
+    ButtonsNavBarModule,
+    SyncModule,
   ],
   bootstrap: [AppComponent],
   // TODO(kirjs): Move this out of the main page
@@ -27,4 +29,5 @@ import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-b
     }
   ]
 })
-export class CodelabsModule {}
+export class CodelabsModule {
+}

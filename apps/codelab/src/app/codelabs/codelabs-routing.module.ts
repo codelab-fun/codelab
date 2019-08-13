@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
+import { SyncModule } from '../modules/sync/sync.module';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), SyncModule,],
   exports: [RouterModule]
 })
-export class CodelabsRoutingModule {}
+export class CodelabsRoutingModule {
+}
