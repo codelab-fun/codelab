@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { SyncDataList, SyncDataObject } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SyncDbService {
+  readonly online$ = this.object(of('.info/connected')).valueChanges();
+
   constructor(private db: AngularFireDatabase) {
   }
 

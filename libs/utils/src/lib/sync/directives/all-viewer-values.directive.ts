@@ -1,8 +1,7 @@
 import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
-import { SyncService} from '@codelab/utils/src/lib/sync/services/sync.service';
+
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -12,11 +11,10 @@ import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 })
 export class AllViewerValuesDirective<T> implements AfterViewInit, OnDestroy {
   @Input() syncAllUserValues: string;
-  values: {key: string, value: T}[];
+  values: { key: string, value: T }[];
   private onDestroy = new Subject();
 
   constructor(
-    private readonly sync: SyncService<T>,
     @Optional() private readonly control: NgControl
   ) {
 

@@ -1,3 +1,5 @@
+import { AngularFireAction, DatabaseSnapshot } from '@angular/fire/database';
+
 export enum SyncStatus {
   OFF = 'off',
   VIEWING = 'viewing',
@@ -24,4 +26,8 @@ export interface SyncSessionConfig {
 
 export interface SyncSession {
   config: SyncSessionConfig;
+}
+
+export function toValuesWithKey<T>(list: AngularFireAction<DatabaseSnapshot<T>>[]) {
+  return list.map(action => ({key: action.key, ...action.payload.val()}));
 }

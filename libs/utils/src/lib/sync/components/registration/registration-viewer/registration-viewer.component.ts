@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/services/sync.service';
+import { Component } from '@angular/core';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatCardModule, MatInputModule, MatMenuModule, MatSelectModule, MatTabsModule } from '@angular/material';
-import { SyncService } from '@codelab/utils/src/lib/sync/services/sync.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginService } from '@codelab/firebase-login';
@@ -17,10 +16,12 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
 import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
 import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.module';
 import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-button.module';
+import { SyncSessionsModule } from '@codelab/utils/src/lib/sync/components/sync-sessions/sync-sessions.module';
 
 @NgModule({
   imports: [
     SyncDirectivesModule,
+    SyncSessionsModule,
     CommonModule,
     MatButtonModule,
     MatSelectModule,
@@ -37,7 +38,7 @@ import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-b
     SyncPollModule,
     SyncButtonModule,
   ],
-  providers: [SyncService, LoginService],
+  providers: [LoginService],
   declarations: [
     SyncViewerValueDirective,
     AllViewerValuesDirective,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 
 @Component({
   selector: 'slides-sync-playground',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./sync-playground.component.scss']
 })
 export class SyncPlaygroundComponent {
-
+  SyncStatus = SyncStatus;
 
 }

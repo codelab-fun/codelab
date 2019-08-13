@@ -48,11 +48,11 @@ export class SyncButtonComponent {
     this.syncSessionService.dropCurrentSession();
   }
 
-  dropSession() {
-    // this.sync.dropCurrentSession();
+  present() {
+    this.syncSessionService.present();
   }
 
-  follow(session) {
-    // this.sync.follow(session);
+  administer() {
+    this.syncSessionService.administer();
   }
 }

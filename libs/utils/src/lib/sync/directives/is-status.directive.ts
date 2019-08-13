@@ -1,5 +1,4 @@
 import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/services/sync.service';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 
@@ -9,7 +8,6 @@ export class SyncIsStatusDirective<T> implements OnInit {
   constructor(
     private readonly viewContainer: ViewContainerRef,
     private readonly templateRef: TemplateRef<any>,
-    private readonly sync: SyncService<T>,
     private readonly syncSession: SyncSessionService,
   ) {
   }
@@ -39,10 +37,9 @@ export class SyncIsViewingDirective<T> extends SyncIsStatusDirective<T> {
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<any>,
-    sync: SyncService<T>,
     syncSession: SyncSessionService,
   ) {
-    super(viewContainer, templateRef, sync, syncSession);
+    super(viewContainer, templateRef, syncSession);
   }
 }
 
@@ -56,10 +53,9 @@ export class SyncIsPresentingDirective<T> extends SyncIsStatusDirective<T> {
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<any>,
-    sync: SyncService<T>,
     syncSession: SyncSessionService,
   ) {
-    super(viewContainer, templateRef, sync, syncSession);
+    super(viewContainer, templateRef, syncSession);
   }
 }
 
@@ -73,9 +69,8 @@ export class SyncIsAdminDirective<T> extends SyncIsStatusDirective<T> {
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<any>,
-    sync: SyncService<T>,
     syncSession: SyncSessionService,
   ) {
-    super(viewContainer, templateRef, sync, syncSession);
+    super(viewContainer, templateRef, syncSession);
   }
 }

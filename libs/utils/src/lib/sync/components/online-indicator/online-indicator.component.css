@@ -1,0 +1,22 @@
+.indicator {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+
+  font-family: sans-serif;
+}
+
+mat-icon {
+  margin-right: 10px;
+  animation: rotation 10s infinite linear;
+  color: #ff5207;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

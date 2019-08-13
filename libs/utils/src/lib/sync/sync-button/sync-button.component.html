@@ -1,8 +1,27 @@
-<div *ngIf="syncSessionService.hasActiveSession$ | async else noSession">
-  <div *isAdmin>
-    <span>🔴</span>
-    <button mat-button (click)="stop()">Drop session</button>
-  </div>
+<slides-online-indicator></slides-online-indicator>
+<div style="position: relative;">
+  <ng-container *ngIf="syncSessionService.hasActiveSession$ | async else noSession">
+    <mat-card *isAdmin>
+      <button mat-icon-button (click)="present()">
+        <mat-icon>present_to_all</mat-icon>
+      </button>
+      <button mat-icon-button (click)="stop()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-card>
+
+
+    <button *isPresenting mat-icon-button [matMenuTriggerFor]="appMenu" style="position: absolute; right: 0;top: 0;">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #appMenu="matMenu">
+      <button mat-icon-button (click)="administer()">
+        <mat-icon>present_to_all</mat-icon>
+        Admin
+      </button>
+    </mat-menu>
+  </ng-container>
 </div>
 
 <ng-template #noSession>

@@ -53,6 +53,12 @@ export class SyncDataObject<T> {
     });
   }
 
+  remove() {
+    this.db$.pipe(first()).subscribe(db => {
+      db.remove();
+    });
+  }
+
   object(key: keyof T) {
     const key$ = this.key$.pipe(map(k => `${k}/${key}`));
     return this.syncDbService.object(key$, this.defaultValue ? this.defaultValue[key] : this.defaultValue);
@@ -80,6 +86,11 @@ export class SyncDataList<T> {
 
   push(value: T) {
     return this.db$.pipe(first()).subscribe(db => db.push(value as any));
+  }
+
+  object<T>(key: string) {
+    const key$ = this.key$.pipe(map(k => `${k}/${key}`));
+    return this.syncDbService.object<T>(key$, this.defaultValue ? this.defaultValue[key] : this.defaultValue);
   }
 }
 
