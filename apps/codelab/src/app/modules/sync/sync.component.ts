@@ -1,13 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { switchMap } from 'rxjs/operators';
+import { canWritePresenterData, SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import { of } from 'rxjs';
 
 @Component({
-  selector: 'slides-sync-survey',
+  selector: 'codelab-sync-survey',
   templateUrl: './sync.component.html',
   styleUrls: ['./sync.component.css']
 })
 export class SyncComponent {
-  readonly polls: SyncPollConfig[] = [
+  @Input() admin = false;
+
+
+  readonly isPresentationEnabled$ = this.syncDataService.getPresenterObject('enabled', false).valueChanges();
+  readonly shouldShowPresentation$ = this.syncSessionService.status$.pipe(
+    switchMap(s => {
+      if (canWritePresenterData(s)) {
+        return of(true);
+      }
+
+      if (s === SyncStatus.OFF) {
+
+        return this.admin ? this.syncSessionService.canStartSession$ : of(false);
+      }
+
+      return this.isPresentationEnabled$;
+    }),
+  );
+
+  polls: SyncPollConfig[] = [
     {
       key: 'js',
       type: 'stars',
@@ -24,6 +48,12 @@ export class SyncComponent {
       question: 'How well do you know Angular',
     }
   ];
+
+  constructor(
+    private readonly syncDataService: SyncDataService,
+    private readonly syncSessionService: SyncSessionService
+  ) {
+  }
 
 
 }

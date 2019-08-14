@@ -1,4 +1,9 @@
 <slides-online-indicator></slides-online-indicator>
+<mat-menu #userId="matMenu">
+  <button mat-menu-item>
+    {{syncSessionService.viewerId$ | async}}
+  </button>
+</mat-menu>
 
 <div style="position: relative;">
   <ng-container *ngIf="syncSessionService.hasActiveSession$ | async else noSession">
@@ -12,7 +17,7 @@
     </mat-card>
 
 
-    <button *isViewing mat-icon-button [matMenuTriggerFor]="appMenu" style="position: absolute; right: 0;top: 0;">
+    <button *isViewing mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">
       <mat-icon>more_vert</mat-icon>
     </button>
 
@@ -31,11 +36,7 @@
 </div>
 
 <ng-template #noSession>
-  <mat-menu #userId="matMenu">
-    <button mat-menu-item>
-      {{syncSessionService.viewerId$ | async}}
-    </button>
-  </mat-menu>
+
 
   <button mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">
     <mat-icon>more_vert</mat-icon>
@@ -79,3 +80,5 @@
 <!--  </span>-->
 <!--  </div>-->
 <!--</div>-->
+
+

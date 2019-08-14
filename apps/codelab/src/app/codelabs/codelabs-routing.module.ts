@@ -16,11 +16,19 @@ const routes: Routes = [
   {
     path: 'extra',
     loadChildren: () => import('./extra/extra.module').then(m => m.ExtraModule)
+  },
+  {
+    path: 'sync',
+    loadChildren: () => import('../modules/sync/sync.module').then(m => m.SyncAdminModule)
+
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), SyncModule,],
+  imports: [
+    RouterModule.forRoot(routes),
+    SyncModule
+  ],
   exports: [RouterModule]
 })
 export class CodelabsRoutingModule {

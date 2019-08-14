@@ -1,7 +1,11 @@
-<div class="survey">
-  <h1>Quick Survey</h1>
+<div class="survey" *ngIf="shouldShowPresentation$ | async">
+  <h1>Quick Survey </h1>
+
   <slide-deck>
+    <div *isPresenting slideShortcuts></div>
+
     <codelab-sync-button></codelab-sync-button>
+    <slides-configure-sync></slides-configure-sync>
     <div *slide id="poll-0">
       <slides-poll [poll]="polls[0]">
         <div class="question"></div>

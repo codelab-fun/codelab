@@ -25,7 +25,7 @@ export class StarsComponent implements OnInit, ControlValueAccessor {
   }
 
   getStarIcon(star: number) {
-    const rating = (this.hover || this.rating) - star + 1;
+    const rating = (this.hover || this.rating || 0) - star + 1;
 
     if (rating <= 0) {
       return 'star_border';

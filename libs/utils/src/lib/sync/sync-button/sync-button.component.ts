@@ -6,10 +6,6 @@ import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-se
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import { distinctUntilChanged, filter, mergeMapTo } from 'rxjs/operators';
 
-interface SyncData {
-  slide: number;
-}
-
 @Component({
   selector: 'codelab-sync-button',
   templateUrl: './sync-button.component.html',
