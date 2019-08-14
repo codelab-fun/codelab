@@ -38,14 +38,19 @@ export class SyncComponent {
       question: 'How well do you know JavaScript',
     },
     {
+      key: 'ts',
+      type: 'stars',
+      question: 'How well do you know TypeScript',
+    },
+    {
       key: 'angularjs',
       type: 'stars',
       question: 'How well do you know AngularJS (Old version)',
     },
     {
-      key: 'angularjs',
+      key: 'angular',
       type: 'stars',
-      question: 'How well do you know Angular',
+      question: 'How well do you know Angular (The new version we are learning today)',
     }
   ];
 
