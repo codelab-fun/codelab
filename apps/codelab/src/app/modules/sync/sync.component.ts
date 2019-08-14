@@ -13,7 +13,7 @@ import { of } from 'rxjs';
 })
 export class SyncComponent {
   @Input() admin = false;
-
+  readonly userId$ = this.syncSessionService.viewerId$;
 
   readonly isPresentationEnabled$ = this.syncDataService.getPresenterObject('enabled', false).valueChanges();
   readonly shouldShowPresentation$ = this.syncSessionService.status$.pipe(

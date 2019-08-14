@@ -1,4 +1,4 @@
-<div class="survey" *ngIf="shouldShowPresentation$ | async">
+<div class="survey" *ngIf="shouldShowPresentation$ | async else userId">
   <h1>Quick Survey </h1>
 
   <slide-deck>
@@ -31,3 +31,8 @@
     </div>
   </slide-deck>
 </div>
+<ng-template #userId>
+  <ng-container *ngIf="admin">
+    {{userId$|async}}
+  </ng-container>
+</ng-template>

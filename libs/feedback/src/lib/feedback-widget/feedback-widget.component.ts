@@ -2,10 +2,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 
 @Component({
   selector: 'feedback-widget',
@@ -19,7 +18,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   statusMessage = '';
   error = false;
 
-  destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
+  private readonly destroy = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -28,12 +27,13 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
     this.router.events
-      .pipe(takeUntil(this.destroy))
+      .pipe(takeUntil(this.destroy.asObservable()))
       .subscribe(
-        () =>
+        () => {
           (this.messages$ = this.feedbackService.getMessages(
             this.activatedRoute
-          ))
+          ));
+        }
       );
   }
 
@@ -77,13 +77,13 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
       });
   }
 
-  private getHeaderText(): string {
-    const el = document.body.querySelector('h1');
-    return el ? el.innerHTML : '';
-  }
-
   ngOnDestroy() {
     this.destroy.next(null);
     this.destroy.complete();
+  }
+
+  private getHeaderText(): string {
+    const el = document.body.querySelector('h1');
+    return el ? el.innerHTML : '';
   }
 }
