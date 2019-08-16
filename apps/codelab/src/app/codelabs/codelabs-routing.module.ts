@@ -18,9 +18,12 @@ const routes: Routes = [
     loadChildren: () => import('./extra/extra.module').then(m => m.ExtraModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('../modules/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
     path: 'sync',
     loadChildren: () => import('../modules/sync/sync.module').then(m => m.SyncAdminModule)
-
   }
 ];
 
