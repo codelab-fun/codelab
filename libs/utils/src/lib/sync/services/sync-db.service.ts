@@ -13,7 +13,10 @@ export class SyncDbService {
   constructor(private db: AngularFireDatabase) {
   }
 
-  object<T>(key$: Observable<string>, defaultValue: T = null) {
+  object<T>(key$: Observable<string> | string, defaultValue: T = null) {
+    if (typeof key$ === 'string') {
+      key$ = of(key$);
+    }
     const db$ = key$.pipe(
       filter(k => !!k),
       map(key => this.db.object<T>(key)

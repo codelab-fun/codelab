@@ -5,11 +5,13 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UsersModule } from './users/users.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { NgModule } from '@angular/core';
+import { CanActivateChildGuard } from './services/can-activate-child.guard';
 
 const routes = [
   {
     path: '',
     component: AdminComponent,
+    canActivateChild: [CanActivateChildGuard],
     children: [
       {
         path: 'users',

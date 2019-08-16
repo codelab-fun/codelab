@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccessService } from './services/access.service';
 
 @Component({
   selector: 'slides-admin',
@@ -17,7 +18,7 @@ export class AdminComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(private readonly accessService: AccessService) {
   }
 
   ngOnInit() {

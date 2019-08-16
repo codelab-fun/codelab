@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { first, map, switchMap } from 'rxjs/operators';
 import { AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
@@ -62,9 +62,15 @@ export class SyncDataObject<T> {
     });
   }
 
-  object(key: keyof T) {
-    const key$ = this.key$.pipe(map(k => `${k}/${key}`));
-    return this.syncDbService.object(key$, this.defaultValue ? this.defaultValue[key] : this.defaultValue);
+  object(key$: Observable<string> | string, defaultValue?: any) {
+    if (typeof key$ === 'string') {
+      defaultValue = defaultValue || this.defaultValue[key$];
+      key$ = of(key$);
+    }
+
+
+    const newKey$ = this.key$.pipe(switchMap(k => (key$ as Observable<string>).pipe(map(key => `${k}/${key}`))));
+    return this.syncDbService.object(newKey$, defaultValue);
   }
 }
 
