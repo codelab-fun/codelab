@@ -24,7 +24,10 @@ export class SyncDbService {
     return new SyncDataObject<T>(db$, key$, this, defaultValue);
   }
 
-  list<T>(key$: Observable<string>, defaultValue: T[] = []) {
+  list<T>(key$: Observable<string> | string, defaultValue: T[] = []) {
+    if (typeof key$ === 'string') {
+      key$ = of(key$);
+    }
     const db$ = key$.pipe(map(key => this.db.list<T>(key)));
     return new SyncDataList<T>(db$, key$, this, defaultValue);
   }

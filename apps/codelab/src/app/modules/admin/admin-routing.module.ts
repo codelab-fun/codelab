@@ -6,6 +6,8 @@ import { UsersModule } from './users/users.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { NgModule } from '@angular/core';
 import { CanActivateChildGuard } from './services/can-activate-child.guard';
+import { LoginComponent } from './login/login.component';
+import { LoginModule } from './login/login.module';
 
 const routes = [
   {
@@ -20,8 +22,13 @@ const routes = [
       {
         path: 'feedback',
         component: FeedbackComponent,
-      }
+      },
+
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   }
 ];
 
@@ -29,6 +36,7 @@ const routes = [
   imports: [
     FeedbackModule,
     UsersModule,
+    LoginModule,
     RouterModule.forChild(routes)
   ]
 })

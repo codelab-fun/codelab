@@ -8,9 +8,6 @@ export enum Permissions {
   MANAGE_USERS = 'manage_users'
 }
 
-export interface AdminConfig {
-  permissions: Record<Permissions, boolean>;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +21,6 @@ export class AccessService {
     private readonly loginService: LoginService,
     private readonly dbService: SyncDbService,
   ) {
-    this.adminPermissions.set({manage_users: true});
   }
 
   can(p: Permissions) {

@@ -11,6 +11,7 @@ export class CanActivateChildGuard implements CanActivateChild {
 
   canActivateChild() {
     this.accessService.can(Permissions.MANAGE_USERS).subscribe(console.log);
+
     // return this.accessService.can(Permissions.MANAGE_USERS);
     return true;
   }

@@ -1,10 +1,6 @@
 <mat-card>
   <table mat-table [dataSource]="sessionsService.sessions$|async" class="mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
     <ng-container matColumnDef="key">
       <th mat-header-cell *matHeaderCellDef> Key</th>
       <td mat-cell *matCellDef="let session"> {{session.key}} </td>

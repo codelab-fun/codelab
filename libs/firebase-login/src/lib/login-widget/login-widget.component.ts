@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login/src/lib/login.service';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
 
 @Component({
   selector: 'codelab-login-widget',
@@ -10,15 +8,15 @@ import { auth } from 'firebase/app';
 })
 export class LoginWidgetComponent {
   constructor(
-    private auth: AngularFireAuth,
     readonly loginService: LoginService
-  ) {}
+  ) {
+  }
 
   login() {
-    this.auth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.loginService.loginWithGithub();
   }
 
   logout() {
-    this.auth.auth.signOut();
+    this.loginService.logout();
   }
 }
