@@ -12,6 +12,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { StarsModule } from '@codelab/utils/src/lib/sync/components/poll/common/stars/stars.module';
 import { StarsPresenterComponent } from './sync-poll-presenter/stars-presenter/stars-presenter.component';
 import { ChoicePresenterComponent } from './sync-poll-presenter/choice-presenter/choice-presenter.component';
+import { SyncPollViewerChoiceComponent } from './sync-poll-viewer/sync-poll-viewer-choice/sync-poll-viewer-choice.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ChoicePresenterComponent } from './sync-poll-presenter/choice-presenter
     SyncPollComponent,
     StarsPresenterComponent,
     ChoicePresenterComponent,
+    SyncPollViewerChoiceComponent,
   ],
   exports: [
     SyncPollComponent,
