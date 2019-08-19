@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div *ngFor="let item of breakdown; trackBy: trackBy; let i = index">
+    <div class="bar">
+      <div class="filler" [style.height]="((max-item.value)/max * 100) + '%'">
+        <div class="star" *ngIf="item.value > 0">{{item.value}}</div>
+      </div>
+    </div>
+    <div class="label">{{item.key}}</div>
+  </div>
+</div>

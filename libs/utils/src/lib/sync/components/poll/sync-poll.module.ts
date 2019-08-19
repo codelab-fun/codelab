@@ -13,6 +13,7 @@ import { StarsModule } from '@codelab/utils/src/lib/sync/components/poll/common/
 import { StarsPresenterComponent } from './sync-poll-presenter/stars-presenter/stars-presenter.component';
 import { ChoicePresenterComponent } from './sync-poll-presenter/choice-presenter/choice-presenter.component';
 import { SyncPollViewerChoiceComponent } from './sync-poll-viewer/sync-poll-viewer-choice/sync-poll-viewer-choice.component';
+import { BarChartModule } from '@codelab/utils/src/lib/sync/components/poll/common/bar-chart/bar-chart.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SyncPollViewerChoiceComponent } from './sync-poll-viewer/sync-poll-view
     MatButtonModule,
     MatIconModule,
     StarsModule,
+    BarChartModule,
   ]
 })
 export class SyncPollModule {

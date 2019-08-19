@@ -6,9 +6,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./choice-presenter.component.css']
 })
 export class ChoicePresenterComponent implements OnInit {
-  @Input() votes: { [key: string]: number };
+  private breakdown: { [key: string]: number };
+
 
   constructor() {
+  }
+
+  @Input() set votes(votes: { [key: string]: number }) {
+    this.breakdown = Object.values(votes || {}).reduce((result, value) => {
+      result[value] = (result[value] || 0) + 1;
+      return result;
+    }, {});
   }
 
   ngOnInit() {
