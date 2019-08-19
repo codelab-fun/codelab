@@ -39,6 +39,15 @@ export class SyncPlaygroundTestComponent {
       answers: [
         'react', 'Angular', 'Vue', 'Other',
       ]
+    },
+    {
+      key: 'longer question',
+      type: 'choice',
+      question: 'Who created angular',
+      answers: [
+        'Мега корпорация "Крошка-Картошка"', 'Facebook сделал лично Цукерберг', 'Николай Васильевич Гогол',
+        'Google Angular Brad Green Misko',
+      ]
     }
   ];
 }

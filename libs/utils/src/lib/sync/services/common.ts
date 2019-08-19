@@ -64,10 +64,9 @@ export class SyncDataObject<T> {
 
   object(key$: Observable<string> | string, defaultValue?: any) {
     if (typeof key$ === 'string') {
-      defaultValue = defaultValue || this.defaultValue[key$];
+      defaultValue = defaultValue || (this.defaultValue && this.defaultValue[key$]);
       key$ = of(key$);
     }
-
 
     const newKey$ = this.key$.pipe(switchMap(k => (key$ as Observable<string>).pipe(map(key => `${k}/${key}`))));
     return this.syncDbService.object(newKey$, defaultValue);

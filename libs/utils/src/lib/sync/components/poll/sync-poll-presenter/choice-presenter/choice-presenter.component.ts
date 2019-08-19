@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LETTERS } from '@codelab/utils/src/lib/sync/components/poll/common/common';
 
 @Component({
   selector: 'slides-choice-presenter',
@@ -13,10 +14,12 @@ export class ChoicePresenterComponent implements OnInit {
   }
 
   @Input() set votes(votes: { [key: string]: number }) {
+    console.log(votes);
     this.breakdown = Object.values(votes || {}).reduce((result, value) => {
-      result[value] = (result[value] || 0) + 1;
+      result[LETTERS[value]] = (result[LETTERS[value]] || 0) + 1;
       return result;
     }, {});
+    console.log(this.breakdown);
   }
 
   ngOnInit() {

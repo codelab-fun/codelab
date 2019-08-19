@@ -1,6 +1,8 @@
-<div *ngFor="let answer of answers;" class="button-wrapper">
-  <button (click)="vote.emit(answer)" mat-raised-button [color]="answer === myVote ? 'warn' : undefined"
-          class="answer">{{answer}}</button>
+<div *ngFor="let answer of answers;let i = index" class="button-wrapper">
+  <button (click)="vote.emit(i)" mat-raised-button [color]="i === myVote ? 'warn' : undefined"
+          class="answer">
+    <span class="letter">{{LETTERS[i]}}</span>
+    {{answer}}</button>
 </div>
 
 <button *ngIf="myVote" (click)="vote.emit(null)" mat-button

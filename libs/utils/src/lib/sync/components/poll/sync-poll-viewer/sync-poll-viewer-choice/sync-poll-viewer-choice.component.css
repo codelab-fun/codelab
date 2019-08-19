@@ -4,4 +4,17 @@
 
 .button-wrapper button {
   width: 100%;
+  position: relative;
+}
+
+.letter {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 32px;
+  border: 1px #ddd solid;
+  border-radius: 10px;
+  background: #fff;
+  transform: rotate(-5deg);
+  color: rgba(0, 0, 0, 0.87);
 }
