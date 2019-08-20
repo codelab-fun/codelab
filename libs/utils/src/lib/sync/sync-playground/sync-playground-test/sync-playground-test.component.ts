@@ -20,7 +20,7 @@ export class SyncPlaygroundTestComponent {
       question: 'How well do you know AngularJS (Old version)',
     },
     {
-      key: 'angularjs',
+      key: 'angular',
       type: 'stars',
       question: 'How well do you know Angular',
     },
@@ -28,7 +28,8 @@ export class SyncPlaygroundTestComponent {
       key: 'fruit',
       type: 'choice',
       question: 'What is your favorite fruit?',
-      answers: [
+      answer: '🍏',
+      options: [
         '🍏', '🍋', '🍓', '🍍'
       ]
     },
@@ -36,7 +37,7 @@ export class SyncPlaygroundTestComponent {
       key: 'angular question',
       type: 'choice',
       question: 'What is your favorite framework?',
-      answers: [
+      options: [
         'react', 'Angular', 'Vue', 'Other',
       ]
     },
@@ -44,7 +45,7 @@ export class SyncPlaygroundTestComponent {
       key: 'longer question',
       type: 'choice',
       question: 'Who created angular',
-      answers: [
+      options: [
         'Мега корпорация "Крошка-Картошка"', 'Facebook сделал лично Цукерберг', 'Николай Васильевич Гогол',
         'Google Angular Brad Green Misko',
       ]

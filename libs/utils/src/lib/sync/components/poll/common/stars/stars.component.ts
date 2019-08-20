@@ -51,7 +51,9 @@ export class StarsComponent implements OnInit, ControlValueAccessor {
   }
 
   setValue(star: number) {
-    this.onChange(star);
+    if (this.enabled) {
+      this.onChange(star);
+    }
   }
 
   setHover(index: number) {

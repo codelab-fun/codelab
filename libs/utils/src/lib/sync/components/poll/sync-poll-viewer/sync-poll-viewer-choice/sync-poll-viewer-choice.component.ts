@@ -8,8 +8,9 @@ import { LETTERS } from '../../common/common';
 })
 export class SyncPollViewerChoiceComponent {
   readonly LETTERS = LETTERS;
-  @Input() myVote: string;
-  @Input() answers: string[];
+  @Input() myVote: number;
+  @Input() options: string[];
+  @Input() enabled = true;
   @Output() vote = new EventEmitter<number | null>();
 
 

@@ -1,12 +1,27 @@
-<h1>{{config.question}}</h1>
-<div *ngIf="(poll.isPollEnabled$ | async ) else wait">
-  <slides-stars *ngIf="config.type === 'stars'" [(ngModel)]="stars" [syncViewerValue]="this.poll.key"></slides-stars>
+<div class="time">
+  <div *ngIf="poll.$isPollRunning|async else timeOver">
+    <h2>⏱ {{poll.timeLeft$ | async}} seconds left</h2>
+  </div>
+</div>
+<ng-template #timeOver>
+  <h2>⏱ Time is over</h2>
+</ng-template>
 
-  <slides-sync-poll-viewer-choice [myVote]="poll.myVote$ | async"
-                                  [answers]="config.answers"
-                                  (vote)="poll.vote($event)"
-                                  *ngIf="config.type === 'choice'">
+<h1>{{config.question}}</h1>
+
+<div *ngIf="(poll.isPollEnabled$ | async ) else wait" [class.disabled]="(poll.$isPollRunning | async) !== true">
+
+  <slides-stars [enabled]="poll.$isPollRunning|async" *ngIf="config.type === 'stars'"
+                [(ngModel)]="stars" [syncViewerValue]="this.poll.key"></slides-stars>
+
+  <slides-sync-poll-viewer-choice
+    [myVote]="poll.myVote$ | async"
+    [enabled]="poll.$isPollRunning|async"
+    [options]="config.options"
+    (vote)="poll.vote($event)"
+    *ngIf="config.type === 'choice'">
   </slides-sync-poll-viewer-choice>
+
 </div>
 
 <ng-template #wait>

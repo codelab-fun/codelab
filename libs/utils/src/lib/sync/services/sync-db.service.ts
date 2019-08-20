@@ -8,7 +8,8 @@ import { SyncDataList, SyncDataObject } from '@codelab/utils/src/lib/sync/servic
   providedIn: 'root'
 })
 export class SyncDbService {
-  readonly online$ = this.object(of('.info/connected')).valueChanges();
+  readonly online$ = this.object('.info/connected').valueChanges();
+  readonly offset$: Observable<number> = this.object(of('/.info/serverTimeOffset')).valueChanges().pipe(map(a => Number(a)));
 
   constructor(private db: AngularFireDatabase) {
   }
@@ -32,3 +33,4 @@ export class SyncDbService {
     return new SyncDataList<T>(db$, key$, this, defaultValue);
   }
 }
+

@@ -18,3 +18,7 @@
   transform: rotate(-5deg);
   color: rgba(0, 0, 0, 0.87);
 }
+
+button[disabled].selected {
+  background: #ff4e3d;
+}

@@ -17,3 +17,10 @@ slides-stars {
   margin-right: 10px;
 }
 
+.time {
+  text-align: center;
+}
+
+.disabled {
+  opacity: 0.3;
+}

@@ -1,15 +1,28 @@
+<div class="time">
+  <div *ngIf="poll.$isPollRunning|async else timeOver">
+    <h2>⏱ {{poll.timeLeft$ | async}} seconds left</h2>
+  </div>
+</div>
+<ng-template #timeOver>
+  <h2>⏱ Time is over</h2>
+</ng-template>
+
 <h1>{{config.question}}</h1>
 
 <ng-container *ngIf="poll.isPollEnabled$ | async else wait">
   <ng-container *ngIf="poll.hasVotes$ | async else waiting">
     <div class="results">
-      <slides-choice-presenter *ngIf="config.type === 'choice'" [votes]="poll.votes$ | async"></slides-choice-presenter>
+      <slides-choice-presenter *ngIf="config.type === 'choice'"
+                               [votes]="poll.votes$ | async"
+      ></slides-choice-presenter>
       <slides-stars-presenter *ngIf="config.type === 'stars'" [votes]="poll.votes$ | async"></slides-stars-presenter>
     </div>
   </ng-container>
   <ng-template #waiting>
-    <h1 style="text-align: center;">Waiting for votes...</h1>
-    <div class="bunny"></div>
+    <div *ngIf="poll.$isPollRunning|async">
+      <h1 style="text-align: center;">Waiting for votes...</h1>
+      <div class="bunny"></div>
+    </div>
   </ng-template>
 </ng-container>
 
