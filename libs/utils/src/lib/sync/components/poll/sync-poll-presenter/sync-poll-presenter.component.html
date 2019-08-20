@@ -1,3 +1,5 @@
+<h1>{{config.question}}</h1>
+
 <ng-container *ngIf="poll.isPollEnabled$ | async else wait">
   <ng-container *ngIf="poll.hasVotes$ | async else waiting">
     <div class="results">

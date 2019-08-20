@@ -1,3 +1,4 @@
+<h1>{{config.question}}</h1>
 <div *ngIf="(poll.isPollEnabled$ | async ) else wait">
   <slides-stars *ngIf="config.type === 'stars'" [(ngModel)]="stars" [syncViewerValue]="this.poll.key"></slides-stars>
 

@@ -14,13 +14,12 @@ export class ChoicePresenterComponent implements OnInit {
   }
 
   @Input() set votes(votes: { [key: string]: number }) {
-    console.log(votes);
     this.breakdown = Object.values(votes || {}).reduce((result, value) => {
       result[LETTERS[value]] = (result[LETTERS[value]] || 0) + 1;
       return result;
     }, {});
-    console.log(this.breakdown);
   }
+
 
   ngOnInit() {
   }
