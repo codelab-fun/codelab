@@ -29,11 +29,11 @@ export class QuestionListComponent {
   @Input() questions: Question[];
   @Output() vote = new EventEmitter<{ vote: number, question: Question }>();
 
-  trackBy(i, question) {
-    return question.key;
+  constructor(public readonly questionsService: QuestionsService) {
   }
 
-  constructor(public readonly questionsService: QuestionsService) {
+  trackBy(i, question) {
+    return question.key;
   }
 
 }

@@ -9,6 +9,7 @@ import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questio
 })
 export class QuestionComponent {
   @Input() question: Question;
+  @Input() showControls = true;
   @Output() vote = new EventEmitter<number>();
   readonly statuses = statuses;
   readonly QuestionStatus = QuestionStatus;

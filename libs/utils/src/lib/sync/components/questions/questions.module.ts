@@ -4,7 +4,7 @@ import { QuestionsComponent } from '@codelab/utils/src/lib/sync/components/quest
 import {
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule,
+  MatCheckboxModule, MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     SyncDirectivesModule,
     MatIconModule,
     FormsModule,
+    MatExpansionModule,
   ],
   declarations: [
     QuestionsComponent,

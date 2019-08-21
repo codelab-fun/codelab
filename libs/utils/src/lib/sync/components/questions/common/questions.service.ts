@@ -32,6 +32,8 @@ export class QuestionsService {
     requireApproval: true,
     starredQuestionKey: null
   });
+
+  readonly requireApproval$ = this.presenterObject.valueChanges().pipe(map(a => a.requireApproval));
   private readonly questionsObject = this.syncDataService.getAdminAllUserData(this.key, {});
   public readonly allQuestions$ = this.questionsObject
     .valueChanges()
@@ -57,6 +59,9 @@ export class QuestionsService {
     .pipe(map(groupVotesByQuestionId));
 
   private readonly myQuestionsList = this.syncDataService.getCurrentViewerList<QuestionDb>(this.key);
+  readonly myUnapprovedQuestions$ = this.myQuestionsList.valueChanges().pipe(map(questions =>
+    Object.values(questions).filter(a => a.status !== QuestionStatus.APPROVED)
+  ));
   private readonly myVotesObject = this.syncDataService.getCurrentViewerObject<UserVotes>(this.votesKey, {});
   readonly questions$: Observable<Question[]> = combineLatest([
     this.allQuestions$,

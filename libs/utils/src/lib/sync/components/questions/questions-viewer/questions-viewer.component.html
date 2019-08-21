@@ -7,6 +7,23 @@
   </mat-form-field>
   <button mat-raised-button (click)="addQuestion(q)">Submit</button>
 </div>
+
+<ng-container *ngIf="questionsService.requireApproval$ | async">
+  <ng-container *ngIf="(questionsService.myUnapprovedQuestions$ | async) as unapproved">
+    <mat-expansion-panel *ngIf="unapproved.length">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Your questions pending approval: {{unapproved.length}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-container *ngFor="let question of unapproved">
+        <slides-question [question]="question" [showControls]="false"></slides-question>
+      </ng-container>
+    </mat-expansion-panel>
+  </ng-container>
+</ng-container>
+
 <ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
   <ng-container *ngIf="questions.length">
     <h2>All questions:</h2>

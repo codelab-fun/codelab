@@ -9,3 +9,7 @@ textarea, mat-form-field {
 .question-form {
   margin-bottom: 20px;
 }
+
+mat-expansion-panel {
+  margin-bottom: 20px;
+}
