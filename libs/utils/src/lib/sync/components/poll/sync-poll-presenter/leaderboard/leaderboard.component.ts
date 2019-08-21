@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
 import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+import { Observable } from 'rxjs';
 
 interface Response {
   correct: boolean;
@@ -15,12 +15,15 @@ interface Response {
   styleUrls: ['./leaderboard.component.css']
 })
 export class LeaderboardComponent {
+  @Input() config;
+  private leaderboard$: Observable<any>;
+
   constructor(private readonly syncPollService: SyncPollService) {
   }
 
-  @Input() set config(config: SyncPollConfig[]) {
-    this.syncPollService.calculateScores(config.filter(a => a.answer));
-  };
+  ngOnInit() {
+    this.leaderboard$ = this.syncPollService.calculateScores(this.config.filter(a => a.answer));
+  }
 
   // @Input() votes: { [key: string]: UserVote };
   // @Input() timestamp: number;

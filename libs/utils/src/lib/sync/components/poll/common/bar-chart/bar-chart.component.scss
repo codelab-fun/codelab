@@ -2,12 +2,6 @@
   --bar-width: 50px;
 }
 
-.wrapper {
-  margin: 40px auto;
-  display: flex;
-  text-align: center;
-  width: calc(var(--bar-width) * 6);
-}
 
 .filler {
   width: var(--bar-width);
@@ -18,9 +12,7 @@
 
 .bar {
   width: var(--bar-width);
-  height: 200px;
   background: #ff4e3d;
-  margin-right: 10px;
 }
 
 .highlight-index {
@@ -65,6 +57,54 @@ slides-stars {
   line-height: var(--bar-width);
 
   font-size: 20px;
-  margin-top: 20px;
   border-radius: 50%;
+}
+
+
+.horizontal {
+  &.wrapper {
+    margin: 40px auto;
+    display: flex;
+    text-align: center;
+    width: calc(var(--bar-width) * 6);
+
+    .item {
+      .bar {
+        height: 200px;
+        margin-right: 10px;
+      }
+
+      .label {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.vertical {
+  &.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .item {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+
+      .bar {
+        height: var(--bar-width);
+        width: 200px;
+        margin-right: 50px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .label {
+        margin-right: 20px;
+      }
+
+    }
+  }
 }

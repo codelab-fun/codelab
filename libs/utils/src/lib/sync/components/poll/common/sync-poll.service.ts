@@ -136,8 +136,6 @@ export class SyncPollService {
     const userData$ = this.syncDataService.getAdminAllUserData('poll').valueChanges().pipe(filter(a => a !== null));
 
     return combineLatest([of(syncPollConfigs), presenterData$, userData$]).pipe(
-
-    ).subscribe(([configs, presenterData, userData]) => calculateUserScore(configs, presenterData, userData));
-
+      map(([configs, presenterData, userData]) => calculateUserScore(configs, presenterData, userData)));
   }
 }

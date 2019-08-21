@@ -7,16 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BarChartComponent implements OnInit {
   @Input() highlightedIndex: number;
+  vertical = true;
 
   max: number;
-  private breakdown: { value: number; key: string }[];
+  breakdown: { value: number; key: string }[];
 
   constructor() {
   }
 
   @Input() set data(votes: { [k: string]: number; }) {
-    this.breakdown = Object.entries(votes).map(([key, value]) => ({key, value})).sort((a, b) => b.value - a.value);
-    this.max = Math.max(...Object.values(votes));
+    this.breakdown = Object.entries(votes || {}).map(([key, value]) => ({key, value})).sort((a, b) => b.value - a.value);
+    this.max = Math.max(...Object.values(votes || {}), 0);
   }
 
   trackBy(i: number) {
