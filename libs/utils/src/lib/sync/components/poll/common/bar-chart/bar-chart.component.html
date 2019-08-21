@@ -9,6 +9,7 @@
         <div class="star" *ngIf="item.value > 0">{{item.value | number : '1.2-2'}}</div>
       </div>
     </div>
-    <div class="label" [class.highlighted]="i === highlightedIndex">{{item.key}}</div>
+    <div class="label"
+         [class.highlighted]="i === highlightedIndex">{{item.key}}</div>
   </div>
 </div>
