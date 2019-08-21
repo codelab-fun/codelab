@@ -23,6 +23,22 @@
   margin-right: 10px;
 }
 
+.highlight-index {
+  .bar {
+    background: #444;
+  }
+
+  .bar.highlighted {
+    background: #ff4e3d;
+  }
+
+  .label.highlighted {
+    background: #008c2a;
+    color: #ffffff;
+  }
+}
+
+
 .star {
   width: var(--bar-width);
   position: absolute;
@@ -45,6 +61,10 @@ slides-stars {
 
 .label {
   width: var(--bar-width);
+  height: var(--bar-width);
+  line-height: var(--bar-width);
+
   font-size: 20px;
   margin-top: 20px;
+  border-radius: 50%;
 }

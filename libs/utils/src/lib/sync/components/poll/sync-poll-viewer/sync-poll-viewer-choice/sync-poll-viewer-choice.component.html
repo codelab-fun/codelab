@@ -9,7 +9,7 @@
     {{answer}}</button>
 </div>
 
-<button *ngIf="myVote"
+<button *ngIf="myVote !== null"
         [disabled]="!enabled"
         (click)="enabled && vote.emit(null)" mat-button
         class="answer">Clear vote

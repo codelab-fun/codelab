@@ -30,6 +30,9 @@
     </slides-poll>
   </div>
 
+  <div *slide>
+    <slides-leaderboard [config]="polls"></slides-leaderboard>
+  </div>
   <div *slide id="poll-3">
     <slides-poll [poll]="polls[3]">
       <div class="question"></div>

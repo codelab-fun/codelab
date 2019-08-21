@@ -11,11 +11,17 @@
 
 <ng-container *ngIf="poll.isPollEnabled$ | async else wait">
   <ng-container *ngIf="poll.hasVotes$ | async else waiting">
-    <div class="results">
+    <div *ngIf="poll.config.answer && (poll.$isPollRunning | async) === true">
+      <h2>Collecting answers</h2>
+      <h2>{{poll.votesCount$ | async}} votes</h2>
+    </div>
+    <div class="results" *ngIf="!poll.config.answer || ((poll.$isPollRunning | async) === false)">
       <slides-choice-presenter *ngIf="config.type === 'choice'"
                                [votes]="poll.votes$ | async"
+                               [options]="poll.config.options"
       ></slides-choice-presenter>
-      <slides-stars-presenter *ngIf="config.type === 'stars'" [votes]="poll.votes$ | async"></slides-stars-presenter>
+      <slides-stars-presenter *ngIf="config.type === 'stars'"
+                              [votes]="poll.votes$ | async"></slides-stars-presenter>
     </div>
   </ng-container>
   <ng-template #waiting>
@@ -29,3 +35,4 @@
 <ng-template #wait>
   Poll has not been started yet.
 </ng-template>
+

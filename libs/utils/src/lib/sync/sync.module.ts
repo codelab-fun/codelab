@@ -16,6 +16,7 @@ import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync
 import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.module';
 import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-button.module';
 import { SyncSessionsModule } from '@codelab/utils/src/lib/sync/components/sync-sessions/sync-sessions.module';
+import { LeaderboardModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-presenter/leaderboard/leaderboard.module';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { SyncSessionsModule } from '@codelab/utils/src/lib/sync/components/sync-
     QuestionsModule,
     SyncPollModule,
     SyncButtonModule,
+    LeaderboardModule,
   ],
   providers: [LoginService],
   declarations: [

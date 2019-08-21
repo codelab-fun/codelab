@@ -1,16 +1,75 @@
 import { Injectable } from '@angular/core';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
-import { distinctUntilChanged, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { interval, Observable } from 'rxjs';
+import { distinctUntilChanged, filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
 import { database } from 'firebase/app';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 
+
+const DEFAULT_TEST_TIME_SECONDS = 20;
 const defaultPresenterSettings = {
   enabled: true,
   startTime: 0,
 };
+
+export interface UserVote {
+  answer: number;
+  time: number;
+}
+
+function getScore(isCorrect: boolean, range: number, speed: number, fastest: number) {
+  if (!isCorrect) {
+    return 0;
+  }
+
+  if (range === 0) {
+    return 1;
+  }
+
+  return 0.5 + ((range + fastest - speed) / range) * 0.5;
+}
+
+export function calculateUserScore(configs, presenterData, userData) {
+  return configs
+    .map(config => {
+      return ({
+        ...config,
+        answerIndex: config.options.indexOf(config.answer),
+        startTime: presenterData[config.key].startTime
+      });
+    }).flatMap(config => {
+      if (!userData[config.key]) {
+        return [];
+      }
+
+      const responses = Object.entries<UserVote>(userData[config.key]).map(([user, answer]) => {
+        const speed = answer.time - config.startTime;
+        return {
+          user,
+          isCorrect: speed >= 0
+            && answer.answer === config.answerIndex
+            && speed <= DEFAULT_TEST_TIME_SECONDS * 1000,
+          speed: speed
+        };
+      });
+
+      const correctResponses = responses.filter(r => r.isCorrect);
+      const slowest = Math.max(...correctResponses.map(a => a.speed), 0);
+      const fastest = Math.min(...correctResponses.map(a => a.speed), slowest);
+      const range = slowest - fastest;
+      return responses.map(r => {
+        return ({
+          ...r,
+          score: 100 * getScore(r.isCorrect, range, r.speed, fastest)
+        });
+      });
+    }).reduce((result, record) => {
+      result[record.user] = (result[record.user] || 0) + record.score;
+      return result;
+    }, {});
+}
 
 export class SyncPoll {
   key = 'poll' + '/' + this.config.key;
@@ -23,32 +82,33 @@ export class SyncPoll {
   readonly timeLeft$ = this.timestamp$.pipe(
     switchMap(time => interval(500).pipe(map(() => time))),
     withLatestFrom(this.syncDbService.offset$.pipe(distinctUntilChanged())),
-    map(([time, offset]) => Math.round(Math.max(0, time + 1000 * (this.config.time || 20) - Date.now() + offset) / 1000)),
+    map(([time, offset]) => Math.round(Math.max(0, time + 1000 * (this.config.time || DEFAULT_TEST_TIME_SECONDS) - Date.now() + offset) / 1000)),
     distinctUntilChanged()
   );
 
   readonly $isPollRunning = this.timeLeft$.pipe(
-    tap(tm => console.log({tm})),
     map(time => time > 0)
   );
-
   readonly hasVotes$: Observable<boolean>;
-  private readonly viewerData = this.syncDataService.getCurrentViewerObject(this.key, null);
-  readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => {
-    return a;
-  }));
+  private readonly viewerData = this.syncDataService.getCurrentViewerObject<UserVote>(this.key, {answer: null, time: 0});
+  readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => a.answer));
   private readonly votesData = this.syncDataService.getAdminAllUserData(this.key, {});
   readonly votes$ = this.votesData.valueChanges();
+  private readonly votesCount$ = this.votes$.pipe(map(votes => Object.values(votes).length));
 
   constructor(private readonly syncDataService: SyncDataService,
-              private readonly config: SyncPollConfig,
+              readonly config: SyncPollConfig,
               private readonly syncDbService: SyncDbService) {
-    // Reformattin breaks this if it's out of the constructor.
+    // Reformatting breaks this if it's out of the constructor.
     this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
+
   }
 
   vote(answer: number) {
-    this.viewerData.set(answer);
+    this.viewerData.set({
+      answer,
+      time: database.ServerValue.TIMESTAMP as number
+    });
   }
 
   start() {
@@ -69,5 +129,15 @@ export class SyncPollService {
 
   getPoll(config: SyncPollConfig) {
     return new SyncPoll(this.syncDataService, config, this.syncDbService);
+  }
+
+  calculateScores(syncPollConfigs: SyncPollConfig[]) {
+    const presenterData$ = this.syncDataService.getPresenterObject('poll').valueChanges().pipe(filter(a => a !== null));
+    const userData$ = this.syncDataService.getAdminAllUserData('poll').valueChanges().pipe(filter(a => a !== null));
+
+    return combineLatest([of(syncPollConfigs), presenterData$, userData$]).pipe(
+
+    ).subscribe(([configs, presenterData, userData]) => calculateUserScore(configs, presenterData, userData));
+
   }
 }

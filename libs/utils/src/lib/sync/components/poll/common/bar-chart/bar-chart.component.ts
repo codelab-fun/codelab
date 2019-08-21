@@ -3,11 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'slides-bar-chart',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css']
+  styleUrls: ['./bar-chart.component.scss']
 })
 export class BarChartComponent implements OnInit {
-
-  average: number;
+  @Input() highlightedIndex: number;
 
   max: number;
   private breakdown: { value: number; key: string }[];

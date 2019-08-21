@@ -4,7 +4,7 @@ import { SyncPollAdminComponent } from '@codelab/utils/src/lib/sync/components/p
 import { SyncPollPresenterComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-presenter/sync-poll-presenter.component';
 import { SyncPollViewerComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-viewer/sync-poll-viewer.component';
 import { SyncPollComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.component';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatTabsModule } from '@angular/material';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -14,6 +14,7 @@ import { StarsPresenterComponent } from './sync-poll-presenter/stars-presenter/s
 import { ChoicePresenterComponent } from './sync-poll-presenter/choice-presenter/choice-presenter.component';
 import { SyncPollViewerChoiceComponent } from './sync-poll-viewer/sync-poll-viewer-choice/sync-poll-viewer-choice.component';
 import { BarChartModule } from '@codelab/utils/src/lib/sync/components/poll/common/bar-chart/bar-chart.module';
+import { LeaderboardModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-presenter/leaderboard/leaderboard.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { BarChartModule } from '@codelab/utils/src/lib/sync/components/poll/comm
     MatIconModule,
     StarsModule,
     BarChartModule,
+    MatTabsModule,
+    LeaderboardModule,
   ]
 })
 export class SyncPollModule {
