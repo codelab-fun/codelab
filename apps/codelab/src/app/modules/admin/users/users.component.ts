@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { map } from 'rxjs/operators';
-import { toValuesWithKey } from '@codelab/utils/src/lib/sync/common';
+import { firebaseToValuesWithKey } from '@codelab/utils/src/lib/sync/common';
 import { combineLatest, Observable } from 'rxjs';
 import { Permissions } from '../services/access.service';
 
@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   readonly displayedColumns = ['isCurrentUser', 'key'];
 
   readonly admins = this.dbService.list<AdminDb>('admin');
-  private readonly allAdmins$ = this.admins.snapshots$.pipe(map(toValuesWithKey));
+  private readonly allAdmins$ = this.admins.snapshots$.pipe(map(firebaseToValuesWithKey));
   private readonly admins$: Observable<Admin[]> = combineLatest([this.allAdmins$, this.loginService.uid$]).pipe(
     map(([admins, currentUserUid]) => {
       return admins.map(admin => ({...admin, isCurrentUser: admin.key === currentUserUid}));

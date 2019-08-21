@@ -1,1 +1,2 @@
-<slides-bar-chart [data]="leaderboard$ | async"></slides-bar-chart>
+<slides-leaderboard-presenter *isPresenting [config]="config"></slides-leaderboard-presenter>
+<slides-leaderboard-viewer *isViewing [config]="config"></slides-leaderboard-viewer>

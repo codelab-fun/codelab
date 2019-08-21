@@ -6,6 +6,8 @@ import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
 import { database } from 'firebase/app';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
 
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
@@ -33,6 +35,7 @@ function getScore(isCorrect: boolean, range: number, speed: number, fastest: num
 
 export function calculateUserScore(configs, presenterData, userData) {
   return configs
+    .filter(config => presenterData[config.key])
     .map(config => {
       return ({
         ...config,
@@ -123,8 +126,10 @@ export class SyncPoll {
   providedIn: 'root'
 })
 export class SyncPollService {
-  constructor(private readonly syncDataService: SyncDataService,
-              private readonly syncDbService: SyncDbService) {
+  constructor(
+    private readonly syncDataService: SyncDataService,
+    private readonly syncSessionService: SyncSessionService,
+    private readonly syncDbService: SyncDbService) {
   }
 
   getPoll(config: SyncPollConfig) {
@@ -137,5 +142,17 @@ export class SyncPollService {
 
     return combineLatest([of(syncPollConfigs), presenterData$, userData$]).pipe(
       map(([configs, presenterData, userData]) => calculateUserScore(configs, presenterData, userData)));
+  }
+
+  calculateMyScore(syncPollConfigs: SyncPollConfig[]) {
+    return combineLatest([this.calculateScores(syncPollConfigs), this.syncSessionService.viewerId$]).pipe(map(([scores, uid]) => {
+      scores = toValuesAndKeys<number>(scores).sort((a, b) => b.value - a.value);
+      const index = scores.findIndex(score => score.key === uid);
+
+      return {
+        place: index + 1,
+        score: scores[index].value,
+      };
+    }));
   }
 }

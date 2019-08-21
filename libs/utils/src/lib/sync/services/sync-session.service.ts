@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { filter, first, map, switchMap, takeUntil } from 'rxjs/operators';
-import { SyncSession, SyncSessionConfig, SyncStatus, toValuesWithKey } from '@codelab/utils/src/lib/sync/common';
+import { SyncSession, SyncSessionConfig, SyncStatus, firebaseToValuesWithKey } from '@codelab/utils/src/lib/sync/common';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import produce from 'immer';
 
@@ -32,7 +32,7 @@ export class SyncSessionService {
     this.preferredAdminStatusSubject.asObservable()
   ]).pipe(map(([a, b]) => b || a));
   private readonly sessions = this.dbService.list<SyncSession>(of('sync-sessions'));
-  readonly sessions$ = this.sessions.snapshots$.pipe(map(toValuesWithKey));
+  readonly sessions$ = this.sessions.snapshots$.pipe(map(firebaseToValuesWithKey));
 
   constructor(
     private readonly dbService: SyncDbService,

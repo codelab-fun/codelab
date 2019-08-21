@@ -108,14 +108,14 @@ slides-stars {
         margin-right: 20px;
         width: 200px;
         word-break: break-word;
-        max-height: 50px;
+        max-height: var(--bar-width);
         overflow: hidden;
         text-overflow: ellipsis;
       }
 
       .star {
-        height: 50px;
-        line-height: 50px;
+        height: var(--bar-width);
+        line-height: var(--bar-width);
         left: 10px;
       }
 

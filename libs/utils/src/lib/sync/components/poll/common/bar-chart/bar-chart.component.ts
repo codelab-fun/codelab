@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BarChartComponent implements OnInit {
   @Input() highlightedIndex: number;
-  vertical = true;
+ @Input() vertical = false;
 
   max: number;
   breakdown: { value: number; key: string }[];
