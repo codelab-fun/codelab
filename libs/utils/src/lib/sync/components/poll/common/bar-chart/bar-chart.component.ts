@@ -17,7 +17,6 @@ export class BarChartComponent implements OnInit {
 
   @Input() set data(votes: { [k: string]: number; }) {
     this.breakdown = Object.entries(votes || {}).map(([key, value]) => ({key, value})).sort((a, b) => b.value - a.value);
-    debugger;
     this.max = Math.max(...Object.values(votes || {}), 0);
   }
 

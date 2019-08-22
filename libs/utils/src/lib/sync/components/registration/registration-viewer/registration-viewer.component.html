@@ -2,7 +2,7 @@
   <ng-container *ngIf="!(registrationService.currentUser$ | async)">
     <h2>What is your name?</h2>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Name" required [(ngModel)]="registrationService.name">
+      <input matInput placeholder="Name" maxlength="25" required [(ngModel)]="registrationService.name">
     </mat-form-field>
     <button mat-button (click)="registrationService.save()">Save</button>
   </ng-container>
