@@ -10,6 +10,7 @@ import {
   UserVotes
 } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 
 const groupVotesByQuestionId = a => {
@@ -68,7 +69,8 @@ export class QuestionsService {
     this.votes$,
     this.myVotesObject.valueChanges(),
     this.starredQuestionKeyData.valueChanges(),
-    this.presenterObject.valueChanges()
+    this.presenterObject.valueChanges(),
+    this.registrationService.usersMap$,
   ])
     .pipe(map(([
                  questions,
@@ -76,11 +78,13 @@ export class QuestionsService {
                  myVotes,
                  starredQuestionKey,
                  presenterData,
+                 usersMap,
                ]) => {
         return questions.map(q => {
-          const status = (q as any).status;
+          const status = q.status;
           return ({
             ...q,
+            displayName: usersMap[q.author],
             myVote: myVotes[q.key],
             score: votes[q.key] || 0,
             starred: starredQuestionKey === q.key,
@@ -96,7 +100,10 @@ export class QuestionsService {
     );
 
 
-  constructor(private readonly syncDataService: SyncDataService) {
+  constructor(
+    private readonly syncDataService: SyncDataService,
+    private readonly registrationService: SyncRegistrationService,
+  ) {
     // TODO(kirjs): webstorm bug moves it before questions$ when reformatting
     this.publicQuestions$ = this.questions$.pipe(map(questions => questions.filter(q => q.public)));
 
@@ -125,7 +132,6 @@ export class QuestionsService {
   }
 
   updateQuestionStatus(question: Question, status: QuestionStatus) {
-    const x = this.syncDataService.getViewerObject(this.key, question.author, {});
     this.syncDataService.getViewerObject(this.key, question.author, {}).updateWithCallback(a => {
       a[question.key].status = status;
       return a;

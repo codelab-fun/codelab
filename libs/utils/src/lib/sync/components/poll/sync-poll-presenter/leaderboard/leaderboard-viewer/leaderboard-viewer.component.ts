@@ -10,7 +10,7 @@ import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/com
 export class LeaderboardViewerComponent implements OnInit {
   @Input() config;
 
-  private myScore$: Observable<any>;
+  myScore$: Observable<any>;
 
   constructor(private readonly syncPollService: SyncPollService) {
   }

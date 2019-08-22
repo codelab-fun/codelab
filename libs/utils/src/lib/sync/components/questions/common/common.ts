@@ -13,12 +13,13 @@ export interface QuestionDb {
   status: QuestionStatus;
 }
 
-export interface Question  extends QuestionDb {
+export interface Question extends QuestionDb {
   key: string;
   starred: boolean;
   public: boolean;
   myVote: 1 | 0 | -1;
   author: string;
+  displayName: string;
 }
 
 export interface QuestionConfig {

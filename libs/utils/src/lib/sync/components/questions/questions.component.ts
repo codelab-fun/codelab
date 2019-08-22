@@ -3,8 +3,6 @@ import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questio
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 
-
-
 @Component({
   selector: 'slides-questions',
   templateUrl: './questions.component.html',

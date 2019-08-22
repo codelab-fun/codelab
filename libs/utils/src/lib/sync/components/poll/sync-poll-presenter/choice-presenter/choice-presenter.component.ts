@@ -10,8 +10,9 @@ import { UserVote } from '@codelab/utils/src/lib/sync/components/poll/common/syn
 export class ChoicePresenterComponent implements OnInit {
   @Input() options: string[];
   @Input() answer: string;
+  @Input() answerIndex: number;
 
-  private breakdown: { [key: string]: number };
+  breakdown: { [key: string]: number };
 
   constructor() {
   }

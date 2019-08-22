@@ -14,6 +14,10 @@ export class SyncPollPresenterComponent implements OnInit {
   constructor(private readonly pollService: SyncPollService) {
   }
 
+  getAnswerIndex() {
+    return this.config.options.indexOf(this.config.answer);
+  }
+
   ngOnInit() {
     this.poll = this.pollService.getPoll(this.config);
   }

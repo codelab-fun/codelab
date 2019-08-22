@@ -49,7 +49,7 @@ const routes = [
     loadChildren: () => import('./modules/music/music.module').then(m => m.MusicModule),
     name: 'Music',
     description: 'Music'
-  },  {
+  }, {
     path: 'webassembly',
     loadChildren: () => import('./modules/webassembly/webassembly.module').then(m => m.WebassemblyModule),
     name: 'webassembly',
@@ -84,7 +84,7 @@ const routes = [
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     name: 'Home',
     description: 'Home'
-  },  {
+  }, {
     path: 'sync',
     loadChildren: () => import('./modules/sync/sync.module').then(m => m.SyncModule),
     name: 'Sync',
@@ -95,6 +95,16 @@ const routes = [
     loadChildren: () => import('./modules/test/test.module').then(m => m.TestModule),
     name: 'Home',
     description: 'Home'
+  },
+  {
+    path: 'qna',
+    loadChildren: () => import('./modules/qna/qna.module').then(m => m.QnaModule),
+    name: 'Q&A',
+  },
+  {
+    path: 'msk',
+    loadChildren: () => import('./modules/msk/msk.module').then(m => m.MskModule),
+    name: 'Angular Moscow Meetup',
   }
 ];
 

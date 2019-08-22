@@ -2,10 +2,11 @@
 <div class="question-form">
   <mat-form-field>
     <mat-label>Your question:</mat-label>
-    <textarea matInput cdkTextareaAutosize #q (keydown.control.enter)="addQuestion(q)"
+    <textarea maxlength="280"
+              required matInput cdkTextareaAutosize #q (keydown.control.enter)="addQuestion(q)"
               (keydown.command.enter)="addQuestion(q)"></textarea>
   </mat-form-field>
-  <button mat-raised-button (click)="addQuestion(q)">Submit</button>
+  <button mat-raised-button [disabled]="q.value.trim() === ''" (click)="addQuestion(q)">Submit</button>
 </div>
 
 <ng-container *ngIf="questionsService.requireApproval$ | async">

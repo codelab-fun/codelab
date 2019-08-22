@@ -11,7 +11,10 @@ export class QuestionsViewerComponent {
   }
 
   addQuestion(input: HTMLTextAreaElement) {
-    this.questionsService.addQuestion(input.value.trim());
-    input.value = '';
+    const question = input.value.trim();
+    if (question !== '') {
+      this.questionsService.addQuestion(question);
+      input.value = '';
+    }
   }
 }

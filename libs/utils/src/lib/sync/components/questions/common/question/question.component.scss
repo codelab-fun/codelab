@@ -32,6 +32,8 @@ h2 {
 
 .question-body-wrapper {
   display: flex;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .questions-score {
@@ -44,4 +46,10 @@ h2 {
   border-radius: 50%;
   text-align: center;
   line-height: 32px;
+  min-width: 30px;
+}
+
+.author {
+  font-weight: bold;
+  margin-bottom: 4px;
 }

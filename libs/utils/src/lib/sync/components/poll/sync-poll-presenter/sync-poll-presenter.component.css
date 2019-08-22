@@ -4,3 +4,7 @@
   height: 442px;
   margin: 0 auto;
 }
+
+.question, .timer {
+  text-align: center;
+}

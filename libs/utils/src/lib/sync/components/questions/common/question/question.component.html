@@ -2,7 +2,10 @@
   <mat-card-content>
     <div class="question-body-wrapper">
       <div class="questions-score">{{question.score}}</div>
-      <div class="question-body">{{question.question}}</div>
+      <div class="question-body">
+        <div class="author">{{question.displayName}}</div>
+        <div>{{question.question}}</div>
+      </div>
     </div>
   </mat-card-content>
 
