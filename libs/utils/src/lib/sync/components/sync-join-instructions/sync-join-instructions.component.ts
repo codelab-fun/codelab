@@ -7,7 +7,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
   styleUrls: ['./sync-join-instructions.component.css']
 })
 export class SyncJoinInstructionsComponent {
-  readonly key = 'joinUrl';
+  readonly key = 'registration/joinUrl';
   readonly defaultValue = 'kirjs.com/start';
 
   url: string;

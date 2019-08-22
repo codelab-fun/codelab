@@ -18,6 +18,13 @@ export class SyncRegistrationService {
   readonly nameObject = this.syncDataService.getCurrentViewerObject<string>(this.key);
   readonly currentUser$ = this.nameObject.valueChanges();
 
+  readonly registrationConfig$ = this.syncDataService.getPresenterObject('registration', {
+    shouldDisplayNames: true,
+    isRegistrationEnabled: true
+  }).valueChanges();
+  readonly shouldDisplayNames$ = this.registrationConfig$.pipe(map(a => a.shouldDisplayNames));
+  readonly isRegistrationEnabled$ = this.registrationConfig$.pipe(map(a => a.isRegistrationEnabled));
+
   constructor(
     private readonly syncDataService: SyncDataService
   ) {

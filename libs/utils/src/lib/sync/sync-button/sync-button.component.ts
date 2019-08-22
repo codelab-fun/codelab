@@ -19,6 +19,7 @@ export class SyncButtonComponent {
   constructor(
     private readonly syncDataService: SyncDataService,
     readonly syncSessionService: SyncSessionService,
+    readonly registrationService: SyncRegistrationService,
     private readonly presentation: SlidesDeckComponent) {
     this.syncSessionService.autoJoin();
 

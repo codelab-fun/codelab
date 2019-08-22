@@ -8,6 +8,8 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
 })
 export class RegistrationAdminComponent {
   url: string;
+  displayNames: boolean;
+  isRegistrationEnabled: boolean;
 
   constructor(readonly registrationService: SyncRegistrationService) {
   }

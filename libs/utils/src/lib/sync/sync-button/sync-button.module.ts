@@ -4,6 +4,7 @@ import { SyncButtonComponent } from '@codelab/utils/src/lib/sync/sync-button/syn
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { MatButtonModule, MatCardModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { OnlineIndicatorModule } from '@codelab/utils/src/lib/sync/components/online-indicator/online-indicator.module';
+import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.module';
 
 @NgModule({
   declarations: [SyncButtonComponent],
@@ -16,6 +17,7 @@ import { OnlineIndicatorModule } from '@codelab/utils/src/lib/sync/components/on
     MatIconModule,
     MatCardModule,
     MatMenuModule,
+    SyncRegistrationModule,
   ]
 })
 export class SyncButtonModule {

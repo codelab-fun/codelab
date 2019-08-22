@@ -1,14 +1,22 @@
-<slides-sync-join-instructions></slides-sync-join-instructions>
+<ng-container *ngIf="registrationService.isRegistrationEnabled$ | async else registrationOver">
+  <slides-sync-join-instructions></slides-sync-join-instructions>
+</ng-container>
 <div *ngIf="registrationService.users$ | async as users">
-  <ng-container *ngIf="users.length else lol"></ng-container>
-  <ul>
-    <li *ngFor="let user of users">
-      {{user.name}}
-    </li>
-  </ul>
+  <ng-container *ngIf="users.length else waiting">
+    <h3>Users connected:  {{users.length}}</h3>
+    <ul *ngIf="registrationService.shouldDisplayNames$ | async">
+      <li *ngFor="let user of users">
+        {{user.name}}
+      </li>
+    </ul>
+  </ng-container>
 </div>
-<ng-template #lol>
-  <div>
+<ng-template #waiting>
+  <h2>
     Waiting for users to connect...
-  </div>
+  </h2>
+  <div class="bunny"></div>
+</ng-template>
+<ng-template #registrationOver>
+  <h1>Registration is over</h1>
 </ng-template>

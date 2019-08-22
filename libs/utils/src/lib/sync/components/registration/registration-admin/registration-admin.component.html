@@ -1,5 +1,22 @@
 <div *ngIf="registrationService.users$ | async as users">
   <slides-sync-join-instructions></slides-sync-join-instructions>
+  <div>
+    <mat-checkbox [syncPresenterValue]="'registration/shouldDisplayNames'"
+                  [syncPresenterValueDefault]="true"
+                  [(ngModel)]="displayNames"
+    >
+      Display names
+    </mat-checkbox>
+  </div>
+
+  <div>
+    <mat-checkbox [syncPresenterValue]="'registration/isRegistrationEnabled'"
+                  [syncPresenterValueDefault]="true"
+                  [(ngModel)]="isRegistrationEnabled"
+    >
+      Enable registration
+    </mat-checkbox>
+  </div>
   <ul>
     <li *ngFor="let user of users">
       {{user.name}}

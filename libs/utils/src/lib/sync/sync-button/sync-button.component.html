@@ -5,7 +5,7 @@
   </button>
 </mat-menu>
 
-<div style="position: relative;">
+<div>
   <ng-container *ngIf="syncSessionService.hasActiveSession$ | async else noSession">
     <mat-card *isAdmin>
       <button mat-icon-button (click)="present()">
@@ -21,10 +21,27 @@
       <mat-icon>more_vert</mat-icon>
     </button>
 
+    <ng-container *isViewing>
+      <div *ngIf="registrationService.currentUser$| async as user else registation">
+        <!--        {{user}}-->
+      </div>
+      <ng-template #registation>
+        <div class="registration">
+          <slides-registration></slides-registration>
+        </div>
+      </ng-template>
+      <button mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">
+        <mat-icon>more_vert</mat-icon>
+      </button>
 
-    <button *isPresenting mat-icon-button [matMenuTriggerFor]="appMenu" style="position: absolute; right: 0;top: 0;">
-      <mat-icon>more_vert</mat-icon>
-    </button>
+    </ng-container>
+
+    <ng-container *isPresenting>
+      <button mat-icon-button [matMenuTriggerFor]="appMenu" style="position: absolute; right: 0;top: 0;">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </ng-container>
+
 
     <mat-menu #appMenu="matMenu">
       <button mat-menu-item (click)="administer()">
@@ -36,8 +53,6 @@
 </div>
 
 <ng-template #noSession>
-
-
   <button mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">
     <mat-icon>more_vert</mat-icon>
   </button>
