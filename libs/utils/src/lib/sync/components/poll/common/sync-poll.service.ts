@@ -8,6 +8,7 @@ import { database } from 'firebase/app';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
+import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
@@ -93,18 +94,18 @@ export class SyncPoll {
     map(time => time > 0)
   );
   readonly hasVotes$: Observable<boolean>;
+  readonly votesCount$: Observable<number>;
   private readonly viewerData = this.syncDataService.getCurrentViewerObject<UserVote>(this.key, {answer: null, time: 0});
   readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => a.answer));
   private readonly votesData = this.syncDataService.getAdminAllUserData(this.key, {});
-  readonly votes$ = this.votesData.valueChanges();
-  private readonly votesCount$ = this.votes$.pipe(map(votes => Object.values(votes).length));
+  votes$ = this.votesData.valueChanges();
 
   constructor(private readonly syncDataService: SyncDataService,
               readonly config: SyncPollConfig,
               private readonly syncDbService: SyncDbService) {
     // Reformatting breaks this if it's out of the constructor.
     this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
-
+    this.votesCount$ = this.votes$.pipe(map(votes => Object.values(votes).length));
   }
 
   vote(answer: number) {
@@ -129,7 +130,9 @@ export class SyncPollService {
   constructor(
     private readonly syncDataService: SyncDataService,
     private readonly syncSessionService: SyncSessionService,
-    private readonly syncDbService: SyncDbService) {
+    private readonly syncDbService: SyncDbService,
+    private readonly registrationService: SyncRegistrationService
+  ) {
   }
 
   getPoll(config: SyncPollConfig) {
@@ -140,18 +143,31 @@ export class SyncPollService {
     const presenterData$ = this.syncDataService.getPresenterObject('poll').valueChanges().pipe(filter(a => a !== null));
     const userData$ = this.syncDataService.getAdminAllUserData('poll').valueChanges().pipe(filter(a => a !== null));
 
-    return combineLatest([of(syncPollConfigs), presenterData$, userData$]).pipe(
+    const result$ = combineLatest([of(syncPollConfigs), presenterData$, userData$]).pipe(
       map(([configs, presenterData, userData]) => calculateUserScore(configs, presenterData, userData)));
+
+    return combineLatest([result$, this.registrationService.usersMap$]).pipe(map(([results, users]) => {
+      return Object.entries<number>(users).reduce((result, [uid, name]) => {
+        result[uid] = {name, score: results[uid] || 0};
+        return result;
+      }, {});
+    }));
+
   }
 
   calculateMyScore(syncPollConfigs: SyncPollConfig[]) {
-    return combineLatest([this.calculateScores(syncPollConfigs), this.syncSessionService.viewerId$]).pipe(map(([scores, uid]) => {
-      scores = toValuesAndKeys<number>(scores).sort((a, b) => b.value - a.value);
+    return combineLatest([this.calculateScores(syncPollConfigs), this.syncSessionService.viewerId$]).pipe(map(([scoresObj, uid]) => {
+      const scores = toValuesAndKeys<{ score: number, name: string }>(scoresObj).sort((a, b) => b.value.score - a.value.score);
       const index = scores.findIndex(score => score.key === uid);
+
+      if (index === -1) {
+        return {place: 0, score: 0};
+      }
+
 
       return {
         place: index + 1,
-        score: scores[index].value,
+        ...(scores[index].value)
       };
     }));
   }

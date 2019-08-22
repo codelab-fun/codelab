@@ -32,7 +32,7 @@ export function firebaseToValuesWithKey<T>(list: AngularFireAction<DatabaseSnaps
   return list.map(action => ({key: action.key, ...action.payload.val()}));
 }
 
-export function toValuesAndKeys<T>(object: { [k: string]: T }) {
+export function toValuesAndKeys<T>(object: { [k: string]: T }): Array<{key: string, value: T}> {
   return Object.entries(object).map(([key, value]) => ({key, value}));
 }
 

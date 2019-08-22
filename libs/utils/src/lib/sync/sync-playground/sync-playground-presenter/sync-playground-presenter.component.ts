@@ -7,6 +7,7 @@ import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-se
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({
   selector: 'slides-sync-playground-presenter',
@@ -17,6 +18,7 @@ import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/com
     SyncSessionService,
     SyncDbService,
     SyncPollService,
+    SyncRegistrationService,
     {
       provide: LoginService,
       useFactory: () => ({

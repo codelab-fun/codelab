@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BarChartComponent implements OnInit {
   @Input() highlightedIndex: number;
- @Input() vertical = false;
+  @Input() vertical = false;
 
   max: number;
   breakdown: { value: number; key: string }[];
@@ -17,6 +17,7 @@ export class BarChartComponent implements OnInit {
 
   @Input() set data(votes: { [k: string]: number; }) {
     this.breakdown = Object.entries(votes || {}).map(([key, value]) => ({key, value})).sort((a, b) => b.value - a.value);
+    debugger;
     this.max = Math.max(...Object.values(votes || {}), 0);
   }
 

@@ -9,8 +9,9 @@ export class SyncRegistrationService {
   readonly key = 'name';
   name = '';
 
-  readonly userData = this.syncDataService.getAdminAllUserData(this.key);
-  readonly users$ = this.userData.valueChanges()
+  readonly userData = this.syncDataService.getAdminAllUserData<any>(this.key);
+  readonly usersMap$ = this.userData.valueChanges();
+  readonly users$ = this.usersMap$
     .pipe(map(a => {
       return a ? Object.entries(a).map((([userId, name]) => ({userId, name}))) : [];
     }));
@@ -31,7 +32,10 @@ export class SyncRegistrationService {
   }
 
   save() {
-    this.nameObject.set(this.name);
+    const name = this.name.trim();
+    if (name !== '') {
+      this.nameObject.set(name);
+    }
   }
 
   clear() {
