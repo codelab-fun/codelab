@@ -36,14 +36,14 @@
   text-align: center;
 }
 
-slides-stars {
+codelab-stars {
   display: block;
   margin: 0 auto;
   width: calc(var(--bar-width) * 5);
   margin-bottom: 60px;
 }
 
-::ng-deep slides-stars .mat-icon {
+::ng-deep codelab-stars .mat-icon {
   font-size: var(--bar-width);
   width: var(--bar-width);
   height: var(--bar-width);

@@ -4,7 +4,7 @@ import { LoginService } from '@codelab/firebase-login';
 import { auth } from 'firebase';
 
 @Component({
-  selector: 'slides-login',
+  selector: 'codelab-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

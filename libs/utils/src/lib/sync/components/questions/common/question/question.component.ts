@@ -3,7 +3,7 @@ import { Question, QuestionStatus, statuses } from '@codelab/utils/src/lib/sync/
 import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
 
 @Component({
-  selector: 'slides-question',
+  selector: 'codelab-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
 })

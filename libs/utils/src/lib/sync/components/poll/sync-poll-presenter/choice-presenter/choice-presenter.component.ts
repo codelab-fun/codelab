@@ -3,7 +3,7 @@ import { LETTERS } from '@codelab/utils/src/lib/sync/components/poll/common/comm
 import { UserVote } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 
 @Component({
-  selector: 'slides-choice-presenter',
+  selector: 'codelab-choice-presenter',
   templateUrl: './choice-presenter.component.html',
   styleUrls: ['./choice-presenter.component.css']
 })

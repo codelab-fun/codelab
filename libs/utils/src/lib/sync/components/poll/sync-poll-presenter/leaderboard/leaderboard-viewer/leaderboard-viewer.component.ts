@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 
 @Component({
-  selector: 'slides-leaderboard-viewer',
+  selector: 'codelab-leaderboard-viewer',
   templateUrl: './leaderboard-viewer.component.html',
   styleUrls: ['./leaderboard-viewer.component.css']
 })

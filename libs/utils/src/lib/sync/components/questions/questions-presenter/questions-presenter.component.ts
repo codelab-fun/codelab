@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
 
 @Component({
-  selector: 'slides-questions-presenter',
+  selector: 'codelab-questions-presenter',
   templateUrl: './questions-presenter.component.html',
   styleUrls: ['./questions-presenter.component.css']
 })

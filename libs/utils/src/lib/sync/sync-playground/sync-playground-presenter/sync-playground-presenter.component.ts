@@ -10,7 +10,7 @@ import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/com
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({
-  selector: 'slides-sync-playground-presenter',
+  selector: 'codelab-sync-playground-presenter',
   templateUrl: './sync-playground-presenter.component.html',
   styleUrls: ['./sync-playground-presenter.component.css'],
   providers: [

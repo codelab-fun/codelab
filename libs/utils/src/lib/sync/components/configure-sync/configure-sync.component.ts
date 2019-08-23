@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'slides-configure-sync',
+  selector: 'codelab-configure-sync',
   templateUrl: './configure-sync.component.html',
   styleUrls: ['./configure-sync.component.css']
 })

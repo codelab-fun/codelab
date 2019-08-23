@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 import { Observable } from 'rxjs';
 
@@ -10,11 +10,11 @@ interface Response {
 }
 
 @Component({
-  selector: 'slides-leaderboard',
+  selector: 'codelab-leaderboard',
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.css']
 })
-export class LeaderboardComponent {
+export class LeaderboardComponent implements OnInit {
   @Input() config;
   private leaderboard$: Observable<any>;
 

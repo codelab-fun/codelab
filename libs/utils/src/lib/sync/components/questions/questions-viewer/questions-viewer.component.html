@@ -3,7 +3,9 @@
   <mat-form-field>
     <mat-label>Your question:</mat-label>
     <textarea maxlength="280"
-              required matInput cdkTextareaAutosize #q (keydown.control.enter)="addQuestion(q)"
+              style="height: 120px;"
+              required matInput
+              #q (keydown.control.enter)="addQuestion(q)"
               (keydown.command.enter)="addQuestion(q)"></textarea>
   </mat-form-field>
   <button mat-raised-button [disabled]="q.value.trim() === ''" (click)="addQuestion(q)">Submit</button>
@@ -19,7 +21,7 @@
       </mat-expansion-panel-header>
 
       <ng-container *ngFor="let question of unapproved">
-        <slides-question [question]="question" [showControls]="false"></slides-question>
+        <codelab-question [question]="question" [showControls]="false"></codelab-question>
       </ng-container>
     </mat-expansion-panel>
   </ng-container>
@@ -28,9 +30,9 @@
 <ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
   <ng-container *ngIf="questions.length">
     <h2>All questions:</h2>
-    <slides-question *ngIf="questionsService.starredQuestion$ | async as question"
-                     tabindex="0" [question]="question" class="starred"></slides-question>
+    <codelab-question *ngIf="questionsService.starredQuestion$ | async as question"
+                      tabindex="0" [question]="question" class="starred"></codelab-question>
 
-    <slides-question-list [questions]="questions"></slides-question-list>
+    <codelab-question-list [questions]="questions"></codelab-question-list>
   </ng-container>
 </ng-container>

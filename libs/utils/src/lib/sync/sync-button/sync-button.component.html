@@ -1,4 +1,4 @@
-<slides-online-indicator></slides-online-indicator>
+<codelab-online-indicator></codelab-online-indicator>
 <mat-menu #userId="matMenu">
   <button mat-menu-item>
     {{syncSessionService.viewerId$ | async}}
@@ -27,7 +27,7 @@
       </div>
       <ng-template #registation>
         <div class="registration">
-          <slides-registration></slides-registration>
+          <codelab-registration></codelab-registration>
         </div>
       </ng-template>
       <button mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">

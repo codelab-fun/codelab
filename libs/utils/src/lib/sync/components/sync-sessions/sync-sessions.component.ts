@@ -4,7 +4,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 
 @Component({
-  selector: 'slides-sync-sessions',
+  selector: 'codelab-sync-sessions',
   templateUrl: './sync-sessions.component.html',
   styleUrls: ['./sync-sessions.component.css'],
   providers: [

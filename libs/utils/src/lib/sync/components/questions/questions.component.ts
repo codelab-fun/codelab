@@ -4,7 +4,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
 
 
 @Component({
-  selector: 'slides-questions',
+  selector: 'codelab-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css'],
   providers: [QuestionsService, SyncDataService],

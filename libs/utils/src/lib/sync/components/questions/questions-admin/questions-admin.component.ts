@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { statuses } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 
 @Component({
-  selector: 'slides-questions-admin',
+  selector: 'codelab-questions-admin',
   templateUrl: './questions-admin.component.html',
   styleUrls: ['./questions-admin.component.css'],
   providers: [QuestionsService],

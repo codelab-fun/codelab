@@ -4,7 +4,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
 
 @Component({
-  selector: 'slides-question-list',
+  selector: 'codelab-question-list',
   templateUrl: './question-list.component.html',
   styleUrls: ['./question-list.component.css'],
   animations: [

@@ -5,11 +5,11 @@
     <ng-container *ngFor="let status of statuses">
       <mat-tab [label]="status + ' (' + questionsByStatus[status]?.length + ')'"
                *ngIf="questionsByStatus[status]?.length">
-        <slides-question *ngIf="questionsService.starredQuestion$ | async as question"
-                         tabindex="0" [question]="question" class="starred"></slides-question>
+        <codelab-question *ngIf="questionsService.starredQuestion$ | async as question"
+                          tabindex="0" [question]="question" class="starred"></codelab-question>
 
-        <slides-question-list [questions]="questionsByStatus[status]">
-        </slides-question-list>
+        <codelab-question-list [questions]="questionsByStatus[status]">
+        </codelab-question-list>
       </mat-tab>
     </ng-container>
   </ng-container>

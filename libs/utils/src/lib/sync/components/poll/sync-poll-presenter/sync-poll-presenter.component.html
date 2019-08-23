@@ -16,13 +16,13 @@
       <h2>{{poll.votesCount$ | async}} votes</h2>
     </div>
     <div class="results" *ngIf="!poll.config.answer || ((poll.$isPollRunning | async) === false)">
-      <slides-choice-presenter *ngIf="config.type === 'choice'"
-                               [answerIndex]="getAnswerIndex()"
-                               [votes]="poll.votes$ | async"
-                               [options]="poll.config.options"
-      ></slides-choice-presenter>
-      <slides-stars-presenter *ngIf="config.type === 'stars'"
-                              [votes]="poll.votes$ | async"></slides-stars-presenter>
+      <codelab-choice-presenter *ngIf="config.type === 'choice'"
+                                [answerIndex]="((poll.timestamp$ | async) > 0) && ((poll.$isPollRunning | async) === false) && getAnswerIndex()"
+                                [votes]="poll.votes$ | async"
+                                [options]="poll.config.options"
+      ></codelab-choice-presenter>
+      <codelab-stars-presenter *ngIf="config.type === 'stars'"
+                               [votes]="poll.votes$ | async"></codelab-stars-presenter>
     </div>
   </ng-container>
   <ng-template #waiting>
@@ -38,11 +38,12 @@
 </ng-template>
 
 
-<div *ngIf="(poll.isPollEnabled$ | async ) else wait" [class.disabled]="(poll.$isPollRunning | async) !== true">
-  <slides-sync-poll-viewer-choice
-    [myVote]="getAnswerIndex()"
+<div *ngIf="(poll.isPollEnabled$ | async ) else wait"
+     [class.disabled]="(poll.$isPollRunning | async) !== true">
+  <codelab-sync-poll-viewer-choice
+    [myVote]="((poll.timestamp$ | async) > 0) && ((poll.$isPollRunning | async) === false) && getAnswerIndex()"
     [options]="config.options"
     (vote)="poll.vote($event)"
     *ngIf="config.type === 'choice'">
-  </slides-sync-poll-viewer-choice>
+  </codelab-sync-poll-viewer-choice>
 </div>

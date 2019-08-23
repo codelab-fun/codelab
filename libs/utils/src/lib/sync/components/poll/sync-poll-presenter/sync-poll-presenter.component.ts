@@ -3,7 +3,7 @@ import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/comm
 import { SyncPoll, SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 
 @Component({
-  selector: 'slides-sync-poll-presenter',
+  selector: 'codelab-sync-poll-presenter',
   templateUrl: './sync-poll-presenter.component.html',
   styleUrls: ['./sync-poll-presenter.component.css']
 })

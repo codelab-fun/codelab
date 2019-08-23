@@ -79,7 +79,19 @@ export class MskComponent implements OnInit {
         'React 16.12',
         'Angular XS',
       ]
-    }
+    },
+    {
+      key: 'material',
+      type: 'choice',
+      question: 'Which feature was added to Angular CDK library 8.1.3 "gelatin-key" (2019-08-14)?',
+      answer: '',
+      options: [
+        'Windows 95 theme support',
+        'Drag and drop',
+        'New material-fox component',
+        'New Clipboard service + directive',
+      ]
+    },
   ];
 
   constructor() {

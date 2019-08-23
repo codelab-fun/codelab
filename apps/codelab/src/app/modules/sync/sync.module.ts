@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { ConfigureSyncModule } from '@codelab/utils/src/lib/sync/components/configure-sync/configure-sync.module';
-import { LoginService } from '@codelab/firebase-login';
 
 @NgModule({
   declarations: [SyncComponent],
@@ -29,17 +28,14 @@ export class SyncModule {
   selector: 'codelab-sync-admin-wrapper',
   template: '<codelab-sync-survey [admin]="true"></codelab-sync-survey>'
 })
-export class SyncAdminWrapper {
-  constructor(readonly loginService: LoginService){
-
-  }
+export class SyncAdminWrapperComponent {
 }
 
-const routes = RouterModule.forChild(SlidesRoutes.get(SyncAdminWrapper));
+const routes = RouterModule.forChild(SlidesRoutes.get(SyncAdminWrapperComponent));
 
 
 @NgModule({
-  declarations: [SyncAdminWrapper],
+  declarations: [SyncAdminWrapperComponent],
   imports: [
     SyncModule,
     routes,

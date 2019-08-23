@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccessService } from './services/access.service';
 
 @Component({
-  selector: 'slides-admin',
+  selector: 'codelab-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })

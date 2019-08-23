@@ -11,16 +11,16 @@
 
 <div *ngIf="(poll.isPollEnabled$ | async ) else wait" [class.disabled]="(poll.$isPollRunning | async) !== true">
 
-  <slides-stars [enabled]="poll.$isPollRunning|async" *ngIf="config.type === 'stars'"
-                [(ngModel)]="stars" [syncViewerValue]="this.poll.key"></slides-stars>
+  <codelab-stars [enabled]="poll.$isPollRunning|async" *ngIf="config.type === 'stars'"
+                 [(ngModel)]="stars" [syncViewerValue]="this.poll.key"></codelab-stars>
 
-  <slides-sync-poll-viewer-choice
+  <codelab-sync-poll-viewer-choice
     [myVote]="poll.myVote$ | async"
     [enabled]="poll.$isPollRunning|async"
     [options]="config.options"
     (vote)="poll.vote($event)"
     *ngIf="config.type === 'choice'">
-  </slides-sync-poll-viewer-choice>
+  </codelab-sync-poll-viewer-choice>
 
 </div>
 

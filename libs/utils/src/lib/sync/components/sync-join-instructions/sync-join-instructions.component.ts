@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 @Component({
-  selector: 'slides-sync-join-instructions',
+  selector: 'codelab-sync-join-instructions',
   templateUrl: './sync-join-instructions.component.html',
   styleUrls: ['./sync-join-instructions.component.css']
 })

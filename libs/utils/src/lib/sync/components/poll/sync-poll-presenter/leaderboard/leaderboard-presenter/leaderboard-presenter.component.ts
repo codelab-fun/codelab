@@ -4,7 +4,7 @@ import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/com
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'slides-leaderboard-presenter',
+  selector: 'codelab-leaderboard-presenter',
   templateUrl: './leaderboard-presenter.component.html',
   styleUrls: ['./leaderboard-presenter.component.css']
 })

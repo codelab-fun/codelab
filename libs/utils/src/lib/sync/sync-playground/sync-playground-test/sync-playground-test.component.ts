@@ -3,7 +3,7 @@ import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/comm
 
 
 @Component({
-  selector: 'slides-sync-playground-test',
+  selector: 'codelab-sync-playground-test',
   templateUrl: './sync-playground-test.component.html',
   styleUrls: ['./sync-playground-test.component.css']
 })

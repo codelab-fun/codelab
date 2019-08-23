@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../codelab/src/environments/environment';
 
@@ -117,11 +117,6 @@ const routes = [
     angularFire
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useValue: monacoReady,
-      multi: true
-    },
     {
       provide: 'ROUTES',
       useValue: []

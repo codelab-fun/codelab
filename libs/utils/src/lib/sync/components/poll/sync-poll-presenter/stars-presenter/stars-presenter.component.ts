@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { sum } from '@codelab/utils/src/lib/sync/common';
 
 @Component({
-  selector: 'slides-stars-presenter',
+  selector: 'codelab-stars-presenter',
   templateUrl: './stars-presenter.component.html',
   styleUrls: ['./stars-presenter.component.css']
 })
@@ -25,7 +25,8 @@ export class StarsPresenterComponent implements OnInit {
     this.max = Math.max(...this.breakdown);
 
   }
-  trackBy(i: number){
+
+  trackBy(i: number) {
     return i;
   }
 

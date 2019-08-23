@@ -2,8 +2,7 @@ import { Component, forwardRef, HostBinding, Input, OnInit } from '@angular/core
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'slides-stars',
+  selector: 'codelab-stars',
   templateUrl: './stars.component.html',
   styleUrls: ['./stars.component.css'],
   providers: [

@@ -2,7 +2,7 @@
   margin-right: 10px;
 }
 
-slides-stars {
+codelab-stars {
   width: 300px;
   margin: 0 auto;
   display: block;
@@ -10,7 +10,7 @@ slides-stars {
 }
 
 
-::ng-deep slides-stars .mat-icon {
+::ng-deep codelab-stars .mat-icon {
   font-size: 50px;
   width: 50px;
   height: 50px;

@@ -6,7 +6,7 @@ import { SyncPoll, SyncPollService } from '@codelab/utils/src/lib/sync/component
 
 
 @Component({
-  selector: 'slides-sync-poll-admin',
+  selector: 'codelab-sync-poll-admin',
   templateUrl: './sync-poll-admin.component.html',
   styleUrls: ['./sync-poll-admin.component.css']
 })

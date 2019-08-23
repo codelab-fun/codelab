@@ -16,7 +16,7 @@ export interface Admin extends AdminDb {
 }
 
 @Component({
-  selector: 'slides-users',
+  selector: 'codelab-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })

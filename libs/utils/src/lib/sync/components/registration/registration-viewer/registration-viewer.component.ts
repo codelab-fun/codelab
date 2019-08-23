@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 @Component({
-  selector: 'slides-registration-viewer',
+  selector: 'codelab-registration-viewer',
   templateUrl: './registration-viewer.component.html',
   styleUrls: ['./registration-viewer.component.css']
 })
