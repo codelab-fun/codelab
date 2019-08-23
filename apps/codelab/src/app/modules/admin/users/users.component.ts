@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
 
   readonly admins = this.dbService.list<AdminDb>('admin');
   private readonly allAdmins$ = this.admins.snapshots$.pipe(map(firebaseToValuesWithKey));
-  private readonly admins$: Observable<Admin[]> = combineLatest([this.allAdmins$, this.loginService.uid$]).pipe(
+  readonly admins$: Observable<Admin[]> = combineLatest([this.allAdmins$, this.loginService.uid$]).pipe(
     map(([admins, currentUserUid]) => {
       return admins.map(admin => ({...admin, isCurrentUser: admin.key === currentUserUid}));
     })
