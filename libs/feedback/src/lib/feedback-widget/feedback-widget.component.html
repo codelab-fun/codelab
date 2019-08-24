@@ -21,7 +21,8 @@
                 <span class="name">{{ item.name }}</span>
                 <div style="display: flex;">
                   <span class="date"> {{ item.timestamp | date }}</span>
-                  <feedback-issue-dropdown [message]="item"></feedback-issue-dropdown>
+                  <feedback-issue-dropdown *ngIf="accessService.oldIsAdmin$ | async"
+                                           [message]="item"></feedback-issue-dropdown>
                 </div>
               </div>
               <div class="comment">{{ item.comment }}</div>
