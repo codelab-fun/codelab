@@ -1,0 +1,50 @@
+::ng-deep :root {
+  --bar-width: 50px;
+}
+
+.wrapper {
+  margin: 40px auto;
+  display: flex;
+  text-align: center;
+  width: calc(var(--bar-width) * 6);
+}
+
+.filler {
+  width: var(--bar-width);
+  background: #fff;
+  position: relative;
+  transition: height 1s ease-out;
+}
+
+.bar {
+  width: var(--bar-width);
+  height: 200px;
+  background: #ff4e3d;
+  margin-right: 10px;
+}
+
+.star {
+  width: var(--bar-width);
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
+
+codelab-stars {
+  display: block;
+  margin: 0 auto;
+  width: calc(var(--bar-width) * 5);
+  margin-bottom: 60px;
+}
+
+::ng-deep codelab-stars .mat-icon {
+  font-size: var(--bar-width);
+  width: var(--bar-width);
+  height: var(--bar-width);
+}
+
+.label {
+  width: var(--bar-width);
+  font-size: 20px;
+  margin-top: 20px;
+}

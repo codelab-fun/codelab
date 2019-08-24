@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ContentChildren,
   EventEmitter,
@@ -27,7 +28,10 @@ export class SlidesDeckComponent {
   @HostBinding('class.has-milestone') hasMilestone = false;
   private milestone = '';
 
-  constructor(@Optional() route: ActivatedRoute) {
+  constructor(
+    private readonly cdr: ChangeDetectorRef,
+    @Optional() private readonly  route: ActivatedRoute
+  ) {
     if (route) {
       this.milestone = route.snapshot.queryParams.milestone;
       this.hasMilestone = !!this.milestone;
@@ -43,6 +47,7 @@ export class SlidesDeckComponent {
   goToSlide(index: number) {
     this.activeSlideIndex = index;
     this.slideChange.emit(index);
+    this.cdr.markForCheck();
   }
 
   nextSlide() {

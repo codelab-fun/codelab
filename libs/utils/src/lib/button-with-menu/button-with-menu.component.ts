@@ -1,15 +1,9 @@
-import {
-  Component,
-  ContentChild,
-  ElementRef,
-  OnDestroy,
-  ViewContainerRef
-} from '@angular/core';
+import { Component, ContentChild, ElementRef, OnDestroy, ViewContainerRef } from '@angular/core';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ButtonWithMenuModalDirective } from './button-with-menu-modal.directive';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'codelab-button-with-menu',
@@ -17,9 +11,9 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./button-with-menu.component.scss']
 })
 export class ButtonWithMenuComponent implements OnDestroy {
-  @ContentChild(ButtonWithMenuModalDirective, { static: false }) modal;
+  @ContentChild(ButtonWithMenuModalDirective, {static: false}) modal;
 
-  destroy: ReplaySubject<any> = new ReplaySubject<any>(1);
+  destroy: Subject<void> = new Subject();
 
   overlayRef: OverlayRef;
 

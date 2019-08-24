@@ -1,11 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../../../codelab/src/environments/environment';
+
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
+
 
 const routes = [
   {
@@ -42,7 +49,7 @@ const routes = [
     loadChildren: () => import('./modules/music/music.module').then(m => m.MusicModule),
     name: 'Music',
     description: 'Music'
-  },  {
+  }, {
     path: 'webassembly',
     loadChildren: () => import('./modules/webassembly/webassembly.module').then(m => m.WebassemblyModule),
     name: 'webassembly',
@@ -77,12 +84,27 @@ const routes = [
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     name: 'Home',
     description: 'Home'
+  }, {
+    path: 'sync',
+    loadChildren: () => import('./modules/sync/sync.module').then(m => m.SyncModule),
+    name: 'Sync',
+    description: 'Sync Session'
   },
   {
     path: 'test',
     loadChildren: () => import('./modules/test/test.module').then(m => m.TestModule),
     name: 'Home',
     description: 'Home'
+  },
+  {
+    path: 'qna',
+    loadChildren: () => import('./modules/qna/qna.module').then(m => m.QnaModule),
+    name: 'Q&A',
+  },
+  {
+    path: 'msk',
+    loadChildren: () => import('./modules/msk/msk.module').then(m => m.MskModule),
+    name: 'Angular Moscow Meetup',
   }
 ];
 
@@ -91,14 +113,10 @@ const routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    angularFire
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useValue: monacoReady,
-      multi: true
-    },
     {
       provide: 'ROUTES',
       useValue: []

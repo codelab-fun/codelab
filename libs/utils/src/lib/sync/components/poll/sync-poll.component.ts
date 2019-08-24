@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
+
 
 /**
  * Coming soon.
  */
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'slides-poll',
+  selector: 'codelab-poll',
   templateUrl: './sync-poll.component.html',
-  styleUrls: ['./sync-poll.component.css']
+  styleUrls: ['./sync-poll.component.css'],
+  providers: [
+    SyncPollService,
+  ],
 })
-export class SyncPollComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class SyncPollComponent {
+  @Input() poll: SyncPollConfig;
 }

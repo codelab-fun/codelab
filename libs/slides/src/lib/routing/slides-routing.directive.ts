@@ -1,14 +1,7 @@
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  OnInit,
-  Output,
-  OnDestroy
-} from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Directive, EventEmitter, HostListener, OnDestroy, OnInit, Output } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
-import { filter, takeUntil } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Directive({
@@ -23,16 +16,16 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
 
   private ngUnsubscribe$ = new Subject();
 
-  @HostListener('slideChange', ['$event']) slideChange(index) {
-    this.navigate(this.getId(index));
-  }
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private deck: SlidesDeckComponent
   ) {
     this.handleBackButtonSlideIndexSync();
+  }
+
+  @HostListener('slideChange', ['$event']) slideChange(index) {
+    this.navigate(this.getId(index));
   }
 
   ngOnInit() {
@@ -47,8 +40,8 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
 
   getId(index: number) {
     return this.deck.slides &&
-      this.deck.slides[index] &&
-      this.deck.slides[index].id
+    this.deck.slides[index] &&
+    this.deck.slides[index].id
       ? this.deck.slides[index].id
       : index;
   }
@@ -80,11 +73,13 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
   private handleBackButtonSlideIndexSync() {
     this.router.events
       .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => this.getIndexFromRouteParam()),
+        distinctUntilChanged(),
         takeUntil(this.ngUnsubscribe$),
-        filter(event => event instanceof NavigationEnd)
       )
-      .subscribe(() => {
-        this.deck.goToSlide(this.getIndexFromRouteParam());
+      .subscribe((slide) => {
+        this.deck.goToSlide(slide);
       });
   }
 }
