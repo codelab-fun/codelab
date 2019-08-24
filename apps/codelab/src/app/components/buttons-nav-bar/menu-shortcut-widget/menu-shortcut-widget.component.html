@@ -5,10 +5,9 @@
 <mat-menu #menu="matMenu">
   <div class="buttons-nav-bar-modal-content-wrapper">
     <ul>
-      <li><a routerLink="/" (click)="modal.close()">🏡 Index </a></li>
+      <li><a routerLink="/">🏡 Index </a></li>
       <li *ngFor="let navigationRoute of menuRoutes">
-        <a (click)="modal.close()"
-           [routerLink]="['/angular', navigationRoute['path']]">
+        <a [routerLink]="['/angular', navigationRoute['path']]">
           {{ navigationRoute['name'] }}
         </a>
       </li>
