@@ -5,7 +5,7 @@ import { menuRoutes } from '../angular/angular-routing.module';
 @Component({
   selector: 'codelab-slides-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  styleUrls: ['./index.component.scss']
 })
 export class IndexComponent {
   @ViewChild('translations', { static: false }) translations;

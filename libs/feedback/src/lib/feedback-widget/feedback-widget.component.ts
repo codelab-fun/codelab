@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
 import { Observable, Subject } from 'rxjs';
@@ -8,8 +8,9 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'feedback-widget',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './feedback-widget.component.html',
-  styleUrls: ['./feedback-widget.component.css']
+  styleUrls: ['./feedback-widget.component.scss']
 })
 export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   messages$: Observable<Message[]>;
@@ -26,15 +27,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     private feedbackService: FeedbackService,
     private router: Router
   ) {
-    this.router.events
-      .pipe(takeUntil(this.destroy.asObservable()))
-      .subscribe(
-        () => {
-          (this.messages$ = this.feedbackService.getMessages(
-            this.activatedRoute
-          ));
-        }
-      );
+    this.messages$ = this.feedbackService.getMessagesForCurrentPage();
   }
 
   ngOnInit() {
@@ -61,6 +54,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     const formValues: any = this.formGroup.getRawValue();
     localStorage.setItem('userName', formValues.name);
     localStorage.setItem('userEmail', formValues.email);
+
     this.feedbackService
       .addMessage(
         formValues.name,

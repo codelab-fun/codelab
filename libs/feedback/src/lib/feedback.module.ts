@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
+import { MatButtonModule, MatCardModule, MatMenuModule } from '@angular/material';
 
-import { ButtonWithMenuModule } from '@codelab/utils';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FeedbackService } from './feedback.service';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
-import { environment } from '../../../../apps/codelab/src/environments/environment';
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
+import { FeedbackIssueDropdownComponent } from '@codelab/feedback/src/lib/feedback-issue-dropdown/feedback-issue-dropdown.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GithubModule } from '@codelab/utils';
 
-// Note! We are using AngularFire2 v4. There are a lot of breaking changes.
-// See: https://github.com/angular/@angular/fire/issues/854
+import { environment } from '../../../../apps/codelab/src/environments/environment';
+
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
 );
@@ -25,14 +27,22 @@ export const angularFire = AngularFireModule.initializeApp(
     angularFire,
     FormsModule,
     AngularFireDatabaseModule,
-    ButtonWithMenuModule
+    HttpClientModule,
+    GithubModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [FeedbackService],
-  declarations: [FeedbackWidgetComponent, FeedbackRatingComponent],
-  exports: [
+  declarations: [
     FeedbackWidgetComponent,
     FeedbackRatingComponent,
-    ButtonWithMenuModule
+    FeedbackIssueDropdownComponent
+  ],
+  exports: [
+    FeedbackWidgetComponent,
+    FeedbackRatingComponent
   ]
 })
-export class FeedbackModule {}
+export class FeedbackModule {
+}
