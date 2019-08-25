@@ -1,4 +1,9 @@
 :host ::ng-deep {
+  .btn-bar {
+    z-index: 110;
+  }
+
+
   button:focus {
     outline: 0;
   }
@@ -17,17 +22,13 @@
 }
 
 ::ng-deep {
-
   .modal-title {
     margin: 0 0 10px 0;
   }
 
+
   .buttons-nav-bar-modal-content-wrapper {
-    border-radius: 4px;
-    border: 1px #999 solid;
-    background: white;
-    padding: 10px;
-    margin: 10px;
+    padding: 8px;
     font-weight: 300;
     font-family: 'Helvetica Neue', sans-serif;
   }

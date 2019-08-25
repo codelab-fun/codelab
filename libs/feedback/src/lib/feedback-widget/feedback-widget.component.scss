@@ -1,3 +1,7 @@
+.modal-title {
+  margin: 0 0 10px 0;
+}
+
 .menu-bar-btn {
   background-color: #3498db !important;
 }
@@ -50,7 +54,10 @@ textarea {
 }
 
 .feedback-item .header {
+  display: flex;
+  justify-content: space-between;
   font-size: 12px;
+  margin-bottom: 4px;
 }
 
 .header .date {
@@ -90,12 +97,4 @@ textarea {
 
 .mt-0 {
   margin-top: 0;
-}
-
-.btn {
-  color: #fff;
-  background: #3e8e01;
-  border: none;
-  cursor: pointer;
-  padding: 10px 30px;
 }
