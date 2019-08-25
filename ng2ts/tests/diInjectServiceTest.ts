@@ -18,7 +18,11 @@ beforeEach(() => {
       templateUrl: undefined
     }
   });
-  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
+  try {
+    TestBed.compileComponents();
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 describe('Blabla', () => {
@@ -29,7 +33,7 @@ describe('Blabla', () => {
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata).not.undefined;
+    chai.expect(metadata, 'Class VideoService has no decorators attached to it').not.undefined;
   });
 
   it(`@@addVideoServiceToNgModule`, () => {
@@ -40,12 +44,14 @@ describe('Blabla', () => {
       // Do nothing, we have assertions below for this case
     }
 
-    chai.expect(metadata.providers[0]).equals(VideoService);
+    chai.expect(metadata.providers, 'Can not find "providers" property in the NgModule decorator of the app module').not.to.be.undefined;
+    chai.expect(metadata.providers.length, '"providers" array is empty').to.be.greaterThan(0);
+    chai.expect(metadata.providers[0], 'Expect the first provider to be VideoService').equals(VideoService);
   });
 
 
   it(`@@getRidOfFakeVideos`, () => {
-    chai.expect(evalJs('typeof FAKE_VIDEOS;')).equals('undefined');
+    chai.expect(evalJs('typeof FAKE_VIDEOS;'), 'Variable FAKE_VIDEOS is still present in the code').equals('undefined');
   });
 
   it(`@@injectVideoService`, () => {
