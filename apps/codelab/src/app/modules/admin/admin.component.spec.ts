@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
+import { AdminModule } from './admin.module';
+import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
+import { RouterModule } from '@angular/router';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -8,9 +11,10 @@ describe('AdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
+      imports: [AdminModule, RouterModule.forRoot([])],
+      providers: [...getMockAngularFireProviders()]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

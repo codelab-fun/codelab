@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SyncComponent } from './sync.component';
+import { SyncModule } from './sync.module';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MockAngularFireAuth, MockAngularFireDatabase } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('SyncComponent', () => {
   let component: SyncComponent;
@@ -8,9 +12,18 @@ describe('SyncComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncComponent ]
+      imports: [SyncModule],
+      providers: [
+        {
+          provide: AngularFireDatabase,
+          useValue: MockAngularFireDatabase,
+        }, {
+          provide: AngularFireAuth,
+          useValue: MockAngularFireAuth,
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

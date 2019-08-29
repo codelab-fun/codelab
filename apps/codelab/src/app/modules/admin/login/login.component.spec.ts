@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
+import { LoginModule } from './login.module';
+import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -8,9 +10,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      imports: [LoginModule],
+      providers: [...getMockAngularFireProviders()]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

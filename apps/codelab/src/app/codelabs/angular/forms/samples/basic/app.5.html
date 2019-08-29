@@ -1,6 +1,6 @@
 <div class="field">
-  *name: <input #usernameModel="ngModel" [(ngModel)]="username" required />
-
+  *name:
+  <input required #usernameModel="ngModel" [(ngModel)]="username">
   <div
     *ngIf="usernameModel.invalid
     && (usernameModel.touched || usernameModel.dirty)"
@@ -9,7 +9,7 @@
     Username is required
   </div>
 </div>
-<div class="field">email: <input [(ngModel)]="email" /></div>
+<div class="field">email: <input [(ngModel)]="email"></div>
 
 <div class="values">
   Username: {{username}} <br />

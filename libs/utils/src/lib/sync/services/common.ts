@@ -75,7 +75,9 @@ export class SyncDataObject<T> {
 
 export class SyncDataList<T> {
   values$ = this.db$.pipe(switchMap(db => db.valueChanges()));
-  snapshots$ = this.db$.pipe(switchMap(db => db.snapshotChanges()));
+  snapshots$ = this.db$.pipe(switchMap(db => {
+    return db.snapshotChanges();
+  }));
 
   constructor(
     protected readonly db$: Observable<AngularFireList<T>>,
