@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GitHubService } from '../shared/services/github.service';
 
-const REPO_OWNER = 'nycJSorg';
+const REPO_OWNER = '30-seconds';
 const REPO_NAME = '30-seconds-of-angular';
 
 @Component({
