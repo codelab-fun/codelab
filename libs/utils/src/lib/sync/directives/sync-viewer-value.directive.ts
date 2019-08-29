@@ -1,8 +1,8 @@
-import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { Directive, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { switchMap, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -10,36 +10,44 @@ import { Subject } from 'rxjs';
   exportAs: 'viewerValue'
 
 })
-export class SyncViewerValueDirective<T> implements AfterViewInit, OnDestroy {
+export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
   @Input() syncViewerValue: string;
-  private onDestroy = new Subject();
+  @Input() syncViewerValueDefault: T;
+
+  private onDestroy$ = new Subject();
 
   constructor(
-    private readonly sync: SyncService<T>,
+    private readonly syncDataService: SyncDataService,
     @Optional() private readonly control: NgControl
   ) {
-
   }
 
   ngOnDestroy(): void {
-    this.onDestroy.next();
-    this.onDestroy.complete();
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
-  ngAfterViewInit() {
 
-    this.sync.whenViewing$.pipe(takeUntil(this.onDestroy)).subscribe(() => {
-      console.log('when viewing');
+  ngOnInit() {
+    if (!this.control) {
+      throw new Error('syncPresenterValue directive must be attached to a formControl');
+    }
 
-      this.sync.getViewerValue(this.syncViewerValue)
-        .pipe(take(1)).pipe(switchMap(value => {
+    const data = this.syncDataService.getCurrentViewerObject<T>(this.syncViewerValue, this.syncViewerValueDefault);
+
+    data.valueChanges()
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(value => {
         this.control.valueAccessor.writeValue(value);
-        console.log('sub here');
-        return this.control.valueChanges;
-      })).subscribe((value) => {
-        console.log('VALUE');
-        this.sync.updateViewerValue(this.syncViewerValue, value);
       });
-    });
+
+    this.control.valueChanges
+      .pipe(
+        filter(a => a !== undefined),
+        takeUntil(this.onDestroy$)
+      )
+      .subscribe(newValue => {
+        data.set(newValue);
+      });
   }
 }

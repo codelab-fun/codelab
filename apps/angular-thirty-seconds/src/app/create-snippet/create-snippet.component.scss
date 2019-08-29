@@ -1,8 +1,6 @@
 :host {
 
-  h1 {
-    color: #28a745;
-  }
+
 
   label {
     color: #3e515b;
@@ -30,16 +28,16 @@
 
     &-plus:before {
       content: '\FF0B';
-      border: 1px solid #28a745;
+      border: 1px solid #444;
       border-radius: 50%;
-      color: #28a745;
+      color: #444;
     }
 
     &-minus:before {
       content: '\FF0D';
-      border: 1px solid #28a745;
+      border: 1px solid #444;
       border-radius: 50%;
-      color: #28a745;
+      color: #444;
     }
   }
 

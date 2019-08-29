@@ -7,6 +7,8 @@ import { finalize, switchMap, take, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetService } from '../../shared/services/snippet.service';
 import { GitHubService } from '../../shared/services/github.service';
+import { generateSnippet } from '../../shared/functions/generate-snippet';
+import { SEPARATOR } from '../../shared/consts';
 
 interface SnippetOverviewData {
   formValue: object;
@@ -20,63 +22,13 @@ interface SnippetOverviewData {
   repoOwner: string;
 }
 
-
-function arrayToMarkdownList(tagsArray: Array<string>): string {
-  return tagsArray.filter(a => a).map(x => `- ${x}`).join(`\n`);
+function exportSnippet(snippet) {
+  const result = {...snippet};
+  result.links = (result.links) ? result.links.split(SEPARATOR) : undefined;
+  result.author = result.author || '** Your github username will be here **';
+  result.bonus = result.bonus || undefined;
+  return result;
 }
-
-function getSnippet(value): string {
-
-  const result: Array<string> = [];
-
-  result.push(`---
-title: ${value.title}
-author: ${value.author || `*your github username will be added*`}`);
-  if (value.twitter) {
-    result.push(`twitter: ` + value.twitter);
-  }
-  result.push(`level: ${value.level}
-tags:
-${arrayToMarkdownList(value.tags)}`);
-
-
-  if (value.links) {
-    result.push(`
-links:
-${arrayToMarkdownList(value.links.split('\n'))}`);
-  }
-
-  result.push(`---`);
-
-  result.push(`
-# Content
-${value.content}`);
-
-  if (value.bonus) {
-    result.push(`
-# Bonus
-${value.bonus}`);
-  }
-
-  Object.keys(value['demo']).forEach(fileName => {
-    if (value['demo'][fileName]) {
-      result.push(`
-# file:${fileName}
-\`\`\`${getFileCodeType(fileName)}
-${value.demo[fileName]}
-\`\`\``);
-    }
-  });
-
-  return result.join(`\n`);
-
-  function getFileCodeType(fileName) {
-    const fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length) || fileName;
-    const fileTypeMap = {'ts': 'typescript'};
-    return fileTypeMap[fileExtension] || fileExtension;
-  }
-}
-
 
 @Component({
   selector: 'codelab-snippet-overview',
@@ -107,7 +59,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isEditing = this.data.isEditing;
-    this.snippet = getSnippet(this.data.formValue);
+    this.snippet = generateSnippet(exportSnippet(this.data.formValue));
     // This is a temporary hack.
     // The version of markdown requires new lines between meta values, but github does not.
     this.snippetWithFormat = this.snippet.replace(/\n(title|author|twitter|level|tags|links):/g, '\n\n$1:');
@@ -153,6 +105,6 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
     this.data.formValue['author'] = this.githubAuth.additionalUserInfo.username;
-    this.snippet = getSnippet(this.data.formValue);
+    this.snippet = generateSnippet(exportSnippet(this.data.formValue));
   }
 }

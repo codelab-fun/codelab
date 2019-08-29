@@ -4,90 +4,27 @@ import { ActivatedRoute } from '@angular/router';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs/internal/Observable';
-import { finalize, map, startWith, switchMap, takeUntil } from 'rxjs/operators';
-import { combineLatest } from 'rxjs';
+import { finalize, map } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
 import { SnippetService } from '../shared/services/snippet.service';
-import { GitHubService } from '../shared/services/github.service';
 import { markFormControlsAsTouched, validatorMaxLines, validatorMaxTags } from '../shared/functions/validation';
+import { parseSnippet } from '../shared/functions/parse-snippet';
+import { SEPARATOR } from '../shared/consts';
 
-
-// @ts-ignore
-// If you delete this you get a run time error.
-// This is needed for gray-matter
-window.Buffer = {
-  from() {
-  }
-};
-
-// @ts-ignore
-const matter = require('gray-matter');
-
-/**
- *
- * Takes markdown and returns content.
- * e.g. input:
- *
- * # LOL
- * 1
- * # HI
- * 2
- *
- * result:
- *
- * {LOL: "1", HI: "2"}
- */
-function extractHeaders(str) {
-  const match = ('\n' + str + '\n#').match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
-  return !match ? {content: str} : match
-    .reduce((result, a) => {
-      const {groups} = a.match(/^\n(?<depth>#+)(?<header>.*)\n(?<content>[\s\S]*)$/);
-      result[groups.header.trim().toLocaleLowerCase()] = groups.content.trim();
-      return result;
-    }, {});
+interface SnippetFileInfo {
+  sha: string;
+  fileName: string;
+  snippet: string;
+  branchName: string;
 }
 
-/**
- *
- * Takes markdown and returns content.
- * e.g. input:
- *
- * ---
- * title: Hello
- * tags:
- * - tips
- * - good-to-know
- * ---
- *
- *
- *
- *
- * # LOL
- * 1
- * # HI
- * 2
- *
- * result:
- *
- * {title: "Hello", tags: ["tips", "good-to-know"], LOL: "1", HI: "2"}
- *
- */
-function mdTextToJson(snippet: string) {
-  const metaData = matter(snippet);
-  const result = ({...extractHeaders(metaData.content), ...metaData.data});
-  if (result['links']) {
-    result['links'] = result['links'].join('\n');
-  }
+
+function importSnippet(snippet) {
+  const result = {...snippet};
+  result.links = (result.links || []).join(SEPARATOR);
   return result;
-}
-
-/**
- * Drop markdown "```language```" from the code
- */
-function stripMarkdownLanguageMark(code = '') {
-  return code.replace(/```\w+\n/, '').replace(/\n```/, '');
 }
 
 @Component({
@@ -108,10 +45,10 @@ export class CreateSnippetComponent implements OnDestroy {
 
   isLoading = false;
   isEditing = false;
-  snippetFileInfo = {};
+  snippetFileInfo: SnippetFileInfo;
 
   TAGS_LIST = TAGS_LIST;
-  tags: Array<string> = ['tip'];
+  tags: string[] = ['tip'];
   filteredTags: Observable<string[]>;
 
   snippetForm = this.fb.group({
@@ -136,7 +73,6 @@ export class CreateSnippetComponent implements OnDestroy {
     private cd: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute,
     private snippetService: SnippetService,
-    private githubService: GitHubService,
     public dialog: MatDialog
   ) {
     const pullNumber = this.activatedRoute.snapshot.params['pullNumber'];
@@ -145,7 +81,7 @@ export class CreateSnippetComponent implements OnDestroy {
 
     if (pullNumber) {
       this.isEditing = true;
-      this.getPullFileByPullNumber(this.repoName, this.repoOwner, pullNumber);
+      this.fetchPR(pullNumber);
     }
 
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
@@ -153,66 +89,37 @@ export class CreateSnippetComponent implements OnDestroy {
     );
   }
 
+  fetchPR(pullNumber: number) {
+    this.isLoading = true;
+    this.snippetService.fetchPR(this.repoName, this.repoOwner, pullNumber).pipe(
+      finalize(() => {
+        this.isLoading = false;
+        this.cd.markForCheck();
+      })).subscribe((snippetFileInfo: SnippetFileInfo) => {
+
+      this.snippetFileInfo = snippetFileInfo;
+
+      const snippet = importSnippet(parseSnippet(snippetFileInfo.snippet));
+      if (snippet.demo) {
+        this.hasDemo = true;
+      }
+      if (snippet.bonus) {
+        this.hasBonus = true;
+      }
+      if (snippet.links) {
+        this.hasLinks = true;
+      }
+      this.snippetForm.patchValue(snippet);
+    });
+
+
+  }
+
   ngOnDestroy() {
     this.destroy.next(null);
     this.destroy.complete();
   }
 
-  getPullFileByPullNumber(repoName: string, repoOwner: string, pullNumber: number) {
-    this.isLoading = true;
-    // todo move it to service later
-    const pr$ = this.githubService.getPullByPullNumber(repoOwner, repoName, pullNumber);
-    const file$ = this.githubService.getPullFileByPullNumber(repoOwner, repoName, pullNumber)
-      .pipe(switchMap(([file]) => {
-        return this.githubService.getSnippetBody(file['contents_url'])
-          .pipe(map(res => {
-            const body = atob(res.content);
-            return {...res[0], body, sha: file['sha'], fileName: file['filename']};
-          }));
-      }));
-    combineLatest([file$, pr$])
-      .pipe(
-        takeUntil(this.destroy),
-        finalize(() => {
-          this.isLoading = false;
-          this.cd.markForCheck();
-        }))
-      .subscribe(([file, pr]) => {
-          this.snippetFileInfo = {
-            sha: file['sha'],
-            fileName: file['fileName'],
-            snippet: mdTextToJson(file['body']),
-            branchName: pr['head']['ref']
-          };
-          this.patchFormValue(this.snippetFileInfo['snippet']);
-        }
-      );
-  }
-
-  patchFormValue(value) {
-    this.tags = value['tags'] && value['tags'].length ? value['tags'] : [];
-    value['content'] = value['content'] ? value['content'].replace(/↵/g, '\n') : '';
-    if (value['bonus']) {
-      this.hasBonus = true;
-      value['bonus'] = value['bonus'].replace(/↵/g, '\n');
-    }
-    if (value['links']) {
-      this.hasLinks = true;
-      value['links'] = value['links'].replace(/↵/g, '\n');
-    }
-
-    const demoFilesList = Object.keys(value)
-      .filter(key => key.startsWith('file:'))
-      .map(key => key.slice('file:'.length));
-    if (demoFilesList.length) {
-      this.hasDemo = true;
-      value['demo'] = {};
-      demoFilesList.forEach(x => value['demo'][x] = stripMarkdownLanguageMark(value[`file:${x}`]) || angularSampleCode[x]);
-      Object.keys(angularSampleCode).forEach(x => value['demo'][x] = value['demo'][x] || angularSampleCode[x]);
-    }
-
-    this.snippetForm.patchValue(value);
-  }
 
   openPreview() {
     if (this.snippetForm.valid) {

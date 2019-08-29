@@ -4,7 +4,7 @@ import * as ts from 'typescript';
 
 const compilerOptions: ts.CompilerOptions = {
   module: ts.ModuleKind.System,
-  target: ts.ScriptTarget.ES5,
+  target: ts.ScriptTarget.ES2017,
   experimentalDecorators: true,
   emitDecoratorMetadata: true,
   noImplicitAny: true,

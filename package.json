@@ -54,6 +54,7 @@
   },
   "public": true,
   "dependencies": {
+    "@angular-devkit/schematics": "^8.2.2",
     "@angular/animations": "^8.0.0",
     "@angular/cdk": "^8.0.0",
     "@angular/common": "^8.0.0",
@@ -90,6 +91,7 @@
     "gray-matter": "^4.0.2",
     "hammerjs": "^2.0.8",
     "highlight.js": "^9.13.1",
+    "immer": "^3.2.0",
     "interactjs": "^1.3.4",
     "jasminewd2": "^2.2.0",
     "json-loader": "^0.5.7",
