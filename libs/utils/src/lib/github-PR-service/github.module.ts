@@ -6,5 +6,4 @@ import { GithubService } from './github.service';
   imports: [HttpClientModule],
   providers: [GithubService]
 })
-export class GithubModule {
-}
+export class GithubModule {}

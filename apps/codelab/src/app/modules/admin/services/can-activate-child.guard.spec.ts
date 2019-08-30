@@ -10,7 +10,10 @@ describe('CanActivateChildGuard', () => {
     });
   });
 
-  it('should exist', inject([CanActivateChildGuard], (guard: CanActivateChildGuard) => {
-    expect(guard).toBeTruthy();
-  }));
+  it('should exist', inject(
+    [CanActivateChildGuard],
+    (guard: CanActivateChildGuard) => {
+      expect(guard).toBeTruthy();
+    }
+  ));
 });

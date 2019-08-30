@@ -1,6 +1,14 @@
-import { AfterViewInit, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 
-import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
+import {
+  ExerciseConfigTemplate,
+  Ng2TsExercises
+} from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import { CodelabFile } from '../../../shared/helpers/codelabFile';
 
@@ -52,8 +60,8 @@ function matExercise(
 })
 export class MaterialComponent implements AfterViewInit {
   exercise: ExerciseConfigTemplate;
-  @ViewChild('themePlayground', {static: false}) themePlayground;
-  @ViewChild('translations', {static: false}) translations;
+  @ViewChild('themePlayground', { static: false }) themePlayground;
+  @ViewChild('translations', { static: false }) translations;
 
   themes = {
     indigo: require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
@@ -125,6 +133,6 @@ export class MaterialComponent implements AfterViewInit {
     this.theme = theme;
     const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
     cssFile.template = this.themes[theme];
-    this.code.material.theme = {...this.code.material.theme};
+    this.code.material.theme = { ...this.code.material.theme };
   }
 }

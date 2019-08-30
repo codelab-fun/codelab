@@ -1,6 +1,9 @@
 import { CodelabFile } from '../../../shared/helpers/codelabFile';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { ExerciseConfigTemplate, Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
+import {
+  ExerciseConfigTemplate,
+  Ng2TsExercises
+} from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
 declare const require;
@@ -54,29 +57,29 @@ function formsConfig(code, highlights: FileHighlights = {}) {
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements AfterViewInit {
-  @ViewChild('translations', {static: false}) translations;
+  @ViewChild('translations', { static: false }) translations;
   exercise: ExerciseConfigTemplate;
   samples = {
     basicForm: formsConfig(
-      {appHtml: require('!!raw-loader!./samples/basic/app.1.html')},
+      { appHtml: require('!!raw-loader!./samples/basic/app.1.html') },
       {
         appModule: /FormsModule]/
       }
     ),
     ngModel: formsConfig(
-      {appHtml: require('!!raw-loader!./samples/basic/app.2.html')},
+      { appHtml: require('!!raw-loader!./samples/basic/app.2.html') },
       {
         appHtml: [/ngModel/g]
       }
     ),
     ngValidation1: formsConfig(
-      {appHtml: require('!!raw-loader!./samples/basic/app.3.html')},
+      { appHtml: require('!!raw-loader!./samples/basic/app.3.html') },
       {
         appHtml: [/required/]
       }
     ),
     ngValidation2: formsConfig(
-      {appHtml: require('!!raw-loader!./samples/basic/app.4.html')},
+      { appHtml: require('!!raw-loader!./samples/basic/app.4.html') },
       {
         appHtml: [/#usernameModel="ngModel"/, /<div \*[\s\S]*?<\/div>/]
       }

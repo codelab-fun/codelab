@@ -3,28 +3,33 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 export const MockAngularFireDatabase = {
-  list: jasmine.createSpy('list').and.returnValue(of({
-    snapshotChanges: () => of([]),
-    valueChanges: () => of([])
-  })),
-  object: jasmine.createSpy('object').and.returnValue(of({
-    snapshotChanges: () => of({}),
-    valueChanges: () => of({})
-  })),
+  list: jasmine.createSpy('list').and.returnValue(
+    of({
+      snapshotChanges: () => of([]),
+      valueChanges: () => of([])
+    })
+  ),
+  object: jasmine.createSpy('object').and.returnValue(
+    of({
+      snapshotChanges: () => of({}),
+      valueChanges: () => of({})
+    })
+  )
 };
 
 export const MockAngularFireAuth = {
-  user: of({isAnonymous: true, uid: 'lol'}),
+  user: of({ isAnonymous: true, uid: 'lol' })
 };
 
 export function getMockAngularFireProviders() {
   return [
     {
       provide: AngularFireDatabase,
-      useValue: MockAngularFireDatabase,
-    }, {
+      useValue: MockAngularFireDatabase
+    },
+    {
       provide: AngularFireAuth,
-      useValue: MockAngularFireAuth,
+      useValue: MockAngularFireAuth
     }
   ];
 }

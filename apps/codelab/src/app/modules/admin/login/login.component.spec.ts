@@ -12,8 +12,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [LoginModule],
       providers: [...getMockAngularFireProviders()]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -12,8 +12,7 @@ describe('UsersComponent', () => {
     TestBed.configureTestingModule({
       imports: [UsersModule],
       providers: [...getMockAngularFireProviders()]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

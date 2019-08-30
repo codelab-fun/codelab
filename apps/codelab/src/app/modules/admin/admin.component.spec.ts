@@ -13,8 +13,7 @@ describe('AdminComponent', () => {
     TestBed.configureTestingModule({
       imports: [AdminModule, RouterModule.forRoot([])],
       providers: [...getMockAngularFireProviders()]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
