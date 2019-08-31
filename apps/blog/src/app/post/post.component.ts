@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Post } from '../form/form.component';
 import { FormService } from '../form.service';
 import { ActivatedRoute } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @Component({
