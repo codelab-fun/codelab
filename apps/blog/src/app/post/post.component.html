@@ -1,8 +1,4 @@
 
 <ng-container *ngIf="post$ | async as post">
-    
-  <div> {{ post.title }} by {{ post.author }}</div> 
-  <div> {{ post.date }}</div>
-  <div></div>
-  <markdown ngPreserveWhitespaces>{{ post.text }}</markdown>
+  <codelab-single-post [post]=post [full]='true'></codelab-single-post>
 </ng-container>

@@ -1,0 +1,27 @@
+<!-- 
+<ng-container *ngIf="post$ | async as post">
+    
+  <div> {{ post.title }} by {{ post.author }}</div> 
+  <div> {{ post.date }}</div>
+  <div></div>
+  <markdown ngPreserveWhitespaces>{{ post.text }}</markdown>
+</ng-container> -->
+
+  
+  <mat-card-content >
+    <p class="head">
+      <span class="title">{{ post.title }}</span>      
+      <span class="date">by <span>{{ post.author }}</span> on {{ post.date | date: 'short' }}</span>
+    </p>
+    
+    <div class="container">
+      <markdown ngPreserveWhitespaces>
+        <div [ngClass]="ngClass" [innerHTML]="post.text"></div>
+      </markdown> 
+
+      <span *ngIf='!full'><a routerLink="/post/{{post.key}}" >More</a> </span>
+    </div>
+  </mat-card-content>
+
+
+
