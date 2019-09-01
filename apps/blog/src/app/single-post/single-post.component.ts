@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SinglePostComponent{
+export class SinglePostComponent {
  @Input() post: Post;
  @Input() full: boolean;
 }
