@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
-import { SyncModule } from '../modules/sync/sync.module';
+import { SyncModule } from './sync/sync.module';
 
 const routes: Routes = [
   {
@@ -19,11 +19,11 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('../modules/admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'sync',
-    loadChildren: () => import('../modules/sync/sync.module').then(m => m.SyncAdminModule)
+    loadChildren: () => import('./sync/sync.module').then(m => m.SyncAdminModule)
   }
 ];
 

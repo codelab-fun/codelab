@@ -7,7 +7,7 @@ import { CodelabsRoutingModule } from './codelabs-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlidesModule } from '@codelab/slides';
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
-import { SyncModule } from '../modules/sync/sync.module';
+import { SyncModule } from './sync/sync.module';
 
 @NgModule({
   declarations: [IndexComponent, AppComponent],
