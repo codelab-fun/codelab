@@ -4,19 +4,6 @@
   <mat-card  *ngFor="let post of posts$ | async">
     
     <codelab-single-post [post]=post [full]='false' [ngClass]="text"></codelab-single-post>
-    <!-- <mat-card-content >
-      <p class="head">
-        <span class="title">{{ post.title }}</span>      
-        <span class="date">by <span>{{ post.author }}</span> on {{ post.date | date: 'short' }}</span>
-      </p>
-      
-      <div class="container">
-        <markdown ngPreserveWhitespaces>
-          <div class="text" [innerHTML]="post.text"></div>
-        </markdown> 
-        <a routerLink="/post/{{ post.key}}">More</a>
-      </div>
-    </mat-card-content> -->
   
   </mat-card>
 

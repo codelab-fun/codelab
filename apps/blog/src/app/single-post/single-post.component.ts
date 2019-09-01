@@ -13,8 +13,6 @@ import { ActivatedRoute } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SinglePostComponent implements OnInit {
-//  post$: Observable<Post>;
-//  key: string;
 
  @Input() post: Post;
  @Input() full: boolean;
