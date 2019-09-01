@@ -29,8 +29,8 @@ function extractHeaders(str) {
   const match = ('\n' + str + '\n#').match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
   return !match ? {content: str} : match
     .reduce((result, a) => {
-      const {groups} = a.match(/^\n(?<depth>#+)(?<header>.*)\n(?<content>[\s\S]*)$/);
-      result[groups.header.trim().toLocaleLowerCase()] = groups.content.trim();
+      const [, header, content] = a.match(/^\n#+(.*)\n([\s\S]*)$/);
+      result[header.trim().toLocaleLowerCase()] = content.trim();
       return result;
     }, {});
 }
