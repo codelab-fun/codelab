@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { GitHub } from 'github-api';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
