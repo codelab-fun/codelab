@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateSnippetComponent } from './create-snippet.component';
-import { SnippetInfoComponent } from './snippet-info/snippet-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatButtonModule,
   MatChipsModule,
-  MatDialogModule,
+  MatDialogModule, MatExpansionModule,
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
@@ -35,7 +34,6 @@ const MAT_MODULES = [
 @NgModule({
   declarations: [
     CreateSnippetComponent,
-    SnippetInfoComponent,
     SnippetOverviewComponent,
     SnippetSpinnerComponent
   ],
@@ -49,7 +47,8 @@ const MAT_MODULES = [
     AngularFireAuthModule,
     MarkdownModule.forRoot(),
     CodeDemoModule,
-    RouterModule
+    RouterModule,
+    MatExpansionModule
   ]
 })
 export class CreateSnippetModule {

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -67,6 +67,10 @@ export class CreateSnippetComponent implements OnDestroy {
   hasDemo = false;
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  get tagsControl(): FormControl {
+    return this.snippetForm.get('tags') as FormControl;
+  }
 
   constructor(
     private fb: FormBuilder,
