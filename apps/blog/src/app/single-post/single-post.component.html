@@ -9,7 +9,7 @@
         <div [ngClass]="ngClass" [innerHTML]="post.text"></div>
       </markdown> 
 
-      <span *ngIf='!full'><a routerLink="/post/{{post.key}}" >More</a> </span>
+      <span *ngIf="!full"><a routerLink="/post/{{post.key}}" >More</a> </span>
     </div>
   </mat-card-content>
 
