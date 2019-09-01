@@ -4,7 +4,14 @@ import { Injectable } from '@angular/core';
 import { getRef } from '@angular/fire/database/utils';
 import { Message } from './message';
 import { Observable, of, defer } from 'rxjs';
-import { filter, map, publishReplay, refCount, repeatWhen, switchMap } from 'rxjs/operators';
+import {
+  filter,
+  map,
+  publishReplay,
+  refCount,
+  repeatWhen,
+  switchMap
+} from 'rxjs/operators';
 
 function normalize(feedback: Array<any>) {
   return feedback.map(item => ({
@@ -35,17 +42,16 @@ export class FeedbackService {
   }
 
   getMessagesForCurrentPage(): Observable<Message[]> {
-    const onNavigationEnd: Observable<Event> =
-      this.router.events
-        .pipe(filter(val => val instanceof NavigationEnd));
+    const onNavigationEnd: Observable<Event> = this.router.events.pipe(
+      filter(val => val instanceof NavigationEnd)
+    );
 
-    const url: Observable<string> =
-      defer(() => of(this.router.url)).pipe(
-        repeatWhen(() => onNavigationEnd)
-      );
+    const url: Observable<string> = defer(() => of(this.router.url)).pipe(
+      repeatWhen(() => onNavigationEnd)
+    );
 
     return url.pipe(
-      switchMap((url) => this.getMessages(url)),
+      switchMap(url => this.getMessages(url)),
       publishReplay(1),
       refCount()
     );

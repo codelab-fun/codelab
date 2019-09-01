@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsersComponent } from './users.component';
+import { UsersModule } from './users.module';
+import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -8,9 +10,9 @@ describe('UsersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UsersComponent ]
-    })
-    .compileComponents();
+      imports: [UsersModule],
+      providers: [...getMockAngularFireProviders()]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
