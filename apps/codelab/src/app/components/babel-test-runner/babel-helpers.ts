@@ -3,15 +3,26 @@ import * as babylon from 'babylon';
 import babel_traverse from 'babel-traverse';
 import * as ts from 'typescript';
 
-export const expectClass = name => ({ node, parent }) =>
-  T.isIdentifier(node, { name }) &&
-  T.isClassDeclaration(parent, { superClass: null });
+function matchesValue(actual, expected) {
+  if (!actual) {
+    return false;
+  }
+  if (expected instanceof RegExp) {
+    return expected.test(actual);
+  }
 
-export const expectExportedClass = name => ({ node, parent, parentPath }) =>
-  expectClass(name)({ node, parent }) &&
+  return actual.trim() === expected.trim();
+}
+
+export const expectClass = name => ({node, parent}) =>
+  T.isIdentifier(node, {name}) &&
+  T.isClassDeclaration(parent, {superClass: null});
+
+export const expectExportedClass = name => ({node, parent, parentPath}) =>
+  expectClass(name)({node, parent}) &&
   T.isExportNamedDeclaration(parentPath.parent);
 
-export const expectDecorator = name => ({ node }) =>
+export const expectDecorator = name => ({node}) =>
   T.isDecorator(node) && node.expression.callee.name === name;
 
 export const expectDecoratorPropertyStringValue = (
@@ -19,8 +30,19 @@ export const expectDecoratorPropertyStringValue = (
   keyName,
   value
 ) => path => {
+
+  function matchesTemplateLiteral() {
+    return T.isTemplateLiteral(path.node) && matchesValue(path.node.quasis[0].value.raw, value);
+  }
+
+  function matchesStringLiteral() {
+    return T.isStringLiteral(path.node) &&
+      matchesValue(path.node.value, value);
+
+  }
+  
   return (
-    T.isStringLiteral(path.node, { value }) &&
+    (matchesTemplateLiteral() || matchesStringLiteral()) &&
     T.isObjectProperty(path.parent) &&
     path.parent.key.name === keyName &&
     path.findParent(T.isDecorator).node.expression.callee.name === decoratorName
@@ -29,7 +51,7 @@ export const expectDecoratorPropertyStringValue = (
 
 export function babelTestSuite(filePath, tests) {
   return function test(files) {
-    const results = tests.map(({ title }) => ({ title, pass: false }));
+    const results = tests.map(({title}) => ({title, pass: false}));
     const code = files[filePath];
 
     const ast = babylon.parse(code, {
@@ -57,7 +79,8 @@ export function babelTestSuite(filePath, tests) {
 export type Predicate = (node: ts.Node) => boolean;
 
 export class MiniTsQuery {
-  constructor(private readonly ast: ts.Node) {}
+  constructor(private readonly ast: ts.Node) {
+  }
 
   some(predicate: Predicate) {
     let result = false;
@@ -157,7 +180,7 @@ export class MiniTsQuery {
 
 export function tsAstTestSuite(tests) {
   return function test(files) {
-    const results = tests.map(({ title }) => ({ title, pass: false }));
+    const results = tests.map(({title}) => ({title, pass: false}));
     const astCache = {};
 
     function getAst(filePath) {
