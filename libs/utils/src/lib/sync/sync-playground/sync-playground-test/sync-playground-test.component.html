@@ -1,5 +1,6 @@
 <slide-deck slidesRouting>
   <codelab-sync-button></codelab-sync-button>
+  <div *isPresenting slideShortcuts></div>
 
   <div *slide id="start">
     <h2 *isPresenting>Only presenter sees this</h2>
@@ -10,7 +11,6 @@
   <div *slide id="registration">
     <codelab-registration></codelab-registration>
   </div>
-
 
   <div *slide id="poll-1">
     <codelab-poll [poll]="polls[0]"></codelab-poll>
@@ -37,13 +37,11 @@
   <!--    </slides-poll>-->
   <!--  </div>-->
 
-
   <!--  <div *slide id="poll-2">-->
   <!--    <slides-poll [poll]="polls[2]">-->
   <!--      <div class="question"></div>-->
   <!--    </slides-poll>-->
   <!--  </div>-->
-
 
   <!--  <div *slide id="poll-3">-->
   <!--    <slides-poll [poll]="polls[3]">-->
@@ -61,7 +59,6 @@
   <!--    </slides-poll>-->
   <!--  </div>-->
 
-
   <!--  <div *slide id="poll-5">-->
   <!--    <slides-poll [poll]="polls[5]">-->
   <!--      <div class="question"></div>-->
@@ -70,7 +67,6 @@
   <!--  <div *slide id="config-1-results">-->
   <!--    the-->
   <!--  </div>-->
-
 
   <!--  <div *slide id="config-2">-->
   <!--    <slides-config [config]="polls[1]">-->
@@ -82,5 +78,3 @@
     <codelab-questions></codelab-questions>
   </div>
 </slide-deck>
-
-

@@ -1,9 +1,9 @@
 <button class="menu-bar-btn" [matMenuTriggerFor]="menu">
   <ng-container *ngIf="(loginService.user$ | async); else showLogin">
     <!-- TODO add an avatar if present? -->
-      👩‍💻
-    </ng-container>
-  </button>
+    👩‍💻
+  </ng-container>
+</button>
 
 <ng-template #showLogin> 🗝</ng-template>
 
