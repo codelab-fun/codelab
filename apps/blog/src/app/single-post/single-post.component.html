@@ -7,7 +7,7 @@
     
     <div class="container">
       <markdown ngPreserveWhitespaces>
-        <div [ngClass]="ngClass" [innerHTML]="post.text"></div>
+        <div [class.text]="!full" [innerHTML]="post.text"></div>
       </markdown> 
 
       <span *ngIf="!full"><a routerLink="/post/{{post.key}}" >More</a> </span>

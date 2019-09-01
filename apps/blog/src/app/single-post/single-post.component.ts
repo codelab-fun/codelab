@@ -13,5 +13,4 @@ import { ActivatedRoute } from '@angular/router';
 export class SinglePostComponent{
  @Input() post: Post;
  @Input() full: boolean;
- @Input() ngClass: string;
 }
