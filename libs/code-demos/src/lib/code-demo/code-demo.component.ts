@@ -77,7 +77,8 @@ export class CodeDemoComponent implements ControlValueAccessor {
         }, {})
       ),
       filter(value => Object.keys(value).length > 0),
-      compileTsFilesWatch()
+      compileTsFilesWatch(),
+      startWith({})
     );
 
     const staticFiles = this.changedStaticFilesSubject.pipe(
@@ -88,6 +89,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
     this.files$ = combineLatest([ts, staticFiles]).pipe(
       map(([js, staticFiles]) => ({...staticFiles, ...js})),
       map(files => ({...this.code, ...files})),
+      filter(value => Object.keys(value).length > 0),
       publishReplay(1),
       refCount()
     );
