@@ -14,6 +14,7 @@ import { environment } from '../../../../apps/codelab/src/environments/environme
 import { FormService } from './form.service';
 import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { MatCardModule } from '@angular/material';
 
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, FeedComponent, PostComponent],
+  declarations: [AppComponent, FormComponent, FeedComponent, PostComponent, SinglePostComponent],
   imports: [
     BrowserModule,
     MarkdownModule.forRoot(),

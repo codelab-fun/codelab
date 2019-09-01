@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Post } from '../form/form.component';
 import { map } from 'rxjs/operators';
 
-
 @Component({
   selector: 'codelab-feed',
   templateUrl: './feed.component.html',
