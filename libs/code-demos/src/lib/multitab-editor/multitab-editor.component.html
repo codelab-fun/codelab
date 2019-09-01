@@ -1,5 +1,5 @@
 <mat-sidenav-container class="mat-sidenav-container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <mat-sidenav class="codelab-file-tree" #sidenav mode="side" [(opened)]="opened">
         <codelab-file-tree 
             (fileSelect)="updateActiveFileSelected($event)" 
             [activeModel]="openModels[activeTabIndex]" 
