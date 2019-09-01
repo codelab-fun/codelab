@@ -7,11 +7,9 @@ import { FullScreenModeService } from '@codelab/utils';
   styleUrls: ['./menu-fullscreen-widget.component.scss']
 })
 export class MenuFullscreenWidgetComponent {
-
-  constructor(private fullScreenService: FullScreenModeService) { }
+  constructor(private fullScreenService: FullScreenModeService) {}
 
   openFullScreen() {
     this.fullScreenService.toggleFullScreen();
   }
-
 }
