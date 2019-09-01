@@ -2,10 +2,9 @@
 .mat-sidenav-container {
     flex-direction: column;
     height: 100%;
-    padding-top: 12px; // clearing due to the progress bar
 }
 
-.codelab-file-tree{
+.has-progress-clearing {
   padding-top: 12px;
 }
 

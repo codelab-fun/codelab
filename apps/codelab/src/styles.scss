@@ -289,3 +289,10 @@ a {
 .mt-60 {
   margin-top: 60px;
 }
+
+// Atomics for height (mostly used for monaco container
+// to prevent infinite resize)
+.h100pct { height: 100%; }
+.h75pct { height: 75%; }
+.h50pct { height: 50%; }
+.h25pct { height: 25%; }

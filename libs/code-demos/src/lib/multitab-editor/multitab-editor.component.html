@@ -1,5 +1,5 @@
-<mat-sidenav-container class="mat-sidenav-container">
-    <mat-sidenav class="codelab-file-tree" #sidenav mode="side" [(opened)]="opened">
+<mat-sidenav-container [class.has-progress-clearing]="allowSwitchingFiles">
+    <mat-sidenav class="codelab-file-tree" #sidenav mode="side" [(opened)]="opened" *ngIf="allowSwitchingFiles">
         <codelab-file-tree 
             (fileSelect)="updateActiveFileSelected($event)" 
             [activeModel]="openModels[activeTabIndex]" 
@@ -8,7 +8,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <div class="filenav-trigger" (click)="opened = !opened" i18n>File Nav</div>
+        <div class="filenav-trigger" (click)="opened = !opened" i18n *ngIf="allowSwitchingFiles">File Nav</div>
         <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
     </mat-sidenav-content>
 </mat-sidenav-container>
@@ -21,7 +21,7 @@
                 <!-- LABEL of the TAB -->
                 <ng-template mat-tab-label>
                     <span>{{getFileOnlyFromPath(model.path)}}</span>
-                    <div class="file-icon file-icon__close cta-close-tab" (click)="onCloseTab(model)"></div>
+                    <div *ngIf="allowSwitchingFiles" class="file-icon file-icon__close cta-close-tab" (click)="onCloseTab(model)"></div>
                 </ng-template>
                 <!-- CONTENT of the tab -->
                 <button i18n class="load-solution-cta" *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]" (click)="loadSolution(model.path)">
