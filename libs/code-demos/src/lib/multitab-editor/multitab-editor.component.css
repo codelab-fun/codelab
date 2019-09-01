@@ -1,0 +1,75 @@
+:host,
+.mat-sidenav-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.filenav-trigger,
+.load-solution-cta {
+    position: absolute;
+    left: -16px;
+    top: 60px;
+    background-color: #292929;
+    color: white;
+    display: block;
+    font-size: 11px;
+    padding: 8px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    transform: rotateZ(270deg);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.load-solution-cta {
+    top: 100px;
+    left: -32px;
+    border: none;
+    background-color: #aeaeae;
+}
+
+.filenav-trigger:hover,
+.load-solution-cta:hover {
+    background-color: #5F5F5F;
+    color: white;
+}
+
+.filenav-tabs {
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+}
+
+.mat-tab-label {
+    height: 30px !important;
+}
+
+.tab-group {
+    height: 100%;
+}
+
+:host ::ng-deep .mat-tab-body-wrapper {
+    height: 100%;
+    background: white;
+}
+
+:host ::ng-deep .mat-tab-label {
+    height: 32px;
+}
+
+.cta-close-tab {
+    position: absolute;
+    right: 0;
+}
+
+.code-demo-container {
+    padding-left: 16px;
+    padding-top: 16px;
+    height: 100%;
+}
+
+.file-tree-container {
+    min-width: 30%;
+    padding: 0 8px;
+}
