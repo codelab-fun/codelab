@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { debounceTime, switchMap } from 'rxjs/operators';
+import { combineLatest, Observable, of } from 'rxjs';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
 import slugify from 'slugify';
 import { GitHubService } from './github.service';
 import { Branch, CommitInfo, CreatePullRequest, GithubAuth, PullRequest, Repo, User } from '../interfaces';
@@ -13,6 +13,30 @@ export class SnippetService {
   constructor(
     private githubService: GitHubService
   ) {
+  }
+
+
+  fetchPR(repoName: string, repoOwner: string, pullNumber: number) {
+    // todo move it to service later
+    const pr$ = this.githubService.getPullByPullNumber(repoOwner, repoName, pullNumber);
+    const file$ = this.githubService.getPullFileByPullNumber(repoOwner, repoName, pullNumber)
+      .pipe(switchMap(([file]) => {
+        return this.githubService.getSnippetBody(file['contents_url'])
+          .pipe(map(res => {
+            const body = atob(res.content);
+            return {...res[0], body, sha: file['sha'], fileName: file['filename']};
+          }));
+      }));
+
+    return combineLatest([file$, pr$]).pipe(map(([file, pr]) => {
+        return {
+          sha: file['sha'],
+          fileName: file['fileName'],
+          snippet: file['body'] as string,
+          branchName: pr['head']['ref']
+        };
+      }
+    ));
   }
 
   updatePR(githubAuth: GithubAuth, snippetData: string, fileInfo: object, repoName: string): Observable<any> {

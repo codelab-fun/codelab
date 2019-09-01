@@ -1,8 +1,8 @@
-import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
+import { Directive, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { switchMap, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -10,50 +10,43 @@ import { Subject } from 'rxjs';
   exportAs: 'presenterValue'
 
 })
-export class SyncPresenterValueDirective<T> implements AfterViewInit, OnDestroy {
+export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
   @Input() syncPresenterValue: string;
-  private value: any;
-  private onDestroy = new Subject();
+  @Input() syncPresenterValueDefault: T;
+
+  private onDestroy$ = new Subject();
 
   constructor(
-    private readonly sync: SyncService<T>,
+    private readonly syncDataService: SyncDataService,
     @Optional() private readonly control: NgControl
   ) {
-
   }
 
   ngOnDestroy(): void {
-    this.onDestroy.next();
-    this.onDestroy.complete();
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
-  ngAfterViewInit() {
-    this.sync.whenPresenting$.pipe(takeUntil(this.onDestroy)).subscribe(() => {
-      this.sync.getPresenterValue(this.syncPresenterValue)
-        .pipe(take(1)).pipe(switchMap(value => {
+  ngOnInit() {
+    if (!this.control) {
+      throw new Error('syncPresenterValue directive must be attached to a formControl');
+    }
+
+    const data = this.syncDataService.getPresenterObject(this.syncPresenterValue, this.syncPresenterValueDefault);
+
+    data.valueChanges()
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(value => {
         this.control.valueAccessor.writeValue(value);
-        return this.control.valueChanges;
-      })).subscribe((value) => {
-        const data = {[this.syncPresenterValue]: value} as T;
-        this.sync.updatePresenterValue(data);
       });
-    });
 
-    this.sync.whenViewing$
+    this.control.valueChanges
       .pipe(
-        switchMap(() => this.sync.getPresenterValue(this.syncPresenterValue)),
-        takeUntil(this.onDestroy)
+        filter(a => a !== undefined),
+        takeUntil(this.onDestroy$)
       )
-      .subscribe((value: string) => {
-        if (this.control) {
-          this.control.valueAccessor.writeValue(value);
-        } else {
-          this.value = value;
-        }
+      .subscribe(newValue => {
+        data.set(newValue);
       });
-
-
   }
-
-
 }

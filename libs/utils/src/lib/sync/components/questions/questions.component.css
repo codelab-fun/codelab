@@ -1,0 +1,10 @@
+.question {
+  margin-bottom: 4px;
+}
+
+.upvote.voted {
+  background: #a6e0c1;
+}
+.downvote.voted {
+  background: #ffaf9e;
+}

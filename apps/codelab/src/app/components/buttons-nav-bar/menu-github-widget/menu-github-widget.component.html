@@ -1,10 +1,9 @@
-<codelab-button-with-menu>
-  <button class="menu-bar-btn">
-    <img alt="GitHub" src="/assets/images/icons/github-icon.png"/>
-  </button>
+<button class= "menu-bar-btn github-widget" [matMenuTriggerFor]="menu">
+  <img alt="GitHub" src="/assets/images/icons/github-icon.png"/>
+</button>
 
-  <ng-container *codelabModalContent>
-    <div class="buttons-nav-bar-modal-content-wrapper">
+<mat-menu #menu="matMenu">
+  <div class="buttons-nav-bar-modal-content-wrapper">
       <div class="octocat"></div>
       <div class="content">
         <h2 class="modal-title" i18n>This Codelab is written in Angular!</h2>
@@ -17,6 +16,5 @@
         </h3>
         <h3 i18n>Please ⭐ the repo if you find it useful.</h3>
       </div>
-    </div>
-  </ng-container>
-</codelab-button-with-menu>
+  </div>
+</mat-menu>

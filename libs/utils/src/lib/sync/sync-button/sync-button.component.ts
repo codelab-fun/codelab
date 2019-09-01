@@ -1,42 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { filter, switchMap } from 'rxjs/operators';
-import { SyncService } from '@codelab/utils/src/lib/sync/sync.service';
-
-interface SyncData {
-  slide: number;
-}
+import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
+import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import { distinctUntilChanged, filter, mergeMapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'codelab-sync-button',
   templateUrl: './sync-button.component.html',
-  styleUrls: ['./sync-button.component.css']
+  styleUrls: ['./sync-button.component.css'],
+  providers: [SyncRegistrationService],
 })
 export class SyncButtonComponent {
+  sync = {};
+  private readonly currentSlide = this.syncDataService.getPresenterObject<number>('currentSlide');
 
   constructor(
-    private readonly sync: SyncService<SyncData>,
-    private readonly presentation: SlidesDeckComponent) {
-    presentation.slideChange.subscribe((slide) => {
-      this.sync.updateSession({slide});
-    });
+    private readonly syncDataService: SyncDataService,
+    readonly syncSessionService: SyncSessionService,
+    readonly registrationService: SyncRegistrationService,
+    @Optional() private readonly presentation: SlidesDeckComponent) {
+    this.syncSessionService.autoJoin();
 
+    if (this.presentation) {
+      this.syncSessionService.status$.pipe(
+        filter(s => s === SyncStatus.PRESENTING),
+        mergeMapTo(presentation.slideChange),
+        distinctUntilChanged(),
+      )
+        .subscribe((slide: number) => {
+          this.currentSlide.set(slide);
+        });
 
-    sync.isPresenting$.pipe(
-      filter(a => !a),
-      switchMap(() => sync.presentersValue$)
-    ).subscribe(({slide}) => {
-      this.presentation.goToSlide(Number(slide));
-    });
+      this.syncSessionService.status$.pipe(
+        filter(s => s !== SyncStatus.PRESENTING),
+        mergeMapTo(this.currentSlide.valueChanges()),
+        distinctUntilChanged(),
+        filter(s => s !== null)
+      )
+        .subscribe((slide: number) => {
+          presentation.goToSlide(slide);
+        });
+    }
+    // sync.statusChange$.pipe(
+    //   filter(status => status === SyncStatus.VIEWING),
+    //   switchMap(() => sync.presentersData$),
+    //   filter(a => !!a),
+    //   map(a => Number(a.slide)),
+    //   distinctUntilChanged()
+    // ).subscribe((slide) => {
+    //   this.presentation.goToSlide(slide);
+    // });
   }
 
   start() {
-    this.sync.startSession({
-      slide: this.presentation.activeSlideIndex,
-    });
+    this.syncSessionService.create();
   }
 
-  follow({value}: { value: string }) {
-    this.sync.follow(value);
+  stop() {
+    this.syncSessionService.dropCurrentSession();
+  }
+
+  present() {
+    this.syncSessionService.present();
+  }
+
+  administer() {
+    this.syncSessionService.administer();
   }
 }
