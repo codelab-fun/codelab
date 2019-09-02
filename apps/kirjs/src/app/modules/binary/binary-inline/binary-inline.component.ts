@@ -4,7 +4,7 @@ import { StringBinaryReader } from '../parser/readers/string-reader';
 import { BinaryParser } from '../parser/binary-parser';
 
 @Component({
-  selector: 'slides-binary-inline',
+  selector: 'kirjs-binary-inline',
   templateUrl: './binary-inline.component.html',
   styleUrls: ['./binary-inline.component.css']
 })
@@ -12,7 +12,6 @@ export class BinaryInlineComponent {
   @Input() filterClassName = /./;
   structure: any[];
   @Input() parser: BinaryParser;
-
 
   @Input() set binary(binary: string) {
     try {
@@ -24,5 +23,4 @@ export class BinaryInlineComponent {
       //  lol
     }
   }
-
 }

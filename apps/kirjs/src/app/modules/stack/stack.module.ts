@@ -6,17 +6,10 @@ import { RouterModule } from '@angular/router';
 import { StackComponent } from './stack.component';
 import { StackGameComponent } from './stack-game/stack-game.component';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(StackComponent)
-);
-
+const routes = RouterModule.forChild(SlidesRoutes.get(StackComponent));
 
 @NgModule({
   declarations: [StackComponent, StackGameComponent],
-  imports: [
-    CommonModule,
-    SlidesModule,
-    routes
-  ]
+  imports: [CommonModule, SlidesModule, routes]
 })
-export class StackModule { }
+export class StackModule {}

@@ -37,10 +37,6 @@ export class BinaryPlainComponent {
       .join(' ');
   }
 
-  update(item: any, innerText: any){
-
-  }
-
   @Input() set binary(binary: string) {
     try {
       this.structure = flatten(
@@ -52,4 +48,5 @@ export class BinaryPlainComponent {
     }
   }
 
+  update(item: any, innerText: any) {}
 }

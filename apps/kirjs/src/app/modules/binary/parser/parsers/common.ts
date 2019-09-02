@@ -12,15 +12,16 @@ export interface BinaryParserConfig {
 }
 
 export const defaultConfig: BinaryParserConfig = {
-  endianness: Endianness.BIG,
+  endianness: Endianness.BIG
 };
 
-
 export function beToLe32(val) {
-  return ((val & 0xFF) << 24)
-    | ((val & 0xFF00) << 8)
-    | ((val >> 8) & 0xFF00)
-    | ((val >> 24) & 0xFF);
+  return (
+    ((val & 0xff) << 24) |
+    ((val & 0xff00) << 8) |
+    ((val >> 8) & 0xff00) |
+    ((val >> 24) & 0xff)
+  );
 }
 
 export interface ReadResult {

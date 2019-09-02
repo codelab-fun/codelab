@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-
   selector: 'kirjs-webassembly-playground',
   templateUrl: './webassembly-playground.component.html',
   styleUrls: ['./webassembly-playground.component.css']
@@ -20,9 +19,7 @@ async function run(code) {
   return result.instance.exports.add(1, 2);
 }
   `;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

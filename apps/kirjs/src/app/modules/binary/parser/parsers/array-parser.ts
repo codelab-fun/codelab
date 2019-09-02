@@ -24,7 +24,7 @@ export class BinaryArrayParser extends AbstractBinaryParser {
       len--;
     }
 
-    return {value, raw};
+    return { value, raw };
   }
 
   readOrdered(
@@ -32,9 +32,7 @@ export class BinaryArrayParser extends AbstractBinaryParser {
     data: BinaryReaderResult = [],
     start = 0
   ): BinaryReaderResult {
-
-    let numberOfElements =
-      resolveLengthOrdered(this.config.length, data);
+    let numberOfElements = resolveLengthOrdered(this.config.length, data);
     if (numberOfElements === undefined) {
       numberOfElements = Infinity;
     }

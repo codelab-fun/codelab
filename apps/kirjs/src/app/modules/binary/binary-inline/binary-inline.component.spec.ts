@@ -8,9 +8,8 @@ describe('BinaryInlineComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BinaryInlineComponent ]
-    })
-    .compileComponents();
+      declarations: [BinaryInlineComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

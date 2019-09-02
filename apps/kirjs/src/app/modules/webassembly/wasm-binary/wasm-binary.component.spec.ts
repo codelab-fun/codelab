@@ -8,9 +8,8 @@ describe('WasmBinaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WasmBinaryComponent ]
-    })
-    .compileComponents();
+      declarations: [WasmBinaryComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

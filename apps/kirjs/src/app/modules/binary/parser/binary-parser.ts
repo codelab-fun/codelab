@@ -15,7 +15,6 @@ export interface BaseConfig {
   enum?: { [key: string]: string };
 }
 
-
 export class BinaryParser {
   type = 'object';
   private parser: BinaryObjectParser;
@@ -35,25 +34,28 @@ export class BinaryParser {
   }
 
   varuint31(name: string, config: Partial<VarUintParserConfig> = {}) {
-    this.parser.addStep(name, new VarUintParser({
-      ...config,
-      size: 31,
-    }));
+    this.parser.addStep(
+      name,
+      new VarUintParser({
+        ...config,
+        size: 31
+      })
+    );
     return this;
   }
 
   choice(name: string, config: any) {
-    this.parser.addStep(name, new BinaryChoiceParser({...config}));
+    this.parser.addStep(name, new BinaryChoiceParser({ ...config }));
     return this;
   }
 
   array(name: string, config: any) {
-    this.parser.addStep(name, new BinaryArrayParser({...config}));
+    this.parser.addStep(name, new BinaryArrayParser({ ...config }));
     return this;
   }
 
   bit(name: string, config: any) {
-    this.parser.addStep(name, new BitParser({...config}));
+    this.parser.addStep(name, new BitParser({ ...config }));
     return this;
   }
 
@@ -71,34 +73,34 @@ export class BinaryParser {
   }
 
   boolean(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 1, type: 'boolean', ...config});
+    return this.bit(name, { length: 1, type: 'boolean', ...config });
   }
 
   bit1(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 1, ...config});
+    return this.bit(name, { length: 1, ...config });
   }
 
   bit2(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 2, ...config});
+    return this.bit(name, { length: 2, ...config });
   }
 
   bit3(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 3, ...config});
+    return this.bit(name, { length: 3, ...config });
   }
 
   bit8(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 8, ...config});
+    return this.bit(name, { length: 8, ...config });
   }
 
   bit32(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 32, ...config});
+    return this.bit(name, { length: 32, ...config });
   }
   bit24(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 24, ...config});
+    return this.bit(name, { length: 24, ...config });
   }
 
   object(name: string, config?: Partial<BaseConfig>) {
-    return this.bit(name, {length: 1, ...config});
+    return this.bit(name, { length: 1, ...config });
   }
 
   uInt16(name: string, config?: Partial<BaseConfig>) {
@@ -139,7 +141,7 @@ export class BinaryParser {
       converter: a => {
         return beToLe32(parseInt(a, 2));
       },
-      ...config,
+      ...config
     });
   }
 

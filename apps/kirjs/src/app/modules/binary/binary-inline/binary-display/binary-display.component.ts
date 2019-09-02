@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'slides-binary-display',
+  selector: 'kirjs-binary-display',
   templateUrl: './binary-display.component.html',
   styleUrls: ['./binary-display.component.css']
 })
@@ -11,6 +11,4 @@ export class BinaryDisplayComponent {
   @Input() set binary(binary: string) {
     this.binaries = binary.match(/.{8}/g);
   }
-
-
 }

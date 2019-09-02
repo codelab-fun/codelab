@@ -1,5 +1,4 @@
 export function resolveLengthOrdered(functionOrValue, data) {
-
   if (typeof functionOrValue === 'string') {
     return resolveOrderedByKey(functionOrValue, data);
   }
