@@ -31,9 +31,12 @@ describe('forms', () => {
           templateUrl: undefined
         }
       });
-      try { TestBed.compileComponents(); } catch(e) { console.log(e); }
-    } catch (e) {
-    }
+      try {
+        TestBed.compileComponents();
+      } catch (e) {
+        console.log(e);
+      }
+    } catch (e) {}
   });
 
   it('AddFormsModule', () => {
@@ -47,8 +50,7 @@ describe('forms', () => {
     chai.expect(metadata.imports).to.contain(FormsModule);
   });
 
-
-  it('AddTitle', (done) => {
+  it('AddTitle', done => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.title = 'hello';
     fixture.detectChanges();
@@ -66,7 +68,7 @@ describe('forms', () => {
     });
   });
 
-  it('AddDescription', (done) => {
+  it('AddDescription', done => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.description = 'hello';
     fixture.detectChanges();
@@ -78,10 +80,11 @@ describe('forms', () => {
       fixture.componentInstance.description = 'greatdescription';
       fixture.detectChanges();
       fixture.whenStable().then(() => {
-        chai.expect(textarea.value).to.equal(fixture.componentInstance.description);
+        chai
+          .expect(textarea.value)
+          .to.equal(fixture.componentInstance.description);
         done();
       });
     });
-  });
-
+  }, 4000);
 });

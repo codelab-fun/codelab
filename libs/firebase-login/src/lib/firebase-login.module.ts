@@ -9,5 +9,4 @@ import { MatMenuModule } from '@angular/material';
   declarations: [LoginWidgetComponent],
   exports: [LoginWidgetComponent]
 })
-export class FirebaseLoginModule {
-}
+export class FirebaseLoginModule {}
