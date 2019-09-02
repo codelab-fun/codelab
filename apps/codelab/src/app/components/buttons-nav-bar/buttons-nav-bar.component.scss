@@ -3,7 +3,6 @@
     z-index: 110;
   }
 
-
   button:focus {
     outline: 0;
   }
@@ -26,7 +25,6 @@
     margin: 0 0 10px 0;
   }
 
-
   .buttons-nav-bar-modal-content-wrapper {
     padding: 8px;
     font-weight: 300;
@@ -35,11 +33,10 @@
 
   @media screen and (max-width: 350px) {
     .cdk-overlay-pane {
-      width: 100%
+      width: 100%;
     }
     .buttons-nav-bar-modal-content-wrapper {
       width: 100%;
     }
   }
-
 }

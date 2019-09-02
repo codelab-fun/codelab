@@ -24,22 +24,26 @@ export class UsersComponent implements OnInit {
   readonly displayedColumns = ['isCurrentUser', 'key'];
 
   readonly admins = this.dbService.list<AdminDb>('admin');
-  private readonly allAdmins$ = this.admins.snapshots$.pipe(map(firebaseToValuesWithKey));
+  private readonly allAdmins$ = this.admins.snapshots$.pipe(
+    map(firebaseToValuesWithKey)
+  );
 
-  readonly admins$: Observable<Admin[]> = combineLatest([this.allAdmins$, this.loginService.uid$]).pipe(
+  readonly admins$: Observable<Admin[]> = combineLatest([
+    this.allAdmins$,
+    this.loginService.uid$
+  ]).pipe(
     map(([admins, currentUserUid]) => {
-      return admins.map(admin => ({...admin, isCurrentUser: admin.key === currentUserUid}));
+      return admins.map(admin => ({
+        ...admin,
+        isCurrentUser: admin.key === currentUserUid
+      }));
     })
   );
 
   constructor(
     private readonly loginService: LoginService,
-    private readonly dbService: SyncDbService,
-  ) {
-  }
+    private readonly dbService: SyncDbService
+  ) {}
 
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
