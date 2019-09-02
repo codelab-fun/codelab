@@ -2,7 +2,7 @@
 
 [![Join our Slack, #codelab channel](https://img.shields.io/badge/slack-%23codelab-yellowgreen)](https://nycjsorg.now.sh) [![Check out the demo](https://img.shields.io/badge/see%20the-Demo-brightgreen)](https://codelab.fun)
 
-Angular Codelab is an Online interactive Angular tutorial allowing you to learn Angular without having to do any setup. 
+Angular Codelab is an Online interactive Angular tutorial.
 
 It's also an open source project written in Angular.
  
