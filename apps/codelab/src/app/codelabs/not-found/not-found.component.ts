@@ -6,4 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {
+  public routes = [
+    {
+      path: '',
+      name: 'Home'
+    },
+    {
+      path: '/typescript',
+      name: 'Typescript'
+    },
+    {
+      path: '/angular',
+      name: 'Angular'
+    }
+  ];
 }
