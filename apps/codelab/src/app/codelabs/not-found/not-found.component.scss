@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+
+  .left {
+    font-size: 70px;
+    margin-right: 20px;
+  }
+
+  .right {
+    .big-text {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .small-text {
+      font-size: 14px;
+    }
+  } 
+}

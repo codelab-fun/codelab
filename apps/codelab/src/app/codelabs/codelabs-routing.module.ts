@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
 import { SyncModule } from './sync/sync.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'sync',
     loadChildren: () => import('./sync/sync.module').then(m => m.SyncAdminModule)
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
