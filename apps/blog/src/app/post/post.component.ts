@@ -5,7 +5,6 @@ import { FormService } from '../form.service';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 
-
 @Component({
   selector: 'codelab-post',
   templateUrl: './post.component.html',

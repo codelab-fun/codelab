@@ -1,5 +1,10 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
 import { Observable, Subject } from 'rxjs';
