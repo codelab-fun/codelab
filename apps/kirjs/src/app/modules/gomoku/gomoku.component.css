@@ -1,0 +1,65 @@
+#intro,
+#outro {
+  /*  background: url(./browser/landscape-with-trees-1.jpg) no-repeat; */
+  background-size: 100% auto;
+  display: inline-block;
+  height: 100vh;
+}
+
+input[type='checkbox'] {
+  transform: scale(2);
+}
+
+.hb,
+cake {
+  width: 100vw;
+  height: 200px;
+  background-position: center center;
+  background-color: white;
+  background-image: url('print/hb.jpg');
+  background-size: 300px;
+  background-repeat: no-repeat;
+}
+kirjs-board {
+  width: 500px;
+  height: 500px;
+}
+
+:host ::ng-deep [title][blue] .slide {
+  background: #0079ff;
+}
+
+:host ::ng-deep [title] .slide {
+  align-items: center;
+  background: #ff6e00;
+  color: white;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+tr:first-child td {
+  background: #ff6e00;
+}
+
+td,
+th {
+  font-size: 40px;
+  padding: 20px;
+}
+
+b {
+  background: transparent;
+  color: black;
+  text-decoration: underline dotted;
+}
+
+a {
+  color: #444;
+}

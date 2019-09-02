@@ -1,10 +1,10 @@
-
-import {TestBed} from '@angular/core/testing';
+import { Api } from '../api.service';
+import { TestBed } from '@angular/core/testing';
+import { video_video_component_html } from '../code';
+import { VideoComponent } from '../video/video.component';
+import { VideoService } from '../video/video.service';
 import 'initTestBed';
-import {VideoService} from '../video/video.service';
-import {video_video_html} from '../code';
-import {VideoComponent} from '../video/video.component';
-import {Api} from '../api.service';
+
 const video = Api.fetch('')[0];
 
 beforeEach(() => {
@@ -16,32 +16,37 @@ beforeEach(() => {
     });
     TestBed.overrideComponent(VideoComponent, {
       set: {
-        template: video_video_html,
+        template: video_video_component_html,
         templateUrl: undefined
       }
     });
-    TestBed.compileComponents();
+    try { TestBed.compileComponents(); } catch(e) { console.log(e); }
   } catch (e) {
     // whatever
   }
 });
 
-describe('Component tree', () => {
+describe('Component Tree', () => {
   describe('Make sure metadata is in place', () => {
-    it(`VideoComponent.ts: Set the selector property to 'my-video'.`, () => {
-      const metadata = Reflect.getMetadata('annotations', VideoComponent);
+
+    it(`@@addComponentDecoratorAndSetSelectorToMyVideo`, () => {
+      const metadata = VideoComponent['__annotations__'][0];
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].selector, `VideoComponent's selector has to be 'my-video'.`).equals('my-video')
+      chai.expect(metadata.selector, `VideoComponent's selector has to be 'my-video'.`).equals('my-video');
     });
 
-    it(`VideoComponent.ts: Set the templateUrl to load the appropriate html file`, () => {
-      const metadata = Reflect.getMetadata('annotations', VideoComponent);
+
+    it(`@@setTemplateUrlToLoadAppropriateFile`, () => {
+      const metadata = VideoComponent['__annotations__'][0];
       chai.expect(metadata, `VideoComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].templateUrl, `VideoComponent's templateUrl should be set to './video.html'`).matches(/\.\/video\.html/)
+      chai.expect(metadata.templateUrl, `VideoComponent's templateUrl should be set to './video.component.html'`)
+        .matches(/\.\/video\.component\.html/);
     });
 
-    it(`VideoComponent.ts: Add a video property and decorate it with @Input()`, () => {
-      const metadata = Reflect.getMetadata('propMetadata', VideoComponent);
+
+    it(`@@addVideoPropertyAndDecorateWithInput`, () => {
+      const metadata = VideoComponent['__prop__metadata__'];
+
       chai.expect(metadata, `VideoComponent doesn't have any @Input()'s`).is.not.undefined;
       chai.expect(Object.keys(metadata).length, `VideoComponent doesn't have any @Input()'s`).equals(1);
       chai.expect(metadata.video, `VideoComponent's @Input()' should be called video.`).is.not.undefined;
@@ -53,39 +58,37 @@ describe('Component tree', () => {
     let fixture;
     beforeEach(() => {
       try {
-        
+
         fixture = TestBed.createComponent(VideoComponent);
         fixture.componentInstance.video = video;
         fixture.detectChanges();
       } catch (e) {
-    
+
       }
     });
 
-    it(`Video.html: Display the video title`, () => {
+
+    it(`displayVideoTitle`, () => {
       chai.expect(fixture.nativeElement.innerHTML, `can't find the video title`).contains(video.title);
     });
 
-    it(`Video.html: Display the video thumbnail`, () => {
+    it(`@@displayVideoThumbnail`, () => {
       const image = fixture.nativeElement.querySelector('img');
       chai.expect(image, `Can't find the thumbnail`).is.not.null;
       chai.expect(image.getAttribute('src')).equals(video.src);
     });
 
-    it(`Video.html: Display the video description`, () => {
+    it(`@@displayVideoDescription`, () => {
       chai.expect(fixture.nativeElement.innerHTML, `can't find the video description`).contains(video.description);
     });
 
-
-    it(`Video.html: Display the video date`, () => {
+    it(`@@displayVideoData`, () => {
       chai.expect(fixture.nativeElement.innerHTML, `can't find the video date`).contains(video.date);
     });
-
-    it(`Video.html: Display the number video likes`, () => {
+    it(`@@displayNumberOfVideoLikes`, () => {
       chai.expect(fixture.nativeElement.innerHTML, `can't find the video like`).contains(video.likes);
     });
-
-    it(`Video.html: Display the number of video views`, () => {
+    it(`@@displayNumberOfVideoViews`, () => {
       chai.expect(fixture.nativeElement.innerHTML, `can't find the video description`).contains(video.views);
     });
   });

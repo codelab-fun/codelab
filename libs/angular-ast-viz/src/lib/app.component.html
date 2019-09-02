@@ -1,0 +1,11 @@
+<div fxLayout style="height: 100%">
+  <textarea
+    #codeArea
+    (input)="generateAst(codeArea.value)"
+    [value]="code"
+  ></textarea>
+  <ast-viz [node]="ast" (selectNode)="selectNode($event)"></ast-viz>
+  <pre>
+    {{ ast | json }}
+  </pre>
+</div>

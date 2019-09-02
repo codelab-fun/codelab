@@ -1,0 +1,19 @@
+<div style="">
+  <code-demo-editor
+    minLines="1"
+    language="java"
+    style="height: 120px; margin-bottom: 2vw;"
+    [fontSize]="40"
+    [lineNumbers]="false"
+    [(ngModel)]="code"
+  ></code-demo-editor>
+  <div class="memory">
+    <div
+      *ngFor="let cell of memory; let i = index"
+      class="cell cell-{{ cell.type }}"
+    >
+      <span class="index">{{ i }}</span>
+      <span class="value">{{ cell.value }}</span>
+    </div>
+  </div>
+</div>

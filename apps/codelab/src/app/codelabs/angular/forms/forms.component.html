@@ -1,0 +1,236 @@
+<div #translations style="display: none">
+  ¬
+  <div i18n="AddFormsModule" id="AddFormsModule">
+    app.module.ts: Add FormsModule and MatInputModule, to the imports.
+  </div>
+  <div i18n="AddTitle" id="AddTitle">
+    upload.component.html: Add "title" input bound to the title property of the
+    component
+  </div>
+  <div i18n="AddDescription" id="AddDescription">
+    upload.component.html: Add "description" textarea bound to the description
+    property of the component
+  </div>
+</div>
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <!--  INTRO -->
+  <div *slide id="intro" no-padding milestone="forms">
+    <codelab-title-slide
+      i18n-title
+      i18n-description
+      title="Forms"
+      description="Adding basic forms into your app"
+    ></codelab-title-slide>
+  </div>
+
+  <div *slide id="simple-form" milestone="forms" milestone="forms">
+    <codelab-breadcrumb i18n>Simple Form</codelab-breadcrumb>
+    <h2 i18n>
+      We have this simple form, let's find out how to map input values with the
+      ones from our Angular component!
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="samples.basicForm"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="forms-module" milestone="forms" milestone="forms">
+    <codelab-breadcrumb i18n>Simple Form</codelab-breadcrumb>
+    <h2 i18n>First we have to add <b>FormsModule</b> to our NgModule.</h2>
+    <!--[openFilesIndex]="[1]"-->
+    <codelab-exercise-playground
+      files="app.module.ts"
+      [exercise]="samples.basicForm"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="ng-model" milestone="forms" milestone="forms">
+    <codelab-breadcrumb i18n>NgModel</codelab-breadcrumb>
+    <h2 i18n>
+      Now let's use ngModel to bind the inputs to the appropriate fields on the
+      component.
+    </h2>
+    <h2 i18n>Try changing the inputs and see the values updated.</h2>
+    <codelab-exercise-playground
+      [exercise]="samples.ngModel"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      [(NgModel)] - <b>Banana in the box</b> is a simple mnemonic for the braces
+      order.
+    </div>
+  </div>
+
+  <div *slide id="forms-validation-1" milestone="forms">
+    <codelab-breadcrumb i18n>Validation</codelab-breadcrumb>
+    <h2 i18n>
+      It's really easy to add validation for your inputs using predefined
+      Angular directives.
+    </h2>
+    <h2 i18n>Let's make username <b>required</b></h2>
+    <codelab-exercise-playground
+      [exercise]="samples.ngValidation1"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      If you clear the input it'll be marked with an error, however no error
+      will be displayed. We'll learn how to display it in the next slide
+    </div>
+  </div>
+
+  <div *slide id="forms-validation-2" milestone="forms">
+    <codelab-breadcrumb i18n>Displaying Validation Errors</codelab-breadcrumb>
+    <h2 i18n>Now we let's display validation error. It takes 2 steps:</h2>
+    <ul>
+      <li i18n>
+        Get ahold of the input ngModel using <b>#name="ngModel"</b> binding
+      </li>
+      <li i18n>Use <b>usernameModel</b>'s <b>errors</b> property.</li>
+    </ul>
+    <codelab-exercise-playground
+      [exercise]="samples.ngValidation2"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      Try clearing the username input and see the error displayed.
+    </div>
+  </div>
+  <div *slide id="built-in" milestone="forms">
+    <codelab-breadcrumb i18n>Validators</codelab-breadcrumb>
+    <h2 i18n>
+      Here's the list of
+      <a href="https://angular.io/api/forms/Validators#min"
+        >built-in validators</a
+      >
+      that Angular provides out of the box
+    </h2>
+    <ul>
+      <li i18n>min</li>
+      <li i18n>max</li>
+      <li i18n>required</li>
+      <li i18n>requiredTrue</li>
+      <li i18n>email</li>
+      <li i18n>minLength</li>
+      <li i18n>maxLength</li>
+      <li i18n>pattern</li>
+    </ul>
+    <div class="info" i18n>
+      It's also possible to create custom validators, but it's out of scope for
+      this milestone, you can read more:
+      <a href="https://angular.io/guide/form-validation#custom-validators"
+        >here</a
+      >
+    </div>
+  </div>
+
+  <div *slide id="forms-always-required" milestone="forms">
+    <codelab-breadcrumb i18n>Error Always Displayed</codelab-breadcrumb>
+    <h2 i18n>
+      There's one small issue though, if we don't have initial values, the error
+      is displayed right away.
+    </h2>
+    <!--[openFilesIndex]="[0,2]" TODO(kirjs)-->
+    <codelab-exercise-playground
+      [exercise]="samples.touched"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="forms-touched-dirty" milestone="forms">
+    <codelab-breadcrumb i18n>Touched & Dirty</codelab-breadcrumb>
+    <h2 i18n>
+      Luckily we can check if the user interacted with an input using
+      <b>touched</b> property.
+    </h2>
+    <ul>
+      <li i18n>
+        <b>dirty</b> is true if the user changed the value of the input.
+      </li>
+      <li i18n>
+        <b>touched</b> is true if the user focused on the input, and then blured
+        without changing the value.
+      </li>
+    </ul>
+    <codelab-exercise-playground
+      [exercise]="samples.touched2"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      Try focusing/bluring the <b>username</b> field, or adding some value and
+      then removing to see the error.
+    </div>
+  </div>
+
+  <div *slide id="forms-material" milestone="forms">
+    <codelab-breadcrumb i18n>Material Inputs (Bonus!)</codelab-breadcrumb>
+    <h2 i18n>
+      Now let's make our forms beautiful using Material Design inputs! Main
+      building blocks are:
+    </h2>
+    <ul>
+      <li i18n><b>mat-form-field</b> - Wraps the input</li>
+      <li i18n><b>matInput</b> - has to be put on the input</li>
+      <li i18n><b>mat-error</b> - Smarter error wrapper</li>
+    </ul>
+
+    <codelab-exercise-playground
+      [exercise]="samples.ngMaterial"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      Note that we don't need to <b>#name</b> the input anymore.
+    </div>
+  </div>
+
+  <div *slide id="exercise-pre">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
+      In the next slide there is an exercise. We're going to add a form to the
+      upload page.
+    </h2>
+    <codelab-exercise-preview
+      style="height:50vh"
+      column-5
+      [exercise]="exercise"
+      [url]="'/assets/runner/'"
+    >
+    </codelab-exercise-preview>
+    <div class="info" i18n>
+      Note: you'd have to manually click on the "upload link" to see the result,
+      we're working on the fix.
+    </div>
+  </div>
+
+  <div *slide id="exercise" no-padding>
+    <codelab-exercise
+      milestone="forms"
+      [translations]="t"
+      url="/assets/runner"
+      [exercise]="exercise"
+    >
+    </codelab-exercise>
+  </div>
+
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div class="header" header>
+        <codelab-breadcrumb i18n>End of The Forms Milestone</codelab-breadcrumb>
+      </div>
+      <div class="body" body>
+        <h2 i18n>Well done! This is the end of the milestone!</h2>
+        <h2 i18n>
+          There are more than one way to handle forms in Angular. While
+          <b>Advanced forms</b> milestone is in works, check out
+          <a href="https://angular.io/guide/dynamic-form">Angular docs</a>
+        </h2>
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../angular-cli/0" i18n>
+            Learn how to start working on your angular app in the Angular-cli
+            Milestone
+          </a>
+        </h2>
+      </div>
+      <div class="footer" footer>
+        <feedback-rating lesson="Forms"></feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

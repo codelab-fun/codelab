@@ -1,0 +1,29 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.item {
+  background: #fff;
+  border-right: 1px #444 dotted;
+  border-bottom: 1px #444 dotted;
+  padding: 0.5vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.key {
+  vertical-align: top;
+  font-size: 2vw;
+  color: #666;
+}
+
+.value {
+  font-size: 3.5vw;
+}
+
+select {
+  border: 1px #444 solid;
+  background: #ffffff;
+  font-size: 3vw;
+}

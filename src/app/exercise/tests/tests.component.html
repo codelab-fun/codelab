@@ -1,4 +1,0 @@
-<div *ngFor="let test of tests" class="test-panel" title="{{test.result}}">
-  <div [class]="'test ' + (test.pass === true ?'pass': (test.pass === false ?'fail': ''))">{{test.title}}</div>
-  <div class="result" *ngIf="isFirstUnsolved(test)">{{test.result}}</div>
-</div>

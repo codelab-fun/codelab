@@ -1,0 +1,7 @@
+
+import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { RouterModule } from '@angular/router';
+
+const routes = RouterModule.forChild(
+  SlidesRoutes.get(EmptyComponent)
+);

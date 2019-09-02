@@ -1,0 +1,8 @@
+.cell {
+  width: 8vw;
+  height: 8vw;
+  text-align: center;
+  font-size: 3vw !important;
+  vertical-align: middle;
+  line-height: 8vw;
+}

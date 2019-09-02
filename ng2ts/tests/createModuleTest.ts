@@ -1,52 +1,74 @@
+import { isDecorator, isIdentifier, isObjectProperty } from 'babel-types';
+import {
+  babelTestSuite,
+  expectClass,
+  expectDecorator,
+  expectExportedClass
+} from '../../apps/codelab/src/app/components/babel-test-runner/babel-helpers';
 
-import {TestBed} from '@angular/core/testing';
-import {AppModule, evalJs} from '../app.module';
-import {BrowserModule} from '@angular/platform-browser';
-import {AppComponent} from '../app.component';
-import 'reflect-metadata';
-let metadata;
 
-beforeEach(() => {
+const tests = [
+  {
+    title: `@@createClassAppModule`,
+    condition: expectClass('AppModule')
+  },
+  {
+    title: `@@exportClass`,
+    condition: expectExportedClass('AppModule')
+  },
+  {
+    title: `@@addNgModuleDecorator`,
+    condition: expectDecorator('NgModule')
+  },
+  {
+    title: `@@addBrowserModuleToNgModule`,
+    condition: (path) => {
+      if (!isIdentifier(path.node, {name: 'BrowserModule'})) {
+        return false;
+      }
 
-  TestBed.resetTestingModule();
-  TestBed.configureTestingModule({declarations: []});
-  try {
-    metadata = Reflect.getMetadata('annotations', AppModule);
-  } catch (e) {
-    // Do nothing, we have assertions below for this case
+      const ObjectProperty = path.findParent(n => isObjectProperty(n));
+      const Decorator = path.findParent(n => isDecorator(n));
+
+      return ObjectProperty &&
+        Decorator &&
+        ObjectProperty.node.key.name === 'imports' &&
+        Decorator.node.expression.callee.name === 'NgModule';
+    }
+  },
+  {
+    title: `@@addAppComponentToDeclarations`,
+    condition: (path) => {
+      if (!isIdentifier(path.node, {name: 'AppComponent'})) {
+        return false;
+      }
+
+      const ObjectProperty = path.findParent(n => isObjectProperty(n));
+      const Decorator = path.findParent(n => isDecorator(n));
+
+      return ObjectProperty &&
+        Decorator &&
+        ObjectProperty.node.key.name === 'declarations' &&
+        Decorator.node.expression.callee.name === 'NgModule';
+    }
+  },
+  {
+    title: `@@addAppComponentToBootstrap`,
+    condition: (path) => {
+      if (!isIdentifier(path.node, {name: 'AppComponent'})) {
+        return false;
+      }
+
+      const ObjectProperty = path.findParent(n => isObjectProperty(n));
+      const Decorator = path.findParent(n => isDecorator(n));
+
+      return ObjectProperty &&
+        Decorator &&
+        ObjectProperty.node.key.name === 'bootstrap' &&
+        Decorator.node.expression.callee.name === 'NgModule';
+    }
   }
-});
+];
 
-describe('Component', () => {
-  it(`Create a class called 'AppModule'`, () => {
-    chai.expect(typeof evalJs('AppModule')).equals('function');
-  });
 
-  // TODO: check if the module is exported
-  // See 1-bootstrap/0-component/Test.ts
-
-  it(`Export the class`, () => {
-    /**
-     * Require the class, assert it's a function (compile target is es5).
-     */
-    chai.expect(typeof AppModule).equals('function');
-  });
-
-  it(`Add a NgModule decorator for the class`, () => {
-    chai.expect(metadata).is.not.undefined
-  });
-
-  it(`Add 'BrowserModule' to the NgModule decorator imports`, () => {
-    // TODO: Figure out if this is actually needed
-    chai.expect(metadata[0].imports[0]).equals(BrowserModule);
-  });
-
-  it(`Add 'AppComponent' to the 'declarations' property of the decorator`, () => {
-    chai.expect(metadata[0].declarations[0]).equals(AppComponent);
-  });
-
-  it(`Add 'AppComponent' to the 'bootstrap' property of the decorator`, () => {
-    chai.expect(metadata[0].bootstrap[0]).equals(AppComponent);
-  });
-});
-
+export const createModuleTest = babelTestSuite('app.module.ts', tests);

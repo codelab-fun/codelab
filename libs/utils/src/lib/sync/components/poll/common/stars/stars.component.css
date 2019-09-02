@@ -1,0 +1,7 @@
+:host.enabled .star {
+  cursor: pointer;
+}
+
+:host.enabled .star:hover {
+  color: #ff4e3d;
+}

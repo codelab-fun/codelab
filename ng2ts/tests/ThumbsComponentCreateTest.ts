@@ -1,9 +1,9 @@
-
-import {TestBed} from '@angular/core/testing';
+import { Api } from '../api.service';
+import { TestBed } from '@angular/core/testing';
+import { Thumbs, ThumbsComponent } from '../thumbs/thumbs.component';
+import { thumbs_thumbs_html } from '../code';
 import 'initTestBed';
-import {thumbs_thumbs_html} from '../code';
-import {Api} from '../api.service';
-import {Thumbs, ThumbsComponent} from '../thumbs/thumbs.component';
+
 const thumbs = Api.fetch('')[0];
 
 
@@ -20,13 +20,13 @@ beforeEach(() => {
         template: thumbs_thumbs_html
       }
     });
-    TestBed.compileComponents();
+    try { TestBed.compileComponents(); } catch(e) { console.log(e); }
   } catch (e) {
 
   }
 });
 
-describe('Component tree', () => {
+describe('Component Tree', () => {
   describe('Make sure things are displayed properly', () => {
     let fixture;
     beforeEach(() => {
@@ -48,21 +48,22 @@ describe('Component tree', () => {
   });
 
   describe('Make sure things work', () => {
-    it(`ThumbsComponent.ts: Set the selector to be 'my-thumbs'.`, () => {
-      const metadata = Reflect.getMetadata('annotations', ThumbsComponent);
+    it(`Thumbs.Component.ts: Add the '@Component' decorator and set its selector to be 'my-thumbs'.`, () => {
+      const metadata = ThumbsComponent['__annotations__'][0];
+
       chai.expect(metadata, `ThumbsComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].selector, `ThumbsComponent's selector has to be 'my-thumbs'.`).equals('my-thumbs')
+      chai.expect(metadata.selector, `ThumbsComponent's selector has to be 'my-thumbs'.`).equals('my-thumbs')
     });
 
-    it(`ThumbsComponent.ts: Set the templateUrl to load appropriate html file.`, () => {
-      const metadata = Reflect.getMetadata('annotations', ThumbsComponent);
+    it(`Thumbs.Component.ts: Set the templateUrl to load appropriate html file.`, () => {
+      const metadata = ThumbsComponent['__annotations__'][0];
       chai.expect(metadata, `ThumbsComponent doesn't have a @Component() annotation`).is.not.undefined;
-      chai.expect(metadata[0].templateUrl, `ThumbsComponent's templateUrl should be set to './thumbs.html'`).equals('./thumbs.html')
+      chai.expect(metadata.templateUrl, `ThumbsComponent's templateUrl should be set to './thumbs.html'`).equals('./thumbs.html')
     });
 
     // TODO: split
-    it(`ThumbsComponent.ts: Add an 'onThumbs' property and set the value to a new EventEmitter. Decorate with @Output()`, () => {
-      const metadata = Reflect.getMetadata('propMetadata', ThumbsComponent);
+    it(`Thumbs.Component.ts: Add an 'onThumbs' property and set the value to a new EventEmitter. Decorate with @Output()`, () => {
+      const metadata = ThumbsComponent['__annotations__'][0];
       chai.expect(metadata, `ThumbsComponent doesn't have any @Outputs()'s`).is.not.undefined;
       chai.expect(Object.keys(metadata).length, `ThumbsComponent doesn't have any @Outputs()'s`).equals(1);
       chai.expect(metadata.onThumbs, `ThumbsComponent's @Outputs()' should be called onThumbs.`).is.not.undefined;

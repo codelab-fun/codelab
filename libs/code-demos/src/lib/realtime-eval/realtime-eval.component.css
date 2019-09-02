@@ -1,0 +1,65 @@
+.output {
+  font-size: 60px;
+  padding: 10px 0 10px 80px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.console {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background: #fff;
+  border-radius: 20px;
+}
+
+code-demo-editor::before {
+  content: '>';
+  font-size: 60px;
+  position: absolute;
+  margin-left: -30px;
+  color: #4eb1ff;
+}
+
+.output::before {
+  content: '<';
+  font-size: 50px;
+  position: absolute;
+  margin-left: -60px;
+  color: #4eb1ff;
+}
+
+.output.error::before {
+  color: #e51400;
+  content: '🙀';
+}
+
+code-demo-editor {
+  padding-left: 50px;
+  display: block;
+  border-bottom: 1px #444 solid;
+}
+
+:host {
+  height: 100%;
+}
+
+:host ::ng-deep .monaco-editor-background,
+:host ::ng-deep .monaco-editor,
+:host ::ng-deep .monaco-editor .inputarea {
+  background-color: transparent;
+}
+
+.error {
+  color: #e51400;
+  border: 1px #e51400 solid;
+  border-radius: 12px;
+}

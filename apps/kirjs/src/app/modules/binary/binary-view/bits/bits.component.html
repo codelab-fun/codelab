@@ -1,0 +1,10 @@
+<input AutoSizeInput [value]="data.rawValue" />
+
+<input
+  AutoSizeInput
+  type="checkbox"
+  *ngIf="data.rawValue.length === 1 && showMeta"
+  [checked]="!!+data.rawValue"
+  (change)="update(i.checked)"
+  #i
+/>

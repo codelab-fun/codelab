@@ -1,0 +1,31 @@
+.arrow-left {
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+  left: 0;
+  text-align: right;
+}
+
+.arrow-right {
+  border-top-left-radius: 40%;
+  border-bottom-left-radius: 40%;
+  right: 0;
+  text-align: left;
+}
+
+.arrow:hover,
+.arrow:focus {
+  opacity: 0.5;
+}
+
+.arrow-left,
+.arrow-right {
+  top: calc(44.7% - 6vh / 2);
+  position: fixed;
+  font-size: 6vh;
+  z-index: 100;
+  padding: 20px 5px;
+  background: #ddd;
+  cursor: pointer;
+  line-height: 12vh;
+  opacity: 0.1;
+}

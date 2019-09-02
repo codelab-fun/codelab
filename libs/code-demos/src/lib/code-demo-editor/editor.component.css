@@ -1,0 +1,14 @@
+.monaco-editor {
+  display: block;
+  width: 100%;
+  flex-grow: 1;
+}
+
+:host {
+  display: block;
+}
+
+::ng-deep .decorationsOverviewRuler,
+::ng-deep .current-line {
+  display: none !important;
+}

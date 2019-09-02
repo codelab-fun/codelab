@@ -1,7 +1,7 @@
 /**
  * In the test it's possible to get access to sourcecode, as well as to the code AST.
  */
-import {ts, typescript_intro_Codelab_ts_AST} from '../code';
+import { ts, typescript_intro_Codelab_ts_AST } from '../code';
 /**
  * This is a good sample sample of a codelab exercise.
  *
@@ -18,7 +18,7 @@ import {ts, typescript_intro_Codelab_ts_AST} from '../code';
  * It will be stripped during runtime, and the Codelab module
  * will be loaded.
  */
-import {Codelab, evalJs} from '../typescript-intro/Codelab';
+import { Codelab, evalJs } from '../typescript-intro/Codelab';
 
 
 const guests = [
@@ -44,7 +44,7 @@ function getConstructorNode(code) {
 }
 
 describe('Component', () => {
-  it(`Create a class called 'Codelab'`, () => {
+  it(`@@createClassCodelab`, () => {
     /**
      * We can use evalJs to get into the scope of the user's file.
      * Currently evalJs has to be manually added to the `before`
@@ -59,14 +59,14 @@ describe('Component', () => {
     chai.expect(typeof evalJs('Codelab')).equals('function');
   });
 
-  it(`Export the class`, () => {
+  it(`@@exportClass`, () => {
     /**
      * Require the class, assert it's a function (compile target is es5).
      */
     chai.expect(typeof Codelab).equals('function');
   });
 
-  it('Add a constructor', () => {
+  it('@@addConstructor', () => {
     let hasConstructor = false;
 
     /**
@@ -84,14 +84,14 @@ describe('Component', () => {
     chai.expect(hasConstructor, `Codelab doesn't have a constuctor`).is.true;
   });
 
-  it(`Make constructor take a parameter 'guests'`, () => {
+  it(`@@makeConstructorTakeParamGuests`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
     chai.expect(constructorNode.parameters.length, `Codelab's constructor should take a parameter`).to.equal(1);
     chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
   });
 
-  it(`Specify the type for the guests`, () => {
+  it(`@@specifyTheTypeForGuests`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
 
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
@@ -106,11 +106,11 @@ describe('Component', () => {
       && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
 
     chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest 
-    (hint: Guest[] is one way of doing it.)`).to.be.ok;
+    (hint: Array<Guest> is one way of doing it.)`).to.be.ok;
 
   });
 
-  it('Make the parameter public (note that now you can access it anywhere in the class using this.guests)', () => {
+  it('@@makeParemeterPublic', () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
     const parameter = constructorNode.parameters[0];
     chai.expect(parameter.modifiers.length === 1 && parameter.modifiers[0].kind === ts.SyntaxKind.PublicKeyword,
@@ -118,13 +118,14 @@ describe('Component', () => {
 
   });
 
-  it(`Create new method 'getGuestsComing'`, () => {
+  it(`createNewMethodGetGuestsComing`, () => {
     chai.expect(typeof (new Codelab(guests).getGuestsComing)).equals('function');
   });
 
-  it(`Modify getGuestsComing to filter the guests array and only return guests with the 'coming' 
-      property set to true.`, () => {
-    chai.expect(new Codelab(guests).getGuestsComing().length).equals(1);
+  it(`@@modifyGetGuestsComingToFilter`, () => {
+    const guestsComing = new Codelab(guests).getGuestsComing();
+    chai.assert(Array.isArray(guestsComing), 'getGuestsComing must return an Array, current value: ' + guestsComing);
+    chai.expect(guestsComing.length).equals(1);
   });
 
   /*

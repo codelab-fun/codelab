@@ -1,0 +1,9 @@
+<ng-container *ngIf="displayData">
+  {{ displayData | json }}
+  <!--<h2>{{displayData.type}}</h2>-->
+  <h2>{{ displayData.name }}</h2>
+  <!--<input [value]="displayData.rawValue">-->
+  <!--<kirjs-block [showMeta]="true" [class]="item.name" [data]="displayData"></kirjs-block>-->
+  <h1>{{ displayData.value }}</h1>
+</ng-container>
+<kirjs-inline [data]="data"></kirjs-inline>

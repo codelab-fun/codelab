@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+kirjs-rule {
+  margin-right: 20px;
+}

@@ -1,9 +1,9 @@
-import {TestBed} from '@angular/core/testing';
+import { app_component_ts, app_html } from '../code';
+import { AppComponent, evalJs } from '../app.component';
+import { AppModule } from '../app.module';
+import { TestBed } from '@angular/core/testing';
+import { VideoService } from '../video/video.service';
 import 'initTestBed';
-import {AppComponent} from '../app.component';
-import {VideoService} from '../video/video.service';
-import {AppModule} from '../app.module';
-import {app_component_ts, app_html} from '../code';
 
 
 beforeEach(() => {
@@ -18,40 +18,45 @@ beforeEach(() => {
       templateUrl: undefined
     }
   });
-  TestBed.compileComponents();
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Blabla', () => {
-  it(`VideoService.ts: Add @Injectable() decorator to the classs`, () => {
+  it(`@@addIjectableDecoraterToClass`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', VideoService);
+      metadata = VideoService['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
     chai.expect(metadata).not.undefined;
   });
-  it(`Appmodule.ts: Add VideoService to the NgModule providers property`, () => {
+
+  it(`@@addVideoServiceToNgModule`, () => {
     let metadata;
     try {
-      metadata = Reflect.getMetadata('annotations', AppModule);
+      metadata = AppModule['__annotations__'][0];
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata[0].providers[0]).equals(VideoService);
+
+    chai.expect(metadata.providers[0]).equals(VideoService);
   });
 
-  it(`AppComponent.ts: Inject videoService in the component constructor`, () => {
+
+  it(`@@getRidOfFakeVideos`, () => {
+    chai.expect(evalJs('typeof FAKE_VIDEOS;')).equals('undefined');
+  });
+
+  it(`@@injectVideoService`, () => {
     chai.expect(AppComponent.length, `App component constructor doesn't take any parameters`).to.equal(1);
     chai.expect(app_component_ts).matches(/VideoService/);
   });
 
-  it(`AppComponent.ts: When searching assign videoService.search results to the videos property of the class`, () => {
+  it(`@@updateAppComponentSearchmethod`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.componentInstance.search('itten');
-    chai.expect(fixture.componentInstance.videos.length).to.equal(4);
+    fixture.componentInstance.search('Itty');
+    chai.expect(fixture.componentInstance.videos.length).to.equal(3);
   });
-
-
 });
 

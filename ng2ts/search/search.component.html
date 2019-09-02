@@ -1,0 +1,8 @@
+<input type="text" #searchTerm placeholder="video">
+<button (click)="search(searchTerm.value)">Search!</button>
+
+<div *ngIf="videos.length == 0">
+  No videos!
+</div>
+
+<my-video *ngFor="let video of videos" [video]="video"></my-video>

@@ -1,0 +1,8 @@
+<div class="progress">
+  <div
+    *ngFor="let test of tests"
+    [class.pass]="test.pass"
+    class="text-box"
+  ></div>
+  <div class="counts">{{ countPassing() }}/{{ (tests || []).length }}</div>
+</div>
