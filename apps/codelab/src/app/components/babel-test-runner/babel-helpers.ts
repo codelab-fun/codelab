@@ -40,7 +40,7 @@ export const expectDecoratorPropertyStringValue = (
       matchesValue(path.node.value, value);
 
   }
-  
+
   return (
     (matchesTemplateLiteral() || matchesStringLiteral()) &&
     T.isObjectProperty(path.parent) &&
