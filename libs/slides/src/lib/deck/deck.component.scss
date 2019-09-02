@@ -4,6 +4,13 @@
   }
 }
 
+:host {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
 :host ::ng-deep {
   .slide.slide [vertical-split],
   [vertical-split] .slide.slide {
@@ -14,6 +21,7 @@
       width: 49vw;
       margin-right: 1vw;
     }
+
     > *:nth-child(2) {
       width: 49vw;
       margin-left: 1vw;
@@ -87,6 +95,7 @@
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      position: relative;
 
       &[no-padding] {
         padding: 0;

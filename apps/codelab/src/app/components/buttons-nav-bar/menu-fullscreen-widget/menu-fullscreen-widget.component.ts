@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { FullScreenModeService } from '@codelab/utils';
 
 @Component({

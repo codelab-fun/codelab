@@ -9,6 +9,7 @@ import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-b
 import { SlidesModule } from '@codelab/slides';
 
 import { FullLayoutComponent } from '../containers';
+import { SyncModule } from '../modules/sync/sync.module';
 
 @NgModule({
   declarations: [FullLayoutComponent],
@@ -19,7 +20,8 @@ import { FullLayoutComponent } from '../containers';
     CodeDemoModule,
     CodelabComponentsModule,
     SlidesModule,
-    ButtonsNavBarModule
+    ButtonsNavBarModule,
+    SyncModule,
   ],
   exports: [
     FullLayoutComponent,
@@ -32,4 +34,5 @@ import { FullLayoutComponent } from '../containers';
   ],
   providers: []
 })
-export class SharedModule {}
+export class SharedModule {
+}

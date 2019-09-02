@@ -7,7 +7,7 @@ export class LiveServiceService {
   @Input() user = 'pikachu';
   @Input() host = 'pirojok';
   @Input() session = 'live-share';
-  @Input() bucket = 'poll';
+  @Input() bucket = 'config';
 
   constructor() {}
 }

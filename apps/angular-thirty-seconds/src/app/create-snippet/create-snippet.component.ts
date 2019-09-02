@@ -1,25 +1,31 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
-import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { Observable } from 'rxjs/internal/Observable';
-import { map, startWith } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
+import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
+import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
+import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
+import { SnippetService } from '../shared/services/snippet.service';
+import { markFormControlsAsTouched, validatorMaxLines, validatorMaxTags } from '../shared/functions/validation';
+import { parseSnippet } from '../shared/functions/parse-snippet';
+import { SEPARATOR } from '../shared/consts';
 
-
-function validatorMaxLines(lines: number) {
-  return (control: AbstractControl) => {
-    return control.value.split('\n').length > lines ? {linesError: `This field shouldn't have more than ${lines} lines`} : null;
-  };
+interface SnippetFileInfo {
+  sha: string;
+  fileName: string;
+  snippet: string;
+  branchName: string;
 }
 
-function validatorMaxTags(maximumTags: number) {
-  return (control: AbstractControl) => {
-    return Array.isArray(control.value) && control.value.length > maximumTags ? {tagsError: `Number of tags should be below ${maximumTags + 1}`} : null;
-  };
-}
 
+function importSnippet(snippet) {
+  const result = {...snippet};
+  result.links = (result.links || []).join(SEPARATOR);
+  return result;
+}
 
 @Component({
   selector: 'codelab-create-snippet',
@@ -27,13 +33,22 @@ function validatorMaxTags(maximumTags: number) {
   templateUrl: './create-snippet.component.html',
   styleUrls: ['./create-snippet.component.scss']
 })
-export class CreateSnippetComponent {
+export class CreateSnippetComponent implements OnDestroy {
 
-  @ViewChild('tagInput', { static: false }) tagInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
+  @ViewChild('tagInput', {static: false}) tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
+
+  repoName: string;
+  repoOwner: string;
+
+  destroy = new ReplaySubject<void>(1);
+
+  isLoading = false;
+  isEditing = false;
+  snippetFileInfo: SnippetFileInfo;
 
   TAGS_LIST = TAGS_LIST;
-  tags: Array<string> = ['tip'];
+  tags: string[] = ['tip'];
   filteredTags: Observable<string[]>;
 
   snippetForm = this.fb.group({
@@ -55,34 +70,84 @@ export class CreateSnippetComponent {
 
   constructor(
     private fb: FormBuilder,
+    private cd: ChangeDetectorRef,
+    private activatedRoute: ActivatedRoute,
+    private snippetService: SnippetService,
     public dialog: MatDialog
   ) {
+    const pullNumber = this.activatedRoute.snapshot.params['pullNumber'];
+    this.repoName = this.activatedRoute.snapshot.params['repoName'];
+    this.repoOwner = this.activatedRoute.snapshot.params['repoOwner'];
+
+    if (pullNumber) {
+      this.isEditing = true;
+      this.fetchPR(pullNumber);
+    }
+
     this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
-      // tslint:disable-next-line:deprecation
-      startWith(null),
-      map((tags: string | null) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()));
+      map((tags: string) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice())
+    );
   }
 
-  onSubmit() {
+  fetchPR(pullNumber: number) {
+    this.isLoading = true;
+    this.snippetService.fetchPR(this.repoName, this.repoOwner, pullNumber).pipe(
+      finalize(() => {
+        this.isLoading = false;
+        this.cd.markForCheck();
+      })).subscribe((snippetFileInfo: SnippetFileInfo) => {
+
+      this.snippetFileInfo = snippetFileInfo;
+
+      const snippet = importSnippet(parseSnippet(snippetFileInfo.snippet));
+      if (snippet.demo) {
+        this.hasDemo = true;
+      }
+      if (snippet.bonus) {
+        this.hasBonus = true;
+      }
+      if (snippet.links) {
+        this.hasLinks = true;
+      }
+      this.snippetForm.patchValue(snippet);
+    });
+
+
+  }
+
+  ngOnDestroy() {
+    this.destroy.next(null);
+    this.destroy.complete();
+  }
+
+
+  openPreview() {
     if (this.snippetForm.valid) {
-      this.dialog.open(
-        SnippetOverviewComponent,
-        {data: {formValue: this.getPreparedFormValue(this.snippetForm.value)}}
-      );
+      this.dialog.open(SnippetOverviewComponent, {
+        data: {
+          formValue: this.getPreparedFormValue(this.snippetForm.value),
+          isEditing: this.isEditing,
+          fileInfo: this.snippetFileInfo ? {
+            sha: this.snippetFileInfo['sha'],
+            fileName: this.snippetFileInfo['fileName'],
+            branchName: this.snippetFileInfo['branchName']
+          } : null,
+          repoName: this.repoName,
+          repoOwner: this.repoOwner
+        }
+      });
     } else {
-      this.markFormControlsAsTouched(this.snippetForm);
+      markFormControlsAsTouched(this.snippetForm);
     }
   }
 
   getPreparedFormValue(value) {
-    const isDemoComponentChangedAndNotEmpty = this.hasDemo && value.demo['app.component.ts'] && value.demo['app.component.ts'] !== angularSampleCode['app.component.ts'];
-    const isDemoModuleChangedAndNotEmpty = this.hasDemo && value.demo['app.module.ts'] && value.demo['app.module.ts'] !== angularSampleCode['app.module.ts'];
-    const isDemoMainChangedAndNotEmpty = this.hasDemo && value.demo['main.ts'] && value.demo['main.ts'] !== angularSampleCode['main.ts'];
+    Object.keys(value['demo']).forEach(x => {
+      const isChangedAndNotEmpty = this.hasDemo && value.demo[x] && value.demo[x] !== angularSampleCode[x];
+      value['demo'][x] = isChangedAndNotEmpty ? value.demo[x] : null;
+    });
     value['bonus'] = this.hasBonus ? value['bonus'] : null;
     value['links'] = this.hasLinks ? value['links'] : null;
-    value.demo['app.component.ts'] = isDemoComponentChangedAndNotEmpty ? value.demo['app.component.ts'] : null;
-    value.demo['app.module.ts'] = isDemoModuleChangedAndNotEmpty ? value.demo['app.module.ts'] : null;
-    value.demo['main.ts'] = isDemoMainChangedAndNotEmpty ? value.demo['main.ts'] : null;
     return value;
   }
 
@@ -90,15 +155,12 @@ export class CreateSnippetComponent {
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value = event.value;
-
       if ((value || '').trim()) {
         this.tags.push(value.trim());
       }
-
       if (input) {
         input.value = '';
       }
-
       this.snippetForm.get('tags').patchValue(this.tags);
     }
   }
@@ -115,17 +177,6 @@ export class CreateSnippetComponent {
     this.tags.push(event.option.viewValue);
     this.tagInput.nativeElement.value = '';
     this.snippetForm.get('tags').patchValue(this.tags);
-  }
-
-  markFormControlsAsTouched(formGroup: FormGroup | FormArray): void {
-    Object.values(formGroup.controls).forEach(
-      (control) => {
-        if (control instanceof FormControl) {
-          control.markAsTouched({onlySelf: true});
-        } else if (control instanceof FormGroup || control instanceof FormArray) {
-          this.markFormControlsAsTouched(control);
-        }
-      });
   }
 
   private _filterTags(value: string): string[] {

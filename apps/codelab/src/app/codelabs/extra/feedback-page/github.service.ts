@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { GitHub } from 'github-api';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GithubService {
-  repo = 'AngularNYC/angular-presentation';
+  repo = 'codelab-fun/codelab';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   createIssue(issueData, accessToken) {
-    const headers = { Authorization: 'token ' + accessToken };
-    const options = { headers };
+    const headers = {Authorization: 'token ' + accessToken};
+    const options = {headers};
     return this.http.post(
       `https://api.github.com/repos/${this.repo}/issues`,
       issueData,
@@ -19,8 +21,8 @@ export class GithubService {
   }
 
   closeIssue(changes, issueId, accessToken) {
-    const headers = { Authorization: 'token ' + accessToken };
-    const options = { headers };
+    const headers = {Authorization: 'token ' + accessToken};
+    const options = {headers};
     return this.http.patch(
       `https://api.github.com/repos/${this.repo}/issues/${issueId}`,
       changes,

@@ -49,7 +49,6 @@
 </div>
 <slide-deck slideShortcuts slidesRouting slides-tracking>
   <codelab-progress-bar></codelab-progress-bar>
-  <codelab-progress-bar></codelab-progress-bar>
   <slide-arrows></slide-arrows>
 
   <div *slide id="intro" no-padding>
@@ -81,14 +80,11 @@
   <div *slide id="index-html" milestone="Bootstrap">
     <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
     <h2 i18n>Given an HTML file:</h2>
-    <code-demo-file-path path="index.html"></code-demo-file-path>
-    <code-demo-editor
-      language="html"
-      [fontSize]="30"
-      [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
+    <code-demo
+      [(ngModel)]="code.indexHtml"
       [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
-    ></code-demo-editor>
-    <h2 i18n>
+    ></code-demo>
+    <h2 i18n style="margin-top: 20px;">
       Let's create an Angular app which replaces the <b>hello-world</b> HTML
       element with the app's contents.
     </h2>
@@ -356,7 +352,7 @@
   <div *slide id="bootstrapping-more" milestone="Bootstrap">
     <codelab-breadcrumb i18n>Bootstrapping 1</codelab-breadcrumb>
     <h2 i18n>How does bootstrapping work in Angular?</h2>
-    <br />
+    <br/>
     <h2 i18n>
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
@@ -371,7 +367,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -392,7 +388,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -415,7 +411,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -514,7 +510,7 @@
       </div>
       <div class="footer" footer>
         <h2>
-          <ng-container i18n>Next: </ng-container>
+          <ng-container i18n>Next:</ng-container>
           <a routerLink="../../templates/0" i18n>
             Go to the templates Milestone
           </a>
