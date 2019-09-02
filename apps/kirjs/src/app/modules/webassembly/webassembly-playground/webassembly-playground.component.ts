@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./webassembly-playground.component.css']
 })
 export class WebassemblyPlaygroundComponent implements OnInit {
-  webAssemblyCode = `(module
+  @Input() webAssemblyCode = `(module
   (func $add (param $lhs i32) (param $rhs i32) (result i32)
     local.get $lhs
     local.get $rhs
