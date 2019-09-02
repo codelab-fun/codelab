@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
+declare const require;
+
 @Component({
   selector: 'codelab-slides-create-first-app',
   templateUrl: './create-first-app.component.html',
@@ -87,6 +89,11 @@ export class AppComponent {
     this.t = extractMessages(this.translation);
 
     this.code = {
+      indexHtml: {
+        'index.html': require('!!raw-loader!./samples/index-html/index.html'),
+        'bootstrap.ts': require('!!raw-loader!./samples/index-html/bootstrap.ts')
+      },
+      indexHtmlMatches: { 'index.html': /<hello-[^]*world>/ },
       decorators: {
         code: `import {Component} from '@angular/core';
 // ${this.t.componentIsDecorator}

@@ -1,10 +1,10 @@
 <div *ngIf="(files$ | async) as compiledCode" class="wrapper">
   <code-demo-multitab-editor
-    [codeDemoHighlight]="codeDemoHighlight"
     class="quarter"
     [files]="files"
     [solutions]="solutions"
     [(ngModel)]="code"
+    [highlights]="highlights"
     (ngModelChange)="update($event)"
   ></code-demo-multitab-editor>
   <code-demo-runner
