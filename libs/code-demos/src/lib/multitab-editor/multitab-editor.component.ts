@@ -121,7 +121,9 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
     this.cdr.markForCheck();
   }
 
-  removeActiveNode(model: FileFolderNode|MonacoModel) {
+  removeActiveNode(model: FileFolderNode|MonacoModel, event: Event) {
+    event.stopPropagation();
+
     const index = this.openModels.findIndex(m => m.path === model.path);
     this.openModels = this.openModels.filter(m => m.path !== model.path);
 

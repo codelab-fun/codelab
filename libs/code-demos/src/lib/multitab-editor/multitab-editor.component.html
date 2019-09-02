@@ -24,19 +24,22 @@
   class="right-panel"
   [class.multi-file]="allowSwitchingFiles"
 >
-  <div class="tab-filename-container" *ngIf="allowSwitchingFiles">
+  <div class="panel">
+      <div class="tab-filename-container" *ngIf="allowSwitchingFiles">
 
-      <div
-        *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
-        class="tab-filename"
-        [class.tab-filename--active]="openModels[activeTabIndex] === model"
+          <div
+            *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
+            class="tab-filename"
+            [class.tab-filename--active]="openModels[activeTabIndex] === model"
+            (click)="updateActiveFileSelected(model.path)"
+          >
+              <span>{{retrieveFileNameFromPath(model.path)}}</span>
+              <i aria-hidden="true" class="file-icon file-icon__remove" (click)="removeActiveNode(model, $event)"></i>
+        </div>
 
-      >
-          <span (click)="updateActiveFileSelected(model.path)">{{retrieveFileNameFromPath(model.path)}}</span>
-          <i aria-hidden="true" class="file-icon file-icon__remove" (click)="removeActiveNode(model)"></i>
-    </div>
-
+      </div>
   </div>
+
 
   <code-demo-editor-from-model
     *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
