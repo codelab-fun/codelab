@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { flatten } from '../binary-flat/binary-flat.component';
-import { FakeGifComponent } from '../fake-gif/fake-gif.component';
 
 @Component({
   selector: 'kirjs-binary-plain',
@@ -30,14 +29,16 @@ export class BinaryPlainComponent {
     return r;
   }, {});
 
-  structure: any;
-
-  constructor(private readonly root: FakeGifComponent) {}
+  structure: any[];
 
   get highlighted() {
     return Object.keys(this.highlightedMap)
       .filter(key => this.highlightedMap[key])
       .join(' ');
+  }
+
+  update(item: any, innerText: any){
+
   }
 
   @Input() set binary(binary: string) {
@@ -51,7 +52,4 @@ export class BinaryPlainComponent {
     }
   }
 
-  update(item, value) {
-    this.root.update(item, value);
-  }
 }

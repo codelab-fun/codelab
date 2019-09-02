@@ -33,7 +33,7 @@
           style="display: inline;"
           (click)="show[i] = !show[i]"
           [attr.name]="item.name"
-          (keydown.enter)="update(item, $event.target.innerText)"
+          (keydown.enter)="update(item,$event.target.innerText)"
           contenteditable="true"
           >{{ item.rawValue }}</span
         >

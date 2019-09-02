@@ -6,7 +6,7 @@ export function gifParser(t: { [key: string]: string }) {
     .string('headerConst', { length: 3, description: t.headerConst })
     .string('version', { length: 3, description: t.version })
     .uInt16('width', { description: t.width })
-    .uInt16('height', { description: t.height })
+      .uInt16('height', { description: t.height })
     .boolean('globalPalette', { description: t.globalPalette })
     .bit3('resolution', { type: 'number', description: t.resolution })
     .boolean('isPaletteSorted', { description: t.isPaletteSorted })
@@ -24,6 +24,9 @@ export function gifParser(t: { [key: string]: string }) {
       type: 'color'
     }),
     length(data) {
+      // The format has been changed for data parent, but I did not have time to debug
+      debugger;
+      // The format has been changed , but I did not have time to debug
       const paletteSize = data._parent[0].value.find(
         a => a.name === 'paletteSize'
       ).value;

@@ -71,7 +71,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
     AngularFlagsComponent,
     ColorIndexingComponent,
     BitwiseComponent,
-    ToReadComponent
+    ToReadComponent,
   ],
   entryComponents: [
     FakeGifComponent,
@@ -85,4 +85,5 @@ const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
   ],
   exports: [BinaryComponent]
 })
-export class BinaryModule {}
+export class BinaryModule {
+}

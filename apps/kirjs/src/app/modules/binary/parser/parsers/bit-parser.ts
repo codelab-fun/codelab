@@ -1,10 +1,6 @@
 import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
-import {
-  resolveByKey,
-  resolveFunctionKeyOrValue,
-  resolveOrderedByKey
-} from '../utils';
+import { resolveByKey, resolveFunctionKeyOrValue, resolveOrderedByKey } from '../utils';
 
 export class BitParser extends AbstractBinaryParser {
   type = 'bits';
@@ -16,12 +12,12 @@ export class BitParser extends AbstractBinaryParser {
 
   readWithLength(
     reader: BinaryReader,
-    data: BinaryReaderResult = {},
+    data: BinaryReaderResult = [],
     len: number
   ) {
     const rawValue = reader.read(len);
     const converter = this.config.converter || (a => a);
-    return { value: converter(rawValue), rawValue };
+    return {value: converter(rawValue), rawValue};
   }
 
   read(
@@ -38,7 +34,7 @@ export class BitParser extends AbstractBinaryParser {
 
   readOrdered(
     reader: BinaryReader,
-    data: BinaryReaderResult = {},
+    data: BinaryReaderResult = [],
     start = 0
   ): BinaryReaderResult {
     if (start === 0) {
@@ -54,7 +50,9 @@ export class BitParser extends AbstractBinaryParser {
     const result = this.readWithLength(reader, data, len);
     const length = result.rawValue.length;
     const end = start + length;
+
     return {
+      displayValue: this.config && this.config.enum && this.config.enum[result.value] || result.value,
       start,
       length,
       end,

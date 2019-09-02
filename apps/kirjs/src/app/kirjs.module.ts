@@ -4,16 +4,16 @@ import { monacoReady } from '@codelab/code-demos';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../codelab/src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
 );
-
 
 const routes = [
   {
@@ -98,6 +98,12 @@ const routes = [
     description: 'stack'
   },
   {
+    path: 'sync',
+    loadChildren: () => import('./modules/sync/sync.module').then(m => m.SyncModule),
+    name: 'Sync',
+    description: 'Sync Session'
+  },
+  {
     path: 'test',
     loadChildren: () => import('./modules/test/test.module').then(m => m.TestModule),
     name: 'Home',
@@ -121,9 +127,16 @@ const routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
     angularFire
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue: monacoReady,
+      multi: true
+    },
     {
       provide: 'ROUTES',
       useValue: []
