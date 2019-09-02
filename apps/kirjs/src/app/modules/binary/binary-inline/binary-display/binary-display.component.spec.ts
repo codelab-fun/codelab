@@ -8,9 +8,8 @@ describe('BinaryDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BinaryDisplayComponent ]
-    })
-    .compileComponents();
+      declarations: [BinaryDisplayComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

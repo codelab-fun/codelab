@@ -6,8 +6,6 @@ declare const require;
 const littleGif = require('!binary-loader!./pics/little.gif');
 const chikinGif = require('!binary-loader!./pics/chikin.gif');
 
-
-
 @Component({
   selector: 'kirjs-binary',
   templateUrl: './binary.component.html',

@@ -11,6 +11,6 @@ export abstract class AbstractBinaryParser {
   abstract readOrdered(
     reader: BinaryReader,
     data: any[],
-    start: number,
+    start: number
   ): BinaryReaderResult;
 }

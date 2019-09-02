@@ -2,11 +2,9 @@ import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
 import { BaseConfig } from '../binary-parser';
 
-
 export interface VarUintParserConfig extends BaseConfig {
   size?: number;
 }
-
 
 export const defaultVarUintParserConfig = {
   size: 7
@@ -15,7 +13,9 @@ export const defaultVarUintParserConfig = {
 export class VarUintParser extends AbstractBinaryParser {
   type = 'bits';
 
-  constructor(private config: VarUintParserConfig = defaultVarUintParserConfig) {
+  constructor(
+    private config: VarUintParserConfig = defaultVarUintParserConfig
+  ) {
     super();
     this.type = config.type || this.type;
   }
@@ -48,7 +48,7 @@ export class VarUintParser extends AbstractBinaryParser {
     }
 
     const converter = this.config.converter || VarUintParser.converter;
-    return {value: converter(rawValue), rawValue};
+    return { value: converter(rawValue), rawValue };
   }
 
   readOrdered(
@@ -56,6 +56,6 @@ export class VarUintParser extends AbstractBinaryParser {
     data: BinaryReaderResult = [],
     start = 0
   ): BinaryReaderResult {
-    return {...this.read(reader, data), type: this.type};
+    return { ...this.read(reader, data), type: this.type };
   }
 }

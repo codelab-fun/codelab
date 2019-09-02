@@ -13,13 +13,15 @@ import { BinaryViewModule } from '../binary/binary-view/binary-view.module';
 import { BinaryModule } from '../binary/binary.module';
 import { BinaryInlineModule } from '../binary/binary-inline/binary-inline.module';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(WebassemblyComponent)
-);
-
+const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
 
 @NgModule({
-  declarations: [WebassemblyComponent, WebassemblyPlaygroundComponent, WebassemblyRunnerComponent, WasmBinaryComponent],
+  declarations: [
+    WebassemblyComponent,
+    WebassemblyPlaygroundComponent,
+    WebassemblyRunnerComponent,
+    WasmBinaryComponent
+  ],
   imports: [
     CommonModule,
     SlidesModule,
@@ -27,8 +29,7 @@ const routes = RouterModule.forChild(
     FormsModule,
     routes,
     BinaryViewModule,
-    BinaryInlineModule,
-  ],
+    BinaryInlineModule
+  ]
 })
-export class WebassemblyModule {
-}
+export class WebassemblyModule {}

@@ -1,7 +1,8 @@
 <kirjs-webassembly-runner
   class="runner"
   [webAssemblyCode]="webAssemblyCode"
-  [jsCode]="jsCode"></kirjs-webassembly-runner>
+  [jsCode]="jsCode"
+></kirjs-webassembly-runner>
 
 <code-demo-editor
   class="webassembly-code"
@@ -9,13 +10,12 @@
   language="wat"
   [(ngModel)]="webAssemblyCode"
   [lineNumbers]="false"
-  [language]="'wat'"></code-demo-editor>
+  [language]="'wat'"
+></code-demo-editor>
 
 <code-demo-editor
   fontSize="30"
   class="js-code"
   [(ngModel)]="jsCode"
-  [lineNumbers]="false"></code-demo-editor>
-
-
-
+  [lineNumbers]="false"
+></code-demo-editor>

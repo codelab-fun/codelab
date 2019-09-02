@@ -7,7 +7,6 @@ import './monaco-wat';
   styleUrls: ['./webassembly.component.css']
 })
 export class WebassemblyComponent implements OnInit {
-
   code = {
     simple: {
       wa: `(module
@@ -40,10 +39,7 @@ export class WebassemblyComponent implements OnInit {
     }
   };
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

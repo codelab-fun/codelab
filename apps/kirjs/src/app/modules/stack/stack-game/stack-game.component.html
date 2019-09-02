@@ -1,25 +1,27 @@
-<div class=functions>
-  <div *ngFor="let func of level.functions" class="function"
-       [class.disabled]="!canAddFunction(stack, func)"
-       (click)="canAddFunction(stack, func) && addFunction(func)">
-    <span class="inputs">({{func.inputs}})</span>
+<div class="functions">
+  <div
+    *ngFor="let func of level.functions"
+    class="function"
+    [class.disabled]="!canAddFunction(stack, func)"
+    (click)="canAddFunction(stack, func) && addFunction(func)"
+  >
+    <span class="inputs">({{ func.inputs }})</span>
     <span class="arrow">=></span>
-    <span>{{func.outputs}}</span>
+    <span>{{ func.outputs }}</span>
   </div>
 </div>
-<div class=functions>
+<div class="functions">
   <div class="function">Functions:</div>
   <div *ngFor="let func of functions" class="function">
-    <span class="inputs">({{func.inputs}})</span>
+    <span class="inputs">({{ func.inputs }})</span>
     <span class="arrow">=></span>
-    <span>{{func.outputs}}</span>
+    <span>{{ func.outputs }}</span>
   </div>
 </div>
 
 <div class="stack">
-  <div class="item">Initial stack: {{level.inputs}}</div>
+  <div class="item">Initial stack: {{ level.inputs }}</div>
   <div *ngFor="let stack of history" class="item" [class.empty]="stack === ''">
-    {{stack || 'empty'}}
+    {{ stack || 'empty' }}
   </div>
 </div>
-
