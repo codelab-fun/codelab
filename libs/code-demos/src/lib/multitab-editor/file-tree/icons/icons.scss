@@ -1,0 +1,24 @@
+
+.file-icon {
+  display: block;
+  text-indent: -9999px;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position-y: center;
+  background-position-x: left;
+  &__folder-opened {
+      background-image: url(./folder-opened.svg);
+      background-size: 14px 14px;
+  }
+  &__folder-closed {
+    background-image: url(./folder-closed.svg);
+}
+  &__folder-typescript {
+      background-image: url(./filetype-typescript.svg);
+  }
+  &__remove {
+    background-image: url('./close.svg');
+  }
+}

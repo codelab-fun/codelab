@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { convertExerciseToMap } from '../../../../../../ng2ts/ng2ts';
 import { CodeDemoComponent } from '@codelab/code-demos/src/lib/code-demo/code-demo.component';
+import { Subject } from 'rxjs';
+import { MultitabEditorComponent } from '@codelab/code-demos/src/lib/multitab-editor/multitab-editor.component';
 
 function filterByFileType(type: string, files: Record<string, string>) {
   return Object.entries(files).reduce((changedFiles, [path, code]) => {
@@ -36,6 +38,9 @@ export function getChanges(current, previous) {
   styleUrls: ['./exercise.component.css']
 })
 export class CodelabExerciseComponent extends CodeDemoComponent {
+
+  @ViewChild(MultitabEditorComponent, {static: false}) editorComponent: MultitabEditorComponent;
+
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
 
@@ -56,5 +61,9 @@ export class CodelabExerciseComponent extends CodeDemoComponent {
   retrieveFile(file, code) {
     const f = this.filesConfig.files.find(f => f.path === file);
     return (f.before || '') + code + (f.after || '');
+  }
+
+  onTestFileSelected(file: string) {
+    this.editorComponent.updateActiveFileSelected(file);
   }
 }

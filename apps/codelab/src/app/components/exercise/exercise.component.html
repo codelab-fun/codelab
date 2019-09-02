@@ -1,6 +1,7 @@
 <div *ngIf="code">
   <div class="row">
     <code-demo-multitab-editor
+      #multitabEditor
       [codeDemoHighlight]="codeDemoHighlight"
       class="quarter"
       [files]="files"
@@ -13,7 +14,7 @@
       <codelab-simple-angular-test-runner
         *ngIf="testRunner === 'iframe'"
         [translations]="translations"
-        (selectFile)="files = [$event]"
+        (selectFile)="onTestFileSelected($event)"
         [bootstrap]="bootstrapTest"
         [code]="files$ | async"
       ></codelab-simple-angular-test-runner>

@@ -8,11 +8,13 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
-import { Subject, Subscription } from 'rxjs';
+import { Subject, Subscription, Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
+import { FileFolderNode } from './file-tree/file-tree.utils';
+
 
 declare const monaco;
 const extenstionToLang = {
@@ -33,7 +35,10 @@ type Code = Record<string, string>;
 @Component({
   selector: 'code-demo-multitab-editor',
   templateUrl: './multitab-editor.component.html',
-  styleUrls: ['./multitab-editor.component.css'],
+  styleUrls: [
+    './multitab-editor.component.scss',
+    './file-tree/icons/icons.scss'
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -43,8 +48,8 @@ type Code = Record<string, string>;
     }
   ]
 })
-export class MultitabEditorComponent
-  implements OnDestroy, ControlValueAccessor {
+export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor {
+
   @Input() code: Code = {};
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
@@ -52,8 +57,11 @@ export class MultitabEditorComponent
   @Input() highlights = {};
   @Input() debounce = 250;
   files = [];
-  openModels: MonacoModel[];
+  openModels: MonacoModel[] = [];
   changeSubject = new Subject();
+
+  hideFileNavigationContent = true;
+  activeTabIndex = 0;
 
   private onChange: any;
   private editor: IStandaloneCodeEditor;
@@ -81,6 +89,54 @@ export class MultitabEditorComponent
     this.updateOpenModels();
   }
 
+  get treeFileNames() {
+    return Object.keys(this.code);
+  }
+
+  retrieveFileNameFromPath(path: string) {
+    return path.split('/').pop();
+  }
+
+  toggleNav() {
+    this.hideFileNavigationContent = !this.hideFileNavigationContent;
+  }
+
+  shouldShowSolution(model: FileFolderNode|MonacoModel) {
+    return this.solutions[model.path] && this.solutions[model.path] != this.code[model.path]
+  }
+
+  updateActiveFileSelected(file: string) {
+    const alreadyShownInTab = this.openModels.findIndex(v => v.path === file);
+
+    if (alreadyShownInTab < 0) {
+      const monacoModel = this.models.find(m => m.path === file);
+      this.openModels = [...this.openModels, monacoModel];
+      this.activeTabIndex = this.openModels.length - 1;
+    } else {
+      this.activeTabIndex = alreadyShownInTab;
+    }
+
+    // this is needed for any outside access to this method
+    // like CodelabExerciseComponent for the test files to become visible
+    this.cdr.markForCheck();
+  }
+
+  removeActiveNode(model: FileFolderNode|MonacoModel) {
+    const index = this.openModels.findIndex(m => m.path === model.path);
+    this.openModels = this.openModels.filter(m => m.path !== model.path);
+
+    const isRemovingLeft = index < this.activeTabIndex;
+    const isRemovingLastItem = this.activeTabIndex > this.openModels.length -1;
+
+    if (isRemovingLeft || isRemovingLastItem) {
+      this.activeTabIndex--;
+    }
+
+    if(this.openModels.length === 0) {
+      this.activeTabIndex = 0;
+    }
+  }
+
   handleFileChange(index, { value }) {
     if (this.models) {
       const m = this.getModelByFileName(value.path);
@@ -99,7 +155,7 @@ export class MultitabEditorComponent
 
   registerOnTouched(fn: any): void {}
 
-  loadSolution(file) {
+  loadSolution(file: string) {
     this.getModelByFileName(file).model.setValue(this.solutions[file]);
   }
 
