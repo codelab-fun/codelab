@@ -20,7 +20,7 @@ export class MonacoConfigService {
 
     win.require.config({ paths: { vs: 'assets/monaco/min/vs' } });
 
-    win.require(['vs/editor/editor.main'], () => {
+    win.require(['vs/editor/editor.main'], lol => {
       MonacoConfigService.configureMonaco();
       resolve(monaco);
     });

@@ -14,7 +14,6 @@ import { MonacoConfigService } from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
-declare const monaco;
 const extenstionToLang = {
   ts: 'typescript',
   js: 'javascript',

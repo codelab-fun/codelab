@@ -18,9 +18,6 @@ import { debounceTime } from 'rxjs/operators';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { CodeDemoEditorInjector } from './code-demo-editor.injector';
 
-declare const monaco: any;
-declare const require: any;
-
 @Component({
   selector: 'code-demo-editor',
   template: `
