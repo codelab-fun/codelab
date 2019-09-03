@@ -29,6 +29,7 @@
   }
 
   nav {
+    max-width: 100%;
     width: 400px;
 
     ul {
@@ -41,5 +42,12 @@
         list-style-type: none;
       }
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container .message {
+    flex-direction: column;
+    text-align: center;
   }
 }

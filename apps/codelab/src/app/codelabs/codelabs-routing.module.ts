@@ -27,6 +27,11 @@ const routes: Routes = [
     loadChildren: () => import('./sync/sync.module').then(m => m.SyncAdminModule)
   },
   {
+    path: 'typescript',
+    redirectTo: 'angular/typescript',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }

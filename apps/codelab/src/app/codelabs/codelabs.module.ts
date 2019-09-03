@@ -9,6 +9,7 @@ import { SlidesModule } from '@codelab/slides';
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
 import { SyncModule } from './sync/sync.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CodelabComponentsModule } from '../components/codelab-components.module';
 
 @NgModule({
   declarations: [IndexComponent, AppComponent, NotFoundComponent],
@@ -18,7 +19,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SlidesModule,
     OverlayModule,
     ButtonsNavBarModule,
-    SyncModule
+    SyncModule,
+    CodelabComponentsModule
   ],
   bootstrap: [AppComponent],
   // TODO(kirjs): Move this out of the main page
