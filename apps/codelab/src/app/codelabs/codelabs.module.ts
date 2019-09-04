@@ -7,10 +7,12 @@ import { CodelabsRoutingModule } from './codelabs-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlidesModule } from '@codelab/slides';
 import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
-import { SyncModule } from '../modules/sync/sync.module';
+import { SyncModule } from './sync/sync.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CodelabComponentsModule } from '../components/codelab-components.module';
 
 @NgModule({
-  declarations: [IndexComponent, AppComponent],
+  declarations: [IndexComponent, AppComponent, NotFoundComponent],
   imports: [
     CodelabsRoutingModule,
     BrowserAnimationsModule,
@@ -18,6 +20,7 @@ import { SyncModule } from '../modules/sync/sync.module';
     OverlayModule,
     ButtonsNavBarModule,
     SyncModule,
+    CodelabComponentsModule
   ],
   bootstrap: [AppComponent],
   // TODO(kirjs): Move this out of the main page

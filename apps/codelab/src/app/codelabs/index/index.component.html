@@ -68,16 +68,8 @@
       Or click here to see full contents...
     </button>
     <ng-container *ngIf="showContents">
-      <ol>
-        <ng-container *ngFor="let route of menuRoutes">
-          <li>
-            <h2>
-              <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
-            </h2>
-            <div>{{ route.description }}</div>
-          </li>
-        </ng-container>
-      </ol>
+      <codelab-angular-routes></codelab-angular-routes>
     </ng-container>
   </div>
 </slide-deck>
+  

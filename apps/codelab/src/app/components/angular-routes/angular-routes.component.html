@@ -1,0 +1,12 @@
+<div class="container">
+  <ol>
+    <ng-container *ngFor="let route of menuRoutes">
+      <li>
+        <h2>
+          <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
+        </h2>
+        <div>{{ route.description }}</div>
+      </li>
+    </ng-container>
+  </ol>
+</div>
