@@ -9,7 +9,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod --aot",
     "test": "ng test",
-    "lint": "./node_modules/.bin/nx lint && ng lint",
+    "lint": "ng lint",
     "i18n": "ng xi18n codelab --i18n-format xmb --output-path src/locale",
     "build:ru": "ng build codelab --configuration ru",
     "deploy:next": "npm run build:prod && npm run build:ru && npm run build:30s && npm run sw  && firebase deploy --only hosting:codelab-next",
