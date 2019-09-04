@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { monacoReady } from '@codelab/code-demos';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -8,6 +10,7 @@ import { RouterModule } from '@angular/router';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(
       [
         {
@@ -19,7 +22,13 @@ import { RouterModule } from '@angular/router';
       { initialNavigation: 'enabled' }
     )
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue: monacoReady,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

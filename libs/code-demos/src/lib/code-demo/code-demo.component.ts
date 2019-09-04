@@ -67,7 +67,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
   @Input() presets = ['angular'];
   @Input() bootstrap = 'bootstrap';
   @Input() solutions: Code = {};
-  @Input() highlights: Record<string, string>;
+  @Input() highlights: Record<string, string> = {};
 
   openFileIndex = 0;
   code: Code = {};

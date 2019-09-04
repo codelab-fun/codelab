@@ -28,6 +28,10 @@
     "build:kirjs:ru": "ng build kirjs --configuration ru",
     "build:kirjs": "ng build kirjs  --prod --aot",
     "xi18n:kirjs": "ng xi18n kirjs --i18n-format xmb --output-path src/locale",
+    "//--------------- LIS   ---------------------": "",
+    "deploy:lis": "ng build lis --prod --aot && npm run sw && firebase deploy --only hosting:lis",
+    "serve:lis": "ng serve lis",
+    "build:lis": "ng build lis  --prod --aot",
     "//--------------- 30s OF ANGULAR   -------------------": "",
     "build:30s": "ng build angular-thirty-seconds --prod --aot",
     "serve:30s": "ng serve angular-thirty-seconds",
@@ -117,8 +121,8 @@
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.803.2",
-    "@angular-devkit/build-ng-packagr": "0.803.2",
+    "@angular-devkit/build-angular": "^0.800.0",
+    "@angular-devkit/build-ng-packagr": "^0.800.0",
     "@angular/cli": "8.3.2",
     "@angular/compiler-cli": "8.2.4",
     "@angular/language-service": "8.2.4",

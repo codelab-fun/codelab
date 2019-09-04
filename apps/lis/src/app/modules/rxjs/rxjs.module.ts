@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CodeDemoModule } from '@codelab/code-demos';
 import { SlidesModule } from '@codelab/slides';
 import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 import { RouterModule } from '@angular/router';
@@ -17,7 +19,9 @@ const routes = RouterModule.forChild(
   imports: [
     CommonModule,
     SlidesModule,
-    routes
+    routes,
+    CodeDemoModule,
+    FormsModule
   ]
 })
 export class RxjsModule { }

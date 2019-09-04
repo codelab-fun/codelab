@@ -45,6 +45,16 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "lis",
+      "public": "dist/apps/lis",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ]
 }
