@@ -1,16 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 import { monacoReady } from '@codelab/code-demos';
+import { environment } from '../../../codelab/src/environments/environment';
 
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
+
+export const AngularFireApp = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireApp,
     RouterModule.forRoot(
       [
         {
