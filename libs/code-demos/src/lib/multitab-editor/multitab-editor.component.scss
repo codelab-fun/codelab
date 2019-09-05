@@ -1,6 +1,6 @@
 
 
-$tab-filename-container-height: 55px;
+$tab-filename-container-height: 25px;
 
 :host {
   display: flex;
@@ -43,6 +43,7 @@ $tab-filename-container-height: 55px;
     padding: 4px 12px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    z-index: 1;
   }
 
   .btn-file-nav {
@@ -51,7 +52,7 @@ $tab-filename-container-height: 55px;
   }
 
   .btn-load-solution {
-    left: -37px;
+    left: -38px;
     top: 145px;
   }
 }
@@ -65,25 +66,14 @@ $tab-filename-container-height: 55px;
 }
 
 .tab-filename-container {
-  margin-top: 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, .12);
-  font-size: .85em;
-  position: absolute;
   width: 100%;
-  max-width: 100%;
 }
 
 .tab-filename {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
-  border-bottom: 2px solid transparent;
   cursor: pointer;
-
-  &--active {
-    border-bottom-color: rgb(63, 81, 181);
-    font-weight: 700;
-  }
+  color: inherit;
 
   .file-icon__remove {
     display: inline-block;
@@ -105,13 +95,25 @@ $tab-filename-container-height: 55px;
 }
 
 .panel {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  width: auto;
-  max-width: 100%;
-  z-index: 1; // just has to be above the monaco editor
+  position: absolute;
+  top: 10px;
+  width: 100%;
   height: $tab-filename-container-height;
+}
+
+:host::ng-deep {
+  .mat-tab-labels {
+    height: 40px;
+  }
+
+  .mat-tab-body-wrapper {
+    display: none;
+ }
+
+ .monaco-editor,
+ .monaco-editor .margin {
+   background: transparent
+ }
 }
 
 .tab-content {
@@ -120,17 +122,17 @@ $tab-filename-container-height: 55px;
   &--active {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
     flex-grow: 1;
-    width: 100% !important;
     height: 100% !important;
     position: absolute;
+    margin-left: -30px;
+    width: calc(100% + 30px);
   }
 }
 
 .multi-file {
   .tab-content {
     box-sizing: border-box;
-    padding-top: $tab-filename-container-height + 8px;
+    padding-top: 55px;
   }
 }
