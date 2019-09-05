@@ -81,6 +81,7 @@
     <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
     <h2 i18n>Given an HTML file:</h2>
     <code-demo
+      [allowSwitchingFiles]="false"
       [(ngModel)]="code.indexHtml"
       [highlights]="code.indexHtmlMatches"
     ></code-demo>
@@ -109,15 +110,9 @@
       Start by creating an Angular <b>Component</b>. Components in Angular are
       responsible for the visual part of the app
     </h2>
-    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [autoFolding]="true"
-      [fontSize]="30"
-      [(ngModel)]="code.componentAnatomy.code"
-      [lineNumbers]="false"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.exportClass]"
-    ></code-demo-editor>
+    <code-demo [(ngModel)]="code.angularApp"
+               files="app.component.ts"
+               [highlights]="code.componentMatches"></code-demo>
     <h2 i18n>
       An Angular component is just a class. Properties and behavior can be added
       inside.
@@ -127,13 +122,11 @@
   <!--@-Decorator-->
   <div *slide id="component-decorator" milestone="Bootstrap">
     <codelab-breadcrumb i18n>Decorators</codelab-breadcrumb>
-    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
-    <code-demo-editor
-      [fontSize]="30"
-      [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.decorator]"
-    ></code-demo-editor>
+    <code-demo [(ngModel)]="code.angularApp"
+               files="app.component.ts"
+               [highlights]="code.decoratorsMatches"></code-demo>
+
     <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
     <div class="info" i18n>
       Decorators attach <b>Angular</b> specific information to the class.
@@ -352,7 +345,7 @@
   <div *slide id="bootstrapping-more" milestone="Bootstrap">
     <codelab-breadcrumb i18n>Bootstrapping 1</codelab-breadcrumb>
     <h2 i18n>How does bootstrapping work in Angular?</h2>
-    <br />
+    <br/>
     <h2 i18n>
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
@@ -367,7 +360,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -388,7 +381,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
@@ -411,7 +404,7 @@
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
-        >Read more about root module and bootstrapping in Angular
+      >Read more about root module and bootstrapping in Angular
       </a>
     </div>
   </div>
