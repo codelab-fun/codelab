@@ -1,16 +1,14 @@
-<div class="container">
-  <div class="message">
-    <div class="left"><p>404</p></div>
-    <div class="right">
-      <p class="big-text">Oops! You're lost</p>
-      <p class="small-text">The page you are looking for was not found.</p>
-    </div>
+<div class="message">
+  <div class="error-code"><p>404</p></div>
+  <div class="error-message">
+    <p class="header">Oops! You're lost</p>
+    <p class="subheader">The page you are looking for was not found.</p>
   </div>
-  <nav>
-    <ul>
-      <li *ngFor="let route of routes">
-        <a [routerLink]="route.path">{{route.name}}</a>
-      </li>
-    </ul>
-  </nav>
 </div>
+<nav>
+  <ul>
+    <li *ngFor="let route of routes">
+      <a [routerLink]="route.path">{{ route.name }}</a>
+    </li>
+  </ul>
+</nav>

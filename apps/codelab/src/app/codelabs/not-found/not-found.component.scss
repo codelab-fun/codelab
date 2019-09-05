@@ -1,4 +1,4 @@
-.container {
+:host {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,18 +11,18 @@
     justify-content: center;
     align-items: center;
 
-    .left {
+    .error-code {
       font-size: 70px;
       margin-right: 20px;
     }
 
-    .right {
-      .big-text {
+    .error-message {
+      .header {
         font-size: 20px;
         font-weight: 600;
       }
 
-      .small-text {
+      .subheader {
         font-size: 14px;
       }
     }
