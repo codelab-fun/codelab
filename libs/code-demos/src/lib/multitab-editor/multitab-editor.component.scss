@@ -96,10 +96,32 @@ $tab-filename-container-height: 25px;
 
 .panel {
   position: absolute;
-  top: 10px;
   width: 100%;
-  height: $tab-filename-container-height;
+  &--singlefile {
+    position: relative;
+    pointer-events: none;
+  }
+
+  &::not(panel--singlefile) {
+    top: 10px;
+    height: $tab-filename-container-height;
+  }
 }
+
+.singlefile {
+  display: flex;
+  border: 1px solid lightgray;
+  border-right: none;
+  padding: 4px;
+  margin-bottom: 8px;
+
+  .file-icon {
+    background-size: 20px;
+    margin-right: 8px;
+  }
+}
+
+  
 
 :host::ng-deep {
   .mat-tab-labels {

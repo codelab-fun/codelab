@@ -36,3 +36,20 @@ export function createFolderStructure(
     });
   });
 }
+
+
+export function getIconType(node: FileFolderNode) {
+  if (node.path.endsWith('.ts')) {
+    return 'typescript';
+  }
+
+  if (node.path.endsWith('.html')) {
+    return 'html';
+  }
+
+  if (node.path.endsWith('.css')) {
+    return 'stylesheet';
+  }
+
+  return 'unknown';
+}

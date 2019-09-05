@@ -5,7 +5,7 @@ import {
   EventEmitter,
   Output
 } from '@angular/core';
-import { FileFolderNode, createFolderStructure } from './file-tree.utils';
+import { FileFolderNode, createFolderStructure, getIconType } from './file-tree.utils';
 import { MatTreeNestedDataSource } from '@angular/material';
 import { NestedTreeControl } from '@angular/cdk/tree';
 
@@ -72,21 +72,7 @@ export class FileTreeComponent {
   }
 
 
-  getIconType(node: FileFolderNode) {
-    if (node.path.endsWith('.ts')) {
-      return 'typescript';
-    }
-
-    if (node.path.endsWith('.html')) {
-      return 'html';
-    }
-
-    if (node.path.endsWith('.css')) {
-      return 'stylesheet';
-    }
-
-    return 'unknown';
-  }
+  getIconType = getIconType;
 
 
   private sort(data: FileFolderNode[]) {

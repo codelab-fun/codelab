@@ -24,10 +24,10 @@
   class="right-panel"
   [class.multi-file]="allowSwitchingFiles"
 >
-  <div class="panel">
+  <div class="panel" [class.panel--singlefile]="!allowSwitchingFiles">
     
-      <div class="tab-filename-container" *ngIf="allowSwitchingFiles">
-          <mat-tab-group [selectedIndex]="activeTabIndex">
+      <div class="tab-filename-container" >
+          <mat-tab-group [selectedIndex]="activeTabIndex" *ngIf="allowSwitchingFiles">
               <mat-tab *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index">
                  <ng-template mat-tab-label>
                     <a
@@ -35,11 +35,17 @@
                      (click)="updateActiveFileSelected(model.path)"
                     >
                     <span>{{retrieveFileNameFromPath(model.path)}}</span>
-                    <i aria-hidden="true" class="file-icon file-icon__remove" (click)="removeActiveNode(model, $event)"></i>
+                    <i *ngIf="allowSwitchingFiles" aria-hidden="true" class="file-icon file-icon__remove" (click)="removeActiveNode(model, $event)"></i>
                   </a>
                  </ng-template>
                </mat-tab>
            </mat-tab-group>
+           
+           <div *ngIf="!allowSwitchingFiles" class="singlefile">
+              <ng-container *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index">
+                  <i class="file-icon file-icon__filetype-{{getIconType(model)}}"></i><span>{{retrieveFileNameFromPath(model.path)}}</span>
+              </ng-container>
+           </div>
       </div>
 
   </div>
@@ -47,8 +53,8 @@
 
   <code-demo-editor-from-model
     *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
-    class="tab-content"
-    [class.tab-content--active]="openModels[activeTabIndex] === model"
+    [class.tab-content]="allowSwitchingFiles"
+    [class.tab-content--active]="allowSwitchingFiles && openModels[activeTabIndex] === model"
     [model]="model.model"
     [codeDemoHighlight]="model.highlight"
   ></code-demo-editor-from-model>

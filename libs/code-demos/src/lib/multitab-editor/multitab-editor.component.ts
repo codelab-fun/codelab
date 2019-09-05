@@ -13,7 +13,7 @@ import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
-import { FileFolderNode } from './file-tree/file-tree.utils';
+import { FileFolderNode, getIconType } from './file-tree/file-tree.utils';
 
 
 declare const monaco;
@@ -92,6 +92,8 @@ export class MultitabEditorComponent implements OnDestroy, ControlValueAccessor 
   get treeFileNames() {
     return Object.keys(this.code);
   }
+
+  getIconType = getIconType;
 
   retrieveFileNameFromPath(path: string) {
     return path.split('/').pop();
