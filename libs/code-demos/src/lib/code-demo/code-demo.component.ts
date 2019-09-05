@@ -25,15 +25,6 @@ function filterByFileType(type: string, files: Record<string, string>) {
   }, {});
 }
 
-export function extractSolutions(files: any[]) {
-  return files.reduce((result, file) => {
-    if (file.solution) {
-      result[file.path] = file.solution || file.template;
-    }
-
-    return result;
-  }, {});
-}
 
 export function getChanges(current, previous) {
   return Object.keys(current).reduce((changedFiles, path) => {
