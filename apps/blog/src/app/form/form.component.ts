@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormService } from '../form.service';
+import { Router } from '@angular/router';
 
 export interface Post {
   key?: string;
@@ -10,6 +11,7 @@ export interface Post {
   author: string;
   text: string;
   date: string;
+  hidden: boolean;
 }
 
 @Component({
@@ -34,7 +36,8 @@ export class FormComponent {
   error = false;
 
   constructor(private http: HttpClient,
-              private formService: FormService
+              private formService: FormService,
+              private router: Router
   ) { }
 
   onSubmit() {
@@ -43,8 +46,11 @@ export class FormComponent {
       .addPost(
         formValues
       )
-      .then(() => {
+      .then((result) => {
         this.myform.reset();
+        console.log(result);
+        const key = result.key;
+        this.router.navigateByUrl(`post/${key}`);
       })
       .catch(() => {
         this.statusMessage = 'Error';

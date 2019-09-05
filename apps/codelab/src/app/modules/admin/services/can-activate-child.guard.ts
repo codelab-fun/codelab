@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivateChild } from '@angular/router';
-import { AccessService, Permissions } from './access.service';
+import { AccessService, Permissions } from '../../../../../../../libs/firebase-login/src/lib/access.service';
 
 @Injectable({
   providedIn: 'root'

@@ -4,7 +4,7 @@ import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.serv
 import { map } from 'rxjs/operators';
 import { firebaseToValuesWithKey } from '@codelab/utils/src/lib/sync/common';
 import { combineLatest, Observable } from 'rxjs';
-import { Permissions } from '../services/access.service';
+import { Permissions } from '../../../../../../../libs/firebase-login/src/lib/access.service';
 
 export interface AdminDb {
   key: string;

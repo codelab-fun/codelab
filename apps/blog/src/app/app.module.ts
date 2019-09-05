@@ -17,6 +17,8 @@ import { PostComponent } from './post/post.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { MatCardModule } from '@angular/material';
+import { PostService } from './post.service';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -40,11 +42,12 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     angularFire,
     MatCardModule,
+    AngularFireAuthModule,
 
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled' })
 
   ],
-  providers: [FormService],
+  providers: [FormService, PostService],
   bootstrap: [AppComponent],
   exports: [FormComponent]
 })

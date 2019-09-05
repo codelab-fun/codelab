@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccessService } from './services/access.service';
+import { AccessService } from '../../../../../../libs/firebase-login/src/lib/access.service';
 
 @Component({
   selector: 'codelab-admin',

@@ -23,5 +23,6 @@ export class FeedComponent {
           };
         }).reverse();
       }));
+    // this.posts$ = this.formService.repo$.
   }
 }

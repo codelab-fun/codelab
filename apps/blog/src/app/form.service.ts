@@ -7,7 +7,10 @@ import { Post } from './form/form.component';
   providedIn: 'root'
 })
 export class FormService {
-  repo$: AngularFireList<Post> = this.database.list('/posts');
+  all$: AngularFireList<Post> = this.database.list('/posts');
+  repo$: AngularFireList<Post> = this.database.list('/posts', (ref) => {
+    return ref.orderByChild('hidden').equalTo(null);
+  });
 
   constructor(
     private database: AngularFireDatabase) {

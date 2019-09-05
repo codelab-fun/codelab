@@ -19,6 +19,7 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.post$ = this.formService.getPost(this.route.snapshot.params['id']);
+    this.key = this.route.snapshot.params['id'];
+    this.post$ = this.formService.getPost(this.key);
   }
 }
