@@ -68,6 +68,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
   @Input() bootstrap = 'bootstrap';
   @Input() solutions: Code = {};
   @Input() highlights: Record<string, string> = {};
+  @Input() allowSwitchingFiles = true;
 
   openFileIndex = 0;
   code: Code = {};
