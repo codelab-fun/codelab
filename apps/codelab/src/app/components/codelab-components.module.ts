@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { CodelabExerciseComponent } from './exercise/exercise.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatSelectModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatMenuModule,
+  MatSelectModule
+} from '@angular/material';
 import { RouterModule } from '@angular/router';
 
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
@@ -29,6 +33,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     FormsModule,
     RouterModule,
     MatButtonModule,
+    MatMenuModule,
     MatSelectModule,
     CodeDemoModule
   ],
