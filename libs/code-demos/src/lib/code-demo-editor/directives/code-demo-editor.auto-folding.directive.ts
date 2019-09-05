@@ -8,7 +8,8 @@ import { CodeDemoEditorInjector } from '../code-demo-editor.injector';
 export class CodeDemoEditorAutoFoldingDirective implements AfterViewInit {
   @Input() autoFolding = true;
 
-  constructor(@Self() private editorInjector: CodeDemoEditorInjector) {}
+  constructor(@Self() private editorInjector: CodeDemoEditorInjector) {
+  }
 
   ngAfterViewInit(): void {
     const editor = this.editorInjector.editor;
