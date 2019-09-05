@@ -4,7 +4,7 @@
       <!-- This is the tree node template for leaf nodes -->
       <mat-tree-node *matTreeNodeDef="let node">
           <li class="mat-tree-node" [class.file-node]="!node.children.length" [class.active-tree-node]="isActiveFile(node) && !node.children.length" (click)="updateActiveFileSelected(node)">
-              <div *ngIf="!node.children.length" class="file-icon file-icon__folder-typescript"></div> {{node.name}}
+              <div *ngIf="!node.children.length" class="file-icon file-icon__filetype-{{getIconType(node)}}"></div> {{node.name}}
           </li>
       </mat-tree-node>
       <!-- This is the tree node template for expandable nodes -->

@@ -11,8 +11,14 @@ $tab-filename-container-height: 55px;
 
 .side-nav {
   box-sizing: border-box;
-  width: 25%;
+  max-width: 27%;
   padding-top: 25px;
+
+  // desktops
+  @media only screen and (min-width : 1224px) {
+    max-width: 20%;
+  }
+    
 }
 
 .trigger {
@@ -40,12 +46,12 @@ $tab-filename-container-height: 55px;
   }
 
   .btn-file-nav {
-    left: -25px;
+    left: -23px;
     top: 48px;
   }
 
   .btn-load-solution {
-    left: -42px;
+    left: -37px;
     top: 145px;
   }
 }

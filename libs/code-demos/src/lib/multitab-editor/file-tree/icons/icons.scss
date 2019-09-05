@@ -15,8 +15,14 @@
   &__folder-closed {
     background-image: url(./folder-closed.svg);
 }
-  &__folder-typescript {
+  &__filetype-typescript {
       background-image: url(./filetype-typescript.svg);
+  }
+  &__filetype-stylesheet {
+    background-image: url(./filetype-css.svg);
+  }
+  &__filetype-html {
+    background-image: url(./filetype-html.svg);
   }
   &__remove {
     background-image: url('./close.svg');
