@@ -1,0 +1,23 @@
+<div class="dropdown">
+  <button class="dropdown-btn" [matMenuTriggerFor]="menu">
+    <img i18n alt="icon-tools" src="/assets/images/icons/icon-tools.png" />
+  </button>
+</div>
+
+<mat-menu #menu="matMenu">
+  <a (click)="createIssue()" mat-menu-item> Take </a>
+  <a (click)="createClosedIssue('[Duplicate]')" mat-menu-item>
+    Close [Duplicate]
+  </a>
+  <a (click)="createClosedIssue('[No fix]')" mat-menu-item> Close [No fix] </a>
+  <a (click)="createClosedIssue('[Done]')" mat-menu-item> Close [Done] </a>
+  <a
+    (click)="createClosedIssue('[Nice message, though not a real bug]')"
+    mat-menu-item
+  >
+    Close [Nice message]
+  </a>
+  <a (click)="createClosedIssue('[Can\'t repcoduce]')" mat-menu-item>
+    Close [Can't reproduce]
+  </a>
+</mat-menu>

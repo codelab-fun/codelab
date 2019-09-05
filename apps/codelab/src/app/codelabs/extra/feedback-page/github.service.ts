@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { GitHub } from 'github-api';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GithubService {
-  repo = 'AngularNYC/angular-presentation';
+  repo = 'codelab-fun/codelab';
 
   constructor(private http: HttpClient) {}
 

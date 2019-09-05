@@ -1,20 +1,33 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-import { TypeScriptComponent } from './typescript/typescript.component';
-import { FullLayoutComponent } from '../../../containers/full-layout';
 import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { TypeScriptComponent } from './typescript/typescript.component';
+
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'ignored',
+  template: `
+    <router-outlet></router-outlet>
+  `,
+})
+export class EmptyTypeScriptComponent {
+}
+
 
 const routes = [
   {
     path: '',
-    component: FullLayoutComponent,
+    component: EmptyTypeScriptComponent,
     children: [...SlidesRoutes.get(TypeScriptComponent)]
   }
 ];
 
+
 @NgModule({
+  declarations: [EmptyTypeScriptComponent],
+  entryComponents: [EmptyTypeScriptComponent],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TypeScriptRoutingModule {}
+export class TypeScriptRoutingModule {
+}

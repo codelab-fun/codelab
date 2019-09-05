@@ -56,13 +56,19 @@
     "angular-thirty-seconds": {
       "tags": []
     },
-    "angular-thirty-seconds-e2e": {     
+    "angular-thirty-seconds-e2e": {
       "tags": []
     },
     "blog": {
       "tags": []
     },
     "blog-e2e": {
+      "tags": []
+    },
+    "lis-e2e": {
+      "tags": []
+    },
+    "lis": {
       "tags": []
     }
   }

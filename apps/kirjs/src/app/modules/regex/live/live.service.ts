@@ -29,7 +29,7 @@ export class LiveService<T = any> implements OnDestroy {
     sessionId: 'test',
     status: 'presenter', // 'viewer'
     presentationId: 'regex',
-    slide: 'poll'
+    slide: 'config'
   } as LiveInfo);
   liveInfo: Observable<LiveInfo> = this.liveInfoSubject.asObservable();
   private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<

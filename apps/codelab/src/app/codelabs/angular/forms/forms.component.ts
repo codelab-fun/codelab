@@ -59,12 +59,11 @@ function formsConfig(code, highlights: FileHighlights = {}) {
 export class FormsComponent implements AfterViewInit {
   @ViewChild('translations', { static: false }) translations;
   exercise: ExerciseConfigTemplate;
-  private t: Record<string, string>;
   samples = {
     basicForm: formsConfig(
       { appHtml: require('!!raw-loader!./samples/basic/app.1.html') },
       {
-        appModule: /FormsModule\n/
+        appModule: /FormsModule]/
       }
     ),
     ngModel: formsConfig(
@@ -121,6 +120,7 @@ export class FormsComponent implements AfterViewInit {
       }
     )
   };
+  private t: Record<string, string>;
 
   constructor(private exercises: Ng2TsExercises) {
     this.exercise = exercises.getExercises(7, 0);

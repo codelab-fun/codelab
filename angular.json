@@ -882,6 +882,122 @@
           }
         }
       }
+    },
+    "lis": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/lis",
+      "sourceRoot": "apps/lis/src",
+      "prefix": "codelab",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/lis",
+            "index": "apps/lis/src/index.html",
+            "main": "apps/lis/src/main.ts",
+            "polyfills": "apps/lis/src/polyfills.ts",
+            "tsConfig": "apps/lis/tsconfig.app.json",
+            "aot": false,
+            "assets": ["apps/lis/src/favicon.ico", "apps/lis/src/assets", { "glob": "**/*", "input": "node_modules/monaco-editor/", "output": "./assets/monaco/" }, { "glob": "**/*", "input": "libs/code-demos/assets/runner/", "output": "./assets/runner/" }],
+            "styles": ["apps/lis/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/lis/src/environments/environment.ts",
+                  "with": "apps/lis/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lis:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lis:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lis:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/lis/tsconfig.app.json",
+              "apps/lis/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/lis/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/lis/jest.config.js",
+            "tsConfig": "apps/lis/tsconfig.spec.json",
+            "setupFile": "apps/lis/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "lis-e2e": {
+      "root": "apps/lis-e2e",
+      "sourceRoot": "apps/lis-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/lis-e2e/cypress.json",
+            "tsConfig": "apps/lis-e2e/tsconfig.e2e.json",
+            "devServerTarget": "lis:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lis:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/lis-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/lis-e2e/**"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "codelab",

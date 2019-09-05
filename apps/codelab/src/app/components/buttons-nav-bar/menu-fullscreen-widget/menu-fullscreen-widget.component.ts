@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { FullScreenModeService } from '@codelab/utils';
 
 @Component({
@@ -7,11 +7,9 @@ import { FullScreenModeService } from '@codelab/utils';
   styleUrls: ['./menu-fullscreen-widget.component.scss']
 })
 export class MenuFullscreenWidgetComponent {
-
-  constructor(private fullScreenService: FullScreenModeService) { }
+  constructor(private fullScreenService: FullScreenModeService) {}
 
   openFullScreen() {
     this.fullScreenService.toggleFullScreen();
   }
-
 }

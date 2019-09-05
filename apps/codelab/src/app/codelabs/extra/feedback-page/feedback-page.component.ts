@@ -18,7 +18,7 @@ function groupBy(feedback: Array<Message>, grouping: Grouping) {
     return comment;
   }, {});
 
-  return Object.keys(result).map(key => ({ key, value: result[key] }));
+  return Object.keys(result).map(key => ({key, value: result[key]}));
 }
 
 function normalize(feedback: Array<any>) {
@@ -102,7 +102,7 @@ export class FeedbackPageComponent implements OnInit {
   isDone(message) {
     this.database
       .object(`feedback/${message.key}`)
-      .update({ isDone: !message.isDone });
+      .update({isDone: !message.isDone});
   }
 
   generateIssueBody(message) {
@@ -110,7 +110,7 @@ export class FeedbackPageComponent implements OnInit {
 Author: ${message.name}
 Slide: [Local](http://localhost:4200${
       message.href
-    }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
+      }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
   }
 
   async createAnIssue(message) {
@@ -130,7 +130,7 @@ Slide: [Local](http://localhost:4200${
         this.isDone(message);
         this.database
           .object(`feedback/${message.key}`)
-          .update({ url: responseData.html_url });
+          .update({url: responseData.html_url});
         window.open(responseData.html_url);
       });
   }
@@ -153,10 +153,10 @@ Slide: [Local](http://localhost:4200${
         console.log(responseData.html_url);
         this.database
           .object(`feedback/${message.key}`)
-          .update({ url: responseData.html_url });
+          .update({url: responseData.html_url});
         this.ghService
           .closeIssue(
-            { state: 'closed' },
+            {state: 'closed'},
             responseData.number,
             this.githubAuth.credential.accessToken
           )

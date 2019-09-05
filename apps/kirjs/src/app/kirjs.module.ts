@@ -1,11 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { monacoReady } from '@codelab/code-demos';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../../../codelab/src/environments/environment';
+
+export const angularFire = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
+
 
 const routes = [
   {
@@ -41,7 +49,12 @@ const routes = [
     path: 'music',
     loadChildren: () => import('./modules/music/music.module').then(m => m.MusicModule),
     name: 'Music',
-    description: 'Musicja'
+    description: 'Music'
+  }, {
+    path: 'webassembly',
+    loadChildren: () => import('./modules/webassembly/webassembly.module').then(m => m.WebassemblyModule),
+    name: 'webassembly',
+    description: 'webassembly'
   },
   {
     path: 'svg',
@@ -62,16 +75,37 @@ const routes = [
     description: 'SVG '
   },
   {
+    path: 'svg-race',
+    loadChildren: () => import('./modules/svg-race/svg-race.module').then(m => m.SvgRaceModule),
+    name: 'SVG Race',
+    description: 'SVG '
+  },
+  {
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     name: 'Home',
     description: 'Home'
+  }, {
+    path: 'sync',
+    loadChildren: () => import('./modules/sync/sync.module').then(m => m.SyncModule),
+    name: 'Sync',
+    description: 'Sync Session'
   },
   {
     path: 'test',
     loadChildren: () => import('./modules/test/test.module').then(m => m.TestModule),
     name: 'Home',
     description: 'Home'
+  },
+  {
+    path: 'qna',
+    loadChildren: () => import('./modules/qna/qna.module').then(m => m.QnaModule),
+    name: 'Q&A',
+  },
+  {
+    path: 'msk',
+    loadChildren: () => import('./modules/msk/msk.module').then(m => m.MskModule),
+    name: 'Angular Moscow Meetup',
   }
 ];
 
@@ -80,19 +114,21 @@ const routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    angularFire
   ],
   providers: [
+    {
+      provide: 'ROUTES',
+      useValue: []
+    },
     {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
       multi: true
-    },
-    {
-      provide: 'ROUTES',
-      useValue: []
     }
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {}
+export class KirjsModule {
+}

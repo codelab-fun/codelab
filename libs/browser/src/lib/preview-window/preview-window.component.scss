@@ -1,3 +1,5 @@
+$border-color: #c2c2c2;
+
 :host {
   height: 100%;
   display: block;
@@ -15,25 +17,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-
-  .img-full {
-    width: 100%;
-    flex-shrink: 0;
-    height: 2vw;
-    background-image: url(../browser-window/pics/browsertop-middle.png);
-    background-repeat: repeat;
-    background-size: 2vw 2vw;
-    display: flex;
-    justify-content: space-between;
-
-    .img-left {
-      background-size: cover;
-    }
-
-    .img-right {
-      background-size: cover;
-    }
-  }
 
   .frame {
     box-shadow: 0 0 1px #dddddd;
@@ -53,53 +36,41 @@
 }
 
 .console-frame {
-  .url {
-    display: none;
-  }
+  font: 16px monospace;
 
-  .img-full {
-    background-image: url(./pics/console/consoletop-middle.png);
+  .address-bar {
+    padding: 0.2em;
+    font-weight: bold;
 
-    .img-left {
-      width: 9vw;
-      height: 2vw;
-      background-image: url(./pics/console/consoletop-left.png);
+    &::before {
+      display: inline;
+      color: #ff4081;
+      content: '>>';
     }
 
-    .img-right {
-      width: 3.3vw;
-      height: 2vw;
-      background-image: url(./pics/console/consoletop-right.png);
+    .url {
+      display: inline-block;
+      margin-left: 0.5em;
     }
   }
 }
 
 .browser-frame {
-  .img-full img {
-    height: 2vw;
-  }
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-  .img-full {
-    background-image: url(./pics/browser/browsertop-middle.png);
+  .address-bar {
+    background: #eaeaea;
+    border: 1px solid #c2c2c2;
+    padding: 2px 2px 2px 20px;
+    -webkit-box-align: center;
+    align-items: center;
 
-    .img-left {
-      width: 10vw;
-      height: 2vw;
-      background-image: url(./pics/browser/browsertop-left.png);
+    & > .url {
+      background: #fff;
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+      border: 1px solid $border-color;
+      padding: 0.3em;
+      box-sizing: border-box;
     }
-
-    .img-right {
-      width: 3vw;
-      height: 2vw;
-      background-image: url(../browser-window/pics/browsertop-right.png);
-    }
-  }
-
-  .url {
-    position: absolute;
-    left: 3.2vw;
-    top: 1.2vw;
-    font-size: 0.5vw;
-    background-color: #fff;
   }
 }

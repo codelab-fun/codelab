@@ -16,7 +16,6 @@ import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-c
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { editor } from 'monaco-editor';
 import { CodeDemoEditorInjector } from './code-demo-editor.injector';
 
 declare const monaco: any;

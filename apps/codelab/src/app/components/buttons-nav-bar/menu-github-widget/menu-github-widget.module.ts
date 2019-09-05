@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonWithMenuModule } from '@codelab/utils';
+import { MatMenuModule } from '@angular/material';
 import { MenuGithubWidgetComponent } from './menu-github-widget.component';
 
 @NgModule({
-  imports: [CommonModule, ButtonWithMenuModule],
+  imports: [CommonModule, MatMenuModule],
   declarations: [MenuGithubWidgetComponent],
-  exports: [MenuGithubWidgetComponent, ButtonWithMenuModule]
+  exports: [MenuGithubWidgetComponent]
 })
 export class MenuGithubWidgetModule {}

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ButtonWithMenuModule } from '@codelab/utils';
+import { MatMenuModule } from '@angular/material';
 import { MenuShortcutWidgetComponent } from './menu-shortcut-widget.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ButtonWithMenuModule],
+  imports: [CommonModule, RouterModule, MatMenuModule],
   declarations: [MenuShortcutWidgetComponent],
-  exports: [MenuShortcutWidgetComponent, ButtonWithMenuModule]
+  exports: [MenuShortcutWidgetComponent]
 })
 export class MenuShortcutWidgetModule {}

@@ -1,0 +1,20 @@
+<kirjs-webassembly-runner
+  class="runner"
+  [webAssemblyCode]="webAssemblyCode"
+  [jsCode]="jsCode"></kirjs-webassembly-runner>
+
+<code-demo-editor
+  class="webassembly-code"
+  fontSize="30"
+  [(ngModel)]="webAssemblyCode"
+  [lineNumbers]="false"
+  [language]="'webassembly'"></code-demo-editor>
+
+<code-demo-editor
+  fontSize="30"
+  class="js-code"
+  [(ngModel)]="jsCode"
+  [lineNumbers]="false"></code-demo-editor>
+
+
+

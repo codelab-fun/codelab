@@ -7394,7 +7394,7 @@
         // `get` is deprecated
         Buffer.prototype.get = function get(offset) {
           console.log(
-            '.get() is deprecated. Access using array indexes instead.'
+            '.get() is deprecated. Permissions using array indexes instead.'
           );
           return this.readUInt8(offset);
         };
@@ -7402,7 +7402,7 @@
         // `set` is deprecated
         Buffer.prototype.set = function set(v, offset) {
           console.log(
-            '.set() is deprecated. Access using array indexes instead.'
+            '.set() is deprecated. Permissions using array indexes instead.'
           );
           return this.writeUInt8(v, offset);
         };

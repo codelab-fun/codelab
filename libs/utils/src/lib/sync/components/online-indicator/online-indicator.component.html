@@ -1,0 +1,4 @@
+<div class="indicator" *ngIf="(dbService.online$ | async) === false">
+  <mat-icon>offline_bolt</mat-icon>
+  Connecting...
+</div>
