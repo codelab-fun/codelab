@@ -46,7 +46,7 @@ export class MultitabEditorComponent
   @Input() debounce = 250;
   @Input() autoFolding = false;
   files = [];
-  @Input() enableAutoFolding = false;
+  @Input() enableAutoFolding = true;
   openModels: MonacoModel[];
   changeSubject = new Subject();
 
