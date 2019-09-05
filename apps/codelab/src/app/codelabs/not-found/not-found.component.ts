@@ -13,7 +13,7 @@ export class NotFoundComponent {
       name: 'Home'
     },
     {
-      path: '/typescript',
+      path: '/angular/typescript',
       name: 'Typescript'
     },
     {
