@@ -101,6 +101,7 @@ export class AppComponent {
       },
       indexHtmlMatches: {'index.html': /<hello-[^]*world>/},
       componentMatches: {'app.component.ts': /export.*/},
+      decoratorsMatches: {'app.component.ts': /@C[^]*?\)[^]/},
       decorators: {
         code: `import {Component} from '@angular/core';
 // ${this.t.componentIsDecorator}
