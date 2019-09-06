@@ -51,14 +51,15 @@ export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChan
   @Input() url = 'about:blank';
   @Input() ui = 'browser';
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
-  @ViewChild('runner', { static: false }) runnerElement: ElementRef;
+  @ViewChild('runner', {static: false}) runnerElement: ElementRef;
   presets = ['angular'];
   private subscription: SubscriptionLike;
 
   constructor(
     public scriptLoaderService: ScriptLoaderService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+  }
 
   get displayUrl() {
     if (this.url === '/assets/runner') {
@@ -92,7 +93,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChan
 
     sandbox.setHtml(
       this.code['index.html'] ||
-        '<app-root></app-root><my-app></my-app><div class="error"></div>'
+      '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
     this.presets.forEach(preset =>
@@ -110,8 +111,13 @@ export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChan
     this.subscription = this.changedFilesSubject.subscribe(files => {
       addMetaInformation(sandbox, files);
 
-      const hasErrors = Object.entries(files)
-        .filter(([path]) => path.match(/\.js$/))
+      if (files['index.html']) {
+        sandbox.setHtml(files['index.html']);
+      }
+
+      const jsFiles = Object.entries(files)
+        .filter(([path]) => path.match(/\.js$/));
+      const hasErrors = jsFiles
         .some(([path, code]) => {
           sandbox.evalJs(
             `System.registry.delete(System.normalizeSync('./${path.replace(
@@ -139,12 +145,14 @@ export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChan
           sandbox.addCss(code);
         });
 
-      if (!this.bootstrap) {
-        console.error('Bootstrap missing');
-      }
+      if (jsFiles.length) {
+        if (!this.bootstrap) {
+          console.error('Bootstrap missing');
+        }
 
-      if (!hasErrors) {
-        sandbox.evalJs(`System.import('${this.bootstrap}')`);
+        if (!hasErrors) {
+          sandbox.evalJs(`System.import('${this.bootstrap}')`);
+        }
       }
     });
 
