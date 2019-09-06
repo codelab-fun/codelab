@@ -13,7 +13,6 @@ import { Post } from '../common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormComponent {
-
   title = new FormControl('', Validators.required);
   author = new FormControl('', Validators.required);
   text = new FormControl('', Validators.required);
@@ -27,18 +26,17 @@ export class FormComponent {
   statusMessage = '';
   error = false;
 
-  constructor(private http: HttpClient,
-              private postService: PostService,
-              private router: Router
-  ) { }
+  constructor(
+    private http: HttpClient,
+    private postService: PostService,
+    private router: Router
+  ) {}
 
   onSubmit() {
     const formValues: any = this.myform.getRawValue();
     this.postService
-      .addPost(
-        formValues
-      )
-      .then(({key}) => {
+      .addPost(formValues)
+      .then(({ key }) => {
         this.myform.reset();
         this.router.navigateByUrl(`post/${key}`);
       })

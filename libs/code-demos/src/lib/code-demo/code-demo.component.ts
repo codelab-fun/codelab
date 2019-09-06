@@ -25,7 +25,6 @@ function filterByFileType(type: string, files: Record<string, string>) {
   }, {});
 }
 
-
 export function getChanges(current, previous) {
   return Object.keys(current).reduce((changedFiles, path) => {
     if (current[path] !== previous[path]) {

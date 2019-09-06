@@ -1,5 +1,10 @@
 import { AccessService } from './../../../../../libs/firebase-login/src/lib/access.service';
-import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  Input
+} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../common';
 import { PostService } from '../post.service';
@@ -13,18 +18,18 @@ import { MatSnackBar } from '@angular/material';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SinglePostComponent {
- @Input() post: Post;
- @Input() full: boolean;
- @Input() key = '';
+  @Input() post: Post;
+  @Input() full: boolean;
+  @Input() key = '';
 
-  constructor
-  (
+  constructor(
     private postService: PostService,
     private accessService: AccessService,
     private router: Router,
-    private snackBar: MatSnackBar) {  }
+    private snackBar: MatSnackBar
+  ) {}
 
- delete() {
+  delete() {
     this.accessService.oldIsAdmin$.subscribe();
     this.post.hidden = true;
     this.postService
@@ -32,7 +37,7 @@ export class SinglePostComponent {
       .then(() => {
         this.router.navigateByUrl(``);
       })
-      .catch((err) => {
+      .catch(err => {
         this.snackBar.open(`ERR: ${err}`);
       });
   }

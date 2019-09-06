@@ -1,4 +1,10 @@
-import { chain, externalSchematic, Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import {
+  chain,
+  externalSchematic,
+  Rule,
+  SchematicContext,
+  Tree
+} from '@angular-devkit/schematics';
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 import * as fs from 'fs';
@@ -60,7 +66,6 @@ function updateSlidesModule(schema: SlideSchema): Rule {
 
     const changes = [...moduleImportChanges, ...routingImportChanges];
 
-
     const recorder = host.beginUpdate(modulePath);
     changes.forEach((change: InsertChange) => {
       recorder.insertLeft(change.pos, change.toAdd);
@@ -71,15 +76,13 @@ function updateSlidesModule(schema: SlideSchema): Rule {
     );
     recorder.insertLeft(classDeclaration.pos, code);
 
-    [...sourceFile.statements].find(s =>
-      ts.isIdentifier(s)
-    );
+    [...sourceFile.statements].find(s => ts.isIdentifier(s));
 
     host.commitUpdate(recorder);
   };
 }
 
-export default function (schema: SlideSchema): Rule {
+export default function(schema: SlideSchema): Rule {
   return chain([
     externalSchematic('@schematics/angular', 'module', {
       name: schema.name,

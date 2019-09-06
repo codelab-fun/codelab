@@ -11,12 +11,7 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
 import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-button.module';
 import { RxjsComponent } from './rxjs.component';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(RxjsComponent)
-);
-
-
-
+const routes = RouterModule.forChild(SlidesRoutes.get(RxjsComponent));
 
 @NgModule({
   declarations: [RxjsComponent],
@@ -32,4 +27,4 @@ const routes = RouterModule.forChild(
     SyncDirectivesModule
   ]
 })
-export class RxjsModule { }
+export class RxjsModule {}

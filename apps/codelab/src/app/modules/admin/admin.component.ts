@@ -18,10 +18,7 @@ export class AdminComponent implements OnInit {
     }
   ];
 
-  constructor(private readonly accessService: AccessService) {
-  }
+  constructor(private readonly accessService: AccessService) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

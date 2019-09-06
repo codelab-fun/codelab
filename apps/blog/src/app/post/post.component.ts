@@ -12,11 +12,13 @@ import { MarkdownModule } from 'ngx-markdown';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostComponent implements OnInit {
- post$: Observable<Post>;
- key: string;
+  post$: Observable<Post>;
+  key: string;
 
-  constructor(private postService: PostService, private route: ActivatedRoute) {
-  }
+  constructor(
+    private postService: PostService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.key = this.route.snapshot.params['id'];
