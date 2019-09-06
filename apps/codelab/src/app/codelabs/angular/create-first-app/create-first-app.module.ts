@@ -28,17 +28,17 @@ const routes = RouterModule.forChild([
 @NgModule({
   imports: [
     routes,
-
     FeedbackModule,
     CommonModule,
     CodeDemoModule,
     BrowserWindowModule,
     CodelabComponentsModule,
-
+    CodeDemoModule,
     SlidesModule,
     FormsModule
   ],
   declarations: [CreateFirstAppComponent, ModeComponent],
   exports: [CreateFirstAppComponent]
 })
-export class CreateFirstAppModule {}
+export class CreateFirstAppModule {
+}

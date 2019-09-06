@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { GitHub } from 'github-api';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { AngularFireDatabase } from '@angular/fire/database';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GithubService {
   repo = 'codelab-fun/codelab';
   githubAuth;
