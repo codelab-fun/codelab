@@ -3,12 +3,17 @@ import { RouterModule } from '@angular/router';
 
 import { FullLayoutComponent } from '../../containers/full-layout';
 import { environment } from '../../../environments/environment';
+import { AngularRoutesComponent } from '../../components/angular-routes/angular-routes.component';
 
 const routes = [
   {
     path: '',
     component: FullLayoutComponent,
     children: [
+      {
+        path: '',
+        component: AngularRoutesComponent
+      },
       {
         path: 'typescript',
         loadChildren: () => import('./typescript/typescript.module').then(m => m.TypeScriptModule),
