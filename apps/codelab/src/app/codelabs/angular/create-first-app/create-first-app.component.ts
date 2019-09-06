@@ -93,6 +93,15 @@ export class AppComponent {
         'index.html': require('!!raw-loader!./samples/index-html/index.html'),
         'bootstrap.ts': require('!!raw-loader!./samples/index-html/bootstrap.ts')
       },
+      angularApp: {
+        'index.html': require('!!raw-loader!./samples/app-component/index.html'),
+        'bootstrap.ts': require('!!raw-loader!./samples/app-component/bootstrap.ts'),
+        'app.component.ts': require('!!raw-loader!./samples/app-component/app.component.ts'),
+        'app.module.ts': require('!!raw-loader!./samples/app-component/app.module.ts')
+      },
+      indexHtmlMatches: {'index.html': /<hello-[^]*world>/},
+      componentMatches: {'app.component.ts': /export.*/},
+      decoratorsMatches: {'app.component.ts': /@C[^]*?\)[^]/},
       decorators: {
         code: `import {Component} from '@angular/core';
 // ${this.t.componentIsDecorator}

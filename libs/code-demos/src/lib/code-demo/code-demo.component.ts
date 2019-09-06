@@ -1,7 +1,18 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { filter, map, publishReplay, refCount, startWith } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
+import {
+  filter,
+  map,
+  publishReplay,
+  refCount,
+  startWith
+} from 'rxjs/operators';
+import {
+  BehaviorSubject,
+  combineLatest,
+  Observable,
+  ReplaySubject
+} from 'rxjs';
 import { compileTsFilesWatch } from '../runner/compile-ts-files';
 import { Code } from '../shared/types';
 
@@ -14,15 +25,6 @@ function filterByFileType(type: string, files: Record<string, string>) {
   }, {});
 }
 
-export function extractSolutions(files: any[]) {
-  return files.reduce((result, file) => {
-    if (file.solution) {
-      result[file.path] = file.solution || file.template;
-    }
-
-    return result;
-  }, {});
-}
 
 export function getChanges(current, previous) {
   return Object.keys(current).reduce((changedFiles, path) => {
@@ -56,6 +58,9 @@ export class CodeDemoComponent implements ControlValueAccessor {
   @Input() presets = ['angular'];
   @Input() bootstrap = 'bootstrap';
   @Input() solutions: Code = {};
+  @Input() highlights: Record<string, string> = {};
+  @Input() allowSwitchingFiles = true;
+  @Input() enableAutoFolding = true;
 
   openFileIndex = 0;
   code: Code = {};
@@ -64,7 +69,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
   changedStaticFilesSubject = new ReplaySubject<Record<string, string>>(1);
 
   public files$: Observable<Record<string, string>>;
-  @Input() highlights: Record<string, string>;
+
   private codeCache: Record<string, string> = {};
   private onChange: (code: Code) => void;
 
@@ -87,8 +92,8 @@ export class CodeDemoComponent implements ControlValueAccessor {
     );
 
     this.files$ = combineLatest([ts, staticFiles]).pipe(
-      map(([js, staticFiles]) => ({...staticFiles, ...js})),
-      map(files => ({...this.code, ...files})),
+      map(([js, staticFiles]) => ({ ...staticFiles, ...js })),
+      map(files => ({ ...this.code, ...files })),
       filter(value => Object.keys(value).length > 0),
       publishReplay(1),
       refCount()
@@ -99,8 +104,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
     return code;
   }
 
-  registerOnTouched() {
-  }
+  registerOnTouched() {}
 
   registerOnChange(onChange: (code: Code) => void) {
     this.onChange = onChange;
@@ -127,7 +131,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
       filterByFileType('html|css', this.codeCache)
     );
 
-    this.codeCache = {...code};
+    this.codeCache = { ...code };
     this.changedTsFilesSubject.next(changesTs);
     this.changedStaticFilesSubject.next(changesStatic);
   }

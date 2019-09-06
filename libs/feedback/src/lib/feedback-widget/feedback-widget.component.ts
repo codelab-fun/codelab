@@ -1,11 +1,16 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
 import { Observable, Subject } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-import { AccessService } from '../../../../../apps/codelab/src/app/modules/admin/services/access.service';
+import { AccessService } from '../../../../../apps/codelab/src/app/codelabs/admin/services/access.service';
 
 @Component({
   selector: 'feedback-widget',

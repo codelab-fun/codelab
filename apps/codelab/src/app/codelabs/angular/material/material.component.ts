@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 
 import {
   ExerciseConfigTemplate,
@@ -87,7 +92,7 @@ export class MaterialComponent implements AfterViewInit {
         `MatToolbarModule,\n    MatCardModule`,
         require('!!raw-loader!./samples/basic/app.3.html'),
         {
-          appHtml: /<mat-card-header[\s\S]*Shiba Inu">\n/
+          appHtml: /<mat-card-header[\s\S]*?Photo of a Shiba Inu[\s\S]*?>/
         }
       ),
       step4: matExercise(

@@ -81,8 +81,9 @@
     <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
     <h2 i18n>Given an HTML file:</h2>
     <code-demo
+      [allowSwitchingFiles]="false"
       [(ngModel)]="code.indexHtml"
-      [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
+      [highlights]="code.indexHtmlMatches"
     ></code-demo>
     <h2 i18n style="margin-top: 20px;">
       Let's create an Angular app which replaces the <b>hello-world</b> HTML
@@ -109,15 +110,9 @@
       Start by creating an Angular <b>Component</b>. Components in Angular are
       responsible for the visual part of the app
     </h2>
-    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [autoFolding]="true"
-      [fontSize]="30"
-      [(ngModel)]="code.componentAnatomy.code"
-      [lineNumbers]="false"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.exportClass]"
-    ></code-demo-editor>
+    <code-demo [(ngModel)]="code.angularApp"
+               files="app.component.ts"
+               [highlights]="code.componentMatches"></code-demo>
     <h2 i18n>
       An Angular component is just a class. Properties and behavior can be added
       inside.
@@ -127,13 +122,11 @@
   <!--@-Decorator-->
   <div *slide id="component-decorator" milestone="Bootstrap">
     <codelab-breadcrumb i18n>Decorators</codelab-breadcrumb>
-    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
-    <code-demo-editor
-      [fontSize]="30"
-      [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.decorator]"
-    ></code-demo-editor>
+    <code-demo [(ngModel)]="code.angularApp"
+               files="app.component.ts"
+               [highlights]="code.decoratorsMatches"></code-demo>
+
     <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
     <div class="info" i18n>
       Decorators attach <b>Angular</b> specific information to the class.

@@ -52,7 +52,7 @@
           <div class="title" i18n>Learn TypeScript</div>
           <div class="hint" i18n>Skip if you're familiar with TypeScript</div>
         </div>
-        <img src="/assets/images/ts.png" alt="" class=""/>
+        <img src="/assets/images/ts.png" alt="" class="" />
       </button>
       <button
         [routerLink]="['/angular', 'create-first-app', 'intro']"
@@ -60,7 +60,7 @@
       >
         <span aria-hidden="true">▶</span>
         <div i18n>Learn Angular</div>
-        <img src="/assets/images/angular.png" alt="" class="angular"/>
+        <img src="/assets/images/angular.png" alt="" class="angular" />
       </button>
     </div>
 
@@ -68,16 +68,8 @@
       Or click here to see full contents...
     </button>
     <ng-container *ngIf="showContents">
-      <ol>
-        <ng-container *ngFor="let route of menuRoutes">
-          <li>
-            <h2>
-              <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
-            </h2>
-            <div>{{ route.description }}</div>
-          </li>
-        </ng-container>
-      </ol>
+      <codelab-angular-routes></codelab-angular-routes>
     </ng-container>
   </div>
 </slide-deck>
+  

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { monacoReady } from '@codelab/code-demos';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -160,6 +161,11 @@ const routes = [
     {
       provide: 'ROUTES',
       useValue: []
+    },
+    {
+      provide: APP_INITIALIZER,
+      useValue: monacoReady,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
