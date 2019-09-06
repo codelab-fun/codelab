@@ -18,7 +18,7 @@ export class CreateFirstAppComponent implements OnInit {
 
   // TODO(kirjs): we can't access tanslation in OnInit hook iwht static set to false
   // need to consider changing how we set code
-  @ViewChild('translations', { static: true }) translation;
+  @ViewChild('translations', {static: true}) translation;
   //  Exercises
   exercises = [
     ng2tsConfig.milestones[1].exercises[1],
@@ -93,7 +93,15 @@ export class AppComponent {
         'index.html': require('!!raw-loader!./samples/index-html/index.html'),
         'bootstrap.ts': require('!!raw-loader!./samples/index-html/bootstrap.ts')
       },
-      indexHtmlMatches: { 'index.html': /<hello-[^]*world>/ },
+      angularApp: {
+        'index.html': require('!!raw-loader!./samples/app-component/index.html'),
+        'bootstrap.ts': require('!!raw-loader!./samples/app-component/bootstrap.ts'),
+        'app.component.ts': require('!!raw-loader!./samples/app-component/app.component.ts'),
+        'app.module.ts': require('!!raw-loader!./samples/app-component/app.module.ts')
+      },
+      indexHtmlMatches: {'index.html': /<hello-[^]*world>/},
+      componentMatches: {'app.component.ts': /export.*/},
+      decoratorsMatches: {'app.component.ts': /@C[^]*?\)[^]/},
       decorators: {
         code: `import {Component} from '@angular/core';
 // ${this.t.componentIsDecorator}
