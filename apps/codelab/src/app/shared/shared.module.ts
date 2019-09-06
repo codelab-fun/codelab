@@ -9,7 +9,7 @@ import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-b
 import { SlidesModule } from '@codelab/slides';
 
 import { FullLayoutComponent } from '../containers';
-import { SyncModule } from '../modules/sync/sync.module';
+import { SyncModule } from '../codelabs/sync/sync.module';
 
 @NgModule({
   declarations: [FullLayoutComponent],
