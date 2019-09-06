@@ -38,9 +38,9 @@ export class FormComponent {
       .addPost(
         formValues
       )
-      .then((result) => {
+      .then(({key}) => {
         this.myform.reset();
-        this.router.navigateByUrl(`post/${result.key}`);
+        this.router.navigateByUrl(`post/${key}`);
       })
       .catch(() => {
         this.statusMessage = 'Error';

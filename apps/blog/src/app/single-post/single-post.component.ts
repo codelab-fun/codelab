@@ -1,4 +1,4 @@
-import { AccessService, Permissions } from './../../../../../libs/firebase-login/src/lib/access.service';
+import { AccessService } from './../../../../../libs/firebase-login/src/lib/access.service';
 import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../common';
@@ -29,7 +29,7 @@ export class SinglePostComponent {
     this.post.hidden = true;
     this.postService
       .updatePost(this.key, this.post)
-      .then((result) => {
+      .then(() => {
         this.router.navigateByUrl(``);
       })
       .catch((err) => {
