@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PostService } from '../post.service';
 import { Observable } from 'rxjs';
-import { Post } from '../form/form.component';
+import { Post } from '../common';
 import { map } from 'rxjs/operators';
 
 @Component({

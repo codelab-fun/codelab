@@ -4,15 +4,7 @@ import { Observable } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
-
-export interface Post {
-  key?: string;
-  title: string;
-  author: string;
-  text: string;
-  date: string;
-  hidden: boolean;
-}
+import { Post } from '../common';
 
 @Component({
   selector: 'codelab-form',

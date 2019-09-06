@@ -1,7 +1,7 @@
 import { AccessService, Permissions } from './../../../../../libs/firebase-login/src/lib/access.service';
 import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from '../form/form.component';
+import { Post } from '../common';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';

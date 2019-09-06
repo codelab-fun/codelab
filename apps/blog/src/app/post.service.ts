@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { Post } from './form/form.component';
+import { Post } from './common';
 
 @Injectable({
     providedIn: 'root'
@@ -15,12 +15,16 @@ export class PostService {
         private database: AngularFireDatabase) {
     }
 
+    getPostById(id: string) {
+        return this.database.object(`posts/${id}`);
+    }
+
     removePost(id: string) {
-        return this.database.object(`posts/${id}`).remove();
+        return this.getPostById(id).remove();
     }
 
     updatePost(id: string, post: Partial<Post>) {
-        return this.database.object(`posts/${id}`).update(post);
+        return this.getPostById(id).update(post);
     }
 
     addPost(
@@ -34,6 +38,6 @@ export class PostService {
       }
 
     getPost(id: string): Observable<any> {
-        return this.database.object(`/posts/${id}`).valueChanges();
+        return this.getPostById(id).valueChanges();
     }
 }
