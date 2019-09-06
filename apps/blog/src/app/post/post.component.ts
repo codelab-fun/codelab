@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../form/form.component';
-import { FormService } from '../form.service';
+import { PostService } from '../post.service';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -15,11 +15,11 @@ export class PostComponent implements OnInit {
  post$: Observable<Post>;
  key: string;
 
-  constructor(private formService: FormService, private route: ActivatedRoute) {
+  constructor(private postService: PostService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.key = this.route.snapshot.params['id'];
-    this.post$ = this.formService.getPost(this.key);
+    this.post$ = this.postService.getPost(this.key);
   }
 }

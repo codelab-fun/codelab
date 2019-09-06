@@ -2,10 +2,9 @@ import { AccessService, Permissions } from './../../../../../libs/firebase-login
 import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../form/form.component';
-import { FormService } from '../form.service';
-import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'codelab-single-post',
@@ -22,21 +21,19 @@ export class SinglePostComponent {
   (
     private postService: PostService,
     private accessService: AccessService,
-              private router: Router) {  }
+    private router: Router,
+    private snackBar: MatSnackBar) {  }
 
  delete() {
-    this.accessService.oldIsAdmin$.subscribe(console.log);
-    console.log('id: ', this.key);
+    this.accessService.oldIsAdmin$.subscribe();
     this.post.hidden = true;
     this.postService
       .updatePost(this.key, this.post)
       .then((result) => {
-        // debugger;
-        // console.log('result: ', result);
         this.router.navigateByUrl(``);
       })
       .catch((err) => {
-        console.log('ERR: ', err);
+        this.snackBar.open(`ERR: ${err}`);
       });
- }
+  }
 }

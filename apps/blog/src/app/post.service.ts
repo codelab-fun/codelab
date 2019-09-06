@@ -7,21 +7,33 @@ import { Post } from './form/form.component';
     providedIn: 'root'
 })
 export class PostService {
-    repo$: AngularFireList<Post> = this.database.list('/posts');
+    repo$: AngularFireList<Post> = this.database.list('/posts', (ref) => {
+        return ref.orderByChild('hidden').equalTo(null);
+      });
 
     constructor(
         private database: AngularFireDatabase) {
     }
 
     removePost(id: string) {
-        // console.log(id);
-        return this.database.object(`posts/${id}`).remove()
-            .then(result => {
-                console.log('done with ', result);
-            });
+        return this.database.object(`posts/${id}`).remove();
     }
 
     updatePost(id: string, post: Partial<Post>) {
         return this.database.object(`posts/${id}`).update(post);
+    }
+
+    addPost(
+        post: Post
+      ): any {
+        const newpost: Post = {
+          ...post,
+          date: new Date().toUTCString()
+        };
+        return this.repo$.push(newpost);
+      }
+
+    getPost(id: string): Observable<any> {
+        return this.database.object(`/posts/${id}`).valueChanges();
     }
 }

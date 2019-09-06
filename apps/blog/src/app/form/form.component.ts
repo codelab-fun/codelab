@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormService } from '../form.service';
+import { PostService } from '../post.service';
 import { Router } from '@angular/router';
 
 export interface Post {
@@ -36,21 +36,19 @@ export class FormComponent {
   error = false;
 
   constructor(private http: HttpClient,
-              private formService: FormService,
+              private postService: PostService,
               private router: Router
   ) { }
 
   onSubmit() {
     const formValues: any = this.myform.getRawValue();
-    this.formService
+    this.postService
       .addPost(
         formValues
       )
       .then((result) => {
         this.myform.reset();
-        console.log(result);
-        const key = result.key;
-        this.router.navigateByUrl(`post/${key}`);
+        this.router.navigateByUrl(`post/${result.key}`);
       })
       .catch(() => {
         this.statusMessage = 'Error';
