@@ -25,15 +25,6 @@ function filterByFileType(type: string, files: Record<string, string>) {
   }, {});
 }
 
-export function extractSolutions(files: any[]) {
-  return files.reduce((result, file) => {
-    if (file.solution) {
-      result[file.path] = file.solution || file.template;
-    }
-
-    return result;
-  }, {});
-}
 
 export function getChanges(current, previous) {
   return Object.keys(current).reduce((changedFiles, path) => {
@@ -67,7 +58,9 @@ export class CodeDemoComponent implements ControlValueAccessor {
   @Input() presets = ['angular'];
   @Input() bootstrap = 'bootstrap';
   @Input() solutions: Code = {};
-  @Input() highlights: Record<string, string>;
+  @Input() highlights: Record<string, string> = {};
+  @Input() allowSwitchingFiles = true;
+  @Input() enableAutoFolding = true;
 
   openFileIndex = 0;
   code: Code = {};
