@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { environment } from '../../../codelab/src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { monacoReady } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
