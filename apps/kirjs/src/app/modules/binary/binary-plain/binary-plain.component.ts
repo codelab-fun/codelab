@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { flatten } from '../binary-flat/binary-flat.component';
@@ -8,7 +8,7 @@ import { flatten } from '../binary-flat/binary-flat.component';
   templateUrl: './binary-plain.component.html',
   styleUrls: ['./binary-plain.component.css']
 })
-export class BinaryPlainComponent {
+export class BinaryPlainComponent implements OnChanges {
   @Output() updateBinary = new EventEmitter();
   @Input() parser: BinaryParser;
   @Input() highlightGroups = false;
@@ -30,6 +30,7 @@ export class BinaryPlainComponent {
   }, {});
 
   structure: any[];
+  @Input() binary: string;
 
   get highlighted() {
     return Object.keys(this.highlightedMap)
@@ -37,16 +38,20 @@ export class BinaryPlainComponent {
       .join(' ');
   }
 
-  @Input() set binary(binary: string) {
-    try {
-      this.structure = flatten(
-        this.parser.readOrdered(new StringBinaryReader(binary)).value
-      ).filter(a => a.className.match(this.filterClassName));
-    } catch (e) {
-      console.log(e);
-      //  lol
+  ngOnChanges() {
+    if (this.binary && this.parser) {
+      console.log('BIP');
+      try {
+        this.structure = flatten(
+          this.parser.readOrdered(new StringBinaryReader(this.binary)).value
+        ).filter(a => a.className.match(this.filterClassName));
+      } catch (e) {
+        console.log(e);
+        //  lol
+      }
     }
   }
 
-  update(item: any, innerText: any) {}
+  update(item: any, innerText: any) {
+  }
 }
