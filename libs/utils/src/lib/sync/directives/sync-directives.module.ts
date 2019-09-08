@@ -18,7 +18,7 @@ import { SyncUserValueDirective } from '@codelab/utils/src/lib/sync/directives/s
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
     SyncIsOffDirective,
-    SyncUserValueDirective,
+    SyncUserValueDirective
   ],
   exports: [
     SyncIsViewingDirective,
@@ -27,11 +27,8 @@ import { SyncUserValueDirective } from '@codelab/utils/src/lib/sync/directives/s
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
     SyncIsOffDirective,
-    SyncUserValueDirective,
+    SyncUserValueDirective
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule]
 })
-export class SyncDirectivesModule {
-}
+export class SyncDirectivesModule {}

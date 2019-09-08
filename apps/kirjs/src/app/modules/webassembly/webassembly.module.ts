@@ -30,8 +30,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     routes,
     BinaryViewModule,
     BinaryInlineModule,
-    SyncDirectivesModule,
+    SyncDirectivesModule
   ]
 })
-export class WebassemblyModule {
-}
+export class WebassemblyModule {}

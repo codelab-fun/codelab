@@ -38,9 +38,7 @@ export class WebassemblyComponent implements OnInit {
     }
   };
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
