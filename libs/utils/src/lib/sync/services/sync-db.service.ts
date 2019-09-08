@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+  AngularFireObject
+} from '@angular/fire/database';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { filter, first, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { mergeValues } from '@codelab/utils/src/lib/sync/services/common';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class SyncDbService {
   readonly online$ = this.object('.info/connected').valueChanges();
-  readonly offset$: Observable<number> = this.object(of('/.info/serverTimeOffset')).valueChanges().pipe(map(a => Number(a)));
+  readonly offset$: Observable<number> = this.object(
+    of('/.info/serverTimeOffset')
+  )
+    .valueChanges()
+    .pipe(map(a => Number(a)));
 
-  constructor(private db: AngularFireDatabase) {
-  }
+  constructor(private db: AngularFireDatabase) {}
 
   object<T>(key$: Observable<string> | string, defaultValue: T = null) {
     if (typeof key$ === 'string') {
@@ -21,8 +27,8 @@ export class SyncDbService {
     }
     const db$ = key$.pipe(
       filter(k => !!k),
-      map(key => this.db.object<T>(key)
-      ));
+      map(key => this.db.object<T>(key))
+    );
     return new SyncDataObject<T>(db$, key$, this, defaultValue);
   }
 
@@ -34,7 +40,6 @@ export class SyncDbService {
     return new SyncDataList<T>(db$, key$, this, defaultValue);
   }
 }
-
 
 export class SyncDataObject<T> {
   private readonly valuesSubject = new BehaviorSubject(this.defaultValue);
@@ -72,7 +77,7 @@ export class SyncDataObject<T> {
       .pipe(
         map(callback),
         tap(a => {
-          console.log({a});
+          console.log({ a });
         }),
         first()
       )
@@ -125,8 +130,7 @@ export class SyncDataList<T> {
     protected readonly key$: Observable<string>,
     protected readonly syncDbService: SyncDbService,
     protected readonly defaultValue?: T[]
-  ) {
-  }
+  ) {}
 
   valueChanges(): Observable<T> {
     return this.values$.pipe(
@@ -146,5 +150,3 @@ export class SyncDataList<T> {
     );
   }
 }
-
-

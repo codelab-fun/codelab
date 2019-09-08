@@ -2,8 +2,8 @@ import { Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 interface WebassemblyPlaygroundInputs {
-  'wat': string;
-  'js': string;
+  wat: string;
+  js: string;
 }
 
 @Component({
@@ -18,25 +18,24 @@ interface WebassemblyPlaygroundInputs {
     }
   ]
 })
-export class WebassemblyPlaygroundComponent implements OnInit, ControlValueAccessor {
+export class WebassemblyPlaygroundComponent
+  implements OnInit, ControlValueAccessor {
   code: WebassemblyPlaygroundInputs;
   private onChange: (code: WebassemblyPlaygroundInputs) => void;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  registerOnChange(onChange: (code: WebassemblyPlaygroundInputs) => void): void {
+  registerOnChange(
+    onChange: (code: WebassemblyPlaygroundInputs) => void
+  ): void {
     this.onChange = onChange;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
-  setDisabledState(isDisabled: boolean): void {
-  }
+  setDisabledState(isDisabled: boolean): void {}
 
   writeValue(code: WebassemblyPlaygroundInputs): void {
     this.code = code;

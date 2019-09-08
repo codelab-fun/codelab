@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { flatten } from '../binary-flat/binary-flat.component';
@@ -52,6 +58,5 @@ export class BinaryPlainComponent implements OnChanges {
     }
   }
 
-  update(item: any, innerText: any) {
-  }
+  update(item: any, innerText: any) {}
 }

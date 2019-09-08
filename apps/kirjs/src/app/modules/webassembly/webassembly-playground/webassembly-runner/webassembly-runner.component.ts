@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 declare const require;
 
 // TODO(kirjs): Find a better way.
-const wabt = (function () {
+const wabt = (function() {
   // Needed to make umd properly export stuff.
   const exports = {};
   const module = {};
@@ -23,7 +23,6 @@ function wat2wasm(wat) {
   return binary.buffer;
 }
 
-
 interface Result {
   type: 'error' | 'result';
   value: string;
@@ -38,20 +37,18 @@ export class WebassemblyRunnerComponent implements OnChanges {
   @Input() webAssemblyCode: string;
   @Input() jsCode: string;
 
-  @ViewChild('canvas', {static: true}) canvas;
+  @ViewChild('canvas', { static: true }) canvas;
 
   readonly result$ = new Subject<Result>();
 
-
   saveWasmFile() {
     function saveByteArray(name, byte) {
-      const blob = new Blob([byte], {type: 'application/wasm'});
+      const blob = new Blob([byte], { type: 'application/wasm' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
       link.download = name;
       link.click();
     }
-
 
     saveByteArray('result.wasm', wat2wasm(this.webAssemblyCode));
   }
@@ -87,7 +84,6 @@ export class WebassemblyRunnerComponent implements OnChanges {
         }
       }())
     `);
-
     } catch (e) {
       this.result$.next({
         type: 'error',
@@ -95,6 +91,4 @@ export class WebassemblyRunnerComponent implements OnChanges {
       });
     }
   }
-
 }
-

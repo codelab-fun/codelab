@@ -4,8 +4,7 @@
   grid-template-rows: auto auto;
   height: 100%;
   width: 100%;
-  grid-template-areas: "wa result" "js result"
-
+  grid-template-areas: 'wa result' 'js result';
 }
 
 .runner {

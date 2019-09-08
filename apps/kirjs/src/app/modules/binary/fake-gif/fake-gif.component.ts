@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { gifParser } from './gif-parser';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
@@ -31,10 +38,9 @@ export class FakeGifComponent implements AfterViewInit {
   gif: string;
   parser: BinaryParser;
 
-  @ViewChild('translations', {static: false}) translation;
+  @ViewChild('translations', { static: false }) translation;
 
-  constructor() {
-  }
+  constructor() {}
 
   upload(file) {
     const reader = new FileReader();

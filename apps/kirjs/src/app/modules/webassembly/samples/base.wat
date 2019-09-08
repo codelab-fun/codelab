@@ -84,8 +84,10 @@
 
     local.tee $a
     local.get $a
+    drop
 
     (call_indirect (type $return_i32))
+
 
 
 
