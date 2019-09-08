@@ -8,6 +8,9 @@ const monacoLoaderCode = require('!raw-loader!monaco-editor/min/vs/loader');
 const win = window as any;
 declare const monaco;
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })

@@ -1,4 +1,5 @@
 <ng-container *ngIf="result$ | async as result">
+<!--  <button (click)="saveWasmFile()" mat-button>Download</button>-->
   <div [class]="result.type">{{result.value}}</div>
-
 </ng-container>
+<canvas #canvas width="400" height="800"></canvas>

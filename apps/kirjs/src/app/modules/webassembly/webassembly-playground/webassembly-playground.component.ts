@@ -1,25 +1,48 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, OnInit } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+interface WebassemblyPlaygroundInputs {
+  'wat': string;
+  'js': string;
+}
 
 @Component({
   selector: 'kirjs-webassembly-playground',
   templateUrl: './webassembly-playground.component.html',
-  styleUrls: ['./webassembly-playground.component.css']
+  styleUrls: ['./webassembly-playground.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => WebassemblyPlaygroundComponent),
+      multi: true
+    }
+  ]
 })
-export class WebassemblyPlaygroundComponent implements OnInit {
-  @Input() webAssemblyCode = `(module
-  (func $add (param $lhs i32) (param $rhs i32) (result i32)
-    local.get $lhs
-    local.get $rhs
-    i32.add)
-  (export "add" (func $add))
-)`;
-  jsCode = `
-async function run(code) {
-  const result = await WebAssembly.instantiate(code);
-  return result.instance.exports.add(1, 2);
-}
-  `;
-  constructor() {}
+export class WebassemblyPlaygroundComponent implements OnInit, ControlValueAccessor {
+  private code: WebassemblyPlaygroundInputs;
+  private onChange: (code: WebassemblyPlaygroundInputs) => void;
 
-  ngOnInit() {}
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
+  registerOnChange(onChange: (code: WebassemblyPlaygroundInputs) => void): void {
+    this.onChange = onChange;
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+  }
+
+  writeValue(code: WebassemblyPlaygroundInputs): void {
+    this.code = code;
+  }
+
+  update() {
+    this.onChange(this.code);
+  }
 }
