@@ -1,8 +1,8 @@
-const size = 40;
+const size = 10;
 
 
 const config = {
-  rowSize: 10,
+  rowSize: 40,
   log: console.log
 };
 function drawOnCanvas(canvas, arr){
@@ -23,9 +23,9 @@ async function run(code, canvas) {
   const result = await WebAssembly.instantiate(code, {config});
 
   let memory = new Uint32Array(result.instance.exports.memory.buffer);
-  memory[5] = 1;
+  memory[Math.round(config.rowSize/2)] = 1;
 
-  const r = result.instance.exports.evolve(10);
+  const r = result.instance.exports.evolve(100);
   drawOnCanvas(canvas, memory);
   return r;
 }
