@@ -19,7 +19,7 @@ interface WebassemblyPlaygroundInputs {
   ]
 })
 export class WebassemblyPlaygroundComponent implements OnInit, ControlValueAccessor {
-  private code: WebassemblyPlaygroundInputs;
+  code: WebassemblyPlaygroundInputs;
   private onChange: (code: WebassemblyPlaygroundInputs) => void;
 
   constructor() {

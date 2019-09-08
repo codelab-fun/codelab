@@ -5,10 +5,10 @@
  (memory 1)
  (table 8 funcref)
  (elem (i32.const 0)
-    $create ;; 000
-    $create ;; 001
-    $remove ;; 010
-    $remove ;; 011
+    $remove ;; 000
+    $remove ;; 001
+    $create ;; 010
+    $create ;; 011
     $create ;; 100
     $create ;; 101
     $remove ;; 110
@@ -83,7 +83,6 @@
     i32.add
 
     local.tee $a
-    call $log
     local.get $a
 
     (call_indirect (type $return_i32))

@@ -27,7 +27,6 @@ function wat2wasm(wat) {
 interface Result {
   type: 'error' | 'result';
   value: string;
-
 }
 
 @Component({
