@@ -3,18 +3,21 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto auto;
   height: 100%;
-  grid-template-areas:   "wa result"
-  "js result"
+  width: 100%;
+  grid-template-areas: "wa result" "js result"
 
 }
 
 .runner {
-  grid-area: result;
-  align-self: center;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
+
 .webassembly-code {
   grid-area: wa;
 }
+
 .js-code {
   grid-area: js;
 }

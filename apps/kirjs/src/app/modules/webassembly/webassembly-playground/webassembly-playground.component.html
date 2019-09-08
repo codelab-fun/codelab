@@ -1,21 +1,27 @@
-<kirjs-webassembly-runner
-  class="runner"
-  [webAssemblyCode]="webAssemblyCode"
-  [jsCode]="jsCode"
-></kirjs-webassembly-runner>
+<ng-container *ngIf="code">
+  <kirjs-webassembly-runner
+    class="runner"
+    [webAssemblyCode]="code.wat"
+    [jsCode]="code.js"
+  ></kirjs-webassembly-runner>
 
-<code-demo-editor
-  class="webassembly-code"
-  fontSize="30"
-  language="wat"
-  [(ngModel)]="webAssemblyCode"
-  [lineNumbers]="false"
-  [language]="'wat'"
-></code-demo-editor>
+  <code-demo-editor
+    minLines="20"
+    class="webassembly-code"
+    fontSize="20"
+    language="wat"
+    [(ngModel)]="code.wat"
+    (ngModelChange)="update()"
+    [lineNumbers]="false"
+    [language]="'wat'"
+  ></code-demo-editor>
 
-<code-demo-editor
-  fontSize="30"
-  class="js-code"
-  [(ngModel)]="jsCode"
-  [lineNumbers]="false"
-></code-demo-editor>
+  <code-demo-editor
+    fontSize="20"
+    class="js-code"
+    [(ngModel)]="code.js"
+    (ngModelChange)="update()"
+    [lineNumbers]="false"
+    [language]="'typescript'"
+  ></code-demo-editor>
+</ng-container>
