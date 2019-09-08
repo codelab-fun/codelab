@@ -1,6 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-
-import { menuRoutes } from '../angular/angular-routing.module';
+import { Component, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'codelab-slides-index',
@@ -11,5 +9,4 @@ export class IndexComponent {
   @ViewChild('translations', { static: false }) translations;
 
   showContents: boolean;
-  menuRoutes = menuRoutes;
 }
