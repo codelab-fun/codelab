@@ -7,7 +7,6 @@ import { MENU_ROUTES } from '../../../codelabs/angular/common';
   styleUrls: ['./menu-shortcut-widget.component.css']
 })
 export class MenuShortcutWidgetComponent {
-
   constructor(
     @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
