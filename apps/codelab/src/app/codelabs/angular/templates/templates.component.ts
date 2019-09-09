@@ -1,9 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
-import {
-  displayAngularComponent,
-  displayAngularComponentWithHtml
-} from '../../../shared/helpers/helpers';
+import { displayAngularComponent, displayAngularComponentWithHtml } from '../../../shared/helpers/helpers';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
 declare const require;
@@ -26,10 +23,11 @@ export class TemplatesComponent implements OnInit {
 
   // TODO(kirjs): we can't access tanslation in OnInit hook iwht static set to false
   // need to consider changing how we set code
-  @ViewChild('translations', { static: true }) translation;
+  @ViewChild('translations', {static: true}) translation;
   code: any = {};
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     this.t = extractMessages(this.translation);
@@ -46,11 +44,11 @@ export class AppComponent {
 }`),
 
         matches: {
-          curlies: { 'app.component.ts': [/{{.*}}/, /firstName = .*/] },
-          curliesFullName: { 'app.component.ts': [/{{.*}}/, /fullName\(\){/] },
-          curliesAttribute: { 'app.component.ts': [/"{{.*}}"/, /avatar = .*/] },
-          template: { 'app.component.ts': /<h1>.*<\/h1>/ },
-          squares: { 'app.component.ts': /\[.*]/ }
+          curlies: {'app.component.ts': [/{{.*}}/, /firstName = .*/]},
+          curliesFullName: {'app.component.ts': [/{{.*}}/, /fullName\(\){/]},
+          curliesAttribute: {'app.component.ts': [/"{{.*}}"/, /avatar = .*/]},
+          template: {'app.component.ts': /<h1>.*<\/h1>/},
+          squares: {'app.component.ts': /\[.*]/}
         },
         interpolation: displayAngularComponent(
           `import {Component} from '@angular/core';
@@ -108,14 +106,15 @@ export class AppComponent {
   avatar = 'assets/images/renoir.jpg';
   fullName(){  return this.firstName + " " + this.lastName }
 }`),
-      dataBindingExtra: {
-        'app.component.html': require('!!raw-loader!./samples/data-binding-extra/app.component.html'),
-        'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
-        'bootstrap.ts': require('!!raw-loader!./samples/data-binding-extra/bootstrap.ts'),
-        'birthday-card.ts': require('!!raw-loader!./samples/data-binding-extra/birthday-card.ts'),
-        'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
+        dataBindingExtra: {
+          'app.component.html': require('!!raw-loader!./samples/data-binding-extra/app.component.html'),
+          'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
+          'bootstrap.ts': require('!!raw-loader!./samples/data-binding-extra/bootstrap.ts'),
+          'birthday-card.ts': require('!!raw-loader!./samples/data-binding-extra/birthday-card.ts'),
+          'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
+        },
+        dataBindingExtraFiles: ['app.component.html', 'app.component.ts']
       },
-    },
       ngIfDirective: {
         template: displayAngularComponent(`import {Component} from '@angular/core';
 @Component({
@@ -130,7 +129,7 @@ export class AppComponent {
   onDisplay(){  return false } // ${this.t.tryChangingToTrue}
 }`),
         matches: {
-          ngIf: { 'app.component.ts': /\*ngIf/ }
+          ngIf: {'app.component.ts': /\*ngIf/}
         }
       },
       ngForDirectivePre: {
@@ -145,7 +144,7 @@ export class AppComponent {
 export class AppComponent {
   puppies = ['Schumann', 'Mendelssohn', 'Bach'];
 }`),
-        matches: { 'app.component.ts': ['???', /puppies.*;/] }
+        matches: {'app.component.ts': ['???', /puppies.*;/]}
       },
       ngForDirective: {
         template: displayAngularComponent(
@@ -177,7 +176,7 @@ describe('AppComponent', ()=>{
 `
         ),
         matches: {
-          ngFor: { 'app.component.ts': '*ngFor' }
+          ngFor: {'app.component.ts': '*ngFor'}
         }
       },
 

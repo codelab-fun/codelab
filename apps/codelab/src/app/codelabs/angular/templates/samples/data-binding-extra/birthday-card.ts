@@ -4,11 +4,11 @@ import { Component, Input } from '@angular/core';
   // tslint:disable-next-line:component-selector
   selector: 'birthday-card',
   template: `
-    birthday card component <br>
-    {{date}}
+    <h2>🎈Happy birthday, <b>🎈{{name}}!! 🎈</b></h2>
+
   `
 })
 
 export class BirthdayCardComponent {
-  @Input() date = '';
+  @Input() name = '';
 }
