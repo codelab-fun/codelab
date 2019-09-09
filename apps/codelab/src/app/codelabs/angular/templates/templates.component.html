@@ -222,12 +222,10 @@
     <h2 i18n>
       Angular supports more advanced property bindings than just attribute name
     </h2>
-    <code-demo-file-path path="app.component.html"></code-demo-file-path>
-    <code-demo-editor
+    <code-demo
+      [allowSwitchingFiles]="false"
       [(ngModel)]="code.template.dataBindingExtra"
-      language="html"
-    >
-    </code-demo-editor>
+    ></code-demo>
   </div>
 
   <!--  BINDING EVENT -->

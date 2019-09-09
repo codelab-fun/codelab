@@ -6,6 +6,8 @@ import {
 } from '../../../shared/helpers/helpers';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
+declare const require;
+
 const baseCode = 'TODO';
 
 @Component({
@@ -106,17 +108,14 @@ export class AppComponent {
   avatar = 'assets/images/renoir.jpg';
   fullName(){  return this.firstName + " " + this.lastName }
 }`),
-        dataBindingExtra: `<!-- ${this.t.thisIsValidHTML} -->
-<input [value]="person.emailAddress">
-<!-- ${this.t.worksOnAttributeSyntax} -->
-<button [attr.aria-label]="help">help</button>
-<!-- ${this.t.allowsToConditionallyBindClass}-->
-<div [class.special]="isSpecial">Special</div>
-<!-- ${this.t.orStyleProps} -->
-<button [style.color]="isSpecial ? 'red' : 'green'"></button>
-<!-- ${this.t.worksWithCustomComponents} -->
-<birthday-card [date]="person.birthday"></birthday-card> `
+      dataBindingExtra: {
+        'app.component.html': require('!!raw-loader!./samples/data-binding-extra/app.component.html'),
+        'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
+        'bootstrap.ts': require('!!raw-loader!./samples/data-binding-extra/bootstrap.ts'),
+        'birthday-card.ts': require('!!raw-loader!./samples/data-binding-extra/birthday-card.ts'),
+        'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
       },
+    },
       ngIfDirective: {
         template: displayAngularComponent(`import {Component} from '@angular/core';
 @Component({

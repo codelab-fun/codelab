@@ -1,0 +1,10 @@
+<!--  This is valid HTML syntax.  -->
+<input [value]="person.emailAddress">
+<!--  It works on attribute syntax.  -->
+<button [attr.aria-label]="helpLabel">help</button>
+<!--  It allows to conditionally bind a class -->
+<div [class.special]="isSpecial">Special</div>
+<!-- Or style properties -->
+<button [style.color]="isSpecial ? 'red' : 'green'">special button</button>
+<!--  And works with custom components!  -->
+<birthday-card [date]="person.birthday"></birthday-card> 
