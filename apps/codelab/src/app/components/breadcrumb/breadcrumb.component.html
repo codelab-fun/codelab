@@ -8,11 +8,11 @@
 </h1>
 
 <mat-menu #menu="matMenu">
-  <a
-    *ngFor="let milestone of menuRoutes"
-    #link="routerLinkActive"
-    routerLinkActive
-    mat-menu-item
-    [disabled]="link.isActive"
-    [routerLink]="['../..', milestone.path]">{{ milestone.name }}</a>
+  <a *ngFor="let milestone of menuRoutes"
+     #link="routerLinkActive"
+     routerLinkActive
+     mat-menu-item
+     [disabled]="link.isActive"
+     [routerLink]="['../..', milestone.path]">{{ milestone.name }}
+  </a>
 </mat-menu>
