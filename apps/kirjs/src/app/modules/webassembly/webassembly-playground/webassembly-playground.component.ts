@@ -9,7 +9,7 @@ interface WebassemblyPlaygroundInputs {
 @Component({
   selector: 'kirjs-webassembly-playground',
   templateUrl: './webassembly-playground.component.html',
-  styleUrls: ['./webassembly-playground.component.css'],
+  styleUrls: ['./webassembly-playground.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -21,11 +21,15 @@ interface WebassemblyPlaygroundInputs {
 export class WebassemblyPlaygroundComponent
   implements OnInit, ControlValueAccessor {
   code: WebassemblyPlaygroundInputs;
+  selection: string;
+  wasmSelectionHighlight: string;
   private onChange: (code: WebassemblyPlaygroundInputs) => void;
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   registerOnChange(
     onChange: (code: WebassemblyPlaygroundInputs) => void
@@ -33,15 +37,18 @@ export class WebassemblyPlaygroundComponent
     this.onChange = onChange;
   }
 
-  registerOnTouched(fn: any): void {}
+  registerOnTouched(fn: any): void {
+  }
 
-  setDisabledState(isDisabled: boolean): void {}
+  setDisabledState(isDisabled: boolean): void {
+  }
 
   writeValue(code: WebassemblyPlaygroundInputs): void {
     this.code = code;
   }
 
   update() {
+    this.code = {...this.code};
     this.onChange(this.code);
   }
 }

@@ -21,6 +21,7 @@
 import { IPosition, languages } from 'monaco-editor';
 import CompletionItem = languages.CompletionItem;
 import CompletionItemKind = languages.CompletionItemKind;
+import CompletionItemInsertTextRule = languages.CompletionItemInsertTextRule;
 
 declare const monaco;
 
@@ -28,13 +29,14 @@ type IModel = any;
 type IRichLanguageConfiguration = any;
 
 let completionItems: CompletionItem[] = null;
+
 export function getWatCompletionItems() {
   const keyword = CompletionItemKind.Keyword;
   if (completionItems) {
     return completionItems;
   }
   return (completionItems = [
-    { label: 'module', documentation: '', kind: keyword, insertText: 'module' },
+    {label: 'module', documentation: '', kind: keyword, insertText: 'module'},
 
     {
       label: 'func',
@@ -46,7 +48,7 @@ export function getWatCompletionItems() {
       label: 'param',
       documentation: 'parameter',
       kind: keyword,
-      insertText: { value: 'param ${1:identifier} ${2:type}' } as any
+      insertText: {value: 'param ${1:identifier} ${2:type}'} as any
     },
 
     {
@@ -336,25 +338,25 @@ export function getWatCompletionItems() {
       label: 'i64.const',
       documentation: 'produce the value of an i64 immediate',
       kind: keyword,
-      insertText: { value: 'i64.const ${1:constant}' }
+      insertText: {value: 'i64.const ${1:constant}'}
     },
     {
       label: 'i32.const',
       documentation: 'produce the value of an i32 immediate',
       kind: keyword,
-      insertText: { value: 'i32.const ${1:constant}' }
+      insertText: {value: 'i32.const ${1:constant}'}
     },
     {
       label: 'f32.const',
       documentation: 'produce the value of an f32 immediate',
       kind: keyword,
-      insertText: { value: 'f32.const ${1:constant}' }
+      insertText: {value: 'f32.const ${1:constant}'}
     },
     {
       label: 'f64.const',
       documentation: 'produce the value of an f64 immediate',
       kind: keyword,
-      insertText: { value: 'f64.const ${1:constant}' }
+      insertText: {value: 'f64.const ${1:constant}'}
     },
 
     {
@@ -956,24 +958,23 @@ const LanguageConfiguration: IRichLanguageConfiguration = {
   // the default separators except `@$`
   wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\'\,\.\<\>\/\?\s]+)/g,
   comments: {
-    lineComment: '//',
-    blockComment: ['/*', '*/']
+    lineComment: ';;',
   },
   brackets: [['{', '}'], ['[', ']'], ['(', ')']],
   autoClosingPairs: [
-    { open: '{', close: '}' },
-    { open: '[', close: ']' },
-    { open: '(', close: ')' },
-    { open: "'", close: "'" },
-    { open: "'", close: "'" }
+    {open: '{', close: '}'},
+    {open: '[', close: ']'},
+    {open: '(', close: ')'},
+    {open: '\'', close: '\''},
+    {open: '\'', close: '\''}
   ],
   surroundingPairs: [
-    { open: '{', close: '}' },
-    { open: '[', close: ']' },
-    { open: '(', close: ')' },
-    { open: "'", close: "'" },
-    { open: "'", close: "'" },
-    { open: '<', close: '>' }
+    {open: '{', close: '}'},
+    {open: '[', close: ']'},
+    {open: '(', close: ')'},
+    {open: '\'', close: '\''},
+    {open: '\'', close: '\''},
+    {open: '<', close: '>'}
   ]
 };
 
@@ -1129,6 +1130,12 @@ const MonarchDefinitions = {
     'f64.convert_u/i64',
     'f64.reinterpret/i64',
 
+    'local.get',
+    'local.set',
+    'local.tee',
+    'global.get',
+    'global.set',
+    'global.tee',
     'get_local',
     'set_local',
     'tee_local',
@@ -1174,7 +1181,7 @@ const MonarchDefinitions = {
       [/\d+/, 'number'],
 
       // strings
-      [/'/, { token: 'string.quote', bracket: '@open', next: '@string' }],
+      [/'/, {token: 'string.quote', bracket: '@open', next: '@string'}],
 
       [/[{}()\[\]]/, '@brackets']
     ] as any,
@@ -1183,20 +1190,22 @@ const MonarchDefinitions = {
       [/[^\/*]+/, 'comment'],
       [/\/\*/, 'comment', '@push'], // nested comment
       ['\\*/', 'comment', '@pop'],
-      [/[\/*]/, 'comment']
+      [/[\/*]/, 'comment'],
+      [/;;/, 'comment']
     ],
 
     string: [
       [/[^\\']+/, 'string'],
       [/@escapes/, 'string.escape'],
       [/\\./, 'string.escape.invalid'],
-      [/'/, { token: 'string.quote', bracket: '@close', next: '@pop' }]
+      [/'/, {token: 'string.quote', bracket: '@close', next: '@pop'}]
     ],
 
     whitespace: [
       [/[ \t\r\n]+/, 'white'],
       [/\/\*/, 'comment', '@comment'],
-      [/\/\/.*$/, 'comment']
+      [/\/\/.*$/, 'comment'],
+      [/;;/, 'comment']
     ]
   }
 };
@@ -1205,23 +1214,23 @@ export function watWordAt(s: string, i: number) {
   const l = s.slice(0, i + 1).search(/[A-Za-z0-9_\.\/]+$/);
   const r = s.slice(i).search(/[^A-Za-z0-9_\.\/]/);
   if (r < 0) {
-    return { index: l, word: s.slice(l) };
+    return {index: l, word: s.slice(l)};
   }
-  return { index: l, word: s.slice(l, r + i) };
+  return {index: l, word: s.slice(l, r + i)};
 }
 
 export const Wat = {
   MonarchDefinitions,
   LanguageConfiguration,
   CompletionItemProvider: {
-    provideCompletionItems: function(model: IModel, position: IPosition) {
+    provideCompletionItems: function (model: IModel, position: IPosition) {
       return getWatCompletionItems();
     }
   },
   HoverProvider: {
-    provideHover: function(model: IModel, position: IPosition) {
+    provideHover: function (model: IModel, position: IPosition) {
       const lineContent = model.getLineContent(position.lineNumber);
-      const { index, word } = watWordAt(lineContent, position.column - 1);
+      const {index, word} = watWordAt(lineContent, position.column - 1);
       if (!word) {
         return;
       }
@@ -1240,7 +1249,7 @@ export const Wat = {
         ),
         contents: [
           '**DETAILS**',
-          { language: 'html', value: item.documentation }
+          {language: 'html', value: item.documentation}
         ]
       };
     }
@@ -1262,3 +1271,50 @@ monaco.languages.onLanguage('wat', () => {
 monaco.languages.register({
   id: 'wat'
 });
+
+
+monaco.languages.registerCompletionItemProvider('wat', {
+  provideCompletionItems: function () {
+    return {
+      suggestions: [
+        {
+          label: 'const',
+          kind: monaco.languages.CompletionItemKind.Function,
+          documentation: 'i32',
+          insertText: '(i32.const ${1:value})',
+          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+        },
+        {
+          label: 'function',
+          kind: monaco.languages.CompletionItemKind.Keyword,
+          documentation: 'i32',
+          insertText: '(func $${1:name} (return i32))',
+          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+        },
+        {
+          label: 'add',
+          kind: monaco.languages.CompletionItemKind.Keyword,
+          documentation: 'i32',
+          insertText: '(i32.add ${1:a} ${2:b})',
+          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+        },
+
+        {
+          label: 'mul',
+          kind: monaco.languages.CompletionItemKind.Keyword,
+          documentation: 'i32',
+          insertText: '(i32.mul ${1:a} ${2:b})',
+          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+        },
+
+        {
+          label: 'local.get',
+          kind: monaco.languages.CompletionItemKind.Keyword,
+          documentation: 'i32',
+          insertText: '(local.get $${1:name})',
+          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+        },
+      ]
+    };
+  }
+}, '(');

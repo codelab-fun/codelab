@@ -57,7 +57,7 @@ export class CodeDemoEditorHighlightDirective
       }
 
       const decorations = this.codeDemoHighlight
-        .map(match => (match.match ? match : { match }))
+        .map(match => (typeof match !== 'string' && match.match ? match : { match }))
         .reduce((ranges, { match, className }) => {
           const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(
             code,

@@ -24,35 +24,34 @@
   (global $step (export "step") (mut i32) (i32.const 1))
 
   (func $getIndex (param $x i32) (param $y i32) (result i32)
-    local.get $y
-    global.get $rowSize
-    i32.mul
-    local.get $x
-    i32.add
-    i32.const 4
-    i32.mul
+    (i32.mul
+        (i32.const 4)
+        (i32.add
+            (local.get $x)
+            (i32.mul
+                (local.get $y)
+                (global.get $rowSize))))
   )
 
   (func $getCurrentIndex (param $x i32) (result i32)
-    local.get $x
-    global.get $step
-    call $getIndex
+    (call $getIndex (local.get $x) (global.get $step))
   )
 
  (func $getPreviousIndex (param $x i32) (result i32)
-    local.get $x
-    global.get $step
-    i32.const 1
-    i32.sub
-    call $getIndex
+    (call $getIndex
+        (local.get $x)
+        (i32.sub
+            (global.get $step)
+            (i32.const 1)))
   )
 
   (func $rotate (param $x i32) (result i32)
-    global.get $rowSize
-    local.get $x
-    i32.add
-    global.get $rowSize
-    i32.rem_s
+    (i32.rem_s
+        (i32.add
+            (global.get $rowSize)
+            (local.get $x))
+        (global.get $rowSize)
+    )
   )
 
   (func $calcNextState (param $x i32) (result i32) (local $a i32)
@@ -87,13 +86,6 @@
     drop
 
     (call_indirect (type $return_i32))
-
-
-
-
-
-
-
   )
 
 

@@ -1,17 +1,13 @@
 <ng-container *ngIf="code">
-  <kirjs-webassembly-runner
-    class="runner"
-    [webAssemblyCode]="code.wat"
-    [jsCode]="code.js"
-  ></kirjs-webassembly-runner>
-
   <code-demo-editor
+    [codeDemoHighlight]="wasmSelectionHighlight"
     minLines="20"
     class="webassembly-code"
-    fontSize="20"
+    [fontSize]="wasmSelectionHighlight ? 40 : 20"
     language="wat"
     [(ngModel)]="code.wat"
     (ngModelChange)="update()"
+    (selectionChange)="selection = $event"
     [lineNumbers]="false"
     [language]="'wat'"
   ></code-demo-editor>
@@ -24,4 +20,6 @@
     [lineNumbers]="false"
     [language]="'typescript'"
   ></code-demo-editor>
+
+  <slides-webassembly-code-mode [code]="code" [selection]="selection" (wasmSelectionHighlight)="wasmSelectionHighlight = $event"></slides-webassembly-code-mode>
 </ng-container>
