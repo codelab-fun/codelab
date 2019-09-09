@@ -29,6 +29,13 @@ function wat2wasm(wat) {
   return binary.buffer;
 }
 
+
+export interface RunConfig {
+  args: any[];
+  imports: any;
+  name: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,7 +43,7 @@ export class WebAssemblyService {
   constructor() {
   }
 
-  run<T>(wa: string, js: string, inputs: T) {
+  run<T>(wa: string, js: string, config: RunConfig) {
     return new Observable<Result<number>>((subscriber) => {
       try {
         const wasm = wat2wasm(wa);
@@ -62,7 +69,7 @@ export class WebAssemblyService {
       try {
         const code = new Uint8Array([${wasm.toString()}]).buffer;
         ${js}
-          setResult(await run(code, inputs));
+          setResult(await run(code, config));
         } catch(e){
           setError(e.message);
         }

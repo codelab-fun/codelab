@@ -142,9 +142,8 @@ export class CodeDemoEditorComponent
 
     this.editor.onDidChangeCursorSelection(({selection}) => {
       this.selectionChange.emit(this.editor.getModel().getValueInRange(selection));
-
-
     });
+
     this.model.onDidChangeContent(() => {
       this.changeSubject.next(this.editor.getModel().getValue());
     });

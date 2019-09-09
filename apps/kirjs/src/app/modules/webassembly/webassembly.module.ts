@@ -14,8 +14,11 @@ import { BinaryInlineModule } from '../binary/binary-inline/binary-inline.module
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { WebassemblyCodeModeComponent } from './webassembly-playground/webassembly-code-mode/webassembly-code-mode.component';
 import { MatButtonModule } from '@angular/material';
-import { GetItemRunnerComponent } from './webassembly-playground/get-item-runner/get-item-runner.component';
+
 import { ErrorMessageComponent } from './webassembly-playground/error-message/error-message.component';
+import { MonacoCursorPositionDirective } from './webassembly-playground/monaco-cursor-position/monaco-cursor-position.directive';
+import { WasmTestRunnerComponent } from './webassembly-playground/runners/wasm-test-runner/wasm-test-runner.component';
+
 
 
 const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
@@ -27,8 +30,9 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     WebassemblyRunnerComponent,
     WasmBinaryComponent,
     WebassemblyCodeModeComponent,
-    GetItemRunnerComponent,
     ErrorMessageComponent,
+    MonacoCursorPositionDirective,
+    WasmTestRunnerComponent,
 
   ],
   imports: [

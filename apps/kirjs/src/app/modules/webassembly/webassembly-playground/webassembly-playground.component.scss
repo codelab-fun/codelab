@@ -22,8 +22,10 @@
 }
 
 ::ng-deep {
-  .view-lines span:not(.highlighted-code) {
-    color: #777;
+  .has-highlight {
+    .view-lines span:not(.highlighted-code) {
+      color: #777;
+    }
   }
 
   .highlighted-code {

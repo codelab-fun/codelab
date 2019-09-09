@@ -9,46 +9,25 @@ declare const require;
 })
 export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   @Input() code: any;
+  @Input() selectedMode = {};
   @Output() wasmSelectionHighlight = new EventEmitter();
   readonly modes = {
     'default': true,
     'get': true,
     'getIndex': true
   };
-
-
   wat: string;
   js: string;
   mode = 'getIndex';
   state: any;
+  selectedFunction: string;
 
   constructor() {
   }
 
-  @Input() set selection(selection: string) {
-    selection = selection || '';
-    const matchFunc = /\s*func\s+\$(\w+)\s/;
-    const m = selection.match(matchFunc);
-    if (m && m[1]) {
-      if (this.modes[m[1]]) {
-        this.state = {
-          type: 'selection',
-          mode: m[1]
-        };
-      } else {
-        this.state = {
-          type: 'options',
-          mode: m[1],
-          options: Object.keys(this.modes).toString()
-        };
+  @Input() set selectedWasmFunction(name: string) {
+    this.selectedFunction = name;
 
-      }
-    } else {
-      this.state = {
-        type: 'empty'
-      };
-
-    }
   }
 
   updateCode() {
@@ -62,13 +41,6 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
     if (this.code) {
       this.updateCode();
     }
-  }
-
-  selectMode(mode: string) {
-    this.mode = mode;
-    this.wasmSelectionHighlight.emit('');
-    this.state = {};
-    this.updateCode();
   }
 
   ngOnInit() {

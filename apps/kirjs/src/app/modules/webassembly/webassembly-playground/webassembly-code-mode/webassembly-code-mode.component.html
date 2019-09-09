@@ -1,23 +1,9 @@
-<div *ngIf="state.type==='selection'">
-  <button mat-button (click)="selectMode(state.mode)">{{state.mode}} ></button>
-</div>
-
-<div *ngIf="state.type==='options'">
-  <div>Selected mode not found: {{state.mode}}</div>
-  <div>{{state.options}}</div>
-</div>
-
 <div class="side">
-
-  <div *ngIf="mode!=='default'" (click)="selectMode('default')">
-    <button mat-button class="back">< Back</button>
-  </div>
-  <div *ngIf="mode==='getIndex'">
-    <slides-get-item-runner class="runner"
-                            (wasmSelectionHighlight)="wasmSelectionHighlight.emit($event)"
-                            [webAssemblyCode]="wat"
-                            [jsCode]="js"></slides-get-item-runner>
-  </div>
+  <h1>{{selectedMode.name}}</h1>
+  <h2>{{selectedMode.description}}</h2>
+  <ng-container *ngIf="selectedMode.mode==='test'">
+    <slides-wasm-test-runner [config]="selectedMode"></slides-wasm-test-runner>
+  </ng-container>
 
   <kirjs-webassembly-runner *ngIf="mode==='default'"
                             class="runner"

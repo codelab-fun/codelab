@@ -4,8 +4,7 @@
       <div class="test-result">
         <div class="indicator" [style.background]="test.pass ? '#43ff00' : '#ff5300'"></div>
         <div>
-          x: {{test.inputs.x}}
-          y: {{test.inputs.y}}
+          <div>{{config.name}}({{test.args}})</div>
           result: {{test.result.value}}
           expected: {{test.output}}
         </div>
