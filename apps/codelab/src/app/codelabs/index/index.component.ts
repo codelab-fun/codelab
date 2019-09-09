@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core'
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'codelab-slides-index',
