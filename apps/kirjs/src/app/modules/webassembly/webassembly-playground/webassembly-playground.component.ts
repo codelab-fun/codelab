@@ -48,15 +48,12 @@ export class WebassemblyPlaygroundComponent
     let config: any = {name: name || ''};
 
 
-    if (this.modeConfig[name]) {
+    if (this.modeConfig[name] && this.code.wat) {
       config = {
         ...config,
-        mode: 'wasm',
         ...this.modeConfig[name]
       };
-
-      config.code = config.processCode(this.code.wat);
-      config.highlights = config.getHighlights(this.code.wat);
+      config = config.handler({...config, name}, this.code.wat);
     }
 
     this.selectedMode = config;
