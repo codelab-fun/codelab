@@ -1,11 +1,12 @@
 <ng-container *ngIf="code">
   <code-demo-editor
     (slidesMonacoCursorPosition)="selectFunction($event)"
+    [slidesMonacoScrolling]="selectedMode.highlights"
     [codeDemoHighlight]="selectedMode.highlights"
     minLines="20"
     class="webassembly-code"
     [class.has-highlight]="selectedMode.highlights"
-    [fontSize]="selectedMode.highlights ? 40 : 20"
+    [fontSize]="30"
     language="wat"
     [(ngModel)]="code.wat"
     (ngModelChange)="update()"

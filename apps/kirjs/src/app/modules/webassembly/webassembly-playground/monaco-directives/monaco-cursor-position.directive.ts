@@ -1,10 +1,10 @@
-import { Directive, EventEmitter, Optional, Output, Self } from '@angular/core';
+import { AfterViewInit, Directive, EventEmitter, Optional, Output, Self } from '@angular/core';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 
 @Directive({
   selector: '[slidesMonacoCursorPosition]'
 })
-export class MonacoCursorPositionDirective {
+export class MonacoCursorPositionDirective implements AfterViewInit {
   @Output() slidesMonacoCursorPosition = new EventEmitter();
   lastName: string;
 
@@ -16,7 +16,6 @@ export class MonacoCursorPositionDirective {
   }
 
   ngAfterViewInit() {
-
     const editor = this.editorInjector.editor;
     editor.onDidChangeCursorPosition(({position}) => {
       const model = editor.getModel();
