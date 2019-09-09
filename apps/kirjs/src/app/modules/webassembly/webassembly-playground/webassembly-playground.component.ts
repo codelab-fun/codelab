@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 interface WebassemblyPlaygroundInputs {
@@ -19,17 +19,13 @@ interface WebassemblyPlaygroundInputs {
   ]
 })
 export class WebassemblyPlaygroundComponent
-  implements OnInit, ControlValueAccessor {
+  implements ControlValueAccessor {
+  @Input() modeConfig = {};
   code: WebassemblyPlaygroundInputs;
-  selection: string;
   wasmSelectionHighlight: string;
+  selectedMode = {};
   private onChange: (code: WebassemblyPlaygroundInputs) => void;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+  private selectedWasmFunction: string;
 
   registerOnChange(
     onChange: (code: WebassemblyPlaygroundInputs) => void
@@ -47,8 +43,34 @@ export class WebassemblyPlaygroundComponent
     this.code = code;
   }
 
+  updateMode() {
+    const name = this.selectedWasmFunction;
+    let config: any = {name: name || ''};
+
+
+    if (this.modeConfig[name]) {
+      config = {
+        ...config,
+        mode: 'wasm',
+        ...this.modeConfig[name]
+      };
+
+      config.code = config.processCode(this.code.wat);
+      config.highlights = config.getHighlights(this.code.wat);
+    }
+
+    this.selectedMode = config;
+  }
+
+  selectFunction(name: string) {
+    this.selectedWasmFunction = name;
+    this.updateMode();
+
+  }
+
   update() {
     this.code = {...this.code};
+    this.updateMode();
     this.onChange(this.code);
   }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import './monaco-wat';
+import { extractFunction, wasmAddContent } from './utils';
+import { getIndexTests } from './samples/get-index/get-index-tests';
+import { rotateTests } from './samples/rotate/rotate-tests';
 
 declare const require;
 
@@ -38,7 +41,44 @@ export class WebassemblyComponent implements OnInit {
     }
   };
 
-  constructor() {}
 
-  ngOnInit() {}
+  modeConfig = {
+    'getIndex': {
+      description: 'Takes X and Y coordinate and returns index in the memory.',
+      getHighlights: (code) => {
+        return extractFunction('getIndex', code);
+      },
+      mode: 'test',
+      tests: getIndexTests,
+      processCode: (code) => {
+        const functionCode = extractFunction('getIndex', code);
+        console.log(wasmAddContent(functionCode, require('!!raw-loader!./samples/get-index/get-index.wat')));
+        return {
+          wat: wasmAddContent(functionCode, require('!!raw-loader!./samples/get-index/get-index.wat')),
+          js: require('!!raw-loader!./samples/get-index/get-index.js')
+        };
+      },
+    },
+    'rotate': {
+      description: 'Takes an index, and rotates it to be within the range of the line',
+      getHighlights: (code) => {
+        return extractFunction('rotate', code);
+      },
+      mode: 'test',
+      tests: rotateTests,
+      processCode: (code) => {
+        const functionCode = extractFunction('rotate', code);
+        return {
+          wat: wasmAddContent(functionCode, require('!!raw-loader!./samples/rotate/rotate.wat')),
+          js: require('!!raw-loader!./samples/get-index/get-index.js')
+        };
+      },
+    }
+  };
+
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
 }

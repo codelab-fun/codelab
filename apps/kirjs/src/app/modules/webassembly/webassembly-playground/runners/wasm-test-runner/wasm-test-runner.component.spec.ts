@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetItemRunnerComponent } from './get-item-runner.component';
+import { WasmTestRunnerComponent } from './wasm-test-runner.component';
 
-describe('GetItemRunnerComponent', () => {
-  let component: GetItemRunnerComponent;
-  let fixture: ComponentFixture<GetItemRunnerComponent>;
+describe('WasmTestRunnerComponent', () => {
+  let component: WasmTestRunnerComponent;
+  let fixture: ComponentFixture<WasmTestRunnerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GetItemRunnerComponent ]
+      declarations: [ WasmTestRunnerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GetItemRunnerComponent);
+    fixture = TestBed.createComponent(WasmTestRunnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

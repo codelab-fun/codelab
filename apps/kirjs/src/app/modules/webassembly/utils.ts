@@ -1,5 +1,5 @@
 export function extractFunction(name, code) {
-  const match = new RegExp('\\\(func \\\$getIndex').exec(code);
+  const match = new RegExp('\\\(func \\\$' + name).exec(code);
   if (match) {
     let i = match.index;
     let braces = 0;
