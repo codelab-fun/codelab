@@ -20,3 +20,13 @@
 .js-code {
   grid-area: js;
 }
+
+::ng-deep {
+  .view-lines span:not(.highlighted-code) {
+    color: #777;
+  }
+
+  .highlighted-code {
+
+  }
+}

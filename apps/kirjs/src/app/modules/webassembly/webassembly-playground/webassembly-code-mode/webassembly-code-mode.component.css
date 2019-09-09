@@ -1,0 +1,14 @@
+:host {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #444;
+  color: #fff;
+  width: 400px;
+  height: 100%;
+  padding: 10px 20px;
+}
+
+.back {
+  margin-bottom: 10px;
+}

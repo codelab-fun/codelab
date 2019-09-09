@@ -1,0 +1,16 @@
+<ng-container *ngIf="result$|async as result">
+  <div *ngIf="result.type === 'result'">
+    <div *ngFor="let test of result.value">
+      <div class="test-result">
+        <div class="indicator" [style.background]="test.pass ? '#43ff00' : '#ff5300'"></div>
+        <div>
+          x: {{test.inputs.x}}
+          y: {{test.inputs.y}}
+          result: {{test.result.value}}
+          expected: {{test.output}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <slides-error-message [result]="result"></slides-error-message>
+</ng-container>
