@@ -1,10 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import './monaco-wat';
-import { extractFunction, wasmAddContent } from './utils';
+import { extractFunction, extractGlobals, generateWatTestCode } from './utils';
 import { getIndexTests } from './samples/get-index/get-index-tests';
 import { rotateTests } from './samples/rotate/rotate-tests';
 
 declare const require;
+
+interface TestConfig {
+  name: string;
+}
+
+interface WebAssemblyTestConfig extends TestConfig {
+  highlights: string[];
+  mode: string;
+  globals: string[];
+  code: {
+    wat: string;
+    js: string;
+  };
+}
+
+function webAssemblyTestHandler(config: TestConfig, code: string): WebAssemblyTestConfig {
+  const funcCode = extractFunction('getIndex', code);
+  const globals = extractGlobals(funcCode);
+  const wat = generateWatTestCode({globals, code: funcCode, name: config.name});
+  return {
+    code: {
+      wat,
+      js: require('!!raw-loader!./samples/get-index/get-index.js'),
+    },
+    globals,
+    ...config,
+    mode: 'test',
+    highlights: funcCode
+  };
+}
 
 @Component({
   selector: 'kirjs-webassembly',
@@ -12,7 +42,6 @@ declare const require;
   styleUrls: ['./webassembly.component.css']
 })
 export class WebassemblyComponent implements OnInit {
-  simpleCode;
   code = {
     simple: {
       wat: require('!!raw-loader!./samples/base.wat'),
@@ -45,34 +74,13 @@ export class WebassemblyComponent implements OnInit {
   modeConfig = {
     'getIndex': {
       description: 'Takes X and Y coordinate and returns index in the memory.',
-      getHighlights: (code) => {
-        return extractFunction('getIndex', code);
-      },
-      mode: 'test',
+      handler: webAssemblyTestHandler,
       tests: getIndexTests,
-      processCode: (code) => {
-        const functionCode = extractFunction('getIndex', code);
-        console.log(wasmAddContent(functionCode, require('!!raw-loader!./samples/get-index/get-index.wat')));
-        return {
-          wat: wasmAddContent(functionCode, require('!!raw-loader!./samples/get-index/get-index.wat')),
-          js: require('!!raw-loader!./samples/get-index/get-index.js')
-        };
-      },
     },
     'rotate': {
       description: 'Takes an index, and rotates it to be within the range of the line',
-      getHighlights: (code) => {
-        return extractFunction('rotate', code);
-      },
-      mode: 'test',
+      handler: webAssemblyTestHandler,
       tests: rotateTests,
-      processCode: (code) => {
-        const functionCode = extractFunction('rotate', code);
-        return {
-          wat: wasmAddContent(functionCode, require('!!raw-loader!./samples/rotate/rotate.wat')),
-          js: require('!!raw-loader!./samples/get-index/get-index.js')
-        };
-      },
     }
   };
 

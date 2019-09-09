@@ -23,13 +23,28 @@ export function extractFunction(name, code) {
       if (braces === 0) {
         return code.substring(match.index, i);
       }
-
-
     }
   }
 }
 
 
+export function extractGlobals(code) {
+  const match = /(?:get_global|global\.get)\s+\$(\w+)*/;
+  return [...new Set([...code.matchAll(match)].map(a => a[1]))];
+}
+
 export function wasmAddContent(func, code) {
   return code.replace('{content}', func);
+}
+
+
+export function generateWatTestCode({code, globals, name}: any) {
+  const globalsCode = globals.map(global => `(import "config" "${global}" (global $${global} i32))`).join('\n');
+  return `(module
+  (export "${name}" (func $${name}))
+  ${globalsCode}
+  ${code}
+)`;
+
+
 }
