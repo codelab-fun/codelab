@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MENU_ROUTES, MenuRoutes } from './common';
+import { AngularRoutesComponent } from '../../components/angular-routes/angular-routes.component';
 import { FullLayoutComponent } from '../../containers/full-layout';
 import { environment } from '../../../environments/environment';
-import { AngularRoutesComponent } from '../../components/angular-routes/angular-routes.component';
+import { MENU_ROUTES, MenuRoutes } from '../../common';
 
 const routes: MenuRoutes = [
   {
@@ -126,7 +126,7 @@ const routes: MenuRoutes = [
 ];
 
 const isProd = environment.production;
-const menuRoutes = routes[0].children
+export const menuRoutes = routes[0].children
   .filter(x => x.page === 'main')
   // Hide non-prod routes in prod
   .filter(x => !isProd || x.prod);

@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MENU_ROUTES } from '../../../codelabs/angular/common';
+import { MENU_ROUTES } from '../../../common';
 
 @Component({
   selector: 'codelab-menu-shortcut-widget',
