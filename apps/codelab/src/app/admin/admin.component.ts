@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-
   readonly links = [
     {link: 'users', name: 'Users'},
     {link: 'feedback', name: 'Feedback'}
