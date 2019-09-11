@@ -4,5 +4,4 @@ import { Component } from '@angular/core';
   selector: 'codelab-root',
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {
-}
+export class AppComponent {}

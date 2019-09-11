@@ -4,5 +4,4 @@ import { NotFoundComponent } from './not-found.component';
 @NgModule({
   declarations: [NotFoundComponent]
 })
-export class NotFoundModule {
-}
+export class NotFoundModule {}

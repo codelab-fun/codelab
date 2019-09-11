@@ -8,9 +8,8 @@ export enum Permissions {
   MANAGE_USERS = 'manage_users'
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AccessService {
-
   readonly oldIsAdmin$ = this.loginService.uid$.pipe(
     switchMap(uid => {
       return this.dbService
@@ -21,14 +20,13 @@ export class AccessService {
 
   private readonly adminPermissions = this.dbService
     .object<any>('admin')
-    .object(this.loginService.uid$, {permissions: {}})
+    .object(this.loginService.uid$, { permissions: {} })
     .object('permissions');
 
   constructor(
     private readonly loginService: LoginService,
     private readonly dbService: SyncDbService
-  ) {
-  }
+  ) {}
 
   can(p: Permissions) {
     return this.adminPermissions

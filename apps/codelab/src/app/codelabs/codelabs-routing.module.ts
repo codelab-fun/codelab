@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from '../components/index/index.component';
 
 const routes: Routes = [
-  {path: '', component: IndexComponent},
+  { path: '', component: IndexComponent },
   {
     path: 'angular',
-    loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule)
+    loadChildren: () =>
+      import('./angular/angular.module').then(m => m.AngularModule)
   },
   {
     path: 'extra',
@@ -18,5 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CodelabsRoutingModule {
-}
+export class CodelabsRoutingModule {}

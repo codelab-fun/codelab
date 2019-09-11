@@ -10,7 +10,9 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 
-const routes = RouterModule.forChild([...SlidesRoutes.get(DependencyInjectionComponent)]);
+const routes = RouterModule.forChild([
+  ...SlidesRoutes.get(DependencyInjectionComponent)
+]);
 
 @NgModule({
   imports: [
@@ -26,5 +28,4 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(DependencyInjectionCom
   declarations: [DependencyInjectionComponent],
   exports: [DependencyInjectionComponent]
 })
-export class DependencyInjectionModule {
-}
+export class DependencyInjectionModule {}

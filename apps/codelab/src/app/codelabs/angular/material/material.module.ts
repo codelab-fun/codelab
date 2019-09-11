@@ -34,5 +34,4 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(MaterialComponent)]);
   exports: [MaterialComponent],
   providers: [Ng2TsExercises]
 })
-export class MaterialCodelabModule {
-}
+export class MaterialCodelabModule {}

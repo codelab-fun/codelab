@@ -16,24 +16,33 @@ const routes: MenuRoutes = [
       },
       {
         path: 'typescript',
-        loadChildren: () => import('./typescript/typescript.module').then(m => m.TypeScriptModule),
+        loadChildren: () =>
+          import('./typescript/typescript.module').then(
+            m => m.TypeScriptModule
+          ),
         name: 'TypeScript',
-        description: 'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript',
+        description:
+          'Angular is written in TypeScript, a superset of JavaScript. Learn TypeScript',
         page: 'typescript',
         prod: true
       },
       {
         path: 'create-first-app',
-        loadChildren: () => import('./create-first-app/create-first-app.module').then(m => m.CreateFirstAppModule),
+        loadChildren: () =>
+          import('./create-first-app/create-first-app.module').then(
+            m => m.CreateFirstAppModule
+          ),
         name: 'Create your first Angular app',
-        description: 'Learn how to create and bootstrap your first Angular application',
+        description:
+          'Learn how to create and bootstrap your first Angular application',
         page: 'main',
         prod: true,
         translationIds: ['createFirstNgApp', 'learnHowToBootstrapApp']
       },
       {
         path: 'templates',
-        loadChildren: () => import('./templates/templates.module').then(m => m.TemplatesModule),
+        loadChildren: () =>
+          import('./templates/templates.module').then(m => m.TemplatesModule),
         name: 'Templates',
         description: 'Learn how to use Angular templates',
         page: 'main',
@@ -42,21 +51,30 @@ const routes: MenuRoutes = [
       },
       {
         path: 'dependency-injection',
-        loadChildren: () => import('./dependency-injection/dependency-injection.module').then(m => m.DependencyInjectionModule),
+        loadChildren: () =>
+          import('./dependency-injection/dependency-injection.module').then(
+            m => m.DependencyInjectionModule
+          ),
         name: 'Dependency-Injection',
-        description: 'Learn how to provide dependencies to your code instead of hard-coding them',
+        description:
+          'Learn how to provide dependencies to your code instead of hard-coding them',
         page: 'main',
         prod: true,
         translationIds: ['dependencyInjection', 'learnToProvideDependencies']
       },
       {
         path: 'component-tree',
-        loadChildren: () => import('./component-tree/component-tree.module').then(m => m.ComponentTreeModule),
+        loadChildren: () =>
+          import('./component-tree/component-tree.module').then(
+            m => m.ComponentTreeModule
+          ),
         name: 'Component-Tree',
         description: 'Learn how to structure your app with reusable components',
         page: 'main',
         prod: true,
-        translationIds: ['componentTree', 'learnToStructureAppWithReusableComponents'
+        translationIds: [
+          'componentTree',
+          'learnToStructureAppWithReusableComponents'
         ]
       },
       // {
@@ -69,7 +87,8 @@ const routes: MenuRoutes = [
       // },
       {
         path: 'router',
-        loadChildren: () => import('./router/router.module').then(m => m.RouterCodelabModule),
+        loadChildren: () =>
+          import('./router/router.module').then(m => m.RouterCodelabModule),
         name: 'Angular Router',
         description: 'Learn how to add routes to your Angular application',
         page: 'main',
@@ -77,7 +96,10 @@ const routes: MenuRoutes = [
       },
       {
         path: 'material',
-        loadChildren: () => import('./material/material.module').then(m => m.MaterialCodelabModule),
+        loadChildren: () =>
+          import('./material/material.module').then(
+            m => m.MaterialCodelabModule
+          ),
         name: 'Angular Material',
         description: 'Learn how to use Angular Material',
         page: 'main',
@@ -85,7 +107,8 @@ const routes: MenuRoutes = [
       },
       {
         path: 'forms',
-        loadChildren: () => import('./forms/forms.module').then(m => m.FormsCodelabModule),
+        loadChildren: () =>
+          import('./forms/forms.module').then(m => m.FormsCodelabModule),
         name: 'Forms',
         description: 'Learn how to add Forms to your app',
         page: 'main',
@@ -93,7 +116,10 @@ const routes: MenuRoutes = [
       },
       {
         path: 'angular-cli',
-        loadChildren: () => import('./angular-cli/angular-cli.module').then(m => m.AngularCliModule),
+        loadChildren: () =>
+          import('./angular-cli/angular-cli.module').then(
+            m => m.AngularCliModule
+          ),
         name: 'Angular-cli',
         description: 'Learn how to quickly start working with angular',
         page: 'main',
@@ -101,15 +127,20 @@ const routes: MenuRoutes = [
       },
       {
         path: 'pipes',
-        loadChildren: () => import('./pipes/pipes.module').then(m => m.PipesModule),
+        loadChildren: () =>
+          import('./pipes/pipes.module').then(m => m.PipesModule),
         name: 'Pipes',
-        description: 'Learn how pipes transform input values to output values for display in a view',
+        description:
+          'Learn how pipes transform input values to output values for display in a view',
         page: 'bonus',
         prod: false
       },
       {
         path: 'structural-directives',
-        loadChildren: () => import('./structural-directives/structural-directives.module').then(m => m.StructuralDirectivesModule),
+        loadChildren: () =>
+          import('./structural-directives/structural-directives.module').then(
+            m => m.StructuralDirectivesModule
+          ),
         name: 'Structural Directives',
         description: 'Learn about structural directives in angular',
         page: 'bonus',
@@ -117,7 +148,10 @@ const routes: MenuRoutes = [
       },
       {
         path: 'playground',
-        loadChildren: () => import('./playground/playground.module').then(m => m.PlaygroundModule),
+        loadChildren: () =>
+          import('./playground/playground.module').then(
+            m => m.PlaygroundModule
+          ),
         page: 'bonus',
         prod: true
       }
@@ -134,7 +168,6 @@ export const menuRoutes = routes[0].children
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [{provide: MENU_ROUTES, useValue: menuRoutes}]
+  providers: [{ provide: MENU_ROUTES, useValue: menuRoutes }]
 })
-export class AngularRoutingModule {
-}
+export class AngularRoutingModule {}

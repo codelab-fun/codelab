@@ -7,8 +7,5 @@ import { MENU_ROUTES } from '../../../common';
   styleUrls: ['./menu-shortcut-widget.component.css']
 })
 export class MenuShortcutWidgetComponent {
-  constructor(
-    @Inject(MENU_ROUTES) readonly menuRoutes
-  ) {
-  }
+  constructor(@Inject(MENU_ROUTES) readonly menuRoutes) {}
 }

@@ -16,5 +16,4 @@ import { FullLayoutModule } from '../../containers/full-layout/full-layout.modul
     FullLayoutModule
   ]
 })
-export class ExtraModule {
-}
+export class ExtraModule {}

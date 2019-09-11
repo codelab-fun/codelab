@@ -8,5 +8,4 @@ import { AngularRoutesComponent } from './angular-routes.component';
   declarations: [AngularRoutesComponent],
   exports: [AngularRoutesComponent]
 })
-export class AngularRoutesModule {
-}
+export class AngularRoutesModule {}

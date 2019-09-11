@@ -9,12 +9,10 @@ import { auth } from 'firebase';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   constructor(
     private auth: AngularFireAuth,
     readonly loginService: LoginService
-  ) {
-  }
+  ) {}
 
   login() {
     this.auth.auth.signInWithPopup(new auth.GoogleAuthProvider());

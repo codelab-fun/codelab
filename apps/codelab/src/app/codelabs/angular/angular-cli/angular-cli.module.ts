@@ -10,7 +10,9 @@ import { SlidesModule } from '@codelab/slides';
 import { FormsModule } from '@angular/forms';
 import { ExternalLinkDirectiveDirective } from '../../../components/external-link-directive/external-link-directive.directive';
 
-const routes = RouterModule.forChild([...SlidesRoutes.get(AngularCliComponent)]);
+const routes = RouterModule.forChild([
+  ...SlidesRoutes.get(AngularCliComponent)
+]);
 
 @NgModule({
   imports: [
@@ -25,5 +27,4 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(AngularCliComponent)])
   declarations: [AngularCliComponent, ExternalLinkDirectiveDirective],
   exports: [AngularCliComponent]
 })
-export class AngularCliModule {
-}
+export class AngularCliModule {}

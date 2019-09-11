@@ -16,8 +16,8 @@ const MATERIAL_MODULES = [MatCardModule, MatTabsModule];
     CommonModule,
     FeedbackModule,
     UsersModule,
-    MATERIAL_MODULES],
+    MATERIAL_MODULES
+  ],
   declarations: [AdminComponent]
 })
-export class AdminModule {
-}
+export class AdminModule {}

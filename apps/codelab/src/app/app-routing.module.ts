@@ -8,7 +8,8 @@ import { LoginGuard } from './shared/services/guards/login-guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./codelabs/codelabs.module').then(m => m.CodelabsModule)
+    loadChildren: () =>
+      import('./codelabs/codelabs.module').then(m => m.CodelabsModule)
   },
   {
     path: 'login',
@@ -22,14 +23,14 @@ const routes: Routes = [
   },
   {
     path: 'sync',
-    loadChildren: () => import('./sync/sync.module').then(m => m.SyncAdminModule)
+    loadChildren: () =>
+      import('./sync/sync.module').then(m => m.SyncAdminModule)
   },
-  {path: '**', component: NotFoundComponent}
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

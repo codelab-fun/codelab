@@ -11,7 +11,9 @@ import { ComponentsHierarchySvgComponent } from './components-hierarchy-svg';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
-const routes = RouterModule.forChild([...SlidesRoutes.get(ComponentTreeComponent)]);
+const routes = RouterModule.forChild([
+  ...SlidesRoutes.get(ComponentTreeComponent)
+]);
 
 @NgModule({
   imports: [
@@ -27,5 +29,4 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(ComponentTreeComponent
   declarations: [ComponentTreeComponent, ComponentsHierarchySvgComponent],
   exports: [ComponentTreeComponent]
 })
-export class ComponentTreeModule {
-}
+export class ComponentTreeModule {}

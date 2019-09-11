@@ -10,22 +10,33 @@ let routes = [
     children: [
       {
         path: 'code-playground',
-        loadChildren: () => import('./code-playground/code-playground.module').then(m => m.CodePlaygroundModule),
+        loadChildren: () =>
+          import('./code-playground/code-playground.module').then(
+            m => m.CodePlaygroundModule
+          ),
         name: 'code-playground',
-        description: 'Learn how pipes transform input values to output values for display in a view',
+        description:
+          'Learn how pipes transform input values to output values for display in a view',
         page: 'extra'
       },
       {
         path: 'feedback-page',
-        loadChildren: () => import('./feedback-page/feedback-page.module').then(m => m.FeedbackPageModule),
+        loadChildren: () =>
+          import('./feedback-page/feedback-page.module').then(
+            m => m.FeedbackPageModule
+          ),
         name: 'Feedback page',
         description: 'Feedback page'
       },
       {
         path: 'rating-summary',
-        loadChildren: () => import('./rating-summary/rating-summary.module').then(m => m.RatingSummaryModule),
+        loadChildren: () =>
+          import('./rating-summary/rating-summary.module').then(
+            m => m.RatingSummaryModule
+          ),
         name: 'rating-summary',
-        description: 'Learn how pipes transform input values to output values for display in a view',
+        description:
+          'Learn how pipes transform input values to output values for display in a view',
         page: 'extra'
       }
     ]
@@ -40,5 +51,4 @@ if (environment.production) {
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ExtraRoutingModule {
-}
+export class ExtraRoutingModule {}

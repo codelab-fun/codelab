@@ -17,7 +17,7 @@ import { SyncModule } from '../sync/sync.module';
     CodelabComponentsModule,
     SlidesModule,
     ButtonsNavBarModule,
-    SyncModule,
+    SyncModule
   ],
   exports: [
     HttpClientModule,
@@ -28,5 +28,4 @@ import { SyncModule } from '../sync/sync.module';
     ButtonsNavBarModule
   ]
 })
-export class SharedModule {
-}
+export class SharedModule {}

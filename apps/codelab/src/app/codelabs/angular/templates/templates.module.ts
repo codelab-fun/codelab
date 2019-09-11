@@ -22,5 +22,4 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(TemplatesComponent)]);
   declarations: [TemplatesComponent],
   exports: [TemplatesComponent]
 })
-export class TemplatesModule {
-}
+export class TemplatesModule {}

@@ -17,9 +17,7 @@ describe('SyncComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SyncModule],
-      providers: [
-        getMockAngularFireProviders()
-      ]
+      providers: [getMockAngularFireProviders()]
     }).compileComponents();
   }));
 

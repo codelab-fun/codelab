@@ -8,8 +8,5 @@ import { MENU_ROUTES } from '../../common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AngularRoutesComponent {
-  constructor(
-    @Inject(MENU_ROUTES) readonly menuRoutes
-  ) {
-  }
+  constructor(@Inject(MENU_ROUTES) readonly menuRoutes) {}
 }

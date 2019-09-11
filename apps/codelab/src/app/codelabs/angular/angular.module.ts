@@ -6,5 +6,4 @@ import { AngularRoutesModule } from '../../components/angular-routes/angular-rou
 @NgModule({
   imports: [AngularRoutingModule, FullLayoutModule, AngularRoutesModule]
 })
-export class AngularModule {
-}
+export class AngularModule {}

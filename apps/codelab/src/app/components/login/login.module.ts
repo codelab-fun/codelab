@@ -8,5 +8,4 @@ import { LoginComponent } from './login.component';
   imports: [CommonModule, MatCardModule, RouterModule],
   declarations: [LoginComponent]
 })
-export class LoginModule {
-}
+export class LoginModule {}

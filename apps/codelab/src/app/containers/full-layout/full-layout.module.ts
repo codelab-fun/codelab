@@ -8,5 +8,4 @@ import { ButtonsNavBarModule } from '../../components/buttons-nav-bar/buttons-na
   imports: [RouterModule, SyncModule, ButtonsNavBarModule],
   declarations: [FullLayoutComponent]
 })
-export class FullLayoutModule {
-}
+export class FullLayoutModule {}

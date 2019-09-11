@@ -6,9 +6,6 @@ import { FeedbackComponent } from './feedback.component';
   declarations: [FeedbackComponent],
   entryComponents: [FeedbackComponent],
   exports: [FeedbackComponent],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule]
 })
-export class FeedbackModule {
-}
+export class FeedbackModule {}

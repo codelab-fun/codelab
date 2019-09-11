@@ -26,5 +26,4 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(RouterComponent)]);
   providers: [Ng2TsExercises],
   exports: [RouterComponent]
 })
-export class RouterCodelabModule {
-}
+export class RouterCodelabModule {}

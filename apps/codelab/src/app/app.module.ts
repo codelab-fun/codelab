@@ -24,10 +24,9 @@ const FIRE_MODULES = [
   imports: [AppRoutingModule, LoginModule, BROWSER_MODULES, FIRE_MODULES],
   declarations: [AppComponent, NotFoundComponent],
   providers: [
-    {provide: MENU_ROUTES, useValue: menuRoutes},
-    {provide: APP_INITIALIZER, useValue: monacoReady, multi: true}
+    { provide: MENU_ROUTES, useValue: menuRoutes },
+    { provide: APP_INITIALIZER, useValue: monacoReady, multi: true }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

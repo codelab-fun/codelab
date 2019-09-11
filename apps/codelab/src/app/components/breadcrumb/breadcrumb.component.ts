@@ -8,7 +8,6 @@ import { MENU_ROUTES } from '../../common';
   styleUrls: ['./breadcrumb.component.css']
 })
 export class BreadcrumbComponent {
-
   active: string;
   readonly separator = '/';
 
@@ -16,8 +15,8 @@ export class BreadcrumbComponent {
     private activatedRoute: ActivatedRoute,
     @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
-    this.active = this.activatedRoute.pathFromRoot
-      .find(route => route.routeConfig && route.routeConfig['name'])
-      .routeConfig['name'];
+    this.active = this.activatedRoute.pathFromRoot.find(
+      route => route.routeConfig && route.routeConfig['name']
+    ).routeConfig['name'];
   }
 }

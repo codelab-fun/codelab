@@ -9,8 +9,8 @@ const routes = [
     path: '',
     component: AdminComponent,
     children: [
-      {path: 'users', component: UsersComponent},
-      {path: 'feedback', component: FeedbackComponent}
+      { path: 'users', component: UsersComponent },
+      { path: 'feedback', component: FeedbackComponent }
     ]
   }
 ];
@@ -19,5 +19,4 @@ const routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule {
-}
+export class AdminRoutingModule {}

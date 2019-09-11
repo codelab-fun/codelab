@@ -18,28 +18,23 @@ import { ConfigureSyncModule } from '@codelab/utils/src/lib/sync/components/conf
     SyncPollModule,
     SyncButtonModule,
     SyncDirectivesModule,
-    ConfigureSyncModule,
+    ConfigureSyncModule
   ]
 })
-export class SyncModule {
-}
+export class SyncModule {}
 
 @Component({
   selector: 'codelab-sync-admin-wrapper',
   template: '<codelab-sync-survey [admin]="true"></codelab-sync-survey>'
 })
-export class SyncAdminWrapperComponent {
-}
+export class SyncAdminWrapperComponent {}
 
-const routes = RouterModule.forChild(SlidesRoutes.get(SyncAdminWrapperComponent));
-
+const routes = RouterModule.forChild(
+  SlidesRoutes.get(SyncAdminWrapperComponent)
+);
 
 @NgModule({
   declarations: [SyncAdminWrapperComponent],
-  imports: [
-    SyncModule,
-    routes,
-  ]
+  imports: [SyncModule, routes]
 })
-export class SyncAdminModule {
-}
+export class SyncAdminModule {}

@@ -9,7 +9,9 @@ import { SlidesModule } from '@codelab/slides';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '@codelab/code-demos';
 
-const routes = RouterModule.forChild(SlidesRoutes.get(StructuralDirectivesComponent));
+const routes = RouterModule.forChild(
+  SlidesRoutes.get(StructuralDirectivesComponent)
+);
 
 @NgModule({
   imports: [
@@ -24,5 +26,4 @@ const routes = RouterModule.forChild(SlidesRoutes.get(StructuralDirectivesCompon
   declarations: [StructuralDirectivesComponent],
   exports: [StructuralDirectivesComponent]
 })
-export class StructuralDirectivesModule {
-}
+export class StructuralDirectivesModule {}

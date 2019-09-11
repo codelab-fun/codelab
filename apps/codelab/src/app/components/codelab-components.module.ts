@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { CodelabExerciseComponent } from './exercise/exercise.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatMenuModule, MatSelectModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatMenuModule,
+  MatSelectModule
+} from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
 import { SimpleTestsComponent } from './tests/simple-tests.component';
@@ -31,7 +35,7 @@ const CODELAB_COMPONENTS = [
 const TESTS_COMPONENTS = [
   SimpleTestsProgressComponent,
   SimpleTestsComponent,
-  SimpleTestDescriptionComponent,
+  SimpleTestDescriptionComponent
 ];
 const MATERIAL_MODULES = [MatButtonModule, MatMenuModule, MatSelectModule];
 
@@ -59,5 +63,4 @@ const MATERIAL_MODULES = [MatButtonModule, MatMenuModule, MatSelectModule];
     CODELAB_COMPONENTS
   ]
 })
-export class CodelabComponentsModule {
-}
+export class CodelabComponentsModule {}

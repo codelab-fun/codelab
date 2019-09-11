@@ -26,5 +26,4 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(FormsComponent)]);
   exports: [FormsComponent],
   providers: [Ng2TsExercises]
 })
-export class FormsCodelabModule {
-}
+export class FormsCodelabModule {}

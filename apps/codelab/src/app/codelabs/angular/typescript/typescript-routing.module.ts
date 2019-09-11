@@ -8,8 +8,7 @@ import { TypeScriptComponent } from './typescript/typescript.component';
   selector: 'ignored',
   template: '<router-outlet></router-outlet>'
 })
-export class EmptyTypeScriptComponent {
-}
+export class EmptyTypeScriptComponent {}
 
 const routes = [
   {
@@ -25,5 +24,4 @@ const routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TypeScriptRoutingModule {
-}
+export class TypeScriptRoutingModule {}
