@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
 import { environment } from '../../../environments/environment';
-
 import { FullLayoutComponent } from '../../containers/full-layout';
 
 let routes = [
@@ -12,8 +10,10 @@ let routes = [
     children: [
       {
         path: 'code-playground',
-        loadChildren:
-          () => import('./code-playground/code-playground.module').then(m => m.CodePlaygroundModule),
+        loadChildren: () =>
+          import('./code-playground/code-playground.module').then(
+            m => m.CodePlaygroundModule
+          ),
         name: 'code-playground',
         description:
           'Learn how pipes transform input values to output values for display in a view',
@@ -21,14 +21,19 @@ let routes = [
       },
       {
         path: 'feedback-page',
-        loadChildren: () => import('./feedback-page/feedback-page.module').then(m => m.FeedbackPageModule),
+        loadChildren: () =>
+          import('./feedback-page/feedback-page.module').then(
+            m => m.FeedbackPageModule
+          ),
         name: 'Feedback page',
         description: 'Feedback page'
       },
       {
         path: 'rating-summary',
-        loadChildren:
-          () => import('./rating-summary/rating-summary.module').then(m => m.RatingSummaryModule),
+        loadChildren: () =>
+          import('./rating-summary/rating-summary.module').then(
+            m => m.RatingSummaryModule
+          ),
         name: 'rating-summary',
         description:
           'Learn how pipes transform input values to output values for display in a view',
