@@ -1,12 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CreateSnippetComponent } from './create-snippet.component';
-import { CreateSnippetModule } from './create-snippet.module';
 import { ActivatedRoute } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { SnippetService } from '../shared/services/snippet.service';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule, MatChipsModule, MatDialog, MatSelectModule } from '@angular/material';
 import SpyObj = jasmine.SpyObj;
 import { of } from 'rxjs';
+
+import { CreateSnippetComponent } from './create-snippet.component';
+import { SnippetService } from '../shared/services/snippet.service';
+
+
+const matDialogMock = {};
 
 describe('CreateSnippetComponent', () => {
   let component: CreateSnippetComponent;
@@ -27,7 +32,17 @@ describe('CreateSnippetComponent', () => {
     ]);
 
     TestBed.configureTestingModule({
-      imports: [CreateSnippetModule, NoopAnimationsModule],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        MatChipsModule,
+        MatSelectModule,
+      ],
+      declarations: [
+        CreateSnippetComponent
+      ],
       providers: [
         {
           provide: ActivatedRoute,
@@ -36,6 +51,9 @@ describe('CreateSnippetComponent', () => {
         {
           provide: SnippetService,
           useValue: snippetService,
+        },
+        {
+          provide: MatDialog, useValue: matDialogMock
         }
       ]
     })
@@ -43,10 +61,13 @@ describe('CreateSnippetComponent', () => {
   }));
 
   beforeEach(() => {
+    fixture = TestBed.createComponent(CreateSnippetComponent);
+    component = fixture.componentInstance;
 
+    snippetService = TestBed.get(SnippetService);
   });
 
-  xit('should create', () => {
+  it('should create snippet', () => {
     const repoName = 'name';
     const repoOwner = 'PIKACHU';
     const pullNumber = 689;
