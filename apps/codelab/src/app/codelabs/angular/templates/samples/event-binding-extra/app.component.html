@@ -1,0 +1,10 @@
+<div>
+  messages: {{message}}
+</div>
+
+<!--  When user clicks the button, it calls the "saveUser" function on the component instance and passes the underlying event.  -->
+<button (click)="saveUser($event)">Save</button><br>
+<!--  There are also shortcut event bindings! The submit function on the component instance will be called when the user presses control and enter (this is an Angular feature).  -->
+<textarea (keydown.control.enter)="submit($event)"></textarea><br>
+<!--  You can also create events for custom components. Here we have a depleted event, and it's going to call the "soundAlarm" function on the component instance when it fires.   -->
+<coffee-maker (depleted)="soundAlarm('loud')">
