@@ -231,16 +231,14 @@ describe('AppComponent', ()=>{
         `<!--Type your template here -->`
       ),
       bindingRefExerciseMatch: /#userinput/,
-      eventBinding: `<!-- ${this.t.whenUserClicksItCallsSaveUser} -->
-<button (click)="saveUser($event)">
-
-<!-- ${this.t.youCanAlsoCreateEventsForCustomComponents}  -->
-<coffee-maker (depleted)="soundAlarm('loud')">
-
-<!-- ${this.t.thereAreShortcutEventBindings} -->
-<textarea (keydown.control.enter)="submit()"></textarea>
-`,
-      eventBindingMatch: /\(click\)/,
+      eventBindingExtra: {
+        'app.component.html': require('!!raw-loader!./samples/event-binding-extra/app.component.html'),
+        'app.component.ts': require('!!raw-loader!./samples/event-binding-extra/app.component.ts'),
+        'bootstrap.ts': require('!!raw-loader!./samples/event-binding-extra/bootstrap.ts'),
+        'coffee-maker.ts': require('!!raw-loader!./samples/event-binding-extra/coffee-maker.ts'),
+        'index.html': require('!!raw-loader!./samples/event-binding-extra/index.html')
+      },
+      eventBindingExtraFiles: ['app.component.html', 'app.component.ts'],
       eventBindingExercise: displayAngularComponentWithHtml(
         baseCode,
         `<!--Type your template here onButtonClick -->`

@@ -236,14 +236,11 @@
       Event bindings accept a callback which can be called from the inside of
       the component with different data.
     </h2>
-    <code-demo-file-path path="app.component.html"></code-demo-file-path>
-    <code-demo-editor
-      [(ngModel)]="code.eventBinding"
-      [fontSize]="25"
-      [codeDemoHighlight]="[code.eventBindingMatch]"
-      language="html"
-    >
-    </code-demo-editor>
+    <code-demo
+      [files]="code.eventBindingExtraFiles"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.eventBindingExtra"
+    ></code-demo>
     <div class="info" i18n>
       While Parentheses are used for event binding: <b>(event)</b>, "on-" can
       also be used: <b>on-event</b>.
