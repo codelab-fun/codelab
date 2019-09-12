@@ -23,44 +23,44 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
-const CODELAB_COMPONENTS = [
-  CodelabExerciseComponent,
-  CodelabPreviewComponent,
-  CodelabClosingSlideComponent,
-  CodelabExercisePreviewComponent,
-  CodelabExercisePlaygroundComponent,
-  CodelabProgressBarComponent,
-  CodelabRippleAnimationComponent
-];
-const TESTS_COMPONENTS = [
-  SimpleTestsProgressComponent,
-  SimpleTestsComponent,
-  SimpleTestDescriptionComponent
-];
-const MATERIAL_MODULES = [MatButtonModule, MatMenuModule, MatSelectModule];
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
     CodeDemoModule,
-    MATERIAL_MODULES
+    MatButtonModule,
+    MatMenuModule,
+    MatSelectModule
   ],
   declarations: [
     SimpleAngularTestRunnerComponent,
     TitleSlideComponent,
     BabelTestRunnerComponent,
     BreadcrumbComponent,
-    CODELAB_COMPONENTS,
-    TESTS_COMPONENTS
+    CodelabExerciseComponent,
+    CodelabPreviewComponent,
+    CodelabClosingSlideComponent,
+    CodelabExercisePreviewComponent,
+    CodelabExercisePlaygroundComponent,
+    CodelabProgressBarComponent,
+    CodelabRippleAnimationComponent,
+    SimpleTestsProgressComponent,
+    SimpleTestsComponent,
+    SimpleTestDescriptionComponent
   ],
   exports: [
     SimpleAngularTestRunnerComponent,
     TitleSlideComponent,
     BabelTestRunnerComponent,
     BreadcrumbComponent,
-    CODELAB_COMPONENTS
+    CodelabExerciseComponent,
+    CodelabPreviewComponent,
+    CodelabClosingSlideComponent,
+    CodelabExercisePreviewComponent,
+    CodelabExercisePlaygroundComponent,
+    CodelabProgressBarComponent,
+    CodelabRippleAnimationComponent
   ]
 })
 export class CodelabComponentsModule {}

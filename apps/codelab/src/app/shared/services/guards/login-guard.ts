@@ -10,8 +10,7 @@ import {
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-  constructor(private _route: Router) {
-  }
+  constructor(private _route: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,

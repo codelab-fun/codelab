@@ -13,15 +13,16 @@ import { menuRoutes } from './codelabs/angular/angular-routing.module';
 import { MENU_ROUTES } from './common';
 import { environment } from '../environments/environment';
 
-const BROWSER_MODULES = [BrowserModule, BrowserAnimationsModule];
-const FIRE_MODULES = [
-  AngularFireModule.initializeApp(environment.firebaseConfig),
-  AngularFireAuthModule,
-  AngularFireDatabaseModule
-];
-
 @NgModule({
-  imports: [AppRoutingModule, LoginModule, BROWSER_MODULES, FIRE_MODULES],
+  imports: [
+    AppRoutingModule,
+    LoginModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
+  ],
   declarations: [AppComponent, NotFoundComponent],
   providers: [
     { provide: MENU_ROUTES, useValue: menuRoutes },
