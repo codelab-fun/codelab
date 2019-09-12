@@ -7,11 +7,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppComponent } from './app.compoent';
 import { AppRoutingModule } from './app-routing.module';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginModule } from './components/login/login.module';
 import { menuRoutes } from './codelabs/angular/angular-routing.module';
 import { MENU_ROUTES } from './common';
 import { environment } from '../environments/environment';
+import { NotFoundModule } from './components/not-found/not-found.module';
 
 @NgModule({
   imports: [
@@ -21,9 +21,10 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NotFoundModule
   ],
-  declarations: [AppComponent, NotFoundComponent],
+  declarations: [AppComponent],
   providers: [
     { provide: MENU_ROUTES, useValue: menuRoutes },
     { provide: APP_INITIALIZER, useValue: monacoReady, multi: true }
