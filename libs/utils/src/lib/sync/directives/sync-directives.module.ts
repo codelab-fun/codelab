@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import {
   SyncIsAdminDirective,
   SyncIsPresentingDirective,
-  SyncIsViewingDirective
+  SyncIsViewingDirective,
+  SyncIsOffDirective
 } from '@codelab/utils/src/lib/sync/directives/is-status.directive';
 import { SyncPresenterValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-presenter-value.directive';
 import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-viewer-value.directive';
@@ -15,6 +16,7 @@ import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives
     SyncIsAdminDirective,
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
+    SyncIsOffDirective
   ],
   exports: [
     SyncIsViewingDirective,
@@ -22,6 +24,7 @@ import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives
     SyncIsAdminDirective,
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
+    SyncIsOffDirective
   ],
   imports: [
     CommonModule

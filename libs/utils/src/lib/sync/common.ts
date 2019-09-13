@@ -22,6 +22,7 @@ export interface SyncSessionConfig {
   active: boolean;
   admins: string[];
   owner: string;
+  name: string;
 }
 
 export interface SyncSession {

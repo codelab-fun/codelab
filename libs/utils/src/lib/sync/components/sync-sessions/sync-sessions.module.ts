@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SyncSessionsComponent } from './sync-sessions.component';
-import { MatButtonModule, MatCardModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -13,6 +13,7 @@ import { MatButtonModule, MatCardModule, MatTableModule } from '@angular/materia
     MatCardModule,
     MatTableModule,
     MatButtonModule,
+    MatInputModule
   ]
 })
 export class SyncSessionsModule {
