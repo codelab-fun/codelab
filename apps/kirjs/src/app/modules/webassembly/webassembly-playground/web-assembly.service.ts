@@ -34,6 +34,7 @@ export interface RunConfig {
   args: any[];
   imports: any;
   name: string;
+  memory?: number[];
 }
 
 @Injectable({
@@ -46,6 +47,7 @@ export class WebAssemblyService {
   run<T>(wa: string, js: string, config: RunConfig) {
     return new Observable<Result<number>>((subscriber) => {
       try {
+        console.log(wa, config);
         const wasm = wat2wasm(wa);
 
         const setResult = (result: number) => {

@@ -54,23 +54,39 @@
     )
   )
 
-  (func $calcNextState (param $x i32) (result i32) (local $a i32)
+  (func $shift (param $a i32) (param $b i32) (param $c i32) (result i32)
+       (local.get $c)
+
+       (local.get $b)
+       (i32.const 1)
+       i32.shl
+       i32.add
+
+       (local.get $a)
+       (i32.const 2)
+       i32.shl
+       i32.add
+  )
+
+  (func $calcNextState (param $x i32) (result i32)
+    local.get $x
+    call $getCellScore
+    call_indirect (type $return_i32)
+  )
+
+  (func $getCellScore (param $x i32) (result i32) (local $a i32)
     local.get $x
     i32.const 1
     i32.sub
     call $rotate
     call $getPreviousIndex
     i32.load
-    i32.const 2
-    i32.shl
 
 
     local.get $x
     call $rotate
     call $getPreviousIndex
     i32.load
-    i32.const 1
-    i32.shl
 
     local.get $x
     i32.const 1
@@ -78,14 +94,8 @@
     call $rotate
     call $getPreviousIndex
     i32.load
-    i32.add
-    i32.add
 
-    local.tee $a
-    local.get $a
-    drop
-
-    (call_indirect (type $return_i32))
+    call $shift
   )
 
 
@@ -107,6 +117,7 @@
         end
       end
   )
+
   (func $evolveSingle (result i32) (local $index i32)
       block
         loop

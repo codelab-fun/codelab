@@ -2,7 +2,7 @@ export const getIndexTests = [
   {
     args: [0, 0],
     imports: {config: {rowSize: 10}},
-    output: 0
+    output: 0,
   },
   {
     args: [1, 0],

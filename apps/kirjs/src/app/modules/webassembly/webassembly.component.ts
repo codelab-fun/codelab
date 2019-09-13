@@ -1,40 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import './monaco-wat';
-import { extractFunction, extractGlobals, generateWatTestCode } from './utils';
-import { getIndexTests } from './samples/get-index/get-index-tests';
-import { rotateTests } from './samples/rotate/rotate-tests';
+import { getIndexTests } from './tests/get-index-tests';
+import { rotateTests } from './tests/rotate-tests';
+import { webAssemblyTestHandler } from './webassembly-playground/runners/wasm-test-runner/wasm-test-runner.component';
+import { shiftTests } from './tests/shift-tests';
+import { calcNextStateTests } from './tests/next-state-tests';
+import { getCellScoreTests } from './tests/get-cell-score';
 
 declare const require;
 
-interface TestConfig {
-  name: string;
-}
-
-interface WebAssemblyTestConfig extends TestConfig {
-  highlights: string[];
-  mode: string;
-  globals: string[];
-  code: {
-    wat: string;
-    js: string;
-  };
-}
-
-function webAssemblyTestHandler(config: TestConfig, code: string): WebAssemblyTestConfig {
-  const funcCode = extractFunction('getIndex', code);
-  const globals = extractGlobals(funcCode);
-  const wat = generateWatTestCode({globals, code: funcCode, name: config.name});
-  return {
-    code: {
-      wat,
-      js: require('!!raw-loader!./samples/get-index/get-index.js'),
-    },
-    globals,
-    ...config,
-    mode: 'test',
-    highlights: funcCode
-  };
-}
 
 @Component({
   selector: 'kirjs-webassembly',
@@ -72,15 +46,30 @@ export class WebassemblyComponent implements OnInit {
 
 
   modeConfig = {
-    'getIndex': {
+    getIndex: {
       description: 'Takes X and Y coordinate and returns index in the memory.',
       handler: webAssemblyTestHandler,
       tests: getIndexTests,
     },
-    'rotate': {
+    rotate: {
       description: 'Takes an index, and rotates it to be within the range of the line',
       handler: webAssemblyTestHandler,
       tests: rotateTests,
+    },
+    shift: {
+      description: 'TBD',
+      handler: webAssemblyTestHandler,
+      tests: shiftTests,
+    },
+    calcNextState: {
+      description: 'calcNextState',
+      handler: webAssemblyTestHandler,
+      tests: calcNextStateTests,
+    },
+    getCellScore: {
+      description: 'Looks for 3 cells before, and gets a number 0-7',
+      handler: webAssemblyTestHandler,
+      tests: getCellScoreTests,
     }
   };
 
