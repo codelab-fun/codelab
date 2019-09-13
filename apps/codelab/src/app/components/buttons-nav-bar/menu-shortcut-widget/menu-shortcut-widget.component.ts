@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Optional } from '@angular/core';
 import { MENU_ROUTES } from '../../../codelabs/angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { MENU_ROUTES } from '../../../codelabs/angular/common';
 })
 export class MenuShortcutWidgetComponent {
   constructor(
-    @Inject(MENU_ROUTES) readonly menuRoutes
+    @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
   }
 }
