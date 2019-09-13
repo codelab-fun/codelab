@@ -1,10 +1,11 @@
-import { Component, Input, OnInit, Optional } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
-import { distinctUntilChanged, filter, mergeMapTo, take } from 'rxjs/operators';
+import { distinctUntilChanged, filter, mergeMapTo, take, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'codelab-sync-button',
@@ -12,20 +13,19 @@ import { distinctUntilChanged, filter, mergeMapTo, take } from 'rxjs/operators';
   styleUrls: ['./sync-button.component.css'],
   providers: [SyncRegistrationService]
 })
-export class SyncButtonComponent implements OnInit {
+export class SyncButtonComponent implements OnInit, OnDestroy {
   @Input() name = 'default';
-
   sync = {};
-  private readonly currentSlide = this.syncDataService.getPresenterObject<
-    number
-  >('currentSlide');
+  private readonly onDestroy = new Subject<void>();
+  private readonly currentSlide = this.syncDataService.getPresenterObject<number>('currentSlide');
 
   constructor(
     private readonly syncDataService: SyncDataService,
     readonly syncSessionService: SyncSessionService,
     readonly registrationService: SyncRegistrationService,
     @Optional() private readonly presentation: SlidesDeckComponent
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.syncSessionService.autoJoin(this.name);
@@ -35,7 +35,8 @@ export class SyncButtonComponent implements OnInit {
         .pipe(
           filter(s => s === SyncStatus.PRESENTING),
           mergeMapTo(this.presentation.slideChange),
-          distinctUntilChanged()
+          distinctUntilChanged(),
+          takeUntil(this.onDestroy)
         )
         .subscribe((slide: number) => {
           this.currentSlide.set(slide);
@@ -46,12 +47,18 @@ export class SyncButtonComponent implements OnInit {
           filter(s => s !== SyncStatus.PRESENTING),
           mergeMapTo(this.currentSlide.valueChanges()),
           distinctUntilChanged(),
-          filter(s => s !== null)
+          filter(s => s !== null),
+          takeUntil(this.onDestroy)
         )
         .subscribe((slide: number) => {
           this.presentation.goToSlide(slide);
         });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy.next();
+    this.onDestroy.complete();
   }
 
   start(): void {
