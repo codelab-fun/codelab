@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SyncDataList } from '@codelab/utils/src/lib/sync/services/common';
 import { filter, map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
@@ -43,7 +44,7 @@ export class SyncDataService {
     return this.dbService.object(key$, defaultValue);
   }
 
-  getCurrentViewerList<T>(key: string, defaultValue?: T[]) {
+  getCurrentViewerList<T>(key: string, defaultValue?: T[]): SyncDataList<T> {
     const key$ = combineLatest([
       this.syncId$,
       this.syncSesionService.viewerId$.pipe(filter(a => !!a))
