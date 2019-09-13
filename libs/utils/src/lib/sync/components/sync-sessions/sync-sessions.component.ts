@@ -14,7 +14,7 @@ import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-se
   ],
 })
 export class SyncSessionsComponent {
-  readonly displayedColumns = ['owner', 'key', 'active', 'actions'];
+  readonly displayedColumns = ['name', 'owner', 'key', 'active', 'actions'];
 
 
   constructor(readonly sessionsService: SyncSessionService) {

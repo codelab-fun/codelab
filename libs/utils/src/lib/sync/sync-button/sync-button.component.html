@@ -1,6 +1,6 @@
 <codelab-online-indicator></codelab-online-indicator>
 <mat-menu #userId="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="copyViewerId()">
     {{syncSessionService.viewerId$ | async}}
   </button>
 </mat-menu>
@@ -17,7 +17,7 @@
     </mat-card>
 
 
-    <button *isViewing mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">
+    <button *isViewing mat-icon-button [matMenuTriggerFor]="userId" class="menu-button">
       <mat-icon>more_vert</mat-icon>
     </button>
 
@@ -30,14 +30,14 @@
           <codelab-registration></codelab-registration>
         </div>
       </ng-template>
-      <button mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">
+      <button mat-icon-button [matMenuTriggerFor]="userId" class="menu-button">
         <mat-icon>more_vert</mat-icon>
       </button>
 
     </ng-container>
 
     <ng-container *isPresenting>
-      <button mat-icon-button [matMenuTriggerFor]="appMenu" style="position: absolute; right: 0;top: 0;">
+      <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menu-button">
         <mat-icon>more_vert</mat-icon>
       </button>
     </ng-container>
@@ -53,7 +53,7 @@
 </div>
 
 <ng-template #noSession>
-  <button mat-icon-button [matMenuTriggerFor]="userId" style="position: absolute; right: 0;top: 0;">
+  <button mat-icon-button [matMenuTriggerFor]="userId" class="menu-button">
     <mat-icon>more_vert</mat-icon>
   </button>
 
