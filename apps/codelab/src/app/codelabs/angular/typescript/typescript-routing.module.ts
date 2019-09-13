@@ -6,13 +6,9 @@ import { TypeScriptComponent } from './typescript/typescript.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'ignored',
-  template: `
-    <router-outlet></router-outlet>
-  `,
+  template: '<router-outlet></router-outlet>'
 })
-export class EmptyTypeScriptComponent {
-}
-
+export class EmptyTypeScriptComponent {}
 
 const routes = [
   {
@@ -22,12 +18,10 @@ const routes = [
   }
 ];
 
-
 @NgModule({
   declarations: [EmptyTypeScriptComponent],
   entryComponents: [EmptyTypeScriptComponent],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TypeScriptRoutingModule {
-}
+export class TypeScriptRoutingModule {}

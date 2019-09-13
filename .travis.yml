@@ -8,19 +8,7 @@ matrix:
   include:
     - node_js: 10
       env: REPORT_COVERAGE=true # Only run coverage reporting on one build.
-
-before_install:
-  # Install & start Chrome for Karma
-  - sudo apt-get install -y libappindicator1 fonts-liberation
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  # Install CodeClimate coverage reporting tool
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-
+      
 script:
   - npm run lint
   - npm run ng build -- --aot --prod
