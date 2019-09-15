@@ -1,13 +1,22 @@
 <div class="side">
-  <h1>{{selectedMode.name}}</h1>
-  <h2>{{selectedMode.description}}</h2>
-  <ng-container *ngIf="selectedMode.mode==='test'">
-    <slides-wasm-test-runner [config]="selectedMode"></slides-wasm-test-runner>
-  </ng-container>
+  <div class="breadcrumbs">
+    <ng-container *ngFor="let block of blocks; let l = last">
+      <span [class.has-meta]="!!block.meta">{{block.type}} {{block.name || ''}}</span>
+      <span>{{l ? '' : ' / '}}</span>
+    </ng-container>
+  </div>
+  <div *ngIf="selectedMode">
+    <h1>{{selectedMode.name}}</h1>
+    <h2>{{selectedMode.description}}</h2>
+    {{selectedMode.mode}}!
+    <ng-container *ngIf="selectedMode.mode==='test'">
+      <slides-wasm-test-runner [config]="selectedMode"></slides-wasm-test-runner>
+    </ng-container>
 
-  <kirjs-webassembly-runner *ngIf="mode==='default'"
-                            class="runner"
-                            [webAssemblyCode]="wat"
-                            [jsCode]="js"
-  ></kirjs-webassembly-runner>
+    <kirjs-webassembly-runner *ngIf="mode==='default'"
+                              class="runner"
+                              [webAssemblyCode]="wat"
+                              [jsCode]="js"
+    ></kirjs-webassembly-runner>
+  </div>
 </div>

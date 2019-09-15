@@ -9,25 +9,24 @@ declare const require;
 })
 export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   @Input() code: any;
-  @Input() selectedMode = {};
   @Output() wasmSelectionHighlight = new EventEmitter();
-  readonly modes = {
-    'default': true,
-    'get': true,
-    'getIndex': true
-  };
   wat: string;
   js: string;
   mode = 'getIndex';
   state: any;
-  selectedFunction: string;
+
+  private blocks: any[];
+  private selectedMode = {};
 
   constructor() {
   }
 
-  @Input() set selectedWasmFunction(name: string) {
-    this.selectedFunction = name;
-
+  @Input() set sideBarBlocks(blocks) {
+    this.blocks = blocks || [];
+    const block = this.blocks.reverse().find(b => !!b.meta);
+    if (block) {
+      this.selectedMode = block.meta;
+    }
   }
 
   updateCode() {

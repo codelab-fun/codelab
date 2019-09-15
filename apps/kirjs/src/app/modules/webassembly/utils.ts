@@ -4,6 +4,9 @@ export function extractFunction(name, code) {
 
 export function extractTableCode(code) {
   const elements = extractExpressionByMatch(/\(elem/, code);
+  if (!elements) {
+    debugger;
+  }
   const functions = [...new Set([...elements.matchAll(/\$(\w+)\b/g)].map(a => a[1]))].map(name => extractFunction(name, code)).join('\n');
 
 
@@ -30,6 +33,111 @@ export function extractTypeCode(code) {
 `;
 }
 
+export interface WebAssemblyBlock {
+  code: string;
+  before: string;
+  after: string;
+}
+
+export interface CodeHelperWebAssemblyBlock extends WebAssemblyBlock {
+  type: string;
+  name?: string;
+}
+
+
+const matchTypeRegex = /^\(\s*([\w.]+)\b/;
+const funcNameRegex = /func\s*\$(\w+)/;
+
+function getName(code) {
+  if (getType(code) === 'func') {
+    const match = code.match(funcNameRegex);
+    return match ? match[1] : undefined;
+  }
+
+  return undefined;
+
+}
+
+function getType(code) {
+  const t = code.match(matchTypeRegex);
+  if (!t) {
+    debugger;
+  }
+  return t[1];
+
+}
+
+export function serializeBlocks(blocks: CodeHelperWebAssemblyBlock[]) {
+  return blocks.map(b => b.type + (b.name ? `(${b.name})` : '')).join('/');
+}
+
+export function populateBlocks(blocks: WebAssemblyBlock[]): CodeHelperWebAssemblyBlock[] {
+  return blocks.map(b => {
+    const type = getType(b.code);
+
+    return {
+      name: getName(b.code),
+      type,
+      ...b
+    };
+  });
+}
+
+export function extractBlocks(textBefore, textAfter, prependLeft = '', prependRight = '') {
+  const before = findPrevNonMatchingClosingBrace(textBefore);
+  const after = findNextNonMatchingClosingBrace(textAfter);
+
+
+  if (before && after) {
+    const next = extractBlocks(
+      textBefore.slice(0, -before.length - 1),
+      textAfter.slice(after.length),
+      before + prependLeft,
+      prependRight + after,
+    );
+
+    return [
+      {
+        before,
+        after,
+        code: before + prependLeft + prependRight + after,
+      },
+      ...next,
+    ];
+  }
+
+  return [];
+}
+
+export function findNextNonMatchingClosingBrace(code: string) {
+  return findMatchingBrace(code, 0, 1, 1);
+}
+
+export function findPrevNonMatchingClosingBrace(code: string) {
+  return findMatchingBrace(code, code.length - 1, -1, -1, -1);
+}
+
+function findMatchingBrace(code: string, startIndex = 0, shift = 1, braces = 0,  /*This is a hack, need proper fix*/ resultShift = 0) {
+  let i = startIndex;
+  while (code[i]) {
+    const c = code[i];
+
+    if (c === '(') {
+      braces++;
+    }
+    if (c === ')') {
+      braces--;
+    }
+
+    i += shift;
+
+    if (braces === 0) {
+      return code.substring(startIndex, i - resultShift);
+    }
+
+
+  }
+}
 
 export function extractExpressionByMatch(regex, code) {
   const match = regex.exec(code);
@@ -87,6 +195,9 @@ export function extractFunctionWithDependencies(name, code: string, dependencies
 export function extractFunctionDependencyNames(name, code: string, dependencies: string[]) {
   const funcCode = extractFunction(name, code);
   const match = /(?:\bcall)\s+\$(\w+)*/g;
+  if (!funcCode) {
+    debugger;
+  }
   const functions = [...new Set([...funcCode.matchAll(match)].map(a => a[1]))].filter(d => !dependencies.includes(d));
   const nestedDeps = functions
     .flatMap(f => extractFunctionDependencyNames(f, code, [...dependencies, ...functions]));

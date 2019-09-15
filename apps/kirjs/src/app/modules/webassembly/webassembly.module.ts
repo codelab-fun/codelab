@@ -16,10 +16,10 @@ import { WebassemblyCodeModeComponent } from './webassembly-playground/webassemb
 import { MatButtonModule } from '@angular/material';
 
 import { ErrorMessageComponent } from './webassembly-playground/error-message/error-message.component';
-import { MonacoCursorPositionDirective } from './webassembly-playground/monaco-directives/monaco-cursor-position.directive';
 import { WasmTestRunnerComponent } from './webassembly-playground/runners/wasm-test-runner/wasm-test-runner.component';
 import { MonacoScrollingDirective } from './webassembly-playground/monaco-directives/monaco-scrolling.directive';
-
+import { MonacoJsPositionDirective } from './webassembly-playground/monaco-directives/monaco-js-position.directive';
+import { MonacoWatPositionDirective } from './webassembly-playground/monaco-directives/monaco-wat-position.directive';
 
 
 const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
@@ -32,15 +32,12 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     WasmBinaryComponent,
     WebassemblyCodeModeComponent,
     ErrorMessageComponent,
-    MonacoCursorPositionDirective,
+    MonacoWatPositionDirective,
     WasmTestRunnerComponent,
     MonacoScrollingDirective,
-
+    MonacoJsPositionDirective
   ],
   imports: [
-
-
-
     MatButtonModule,
     CommonModule,
     SlidesModule,

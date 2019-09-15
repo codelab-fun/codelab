@@ -1288,7 +1288,7 @@ monaco.languages.registerCompletionItemProvider('wat', {
           label: 'function',
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'i32',
-          insertText: '(func $${1:name} (result i32))',
+          insertText: '(func $${1:name} ${2:params} (result i32)\n${3})',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
         {
@@ -1302,7 +1302,7 @@ monaco.languages.registerCompletionItemProvider('wat', {
           label: 'param',
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'i32',
-          insertText: '(param ${1:name} i32)',
+          insertText: '(param $${1:name} i32)',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
         {

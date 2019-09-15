@@ -15,6 +15,7 @@
   ></code-demo-editor>
 
   <code-demo-editor
+    slidesMonacoJsPosition
     fontSize="20"
     class="js-code"
     [(ngModel)]="code.js"
@@ -23,6 +24,6 @@
     [language]="'typescript'"
   ></code-demo-editor>
 
-  <slides-webassembly-code-mode [selectedMode]="selectedMode" [code]="code"
+  <slides-webassembly-code-mode [sideBarBlocks]="sideBarBlocks" [code]="code"
                                 (wasmSelectionHighlight)="wasmSelectionHighlight = $event"></slides-webassembly-code-mode>
 </ng-container>

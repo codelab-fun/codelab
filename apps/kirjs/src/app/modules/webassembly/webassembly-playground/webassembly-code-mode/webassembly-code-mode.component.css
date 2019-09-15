@@ -12,3 +12,7 @@
 .back {
   margin-bottom: 10px;
 }
+
+.has-meta {
+  text-decoration: underline;
+}

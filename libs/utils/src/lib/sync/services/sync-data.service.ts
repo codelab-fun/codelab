@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { SyncDataList } from '@codelab/utils/src/lib/sync/services/common';
+
 import { filter, map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { SyncDataList, SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 
 @Injectable({
   providedIn: 'root'

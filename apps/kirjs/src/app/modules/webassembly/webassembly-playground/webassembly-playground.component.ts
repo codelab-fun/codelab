@@ -1,5 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CodeHelperWebAssemblyBlock } from '../utils';
 
 interface WebassemblyPlaygroundInputs {
   wat: string;
@@ -25,7 +26,8 @@ export class WebassemblyPlaygroundComponent
   wasmSelectionHighlight: string;
   selectedMode = {};
   private onChange: (code: WebassemblyPlaygroundInputs) => void;
-  private selectedWasmFunction: string;
+  private selectedBlocks: CodeHelperWebAssemblyBlock[] = [];
+  private sideBarBlocks: { code: string; before: string; meta: any; name?: string; after: string; type: string }[];
 
   registerOnChange(
     onChange: (code: WebassemblyPlaygroundInputs) => void
@@ -44,30 +46,27 @@ export class WebassemblyPlaygroundComponent
   }
 
   updateMode() {
-    const name = this.selectedWasmFunction;
-    let config: any = {name: name || ''};
+    this.sideBarBlocks = this.selectedBlocks.map(b => {
+      let meta = this.modeConfig[b.type];
+      if (meta && meta[b.name]) {
+        meta = meta[b.name];
+        meta.name = b.name;
+        meta = meta.handler(meta, b.code);
+      }
+
+      return {...b, meta};
+    });
 
 
-    if (this.modeConfig[name] && this.code.wat) {
-      config = {
-        ...config,
-        ...this.modeConfig[name]
-      };
-      config = config.handler({...config, name}, this.code.wat);
-    }
-
-    this.selectedMode = config;
   }
 
-  selectFunction(name: string) {
-    this.selectedWasmFunction = name;
+  selectFunction(selectedBlocks: CodeHelperWebAssemblyBlock[]) {
+    this.selectedBlocks = selectedBlocks;
     this.updateMode();
-
   }
 
   update() {
     this.code = {...this.code};
-    this.updateMode();
     this.onChange(this.code);
   }
 }
