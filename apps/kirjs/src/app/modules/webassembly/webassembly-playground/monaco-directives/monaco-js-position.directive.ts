@@ -23,8 +23,6 @@ export class MonacoJsPositionDirective implements AfterViewInit {
   constructor(
     @Self() @Optional() private editorInjector: CodeDemoEditorInjector,
   ) {
-
-
   }
 
   ngAfterViewInit() {
