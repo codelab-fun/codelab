@@ -1,6 +1,6 @@
 <ng-container *ngIf="code">
   <code-demo-editor
-    (slidesMonacoCursorPosition)="selectFunction($event)"
+    (slidesMonacoWatPosition)="selectFunction($event)"
     [slidesMonacoScrolling]="selectedMode.highlights"
     [codeDemoHighlight]="selectedMode.highlights"
     minLines="20"
@@ -15,7 +15,7 @@
   ></code-demo-editor>
 
   <code-demo-editor
-    slidesMonacoJsPosition
+    (slidesMonacoJsPosition)="selectFunction($event)"
     fontSize="20"
     class="js-code"
     [(ngModel)]="code.js"

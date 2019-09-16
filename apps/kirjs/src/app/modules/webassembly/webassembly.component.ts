@@ -46,38 +46,42 @@ export class WebassemblyComponent implements OnInit {
 
 
   modeConfig = {
-    func: {
-      add1: {
-        description: 'Takes X and Y coordinate and returns index in the memory.',
-        handler: webAssemblyTestHandler,
-        tests: getIndexTests,
+    wat: {
+      func: {
+        add1: {
+          description: 'Takes X and Y coordinate and returns index in the memory.',
+          tests: getIndexTests,
+        },
+        getIndex: {
+          description: 'Takes X and Y coordinate and returns index in the memory.',
+          tests: getIndexTests,
+        },
+        rotate: {
+          description: 'Takes an index, and rotates it to be within the range of the line',
+          tests: rotateTests,
+        },
+        shift: {
+          description: 'TBD',
+          tests: shiftTests,
+        },
+        calcNextState: {
+          description: 'calcNextState',
+          tests: calcNextStateTests,
+        },
+        getCellScore: {
+          description: 'Looks for 3 cells before, and gets a number 0-7',
+          tests: getCellScoreTests,
+        }
       },
-      getIndex: {
-        description: 'Takes X and Y coordinate and returns index in the memory.',
-        handler: webAssemblyTestHandler,
-        tests: getIndexTests,
-      },
-      rotate: {
-        description: 'Takes an index, and rotates it to be within the range of the line',
-        handler: webAssemblyTestHandler,
-        tests: rotateTests,
-      },
-      shift: {
-        description: 'TBD',
-        handler: webAssemblyTestHandler,
-        tests: shiftTests,
-      },
-      calcNextState: {
-        description: 'calcNextState',
-        handler: webAssemblyTestHandler,
-        tests: calcNextStateTests,
-      },
-      getCellScore: {
-        description: 'Looks for 3 cells before, and gets a number 0-7',
-        handler: webAssemblyTestHandler,
-        tests: getCellScoreTests,
-      }
     },
+    ts: {
+      FunctionDeclaration: {
+        drawOnCanvas: {
+          description: 'Draws on canvas',
+          tests: []
+        }
+      }
+    }
   };
 
   constructor() {

@@ -53,6 +53,8 @@ function verifyGlobalsInTests(tests, globals) {
   }
 }
 
+
+
 export function webAssemblyTestHandler(config: TestConfig, code: string): WebAssemblyTestConfig {
   const funcCode = extractFunctionWithDependencies(config.name, code, [config.name]);
   const globals = extractGlobals(funcCode);

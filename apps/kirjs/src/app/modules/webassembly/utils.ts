@@ -1,3 +1,5 @@
+import { BaseBlock, CodeHelperBlock } from './webassembly-playground/monaco-directives/common';
+
 export function extractFunction(name, code) {
   return extractExpressionByMatch(new RegExp('\\\(func \\\$' + name), code);
 }
@@ -33,17 +35,6 @@ export function extractTypeCode(code) {
 `;
 }
 
-export interface WebAssemblyBlock {
-  code: string;
-  before: string;
-  after: string;
-}
-
-export interface CodeHelperWebAssemblyBlock extends WebAssemblyBlock {
-  type: string;
-  name?: string;
-}
-
 
 const matchTypeRegex = /^\(\s*([\w.]+)\b/;
 const funcNameRegex = /func\s*\$(\w+)/;
@@ -67,11 +58,11 @@ function getType(code) {
 
 }
 
-export function serializeBlocks(blocks: CodeHelperWebAssemblyBlock[]) {
+export function serializeBlocks(blocks: CodeHelperBlock[]) {
   return blocks.map(b => b.type + (b.name ? `(${b.name})` : '')).join('/');
 }
 
-export function populateBlocks(blocks: WebAssemblyBlock[]): CodeHelperWebAssemblyBlock[] {
+export function populateBlocks(blocks: BaseBlock[]): CodeHelperBlock[] {
   return blocks.map(b => {
     const type = getType(b.code);
 

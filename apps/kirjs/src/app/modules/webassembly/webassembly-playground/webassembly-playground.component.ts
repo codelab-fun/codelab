@@ -1,6 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { CodeHelperWebAssemblyBlock } from '../utils';
+
+import { CodeHelperBlock, CodePath, getCodeBlockHandler } from './monaco-directives/common';
 
 interface WebassemblyPlaygroundInputs {
   wat: string;
@@ -25,9 +26,8 @@ export class WebassemblyPlaygroundComponent
   code: WebassemblyPlaygroundInputs;
   wasmSelectionHighlight: string;
   selectedMode = {};
+  sideBarBlocks: CodeHelperBlock[];
   private onChange: (code: WebassemblyPlaygroundInputs) => void;
-  private selectedBlocks: CodeHelperWebAssemblyBlock[] = [];
-  private sideBarBlocks: { code: string; before: string; meta: any; name?: string; after: string; type: string }[];
 
   registerOnChange(
     onChange: (code: WebassemblyPlaygroundInputs) => void
@@ -45,24 +45,25 @@ export class WebassemblyPlaygroundComponent
     this.code = code;
   }
 
-  updateMode() {
-    this.sideBarBlocks = this.selectedBlocks.map(b => {
-      let meta = this.modeConfig[b.type];
+  selectFunction(path: CodePath) {
+    this.sideBarBlocks = path.blocks.map(b => {
+      const langConfig = this.modeConfig[path.type];
+      if (!langConfig) {
+        return {...b};
+      }
+
+
+      let meta = langConfig[b.type];
       if (meta && meta[b.name]) {
         meta = meta[b.name];
         meta.name = b.name;
-        meta = meta.handler(meta, b.code);
+
+        const handler = meta.handler || getCodeBlockHandler(path.type, b.type) || (a => a);
+        meta = handler(meta, b.code);
       }
 
       return {...b, meta};
     });
-
-
-  }
-
-  selectFunction(selectedBlocks: CodeHelperWebAssemblyBlock[]) {
-    this.selectedBlocks = selectedBlocks;
-    this.updateMode();
   }
 
   update() {
