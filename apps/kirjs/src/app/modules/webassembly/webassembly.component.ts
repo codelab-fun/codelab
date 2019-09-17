@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import './monaco-wat';
 import { getIndexTests } from './tests/get-index-tests';
 import { rotateTests } from './tests/rotate-tests';
-import { webAssemblyTestHandler } from './webassembly-playground/runners/wasm-test-runner/wasm-test-runner.component';
 import { shiftTests } from './tests/shift-tests';
 import { calcNextStateTests } from './tests/next-state-tests';
 import { getCellScoreTests } from './tests/get-cell-score';
+import { addTests } from './tests/add-tests';
+import { loadCellTests } from './tests/load-cell';
+import { loadPreviousCellTests } from './tests/load-previous-cell';
+import { storeCellTests } from './tests/store-cell-tests';
 
 declare const require;
 
@@ -48,9 +51,13 @@ export class WebassemblyComponent implements OnInit {
   modeConfig = {
     wat: {
       func: {
-        add1: {
-          description: 'Takes X and Y coordinate and returns index in the memory.',
-          tests: getIndexTests,
+        add: {
+          description: 'Takes two numbers and adds them together',
+          tests: addTests,
+        },
+        loadCell: {
+          description: 'Load cell',
+          tests: loadCellTests,
         },
         getIndex: {
           description: 'Takes X and Y coordinate and returns index in the memory.',
@@ -63,6 +70,14 @@ export class WebassemblyComponent implements OnInit {
         shift: {
           description: 'TBD',
           tests: shiftTests,
+        },
+        storeCell: {
+          description: 'Stores single cell value im the memory',
+          tests: storeCellTests,
+        },
+        loadPreviousCell: {
+          description: 'Loads previous cell',
+          tests: loadPreviousCellTests,
         },
         calcNextState: {
           description: 'calcNextState',

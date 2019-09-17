@@ -46,6 +46,12 @@ export class WebassemblyPlaygroundComponent
   }
 
   selectFunction(path: CodePath) {
+    // Last block contains all the code of the module
+    if (path.blocks.length === 0) {
+      return;
+    }
+
+    const allCode = path.blocks[path.blocks.length - 1].code;
     this.sideBarBlocks = path.blocks.map(b => {
       const langConfig = this.modeConfig[path.type];
       if (!langConfig) {
@@ -59,7 +65,7 @@ export class WebassemblyPlaygroundComponent
         meta.name = b.name;
 
         const handler = meta.handler || getCodeBlockHandler(path.type, b.type) || (a => a);
-        meta = handler(meta, b.code);
+        meta = handler(meta, b.code, allCode);
       }
 
       return {...b, meta};

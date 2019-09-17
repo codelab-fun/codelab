@@ -37,6 +37,12 @@ export interface RunConfig {
   memory?: number[];
 }
 
+
+export interface RunResult {
+  result: number;
+  exports: { [key: string]: any };
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -45,12 +51,12 @@ export class WebAssemblyService {
   }
 
   run<T>(wa: string, js: string, config: RunConfig) {
-    return new Observable<Result<number>>((subscriber) => {
+    return new Observable<Result<RunResult>>((subscriber) => {
       try {
         console.log(wa, config);
         const wasm = wat2wasm(wa);
 
-        const setResult = (result: number) => {
+        const setResult = (result: RunResult) => {
           subscriber.next({
             type: 'result',
             value: result
@@ -58,7 +64,7 @@ export class WebAssemblyService {
           subscriber.complete();
         };
 
-        const setError = (error: number) => {
+        const setError = (error: string) => {
           subscriber.next({
             type: 'error',
             value: error

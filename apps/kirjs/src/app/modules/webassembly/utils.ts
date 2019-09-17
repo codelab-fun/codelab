@@ -51,11 +51,7 @@ function getName(code) {
 
 function getType(code) {
   const t = code.match(matchTypeRegex);
-  if (!t) {
-    debugger;
-  }
-  return t[1];
-
+  return t && t[1];
 }
 
 export function serializeBlocks(blocks: CodeHelperBlock[]) {
@@ -64,7 +60,7 @@ export function serializeBlocks(blocks: CodeHelperBlock[]) {
 
 export function populateBlocks(blocks: BaseBlock[]): CodeHelperBlock[] {
   return blocks.map(b => {
-    const type = getType(b.code);
+    const type = getType(b.code) || 'module';
 
     return {
       name: getName(b.code),
@@ -180,19 +176,19 @@ export function hasTableCalls(code) {
 
 
 export function extractFunctionWithDependencies(name, code: string, dependencies: string[]) {
-  return extractFunctionDependencyNames(name, code, dependencies).map(name => extractFunction(name, code)).join('\n');
+  return extractFunctionDependencyNames(name, code, dependencies).map(name => extractFunction(name, code)).join('\n\n');
 }
 
 export function extractFunctionDependencyNames(name, code: string, dependencies: string[]) {
   const funcCode = extractFunction(name, code);
   const match = /(?:\bcall)\s+\$(\w+)*/g;
   if (!funcCode) {
-    debugger;
+    return [];
   }
   const functions = [...new Set([...funcCode.matchAll(match)].map(a => a[1]))].filter(d => !dependencies.includes(d));
   const nestedDeps = functions
     .flatMap(f => extractFunctionDependencyNames(f, code, [...dependencies, ...functions]));
-  return [...new Set([...dependencies, ...nestedDeps])];
+  return [...new Set([...dependencies, ...nestedDeps, ...functions])];
 }
 
 function getMemoryCode(hasMemory: boolean) {

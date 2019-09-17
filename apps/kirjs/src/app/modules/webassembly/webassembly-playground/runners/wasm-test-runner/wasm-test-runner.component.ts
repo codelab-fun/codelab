@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { forkJoin, Observable, Subject } from 'rxjs';
-import { Result, WebAssemblyService } from '../../web-assembly.service';
+import { Result, RunResult, WebAssemblyService } from '../../web-assembly.service';
 import {
   extractFunctionWithDependencies,
   extractGlobals,
@@ -16,7 +16,7 @@ declare const require;
 
 interface TestResult {
   pass: boolean;
-  result: Result<number>;
+  result: Result<RunResult>;
   isFirstFailed: boolean;
 }
 
@@ -53,14 +53,17 @@ function verifyGlobalsInTests(tests, globals) {
   }
 }
 
+function testsHaveMemory(config: TestConfig) {
+  return config.tests.some(t => t.memory);
+}
 
-
-export function webAssemblyTestHandler(config: TestConfig, code: string): WebAssemblyTestConfig {
-  const funcCode = extractFunctionWithDependencies(config.name, code, [config.name]);
+export function webAssemblyTestHandler(config: TestConfig, blockCode: string, allCode: string): WebAssemblyTestConfig {
+  const funcCode = extractFunctionWithDependencies(config.name, allCode, [config.name]);
   const globals = extractGlobals(funcCode);
-  const hasMemory = hasMemoryCalls(funcCode);
-  const table = hasTableCalls(funcCode) ? extractTableCode(code) : '';
-  const types = hasTypeCalls(funcCode) ? extractTypeCode(code) : '';
+  const hasMemory = testsHaveMemory(config) || hasMemoryCalls(funcCode);
+
+  const table = hasTableCalls(funcCode) ? extractTableCode(allCode) : '';
+  const types = hasTypeCalls(funcCode) ? extractTypeCode(allCode) : '';
 
   verifyGlobalsInTests(config.tests, globals);
   const wat = generateWatTestCode({globals, code: funcCode, name: config.name, hasMemory, table, types});
@@ -102,11 +105,22 @@ export class WasmTestRunnerComponent {
           memory: test.memory,
           name
         }).subscribe(result => {
-          const pass = result.type === 'result' && result.value === test.output;
+          let pass = false;
+          if (result.type === 'result') {
+            if ('output' in test) {
+              pass = (result.value as RunResult).result === test.output;
+            }
+
+            if ('expectedMemory' in test) {
+              const mem = new Uint32Array((result.value as RunResult).exports.memory.buffer);
+              pass = test.expectedMemory.every((m, i) => mem[i] === m);
+            }
+          }
+
+
           let isFirstFailed = false;
 
           if (!pass && !hasFailures) {
-
             hasFailures = true;
             isFirstFailed = true;
           }

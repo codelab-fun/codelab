@@ -1288,50 +1288,42 @@ monaco.languages.registerCompletionItemProvider('wat', {
           label: 'function',
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'i32',
-          insertText: '(func $${1:name} ${2:params} (result i32)\n${3})',
+          insertText: '(func $${1:name} ${2:params} (result i32)\n  ${3}\n)',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
         {
           label: 'add',
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'i32',
-          insertText: '(i32.add ${1:a} ${2:b})',
+          insertText: 'i32.add',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
         {
           label: 'param',
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'i32',
-          insertText: '(param ${1:name} i32)',
+          insertText: '(param $${1:name} i32) ',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
-        {
-          label: 'sub',
-          kind: monaco.languages.CompletionItemKind.Keyword,
-          documentation: 'i32',
-          insertText: '(i32.sub ${1:a} ${2:b})',
-          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
-        },
-        {
-          label: 'mul',
-          kind: monaco.languages.CompletionItemKind.Keyword,
-          documentation: 'i32',
-          insertText: '(i32.mul ${1:a} ${2:b})',
-          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
-        },
-
         {
           label: 'local.get',
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'i32',
-          insertText: '(local.get $${1:name})',
+          insertText: 'local.get $${1:name}',
+          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+        },
+        {
+          label: 'global.get',
+          kind: monaco.languages.CompletionItemKind.Keyword,
+          documentation: 'i32',
+          insertText: 'global.get $${1:name}',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
         {
           label: 'call',
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'Calls a function',
-          insertText: '(call $${1:name})',
+          insertText: 'call $${1:name}',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
       ]
