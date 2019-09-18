@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import './monaco-wat';
 import { getIndex } from './tests/get-index';
-import { rotateTests } from './tests/rotate-tests';
+import { rotate } from './tests/rotate';
 import { shiftTests } from './tests/shift-tests';
 import { calcNextStateTests } from './tests/next-state-tests';
 import { getCellScoreTests } from './tests/get-cell-score';
@@ -57,11 +57,6 @@ export class WebassemblyComponent implements OnInit {
 
   modeConfig = {
     wat: {
-      module: {
-        steps: [
-          {type: 'func', name: 'rotate'}
-        ]
-      },
       func: {
         add: {
           description: 'Takes two numbers and adds them together',
@@ -85,7 +80,7 @@ export class WebassemblyComponent implements OnInit {
         },
         rotate: {
           description: 'Takes an index, and rotates it to be within the range of the line',
-          tests: rotateTests,
+          tests: rotate,
         },
         shift: {
           description: 'TBD',

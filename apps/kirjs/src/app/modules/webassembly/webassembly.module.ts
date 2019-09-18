@@ -21,6 +21,7 @@ import { MonacoScrollingDirective } from './webassembly-playground/monaco-direct
 import { MonacoJsPositionDirective } from './webassembly-playground/monaco-directives/monaco-js-position.directive';
 import { MonacoWatPositionDirective } from './webassembly-playground/monaco-directives/monaco-wat-position.directive';
 import { MonacoWatLoadAnswer } from './webassembly-playground/monaco-directives/monaco-load-answer.directive';
+import { VizModule } from './webassembly-playground/viz/viz.module';
 
 
 const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
@@ -48,7 +49,8 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     routes,
     BinaryViewModule,
     BinaryInlineModule,
-    SyncDirectivesModule
+    SyncDirectivesModule,
+    VizModule
   ]
 })
 export class WebassemblyModule {

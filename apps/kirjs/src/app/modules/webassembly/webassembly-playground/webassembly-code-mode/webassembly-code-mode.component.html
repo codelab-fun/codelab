@@ -8,7 +8,6 @@
   <div *ngIf="selectedMode">
     <h1>{{selectedMode.name}}</h1>
     <h2>{{selectedMode.description}}</h2>
-
     <ng-container *ngIf="selectedMode.mode==='test'">
       <slides-wasm-test-runner [config]="selectedMode"></slides-wasm-test-runner>
     </ng-container>
@@ -18,6 +17,8 @@
                               [webAssemblyCode]="wat"
                               [jsCode]="js"
     ></kirjs-webassembly-runner>
+
+
     <button mat-button (click)="loadAnswerFromConfig(selectedMode)" *ngIf="selectedMode.answer">Load answer</button>
   </div>
 </div>

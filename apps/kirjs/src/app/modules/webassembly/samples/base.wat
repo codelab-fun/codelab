@@ -14,6 +14,29 @@
     $enable
   )
 
+  (func $rotate (param $x i32) (result i32)
+    local.get $x
+    global.get $rowSize
+    i32.add
+
+    global.get $rowSize
+
+    i32.rem_s
+  )
+
+
+  (func $getIndex (param $x i32) (param $y i32) (result i32)
+      (local.get $x)
+
+      (local.get $y)
+      global.get $rowSize
+      i32.mul
+
+
+      i32.mul
+      ;;i32.add
+  )
+
   (func $evolve (param $steps i32) (local $i i32)
    block
     loop
@@ -64,18 +87,6 @@
     end
   )
 
-  (func $getIndex (param $x i32) (param $y i32) (result i32)
-      (local.get $x)
-
-      (local.get $y)
-      global.get $rowSize
-      i32.mul
-
-      i32.add
-
-      (i32.const 4)
-      i32.mul
-  )
 
   (func $enable (result i32)
     (i32.const 1)
@@ -101,6 +112,9 @@
          global.get $step
          call $getIndex
 
+         i32.const 4
+         i32.mul
+
          local.get $value
 
          i32.store
@@ -123,15 +137,6 @@
     call $shift
   )
 
-  (func $rotate (param $x i32) (result i32)
-    global.get $rowSize
-    local.get $x
-    i32.add
-
-    global.get $rowSize
-
-    i32.rem_s
-  )
 
   (func $loadPreviousCell (param $x i32) (result i32)
     local.get $x
@@ -159,13 +164,15 @@
   )
 
   (func $loadCell (param $x i32) (param $y i32) (result i32)
-      (local.get $x)
-      call $rotate
+        (local.get $x)
+        call $rotate
 
-      (local.get $y)
+        (local.get $y)
 
-      call $getIndex
+        call $getIndex
+        i32.const 4
+        i32.mul
 
-      i32.load
-  )
+        i32.load
+    )
 )

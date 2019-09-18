@@ -28,7 +28,7 @@ interface TestConfig {
   tests: any[];
 }
 
-interface WebAssemblyTestConfig extends TestConfig {
+export interface WebAssemblyTestConfig extends TestConfig {
   highlights: string[];
   mode: string;
   originalCode: string;
@@ -96,17 +96,22 @@ export function webAssemblyTestHandler(config: TestConfig, blockCode: string, al
 @Component({
   selector: 'slides-wasm-test-runner',
   templateUrl: './wasm-test-runner.component.html',
-  styleUrls: ['./wasm-test-runner.component.css']
+  styleUrls: ['./wasm-test-runner.component.scss']
 })
 export class WasmTestRunnerComponent {
   readonly result$ = new Subject<Result<TestResult[]>>();
   @Input() config: any;
-
+  focused;
 
   constructor(private readonly webAssemblyService: WebAssemblyService) {
   }
 
+  isFocused(test) {
+    return this.focused ? test === this.focused : test.isFirstFailed;
+  }
+
   runTests() {
+    this.focused = undefined;
     const {tests, code, name, allCode, table} = this.config as any;
 
     let hasFailures = false;

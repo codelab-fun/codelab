@@ -21,13 +21,12 @@ export function getCodeBlockHandler(lang, type) {
     return;
   }
   return codeBlockHandlers[lang][type];
-
 }
 
 export const codeBlockHandlers = {
   ts: {
     FunctionDeclaration: (meta, code) => {
-      debugger;
+
     }
   },
   wat: {
