@@ -15,6 +15,7 @@ import { disableTests } from './tests/disable-tests';
 import { evolveRowTests } from './tests/evolve-row';
 import { evolveTests } from './tests/evolve';
 import { extractAnswers } from './utils';
+import { Level } from '../stack/stack-game/stack-game.component';
 
 declare const require;
 
@@ -23,7 +24,7 @@ export const wasmAnswers = extractAnswers(require('!!raw-loader!./samples/answer
 @Component({
   selector: 'kirjs-webassembly',
   templateUrl: './webassembly.component.html',
-  styleUrls: ['./webassembly.component.css']
+  styleUrls: ['./webassembly.component.scss']
 })
 export class WebassemblyComponent implements OnInit {
   code = {
@@ -53,6 +54,8 @@ export class WebassemblyComponent implements OnInit {
 `
     }
   };
+
+  itIsALemon = false;
 
 
   modeConfig = {
@@ -126,6 +129,131 @@ export class WebassemblyComponent implements OnInit {
       }
     }
   };
+
+  levels: Record<string, Level> = {
+    push: {
+      functions: [
+        {
+          inputs: '',
+          outputs: '🍏',
+          name: 'push 🍏'
+        },
+        {
+          inputs: '',
+          outputs: '🍋',
+          name: 'push 🍋'
+        },
+      ],
+      inputs: '',
+      outputs: '🍏🍋🍏',
+    },
+
+    pop: {
+      functions: [
+        {
+          inputs: '＊',
+          outputs: '',
+          name: 'pop'
+        },
+      ],
+      inputs: '🍏🍏🍏🍏🍏',
+      outputs: '🍏',
+    },
+
+    together: {
+      functions: [
+        {
+          inputs: '＊',
+          outputs: '',
+          name: 'pop'
+        },
+        {
+          inputs: '',
+          outputs: '🍓',
+          name: 'push 🍓'
+        },
+        {
+          inputs: '',
+          outputs: '🍋',
+          name: 'push 🍋'
+        },
+      ],
+      inputs: '🍏🍏',
+      outputs: '🍓🍋',
+    },
+
+
+    lemonade: {
+      functions: [
+        {
+          inputs: '',
+          outputs: '💦',
+        },
+        {
+          inputs: '',
+          outputs: '🍋',
+        },
+        {
+          inputs: '',
+          outputs: '🍒',
+        },
+        {
+          inputs: '🍒💦🍋',
+          outputs: '🍹',
+        },
+      ],
+      inputs: '',
+      outputs: '🍹',
+    },
+    level1: {
+      functions: [
+        {
+          inputs: '',
+          outputs: '🍏🍏',
+        },
+        {
+          inputs: '',
+          outputs: '🍋',
+        },
+        {
+          inputs: '🍋🍋',
+          outputs: '🍒',
+        },
+        {
+          inputs: '＊',
+          outputs: '',
+          name: 'pop'
+        }
+      ],
+      inputs: '🍏',
+      outputs: '🍒',
+    },
+    level2: {
+      functions: [
+        {
+          inputs: '',
+          outputs: '🍏',
+          name: 'push 🍏'
+        },
+        {
+          inputs: '🍏🍏',
+          outputs: '🍋',
+        },
+        {
+          inputs: '🍋🍋',
+          outputs: '🍒',
+        },
+        {
+          inputs: '＊',
+          outputs: '',
+          name: 'pop'
+        }
+      ],
+      inputs: '🍏',
+      outputs: '🍒',
+    }
+  };
+
 
   constructor() {
   }

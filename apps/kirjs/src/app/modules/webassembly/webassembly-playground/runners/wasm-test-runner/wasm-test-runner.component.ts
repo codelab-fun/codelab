@@ -66,7 +66,8 @@ function testsHaveMemory(config: TestConfig) {
 export function webAssemblyTestHandler(config: TestConfig, blockCode: string, allCode: string): WebAssemblyTestConfig {
   const originalCode = extractFunction(config.name, allCode);
   const funcCode = extractFunctionWithDependencies(config.name, allCode, [config.name]);
-  const globals = extractGlobals(funcCode);
+  const globals = extractGlobals(funcCode, allCode);
+
   const hasMemory = testsHaveMemory(config) || hasMemoryCalls(funcCode);
 
   const table = hasTableCalls(funcCode, config) ? prepareTableCode(allCode) : '';
@@ -74,8 +75,6 @@ export function webAssemblyTestHandler(config: TestConfig, blockCode: string, al
 
   verifyGlobalsInTests(config.tests, globals);
   const wat = generateWatTestCode({globals, code: funcCode, name: config.name, hasMemory, types});
-
-
   const answer = wasmAnswers.get(config.name) as string;
 
   return {

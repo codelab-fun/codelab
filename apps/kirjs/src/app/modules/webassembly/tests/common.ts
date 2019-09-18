@@ -1,4 +1,5 @@
 export const red = '#ff3f00';
+export const defaultRowSize = 5;
 
 export function colorMatchesExpected(a, i, c, test) {
   return test.actualMemory[i] === test.expectedMemory[i] ? '#ddd' : red;

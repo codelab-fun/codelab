@@ -141,7 +141,7 @@ const routes = [
   },
   {
     path: 'stack',
-    loadChildren: () => import('./modules/stack/stack.module').then(m => m.StackModule),
+    loadChildren: () => import('./modules/stack/stack-routing.module').then(m => m.StackRoutingModule),
     name: 'Stack Module',
     description: 'stack'
   },

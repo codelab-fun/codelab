@@ -1,0 +1,21 @@
+:host ::ng-deep .slide.slide > div.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  padding: 0 20vw;
+
+  p {
+    font-weight: 300;
+  }
+
+}
+
+::ng-deep {
+  font-weight: 300;
+}
+
+
+.button-wrapper {
+  margin: 20px 0;
+}

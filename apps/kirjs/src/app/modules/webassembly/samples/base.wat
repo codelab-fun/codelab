@@ -1,5 +1,7 @@
 (module
   (import (global $rowSize i32))
+  (import "config" "log" (func $log (param i32)))
+  (global $step (export "step") (mut i32) (i32.const 1))
 
   (table 8 funcref)
   (type $return_i32 (func (result i32)))
@@ -32,14 +34,13 @@
       global.get $rowSize
       i32.mul
 
-
-      i32.mul
-      ;;i32.add
+      i32.add
   )
 
   (func $evolve (param $steps i32) (local $i i32)
    block
     loop
+      call $evolveRow
       global.get $step
       i32.const 1
       i32.add

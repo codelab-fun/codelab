@@ -8,6 +8,7 @@ import { WebassemblyPlaygroundComponent } from './webassembly-playground/webasse
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
 import { WebassemblyRunnerComponent } from './webassembly-playground/webassembly-runner/webassembly-runner.component';
+import { StackModule } from '../stack/stack.module';
 import { WasmBinaryComponent } from './wasm-binary/wasm-binary.component';
 import { BinaryViewModule } from '../binary/binary-view/binary-view.module';
 import { BinaryInlineModule } from '../binary/binary-inline/binary-inline.module';
@@ -41,6 +42,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     MonacoWatLoadAnswer
   ],
   imports: [
+    StackModule,
     MatButtonModule,
     CommonModule,
     SlidesModule,

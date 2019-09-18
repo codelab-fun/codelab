@@ -1,19 +1,76 @@
 <slide-deck slideShortcuts slidesRouting>
-  <div *slide id="start">
+  <div *slide id="start" class="center">
     <h2>Cellular Automata</h2>
     <h2>Web assembly</h2>
     <h1>@kirjs</h1>
   </div>
 
-  <div *slide id="wa">
+  <div *slide id="wa" class="center">
     <h2>Web Assembly</h2>
     <h2>Not just web</h2>
     <h2>Not strictly an assembly</h2>
   </div>
 
-  <div *slide id="stack">
-    Stack is a data structure, serving as a collection. It essentially has two
-    operations:
+
+  <div *slide id="wa-1" class="center">
+    <h2>Intermediate representation</h2>
+  </div>
+
+
+  <div *slide id="stack" class="center">
+    <p><b>Stack</b> is a data structure, serving as a collection.
+      Here's a stack of fruit:</p>
+
+    <slides-simple-stack value="🍏🍏🍏🍏🍏🍓"></slides-simple-stack>
+
+    <p>All operations are possible only with the last element of the stack.</p>
+  </div>
+
+  <div *slide id="pop" class="center">
+    <p>First operation is called <b>pop</b>, it removes the last element.</p>
+    <slides-stack-game [level]="levels.pop"></slides-stack-game>
+  </div>
+
+  <div *slide id="push" class="center">
+    <p>The other operation is <b>push</b>. It adds an element on top of the stack.</p>
+    <slides-stack-game [level]="levels.push"></slides-stack-game>
+  </div>
+
+  <div *slide id="peek" class="center">
+    <p>Some implementations also have a <b>peek</b> operation. It tells you what top element on the stack is. You can
+      try it below:</p>
+    <slides-simple-stack value="🍏🍋"></slides-simple-stack>
+    <div class="button-wrapper">
+      <slides-stack-function-button (click)="itIsALemon=true" [func]="{name: 'peek'}"></slides-stack-function-button>
+    </div>
+    <div *ngIf="itIsALemon">Congrats! It is a 🍋</div>
+
+  </div>
+
+  <div *slide id="practice" class="center">
+    <p>Let's practice!</p>
+    <p>Use the commands you know already to get a stack of:
+      <slides-simple-stack value="🍓🍋"></slides-simple-stack>
+    </p>
+    <slides-stack-game [level]="levels.together"></slides-stack-game>
+  </div>
+
+  <div *slide id="test" class="center">
+    <slides-stack-test></slides-stack-test>
+  </div>
+
+  <div *slide id="stack-machines" class="center">
+    <p>Stack machine is one of the fundamental principles used in JVM Java Byte Code, WebAssembly byte code </p>
+  </div>
+
+  <div *slide id="instructions" class="center">
+    <p>Stack machine offers various instructions that can pop and then push multiple element on the stack</p>
+    <p>For example (🌲🍏)=>🍍 takes two elements from the stack (Pine and Apple) and pushes a 🍍 back</p>
+  </div>
+
+  <div *slide id="lemonade" class="center">
+    <p>Now use the instructions below to prepare a lemonade drink:</p>
+    <slides-stack-game [level]="levels.lemonade"></slides-stack-game>
   </div>
 
   <div *slide id="list">

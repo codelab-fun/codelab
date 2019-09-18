@@ -157,9 +157,15 @@ export function extractExpressionByMatch(regex, code) {
 }
 
 
-export function extractGlobals(code) {
+export function extractGlobalNames(code) {
   const match = /(?:get_global|global\.get)\s+\$(\w+)*/g;
   return [...new Set([...code.matchAll(match)].map(a => a[1]))];
+}
+
+export function extractGlobals(code, allCode) {
+  return extractGlobalNames(code);
+
+
 }
 
 export function hasMemoryCalls(code) {
@@ -225,7 +231,7 @@ function getMemoryCode(hasMemory: boolean) {
 }
 
 export function generateWatTestCode({code, globals, name, hasMemory, types}: any) {
-  const globalsCode = globals.map(global => `  (import "config" "${global}" (global $${global} i32))`).join('\n');
+  const globalsCode = globals.map(global => `(global  \$${global} (export "${global}") (mut i32) (i32.const 0))`).join('\n');
   const memoryCode = getMemoryCode(hasMemory);
 
   return `(module

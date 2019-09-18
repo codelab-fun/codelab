@@ -9,8 +9,8 @@
 }
 
 [name='section-type'] {
-  background: #dd0900;
-  color: #fff;
+  font-size: 30px;
+  font-weight: 300;
 }
 
 .cell {
