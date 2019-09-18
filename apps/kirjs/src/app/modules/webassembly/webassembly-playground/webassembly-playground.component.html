@@ -3,6 +3,8 @@
     (slidesMonacoWatPosition)="selectFunction($event)"
     [slidesMonacoScrolling]="selectedMode.highlights"
     [codeDemoHighlight]="selectedMode.highlights"
+    (slidesMonacoLoadAnswer)="update()"
+    #monacoWatLoadAnswer="MonacoWatLoadAnswer"
     minLines="20"
     class="webassembly-code"
     [class.has-highlight]="selectedMode.highlights"
@@ -24,6 +26,9 @@
     [language]="'typescript'"
   ></code-demo-editor>
 
-  <slides-webassembly-code-mode [sideBarBlocks]="sideBarBlocks" [code]="code"
-                                (wasmSelectionHighlight)="wasmSelectionHighlight = $event"></slides-webassembly-code-mode>
+  <slides-webassembly-code-mode
+    (loadAnswer)="monacoWatLoadAnswer.loadAnswer($event)"
+    [sideBarBlocks]="sideBarBlocks"
+    [code]="code"
+    (wasmSelectionHighlight)="wasmSelectionHighlight = $event"></slides-webassembly-code-mode>
 </ng-container>

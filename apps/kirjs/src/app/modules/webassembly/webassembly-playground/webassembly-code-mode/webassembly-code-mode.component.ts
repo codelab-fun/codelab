@@ -10,6 +10,7 @@ declare const require;
 export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   @Input() code: any;
   @Output() wasmSelectionHighlight = new EventEmitter();
+  @Output() loadAnswer = new EventEmitter<any>();
   wat: string;
   js: string;
   mode = 'getIndex';
@@ -45,4 +46,7 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
+  loadAnswerFromConfig(selectedMode: any) {
+    this.loadAnswer.emit(selectedMode);
+  }
 }

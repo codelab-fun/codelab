@@ -4,7 +4,7 @@ export function extractFunction(name, code) {
   return extractExpressionByMatch(new RegExp('\\\(func \\\$' + name), code);
 }
 
-export function extractTableCode(code) {
+export function prepareTableCode(code) {
   const elements = extractExpressionByMatch(/\(elem/, code);
   if (!elements) {
     debugger;
@@ -170,8 +170,34 @@ export function hasTypeCalls(code) {
   return /type \$/g.test(code);
 }
 
-export function hasTableCalls(code) {
+export function hasTableCalls(code, config) {
   return /(call_indirect)\s+/g.test(code);
+}
+
+function unique(arr) {
+  return [...new Set(arr)];
+}
+
+export function populateTestCode(code: string, test, allCode: string, table: string) {
+  if (test.table) {
+    const funcs = unique(test.table).map(name => extractFunction(name, allCode)).join('\n\n');
+    const elements = test.table.map(e => '    $' + e).join('\n');
+    table = `
+(table ${test.table.length} funcref)
+(elem (i32.const 0)
+${elements}
+)
+
+${funcs}
+
+`;
+  }
+
+  const regExp = /;;{table}/;
+  if (table) {
+    code = code.replace(regExp, table);
+  }
+  return code;
 }
 
 
@@ -198,7 +224,7 @@ function getMemoryCode(hasMemory: boolean) {
   ` : '';
 }
 
-export function generateWatTestCode({code, globals, name, hasMemory, table, types}: any) {
+export function generateWatTestCode({code, globals, name, hasMemory, types}: any) {
   const globalsCode = globals.map(global => `  (import "config" "${global}" (global $${global} i32))`).join('\n');
   const memoryCode = getMemoryCode(hasMemory);
 
@@ -206,10 +232,24 @@ export function generateWatTestCode({code, globals, name, hasMemory, table, type
   (export "${name}" (func $${name}))
   ${types}
   ${globalsCode}
-  ${table}
+  ;;{table}
   ${memoryCode}
   ${code}
 )`;
 
 
 }
+
+
+export function extractAllFunctions(code) {
+  const match = /func\s+\$(\w+)*/g;
+  return [...new Set([...code.matchAll(match)].map(a => a[1]))];
+}
+
+
+export function extractAnswers(code) {
+  const functions = extractAllFunctions(code).map(name => [name, extractFunction(name, code)]);
+  return new Map(functions as any);
+}
+
+

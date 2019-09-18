@@ -1,4 +1,4 @@
-export const getIndexTests = [
+export const getIndex = [
   {
     args: [0, 0],
     imports: {config: {rowSize: 10}},

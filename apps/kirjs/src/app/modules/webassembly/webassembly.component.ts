@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import './monaco-wat';
-import { getIndexTests } from './tests/get-index-tests';
+import { getIndex } from './tests/get-index';
 import { rotateTests } from './tests/rotate-tests';
 import { shiftTests } from './tests/shift-tests';
 import { calcNextStateTests } from './tests/next-state-tests';
@@ -9,9 +9,16 @@ import { addTests } from './tests/add-tests';
 import { loadCellTests } from './tests/load-cell';
 import { loadPreviousCellTests } from './tests/load-previous-cell';
 import { storeCellTests } from './tests/store-cell-tests';
+import { evolveCellTests } from './tests/evolve-cell';
+import { enableTests } from './tests/enable-tests';
+import { disableTests } from './tests/disable-tests';
+import { evolveRowTests } from './tests/evolve-row';
+import { evolveTests } from './tests/evolve';
+import { extractAnswers } from './utils';
 
 declare const require;
 
+export const wasmAnswers = extractAnswers(require('!!raw-loader!./samples/answer.wat'));
 
 @Component({
   selector: 'kirjs-webassembly',
@@ -50,6 +57,11 @@ export class WebassemblyComponent implements OnInit {
 
   modeConfig = {
     wat: {
+      module: {
+        steps: [
+          {type: 'func', name: 'rotate'}
+        ]
+      },
       func: {
         add: {
           description: 'Takes two numbers and adds them together',
@@ -61,7 +73,15 @@ export class WebassemblyComponent implements OnInit {
         },
         getIndex: {
           description: 'Takes X and Y coordinate and returns index in the memory.',
-          tests: getIndexTests,
+          tests: getIndex,
+        },
+        enable: {
+          description: 'This should always return 1',
+          tests: enableTests,
+        },
+        disable: {
+          description: 'This should always return 0',
+          tests: disableTests,
         },
         rotate: {
           description: 'Takes an index, and rotates it to be within the range of the line',
@@ -74,6 +94,19 @@ export class WebassemblyComponent implements OnInit {
         storeCell: {
           description: 'Stores single cell value im the memory',
           tests: storeCellTests,
+        },
+        evolveCell: {
+          description: 'Evolves single cell based on values of the previous cells',
+          tests: evolveCellTests,
+        },
+        evolve: {
+          description: 'Evolves the whole thing N generations',
+          tests: evolveTests,
+
+        },
+        evolveRow: {
+          description: 'Evolves the whole row based on valueds of the previous row',
+          tests: evolveRowTests,
         },
         loadPreviousCell: {
           description: 'Loads previous cell',

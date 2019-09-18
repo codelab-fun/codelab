@@ -5,8 +5,14 @@
         <div class="indicator" [style.background]="test.pass ? '#43ff00' : '#ff5300'"></div>
         <div>
           <div>{{config.name}}({{test.args}}) {{test.memory}}</div>
-          result: {{test.result.value.result}}
-          expected: {{test.output}}
+          <div *ngIf="test.output !== undefined">
+            result: {{test.result.value.result}}
+            expected: {{test.output}}
+          </div>
+          <div *ngIf="test.expectedMemory !== undefined">
+            result: {{test.actualMemory}}
+            expected: {{test.expectedMemory}}
+          </div>
         </div>
       </div>
     </div>

@@ -2,15 +2,18 @@ import { Component, Input } from '@angular/core';
 import { forkJoin, Observable, Subject } from 'rxjs';
 import { Result, RunResult, WebAssemblyService } from '../../web-assembly.service';
 import {
+  extractFunction,
   extractFunctionWithDependencies,
   extractGlobals,
-  extractTableCode,
   extractTypeCode,
   generateWatTestCode,
   hasMemoryCalls,
   hasTableCalls,
-  hasTypeCalls
+  hasTypeCalls,
+  populateTestCode,
+  prepareTableCode
 } from '../../../utils';
+import { wasmAnswers } from '../../../webassembly.component';
 
 declare const require;
 
@@ -28,7 +31,10 @@ interface TestConfig {
 interface WebAssemblyTestConfig extends TestConfig {
   highlights: string[];
   mode: string;
+  originalCode: string;
   globals: string[];
+  table?: string;
+  answer?: string;
   code: {
     wat: string;
     js: string;
@@ -58,25 +64,32 @@ function testsHaveMemory(config: TestConfig) {
 }
 
 export function webAssemblyTestHandler(config: TestConfig, blockCode: string, allCode: string): WebAssemblyTestConfig {
+  const originalCode = extractFunction(config.name, allCode);
   const funcCode = extractFunctionWithDependencies(config.name, allCode, [config.name]);
   const globals = extractGlobals(funcCode);
   const hasMemory = testsHaveMemory(config) || hasMemoryCalls(funcCode);
 
-  const table = hasTableCalls(funcCode) ? extractTableCode(allCode) : '';
+  const table = hasTableCalls(funcCode, config) ? prepareTableCode(allCode) : '';
   const types = hasTypeCalls(funcCode) ? extractTypeCode(allCode) : '';
 
   verifyGlobalsInTests(config.tests, globals);
-  const wat = generateWatTestCode({globals, code: funcCode, name: config.name, hasMemory, table, types});
+  const wat = generateWatTestCode({globals, code: funcCode, name: config.name, hasMemory, types});
+
+
+  const answer = wasmAnswers.get(config.name) as string;
 
   return {
     code: {
       wat,
       js: require('!!raw-loader!./runner.js'),
     },
+    answer,
     globals,
+    table,
     ...config,
     mode: 'test',
-    highlights: funcCode
+    highlights: funcCode,
+    originalCode,
   };
 }
 
@@ -93,13 +106,15 @@ export class WasmTestRunnerComponent {
   constructor(private readonly webAssemblyService: WebAssemblyService) {
   }
 
-
   runTests() {
-    const {tests, code, name} = this.config as any;
+    const {tests, code, name, allCode, table} = this.config as any;
+
     let hasFailures = false;
     const sources = (tests as any[]).map(test => {
       return new Observable<TestResult>((subscriber) => {
-        return this.webAssemblyService.run(code.wat, code.js, {
+        const wat = populateTestCode(code.wat, test, allCode, table);
+
+        return this.webAssemblyService.run(wat, code.js, {
           args: test.args,
           imports: test.imports,
           memory: test.memory,
@@ -113,7 +128,9 @@ export class WasmTestRunnerComponent {
 
             if ('expectedMemory' in test) {
               const mem = new Uint32Array((result.value as RunResult).exports.memory.buffer);
+
               pass = test.expectedMemory.every((m, i) => mem[i] === m);
+              test.actualMemory = mem.slice(0, test.expectedMemory.length);
             }
           }
 
