@@ -138,7 +138,13 @@ const routes = [
     loadChildren: () =>
       import('./modules/msk/msk.module').then(m => m.MskModule),
     name: 'Angular Moscow Meetup'
-  }
+  },
+  {
+    path: 'stack',
+    loadChildren: () => import('./modules/stack/stack.module').then(m => m.StackModule),
+    name: 'Stack Module',
+    description: 'stack'
+  },
 ];
 
 @NgModule({

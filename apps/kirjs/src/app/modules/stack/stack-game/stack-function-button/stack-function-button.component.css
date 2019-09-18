@@ -1,0 +1,13 @@
+button {
+  font-size: inherit;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px #ddd solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+button:hover {
+  background: #eee;
+}
