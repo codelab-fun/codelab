@@ -3,6 +3,8 @@
  (import "config" "log" (func $log (param i32)))
  (type $return_i32 (func (result i32)))
  (memory 1)
+ (export "memory" (memory 0))
+
  (table 8 funcref)
  (elem (i32.const 0)
     $remove ;; 000
@@ -20,7 +22,6 @@
   (func $remove (result i32)
     i32.const 0)
 
- (export "memory" (memory 0))
   (global $step (export "step") (mut i32) (i32.const 1))
 
   (func $getIndex (param $x i32) (param $y i32) (result i32)

@@ -50,6 +50,7 @@
 }
 
 .handle {
+  font-family: "Helvetica Neue", sans-serif;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -59,6 +60,11 @@
   padding: 0.5vw;
   padding-right: 2vw;
   text-shadow: 0px 3px 20px #fff, 0px -3px 20px #fff, -3px 0px 20px #fff,
-    3px 0px 20px #fff;
+  3px 0px 20px #fff;
   text-decoration: none;
+}
+
+
+kirjs-size-picker {
+  margin-right: 200px;
 }

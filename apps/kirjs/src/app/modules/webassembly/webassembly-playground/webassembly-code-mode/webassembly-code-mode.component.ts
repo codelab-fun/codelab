@@ -24,7 +24,7 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
 
   @Input() set sideBarBlocks(blocks) {
     this.blocks = blocks || [];
-    const block = this.blocks.reverse().find(b => !!b.meta);
+    const block = this.blocks.find(b => !!b.meta);
     if (block) {
       this.selectedMode = block.meta;
     }

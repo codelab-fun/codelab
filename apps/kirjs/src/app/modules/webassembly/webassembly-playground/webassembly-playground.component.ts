@@ -23,6 +23,7 @@ interface WebassemblyPlaygroundInputs {
 export class WebassemblyPlaygroundComponent
   implements ControlValueAccessor {
   @Input() modeConfig = {};
+  @Input() fontSize = 30;
   code: WebassemblyPlaygroundInputs;
   wasmSelectionHighlight: string;
   selectedMode = {};
@@ -58,16 +59,19 @@ export class WebassemblyPlaygroundComponent
         return {...b};
       }
 
-
       let meta = langConfig[b.type];
-      if (meta && meta[b.name]) {
-        meta = meta[b.name];
+      const name = b.name || 'default';
+      if (meta && meta[name]) {
+        meta = meta[name];
         meta.name = b.name;
+        meta.type = b.type;
+
 
         const handler = meta.handler || getCodeBlockHandler(path.type, b.type) || (a => a);
         meta = handler(meta, b.code, allCode);
         meta.allCode = allCode;
       }
+
 
       return {...b, meta};
     });

@@ -1,5 +1,5 @@
 async function run(code, {args, imports, name, memory}) {
-  imports.config.log = console.log;
+  // imports.config.log = console.log;
 
   const program = await WebAssembly.instantiate(code, imports);
 
@@ -13,11 +13,13 @@ async function run(code, {args, imports, name, memory}) {
     }
   }
 
-  Object.entries(imports.config).map(([key, value]) => {
-    if (program.instance.exports[key]) {
-      program.instance.exports[key].value = value;
-    }
-  });
+  if (imports) {
+    Object.entries(imports.config).map(([key, value]) => {
+      if (program.instance.exports[key]) {
+        program.instance.exports[key].value = value;
+      }
+    });
+  }
 
   const result = program.instance.exports[name](...args);
   return {

@@ -1,4 +1,4 @@
-import { webAssemblyTestHandler } from '../runners/wasm-test-runner/wasm-test-runner.component';
+import { webAssemblyModuleContentHandler, webAssemblyTestHandler } from '../runners/wasm-test-runner/wasm-test-runner.component';
 
 export interface BaseBlock {
   code: string;
@@ -23,13 +23,15 @@ export function getCodeBlockHandler(lang, type) {
   return codeBlockHandlers[lang][type];
 }
 
+
 export const codeBlockHandlers = {
   ts: {
     FunctionDeclaration: (meta, code) => {
-
+      debugger;
     }
   },
   wat: {
-    func: webAssemblyTestHandler
+    func: webAssemblyTestHandler,
+    module: webAssemblyModuleContentHandler,
   }
 };

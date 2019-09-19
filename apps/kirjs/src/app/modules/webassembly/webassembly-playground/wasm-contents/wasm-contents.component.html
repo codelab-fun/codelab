@@ -1,0 +1,13 @@
+<div *ngFor="let m of config.milestones">
+  <div class="test-result">
+    <div>
+      <div>
+        {{m.name}}
+      </div>
+
+      <div *ngIf="m.firstFailed && (m.type==='func' || m.type==='global' || m.type==='memory')">
+        <button mat-button (click)="loadFunction(m)">Load solutions</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -36,8 +36,8 @@ const routes = [
   {
     path: 'cellular-automation',
     loadChildren: () =>
-      import('./modules/cellular-automation/cellular-automation.module').then(
-        m => m.CellularAutomationModule
+      import('./modules/cellular-automation/cellular-automation-routing.module').then(
+        m => m.CellularAutomationRoutingModule
       ),
     name: 'Image inclusion',
     description: 'Image inclusion'
@@ -175,4 +175,5 @@ const routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {}
+export class KirjsModule {
+}

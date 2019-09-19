@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { forkJoin, Observable, Subject } from 'rxjs';
 import { Result, RunResult, WebAssemblyService } from '../../web-assembly.service';
 import {
+  extractAllFunctions,
   extractFunction,
   extractFunctionWithDependencies,
   extractGlobals,
@@ -24,6 +25,7 @@ interface TestResult {
 }
 
 interface TestConfig {
+  type: string;
   name: string;
   tests: any[];
 }
@@ -61,6 +63,47 @@ function verifyGlobalsInTests(tests, globals) {
 
 function testsHaveMemory(config: TestConfig) {
   return config.tests.some(t => t.memory);
+}
+
+
+function passOrNot(m: any, blockCode, allCode) {
+  if (m.type === 'func') {
+    return new Set(extractAllFunctions(allCode)).has(m.name);
+  }
+
+  if (m.type === 'global') {
+    return !!allCode.match(new RegExp('global\\\s*\\\$' + m.name));
+  }
+
+  if (m.type === 'memory') {
+    return !!allCode.match(new RegExp('memory'));
+  }
+}
+
+export function webAssemblyModuleContentHandler(config: any, blockCode: string, allCode: string) {
+
+  let hasUpassed = false;
+  const milestones = config.milestones.map(m => {
+    const pass = passOrNot(m, blockCode, allCode);
+
+    let firstFailed = false;
+    if (!pass && !hasUpassed) {
+      hasUpassed = true;
+      firstFailed = true;
+    }
+
+    return {
+      firstFailed,
+      pass,
+      ...m
+    };
+  });
+
+  return {
+    mode: config.type,
+    ...config,
+    milestones
+  };
 }
 
 export function webAssemblyTestHandler(config: TestConfig, blockCode: string, allCode: string): WebAssemblyTestConfig {

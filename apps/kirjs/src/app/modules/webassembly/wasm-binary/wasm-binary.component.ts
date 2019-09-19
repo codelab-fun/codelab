@@ -14,6 +14,4 @@ const wasm = require('!binary-loader!./test._wasm');
 export class WasmBinaryComponent {
   readonly binary = strToBin(wasm);
   readonly parser = wasmParser();
-
-  constructor() {}
 }

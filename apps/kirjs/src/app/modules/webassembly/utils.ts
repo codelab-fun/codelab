@@ -4,6 +4,7 @@ export function extractFunction(name, code) {
   return extractExpressionByMatch(new RegExp('\\\(func \\\$' + name), code);
 }
 
+
 export function prepareTableCode(code) {
   const elements = extractExpressionByMatch(/\(elem/, code);
   if (!elements) {
@@ -157,13 +158,13 @@ export function extractExpressionByMatch(regex, code) {
 }
 
 
-export function extractGlobalNames(code) {
+export function extractGlobalAccess(code) {
   const match = /(?:get_global|global\.get)\s+\$(\w+)*/g;
   return [...new Set([...code.matchAll(match)].map(a => a[1]))];
 }
 
 export function extractGlobals(code, allCode) {
-  return extractGlobalNames(code);
+  return extractGlobalAccess(code);
 
 
 }
@@ -209,6 +210,11 @@ ${funcs}
 
 export function extractFunctionWithDependencies(name, code: string, dependencies: string[]) {
   return extractFunctionDependencyNames(name, code, dependencies).map(name => extractFunction(name, code)).join('\n\n');
+}
+
+
+export function hasGlobal(name, code) {
+  return /global\s+/g.test(code);
 }
 
 export function extractFunctionDependencyNames(name, code: string, dependencies: string[]) {

@@ -1,5 +1,6 @@
 (module
   (import (global $rowSize i32))
+  (import "config" "log" (func $log (param i32)))
   (global $step (export "step") (mut i32) (i32.const 1))
 
   (table 8 funcref)

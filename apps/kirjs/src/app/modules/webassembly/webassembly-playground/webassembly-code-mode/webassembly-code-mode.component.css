@@ -5,8 +5,9 @@
   background-color: #444;
   color: #fff;
   width: 400px;
-  height: 100%;
   padding: 10px 20px;
+  bottom: 0;
+  overflow: scroll;
 }
 
 .back {
@@ -15,4 +16,18 @@
 
 .has-meta {
   text-decoration: underline;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  overflow: visible;
+  margin-bottom: 200px;
+}
+
+h2 {
+  font-size: 20px;
 }

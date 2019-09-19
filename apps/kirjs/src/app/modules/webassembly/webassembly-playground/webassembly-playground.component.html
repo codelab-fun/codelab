@@ -8,7 +8,7 @@
     minLines="20"
     class="webassembly-code"
     [class.has-highlight]="selectedMode.highlights"
-    [fontSize]="30"
+    [fontSize]="fontSize"
     language="wat"
     [(ngModel)]="code.wat"
     (ngModelChange)="update()"
@@ -18,7 +18,7 @@
 
   <code-demo-editor
     (slidesMonacoJsPosition)="selectFunction($event)"
-    fontSize="20"
+    fontSize="fontSize"
     class="js-code"
     [(ngModel)]="code.js"
     (ngModelChange)="update()"

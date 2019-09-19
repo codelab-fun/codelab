@@ -19,5 +19,8 @@ export class MonacoWatLoadAnswer {
     const newValue = value.replace(config.originalCode, config.answer);
     model.setValue(newValue);
     this.slidesMonacoLoadAnswer.emit();
+    const pos = model.getPositionAt(newValue.indexOf(config.answer) + 20);
+    this.editorInjector.editor.setPosition(pos);
+    this.editorInjector.editor.focus();
   }
 }

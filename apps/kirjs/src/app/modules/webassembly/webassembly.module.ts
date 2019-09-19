@@ -23,7 +23,10 @@ import { MonacoJsPositionDirective } from './webassembly-playground/monaco-direc
 import { MonacoWatPositionDirective } from './webassembly-playground/monaco-directives/monaco-wat-position.directive';
 import { MonacoWatLoadAnswer } from './webassembly-playground/monaco-directives/monaco-load-answer.directive';
 import { VizModule } from './webassembly-playground/viz/viz.module';
-
+import { WasmContentsComponent } from './webassembly-playground/wasm-contents/wasm-contents.component';
+import { CaModule } from './ca/ca.module';
+import { CellularAutomationModule } from '../cellular-automation/cellular-automation.module';
+import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
 
@@ -39,7 +42,8 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     WasmTestRunnerComponent,
     MonacoScrollingDirective,
     MonacoJsPositionDirective,
-    MonacoWatLoadAnswer
+    MonacoWatLoadAnswer,
+    WasmContentsComponent
   ],
   imports: [
     StackModule,
@@ -52,7 +56,10 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     BinaryViewModule,
     BinaryInlineModule,
     SyncDirectivesModule,
-    VizModule
+    VizModule,
+    CaModule,
+    CellularAutomationModule,
+    NewProgressBarModule,
   ]
 })
 export class WebassemblyModule {
