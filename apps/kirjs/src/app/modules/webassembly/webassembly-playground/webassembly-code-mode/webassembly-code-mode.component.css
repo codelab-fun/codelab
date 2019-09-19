@@ -8,6 +8,7 @@
   padding: 10px 20px;
   bottom: 0;
   overflow: scroll;
+  transition: width 200ms;
 }
 
 .back {
@@ -21,6 +22,7 @@
 .side {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .content {

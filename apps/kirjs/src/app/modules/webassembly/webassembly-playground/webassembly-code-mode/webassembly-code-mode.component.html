@@ -1,5 +1,5 @@
 <div class="side">
-  <div class="breadcrumbs">
+  <div class="breadcrumbs" *ngIf="width">
     <ng-container *ngFor="let block of blocks; let l = last">
       <span [class.has-meta]="!!block.meta">{{block.type}} {{block.name || ''}}</span>
       <span>{{l ? '' : ' / '}}</span>
@@ -17,11 +17,13 @@
       <slides-wasm-test-runner [config]="selectedMode"></slides-wasm-test-runner>
     </ng-container>
 
-    <kirjs-webassembly-runner *ngIf="mode==='default'"
-                              class="runner"
-                              [webAssemblyCode]="wat"
-                              [jsCode]="js"
-    ></kirjs-webassembly-runner>
+    <ng-container *ngIf="selectedMode.mode === 'default'">
+      <kirjs-webassembly-runner
+        class="runner"
+        [webAssemblyCode]="wat"
+        [jsCode]="js"
+      ></kirjs-webassembly-runner>
+    </ng-container>
 
 
     <button mat-button (click)="loadAnswerFromConfig(selectedMode)" *ngIf="selectedMode.answer">Load answer</button>

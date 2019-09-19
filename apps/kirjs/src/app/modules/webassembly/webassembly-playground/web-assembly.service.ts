@@ -50,7 +50,7 @@ export class WebAssemblyService {
   constructor() {
   }
 
-  run<T>(wat: string, js: string, config: RunConfig) {
+  run<T>(wat: string, js: string, wasmConfig: RunConfig) {
     return new Observable<Result<RunResult>>((subscriber) => {
       try {
         const wasm = wat2wasm(wat);
@@ -76,7 +76,7 @@ export class WebAssemblyService {
       try {
         const code = new Uint8Array([${wasm.toString()}]).buffer;
         ${js}
-          setResult(await run(code, config));
+          setResult(await run(code, wasmConfig));
         } catch(e){
           setError(e.message);
         }

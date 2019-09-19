@@ -715,9 +715,9 @@ export class WebassemblyComponent implements OnInit {
   code = {
     add: {
       wat: `(module
-    (func $add 
-        (param $x i32) 
-        (param $y i32) 
+    (func $add
+        (param $x i32)
+        (param $y i32)
         (result i32)
 
 
@@ -768,6 +768,9 @@ export class WebassemblyComponent implements OnInit {
   };
   modeConfig = {
     wat: {
+      elem: {
+        default: {}
+      },
       module: {
         default: {
           milestones: [

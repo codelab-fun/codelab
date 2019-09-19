@@ -24,12 +24,15 @@ export function getCodeBlockHandler(lang, type) {
 }
 
 
+const displayPreview = () => {
+  return {mode: 'default'};
+};
 export const codeBlockHandlers = {
   ts: {
-    FunctionDeclaration: (meta, code) => {
-    }
+    FunctionDeclaration: displayPreview
   },
   wat: {
+    elem: displayPreview,
     func: webAssemblyTestHandler,
     module: webAssemblyModuleContentHandler,
   }

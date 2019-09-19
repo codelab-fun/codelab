@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, OnChanges, OnInit, Output } from '@angular/core';
 
 declare const require;
 
@@ -8,6 +8,7 @@ declare const require;
   styleUrls: ['./webassembly-code-mode.component.css']
 })
 export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
+  @HostBinding('style.width.px') width = 0;
   @Input() code: any;
   @Output() wasmSelectionHighlight = new EventEmitter();
   @Output() loadAnswer = new EventEmitter<any>();
@@ -15,7 +16,6 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   js: string;
   mode = 'getIndex';
   state: any;
-
   private blocks: any[];
   private selectedMode = {};
 
@@ -25,9 +25,11 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   @Input() set sideBarBlocks(blocks) {
     this.blocks = blocks || [];
     const block = this.blocks.find(b => !!b.meta);
+    this.selectedMode = {};
     if (block) {
       this.selectedMode = block.meta;
     }
+    this.width = Object.keys(this.selectedMode).length > 0 ? 400 : 0;
   }
 
   updateCode() {

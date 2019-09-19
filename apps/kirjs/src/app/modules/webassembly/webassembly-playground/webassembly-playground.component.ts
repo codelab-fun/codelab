@@ -65,8 +65,6 @@ export class WebassemblyPlaygroundComponent
         meta = meta[name];
         meta.name = b.name;
         meta.type = b.type;
-
-
         const handler = meta.handler || getCodeBlockHandler(path.type, b.type) || (a => a);
         meta = handler(meta, b.code, allCode);
         meta.allCode = allCode;

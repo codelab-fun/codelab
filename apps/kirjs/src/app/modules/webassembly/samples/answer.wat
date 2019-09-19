@@ -1,9 +1,12 @@
 (module
-  (import (global $rowSize i32))
-  (import "config" "log" (func $log (param i32)))
+  (import "config" "rowSize" (global $rowSize i32))
+  (memory 1)
+  (export "memory" (memory 0))
+  (export "evolve" $evolve)
+
   (global $step (export "step") (mut i32) (i32.const 1))
 
-  (table 8 funcref)
+  (table 8 anyfunc)
   (type $return_i32 (func (result i32)))
   (elem (i32.const 0)
     $enable
@@ -17,21 +20,21 @@
   )
 
   (func $rotate (param $x i32) (result i32)
-    local.get $x
-    global.get $rowSize
+    get_local $x
+    get_global $rowSize
     i32.add
 
-    global.get $rowSize
+    get_global $rowSize
 
     i32.rem_s
   )
 
 
   (func $getIndex (param $x i32) (param $y i32) (result i32)
-      (local.get $x)
+      get_local $x
 
-      (local.get $y)
-      global.get $rowSize
+      get_local $y
+      get_global $rowSize
       i32.mul
 
       i32.add
@@ -41,20 +44,20 @@
    block
     loop
       call $evolveRow
-      global.get $step
+      get_global $step
       i32.const 1
       i32.add
-      global.set $step
+      set_global $step
 
 
       ;; i++
-      local.get $i
+      get_local $i
       (i32.const 1)
       i32.add
-      local.tee $i
+      tee_local $i
 
 
-      local.get $steps
+      get_local $steps
       i32.eq
 
       br_if 1
@@ -67,11 +70,11 @@
   (func $evolveRow (local $i i32)
     block
     loop
-      local.get $i
+      get_local $i
       call $evolveCell
 
       ;; i++
-      local.get $i
+      get_local $i
       (i32.const 1)
       i32.add
       local.tee $i
@@ -79,7 +82,7 @@
 
 
 
-      global.get $rowSize
+      get_global $rowSize
       i32.eq
 
       br_if 1
@@ -98,10 +101,10 @@
   )
 
  (func $evolveCell (param $x i32)
-    local.get $x
+    get_local $x
 
 
-    local.get $x
+    get_local $x
     call $getCellScore
     call_indirect (type $return_i32)
 
@@ -109,28 +112,28 @@
   )
 
   (func $storeCell (param $x i32) (param $value i32)
-         local.get $x
-         global.get $step
+         get_local $x
+         get_global $step
          call $getIndex
 
          i32.const 4
          i32.mul
 
-         local.get $value
+         get_local $value
 
          i32.store
   )
 
 (func $getCellScore (param $x i32)  (result i32)
-    local.get $x
+    get_local $x
     i32.const 1
     i32.sub
     call $loadPreviousCell
 
-    local.get $x
+    get_local $x
     call $loadPreviousCell
 
-    local.get $x
+    get_local $x
     i32.const 1
     i32.add
     call $loadPreviousCell
@@ -140,9 +143,9 @@
 
 
   (func $loadPreviousCell (param $x i32) (result i32)
-    local.get $x
+    get_local $x
 
-    global.get $step
+    get_global $step
     (i32.const 1)
     i32.sub
 
@@ -150,25 +153,25 @@
   )
 
   (func $shift (param $a i32) (param $b i32) (param $c i32)  (result i32)
-    local.get $a
+    get_local $a
     (i32.const 4)
     i32.mul
 
-    local.get $b
+    get_local $b
     (i32.const 2)
     i32.mul
 
-    local.get $c
+    get_local $c
 
     i32.add
     i32.add
   )
 
   (func $loadCell (param $x i32) (param $y i32) (result i32)
-        (local.get $x)
+        (get_local $x)
         call $rotate
 
-        (local.get $y)
+        (get_local $y)
 
         call $getIndex
         i32.const 4
