@@ -27,7 +27,6 @@ export function getCodeBlockHandler(lang, type) {
 export const codeBlockHandlers = {
   ts: {
     FunctionDeclaration: (meta, code) => {
-      debugger;
     }
   },
   wat: {

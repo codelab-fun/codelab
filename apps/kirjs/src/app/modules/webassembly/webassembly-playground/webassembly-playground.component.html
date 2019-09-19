@@ -18,7 +18,7 @@
 
   <code-demo-editor
     (slidesMonacoJsPosition)="selectFunction($event)"
-    fontSize="fontSize"
+    [fontSize]="fontSize"
     class="js-code"
     [(ngModel)]="code.js"
     (ngModelChange)="update()"
