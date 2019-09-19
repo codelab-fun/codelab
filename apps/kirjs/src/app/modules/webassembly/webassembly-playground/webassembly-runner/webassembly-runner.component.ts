@@ -11,6 +11,8 @@ import { Result, WebAssemblyService } from '../web-assembly.service';
 export class WebassemblyRunnerComponent implements OnChanges {
   @Input() webAssemblyCode: string;
   @Input() jsCode: string;
+  @Input() width = 400;
+  @Input() height = 1000;
 
   @ViewChild('canvas', {static: true}) canvas;
 

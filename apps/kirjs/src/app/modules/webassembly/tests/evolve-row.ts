@@ -3,11 +3,14 @@ import { colorMatchesExpected } from './common';
 const rowSize = 3;
 
 const viz = {
+  type: 'evolve',
   rowSize,
   text: a => a,
   memory: (test) => test.actualMemory,
   color: colorMatchesExpected,
 };
+
+
 
 export const evolveRowTests = [
   {

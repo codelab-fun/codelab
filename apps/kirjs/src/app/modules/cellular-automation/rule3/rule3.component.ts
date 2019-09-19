@@ -10,12 +10,13 @@ export class Rule3Component implements OnInit {
   before: Array<Array<string | number>>;
 
   @Input() rule = 0;
+  @Input() indexes = false;
   @Input() arrow = false;
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit() {
-    console.log(this.rule, 1);
+  ngOnChanges() {
     this.after = (256 + this.rule)
       .toString(2)
       .substr(1)
@@ -31,5 +32,9 @@ export class Rule3Component implements OnInit {
           .split('')
       )
       .reverse();
+  }
+
+  ngOnInit() {
+
   }
 }

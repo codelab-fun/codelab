@@ -7,7 +7,6 @@ import { WebassemblyComponent } from './webassembly.component';
 import { WebassemblyPlaygroundComponent } from './webassembly-playground/webassembly-playground.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
-import { WebassemblyRunnerComponent } from './webassembly-playground/webassembly-runner/webassembly-runner.component';
 import { StackModule } from '../stack/stack.module';
 import { WasmBinaryComponent } from './wasm-binary/wasm-binary.component';
 import { BinaryViewModule } from '../binary/binary-view/binary-view.module';
@@ -27,6 +26,8 @@ import { WasmContentsComponent } from './webassembly-playground/wasm-contents/wa
 import { CaModule } from './ca/ca.module';
 import { CellularAutomationModule } from '../cellular-automation/cellular-automation.module';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
+import { FullScreenRunnerModule } from './full-screen-runner/full-screen-runner.module';
+import { WebassemblyRunnerModule } from './webassembly-playground/webassembly-runner/webassembly-runner.module';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
 
@@ -34,7 +35,6 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
   declarations: [
     WebassemblyComponent,
     WebassemblyPlaygroundComponent,
-    WebassemblyRunnerComponent,
     WasmBinaryComponent,
     WebassemblyCodeModeComponent,
     ErrorMessageComponent,
@@ -45,6 +45,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     MonacoWatLoadAnswer,
     WasmContentsComponent
   ],
+  exports: [],
   imports: [
     StackModule,
     MatButtonModule,
@@ -60,6 +61,8 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     CaModule,
     CellularAutomationModule,
     NewProgressBarModule,
+    FullScreenRunnerModule,
+    WebassemblyRunnerModule,
   ]
 })
 export class WebassemblyModule {

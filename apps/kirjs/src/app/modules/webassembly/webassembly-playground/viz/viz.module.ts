@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VizComponent } from './viz.component';
 import { GridComponent } from './grid/grid.component';
+import { CellularAutomationModule } from '../../../cellular-automation/cellular-automation.module';
 
 
 
@@ -11,7 +12,8 @@ import { GridComponent } from './grid/grid.component';
     VizComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CellularAutomationModule
   ]
 })
 export class VizModule { }

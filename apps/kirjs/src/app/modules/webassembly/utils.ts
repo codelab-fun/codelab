@@ -240,8 +240,10 @@ export function generateWatTestCode({code, globals, name, hasMemory, types}: any
   const globalsCode = globals.map(global => `(global  \$${global} (export "${global}") (mut i32) (i32.const 0))`).join('\n');
   const memoryCode = getMemoryCode(hasMemory);
 
+  const funcExport = code.match(`export "${name}"`) ? '' : `(export "${name}" (func $${name}))`;
+
   return `(module
-  (export "${name}" (func $${name}))
+  ${funcExport}
   ${types}
   ${globalsCode}
   ;;{table}

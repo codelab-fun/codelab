@@ -9,6 +9,7 @@ import { RuleComponent } from './rule/rule.component';
 import { Rule8Component } from './rule8/rule8.component';
 import { OscilatorsComponent } from './oscilators/oscilators.component';
 import { SlidesModule } from '@codelab/slides';
+import { Rule4Component } from './rule3/rule4/rule4.component';
 
 @NgModule({
   imports: [SlidesModule, FeedbackModule, CommonModule],
@@ -18,7 +19,8 @@ import { SlidesModule } from '@codelab/slides';
     Rule3Component,
     RuleComponent,
     Rule8Component,
-    OscilatorsComponent
+    OscilatorsComponent,
+    Rule4Component
   ],
   exports: [
     CellularAutomationComponent,
@@ -28,7 +30,8 @@ import { SlidesModule } from '@codelab/slides';
     RuleComponent,
     Rule8Component,
     OscilatorsComponent,
-    BoardComponent
+    BoardComponent,
+    Rule4Component
   ]
 })
 export class CellularAutomationModule {

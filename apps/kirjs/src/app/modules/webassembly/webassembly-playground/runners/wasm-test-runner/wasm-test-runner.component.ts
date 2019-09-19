@@ -70,9 +70,23 @@ function passOrNot(m: any, blockCode, allCode) {
   if (m.type === 'func') {
     return new Set(extractAllFunctions(allCode)).has(m.name);
   }
+  if (m.type === 'module') {
+    return !!allCode.match(/\(module/);
+  }
+  if (m.type === 'table') {
+    return !!allCode.match(/\(table/);
+  }
+  if (m.type === 'elem') {
+    return !!allCode.match(/\(elem/);
+  }
 
   if (m.type === 'global') {
     return !!allCode.match(new RegExp('global\\\s*\\\$' + m.name));
+  }
+
+  if (m.type === 'global.rowSize') {
+    // (import "config" "rowSize" (global $rowSize i32))
+    return !!allCode.match(/\(global \$rowSize i32\)/);
   }
 
   if (m.type === 'memory') {

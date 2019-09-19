@@ -283,9 +283,24 @@
 
   <div *slide id="coding-time">
     <h2>Coding time! The plan:</h2>
+    <kirjs-board
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 1, 0, 0, 1, 1, 0, 0, 0]]"
+    ></kirjs-board>
+    <kirjs-board
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 0, 0, 0, 0, 0]]"
+    ></kirjs-board>
+
+    <div class="rules" style="margin-top: 40px;">
+      <kirjs-rule3 [arrow]="true" [rule]="90" [indexes]="true"></kirjs-rule3>
+    </div>
   </div>
 
   <div *slide id="use-wat">
+
     <kirjs-webassembly-playground
       [fontSize]="fontSize"
       [(ngModel)]="code.simple"
@@ -293,132 +308,32 @@
     ></kirjs-webassembly-playground>
   </div>
 
-
-  <div *slide id="binary">
-    3 layers https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md
-  </div>
-
-  <div *slide id="two-d-110">
-    <div class="rules">
-      <kirjs-rule3 [arrow]="true" [rule]="110"></kirjs-rule3>
-    </div>
-
-    <h1 class="grid-header">
-      Grid
-      <div (click)="board1.playing = !board1.playing" class="play">
-        {{ board1.playing ? '❚❚' : '▶' }}
-      </div>
-    </h1>
-
-    <kirjs-board
-      #board1
-      [cellHeight]="20"
-      [cellWidth]="20"
-      [delay]="50"
-      [pattern]="[
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]"
-      [transform]="examples.intro.twoD110"
-    ></kirjs-board>
-  </div>
-
-  <div *slide id="binary-1">
-    <kirjs-wasm-binary></kirjs-wasm-binary>
+  <div *slide id="result">
+    <slides-full-screen-runner [code]="code.simple"></slides-full-screen-runner>
   </div>
 
   <div *slide id="cam">
     <h1>cambridge</h1>
-    <div class="img-30"></div>
-    <div class="img-30-2"></div>
+    <div class="img img-30"></div>
+    <div class="img img-30-2"></div>
+  </div>
+
+
+  <div *slide id="binary-1">
+    https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md
+    <kirjs-wasm-binary></kirjs-wasm-binary>
+  </div>
+  <div *slide id="binary-2">
+    <h2><a href="https://wasdk.github.io/wasmcodeexplorer/">wasmcodeexplorer</a></h2>
+  </div>
+
+  <div *slide id="wasm-playgroud" class="center">
+    <h1><a href="https://webassembly.studio/">webassembly.studio</a></h1>
+  </div>
+
+  <div *slide class="center" id="end">
+    <h2>Cellular Automata</h2>
+    <h2>Web assembly</h2>
+    <h1>@kirjs</h1>
   </div>
 </slide-deck>

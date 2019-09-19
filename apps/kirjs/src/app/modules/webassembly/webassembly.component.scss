@@ -82,3 +82,30 @@
   width: 800px;
   height: 800px;
 }
+
+.key-items {
+  display: flex;
+  text-align: center;
+
+  .item {
+    flex: 1;
+    font-size: 40px;
+  }
+}
+
+.img-30 {
+  background-image: url('./pics/30.png');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 800px;
+}
+
+
+.img-30-2 {
+  background-image: url('./pics/30-2.png');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 800px;
+}

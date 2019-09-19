@@ -259,7 +259,7 @@ export class WebassemblyComponent implements OnInit {
         default: {
           milestones: [
             {type: 'func', name: 'rotate'},
-            {type: 'global', name: 'rowSize'},
+            {type: 'global.rowSize', name: 'rowSize'},
             {type: 'func', name: 'getIndex'},
             {type: 'global', name: 'step'},
             {type: 'memory', name: 'memory'},
@@ -268,6 +268,8 @@ export class WebassemblyComponent implements OnInit {
             {type: 'func', name: 'shift'},
             {type: 'func', name: 'loadPreviousCell'},
             {type: 'func', name: 'getCellScore'},
+            {type: 'table', name: 'table'},
+            {type: 'elem', name: 'elem'},
             {type: 'func', name: 'evolveCell'},
             {type: 'func', name: 'evolveRow'},
             {type: 'func', name: 'evolve'},

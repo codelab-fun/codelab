@@ -11,11 +11,62 @@ function genGlobal(name) {
 
 function genMemory(name) {
   return {
-    answer: `(module
+    answer: `global $rowSize i32))
   (memory 1)
   (export "memory" (memory 0))
 `,
+    originalCode: /global \$rowSize i32\)\)/,
+  };
+}
+
+
+function genTable() {
+  return {
+    answer: `(memory 0))
+
+  (table 8 anyfunc)
+  (type $return_i32 (func (result i32)))
+`,
+    originalCode: /\(memory 0\)\)/,
+  };
+}
+
+function genElem() {
+  return {
+    answer: `(table 8 anyfunc)
+
+  (elem (i32.const 0)
+    $enable ;; 000
+    $enable ;; 001
+    $enable ;; 010
+    $enable ;; 011
+    $enable ;; 100
+    $enable ;; 101
+    $enable ;; 110
+    $enable ;; 111
+  )
+`,
+    originalCode: /\(table 8 anyfunc\)/,
+  };
+}
+
+
+function genRowSize() {
+  return {
+    answer: `(module
+  (import "config" "rowSize" (global $rowSize i32))
+`,
     originalCode: /\(module/,
+  };
+}
+
+function genModule() {
+  return {
+    answer: `(module
+
+)
+`,
+    originalCode: /^/,
   };
 }
 
@@ -48,10 +99,35 @@ export class WasmContentsComponent {
         ...m
       });
     }
+    if (m.type === 'module') {
+      this.loadAnswer.emit({
+        ...genModule(),
+        ...m
+      });
+    }
+
 
     if (m.type === 'global') {
       this.loadAnswer.emit({
         ...genGlobal(m.name),
+        ...m
+      });
+    }
+    if (m.type === 'table') {
+      this.loadAnswer.emit({
+        ...genTable(),
+        ...m
+      });
+    }
+    if (m.type === 'elem') {
+      this.loadAnswer.emit({
+        ...genElem(),
+        ...m
+      });
+    }
+    if (m.type === 'global.rowSize') {
+      this.loadAnswer.emit({
+        ...genRowSize(),
         ...m
       });
     }

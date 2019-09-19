@@ -3,6 +3,7 @@ import { colorMatchesExpected } from './common';
 const rowSize = 3;
 
 const viz = {
+  type: 'evolve',
   rowSize,
   text: a => a,
   memory: (test) => test.actualMemory,
@@ -16,7 +17,10 @@ export const evolveCellTests = [
     table: ['enable', 'enable', 'enable', 'enable', 'enable', 'enable', 'enable', 'enable'],
     expectedMemory: [0, 0, 0, 1, 0, 0],
     imports: {config: {step: 1, rowSize: 3}},
-    viz,
+    viz: {
+      ...viz,
+      rule: 0,
+    },
   },
   {
     args: [2],

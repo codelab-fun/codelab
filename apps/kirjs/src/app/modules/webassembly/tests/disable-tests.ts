@@ -5,7 +5,5 @@ export const disableTests = [
   },
 ];
 
-export const disableAnswer = `(func $disable (result i32)
-  (i32.const 0)
-)`;
+
 

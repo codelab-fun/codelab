@@ -2,4 +2,4 @@
   <!--  <button (click)="saveWasmFile()" mat-button>Download</button>-->
   <div [class]="result.type" *ngIf="result.value">{{ result.value }}</div>
 </ng-container>
-<canvas #canvas width="400" height="800"></canvas>
+<canvas #canvas [width]="width" [height]="height"></canvas>
