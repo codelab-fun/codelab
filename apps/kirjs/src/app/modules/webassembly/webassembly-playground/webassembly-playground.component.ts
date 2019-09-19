@@ -55,6 +55,7 @@ export class WebassemblyPlaygroundComponent
     const allCode = path.blocks[path.blocks.length - 1].code;
     this.sideBarBlocks = path.blocks.map(b => {
       const langConfig = this.modeConfig[path.type];
+
       if (!langConfig) {
         return {...b};
       }

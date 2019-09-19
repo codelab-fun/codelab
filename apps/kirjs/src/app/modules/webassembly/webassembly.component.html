@@ -24,8 +24,7 @@
     <h1>Web Assembly</h1>
     <h1>Intermediate representation</h1>
     <h2>Compile from (almost) any typed language</h2>
-    <h2>Run from (almost) any language</h2>
-    <h2>Run in your browser, from other language, </h2>
+    <h2>Run in your browser, from other language, or in a cloud...</h2>
   </div>
 
   <div *slide class="center" id="wa-types">
@@ -176,117 +175,11 @@
       [cellWidth]="20"
       [delay]="50"
       [pattern]="[
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
+        patterns.rule90Start
       ]"
       [transform]="examples.intro.twoD90"
     ></kirjs-board>
   </div>
-
-  <div *slide id="two-d-30">
-    <h1>Stephen Wolfram (Rule 30)</h1>
-    <div class="img-wolfram"></div>
-    <div class="rules">
-      <kirjs-rule3 [arrow]="true" [rule]="30"></kirjs-rule3>
-    </div>
-
-    <h1 class="grid-header">
-      Grid
-      <div (click)="board1.playing = !board1.playing" class="play">
-        {{ board1.playing ? '❚❚' : '▶' }}
-      </div>
-    </h1>
-  </div>
-
 
   <div *slide class="center" id="nks">
     <h1>Book rec #1:</h1>
@@ -387,6 +280,11 @@
     <slides-stack-game [level]="levels.lemonade"></slides-stack-game>
   </div>
 
+
+  <div *slide id="coding-time">
+    <h2>Coding time! The plan:</h2>
+  </div>
+
   <div *slide id="use-wat">
     <kirjs-webassembly-playground
       [fontSize]="fontSize"
@@ -394,6 +292,7 @@
       [modeConfig]="modeConfig"
     ></kirjs-webassembly-playground>
   </div>
+
 
   <div *slide id="binary">
     3 layers https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md

@@ -29,7 +29,8 @@ const displayPreview = () => {
 };
 export const codeBlockHandlers = {
   ts: {
-    FunctionDeclaration: displayPreview
+    FunctionDeclaration: displayPreview,
+    SourceFile: displayPreview
   },
   wat: {
     elem: displayPreview,
