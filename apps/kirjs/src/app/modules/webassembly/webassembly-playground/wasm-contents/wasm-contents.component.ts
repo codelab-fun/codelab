@@ -35,6 +35,14 @@ function genElem() {
   return {
     answer: `(table 8 anyfunc)
 
+  (func $enable (result i32)
+    (i32.const 1)
+  )
+
+  (func $disable (result i32)
+    (i32.const 0)
+  )
+
   (elem (i32.const 0)
     $enable ;; 000
     $enable ;; 001
