@@ -9,6 +9,7 @@ export interface BaseBlock {
 export interface CodeHelperBlock extends BaseBlock {
   type: string;
   name?: string;
+  meta: any;
 }
 
 export interface CodePath {

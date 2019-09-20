@@ -71,9 +71,15 @@ export class WebassemblyPlaygroundComponent
         meta.allCode = allCode;
       }
 
-
       return {...b, meta};
     });
+
+    const block = this.sideBarBlocks.find(b => !!b.meta);
+    this.selectedMode = {};
+    if (block) {
+      this.selectedMode = block.meta;
+    }
+
   }
 
   update() {
