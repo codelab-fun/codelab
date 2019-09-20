@@ -1,7 +1,7 @@
 import { BaseBlock, CodeHelperBlock } from './webassembly-playground/monaco-directives/common';
 
 export function extractFunction(name, code) {
-  return extractExpressionByMatch(new RegExp('\\\(func \\\$' + name), code);
+  return extractExpressionByMatch(new RegExp('\\\(func \\\$' + name + '\\b'), code);
 }
 
 

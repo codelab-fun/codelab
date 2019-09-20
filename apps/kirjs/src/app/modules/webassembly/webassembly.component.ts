@@ -261,7 +261,7 @@ export class WebassemblyComponent implements OnInit {
             {type: 'func', name: 'rotate'},
             {type: 'global.rowSize', name: 'rowSize'},
             {type: 'func', name: 'getIndex'},
-            {type: 'global', name: 'step'},
+            {type: 'global.step', name: 'step'},
             {type: 'memory', name: 'memory'},
             {type: 'func', name: 'loadCell'},
             {type: 'func', name: 'storeCell'},

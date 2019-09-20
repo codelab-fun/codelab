@@ -88,6 +88,10 @@ function passOrNot(m: any, blockCode, allCode) {
     // (import "config" "rowSize" (global $rowSize i32))
     return !!allCode.match(/\(global \$rowSize i32\)/);
   }
+  if (m.type === 'global.step') {
+    // (global $step (export "step") (mut i32) (i32.const 1))
+    return !!allCode.match(/\(export "step"\)/);
+  }
 
   if (m.type === 'memory') {
     return !!allCode.match(new RegExp('memory'));

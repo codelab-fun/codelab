@@ -1281,7 +1281,7 @@ monaco.languages.registerCompletionItemProvider('wat', {
           label: 'const',
           kind: monaco.languages.CompletionItemKind.Function,
           documentation: 'i32',
-          insertText: '(i32.const ${1:value})',
+          insertText: 'i32.const ${1:value}',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
         {
@@ -1317,13 +1317,6 @@ monaco.languages.registerCompletionItemProvider('wat', {
           kind: monaco.languages.CompletionItemKind.Keyword,
           documentation: 'i32',
           insertText: 'global.get $${1:name}',
-          insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
-        },
-        {
-          label: 'call',
-          kind: monaco.languages.CompletionItemKind.Keyword,
-          documentation: 'Calls a function',
-          insertText: 'call $${1:name}',
           insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
         },
       ]

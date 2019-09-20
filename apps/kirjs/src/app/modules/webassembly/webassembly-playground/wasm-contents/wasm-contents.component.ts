@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-function genGlobal(name) {
+function genGlobalStep() {
   return {
-    answer: `(module
-  (import (global $${name} i32))
+    answer: `global $rowSize i32))
+  (global $step (export "step") (mut i32) (i32.const 1))
 `,
-    originalCode: /\(module/,
+    originalCode: /global \$rowSize i32\)\)/,
   };
 }
 
@@ -115,9 +115,9 @@ export class WasmContentsComponent {
     }
 
 
-    if (m.type === 'global') {
+    if (m.type === 'global.step') {
       this.loadAnswer.emit({
-        ...genGlobal(m.name),
+        ...genGlobalStep(m.name),
         ...m
       });
     }

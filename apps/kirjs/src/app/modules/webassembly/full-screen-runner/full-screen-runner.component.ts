@@ -8,13 +8,13 @@ import { extractExpressionByMatch } from '../utils';
 })
 export class FullScreenRunnerComponent implements OnInit {
   @Input() code: any;
-  cellSize = 40;
+  cellSize = 10;
   wat: string;
   js: string;
   width = 2000;
   height = 1800;
-  rowSize = 50;
-  rule = 30;
+  rowSize = 100;
+  rule = 1;
   steps = 100;
 
   constructor() {

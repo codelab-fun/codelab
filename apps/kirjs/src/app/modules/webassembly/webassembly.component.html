@@ -48,7 +48,7 @@
 
   <div *slide class="center" id="wat">
     <h1>Web Assembly</h1>
-    <h2>...and a text representation, which is stack based</h2>
+    <h2>...and a text representation. It is stack based</h2>
     <h2>
       <code-demo-editor [(ngModel)]="examples.wat"
                         [fontSize]="30"
@@ -156,10 +156,40 @@
     ></kirjs-board>
   </div>
 
+
+  <div *slide class="center" id="feynman">
+    <h1>Rule 30:</h1>
+    <div class="img feynman"></div>
+  </div>
+
+  <div *slide class="center" id="nks">
+    <h1>Book rec #1:</h1>
+    <h2>New kind of science by Stephen Wolfram</h2>
+    <div class="nks img"></div>
+  </div>
+
+
+  <div *slide class="center" id="feynman-book">
+    <h1>Book rec #2:</h1>
+    <h2>Surely You're Joking, Mr. Feynman! by Richard Feynman</h2>
+    <div class="joking img"></div>
+  </div>
+
+  <div *slide class="center" id="feynman-30">
+    <blockquote>
+      Well, we'd just been crawling around the floor—with help from some other people—trying to use meter rules to
+      measure some feature of a giant printout of it. And Feynman took me aside, rather conspiratorially, and said,
+      "Look, I just want to ask you one thing: how did you know rule 30 would do all this crazy stuff?" "You know me," I
+      said. "I didn't. I just had a computer try all the possible rules. And I found it." "Ah," he said, "now I feel
+      much better. I was worried you had some way to figure it out."
+    </blockquote>
+  </div>
+
+
   <div *slide id="two-d-90">
-    <h1>Rule 90</h1>
+    <h1>Rule 30</h1>
     <div class="rules">
-      <kirjs-rule3 [arrow]="true" [rule]="90"></kirjs-rule3>
+      <kirjs-rule3 [arrow]="true" [rule]="30"></kirjs-rule3>
     </div>
 
     <h1 class="grid-header">
@@ -181,42 +211,14 @@
     ></kirjs-board>
   </div>
 
-  <div *slide class="center" id="nks">
-    <h1>Book rec #1:</h1>
-    <h2>New kind of science by Stephen Wolfram</h2>
-    <div class="nks img"></div>
-  </div>
-
-
-  <div *slide class="center" id="feynman">
-    <h1>Rule 30:</h1>
-    <div class="img feynman"></div>
-  </div>
-
-  <div *slide class="center" id="feynman-book">
-    <h1>Book rec #2:</h1>
-    <h2>Surely You're Joking, Mr. Feynman! by Richard Feynman</h2>
-    <div class="joking img"></div>
-  </div>
-
-  <div *slide class="center" id="feynman-30">
-    <blockquote>
-      Well, we'd just been crawling around the floor—with help from some other people—trying to use meter rules to
-      measure some feature of a giant printout of it. And Feynman took me aside, rather conspiratorially, and said,
-      "Look, I just want to ask you one thing: how did you know rule 30 would do all this crazy stuff?" "You know me," I
-      said. "I didn't. I just had a computer try all the possible rules. And I found it." "Ah," he said, "now I feel
-      much better. I was worried you had some way to figure it out."
-    </blockquote>
-  </div>
-
   <div *slide class="center" id="to-see-rule-30">
     <h1>Let's build it in WebAssembly!</h1>
   </div>
 
   <div *slide id="web-assembly-start">
     <kirjs-webassembly-playground
-      [fontSize]="fontSize"
       [(ngModel)]="code.add"
+      [fontSize]="fontSize"
       [modeConfig]="addModeConfig"
     ></kirjs-webassembly-playground>
   </div>
@@ -295,15 +297,15 @@
     ></kirjs-board>
 
     <div class="rules" style="margin-top: 40px;">
-      <kirjs-rule3 [arrow]="true" [rule]="90" [indexes]="true"></kirjs-rule3>
+      <kirjs-rule3 [arrow]="true" [indexes]="true" [rule]="90"></kirjs-rule3>
     </div>
   </div>
 
   <div *slide id="use-wat">
 
     <kirjs-webassembly-playground
-      [fontSize]="fontSize"
       [(ngModel)]="code.simple"
+      [fontSize]="fontSize"
       [modeConfig]="modeConfig"
     ></kirjs-webassembly-playground>
   </div>
@@ -320,14 +322,12 @@
 
 
   <div *slide id="binary-1">
-    https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md
+    <!--    https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md-->
+    <h2><a href="https://wasdk.github.io/wasmcodeexplorer/">wasmcodeexplorer</a></h2>
     <kirjs-wasm-binary></kirjs-wasm-binary>
   </div>
-  <div *slide id="binary-2">
-    <h2><a href="https://wasdk.github.io/wasmcodeexplorer/">wasmcodeexplorer</a></h2>
-  </div>
 
-  <div *slide id="wasm-playgroud" class="center">
+  <div *slide class="center" id="wasm-playgroud">
     <h1><a href="https://webassembly.studio/">webassembly.studio</a></h1>
   </div>
 
