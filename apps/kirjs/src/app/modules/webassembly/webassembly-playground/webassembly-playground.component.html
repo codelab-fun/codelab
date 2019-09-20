@@ -1,7 +1,6 @@
 <ng-container *ngIf="code">
   <code-demo-editor
     (slidesMonacoWatPosition)="selectFunction($event)"
-    [slidesMonacoScrolling]="selectedMode.highlights"
     [codeDemoHighlight]="selectedMode.highlights"
     (slidesMonacoLoadAnswer)="update()"
     #monacoWatLoadAnswer="MonacoWatLoadAnswer"

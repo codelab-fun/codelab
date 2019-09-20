@@ -60,7 +60,7 @@ export function serializeBlocks(blocks: CodeHelperBlock[]) {
 }
 
 export function populateBlocks(blocks: BaseBlock[]): CodeHelperBlock[] {
-  return blocks.map(b => {
+  return blocks.map((b: any) => {
     const type = getType(b.code) || 'module';
 
     return {

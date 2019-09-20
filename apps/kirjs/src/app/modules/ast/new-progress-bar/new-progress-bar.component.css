@@ -42,11 +42,11 @@
 .slide-block {
   margin-top: 0.1vw;
   opacity: 0.7;
-  width: 1vw;
-  height: 1vw;
+  width: 0.5vw;
+  height: 0.5vw;
   border: 1px solid #000;
   border-radius: 50%;
-  margin-right: 0.5vw;
+  margin-right: 0.3vw;
 }
 
 .handle {

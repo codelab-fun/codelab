@@ -148,7 +148,7 @@ export function webAssemblyTestHandler(config: TestConfig, blockCode: string, al
     table,
     ...config,
     mode: 'test',
-    highlights: funcCode,
+    highlights: originalCode,
     originalCode,
   };
 }

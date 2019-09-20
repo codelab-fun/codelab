@@ -117,7 +117,7 @@ export class WasmContentsComponent {
 
     if (m.type === 'global.step') {
       this.loadAnswer.emit({
-        ...genGlobalStep(m.name),
+        ...genGlobalStep(),
         ...m
       });
     }
