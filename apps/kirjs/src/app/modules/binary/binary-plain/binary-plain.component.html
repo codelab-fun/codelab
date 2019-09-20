@@ -15,7 +15,7 @@
       </button>
       <label style="display: flex;margin-left: 3vw;">
         <span class="spacing">Spacing</span>
-        <input style="zoom:3" type="checkbox" [(ngModel)]="spacing" />
+        <input style="zoom:3" type="checkbox" [(ngModel)]="spacing"/>
       </label>
     </div>
 
@@ -35,8 +35,10 @@
           [attr.name]="item.name"
           (keydown.enter)="update(item, $event.target.innerText)"
           contenteditable="true"
-          >{{ item.rawValue }}</span
-        >
+        >{{ item.rawValue }}
+          <!--          TODO(kirjs): This is hack, remove-->
+          <span *ngIf="item.name === 'section-type'"> - {{hackHack[item.value]}}</span>
+          </span>
 
         <div
           [class.selected]="show[i]"

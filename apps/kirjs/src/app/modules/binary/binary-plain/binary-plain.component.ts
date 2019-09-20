@@ -1,10 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { flatten } from '../binary-flat/binary-flat.component';
@@ -21,6 +15,16 @@ export class BinaryPlainComponent implements OnChanges {
   @Input() filterClassName = /./;
   @Input() mini = false;
   @Input() showPopups = false;
+
+  hackHack = {
+    0x01: 'Types',
+    0x02: 'Import',
+    0x03: 'Function',
+    0x05: 'Table',
+    0x07: 'Export',
+    0x08: 'Start',
+    0x0a: 'Code'
+  };
 
   show = [];
 
@@ -58,5 +62,6 @@ export class BinaryPlainComponent implements OnChanges {
     }
   }
 
-  update(item: any, innerText: any) {}
+  update(item: any, innerText: any) {
+  }
 }
