@@ -74,3 +74,20 @@ export class SyncIsAdminDirective<T> extends SyncIsStatusDirective<T> {
     super(viewContainer, templateRef, syncSession);
   }
 }
+
+
+@Directive({
+  // tslint:disable-next-line:directive-selector
+  selector: '[isOff]'
+})
+export class SyncIsOffDirective<T> extends SyncIsStatusDirective<T> {
+  protected readonly status = SyncStatus.OFF;
+
+  constructor(
+    viewContainer: ViewContainerRef,
+    templateRef: TemplateRef<any>,
+    syncSession: SyncSessionService,
+  ) {
+    super(viewContainer, templateRef, syncSession);
+  }
+}

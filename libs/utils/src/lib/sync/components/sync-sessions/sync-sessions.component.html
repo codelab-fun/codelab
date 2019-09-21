@@ -1,6 +1,11 @@
 <mat-card>
   <table mat-table [dataSource]="sessionsService.sessions$|async" class="mat-elevation-z8">
 
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <td mat-cell *matCellDef="let session"> {{session.config.name}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="key">
       <th mat-header-cell *matHeaderCellDef> Key</th>
       <td mat-cell *matCellDef="let session"> {{session.key}} </td>
@@ -30,7 +35,9 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-card-actions>
-    <button mat-raised-button (click)="sessionsService.create()">New session</button>
+    <label for="session-name">Session Name</label>
+    <input id="session-name" type="text" matInput #sessionName value="default" required>
+    <button mat-raised-button (click)="sessionsService.create(sessionName.value)">New session</button>
   </mat-card-actions>
 </mat-card>
 

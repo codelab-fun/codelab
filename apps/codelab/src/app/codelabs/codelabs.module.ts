@@ -1,33 +1,8 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { monacoReady } from '@codelab/code-demos';
-import { AppComponent } from './app.component';
-import { IndexComponent } from './index/index.component';
+import { NgModule } from '@angular/core';
 import { CodelabsRoutingModule } from './codelabs-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SlidesModule } from '@codelab/slides';
-import { ButtonsNavBarModule } from '../components/buttons-nav-bar/buttons-nav-bar.module';
-import { SyncModule } from '../modules/sync/sync.module';
+import { IndexModule } from '../components/index/index.module';
 
 @NgModule({
-  declarations: [IndexComponent, AppComponent],
-  imports: [
-    CodelabsRoutingModule,
-    BrowserAnimationsModule,
-    SlidesModule,
-    OverlayModule,
-    ButtonsNavBarModule,
-    SyncModule,
-  ],
-  bootstrap: [AppComponent],
-  // TODO(kirjs): Move this out of the main page
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useValue: monacoReady,
-      multi: true
-    }
-  ]
+  imports: [CodelabsRoutingModule, IndexModule]
 })
-export class CodelabsModule {
-}
+export class CodelabsModule {}
