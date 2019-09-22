@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html'
+  template: 'Hi!'
 })
 export class AppComponent {
-  sayHi() {
-    alert('hi');
-  }
 }

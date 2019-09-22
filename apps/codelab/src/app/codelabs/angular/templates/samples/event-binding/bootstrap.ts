@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
-import { BirthdayCardComponent } from './birthday-card';
+import { CoffeeMakerComponent } from './coffee-maker';
 import { AppComponent } from './app.component';
 import { ResourceLoader } from '@angular/compiler';
 import * as code from './code';
@@ -23,7 +23,7 @@ class MyResourceLoader extends ResourceLoader {
 
 @NgModule({
   imports: [BrowserModule],
-  declarations: [AppComponent, BirthdayCardComponent],
+  declarations: [AppComponent, CoffeeMakerComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
