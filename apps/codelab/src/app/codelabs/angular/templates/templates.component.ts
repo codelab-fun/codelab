@@ -107,14 +107,16 @@ export class AppComponent {
   fullName(){  return this.firstName + " " + this.lastName }
 }`),
         dataBindingExtra: {
-          'app.component.html': require('!!raw-loader!./samples/data-binding-extra/app.component.html'),
-          'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
-          'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
-          'app.module.ts': require('!!raw-loader!./samples/data-binding-extra/app.module.ts'),
-          'birthday-card.ts': require('!!raw-loader!./samples/data-binding-extra/birthday-card.ts'),
-          'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
+          code: {
+            'app.component.html': require('!!raw-loader!./samples/data-binding-extra/app.component.html'),
+            'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
+            'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
+            'app.module.ts': require('!!raw-loader!./samples/data-binding-extra/app.module.ts'),
+            'birthday-card.ts': require('!!raw-loader!./samples/data-binding-extra/birthday-card.ts'),
+            'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
+          },
+          files: ['app.component.html', 'app.component.ts'],
         },
-        dataBindingExtraFiles: ['app.component.html', 'app.component.ts']
       },
       ngIfDirective: {
         template: displayAngularComponent(`import {Component} from '@angular/core';
@@ -215,32 +217,38 @@ describe('AppComponent', ()=>{
         `<h1 [innerText]="user.fullName()"></h1>`
       ),
       bindingPropExerciseMatch: /user.pic/,
-      bindingRef: `<div>
-  <input #userName>
-
-  <!-- ${this.t.userNameHasRefToInput} -->
-  <button (click)="isTaken(userName.value)">
-    Check if taken
-  </button>
-</div>`,
-      bindingRefMatch: /#userName/,
-      bindingRef2Match: /userName.value/,
-      bindingRefExercise: displayAngularComponentWithHtml(
-        baseCode,
-        `<!--Type your template here -->`
-      ),
-      bindingRefExerciseMatch: /#userinput/,
       eventBinding: {
         code: {
-          'app.component.html': require('!!raw-loader!./samples/event-binding-extra/app.component.html'),
-          'app.component.ts': require('!!raw-loader!./samples/event-binding-extra/app.component.ts'),
+          'app.component.html': require('!!raw-loader!./samples/event-binding/app.component.html'),
+          'app.component.ts': require('!!raw-loader!./samples/event-binding/app.component.ts'),
           'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
           'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
-          'index.html': require('!!raw-loader!./samples/event-binding-extra/index.html')
+          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html')
         },
-        files: ['app.component.html', 'app.component.ts'],
-        highlights: {'app.component.html': '(click)ы'}
-
+        files: ['app.component.html'],
+        highlights: {'app.component.html': '(click)'}
+      },
+      referenceBinding: {
+        code: {
+          'app.component.html': require('!!raw-loader!./samples/reference-binding/app.component.html'),
+          'app.component.ts': require('!!raw-loader!./samples/reference-binding/app.component.ts'),
+          'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
+          'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
+          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html')
+        },
+        files: ['app.component.html'],
+        highlights: {'app.component.html': ['#input', 'input.value']}
+      },
+      eventBindingShortcuts: {
+        code: {
+          'app.component.html': require('!!raw-loader!./samples/event-binding-shortcuts/app.component.html'),
+          'app.component.ts': require('!!raw-loader!./samples/reference-binding/app.component.ts'),
+          'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
+          'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
+          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html')
+        },
+        files: ['app.component.html'],
+        highlights: {'app.component.html': '(keydown.control.enter)'}
       },
 
       eventBindingExercise: displayAngularComponentWithHtml(
