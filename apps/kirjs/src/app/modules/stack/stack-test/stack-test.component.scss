@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+
+  .company {
+    text-align: center;
+    flex: 1;
+
+    .name {
+      font-size: 40px;
+      font-weight: 300;
+      margin: 20px 0;
+    }
+
+    .logo {
+      height: 150px;
+
+      > div {
+        background-size: cover;
+        margin: 20px auto;
+      }
+      .sb {
+        width: 80px;
+        height: 120px;
+        background-image: url('./assets/sb-icon.svg');
+      }
+
+      .so {
+        width: 150px;
+        height: 150px;
+        background-image: url('./assets/so-icon.svg');
+      }
+    }
+  }
+
+  .gap {
+    flex: 0.2;
+  }
+}

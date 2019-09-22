@@ -8,8 +8,8 @@ import {
 
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
-import ITextModel = editor.ITextModel;
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
+import ITextModel = editor.ITextModel;
 
 @Component({
   selector: 'code-demo-editor-from-model',

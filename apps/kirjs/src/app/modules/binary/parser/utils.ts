@@ -1,10 +1,9 @@
-export function resolveLengthOrdered(functionOrValue, arg) {
+export function resolveLengthOrdered(functionOrValue, data) {
   if (typeof functionOrValue === 'string') {
-    // tslint:disable-next-line:no-debugger
-    debugger;
+    return resolveOrderedByKey(functionOrValue, data);
   }
   return typeof functionOrValue === 'function'
-    ? functionOrValue(arg)
+    ? functionOrValue(data)
     : functionOrValue;
 }
 
@@ -32,4 +31,12 @@ export function resolveOrderedByKey(key: string, data: any[]) {
 
 export function resolveByKey(key: string, data: any) {
   return data[key];
+}
+
+export function strToBin(str) {
+  return str
+    .split('')
+    .map(a => a.charCodeAt(0))
+    .map(a => a.toString(2).padStart(8, 0))
+    .join('');
 }

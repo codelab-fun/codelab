@@ -1,15 +1,18 @@
 import { BinaryObjectParser } from './parsers/object-parser';
-import { StringParser } from './parsers/string-parser';
+import { StringParser, StringParserConfig } from './parsers/string-parser';
 import { BinaryChoiceParser } from './parsers/choice-parser';
 import { BinaryArrayParser } from './parsers/array-parser';
 import { BitParser } from './parsers/bit-parser';
-import { FirstBitParser } from './parsers/first-bit-parser';
+import { VarUintParser, VarUintParserConfig } from './parsers/var-uint-parser';
 import { BinaryReader } from './readers/abstract-reader';
+import { beToLe32 } from './parsers/common';
 
 export interface BaseConfig {
-  description: string;
-  length: number;
-  type: string;
+  description?: string;
+  length?: number;
+  type?: string;
+  converter?: (a: string) => number;
+  enum?: { [key: string]: string };
 }
 
 export class BinaryParser {
@@ -20,13 +23,24 @@ export class BinaryParser {
     this.parser = new BinaryObjectParser();
   }
 
-  string(name: string, config: any) {
+  string(name: string, config: StringParserConfig) {
     this.parser.addStep(name, new StringParser(config));
     return this;
   }
 
-  firstBit(name: string, config: any = {}) {
-    this.parser.addStep(name, new FirstBitParser(config));
+  varuint7(name: string, config: Partial<VarUintParserConfig> = {}) {
+    this.parser.addStep(name, new VarUintParser(config));
+    return this;
+  }
+
+  varuint31(name: string, config: Partial<VarUintParserConfig> = {}) {
+    this.parser.addStep(
+      name,
+      new VarUintParser({
+        ...config,
+        size: 31
+      })
+    );
     return this;
   }
 
@@ -81,6 +95,9 @@ export class BinaryParser {
   bit32(name: string, config?: Partial<BaseConfig>) {
     return this.bit(name, { length: 32, ...config });
   }
+  bit24(name: string, config?: Partial<BaseConfig>) {
+    return this.bit(name, { length: 24, ...config });
+  }
 
   object(name: string, config?: Partial<BaseConfig>) {
     return this.bit(name, { length: 1, ...config });
@@ -114,7 +131,17 @@ export class BinaryParser {
       length: 32,
       converter: a => {
         return parseInt(a, 2);
-      }
+      },
+      ...config
+    });
+  }
+
+  uInt32le(name: string, config?: Partial<BaseConfig>) {
+    return this.uInt32(name, {
+      converter: a => {
+        return beToLe32(parseInt(a, 2));
+      },
+      ...config
     });
   }
 

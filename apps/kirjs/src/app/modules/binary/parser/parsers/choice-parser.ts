@@ -13,7 +13,7 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
 
   read(
     reader: BinaryReader,
-    data: BinaryReaderResult = {}
+    data: BinaryReaderResult = []
   ): BinaryReaderResult {
     return this.getParser(data, resolveByKey).read(reader, data);
   }

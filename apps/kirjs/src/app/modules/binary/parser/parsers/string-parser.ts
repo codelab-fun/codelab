@@ -1,15 +1,25 @@
 import { AbstractBinaryParser } from './abstract-parser';
 import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
-import { resolveFunctionOrvalue } from '../utils';
+import {
+  resolveFunctionKeyOrValue,
+  resolveFunctionOrvalue,
+  resolveLengthOrdered
+} from '../utils';
+import { ParserConfig } from './common';
 
 function bytesToChar(a) {
   return String.fromCharCode(parseInt(a, 2));
 }
 
+export interface StringParserConfig extends ParserConfig {
+  length?: number | Function | string;
+  readUntil?: string;
+}
+
 export class StringParser extends AbstractBinaryParser {
   type = 'string';
 
-  constructor(private config) {
+  constructor(private config: StringParserConfig) {
     super();
   }
 
@@ -33,7 +43,7 @@ export class StringParser extends AbstractBinaryParser {
 
       return { value, rawValue };
     } else {
-      const len = resolveFunctionOrvalue(this.config.length, data) * 8;
+      const len = resolveLengthOrdered(this.config.length, data) * 8;
       const rawValue = reader.read(len);
       const value = rawValue
         .match(/.{8}/g)
@@ -45,7 +55,7 @@ export class StringParser extends AbstractBinaryParser {
 
   readOrdered(
     reader: BinaryReader,
-    data: BinaryReaderResult = {},
+    data: BinaryReaderResult = [],
     start = 0
   ): BinaryReaderResult {
     const result = this.read(reader, data);

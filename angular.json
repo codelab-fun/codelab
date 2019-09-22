@@ -899,7 +899,20 @@
             "polyfills": "apps/lis/src/polyfills.ts",
             "tsConfig": "apps/lis/tsconfig.app.json",
             "aot": false,
-            "assets": ["apps/lis/src/favicon.ico", "apps/lis/src/assets", { "glob": "**/*", "input": "node_modules/monaco-editor/", "output": "./assets/monaco/" }, { "glob": "**/*", "input": "libs/code-demos/assets/runner/", "output": "./assets/runner/" }],
+            "assets": [
+              "apps/lis/src/favicon.ico",
+              "apps/lis/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/monaco-editor/",
+                "output": "./assets/monaco/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/code-demos/assets/runner/",
+                "output": "./assets/runner/"
+              }
+            ],
             "styles": ["apps/lis/src/styles.css"],
             "scripts": []
           },
@@ -1029,6 +1042,6 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/react"
+    "defaultCollection": "@nrwl/angular"
   }
 }

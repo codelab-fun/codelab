@@ -24,9 +24,10 @@ export function gifParser(t: { [key: string]: string }) {
       type: 'color'
     }),
     length(data) {
-      const paletteSize = data._parent[0].value.find(
-        a => a.name === 'paletteSize'
-      ).value;
+      const paletteSize = data
+        .find(d => d.name === '_parent')
+        .value.find(d => d.name === 'header')
+        .value.find(d => d.name === 'paletteSize').value;
       const size = parseInt(paletteSize, 2);
       return 2 ** (size + 1);
     }
