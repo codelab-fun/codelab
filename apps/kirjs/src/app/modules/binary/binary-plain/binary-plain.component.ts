@@ -1,21 +1,36 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { flatten } from '../binary-flat/binary-flat.component';
-import { FakeGifComponent } from '../fake-gif/fake-gif.component';
 
 @Component({
   selector: 'kirjs-binary-plain',
   templateUrl: './binary-plain.component.html',
   styleUrls: ['./binary-plain.component.css']
 })
-export class BinaryPlainComponent {
+export class BinaryPlainComponent implements OnChanges {
   @Output() updateBinary = new EventEmitter();
   @Input() parser: BinaryParser;
   @Input() highlightGroups = false;
   @Input() filterClassName = /./;
   @Input() mini = false;
   @Input() showPopups = false;
+
+  hackHack = {
+    0x01: 'Types',
+    0x02: 'Import',
+    0x03: 'Function',
+    0x05: 'Table',
+    0x07: 'Export',
+    0x08: 'Start',
+    0x0a: 'Code'
+  };
 
   show = [];
 
@@ -30,9 +45,8 @@ export class BinaryPlainComponent {
     return r;
   }, {});
 
-  structure: any;
-
-  constructor(private readonly root: FakeGifComponent) {}
+  structure: any[];
+  @Input() binary: string;
 
   get highlighted() {
     return Object.keys(this.highlightedMap)
@@ -40,18 +54,19 @@ export class BinaryPlainComponent {
       .join(' ');
   }
 
-  @Input() set binary(binary: string) {
-    try {
-      this.structure = flatten(
-        this.parser.readOrdered(new StringBinaryReader(binary)).value
-      ).filter(a => a.className.match(this.filterClassName));
-    } catch (e) {
-      console.log(e);
-      //  lol
+  ngOnChanges() {
+    if (this.binary && this.parser) {
+      console.log('BIP');
+      try {
+        this.structure = flatten(
+          this.parser.readOrdered(new StringBinaryReader(this.binary)).value
+        ).filter(a => a.className.match(this.filterClassName));
+      } catch (e) {
+        console.log(e);
+        //  lol
+      }
     }
   }
 
-  update(item, value) {
-    this.root.update(item, value);
-  }
+  update(item: any, innerText: any) {}
 }

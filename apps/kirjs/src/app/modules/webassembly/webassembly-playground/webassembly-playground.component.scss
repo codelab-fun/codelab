@@ -1,0 +1,33 @@
+:host {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  height: 100%;
+  width: 100%;
+  grid-template-areas: 'wa result' 'js result';
+}
+
+.runner {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.webassembly-code {
+  grid-area: wa;
+}
+
+.js-code {
+  grid-area: js;
+}
+
+::ng-deep {
+  .has-highlight {
+    .view-lines span:not(.highlighted-code) {
+      color: #777;
+    }
+  }
+
+  .highlighted-code {
+  }
+}

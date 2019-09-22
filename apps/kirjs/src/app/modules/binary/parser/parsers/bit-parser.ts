@@ -16,7 +16,7 @@ export class BitParser extends AbstractBinaryParser {
 
   readWithLength(
     reader: BinaryReader,
-    data: BinaryReaderResult = {},
+    data: BinaryReaderResult = [],
     len: number
   ) {
     const rawValue = reader.read(len);
@@ -38,7 +38,7 @@ export class BitParser extends AbstractBinaryParser {
 
   readOrdered(
     reader: BinaryReader,
-    data: BinaryReaderResult = {},
+    data: BinaryReaderResult = [],
     start = 0
   ): BinaryReaderResult {
     if (start === 0) {
@@ -54,7 +54,11 @@ export class BitParser extends AbstractBinaryParser {
     const result = this.readWithLength(reader, data, len);
     const length = result.rawValue.length;
     const end = start + length;
+
     return {
+      displayValue:
+        (this.config && this.config.enum && this.config.enum[result.value]) ||
+        result.value,
       start,
       length,
       end,

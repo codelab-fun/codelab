@@ -29,11 +29,14 @@ export class BinaryArrayParser extends AbstractBinaryParser {
 
   readOrdered(
     reader: BinaryReader,
-    data: BinaryReaderResult = {},
+    data: BinaryReaderResult = [],
     start = 0
   ): BinaryReaderResult {
-    let numberOfElements =
-      resolveLengthOrdered(this.config.length, data) || Infinity;
+    let numberOfElements = resolveLengthOrdered(this.config.length, data);
+    if (numberOfElements === undefined) {
+      numberOfElements = Infinity;
+    }
+
     let rawValue = '';
     const value = [];
 

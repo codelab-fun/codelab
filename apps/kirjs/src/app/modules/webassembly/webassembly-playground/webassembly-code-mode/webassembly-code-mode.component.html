@@ -1,0 +1,43 @@
+<div class="side">
+  <div class="breadcrumbs" *ngIf="width">
+    <ng-container *ngFor="let block of blocks; let l = last">
+      <span [class.has-meta]="!!block.meta"
+        >{{ block.type }} {{ block.name || '' }}</span
+      >
+      <span>{{ l ? '' : ' / ' }}</span>
+    </ng-container>
+  </div>
+  <div *ngIf="selectedMode" class="content">
+    <h1>{{ selectedMode.name }}</h1>
+    <h2 style="font-size: 24px;">{{ selectedMode.description }}</h2>
+
+    <ng-container *ngIf="selectedMode.mode === 'module'">
+      <slides-wasm-contents
+        [config]="selectedMode"
+        (loadAnswer)="loadAnswerFromConfig($event)"
+      ></slides-wasm-contents>
+    </ng-container>
+
+    <ng-container *ngIf="selectedMode.mode === 'test'">
+      <slides-wasm-test-runner
+        [config]="selectedMode"
+      ></slides-wasm-test-runner>
+    </ng-container>
+
+    <ng-container *ngIf="selectedMode.mode === 'default'">
+      <kirjs-webassembly-runner
+        class="runner"
+        [webAssemblyCode]="wat"
+        [jsCode]="js"
+      ></kirjs-webassembly-runner>
+    </ng-container>
+
+    <button
+      mat-button
+      (click)="loadAnswerFromConfig(selectedMode)"
+      *ngIf="selectedMode.answer"
+    >
+      Load answer
+    </button>
+  </div>
+</div>

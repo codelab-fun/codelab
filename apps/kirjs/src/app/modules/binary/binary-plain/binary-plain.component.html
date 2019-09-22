@@ -35,8 +35,12 @@
           [attr.name]="item.name"
           (keydown.enter)="update(item, $event.target.innerText)"
           contenteditable="true"
-          >{{ item.rawValue }}</span
-        >
+          >{{ item.rawValue }}
+          <!--          TODO(kirjs): This is hack, remove-->
+          <span *ngIf="item.name === 'section-type'">
+            - {{ hackHack[item.value] }}</span
+          >
+        </span>
 
         <div
           [class.selected]="show[i]"

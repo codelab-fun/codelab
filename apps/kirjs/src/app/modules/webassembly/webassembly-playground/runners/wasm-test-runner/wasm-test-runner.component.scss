@@ -1,0 +1,41 @@
+.indicator {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.test-result {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+slides-viz {
+  display: block;
+  margin-top: 20px;
+}
+
+.call {
+  font-size: 20px;
+}
+
+.result-expected {
+  font-size: 20px;
+}
+
+.focused {
+  .call {
+    font-size: 3vw;
+  }
+
+  .result-expected {
+    font-size: 2vw;
+  }
+
+  .indicator {
+    width: 3vw;
+    height: 3vw;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+}
