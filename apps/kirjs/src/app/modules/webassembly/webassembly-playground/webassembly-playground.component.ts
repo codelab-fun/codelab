@@ -77,7 +77,8 @@ export class WebassemblyPlaygroundComponent
     const block = this.sideBarBlocks.find(b => !!b.meta);
     this.selectedMode = {};
     if (block) {
-      //this.selectedMode = block.meta;
+      // TODO(kirjs): Uncommit
+      // this.selectedMode = block.meta;
     }
 
   }
