@@ -65,8 +65,10 @@ export class FakeGifComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.t = extractMessages(this.translation);
-    this.parser = new BinaryParser().block('gif', gifParser(this.t));
+    requestAnimationFrame(() => {
+      this.t = extractMessages(this.translation);
+      this.parser = new BinaryParser().block('gif', gifParser(this.t));
+    });
   }
 
   updateBinary(binary) {

@@ -1,0 +1,21 @@
+:host {
+  white-space: nowrap;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+}
+
+.arrow {
+  text-align: center;
+}
+
+:host.disabled {
+  opacity: 0.4;
+  background: #eee;
+}
+
+.inputs {
+  justify-self: end;
+  white-space: nowrap;
+}

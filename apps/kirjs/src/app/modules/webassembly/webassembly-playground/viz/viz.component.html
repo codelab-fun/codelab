@@ -1,0 +1,41 @@
+<slides-grid
+  *ngIf="test && test.viz && !test.viz.type"
+  [test]="test"
+></slides-grid>
+
+<div *ngIf="test && test.viz && test.viz.type === 'evolve'">
+  <kirjs-rule4 [test]="test"></kirjs-rule4>
+  <slides-grid [test]="test"></slides-grid>
+</div>
+
+<div *ngIf="test && test.viz && test.viz.type === 'shift'">
+  <table>
+    <tr>
+      <td>X</td>
+      <td><< 2</td>
+      <td>=</td>
+      <td style="text-align: right;">X00</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>Y</td>
+      <td><< 1</td>
+      <td>=</td>
+      <td style="text-align: right;">Y0</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>Z</td>
+      <td></td>
+      <td></td>
+      <td style="text-align: right;">Z</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="text-align: right;">XYZ</td>
+    </tr>
+  </table>
+</div>

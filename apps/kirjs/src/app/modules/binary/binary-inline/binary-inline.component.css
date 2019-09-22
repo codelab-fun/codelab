@@ -1,0 +1,18 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px 100px 100%;
+  font-size: 20px;
+}
+
+.bin-block {
+  word-break: break-all;
+}
+
+[name='section-type'] {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.cell {
+  padding: 10px;
+}
