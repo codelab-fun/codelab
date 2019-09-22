@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'kirjs-rule3',
   templateUrl: './rule3.component.html',
   styleUrls: ['./rule3.component.css']
 })
-export class Rule3Component implements OnInit {
+export class Rule3Component implements OnInit, OnChanges {
   after: Array<Array<string | number>>;
   before: Array<Array<string | number>>;
 
@@ -13,7 +13,8 @@ export class Rule3Component implements OnInit {
   @Input() indexes = false;
   @Input() arrow = false;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnChanges() {
     this.after = (256 + this.rule)
@@ -33,5 +34,6 @@ export class Rule3Component implements OnInit {
       .reverse();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }

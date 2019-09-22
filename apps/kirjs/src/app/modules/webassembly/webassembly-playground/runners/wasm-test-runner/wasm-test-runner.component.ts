@@ -1,10 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { forkJoin, Observable, Subject } from 'rxjs';
-import {
-  Result,
-  RunResult,
-  WebAssemblyService
-} from '../../web-assembly.service';
+import { Result, RunResult, WebAssemblyService } from '../../web-assembly.service';
 import {
   extractAllFunctions,
   extractFunction,
@@ -53,13 +49,13 @@ function verifyGlobalsInTests(tests, globals) {
       if (!test.imports) {
         throw new Error(
           'No imports present in the test. Function being tested expect the following: ' +
-            globals.join(',')
+          globals.join(',')
         );
       }
       if (!test.imports.config) {
         throw new Error('config property is missing on imports');
       }
-      for (let g of globals) {
+      for (const g of globals) {
         if (!(g in test.imports.config)) {
           throw new Error('input is not present: ' + g);
         }
@@ -181,12 +177,13 @@ export function webAssemblyTestHandler(
   templateUrl: './wasm-test-runner.component.html',
   styleUrls: ['./wasm-test-runner.component.scss']
 })
-export class WasmTestRunnerComponent {
+export class WasmTestRunnerComponent implements OnChanges {
   readonly result$ = new Subject<Result<TestResult[]>>();
   @Input() config: any;
   focused;
 
-  constructor(private readonly webAssemblyService: WebAssemblyService) {}
+  constructor(private readonly webAssemblyService: WebAssemblyService) {
+  }
 
   isFocused(test) {
     return this.focused ? test === this.focused : test.isFirstFailed;
@@ -194,7 +191,7 @@ export class WasmTestRunnerComponent {
 
   runTests() {
     this.focused = undefined;
-    const { tests, code, name, allCode, table } = this.config as any;
+    const {tests, code, name, allCode, table} = this.config as any;
 
     let hasFailures = false;
     const sources = (tests as any[]).map(test => {
@@ -244,13 +241,13 @@ export class WasmTestRunnerComponent {
     });
 
     forkJoin(sources).subscribe(results => {
-      const error = results.find(({ result }) => result.type === 'error');
+      const error = results.find(({result}) => result.type === 'error');
       if (error) {
         this.result$.next(error.result as any);
         return;
       }
 
-      this.result$.next({ type: 'result', value: results });
+      this.result$.next({type: 'result', value: results});
     });
   }
 

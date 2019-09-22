@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'slides-rule4',
+  selector: 'kirjs-rule4',
   templateUrl: './rule4.component.html',
   styleUrls: ['./rule4.component.css']
 })
-export class Rule4Component {
+export class Rule4Component implements OnChanges {
   @Input() test;
   before: string[][];
   after: number[];

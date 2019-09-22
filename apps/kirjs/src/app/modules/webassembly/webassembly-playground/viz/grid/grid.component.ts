@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, ViewChild } from '@angular/core';
 
 export interface Figure {
   type?: 'rect' | 'circle';
@@ -54,14 +54,14 @@ interface DrawCellConfig extends Figure {
 }
 
 function drawCell({
-  context,
-  size,
-  x,
-  y,
-  color,
-  text,
-  type = 'rect'
-}: DrawCellConfig) {
+                    context,
+                    size,
+                    x,
+                    y,
+                    color,
+                    text,
+                    type = 'rect'
+                  }: DrawCellConfig) {
   const gridShift = size;
   context.fillStyle = color;
   const x1 = gridShift + x * size;
@@ -121,8 +121,8 @@ function resolveFuncOrValue(funcOfValue: any, vizConfig, defaultValue) {
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css']
 })
-export class GridComponent {
-  @ViewChild('canvas', { static: true }) canvas;
+export class GridComponent implements OnChanges {
+  @ViewChild('canvas', {static: true}) canvas;
   @Input() test: any;
 
   async ngOnChanges(changes) {
@@ -155,13 +155,13 @@ export class GridComponent {
         ''
       );
 
-      drawCell({ context, size, x, y, color, text });
+      drawCell({context, size, x, y, color, text});
     }
 
     const extras = resolveFuncOrValue(config.extras, this.test, []);
 
     for (const s of extras) {
-      drawCell({ context, size, ...s });
+      drawCell({context, size, ...s});
     }
   }
 }

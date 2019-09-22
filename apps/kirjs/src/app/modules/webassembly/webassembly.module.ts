@@ -20,7 +20,7 @@ import { WasmTestRunnerComponent } from './webassembly-playground/runners/wasm-t
 import { MonacoScrollingDirective } from './webassembly-playground/monaco-directives/monaco-scrolling.directive';
 import { MonacoJsPositionDirective } from './webassembly-playground/monaco-directives/monaco-js-position.directive';
 import { MonacoWatPositionDirective } from './webassembly-playground/monaco-directives/monaco-wat-position.directive';
-import { MonacoWatLoadAnswer } from './webassembly-playground/monaco-directives/monaco-load-answer.directive';
+import { MonacoWatLoadAnswerDirective } from './webassembly-playground/monaco-directives/monaco-load-answer.directive';
 import { VizModule } from './webassembly-playground/viz/viz.module';
 import { WasmContentsComponent } from './webassembly-playground/wasm-contents/wasm-contents.component';
 import { CaModule } from './ca/ca.module';
@@ -42,7 +42,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     WasmTestRunnerComponent,
     MonacoScrollingDirective,
     MonacoJsPositionDirective,
-    MonacoWatLoadAnswer,
+    MonacoWatLoadAnswerDirective,
     WasmContentsComponent
   ],
   exports: [],

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { extractExpressionByMatch } from '../utils';
 
 @Component({
@@ -6,7 +6,7 @@ import { extractExpressionByMatch } from '../utils';
   templateUrl: './full-screen-runner.component.html',
   styleUrls: ['./full-screen-runner.component.css']
 })
-export class FullScreenRunnerComponent implements OnInit {
+export class FullScreenRunnerComponent implements OnInit, OnChanges {
   @Input() code: any;
   cellSize = 10;
   wat: string;
@@ -17,9 +17,11 @@ export class FullScreenRunnerComponent implements OnInit {
   rule = 1;
   steps = 100;
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnChanges() {
     this.prepare();

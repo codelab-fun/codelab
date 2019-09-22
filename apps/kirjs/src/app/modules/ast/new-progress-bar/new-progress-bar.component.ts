@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component
   templateUrl: './new-progress-bar.component.html',
   styleUrls: ['./new-progress-bar.component.css']
 })
-export class NewProgressBarComponent {
+export class NewProgressBarComponent implements AfterViewInit {
   @Input() fontSize = 28;
   @Input() title = 'JavaScript AST';
   @Output() fontSizeChange = new EventEmitter();
@@ -14,7 +14,8 @@ export class NewProgressBarComponent {
   activeSlideIndex = 0;
   tempSlideId = 0;
 
-  constructor(public deck: SlidesDeckComponent) {}
+  constructor(public deck: SlidesDeckComponent) {
+  }
 
   ngAfterViewInit() {
     // Change detection complains if updating it right away.

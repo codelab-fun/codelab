@@ -5,12 +5,13 @@ import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-ed
   selector: '[slidesMonacoLoadAnswer]',
   exportAs: 'MonacoWatLoadAnswer'
 })
-export class MonacoWatLoadAnswer {
+export class MonacoWatLoadAnswerDirective {
   @Output() slidesMonacoLoadAnswer = new EventEmitter<void>();
 
   constructor(
     @Self() @Optional() private editorInjector: CodeDemoEditorInjector
-  ) {}
+  ) {
+  }
 
   loadAnswer(config: any) {
     const model = this.editorInjector.editor.getModel();
