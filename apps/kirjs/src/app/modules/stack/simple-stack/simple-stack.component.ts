@@ -8,9 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SimpleStackComponent implements OnInit {
   @Input() value: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

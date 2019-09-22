@@ -8,9 +8,8 @@ describe('SingleGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SingleGridComponent ]
-    })
-    .compileComponents();
+      declarations: [SingleGridComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

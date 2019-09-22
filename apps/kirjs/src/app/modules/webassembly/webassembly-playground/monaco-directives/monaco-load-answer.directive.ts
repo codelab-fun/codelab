@@ -9,9 +9,8 @@ export class MonacoWatLoadAnswer {
   @Output() slidesMonacoLoadAnswer = new EventEmitter<void>();
 
   constructor(
-    @Self() @Optional() private editorInjector: CodeDemoEditorInjector,
-  ) {
-  }
+    @Self() @Optional() private editorInjector: CodeDemoEditorInjector
+  ) {}
 
   loadAnswer(config: any) {
     const model = this.editorInjector.editor.getModel();

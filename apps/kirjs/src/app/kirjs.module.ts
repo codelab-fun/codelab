@@ -141,10 +141,13 @@ const routes = [
   },
   {
     path: 'stack',
-    loadChildren: () => import('./modules/stack/stack-routing.module').then(m => m.StackRoutingModule),
+    loadChildren: () =>
+      import('./modules/stack/stack-routing.module').then(
+        m => m.StackRoutingModule
+      ),
     name: 'Stack Module',
     description: 'stack'
-  },
+  }
 ];
 
 @NgModule({
@@ -175,5 +178,4 @@ const routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class KirjsModule {
-}
+export class KirjsModule {}

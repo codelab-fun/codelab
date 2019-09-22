@@ -12,7 +12,6 @@ export interface Level {
   outputs: string;
 }
 
-
 const ANY_CHAR = '＊';
 
 @Component({
@@ -32,11 +31,11 @@ export class StackGameComponent implements OnInit {
       },
       {
         inputs: '🍏🍏',
-        outputs: '🍋',
+        outputs: '🍋'
       },
       {
         inputs: '🍋🍋',
-        outputs: '🍒',
+        outputs: '🍒'
       },
       {
         inputs: '＊',
@@ -45,13 +44,12 @@ export class StackGameComponent implements OnInit {
       }
     ],
     inputs: '🍏',
-    outputs: '🍒',
+    outputs: '🍒'
   };
 
   functions = [];
   stack = '';
   history: string[];
-
 
   canAddFunction(stack: string, func) {
     return stack.match(new RegExp(func.inputs.replace(ANY_CHAR, '.') + '$'));
@@ -61,7 +59,11 @@ export class StackGameComponent implements OnInit {
     let stack = this.level.inputs.replace(ANY_CHAR, '🍏');
     const history = [];
     for (const func of this.functions) {
-      stack = stack.slice(0, stack.length - func.inputs.replace(ANY_CHAR, '🍏').length) + func.outputs;
+      stack =
+        stack.slice(
+          0,
+          stack.length - func.inputs.replace(ANY_CHAR, '🍏').length
+        ) + func.outputs;
       history.push(stack);
     }
     this.history = history;
@@ -84,5 +86,4 @@ export class StackGameComponent implements OnInit {
   ngOnInit() {
     this.stack = this.level.inputs;
   }
-
 }

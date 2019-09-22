@@ -9,7 +9,6 @@ import { StackFunctionComponent } from './stack-game/stack-function/stack-functi
 import { StackFunctionButtonComponent } from './stack-game/stack-function-button/stack-function-button.component';
 import { MatButtonModule } from '@angular/material';
 
-
 @NgModule({
   declarations: [
     StackComponent,
@@ -27,11 +26,6 @@ import { MatButtonModule } from '@angular/material';
     StackFunctionComponent,
     StackFunctionButtonComponent
   ],
-  imports: [
-    CommonModule,
-    SlidesModule,
-    MatButtonModule,
-  ]
+  imports: [CommonModule, SlidesModule, MatButtonModule]
 })
-export class StackModule {
-}
+export class StackModule {}

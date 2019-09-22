@@ -1,17 +1,25 @@
-import { BaseBlock, CodeHelperBlock } from './webassembly-playground/monaco-directives/common';
+import {
+  BaseBlock,
+  CodeHelperBlock
+} from './webassembly-playground/monaco-directives/common';
 
 export function extractFunction(name, code) {
-  return extractExpressionByMatch(new RegExp('\\\(func \\\$' + name + '\\b'), code);
+  return extractExpressionByMatch(
+    new RegExp('\\(func \\$' + name + '\\b'),
+    code
+  );
 }
-
 
 export function prepareTableCode(code) {
   const elements = extractExpressionByMatch(/\(elem/, code);
   if (!elements) {
     debugger;
   }
-  const functions = [...new Set([...elements.matchAll(/\$(\w+)\b/g)].map(a => a[1]))].map(name => extractFunction(name, code)).join('\n');
-
+  const functions = [
+    ...new Set([...elements.matchAll(/\$(\w+)\b/g)].map(a => a[1]))
+  ]
+    .map(name => extractFunction(name, code))
+    .join('\n');
 
   const tableDef = extractExpressionByMatch(/\(table/, code);
   return `
@@ -36,7 +44,6 @@ export function extractTypeCode(code) {
 `;
 }
 
-
 const matchTypeRegex = /^\(\s*([\w.]+)\b/;
 const funcNameRegex = /func\s*\$(\w+)/;
 
@@ -47,7 +54,6 @@ function getName(code) {
   }
 
   return undefined;
-
 }
 
 function getType(code) {
@@ -71,26 +77,30 @@ export function populateBlocks(blocks: BaseBlock[]): CodeHelperBlock[] {
   });
 }
 
-export function extractBlocks(textBefore, textAfter, prependLeft = '', prependRight = '') {
+export function extractBlocks(
+  textBefore,
+  textAfter,
+  prependLeft = '',
+  prependRight = ''
+) {
   const before = findPrevNonMatchingClosingBrace(textBefore);
   const after = findNextNonMatchingClosingBrace(textAfter);
-
 
   if (before && after) {
     const next = extractBlocks(
       textBefore.slice(0, -before.length - 1),
       textAfter.slice(after.length),
       before + prependLeft,
-      prependRight + after,
+      prependRight + after
     );
 
     return [
       {
         before,
         after,
-        code: before + prependLeft + prependRight + after,
+        code: before + prependLeft + prependRight + after
       },
-      ...next,
+      ...next
     ];
   }
 
@@ -105,7 +115,13 @@ export function findPrevNonMatchingClosingBrace(code: string) {
   return findMatchingBrace(code, code.length - 1, -1, -1, -1);
 }
 
-function findMatchingBrace(code: string, startIndex = 0, shift = 1, braces = 0,  /*This is a hack, need proper fix*/ resultShift = 0) {
+function findMatchingBrace(
+  code: string,
+  startIndex = 0,
+  shift = 1,
+  braces = 0,
+  /*This is a hack, need proper fix*/ resultShift = 0
+) {
   let i = startIndex;
   while (code[i]) {
     const c = code[i];
@@ -122,8 +138,6 @@ function findMatchingBrace(code: string, startIndex = 0, shift = 1, braces = 0, 
     if (braces === 0) {
       return code.substring(startIndex, i - resultShift);
     }
-
-
   }
 }
 
@@ -139,7 +153,6 @@ export function extractExpressionByMatch(regex, code) {
         return null;
       }
 
-
       if (c === '(') {
         braces++;
       }
@@ -154,9 +167,7 @@ export function extractExpressionByMatch(regex, code) {
       }
     }
   }
-
 }
-
 
 export function extractGlobalAccess(code) {
   const match = /(?:get_global|global\.get)\s+\$(\w+)*/g;
@@ -165,8 +176,6 @@ export function extractGlobalAccess(code) {
 
 export function extractGlobals(code, allCode) {
   return extractGlobalAccess(code);
-
-
 }
 
 export function hasMemoryCalls(code) {
@@ -185,9 +194,16 @@ function unique(arr) {
   return [...new Set(arr)];
 }
 
-export function populateTestCode(code: string, test, allCode: string, table: string) {
+export function populateTestCode(
+  code: string,
+  test,
+  allCode: string,
+  table: string
+) {
   if (test.table) {
-    const funcs = unique(test.table).map(name => extractFunction(name, allCode)).join('\n\n');
+    const funcs = unique(test.table)
+      .map(name => extractFunction(name, allCode))
+      .join('\n\n');
     const elements = test.table.map(e => '    $' + e).join('\n');
     table = `
 (table ${test.table.length} funcref)
@@ -207,40 +223,66 @@ ${funcs}
   return code;
 }
 
-
-export function extractFunctionWithDependencies(name, code: string, dependencies: string[]) {
-  return extractFunctionDependencyNames(name, code, dependencies).map(name => extractFunction(name, code)).join('\n\n');
+export function extractFunctionWithDependencies(
+  name,
+  code: string,
+  dependencies: string[]
+) {
+  return extractFunctionDependencyNames(name, code, dependencies)
+    .map(name => extractFunction(name, code))
+    .join('\n\n');
 }
-
 
 export function hasGlobal(name, code) {
   return /global\s+/g.test(code);
 }
 
-export function extractFunctionDependencyNames(name, code: string, dependencies: string[]) {
+export function extractFunctionDependencyNames(
+  name,
+  code: string,
+  dependencies: string[]
+) {
   const funcCode = extractFunction(name, code);
   const match = /(?:\bcall)\s+\$(\w+)*/g;
   if (!funcCode) {
     return [];
   }
-  const functions = [...new Set([...funcCode.matchAll(match)].map(a => a[1]))].filter(d => !dependencies.includes(d));
-  const nestedDeps = functions
-    .flatMap(f => extractFunctionDependencyNames(f, code, [...dependencies, ...functions]));
+  const functions = [
+    ...new Set([...funcCode.matchAll(match)].map(a => a[1]))
+  ].filter(d => !dependencies.includes(d));
+  const nestedDeps = functions.flatMap(f =>
+    extractFunctionDependencyNames(f, code, [...dependencies, ...functions])
+  );
   return [...new Set([...dependencies, ...nestedDeps, ...functions])];
 }
 
 function getMemoryCode(hasMemory: boolean) {
-  return hasMemory ? `
+  return hasMemory
+    ? `
   (memory 1)
   (export "memory" (memory 0))
-  ` : '';
+  `
+    : '';
 }
 
-export function generateWatTestCode({code, globals, name, hasMemory, types}: any) {
-  const globalsCode = globals.map(global => `(global  \$${global} (export "${global}") (mut i32) (i32.const 0))`).join('\n');
+export function generateWatTestCode({
+  code,
+  globals,
+  name,
+  hasMemory,
+  types
+}: any) {
+  const globalsCode = globals
+    .map(
+      global =>
+        `(global  \$${global} (export "${global}") (mut i32) (i32.const 0))`
+    )
+    .join('\n');
   const memoryCode = getMemoryCode(hasMemory);
 
-  const funcExport = code.match(`export "${name}"`) ? '' : `(export "${name}" (func $${name}))`;
+  const funcExport = code.match(`export "${name}"`)
+    ? ''
+    : `(export "${name}" (func $${name}))`;
 
   return `(module
   ${funcExport}
@@ -250,20 +292,17 @@ export function generateWatTestCode({code, globals, name, hasMemory, types}: any
   ${memoryCode}
   ${code}
 )`;
-
-
 }
-
 
 export function extractAllFunctions(code) {
   const match = /func\s+\$(\w+)*/g;
   return [...new Set([...code.matchAll(match)].map(a => a[1]))];
 }
 
-
 export function extractAnswers(code) {
-  const functions = extractAllFunctions(code).map(name => [name, extractFunction(name, code)]);
+  const functions = extractAllFunctions(code).map(name => [
+    name,
+    extractFunction(name, code)
+  ]);
   return new Map(functions as any);
 }
-
-

@@ -34,5 +34,4 @@ import { Rule4Component } from './rule3/rule4/rule4.component';
     Rule4Component
   ]
 })
-export class CellularAutomationModule {
-}
+export class CellularAutomationModule {}

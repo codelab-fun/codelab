@@ -11,11 +11,5 @@ export class VizComponent implements OnInit {
   @Input() config: WebAssemblyTestConfig;
   @Input() test;
 
-
-
-
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }

@@ -2,13 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WebassemblyRunnerComponent } from './webassembly-runner.component';
 
-
 @NgModule({
   declarations: [WebassemblyRunnerComponent],
   exports: [WebassemblyRunnerComponent],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule]
 })
-export class WebassemblyRunnerModule {
-}
+export class WebassemblyRunnerModule {}

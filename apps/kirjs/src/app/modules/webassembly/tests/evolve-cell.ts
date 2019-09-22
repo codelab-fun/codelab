@@ -6,37 +6,63 @@ const viz = {
   type: 'evolve',
   rowSize,
   text: a => a,
-  memory: (test) => test.actualMemory,
-  color: colorMatchesExpected,
+  memory: test => test.actualMemory,
+  color: colorMatchesExpected
 };
 
 export const evolveCellTests = [
   {
     args: [0],
     memory: [0, 0, 0, 0, 0, 0],
-    table: ['enable', 'enable', 'enable', 'enable', 'enable', 'enable', 'enable', 'enable'],
+    table: [
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable'
+    ],
     expectedMemory: [0, 0, 0, 1, 0, 0],
-    imports: {config: {step: 1, rowSize: 3}},
+    imports: { config: { step: 1, rowSize: 3 } },
     viz: {
       ...viz,
-      rule: 0,
-    },
+      rule: 0
+    }
   },
   {
     args: [2],
     memory: [0, 0, 0, 0, 0, 0],
-    table: ['enable', 'enable', 'enable', 'enable', 'enable', 'enable', 'enable', 'enable'],
+    table: [
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable',
+      'enable'
+    ],
     expectedMemory: [0, 0, 0, 0, 0, 1],
-    imports: {config: {step: 1, rowSize: 3}},
-    viz,
+    imports: { config: { step: 1, rowSize: 3 } },
+    viz
   },
   {
     args: [2],
     memory: [1, 1, 1, 1, 1, 1],
-    table: ['disable', 'disable', 'disable', 'disable', 'disable', 'disable', 'disable', 'disable'],
+    table: [
+      'disable',
+      'disable',
+      'disable',
+      'disable',
+      'disable',
+      'disable',
+      'disable',
+      'disable'
+    ],
     expectedMemory: [1, 1, 1, 1, 1, 0],
-    imports: {config: {step: 1, rowSize: 3}},
-    viz,
-  },
+    imports: { config: { step: 1, rowSize: 3 } },
+    viz
+  }
 ];
-

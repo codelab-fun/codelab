@@ -8,9 +8,8 @@ describe('WebassemblyCodeModeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WebassemblyCodeModeComponent ]
-    })
-    .compileComponents();
+      declarations: [WebassemblyCodeModeComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

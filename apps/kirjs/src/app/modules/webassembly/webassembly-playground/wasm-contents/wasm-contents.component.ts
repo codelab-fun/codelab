@@ -5,7 +5,7 @@ function genGlobalStep() {
     answer: `global $rowSize i32))
   (global $step (export "step") (mut i32) (i32.const 1))
 `,
-    originalCode: /global \$rowSize i32\)\)/,
+    originalCode: /global \$rowSize i32\)\)/
   };
 }
 
@@ -15,10 +15,9 @@ function genMemory(name) {
   (memory 1)
   (export "memory" (memory 0))
 `,
-    originalCode: /global \$rowSize i32\)\)/,
+    originalCode: /global \$rowSize i32\)\)/
   };
 }
-
 
 function genTable() {
   return {
@@ -27,7 +26,7 @@ function genTable() {
   (table 8 anyfunc)
   (type $return_i32 (func (result i32)))
 `,
-    originalCode: /\(memory 0\)\)/,
+    originalCode: /\(memory 0\)\)/
   };
 }
 
@@ -54,17 +53,16 @@ function genElem() {
     $enable ;; 111
   )
 `,
-    originalCode: /\(table 8 anyfunc\)/,
+    originalCode: /\(table 8 anyfunc\)/
   };
 }
-
 
 function genRowSize() {
   return {
     answer: `(module
   (import "config" "rowSize" (global $rowSize i32))
 `,
-    originalCode: /\(module/,
+    originalCode: /\(module/
   };
 }
 
@@ -74,7 +72,7 @@ function genModule() {
 
 )
 `,
-    originalCode: /^/,
+    originalCode: /^/
   };
 }
 
@@ -86,7 +84,7 @@ function genFuncName(name) {
   )
 )
 `,
-    originalCode: /\)\s*$/,
+    originalCode: /\)\s*$/
   };
 }
 
@@ -98,7 +96,6 @@ function genFuncName(name) {
 export class WasmContentsComponent {
   @Input() config: any;
   @Output() loadAnswer = new EventEmitter<any>();
-
 
   loadFunction(m) {
     if (m.type === 'func') {
@@ -113,7 +110,6 @@ export class WasmContentsComponent {
         ...m
       });
     }
-
 
     if (m.type === 'global.step') {
       this.loadAnswer.emit({

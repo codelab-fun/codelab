@@ -1,9 +1,6 @@
 export const disableTests = [
   {
     args: [],
-    output: 0,
-  },
+    output: 0
+  }
 ];
-
-
-

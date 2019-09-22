@@ -9,10 +9,7 @@ import { Result } from '../web-assembly.service';
 export class ErrorMessageComponent implements OnInit {
   @Input() result: Result<string>;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

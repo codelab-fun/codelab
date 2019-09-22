@@ -17,11 +17,9 @@ export class FullScreenRunnerComponent implements OnInit {
   rule = 1;
   steps = 100;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnChanges() {
     this.prepare();
@@ -34,7 +32,8 @@ export class FullScreenRunnerComponent implements OnInit {
       .split('')
       .map(Number)
       .reverse()
-      .map(n => n ? '  $enable' : '  $disable').join('\n');
+      .map(n => (n ? '  $enable' : '  $disable'))
+      .join('\n');
 
     this.wat = this.code.wat;
     this.js = this.code.js;
@@ -45,7 +44,6 @@ export class FullScreenRunnerComponent implements OnInit {
     const newElem = `(elem (i32.const 0)
   ${expected}
   )`;
-
 
     this.wat = this.wat.replace(elem, newElem);
   }

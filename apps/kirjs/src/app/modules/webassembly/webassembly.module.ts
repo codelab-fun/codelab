@@ -62,8 +62,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     CellularAutomationModule,
     NewProgressBarModule,
     FullScreenRunnerModule,
-    WebassemblyRunnerModule,
+    WebassemblyRunnerModule
   ]
 })
-export class WebassemblyModule {
-}
+export class WebassemblyModule {}

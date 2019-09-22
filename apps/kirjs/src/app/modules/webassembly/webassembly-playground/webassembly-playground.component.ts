@@ -1,7 +1,11 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { CodeHelperBlock, CodePath, getCodeBlockHandler } from './monaco-directives/common';
+import {
+  CodeHelperBlock,
+  CodePath,
+  getCodeBlockHandler
+} from './monaco-directives/common';
 
 interface WebassemblyPlaygroundInputs {
   wat: string;
@@ -20,8 +24,7 @@ interface WebassemblyPlaygroundInputs {
     }
   ]
 })
-export class WebassemblyPlaygroundComponent
-  implements ControlValueAccessor {
+export class WebassemblyPlaygroundComponent implements ControlValueAccessor {
   @Input() modeConfig = {};
   @Input() fontSize = 30;
   code: WebassemblyPlaygroundInputs;
@@ -36,11 +39,9 @@ export class WebassemblyPlaygroundComponent
     this.onChange = onChange;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
-  setDisabledState(isDisabled: boolean): void {
-  }
+  setDisabledState(isDisabled: boolean): void {}
 
   writeValue(code: WebassemblyPlaygroundInputs): void {
     this.code = code;
@@ -57,7 +58,7 @@ export class WebassemblyPlaygroundComponent
       const langConfig = this.modeConfig[path.type];
 
       if (!langConfig) {
-        return {...b};
+        return { ...b };
       }
 
       let meta = langConfig[b.type];
@@ -66,12 +67,13 @@ export class WebassemblyPlaygroundComponent
         meta = meta[name];
         meta.name = b.name;
         meta.type = b.type;
-        const handler = meta.handler || getCodeBlockHandler(path.type, b.type) || (a => a);
+        const handler =
+          meta.handler || getCodeBlockHandler(path.type, b.type) || (a => a);
         meta = handler(meta, b.code, allCode);
         meta.allCode = allCode;
       }
 
-      return {...b, meta};
+      return { ...b, meta };
     });
 
     const block = this.sideBarBlocks.find(b => !!b.meta);
@@ -80,11 +82,10 @@ export class WebassemblyPlaygroundComponent
       // TODO(kirjs): Uncommit
       // this.selectedMode = block.meta;
     }
-
   }
 
   update() {
-    this.code = {...this.code};
+    this.code = { ...this.code };
     this.onChange(this.code);
   }
 }

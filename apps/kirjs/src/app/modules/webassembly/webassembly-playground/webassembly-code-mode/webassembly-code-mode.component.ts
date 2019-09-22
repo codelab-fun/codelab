@@ -1,4 +1,12 @@
-import { Component, EventEmitter, HostBinding, Input, OnChanges, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnChanges,
+  OnInit,
+  Output
+} from '@angular/core';
 
 declare const require;
 
@@ -19,8 +27,7 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   private blocks: any[];
   private selectedMode = {};
 
-  constructor() {
-  }
+  constructor() {}
 
   @Input() set sideBarBlocks(blocks) {
     this.blocks = blocks || [];
@@ -45,8 +52,7 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   loadAnswerFromConfig(selectedMode: any) {
     this.loadAnswer.emit(selectedMode);

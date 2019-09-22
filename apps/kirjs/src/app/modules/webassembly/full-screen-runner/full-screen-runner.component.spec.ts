@@ -8,9 +8,8 @@ describe('FullScreenRunnerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FullScreenRunnerComponent ]
-    })
-    .compileComponents();
+      declarations: [FullScreenRunnerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

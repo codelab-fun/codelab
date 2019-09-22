@@ -6,12 +6,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { CellularAutomationModule } from '../../cellular-automation/cellular-automation.module';
 
-
 @NgModule({
   declarations: [FullScreenRunnerComponent],
-  exports: [
-    FullScreenRunnerComponent
-  ],
+  exports: [FullScreenRunnerComponent],
   imports: [
     CommonModule,
     WebassemblyRunnerModule,
@@ -20,5 +17,4 @@ import { CellularAutomationModule } from '../../cellular-automation/cellular-aut
     CellularAutomationModule
   ]
 })
-export class FullScreenRunnerModule {
-}
+export class FullScreenRunnerModule {}

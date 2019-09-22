@@ -15,5 +15,4 @@ const routes = RouterModule.forChild(
   declarations: [],
   exports: []
 })
-export class CellularAutomationRoutingModule {
-}
+export class CellularAutomationRoutingModule {}

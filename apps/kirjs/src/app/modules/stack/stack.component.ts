@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Level } from './stack-game/stack-game.component';
 
-
 @Component({
   selector: 'kirjs-stack',
   templateUrl: './stack.component.html',
@@ -22,10 +21,10 @@ export class StackComponent implements OnInit {
           inputs: '',
           outputs: '🍋',
           name: 'push 🍋'
-        },
+        }
       ],
       inputs: '',
-      outputs: '🍏🍋🍏',
+      outputs: '🍏🍋🍏'
     },
 
     pop: {
@@ -34,10 +33,10 @@ export class StackComponent implements OnInit {
           inputs: '＊',
           outputs: '',
           name: 'pop'
-        },
+        }
       ],
       inputs: '🍏🍏🍏🍏🍏',
-      outputs: '🍏',
+      outputs: '🍏'
     },
 
     together: {
@@ -56,49 +55,47 @@ export class StackComponent implements OnInit {
           inputs: '',
           outputs: '🍋',
           name: 'push 🍋'
-        },
+        }
       ],
       inputs: '🍏🍏',
-      outputs: '🍓🍋',
+      outputs: '🍓🍋'
     },
-
-
 
     lemonade: {
       functions: [
         {
           inputs: '',
-          outputs: '💦',
+          outputs: '💦'
         },
         {
           inputs: '',
-          outputs: '🍋',
+          outputs: '🍋'
         },
         {
           inputs: '',
-          outputs: '🍒',
+          outputs: '🍒'
         },
         {
           inputs: '🍒💦🍋',
-          outputs: '🍹',
-        },
+          outputs: '🍹'
+        }
       ],
       inputs: '',
-      outputs: '🍹',
+      outputs: '🍹'
     },
     level1: {
       functions: [
         {
           inputs: '',
-          outputs: '🍏🍏',
+          outputs: '🍏🍏'
         },
         {
           inputs: '',
-          outputs: '🍋',
+          outputs: '🍋'
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒',
+          outputs: '🍒'
         },
         {
           inputs: '＊',
@@ -107,7 +104,7 @@ export class StackComponent implements OnInit {
         }
       ],
       inputs: '🍏',
-      outputs: '🍒',
+      outputs: '🍒'
     },
     level2: {
       functions: [
@@ -118,11 +115,11 @@ export class StackComponent implements OnInit {
         },
         {
           inputs: '🍏🍏',
-          outputs: '🍋',
+          outputs: '🍋'
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒',
+          outputs: '🍒'
         },
         {
           inputs: '＊',
@@ -131,14 +128,11 @@ export class StackComponent implements OnInit {
         }
       ],
       inputs: '🍏',
-      outputs: '🍒',
+      outputs: '🍒'
     }
   };
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

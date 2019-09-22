@@ -1,14 +1,23 @@
-<div class="progress-bar" *ngIf="slides.length" fxLayout style="justify-content: space-between">
-  <span style="margin-right: 2vw;">{{title}}</span>
+<div
+  class="progress-bar"
+  *ngIf="slides.length"
+  fxLayout
+  style="justify-content: space-between"
+>
+  <span style="margin-right: 2vw;">{{ title }}</span>
   <span class="font-size">
-<kirjs-size-picker (sizeChange)="fontSizeChange.emit($event)" [size]="fontSize"></kirjs-size-picker>
-</span>
+    <kirjs-size-picker
+      (sizeChange)="fontSizeChange.emit($event)"
+      [size]="fontSize"
+    ></kirjs-size-picker>
+  </span>
   <div class="points-container" #progressBarDiv fxLayout>
-    <div *ngFor="let slide of slides; let i = index"
-         (click)="goToSlide(i)">
-      <div class="slide-block"
-           [class.completed-slide]="i < activeSlideIndex"
-           [class.current-slide]="i === activeSlideIndex"></div>
+    <div *ngFor="let slide of slides; let i = index" (click)="goToSlide(i)">
+      <div
+        class="slide-block"
+        [class.completed-slide]="i < activeSlideIndex"
+        [class.current-slide]="i === activeSlideIndex"
+      ></div>
     </div>
   </div>
 

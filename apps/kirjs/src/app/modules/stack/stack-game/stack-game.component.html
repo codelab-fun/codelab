@@ -1,10 +1,11 @@
 <div class="buttons" *ngIf="!isComplete">
-    <slides-stack-function-button *ngFor="let func of level.functions"
-                                  (click)="canAddFunction(stack, func) && addFunction(func)"
-      [disabled]="!canAddFunction(stack, func)"
-      [func]="func"
-    >
-    </slides-stack-function-button>
+  <slides-stack-function-button
+    *ngFor="let func of level.functions"
+    (click)="canAddFunction(stack, func) && addFunction(func)"
+    [disabled]="!canAddFunction(stack, func)"
+    [func]="func"
+  >
+  </slides-stack-function-button>
 </div>
 
 <div class="complete" *ngIf="isComplete">
@@ -12,13 +13,17 @@
 </div>
 
 <div class="history">
-  <div class=functions>
+  <div class="functions">
     <div class="item initial">Initial stack:</div>
-    <div  *ngFor="let func of functions; let last = last " style="display: flex;justify-content: flex-end">
-      <span (click)="removeFunction()" class="remove-button" *ngIf="last">ⓧ</span>
+    <div
+      *ngFor="let func of functions; let last = last"
+      style="display: flex;justify-content: flex-end"
+    >
+      <span (click)="removeFunction()" class="remove-button" *ngIf="last"
+        >ⓧ</span
+      >
       <slides-stack-function [func]="func" class="item"></slides-stack-function>
     </div>
-
   </div>
 
   <div class="stack">
@@ -30,12 +35,11 @@
     </div>
   </div>
 </div>
-<hr>
+<hr />
 
 <div class="history ">
   <div class="item initial">Expected:</div>
   <div class="item stack">
     <slides-simple-stack [value]="level.outputs"></slides-simple-stack>
   </div>
-
 </div>

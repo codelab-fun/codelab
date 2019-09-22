@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { forkJoin, Observable, Subject } from 'rxjs';
-import { Result, RunResult, WebAssemblyService } from '../../web-assembly.service';
+import {
+  Result,
+  RunResult,
+  WebAssemblyService
+} from '../../web-assembly.service';
 import {
   extractAllFunctions,
   extractFunction,
@@ -47,7 +51,10 @@ function verifyGlobalsInTests(tests, globals) {
   if (globals.length) {
     tests.forEach(test => {
       if (!test.imports) {
-        throw new Error('No imports present in the test. Function being tested expect the following: ' + globals.join(','));
+        throw new Error(
+          'No imports present in the test. Function being tested expect the following: ' +
+            globals.join(',')
+        );
       }
       if (!test.imports.config) {
         throw new Error('config property is missing on imports');
@@ -65,7 +72,6 @@ function testsHaveMemory(config: TestConfig) {
   return config.tests.some(t => t.memory);
 }
 
-
 function passOrNot(m: any, blockCode, allCode) {
   if (m.type === 'func') {
     return new Set(extractAllFunctions(allCode)).has(m.name);
@@ -81,7 +87,7 @@ function passOrNot(m: any, blockCode, allCode) {
   }
 
   if (m.type === 'global') {
-    return !!allCode.match(new RegExp('global\\\s*\\\$' + m.name));
+    return !!allCode.match(new RegExp('global\\s*\\$' + m.name));
   }
 
   if (m.type === 'global.rowSize') {
@@ -98,8 +104,11 @@ function passOrNot(m: any, blockCode, allCode) {
   }
 }
 
-export function webAssemblyModuleContentHandler(config: any, blockCode: string, allCode: string) {
-
+export function webAssemblyModuleContentHandler(
+  config: any,
+  blockCode: string,
+  allCode: string
+) {
   let hasUpassed = false;
   const milestones = config.milestones.map(m => {
     const pass = passOrNot(m, blockCode, allCode);
@@ -124,24 +133,38 @@ export function webAssemblyModuleContentHandler(config: any, blockCode: string, 
   };
 }
 
-export function webAssemblyTestHandler(config: TestConfig, blockCode: string, allCode: string): WebAssemblyTestConfig {
+export function webAssemblyTestHandler(
+  config: TestConfig,
+  blockCode: string,
+  allCode: string
+): WebAssemblyTestConfig {
   const originalCode = extractFunction(config.name, allCode);
-  const funcCode = extractFunctionWithDependencies(config.name, allCode, [config.name]);
+  const funcCode = extractFunctionWithDependencies(config.name, allCode, [
+    config.name
+  ]);
   const globals = extractGlobals(funcCode, allCode);
 
   const hasMemory = testsHaveMemory(config) || hasMemoryCalls(funcCode);
 
-  const table = hasTableCalls(funcCode, config) ? prepareTableCode(allCode) : '';
+  const table = hasTableCalls(funcCode, config)
+    ? prepareTableCode(allCode)
+    : '';
   const types = hasTypeCalls(funcCode) ? extractTypeCode(allCode) : '';
 
   verifyGlobalsInTests(config.tests, globals);
-  const wat = generateWatTestCode({globals, code: funcCode, name: config.name, hasMemory, types});
+  const wat = generateWatTestCode({
+    globals,
+    code: funcCode,
+    name: config.name,
+    hasMemory,
+    types
+  });
   const answer = wasmAnswers.get(config.name) as string;
 
   return {
     code: {
       wat,
-      js: require('!!raw-loader!./runner.js'),
+      js: require('!!raw-loader!./runner.js')
     },
     answer,
     globals,
@@ -149,7 +172,7 @@ export function webAssemblyTestHandler(config: TestConfig, blockCode: string, al
     ...config,
     mode: 'test',
     highlights: originalCode,
-    originalCode,
+    originalCode
   };
 }
 
@@ -163,8 +186,7 @@ export class WasmTestRunnerComponent {
   @Input() config: any;
   focused;
 
-  constructor(private readonly webAssemblyService: WebAssemblyService) {
-  }
+  constructor(private readonly webAssemblyService: WebAssemblyService) {}
 
   isFocused(test) {
     return this.focused ? test === this.focused : test.isFirstFailed;
@@ -172,67 +194,67 @@ export class WasmTestRunnerComponent {
 
   runTests() {
     this.focused = undefined;
-    const {tests, code, name, allCode, table} = this.config as any;
+    const { tests, code, name, allCode, table } = this.config as any;
 
     let hasFailures = false;
     const sources = (tests as any[]).map(test => {
-      return new Observable<TestResult>((subscriber) => {
+      return new Observable<TestResult>(subscriber => {
         const wat = populateTestCode(code.wat, test, allCode, table);
 
-        return this.webAssemblyService.run(wat, code.js, {
-          args: test.args,
-          imports: test.imports,
-          memory: test.memory,
-          name
-        }).subscribe(result => {
-          let pass = false;
-          if (result.type === 'result') {
-            if ('output' in test) {
-              pass = (result.value as RunResult).result === test.output;
+        return this.webAssemblyService
+          .run(wat, code.js, {
+            args: test.args,
+            imports: test.imports,
+            memory: test.memory,
+            name
+          })
+          .subscribe(result => {
+            let pass = false;
+            if (result.type === 'result') {
+              if ('output' in test) {
+                pass = (result.value as RunResult).result === test.output;
+              }
+
+              if ('expectedMemory' in test) {
+                const mem = new Uint32Array(
+                  (result.value as RunResult).exports.memory.buffer
+                );
+
+                pass = test.expectedMemory.every((m, i) => mem[i] === m);
+                test.actualMemory = mem.slice(0, test.expectedMemory.length);
+              }
             }
 
-            if ('expectedMemory' in test) {
-              const mem = new Uint32Array((result.value as RunResult).exports.memory.buffer);
+            let isFirstFailed = false;
 
-              pass = test.expectedMemory.every((m, i) => mem[i] === m);
-              test.actualMemory = mem.slice(0, test.expectedMemory.length);
+            if (!pass && !hasFailures) {
+              hasFailures = true;
+              isFirstFailed = true;
             }
-          }
 
-
-          let isFirstFailed = false;
-
-          if (!pass && !hasFailures) {
-            hasFailures = true;
-            isFirstFailed = true;
-          }
-
-          subscriber.next({
-            isFirstFailed,
-            pass: pass,
-            result,
-            ...test
+            subscriber.next({
+              isFirstFailed,
+              pass: pass,
+              result,
+              ...test
+            });
+            subscriber.complete();
           });
-          subscriber.complete();
-        });
       });
     });
 
     forkJoin(sources).subscribe(results => {
-      const error = results.find(({result}) => result.type === 'error');
+      const error = results.find(({ result }) => result.type === 'error');
       if (error) {
         this.result$.next(error.result as any);
         return;
       }
 
-      this.result$.next({type: 'result', value: results});
+      this.result$.next({ type: 'result', value: results });
     });
-
   }
 
   ngOnChanges() {
     this.runTests();
   }
-
-
 }

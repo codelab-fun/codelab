@@ -2,7 +2,6 @@ import { Component, Input, OnChanges, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Result, WebAssemblyService } from '../web-assembly.service';
 
-
 @Component({
   selector: 'kirjs-webassembly-runner',
   templateUrl: './webassembly-runner.component.html',
@@ -14,16 +13,17 @@ export class WebassemblyRunnerComponent implements OnChanges {
   @Input() width = 400;
   @Input() height = 1000;
 
-  @ViewChild('canvas', {static: true}) canvas;
+  @ViewChild('canvas', { static: true }) canvas;
 
   readonly result$ = new Subject<Result<string>>();
 
-  constructor(private readonly webAssemblyService: WebAssemblyService) {
-  }
+  constructor(private readonly webAssemblyService: WebAssemblyService) {}
 
   async ngOnChanges(changes) {
     const canvas = this.canvas.nativeElement;
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-    this.webAssemblyService.run(this.webAssemblyCode, this.jsCode, canvas).subscribe(this.result$);
+    this.webAssemblyService
+      .run(this.webAssemblyCode, this.jsCode, canvas)
+      .subscribe(this.result$);
   }
 }

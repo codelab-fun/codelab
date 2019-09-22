@@ -10,17 +10,15 @@ const lime = {
   text: 'G'
 };
 
-
 const red = {
   color: 'red',
   text: 'R'
 };
 
-
 export const rotate = [
   {
     args: [0, rowSize],
-    imports: {config: {rowSize}},
+    imports: { config: { rowSize } },
     output: 0,
     viz: {
       rowSize,
@@ -33,14 +31,14 @@ export const rotate = [
         {
           ...yellow,
           x: 0,
-          y: 1,
+          y: 1
         }
       ]
     }
   },
   {
     args: [rowSize, rowSize],
-    imports: {config: {rowSize}},
+    imports: { config: { rowSize } },
     output: 0,
     viz: {
       rowSize,
@@ -68,14 +66,14 @@ export const rotate = [
         {
           ...yellow,
           x: rowSize - 1,
-          y: 1,
+          y: 1
         }
       ]
     }
   },
   {
     args: [-1, rowSize],
-    imports: {config: {rowSize}},
+    imports: { config: { rowSize } },
     output: 4,
     viz: {
       rowSize,
@@ -103,7 +101,7 @@ export const rotate = [
         {
           ...yellow,
           x: 0,
-          y: 1,
+          y: 1
         }
       ]
     }
@@ -111,7 +109,7 @@ export const rotate = [
 
   {
     args: [longFowSize, longFowSize],
-    imports: {config: {rowSize: longFowSize}},
+    imports: { config: { rowSize: longFowSize } },
     output: 0,
     viz: {
       rowSize: longFowSize,
@@ -139,9 +137,9 @@ export const rotate = [
         {
           ...yellow,
           x: longFowSize - 1,
-          y: 1,
+          y: 1
         }
       ]
     }
-  },
+  }
 ];

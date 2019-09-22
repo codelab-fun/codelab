@@ -1,6 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
 
-
 export interface Figure {
   type?: 'rect' | 'circle';
   x: number;
@@ -17,12 +16,36 @@ export interface GridConfig {
 }
 
 const fakeMemory = [
-  0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
 ];
 
 interface DrawCellConfig extends Figure {
@@ -30,7 +53,15 @@ interface DrawCellConfig extends Figure {
   size: number;
 }
 
-function drawCell({context, size, x, y, color, text, type = 'rect'}: DrawCellConfig) {
+function drawCell({
+  context,
+  size,
+  x,
+  y,
+  color,
+  text,
+  type = 'rect'
+}: DrawCellConfig) {
   const gridShift = size;
   context.fillStyle = color;
   const x1 = gridShift + x * size;
@@ -43,7 +74,6 @@ function drawCell({context, size, x, y, color, text, type = 'rect'}: DrawCellCon
     context.arc(x1, y1, size, 0, Math.PI * 2, 0);
   }
 
-
   if (text !== undefined) {
     context.fillStyle = 'black';
     context.textAlign = 'center';
@@ -53,8 +83,14 @@ function drawCell({context, size, x, y, color, text, type = 'rect'}: DrawCellCon
   }
 }
 
-
-function resolveFuncOrValueForItem(funcOfValue: any, item, index, vizConfig, test, defaultValue) {
+function resolveFuncOrValueForItem(
+  funcOfValue: any,
+  item,
+  index,
+  vizConfig,
+  test,
+  defaultValue
+) {
   if (!funcOfValue) {
     return defaultValue;
   }
@@ -86,9 +122,8 @@ function resolveFuncOrValue(funcOfValue: any, vizConfig, defaultValue) {
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent {
-  @ViewChild('canvas', {static: true}) canvas;
+  @ViewChild('canvas', { static: true }) canvas;
   @Input() test: any;
-
 
   async ngOnChanges(changes) {
     const size = 40;
@@ -103,16 +138,30 @@ export class GridComponent {
       const x = i % config.rowSize;
       const y = Math.floor(i / config.rowSize);
 
-      const color = resolveFuncOrValueForItem(config.color, memory[i], i, config, this.test, '#ddd');
-      const text = resolveFuncOrValueForItem(config.text, memory[i], i, config, this.test, '');
+      const color = resolveFuncOrValueForItem(
+        config.color,
+        memory[i],
+        i,
+        config,
+        this.test,
+        '#ddd'
+      );
+      const text = resolveFuncOrValueForItem(
+        config.text,
+        memory[i],
+        i,
+        config,
+        this.test,
+        ''
+      );
 
-      drawCell({context, size, x, y, color, text});
+      drawCell({ context, size, x, y, color, text });
     }
 
     const extras = resolveFuncOrValue(config.extras, this.test, []);
 
-    for (const s of  extras) {
-      drawCell({context, size, ...s});
+    for (const s of extras) {
+      drawCell({ context, size, ...s });
     }
   }
 }

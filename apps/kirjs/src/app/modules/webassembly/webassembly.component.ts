@@ -18,8 +18,9 @@ import { Level } from '../stack/stack-game/stack-game.component';
 
 declare const require;
 
-export const wasmAnswers = extractAnswers(require('!!raw-loader!./samples/answer.wat'));
-
+export const wasmAnswers = extractAnswers(
+  require('!!raw-loader!./samples/answer.wat')
+);
 
 function generateArray(size = 89, callback) {
   const result = Array.from(new Array(size)).map((a, i) => 0);
@@ -48,7 +49,7 @@ function inPlace(rule) {
     return result;
   }
 
-  return function (grid) {
+  return function(grid) {
     return grid.map(transformRow);
   };
 }
@@ -63,7 +64,7 @@ function transform2d(rule) {
     return a;
   }, {});
 
-  return function (grid) {
+  return function(grid) {
     return grid.map((row, y) => {
       return row.map((cell, x) => {
         const px = (row.length + x - 1) % row.length;
@@ -93,7 +94,7 @@ function transform2d(rule) {
 
 function appendTransform(rule) {
   const transform = inPlace(rule);
-  return function (grid) {
+  return function(grid) {
     const lastRow = grid[grid.length - 1];
     grid.push(transform([lastRow])[0]);
     return grid;
@@ -112,10 +113,10 @@ const randomRules = new Array(8).fill(0).reduce(
     }
     return a;
   },
-  {survive: [], born: []}
+  { survive: [], born: [] }
 );
 
-const gameOfLifeRules = {survive: [2, 3], born: [3]};
+const gameOfLifeRules = { survive: [2, 3], born: [3] };
 const gameOfLife = transform2d(gameOfLifeRules);
 const randomPattern = new Array(30)
   .fill(0)
@@ -124,12 +125,11 @@ const randomPatternSparce = new Array(30)
   .fill(0)
   .map(() => new Array(60).fill(0).map(() => (Math.random() < 0.04 ? 1 : 0)));
 
-const labyrynthRules = {survive: [0, 1, 2, 3], born: [1]};
+const labyrynthRules = { survive: [0, 1, 2, 3], born: [1] };
 
-const labRules4 = {survive: [0, 1, 2, 3, 4], born: [1]};
-const labRules5 = {survive: [0, 1, 2, 3, 4, 5], born: [1]};
-const labRules6 = {survive: [0, 1, 2, 3, 4, 5, 6], born: [1]};
-
+const labRules4 = { survive: [0, 1, 2, 3, 4], born: [1] };
+const labRules5 = { survive: [0, 1, 2, 3, 4, 5], born: [1] };
+const labRules6 = { survive: [0, 1, 2, 3, 4, 5, 6], born: [1] };
 
 @Component({
   selector: 'kirjs-webassembly',
@@ -138,7 +138,7 @@ const labRules6 = {survive: [0, 1, 2, 3, 4, 5, 6], born: [1]};
 })
 export class WebassemblyComponent implements OnInit {
   patterns = {
-    rule90Start: generateArray(89, (a) => {
+    rule90Start: generateArray(89, a => {
       a[44] = 1;
       return a;
     })
@@ -146,8 +146,7 @@ export class WebassemblyComponent implements OnInit {
 
   fontSize = 30;
   examples = {
-    wat:
-      `(func $add
+    wat: `(func $add
     (param $x i32)
     (param $y i32)
     (result i32)
@@ -191,7 +190,7 @@ export class WebassemblyComponent implements OnInit {
       pattern: {
         randomPattern,
         randomPatternSparce,
-        stillLife: [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]],
+        stillLife: [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
       }
     }
   };
@@ -208,7 +207,7 @@ export class WebassemblyComponent implements OnInit {
     )
 )
 `,
-      js: require('!!raw-loader!./samples/base.js'),
+      js: require('!!raw-loader!./samples/base.js')
     },
     simple: {
       wat: require('!!raw-loader!./samples/base.wat'),
@@ -239,16 +238,15 @@ export class WebassemblyComponent implements OnInit {
 
   itIsALemon = false;
 
-
   addModeConfig = {
     wat: {
       func: {
         add: {
           description: 'Takes two numbers and adds them together',
-          tests: addTests,
-        },
-      },
-    },
+          tests: addTests
+        }
+      }
+    }
   };
   modeConfig = {
     wat: {
@@ -258,80 +256,85 @@ export class WebassemblyComponent implements OnInit {
       module: {
         default: {
           milestones: [
-            {type: 'func', name: 'rotate'},
-            {type: 'global.rowSize', name: 'rowSize'},
-            {type: 'func', name: 'getIndex'},
-            {type: 'global.step', name: 'step'},
-            {type: 'memory', name: 'memory'},
-            {type: 'func', name: 'loadCell'},
-            {type: 'func', name: 'storeCell'},
-            {type: 'func', name: 'shift'},
-            {type: 'func', name: 'loadPreviousCell'},
-            {type: 'func', name: 'getCellScore'},
-            {type: 'table', name: 'table'},
-            {type: 'elem', name: 'elem'},
-            {type: 'func', name: 'evolveCell'},
-            {type: 'func', name: 'evolveRow'},
-            {type: 'func', name: 'evolve'},
+            { type: 'func', name: 'rotate' },
+            { type: 'global.rowSize', name: 'rowSize' },
+            { type: 'func', name: 'getIndex' },
+            { type: 'global.step', name: 'step' },
+            { type: 'memory', name: 'memory' },
+            { type: 'func', name: 'loadCell' },
+            { type: 'func', name: 'storeCell' },
+            { type: 'func', name: 'shift' },
+            { type: 'func', name: 'loadPreviousCell' },
+            { type: 'func', name: 'getCellScore' },
+            { type: 'table', name: 'table' },
+            { type: 'elem', name: 'elem' },
+            { type: 'func', name: 'evolveCell' },
+            { type: 'func', name: 'evolveRow' },
+            { type: 'func', name: 'evolve' }
           ]
-        },
+        }
       },
       func: {
         add: {
           description: 'Takes two numbers and adds them together',
-          tests: addTests,
+          tests: addTests
         },
         rotate: {
-          description: 'Takes an index, and rotates it to be within the range of the line',
-          tests: rotate,
+          description:
+            'Takes an index, and rotates it to be within the range of the line',
+          tests: rotate
         },
         getIndex: {
-          description: 'Takes X and Y coordinate and returns index in the memory.',
-          tests: getIndex,
+          description:
+            'Takes X and Y coordinate and returns index in the memory.',
+          tests: getIndex
         },
         loadCell: {
-          description: 'Takes a position, calculates appropriate index and retrieves the data from memory',
-          tests: loadCellTests,
+          description:
+            'Takes a position, calculates appropriate index and retrieves the data from memory',
+          tests: loadCellTests
         },
         storeCell: {
           description: 'Stores single cell value im the memory',
-          tests: storeCellTests,
+          tests: storeCellTests
         },
         shift: {
-          description: 'Takes 3 0|1 value and generates 3 bit number merging them together',
-          tests: shiftTests,
+          description:
+            'Takes 3 0|1 value and generates 3 bit number merging them together',
+          tests: shiftTests
         },
         loadPreviousCell: {
           description: 'Loads previous cell',
-          tests: loadPreviousCellTests,
+          tests: loadPreviousCellTests
         },
         getCellScore: {
           description: 'Looks for 3 cells before, and gets a number 0-7',
-          tests: getCellScoreTests,
+          tests: getCellScoreTests
         },
         evolveCell: {
-          description: 'Evolves single cell based on values of the previous cells',
-          tests: evolveCellTests,
+          description:
+            'Evolves single cell based on values of the previous cells',
+          tests: evolveCellTests
         },
         evolveRow: {
-          description: 'Evolves the whole row based on valueds of the previous row',
-          tests: evolveRowTests,
+          description:
+            'Evolves the whole row based on valueds of the previous row',
+          tests: evolveRowTests
         },
         evolve: {
           description: 'Evolves the whole thing N generations',
-          tests: evolveTests,
+          tests: evolveTests
         },
-
 
         enable: {
           description: 'This should always return 1',
-          tests: enableTests,
+          tests: enableTests
         },
         disable: {
           description: 'This should always return 0',
-          tests: disableTests,
-        },
-      },
+          tests: disableTests
+        }
+      }
     },
     ts: {
       SourceFile: {
@@ -355,10 +358,10 @@ export class WebassemblyComponent implements OnInit {
           inputs: '',
           outputs: '🍋',
           name: 'push 🍋'
-        },
+        }
       ],
       inputs: '',
-      outputs: '🍏🍋🍏',
+      outputs: '🍏🍋🍏'
     },
 
     pop: {
@@ -367,10 +370,10 @@ export class WebassemblyComponent implements OnInit {
           inputs: '＊',
           outputs: '',
           name: 'pop'
-        },
+        }
       ],
       inputs: '🍏🍏🍏🍏🍏',
-      outputs: '🍏',
+      outputs: '🍏'
     },
 
     together: {
@@ -389,48 +392,47 @@ export class WebassemblyComponent implements OnInit {
           inputs: '',
           outputs: '🍋',
           name: 'push 🍋'
-        },
+        }
       ],
       inputs: '🍏🍏',
-      outputs: '🍓🍋',
+      outputs: '🍓🍋'
     },
-
 
     lemonade: {
       functions: [
         {
           inputs: '',
-          outputs: '💦',
+          outputs: '💦'
         },
         {
           inputs: '',
-          outputs: '🍋',
+          outputs: '🍋'
         },
         {
           inputs: '',
-          outputs: '🍒',
+          outputs: '🍒'
         },
         {
           inputs: '🍒💦🍋',
-          outputs: '🍹',
-        },
+          outputs: '🍹'
+        }
       ],
       inputs: '',
-      outputs: '🍹',
+      outputs: '🍹'
     },
     level1: {
       functions: [
         {
           inputs: '',
-          outputs: '🍏🍏',
+          outputs: '🍏🍏'
         },
         {
           inputs: '',
-          outputs: '🍋',
+          outputs: '🍋'
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒',
+          outputs: '🍒'
         },
         {
           inputs: '＊',
@@ -439,7 +441,7 @@ export class WebassemblyComponent implements OnInit {
         }
       ],
       inputs: '🍏',
-      outputs: '🍒',
+      outputs: '🍒'
     },
     level2: {
       functions: [
@@ -450,11 +452,11 @@ export class WebassemblyComponent implements OnInit {
         },
         {
           inputs: '🍏🍏',
-          outputs: '🍋',
+          outputs: '🍋'
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒',
+          outputs: '🍒'
         },
         {
           inputs: '＊',
@@ -463,14 +465,11 @@ export class WebassemblyComponent implements OnInit {
         }
       ],
       inputs: '🍏',
-      outputs: '🍒',
+      outputs: '🍒'
     }
   };
 
+  constructor() {}
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

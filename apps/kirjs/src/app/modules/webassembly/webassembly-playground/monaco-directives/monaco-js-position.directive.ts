@@ -1,4 +1,11 @@
-import { AfterViewInit, Directive, EventEmitter, Optional, Output, Self } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  EventEmitter,
+  Optional,
+  Output,
+  Self
+} from '@angular/core';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 import { serializeBlocks } from '../../utils';
@@ -10,7 +17,10 @@ const printer = ts.createPrinter({
   newLine: ts.NewLineKind.LineFeed
 });
 
-const usefulTypes = new Set([ts.SyntaxKind.SourceFile, ts.SyntaxKind.FunctionDeclaration]);
+const usefulTypes = new Set([
+  ts.SyntaxKind.SourceFile,
+  ts.SyntaxKind.FunctionDeclaration
+]);
 
 function getName(token) {
   if (token.kind === ts.SyntaxKind.FunctionDeclaration) {
@@ -19,22 +29,16 @@ function getName(token) {
 }
 
 function resolveToken(token, sourceFile) {
-  const code = printer.printNode(
-    ts.EmitHint.Unspecified,
-    token,
-    sourceFile
-  );
-
+  const code = printer.printNode(ts.EmitHint.Unspecified, token, sourceFile);
 
   const name = getName(token);
   return {
     code,
     type: ts.SyntaxKind[token.kind],
     ...token,
-    name,
+    name
   };
 }
-
 
 function processBlocks(blocks: any[], sourceFile) {
   return blocks
@@ -52,13 +56,12 @@ export class MonacoJsPositionDirective implements AfterViewInit {
   lastResult: string;
 
   constructor(
-    @Self() @Optional() private editorInjector: CodeDemoEditorInjector,
-  ) {
-  }
+    @Self() @Optional() private editorInjector: CodeDemoEditorInjector
+  ) {}
 
   ngAfterViewInit() {
     const editor = this.editorInjector.editor;
-    editor.onDidChangeCursorPosition(({position}) => {
+    editor.onDidChangeCursorPosition(({ position }) => {
       const model = editor.getModel();
       const value = model.getValue();
       const sourceFile = ts.createSourceFile(
@@ -83,7 +86,10 @@ export class MonacoJsPositionDirective implements AfterViewInit {
       const key = result + value;
       if (this.lastResult !== key) {
         this.lastResult = key;
-        this.slidesMonacoJsPosition.emit({type: 'ts', blocks: processedBlocks});
+        this.slidesMonacoJsPosition.emit({
+          type: 'ts',
+          blocks: processedBlocks
+        });
       }
     });
   }

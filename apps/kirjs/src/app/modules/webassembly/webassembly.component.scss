@@ -8,13 +8,11 @@
   p {
     font-weight: 300;
   }
-
 }
 
 ::ng-deep {
   font-weight: 300;
 }
-
 
 .button-wrapper {
   margin: 20px 0;
@@ -30,7 +28,6 @@
   }
 }
 
-
 .grid-header {
   display: flex;
   margin-top: 20px;
@@ -41,13 +38,10 @@
 }
 
 .img {
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   box-shadow: 0 0 10px #444 inset;
-
-
 }
 
 .img.milica {
@@ -100,7 +94,6 @@
   width: 800px;
   height: 800px;
 }
-
 
 .img-30-2 {
   background-image: url('./pics/30-2.png');

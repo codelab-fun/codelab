@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 declare const require;
 // TODO(kirjs): Find a better way.
-const wabt = (function () {
+const wabt = (function() {
   // Needed to make umd properly export stuff.
   const exports = {};
   const module = {};
@@ -17,7 +17,6 @@ export interface Result<T> {
   error?: string;
 }
 
-
 function wat2wasm(wat) {
   const module = wabt.parseWat('main.wasm', wat);
   const binary = module.toBinary({
@@ -29,14 +28,12 @@ function wat2wasm(wat) {
   return binary.buffer;
 }
 
-
 export interface RunConfig {
   args: any[];
   imports: any;
   name: string;
   memory?: number[];
 }
-
 
 export interface RunResult {
   result: number;
@@ -47,11 +44,10 @@ export interface RunResult {
   providedIn: 'root'
 })
 export class WebAssemblyService {
-  constructor() {
-  }
+  constructor() {}
 
   run<T>(wat: string, js: string, wasmConfig: RunConfig) {
-    return new Observable<Result<RunResult>>((subscriber) => {
+    return new Observable<Result<RunResult>>(subscriber => {
       try {
         const wasm = wat2wasm(wat);
 
@@ -88,14 +84,13 @@ export class WebAssemblyService {
           value: e.message
         });
         subscriber.complete();
-
       }
     });
   }
 
   saveWasmFile(code: string) {
     function saveByteArray(name, byte) {
-      const blob = new Blob([byte], {type: 'application/wasm'});
+      const blob = new Blob([byte], { type: 'application/wasm' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
       link.download = name;

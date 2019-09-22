@@ -13,7 +13,6 @@
   animation: toColor 5s infinite linear, size 5s linear;
 }
 
-
 @keyframes size {
   0% {
     width: 60vh;
@@ -27,20 +26,18 @@
 
 @keyframes toColor {
   0% {
-    background: #000
+    background: #000;
   }
   45% {
-    background: #000
+    background: #000;
   }
   50% {
-    background: #fff
+    background: #fff;
   }
   95% {
-    background: #fff
+    background: #fff;
   }
   100% {
-    background: #000
+    background: #000;
   }
 }
-
-

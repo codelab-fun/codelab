@@ -10,10 +10,9 @@ export class StackFunctionComponent implements OnInit {
   @Input() func: StackFunction;
 
   @HostBinding('class.disabled')
-  @Input() disabled = false;
-  constructor() { }
+  @Input()
+  disabled = false;
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -9,10 +9,7 @@ export class SingleGridComponent implements OnInit {
   readonly f = [...new Array(9)].map((a, i) => i);
   readonly randomDelays = this.f.map(a => this.f.map(b => Math.random() * 5));
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

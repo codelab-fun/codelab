@@ -11,9 +11,10 @@ export class Rule4Component {
   after: number[];
 
   ngOnChanges() {
-    this.after = this.test.table.map(a => a === 'enable' ? 1 : 0);
+    this.after = this.test.table.map(a => (a === 'enable' ? 1 : 0));
 
-    this.before = new Array(8).fill(0)
+    this.before = new Array(8)
+      .fill(0)
       .map((v, i) =>
         (8 + i)
           .toString(2)
@@ -22,5 +23,4 @@ export class Rule4Component {
       )
       .reverse();
   }
-
 }

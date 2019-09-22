@@ -8,10 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SingleCellComponent implements OnInit {
   @Input() single = true;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

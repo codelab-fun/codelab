@@ -1,4 +1,4 @@
-::ng-deep [name="section-type"] {
+::ng-deep [name='section-type'] {
   display: block;
   flex-basis: 100%;
   background: #444 !important;

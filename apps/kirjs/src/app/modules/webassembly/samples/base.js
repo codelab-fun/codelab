@@ -20,7 +20,7 @@ function drawOnCanvas(canvas, arr) {
 }
 
 async function run(code, canvas) {
-  const result = await WebAssembly.instantiate(code, {config});
+  const result = await WebAssembly.instantiate(code, { config });
 
   let memory = new Uint32Array(result.instance.exports.memory.buffer);
   memory[Math.round(config.rowSize / 2)] = 1;

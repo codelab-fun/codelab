@@ -52,7 +52,7 @@ export class CodeDemoEditorComponent
 
   @Output() change = new EventEmitter();
   @Output() selectionChange = new EventEmitter();
-  @ViewChild('editor', {static: false}) editorEl;
+  @ViewChild('editor', { static: false }) editorEl;
   code: string;
   private subscription: Subscription;
 
@@ -65,8 +65,7 @@ export class CodeDemoEditorComponent
       .subscribe(a => this.change.emit(a));
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
   registerOnChange(onChange: (code: string) => void): void {
     this.change.subscribe(onChange);
@@ -88,7 +87,7 @@ export class CodeDemoEditorComponent
     if (this.editor && this.code) {
       const actualFontSize =
         (this.fontSize * document.documentElement.clientWidth) / 1800;
-      this.editor.updateOptions({fontSize: actualFontSize});
+      this.editor.updateOptions({ fontSize: actualFontSize });
       const lines = this.code.split('\n').length;
       const lineHeight = actualFontSize * 1.6;
       const height = Math.max(lines * lineHeight, lineHeight * this.minLines);
@@ -139,9 +138,10 @@ export class CodeDemoEditorComponent
       }
     );
 
-
-    this.editor.onDidChangeCursorSelection(({selection}) => {
-      this.selectionChange.emit(this.editor.getModel().getValueInRange(selection));
+    this.editor.onDidChangeCursorSelection(({ selection }) => {
+      this.selectionChange.emit(
+        this.editor.getModel().getValueInRange(selection)
+      );
     });
 
     this.model.onDidChangeContent(() => {

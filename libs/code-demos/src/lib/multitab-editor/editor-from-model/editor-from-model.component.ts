@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, Input, OnDestroy, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
 
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
@@ -12,7 +18,7 @@ import ITextModel = editor.ITextModel;
   providers: [CodeDemoEditorInjector]
 })
 export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('editor', {static: false}) el;
+  @ViewChild('editor', { static: false }) el;
   fontSize = 14;
   editor: any;
   height = 0;
@@ -22,8 +28,7 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   constructor(
     private editorInjector: CodeDemoEditorInjector,
     readonly monacoConfigService: MonacoConfigService
-  ) {
-  }
+  ) {}
 
   @Input('model') set setModel(model: ITextModel) {
     this.model = model;

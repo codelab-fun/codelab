@@ -14,8 +14,7 @@ export class NewProgressBarComponent {
   activeSlideIndex = 0;
   tempSlideId = 0;
 
-  constructor(public deck: SlidesDeckComponent) {
-  }
+  constructor(public deck: SlidesDeckComponent) {}
 
   ngAfterViewInit() {
     // Change detection complains if updating it right away.

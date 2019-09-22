@@ -10,5 +10,4 @@ import { StackFunction } from '../stack-game.component';
 export class StackFunctionButtonComponent {
   @Input() func: StackFunction;
   @Input() disabled = false;
-
 }

@@ -4,17 +4,9 @@ import { RouterModule } from '@angular/router';
 import { StackComponent } from './stack.component';
 import { StackModule } from './stack.module';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(StackComponent)
-);
-
+const routes = RouterModule.forChild(SlidesRoutes.get(StackComponent));
 
 @NgModule({
-
-  imports: [
-    StackModule,
-    routes
-  ]
+  imports: [StackModule, routes]
 })
-export class StackRoutingModule {
-}
+export class StackRoutingModule {}

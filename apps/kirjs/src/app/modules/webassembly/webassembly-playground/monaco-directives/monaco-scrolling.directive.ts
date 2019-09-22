@@ -10,15 +10,16 @@ export class MonacoScrollingDirective implements OnChanges {
   lastValue: string;
 
   constructor(
-    @Self() @Optional() private editorInjector: CodeDemoEditorInjector,
-  ) {
-  }
+    @Self() @Optional() private editorInjector: CodeDemoEditorInjector
+  ) {}
 
   ngOnChanges(changes) {
     const editor = this.editorInjector.editor;
-    if (editor &&
+    if (
+      editor &&
       changes.slidesMonacoScrolling &&
-      changes.slidesMonacoScrolling.currentValue !== this.lastValue) {
+      changes.slidesMonacoScrolling.currentValue !== this.lastValue
+    ) {
       this.lastValue = this.slidesMonacoScrolling;
 
       if (this.slidesMonacoScrolling) {
@@ -26,7 +27,6 @@ export class MonacoScrollingDirective implements OnChanges {
           editor.getModel().getValue(),
           this.slidesMonacoScrolling
         );
-
 
         // This does not really work
         editor.revealRangeInCenter({
@@ -38,5 +38,4 @@ export class MonacoScrollingDirective implements OnChanges {
       }
     }
   }
-
 }

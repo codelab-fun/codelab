@@ -8,9 +8,8 @@ describe('WasmContentsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WasmContentsComponent ]
-    })
-    .compileComponents();
+      declarations: [WasmContentsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
