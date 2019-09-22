@@ -229,7 +229,7 @@
     ></code-demo>
   </div>
 
-  <!--  BINDING EVENT -->
+  <!--  BINDING EVENTS -->
   <div *slide id="event-binding" milestone="Templates2">
     <codelab-breadcrumb i18n>Event binding: (event)</codelab-breadcrumb>
     <h2 i18n>
@@ -237,9 +237,10 @@
       the component with different data.
     </h2>
     <code-demo
-      [files]="code.eventBindingExtraFiles"
+      [files]="code.eventBinding.files"
+      [highlights]="code.eventBinding.highlights"
       [allowSwitchingFiles]="false"
-      [(ngModel)]="code.eventBindingExtra"
+      [(ngModel)]="code.eventBinding.code"
     ></code-demo>
     <div class="info" i18n>
       While Parentheses are used for event binding: <b>(event)</b>, "on-" can
