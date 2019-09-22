@@ -223,50 +223,60 @@
       Angular supports more advanced property bindings than just attribute name
     </h2>
     <code-demo
-      [files]="code.template.dataBindingExtraFiles"
+      [files]="code.template.dataBindingExtra.files"
       [allowSwitchingFiles]="false"
-      [(ngModel)]="code.template.dataBindingExtra"
+      [(ngModel)]="code.template.dataBindingExtra.code"
     ></code-demo>
   </div>
 
-  <!--  BINDING EVENT -->
   <div *slide id="event-binding" milestone="Templates2">
     <codelab-breadcrumb i18n>Event binding: (event)</codelab-breadcrumb>
     <h2 i18n>
-      Event bindings accept a callback which can be called from the inside of
-      the component with different data.
+      For handling user actions we can use event bindings.
+      To do that we wrap the event name in parentheses, and pass an expression performing required action:
     </h2>
-    <code-demo-file-path path="app.component.html"></code-demo-file-path>
-    <code-demo-editor
-      [(ngModel)]="code.eventBinding"
-      [fontSize]="25"
-      [codeDemoHighlight]="[code.eventBindingMatch]"
-      language="html"
-    >
-    </code-demo-editor>
+    <code-demo
+      [files]="code.eventBinding.files"
+      [highlights]="code.eventBinding.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.eventBinding.code"
+    ></code-demo>
     <div class="info" i18n>
       While Parentheses are used for event binding: <b>(event)</b>, "on-" can
-      also be used: <b>on-event</b>.
+      also be used, e.g. <b>on-click</b> is the same as <b>(click)</b>.
     </div>
   </div>
 
-  <!--  REFERENCE BINDING -->
-  <div *slide id="reference-binding" milestone="Templates2">
-    <codelab-breadcrumb i18n>Reference binding ( #var )</codelab-breadcrumb>
+  <div *slide id="reference-bindings" milestone="Templates2">
+    <codelab-breadcrumb i18n>Event binding shortcuts</codelab-breadcrumb>
     <h2 i18n>
-      Sometimes we need to access an HTML element or Angular component from the
-      template. We can mark it with <b>#userName</b>, and it becomes available
-      as <b>userName</b> everywhere in the template
+      For the cases when we need to access an HTML element or Angular component from the
+      template. We can mark it with <b>#name</b>, and it becomes available
+      as <b>name</b> everywhere in the template:
     </h2>
+    <code-demo
+      [files]="code.referenceBinding.files"
+      [highlights]="code.referenceBinding.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.referenceBinding.code"
+    ></code-demo>
+    <div class="info" i18n>
+      We'll learn a better way to work with inputs in Forms milestone.
+    </div>
+  </div>
 
-    <code-demo-file-path path="app.component.html"></code-demo-file-path>
-    <code-demo-editor
-      [(ngModel)]="code.bindingRef"
-      [fontSize]="25"
-      [codeDemoHighlight]="[code.bindingRefMatch, code.bindingRef2Match]"
-      language="html"
-    >
-    </code-demo-editor>
+  <div *slide id="event-binding-shortcuts" milestone="Templates2">
+    <codelab-breadcrumb i18n>Event binding shortcuts</codelab-breadcrumb>
+    <h2 i18n>
+      Angular also provides a shortcut for handling keyboard shortcuts.
+      Try updating the message by pressing Control + Enter in the input.
+    </h2>
+    <code-demo
+      [files]="code.eventBindingShortcuts.files"
+      [highlights]="code.eventBindingShortcuts.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.eventBindingShortcuts.code"
+    ></code-demo>
   </div>
 
   <!--  CONDITIONAL DISPLAY-->

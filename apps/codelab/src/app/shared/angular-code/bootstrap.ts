@@ -1,10 +1,7 @@
-import { NgModule } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { BrowserModule } from '@angular/platform-browser';
-import { BirthdayCardComponent } from './birthday-card';
-import { AppComponent } from './app.component';
 import { ResourceLoader } from '@angular/compiler';
 import * as code from './code';
+import { AppModule } from './app.module';
 
 class MyResourceLoader extends ResourceLoader {
   get(url: string): Promise<string> {
@@ -21,12 +18,6 @@ class MyResourceLoader extends ResourceLoader {
   }
 }
 
-@NgModule({
-  imports: [BrowserModule],
-  declarations: [AppComponent, BirthdayCardComponent],
-  bootstrap: [AppComponent]
-})
-export class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule, [
   {
