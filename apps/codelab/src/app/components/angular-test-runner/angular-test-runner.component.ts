@@ -22,8 +22,6 @@ import * as babel_types from 'babel-types';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Subscription } from 'rxjs/internal/Subscription';
 
-declare const require;
-
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
