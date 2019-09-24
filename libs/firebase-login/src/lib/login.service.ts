@@ -11,7 +11,7 @@ import { auth } from 'firebase/app';
 export class LoginService {
   readonly user$ = this.auth.user;
   readonly isAnonymous$ = this.auth.user.pipe(
-    map(u => u ? u.isAnonymous : true)
+    map(u => (u ? u.isAnonymous : true))
   );
   readonly uid$ = this.user$.pipe(map(user => user && user.uid));
   readonly preferredStatus$ = new BehaviorSubject(SyncStatus.ADMIN);
@@ -25,7 +25,8 @@ export class LoginService {
   }
 
   anonymousLogin() {
-    return this.auth.auth.signInAnonymously()
+    return this.auth.auth
+      .signInAnonymously()
       .then(() => console.log('successful login'))
       .catch(error => console.log(error));
   }

@@ -1,8 +1,7 @@
-<h2>Message: {{message}}</h2>
+<h2>Message: {{ message }}</h2>
 
-<input #input>
+<input #input />
 
 <button (click)="message = input.value; input.value = ''">
   Update message
 </button>
-

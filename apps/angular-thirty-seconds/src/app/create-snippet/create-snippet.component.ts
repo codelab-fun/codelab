@@ -1,15 +1,36 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent, MatDialog } from '@angular/material';
+import {
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+  MatChipInputEvent,
+  MatDialog
+} from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs/internal/Observable';
 import { finalize, map } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
-import { angularSampleCode, LINKS_PLACEHOLDER, MARKDOWN_PLACEHOLDER, TAGS_LIST } from '../shared';
+import {
+  angularSampleCode,
+  LINKS_PLACEHOLDER,
+  MARKDOWN_PLACEHOLDER,
+  TAGS_LIST
+} from '../shared';
 import { SnippetService } from '../shared/services/snippet.service';
-import { markFormControlsAsTouched, validatorMaxLines, validatorMaxTags } from '../shared/functions/validation';
+import {
+  markFormControlsAsTouched,
+  validatorMaxLines,
+  validatorMaxTags
+} from '../shared/functions/validation';
 import { parseSnippet } from '../shared/functions/parse-snippet';
 import { SEPARATOR } from '../shared/consts';
 
@@ -20,9 +41,8 @@ interface SnippetFileInfo {
   branchName: string;
 }
 
-
 function importSnippet(snippet) {
-  const result = {...snippet};
+  const result = { ...snippet };
   result.links = (result.links || []).join(SEPARATOR);
   return result;
 }
@@ -34,9 +54,10 @@ function importSnippet(snippet) {
   styleUrls: ['./create-snippet.component.scss']
 })
 export class CreateSnippetComponent implements OnDestroy {
-
-  @ViewChild('tagInput', {static: false}) tagInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
+  @ViewChild('tagInput', { static: false }) tagInput: ElementRef<
+    HTMLInputElement
+  >;
+  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
 
   repoName: string;
   repoOwner: string;
@@ -56,7 +77,10 @@ export class CreateSnippetComponent implements OnDestroy {
     twitter: [''],
     level: ['beginner', Validators.required],
     tags: [this.tags, [Validators.required, validatorMaxTags(5)]],
-    content: [MARKDOWN_PLACEHOLDER, [Validators.required, validatorMaxLines(25)]],
+    content: [
+      MARKDOWN_PLACEHOLDER,
+      [Validators.required, validatorMaxLines(25)]
+    ],
     bonus: [''],
     links: [LINKS_PLACEHOLDER],
     demo: [angularSampleCode]
@@ -84,35 +108,40 @@ export class CreateSnippetComponent implements OnDestroy {
       this.fetchPR(pullNumber);
     }
 
-    this.filteredTags = this.snippetForm.get('tags').valueChanges.pipe(
-      map((tags: string) => tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice())
-    );
+    this.filteredTags = this.snippetForm
+      .get('tags')
+      .valueChanges.pipe(
+        map((tags: string) =>
+          tags ? this._filterTags(tags.slice(-1)[0]) : this.TAGS_LIST.slice()
+        )
+      );
   }
 
   fetchPR(pullNumber: number) {
     this.isLoading = true;
-    this.snippetService.fetchPR(this.repoName, this.repoOwner, pullNumber).pipe(
-      finalize(() => {
-        this.isLoading = false;
-        this.cd.markForCheck();
-      })).subscribe((snippetFileInfo: SnippetFileInfo) => {
+    this.snippetService
+      .fetchPR(this.repoName, this.repoOwner, pullNumber)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+          this.cd.markForCheck();
+        })
+      )
+      .subscribe((snippetFileInfo: SnippetFileInfo) => {
+        this.snippetFileInfo = snippetFileInfo;
 
-      this.snippetFileInfo = snippetFileInfo;
-
-      const snippet = importSnippet(parseSnippet(snippetFileInfo.snippet));
-      if (snippet.demo) {
-        this.hasDemo = true;
-      }
-      if (snippet.bonus) {
-        this.hasBonus = true;
-      }
-      if (snippet.links) {
-        this.hasLinks = true;
-      }
-      this.snippetForm.patchValue(snippet);
-    });
-
-
+        const snippet = importSnippet(parseSnippet(snippetFileInfo.snippet));
+        if (snippet.demo) {
+          this.hasDemo = true;
+        }
+        if (snippet.bonus) {
+          this.hasBonus = true;
+        }
+        if (snippet.links) {
+          this.hasLinks = true;
+        }
+        this.snippetForm.patchValue(snippet);
+      });
   }
 
   ngOnDestroy() {
@@ -120,18 +149,19 @@ export class CreateSnippetComponent implements OnDestroy {
     this.destroy.complete();
   }
 
-
   openPreview() {
     if (this.snippetForm.valid) {
       this.dialog.open(SnippetOverviewComponent, {
         data: {
           formValue: this.getPreparedFormValue(this.snippetForm.value),
           isEditing: this.isEditing,
-          fileInfo: this.snippetFileInfo ? {
-            sha: this.snippetFileInfo['sha'],
-            fileName: this.snippetFileInfo['fileName'],
-            branchName: this.snippetFileInfo['branchName']
-          } : null,
+          fileInfo: this.snippetFileInfo
+            ? {
+                sha: this.snippetFileInfo['sha'],
+                fileName: this.snippetFileInfo['fileName'],
+                branchName: this.snippetFileInfo['branchName']
+              }
+            : null,
           repoName: this.repoName,
           repoOwner: this.repoOwner
         }
@@ -143,7 +173,8 @@ export class CreateSnippetComponent implements OnDestroy {
 
   getPreparedFormValue(value) {
     Object.keys(value['demo']).forEach(x => {
-      const isChangedAndNotEmpty = this.hasDemo && value.demo[x] && value.demo[x] !== angularSampleCode[x];
+      const isChangedAndNotEmpty =
+        this.hasDemo && value.demo[x] && value.demo[x] !== angularSampleCode[x];
       value['demo'][x] = isChangedAndNotEmpty ? value.demo[x] : null;
     });
     value['bonus'] = this.hasBonus ? value['bonus'] : null;
@@ -181,7 +212,8 @@ export class CreateSnippetComponent implements OnDestroy {
 
   private _filterTags(value: string): string[] {
     const filterValue = value ? value.toLowerCase() : null;
-    return this.TAGS_LIST.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
+    return this.TAGS_LIST.filter(
+      tag => tag.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 }
-

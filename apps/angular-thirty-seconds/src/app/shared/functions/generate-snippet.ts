@@ -7,16 +7,21 @@ const config = {
   body: ['content', 'bonus']
 };
 
-
 function arrayToMarkdownList(tagsArray: Array<string>): string {
-  return tagsArray.filter(a => a).map(x => `- ${x}`).join(`\n`);
+  return tagsArray
+    .filter(a => a)
+    .map(x => `- ${x}`)
+    .join(`\n`);
 }
 
 function generateMdHeader(keys: string[], snippet: Snippet) {
-  return keys.map(key => ({
-    key, value: snippet[key]
-  })).filter(({value}) => !!value)
-    .map(({value, key}) => {
+  return keys
+    .map(key => ({
+      key,
+      value: snippet[key]
+    }))
+    .filter(({ value }) => !!value)
+    .map(({ value, key }) => {
       if (typeof value === 'string') {
         return `${key}: ${value}`;
       }
@@ -29,24 +34,24 @@ ${arrayToMarkdownList(value)}`;
     .join(SEPARATOR);
 }
 
-const ucFirst = (s) => {
+const ucFirst = s => {
   if (typeof s !== 'string') {
     return '';
   }
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-
 const extensionTolanguage = {
-  'ts': 'typescript',
-  'js': 'javascript',
+  ts: 'typescript',
+  js: 'javascript'
 };
 
 function getFileLanguage(fileName) {
-  const fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length) || fileName;
+  const fileExtension =
+    fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length) ||
+    fileName;
   return extensionTolanguage[fileExtension] || fileExtension;
 }
-
 
 /**
  * Drop markdown "```language```" from the code
@@ -57,17 +62,19 @@ ${code}
 \`\`\``;
 }
 
-
 function generateMdBody(keys: string[], snippet: Snippet) {
-  return keys.map(key => ({
-    key, value: snippet[key]
-  }))
-    .filter(({value, key}) => !!value)
-    .map(({value, key}) => {
+  return keys
+    .map(key => ({
+      key,
+      value: snippet[key]
+    }))
+    .filter(({ value, key }) => !!value)
+    .map(({ value, key }) => {
       return `# ${ucFirst(key)}
 ${value}
 `;
-    }).join(SEPARATOR);
+    })
+    .join(SEPARATOR);
 }
 
 function generateDemo(snippet) {
@@ -75,12 +82,15 @@ function generateDemo(snippet) {
     return '';
   }
 
-  return Object.entries(snippet.demo)
-    .filter(([key, value]) =>  value && value !== angularSampleCode[key])
-    .map(([key, value]) => {
-      return `# file:${key}
+  return (
+    Object.entries(snippet.demo)
+      .filter(([key, value]) => value && value !== angularSampleCode[key])
+      .map(([key, value]) => {
+        return `# file:${key}
 ${addMarkdownLanguageMark(value.toString(), key)}`;
-    }).join(SEPARATOR) + SEPARATOR;
+      })
+      .join(SEPARATOR) + SEPARATOR
+  );
 }
 
 export function generateSnippet(snippet: Snippet) {

@@ -29,7 +29,13 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, FeedComponent, PostComponent, SinglePostComponent],
+  declarations: [
+    AppComponent,
+    FormComponent,
+    FeedComponent,
+    PostComponent,
+    SinglePostComponent
+  ],
   imports: [
     BrowserModule,
     MarkdownModule.forRoot(),
@@ -42,10 +48,9 @@ const appRoutes: Routes = [
     MatCardModule,
 
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled' })
-
   ],
   providers: [FormService],
   bootstrap: [AppComponent],
   exports: [FormComponent]
 })
-export class AppModule { }
+export class AppModule {}

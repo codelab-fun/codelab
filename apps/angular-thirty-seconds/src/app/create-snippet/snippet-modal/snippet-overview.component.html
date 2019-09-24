@@ -6,15 +6,11 @@
 </mat-dialog-content>
 <div class="snippet-modal-footer">
   <mat-dialog-actions>
-    <button mat-button
-            (click)="this.dialogRef.close()">
+    <button mat-button (click)="this.dialogRef.close()">
       Back to form
     </button>
-    <button mat-button
-            (click)="onSubmit()"
-            cdkFocusInitial
-            class="btn-submit">
-      {{isEditing ? 'Edit' : 'Create'}} Snippet
+    <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-submit">
+      {{ isEditing ? 'Edit' : 'Create' }} Snippet
     </button>
   </mat-dialog-actions>
 </div>
@@ -22,4 +18,3 @@
 <ng-container *ngIf="isPRCreating">
   <codelab-snippet-spinner></codelab-snippet-spinner>
 </ng-container>
-

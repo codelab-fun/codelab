@@ -25,8 +25,12 @@ try {
   const codelab = new Codelab(guests);
 
 // Angular is so much better than this:
-  document.body.innerHTML = '<ul>' +
-    codelab.getGuestsComing().map((guest: Guest) => `<li>${guest.name}</li>`).join('') +
+  document.body.innerHTML =
+  '<ul>' +
+    codelab
+    .getGuestsComing()
+    .map((guest: Guest) => `<li>${guest.name}</li>`)
+    .join('') +
     '</ul>';
 
 } catch (e) {

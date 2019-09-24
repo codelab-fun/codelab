@@ -21,16 +21,11 @@ import { SlidesModule } from '@codelab/slides';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { ButtonsNavBarModule } from '../../../../../codelab/src/app/components/buttons-nav-bar/buttons-nav-bar.module';
 
+const routes = RouterModule.forChild(SlidesRoutes.get(SvgRaceComponent));
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(SvgRaceComponent)
-);
-
-
-@Pipe({name: 'safeHtml'})
+@Pipe({ name: 'safeHtml' })
 export class SafeHtml implements PipeTransform {
-  constructor(private readonly sanitizer: DomSanitizer) {
-  }
+  constructor(private readonly sanitizer: DomSanitizer) {}
 
   transform(html) {
     return this.sanitizer.bypassSecurityTrustHtml(html);
@@ -49,7 +44,7 @@ export class SafeHtml implements PipeTransform {
     FlexLayoutModule,
     MatButtonModule,
     SyncModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     RaceComponent,
@@ -62,6 +57,4 @@ export class SafeHtml implements PipeTransform {
   ],
   exports: [SvgRaceComponent]
 })
-export class SvgRaceModule {
-
-}
+export class SvgRaceModule {}

@@ -14,16 +14,16 @@ describe('PlaygroundComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: {snapshot: {queryParams: {code: ''}}}
-        }, {
+          useValue: { snapshot: { queryParams: { code: '' } } }
+        },
+        {
           provide: Router,
           useValue: {
             navigate: jasmine.createSpy('navigate')
           }
-        },
+        }
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -36,4 +36,3 @@ describe('PlaygroundComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

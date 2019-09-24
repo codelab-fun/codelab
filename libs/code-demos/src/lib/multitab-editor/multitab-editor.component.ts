@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnDestroy
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
 import { Subject, Subscription } from 'rxjs';
@@ -92,8 +99,7 @@ export class MultitabEditorComponent
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
   loadSolution(file) {
     this.getModelByFileName(file).model.setValue(this.solutions[file]);

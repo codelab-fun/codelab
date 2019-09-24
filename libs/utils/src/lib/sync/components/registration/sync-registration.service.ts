@@ -11,25 +11,33 @@ export class SyncRegistrationService {
 
   readonly userData = this.syncDataService.getAdminAllUserData<any>(this.key);
   readonly usersMap$ = this.userData.valueChanges();
-  readonly users$ = this.usersMap$
-    .pipe(map(a => {
-      return a ? Object.entries(a).map((([userId, name]) => ({userId, name}))) : [];
-    }));
+  readonly users$ = this.usersMap$.pipe(
+    map(a => {
+      return a
+        ? Object.entries(a).map(([userId, name]) => ({ userId, name }))
+        : [];
+    })
+  );
 
-  readonly nameObject = this.syncDataService.getCurrentViewerObject<string>(this.key);
+  readonly nameObject = this.syncDataService.getCurrentViewerObject<string>(
+    this.key
+  );
   readonly currentUser$ = this.nameObject.valueChanges();
 
-  readonly registrationConfig$ = this.syncDataService.getPresenterObject('registration', {
-    shouldDisplayNames: true,
-    isRegistrationEnabled: true
-  }).valueChanges();
-  readonly shouldDisplayNames$ = this.registrationConfig$.pipe(map(a => a.shouldDisplayNames));
-  readonly isRegistrationEnabled$ = this.registrationConfig$.pipe(map(a => a.isRegistrationEnabled));
+  readonly registrationConfig$ = this.syncDataService
+    .getPresenterObject('registration', {
+      shouldDisplayNames: true,
+      isRegistrationEnabled: true
+    })
+    .valueChanges();
+  readonly shouldDisplayNames$ = this.registrationConfig$.pipe(
+    map(a => a.shouldDisplayNames)
+  );
+  readonly isRegistrationEnabled$ = this.registrationConfig$.pipe(
+    map(a => a.isRegistrationEnabled)
+  );
 
-  constructor(
-    private readonly syncDataService: SyncDataService
-  ) {
-  }
+  constructor(private readonly syncDataService: SyncDataService) {}
 
   save() {
     const name = this.name.trim();
@@ -44,6 +52,5 @@ export class SyncRegistrationService {
 
   drop(userId: string) {
     this.syncDataService.getViewerObject(this.key, userId).set(null);
-
   }
 }

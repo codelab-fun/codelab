@@ -9,19 +9,16 @@ describe('BreadcrumbComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        declarations: [BreadcrumbComponent],
-        providers: [
-          {
-            provide: ActivatedRoute,
-            useValue: {
-              pathFromRoot: [
-                {routeConfig: {name: 'lol'}}
-              ]
-            }
+      declarations: [BreadcrumbComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            pathFromRoot: [{ routeConfig: { name: 'lol' } }]
           }
-        ]
-      },
-    ).compileComponents();
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

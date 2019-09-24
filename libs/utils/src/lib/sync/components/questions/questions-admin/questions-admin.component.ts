@@ -7,22 +7,22 @@ import { statuses } from '@codelab/utils/src/lib/sync/components/questions/commo
   selector: 'codelab-questions-admin',
   templateUrl: './questions-admin.component.html',
   styleUrls: ['./questions-admin.component.css'],
-  providers: [QuestionsService],
+  providers: [QuestionsService]
 })
 export class QuestionsAdminComponent {
   readonly statuses = statuses;
 
   requireApproval: boolean;
 
-  readonly questionsByStatus$ = this.questionsService.questions$.pipe(map(questions => {
-    return questions.reduce((result, question) => {
-      result[question.status] = result[question.status] || [];
-      result[question.status].push(question);
-      return result;
-    }, {});
-  }));
+  readonly questionsByStatus$ = this.questionsService.questions$.pipe(
+    map(questions => {
+      return questions.reduce((result, question) => {
+        result[question.status] = result[question.status] || [];
+        result[question.status].push(question);
+        return result;
+      }, {});
+    })
+  );
 
-
-  constructor(readonly questionsService: QuestionsService) {
-  }
+  constructor(readonly questionsService: QuestionsService) {}
 }

@@ -8,9 +8,8 @@ describe('SyncPlaygroundTestComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncPlaygroundTestComponent ]
-    })
-    .compileComponents();
+      declarations: [SyncPlaygroundTestComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

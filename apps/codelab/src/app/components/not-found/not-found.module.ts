@@ -7,5 +7,4 @@ import { NotFoundComponent } from './not-found.component';
   imports: [CommonModule, RouterModule],
   declarations: [NotFoundComponent]
 })
-export class NotFoundModule {
-}
+export class NotFoundModule {}

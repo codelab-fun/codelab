@@ -1,9 +1,8 @@
-
 h2 {
   color: white;
   text-align: center;
   height: 70px;
-  background-image: linear-gradient(to right, red , white);
+  background-image: linear-gradient(to right, red, white);
   width: 90%;
 }
 div {
@@ -12,7 +11,7 @@ div {
 }
 
 span {
-  margin:auto;
+  margin: auto;
   display: inline-block;
   vertical-align: middle;
   line-height: normal;

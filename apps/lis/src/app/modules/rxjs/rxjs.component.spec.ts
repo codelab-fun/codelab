@@ -8,9 +8,8 @@ describe('RxjsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RxjsComponent ]
-    })
-    .compileComponents();
+      declarations: [RxjsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -6,8 +6,10 @@ import { FullScreenModeService } from '@codelab/utils';
   selector: '[slideShortcuts]'
 })
 export class ShortcutsDirective {
-
-  constructor(@Optional() private deck: SlidesDeckComponent, private fullScreenService: FullScreenModeService) {}
+  constructor(
+    @Optional() private deck: SlidesDeckComponent,
+    private fullScreenService: FullScreenModeService
+  ) {}
 
   @HostListener('window:keydown.ArrowRight', ['$event.target'])
   @HostListener('window:keydown.PageDown', ['$event.target'])

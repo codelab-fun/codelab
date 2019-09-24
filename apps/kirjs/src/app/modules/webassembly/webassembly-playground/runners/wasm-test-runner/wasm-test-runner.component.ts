@@ -1,6 +1,10 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { forkJoin, Observable, Subject } from 'rxjs';
-import { Result, RunResult, WebAssemblyService } from '../../web-assembly.service';
+import {
+  Result,
+  RunResult,
+  WebAssemblyService
+} from '../../web-assembly.service';
 import {
   extractAllFunctions,
   extractFunction,
@@ -49,7 +53,7 @@ function verifyGlobalsInTests(tests, globals) {
       if (!test.imports) {
         throw new Error(
           'No imports present in the test. Function being tested expect the following: ' +
-          globals.join(',')
+            globals.join(',')
         );
       }
       if (!test.imports.config) {
@@ -182,8 +186,7 @@ export class WasmTestRunnerComponent implements OnChanges {
   @Input() config: any;
   focused;
 
-  constructor(private readonly webAssemblyService: WebAssemblyService) {
-  }
+  constructor(private readonly webAssemblyService: WebAssemblyService) {}
 
   isFocused(test) {
     return this.focused ? test === this.focused : test.isFirstFailed;
@@ -191,7 +194,7 @@ export class WasmTestRunnerComponent implements OnChanges {
 
   runTests() {
     this.focused = undefined;
-    const {tests, code, name, allCode, table} = this.config as any;
+    const { tests, code, name, allCode, table } = this.config as any;
 
     let hasFailures = false;
     const sources = (tests as any[]).map(test => {
@@ -241,13 +244,13 @@ export class WasmTestRunnerComponent implements OnChanges {
     });
 
     forkJoin(sources).subscribe(results => {
-      const error = results.find(({result}) => result.type === 'error');
+      const error = results.find(({ result }) => result.type === 'error');
       if (error) {
         this.result$.next(error.result as any);
         return;
       }
 
-      this.result$.next({type: 'result', value: results});
+      this.result$.next({ type: 'result', value: results });
     });
   }
 

@@ -18,7 +18,7 @@ function groupBy(feedback: Array<Message>, grouping: Grouping) {
     return comment;
   }, {});
 
-  return Object.keys(result).map(key => ({key, value: result[key]}));
+  return Object.keys(result).map(key => ({ key, value: result[key] }));
 }
 
 function normalize(feedback: Array<any>) {
@@ -62,7 +62,10 @@ function filter([feedback, filterName, [fromDate, toDate]]) {
 
   result = result.filter(msg => {
     const timestampMs = new Date(msg.timestamp).getTime();
-    return (fromMs ? timestampMs >= fromMs : true) && (toMs ? timestampMs <= toMs : true);
+    return (
+      (fromMs ? timestampMs >= fromMs : true) &&
+      (toMs ? timestampMs <= toMs : true)
+    );
   });
   return result;
 }
@@ -102,15 +105,13 @@ export class FeedbackPageComponent implements OnInit {
   isDone(message) {
     this.database
       .object(`feedback/${message.key}`)
-      .update({isDone: !message.isDone});
+      .update({ isDone: !message.isDone });
   }
 
   generateIssueBody(message) {
     return `${message.comment}
 Author: ${message.name}
-Slide: [Local](http://localhost:4200${
-      message.href
-      }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
+Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
   }
 
   async createAnIssue(message) {
@@ -130,7 +131,7 @@ Slide: [Local](http://localhost:4200${
         this.isDone(message);
         this.database
           .object(`feedback/${message.key}`)
-          .update({url: responseData.html_url});
+          .update({ url: responseData.html_url });
         window.open(responseData.html_url);
       });
   }
@@ -153,10 +154,10 @@ Slide: [Local](http://localhost:4200${
         console.log(responseData.html_url);
         this.database
           .object(`feedback/${message.key}`)
-          .update({url: responseData.html_url});
+          .update({ url: responseData.html_url });
         this.ghService
           .closeIssue(
-            {state: 'closed'},
+            { state: 'closed' },
             responseData.number,
             this.githubAuth.credential.accessToken
           )

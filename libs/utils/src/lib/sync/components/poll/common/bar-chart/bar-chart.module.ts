@@ -4,11 +4,7 @@ import { BarChartComponent } from './bar-chart.component';
 
 @NgModule({
   declarations: [BarChartComponent],
-  exports: [
-    BarChartComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  exports: [BarChartComponent],
+  imports: [CommonModule]
 })
-export class BarChartModule { }
+export class BarChartModule {}

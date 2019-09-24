@@ -36,9 +36,9 @@ const routes = [
   {
     path: 'cellular-automation',
     loadChildren: () =>
-      import('./modules/cellular-automation/cellular-automation-routing.module').then(
-        m => m.CellularAutomationRoutingModule
-      ),
+      import(
+        './modules/cellular-automation/cellular-automation-routing.module'
+      ).then(m => m.CellularAutomationRoutingModule),
     name: 'Image inclusion',
     description: 'Image inclusion'
   },

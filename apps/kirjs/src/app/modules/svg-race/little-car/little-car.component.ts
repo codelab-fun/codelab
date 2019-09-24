@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./little-car.component.css']
 })
 export class LittleCarComponent {
-  @Input() position = {x: 0, y: 0, angle: 0};
+  @Input() position = { x: 0, y: 0, angle: 0 };
   lightColor = '#ffbc05';
   darkColor = '#e38100';
 

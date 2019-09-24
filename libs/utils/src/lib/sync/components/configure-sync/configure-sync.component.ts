@@ -8,10 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ConfigureSyncComponent implements OnInit {
   enabled: boolean;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

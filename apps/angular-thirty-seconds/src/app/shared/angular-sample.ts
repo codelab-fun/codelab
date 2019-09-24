@@ -1,4 +1,4 @@
-export const angularSampleCode =  {
+export const angularSampleCode = {
   'app.component.ts': `import { Component } from '@angular/core';
 
 @Component({
@@ -23,5 +23,4 @@ import { AppModule } from './app.module';
 platformBrowserDynamic().bootstrapModule(AppModule);
 `,
   'index.html': '<my-app></my-app>'
-
 };

@@ -12,12 +12,14 @@ export class BarChartComponent implements OnInit {
   max: number;
   breakdown: { value: number; key: string }[];
 
-  constructor() {
-  }
+  constructor() {}
 
-  @Input() set data(votes: { [k: string]: number; }) {
+  @Input() set data(votes: { [k: string]: number }) {
     // .sort((a, b) => b.value - a.value)
-    this.breakdown = Object.entries(votes || {}).map(([key, value]) => ({key, value}));
+    this.breakdown = Object.entries(votes || {}).map(([key, value]) => ({
+      key,
+      value
+    }));
     this.max = Math.max(...Object.values(votes || {}), 0);
   }
 
@@ -25,8 +27,5 @@ export class BarChartComponent implements OnInit {
     return i;
   }
 
-  ngOnInit() {
-  }
-
-
+  ngOnInit() {}
 }

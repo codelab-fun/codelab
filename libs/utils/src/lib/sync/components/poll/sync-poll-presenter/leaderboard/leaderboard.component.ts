@@ -18,11 +18,11 @@ export class LeaderboardComponent implements OnInit {
   @Input() config;
   private leaderboard$: Observable<any>;
 
-  constructor(private readonly syncPollService: SyncPollService) {
-  }
+  constructor(private readonly syncPollService: SyncPollService) {}
 
   ngOnInit() {
-    this.leaderboard$ = this.syncPollService.calculateScores(this.config.filter(a => a.answer));
+    this.leaderboard$ = this.syncPollService.calculateScores(
+      this.config.filter(a => a.answer)
+    );
   }
-
 }

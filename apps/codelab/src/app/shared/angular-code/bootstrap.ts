@@ -18,7 +18,6 @@ class MyResourceLoader extends ResourceLoader {
   }
 }
 
-
 platformBrowserDynamic().bootstrapModule(AppModule, [
   {
     providers: [

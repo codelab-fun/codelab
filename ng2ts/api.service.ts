@@ -4,7 +4,8 @@ const FAKE_VIDEOS = [
   {
     title: 'Scruffy McPurrrr',
     src: '/assets/images/cat-00.png',
-    description: 'Scruffy McPurrrr is a world famous kitty known for his escapades around the world purring on laps!',
+    description:
+      'Scruffy McPurrrr is a world famous kitty known for his escapades around the world purring on laps!',
     views: 100,
     likes: 49329,
     date: '2016-11-25'
@@ -12,22 +13,25 @@ const FAKE_VIDEOS = [
   {
     title: 'The Itty Bitty Kitty Comittee',
     src: '/assets/images/cat-01.jpg',
-    description: 'The Itty Bitty Kitty Comittee are a collection of felines coming for you!',
+    description:
+      'The Itty Bitty Kitty Comittee are a collection of felines coming for you!',
     views: 100,
     likes: 20,
     date: '2016-11-21'
-  }, {
+  },
+  {
     title: 'IT A KITTY!',
     src: '/assets/images/cat-02.jpg',
-    description: 'It\'s a kitty, I mean, how are you not in love with him?',
+    description: "It's a kitty, I mean, how are you not in love with him?",
     views: 100,
     likes: 20,
     date: '2016-10-02'
-
-  }, {
-    title: 'Cate Purrton\'s C.I. Purr Edition Cover',
+  },
+  {
+    title: "Cate Purrton's C.I. Purr Edition Cover",
     src: '/assets/images/cat-03.jpg',
-    description: 'We don\'t hear any Cat\'s Illustrated readers complaining about Purrton\'s cover.',
+    description:
+      "We don't hear any Cat's Illustrated readers complaining about Purrton's cover.",
     views: 100,
     likes: 20,
     date: '2016-09-02'
@@ -35,8 +39,9 @@ const FAKE_VIDEOS = [
   {
     title: 'SINGLE SUNSHINE',
     src: '/assets/images/cat-04.jpg',
-    description: 'It was cat for at least an hour. It was incredible. The camera could not capture the vivid intensity ' +
-    'and brightness. Look into the mirror, look into your soul! What it means.',
+    description:
+      'It was cat for at least an hour. It was incredible. The camera could not capture the vivid intensity ' +
+      'and brightness. Look into the mirror, look into your soul! What it means.',
     views: 100,
     likes: 20,
     date: '2016-08-02'
@@ -48,11 +53,13 @@ const FAKE_VIDEOS = [
     views: 24,
     likes: 3,
     date: '2014-06-12'
-  }, {
+  },
+  {
     title: 'Cinco de Gato',
     src: '/assets/images/cat-06.jpg',
-    description: 'To be totally fair, we also wound up celebrating Moewloween, Purrster, Scratching Day, Good Kitty ' +
-    'Day, All Cats Day, and various bank holidays in the exact same way.',
+    description:
+      'To be totally fair, we also wound up celebrating Moewloween, Purrster, Scratching Day, Good Kitty ' +
+      'Day, All Cats Day, and various bank holidays in the exact same way.',
     views: 5,
     likes: 5,
     date: '2017-05-05'
@@ -68,7 +75,8 @@ const FAKE_VIDEOS = [
   {
     title: 'Koffee Kat',
     src: '/assets/images/cat-07.jpg',
-    description: 'Somedays you really did have too much coffee... That\'s everyday for Koffee Kat',
+    description:
+      "Somedays you really did have too much coffee... That's everyday for Koffee Kat",
     views: 322,
     likes: 98,
     date: '2016-02-02'
@@ -84,7 +92,7 @@ const FAKE_VIDEOS = [
   {
     title: 'Scooby (CLICKBAIT!!!)',
     src: '/assets/images/cat-09.jpg',
-    description: 'It\'s a cat not a doo.',
+    description: "It's a cat not a doo.",
     views: 1969,
     likes: 987,
     date: '2016-08-02'
@@ -122,7 +130,7 @@ const FAKE_VIDEOS = [
     date: '2016-08-02'
   },
   {
-    title: 'Nikki\'s First Feast',
+    title: "Nikki's First Feast",
     src: '/assets/images/cat-14.jpg',
     description: 'Nikki tries fancy cat food.',
     views: 99,
@@ -140,7 +148,7 @@ const FAKE_VIDEOS = [
   {
     title: 'Tacocat',
     src: '/assets/images/cat-16.jpg',
-    description: 'It\'s a palindrome... And a cat eating a taco...',
+    description: "It's a palindrome... And a cat eating a taco...",
     views: 314,
     likes: 15,
     date: '2015-03-14'
@@ -156,17 +164,18 @@ const FAKE_VIDEOS = [
   {
     title: 'Gus',
     src: '/assets/images/cat-18.jpg',
-    description: 'Come on, it\'s a cat video',
+    description: "Come on, it's a cat video",
     views: 893,
     likes: 243,
     date: '2017-05-10'
-  },
+  }
 ];
 
 export const Api = {
   fetch(searchString: string): Array<VideoItem> {
-    return FAKE_VIDEOS.filter((video) =>
-      video.title.toLowerCase().indexOf(searchString.toLowerCase()) >= 0
+    return FAKE_VIDEOS.filter(
+      video =>
+        video.title.toLowerCase().indexOf(searchString.toLowerCase()) >= 0
     );
   }
 };
