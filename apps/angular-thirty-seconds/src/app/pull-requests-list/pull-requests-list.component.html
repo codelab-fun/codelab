@@ -12,7 +12,7 @@
   </div>
 
   <table
-    *ngIf="pullsList$ | async as pullsList; else loading"
+    *ngIf="(pullsList$ | async) as pullsList; else loading"
     mat-table
     [dataSource]="pullsList"
   >

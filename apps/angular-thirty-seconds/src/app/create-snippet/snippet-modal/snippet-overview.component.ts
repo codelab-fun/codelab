@@ -138,7 +138,8 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   navigateAndShowSnackBar(text: string, linkLabel: string, linkUrl: string) {
     this.dialogRef.close();
     this.router.navigate(['list']);
-    const snakeBarRef = this._snackBar.open(text, linkLabel, { duration: 20000
+    const snakeBarRef = this._snackBar.open(text, linkLabel, {
+      duration: 20000
     });
     snakeBarRef
       .onAction()

@@ -1,4 +1,4 @@
-<div *ngIf="registrationService.users$ | async as users">
+<div *ngIf="(registrationService.users$ | async) as users">
   <codelab-sync-join-instructions></codelab-sync-join-instructions>
   <div>
     <mat-checkbox

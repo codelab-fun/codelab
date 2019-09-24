@@ -25,7 +25,9 @@ function watch(
   inputFiles$: ObservableFiles,
   options: TsTypes.CompilerOptions
 ): AdapterHost {
-  const outputFiles: BehaviorSubject<Record<string, string>> = new BehaviorSubject<Record<string, string>>({});
+  const outputFiles: BehaviorSubject<
+    Record<string, string>
+  > = new BehaviorSubject<Record<string, string>>({});
   // const rootFileNames = [];
   const files: TsTypes.MapLike<{ version: number; file: string }> = {};
 
@@ -144,7 +146,7 @@ function watch(
         } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
         console.log(
           `Error ${diagnostic.file.fileName} (${line + 1},${character +
-          1}): ${message}`
+            1}): ${message}`
         );
       } else {
         console.log(`  Error: ${message}`);
@@ -154,7 +156,9 @@ function watch(
   }
 }
 
-export function compileTsFilesWatch(): MonoTypeOperatorFunction<Record<string, string>> {
+export function compileTsFilesWatch(): MonoTypeOperatorFunction<
+  Record<string, string>
+> {
   let host: AdapterHost;
   return (source: Observable<Record<string, string>>) => {
     return source.pipe(

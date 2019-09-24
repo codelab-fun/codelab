@@ -1,4 +1,4 @@
-<div class="survey" *ngIf="shouldShowPresentation$ | async; else userId">
+<div class="survey" *ngIf="(shouldShowPresentation$ | async); else userId">
   <h1>Quick Survey</h1>
 
   <slide-deck>
