@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { FileConfig } from '../../../../../apps/codelab/src/app/shared/interfaces/file-config';
-import { DepsService } from './deps-order.service';
 
 declare const require;
 const monacoLoaderCode = require('!raw-loader!monaco-editor/dev/vs/loader');
@@ -28,7 +26,7 @@ export class MonacoConfigService {
   static initialized = false;
   public monaco: any;
 
-  constructor(private depsService: DepsService) {
+  constructor() {
     this.monaco = monaco;
   }
 
@@ -89,52 +87,6 @@ export class MonacoConfigService {
       monaco.languages.typescript.typescriptDefaults.addExtraLib(
         file.content,
         'file:///' + file.path
-      );
-    });
-
-    // monaco.languages.typescript.typescriptDefaults._onDidChange.fire(monaco.languages.typescript.typescriptDefaults);
-
-    // monaco.languages.typescript.typescriptDefaults.addExtraLib(``, 'asdafsdfdasdad');
-    // debugger;
-    // console.log(monaco.languages.typescript.typescriptDefaults._extraLibs);
-
-    //       .forEach(function(t) {
-    //   monaco.languages.typescript.typescriptDefaults._extraLibs[t.path] = t.content
-    // }),
-    //   Object.keys(this.store.getState().project.dependencies).concat(Nl).forEach(function(t) {
-    //     monaco.languages.typescript.typescriptDefaults._extraLibs["zuz_/" + t] = function(t) {
-    //       return 'import {  } from "' + t + '"'
-    //     }(t)
-    //   }),
-    //   monaco.languages.typescript.typescriptDefaults.updateExtraLibs(),
-    //   monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
-    //     noSemanticValidation: !1,
-    //     noSyntaxValidation: !1
-    //   }),
-    //
-  }
-
-  sortFiles(files: FileConfig[]) {
-    // TODO(kirjs): Find a better way to handle this.
-    try {
-      return this.depsService.order(files);
-    } catch (e) {
-      return files;
-    }
-  }
-
-  createFileModels(files: FileConfig[]) {
-    const models = monaco.editor.getModels();
-
-    if (models.length) {
-      models.forEach(model => model.dispose());
-    }
-
-    this.sortFiles([...files]).map(file => {
-      monaco.editor.createModel(
-        file.code,
-        file.editorType || file.type,
-        /** Math.random() + */ file.path
       );
     });
   }

@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { first, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
-import { auth } from 'firebase';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'

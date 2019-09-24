@@ -25,9 +25,7 @@ function watch(
   inputFiles$: ObservableFiles,
   options: TsTypes.CompilerOptions
 ): AdapterHost {
-  const outputFiles: BehaviorSubject<
-    Record<string, string>
-  > = new BehaviorSubject<Record<string, string>>({});
+  const outputFiles: BehaviorSubject<Record<string, string>> = new BehaviorSubject<Record<string, string>>({});
   // const rootFileNames = [];
   const files: TsTypes.MapLike<{ version: number; file: string }> = {};
 
@@ -108,19 +106,23 @@ function watch(
   }
 
   function emitFile(fileName: string) {
-    const output = services.getEmitOutput(fileName);
+    try {
+      const output = services.getEmitOutput(fileName);
 
-    if (output.emitSkipped) {
-      logErrors(fileName);
+      if (output.emitSkipped) {
+        logErrors(fileName);
+      }
+
+      const file = output.outputFiles.find(file => /\.js$/.test(file.name));
+
+      if (file) {
+        file.name = file.name.replace(/^\//, '');
+      }
+
+      return file;
+    } catch (e) {
+      console.log(`Error when compiling file '${fileName}': ` + e.message);
     }
-
-    const file = output.outputFiles.find(file => /\.js$/.test(file.name));
-
-    if (file) {
-      file.name = file.name.replace(/^\//, '');
-    }
-
-    return file;
   }
 
   function logErrors(fileName: string) {
@@ -142,7 +144,7 @@ function watch(
         } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
         console.log(
           `Error ${diagnostic.file.fileName} (${line + 1},${character +
-            1}): ${message}`
+          1}): ${message}`
         );
       } else {
         console.log(`  Error: ${message}`);
@@ -152,9 +154,7 @@ function watch(
   }
 }
 
-export function compileTsFilesWatch(): MonoTypeOperatorFunction<
-  Record<string, string>
-> {
+export function compileTsFilesWatch(): MonoTypeOperatorFunction<Record<string, string>> {
   let host: AdapterHost;
   return (source: Observable<Record<string, string>>) => {
     return source.pipe(

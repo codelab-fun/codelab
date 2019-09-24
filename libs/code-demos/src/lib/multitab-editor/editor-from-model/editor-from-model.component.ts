@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnDestroy,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
@@ -28,7 +22,8 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   constructor(
     private editorInjector: CodeDemoEditorInjector,
     readonly monacoConfigService: MonacoConfigService
-  ) {}
+  ) {
+  }
 
   @Input('model') set setModel(model: ITextModel) {
     this.model = model;
@@ -57,12 +52,10 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   }
 
   resize() {
-    const lines = this.editor
-      .getModel()
-      .getValue()
-      .split('\n').length;
+    const lines = this.editor.getModel().getLineCount();
     const lineHeight = this.fontSize * 1.6;
     const height = Math.max(lines * lineHeight, lineHeight * 5);
+
 
     if (this.height !== height) {
       this.height = height;
@@ -79,8 +72,9 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
     );
 
     this.resize();
-    this.didChangeListener = this.editor.onDidChangeModelContent(() =>
-      this.resize()
+    this.didChangeListener = this.editor.onDidChangeModelContent(() => {
+        this.resize();
+      }
     );
   }
 

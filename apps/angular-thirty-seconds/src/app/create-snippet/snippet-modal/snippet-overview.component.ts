@@ -2,7 +2,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
-import * as firebase from 'firebase';
+import { auth } from 'firebase/app';
 import { finalize, switchMap, take, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetService } from '../../shared/services/snippet.service';
@@ -23,7 +23,7 @@ interface SnippetOverviewData {
 }
 
 function exportSnippet(snippet) {
-  const result = {...snippet};
+  const result = { ...snippet };
   result.links = (result.links) ? result.links.split(SEPARATOR) : undefined;
   result.author = result.author || '** Your github username will be here **';
   result.bonus = result.bonus || undefined;
@@ -97,12 +97,12 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   navigateAndShowSnackBar(text: string, linkLabel: string, linkUrl: string) {
     this.dialogRef.close();
     this.router.navigate(['list']);
-    const snakeBarRef = this._snackBar.open(text, linkLabel, {duration: 20000});
+    const snakeBarRef = this._snackBar.open(text, linkLabel, { duration: 20000 });
     snakeBarRef.onAction().pipe(take(1)).subscribe(() => window.open(linkUrl));
   }
 
   async login() {
-    const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
+    const provider = new auth.GithubAuthProvider().addScope('repo');
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
     this.data.formValue['author'] = this.githubAuth.additionalUserInfo.username;
     this.snippet = generateSnippet(exportSnippet(this.data.formValue));
