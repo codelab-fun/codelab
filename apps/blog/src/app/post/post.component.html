@@ -1,3 +1,3 @@
-<ng-container *ngIf="(post$ | async) as post">
+<ng-container *ngIf="post$ | async as post">
   <codelab-single-post [post]="post" [full]="true"></codelab-single-post>
 </ng-container>

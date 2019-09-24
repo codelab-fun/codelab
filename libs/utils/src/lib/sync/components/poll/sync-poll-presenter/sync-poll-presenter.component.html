@@ -1,5 +1,5 @@
 <div class="time">
-  <div *ngIf="(poll.$isPollRunning | async); else timeOver">
+  <div *ngIf="poll.$isPollRunning | async; else timeOver">
     <h2 class="timer">⏱ {{ poll.timeLeft$ | async }} seconds left</h2>
   </div>
 </div>
@@ -9,8 +9,8 @@
 
 <h1 class="question">{{ config.question }}</h1>
 
-<ng-container *ngIf="(poll.isPollEnabled$ | async); else wait">
-  <ng-container *ngIf="(poll.hasVotes$ | async); else waiting">
+<ng-container *ngIf="poll.isPollEnabled$ | async; else wait">
+  <ng-container *ngIf="poll.hasVotes$ | async; else waiting">
     <div *ngIf="poll.config.answer && (poll.$isPollRunning | async) === true">
       <h2>Collecting answers</h2>
       <h2>{{ poll.votesCount$ | async }} votes</h2>
@@ -36,7 +36,7 @@
     </div>
   </ng-container>
   <ng-template #waiting>
-    <div *ngIf="(poll.$isPollRunning | async)">
+    <div *ngIf="poll.$isPollRunning | async">
       <h1 style="text-align: center;">Waiting for votes...</h1>
       <div class="bunny"></div>
     </div>
@@ -48,7 +48,7 @@
 </ng-template>
 
 <div
-  *ngIf="(poll.isPollEnabled$ | async); else wait"
+  *ngIf="poll.isPollEnabled$ | async; else wait"
   [class.disabled]="(poll.$isPollRunning | async) !== true"
 >
   <codelab-sync-poll-viewer-choice

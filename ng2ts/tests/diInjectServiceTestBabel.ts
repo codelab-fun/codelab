@@ -1,5 +1,8 @@
 import { isDecorator, isIdentifier, isObjectProperty } from 'babel-types';
-import { MiniTsQuery, tsAstTestSuite } from '../../apps/codelab/src/app/components/babel-test-runner/babel-helpers';
+import {
+  MiniTsQuery,
+  tsAstTestSuite
+} from '../../apps/codelab/src/app/components/babel-test-runner/babel-helpers';
 
 const tests = [
   {
@@ -29,8 +32,7 @@ const tests = [
     condition(ast: MiniTsQuery) {
       return ast.hasConstructorParam('videoService', 'VideoService');
     }
-  },
+  }
 ];
-
 
 export const createDITest = tsAstTestSuite(tests);
