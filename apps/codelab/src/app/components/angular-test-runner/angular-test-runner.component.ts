@@ -20,9 +20,7 @@ import babel_traverse from 'babel-traverse';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Subscription } from 'rxjs/internal/Subscription';
-
-declare const require;
+import {Subscription } from 'rxjs/internal/Subscription';
 
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
