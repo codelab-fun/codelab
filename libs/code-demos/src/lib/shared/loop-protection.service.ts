@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as ts from 'typescript';
+import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+const ts = getTypeScript();
 
 @Injectable()
 export class LoopProtectionService {

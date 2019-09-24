@@ -14,15 +14,14 @@ import {
 import { handleTestMessage } from './tests';
 import { createSystemJsSandbox } from '@codelab/code-demos/src/lib/shared/sandbox';
 import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
-import * as ts from 'typescript';
-
 import babel_traverse from 'babel-traverse';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 
-declare const require;
+const ts = getTypeScript();
 
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {

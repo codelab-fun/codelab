@@ -1,8 +1,11 @@
 import { BehaviorSubject, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { exhaustMap, finalize } from 'rxjs/operators';
-import * as ts from 'typescript';
+import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+import * as TsTypes from 'typescript';
 
-const compilerOptions: ts.CompilerOptions = {
+const ts = getTypeScript();
+
+const compilerOptions: TsTypes.CompilerOptions = {
   module: ts.ModuleKind.System,
   target: ts.ScriptTarget.ES2017,
   experimentalDecorators: true,
@@ -20,20 +23,20 @@ type ObservableFiles = Observable<Record<string, string>>;
 
 function watch(
   inputFiles$: ObservableFiles,
-  options: ts.CompilerOptions
+  options: TsTypes.CompilerOptions
 ): AdapterHost {
   const outputFiles: BehaviorSubject<
     Record<string, string>
   > = new BehaviorSubject<Record<string, string>>({});
   // const rootFileNames = [];
-  const files: ts.MapLike<{ version: number; file: string }> = {};
+  const files: TsTypes.MapLike<{ version: number; file: string }> = {};
 
   const getCurrentFileNames = () => {
     return Object.keys(files);
   };
 
   // Create the language service host to allow the LS to communicate with the host
-  const servicesHost: ts.LanguageServiceHost = {
+  const servicesHost: TsTypes.LanguageServiceHost = {
     getScriptFileNames: () => getCurrentFileNames(),
     getScriptVersion: fileName =>
       files[fileName] && files[fileName].version.toString(),
