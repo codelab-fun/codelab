@@ -8,9 +8,8 @@ describe('SyncJoinInstructionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncJoinInstructionsComponent ]
-    })
-    .compileComponents();
+      declarations: [SyncJoinInstructionsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

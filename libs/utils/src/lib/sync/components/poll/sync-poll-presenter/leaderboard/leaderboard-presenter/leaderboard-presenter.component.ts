@@ -12,17 +12,21 @@ export class LeaderboardPresenterComponent implements OnInit {
   @Input() config;
   private leaderboard$: Observable<any>;
 
-  constructor(private readonly syncPollService: SyncPollService) {
-  }
+  constructor(private readonly syncPollService: SyncPollService) {}
 
   ngOnInit() {
-    this.leaderboard$ = this.syncPollService.calculateScores(this.config.filter(a => a.answer)).pipe(map(a => {
-      return Object.values<{ name: string, score: number }>(a).reduce((result, value) => {
-        result[value.name] = value.score;
-        return result;
-      }, {});
-    }));
+    this.leaderboard$ = this.syncPollService
+      .calculateScores(this.config.filter(a => a.answer))
+      .pipe(
+        map(a => {
+          return Object.values<{ name: string; score: number }>(a).reduce(
+            (result, value) => {
+              result[value.name] = value.score;
+              return result;
+            },
+            {}
+          );
+        })
+      );
   }
-
-
 }

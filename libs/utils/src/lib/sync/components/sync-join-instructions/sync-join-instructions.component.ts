@@ -11,8 +11,9 @@ export class SyncJoinInstructionsComponent {
   readonly defaultValue = 'kirjs.com/start';
 
   url: string;
-  readonly joinUrl$ = this.syncDataService.getPresenterObject<string>(this.key).valueChanges();
+  readonly joinUrl$ = this.syncDataService
+    .getPresenterObject<string>(this.key)
+    .valueChanges();
 
-  constructor(private readonly syncDataService: SyncDataService) {
-  }
+  constructor(private readonly syncDataService: SyncDataService) {}
 }

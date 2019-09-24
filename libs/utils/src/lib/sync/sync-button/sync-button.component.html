@@ -1,12 +1,14 @@
 <codelab-online-indicator></codelab-online-indicator>
 <mat-menu #userId="matMenu">
   <button mat-menu-item (click)="copyViewerId()">
-    {{syncSessionService.viewerId$ | async}}
+    {{ syncSessionService.viewerId$ | async }}
   </button>
 </mat-menu>
 
 <div>
-  <ng-container *ngIf="syncSessionService.hasActiveSession$ | async else noSession">
+  <ng-container
+    *ngIf="(syncSessionService.hasActiveSession$ | async); else noSession"
+  >
     <mat-card *isAdmin>
       <button mat-icon-button (click)="present()">
         <mat-icon>present_to_all</mat-icon>
@@ -16,13 +18,22 @@
       </button>
     </mat-card>
 
-
-    <button *isViewing mat-icon-button [matMenuTriggerFor]="userId" class="menu-button">
+    <button
+      *isViewing
+      mat-icon-button
+      [matMenuTriggerFor]="userId"
+      class="menu-button"
+    >
       <mat-icon>more_vert</mat-icon>
     </button>
 
     <ng-container *isViewing>
-      <div *ngIf="registrationService.currentUser$| async as user else registation">
+      <div
+        *ngIf="
+          (registrationService.currentUser$ | async) as user;
+          else registation
+        "
+      >
         <!--        {{user}}-->
       </div>
       <ng-template #registation>
@@ -33,7 +44,6 @@
       <button mat-icon-button [matMenuTriggerFor]="userId" class="menu-button">
         <mat-icon>more_vert</mat-icon>
       </button>
-
     </ng-container>
 
     <ng-container *isPresenting>
@@ -41,7 +51,6 @@
         <mat-icon>more_vert</mat-icon>
       </button>
     </ng-container>
-
 
     <mat-menu #appMenu="matMenu">
       <button mat-menu-item (click)="administer()">
@@ -57,10 +66,13 @@
     <mat-icon>more_vert</mat-icon>
   </button>
 
-  <button mat-raised-button
-          *ngIf="syncSessionService.canStartSession$ | async"
-          style="cursor:pointer"
-          (click)="start()">⚫️ start
+  <button
+    mat-raised-button
+    *ngIf="(syncSessionService.canStartSession$ | async)"
+    style="cursor:pointer"
+    (click)="start()"
+  >
+    ⚫️ start
   </button>
 </ng-template>
 
@@ -76,11 +88,9 @@
 <!--    </div>-->
 <!--  </mat-menu>-->
 
-
 <!--  <button mat-button [matMenuTriggerFor]="menu"-->
 <!--          *ngIf="(sync.isInSession$ | async) === false && (sync.hasSessions$ | async)">Join-->
 <!--  </button>-->
-
 
 <!--  <div *isPresenting>-->
 <!--    🔴 {{(sync.currentSession$ | async)?.displayName}}-->
@@ -95,5 +105,3 @@
 <!--  </span>-->
 <!--  </div>-->
 <!--</div>-->
-
-

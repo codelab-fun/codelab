@@ -8,9 +8,8 @@ describe('SyncPollViewerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncPollViewerComponent ]
-    })
-    .compileComponents();
+      declarations: [SyncPollViewerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -16,7 +16,7 @@ export class ScriptLoaderService {
     zone: require('!!raw-loader!zone.js/dist/zone.js'),
     reflect: require('!!raw-loader!reflect-metadata/Reflect'),
     'system-config': require('!!raw-loader!../../../assets/runner/js/system-config'),
-    'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle'),
+    'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle')
     // TODO(kirjs): not sure we still need vue and react libs
     // vue: require('!!raw-loader!vue/dist/vue.js'),
     // react: require('!!raw-loader!react/umd/react.development.js'),

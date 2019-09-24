@@ -13,8 +13,7 @@ export class Rule3Component implements OnInit, OnChanges {
   @Input() indexes = false;
   @Input() arrow = false;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnChanges() {
     this.after = (256 + this.rule)
@@ -34,6 +33,5 @@ export class Rule3Component implements OnInit, OnChanges {
       .reverse();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

@@ -4,7 +4,14 @@ import { Injectable } from '@angular/core';
 import { getRef } from '@angular/fire/database/utils';
 import { Message } from './message';
 import { defer, Observable, of } from 'rxjs';
-import { filter, map, publishReplay, refCount, repeatWhen, switchMap } from 'rxjs/operators';
+import {
+  filter,
+  map,
+  publishReplay,
+  refCount,
+  repeatWhen,
+  switchMap
+} from 'rxjs/operators';
 
 function normalize(feedback: Array<any>) {
   return feedback.map(item => ({
@@ -18,8 +25,7 @@ export class FeedbackService {
   private repo$: AngularFireList<any>;
   private ratings$: AngularFireList<any>;
 
-  constructor(private database: AngularFireDatabase,
-              private router: Router) {
+  constructor(private database: AngularFireDatabase, private router: Router) {
     this.repo$ = this.database.list('/feedback');
     this.ratings$ = this.database.list('/ratings');
   }

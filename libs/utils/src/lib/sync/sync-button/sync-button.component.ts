@@ -4,7 +4,13 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
-import { distinctUntilChanged, filter, mergeMapTo, take, takeUntil } from 'rxjs/operators';
+import {
+  distinctUntilChanged,
+  filter,
+  mergeMapTo,
+  take,
+  takeUntil
+} from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -17,15 +23,16 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
   @Input() name = 'default';
   sync = {};
   private readonly onDestroy = new Subject<void>();
-  private readonly currentSlide = this.syncDataService.getPresenterObject<number>('currentSlide');
+  private readonly currentSlide = this.syncDataService.getPresenterObject<
+    number
+  >('currentSlide');
 
   constructor(
     private readonly syncDataService: SyncDataService,
     readonly syncSessionService: SyncSessionService,
     readonly registrationService: SyncRegistrationService,
     @Optional() private readonly presentation: SlidesDeckComponent
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.syncSessionService.autoJoin(this.name);

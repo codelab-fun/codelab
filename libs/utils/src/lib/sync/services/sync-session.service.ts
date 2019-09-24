@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
-import { firebaseToValuesWithKey, SyncSession, SyncSessionConfig, SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import {
+  firebaseToValuesWithKey,
+  SyncSession,
+  SyncSessionConfig,
+  SyncStatus
+} from '@codelab/utils/src/lib/sync/common';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import produce from 'immer';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
@@ -66,20 +71,22 @@ export class SyncSessionService {
 
   create(name: string) {
     const uid = this.loginService.uid$.pipe(first());
-    uid.pipe(
-      map(uid => {
-        const session: SyncSession = {
-          config: {
-            owner: uid,
-            active: true,
-            admins: [ 'admin' ],
-            autojoin: true,
-            name: name
-          }
-        };
-        return session;
-      })
-    ).subscribe(session => this.sessions.push(session));
+    uid
+      .pipe(
+        map(uid => {
+          const session: SyncSession = {
+            config: {
+              owner: uid,
+              active: true,
+              admins: ['admin'],
+              autojoin: true,
+              name: name
+            }
+          };
+          return session;
+        })
+      )
+      .subscribe(session => this.sessions.push(session));
     this.autoJoin(name);
   }
 

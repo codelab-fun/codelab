@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
 
-
 /**
  * Coming soon.
  */
@@ -10,9 +9,7 @@ import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/comm
   selector: 'codelab-poll',
   templateUrl: './sync-poll.component.html',
   styleUrls: ['./sync-poll.component.css'],
-  providers: [
-    SyncPollService,
-  ],
+  providers: [SyncPollService]
 })
 export class SyncPollComponent {
   @Input() poll: SyncPollConfig;

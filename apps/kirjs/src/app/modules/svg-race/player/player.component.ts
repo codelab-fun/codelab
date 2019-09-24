@@ -18,15 +18,15 @@ import {
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
-  @ViewChild('guess', {static: true}) guess: ElementRef;
+  @ViewChild('guess', { static: true }) guess: ElementRef;
   @Input() path;
   @Input() d = '';
   @Input() color = '#ffffff';
   @Output() scoreChanged = new EventEmitter<number>();
   points = [];
-  carPosition = {x: 50, y: 50, angle: 0};
+  carPosition = { x: 50, y: 50, angle: 0 };
   pathLength = 0;
-  startPosition = {x: 0, y: 0};
+  startPosition = { x: 0, y: 0 };
   trackWidth = 20;
   score = 0;
 
@@ -45,12 +45,12 @@ export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
       for (let i = 0; i < this.points.length; i++) {
         const point = this.points[i];
 
-        const {distance} = closestPoint(guess, point);
+        const { distance } = closestPoint(guess, point);
 
         if (distance < this.trackWidth) {
           this.score++;
         } else {
-          this.pathLength = (i - 3) / 100 * this.path.getTotalLength();
+          this.pathLength = ((i - 3) / 100) * this.path.getTotalLength();
           this.scoreChanged.emit(this.score);
           return;
         }
@@ -80,14 +80,12 @@ export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
       const carPosition = guess.getPointAtLength(totalLength - 1);
       const dx = this.carPosition.x - carPosition.x;
       const dy = this.carPosition.y - carPosition.y;
-      this.carPosition.angle = Math.atan2(-dx, dy) * 180 / Math.PI;
+      this.carPosition.angle = (Math.atan2(-dx, dy) * 180) / Math.PI;
     }
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
-
 
 function closestPoint(pathNode, point) {
   const pathLength = pathNode.getTotalLength();
@@ -97,27 +95,42 @@ function closestPoint(pathNode, point) {
     bestDistance = Infinity;
 
   // linear scan for coarse approximation
-  for (let scan, scanLength = 0, scanDistance; scanLength <= pathLength; scanLength += precision) {
-    if ((scanDistance = distance2(scan = pathNode.getPointAtLength(scanLength))) < bestDistance) {
-      best = scan, bestLength = scanLength, bestDistance = scanDistance;
+  for (
+    let scan, scanLength = 0, scanDistance;
+    scanLength <= pathLength;
+    scanLength += precision
+  ) {
+    if (
+      (scanDistance = distance2(
+        (scan = pathNode.getPointAtLength(scanLength))
+      )) < bestDistance
+    ) {
+      (best = scan), (bestLength = scanLength), (bestDistance = scanDistance);
     }
   }
 
   // binary search for precise estimate
   precision /= 2;
   while (precision > 0.5) {
-    let before,
-      after,
-      beforeLength,
-      afterLength,
-      beforeDistance,
-      afterDistance;
-    if ((beforeLength = bestLength - precision) >= 0 && (beforeDistance =
-        distance2(before = pathNode.getPointAtLength(beforeLength))) < bestDistance) {
-      best = before, bestLength = beforeLength, bestDistance = beforeDistance;
-    } else if ((afterLength = bestLength + precision) <= pathLength && (afterDistance =
-        distance2(after = pathNode.getPointAtLength(afterLength))) < bestDistance) {
-      best = after, bestLength = afterLength, bestDistance = afterDistance;
+    let before, after, beforeLength, afterLength, beforeDistance, afterDistance;
+    if (
+      (beforeLength = bestLength - precision) >= 0 &&
+      (beforeDistance = distance2(
+        (before = pathNode.getPointAtLength(beforeLength))
+      )) < bestDistance
+    ) {
+      (best = before),
+        (bestLength = beforeLength),
+        (bestDistance = beforeDistance);
+    } else if (
+      (afterLength = bestLength + precision) <= pathLength &&
+      (afterDistance = distance2(
+        (after = pathNode.getPointAtLength(afterLength))
+      )) < bestDistance
+    ) {
+      (best = after),
+        (bestLength = afterLength),
+        (bestDistance = afterDistance);
     } else {
       precision /= 2;
     }

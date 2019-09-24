@@ -10,30 +10,34 @@ import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questio
   animations: [
     trigger('questionList', [
       transition(':enter', [
-        style({transform: 'scale(0.5)', opacity: 0}),  // initial
-        animate('0.5s cubic-bezier(.8, -0.6, 0.2, 1.5)',
-          style({transform: 'scale(1)', opacity: 1}))  // final
+        style({ transform: 'scale(0.5)', opacity: 0 }), // initial
+        animate(
+          '0.5s cubic-bezier(.8, -0.6, 0.2, 1.5)',
+          style({ transform: 'scale(1)', opacity: 1 })
+        ) // final
       ]),
       transition(':leave', [
-        style({transform: 'scale(1)', opacity: 1, height: '*'}),
-        animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
+        style({ transform: 'scale(1)', opacity: 1, height: '*' }),
+        animate(
+          '1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
           style({
-            transform: 'scale(0.5)', opacity: 0,
-            height: '0px', margin: '0px'
-          }))
+            transform: 'scale(0.5)',
+            opacity: 0,
+            height: '0px',
+            margin: '0px'
+          })
+        )
       ])
     ])
   ]
 })
 export class QuestionListComponent {
   @Input() questions: Question[];
-  @Output() vote = new EventEmitter<{ vote: number, question: Question }>();
+  @Output() vote = new EventEmitter<{ vote: number; question: Question }>();
 
-  constructor(public readonly questionsService: QuestionsService) {
-  }
+  constructor(public readonly questionsService: QuestionsService) {}
 
   trackBy(i, question) {
     return question.key;
   }
-
 }

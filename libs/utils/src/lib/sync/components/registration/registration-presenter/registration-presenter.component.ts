@@ -7,7 +7,5 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
   styleUrls: ['./registration-presenter.component.css']
 })
 export class RegistrationPresenterComponent {
-  constructor(readonly registrationService: SyncRegistrationService) {
-  }
-
+  constructor(readonly registrationService: SyncRegistrationService) {}
 }

@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'kirjs-race',
@@ -33,7 +39,7 @@ export class RaceComponent implements AfterViewInit {
   name = 'cheburek';
   scores = {};
   trackWidth = 20;
-  finishPosition = {x: 0, y: 0};
+  finishPosition = { x: 0, y: 0 };
 
   updateCurrentPlayer() {
     const c = this.cars.find(car => car.name === this.name);

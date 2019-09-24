@@ -5,17 +5,18 @@ import { Component } from '@angular/core';
   template: `
     <div class="wrapper">
       <router-outlet></router-outlet>
-    </div>`,
+    </div>
+  `,
 
   styles: [
-      `
+    `
       .wrapper {
         margin: 0 60px;
         padding: 0 20px;
       }
 
       :host ::ng-deep {
-        font-family: "Helvetica Neue", sans-serif;
+        font-family: 'Helvetica Neue', sans-serif;
         font-weight: 300;
         padding: 0 20px;
         display: block;
@@ -23,5 +24,4 @@ import { Component } from '@angular/core';
     `
   ]
 })
-export class AppComponent {
-}
+export class AppComponent {}
