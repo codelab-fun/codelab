@@ -18,7 +18,7 @@ export class MonacoConfigService {
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({ paths: { vs: 'assets/monaco/dev/vs' } });
+    win.require.config({paths: {vs: 'assets/monaco/dev/vs'}});
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
@@ -49,7 +49,7 @@ export class MonacoConfigService {
     });
 
     monaco.languages.registerFoldingRangeProvider('typescript', {
-      provideFoldingRanges: function(model, context, token) {
+      provideFoldingRanges: function (model, context, token) {
         const code = model.getValue();
 
         const numberOfImports = code
