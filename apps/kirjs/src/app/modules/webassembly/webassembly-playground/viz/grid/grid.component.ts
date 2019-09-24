@@ -54,14 +54,14 @@ interface DrawCellConfig extends Figure {
 }
 
 function drawCell({
-                    context,
-                    size,
-                    x,
-                    y,
-                    color,
-                    text,
-                    type = 'rect'
-                  }: DrawCellConfig) {
+  context,
+  size,
+  x,
+  y,
+  color,
+  text,
+  type = 'rect'
+}: DrawCellConfig) {
   const gridShift = size;
   context.fillStyle = color;
   const x1 = gridShift + x * size;
@@ -122,7 +122,7 @@ function resolveFuncOrValue(funcOfValue: any, vizConfig, defaultValue) {
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnChanges {
-  @ViewChild('canvas', {static: true}) canvas;
+  @ViewChild('canvas', { static: true }) canvas;
   @Input() test: any;
 
   async ngOnChanges(changes) {
@@ -155,13 +155,13 @@ export class GridComponent implements OnChanges {
         ''
       );
 
-      drawCell({context, size, x, y, color, text});
+      drawCell({ context, size, x, y, color, text });
     }
 
     const extras = resolveFuncOrValue(config.extras, this.test, []);
 
     for (const s of extras) {
-      drawCell({context, size, ...s});
+      drawCell({ context, size, ...s });
     }
   }
 }

@@ -19,7 +19,6 @@ export interface Post {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormComponent {
-
   title = new FormControl('', Validators.required);
   author = new FormControl('', Validators.required);
   text = new FormControl('', Validators.required);
@@ -33,16 +32,12 @@ export class FormComponent {
   statusMessage = '';
   error = false;
 
-  constructor(private http: HttpClient,
-              private formService: FormService
-  ) { }
+  constructor(private http: HttpClient, private formService: FormService) {}
 
   onSubmit() {
     const formValues: any = this.myform.getRawValue();
     this.formService
-      .addPost(
-        formValues
-      )
+      .addPost(formValues)
       .then(() => {
         this.myform.reset();
       })

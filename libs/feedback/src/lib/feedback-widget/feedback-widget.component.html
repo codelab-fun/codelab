@@ -1,6 +1,6 @@
 <button class="menu-bar-btn" [matMenuTriggerFor]="menu">
   <img alt="chat-img" src="/assets/images/chat.png" />
-  <ng-container *ngIf="(messages$ | async) as message">
+  <ng-container *ngIf="messages$ | async as message">
     <ng-container *ngIf="message.length">
       <span class="messages-count"> {{ message.length }} </span>
     </ng-container>
@@ -8,10 +8,13 @@
 </button>
 
 <mat-menu #menu="matMenu">
-  <div (click)="$event.stopPropagation();" (keydown)="$event.stopPropagation();"
-    class="buttons-nav-bar-modal-content-wrapper">
+  <div
+    (click)="$event.stopPropagation()"
+    (keydown)="$event.stopPropagation()"
+    class="buttons-nav-bar-modal-content-wrapper"
+  >
     <h2 class="modal-title">Feedback</h2>
-    <ng-container *ngIf="(messages$ | async) as message">
+    <ng-container *ngIf="messages$ | async as message">
       <ng-container *ngIf="message.length">
         <div class="feedback-items">
           <ng-container *ngFor="let item of message">
@@ -21,7 +24,7 @@
                 <div style="display: flex;">
                   <span class="date"> {{ item.timestamp | date }}</span>
                   <feedback-issue-dropdown
-                    *ngIf="(accessService.oldIsAdmin$ | async)"
+                    *ngIf="accessService.oldIsAdmin$ | async"
                     [message]="item"
                   ></feedback-issue-dropdown>
                 </div>

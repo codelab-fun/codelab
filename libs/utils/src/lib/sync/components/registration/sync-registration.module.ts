@@ -5,7 +5,11 @@ import { RegistrationViewerComponent } from '@codelab/utils/src/lib/sync/compone
 import { RegistrationPresenterComponent } from '@codelab/utils/src/lib/sync/components/registration/registration-presenter/registration-presenter.component';
 import { RegistrationAdminComponent } from '@codelab/utils/src/lib/sync/components/registration/registration-admin/registration-admin.component';
 import { FormsModule } from '@angular/forms';
-import { MatCheckboxModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/components/sync-join-instructions/sync-join-instructions.module';
 
@@ -16,9 +20,7 @@ import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/componen
     RegistrationAdminComponent,
     RegistrationPresenterComponent
   ],
-  exports: [
-    RegistrationComponent
-  ],
+  exports: [RegistrationComponent],
   imports: [
     SyncJoinInstructionsModule,
     CommonModule,
@@ -26,8 +28,7 @@ import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/componen
     MatFormFieldModule,
     MatInputModule,
     SyncDirectivesModule,
-    MatCheckboxModule,
+    MatCheckboxModule
   ]
 })
-export class SyncRegistrationModule {
-}
+export class SyncRegistrationModule {}

@@ -8,7 +8,6 @@ import { filter, takeUntil } from 'rxjs/operators';
   // tslint:disable-next-line:directive-selector
   selector: '[syncViewerValue]',
   exportAs: 'viewerValue'
-
 })
 export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
   @Input() syncViewerValue: string;
@@ -19,23 +18,27 @@ export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
   constructor(
     private readonly syncDataService: SyncDataService,
     @Optional() private readonly control: NgControl
-  ) {
-  }
+  ) {}
 
   ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
 
-
   ngOnInit() {
     if (!this.control) {
-      throw new Error('syncPresenterValue directive must be attached to a formControl');
+      throw new Error(
+        'syncPresenterValue directive must be attached to a formControl'
+      );
     }
 
-    const data = this.syncDataService.getCurrentViewerObject<T>(this.syncViewerValue, this.syncViewerValueDefault);
+    const data = this.syncDataService.getCurrentViewerObject<T>(
+      this.syncViewerValue,
+      this.syncViewerValueDefault
+    );
 
-    data.valueChanges()
+    data
+      .valueChanges()
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(value => {
         this.control.valueAccessor.writeValue(value);

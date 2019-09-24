@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
-import { MatButtonModule, MatCardModule, MatMenuModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatMenuModule
+} from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -41,5 +45,4 @@ export const angularFire = AngularFireModule.initializeApp(
   ],
   exports: [FeedbackWidgetComponent, FeedbackRatingComponent]
 })
-export class FeedbackModule {
-}
+export class FeedbackModule {}

@@ -3,7 +3,14 @@ import { NgModule } from '@angular/core';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatInputModule, MatMenuModule, MatSelectModule, MatTabsModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule,
+  MatMenuModule,
+  MatSelectModule,
+  MatTabsModule
+} from '@angular/material';
 import { LoginService } from '@codelab/firebase-login';
 import { SlidesModule } from '@codelab/slides';
 import { LeaderboardModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-presenter/leaderboard/leaderboard.module';
@@ -39,9 +46,7 @@ import { SyncPlaygroundComponent } from './sync-playground/sync-playground.compo
     SyncButtonModule,
     LeaderboardModule
   ],
-  providers: [
-    LoginService
-  ],
+  providers: [LoginService],
   declarations: [
     AllViewerValuesDirective,
     SyncPlaygroundComponent,

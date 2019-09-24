@@ -8,9 +8,8 @@ describe('SyncPollAdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncPollAdminComponent ]
-    })
-    .compileComponents();
+      declarations: [SyncPollAdminComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

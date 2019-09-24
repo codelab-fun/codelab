@@ -16,9 +16,7 @@ import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-b
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.module';
 
-const routes = RouterModule.forChild([
-  {path: '', component: QnaComponent},
-]);
+const routes = RouterModule.forChild([{ path: '', component: QnaComponent }]);
 
 @NgModule({
   declarations: [QnaComponent],
@@ -27,7 +25,7 @@ const routes = RouterModule.forChild([
     SyncSessionService,
     SyncDbService,
     SyncPollService,
-    SyncRegistrationService,
+    SyncRegistrationService
   ],
   imports: [
     CommonModule,
@@ -39,8 +37,7 @@ const routes = RouterModule.forChild([
     AngularFireDatabaseModule,
     SyncButtonModule,
     SyncDirectivesModule,
-    SyncRegistrationModule,
+    SyncRegistrationModule
   ]
 })
-export class QnaModule {
-}
+export class QnaModule {}

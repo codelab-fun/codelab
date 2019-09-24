@@ -4,7 +4,6 @@ import { DateRangeComponent } from './date-range.component';
 import { FeedbackPageModule } from '../feedback-page.module';
 import { ActivatedRoute } from '@angular/router';
 
-
 describe('DateRangeComponent', () => {
   let component: DateRangeComponent;
   let fixture: ComponentFixture<DateRangeComponent>;
@@ -12,12 +11,13 @@ describe('DateRangeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FeedbackPageModule],
-      providers: [{
-        provide: ActivatedRoute,
-        useValue: {}
-      }]
-    })
-    .compileComponents();
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {}
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

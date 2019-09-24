@@ -8,9 +8,8 @@ describe('OnlineIndicatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnlineIndicatorComponent ]
-    })
-    .compileComponents();
+      declarations: [OnlineIndicatorComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

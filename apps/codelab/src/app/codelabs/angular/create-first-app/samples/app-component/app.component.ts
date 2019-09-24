@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
     <h2>Very soon you will learn how to create and bootstrap me!</h2>
   `
 })
-export class AppComponent {
-}
+export class AppComponent {}

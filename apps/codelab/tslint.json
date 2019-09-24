@@ -3,6 +3,5 @@
   "linterOptions": {
     "exclude": ["src/**/*.json"]
   },
-  "rules": {
-  }
+  "rules": {}
 }

@@ -12,10 +12,11 @@ export class LeaderboardViewerComponent implements OnInit {
 
   myScore$: Observable<any>;
 
-  constructor(private readonly syncPollService: SyncPollService) {
-  }
+  constructor(private readonly syncPollService: SyncPollService) {}
 
   ngOnInit() {
-    this.myScore$ = this.syncPollService.calculateMyScore(this.config.filter(a => a.answer));
+    this.myScore$ = this.syncPollService.calculateMyScore(
+      this.config.filter(a => a.answer)
+    );
   }
 }

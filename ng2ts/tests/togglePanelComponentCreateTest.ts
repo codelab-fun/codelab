@@ -5,7 +5,6 @@ import { TogglePanelComponent } from '../toggle-panel/toggle-panel.component';
 import { WrapperComponent } from '../wrapper.component';
 import 'initTestBed';
 
-
 beforeEach(() => {
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({
@@ -18,30 +17,54 @@ beforeEach(() => {
       template: toggle_panel_toggle_panel_html
     }
   });
-  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
+  try {
+    TestBed.compileComponents();
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 describe('Content projection', () => {
-  it(`TogglePanel.Component.ts: We added the template and the selector for you, enjoy!`, () => {
-  });
+  it(`TogglePanel.Component.ts: We added the template and the selector for you, enjoy!`, () => {});
 
   it(`TogglePanel.Component.ts: Add a boolean property to the component. The property can have any name, and must have a default value.`, () => {
     let fixture = TestBed.createComponent(TogglePanelComponent);
     // the intent is to let them come up with the property name, so we assume there will be one.
     const props = Object.keys(fixture.componentInstance);
 
-    chai.expect(props.length, `A property with a default value was not declared on the component.`).is.not.equal(0);
-    chai.expect(props.length, `Too many properties were declared.`).is.not.greaterThan(1);
+    chai
+      .expect(
+        props.length,
+        `A property with a default value was not declared on the component.`
+      )
+      .is.not.equal(0);
+    chai
+      .expect(props.length, `Too many properties were declared.`)
+      .is.not.greaterThan(1);
     const prop = props[0];
-    chai.expect(fixture.componentInstance[prop], `Property '${prop}' is not of type boolean`).is.a('boolean');
-    chai.expect(fixture.componentInstance[prop], `Property '${prop}' must have a default value`).is.not.undefined;
+    chai
+      .expect(
+        fixture.componentInstance[prop],
+        `Property '${prop}' is not of type boolean`
+      )
+      .is.a('boolean');
+    chai.expect(
+      fixture.componentInstance[prop],
+      `Property '${prop}' must have a default value`
+    ).is.not.undefined;
   });
 
   it(`togglePanel.html: Use content projection to only display the content with the selector .description by default.`, () => {
     let fixture = TestBed.createComponent(WrapperComponent);
     fixture.detectChanges();
-    chai.expect(fixture.debugElement.query(By.css('.description')), `Description should be displayed`).not.null;
-    chai.expect(fixture.debugElement.query(By.css('.extra')), `Extra information should be hidden`).is.null;
+    chai.expect(
+      fixture.debugElement.query(By.css('.description')),
+      `Description should be displayed`
+    ).not.null;
+    chai.expect(
+      fixture.debugElement.query(By.css('.extra')),
+      `Extra information should be hidden`
+    ).is.null;
   });
 
   it(`togglePanel.html: Add a button to show extra information`, () => {
@@ -57,8 +80,14 @@ describe('Content projection', () => {
     let button = fixture.nativeElement.querySelector('button');
     button.click();
     fixture.detectChanges();
-    chai.expect(fixture.debugElement.query(By.css('.description')), `Description should be hidden`).is.null;
-    chai.expect(fixture.debugElement.query(By.css('.extra')), `Extra information should be displayed`).not.null;
+    chai.expect(
+      fixture.debugElement.query(By.css('.description')),
+      `Description should be hidden`
+    ).is.null;
+    chai.expect(
+      fixture.debugElement.query(By.css('.extra')),
+      `Extra information should be displayed`
+    ).not.null;
   });
 
   it(`togglePanel.html: Add a button to come back to the description`, () => {
@@ -68,8 +97,13 @@ describe('Content projection', () => {
     fixture.detectChanges();
     fixture.nativeElement.querySelector('button').click();
     fixture.detectChanges();
-    chai.expect(fixture.debugElement.query(By.css('.description')), `Description should be displayed`).not.null;
-    chai.expect(fixture.debugElement.query(By.css('.extra')), `Extra information should be hidden`).is.null;
+    chai.expect(
+      fixture.debugElement.query(By.css('.description')),
+      `Description should be displayed`
+    ).not.null;
+    chai.expect(
+      fixture.debugElement.query(By.css('.extra')),
+      `Extra information should be hidden`
+    ).is.null;
   });
 });
-

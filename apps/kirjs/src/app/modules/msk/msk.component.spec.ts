@@ -8,9 +8,8 @@ describe('MskComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MskComponent ]
-    })
-    .compileComponents();
+      declarations: [MskComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -14,14 +14,17 @@ export class FeedComponent {
   posts$: Observable<Post[]>;
 
   constructor(private formService: FormService) {
-    this.posts$ = this.formService.repo$.snapshotChanges()
-      .pipe(map(items => {
-        return items.map(a => {
-          return {
-            ...a.payload.val(),
-            key: a.payload.key
-          };
-        }).reverse();
-      }));
+    this.posts$ = this.formService.repo$.snapshotChanges().pipe(
+      map(items => {
+        return items
+          .map(a => {
+            return {
+              ...a.payload.val(),
+              key: a.payload.key
+            };
+          })
+          .reverse();
+      })
+    );
   }
 }

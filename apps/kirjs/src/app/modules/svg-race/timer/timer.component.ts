@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
-
   time = 0;
 
   reset() {
@@ -21,7 +20,5 @@ export class TimerComponent implements OnInit {
     }, 1000);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

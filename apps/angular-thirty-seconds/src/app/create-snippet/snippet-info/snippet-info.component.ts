@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './snippet-info.component.html',
   styleUrls: ['./snippet-info.component.scss']
 })
-export class SnippetInfoComponent {
-}
+export class SnippetInfoComponent {}

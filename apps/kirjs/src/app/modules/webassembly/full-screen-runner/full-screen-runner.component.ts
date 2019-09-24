@@ -17,11 +17,9 @@ export class FullScreenRunnerComponent implements OnInit, OnChanges {
   rule = 1;
   steps = 100;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnChanges() {
     this.prepare();

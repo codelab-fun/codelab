@@ -1,5 +1,12 @@
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Directive, EventEmitter, HostListener, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -40,8 +47,8 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
 
   getId(index: number) {
     return this.deck.slides &&
-    this.deck.slides[index] &&
-    this.deck.slides[index].id
+      this.deck.slides[index] &&
+      this.deck.slides[index].id
       ? this.deck.slides[index].id
       : index;
   }
@@ -76,9 +83,9 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
         filter(event => event instanceof NavigationEnd),
         map(() => this.getIndexFromRouteParam()),
         distinctUntilChanged(),
-        takeUntil(this.ngUnsubscribe$),
+        takeUntil(this.ngUnsubscribe$)
       )
-      .subscribe((slide) => {
+      .subscribe(slide => {
         this.deck.goToSlide(slide);
       });
   }

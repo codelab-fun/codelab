@@ -4,8 +4,10 @@ import { babelTestSuite } from '../../apps/codelab/src/app/components/babel-test
 const tests = [
   {
     title: `@@allSetBootstrapApp`,
-    condition: ({node, parent}) =>
-      isIdentifier(node, {name: 'AppModule'}) && isCallExpression(parent) && parent.callee.property.name === 'bootstrapModule'
+    condition: ({ node, parent }) =>
+      isIdentifier(node, { name: 'AppModule' }) &&
+      isCallExpression(parent) &&
+      parent.callee.property.name === 'bootstrapModule'
   }
 ];
 
