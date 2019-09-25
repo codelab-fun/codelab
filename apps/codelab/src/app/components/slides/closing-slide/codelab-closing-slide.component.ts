@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject, Optional } from '@angular/core';
+import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { MENU_ROUTES } from '../../../codelabs/angular/common';
 
 @Component({
   selector: 'codelab-closing-slide',
@@ -10,7 +12,17 @@ export class CodelabClosingSlideComponent implements OnInit {
   @Input() body: String;
   @Input() footer: String;
 
-  constructor() {}
+  constructor(
+    private readonly presentation: SlidesDeckComponent,
+    @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
+  ) {
+    if (this.presentation != null) {
+      this.presentation.setupPreviousNext(menuRoutes.map(p => p.path));
+    }
+
+  }
+
+
 
   ngOnInit() {}
 }

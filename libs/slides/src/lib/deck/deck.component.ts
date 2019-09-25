@@ -11,7 +11,7 @@ import {
   TemplateRef
 } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'slide-deck',
@@ -27,10 +27,13 @@ export class SlidesDeckComponent {
   @Output() slideAdded = new EventEmitter<{ index: number; id: string }>();
   @HostBinding('class.has-milestone') hasMilestone = false;
   private milestone = '';
+  private previousLink: string;
+  private nextLink: string;
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    @Optional() private readonly  route: ActivatedRoute
+    private readonly router: Router,
+    @Optional() private readonly route: ActivatedRoute
   ) {
     if (route) {
       this.milestone = route.snapshot.queryParams.milestone;
@@ -51,18 +54,45 @@ export class SlidesDeckComponent {
   }
 
   nextSlide() {
-    this.goToSlide(this.activeSlideIndex + 1);
+    if (this.activeSlideIndex + 1 < this.slides.length) {
+      this.goToSlide(this.activeSlideIndex + 1);
+    } else if (this.nextLink != null && this.nextLink !== '') {
+      this.router.navigateByUrl(this.nextLink);
+    }
   }
 
   previousSlide() {
-    this.goToSlide(this.activeSlideIndex - 1);
+    if (this.activeSlideIndex > 0) {
+      this.goToSlide(this.activeSlideIndex - 1);
+    } else if (this.previousLink != null && this.previousLink !== '') {
+      this.router.navigateByUrl(this.previousLink);
+    }
   }
 
   canGoNext(): boolean {
-    return this.activeSlideIndex + 1 < this.slides.length;
+    return this.activeSlideIndex + 1 < this.slides.length || (this.nextLink != null && this.nextLink !== '');
   }
 
   canGoPrevious(): boolean {
-    return this.activeSlideIndex > 0;
+    return this.activeSlideIndex > 0 || (this.previousLink != null && this.previousLink !== '');
+  }
+
+  public setupPreviousNext(allRoutes: string[]) {
+    this.previousLink = '';
+    this.nextLink = '';
+    let currentUrl = this.router.url;
+    if (currentUrl.startsWith('/')) {
+      currentUrl = currentUrl.substr(1);
+    }
+    const urlPaths = currentUrl.split('/');
+    if (urlPaths.length > 1) {
+      const idx = allRoutes.indexOf(urlPaths[1]);
+      if (idx > 0) {
+        this.previousLink = `/${urlPaths[0]}/${allRoutes[idx - 1]}`;
+      }
+      if (idx < (allRoutes.length - 1)) {
+        this.nextLink = `/${urlPaths[0]}/${allRoutes[idx + 1]}`;
+      }
+    }
   }
 }
