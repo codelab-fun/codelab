@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
-import { MENU_ROUTES } from '../../codelabs/angular/common';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { MENU_ROUTES } from '../../common';
 
 @Component({
   selector: 'codelab-angular-routes',
@@ -8,8 +8,5 @@ import { MENU_ROUTES } from '../../codelabs/angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AngularRoutesComponent {
-  constructor(
-    @Inject(MENU_ROUTES) readonly menuRoutes
-  ) {
-  }
+  constructor(@Inject(MENU_ROUTES) readonly menuRoutes) {}
 }

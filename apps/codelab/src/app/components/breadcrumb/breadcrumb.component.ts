@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MENU_ROUTES } from '../../codelabs/angular/common';
+import { MENU_ROUTES } from '../../common';
 
 @Component({
   selector: 'codelab-breadcrumb',
@@ -8,7 +8,6 @@ import { MENU_ROUTES } from '../../codelabs/angular/common';
   styleUrls: ['./breadcrumb.component.css']
 })
 export class BreadcrumbComponent {
-
   active: string;
   readonly separator = '/';
 
@@ -16,8 +15,8 @@ export class BreadcrumbComponent {
     private activatedRoute: ActivatedRoute,
     @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
-    this.active = this.activatedRoute.pathFromRoot
-      .find(route => route.routeConfig && route.routeConfig['name'])
-      .routeConfig['name'];
+    this.active = this.activatedRoute.pathFromRoot.find(
+      route => route.routeConfig && route.routeConfig['name']
+    ).routeConfig['name'];
   }
 }

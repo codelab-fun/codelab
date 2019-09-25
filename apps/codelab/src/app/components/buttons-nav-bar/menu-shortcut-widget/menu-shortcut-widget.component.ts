@@ -1,5 +1,5 @@
-import { Component, Inject, Optional } from '@angular/core';
-import { MENU_ROUTES } from '../../../codelabs/angular/common';
+import { Component, Inject } from '@angular/core';
+import { MENU_ROUTES } from '../../../common';
 
 @Component({
   selector: 'codelab-menu-shortcut-widget',
@@ -7,8 +7,5 @@ import { MENU_ROUTES } from '../../../codelabs/angular/common';
   styleUrls: ['./menu-shortcut-widget.component.css']
 })
 export class MenuShortcutWidgetComponent {
-  constructor(
-    @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
-  ) {
-  }
+  constructor(@Inject(MENU_ROUTES) readonly menuRoutes) {}
 }
