@@ -108,19 +108,23 @@ function watch(
   }
 
   function emitFile(fileName: string) {
-    const output = services.getEmitOutput(fileName);
+    try {
+      const output = services.getEmitOutput(fileName);
 
-    if (output.emitSkipped) {
-      logErrors(fileName);
+      if (output.emitSkipped) {
+        logErrors(fileName);
+      }
+
+      const file = output.outputFiles.find(file => /\.js$/.test(file.name));
+
+      if (file) {
+        file.name = file.name.replace(/^\//, '');
+      }
+
+      return file;
+    } catch (e) {
+      console.log(`Error when compiling file '${fileName}': ` + e.message);
     }
-
-    const file = output.outputFiles.find(file => /\.js$/.test(file.name));
-
-    if (file) {
-      file.name = file.name.replace(/^\//, '');
-    }
-
-    return file;
   }
 
   function logErrors(fileName: string) {

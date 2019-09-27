@@ -56,7 +56,7 @@ export class MultitabEditorComponent
   @Input() enableAutoFolding = true;
   openModels: MonacoModel[];
   changeSubject = new Subject();
-
+  private prefix = `prefix/${Math.random()}/`;
   private onChange: any;
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
@@ -123,10 +123,11 @@ export class MultitabEditorComponent
         return monacoModel;
       } else {
         const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
+
         const model = this.monacoConfigService.monaco.editor.createModel(
           code,
           language,
-          'file:///' + path
+          'file:///' + this.prefix + path
         );
 
         model.onDidChangeContent(() => {

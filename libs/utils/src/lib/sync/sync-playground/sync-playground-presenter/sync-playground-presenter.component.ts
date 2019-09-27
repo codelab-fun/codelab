@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import { ReplaySubject, Subject } from 'rxjs';
-import { User } from 'firebase';
+import { User } from 'firebase/app';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';

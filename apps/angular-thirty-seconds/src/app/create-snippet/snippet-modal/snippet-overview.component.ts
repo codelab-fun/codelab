@@ -2,7 +2,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
-import * as firebase from 'firebase';
+import { auth } from 'firebase/app';
 import { finalize, switchMap, take, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetService } from '../../shared/services/snippet.service';
@@ -148,7 +148,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   async login() {
-    const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
+    const provider = new auth.GithubAuthProvider().addScope('repo');
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
     this.data.formValue['author'] = this.githubAuth.additionalUserInfo.username;
     this.snippet = generateSnippet(exportSnippet(this.data.formValue));

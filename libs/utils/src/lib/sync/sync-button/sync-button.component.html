@@ -7,7 +7,7 @@
 
 <div>
   <ng-container
-    *ngIf="syncSessionService.hasActiveSession$ | async; else noSession"
+    *ngIf="(syncSessionService.hasActiveSession$ | async); else noSession"
   >
     <mat-card *isAdmin>
       <button mat-icon-button (click)="present()">
@@ -30,7 +30,7 @@
     <ng-container *isViewing>
       <div
         *ngIf="
-          registrationService.currentUser$ | async as user;
+          (registrationService.currentUser$ | async) as user;
           else registation
         "
       >
@@ -68,7 +68,7 @@
 
   <button
     mat-raised-button
-    *ngIf="syncSessionService.canStartSession$ | async"
+    *ngIf="(syncSessionService.canStartSession$ | async)"
     style="cursor:pointer"
     (click)="start()"
   >
