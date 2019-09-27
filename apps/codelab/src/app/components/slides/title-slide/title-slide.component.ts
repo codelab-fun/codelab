@@ -1,6 +1,6 @@
 import { Component, Input, Optional, Inject } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { MENU_ROUTES } from '../../../codelabs/angular/common';
+import { MENU_ROUTES } from '../../../common';
 
 @Component({
   selector: 'codelab-title-slide',
@@ -13,7 +13,7 @@ export class TitleSlideComponent {
   @Input() prereqs: string;
 
   constructor(
-    private readonly presentation: SlidesDeckComponent,
+    @Optional() private readonly presentation: SlidesDeckComponent,
     @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
     if (this.presentation != null) {

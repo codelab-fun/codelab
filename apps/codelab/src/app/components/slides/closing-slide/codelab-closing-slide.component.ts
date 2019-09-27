@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Inject, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { MENU_ROUTES } from '../../../codelabs/angular/common';
+import { MENU_ROUTES } from '../../../common';
 
 @Component({
   selector: 'codelab-closing-slide',
@@ -13,7 +13,7 @@ export class CodelabClosingSlideComponent implements OnInit {
   @Input() footer: String;
 
   constructor(
-    private readonly presentation: SlidesDeckComponent,
+    @Optional() private readonly presentation: SlidesDeckComponent,
     @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
     if (this.presentation != null) {
