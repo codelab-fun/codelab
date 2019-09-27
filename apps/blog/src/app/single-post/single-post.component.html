@@ -2,7 +2,10 @@
   <mat-card-content>
     <p class="head">
       <span class="title">{{ post.title }}</span>
-      <span class="date">by <span>{{ post.author }}</span> on {{ post.date | date: 'short' }}</span>
+      <span class="date"
+        >by <span>{{ post.author }}</span> on
+        {{ post.date | date: 'short' }}</span
+      >
     </p>
 
     <div class="container">
@@ -10,7 +13,7 @@
         <div [class.text]="!full" [innerHTML]="post.text"></div>
       </markdown>
 
-      <span *ngIf="!full"><a routerLink="/post/{{post.key}}">More</a> </span>
+      <span *ngIf="!full"><a routerLink="/post/{{ post.key }}">More</a> </span>
     </div>
   </mat-card-content>
 </mat-card>

@@ -8,9 +8,8 @@ describe('SyncSessionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncSessionsComponent ]
-    })
-    .compileComponents();
+      declarations: [SyncSessionsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

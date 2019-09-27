@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 
 @Component({
@@ -14,8 +20,7 @@ export class NewProgressBarComponent implements AfterViewInit {
   activeSlideIndex = 0;
   tempSlideId = 0;
 
-  constructor(public deck: SlidesDeckComponent) {
-  }
+  constructor(public deck: SlidesDeckComponent) {}
 
   ngAfterViewInit() {
     // Change detection complains if updating it right away.

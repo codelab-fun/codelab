@@ -11,26 +11,24 @@ export class StarsPresenterComponent implements OnInit {
   breakdown: number[];
   max: number;
 
-  constructor() {
-  }
+  constructor() {}
 
-  @Input() set votes(votes: { [k: string]: number; }) {
+  @Input() set votes(votes: { [k: string]: number }) {
     const values = Object.values(votes);
     this.average = sum(values) / values.length;
 
-    this.breakdown = values.reduce((r, a) => {
-      r[a]++;
-      return r;
-    }, Array.from(Array(6), () => 0)).slice(1);
+    this.breakdown = values
+      .reduce((r, a) => {
+        r[a]++;
+        return r;
+      }, Array.from(Array(6), () => 0))
+      .slice(1);
     this.max = Math.max(...this.breakdown);
-
   }
 
   trackBy(i: number) {
     return i;
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -17,10 +17,13 @@ export const angularFire = AngularFireModule.initializeApp(
 );
 
 const routes: Routes = [
-  {path: '', redirectTo: 'list', pathMatch: 'full'},
-  {path: 'list', component: PullRequestsListComponent},
-  {path: 'new/:repoName/:repoOwner', component: CreateSnippetComponent},
-  {path: 'new/:repoName/:repoOwner/:pullNumber', component: CreateSnippetComponent},
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
+  { path: 'list', component: PullRequestsListComponent },
+  { path: 'new/:repoName/:repoOwner', component: CreateSnippetComponent },
+  {
+    path: 'new/:repoName/:repoOwner/:pullNumber',
+    component: CreateSnippetComponent
+  }
 ];
 
 @NgModule({
@@ -34,10 +37,7 @@ const routes: Routes = [
     HttpClientModule,
     CreateSnippetModule
   ],
-  declarations: [
-    AppComponent,
-    PullRequestsListComponent
-  ],
+  declarations: [AppComponent, PullRequestsListComponent],
   providers: [
     {
       provide: APP_INITIALIZER,
@@ -47,5 +47,4 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -6,9 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './upload.component.html'
 })
 export class UploadComponent {
-  /*/d*//*d:forms/trimboth*/
+  /*/d*/ /*d:forms/trimboth*/
   title: string;
-  description: string;
-  /*/d*//*d:router/trimleading*/
-
+  description: string; /*d:router/trimleading*/
+  /*/d*/
 }

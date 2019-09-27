@@ -10,12 +10,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PlaygroundComponent {
   code = angularSampleCode;
 
-  constructor(private readonly activatedRoute: ActivatedRoute,
-              private readonly router: Router) {
+  constructor(
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router
+  ) {
     const code = activatedRoute.snapshot.queryParams.code;
     if (code) {
       try {
-        this.code = {...angularSampleCode, ...JSON.parse(atob(code))};
+        this.code = { ...angularSampleCode, ...JSON.parse(atob(code)) };
       } catch (e) {
         console.log('can not parse code', code);
       }
@@ -24,11 +26,9 @@ export class PlaygroundComponent {
 
   handleUpdate(code: any) {
     const encoded = btoa(JSON.stringify(code));
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.activatedRoute,
-        queryParams: {code: encoded},
-      });
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { code: encoded }
+    });
   }
 }

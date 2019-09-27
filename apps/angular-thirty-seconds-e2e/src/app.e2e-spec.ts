@@ -10,9 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual(
-      'Welcome to angular-thirty-seconds!'
-    );
+    expect(page.getTitleText()).toEqual('Welcome to angular-thirty-seconds!');
   });
 
   afterEach(async () => {

@@ -4,7 +4,8 @@ import { QuestionsComponent } from '@codelab/utils/src/lib/sync/components/quest
 import {
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule, MatExpansionModule,
+  MatCheckboxModule,
+  MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -18,7 +19,6 @@ import { QuestionComponent } from './common/question/question.component';
 import { QuestionListComponent } from '@codelab/utils/src/lib/sync/components/questions/common/question-list/question-list.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -31,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     SyncDirectivesModule,
     MatIconModule,
     FormsModule,
-    MatExpansionModule,
+    MatExpansionModule
   ],
   declarations: [
     QuestionsComponent,
@@ -39,9 +39,8 @@ import { FormsModule } from '@angular/forms';
     QuestionsViewerComponent,
     QuestionsPresenterComponent,
     QuestionComponent,
-    QuestionListComponent,
+    QuestionListComponent
   ],
   exports: [QuestionsComponent]
 })
-export class QuestionsModule {
-}
+export class QuestionsModule {}

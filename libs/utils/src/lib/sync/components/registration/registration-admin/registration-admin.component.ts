@@ -11,9 +11,7 @@ export class RegistrationAdminComponent {
   displayNames: boolean;
   isRegistrationEnabled: boolean;
 
-  constructor(readonly registrationService: SyncRegistrationService) {
-  }
-
+  constructor(readonly registrationService: SyncRegistrationService) {}
 
   drop(userId: string) {
     this.registrationService.drop(userId);

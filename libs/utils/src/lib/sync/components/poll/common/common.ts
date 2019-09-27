@@ -7,5 +7,6 @@ export interface SyncPollConfig {
   answer?: string;
 }
 
-export const LETTERS = String.fromCharCode(...Array.from(new Array(25), (a, i) => i + 65)).split('');
-
+export const LETTERS = String.fromCharCode(
+  ...Array.from(new Array(25), (a, i) => i + 65)
+).split('');

@@ -10,8 +10,7 @@ export class MonacoWatLoadAnswerDirective {
 
   constructor(
     @Self() @Optional() private editorInjector: CodeDemoEditorInjector
-  ) {
-  }
+  ) {}
 
   loadAnswer(config: any) {
     const model = this.editorInjector.editor.getModel();

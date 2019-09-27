@@ -23,7 +23,7 @@
       ></codelab-date-range>
     </div>
     <div *slide id="main">
-      <div *ngFor="let item of (this.messages$ | async)" class="group">
+      <div *ngFor="let item of this.messages$ | async" class="group">
         <h2 class="feedback-header">{{ item.key }}</h2>
         <div *ngFor="let message of item.value" class="card">
           <div>

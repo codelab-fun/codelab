@@ -12,7 +12,13 @@ export class MskComponent implements OnInit {
       type: 'choice',
       question: 'Which framework do you use most at work?',
       options: [
-        'Angular', 'AngularJS', 'React', 'Vue', 'Svelte', 'jQuery', 'Something else',
+        'Angular',
+        'AngularJS',
+        'React',
+        'Vue',
+        'Svelte',
+        'jQuery',
+        'Something else'
       ]
     },
     {
@@ -25,13 +31,14 @@ export class MskComponent implements OnInit {
         'I can use it',
         'Good',
         'Really good',
-        'I\'m Minko Fluin',
+        "I'm Minko Fluin"
       ]
     },
     {
       key: 'build-dev',
       type: 'choice',
-      question: 'how long does it take to rebuild your app in dev mode (and see the result via local dev server) - the total turnaround time',
+      question:
+        'how long does it take to rebuild your app in dev mode (and see the result via local dev server) - the total turnaround time',
       options: [
         '< 1 second',
         '1 - 5 seconds',
@@ -45,7 +52,8 @@ export class MskComponent implements OnInit {
     {
       key: 'build-prod',
       type: 'choice',
-      question: 'how long does it take to create a production build of your app',
+      question:
+        'how long does it take to create a production build of your app',
       options: [
         '< 1 second',
         '1 - 5 seconds',
@@ -65,7 +73,7 @@ export class MskComponent implements OnInit {
         'Redesigned default app',
         'New command ng make-this-awesome',
         'Faster builds with enabled differential loading',
-        'New command ng deploy',
+        'New command ng deploy'
       ]
     },
     {
@@ -77,27 +85,25 @@ export class MskComponent implements OnInit {
         'CLI 9.0.0-next.0 with Ivy by default',
         'RxJS 8',
         'React 16.12',
-        'Angular XS',
+        'Angular XS'
       ]
     },
     {
       key: 'material',
       type: 'choice',
-      question: 'Which feature was added to Angular CDK library 8.1.3 "gelatin-key" (2019-08-14)?',
+      question:
+        'Which feature was added to Angular CDK library 8.1.3 "gelatin-key" (2019-08-14)?',
       answer: '',
       options: [
         'Windows 95 theme support',
         'Drag and drop',
         'New material-fox component',
-        'New Clipboard service + directive',
+        'New Clipboard service + directive'
       ]
-    },
+    }
   ];
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -7,8 +7,7 @@ import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questio
   styleUrls: ['./questions-viewer.component.css']
 })
 export class QuestionsViewerComponent {
-  constructor(public readonly questionsService: QuestionsService) {
-  }
+  constructor(public readonly questionsService: QuestionsService) {}
 
   addQuestion(input: HTMLTextAreaElement) {
     const question = input.value.trim();

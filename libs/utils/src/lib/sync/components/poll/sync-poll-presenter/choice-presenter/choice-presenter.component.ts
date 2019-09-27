@@ -14,25 +14,22 @@ export class ChoicePresenterComponent implements OnInit {
 
   breakdown: { [key: string]: number };
 
-  constructor() {
-  }
+  constructor() {}
 
   @Input() set votes(votes: { [key: string]: UserVote }) {
-    const startMap = this.options.map((a, i) => LETTERS[i]).reduce((r, k) => {
-      r[k] = 0;
-      return r;
-    }, {});
+    const startMap = this.options
+      .map((a, i) => LETTERS[i])
+      .reduce((r, k) => {
+        r[k] = 0;
+        return r;
+      }, {});
 
     this.breakdown = Object.values(votes || {}).reduce((result, response) => {
       const value = response.answer;
       result[LETTERS[value]] = (result[LETTERS[value]] || 0) + 1;
       return result;
     }, startMap);
-
   }
 
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

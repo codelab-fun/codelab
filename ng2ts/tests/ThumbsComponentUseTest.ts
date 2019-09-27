@@ -23,7 +23,11 @@ beforeEach(() => {
       template: thumbs_thumbs_html
     }
   });
-  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
+  try {
+    TestBed.compileComponents();
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 describe('Component Tree', () => {
@@ -34,8 +38,12 @@ describe('Component Tree', () => {
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata.declarations || [], `Thumbs component not found`).contains(ThumbsComponent);
-    chai.expect(metadata.declarations || [], `Keep the app component`).contains(VideoComponent);
+    chai
+      .expect(metadata.declarations || [], `Thumbs component not found`)
+      .contains(ThumbsComponent);
+    chai
+      .expect(metadata.declarations || [], `Keep the app component`)
+      .contains(VideoComponent);
   });
 
   it(`video.component.html: Use the thumbs component in the template`, () => {
@@ -53,11 +61,16 @@ describe('Component Tree', () => {
     const likes = fixture.componentInstance.video.likes;
     // TODO: test it.
     fixture.nativeElement.querySelector('.thumbs-up').click();
-    chai.expect(fixture.nativeElement.querySelector('.thumbs-up'), 'Thumbs up component is not present').to.be.ok;
+    chai.expect(
+      fixture.nativeElement.querySelector('.thumbs-up'),
+      'Thumbs up component is not present'
+    ).to.be.ok;
     chai.expect(fixture.componentInstance.video.likes).equals(likes + 1);
     fixture.nativeElement.querySelector('.thumbs-down').click();
-    chai.expect(fixture.nativeElement.querySelector('.thumbs-down'), 'Thumbs down component is not present').to.be.ok;
+    chai.expect(
+      fixture.nativeElement.querySelector('.thumbs-down'),
+      'Thumbs down component is not present'
+    ).to.be.ok;
     chai.expect(fixture.componentInstance.video.likes).equals(likes);
   });
 });
-
