@@ -18,14 +18,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { IPosition, languages } from 'monaco-editor';
-import CompletionItem = languages.CompletionItem;
-import CompletionItemKind = languages.CompletionItemKind;
-import CompletionItemInsertTextRule = languages.CompletionItemInsertTextRule;
-
 declare const monaco;
 
+const languages = monaco.languages;
+
+const CompletionItemKind = languages.CompletionItemKind;
+const CompletionItemInsertTextRule = languages.CompletionItemInsertTextRule;
+type CompletionItem = typeof languages.CompletionItem;
+
 type IModel = any;
+type IPosition = any;
 type IRichLanguageConfiguration = any;
 
 let completionItems: CompletionItem[] = null;
@@ -965,15 +967,15 @@ const LanguageConfiguration: IRichLanguageConfiguration = {
     { open: '{', close: '}' },
     { open: '[', close: ']' },
     { open: '(', close: ')' },
-    { open: "'", close: "'" },
-    { open: "'", close: "'" }
+    { open: '\'', close: '\'' },
+    { open: '\'', close: '\'' }
   ],
   surroundingPairs: [
     { open: '{', close: '}' },
     { open: '[', close: ']' },
     { open: '(', close: ')' },
-    { open: "'", close: "'" },
-    { open: "'", close: "'" },
+    { open: '\'', close: '\'' },
+    { open: '\'', close: '\'' },
     { open: '<', close: '>' }
   ]
 };

@@ -57,10 +57,7 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   }
 
   resize() {
-    const lines = this.editor
-      .getModel()
-      .getValue()
-      .split('\n').length;
+    const lines = this.editor.getModel().getLineCount();
     const lineHeight = this.fontSize * 1.6;
     const height = Math.max(lines * lineHeight, lineHeight * 5);
 
@@ -79,9 +76,9 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
     );
 
     this.resize();
-    this.didChangeListener = this.editor.onDidChangeModelContent(() =>
-      this.resize()
-    );
+    this.didChangeListener = this.editor.onDidChangeModelContent(() => {
+      this.resize();
+    });
   }
 
   ngOnDestroy() {

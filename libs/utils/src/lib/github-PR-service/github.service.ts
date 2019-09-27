@@ -107,7 +107,9 @@ export class GithubService {
   generateIssueBody(message) {
     return `${message.comment}
 Author: ${message.name}
-Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
+Slide: [Local](http://localhost:4200${
+      message.href
+    }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
   }
 
   markAsDone(message) {

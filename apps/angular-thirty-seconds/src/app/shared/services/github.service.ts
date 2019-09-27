@@ -66,7 +66,9 @@ export class GitHubService {
   getMasterBranch(repo: Repo): Observable<Branch> {
     requires(repo, 'Repository is required');
 
-    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/git/refs/heads/master`;
+    const requestUrl = `${this.apiGithubUrl}/repos/${
+      repo.full_name
+    }/git/refs/heads/master`;
     return this.http
       .get<Branch>(requestUrl, this.options)
       .pipe(
@@ -96,7 +98,9 @@ export class GitHubService {
       .post<Branch>(requestUrl, requestData, this.options)
       .pipe(
         this.showSnackbarOnError(
-          `Can't create branch ${branchName} of base branch ${baseBranch.object.url}`
+          `Can't create branch ${branchName} of base branch ${
+            baseBranch.object.url
+          }`
         )
       );
   }
@@ -105,7 +109,9 @@ export class GitHubService {
     requires(repo, 'Repository is required');
     requires(commitInfo, 'Commit is required');
 
-    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/${commitInfo.filePath}`;
+    const requestUrl = `${this.apiGithubUrl}/repos/${repo.full_name}/${
+      commitInfo.filePath
+    }`;
     const requestData = {
       message: commitInfo.message,
       branch: commitInfo.branchName,
@@ -204,7 +210,9 @@ export class GitHubService {
   ): Observable<any> {
     return this.http
       .get<any>(
-        `${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}/files`,
+        `${
+          this.apiGithubUrl
+        }/repos/${owner}/${repoName}/pulls/${pullNumber}/files`,
         this.options
       )
       .pipe(this.showSnackbarOnError("Can't get pull request file"));
@@ -217,7 +225,9 @@ export class GitHubService {
   }
 
   updateFile(repoFullName, snippetData, fileInfo): Observable<any> {
-    const requestUrl = `${this.apiGithubUrl}/repos/${repoFullName}/contents/${fileInfo['fileName']}`;
+    const requestUrl = `${this.apiGithubUrl}/repos/${repoFullName}/contents/${
+      fileInfo['fileName']
+    }`;
     const requestPayload = {
       message: `Snippet Update`,
       content: btoa(snippetData),

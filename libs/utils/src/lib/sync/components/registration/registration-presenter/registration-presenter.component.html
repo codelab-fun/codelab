@@ -1,15 +1,15 @@
 <ng-container
   *ngIf="
-    registrationService.isRegistrationEnabled$ | async;
+    (registrationService.isRegistrationEnabled$ | async);
     else registrationOver
   "
 >
   <codelab-sync-join-instructions></codelab-sync-join-instructions>
 </ng-container>
-<div *ngIf="registrationService.users$ | async as users">
+<div *ngIf="(registrationService.users$ | async) as users">
   <ng-container *ngIf="users.length; else waiting">
     <h3>Users connected: {{ users.length }}</h3>
-    <ul *ngIf="registrationService.shouldDisplayNames$ | async">
+    <ul *ngIf="(registrationService.shouldDisplayNames$ | async)">
       <li *ngFor="let user of users">
         {{ user.name }}
       </li>
