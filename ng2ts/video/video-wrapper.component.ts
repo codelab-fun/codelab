@@ -1,10 +1,8 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'video-wrapper',
-  template: `
-    <my-video [video]="video"></my-video>
-  `
+  template: `<my-video [video]="video"></my-video>`
 })
 export class VideoWrapperComponent {
   private video = {
