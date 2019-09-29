@@ -34,7 +34,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rating of ratings$ | async; let i = index">
+      <tr *ngFor="let rating of (ratings$ | async); let i = index">
         <td>
           <h3>{{ rating.lesson }}</h3>
         </td>

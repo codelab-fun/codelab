@@ -15,11 +15,6 @@
     "target": "es2015",
     "paths": {
       "jszip": ["node_modules/jszip/dist/jszip.min.js"],
-      "crypto": ["libs/dummy/src/index.ts"],
-      "source-map-support": ["libs/dummy/src/index.ts"],
-      "path": ["libs/dummy/src/index.ts"],
-      "process": ["libs/dummy/src/index.ts"],
-      "convert-source-map": ["libs/dummy/src/index.ts"],
       "@codelab/*": ["libs/*"],
       "@codelab/browser": ["libs/browser/src/index.ts"],
       "@codelab/console": ["libs/console/src/index.ts"],

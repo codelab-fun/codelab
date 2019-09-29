@@ -1,4 +1,10 @@
-import * as ts from 'typescript';
+import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+
+const ts = getTypeScript();
+
+namespace ts {
+  export type Node = any;
+}
 
 // TODO(kirjs): Consider adding a test.
 export function simpleVisitor(

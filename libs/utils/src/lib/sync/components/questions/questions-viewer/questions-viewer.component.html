@@ -21,9 +21,9 @@
   </button>
 </div>
 
-<ng-container *ngIf="questionsService.requireApproval$ | async">
+<ng-container *ngIf="(questionsService.requireApproval$ | async)">
   <ng-container
-    *ngIf="questionsService.myUnapprovedQuestions$ | async as unapproved"
+    *ngIf="(questionsService.myUnapprovedQuestions$ | async) as unapproved"
   >
     <mat-expansion-panel *ngIf="unapproved.length">
       <mat-expansion-panel-header>
@@ -42,11 +42,11 @@
   </ng-container>
 </ng-container>
 
-<ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
+<ng-container *ngIf="(questionsService.publicQuestions$ | async) as questions">
   <ng-container *ngIf="questions.length">
     <h2>All questions:</h2>
     <codelab-question
-      *ngIf="questionsService.starredQuestion$ | async as question"
+      *ngIf="(questionsService.starredQuestion$ | async) as question"
       tabindex="0"
       [question]="question"
       class="starred"

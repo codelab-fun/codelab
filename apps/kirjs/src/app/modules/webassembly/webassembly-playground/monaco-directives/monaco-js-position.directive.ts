@@ -72,7 +72,7 @@ export class MonacoJsPositionDirective implements AfterViewInit {
       );
 
       const offset = model.getOffsetAt(position);
-      let token = ts.getTokenAtPosition(sourceFile, offset);
+      let token = (ts as any).getTokenAtPosition(sourceFile, offset);
       const blocks = [token];
       while (token.parent && token.kind) {
         token = token.parent;
