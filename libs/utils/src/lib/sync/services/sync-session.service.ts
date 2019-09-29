@@ -28,7 +28,7 @@ export class SyncSessionService {
   private readonly sessionId = new BehaviorSubject(null);
   readonly sessionConfig = this.dbService.object<SyncSessionConfig>(
     this.sessionId.pipe(
-      map(sessionId =>  (sessionId ? `sync-sessions/${sessionId}/config` : null))
+      map(sessionId => (sessionId ? `sync-sessions/${sessionId}/config` : null))
     )
   );
   readonly sessionId$ = this.sessionId.asObservable();
