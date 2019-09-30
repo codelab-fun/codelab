@@ -1,4 +1,8 @@
-import { app_html, search_search_component_html, video_video_component_html } from '../code';
+import {
+  app_html,
+  search_search_component_html,
+  video_video_component_html
+} from '../code';
 import { TestBed } from '@angular/core/testing';
 import { VideoService } from '../video/video.service';
 import { AppComponent } from '../app.component';
@@ -24,7 +28,11 @@ describe('material', () => {
       TestBed.configureTestingModule({
         providers: [VideoService],
         declarations: [AppComponent, SearchComponent, VideoComponent],
-        imports: [RouterModule.forRoot([{path: '', component: SearchComponent}]), MatToolbarModule, MatCardModule]
+        imports: [
+          RouterModule.forRoot([{ path: '', component: SearchComponent }]),
+          MatToolbarModule,
+          MatCardModule
+        ]
       });
       TestBed.overrideComponent(AppComponent, {
         set: {
@@ -32,7 +40,9 @@ describe('material', () => {
           templateUrl: undefined
         }
       });
-      TestBed.overrideComponent(VideoComponent, {set: {template: video_video_component_html, templateUrl: undefined}});
+      TestBed.overrideComponent(VideoComponent, {
+        set: { template: video_video_component_html, templateUrl: undefined }
+      });
       TestBed.overrideComponent(SearchComponent, {
         set: {
           template: search_search_component_html,
@@ -40,9 +50,12 @@ describe('material', () => {
         }
       });
 
-      try { TestBed.compileComponents(); } catch(e) { console.log(e); }
-    } catch (e) {
-    }
+      try {
+        TestBed.compileComponents();
+      } catch (e) {
+        console.log(e);
+      }
+    } catch (e) {}
   });
 
   it('AddMatModules', () => {
@@ -81,7 +94,6 @@ describe('material', () => {
     chai.expect(subTitle).is.ok;
     chai.expect(subTitle.innerText).to.contain(Api.fetch('')[0].description);
   });
-
 
   it('AddMatImage', () => {
     const img = getCard().querySelector('img[mat-card-image]');
