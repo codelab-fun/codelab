@@ -12,4 +12,3 @@ export declare const ts: any;
 export declare const babylon: any;
 export declare const babel_traverse: any;
 export declare const babel_types: any;
-
