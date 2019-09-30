@@ -5,9 +5,8 @@ import { Guest } from './Guest'; /*d:codelabSolved*/ // Add your code here
   getGuestsComing() {
     return this.guests.filter(guest => guest.coming);
   }
-} /*d:neverShow*/
-/*/d*/ // Needed for type checking
-export function evalJs(param) {
+} /*d:neverShow*/ // Needed for type checking
+/*/d*/ export function evalJs(param) {
   return param;
 }
 /*/d*/

@@ -51,10 +51,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations'; /*d
 export class AppModule {
   /*/d*/
   /*d:createModuleSolved*/
-} /*d:neverShow*/
+} /*d:neverShow*/ // Needed for type checking
 
-/*/d*/ // Needed for type checking
-export function evalJs(param) {
+/*/d*/ export function evalJs(param) {
   return param;
 }
 /*/d*/

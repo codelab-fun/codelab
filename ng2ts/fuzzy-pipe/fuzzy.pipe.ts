@@ -17,9 +17,8 @@ export class FuzzyPipe implements PipeTransform {
     }
     return differenceYears + ' ' + 'years ago';
   }
-} /*d:neverShow*/
-/*/d*/ // Please ignore
-export function evalJs(string) {
+} /*d:neverShow*/ // Please ignore
+/*/d*/ export function evalJs(string) {
   return string;
 }
 /*/d*/

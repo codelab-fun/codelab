@@ -15,7 +15,7 @@ import { VideoItem } from './video/video-item'; /*d:diInjectService/trimLeading*
     title: 'Serious cat',
     src: '/assets/images/cat-03.jpg'
   }
-]; /*d:createComponentSolved*/ /*d:neverShow*/ /* tslint:disable */ /*/d*/
+]; /*/d*/ /*d:createComponentSolved*/ /*d:neverShow*/ /* tslint:disable */
 /*/d*/ @Component({
   selector: 'my-app' /*d:createComponentSolved:bootstrapSolved/trimBoth*/,
   /*/d*/ template: '<h1>Hello MewTube!</h1>' /*d:templatePageSetup/trimBoth*/,
@@ -43,9 +43,8 @@ export class AppComponent {
     /*/d*/
   } /*d:createComponentSolved/trimTrailing*/
   /*/d*/
-} /*d:neverShow*/
-/*/d*/ // Please ignore
-export function evalJs(string) {
+} /*d:neverShow*/ // Please ignore
+/*/d*/ export function evalJs(string) {
   return string;
 }
 /*/d*/
