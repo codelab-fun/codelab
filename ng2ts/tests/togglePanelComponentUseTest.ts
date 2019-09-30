@@ -4,7 +4,7 @@ import {
   thumbs_thumbs_html,
   toggle_panel_toggle_panel_html,
   video_video_component_html
-  } from '../code';
+} from '../code';
 import { AppComponent } from '../app.component';
 import { AppModule } from '../app.module';
 import { TestBed } from '@angular/core/testing';
@@ -20,13 +20,28 @@ beforeEach(() => {
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({
     providers: [VideoService],
-    declarations: [AppComponent, VideoComponent, TogglePanelComponent, ThumbsComponent]
+    declarations: [
+      AppComponent,
+      VideoComponent,
+      TogglePanelComponent,
+      ThumbsComponent
+    ]
   });
   TestBed.overrideComponent(AppComponent, { set: { template: app_html } });
-  TestBed.overrideComponent(ThumbsComponent, { set: { template: thumbs_thumbs_html } });
-  TestBed.overrideComponent(VideoComponent, { set: { template: video_video_component_html } });
-  TestBed.overrideComponent(TogglePanelComponent, { set: { template: toggle_panel_toggle_panel_html } });
-  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
+  TestBed.overrideComponent(ThumbsComponent, {
+    set: { template: thumbs_thumbs_html }
+  });
+  TestBed.overrideComponent(VideoComponent, {
+    set: { template: video_video_component_html }
+  });
+  TestBed.overrideComponent(TogglePanelComponent, {
+    set: { template: toggle_panel_toggle_panel_html }
+  });
+  try {
+    TestBed.compileComponents();
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 describe('Component Tree', () => {
@@ -37,9 +52,15 @@ describe('Component Tree', () => {
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai.expect(metadata.declarations || [], `Keep the video component`).contains(VideoComponent);
-    chai.expect(metadata.declarations || [], `Keep the app component`).contains(AppComponent);
-    chai.expect(metadata.declarations || [], `Add TogglePanelComponent`).contains(TogglePanelComponent);
+    chai
+      .expect(metadata.declarations || [], `Keep the video component`)
+      .contains(VideoComponent);
+    chai
+      .expect(metadata.declarations || [], `Keep the app component`)
+      .contains(AppComponent);
+    chai
+      .expect(metadata.declarations || [], `Add TogglePanelComponent`)
+      .contains(TogglePanelComponent);
   });
 
   it(`video.component.html: Use the TogglePanel component in the template`, () => {
@@ -49,7 +70,6 @@ describe('Component Tree', () => {
     chai.expect(panel).is.not.null;
   });
 
-
   it(`video.component.html: Add .description as TogglePanel's content`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
@@ -58,8 +78,18 @@ describe('Component Tree', () => {
     chai.expect(panel.querySelector('.description')).is.not.null;
     chai.expect(panel.querySelector('.extra')).is.null;
 
-    chai.expect(fixture.nativeElement.querySelector('my-video').innerHTML, `Should display description text.`).contains(video.description);
-    chai.expect(fixture.nativeElement.querySelector('my-video').innerHTML, `Should not display likes `).not.contains(video.likes);
+    chai
+      .expect(
+        fixture.nativeElement.querySelector('my-video').innerHTML,
+        `Should display description text.`
+      )
+      .contains(video.description);
+    chai
+      .expect(
+        fixture.nativeElement.querySelector('my-video').innerHTML,
+        `Should not display likes `
+      )
+      .not.contains(video.likes);
   });
 
   it(`video.component.html: Add .extra as TogglePanel's content`, () => {
@@ -72,9 +102,17 @@ describe('Component Tree', () => {
     chai.expect(panel.querySelector('.description')).is.null.null;
     chai.expect(panel.querySelector('.extra')).is.not.null;
 
-    chai.expect(fixture.nativeElement.querySelector('my-video').innerHTML, `Should not description text.`).not.contains(video.description);
-    chai.expect(fixture.nativeElement.querySelector('my-video').innerHTML, `Should display likes`).contains(video.likes);
-
+    chai
+      .expect(
+        fixture.nativeElement.querySelector('my-video').innerHTML,
+        `Should not description text.`
+      )
+      .not.contains(video.description);
+    chai
+      .expect(
+        fixture.nativeElement.querySelector('my-video').innerHTML,
+        `Should display likes`
+      )
+      .contains(video.likes);
   });
 });
-
