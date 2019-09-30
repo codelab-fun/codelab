@@ -10,6 +10,7 @@ matrix:
 
 script:
   - npm run lint
+  - npm test
   - npm run ng build -- --aot --prod
 
 notifications:
