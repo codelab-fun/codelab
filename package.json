@@ -40,7 +40,6 @@
     "affected:apps": "./node_modules/.bin/nx affected:apps",
     "affected:libs": "./node_modules/.bin/nx affected:libs",
     "affected:build": "./node_modules/.bin/nx affected:build",
-    "affected:e2e": "./node_modules/.bin/nx affected:e2e",
     "affected:test": "./node_modules/.bin/nx affected:test",
     "affected:lint": "./node_modules/.bin/nx affected:lint",
     "affected:dep-graph": "./node_modules/.bin/nx affected:dep-graph",
@@ -54,9 +53,7 @@
     "help": "./node_modules/.bin/nx help"
   },
   "husky": {
-    "hooks": {
-
-    }
+    "hooks": {}
   },
   "repository": {
     "type": "git",
