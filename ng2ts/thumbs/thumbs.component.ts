@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 
 /**
  * Yes, TypeScript has enums!
@@ -19,11 +19,11 @@ export class ThumbsComponent {
   @Output() onThumbs: EventEmitter<Thumbs> = new EventEmitter<Thumbs>();
 
   thumbsUp() {
-    this.onThumbs.emit(Thumbs.UP);
+    this.onThumbs.emit(Thumbs.UP)
   }
 
   thumbsDown() {
-    this.onThumbs.emit(Thumbs.DOWN);
+    this.onThumbs.emit(Thumbs.DOWN)
   }
   /*/d*/
 }

@@ -20,7 +20,11 @@ import { ts, typescript_intro_Codelab_ts_AST } from '../code';
  */
 import { Codelab, evalJs } from '../typescript-intro/Codelab';
 
-const guests = [{ name: 'me', coming: true }, { name: 'notme', coming: false }];
+
+const guests = [
+  {name: 'me', coming: true},
+  {name: 'notme', coming: false},
+];
 
 function getConstructorNode(code) {
   let constructorNode = undefined;
@@ -83,74 +87,44 @@ describe('Component', () => {
   it(`@@makeConstructorTakeParamGuests`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
-    chai
-      .expect(
-        constructorNode.parameters.length,
-        `Codelab's constructor should take a parameter`
-      )
-      .to.equal(1);
-    chai
-      .expect(
-        constructorNode.parameters[0].name.text,
-        `Codelab constructor's parameter should be called 'guests'`
-      )
-      .equals('guests');
+    chai.expect(constructorNode.parameters.length, `Codelab's constructor should take a parameter`).to.equal(1);
+    chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
   });
 
   it(`@@specifyTheTypeForGuests`, () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
 
     chai.expect(constructorNode, `Codelab doesn't have a constuctor`).to.be.ok;
-    chai
-      .expect(
-        constructorNode.parameters.length,
-        `Codelab's constructor should take a parameter`
-      )
-      .to.equal(1);
-    chai
-      .expect(
-        constructorNode.parameters[0].name.text,
-        `Codelab constructor's parameter should be called 'guests'`
-      )
-      .equals('guests');
+    chai.expect(constructorNode.parameters.length, `Codelab's constructor should take a parameter`).to.equal(1);
+    chai.expect(constructorNode.parameters[0].name.text, `Codelab constructor's parameter should be called 'guests'`).equals('guests');
 
     const type = constructorNode.parameters[0].type;
-    const isArrayOfGuest =
-      /* Array<Guest> */ (type.kind === ts.SyntaxKind.TypeReference &&
-        type.typeName.text === 'Array' &&
-        type.typeArguments.length === 1 &&
-        type.typeArguments[0].typeName.text === 'Guest') ||
-      /* Guest[] */ (type.kind === ts.SyntaxKind.ArrayType &&
-        type.elementType.kind === ts.SyntaxKind.TypeReference &&
-        type.elementType.typeName.text === 'Guest');
+    const isArrayOfGuest = /* Array<Guest> */(type.kind === ts.SyntaxKind.TypeReference &&
+      type.typeName.text === 'Array' &&
+      type.typeArguments.length === 1 && type.typeArguments[0].typeName.text === 'Guest') ||
+      /* Guest[] */ (type.kind === ts.SyntaxKind.ArrayType
+      && type.elementType.kind === ts.SyntaxKind.TypeReference && type.elementType.typeName.text === 'Guest');
 
-    chai.expect(
-      isArrayOfGuest,
-      `The type for guests should be Array of Guest 
-    (hint: Array<Guest> is one way of doing it.)`
-    ).to.be.ok;
+    chai.expect(isArrayOfGuest, `The type for guests should be Array of Guest 
+    (hint: Array<Guest> is one way of doing it.)`).to.be.ok;
+
   });
 
   it('@@makeParemeterPublic', () => {
     const constructorNode = getConstructorNode(typescript_intro_Codelab_ts_AST);
     const parameter = constructorNode.parameters[0];
-    chai.expect(
-      parameter.modifiers.length === 1 &&
-        parameter.modifiers[0].kind === ts.SyntaxKind.PublicKeyword,
-      `'guests' constructor parameter should have 'public' visibility.`
-    ).to.be.ok;
+    chai.expect(parameter.modifiers.length === 1 && parameter.modifiers[0].kind === ts.SyntaxKind.PublicKeyword,
+      `'guests' constructor parameter should have 'public' visibility.`).to.be.ok;
+
   });
 
   it(`createNewMethodGetGuestsComing`, () => {
-    chai.expect(typeof new Codelab(guests).getGuestsComing).equals('function');
+    chai.expect(typeof (new Codelab(guests).getGuestsComing)).equals('function');
   });
 
   it(`@@modifyGetGuestsComingToFilter`, () => {
     const guestsComing = new Codelab(guests).getGuestsComing();
-    chai.assert(
-      Array.isArray(guestsComing),
-      'getGuestsComing must return an Array, current value: ' + guestsComing
-    );
+    chai.assert(Array.isArray(guestsComing), 'getGuestsComing must return an Array, current value: ' + guestsComing);
     chai.expect(guestsComing.length).equals(1);
   });
 
