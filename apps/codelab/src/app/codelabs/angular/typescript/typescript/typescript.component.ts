@@ -1,14 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
-import {
-  convertExerciseToMap,
-  ng2tsConfig
-} from '../../../../../../../../ng2ts/ng2ts';
-import {
-  javaScriptWithConsoleLog,
-  typeScriptWithConsoleLog
-} from '../../../../shared/helpers/helpers';
+import { convertExerciseToMap, ng2tsConfig } from '../../../../../../../../ng2ts/ng2ts';
+import { javaScriptWithConsoleLog, typeScriptWithConsoleLog } from '../../../../shared/helpers/helpers';
 
 declare const require;
 
@@ -114,10 +108,13 @@ notSure = false; // ${this.t.definitelyBoolean}`
       },
       classDescription: {
         code: typeScriptWithConsoleLog(`export class Puppy {
+  // ${this.t.commonDogName}
+  name = 'Bar Boss';
+
   // ${this.t.thisIsMethod}
   bark(){
     // ${this.t.thatsHowRussianDogsTalk}
-    return 'Gav gav!!';
+    return this.name + ': Gav gav!!';
   }
 }
 
