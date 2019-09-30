@@ -45,51 +45,27 @@ const sampleVideo = Api.fetch('')[0];
 beforeEach(() => {
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({
-    providers: [
-      VideoService,
-      ContextService,
-      /* that's a hack, to provide parent component */ VideoComponent
-    ],
-    declarations: [
-      AppComponent,
-      VideoComponent,
-      TogglePanelComponent,
-      ContextComponent,
-      ThumbsComponent
-    ]
+    providers: [VideoService, ContextService, /* that's a hack, to provide parent component */ VideoComponent],
+    declarations: [AppComponent, VideoComponent, TogglePanelComponent, ContextComponent, ThumbsComponent]
   });
-  TestBed.overrideComponent(AppComponent, { set: { template: app_html } });
-  TestBed.overrideComponent(VideoComponent, {
-    set: { template: video_video_component_html }
-  });
-  TestBed.overrideComponent(TogglePanelComponent, {
-    set: { template: toggle_panel_toggle_panel_html }
-  });
-  TestBed.overrideComponent(ContextComponent, {
-    set: { template: context_context_html }
-  });
-  TestBed.overrideComponent(ThumbsComponent, {
-    set: { template: thumbs_thumbs_html }
-  });
+  TestBed.overrideComponent(AppComponent, {set: {template: app_html}});
+  TestBed.overrideComponent(VideoComponent, {set: {template: video_video_component_html}});
+  TestBed.overrideComponent(TogglePanelComponent, {set: {template: toggle_panel_toggle_panel_html}});
+  TestBed.overrideComponent(ContextComponent, {set: {template: context_context_html}});
+  TestBed.overrideComponent(ThumbsComponent, {set: {template: thumbs_thumbs_html}});
 
-  try {
-    TestBed.compileComponents();
-  } catch (e) {
-    console.log(e);
-  }
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 });
 
 describe('Children', () => {
   it(`ContextComponent: Inject the ContextService into the constructor and store it as a property.`, () => {
     const fixture = TestBed.createComponent(ContextComponent);
-    chai.expect(objectHasAn(fixture.componentInstance, ContextService)).to.be
-      .true;
+    chai.expect(objectHasAn(fixture.componentInstance, ContextService)).to.be.true;
   });
 
   it(`ContextComponent: Inject the parent component (VideoComponent) into the constructor and store it as a property.`, () => {
     const fixture = TestBed.createComponent(ContextComponent);
-    chai.expect(objectHasAn(fixture.componentInstance, VideoComponent)).to.be
-      .true;
+    chai.expect(objectHasAn(fixture.componentInstance, VideoComponent)).to.be.true;
   });
 
   it(`ContextComponent: Add an ngOnInit method to the component. 
@@ -105,8 +81,7 @@ describe('Children', () => {
     const componentInstance = fixture.componentInstance;
 
     const vcProp = objectFindPropOfType(componentInstance, VideoComponent);
-    chai.expect(vcProp, `'VideoComponent' was not injected.`).to.not.be
-      .undefined;
+    chai.expect(vcProp, `'VideoComponent' was not injected.`).to.not.be.undefined;
 
     componentInstance[vcProp].video = sampleVideo;
     chai.expect(componentInstance.ngOnInit).is.a('function');
@@ -119,9 +94,7 @@ describe('Children', () => {
     componentInstance[vcProp].video.description = 'banana';
     componentInstance.ngOnInit();
     fixture.detectChanges();
-    chai
-      .expect(fixture.nativeElement.innerHTML)
-      .to.contain('Check out our web site');
+    chai.expect(fixture.nativeElement.innerHTML).to.contain('Check out our web site');
   });
 
   it(`app.module.ts: Add the ContextComponent to the AppModule declarations (We did this for you).`, () => {
@@ -131,9 +104,7 @@ describe('Children', () => {
     } catch (e) {
       // Do nothing, we have assertions below for this case
     }
-    chai
-      .expect(metadata.declarations || [], `Video component not found`)
-      .contains(ContextComponent);
+    chai.expect(metadata.declarations || [], `Video component not found`).contains(ContextComponent);
   });
 
   it(`video.component.html: Actually display the ad (We actually also did it for you).`, () => {
@@ -143,3 +114,4 @@ describe('Children', () => {
     // chai.expect(fixture.nativeElement.querySelector('my-ad')).to.be.ok
   });
 });
+

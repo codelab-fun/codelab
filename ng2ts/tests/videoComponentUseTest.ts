@@ -27,11 +27,7 @@ function prepareTestingModule(videoComponent: any = VideoComponent) {
       templateUrl: undefined
     }
   });
-  try {
-    TestBed.compileComponents();
-  } catch (e) {
-    console.log(e);
-  }
+  try { TestBed.compileComponents(); } catch(e) { console.log(e); }
 }
 
 describe('Component Tree', () => {
@@ -44,12 +40,8 @@ describe('Component Tree', () => {
       // Do nothing, we have assertions below for this case
     }
 
-    chai
-      .expect(metadata.declarations || [], `Video component not found`)
-      .contains(VideoComponent);
-    chai
-      .expect(metadata.declarations || [], `Keep the app component`)
-      .contains(AppComponent);
+    chai.expect(metadata.declarations || [], `Video component not found`).contains(VideoComponent);
+    chai.expect(metadata.declarations || [], `Keep the app component`).contains(AppComponent);
   });
 
   it(`@@replaceTitleAndThumbnail`, () => {
@@ -74,18 +66,8 @@ describe('Component Tree', () => {
     fixture.detectChanges();
 
     const myVideos = fixture.nativeElement.querySelectorAll('my-video');
-    chai
-      .expect(
-        myVideos.length,
-        `can't find any <my-video> elements in the app component`
-      )
-      .is.greaterThan(0);
-    chai
-      .expect(
-        myVideos.length,
-        `There should be one <my-video> element for each video`
-      )
-      .equals(fixture.componentInstance.videos.length);
+    chai.expect(myVideos.length, `can't find any <my-video> elements in the app component`).is.greaterThan(0);
+    chai.expect(myVideos.length, `There should be one <my-video> element for each video`).equals(fixture.componentInstance.videos.length);
   });
 
   it(`@@useDataBindingToPassVideoToComponent`, () => {
@@ -94,8 +76,7 @@ describe('Component Tree', () => {
     fixture.componentInstance.videos = Api.fetch('');
     fixture.detectChanges();
     const video = fixture.nativeElement.querySelector('my-video');
-    chai
-      .expect(video.getAttribute('ng-reflect-video'))
-      .equals('[object Object]');
+    chai.expect(video.getAttribute('ng-reflect-video')).equals('[object Object]');
   });
 });
+

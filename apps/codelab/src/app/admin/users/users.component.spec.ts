@@ -2,7 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsersComponent } from './users.component';
 import { UsersModule } from './users.module';
-import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
+import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { of } from 'rxjs';
+import { LoginService } from '@codelab/firebase-login';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -11,7 +13,16 @@ describe('UsersComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [UsersModule],
-      providers: [...getMockAngularFireProviders()]
+      providers: [
+        {
+          provide: SyncDbService,
+          useValue: { list: () => ({ snapshots$: of([]) }) }
+        },
+        {
+          provide: LoginService,
+          useValue: {}
+        }
+      ]
     }).compileComponents();
   }));
 

@@ -1,4 +1,4 @@
 export interface Guest {
-  coming: boolean;
-  name: string;
+  coming: boolean,
+  name: string
 }
