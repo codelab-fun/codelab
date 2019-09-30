@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 /*d:templateAddAction/trimLeading*/
-import { VideoItem } from './video/video-item'; /*d:diInjectService/trimLeading*/
-/*/d*/ import { VideoService } from './video/video.service'; /*d:templateAllVideos:diInjectService*/
-/*/d*/ const FAKE_VIDEOS = [
-  {
+import { VideoItem } from './video/video-item';
+/*/d*//*d:diInjectService/trimLeading*/
+import { VideoService } from './video/video.service';
+/*/d*//*d:templateAllVideos:diInjectService*/
+const FAKE_VIDEOS = [{
     title: 'Cute kitten',
     src: '/assets/images/cat-01.jpg'
   },
@@ -14,37 +15,38 @@ import { VideoItem } from './video/video-item'; /*d:diInjectService/trimLeading*
   {
     title: 'Serious cat',
     src: '/assets/images/cat-03.jpg'
-  }
-]; /*/d*/ /*d:createComponentSolved*/ /*d:neverShow*/ /* tslint:disable */
-/*/d*/ @Component({
-  selector: 'my-app' /*d:createComponentSolved:bootstrapSolved/trimBoth*/,
-  /*/d*/ template: '<h1>Hello MewTube!</h1>' /*d:templatePageSetup/trimBoth*/,
-  /*/d*/ templateUrl: 'app.html' /*d:createComponentSolved/trimTrailing*/
-  /*/d*/
+  }];
+/*/d*//*d:neverShow*//* tslint:disable *//*/d*//*d:createComponentSolved*/
+@Component({
+  selector: 'my-app',
+  /*/d*//*d:createComponentSolved:bootstrapSolved/trimBoth*/
+  template: '<h1>Hello MewTube!</h1>',
+  /*/d*//*d:templatePageSetup/trimBoth*/
+  templateUrl: 'app.html'
+  /*/d*//*d:createComponentSolved/trimTrailing*/
 })
 export class AppComponent {
-  /*/d*/ /*d:templateAddActionSolved/trimTrailing*/
-  videos: VideoItem[] =
-    /*/d*/ /*d:templateAddActionSolved:templateAllVideos/trimTrailing*/ [] /*/d*/ /*d:neverShow*/ &&
-    /*/d*/ /*d:templateAllVideosSolved:templateAllVideosSolved/trimTrailing*/ FAKE_VIDEOS /*/d*/ /*d:neverShow*/ &&
-    /*/d*/ /*d:diInjectService/trimTrailing*/ [] /*/d*/ /*d:templateAddActionSolved*/; /*d:templatePageSetup/trimTrailing*/
-  /*/d*/ title = 'MewTube'; /*d:diInjectServiceSolved*/
-  /*/d*/ constructor(
-    public videoService: VideoService
-  ) {} /*d:templateAddActionSolved/trimTrailing*/
-  /*/d*/ search(searchString: string) {
-    /*/d*/ /*d:diInjectServiceSolved*/
-    this.videos = this.videoService.search(
-      searchString
-    ); /*d:templateAllVideosSolved:diInjectService*/
-    /*/d*/ this.videos = FAKE_VIDEOS.filter(
-      video => video.title.indexOf(searchString) >= 0
-    ); /*d:templateAddActionSolved/trimBoth*/
-    /*/d*/
-  } /*d:createComponentSolved/trimTrailing*/
-  /*/d*/
-} /*d:neverShow*/ // Please ignore
-/*/d*/ export function evalJs(string) {
+  /*/d*//*d:templateAddActionSolved/trimTrailing*/
+  videos: VideoItem[] = /*/d*//*d:templateAddActionSolved:templateAllVideos/trimTrailing*/ [] /*/d*//*d:neverShow*/ &&
+    /*/d*//*d:templateAllVideosSolved:templateAllVideosSolved/trimTrailing*/ FAKE_VIDEOS /*/d*//*d:neverShow*/ &&
+    /*/d*//*d:diInjectService/trimTrailing*/ [] /*/d*//*d:templateAddActionSolved*/;
+/*/d*//*d:templatePageSetup/trimTrailing*/
+  title = 'MewTube';
+/*/d*//*d:diInjectServiceSolved*/
+  constructor(public videoService: VideoService) {
+  }
+/*/d*//*d:templateAddActionSolved/trimTrailing*/
+  search(searchString: string) {
+    /*/d*//*d:diInjectServiceSolved*/
+    this.videos = this.videoService.search(searchString);
+    /*/d*//*d:templateAllVideosSolved:diInjectService*/
+    this.videos = FAKE_VIDEOS.filter(video => video.title.indexOf(searchString) >= 0);
+  /*/d*//*d:templateAddActionSolved/trimBoth*/}
+  /*/d*//*d:createComponentSolved/trimTrailing*/
+}
+/*/d*//*d:neverShow*/
+// Please ignore
+export function evalJs(string) {
   return string;
 }
 /*/d*/
