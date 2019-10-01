@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccessService } from '../../shared/services/access.service';
 
 @Component({
   selector: 'codelab-buttons-nav-bar',
