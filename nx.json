@@ -11,9 +11,6 @@
     "codelab": {
       "tags": []
     },
-    "codelab-e2e": {
-      "tags": []
-    },
     "browser": {
       "tags": []
     },
@@ -24,9 +21,6 @@
       "tags": []
     },
     "kirjs": {
-      "tags": []
-    },
-    "kirjs-e2e": {
       "tags": []
     },
     "angular-ast-viz": {
@@ -53,16 +47,7 @@
     "angular-thirty-seconds": {
       "tags": []
     },
-    "angular-thirty-seconds-e2e": {
-      "tags": []
-    },
     "blog": {
-      "tags": []
-    },
-    "blog-e2e": {
-      "tags": []
-    },
-    "lis-e2e": {
       "tags": []
     },
     "lis": {

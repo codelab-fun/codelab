@@ -125,40 +125,12 @@
         }
       }
     },
-    "codelab-e2e": {
-      "root": "apps/codelab-e2e",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "apps/codelab-e2e/protractor.conf.js",
-            "devServerTarget": "codelab:serve"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "apps/codelab-e2e/tsconfig.e2e.json",
-            "exclude": []
-          }
-        }
-      }
-    },
     "browser": {
       "root": "libs/browser",
       "sourceRoot": "libs/browser/src",
       "projectType": "library",
       "prefix": "codelab",
       "architect": {
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/browser/src/test.ts",
-            "tsConfig": "libs/browser/tsconfig.spec.json",
-            "karmaConfig": "libs/browser/karma.conf.js"
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -329,31 +301,6 @@
               "apps/kirjs/tsconfig.app.json",
               "apps/kirjs/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "kirjs-e2e": {
-      "root": "apps/kirjs-e2e/",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "apps/kirjs-e2e/protractor.conf.js",
-            "devServerTarget": "kirjs:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "kirjs:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "apps/kirjs-e2e/tsconfig.e2e.json",
             "exclude": ["**/node_modules/**"]
           }
         }
@@ -687,33 +634,6 @@
         }
       }
     },
-    "blog-e2e": {
-      "root": "apps/blog-e2e",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/blog-e2e/cypress.json",
-            "tsConfig": "apps/blog-e2e/tsconfig.e2e.json",
-            "devServerTarget": "blog:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "blog:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "apps/blog-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
     "angular-thirty-seconds": {
       "root": "apps/angular-thirty-seconds/",
       "sourceRoot": "apps/angular-thirty-seconds/src",
@@ -831,32 +751,6 @@
         }
       }
     },
-    "angular-thirty-seconds-e2e": {
-      "root": "apps/angular-thirty-seconds-e2e",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "apps/angular-thirty-seconds-e2e/protractor.conf.js",
-            "devServerTarget": "angular-thirty-seconds:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-thirty-seconds:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "apps/angular-thirty-seconds-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
     "lis": {
       "projectType": "application",
       "schematics": {},
@@ -955,33 +849,6 @@
             "jestConfig": "apps/lis/jest.config.js",
             "tsConfig": "apps/lis/tsconfig.spec.json",
             "setupFile": "apps/lis/src/test-setup.ts"
-          }
-        }
-      }
-    },
-    "lis-e2e": {
-      "root": "apps/lis-e2e",
-      "sourceRoot": "apps/lis-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/lis-e2e/cypress.json",
-            "tsConfig": "apps/lis-e2e/tsconfig.e2e.json",
-            "devServerTarget": "lis:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "lis:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/lis-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/lis-e2e/**"]
           }
         }
       }
