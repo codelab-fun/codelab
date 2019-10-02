@@ -21,18 +21,13 @@ const guests: Guest[] = [
   }
 ];
 
-try {
-  const codelab = new Codelab(guests);
+const codelab = new Codelab(guests);
 
 // Angular is so much better than this:
-  document.body.innerHTML =
+document.body.innerHTML =
   '<ul>' +
-    codelab
+  codelab
     .getGuestsComing()
     .map((guest: Guest) => `<li>${guest.name}</li>`)
     .join('') +
-    '</ul>';
-
-} catch (e) {
-  document.body.innerHTML = 'Result will appear once you complete the exercise...';
-}
+  '</ul>';
