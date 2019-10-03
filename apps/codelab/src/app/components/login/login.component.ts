@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginService } from '@codelab/firebase-login';
-import { auth } from 'firebase';
+import { auth } from 'firebase/app';
 
 @Component({
   selector: 'codelab-login',

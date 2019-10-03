@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SyncPlaygroundTestComponent } from './sync-playground-test.component';
+import { SyncModule } from '@codelab/utils/src/lib/sync/sync.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('SyncPlaygroundTestComponent', () => {
   let component: SyncPlaygroundTestComponent;
@@ -8,9 +11,14 @@ describe('SyncPlaygroundTestComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncPlaygroundTestComponent ]
-    })
-    .compileComponents();
+      imports: [
+        SyncModule,
+        RouterTestingModule
+      ],
+      providers: [
+        ...getMockAngularFireProviders()
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

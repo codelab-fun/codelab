@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SyncPollComponent } from './sync-poll.component';
+import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
 
 describe('SyncPollComponent', () => {
   let component: SyncPollComponent;
@@ -8,9 +9,8 @@ describe('SyncPollComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SyncPollComponent ]
-    })
-    .compileComponents();
+      imports: [SyncPollModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

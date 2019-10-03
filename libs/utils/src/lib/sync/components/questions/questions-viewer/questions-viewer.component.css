@@ -1,5 +1,6 @@
-textarea, mat-form-field {
-  width: 100%
+textarea,
+mat-form-field {
+  width: 100%;
 }
 
 .question-body {

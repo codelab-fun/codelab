@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnDestroy
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
 import { Subject, Subscription } from 'rxjs';
@@ -49,7 +56,7 @@ export class MultitabEditorComponent
   @Input() enableAutoFolding = true;
   openModels: MonacoModel[];
   changeSubject = new Subject();
-
+  private prefix = `prefix/${Math.random()}/`;
   private onChange: any;
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
@@ -76,7 +83,7 @@ export class MultitabEditorComponent
     this.updateOpenModels();
   }
 
-  handleFileChange(index, {value}) {
+  handleFileChange(index, { value }) {
     if (this.models) {
       const m = this.getModelByFileName(value.path);
       m.model.setValue(m.model.getValue());
@@ -92,8 +99,7 @@ export class MultitabEditorComponent
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
   loadSolution(file) {
     this.getModelByFileName(file).model.setValue(this.solutions[file]);
@@ -101,7 +107,7 @@ export class MultitabEditorComponent
 
   getModelByFileName(file): MonacoModel | undefined {
     if (this.models) {
-      return this.models.find(({path}) => path === file);
+      return this.models.find(({ path }) => path === file);
     }
   }
 
@@ -117,15 +123,16 @@ export class MultitabEditorComponent
         return monacoModel;
       } else {
         const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
+
         const model = this.monacoConfigService.monaco.editor.createModel(
           code,
           language,
-          'file:///' + path
+          'file:///' + this.prefix + path
         );
 
         model.onDidChangeContent(() => {
           this.code[path] = model.getValue();
-          this.changeSubject.next({...this.code});
+          this.changeSubject.next({ ...this.code });
         });
 
         return {
@@ -145,7 +152,7 @@ export class MultitabEditorComponent
 
   writeValue(code: Code): void {
     if (code) {
-      this.code = {...code};
+      this.code = { ...code };
       this.generateModels();
     }
   }

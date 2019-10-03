@@ -2,7 +2,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
-import * as firebase from 'firebase';
+import { auth } from 'firebase/app';
 import { finalize, switchMap, take, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetService } from '../../shared/services/snippet.service';
@@ -14,17 +14,17 @@ interface SnippetOverviewData {
   formValue: object;
   isEditing: boolean;
   fileInfo: {
-    sha: string,
-    fileName: string,
-    branchName: string
+    sha: string;
+    fileName: string;
+    branchName: string;
   };
   repoName: string;
   repoOwner: string;
 }
 
 function exportSnippet(snippet) {
-  const result = {...snippet};
-  result.links = (result.links) ? result.links.split(SEPARATOR) : undefined;
+  const result = { ...snippet };
+  result.links = result.links ? result.links.split(SEPARATOR) : undefined;
   result.author = result.author || '** Your github username will be here **';
   result.bonus = result.bonus || undefined;
   return result;
@@ -36,7 +36,6 @@ function exportSnippet(snippet) {
   styleUrls: ['./snippet-overview.component.scss']
 })
 export class SnippetOverviewComponent implements OnInit, OnDestroy {
-
   destroy = new ReplaySubject<void>(1);
 
   githubAuth;
@@ -54,15 +53,17 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     private _snackBar: MatSnackBar,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: SnippetOverviewData
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.isEditing = this.data.isEditing;
     this.snippet = generateSnippet(exportSnippet(this.data.formValue));
     // This is a temporary hack.
     // The version of markdown requires new lines between meta values, but github does not.
-    this.snippetWithFormat = this.snippet.replace(/\n(title|author|twitter|level|tags|links):/g, '\n\n$1:');
+    this.snippetWithFormat = this.snippet.replace(
+      /\n(title|author|twitter|level|tags|links):/g,
+      '\n\n$1:'
+    );
   }
 
   ngOnDestroy() {
@@ -79,30 +80,75 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     }
 
     if (this.isEditing) {
-      this.snippetService.updatePR(this.githubAuth, this.snippet, this.data.fileInfo, this.data.repoName)
-        .pipe(finalize(() => this.isPRCreating = false), takeUntil(this.destroy))
-        .subscribe(res => this.navigateAndShowSnackBar('Success', 'Snippet updated', res['commit']['html_url']));
-    } else {
-      this.snippetService.createPR(this.githubAuth, this.snippet, this.data.formValue['title'], this.data.repoName, this.data.repoOwner)
+      this.snippetService
+        .updatePR(
+          this.githubAuth,
+          this.snippet,
+          this.data.fileInfo,
+          this.data.repoName
+        )
         .pipe(
-          switchMap(res => this.githubService.addLinkToEditForm(this.data.repoOwner, this.data.repoName, res['number'])),
-          switchMap(res => this.githubService.addSnippetLabel(this.data.repoOwner, this.data.repoName, res['number'])),
-          finalize(() => this.isPRCreating = false),
+          finalize(() => (this.isPRCreating = false)),
           takeUntil(this.destroy)
         )
-        .subscribe(res => this.navigateAndShowSnackBar('Pull request created', res['title'].replace('Add - new snippet: ', ''), res['html_url']));
+        .subscribe(res =>
+          this.navigateAndShowSnackBar(
+            'Success',
+            'Snippet updated',
+            res['commit']['html_url']
+          )
+        );
+    } else {
+      this.snippetService
+        .createPR(
+          this.githubAuth,
+          this.snippet,
+          this.data.formValue['title'],
+          this.data.repoName,
+          this.data.repoOwner
+        )
+        .pipe(
+          switchMap(res =>
+            this.githubService.addLinkToEditForm(
+              this.data.repoOwner,
+              this.data.repoName,
+              res['number']
+            )
+          ),
+          switchMap(res =>
+            this.githubService.addSnippetLabel(
+              this.data.repoOwner,
+              this.data.repoName,
+              res['number']
+            )
+          ),
+          finalize(() => (this.isPRCreating = false)),
+          takeUntil(this.destroy)
+        )
+        .subscribe(res =>
+          this.navigateAndShowSnackBar(
+            'Pull request created',
+            res['title'].replace('Add - new snippet: ', ''),
+            res['html_url']
+          )
+        );
     }
   }
 
   navigateAndShowSnackBar(text: string, linkLabel: string, linkUrl: string) {
     this.dialogRef.close();
     this.router.navigate(['list']);
-    const snakeBarRef = this._snackBar.open(text, linkLabel, {duration: 20000});
-    snakeBarRef.onAction().pipe(take(1)).subscribe(() => window.open(linkUrl));
+    const snakeBarRef = this._snackBar.open(text, linkLabel, {
+      duration: 20000
+    });
+    snakeBarRef
+      .onAction()
+      .pipe(take(1))
+      .subscribe(() => window.open(linkUrl));
   }
 
   async login() {
-    const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
+    const provider = new auth.GithubAuthProvider().addScope('repo');
     this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
     this.data.formValue['author'] = this.githubAuth.additionalUserInfo.username;
     this.snippet = generateSnippet(exportSnippet(this.data.formValue));

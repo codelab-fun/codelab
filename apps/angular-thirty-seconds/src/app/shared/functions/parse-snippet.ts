@@ -4,8 +4,7 @@ import { angularSampleCode } from '../angular-sample';
 // If you delete this you get a run time error.
 // This is needed for gray-matter
 window.Buffer = {
-  from() {
-  }
+  from() {}
 };
 
 // @ts-ignore
@@ -27,12 +26,13 @@ const matter = require('gray-matter');
  */
 function extractHeaders(str) {
   const match = ('\n' + str + '\n#').match(/\n#+.*\n[\s\S]*?(?=\n#)/g);
-  return !match ? {content: str} : match
-    .reduce((result, a) => {
-      const [, header, content] = a.match(/^\n#+(.*)\n([\s\S]*)$/);
-      result[header.trim().toLocaleLowerCase()] = content.trim();
-      return result;
-    }, {});
+  return !match
+    ? { content: str }
+    : match.reduce((result, a) => {
+        const [, header, content] = a.match(/^\n#+(.*)\n([\s\S]*)$/);
+        result[header.trim().toLocaleLowerCase()] = content.trim();
+        return result;
+      }, {});
 }
 
 /**
@@ -59,7 +59,7 @@ function extractHeaders(str) {
  */
 function mdTextToJson(snippet: string) {
   const metaData = matter(snippet);
-  return {...extractHeaders(metaData.content), ...metaData.data};
+  return { ...extractHeaders(metaData.content), ...metaData.data };
 }
 
 /**
@@ -81,7 +81,9 @@ export function parseSnippet(snippetBody: string) {
   const demoFiles = Object.entries(snippet)
     .filter(([key]) => key.startsWith('file:'))
     .reduce((files, [key, value]) => {
-      files[key.replace(/^file:/, '').trim()] = stripMarkdownLanguageMark(value.toString());
+      files[key.replace(/^file:/, '').trim()] = stripMarkdownLanguageMark(
+        value.toString()
+      );
       return files;
     }, {});
 

@@ -8,5 +8,4 @@ import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 })
 export class SyncPlaygroundComponent {
   SyncStatus = SyncStatus;
-
 }

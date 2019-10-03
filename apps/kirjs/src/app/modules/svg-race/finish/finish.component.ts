@@ -7,12 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./finish.component.css']
 })
 export class FinishComponent implements OnInit {
-  @Input() position = {x: 0, y: 0};
+  @Input() position = { x: 0, y: 0 };
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

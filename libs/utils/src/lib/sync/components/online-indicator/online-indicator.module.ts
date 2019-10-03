@@ -6,10 +6,6 @@ import { MatIconModule } from '@angular/material';
 @NgModule({
   declarations: [OnlineIndicatorComponent],
   exports: [OnlineIndicatorComponent],
-  imports: [
-    CommonModule,
-    MatIconModule
-  ]
+  imports: [CommonModule, MatIconModule]
 })
-export class OnlineIndicatorModule {
-}
+export class OnlineIndicatorModule {}

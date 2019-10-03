@@ -5,9 +5,10 @@
 Angular Codelab is an Online interactive Angular tutorial.
 
 It's also an open source project written in Angular.
- 
-## Cloning: 
-- clone: `git clone https://https://github.com/codelab-fun/codelab.git`
+
+## Cloning:
+
+- clone: `git clone https://github.com/codelab-fun/codelab.git`
 - [Install npm](https://nodejs.org/en/download/). Test with `npm -v`
 - install: `npm install`
 - start: `npm start`

@@ -72,7 +72,7 @@ export class MidiComponent implements OnInit {
 
     const instrumentChannel = new BinaryParser().uInt8('instrument');
     const track = new BinaryParser()
-      .firstBit('delta')
+      .varuint7('delta')
       .uInt8('type')
       .choice('typeData', {
         parser: data => {

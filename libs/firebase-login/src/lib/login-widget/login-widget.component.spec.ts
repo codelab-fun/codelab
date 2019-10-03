@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginWidgetComponent } from './login-widget.component';
+import { FirebaseLoginModule, LoginService } from '@codelab/firebase-login';
 
 describe('LoginWidgetComponent', () => {
   let component: LoginWidgetComponent;
@@ -8,7 +9,13 @@ describe('LoginWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginWidgetComponent]
+      imports: [FirebaseLoginModule],
+      providers: [
+        {
+          provide: LoginService,
+          useValue: {}
+        }
+      ]
     }).compileComponents();
   }));
 

@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <div class="rule" *ngFor="let row of before; let in = index">
+    <div style="display: flex;">
+      <div class="cell" *ngFor="let i of row" [class.active]="i == 1"></div>
+    </div>
+    <div class="cell after" [class.active]="after[in]"></div>
+  </div>
+</div>

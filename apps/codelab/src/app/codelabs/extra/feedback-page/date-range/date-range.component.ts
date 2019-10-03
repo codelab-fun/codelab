@@ -1,4 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -18,9 +24,11 @@ export class DateRangeComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.rangeForm.valueChanges.pipe(debounceTime(1000)).subscribe(({ from, to }) => {
-      this.range.emit([from, to]);
-    });
+    this.rangeForm.valueChanges
+      .pipe(debounceTime(1000))
+      .subscribe(({ from, to }) => {
+        this.range.emit([from, to]);
+      });
   }
 
   clear() {
@@ -29,5 +37,4 @@ export class DateRangeComponent implements OnInit {
       to: ''
     });
   }
-
 }

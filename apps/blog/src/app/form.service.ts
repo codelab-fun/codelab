@@ -9,13 +9,9 @@ import { Post } from './form/form.component';
 export class FormService {
   repo$: AngularFireList<Post> = this.database.list('/posts');
 
-  constructor(
-    private database: AngularFireDatabase) {
-  }
+  constructor(private database: AngularFireDatabase) {}
 
-  addPost(
-    post: Post
-  ): any {
+  addPost(post: Post): any {
     const newpost: Post = {
       ...post,
       date: new Date().toUTCString()

@@ -7,10 +7,7 @@ import { LoginService } from '@codelab/firebase-login/src/lib/login.service';
   styleUrls: ['./login-widget.component.css']
 })
 export class LoginWidgetComponent {
-  constructor(
-    readonly loginService: LoginService
-  ) {
-  }
+  constructor(readonly loginService: LoginService) {}
 
   login() {
     this.loginService.loginWithGithub();

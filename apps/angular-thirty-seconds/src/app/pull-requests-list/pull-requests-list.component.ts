@@ -11,7 +11,6 @@ const REPO_NAME = '30-seconds-of-angular';
   styleUrls: ['./pull-requests-list.component.scss']
 })
 export class PullRequestsListComponent {
-
   repoOwner = REPO_OWNER;
   repoName = REPO_NAME;
 
@@ -19,9 +18,5 @@ export class PullRequestsListComponent {
 
   displayedColumns = ['number', 'title', 'login', 'created_at', 'action'];
 
-  constructor(
-    private router: Router,
-    private githubService: GitHubService
-  ) {
-  }
+  constructor(private router: Router, private githubService: GitHubService) {}
 }

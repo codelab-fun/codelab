@@ -1,4 +1,10 @@
-import { Component, forwardRef, HostBinding, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  forwardRef,
+  HostBinding,
+  Input,
+  OnInit
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -20,8 +26,7 @@ export class StarsComponent implements OnInit, ControlValueAccessor {
   hover = 0;
   private onChange!: (n: number) => void;
 
-  constructor() {
-  }
+  constructor() {}
 
   getStarIcon(star: number) {
     const rating = (this.hover || this.rating || 0) - star + 1;
@@ -35,15 +40,13 @@ export class StarsComponent implements OnInit, ControlValueAccessor {
     return 'star';
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   registerOnChange(fn: (n: number) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
   writeValue(number: any): void {
     this.rating = number;

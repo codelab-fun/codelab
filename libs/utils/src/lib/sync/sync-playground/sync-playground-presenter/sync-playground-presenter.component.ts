@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import { ReplaySubject, Subject } from 'rxjs';
-import { User } from 'firebase';
+import { User } from 'firebase/app';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
@@ -26,15 +26,14 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
         user$: new ReplaySubject<any>(1),
         preferredStatus$: new ReplaySubject<any>(1)
       })
-    },
+    }
   ]
 })
 export class SyncPlaygroundPresenterComponent implements OnInit {
   @Input() userId: string;
   @Input() preferredStatus: SyncStatus;
 
-  constructor(private readonly  loginService: LoginService) {
-  }
+  constructor(private readonly loginService: LoginService) {}
 
   ngOnInit() {
     (this.loginService.user$ as Subject<User>).next({
@@ -43,6 +42,8 @@ export class SyncPlaygroundPresenterComponent implements OnInit {
     } as User);
 
     (this.loginService.uid$ as Subject<string>).next(this.userId);
-    (this.loginService.preferredStatus$ as Subject<string>).next(this.preferredStatus);
+    (this.loginService.preferredStatus$ as Subject<string>).next(
+      this.preferredStatus
+    );
   }
 }

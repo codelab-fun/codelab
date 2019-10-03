@@ -12,5 +12,5 @@ export const environment = {
     authDomain: 'ng2-codelab.firebaseapp.com',
     databaseURL: 'https://ng2-codelab.firebaseio.com',
     storageBucket: 'ng2-codelab.appspot.com'
-  }
+  },
 };

@@ -1,34 +1,37 @@
 <h3>Tell us what's new</h3>
-<form class="container"
-      [formGroup]="myform"
-      (ngSubmit)="onSubmit()">
+<form class="container" [formGroup]="myform" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    placeholder="Title"
+    class="form-control"
+    [formControl]="title"
+    required
+  />
 
-  <input type="text"
-         placeholder="Title"
-         class="form-control"
-         [formControl]="title"
-         required>
-
-  <input type="text"
-         placeholder="Name"
-         class="form-control"
-         [formControl]="author"
-         required>
+  <input
+    type="text"
+    placeholder="Name"
+    class="form-control"
+    [formControl]="author"
+    required
+  />
 
   <textarea
     rows="5"
     class="form-control"
     [formControl]="text"
     placeholder="Text"
-    required> </textarea>
+    required
+  >
+  </textarea>
 
-  <button type="submit" class="btn btn-primary form-control"
-          [attr.disabled]="myform.valid ? null : true">
+  <button
+    type="submit"
+    class="btn btn-primary form-control"
+    [attr.disabled]="myform.valid ? null : true"
+  >
     Submit
   </button>
 </form>
 
 <a routerLink="">Back</a>
-
-
-

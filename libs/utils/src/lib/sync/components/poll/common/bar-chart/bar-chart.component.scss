@@ -2,7 +2,6 @@
   --bar-width: 50px;
 }
 
-
 .filler {
   width: var(--bar-width);
   background: #fff;
@@ -30,7 +29,6 @@
   }
 }
 
-
 .star {
   position: absolute;
   text-align: center;
@@ -51,9 +49,7 @@ codelab-stars {
 
 .label {
   font-size: 20px;
-
 }
-
 
 .horizontal {
   &.wrapper {
@@ -118,7 +114,6 @@ codelab-stars {
         line-height: var(--bar-width);
         left: 10px;
       }
-
     }
   }
 }

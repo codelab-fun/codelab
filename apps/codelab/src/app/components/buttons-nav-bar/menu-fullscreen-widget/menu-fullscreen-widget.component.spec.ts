@@ -8,9 +8,8 @@ describe('MenuFullscreenWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuFullscreenWidgetComponent ]
-    })
-    .compileComponents();
+      declarations: [MenuFullscreenWidgetComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

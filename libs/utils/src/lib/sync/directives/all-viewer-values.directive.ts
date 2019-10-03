@@ -1,4 +1,10 @@
-import { AfterViewInit, Directive, Input, OnDestroy, Optional } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  Input,
+  OnDestroy,
+  Optional
+} from '@angular/core';
 
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -7,18 +13,13 @@ import { Subject } from 'rxjs';
   // tslint:disable-next-line:directive-selector
   selector: '[syncAllUserValues]',
   exportAs: 'allViewerValues'
-
 })
 export class AllViewerValuesDirective<T> implements AfterViewInit, OnDestroy {
   @Input() syncAllUserValues: string;
-  values: { key: string, value: T }[];
+  values: { key: string; value: T }[];
   private onDestroy = new Subject();
 
-  constructor(
-    @Optional() private readonly control: NgControl
-  ) {
-
-  }
+  constructor(@Optional() private readonly control: NgControl) {}
 
   ngOnDestroy(): void {
     this.onDestroy.next();
@@ -35,6 +36,4 @@ export class AllViewerValuesDirective<T> implements AfterViewInit, OnDestroy {
     //   });
     // });
   }
-
-
 }

@@ -9,3 +9,10 @@
   padding: 20px;
   box-sizing: border-box;
 }
+
+.menu-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}

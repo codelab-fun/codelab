@@ -1,7 +1,7 @@
 export enum QuestionStatus {
   APPROVED = 'approved',
   NEW = 'new',
-  ARCHIVED = 'archived',
+  ARCHIVED = 'archived'
 }
 
 export const statuses = Object.values(QuestionStatus);

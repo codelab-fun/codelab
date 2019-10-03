@@ -51,6 +51,7 @@ export class CodeDemoEditorComponent
   changeSubject = new Subject();
 
   @Output() change = new EventEmitter();
+  @Output() selectionChange = new EventEmitter();
   @ViewChild('editor', { static: false }) editorEl;
   code: string;
   private subscription: Subscription;
@@ -136,6 +137,12 @@ export class CodeDemoEditorComponent
         }
       }
     );
+
+    this.editor.onDidChangeCursorSelection(({ selection }) => {
+      this.selectionChange.emit(
+        this.editor.getModel().getValueInRange(selection)
+      );
+    });
 
     this.model.onDidChangeContent(() => {
       this.changeSubject.next(this.editor.getModel().getValue());

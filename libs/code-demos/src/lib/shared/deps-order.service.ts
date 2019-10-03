@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FileConfig } from '../../../../../apps/codelab/src/app/shared/interfaces/file-config';
-
-import * as ts from 'typescript';
 import { simpleVisitor } from './visitor';
+import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+
+const ts = getTypeScript();
 
 @Injectable({
   providedIn: 'root'

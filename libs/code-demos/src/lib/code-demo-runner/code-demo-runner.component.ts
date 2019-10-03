@@ -44,22 +44,22 @@ const presets = {
   styleUrls: ['./code-demo-runner.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChanges {
+export class CodeDemoRunnerComponent
+  implements OnDestroy, AfterViewInit, OnChanges {
   @Input() code: CodeFiles = {};
   @Input() jsFiles: CodeFiles = {};
   @Input() bootstrap: string;
   @Input() url = 'about:blank';
   @Input() ui = 'browser';
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
-  @ViewChild('runner', {static: false}) runnerElement: ElementRef;
+  @ViewChild('runner', { static: false }) runnerElement: ElementRef;
   presets = ['angular'];
   private subscription: SubscriptionLike;
 
   constructor(
     public scriptLoaderService: ScriptLoaderService,
     private cdr: ChangeDetectorRef
-  ) {
-  }
+  ) {}
 
   get displayUrl() {
     if (this.url === '/assets/runner') {
@@ -93,7 +93,7 @@ export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChan
 
     sandbox.setHtml(
       this.code['index.html'] ||
-      '<app-root></app-root><my-app></my-app><div class="error"></div>'
+        '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
     this.presets.forEach(preset =>
@@ -115,28 +115,28 @@ export class CodeDemoRunnerComponent implements OnDestroy, AfterViewInit, OnChan
         sandbox.setHtml(files['index.html']);
       }
 
-      const jsFiles = Object.entries(files)
-        .filter(([path]) => path.match(/\.js$/));
-      const hasErrors = jsFiles
-        .some(([path, code]) => {
-          sandbox.evalJs(
-            `System.registry.delete(System.normalizeSync('./${path.replace(
-              '.js',
-              ''
-            )}'));`
-          );
+      const jsFiles = Object.entries(files).filter(([path]) =>
+        path.match(/\.js$/)
+      );
+      const hasErrors = jsFiles.some(([path, code]) => {
+        sandbox.evalJs(
+          `System.registry.delete(System.normalizeSync('./${path.replace(
+            '.js',
+            ''
+          )}'));`
+        );
 
-          try {
-            sandbox.evalJs(code);
-          } catch (e) {
-            const [errorLabel] = e.toString().split('\r\n');
-            console.groupCollapsed(errorLabel);
-            console.log(e);
-            console.groupEnd();
-            return true;
-          }
-          return false;
-        });
+        try {
+          sandbox.evalJs(code);
+        } catch (e) {
+          const [errorLabel] = e.toString().split('\r\n');
+          console.groupCollapsed(errorLabel);
+          console.log(e);
+          console.groupEnd();
+          return true;
+        }
+        return false;
+      });
 
       Object.entries(files)
         .filter(([path]) => path.match(/\.css$/))
