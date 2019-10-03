@@ -56,7 +56,7 @@ export class SlidesDeckComponent {
   nextSlide() {
     if (this.activeSlideIndex + 1 < this.slides.length) {
       this.goToSlide(this.activeSlideIndex + 1);
-    } else if (this.nextLink != null && this.nextLink !== '') {
+    } else if (this.nextLink) {
       this.router.navigateByUrl(this.nextLink);
     }
   }
@@ -64,35 +64,30 @@ export class SlidesDeckComponent {
   previousSlide() {
     if (this.activeSlideIndex > 0) {
       this.goToSlide(this.activeSlideIndex - 1);
-    } else if (this.previousLink != null && this.previousLink !== '') {
+    } else if (this.previousLink) {
       this.router.navigateByUrl(this.previousLink);
     }
   }
 
   canGoNext(): boolean {
-    return this.activeSlideIndex + 1 < this.slides.length || (this.nextLink != null && this.nextLink !== '');
+    return (
+      this.activeSlideIndex + 1 < this.slides.length ||
+      (this.nextLink != null && this.nextLink !== '')
+    );
   }
 
   canGoPrevious(): boolean {
-    return this.activeSlideIndex > 0 || (this.previousLink != null && this.previousLink !== '');
+    return (
+      this.activeSlideIndex > 0 ||
+      (this.previousLink != null && this.previousLink !== '')
+    );
   }
 
-  public setupPreviousNext(allRoutes: string[]) {
-    this.previousLink = '';
-    this.nextLink = '';
-    let currentUrl = this.router.url;
-    if (currentUrl.startsWith('/')) {
-      currentUrl = currentUrl.substr(1);
-    }
-    const urlPaths = currentUrl.split('/');
-    if (urlPaths.length > 1) {
-      const idx = allRoutes.indexOf(urlPaths[1]);
-      if (idx > 0) {
-        this.previousLink = `/${urlPaths[0]}/${allRoutes[idx - 1]}`;
-      }
-      if (idx < (allRoutes.length - 1)) {
-        this.nextLink = `/${urlPaths[0]}/${allRoutes[idx + 1]}`;
-      }
-    }
+  public setPrevious(previousLink) {
+    this.previousLink = previousLink;
+  }
+
+  public setNext(nextLink) {
+    this.nextLink = nextLink;
   }
 }
