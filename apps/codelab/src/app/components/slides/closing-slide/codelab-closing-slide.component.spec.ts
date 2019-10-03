@@ -48,6 +48,7 @@ describe('CodelabClosingSlideComponent', () => {
   }));
 
   beforeEach(() => {
+    spyOn(slidesDeckComponentStub, 'setNext');
     fixture = TestBed.createComponent(CodelabClosingSlideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -57,11 +58,7 @@ describe('CodelabClosingSlideComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set previousLink', () => {
-    expect(slidesDeckComponentStub.previousLink).not.toBe('');
-  });
-
-  it('should set nextLink', () => {
-    expect(slidesDeckComponentStub.nextLink).not.toBe('');
+  it('should call setNextLink', () => {
+    expect(slidesDeckComponentStub.setNext).toHaveBeenCalled();
   });
 });

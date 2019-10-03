@@ -53,6 +53,7 @@ describe('TitleSlideComponent', () => {
   }));
 
   beforeEach(() => {
+    spyOn(slidesDeckComponentStub, 'setPrevious');
     fixture = TestBed.createComponent(TitleSlideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -62,12 +63,8 @@ describe('TitleSlideComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set previousLink', () => {
-    expect(slidesDeckComponentStub.previousLink).not.toBe('');
-  });
-
-  it('should set nextLink', () => {
-    expect(slidesDeckComponentStub.nextLink).not.toBe('');
+  it('should call setPrevious', () => {
+    expect(slidesDeckComponentStub.setPrevious).toHaveBeenCalled();
   });
 
   it('should render a title', () => {

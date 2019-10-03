@@ -25,7 +25,6 @@ export class TitleSlideComponent {
 
   private setupPreviousNext() {
     let previousLink = '';
-    let nextLink = '';
     let allRoutes = this.menuRoutes.map(p => p.path);
     let currentUrl = this.router.url;
     if (currentUrl.startsWith('/')) {
@@ -37,11 +36,7 @@ export class TitleSlideComponent {
       if (idx > 0) {
         previousLink = `/${urlPaths[0]}/${allRoutes[idx - 1]}`;
       }
-      if (idx < allRoutes.length - 1) {
-        nextLink = `/${urlPaths[0]}/${allRoutes[idx + 1]}`;
-      }
     }
     this.presentation.setPrevious(previousLink);
-    this.presentation.setNext(nextLink);
   }
 }

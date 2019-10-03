@@ -18,13 +18,12 @@ export class CodelabClosingSlideComponent implements OnInit {
     private readonly presentation: SlidesDeckComponent,
     @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
-    if (this.presentation != null && this.menuRoutes != null) {
+    if (this.menuRoutes != null) {
       this.setupPreviousNext();
     }
   }
 
   private setupPreviousNext() {
-    let previousLink = '';
     let nextLink = '';
     let allRoutes = this.menuRoutes.map(p => p.path);
     let currentUrl = this.router.url;
@@ -34,14 +33,10 @@ export class CodelabClosingSlideComponent implements OnInit {
     const urlPaths = currentUrl.split('/');
     if (urlPaths.length > 1) {
       const idx = allRoutes.indexOf(urlPaths[1]);
-      if (idx > 0) {
-        previousLink = `/${urlPaths[0]}/${allRoutes[idx - 1]}`;
-      }
       if (idx < allRoutes.length - 1) {
         nextLink = `/${urlPaths[0]}/${allRoutes[idx + 1]}`;
       }
     }
-    this.presentation.setPrevious(previousLink);
     this.presentation.setNext(nextLink);
   }
 

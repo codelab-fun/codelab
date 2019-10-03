@@ -1,6 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
-import { Router } from '@angular/router';
 
 /**
  * Slide arrows are used by slides deck for navigation.
@@ -18,10 +17,7 @@ export class SlidesArrowsComponent {
    */
   @HostBinding('class.shortcuts-context') context = true;
 
-  constructor(
-    private readonly router: Router,
-    private presentation: SlidesDeckComponent
-  ) {}
+  constructor(private presentation: SlidesDeckComponent) {}
 
   goToPreviousSlide() {
       this.presentation.previousSlide();

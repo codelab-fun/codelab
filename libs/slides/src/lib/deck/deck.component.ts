@@ -70,17 +70,11 @@ export class SlidesDeckComponent {
   }
 
   canGoNext(): boolean {
-    return (
-      this.activeSlideIndex + 1 < this.slides.length ||
-      (this.nextLink != null && this.nextLink !== '')
-    );
+    return this.activeSlideIndex + 1 < this.slides.length || !!this.nextLink;
   }
 
   canGoPrevious(): boolean {
-    return (
-      this.activeSlideIndex > 0 ||
-      (this.previousLink != null && this.previousLink !== '')
-    );
+    return this.activeSlideIndex > 0 || !!this.previousLink;
   }
 
   public setPrevious(previousLink) {
