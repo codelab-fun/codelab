@@ -25,7 +25,7 @@ export class TitleSlideComponent {
 
   private setupPreviousNext() {
     let previousLink = '';
-    let allRoutes = this.menuRoutes.map(p => p.path);
+    const allRoutes = this.menuRoutes.map(p => p.path);
     let currentUrl = this.router.url;
     if (currentUrl.startsWith('/')) {
       currentUrl = currentUrl.substr(1);

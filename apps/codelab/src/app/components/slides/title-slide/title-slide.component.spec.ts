@@ -44,7 +44,7 @@ describe('TitleSlideComponent', () => {
     TestBed.configureTestingModule({
       providers: [
         { provide: Router, useValue: routerStub },
-        { provide: SlidesDeckComponent, useFactory: () => { return slidesDeckComponentStub; } },
+        { provide: SlidesDeckComponent, useFactory: () => slidesDeckComponentStub },
         { provide: MENU_ROUTES, useValue: menuRoutes }
       ],
       imports: [RouterTestingModule],
