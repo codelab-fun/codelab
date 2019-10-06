@@ -14,8 +14,6 @@
     "build:ru": "ng build codelab --configuration ru",
     "deploy:next": "npm run build:prod && npm run build:ru && npm run build:30s && npm run sw  && firebase deploy --only hosting:codelab-next",
     "serve:ru": "npm run ng -- serve --configuration ru",
-    "sw": "sw-precache --root=dist --config=sw-precache-config.js",
-    "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "pre-deploy": "npm run build:prod && npm run build:ru && npm run build:30s && npm run sw",
     "deploy": "npm run pre-deploy && firebase deploy --only hosting:codelab",
     "cypress": "cypress",

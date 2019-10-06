@@ -1,8 +1,8 @@
 # Contributing to Angular Codelab
 
-Thank you for deciding to contribute! We're excited to have you on the team 🙌
+Thank you for deciding to contribute to codelab.fun! We're excited to have you on the team 🙌
 
-Below you'll find our guidelines for contributing to further development of this codelab, which is hosted at [Angular NYC](https://github.com/codelab-fun/codelab) on GitHub.
+Below you'll find our guidelines for contributing to further development of this codelab, which is hosted at [codelab-fun/codelab](https://github.com/codelab-fun/codelab) on GitHub.
 
 ---
 
@@ -34,19 +34,41 @@ Below you'll find our guidelines for contributing to further development of this
 This project adheres to the [Contributor Covenant Code of Conduct](http://contributor-covenant.org/version/1/4/).
 So that everyone can feel welcome we ask you to please uphold this code should you decide to contribute to this project.
 
-### NPM Packages
-
-The Angular Codelab has quite a few packages installed; below is a guide to give you an idea of the main ones in use. Feel free to use either NPM or Yarn!
-
-- [example](uri): (coming soon 😬)
-
 ---
+
+## Quick start
+`git clone https://github.com/codelab-fun/codelab.git` (this UTL might be different if you forked)
+`npm install`
+`npm start`
+
+
+## Repository structure
+We're using [NX](https://nx.dev/web) - Extensible Dev Tools for Monorepos.
+This allows us to have multiple projects and libraries in one repository.
+
+Most of the work will happen in `apps/codelab`, but here's the overview of the other folders:
+
+```
+- apps               
+  - codelab                  - The actual codelab code. Most of the work will be done here.
+  - angular-thirty-seconds   - 30.codelab.fun code
+  - kirjs                    - @kirjs's folder for experiments
+  - lis                      - @the_kibs's folder for experiments  
+  - blog                     - blog is coming soon
+  
+- libs                       - Libraries and helper code shared across projects
+ 
+- ng2ts                      - Legacy code which shouldn't be touched 
+
+- tools                      - Angular schematic for generating new presentations. 
+```
 
 ## Contributing to the Codelab
 
 ### Reporting Bugs
 
-If you find a bug while going the codelab as a student, you can submit feedback through the blue feedback button in the bottom-right corner.
+If you find a bug while going through the codelab as a student, you can submit feedback through the blue feedback button in the bottom-right corner.
+<img src="https://user-images.githubusercontent.com/2545357/66276032-b56d8680-e85c-11e9-9148-ab38caeb4a57.png" width = 600>
 
 #### Before Sending Feedback
 
@@ -54,9 +76,8 @@ Please check out the previous comments to ensure this problem hasn't already bee
 
 #### Submitting a Report
 
-Feedback form submissions are magically converted to [GitHub issues](https://guides.github.com/features/issues/).
+Feedback form submissions are magically converted to [GitHub issues](https://guides.github.com/features/issues/) by codelab team members.
 
-- Include a clear and descriptive header that summarizes the issue
 - Make sure you explain the problem and include any relevant details
 - Describe the steps you followed to encounter the issue if you can remember them
 - Explain what behavior you expected to see instead
@@ -91,6 +112,7 @@ And if you're new to just GitHub check out [this cool tutorial series](https://e
 ### Making a Pull Request
 
 - Don't forget to pull from the master branch and resolve any merge conflicts first!
+- We run `npm run lint` and `npm run build:prod` in CI, so run it locally before committing you code  
 - If you don't have access to the repo, fork the project and make a PR from there
 - Describe what the PR addresses
 - Include screenshots and descriptive explanations if necessary
@@ -129,9 +151,8 @@ not [here](https://xkcd.com/1296/)
 
 ## Autoformatting
 
-If you are using Intellij/Webstorm:
-`Settings -> Code Style -> TypeScript -> Spaces Tab -> Check “ES6 import/export braces”`
+run `npm run format:write` before submitting your code. 
 
 # Linter
 
-Angular Codelab comes with its own linter settings. If you're not sure your linter is picking up on them, please run `ng lint` and fix any styling errors before submitting.
+Angular Codelab comes with its own linter settings. If you're not sure your linter is picking up on them, please run `npm lint` and fix any styling errors before submitting.
