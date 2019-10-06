@@ -84,11 +84,9 @@ export class MonacoConfigService {
     files = JSON.parse(files);
 
     files.forEach(file => {
-      // monaco.languages.typescript.typescriptDefaults._extraLibs[file.path] = file.content;
-      // console.log(file.path);
       monaco.languages.typescript.typescriptDefaults.addExtraLib(
         file.content,
-        'file:///' + file.path
+        'inmemory://model/' + file.path
       );
     });
   }
