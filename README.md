@@ -2,16 +2,16 @@
 
 [![Join our Slack, #codelab channel](https://img.shields.io/badge/slack-%23codelab-yellowgreen)](https://nycjsorg.now.sh) [![Check out the demo](https://img.shields.io/badge/see%20the-Demo-brightgreen)](https://codelab.fun)
 
-Angular Codelab is an Online interactive Angular tutorial.
+Angular Codelab is a self-paced Angular course:
+![Oct-06-2019 15-29-28](https://user-images.githubusercontent.com/2545357/66274597-2e191680-e84e-11e9-8c18-1082be810ffb.gif)
 
-It's also an open source project written in Angular.
+It also contains interactive exercises:
+![Oct-06-2019 15-30-45](https://user-images.githubusercontent.com/2545357/66274607-4d17a880-e84e-11e9-8ed0-a1ae678988a5.gif)
 
-## Cloning:
+
+## Contributing:
 
 - clone: `git clone https://github.com/codelab-fun/codelab.git`
 - [Install npm](https://nodejs.org/en/download/). Test with `npm -v`
 - install: `npm install`
 - start: `npm start`
-- test: `npm test`
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
