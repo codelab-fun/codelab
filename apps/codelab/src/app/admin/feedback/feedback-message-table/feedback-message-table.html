@@ -35,18 +35,7 @@
   <ng-container matColumnDef="actions" stickyEnd>
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
-      <button
-        *ngIf="!element.url"
-        mat-icon-button
-        [matMenuTriggerFor]="actionMenu"
-        [matMenuTriggerData]="{message: element}"
-        aria-label="Operations menu"
-      >
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <a *ngIf="element.url" mat-icon-button [href]="element.url">
-        <mat-icon>info</mat-icon>
-      </a>
+      <feedback-issue-dropdown [message]="element"></feedback-issue-dropdown>
     </td>
   </ng-container>
 
@@ -57,18 +46,3 @@
     [class.done-row]="row.isDone"
   ></tr>
 </table>
-
-<mat-menu #actionMenu="matMenu" xPosition="before">
-  <button mat-menu-item (click)="selectTake()">Take</button>
-  <button mat-menu-item [matMenuTriggerFor]="closeMenu">Close</button>
-</mat-menu>
-
-<mat-menu #closeMenu="matMenu" xPosition="before">
-  <button
-    mat-menu-item
-    *ngFor="let closeReason of closeReasons"
-    (click)="selectCloseReason(closeReason.reason)"
-  >
-    Reason: {{closeReason.name}}
-  </button>
-</mat-menu>
