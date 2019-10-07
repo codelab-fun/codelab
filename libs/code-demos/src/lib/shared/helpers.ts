@@ -1,7 +1,7 @@
 import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 
 const ts = getTypeScript();
-import babel_traverse from 'babel-traverse';
+import babel_traverse from '@babel/traverse';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 
