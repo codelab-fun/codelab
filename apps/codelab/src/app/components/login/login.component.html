@@ -3,10 +3,6 @@
     <div>user: {{ user.displayName || user.email }}</div>
     <div>uid: {{ loginService.uid$ | async }}</div>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button (click)="this.loginService.logout()">Log out</button>
-    <button mat-button [routerLink]="'/admin'">Go to admin panel</button>
-  </mat-card-actions>
 </mat-card>
 <ng-template #userInfo>
   <button mat-button (click)="this.loginService.loginWithGithub()">

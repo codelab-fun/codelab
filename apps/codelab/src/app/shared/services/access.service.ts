@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { filter, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 
 export enum Permissions {
-  MANAGE_USERS = 'manage_users'
+  MANAGE_USERS = 'manage_users',
+  CAN_LOAD_ADMIN = 'can_load_admin'
 }
 
 @Injectable({ providedIn: 'root' })
@@ -28,7 +29,7 @@ export class AccessService {
     private readonly dbService: SyncDbService
   ) {}
 
-  can(p: Permissions) {
+  can(p: Permissions): Observable<boolean> {
     return this.adminPermissions
       .object(p, false)
       .valueChanges()

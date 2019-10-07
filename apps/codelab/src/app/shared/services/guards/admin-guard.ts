@@ -5,6 +5,8 @@ import {
   ActivatedRouteSnapshot,
   CanActivate
 } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AccessService, Permissions } from '../access.service';
 
 @Injectable({ providedIn: 'root' })
@@ -14,17 +16,16 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): boolean {
-    // todo add here access check
-    const isLoggedIn = true;
+  ): Observable<boolean> | boolean {
+    return this.accessService.can(Permissions.CAN_LOAD_ADMIN).pipe(
+      map(hasAccess => {
+        if (!hasAccess) {
+          this._route.navigate(['login']);
+          return false;
+        }
 
-    /**
-     * If user is not an admin, redirect to login page
-     */
-    if (!isLoggedIn && route.routeConfig.path === 'admin') {
-      this._route.navigate(['login']);
-    }
-
-    return true;
+        return true;
+      })
+    );
   }
 }

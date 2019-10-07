@@ -1,17 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { SlidesModule } from '@codelab/slides';
 
 describe('Deck', () => {
-  let component: PresentationComponentV2;
-  let fixture: ComponentFixture<PresentationComponentV2>;
+  let component: SlidesDeckComponent;
+  let fixture: ComponentFixture<SlidesDeckComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PresentationComponentV2]
+      imports: [SlidesModule]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PresentationComponentV2);
+    fixture = TestBed.createComponent(SlidesDeckComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

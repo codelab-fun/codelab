@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SyncJoinInstructionsComponent } from './sync-join-instructions.component';
+import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/components/sync-join-instructions/sync-join-instructions.module';
+import { getSyncDbService } from '@codelab/utils/src/lib/testing/mocks/sync-db-service';
+import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('SyncJoinInstructionsComponent', () => {
   let component: SyncJoinInstructionsComponent;
@@ -8,7 +11,11 @@ describe('SyncJoinInstructionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SyncJoinInstructionsComponent]
+      imports: [SyncJoinInstructionsModule],
+      providers: [
+        ...getSyncDbService(),
+        ...getMockAngularFireProviders()
+      ]
     }).compileComponents();
   }));
 

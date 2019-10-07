@@ -5,13 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AppComponent } from './app.compoent';
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from './components/login/login.module';
 import { menuRoutes } from './codelabs/angular/angular-routing.module';
 import { MENU_ROUTES } from './common';
 import { environment } from '../environments/environment';
 import { NotFoundModule } from './components/not-found/not-found.module';
+import { MatButtonModule } from '@angular/material/button';
+import { DirectivesModule } from './directives/directives.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,10 +22,13 @@ import { NotFoundModule } from './components/not-found/not-found.module';
     LoginModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    NotFoundModule
+    NotFoundModule,
+    MatButtonModule,
+    DirectivesModule
   ],
   declarations: [AppComponent],
   providers: [

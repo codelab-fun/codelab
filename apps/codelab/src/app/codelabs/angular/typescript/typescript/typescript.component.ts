@@ -114,10 +114,13 @@ notSure = false; // ${this.t.definitelyBoolean}`
       },
       classDescription: {
         code: typeScriptWithConsoleLog(`export class Puppy {
+  // ${this.t.commonDogName}
+  name = 'Bar Boss';
+
   // ${this.t.thisIsMethod}
   bark(){
     // ${this.t.thatsHowRussianDogsTalk}
-    return 'Gav gav!!';
+    return this.name + ': Gav gav!!';
   }
 }
 
