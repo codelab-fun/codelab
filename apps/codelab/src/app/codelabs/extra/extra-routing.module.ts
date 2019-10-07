@@ -20,15 +20,6 @@ let routes = [
         page: 'extra'
       },
       {
-        path: 'feedback-page',
-        loadChildren: () =>
-          import('./feedback-page/feedback-page.module').then(
-            m => m.FeedbackPageModule
-          ),
-        name: 'Feedback page',
-        description: 'Feedback page'
-      },
-      {
         path: 'rating-summary',
         loadChildren: () =>
           import('./rating-summary/rating-summary.module').then(
