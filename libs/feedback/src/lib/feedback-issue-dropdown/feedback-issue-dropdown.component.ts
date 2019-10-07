@@ -14,8 +14,7 @@ export class FeedbackIssueDropdownComponent {
   }
 
   createIssue() {
-    console.log(this.message);
-    //this.ghService.createIssue(this.message);
+    this.ghService.createIssue(this.message);
   }
 
   createClosedIssue(reason) {
