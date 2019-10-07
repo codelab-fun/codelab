@@ -105,7 +105,7 @@ export class GithubService {
   }
 
   generateIssueBody(message) {
-    return `#What the issue is about
+    return `# What the issue is about
 ${message.comment}
 
 # Where to start?
