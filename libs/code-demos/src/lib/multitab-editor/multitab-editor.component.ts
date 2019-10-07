@@ -96,18 +96,15 @@ export class MultitabEditorComponent
   }
 
   loadSolution(file) {
-
     const model = this.getModelByFileName(file).model;
     const solution = this.solutions[file];
 
-    debugger
     model.pushEditOperations([], [
       {
         range: model.getFullModelRange(),
         text: solution
       }
     ], null);
-
   }
 
   getModelByFileName(file): MonacoModel | undefined {
