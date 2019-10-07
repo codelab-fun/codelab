@@ -16,7 +16,7 @@
   <ng-container matColumnDef="header">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>header</th>
     <td mat-cell *matCellDef="let element">
-      <a [routerLink]="'/angular' + element.href">{{ element.header}}</a>
+      <a [routerLink]="element.href">{{ element.header}}</a>
     </td>
   </ng-container>
 
