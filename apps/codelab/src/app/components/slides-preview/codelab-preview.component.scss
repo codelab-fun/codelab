@@ -1,48 +1,8 @@
-.codelab-preview {
-  position: relative;
+.codelab-preview,
+iframe {
   width: 100%;
   height: 100%;
-}
-
-.codelab-preview.expanded {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  background-color: #fff;
-}
-
-.preview-header {
-  position: absolute;
-  right: 1px;
-  top: 1px;
-}
-
-.button-expand {
-  outline: none;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  border: 0;
-  background-image: url('/assets/images/expand.png');
-  background-color: #fff;
-  background-size: 100% 100%;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #eee;
-  }
-}
-
-iframe {
   box-shadow: 0 0 1px #dddddd;
   border: 0 solid;
 }
 
-.body,
-iframe {
-  width: 100%;
-  height: 100%;
-}
