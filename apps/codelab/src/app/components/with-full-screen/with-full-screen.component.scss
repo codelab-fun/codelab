@@ -1,0 +1,40 @@
+.codelab-with-full-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.codelab-with-full-screen.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #fff;
+}
+
+.button-fullscreen {
+  position: absolute;
+  z-index: 100;
+  right: 1px;
+  top: 1px;
+  outline: none;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: 0;
+  background-image: url('/assets/images/expand.png');
+  background-color: #fff;
+  background-size: 100% 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}

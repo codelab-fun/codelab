@@ -22,6 +22,7 @@ import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-
 import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { WithFullScreenComponent } from './with-full-screen/with-full-screen.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodelabRippleAnimationComponent,
     SimpleTestsProgressComponent,
     SimpleTestsComponent,
-    SimpleTestDescriptionComponent
+    SimpleTestDescriptionComponent,
+    WithFullScreenComponent
   ],
   exports: [
     SimpleAngularTestRunnerComponent,
@@ -60,7 +62,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodelabExercisePreviewComponent,
     CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
-    CodelabRippleAnimationComponent
+    CodelabRippleAnimationComponent,
+    WithFullScreenComponent
   ]
 })
 export class CodelabComponentsModule {}

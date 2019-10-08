@@ -1,0 +1,9 @@
+<div
+  class="codelab-with-full-screen"
+  [class.fullscreen]="isFullScreen"
+>
+  <button class="button-fullscreen" (click)="toggleFullScreen()"></button>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>
