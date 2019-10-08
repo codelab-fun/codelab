@@ -11,6 +11,7 @@ matrix:
 script:
   - npm run lint
   - npm run ng build -- --aot --prod
+  - npm run format:check
 
 notifications:
   email: false

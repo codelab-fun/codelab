@@ -11,10 +11,7 @@ describe('FeedbackComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        FeedbackModule,
-        NoopAnimationsModule
-      ],
+      imports: [FeedbackModule, NoopAnimationsModule],
       providers: [
         ...getMockAngularFireProviders(),
         { provide: GithubService, useValue: {} }

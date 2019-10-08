@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng",
+    "ng": "ng",
     "//--------------- CODELAB ---------------------": "",
     "start": "ng serve",
     "build": "ng build",
@@ -38,7 +38,7 @@
     "affected:apps": "./node_modules/.bin/nx affected:apps",
     "affected:libs": "./node_modules/.bin/nx affected:libs",
     "affected:build": "./node_modules/.bin/nx affected:build",
-    "affected:test": "./node_modules/.bin/nx affected:test",
+    "affected:test": "./node_modules/.bin/nx affected:test --watch=false",
     "affected:lint": "./node_modules/.bin/nx affected:lint",
     "affected:dep-graph": "./node_modules/.bin/nx affected:dep-graph",
     "format": "./node_modules/.bin/nx format:write",
