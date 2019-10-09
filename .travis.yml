@@ -9,9 +9,10 @@ matrix:
       env: REPORT_COVERAGE=true # Only run coverage reporting on one build.
 
 script:
+  - npm run format:check
   - npm run lint
   - npm run ng build -- --aot --prod
-  - npm run format:check
+
 
 notifications:
   email: false
