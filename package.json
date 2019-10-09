@@ -51,7 +51,9 @@
     "help": "./node_modules/.bin/nx help"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "npm run format:write"
+    }
   },
   "repository": {
     "type": "git",
