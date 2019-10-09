@@ -4,7 +4,7 @@ You can help us translate codelab.fun to other languages!
 
 We're using online dashboard for seamless collaborative translation:
 
-<img alt="Online translation dashboard" src="https://user-images.githubusercontent.com/2545357/66275329-6a03aa00-e855-11e9-9b82-c7cfe7bd493c.png width="600">
+<img alt="Online translation dashboard" src="https://user-images.githubusercontent.com/2545357/66275329-6a03aa00-e855-11e9-9b82-c7cfe7bd493c.png" width="600"/>
 
 ## How much work would it be?
 
