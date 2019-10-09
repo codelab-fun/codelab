@@ -147,7 +147,7 @@
   <translation id="displayVideoData">video.component.html: Выведите дату видео</translation>
   <translation id="displayNumberOfVideoViews">video.component.html: Отобразите количество просмотров видео(views)</translation>
   <translation id="displayNumberOfVideoLikes">video.component.html: Отобразите количество отметок &quot;нравится&quot;(likes)</translation>
-  <translation id="replaceTitleAndThumbnail"/>
+  <translation id="replaceTitleAndThumbnail">app.html: Замените текущие название и превью видео на наш чудесный компонент &lt;my-video&gt;</translation>
   <translation id="useDataBindingToPassVideoToComponent">app.html: С помощью биндинга передайте объект &quot;video&quot; в компонент my-video (не забудьте про квадратные скобки)</translation>
   <translation id="createClassAppComponent">Создайте класс &apos;AppComponent&apos;</translation>
   <translation id="createClassAppModule">Создайте класс &apos;AppModule&apos;</translation>
@@ -177,7 +177,7 @@
   <translation id="insideSearchMethodFilterFakeVideos">app.component.ts: Внутри метода &apos;search&apos; отфильтруйте FAKE_VIDEOS так, чтобы возвращались только видео, название которых содержит искомую строку searchString. (подсказка: используйте .includes или .indexOf строковый метод)</translation>
   <translation id="alsoDisplayThumbnail">app.html: Отобразите превью</translation>
   <translation id="IterateWithNgForAndDisplayTitle">app.html: Пройдитесь по массиву videos с помощью &apos;*ngFor&apos; и выведите название каждого видео</translation>
-  <translation id="addButtonWithtextSearch"/>
+  <translation id="addButtonWithtextSearch">app.html: Добавьте кнопку (&lt;button&gt;) с текстом  &apos;search&apos; (Поиск)</translation>
   <translation id="addInputWithPlaceholderVideo">app.html: Добавьте тег input с атрибутом  &apos;placeholder&apos; =  &apos;video&apos;</translation>
   <translation id="addConstructor">Добавьте конструктор</translation>
   <translation id="makeConstructorTakeParamGuests">Примите значение &apos;guests&apos; в качестве параметра конструктора</translation>
@@ -229,7 +229,7 @@
   <translation id="5509161378825547695">Мы узнаем больше о NgModule в следующих секциях
 </translation>
   <translation id="6207292630730452152">В списке <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>declarations<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> определяются компоненты, принадлежащие AppModule</translation>
-  <translation id="6679702569828672754"/>
+  <translation id="6679702569828672754">Компонент, указываемый в списке <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>bootstrap<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> будет создан и показан в файле <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>index.html<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
   <translation id="5729375766021589223">На следующем слайде вы создадите свой первый  <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>-модуль.
 Подготовьте модуль и опишите его поведение по предложенным инструкциям, результат будет отображен автоматически. В итоге получится следующее:</translation>
   <translation id="6827469684284953312">У нас всё готово, самое время начать (загрузить) приложение</translation>
@@ -259,7 +259,7 @@
   <translation id="2585772558422043391">Мы помечаем класс декоратором <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>@Injectable()<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, что позволяет Angular понять, что этот класс будет использован в системе внедрения зависимостей.</translation>
   <translation id="6496971683817494188">Если сервисный класс отмечен декоратором @Injectable(), он может запрашивать другие сервисы в конструкторе</translation>
   <translation id="287816816593865864">Передайте все экспортируемые (injectable) зависимости в секцию <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>providers<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> вашего <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph></translation>
-  <translation id="3053323241161491226"/>
+  <translation id="3053323241161491226">Теперь этот сервис становится доступным для всех <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>компонентов<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph> и других сервисов в  <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex></ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex></ph>.</translation>
   <translation id="4224784797203649406">Благодаря <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> private<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>  модификатору доступа, сервис становится доступным через класс как <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>this.converter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph></translation>
   <translation id="8777170680797795530">На следующем слайде вы используете (и внедрите) videoService, в котором будет еще больше котиков!!! Результат будет выглядеть вот так:</translation>
   <translation id="3770170783025031996" desc="Banana in the box решил оставить как есть">[(ngModel)] - <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Banana in the box<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> — мнемоника для такого порядка скобок</translation>
@@ -357,7 +357,7 @@
   <translation id="2218960621606808970">minLength - Минимальная длина текстового поля</translation>
   <translation id="2060941282153877777">maxLength - Максимальная длина текстового поля</translation>
   <translation id="7676249558622794260">pattern - Регулярное выражение для текстового поля</translation>
-  <translation id="4722824416758060415"/>
+  <translation id="4722824416758060415">Можно также создавать собственные валидаторы, узнайте больше: <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>здесь<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph></translation>
   <translation id="6090593566257988703">Осталось решить небольшую проблему: если не указывать изначальные значение полей ввода, ошибка будет отображена сразу</translation>
   <translation id="7933306550899658878">Мы можем проверить, взаимодействовал ли пользователь с полем ввода с помощью свойства   <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>touched<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>.</translation>
   <translation id="7424734033590338116">Значение <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>touched<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>  положительно, если юзер сфокусировался на поле ввода и после убрал фокус, не меняя значение.</translation>
@@ -409,7 +409,7 @@
   <translation id="7666470893157840853">На следующем слайде будет упражнение, в котором мы добавим два роута:
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Search<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> и <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Upload<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> и меню для переключения между ними</translation>
   <translation id="6990537880445556268">Мы уже создали пустой компонент Upload и SearchComponent, содержащий логику для поиска.</translation>
-  <translation id="33440573074633014"/>
+  <translation id="33440573074633014">Изучите <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular Router Guide<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> чтобы подняться на более продвинутый уровень.</translation>
   <translation id="2050435296171660186">Без системы внедрения зависимостей, вам придется разбираться со всеми параметрами самостоятельно.</translation>
   <translation id="4302113860648465389">Добро пожаловать в интерактивный курс по Angular. Здесь вы сможете выучить основы <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>!</translation>
   <translation id="AddMatModules">app.module.ts: Добавьте MatCardModule и MatToolbarModule в свойство &quot;imports&quot;.</translation>
