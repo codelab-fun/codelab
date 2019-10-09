@@ -13,13 +13,11 @@ describe('SlideDirective', () => {
     }).compileComponents();
   }));
 
-
   beforeEach(() => {
     fixture = TestBed.createComponent(SlidesDeckComponent);
     directive = fixture.componentInstance;
     fixture.detectChanges();
   });
-
 
   it('should create an instance', () => {
     expect(directive).toBeTruthy();

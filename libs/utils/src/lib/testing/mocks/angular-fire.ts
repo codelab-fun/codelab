@@ -3,12 +3,10 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 export const MockAngularFireDatabase = {
-  list: jasmine.createSpy('list').and.returnValue(
-    of({
-      snapshotChanges: () => of([]),
-      valueChanges: () => of([])
-    })
-  ),
+  list: jasmine.createSpy('list').and.returnValue({
+    snapshotChanges: () => of([]),
+    valueChanges: () => of([])
+  }),
   object: jasmine.createSpy('object').and.returnValue(
     of({
       snapshotChanges: () => of({}),
@@ -18,7 +16,8 @@ export const MockAngularFireDatabase = {
 };
 
 export const MockAngularFireAuth = {
-  user: of({ isAnonymous: true, uid: 'lol' })
+  user: of({ isAnonymous: true, uid: 'lol' }),
+  authState: of({})
 };
 
 export function getMockAngularFireProviders() {
