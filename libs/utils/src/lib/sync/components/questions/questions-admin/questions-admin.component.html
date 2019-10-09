@@ -1,14 +1,14 @@
 <h2>Admin</h2>
 
 <mat-tab-group>
-  <ng-container *ngIf="(questionsByStatus$ | async) as questionsByStatus">
+  <ng-container *ngIf="questionsByStatus$ | async as questionsByStatus">
     <ng-container *ngFor="let status of statuses">
       <mat-tab
         [label]="status + ' (' + questionsByStatus[status]?.length + ')'"
         *ngIf="questionsByStatus[status]?.length"
       >
         <codelab-question
-          *ngIf="(questionsService.starredQuestion$ | async) as question"
+          *ngIf="questionsService.starredQuestion$ | async as question"
           tabindex="0"
           [question]="question"
           class="starred"

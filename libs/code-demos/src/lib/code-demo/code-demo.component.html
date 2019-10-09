@@ -1,4 +1,4 @@
-<div *ngIf="(files$ | async) as compiledCode" class="wrapper">
+<div *ngIf="files$ | async as compiledCode" class="wrapper">
   <code-demo-multitab-editor
     class="quarter"
     [enableAutoFolding]="enableAutoFolding"

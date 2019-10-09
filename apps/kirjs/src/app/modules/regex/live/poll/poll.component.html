@@ -1,11 +1,11 @@
-<ng-container *ngIf="(service.liveInfo | async) as data">
+<ng-container *ngIf="service.liveInfo | async as data">
   <ng-container *ngIf="data.status === 'viewer'">
     <ng-container *ngIf="!(service.myData | async)">
       2
       <ul *ngTemplateOutlet="answers"></ul>
     </ng-container>
 
-    <ng-container *ngIf="(service.myData | async)">
+    <ng-container *ngIf="service.myData | async">
       {{ service.allData | async | json }} 3
       <ul *ngTemplateOutlet="answers"></ul>
     </ng-container>
