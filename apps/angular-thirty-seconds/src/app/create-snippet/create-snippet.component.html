@@ -106,7 +106,7 @@
               (optionSelected)="selectedTags($event)"
             >
               <mat-option
-                *ngFor="let tag of (filteredTags | async)"
+                *ngFor="let tag of filteredTags | async"
                 [value]="tag"
               >
                 {{ tag }}

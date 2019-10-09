@@ -1,4 +1,9 @@
-import { TemplateRef, ViewContainerRef, OnDestroy, Injectable } from '@angular/core';
+import {
+  TemplateRef,
+  ViewContainerRef,
+  OnDestroy,
+  Injectable
+} from '@angular/core';
 import { AccessService } from '../../shared/services/access.service';
 import { ReplaySubject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
