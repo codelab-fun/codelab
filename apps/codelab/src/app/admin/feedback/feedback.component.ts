@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
@@ -112,9 +112,7 @@ export class FeedbackComponent implements OnInit {
   generateIssueBody(message) {
     return `${message.comment}
 Author: ${message.name}
-Slide: [Local](http://localhost:4200${
-      message.href
-    }),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
+Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
   }
 
   async createAnIssue(message) {
@@ -174,6 +172,7 @@ Slide: [Local](http://localhost:4200${
 
   ngOnInit() {
     const feedback$: AngularFireList<any[]> = this.database.list('/feedback');
+
     const filteredMessages$ = combineLatest([
       feedback$.snapshotChanges().pipe(map(normalize)),
       this.filter$,
