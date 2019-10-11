@@ -18,14 +18,7 @@ describe('TitleSlideComponent', () => {
   const slidesDeckComponentStub = {
     previousLink: '',
     nextLink: '',
-
-    setPrevious(link) {
-      this.previousLink = link;
-    },
-
-    setNext(link) {
-      this.nextLink = link;
-    }
+    setPrevious: jasmine.createSpy('setPrevious')
   };
 
   const menuRoutes: MenuRoutes = [
@@ -34,9 +27,6 @@ describe('TitleSlideComponent', () => {
     },
     {
       path: 'currentlesson'
-    },
-    {
-      path: 'nextlesson'
     }
   ];
 
@@ -53,7 +43,6 @@ describe('TitleSlideComponent', () => {
   }));
 
   beforeEach(() => {
-    spyOn(slidesDeckComponentStub, 'setPrevious');
     fixture = TestBed.createComponent(TitleSlideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

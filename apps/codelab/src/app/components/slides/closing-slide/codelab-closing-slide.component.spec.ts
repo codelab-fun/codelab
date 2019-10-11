@@ -14,20 +14,10 @@ describe('CodelabClosingSlideComponent', () => {
   const slidesDeckComponentStub = {
     previousLink: '',
     nextLink: '',
-
-    setPrevious(link) {
-      this.previousLink = link;
-    },
-
-    setNext(link) {
-      this.nextLink = link;
-    }
+    setNext: jasmine.createSpy('setNext')
   };
 
   const menuRoutes: MenuRoutes = [
-    {
-      path: 'previouslesson'
-    },
     {
       path: 'currentlesson'
     },
@@ -40,7 +30,7 @@ describe('CodelabClosingSlideComponent', () => {
     TestBed.configureTestingModule({
       providers: [
         { provide: Router, useValue: routerStub },
-        { provide: SlidesDeckComponent, useFactory: () => slidesDeckComponentStub },
+        { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub },
         { provide: MENU_ROUTES, useValue: menuRoutes }
       ],
       declarations: [CodelabClosingSlideComponent]
@@ -48,7 +38,6 @@ describe('CodelabClosingSlideComponent', () => {
   }));
 
   beforeEach(() => {
-    spyOn(slidesDeckComponentStub, 'setNext');
     fixture = TestBed.createComponent(CodelabClosingSlideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -16,14 +16,14 @@ export class TitleSlideComponent {
   constructor(
     private readonly router: Router,
     private readonly presentation: SlidesDeckComponent,
-    @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
+    @Inject(MENU_ROUTES) private readonly menuRoutes
   ) {
     if (this.presentation != null) {
-      this.setupPreviousNext();
+      this.setupPrevious();
     }
   }
 
-  private setupPreviousNext() {
+  private setupPrevious() {
     let previousLink = '';
     const allRoutes = this.menuRoutes.map(p => p.path);
     let currentUrl = this.router.url;

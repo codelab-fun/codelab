@@ -16,14 +16,14 @@ export class CodelabClosingSlideComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly presentation: SlidesDeckComponent,
-    @Optional() @Inject(MENU_ROUTES) readonly menuRoutes
+    @Inject(MENU_ROUTES) private readonly menuRoutes
   ) {
     if (this.menuRoutes != null) {
-      this.setupPreviousNext();
+      this.setupNext();
     }
   }
 
-  private setupPreviousNext() {
+  private setupNext() {
     let nextLink = '';
     const allRoutes = this.menuRoutes.map(p => p.path);
     let currentUrl = this.router.url;
