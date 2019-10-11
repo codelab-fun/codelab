@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./with-full-screen.component.scss']
 })
 export class WithFullScreenComponent {
-
   public isFullScreen: boolean;
 
   toggleFullScreen() {

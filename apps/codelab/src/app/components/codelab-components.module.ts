@@ -47,7 +47,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodelabRippleAnimationComponent,
     SimpleTestsProgressComponent,
     SimpleTestsComponent,
-    SimpleTestDescriptionComponent,
+    SimpleTestDescriptionComponent
   ],
   exports: [
     SimpleAngularTestRunnerComponent,
@@ -60,7 +60,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodelabExercisePreviewComponent,
     CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
-    CodelabRippleAnimationComponent,
+    CodelabRippleAnimationComponent
   ]
 })
 export class CodelabComponentsModule {}
