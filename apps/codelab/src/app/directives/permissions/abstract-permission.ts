@@ -1,8 +1,13 @@
-import { TemplateRef, ViewContainerRef, OnDestroy } from '@angular/core';
+import {
+  TemplateRef,
+  ViewContainerRef,
+  OnDestroy,
+  Injectable
+} from '@angular/core';
 import { AccessService } from '../../shared/services/access.service';
 import { ReplaySubject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
+@Injectable()
 export class AbstractPermission implements OnDestroy {
   public destroy = new ReplaySubject<any>(1);
 

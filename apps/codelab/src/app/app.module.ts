@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { NotFoundModule } from './components/not-found/not-found.module';
 import { MatButtonModule } from '@angular/material/button';
 import { DirectivesModule } from './directives/directives.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { DirectivesModule } from './directives/directives.module';
     LoginModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,

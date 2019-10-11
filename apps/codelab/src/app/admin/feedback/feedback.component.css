@@ -1,0 +1,9 @@
+.panel {
+  margin-bottom: 10px;
+}
+
+mat-form-field {
+  margin-left: 15px;
+  margin-top: 5px;
+  width: 120px;
+}

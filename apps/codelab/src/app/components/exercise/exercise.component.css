@@ -10,4 +10,5 @@
 .tests {
   padding: 0.5vw;
   box-sizing: border-box;
+  overflow-y: auto;
 }

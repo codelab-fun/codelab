@@ -1,9 +1,9 @@
 {
   "name": "codelab",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "ng": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng",
+    "ng": "ng",
     "//--------------- CODELAB ---------------------": "",
     "start": "ng serve",
     "build": "ng build",
@@ -14,8 +14,6 @@
     "build:ru": "ng build codelab --configuration ru",
     "deploy:next": "npm run build:prod && npm run build:ru && npm run build:30s && npm run sw  && firebase deploy --only hosting:codelab-next",
     "serve:ru": "npm run ng -- serve --configuration ru",
-    "sw": "sw-precache --root=dist --config=sw-precache-config.js",
-    "sw-serve": "ng build --prod --aot && npm run sw && cd dist && http-server --port=8080 --host=localhost --entry-file=/index.html",
     "pre-deploy": "npm run build:prod && npm run build:ru && npm run build:30s && npm run sw",
     "deploy": "npm run pre-deploy && firebase deploy --only hosting:codelab",
     "cypress": "cypress",
@@ -40,7 +38,7 @@
     "affected:apps": "./node_modules/.bin/nx affected:apps",
     "affected:libs": "./node_modules/.bin/nx affected:libs",
     "affected:build": "./node_modules/.bin/nx affected:build",
-    "affected:test": "./node_modules/.bin/nx affected:test",
+    "affected:test": "./node_modules/.bin/nx affected:test --watch=false",
     "affected:lint": "./node_modules/.bin/nx affected:lint",
     "affected:dep-graph": "./node_modules/.bin/nx affected:dep-graph",
     "format": "./node_modules/.bin/nx format:write",
@@ -53,7 +51,9 @@
     "help": "./node_modules/.bin/nx help"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "npm run format:write"
+    }
   },
   "repository": {
     "type": "git",
@@ -110,7 +110,7 @@
     "midi-player-js": "^2.0.5",
     "mime": "^2.4.0",
     "mocha": "^5.2.0",
-    "monaco-editor": "^0.15.6",
+    "monaco-editor": "^0.18.1",
     "ngx-autosize-input": "^2.2.2",
     "ngx-markdown": "^7.1.4",
     "node-sass": "^4.11.0",
