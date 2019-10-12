@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'codelab-with-full-screen',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./with-full-screen.component.scss']
 })
 export class WithFullScreenComponent {
-  public isFullScreen: boolean;
+  @HostBinding('class.fullscreen') isFullScreen: boolean = false;
 
   toggleFullScreen() {
     return (this.isFullScreen = !this.isFullScreen);
