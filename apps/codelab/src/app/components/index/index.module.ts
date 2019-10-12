@@ -23,5 +23,4 @@ import { AngularRoutesModule } from '../angular-routes/angular-routes.module';
   declarations: [IndexComponent],
   exports: [IndexComponent]
 })
-export class IndexModule {
-}
+export class IndexModule {}

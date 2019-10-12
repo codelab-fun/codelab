@@ -2,7 +2,10 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { monacoReady } from '@codelab/code-demos';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import {
+  AngularFireDatabaseModule,
+  AngularFireDatabase
+} from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppComponent } from './app.component';
