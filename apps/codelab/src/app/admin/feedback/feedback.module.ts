@@ -20,6 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FeedbackModule as FeedbackLibModule } from '@codelab/feedback';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
-    MatSortModule
+    MatSortModule,
+    FeedbackLibModule
   ],
   declarations: [FeedbackComponent, FeedbackMessageTableComponent],
   exports: [FeedbackComponent],

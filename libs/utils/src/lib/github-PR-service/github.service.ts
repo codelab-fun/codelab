@@ -105,9 +105,17 @@ export class GithubService {
   }
 
   generateIssueBody(message) {
-    return `${message.comment}
+    return `# What the issue is about
+${message.comment}
+
+# Where to start?
+Start with reproducing [Locally](http://localhost:4200${message.href})
+
+# Metadata:
+This was filed through the feedback form.
 Author: ${message.name}
-Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
+Date: ${message.timestamp}
+Slide: [Local](http://localhost:4200${message.href}),[Prod](https://codelab.fun${message.href})`;
   }
 
   markAsDone(message) {
