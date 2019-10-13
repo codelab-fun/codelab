@@ -3,6 +3,6 @@
   style="width: 50%;flex-grow: 0"
   [presets]="presets"
   [bootstrap]="bootstrap"
-  *ngIf="(files$ | async) as files"
+  *ngIf="files$ | async as files"
   [code]="files"
 ></code-demo-runner>
