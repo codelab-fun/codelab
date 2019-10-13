@@ -32,6 +32,7 @@ yarn.lock
 /typings
 .firebase
 *.log
+.floo
 
 # e2e
 /e2e/*.js
@@ -45,3 +46,4 @@ yarn.lock
 .Trashes
 ehthumbs.db
 Thumbs.db
+
