@@ -10,8 +10,7 @@ import { GithubService } from '@codelab/utils';
 export class FeedbackIssueDropdownComponent {
   @Input() message: object;
 
-  constructor(private ghService: GithubService) {
-  }
+  constructor(private ghService: GithubService) {}
 
   createIssue() {
     this.ghService.createIssue(this.message);

@@ -51,7 +51,7 @@
   </div>
 
   <div>
-    <div *ngFor="let item of (this.messages$ | async)" class="panel">
+    <div *ngFor="let item of this.messages$ | async" class="panel">
       <mat-expansion-panel [expanded]="true" [hideToggle]="true">
         <mat-expansion-panel-header>
           <mat-panel-title>

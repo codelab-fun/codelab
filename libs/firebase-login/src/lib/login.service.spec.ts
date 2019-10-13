@@ -5,14 +5,16 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { of } from 'rxjs';
 
 describe('LoginService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    providers: [
-      {
-        provide: AngularFireAuth,
-        useValue: { user: of({}) }
-      }
-    ]
-  }));
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: AngularFireAuth,
+          useValue: { user: of({}) }
+        }
+      ]
+    })
+  );
 
   it('should be created', () => {
     const service: LoginService = TestBed.get(LoginService);

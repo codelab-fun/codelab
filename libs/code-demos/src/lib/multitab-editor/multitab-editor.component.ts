@@ -102,7 +102,19 @@ export class MultitabEditorComponent
   registerOnTouched(fn: any): void {}
 
   loadSolution(file) {
-    this.getModelByFileName(file).model.setValue(this.solutions[file]);
+    const model = this.getModelByFileName(file).model;
+    const solution = this.solutions[file];
+
+    model.pushEditOperations(
+      [],
+      [
+        {
+          range: model.getFullModelRange(),
+          text: solution
+        }
+      ],
+      null
+    );
   }
 
   getModelByFileName(file): MonacoModel | undefined {
@@ -127,7 +139,7 @@ export class MultitabEditorComponent
         const model = this.monacoConfigService.monaco.editor.createModel(
           code,
           language,
-          'file:///' + this.prefix + path
+          'inmemory://model/' + this.prefix + path
         );
 
         model.onDidChangeContent(() => {

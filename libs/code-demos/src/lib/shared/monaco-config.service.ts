@@ -3,7 +3,9 @@ import { environment } from '../../../../../apps/codelab/src/environments/enviro
 
 declare const require;
 const monacoVersion = environment.production ? 'min' : 'dev';
-const monacoLoaderCode = require('!raw-loader!monaco-editor/' + monacoVersion + '/vs/loader');
+const monacoLoaderCode = require('!raw-loader!monaco-editor/' +
+  monacoVersion +
+  '/vs/loader');
 
 const win = window as any;
 declare const monaco;
@@ -18,7 +20,9 @@ export class MonacoConfigService {
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
-    win.require.config({ paths: { vs: 'assets/monaco/' + monacoVersion + '/vs' } });
+    win.require.config({
+      paths: { vs: 'assets/monaco/' + monacoVersion + '/vs' }
+    });
 
     win.require(['vs/editor/editor.main'], () => {
       MonacoConfigService.configureMonaco();
@@ -84,11 +88,9 @@ export class MonacoConfigService {
     files = JSON.parse(files);
 
     files.forEach(file => {
-      // monaco.languages.typescript.typescriptDefaults._extraLibs[file.path] = file.content;
-      // console.log(file.path);
       monaco.languages.typescript.typescriptDefaults.addExtraLib(
         file.content,
-        'file:///' + file.path
+        'inmemory://model/' + file.path
       );
     });
   }

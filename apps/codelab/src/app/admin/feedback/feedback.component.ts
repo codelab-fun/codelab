@@ -81,13 +81,11 @@ export class FeedbackComponent implements OnInit {
 
   datesForFilter = { dateFrom: '', dateTo: '' };
 
-  constructor(
-    private database: AngularFireDatabase
-  ) {
-  }
+  constructor(private database: AngularFireDatabase) {}
 
   ngOnInit() {
     const feedback$: AngularFireList<any[]> = this.database.list('/feedback');
+
     const filteredMessages$ = combineLatest([
       feedback$.snapshotChanges().pipe(map(normalize)),
       this.filter$,
@@ -98,7 +96,6 @@ export class FeedbackComponent implements OnInit {
       map(group)
     );
   }
-
 
   changeDate(clearDates = false) {
     if (clearDates) {

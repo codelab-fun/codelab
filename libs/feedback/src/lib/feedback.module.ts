@@ -43,6 +43,10 @@ export const angularFire = AngularFireModule.initializeApp(
     FeedbackRatingComponent,
     FeedbackIssueDropdownComponent
   ],
-  exports: [FeedbackWidgetComponent, FeedbackRatingComponent, FeedbackIssueDropdownComponent]
+  exports: [
+    FeedbackWidgetComponent,
+    FeedbackRatingComponent,
+    FeedbackIssueDropdownComponent
+  ]
 })
 export class FeedbackModule {}

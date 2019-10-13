@@ -53,5 +53,4 @@ export class FeedbackMessageTableComponent {
   ];
 
   tableColumns = ['comment', 'name', 'header', 'timestamp', 'actions'];
-
 }
