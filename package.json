@@ -67,7 +67,7 @@
     "@angular/common": "8.2.4",
     "@angular/compiler": "8.2.4",
     "@angular/core": "8.2.4",
-    "@angular/fire": "^5.1.1",
+    "@angular/fire": "5.2.1",
     "@angular/flex-layout": "^7.0.0-beta.23",
     "@angular/forms": "8.2.4",
     "@angular/material": "8.1.4",
