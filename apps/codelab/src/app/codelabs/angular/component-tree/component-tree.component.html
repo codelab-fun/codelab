@@ -190,11 +190,12 @@
       Components won't know about each other unless they're declared in the same
       module
     </h2>
-    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
-    <code-demo-editor
+    <code-demo
+      [files]="code.appModule.files"
+      [highlights]="code.appModule.highlights"
+      [allowSwitchingFiles]="false"
       [(ngModel)]="code.appModule.code"
-      [codeDemoHighlight]="code.appModule.match"
-    ></code-demo-editor>
+    ></code-demo>
   </div>
 
   <div *slide id="recap" milestone="component-tree-2">

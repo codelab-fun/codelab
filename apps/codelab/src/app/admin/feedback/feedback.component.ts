@@ -1,11 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
 import { Message } from '@codelab/feedback/src/lib/message';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GithubService } from './github.service';
 
 type Filter = 'all' | 'done' | 'notDone';
 type Grouping = 'nothing' | 'href' | 'name';
@@ -81,94 +78,10 @@ export class FeedbackComponent implements OnInit {
   filter$ = new BehaviorSubject<Filter>('notDone');
   dateFilter$ = new BehaviorSubject<[string, string]>(['', '']);
   group$ = new BehaviorSubject<Grouping>('nothing');
-  githubAuth;
+
   datesForFilter = { dateFrom: '', dateTo: '' };
 
-  constructor(
-    private database: AngularFireDatabase,
-    private afAuth: AngularFireAuth,
-    private ghService: GithubService
-  ) {
-    afAuth.authState.subscribe(authData => {
-      if (authData === null) {
-        this.login();
-      } else {
-        this.githubAuth = authData;
-      }
-    });
-  }
-
-  async login() {
-    const provider = new auth.GithubAuthProvider().addScope('repo');
-    this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
-  }
-
-  isDone(message) {
-    this.database
-      .object(`feedback/${message.key}`)
-      .update({ isDone: !message.isDone });
-  }
-
-  generateIssueBody(message) {
-    return `${message.comment}
-Author: ${message.name}
-Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-presentation.firebaseapp.com${message.href})`;
-  }
-
-  async createAnIssue(message) {
-    if (!this.githubAuth.credential) {
-      await this.login();
-    }
-
-    this.ghService
-      .createIssue(
-        {
-          title: message.comment.substring(0, 150),
-          body: this.generateIssueBody(message)
-        },
-        this.githubAuth.credential.accessToken
-      )
-      .subscribe((responseData: any) => {
-        this.isDone(message);
-        this.database
-          .object(`feedback/${message.key}`)
-          .update({ url: responseData.html_url });
-        window.open(responseData.html_url);
-      });
-  }
-
-  async createClosedIssue(message, reason) {
-    if (!this.githubAuth.credential) {
-      await this.login();
-    }
-
-    this.ghService
-      .createIssue(
-        {
-          title: reason + ' ' + message.comment.substring(0, 150),
-          body: this.generateIssueBody(message)
-        },
-        this.githubAuth.credential.accessToken
-      )
-      .subscribe((responseData: any) => {
-        // Until we get a better UI
-        console.log(responseData.html_url);
-        this.database
-          .object(`feedback/${message.key}`)
-          .update({ url: responseData.html_url });
-        this.ghService
-          .closeIssue(
-            { state: 'closed' },
-            responseData.number,
-            this.githubAuth.credential.accessToken
-          )
-          .subscribe(res => {
-            if (res) {
-              this.isDone(message);
-            }
-          });
-      });
-  }
+  constructor(private database: AngularFireDatabase) {}
 
   ngOnInit() {
     const feedback$: AngularFireList<any[]> = this.database.list('/feedback');
@@ -182,14 +95,6 @@ Slide: [Local](http://localhost:4200${message.href}),[Public](https://angular-pr
     this.messages$ = combineLatest([filteredMessages$, this.group$]).pipe(
       map(group)
     );
-  }
-
-  closeMessage(e) {
-    this.createClosedIssue(e.message, e.reason);
-  }
-
-  takeMessage(e) {
-    this.createAnIssue(e.message);
   }
 
   changeDate(clearDates = false) {

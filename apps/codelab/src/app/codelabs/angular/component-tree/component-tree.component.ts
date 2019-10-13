@@ -9,6 +9,7 @@ import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import { boxAndCircle, circleAndBox } from '../../../shared/helpers/helpers';
 
 const circleAndBoxCode = circleAndBox();
+declare const require;
 
 @Component({
   selector: 'codelab-slides-component-tree',
@@ -56,17 +57,15 @@ export class WorldComponent {}
       type: 'typescript'
     },
     appModule: {
-      match: /decla.*/,
-      code: `import { NgModule } from '@angular/core';
-import { ChildComponent } from './child.component';
-import { ParentComponent } from './parent.component';
-
-@NgModule({
-  declarations: [ ChildComponent, ParentComponent ]
-})
-export class AppModule {}`,
-      path: 'app.module.ts',
-      type: 'typescript'
+      code: {
+        'app.module.ts': require('!!raw-loader!./samples/module/app.module.ts'),
+        'circle.component.ts': require('!!raw-loader!./samples/module/circle.component.ts'),
+        'box.component.ts': require('!!raw-loader!./samples/module/box.component.ts'),
+        'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
+        'index.html': require('!!raw-loader!./samples/module/index.html')
+      },
+      files: ['app.module.ts'],
+      highlights: { 'app.module.ts': /declarations.*/ }
     },
     parentComponent: {
       code: `import { Component } from '@angular/core';
