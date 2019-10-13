@@ -25,7 +25,10 @@
         [bootstrap]="bootstrapTest"
         [code]="code"
       ></codelab-babel-test-runner>
-      <p *ngIf="isSolved">Go to the next slide</p>
+      <div *ngIf="isSolved" class="solved-message">
+        <h3>Go to the next slide</h3>
+        <img src="/assets/images/well_done.gif" alt="solved-message" />
+      </div>
     </div>
   </div>
   <div class="row">
