@@ -87,7 +87,7 @@ export class SimpleAngularTestRunnerComponent
 
       if (message.data.type === 'testEnd') {
         this.solved.emit(
-          this.tests.length && this.tests.every(test => test.pass)
+          this.tests.length > 0 && this.tests.every(test => test.pass)
         );
       }
 
