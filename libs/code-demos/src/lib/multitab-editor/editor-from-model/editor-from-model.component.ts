@@ -10,12 +10,13 @@ import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-c
 import { editor, IDisposable } from 'monaco-editor';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import ITextModel = editor.ITextModel;
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'code-demo-editor-from-model',
   templateUrl: './editor-from-model.component.html',
   styleUrls: ['./editor-from-model.component.css'],
-  providers: [CodeDemoEditorInjector]
+  providers: [CodeDemoEditorInjector, MatSnackBar]
 })
 export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   @ViewChild('editor', { static: false }) el;
@@ -27,8 +28,9 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private editorInjector: CodeDemoEditorInjector,
-    readonly monacoConfigService: MonacoConfigService
-  ) {}
+    readonly monacoConfigService: MonacoConfigService,
+    private snackBar: MatSnackBar
+  ) { }
 
   @Input('model') set setModel(model: ITextModel) {
     this.model = model;
@@ -71,9 +73,25 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    const that = this;
     this.editor = this.editorInjector.editor = this.setUpEditor(
       this.el.nativeElement
     );
+
+    this.editor.addAction({
+      id: 'saveAction',
+      label: 'Save Shortcut Press',
+      keybindings: [
+        this.monacoConfigService.monaco.KeyMod.CtrlCmd | this.monacoConfigService.monaco.KeyCode.F10,
+        // chord
+        this.monacoConfigService.monaco.KeyMod.chord(this.monacoConfigService.monaco.KeyMod.CtrlCmd | this.monacoConfigService.monaco.KeyCode.KEY_S)
+      ],
+      run: function (ed) {
+        that.snackBar.open('Saved', '', {
+          duration: 2000,
+        });;
+      }
+    });
 
     this.resize();
     this.didChangeListener = this.editor.onDidChangeModelContent(() => {
