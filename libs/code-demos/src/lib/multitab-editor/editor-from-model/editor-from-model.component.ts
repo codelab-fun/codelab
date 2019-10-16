@@ -73,7 +73,6 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    const that = this;
     this.editor = this.editorInjector.editor = this.setUpEditor(
       this.el.nativeElement
     );
@@ -82,12 +81,10 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
       id: 'saveAction',
       label: 'Save Shortcut Press',
       keybindings: [
-        this.monacoConfigService.monaco.KeyMod.CtrlCmd | this.monacoConfigService.monaco.KeyCode.F10,
-        // chord
         this.monacoConfigService.monaco.KeyMod.chord(this.monacoConfigService.monaco.KeyMod.CtrlCmd | this.monacoConfigService.monaco.KeyCode.KEY_S)
       ],
-      run: function (ed) {
-        that.snackBar.open('Saved', '', {
+      run: () => {
+        this.snackBar.open('Saved', '', {
           duration: 2000,
         });;
       }
