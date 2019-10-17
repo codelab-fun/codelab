@@ -115,9 +115,7 @@ Start with reproducing [Locally](http://localhost:4200${message.href})
 This was filed through the feedback form.
 Author: ${message.name}
 Date: ${message.timestamp}
-Slide: [Local](http://localhost:4200${
-      message.href
-    }),[Prod](https://codelab.fun${message.href})`;
+Slide: [Local](http://localhost:4200${message.href}),[Prod](https://codelab.fun${message.href})`;
   }
 
   markAsDone(message) {
