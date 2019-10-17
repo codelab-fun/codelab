@@ -27,7 +27,6 @@ import { CodelabPreviewComponent } from './slides-preview/codelab-preview.compon
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { AngularRoutesComponent } from './angular-routes/angular-routes.component';
 
-
 @NgModule({
   imports: [
     CommonModule,

@@ -32,5 +32,4 @@ import { CodelabComponentsModule } from '../components/codelab-components.module
     }
   ]
 })
-export class CodelabsModule {
-}
+export class CodelabsModule {}

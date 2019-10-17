@@ -28,9 +28,9 @@ export class PostService {
 
   addPost(post: Post): any {
     return this.repo$.push({
-        ...post,
-        date: database.ServerValue.TIMESTAMP as string
-      });
+      ...post,
+      date: database.ServerValue.TIMESTAMP as string
+    });
   }
 
   getPost(id: string): Observable<any> {

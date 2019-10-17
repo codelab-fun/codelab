@@ -13,9 +13,7 @@ export class BreadcrumbComponent implements OnInit {
   readonly menuRoutes = menuRoutes;
   readonly separator = '/';
 
-  constructor(
-    private activatedRoute: ActivatedRoute
-  ) { }
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.active = this.activatedRoute.pathFromRoot.find(

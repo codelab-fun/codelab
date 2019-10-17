@@ -2,13 +2,15 @@
   <h2>Angular Codelab 🔥 Admin</h2>
 
   <nav mat-tab-nav-bar>
-
-    <a mat-tab-link
-       *ngFor="let link of links"
-       [routerLink]="link.link"
-       routerLinkActive #rla="routerLinkActive"
-       [active]="rla.isActive">
-      {{link.name}}
+    <a
+      mat-tab-link
+      *ngFor="let link of links"
+      [routerLink]="link.link"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [active]="rla.isActive"
+    >
+      {{ link.name }}
     </a>
   </nav>
 
@@ -16,5 +18,3 @@
     <router-outlet></router-outlet>
   </div>
 </mat-card>
-
-

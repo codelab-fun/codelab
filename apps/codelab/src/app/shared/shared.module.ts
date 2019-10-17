@@ -21,7 +21,7 @@ import { SyncModule } from '../codelabs/sync/sync.module';
     CodelabComponentsModule,
     SlidesModule,
     ButtonsNavBarModule,
-    SyncModule,
+    SyncModule
   ],
   exports: [
     FullLayoutComponent,
@@ -34,5 +34,4 @@ import { SyncModule } from '../codelabs/sync/sync.module';
   ],
   providers: []
 })
-export class SharedModule {
-}
+export class SharedModule {}

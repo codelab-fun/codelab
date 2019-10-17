@@ -17,18 +17,17 @@ const routes = [
     children: [
       {
         path: 'users',
-        component: UsersComponent,
+        component: UsersComponent
       },
       {
         path: 'feedback',
-        component: FeedbackComponent,
-      },
-
+        component: FeedbackComponent
+      }
     ]
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   }
 ];
 
@@ -40,8 +39,4 @@ const routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class AdminRoutingModule {
-
-}
-
-
+export class AdminRoutingModule {}

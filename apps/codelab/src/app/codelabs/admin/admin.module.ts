@@ -12,8 +12,7 @@ import { RouterModule } from '@angular/router';
     AdminRoutingModule,
     MatCardModule,
     MatTabsModule,
-    RouterModule,
+    RouterModule
   ]
 })
-export class AdminModule {
-}
+export class AdminModule {}

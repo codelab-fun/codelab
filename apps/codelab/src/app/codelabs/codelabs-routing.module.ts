@@ -12,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'angular',
-    loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule)
+    loadChildren: () =>
+      import('./angular/angular.module').then(m => m.AngularModule)
   },
   {
     path: 'extra',
@@ -24,7 +25,8 @@ const routes: Routes = [
   },
   {
     path: 'sync',
-    loadChildren: () => import('./sync/sync.module').then(m => m.SyncAdminModule)
+    loadChildren: () =>
+      import('./sync/sync.module').then(m => m.SyncAdminModule)
   },
   {
     path: '**',
@@ -33,11 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    SyncModule
-  ],
+  imports: [RouterModule.forRoot(routes), SyncModule],
   exports: [RouterModule]
 })
-export class CodelabsRoutingModule {
-}
+export class CodelabsRoutingModule {}
