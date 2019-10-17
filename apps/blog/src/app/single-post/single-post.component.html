@@ -14,6 +14,10 @@
       </markdown>
 
       <span *ngIf="!full"><a routerLink="/post/{{ post.key }}">More</a> </span>
+      <span *ngIf="full">
+        <button (click)="edit()">Edit</button>
+        <button (click)="delete()">Delete</button>
+      </span>
     </div>
   </mat-card-content>
 </mat-card>
