@@ -1,6 +1,6 @@
 [![Join our Slack, #codelab channel](https://img.shields.io/badge/slack-%23codelab-yellowgreen)](https://nycjsorg.now.sh) [![Check out the demo](https://img.shields.io/badge/see%20the-Demo-brightgreen)](https://codelab.fun)
 
-# Angular Codelab - [codelab.fun](codelab.fun)
+# Angular Codelab - [codelab.fun](https://codelab.fun)
 
 Angular Codelab is a self-paced interactive Angular course:
 
