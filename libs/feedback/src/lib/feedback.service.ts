@@ -3,7 +3,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import { getRef } from '@angular/fire/database/utils';
 import { Message } from './message';
-import { Observable, of, defer } from 'rxjs';
+import { defer, Observable, of } from 'rxjs';
 import {
   filter,
   map,

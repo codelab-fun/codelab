@@ -1,7 +1,10 @@
 import * as T from 'babel-types';
 import * as babylon from 'babylon';
 import babel_traverse from 'babel-traverse';
-import * as ts from 'typescript';
+import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+import * as TsTypes from 'typescript';
+
+const ts = getTypeScript();
 
 function matchesValue(actual, expected) {
   if (!actual) {
@@ -76,10 +79,10 @@ export function babelTestSuite(filePath, tests) {
   };
 }
 
-export type Predicate = (node: ts.Node) => boolean;
+export type Predicate = (node: TsTypes.Node) => boolean;
 
 export class MiniTsQuery {
-  constructor(private readonly ast: ts.Node) {}
+  constructor(private readonly ast: TsTypes.Node) {}
 
   some(predicate: Predicate) {
     let result = false;
@@ -158,7 +161,7 @@ export class MiniTsQuery {
     return this.hasDecoratorValue('NgModule', 'providers', 'VideoService');
   }
 
-  getDecorator(type: string): ts.Decorator {
+  getDecorator(type: string): TsTypes.Decorator {
     return this.findOne(node => {
       return (
         ts.isDecorator(node) &&

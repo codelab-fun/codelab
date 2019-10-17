@@ -1,0 +1,15 @@
+<div class="message">
+  <div class="error-code"><p>404</p></div>
+  <div class="error-message">
+    <p class="header">Oops! You're lost</p>
+    <p class="subheader">The page you are looking for was not found.</p>
+  </div>
+</div>
+<nav>
+  <ul>
+    <li *ngFor="let route of routes">
+      <a [routerLink]="route.path">{{ route.name }}</a>
+    </li>
+  </ul>
+</nav>
+<codelab-buttons-nav-bar></codelab-buttons-nav-bar>

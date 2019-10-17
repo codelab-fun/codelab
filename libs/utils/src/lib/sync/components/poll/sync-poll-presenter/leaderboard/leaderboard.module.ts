@@ -7,14 +7,12 @@ import { LeaderboardPresenterComponent } from './leaderboard-presenter/leaderboa
 import { LeaderboardViewerComponent } from './leaderboard-viewer/leaderboard-viewer.component';
 
 @NgModule({
-  declarations: [LeaderboardComponent, LeaderboardPresenterComponent, LeaderboardViewerComponent],
-  exports: [
-    LeaderboardComponent
+  declarations: [
+    LeaderboardComponent,
+    LeaderboardPresenterComponent,
+    LeaderboardViewerComponent
   ],
-  imports: [
-    CommonModule,
-    BarChartModule,
-    SyncDirectivesModule
-  ]
+  exports: [LeaderboardComponent],
+  imports: [CommonModule, BarChartModule, SyncDirectivesModule]
 })
-export class LeaderboardModule { }
+export class LeaderboardModule {}

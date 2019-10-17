@@ -1,11 +1,9 @@
 import { MaterialComponent } from './material.component';
 import { NgModule } from '@angular/core';
 import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
-
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '@codelab/browser';
-
 import { RouterModule } from '@angular/router';
 import {
   MatButtonModule,
@@ -13,19 +11,11 @@ import {
   MatInputModule
 } from '@angular/material';
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
-
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { SlidesModule } from '@codelab/slides';
 import { FormsModule } from '@angular/forms';
 
-const routes = RouterModule.forChild([
-  {
-    path: '',
-    redirectTo: '/angular/material/intro',
-    pathMatch: 'full'
-  },
-  ...SlidesRoutes.get(MaterialComponent)
-]);
+const routes = RouterModule.forChild([...SlidesRoutes.get(MaterialComponent)]);
 
 @NgModule({
   imports: [

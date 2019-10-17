@@ -4,7 +4,7 @@ export enum SyncStatus {
   OFF = 'off',
   VIEWING = 'viewing',
   PRESENTING = 'presenting',
-  ADMIN = 'admin',
+  ADMIN = 'admin'
 }
 
 export interface SyncMeta<T> {
@@ -15,27 +15,32 @@ export interface SyncMeta<T> {
   users: Record<string, any>;
 }
 
-export const canWritePresenterData = status => status === SyncStatus.PRESENTING || status === SyncStatus.ADMIN;
+export const canWritePresenterData = status =>
+  status === SyncStatus.PRESENTING || status === SyncStatus.ADMIN;
 
 export interface SyncSessionConfig {
   autojoin: boolean;
   active: boolean;
   admins: string[];
   owner: string;
+  name: string;
 }
 
 export interface SyncSession {
   config: SyncSessionConfig;
 }
 
-export function firebaseToValuesWithKey<T>(list: AngularFireAction<DatabaseSnapshot<T>>[]) {
-  return list.map(action => ({key: action.key, ...action.payload.val()}));
+export function firebaseToValuesWithKey<T>(
+  list: AngularFireAction<DatabaseSnapshot<T>>[]
+) {
+  return list.map(action => ({ key: action.key, ...action.payload.val() }));
 }
 
-export function toValuesAndKeys<T>(object: { [k: string]: T }): Array<{key: string, value: T}> {
-  return Object.entries(object).map(([key, value]) => ({key, value}));
+export function toValuesAndKeys<T>(object: {
+  [k: string]: T;
+}): Array<{ key: string; value: T }> {
+  return Object.entries(object).map(([key, value]) => ({ key, value }));
 }
-
 
 export function sum(array) {
   return array.reduce((a, b) => a + b, 0);

@@ -30,7 +30,7 @@ export class SlidesDeckComponent {
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    @Optional() private readonly  route: ActivatedRoute
+    @Optional() private readonly route: ActivatedRoute
   ) {
     if (route) {
       this.milestone = route.snapshot.queryParams.milestone;

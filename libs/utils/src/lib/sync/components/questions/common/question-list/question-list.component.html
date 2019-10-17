@@ -1,3 +1,7 @@
 <div @questionList *ngFor="let question of questions; trackBy: trackBy">
-  <codelab-question tabindex="0" [question]="question" *ngIf="!question.starred"></codelab-question>
+  <codelab-question
+    tabindex="0"
+    [question]="question"
+    *ngIf="!question.starred"
+  ></codelab-question>
 </div>

@@ -18,10 +18,7 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
 import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.module';
 import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
 
-const routes = RouterModule.forChild(
-  SlidesRoutes.get(MskComponent)
-);
-
+const routes = RouterModule.forChild(SlidesRoutes.get(MskComponent));
 
 @NgModule({
   providers: [
@@ -29,7 +26,7 @@ const routes = RouterModule.forChild(
     SyncSessionService,
     SyncDbService,
     SyncPollService,
-    SyncRegistrationService,
+    SyncRegistrationService
   ],
   declarations: [MskComponent],
   imports: [
@@ -43,8 +40,7 @@ const routes = RouterModule.forChild(
     SyncButtonModule,
     SyncDirectivesModule,
     SyncRegistrationModule,
-    SyncPollModule,
+    SyncPollModule
   ]
 })
-export class MskModule {
-}
+export class MskModule {}

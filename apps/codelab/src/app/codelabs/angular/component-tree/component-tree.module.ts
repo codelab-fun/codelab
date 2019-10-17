@@ -12,11 +12,6 @@ import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
 const routes = RouterModule.forChild([
-  {
-    path: '',
-    redirectTo: '/angular/component-tree/intro',
-    pathMatch: 'full'
-  },
   ...SlidesRoutes.get(ComponentTreeComponent)
 ]);
 

@@ -1,0 +1,10 @@
+<div class="grid">
+  <div class="row" *ngFor="let i of f">
+    <div
+      class="cell"
+      *ngFor="let o of f"
+      [class.central]="i === 4 && o === 4"
+      [style.animation-delay.s]="randomDelays[i][o]"
+    ></div>
+  </div>
+</div>

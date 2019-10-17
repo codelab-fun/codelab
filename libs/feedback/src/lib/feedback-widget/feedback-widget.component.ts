@@ -10,7 +10,7 @@ import { Message } from '../message';
 import { Observable, Subject } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-import { AccessService } from '../../../../firebase-login/src/lib/access.service';
+import { AccessService } from '../../../../../apps/codelab/src/app/shared/services/access.service';
 
 @Component({
   selector: 'feedback-widget',

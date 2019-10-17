@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
-import { SyncPoll, SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+import {
+  SyncPoll,
+  SyncPollService
+} from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 
 @Component({
   selector: 'codelab-sync-poll-presenter',
@@ -11,8 +14,7 @@ export class SyncPollPresenterComponent implements OnInit {
   @Input() config: SyncPollConfig;
   poll: SyncPoll;
 
-  constructor(private readonly pollService: SyncPollService) {
-  }
+  constructor(private readonly pollService: SyncPollService) {}
 
   getAnswerIndex() {
     return this.config.options.indexOf(this.config.answer);

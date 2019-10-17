@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { AngularRoutesComponent } from '../../components/angular-routes/angular-routes.component';
 import { FullLayoutComponent } from '../../containers/full-layout';
 import { environment } from '../../../environments/environment';
-import { AngularRoutesComponent } from '../../components/angular-routes/angular-routes.component';
+import { MENU_ROUTES, MenuRoutes } from '../../common';
 
-const routes = [
+const routes: MenuRoutes = [
   {
     path: '',
     component: FullLayoutComponent,
@@ -77,22 +77,20 @@ const routes = [
           'learnToStructureAppWithReusableComponents'
         ]
       },
-      /*
-      {
-        path: 'custom-events',
-        loadChildren: './custom-events/custom-events.module#CustomEventsModule',
-        name: 'Custom-Events (work in progress)',
-        description: 'Learn to bind to events.',
-        page: 'bonus',
-        translationIds: ['customEvents', 'learnToBindToEvents']
-      },*/
+      // {
+      //   path: 'custom-events',
+      //   loadChildren: './custom-events/custom-events.module#CustomEventsModule',
+      //   name: 'Custom-Events (work in progress)',
+      //   description: 'Learn to bind to events.',
+      //   page: 'bonus',
+      //   translationIds: ['customEvents', 'learnToBindToEvents']
+      // },
       {
         path: 'router',
         loadChildren: () =>
           import('./router/router.module').then(m => m.RouterCodelabModule),
         name: 'Angular Router',
-        description:
-          '[🚧 Work In Progress] Learn how to add routes to your Angular application',
+        description: 'Learn how to add routes to your Angular application',
         page: 'main',
         prod: true
       },
@@ -103,7 +101,7 @@ const routes = [
             m => m.MaterialCodelabModule
           ),
         name: 'Angular Material',
-        description: '[🚧 Work In Progress] Learn how to use Angular Material',
+        description: 'Learn how to use Angular Material',
         page: 'main',
         prod: true
       },
@@ -112,7 +110,7 @@ const routes = [
         loadChildren: () =>
           import('./forms/forms.module').then(m => m.FormsCodelabModule),
         name: 'Forms',
-        description: '[🚧 Work In Progress] Learn how to add Forms to your app',
+        description: 'Learn how to add Forms to your app',
         page: 'main',
         prod: true
       },
@@ -123,8 +121,7 @@ const routes = [
             m => m.AngularCliModule
           ),
         name: 'Angular-cli',
-        description:
-          '[🚧 Work In Progress] Learn how to quickly start working with angular',
+        description: 'Learn how to quickly start working with angular',
         page: 'main',
         prod: true
       },
@@ -170,6 +167,7 @@ export const menuRoutes = routes[0].children
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: MENU_ROUTES, useValue: menuRoutes }]
 })
 export class AngularRoutingModule {}

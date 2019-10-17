@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
-import { distinctUntilChanged, filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import {
+  distinctUntilChanged,
+  filter,
+  map,
+  switchMap,
+  withLatestFrom
+} from 'rxjs/operators';
 import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
 import { database } from 'firebase/app';
@@ -10,11 +16,10 @@ import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-se
 import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
-
 const DEFAULT_TEST_TIME_SECONDS = 20;
 const defaultPresenterSettings = {
   enabled: true,
-  startTime: 0,
+  startTime: 0
 };
 
 export interface UserVote {
@@ -22,7 +27,12 @@ export interface UserVote {
   time: number;
 }
 
-function getScore(isCorrect: boolean, range: number, speed: number, fastest: number) {
+function getScore(
+  isCorrect: boolean,
+  range: number,
+  speed: number,
+  fastest: number
+) {
   if (!isCorrect) {
     return 0;
   }
@@ -38,38 +48,43 @@ export function calculateUserScore(configs, presenterData, userData) {
   return configs
     .filter(config => presenterData[config.key])
     .map(config => {
-      return ({
+      return {
         ...config,
         answerIndex: config.options.indexOf(config.answer),
         startTime: presenterData[config.key].startTime
-      });
-    }).flatMap(config => {
+      };
+    })
+    .flatMap(config => {
       if (!userData[config.key]) {
         return [];
       }
 
-      const responses = Object.entries<UserVote>(userData[config.key]).map(([user, answer]) => {
-        const speed = answer.time - config.startTime;
-        return {
-          user,
-          isCorrect: speed >= 0
-            && answer.answer === config.answerIndex
-            && speed <= DEFAULT_TEST_TIME_SECONDS * 1000,
-          speed: speed
-        };
-      });
+      const responses = Object.entries<UserVote>(userData[config.key]).map(
+        ([user, answer]) => {
+          const speed = answer.time - config.startTime;
+          return {
+            user,
+            isCorrect:
+              speed >= 0 &&
+              answer.answer === config.answerIndex &&
+              speed <= DEFAULT_TEST_TIME_SECONDS * 1000,
+            speed: speed
+          };
+        }
+      );
 
       const correctResponses = responses.filter(r => r.isCorrect);
       const slowest = Math.max(...correctResponses.map(a => a.speed), 0);
       const fastest = Math.min(...correctResponses.map(a => a.speed), slowest);
       const range = slowest - fastest;
       return responses.map(r => {
-        return ({
+        return {
           ...r,
           score: 100 * getScore(r.isCorrect, range, r.speed, fastest)
-        });
+        };
       });
-    }).reduce((result, record) => {
+    })
+    .reduce((result, record) => {
       result[record.user] = (result[record.user] || 0) + record.score;
       return result;
     }, {});
@@ -78,34 +93,57 @@ export function calculateUserScore(configs, presenterData, userData) {
 export class SyncPoll {
   key = 'poll' + '/' + this.config.key;
 
-  readonly presenterSettings = this.syncDataService
-    .getPresenterObject(this.key, defaultPresenterSettings);
-  readonly isPollEnabled$ = this.presenterSettings.valueChanges().pipe(map(a => a.enabled));
-  readonly timestamp$: Observable<number> = this.presenterSettings.valueChanges().pipe(map(a => a.startTime));
+  readonly presenterSettings = this.syncDataService.getPresenterObject(
+    this.key,
+    defaultPresenterSettings
+  );
+  readonly isPollEnabled$ = this.presenterSettings
+    .valueChanges()
+    .pipe(map(a => a.enabled));
+  readonly timestamp$: Observable<
+    number
+  > = this.presenterSettings.valueChanges().pipe(map(a => a.startTime));
 
   readonly timeLeft$ = this.timestamp$.pipe(
     switchMap(time => interval(500).pipe(map(() => time))),
     withLatestFrom(this.syncDbService.offset$.pipe(distinctUntilChanged())),
-    map(([time, offset]) => Math.round(Math.max(0, time + 1000 * (this.config.time || DEFAULT_TEST_TIME_SECONDS) - Date.now() + offset) / 1000)),
+    map(([time, offset]) =>
+      Math.round(
+        Math.max(
+          0,
+          time +
+            1000 * (this.config.time || DEFAULT_TEST_TIME_SECONDS) -
+            Date.now() +
+            offset
+        ) / 1000
+      )
+    ),
     distinctUntilChanged()
   );
 
-  readonly $isPollRunning = this.timeLeft$.pipe(
-    map(time => time > 0)
-  );
+  readonly $isPollRunning = this.timeLeft$.pipe(map(time => time > 0));
   readonly hasVotes$: Observable<boolean>;
   readonly votesCount$: Observable<number>;
-  private readonly viewerData = this.syncDataService.getCurrentViewerObject<UserVote>(this.key, {answer: null, time: 0});
+  private readonly viewerData = this.syncDataService.getCurrentViewerObject<
+    UserVote
+  >(this.key, { answer: null, time: 0 });
   readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => a.answer));
-  private readonly votesData = this.syncDataService.getAdminAllUserData(this.key, {});
+  private readonly votesData = this.syncDataService.getAdminAllUserData(
+    this.key,
+    {}
+  );
   votes$ = this.votesData.valueChanges();
 
-  constructor(private readonly syncDataService: SyncDataService,
-              readonly config: SyncPollConfig,
-              private readonly syncDbService: SyncDbService) {
+  constructor(
+    private readonly syncDataService: SyncDataService,
+    readonly config: SyncPollConfig,
+    private readonly syncDbService: SyncDbService
+  ) {
     // Reformatting breaks this if it's out of the constructor.
     this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
-    this.votesCount$ = this.votes$.pipe(map(votes => Object.values(votes).length));
+    this.votesCount$ = this.votes$.pipe(
+      map(votes => Object.values(votes).length)
+    );
   }
 
   vote(answer: number) {
@@ -116,10 +154,11 @@ export class SyncPoll {
   }
 
   start() {
-    this.presenterSettings.updateWithCallback(produce((settings) => {
-      settings.startTime = database.ServerValue.TIMESTAMP;
-    }));
-
+    this.presenterSettings.updateWithCallback(
+      produce(settings => {
+        settings.startTime = database.ServerValue.TIMESTAMP;
+      })
+    );
   }
 }
 
@@ -132,43 +171,62 @@ export class SyncPollService {
     private readonly syncSessionService: SyncSessionService,
     private readonly syncDbService: SyncDbService,
     private readonly registrationService: SyncRegistrationService
-  ) {
-  }
+  ) {}
 
   getPoll(config: SyncPollConfig) {
     return new SyncPoll(this.syncDataService, config, this.syncDbService);
   }
 
   calculateScores(syncPollConfigs: SyncPollConfig[]) {
-    const presenterData$ = this.syncDataService.getPresenterObject('poll').valueChanges().pipe(filter(a => a !== null));
-    const userData$ = this.syncDataService.getAdminAllUserData('poll').valueChanges().pipe(filter(a => a !== null));
+    const presenterData$ = this.syncDataService
+      .getPresenterObject('poll')
+      .valueChanges()
+      .pipe(filter(a => a !== null));
+    const userData$ = this.syncDataService
+      .getAdminAllUserData('poll')
+      .valueChanges()
+      .pipe(filter(a => a !== null));
 
-    const result$ = combineLatest([of(syncPollConfigs), presenterData$, userData$]).pipe(
-      map(([configs, presenterData, userData]) => calculateUserScore(configs, presenterData, userData)));
+    const result$ = combineLatest([
+      of(syncPollConfigs),
+      presenterData$,
+      userData$
+    ]).pipe(
+      map(([configs, presenterData, userData]) =>
+        calculateUserScore(configs, presenterData, userData)
+      )
+    );
 
-    return combineLatest([result$, this.registrationService.usersMap$]).pipe(map(([results, users]) => {
-      return Object.entries<number>(users).reduce((result, [uid, name]) => {
-        result[uid] = {name, score: results[uid] || 0};
-        return result;
-      }, {});
-    }));
-
+    return combineLatest([result$, this.registrationService.usersMap$]).pipe(
+      map(([results, users]) => {
+        return Object.entries<number>(users).reduce((result, [uid, name]) => {
+          result[uid] = { name, score: results[uid] || 0 };
+          return result;
+        }, {});
+      })
+    );
   }
 
   calculateMyScore(syncPollConfigs: SyncPollConfig[]) {
-    return combineLatest([this.calculateScores(syncPollConfigs), this.syncSessionService.viewerId$]).pipe(map(([scoresObj, uid]) => {
-      const scores = toValuesAndKeys<{ score: number, name: string }>(scoresObj).sort((a, b) => b.value.score - a.value.score);
-      const index = scores.findIndex(score => score.key === uid);
+    return combineLatest([
+      this.calculateScores(syncPollConfigs),
+      this.syncSessionService.viewerId$
+    ]).pipe(
+      map(([scoresObj, uid]) => {
+        const scores = toValuesAndKeys<{ score: number; name: string }>(
+          scoresObj
+        ).sort((a, b) => b.value.score - a.value.score);
+        const index = scores.findIndex(score => score.key === uid);
 
-      if (index === -1) {
-        return {place: 0, score: 0};
-      }
+        if (index === -1) {
+          return { place: 0, score: 0 };
+        }
 
-
-      return {
-        place: index + 1,
-        ...(scores[index].value)
-      };
-    }));
+        return {
+          place: index + 1,
+          ...scores[index].value
+        };
+      })
+    );
   }
 }

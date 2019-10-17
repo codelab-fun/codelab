@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BreadcrumbComponent } from './breadcrumb.component';
 import { ActivatedRoute } from '@angular/router';
+import { MENU_ROUTES } from '../../common';
+import { CodelabComponentsModule } from '../codelab-components.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;
@@ -9,19 +12,20 @@ describe('BreadcrumbComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        declarations: [BreadcrumbComponent],
-        providers: [
-          {
-            provide: ActivatedRoute,
-            useValue: {
-              pathFromRoot: [
-                {routeConfig: {name: 'lol'}}
-              ]
-            }
+      imports: [CodelabComponentsModule, RouterTestingModule],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            pathFromRoot: [{ routeConfig: { name: 'lol' } }]
           }
-        ]
-      },
-    ).compileComponents();
+        },
+        {
+          provide: MENU_ROUTES,
+          useValue: []
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -8,13 +8,10 @@ import { SyncModule as SyncLibModule } from '@codelab/utils/src/lib/sync/sync.mo
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SyncSessionsComponent } from '@codelab/utils/src/lib/sync/components/sync-sessions/sync-sessions.component';
 
-const routes = RouterModule.forChild(
-  [
-    {path: 'sessions', component: SyncSessionsComponent},
-    ...SlidesRoutes.get(SyncComponent)
-  ]
-);
-
+const routes = RouterModule.forChild([
+  { path: 'sessions', component: SyncSessionsComponent },
+  ...SlidesRoutes.get(SyncComponent)
+]);
 
 @NgModule({
   declarations: [SyncComponent],
@@ -23,8 +20,7 @@ const routes = RouterModule.forChild(
     SlidesModule,
     routes,
     SyncLibModule,
-    AngularFireAuthModule,
+    AngularFireAuthModule
   ]
 })
-export class SyncModule {
-}
+export class SyncModule {}

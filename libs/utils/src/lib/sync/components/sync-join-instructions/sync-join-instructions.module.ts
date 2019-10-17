@@ -16,5 +16,4 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
     FormsModule
   ]
 })
-export class SyncJoinInstructionsModule {
-}
+export class SyncJoinInstructionsModule {}

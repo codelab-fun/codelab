@@ -56,7 +56,7 @@ export class MultitabEditorComponent
   @Input() enableAutoFolding = true;
   openModels: MonacoModel[];
   changeSubject = new Subject();
-
+  private prefix = `prefix/${Math.random()}/`;
   private onChange: any;
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
@@ -102,7 +102,19 @@ export class MultitabEditorComponent
   registerOnTouched(fn: any): void {}
 
   loadSolution(file) {
-    this.getModelByFileName(file).model.setValue(this.solutions[file]);
+    const model = this.getModelByFileName(file).model;
+    const solution = this.solutions[file];
+
+    model.pushEditOperations(
+      [],
+      [
+        {
+          range: model.getFullModelRange(),
+          text: solution
+        }
+      ],
+      null
+    );
   }
 
   getModelByFileName(file): MonacoModel | undefined {
@@ -123,10 +135,11 @@ export class MultitabEditorComponent
         return monacoModel;
       } else {
         const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
+
         const model = this.monacoConfigService.monaco.editor.createModel(
           code,
           language,
-          'file:///' + path
+          'inmemory://model/' + this.prefix + path
         );
 
         model.onDidChangeContent(() => {

@@ -8,16 +8,10 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [PlaygroundComponent],
   imports: [
-    RouterModule.forChild([
-      {
-        path: '',
-        component: PlaygroundComponent
-      }
-    ]),
+    RouterModule.forChild([{ path: '', component: PlaygroundComponent }]),
     CodeDemoModule,
     CommonModule,
-    FormsModule,
+    FormsModule
   ]
 })
-export class PlaygroundModule {
-}
+export class PlaygroundModule {}

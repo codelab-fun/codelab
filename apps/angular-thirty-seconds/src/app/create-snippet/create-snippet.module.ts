@@ -31,7 +31,6 @@ const MAT_MODULES = [
   MatSnackBarModule
 ];
 
-
 @NgModule({
   declarations: [
     CreateSnippetComponent,
@@ -39,9 +38,7 @@ const MAT_MODULES = [
     SnippetOverviewComponent,
     SnippetSpinnerComponent
   ],
-  entryComponents: [
-    SnippetOverviewComponent
-  ],
+  entryComponents: [SnippetOverviewComponent],
   imports: [
     ...MAT_MODULES,
     CommonModule,
@@ -52,5 +49,4 @@ const MAT_MODULES = [
     RouterModule
   ]
 })
-export class CreateSnippetModule {
-}
+export class CreateSnippetModule {}

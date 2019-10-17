@@ -1,4 +1,9 @@
-import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  OnInit,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 
@@ -8,9 +13,8 @@ export class SyncIsStatusDirective<T> implements OnInit {
   constructor(
     private readonly viewContainer: ViewContainerRef,
     private readonly templateRef: TemplateRef<any>,
-    private readonly syncSession: SyncSessionService,
-  ) {
-  }
+    private readonly syncSession: SyncSessionService
+  ) {}
 
   ngOnInit() {
     this.syncSession.status$.subscribe(status => {
@@ -26,7 +30,6 @@ export class SyncIsStatusDirective<T> implements OnInit {
   }
 }
 
-
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: '[isViewing]'
@@ -37,7 +40,7 @@ export class SyncIsViewingDirective<T> extends SyncIsStatusDirective<T> {
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<any>,
-    syncSession: SyncSessionService,
+    syncSession: SyncSessionService
   ) {
     super(viewContainer, templateRef, syncSession);
   }
@@ -53,7 +56,7 @@ export class SyncIsPresentingDirective<T> extends SyncIsStatusDirective<T> {
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<any>,
-    syncSession: SyncSessionService,
+    syncSession: SyncSessionService
   ) {
     super(viewContainer, templateRef, syncSession);
   }
@@ -69,7 +72,23 @@ export class SyncIsAdminDirective<T> extends SyncIsStatusDirective<T> {
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<any>,
-    syncSession: SyncSessionService,
+    syncSession: SyncSessionService
+  ) {
+    super(viewContainer, templateRef, syncSession);
+  }
+}
+
+@Directive({
+  // tslint:disable-next-line:directive-selector
+  selector: '[isOff]'
+})
+export class SyncIsOffDirective<T> extends SyncIsStatusDirective<T> {
+  protected readonly status = SyncStatus.OFF;
+
+  constructor(
+    viewContainer: ViewContainerRef,
+    templateRef: TemplateRef<any>,
+    syncSession: SyncSessionService
   ) {
     super(viewContainer, templateRef, syncSession);
   }

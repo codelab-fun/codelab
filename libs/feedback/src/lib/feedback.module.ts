@@ -15,7 +15,7 @@ import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.compo
 import { FeedbackRatingComponent } from './feedback-rating/feedback-rating.component';
 import { FeedbackIssueDropdownComponent } from '@codelab/feedback/src/lib/feedback-issue-dropdown/feedback-issue-dropdown.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GithubModule } from '@codelab/utils';
+import { GithubModule, GithubService } from '@codelab/utils';
 
 import { environment } from '../../../../apps/codelab/src/environments/environment';
 
@@ -37,12 +37,16 @@ export const angularFire = AngularFireModule.initializeApp(
     MatButtonModule,
     MatCardModule
   ],
-  providers: [FeedbackService],
+  providers: [FeedbackService, GithubService],
   declarations: [
     FeedbackWidgetComponent,
     FeedbackRatingComponent,
     FeedbackIssueDropdownComponent
   ],
-  exports: [FeedbackWidgetComponent, FeedbackRatingComponent]
+  exports: [
+    FeedbackWidgetComponent,
+    FeedbackRatingComponent,
+    FeedbackIssueDropdownComponent
+  ]
 })
 export class FeedbackModule {}

@@ -4,11 +4,11 @@ import { monacoReady } from '@codelab/code-demos';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../codelab/src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -36,8 +36,8 @@ const routes = [
   {
     path: 'cellular-automation',
     loadChildren: () =>
-      import('./modules/cellular-automation/cellular-automation.module').then(
-        m => m.CellularAutomationModule
+      import('./modules/cellular-automation/cellular-automation-routing.module').then(
+        m => m.CellularAutomationRoutingModule
       ),
     name: 'Image inclusion',
     description: 'Image inclusion'
@@ -107,6 +107,20 @@ const routes = [
     description: 'Sync Session'
   },
   {
+    path: 'stack',
+    loadChildren: () =>
+      import('./modules/stack/stack.module').then(m => m.StackModule),
+    name: 'Stack Module',
+    description: 'stack'
+  },
+  {
+    path: 'sync',
+    loadChildren: () =>
+      import('./modules/sync/sync.module').then(m => m.SyncModule),
+    name: 'Sync',
+    description: 'Sync Session'
+  },
+  {
     path: 'test',
     loadChildren: () =>
       import('./modules/test/test.module').then(m => m.TestModule),
@@ -124,6 +138,15 @@ const routes = [
     loadChildren: () =>
       import('./modules/msk/msk.module').then(m => m.MskModule),
     name: 'Angular Moscow Meetup'
+  },
+  {
+    path: 'stack',
+    loadChildren: () =>
+      import('./modules/stack/stack-routing.module').then(
+        m => m.StackRoutingModule
+      ),
+    name: 'Stack Module',
+    description: 'stack'
   }
 ];
 
@@ -133,9 +156,16 @@ const routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
     angularFire
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useValue: monacoReady,
+      multi: true
+    },
     {
       provide: 'ROUTES',
       useValue: []

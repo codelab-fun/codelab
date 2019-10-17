@@ -4,13 +4,11 @@ import { GitHubService } from './github.service';
 import { of } from 'rxjs';
 import SpyObj = jasmine.SpyObj;
 
-
 describe('SnippetService', () => {
   let gitHubService: SpyObj<GitHubService>;
   const repoName = '30seconds';
   const repoOwner = 'PIKACHU';
   const pullNumber = 689;
-
 
   beforeEach(() => {
     gitHubService = jasmine.createSpyObj('gitHubService', [
@@ -29,7 +27,6 @@ describe('SnippetService', () => {
     });
   });
 
-
   it('should be created', () => {
     const snippet = 'pirojok';
     const fileName = 'john';
@@ -38,33 +35,36 @@ describe('SnippetService', () => {
 
     const service: SnippetService = TestBed.get(SnippetService);
 
-    gitHubService.getPullByPullNumber.and.returnValue(of({
-      head: {ref: branchName}
-    }));
+    gitHubService.getPullByPullNumber.and.returnValue(
+      of({
+        head: { ref: branchName }
+      })
+    );
     const sha = 'sa sha';
 
-    gitHubService.getPullFileByPullNumber.and.returnValue(of([
-      {
-        contents_url,
-        sha,
-        filename: fileName,
-      }
-    ]));
-
-    gitHubService.getSnippetBody.and.returnValue(of({
-      content: btoa(snippet)
-    }));
-
-    service.fetchPR(repoName, repoOwner, pullNumber).subscribe(
-      (result) => {
-        expect(result).toEqual({
-          branchName,
-          fileName,
+    gitHubService.getPullFileByPullNumber.and.returnValue(
+      of([
+        {
+          contents_url,
           sha,
-          snippet,
-        });
-      },
+          filename: fileName
+        }
+      ])
     );
+
+    gitHubService.getSnippetBody.and.returnValue(
+      of({
+        content: btoa(snippet)
+      })
+    );
+
+    service.fetchPR(repoName, repoOwner, pullNumber).subscribe(result => {
+      expect(result).toEqual({
+        branchName,
+        fileName,
+        sha,
+        snippet
+      });
+    });
   });
 });
-

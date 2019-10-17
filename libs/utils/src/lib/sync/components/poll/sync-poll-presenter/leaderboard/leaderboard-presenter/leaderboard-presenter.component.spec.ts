@@ -8,9 +8,8 @@ describe('LeaderboardPresenterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LeaderboardPresenterComponent ]
-    })
-    .compileComponents();
+      declarations: [LeaderboardPresenterComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

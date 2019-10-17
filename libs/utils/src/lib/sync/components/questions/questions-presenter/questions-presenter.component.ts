@@ -7,7 +7,5 @@ import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questio
   styleUrls: ['./questions-presenter.component.css']
 })
 export class QuestionsPresenterComponent {
-  constructor(public readonly questionsService: QuestionsService) {
-  }
-
+  constructor(public readonly questionsService: QuestionsService) {}
 }

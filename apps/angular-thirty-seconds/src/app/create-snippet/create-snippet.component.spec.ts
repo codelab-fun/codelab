@@ -15,16 +15,13 @@ describe('CreateSnippetComponent', () => {
   let activatedRoute: Partial<ActivatedRoute>;
 
   beforeEach(async(() => {
-
     activatedRoute = {
       snapshot: {
         params: {}
       }
     } as any;
 
-    snippetService = jasmine.createSpyObj('snippetService', [
-      'fetchPR'
-    ]);
+    snippetService = jasmine.createSpyObj('snippetService', ['fetchPR']);
 
     TestBed.configureTestingModule({
       imports: [CreateSnippetModule, NoopAnimationsModule],
@@ -35,16 +32,13 @@ describe('CreateSnippetComponent', () => {
         },
         {
           provide: SnippetService,
-          useValue: snippetService,
+          useValue: snippetService
         }
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
-  beforeEach(() => {
-
-  });
+  beforeEach(() => {});
 
   xit('should create', () => {
     const repoName = 'name';
@@ -67,6 +61,10 @@ describe('CreateSnippetComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    expect(snippetService.fetchPR).toHaveBeenCalledWith(repoName, repoOwner, pullNumber);
+    expect(snippetService.fetchPR).toHaveBeenCalledWith(
+      repoName,
+      repoOwner,
+      pullNumber
+    );
   });
 });

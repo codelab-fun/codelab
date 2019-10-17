@@ -36,6 +36,7 @@ export function getChanges(current, previous) {
   styleUrls: ['./exercise.component.css']
 })
 export class CodelabExerciseComponent extends CodeDemoComponent {
+  isSolved = false;
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
 

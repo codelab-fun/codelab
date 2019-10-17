@@ -16,6 +16,7 @@
         (selectFile)="files = [$event]"
         [bootstrap]="bootstrapTest"
         [code]="files$ | async"
+        (solved)="isSolved = $event"
       ></codelab-simple-angular-test-runner>
 
       <codelab-babel-test-runner
@@ -24,6 +25,14 @@
         [bootstrap]="bootstrapTest"
         [code]="code"
       ></codelab-babel-test-runner>
+      <div *ngIf="isSolved" class="solved-message">
+        <h3 i18n>Well done! Now you can go to the next slide</h3>
+        <img
+          src="/assets/images/well_done.gif"
+          i18n-alt
+          alt="Happy dogs celebrating your success"
+        />
+      </div>
     </div>
   </div>
   <div class="row">
