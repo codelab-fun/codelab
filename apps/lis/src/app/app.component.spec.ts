@@ -26,6 +26,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
+    console.log(compiled.outerHTML);
     expect(compiled.querySelector('.content span').textContent).toContain(
       'lis app is running!'
     );

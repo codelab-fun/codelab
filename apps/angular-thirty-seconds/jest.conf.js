@@ -1,3 +1,10 @@
+module.exports = {
+  name: 'angular-thirty-seconds',
+  preset: '../../jest.config.js',
+  coverageDirectory: '../../coverage/apps/angular-thirty-seconds/'
+};
+
+/*
 module.exports = function(config) {
   config.set({
     basePath: '../',
@@ -26,3 +33,4 @@ module.exports = function(config) {
     singleRun: false
   });
 };
+*/

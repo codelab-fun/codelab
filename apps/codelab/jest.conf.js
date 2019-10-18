@@ -1,3 +1,10 @@
+module.exports = {
+  name: 'codelab',
+  preset: '../../jest.config.js',
+  coverageDirectory: '../../coverage/apps/codelab/'
+};
+
+/*
 module.exports = function(config) {
   config.set({
     basePath: '../',
@@ -26,3 +33,4 @@ module.exports = function(config) {
     singleRun: false
   });
 };
+*/

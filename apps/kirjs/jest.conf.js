@@ -1,11 +1,14 @@
-// Karma configuration file, see link for more information
-// https://karma-runner.github.io/1.0/config/configuration-file.html
-
+module.exports = {
+  name: 'kirjs',
+  preset: '../../jest.config.js',
+  coverageDirectory: '../../coverage/apps/kirjs/'
+};
+/*
 const { join } = require('path');
-const getBaseKarmaConfig = require('../../karma.conf');
+const getBaseKarmaConfig = require('../../_del_karma.conf');
 
 module.exports = function(config) {
-  const baseConfig = getBaseKarmaConfig();
+  const baseConfig = getBaseKarmaConfig(config);
   config.set({
     ...baseConfig,
     coverageIstanbulReporter: {
@@ -13,4 +16,4 @@ module.exports = function(config) {
       dir: join(__dirname, '../../coverage/apps/kirjs')
     }
   });
-};
+};*/

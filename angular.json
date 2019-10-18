@@ -98,10 +98,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "apps/codelab/src/test.ts",
-            "karmaConfig": "apps/codelab/karma.conf.js",
+            "jestConfig": "apps/codelab/jest.conf.js",
             "polyfills": "apps/codelab/src/polyfills.ts",
             "tsConfig": "apps/codelab/tsconfig.spec.json",
             "scripts": [],
@@ -149,11 +148,10 @@
       "prefix": "codelab",
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "libs/console/src/test.ts",
             "tsConfig": "libs/console/tsconfig.spec.json",
-            "karmaConfig": "libs/console/karma.conf.js"
+            "jestConfig": "libs/console/jest.conf.js"
           }
         },
         "lint": {
@@ -175,11 +173,10 @@
       "prefix": "codelab",
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "libs/utils/src/test.ts",
             "tsConfig": "libs/utils/tsconfig.spec.json",
-            "karmaConfig": "libs/utils/karma.conf.js"
+            "jestConfig": "libs/utils/jest.conf.js"
           }
         },
         "lint": {
@@ -283,12 +280,11 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "apps/kirjs/src/test.ts",
             "polyfills": "apps/kirjs/src/polyfills.ts",
             "tsConfig": "apps/kirjs/tsconfig.spec.json",
-            "karmaConfig": "apps/kirjs/karma.conf.js",
+            "jestConfig": "apps/kirjs/jest.conf.js",
             "styles": ["apps/kirjs/src/styles.css"],
             "scripts": [],
             "assets": ["apps/kirjs/src/favicon.ico", "apps/kirjs/src/assets"]
@@ -325,11 +321,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "libs/angular-ast-viz/src/test.ts",
             "tsConfig": "libs/angular-ast-viz/tsconfig.spec.json",
-            "karmaConfig": "libs/angular-ast-viz/karma.conf.js"
+            "jestConfig": "libs/angular-ast-viz/jest.conf.js"
           }
         },
         "lint": {
@@ -363,11 +358,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "libs/angular-slides-to-pdf/src/test.ts",
             "tsConfig": "libs/angular-slides-to-pdf/tsconfig.spec.json",
-            "karmaConfig": "libs/angular-slides-to-pdf/karma.conf.js"
+            "jestConfig": "libs/angular-slides-to-pdf/jest.conf.js"
           }
         },
         "lint": {
@@ -396,11 +390,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "libs/feedback/src/test.ts",
             "tsConfig": "libs/feedback/tsconfig.spec.json",
-            "karmaConfig": "libs/feedback/karma.conf.js"
+            "jestConfig": "libs/feedback/jest.conf.js"
           }
         },
         "lint": {
@@ -528,11 +521,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "libs/firebase-login/src/test.ts",
             "tsConfig": "libs/firebase-login/tsconfig.spec.json",
-            "karmaConfig": "libs/firebase-login/karma.conf.js"
+            "jestConfig": "libs/firebase-login/jest.conf.js"
           }
         },
         "lint": {
@@ -725,12 +717,11 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "apps/angular-thirty-seconds/src/test.ts",
             "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
             "tsConfig": "apps/angular-thirty-seconds/tsconfig.spec.json",
-            "karmaConfig": "apps/angular-thirty-seconds/karma.conf.js",
+            "jestConfig": "apps/angular-thirty-seconds/jest.conf.js",
             "styles": ["apps/angular-thirty-seconds/src/styles.scss"],
             "scripts": [],
             "assets": [
@@ -864,11 +855,11 @@
       "prefix": "slides"
     },
     "@nrwl/schematics:library": {
-      "unitTestRunner": "karma",
+      "unitTestRunner": "jest",
       "framework": "angular"
     },
     "@nrwl/schematics:application": {
-      "unitTestRunner": "karma",
+      "unitTestRunner": "jest",
       "e2eTestRunner": "protractor"
     },
     "@nrwl/schematics:node-application": {

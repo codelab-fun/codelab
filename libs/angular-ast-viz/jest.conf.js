@@ -1,6 +1,9 @@
-// Karma configuration file, see link for more information
-// https://karma-runner.github.io/1.0/config/configuration-file.html
-
+module.exports = {
+  name: 'angular-ast-viz',
+  preset: '../../jest.config.js',
+  coverageDirectory: '../../coverage/libs/angular-ast-viz'
+};
+/*
 const { join } = require('path');
 const getBaseKarmaConfig = require('../../karma.conf');
 
@@ -10,7 +13,8 @@ module.exports = function(config) {
     ...baseConfig,
     coverageIstanbulReporter: {
       ...baseConfig.coverageIstanbulReporter,
-      dir: join(__dirname, '../../coverage/libs/angular-slides-to-pdf')
+      dir: join(__dirname, '../../coverage/libs/angular-ast-viz')
     }
   });
 };
+*/
