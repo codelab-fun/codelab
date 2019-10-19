@@ -87,9 +87,6 @@ const vendors = [].concat(
 const content = JSON.stringify(vendors, null, 2);
 writeFileSync(join(__dirname, './files.txt'), content, 'utf-8');
 
-// tslint:disable-next-line:no-console
-console.info('Done: ');
-// tslint:disable-next-line:no-console
-console.info('number of types', vendors.length);
-// tslint:disable-next-line:no-console
-console.info('File size (kb): ', content.length / 1000);
+console.log('Done: ');
+console.log('number of types', vendors.length);
+console.log('File size (kb): ', content.length / 1000);

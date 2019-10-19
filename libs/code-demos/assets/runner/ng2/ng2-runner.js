@@ -1,6 +1,8 @@
-var path = require('path');
+var { join } = require('path');
 var Builder = require('systemjs-builder');
+const UglifyJS = require('uglify-js');
 const rel = 'libs/code-demos/assets/runner/ng2/';
+const { readFileSync, writeFileSync } = require('fs');
 
 const config = {
   transpiler: 'ts',
@@ -175,12 +177,23 @@ const config = {
   }
 };
 
-const builder = new Builder('./', config);
+const inputFileName = join(rel, 'basic.ts');
+const outputFileName = join(rel, 'ng-bundle.js');
 
+const builder = new Builder('./', config);
 builder
-  .bundle(rel + 'basic.ts', rel + 'ng-bundle.js')
+  .bundle(inputFileName, outputFileName)
   .then(function() {
-    console.log('Build complete');
+    const content = readFileSync(outputFileName, { encoding: 'utf-8' });
+    const minified = UglifyJS.minify(content);
+    if (minified.error) {
+      return Promise.reject(minified.error);
+    } else {
+      writeFileSync(outputFileName, minified.code);
+      console.log('Build complete');
+      console.log('Original File size (kb):', content.length / 1000);
+      console.log('Minified File size (kb): ', minified.code.length / 1000);
+    }
   })
   .catch(function(err) {
     console.log('Build error');
