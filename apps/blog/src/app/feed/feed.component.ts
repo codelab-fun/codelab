@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormService } from '../form.service';
+import { PostService } from '../post.service';
 import { Observable } from 'rxjs';
-import { Post } from '../form/form.component';
+import { Post } from '../common';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -13,8 +13,8 @@ import { map } from 'rxjs/operators';
 export class FeedComponent {
   posts$: Observable<Post[]>;
 
-  constructor(private formService: FormService) {
-    this.posts$ = this.formService.repo$.snapshotChanges().pipe(
+  constructor(private postService: PostService) {
+    this.posts$ = this.postService.repo$.snapshotChanges().pipe(
       map(items => {
         return items
           .map(a => {
