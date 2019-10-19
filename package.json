@@ -8,6 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod --aot",
+    "build:bundler": "ts-node -P libs/code-demos/assets/runner/tsconfig.json libs/code-demos/assets/runner/ng-dts/bundler.ts && node libs/code-demos/assets/runner/ng2/ng2-runner.js",
     "test": "ng test",
     "lint": "ng lint",
     "i18n": "ng xi18n codelab --i18n-format xmb --output-path src/locale",
@@ -170,7 +171,7 @@
     "systemjs-builder": "^0.16.4",
     "ts-node": "^7.0.1",
     "tsickle": "^0.35.0",
-    "tslib": "^1.9.3",
+    "tslib": "^1.10.0",
     "tslint": "^5.12.1",
     "typescript": "~3.6.4"
   }
