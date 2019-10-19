@@ -30,5 +30,5 @@ To regenerate the files:
 - test it in the app really well.
 
 <p align="center">
-  <img src="images/fox-warns-you.jpeg" width="500px">
+  <img src="images/fox-warns-you.jpeg" width="500px" alt="Fox is very confused">
 </p>
