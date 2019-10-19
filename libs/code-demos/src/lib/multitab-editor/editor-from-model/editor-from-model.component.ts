@@ -22,6 +22,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditorFromModelComponent
   implements AfterViewInit, OnChanges, OnDestroy {
+  // tslint:disable-next-line:no-input-rename
   @Input('model') setModel: ITextModel;
   @ViewChild('editor', { static: false }) el;
   fontSize = 14;

@@ -6,6 +6,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   styleUrls: ['./file-path.component.css']
 })
 export class FilePathComponent implements OnChanges {
+  // tslint:disable-next-line:no-input-rename
   @Input('path') pathSetter: string;
 
   path: string;

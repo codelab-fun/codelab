@@ -55,6 +55,7 @@ export class MultitabEditorComponent
   @Input() highlights = {};
   @Input() debounce = 250;
   @Input() autoFolding = false;
+  // tslint:disable-next-line:no-input-rename
   @Input('files') setFiles: string | string[];
   @Input() enableAutoFolding = true;
   files = [];

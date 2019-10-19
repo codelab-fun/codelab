@@ -28,6 +28,7 @@ export class SimpleTestsComponent implements OnChanges, OnInit {
 
   constructor() {}
 
+  // tslint:disable-next-line:no-input-rename
   @Input('tests') testsSetter: TestInfo[];
 
   ngOnInit(): void {

@@ -17,7 +17,7 @@ describe('LoginService', () => {
   );
 
   it('should be created', () => {
-    const service: LoginService = TestBed.get(LoginService);
+    const service: LoginService = TestBed.inject(LoginService);
     expect(service).toBeTruthy();
   });
 });
