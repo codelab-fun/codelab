@@ -14,7 +14,8 @@ import { MessageComponent } from './message/message.component';
 import { JsonComponent } from './json/json.component';
 
 import { CompareComponent } from './compare/compare.component';
-import { MatAutocompleteModule, MatSelectModule } from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 import { HtmlPostComponent } from './html-post/html-post.component';
 import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
 import { ConsoleModule } from '@codelab/console';
