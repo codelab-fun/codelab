@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { TestInfo } from '../../shared/interfaces/test-info';
 
 function getFileName(file: string) {
@@ -10,7 +18,7 @@ function getFileName(file: string) {
   templateUrl: './simple-tests.component.html',
   styleUrls: ['./simple-tests.component.css']
 })
-export class SimpleTestsComponent implements OnInit {
+export class SimpleTestsComponent implements OnChanges, OnInit {
   @Input() code: any;
   @Input() translations: { [key: string]: string } = {};
   @Output()
@@ -20,17 +28,21 @@ export class SimpleTestsComponent implements OnInit {
 
   constructor() {}
 
-  @Input('tests') set testsSetter(tests: Array<TestInfo>) {
-    this.tests = (tests || []).map(test => ({
-      ...test,
-      filename: this.getTestFile(test),
-      title: this.getTitle(test),
-      isFirstUnresolved: this.isFirstUnsolved(test, tests)
-    }));
-  }
+  @Input('tests') testsSetter: TestInfo[];
 
   ngOnInit(): void {
     this.translations = this.translations || {};
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('testsSetter' in changes) {
+      this.tests = (this.testsSetter || []).map(test => ({
+        ...test,
+        filename: this.getTestFile(test),
+        title: this.getTitle(test),
+        isFirstUnresolved: this.isFirstUnsolved(test, this.testsSetter)
+      }));
+    }
   }
 
   hasTests() {
