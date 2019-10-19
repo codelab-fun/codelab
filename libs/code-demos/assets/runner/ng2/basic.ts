@@ -3,6 +3,7 @@ import '@angular/core';
 import '@angular/animations';
 import '@angular/router';
 import '@angular/platform-browser-dynamic';
+import '@angular/platform-browser-dynamic/testing';
 import '@angular/core/testing';
 import '@angular/platform-browser/animations';
 
