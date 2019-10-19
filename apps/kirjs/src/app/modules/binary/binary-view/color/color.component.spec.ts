@@ -10,14 +10,14 @@ describe('ColorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ColorComponent],
-      providers: [ BinaryParentComponent ]
+      providers: [BinaryParentComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ColorComponent);
     component = fixture.debugElement.componentInstance;
-    component.color = "pink";
+    component.color = 'pink';
     component.data = {
       value: 'mock_value'
     };

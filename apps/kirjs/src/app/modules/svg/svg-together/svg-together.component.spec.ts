@@ -10,10 +10,10 @@ describe.skip('SvgTogetherComponent', () => {
   let component: SvgTogetherComponent;
   let fixture: ComponentFixture<SvgTogetherComponent>;
 
-  beforeEach( async(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvgTogetherComponent, SafeHtml ],
-      providers: [ getMockAngularFireProviders(), CodeDemoEditorComponent ]
+      declarations: [SvgTogetherComponent, SafeHtml],
+      providers: [getMockAngularFireProviders(), CodeDemoEditorComponent]
     }).compileComponents();
   }));
 

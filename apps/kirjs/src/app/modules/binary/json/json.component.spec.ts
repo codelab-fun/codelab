@@ -10,7 +10,7 @@ describe('JsonComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [JsonComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

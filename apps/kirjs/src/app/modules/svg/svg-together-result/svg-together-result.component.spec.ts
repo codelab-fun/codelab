@@ -10,16 +10,16 @@ describe('SvgTogetherResultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvgTogetherResultComponent, SafeHtml ],
-      providers: [ getMockAngularFireProviders() ]
+      declarations: [SvgTogetherResultComponent, SafeHtml],
+      providers: [getMockAngularFireProviders()]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SvgTogetherResultComponent);
     component = fixture.debugElement.componentInstance;
-    component.allCode = "function() { var hello = true; }";
-    component.code = "function() { var hello = true; }";
+    component.allCode = 'function() { var hello = true; }';
+    component.code = 'function() { var hello = true; }';
     fixture.detectChanges();
   });
 

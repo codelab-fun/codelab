@@ -10,14 +10,14 @@ describe('ObjectComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ObjectComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ObjectComponent);
     component = fixture.debugElement.componentInstance;
-    component.data = { value: [ 'mock_value' ] };
+    component.data = { value: ['mock_value'] };
     fixture.detectChanges();
   });
 

@@ -10,7 +10,7 @@ describe('WebassemblyCodeModeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [WebassemblyCodeModeComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

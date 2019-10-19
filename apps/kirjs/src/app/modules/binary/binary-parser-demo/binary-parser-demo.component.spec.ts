@@ -10,14 +10,14 @@ describe('BinaryParserDemoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BinaryParserDemoComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BinaryParserDemoComponent);
     component = fixture.debugElement.componentInstance;
-    component.helpers = [ { value: "mock" }];
+    component.helpers = [{ value: 'mock' }];
     fixture.detectChanges();
   });
 

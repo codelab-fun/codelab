@@ -10,7 +10,7 @@ describe('StackGameComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [StackGameComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

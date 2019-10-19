@@ -10,14 +10,14 @@ describe('BitsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BitsComponent],
-      providers: [ BinaryParentComponent ]
+      providers: [BinaryParentComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BitsComponent);
     component = fixture.debugElement.componentInstance;
-    component.data = { rawValue: "mock_raw_data" };
+    component.data = { rawValue: 'mock_raw_data' };
     fixture.detectChanges();
   });
 

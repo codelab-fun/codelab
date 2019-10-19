@@ -10,14 +10,14 @@ describe('TestSetComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TestSetComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestSetComponent);
     component = fixture.debugElement.componentInstance;
-    component.files = [ { code: 'file_code_123' }];
+    component.files = [{ code: 'file_code_123' }];
     fixture.detectChanges();
   });
 

@@ -15,7 +15,7 @@ describe('WasmContentsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(WasmContentsComponent);
     component = fixture.debugElement.componentInstance;
-    component.config = { milestone: "derp" };
+    component.config = { milestone: 'derp' };
     fixture.detectChanges();
   });
 

@@ -11,7 +11,7 @@ describe.skip('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      providers: [ KirjsModule ]
+      providers: [KirjsModule]
     }).compileComponents();
   }));
 

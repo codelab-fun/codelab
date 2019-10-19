@@ -9,8 +9,8 @@ describe('BinaryFlatComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BinaryFlatComponent ],
-      providers: [ BinaryParentComponent ]
+      declarations: [BinaryFlatComponent],
+      providers: [BinaryParentComponent]
     }).compileComponents();
   }));
 

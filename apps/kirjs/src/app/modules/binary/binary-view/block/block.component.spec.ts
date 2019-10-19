@@ -11,10 +11,10 @@ describe('BlockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlockComponent ],
-      schemas: [ NO_ERRORS_SCHEMA ],
-      providers: [ ComponentFactoryResolver ],
-      imports: [ FormsModule ]
+      declarations: [BlockComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [ComponentFactoryResolver],
+      imports: [FormsModule]
     }).compileComponents();
   }));
 
@@ -22,7 +22,7 @@ describe('BlockComponent', () => {
     fixture = TestBed.createComponent(BlockComponent);
     component = fixture.debugElement.componentInstance;
     component.data = {
-      type: "mock_type"
+      type: 'mock_type'
     };
     fixture.detectChanges();
   });

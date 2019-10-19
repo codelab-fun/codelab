@@ -12,7 +12,7 @@ describe.skip('MidiComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MidiComponent],
-      schemas: [ NO_ERRORS_SCHEMA ]
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -20,8 +20,8 @@ describe.skip('MidiComponent', () => {
     fixture = TestBed.createComponent(MidiComponent);
     component = fixture.debugElement.componentInstance;
     component.parser = new BinaryParser();
-    component.binary = "010101";
-    component.s = ["mock1", "mock2"];
+    component.binary = '010101';
+    component.s = ['mock1', 'mock2'];
     fixture.detectChanges();
   });
 

@@ -8,6 +8,7 @@ env:
     - TRIGGER="format:check"
     - TRIGGER="lint"
     - TRIGGER="ng build --  --prod --source-map=false --build-optimizer=false"
+    - TRIGGER="test"
 
 script:
   - npm run $TRIGGER

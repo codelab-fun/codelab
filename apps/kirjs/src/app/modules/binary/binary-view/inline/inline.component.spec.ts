@@ -11,7 +11,7 @@ describe('InlineComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [InlineComponent],
-      providers: [ InlineRootComponent, BinaryParentComponent ]
+      providers: [InlineRootComponent, BinaryParentComponent]
     }).compileComponents();
   }));
 

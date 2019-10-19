@@ -10,9 +10,9 @@ describe('QnaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QnaComponent ],
-      providers: [ SyncPlaygroundComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      declarations: [QnaComponent],
+      providers: [SyncPlaygroundComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

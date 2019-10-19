@@ -6,11 +6,10 @@ describe('SyncPollComponent', () => {
   let component: PollComponent;
   let fixture: ComponentFixture<PollComponent>;
 
-  beforeEach( async () => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [PollComponent]
     }).compileComponents();
-
   });
 
   beforeEach(() => {

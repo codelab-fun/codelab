@@ -11,8 +11,8 @@ describe('SvgDemoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvgDemoComponent, SafeHtml ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      declarations: [SvgDemoComponent, SafeHtml],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

@@ -10,7 +10,7 @@ describe('MskComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MskComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

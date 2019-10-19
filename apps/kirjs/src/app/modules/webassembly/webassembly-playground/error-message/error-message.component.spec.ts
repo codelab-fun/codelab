@@ -15,7 +15,7 @@ describe('ErrorMessageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ErrorMessageComponent);
     component = fixture.debugElement.componentInstance;
-    component.result = { type: 'error', value: "bad_error_is_bad" };
+    component.result = { type: 'error', value: 'bad_error_is_bad' };
     fixture.detectChanges();
   });
 

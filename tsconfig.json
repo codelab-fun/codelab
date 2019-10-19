@@ -37,5 +37,5 @@
     "rootDir": ".",
     "esModuleInterop": true,
     "types": ["jest", "node"]
-  },
+  }
 }

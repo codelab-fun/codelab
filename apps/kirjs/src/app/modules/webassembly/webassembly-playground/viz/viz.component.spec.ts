@@ -10,7 +10,7 @@ describe('VizComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [VizComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

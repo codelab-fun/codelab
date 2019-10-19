@@ -11,7 +11,7 @@ describe('BinaryInlineComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BinaryInlineComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

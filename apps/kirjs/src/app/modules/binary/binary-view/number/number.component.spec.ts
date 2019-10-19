@@ -10,7 +10,7 @@ describe('NumberComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NumberComponent],
-      providers: [ BinaryParentComponent ]
+      providers: [BinaryParentComponent]
     }).compileComponents();
   }));
 

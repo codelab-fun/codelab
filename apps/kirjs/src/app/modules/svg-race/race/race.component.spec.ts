@@ -11,7 +11,7 @@ describe.skip('RaceComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RaceComponent],
-      schemas: [ NO_ERRORS_SCHEMA ]
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

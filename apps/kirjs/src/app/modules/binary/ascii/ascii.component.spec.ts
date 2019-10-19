@@ -10,15 +10,15 @@ describe.skip('AsciiComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AsciiComponent ],
-      imports: [ FormsModule ]
+      declarations: [AsciiComponent],
+      imports: [FormsModule]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AsciiComponent);
     component = fixture.debugElement.componentInstance;
-    component.encoding = { key: "UTF-8", value: [{ key: 8, value: "UTF-8" }] };
+    component.encoding = { key: 'UTF-8', value: [{ key: 8, value: 'UTF-8' }] };
     fixture.detectChanges();
   });
 

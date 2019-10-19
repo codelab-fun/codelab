@@ -10,7 +10,7 @@ describe('RegexComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RegexComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

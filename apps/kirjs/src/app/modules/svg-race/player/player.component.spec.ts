@@ -10,14 +10,14 @@ describe('PlayerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PlayerComponent],
-      schemas: [ NO_ERRORS_SCHEMA ]
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PlayerComponent);
     component = fixture.debugElement.componentInstance;
-    component.color = "pink";
+    component.color = 'pink';
     fixture.detectChanges();
   });
 

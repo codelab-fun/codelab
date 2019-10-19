@@ -10,14 +10,14 @@ describe('StringComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [StringComponent],
-      providers: [ BinaryParentComponent ]
+      providers: [BinaryParentComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StringComponent);
     component = fixture.debugElement.componentInstance;
-    component._data = "some_data";
+    component._data = 'some_data';
     component.showMeta = true;
     fixture.detectChanges();
   });

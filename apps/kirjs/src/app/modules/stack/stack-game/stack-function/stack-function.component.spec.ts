@@ -16,7 +16,7 @@ describe('StackFunctionComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StackFunctionComponent);
     component = fixture.debugElement.componentInstance;
-    component.func = { inputs: "string", outputs: "string", name: "mockfunc" };
+    component.func = { inputs: 'string', outputs: 'string', name: 'mockfunc' };
     fixture.detectChanges();
   });
 

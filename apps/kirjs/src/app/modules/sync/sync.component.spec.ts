@@ -11,7 +11,7 @@ describe('SyncComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SyncComponent],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

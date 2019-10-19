@@ -2,9 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SyncComponent } from './sync.component';
 import { SyncModule } from './sync.module';
-import {
-  getMockAngularFireProviders,
-} from '@codelab/utils/src/lib/testing/mocks/angular-fire';
+import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('SyncComponent', () => {
   let component: SyncComponent;
@@ -12,8 +10,8 @@ describe('SyncComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ SyncModule ],
-      providers: [ getMockAngularFireProviders() ]
+      imports: [SyncModule],
+      providers: [getMockAngularFireProviders()]
     }).compileComponents();
   }));
 
