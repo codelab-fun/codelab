@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users.component';
-import { MatCardModule, MatTableModule } from '@angular/material';
+import { MatCardModule } from '@angular/materal/card';
+import { MatTableModule } from '@angular/materal/table';
 
 @NgModule({
   declarations: [UsersComponent],

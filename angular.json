@@ -16,6 +16,7 @@
             "main": "apps/codelab/src/main.ts",
             "tsConfig": "apps/codelab/tsconfig.app.json",
             "polyfills": "apps/codelab/src/polyfills.ts",
+            "aot": true,
             "assets": [
               "apps/codelab/src/assets",
               "apps/codelab/src/favicon.ico",
