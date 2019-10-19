@@ -30,7 +30,7 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
     private editorInjector: CodeDemoEditorInjector,
     readonly monacoConfigService: MonacoConfigService,
     private snackBar: MatSnackBar
-  ) { }
+  ) {}
 
   @Input('model') set setModel(model: ITextModel) {
     this.model = model;
@@ -81,12 +81,15 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
       id: 'saveAction',
       label: 'Save Shortcut Press',
       keybindings: [
-        this.monacoConfigService.monaco.KeyMod.chord(this.monacoConfigService.monaco.KeyMod.CtrlCmd | this.monacoConfigService.monaco.KeyCode.KEY_S)
+        this.monacoConfigService.monaco.KeyMod.chord(
+          this.monacoConfigService.monaco.KeyMod.CtrlCmd |
+            this.monacoConfigService.monaco.KeyCode.KEY_S
+        )
       ],
       run: () => {
         this.snackBar.open('Saved', '', {
-          duration: 2000,
-        });;
+          duration: 2000
+        });
       }
     });
 

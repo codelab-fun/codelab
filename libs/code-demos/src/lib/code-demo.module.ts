@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatSelectModule,
+  MatSnackBarModule
+} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '@codelab/browser';
 import { CodeDemoComponent } from './code-demo/code-demo.component';
