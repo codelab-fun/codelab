@@ -5,7 +5,7 @@ import { AlertComponent } from './alert.component';
 import { TabComponent } from './tab.component';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
-import { MatTabsModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
 
 const routes = [
   { path: '', component: TabComponent },

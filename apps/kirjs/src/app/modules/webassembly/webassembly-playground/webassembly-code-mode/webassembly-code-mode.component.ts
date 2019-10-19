@@ -4,7 +4,6 @@ import {
   HostBinding,
   Input,
   OnChanges,
-  OnInit,
   Output
 } from '@angular/core';
 
@@ -15,29 +14,22 @@ declare const require;
   templateUrl: './webassembly-code-mode.component.html',
   styleUrls: ['./webassembly-code-mode.component.css']
 })
-export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
+export class WebassemblyCodeModeComponent implements OnChanges {
   @HostBinding('style.width.px') width = 0;
   @Input() code: any;
+  @Input() sideBarBlocks: any[];
   @Output() wasmSelectionHighlight = new EventEmitter();
   @Output() loadAnswer = new EventEmitter<any>();
+
   wat: string;
   js: string;
   mode = 'getIndex';
   state: any;
+
   private blocks: any[];
   private selectedMode = {};
 
   constructor() {}
-
-  @Input() set sideBarBlocks(blocks) {
-    this.blocks = blocks || [];
-    const block = this.blocks.find(b => !!b.meta);
-    this.selectedMode = {};
-    if (block) {
-      this.selectedMode = block.meta;
-    }
-    this.width = Object.keys(this.selectedMode).length > 0 ? 400 : 0;
-  }
 
   updateCode() {
     if (this.code) {
@@ -47,12 +39,20 @@ export class WebassemblyCodeModeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    if ('sideBarBlocks' in changes) {
+      this.blocks = this.sideBarBlocks || [];
+      const block = this.blocks.find(b => !!b.meta);
+      this.selectedMode = {};
+      if (block) {
+        this.selectedMode = block.meta;
+      }
+      this.width = Object.keys(this.selectedMode).length > 0 ? 400 : 0;
+    }
+
     if (this.code) {
       this.updateCode();
     }
   }
-
-  ngOnInit() {}
 
   loadAnswerFromConfig(selectedMode: any) {
     this.loadAnswer.emit(selectedMode);

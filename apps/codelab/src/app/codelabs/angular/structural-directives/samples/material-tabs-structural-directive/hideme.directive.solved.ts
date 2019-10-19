@@ -4,7 +4,7 @@ import {
   TemplateRef,
   ViewContainerRef
 } from '@angular/core';
-import { MatTab, MatTabGroup } from '@angular/material';
+import { MatTabGroup, MatTab } from '@angular/material/tabs';
 
 /* tslint:disable */
 @Directive({ selector: '[matHideMe]' })

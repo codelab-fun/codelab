@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+} from '@angular/core';
 
 function encode(from: number, to: number, encoding: string) {
   return new TextDecoder(encoding)
@@ -17,7 +23,9 @@ const layouts = {};
   templateUrl: './ascii.component.html',
   styleUrls: ['./ascii.component.css']
 })
-export class AsciiComponent implements OnInit {
+export class AsciiComponent implements OnChanges {
+  @Input() param: string;
+
   encodings = [
     {
       key: 'ascii',
@@ -40,15 +48,16 @@ export class AsciiComponent implements OnInit {
       value: encode(1000, 1255, 'utf-16')
     }
   ];
+
   encoding = this.encodings[0];
 
   constructor() {
     // d = new TextDecoder('windows-125').decode(new Uint8Array(255).map((a,i)=>i).buffer)
   }
 
-  @Input() set param(key) {
-    this.encoding = this.encodings.find(a => a.key === key);
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('param' in changes) {
+      this.encoding = this.encodings.find(a => a.key === this.param);
+    }
   }
-
-  ngOnInit() {}
 }

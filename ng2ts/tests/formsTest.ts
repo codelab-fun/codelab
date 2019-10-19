@@ -1,6 +1,6 @@
 import { upload_upload_component_html } from '../code';
 import { TestBed } from '@angular/core/testing';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
 import { AppModule } from '../app.module';
 import { UploadComponent } from '../upload/upload.component';
 import { FormsModule } from '@angular/forms';

@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Component,
   Input,
+  OnChanges,
   OnDestroy,
+  SimpleChanges,
   ViewChild
 } from '@angular/core';
 
@@ -18,7 +20,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./editor-from-model.component.css'],
   providers: [CodeDemoEditorInjector, MatSnackBar]
 })
-export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
+export class EditorFromModelComponent
+  implements AfterViewInit, OnChanges, OnDestroy {
+  // tslint:disable-next-line:no-input-rename
+  @Input('model') setModel: ITextModel;
   @ViewChild('editor', { static: false }) el;
   fontSize = 14;
   editor: any;
@@ -31,13 +36,6 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
     readonly monacoConfigService: MonacoConfigService,
     private snackBar: MatSnackBar
   ) {}
-
-  @Input('model') set setModel(model: ITextModel) {
-    this.model = model;
-    if (this.editor) {
-      this.editor.setModel(model);
-    }
-  }
 
   setUpEditor(el: HTMLElement) {
     return this.monacoConfigService.monaco.editor.create(el, {
@@ -104,6 +102,15 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
     if (this.didChangeListener) {
       this.didChangeListener.dispose();
       this.didChangeListener = null;
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('setModel' in changes) {
+      this.model = this.setModel;
+      if (this.editor) {
+        this.editor.setModel(this.setModel);
+      }
     }
   }
 }
