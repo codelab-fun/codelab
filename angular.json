@@ -884,6 +884,7 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "2d33a6dc-15e8-4227-b14e-dedd96805cec"
   }
 }
