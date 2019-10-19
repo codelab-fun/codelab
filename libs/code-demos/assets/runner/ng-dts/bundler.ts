@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
+import { join, basename } from 'path';
 
 const glob = require('glob');
 
@@ -47,20 +47,49 @@ const folders = [
   '@angular/forms',
   'rxjs'
 ];
-const files = [].concat(
-  ...folders.map(folder => glob.sync(`node_modules/${folder}/**/*.d.ts`))
+
+interface FileModule {
+  typings: string;
+  dtsPaths: string[];
+}
+
+const fileModules: FileModule[] = folders.map(
+  (folder): FileModule => ({
+    typings: (
+      JSON.parse(
+        readFileSync(`node_modules/${folder}/package.json`, {
+          encoding: 'utf-8'
+        })
+      ) || {}
+    ).typings,
+    dtsPaths: glob.sync(`node_modules/${folder}/**/*.d.ts`)
+  })
 );
 
-const vendors = files.map(path => {
-  const content = readFileSync(path, 'UTF-8');
-  return { path, content };
-});
+const vendors = [].concat(
+  ...fileModules.map(({ typings, dtsPaths }) => {
+    return dtsPaths.map(path => {
+      const paths = [path];
+      if (typings) {
+        const dtsFileName = basename(path);
+        const typingsName = basename(typings);
+        if (typingsName === dtsFileName) {
+          paths.push(path.replace(dtsFileName, 'index.d.ts'));
+        }
+      }
 
-writeFileSync(
-  join(__dirname, './files.txt'),
-  JSON.stringify(vendors, null, 2),
-  'utf-8'
+      const content = readFileSync(path, 'UTF-8');
+      return { paths, content };
+    });
+  })
 );
+
+const content = JSON.stringify(vendors, null, 2);
+writeFileSync(join(__dirname, './files.txt'), content, 'utf-8');
 
 // tslint:disable-next-line:no-console
-console.info('Done: ', vendors.length);
+console.info('Done: ');
+// tslint:disable-next-line:no-console
+console.info('number of types', vendors.length);
+// tslint:disable-next-line:no-console
+console.info('File size (kb): ', content.length / 1000);
