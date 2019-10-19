@@ -7,9 +7,12 @@ TODO(kirjs): tidy up and add more details.
 Angular fox warns you:
 There is a lot of magic happening in this folder, only touch it if you know what's going on.
 
-_,-=._ /|_/|
-`-.}`=._,.-=-._., @ @._,
-`._ _,-. ) _,.-'` G.m-"^m`m' Dmytro O. Redchuk
+```
+  _,-=._              /|_/|
+  `-.}   `=._,.-=-._.,  @ @._,
+     `._ _,-.   )      _,.-'
+        `    G.m-"^m`m'        Dmytro O. Redchuk
+```
 
 ## What's going on here?
 
