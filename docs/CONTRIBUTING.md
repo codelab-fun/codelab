@@ -38,9 +38,13 @@ So that everyone can feel welcome we ask you to please uphold this code should y
 
 ## Quick start
 
-`git clone https://github.com/codelab-fun/codelab.git` (this UTL might be different if you forked)
-`npm install`
-`npm start`
+- `git clone https://github.com/codelab-fun/codelab.git` (this UTL might be different if you forked)
+- `npm install`
+- `npm start`
+
+_Note:_
+We use NPM as package manager, not Yarn.
+Thus, please keep `package-lock.json` in sync with `package.json`, and do not commit `yarn.lock` file.
 
 ## Repository structure
 
