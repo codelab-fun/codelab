@@ -1,5 +1,13 @@
-import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { AccessService, Permissions } from '../../../shared/services/access.service';
+import {
+  Directive,
+  OnInit,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
+import {
+  AccessService,
+  Permissions
+} from '../../../shared/services/access.service';
 import { AbstractPermission } from '../abstract-permission';
 
 @Directive({
