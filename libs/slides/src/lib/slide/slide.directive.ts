@@ -24,14 +24,18 @@ export class SlideDirective {
       const milestineIndex = attrs.findIndex(n => n === MILESTONE_ATTR_NAME);
       slide = {
         id: idIndex !== -1 ? attrs[idIndex + 1] : undefined,
-        milestone: milestineIndex !== -1 ? attrs[milestineIndex + 1] : undefined,
+        milestone:
+          milestineIndex !== -1 ? attrs[milestineIndex + 1] : undefined,
         template
       };
       // Old renderer
     } else {
-      const attrs = (template as any)._def.element.template.nodes[0].element.attrs;
+      const attrs = (template as any)._def.element.template.nodes[0].element
+        .attrs;
       const idAttr = attrs.find(([, name]) => name === ID_ATTR_NAME);
-      const milestoneAttr = attrs.find(([, name]) => name === MILESTONE_ATTR_NAME);
+      const milestoneAttr = attrs.find(
+        ([, name]) => name === MILESTONE_ATTR_NAME
+      );
       slide = {
         id: idAttr && idAttr[2],
         milestone: milestoneAttr && milestoneAttr[2],
