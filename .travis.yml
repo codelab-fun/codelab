@@ -6,7 +6,6 @@ node_js:
 matrix:
   include:
     - node_js: "10"
-      env: REPORT_COVERAGE=true # Only run coverage reporting on one build.
 
 env:
   matrix:
@@ -14,10 +13,8 @@ env:
     - TRIGGER="lint"
     - TRIGGER="ng build -- --aot --prod"
 
-
 script:
   - npm run $TRIGGER
-
 
 notifications:
   email: false
