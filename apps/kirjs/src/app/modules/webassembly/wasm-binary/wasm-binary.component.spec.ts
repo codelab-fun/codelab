@@ -14,7 +14,7 @@ describe('WasmBinaryComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WasmBinaryComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

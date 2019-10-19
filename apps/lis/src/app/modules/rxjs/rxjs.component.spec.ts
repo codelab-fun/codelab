@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RxjsComponent } from './rxjs.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('RxjsComponent', () => {
   let component: RxjsComponent;
@@ -8,7 +9,8 @@ describe('RxjsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RxjsComponent]
+      declarations: [RxjsComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

@@ -6,7 +6,7 @@ function testThings(findDebugger, callback, args) {
 describe('test', ()=>{
 it('test', ()=>{
     expect(true).toBe(true);
-  })      
+  })
 })`,
       test(func, args) {
         let result = func(this.title, 3, args);
@@ -19,7 +19,7 @@ it('test', ()=>{
 describe('test', ()=>{
   it('test', ()=>{
     expect(true).toBe(true);
-  })      
+  })
 })`,
       test(func, args) {
         let result = func(this.title, 1, args);

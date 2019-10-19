@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegexComponent } from './regex.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('RegexComponent', () => {
   let component: RegexComponent;
@@ -8,13 +9,14 @@ describe('RegexComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RegexComponent]
+      declarations: [RegexComponent],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RegexComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

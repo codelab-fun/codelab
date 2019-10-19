@@ -14,7 +14,7 @@ describe('RaceComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SvgPlaygroundComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

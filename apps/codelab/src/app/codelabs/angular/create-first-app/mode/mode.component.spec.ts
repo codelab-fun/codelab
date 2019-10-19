@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ModeComponent } from './mode.component';
 
 describe('ModeComponent', () => {
@@ -7,7 +7,7 @@ describe('ModeComponent', () => {
   let fixture: ComponentFixture<ModeComponent>;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [ModeComponent]
     });
     fixture = TestBed.createComponent(ModeComponent);

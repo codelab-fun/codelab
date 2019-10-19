@@ -35,6 +35,7 @@ describe('BinaryParser', () => {
           '2': new StringParser({ length: 2 })
         }
       });
+      console.error("\n\n\n\n", parser.readOrdered(this.reader, { p: '1' }))
       expect(parser.readOrdered(this.reader, { p: '1' }).value).toEqual(
         '01010101'
       );

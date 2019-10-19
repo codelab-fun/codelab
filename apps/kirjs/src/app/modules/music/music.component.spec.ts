@@ -14,7 +14,7 @@ describe('MusicComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MusicComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

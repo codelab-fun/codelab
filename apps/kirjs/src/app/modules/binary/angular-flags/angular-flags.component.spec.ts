@@ -14,7 +14,7 @@ describe('AngularFlagsComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AngularFlagsComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

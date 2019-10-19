@@ -3,6 +3,7 @@ module.exports = {
   preset: '../../jest.config.js',
   coverageDirectory: '../../coverage/apps/kirjs/'
 };
+
 /*
 const { join } = require('path');
 const getBaseKarmaConfig = require('../../_del_karma.conf');

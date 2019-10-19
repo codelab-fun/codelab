@@ -14,7 +14,7 @@ describe('ToReadComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ToReadComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

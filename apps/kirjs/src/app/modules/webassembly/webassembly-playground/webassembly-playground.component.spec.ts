@@ -14,7 +14,7 @@ describe('WebassemblyPlaygroundComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WebassemblyPlaygroundComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

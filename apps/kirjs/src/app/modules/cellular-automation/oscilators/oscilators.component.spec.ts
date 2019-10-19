@@ -14,7 +14,7 @@ describe('OscilatorsComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OscilatorsComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

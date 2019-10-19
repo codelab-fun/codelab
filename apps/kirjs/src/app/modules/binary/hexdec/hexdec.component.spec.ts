@@ -14,7 +14,7 @@ describe('HexdecComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HexdecComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

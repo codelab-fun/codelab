@@ -34,6 +34,8 @@
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "esnext", "dom"],
-    "rootDir": "."
-  }
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "types": ["jest", "node"]
+  },
 }

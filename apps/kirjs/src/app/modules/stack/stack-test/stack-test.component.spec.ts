@@ -14,7 +14,7 @@ describe('StackTestComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StackTestComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

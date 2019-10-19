@@ -14,7 +14,8 @@ describe('HexComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HexComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
+    component.data = "hex_data";
     fixture.detectChanges();
   });
 

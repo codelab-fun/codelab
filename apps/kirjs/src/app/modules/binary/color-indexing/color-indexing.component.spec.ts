@@ -14,7 +14,7 @@ describe('ColorIndexingComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ColorIndexingComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -14,7 +14,7 @@ describe('SimpleStackComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SimpleStackComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -14,7 +14,7 @@ describe('GifPaletteComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GifPaletteComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

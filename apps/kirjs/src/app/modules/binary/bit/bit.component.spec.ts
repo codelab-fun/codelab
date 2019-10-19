@@ -14,7 +14,7 @@ describe('BitComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BitComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

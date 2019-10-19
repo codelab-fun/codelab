@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JsonComponent } from './json.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('JsonComponent', () => {
   let component: JsonComponent;
@@ -8,13 +9,14 @@ describe('JsonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [JsonComponent]
+      declarations: [JsonComponent],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(JsonComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

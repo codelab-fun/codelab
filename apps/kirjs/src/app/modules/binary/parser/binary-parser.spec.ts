@@ -54,12 +54,16 @@ describe('BinaryParser', () => {
       expect(result).toEqual([
         {
           start: 0,
+          description: undefined,
+          displayValue: undefined,
           end: 2,
           length: 2,
           name: 'header',
           value: [
             {
               start: 0,
+              description: undefined,
+              displayValue: "0",
               end: 1,
               length: 1,
               name: 'a',
@@ -69,6 +73,8 @@ describe('BinaryParser', () => {
             },
             {
               start: 1,
+              description: undefined,
+              displayValue: "1",
               end: 2,
               length: 1,
               name: 'b',
@@ -82,6 +88,8 @@ describe('BinaryParser', () => {
         },
         {
           start: 2,
+          description: undefined,
+          displayValue: "0",
           end: 3,
           length: 1,
           name: 'c',
@@ -91,6 +99,8 @@ describe('BinaryParser', () => {
         },
         {
           start: 3,
+          description: undefined,
+          displayValue: "1",
           end: 4,
           length: 1,
           name: 'd',

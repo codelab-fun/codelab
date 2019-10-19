@@ -14,7 +14,7 @@ describe('SizePickerComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SizePickerComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -14,7 +14,7 @@ describe('WebassemblyRunnerComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WebassemblyRunnerComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StringComponent } from './string.component';
+import { BinaryParentComponent } from '../binary-parent/binary-parent.component';
 
 describe('StringComponent', () => {
   let component: StringComponent;
@@ -8,13 +9,16 @@ describe('StringComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [StringComponent]
+      declarations: [StringComponent],
+      providers: [ BinaryParentComponent ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StringComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
+    component._data = "some_data";
+    component.showMeta = true;
     fixture.detectChanges();
   });
 

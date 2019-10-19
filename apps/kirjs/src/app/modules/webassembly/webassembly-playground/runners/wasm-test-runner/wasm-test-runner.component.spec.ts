@@ -14,7 +14,7 @@ describe('WasmTestRunnerComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WasmTestRunnerComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

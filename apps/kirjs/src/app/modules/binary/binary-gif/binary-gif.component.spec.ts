@@ -14,7 +14,7 @@ describe('BinaryGifComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BinaryGifComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

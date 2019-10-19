@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FilePathComponent } from './file-path.component';
 describe('FilePathComponent', () => {
   let component: FilePathComponent;
   let fixture: ComponentFixture<FilePathComponent>;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [FilePathComponent]
     });
     fixture = TestBed.createComponent(FilePathComponent);

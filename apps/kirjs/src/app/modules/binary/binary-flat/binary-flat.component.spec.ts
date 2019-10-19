@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BinaryFlatComponent } from './binary-flat.component';
+import { BinaryParentComponent } from '../binary-view/binary-parent/binary-parent.component';
 
 describe('BinaryFlatComponent', () => {
   let component: BinaryFlatComponent;
@@ -8,13 +9,14 @@ describe('BinaryFlatComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BinaryFlatComponent]
+      declarations: [ BinaryFlatComponent ],
+      providers: [ BinaryParentComponent ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BinaryFlatComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -5,7 +5,7 @@
     "module": "commonjs",
     "target": "es6",
     "moduleResolution": "node",
-    "types": ["jasmine", "node"]
+    "types": ["node"]
   },
   "include": ["**/*.ts"],
   "lib": ["es2018", "dom"],

@@ -14,7 +14,7 @@ describe('XComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(XComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

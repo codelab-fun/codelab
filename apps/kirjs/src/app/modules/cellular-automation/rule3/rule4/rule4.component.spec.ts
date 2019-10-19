@@ -14,7 +14,7 @@ describe('Rule4Component', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(Rule4Component);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -14,7 +14,7 @@ describe('PolaroidComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PolaroidComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

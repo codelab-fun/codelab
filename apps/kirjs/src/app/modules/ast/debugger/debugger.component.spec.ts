@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DebuggerComponent } from './debugger.component';
 
-describe('DebuggerComponent', () => {
+describe.only('DebuggerComponent', () => {
   let component: DebuggerComponent;
   let fixture: ComponentFixture<DebuggerComponent>;
 
@@ -14,7 +14,7 @@ describe('DebuggerComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DebuggerComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -14,7 +14,7 @@ describe('SingleGridComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SingleGridComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

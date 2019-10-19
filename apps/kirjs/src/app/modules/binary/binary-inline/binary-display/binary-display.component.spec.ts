@@ -14,7 +14,7 @@ describe('BinaryDisplayComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BinaryDisplayComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FullScreenRunnerComponent } from './full-screen-runner.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('FullScreenRunnerComponent', () => {
   let component: FullScreenRunnerComponent;
@@ -8,13 +9,14 @@ describe('FullScreenRunnerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FullScreenRunnerComponent]
+      declarations: [FullScreenRunnerComponent],
+      schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FullScreenRunnerComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

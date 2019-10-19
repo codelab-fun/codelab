@@ -14,7 +14,7 @@ describe('HtmlPostComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HtmlPostComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

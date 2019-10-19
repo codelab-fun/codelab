@@ -14,7 +14,7 @@ describe('LittleCarComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LittleCarComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 

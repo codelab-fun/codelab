@@ -14,7 +14,7 @@ describe('SingleCellComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SingleCellComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 
