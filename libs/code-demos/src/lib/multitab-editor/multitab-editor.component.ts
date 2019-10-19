@@ -6,6 +6,7 @@ import {
   Input,
   OnChanges,
   OnDestroy,
+  OnInit,
   SimpleChanges
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -46,7 +47,7 @@ type Code = Record<string, string>;
   ]
 })
 export class MultitabEditorComponent
-  implements OnChanges, OnDestroy, ControlValueAccessor {
+  implements OnChanges, OnInit, OnDestroy, ControlValueAccessor {
   @Input() code: Code = {};
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
@@ -69,7 +70,9 @@ export class MultitabEditorComponent
   constructor(
     readonly monacoConfigService: MonacoConfigService,
     readonly cdr: ChangeDetectorRef
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.subscription = this.changeSubject
       .pipe(debounceTime(this.debounce))
       .subscribe(changes => {

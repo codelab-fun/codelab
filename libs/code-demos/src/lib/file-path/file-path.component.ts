@@ -14,7 +14,7 @@ export class FilePathComponent implements OnChanges {
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ('path' in changes) {
+    if ('pathSetter' in changes) {
       this.path = this.pathSetter;
       const match = this.path.match(/.(\w+)$/);
       this.extension = (match && match[1]) || 'unknown';
