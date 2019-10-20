@@ -60,15 +60,3 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
-
-(window as any).process = {
-  env: { DEBUG: undefined },
-  argv: {
-    indexOf() {
-      return 0;
-    }
-  },
-  getuid() {
-    return 0;
-  }
-};
