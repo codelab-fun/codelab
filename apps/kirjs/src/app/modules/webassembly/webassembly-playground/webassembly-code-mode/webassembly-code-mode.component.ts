@@ -4,7 +4,8 @@ import {
   HostBinding,
   Input,
   OnChanges,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core';
 
 declare const require;
@@ -38,7 +39,7 @@ export class WebassemblyCodeModeComponent implements OnChanges {
     }
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
     if ('sideBarBlocks' in changes) {
       this.blocks = this.sideBarBlocks || [];
       const block = this.blocks.find(b => !!b.meta);
