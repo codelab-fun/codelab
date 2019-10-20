@@ -2,13 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatMenuModule
-} from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 import { FeedbackService } from './feedback.service';
 import { FeedbackWidgetComponent } from './feedback-widget/feedback-widget.component';
@@ -18,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { GithubModule, GithubService } from '@codelab/utils';
 
 import { environment } from '../../../../apps/codelab/src/environments/environment';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig

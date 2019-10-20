@@ -18,7 +18,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { SearchComponent } from './search/search.component';
 import { UploadComponent } from './upload/upload.component';
 /*/d*//*d:material/trimLeading*/
-import { MatCardModule, /*/d*//*d:forms*/ MatInputModule, MatButtonModule, /*/d*//*d:material*/ MatToolbarModule } from '@angular/material';
+import { MatCardModule} from '@angular/material/card'; /*/d*//*d:forms*/
+import { MatInputModule} from '@angular/material/input';
+import { MatButtonModule} from '@angular/material/button';
+ /*/d*//*d:material*/
+import { MatToolbarModule} from '@angular/material/toolbar';
 /*/d*//*d:forms/trimLeading*/
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';

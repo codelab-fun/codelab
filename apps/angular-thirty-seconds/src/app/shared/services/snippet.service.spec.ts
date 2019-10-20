@@ -33,7 +33,7 @@ describe('SnippetService', () => {
     const contents_url = 'LOL';
     const branchName = 'branch';
 
-    const service: SnippetService = TestBed.get(SnippetService);
+    const service: SnippetService = TestBed.inject(SnippetService);
 
     gitHubService.getPullByPullNumber.and.returnValue(
       of({

@@ -1,9 +1,10 @@
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { app_html, search_search_component_html, video_video_component_html } from '../code';
 import { TestBed } from '@angular/core/testing';
 import { VideoService } from '../video/video.service';
 import { AppComponent } from '../app.component';
 import { RouterModule } from '@angular/router';
-import { MatCardModule, MatToolbarModule } from '@angular/material';
 import { VideoComponent } from '../video/video.component';
 import 'initTestBed';
 import { SearchComponent } from '../search/search.component';
