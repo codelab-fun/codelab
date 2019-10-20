@@ -8,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { RaceComponent } from './race/race.component';
 import { LittleCarComponent } from './little-car/little-car.component';
 import { FinishComponent } from './finish/finish.component';

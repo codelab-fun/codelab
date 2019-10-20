@@ -2,15 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormService } from '../form.service';
-
-export interface Post {
-  key?: string;
-  title: string;
-  author: string;
-  text: string;
-  date: string;
-}
+import { PostService } from '../post.service';
+import { Router } from '@angular/router';
+import { Post } from '../common';
 
 @Component({
   selector: 'codelab-form',
@@ -32,14 +26,19 @@ export class FormComponent {
   statusMessage = '';
   error = false;
 
-  constructor(private http: HttpClient, private formService: FormService) {}
+  constructor(
+    private http: HttpClient,
+    private postService: PostService,
+    private router: Router
+  ) {}
 
   onSubmit() {
     const formValues: any = this.myform.getRawValue();
-    this.formService
+    this.postService
       .addPost(formValues)
-      .then(() => {
+      .then(({ key }) => {
         this.myform.reset();
+        this.router.navigateByUrl(`post/${key}`);
       })
       .catch(() => {
         this.statusMessage = 'Error';

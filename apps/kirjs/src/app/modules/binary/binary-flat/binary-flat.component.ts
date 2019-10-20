@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
 import { BinaryParentComponent } from '../binary-view/binary-parent/binary-parent.component';
@@ -42,23 +50,25 @@ export function flatten(
   templateUrl: './binary-flat.component.html',
   styleUrls: ['./binary-flat.component.css']
 })
-export class BinaryFlatComponent implements OnInit {
-  @Output() updateBinary = new EventEmitter();
+export class BinaryFlatComponent implements OnChanges {
   @Input() parser: BinaryParser;
+  @Input() binary: string;
+  @Output() updateBinary = new EventEmitter();
+
   detailIndex = 30;
   structure: { start: number };
 
   constructor(private readonly root: BinaryParentComponent) {}
 
-  @Input() set binary(binary: string) {
-    this.structure = flatten(
-      this.parser.readOrdered(new StringBinaryReader(binary)).value
-    );
-  }
-
   update(event, item) {
     this.root.update(item, event.target.textContent);
   }
 
-  ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('binary' in changes) {
+      this.structure = flatten(
+        this.parser.readOrdered(new StringBinaryReader(this.binary)).value
+      );
+    }
+  }
 }

@@ -21,11 +21,20 @@ const tests = [
   },
   {
     title: `@@addSelectorMyApp`,
-    condition: expectDecoratorPropertyStringValue('Component', 'selector', 'my-app')
-  }, {
-    title: `@@addTemplateHelloMewTube`,
-    condition: expectDecoratorPropertyStringValue('Component', 'template', /<h1>\s*Hello MewTube!\s*<\/h1>/)
+    condition: expectDecoratorPropertyStringValue(
+      'Component',
+      'selector',
+      'my-app'
+    )
   },
+  {
+    title: `@@addTemplateHelloMewTube`,
+    condition: expectDecoratorPropertyStringValue(
+      'Component',
+      'template',
+      /<h1>\s*Hello MewTube!\s*<\/h1>/
+    )
+  }
 ];
 
 export const createComponentTest = babelTestSuite('app.component.ts', tests);

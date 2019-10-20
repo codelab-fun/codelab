@@ -33,7 +33,7 @@ describe('SlidesRoutingDirective', () => {
         { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub }
       ]
     });
-    directive = TestBed.get(SlidesRoutingDirective);
+    directive = TestBed.inject(SlidesRoutingDirective);
   });
 
   it('can load instance', () => {
@@ -41,7 +41,7 @@ describe('SlidesRoutingDirective', () => {
   });
 
   xit('should call navigate on slideChange event', () => {
-    const slidesDeckComponentStub: SlidesDeckComponent = TestBed.get(
+    const slidesDeckComponentStub: SlidesDeckComponent = TestBed.inject(
       SlidesDeckComponent
     );
 
@@ -54,7 +54,7 @@ describe('SlidesRoutingDirective', () => {
 
   describe('ngOnInit', () => {
     it('makes expected calls', () => {
-      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.get(
+      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.inject(
         SlidesDeckComponent
       );
       spyOn(slidesDeckComponentStub, 'goToSlide');
@@ -65,7 +65,7 @@ describe('SlidesRoutingDirective', () => {
 
   describe('getId', () => {
     it('should return the id prop of the slide at the given index', () => {
-      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.get(
+      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.inject(
         SlidesDeckComponent
       );
 

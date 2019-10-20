@@ -3,22 +3,20 @@ language: node_js
 node_js:
   - "10"
 
-matrix:
-  include:
-    - node_js: "10"
-      env: REPORT_COVERAGE=true # Only run coverage reporting on one build.
+env:
+  matrix:
+    - TRIGGER="format:check"
+    - TRIGGER="lint"
+    - TRIGGER="ng build -- --aot --prod"
 
 script:
-  - npm run format:check
-  - npm run lint
-  - npm run ng build -- --aot --prod
-
+  - npm run $TRIGGER
 
 notifications:
   email: false
 
 cache:
-  yarn: true
+  npm: true
   directories:
     - node_modules
 
