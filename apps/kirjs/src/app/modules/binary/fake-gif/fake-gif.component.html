@@ -1,4 +1,4 @@
-<div style=";position: fixed; right: 0; top: 0;width: 250px;" *ngIf="preview">
+<div style="position: fixed; right: 0; top: 0;width: 250px;" *ngIf="preview">
   <kirjs-binary-gif [binary]="binary"></kirjs-binary-gif>
   <input type="file" (change)="upload(file)" #file />
 </div>
@@ -62,7 +62,7 @@
 <div>
   <div style="margin-right: 220px;">
     <kirjs-binary-plain
-      (updateBinary)="updateBinary($event)"
+      (updateChunk)="updateChunk($event)"
       [parser]="parser"
       [binary]="binary"
       [spacing]="spacing"
@@ -72,7 +72,5 @@
       [highlightGroups]="highlightGroups"
       [highlightedMap]="highlightedMap"
     ></kirjs-binary-plain>
-    <!--<kirjs-binary-parent (updateBinary)="updateBinary($event)" [parser]="parser" [binary]="binary"-->
-    <!--&lt;!&ndash;[showMeta]="showMeta"></kirjs-binary-parent>&ndash;&gt;-->
   </div>
 </div>

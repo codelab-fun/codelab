@@ -15,13 +15,12 @@ import { flatten } from '../binary-flat/binary-flat.component';
   styleUrls: ['./binary-plain.component.css']
 })
 export class BinaryPlainComponent implements OnChanges {
-  @Output() updateBinary = new EventEmitter();
+  @Output() updateChunk = new EventEmitter();
   @Input() parser: BinaryParser;
   @Input() highlightGroups = false;
   @Input() filterClassName = /./;
   @Input() mini = false;
   @Input() showPopups = false;
-
   hackHack = {
     0x01: 'Types',
     0x02: 'Import',
@@ -31,20 +30,15 @@ export class BinaryPlainComponent implements OnChanges {
     0x08: 'Start',
     0x0a: 'Code'
   };
-
   show = [];
-
   types = ['boolean', 'number', 'hex', 'string', 'const', 'enums'];
-
   @Input()
   spacing = false;
-
   @Input()
   highlightedMap = this.types.reduce((r, v) => {
     r[v] = false;
     return r;
   }, {});
-
   structure: any[];
   @Input() binary: string;
 
@@ -56,17 +50,17 @@ export class BinaryPlainComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.binary && this.parser) {
-      console.log('BIP');
       try {
         this.structure = flatten(
           this.parser.readOrdered(new StringBinaryReader(this.binary)).value
         ).filter(a => a.className.match(this.filterClassName));
       } catch (e) {
         console.log(e);
-        //  lol
       }
     }
   }
 
-  update(item: any, innerText: any) {}
+  update(chunk: any, value: any) {
+    this.updateChunk.emit({ chunk, value });
+  }
 }

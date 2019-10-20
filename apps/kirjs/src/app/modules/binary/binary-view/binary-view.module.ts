@@ -11,13 +11,12 @@ import { BinaryParentComponent } from './binary-parent/binary-parent.component';
 import { HexComponent } from './hex/hex.component';
 import { InlineComponent } from './inline/inline.component';
 import { InlineRootComponent } from './inline-root/inline-root.component';
-import { AutoSizeInputModule } from 'ngx-autosize-input';
 import { BinaryFlatComponent } from '../binary-flat/binary-flat.component';
 import { BinaryPlainComponent } from '../binary-plain/binary-plain.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, AutoSizeInputModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   declarations: [
     BlockComponent,
     ObjectComponent,

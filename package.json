@@ -113,7 +113,6 @@
     "mime": "^2.4.0",
     "mocha": "^5.2.0",
     "monaco-editor": "^0.18.1",
-    "ngx-autosize-input": "^2.2.2",
     "ngx-markdown": "^7.1.4",
     "node-sass": "^4.11.0",
     "plugin-typescript": "^8.0.0",
