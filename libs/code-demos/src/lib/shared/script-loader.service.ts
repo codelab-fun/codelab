@@ -14,7 +14,6 @@ export class ScriptLoaderService {
     'test-bootstrap': require('!!raw-loader!../../../assets/runner/js/test-bootstrap'),
     shim: require('!!raw-loader!core-js/client/shim.min.js'),
     zone: require('!!raw-loader!zone.js/dist/zone.js'),
-    reflect: require('!!raw-loader!reflect-metadata/Reflect'),
     'system-config': require('!!raw-loader!../../../assets/runner/js/system-config'),
     'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle')
     // TODO(kirjs): not sure we still need vue and react libs

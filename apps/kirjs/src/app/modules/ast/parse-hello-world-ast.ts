@@ -1,5 +1,5 @@
 import { parse } from 'babylon';
-import generate from 'babel-generator';
+import generate from '@babel/generator';
 import babel_traverse from '@babel/traverse';
 
 export function isLoc(node) {

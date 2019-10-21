@@ -6,7 +6,6 @@ import { FeedbackModule } from '@codelab/feedback';
 import { SvgComponent } from './svg.component';
 
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';
 import { SvgPlaygroundComponent } from './svg-playground/svg-playground.component';
 
@@ -28,7 +27,6 @@ const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));
     CommonModule,
     FeedbackModule,
     FormsModule,
-    FlexLayoutModule,
     MatButtonModule,
     NewProgressBarModule,
     SharedPipeModule,

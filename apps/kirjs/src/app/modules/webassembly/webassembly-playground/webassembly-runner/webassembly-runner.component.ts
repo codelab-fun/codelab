@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Result, WebAssemblyService } from '../web-assembly.service';
+import { Result, RunResult, WebAssemblyService } from '../web-assembly.service';
 
 @Component({
   selector: 'kirjs-webassembly-runner',
@@ -15,7 +15,7 @@ export class WebassemblyRunnerComponent implements OnChanges {
 
   @ViewChild('canvas', { static: true }) canvas;
 
-  readonly result$ = new Subject<Result<string>>();
+  readonly result$ = new Subject<Result<RunResult>>();
 
   constructor(private readonly webAssemblyService: WebAssemblyService) {}
 

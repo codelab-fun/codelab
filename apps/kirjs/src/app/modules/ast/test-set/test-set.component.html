@@ -1,11 +1,11 @@
-<div fxLayout>
+<div style="display: flex;">
   <code-demo-editor
+    [(ngModel)]="files[0].code"
+    (ngModelChange)="runner.runTests()"
     [lineNumbers]="false"
     [fontSize]="fontSize"
     language="javascript"
     style="height: 100vh;width: 55vw;"
-    [(ngModel)]="files[0].code"
-    (ngModelChange)="runner.runTests()"
   ></code-demo-editor>
   <div
     (click)="files[0].code = files[0].solution; runner.runTests()"
