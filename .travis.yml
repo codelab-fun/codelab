@@ -7,7 +7,7 @@ env:
   matrix:
     - TRIGGER="format:check"
     - TRIGGER="lint"
-    - TRIGGER="ng build -- --aot --prod"
+    - TRIGGER="ng build --  --prod --source-map=false --build-optimizer=false"
 
 script:
   - npm run $TRIGGER
