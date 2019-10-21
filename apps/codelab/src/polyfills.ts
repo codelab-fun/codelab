@@ -43,23 +43,10 @@
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 import 'fullscreen-api-polyfill';
-
 /***************************************************************************************************
  * Zone JS is required by Angular itself.
  */
 import 'zone.js/dist/zone'; // Included with Angular CLI.
-
-(window as any).process = {
-  env: { DEBUG: undefined },
-  argv: {
-    indexOf() {
-      return 0;
-    }
-  },
-  getuid() {
-    return 0;
-  }
-};
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
