@@ -1,10 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
-import {
-  convertExerciseToMap,
-  ng2tsConfig
-} from '../../../../../../../../ng2ts/ng2ts';
+import { ng2tsConfig } from '../../../../../../../../ng2ts/ng2ts';
 import {
   javaScriptWithConsoleLog,
   typeScriptWithConsoleLog
@@ -19,12 +16,11 @@ declare const require;
 })
 export class TypeScriptComponent implements OnInit {
   t: { [key: string]: string };
-  exercises = [ng2tsConfig.milestones[0].exercises[1]];
-  exercise = convertExerciseToMap(ng2tsConfig.milestones[0].exercises[1]);
-
-  // TODO(kirjs): we can't access tanslation in OnInit hook iwht static set to false
   // need to consider changing how we set code
   @ViewChild('translations', { static: true }) translation;
+
+  // TODO(kirjs): we can't access tanslation in OnInit hook iwht static set to false
+  private exercises = [ng2tsConfig.milestones[0].exercises[1]];
   private code: any = {};
 
   ngOnInit(): void {
