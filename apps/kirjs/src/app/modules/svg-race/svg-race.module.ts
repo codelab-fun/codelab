@@ -2,7 +2,6 @@ import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { TimerComponent } from './timer/timer.component';
@@ -41,7 +40,6 @@ export class SafeHtml implements PipeTransform {
     FeedbackModule,
     CodeDemoModule,
     FormsModule,
-    FlexLayoutModule,
     MatButtonModule,
     SyncModule,
     ReactiveFormsModule

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
@@ -33,7 +32,6 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
     BrowserWindowModule,
     FeedbackModule,
     CodeDemoModule,
-    FlexLayoutModule,
     FormsModule,
     SizePickerModule,
     MatCardModule,

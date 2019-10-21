@@ -26,9 +26,8 @@ export class WebassemblyCodeModeComponent implements OnChanges {
   js: string;
   mode = 'getIndex';
   state: any;
-
+  selectedMode = {};
   private blocks: any[];
-  private selectedMode = {};
 
   constructor() {}
 

@@ -1,5 +1,5 @@
-<div fxLayout style="height: 100%;">
-  <div [style.height]="'100%'" fxFlex="1 0">
+<div style="height: 100%;display: flex;">
+  <div [style.height]="'100%'" style="flex: 1">
     <code-demo-editor
       style="width: 100%; height: 500px"
       [(ngModel)]="d"
@@ -8,7 +8,7 @@
       [fontSize]="'30'"
     ></code-demo-editor>
   </div>
-  <div fxFlex="1 0" style="height: 100%;">
+  <div style="height: 100%;flex: 1">
     <!--https://www.flaticon.com/free-icon/car_809998#term=car%20top&page=1&position=5-->
 
     <div>

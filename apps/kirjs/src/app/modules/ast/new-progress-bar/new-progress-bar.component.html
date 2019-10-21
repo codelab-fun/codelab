@@ -1,8 +1,7 @@
 <div
   class="progress-bar"
   *ngIf="slides.length"
-  fxLayout
-  style="justify-content: space-between"
+  style="justify-content: space-between;display: flex;"
 >
   <span style="margin-right: 2vw;">{{ title }}</span>
   <span class="font-size">
@@ -11,7 +10,7 @@
       [size]="fontSize"
     ></kirjs-size-picker>
   </span>
-  <div class="points-container" #progressBarDiv fxLayout>
+  <div class="points-container" #progressBarDiv style="display: flex;">
     <div *ngFor="let slide of slides; let i = index" (click)="goToSlide(i)">
       <div
         class="slide-block"
