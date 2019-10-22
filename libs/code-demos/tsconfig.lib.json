@@ -12,7 +12,6 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "resolveJsonModule": true,
-    "types": [],
     "lib": ["dom", "es2018"]
   },
   "angularCompilerOptions": {

@@ -367,7 +367,6 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
         }
       ]
     }
-    ,
     {
       name: 'Component Tree',
       exercises: [
@@ -612,7 +611,6 @@ export const ng2tsConfig: /*TODO: fix the type to be: CodelabConfigTemplate */an
         }
       ]
     }
-    ,
     {
       name: 'Survey',
       exercises: [
