@@ -7,23 +7,23 @@ Below you'll find our guidelines for contributing to further development of this
 ---
 
 #### Table Of Contents
-
-[Before You Start](#before-you-start)
-
-- [Code of Conduct](#code-of-conduct)
-- [NPM Packages](#npm-packages)
-
-[Contributing to the Codelab](#contributing-to-the-codelab)
-
-- [Reporting Bugs](#reporting-bugs)
-- [Opening Issues on GitHub](#opening-issues-on-github)
-- [Contributing Code](#contributing-code)
-- [Making a Pull Request](#making-a-pull-request)
-
-[On Style](#on-style)
-
-- [Git Commit Messages](#git-commit-messages)
-- [Code Style](#code-style)
+ * [Before You Start](#before-you-start)
+    + [Code of Conduct](#code-of-conduct)
+  * [Quick start](#quick-start)
+  * [Repository structure](#repository-structure)
+  * [Contributing to the Codelab](#contributing-to-the-codelab)
+    + [Reporting Bugs](#reporting-bugs)
+      - [Before Sending Feedback](#before-sending-feedback)
+      - [Submitting a Report](#submitting-a-report)
+    + [Opening Issues on GitHub](#opening-issues-on-github)
+    + [Contributing Code](#contributing-code)
+    + [Making a Pull Request](#making-a-pull-request)
+  * [On Style](#on-style)
+    + [Git Commit Messages](#git-commit-messages)
+      - [For example:](#for-example-)
+    + [Code Style](#code-style)
+  * [Autoformatting](#autoformatting)
+- [Linter](#linter)
 
 ---
 
@@ -42,9 +42,12 @@ So that everyone can feel welcome we ask you to please uphold this code should y
 - `npm install`
 - `npm start`
 
+
 _Note:_
 We use NPM as package manager, not Yarn.
 Thus, please keep `package-lock.json` in sync with `package.json`, and do not commit `yarn.lock` file.
+
+⚠ `Windows` users may need to use `yarn` if `npm` fails
 
 ## Repository structure
 
@@ -74,34 +77,6 @@ Most of the work will happen in `apps/codelab`, but here's the overview of the o
 
 If you find a bug while going through the codelab as a student, you can submit feedback through the blue feedback button in the bottom-right corner.
 <img src="https://user-images.githubusercontent.com/2545357/66276032-b56d8680-e85c-11e9-9148-ab38caeb4a57.png" width = 600>
-
-#### Before Sending Feedback
-
-Please check out the previous comments to ensure this problem hasn't already been reported!
-
-#### Submitting a Report
-
-Feedback form submissions are magically converted to [GitHub issues](https://guides.github.com/features/issues/) by codelab team members.
-
-- Make sure you explain the problem and include any relevant details
-- Describe the steps you followed to encounter the issue if you can remember them
-- Explain what behavior you expected to see instead
-- Feel free to include any suggestions if you have them ✨
-
----
-
-### Opening Issues on GitHub
-
-Before opening a new issue, please check the existing ones to confirm it isn't on file yet.
-
-If opening an issue, please include:
-
-- A succinct and illustrative title
-- A helpful description
-- Current and expected behavior
-- If a suggestion for improvement, how you think the suggestion can improve the project
-- Any other details if necessary like screenshots
-
 ---
 
 ### Contributing Code
@@ -117,40 +92,10 @@ And if you're new to just GitHub check out [this cool tutorial series](https://e
 ### Making a Pull Request
 
 - Don't forget to pull from the master branch and resolve any merge conflicts first!
-- We run `npm run lint` and `npm run build:prod` in CI, so run it locally before committing you code
+- We run `npm run lint && npm run build:prod && npm run format:check` in CI, so run it locally before committing you code
 - If you don't have access to the repo, fork the project and make a PR from there
 - Describe what the PR addresses
 - Include screenshots and descriptive explanations if necessary
-
----
-
-## On Style
-
-### Git Commit Messages
-
-- Use the present tense
-- If applicable, reference the issue being resolved
-
-#### For example:
-
-- 💯: [Redirect user to the requested page after login](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
-- 😱: [HAAAAAAAAANDS](https://xkcd.com/1296)
-
-Extended example:
-
-```
-Change bears' entrypoint
-
-This entrypoint ensures that coala discovers
-the bears correctly.
-It helps not writing more functions inside
-``coalib`` for this.
-
-Closes #5861 // this will automatically link it to the issue and close it when merged
-```
-
-You can read more about git commit style [here](http://api.coala.io/en/latest/Developers/Writing_Good_Commits.html)
-not [here](https://xkcd.com/1296/)
 
 ### Code Style
 
