@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Inject, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { MENU_ROUTES } from '../../../common';
-import { Router } from '@angular/router';
+import { MENU_ROUTES, MenuRoute } from '../../../common';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'codelab-closing-slide',
@@ -14,6 +14,7 @@ export class CodelabClosingSlideComponent implements OnInit {
   @Input() footer: String;
 
   constructor(
+    private readonly activeRoute: ActivatedRoute,
     private readonly router: Router,
     private readonly presentation: SlidesDeckComponent,
     @Inject(MENU_ROUTES) private readonly menuRoutes
@@ -24,18 +25,13 @@ export class CodelabClosingSlideComponent implements OnInit {
   }
 
   private setupNext() {
+    const config = this.activeRoute.snapshot.pathFromRoot
+      .map(a => a.routeConfig)
+      .find(r => r && (r as MenuRoute).prod);
+    const index = this.menuRoutes.findIndex(c => c.path === config.path);
     let nextLink = '';
-    const allRoutes = this.menuRoutes.map(p => p.path);
-    let currentUrl = this.router.url;
-    if (currentUrl.startsWith('/')) {
-      currentUrl = currentUrl.substr(1);
-    }
-    const urlPaths = currentUrl.split('/');
-    if (urlPaths.length > 1) {
-      const idx = allRoutes.indexOf(urlPaths[1]);
-      if (idx < allRoutes.length - 1) {
-        nextLink = `/${urlPaths[0]}/${allRoutes[idx + 1]}`;
-      }
+    if (index < this.menuRoutes.length - 1) {
+      nextLink = '../../' + this.menuRoutes[index + 1].path;
     }
     this.presentation.setNext(nextLink);
   }

@@ -3,7 +3,7 @@ import { Route } from '@angular/router';
 
 export type MenuRoutes = MenuRoute[];
 
-interface MenuRoute extends Route {
+export interface MenuRoute extends Route {
   name?: string;
   description?: string;
   page?: string;

@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { TitleSlideComponent } from './title-slide.component';
 import { CodelabRippleAnimationComponent } from './ripple-animation/codelab-ripple-animation.component';
 import { MenuRoutes, MENU_ROUTES } from '../../../common';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 
 describe('TitleSlideComponent', () => {
@@ -23,16 +23,29 @@ describe('TitleSlideComponent', () => {
 
   const menuRoutes: MenuRoutes = [
     {
-      path: 'previouslesson'
+      path: 'previouslesson',
+      prod: true
     },
     {
-      path: 'currentlesson'
+      path: 'currentlesson',
+      prod: true
     }
   ];
+
+  const activatedRouteStub = {
+    snapshot: {
+      pathFromRoot: [
+        {
+          routeConfig: menuRoutes[1]
+        }
+      ]
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
+        { provide: ActivatedRoute, useValue: activatedRouteStub},
         { provide: Router, useValue: routerStub },
         { provide: SlidesDeckComponent, useFactory: () => slidesDeckComponentStub },
         { provide: MENU_ROUTES, useValue: menuRoutes }

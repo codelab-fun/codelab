@@ -57,7 +57,7 @@ export class SlidesDeckComponent {
     if (this.activeSlideIndex + 1 < this.slides.length) {
       this.goToSlide(this.activeSlideIndex + 1);
     } else if (this.nextLink) {
-      this.router.navigateByUrl(this.nextLink);
+      this.router.navigate([this.nextLink], { relativeTo: this.route });
     }
   }
 
@@ -65,7 +65,7 @@ export class SlidesDeckComponent {
     if (this.activeSlideIndex > 0) {
       this.goToSlide(this.activeSlideIndex - 1);
     } else if (this.previousLink) {
-      this.router.navigateByUrl(this.previousLink);
+      this.router.navigate([this.previousLink], {relativeTo: this.route});
     }
   }
 

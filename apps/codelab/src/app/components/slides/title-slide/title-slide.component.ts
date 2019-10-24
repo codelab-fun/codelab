@@ -1,7 +1,7 @@
 import { Component, Input, Optional, Inject } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { MENU_ROUTES } from '../../../common';
-import { Router } from '@angular/router';
+import { MENU_ROUTES, MenuRoutes, MenuRoute } from '../../../common';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'codelab-title-slide',
@@ -14,6 +14,7 @@ export class TitleSlideComponent {
   @Input() prereqs: string;
 
   constructor(
+    private readonly activeRoute: ActivatedRoute,
     private readonly router: Router,
     private readonly presentation: SlidesDeckComponent,
     @Inject(MENU_ROUTES) private readonly menuRoutes
@@ -24,18 +25,13 @@ export class TitleSlideComponent {
   }
 
   private setupPrevious() {
+    const config = this.activeRoute.snapshot.pathFromRoot
+      .map(a => a.routeConfig)
+      .find((r) => r && (r as MenuRoute).prod);
+    const index = this.menuRoutes.findIndex(c => c.path === config.path);
     let previousLink = '';
-    const allRoutes = this.menuRoutes.map(p => p.path);
-    let currentUrl = this.router.url;
-    if (currentUrl.startsWith('/')) {
-      currentUrl = currentUrl.substr(1);
-    }
-    const urlPaths = currentUrl.split('/');
-    if (urlPaths.length > 1) {
-      const idx = allRoutes.indexOf(urlPaths[1]);
-      if (idx > 0) {
-        previousLink = `/${urlPaths[0]}/${allRoutes[idx - 1]}`;
-      }
+    if (index > 0) {
+      previousLink = '../../' + this.menuRoutes[index - 1].path;
     }
     this.presentation.setPrevious(previousLink);
   }

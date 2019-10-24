@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CodelabClosingSlideComponent } from './codelab-closing-slide.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 import { MENU_ROUTES, MenuRoutes } from '../../../common';
 
@@ -19,16 +19,30 @@ describe('CodelabClosingSlideComponent', () => {
 
   const menuRoutes: MenuRoutes = [
     {
-      path: 'currentlesson'
+      path: 'currentlesson',
+      prod: true
+
     },
     {
-      path: 'nextlesson'
+      path: 'nextlesson',
+      prod: true
     }
   ];
+
+  const activatedRouteStub = {
+    snapshot: {
+      pathFromRoot: [
+        {
+          routeConfig: menuRoutes[0]
+        }
+      ]
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
+        { provide: ActivatedRoute, useValue: activatedRouteStub },
         { provide: Router, useValue: routerStub },
         { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub },
         { provide: MENU_ROUTES, useValue: menuRoutes }
