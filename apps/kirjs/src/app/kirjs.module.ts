@@ -42,12 +42,12 @@ const routes = [
     name: 'Image inclusion',
     description: 'Image inclusion'
   },
-  {
-    path: 'ii',
-    loadChildren: () => import('./modules/ii/ii.module').then(m => m.IiModule),
-    name: 'Image inclusion',
-    description: 'Image inclusion'
-  },
+  // {
+  //   path: 'ii',
+  //   loadChildren: () => import('./modules/ii/ii.module').then(m => m.IiModule),
+  //   name: 'Image inclusion',
+  //   description: 'Image inclusion'
+  // },
   {
     path: 'music',
     loadChildren: () =>
