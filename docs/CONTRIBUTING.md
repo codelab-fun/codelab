@@ -7,23 +7,25 @@ Below you'll find our guidelines for contributing to further development of this
 ---
 
 #### Table Of Contents
- * [Before You Start](#before-you-start)
-    + [Code of Conduct](#code-of-conduct)
-  * [Quick start](#quick-start)
-  * [Repository structure](#repository-structure)
-  * [Contributing to the Codelab](#contributing-to-the-codelab)
-    + [Reporting Bugs](#reporting-bugs)
-      - [Before Sending Feedback](#before-sending-feedback)
-      - [Submitting a Report](#submitting-a-report)
-    + [Opening Issues on GitHub](#opening-issues-on-github)
-    + [Contributing Code](#contributing-code)
-    + [Making a Pull Request](#making-a-pull-request)
-  * [On Style](#on-style)
-    + [Git Commit Messages](#git-commit-messages)
-      - [For example:](#for-example-)
-    + [Code Style](#code-style)
-  * [Autoformatting](#autoformatting)
-- [Linter](#linter)
+
+- [Before You Start](#before-you-start)
+  - [Code of Conduct](#code-of-conduct)
+- [Quick start](#quick-start)
+- [Repository structure](#repository-structure)
+- [Contributing to the Codelab](#contributing-to-the-codelab)
+  - [Reporting Bugs](#reporting-bugs)
+    - [Before Sending Feedback](#before-sending-feedback)
+    - [Submitting a Report](#submitting-a-report)
+  - [Opening Issues on GitHub](#opening-issues-on-github)
+  - [Contributing Code](#contributing-code)
+  - [Making a Pull Request](#making-a-pull-request)
+- [On Style](#on-style)
+  - [Git Commit Messages](#git-commit-messages)
+    - [For example:](#for-example-)
+  - [Code Style](#code-style)
+- [Autoformatting](#autoformatting)
+
+* [Linter](#linter)
 
 ---
 
@@ -41,7 +43,6 @@ So that everyone can feel welcome we ask you to please uphold this code should y
 - `git clone https://github.com/codelab-fun/codelab.git` (this UTL might be different if you forked)
 - `npm install`
 - `npm start`
-
 
 _Note:_
 We use NPM as package manager, not Yarn.
@@ -77,6 +78,7 @@ Most of the work will happen in `apps/codelab`, but here's the overview of the o
 
 If you find a bug while going through the codelab as a student, you can submit feedback through the blue feedback button in the bottom-right corner.
 <img src="https://user-images.githubusercontent.com/2545357/66276032-b56d8680-e85c-11e9-9148-ab38caeb4a57.png" width = 600>
+
 ---
 
 ### Contributing Code
