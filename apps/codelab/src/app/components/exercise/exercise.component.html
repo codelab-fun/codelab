@@ -26,7 +26,9 @@
         [code]="code"
       ></codelab-babel-test-runner>
       <div *ngIf="isSolved" class="solved-message">
-        <h3 i18n>Well done! Now you can go to the next slide</h3>
+        <h3 i18n switchSlide="next">
+          Well done! Now you can go to the next slide
+        </h3>
         <img
           src="/assets/images/well_done.gif"
           i18n-alt
