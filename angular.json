@@ -875,7 +875,12 @@
             "aot": false,
             "assets": [
               "apps/playground/src/favicon.ico",
-              "apps/playground/src/assets"
+              "apps/playground/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/monaco-editor/",
+                "output": "./assets/monaco/"
+              }
             ],
             "styles": ["apps/playground/src/styles.scss"],
             "scripts": []
