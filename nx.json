@@ -55,6 +55,9 @@
     },
     "playground": {
       "tags": []
+    },
+    "firebase": {
+      "tags": []
     }
   }
 }
