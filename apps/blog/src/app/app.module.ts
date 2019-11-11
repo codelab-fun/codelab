@@ -1,22 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { RouterModule, Routes } from '@angular/router';
-import { FormComponent } from './form/form.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireModule } from '@angular/fire';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
+
 import { environment } from '../../../../apps/codelab/src/environments/environment';
-import { FormService } from './form.service';
+import { AppComponent } from './app.component';
 import { FeedComponent } from './feed/feed.component';
+import { FormComponent } from './form/form.component';
+import { PostService } from './post.service';
 import { PostComponent } from './post/post.component';
 import { SinglePostComponent } from './single-post/single-post.component';
-import { MarkdownModule } from 'ngx-markdown';
-import { MatCardModule } from '@angular/material';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -46,10 +48,12 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     angularFire,
     MatCardModule,
+    AngularFireAuthModule,
+    MatSnackBarModule,
 
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled' })
   ],
-  providers: [FormService],
+  providers: [PostService],
   bootstrap: [AppComponent],
   exports: [FormComponent]
 })

@@ -6,14 +6,13 @@ import { FeedbackModule } from '@codelab/feedback';
 import { SvgComponent } from './svg.component';
 
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { SvgDemoComponent } from './svg-demo/svg-demo.component';
 import { SvgPlaygroundComponent } from './svg-playground/svg-playground.component';
 
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';
 import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
@@ -28,7 +27,6 @@ const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));
     CommonModule,
     FeedbackModule,
     FormsModule,
-    FlexLayoutModule,
     MatButtonModule,
     NewProgressBarModule,
     SharedPipeModule,

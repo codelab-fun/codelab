@@ -65,7 +65,7 @@ export class SlidesDeckComponent {
     if (this.activeSlideIndex > 0) {
       this.goToSlide(this.activeSlideIndex - 1);
     } else if (this.previousLink) {
-      this.router.navigate([this.previousLink], {relativeTo: this.route});
+      this.router.navigate([this.previousLink], { relativeTo: this.route });
     }
   }
 

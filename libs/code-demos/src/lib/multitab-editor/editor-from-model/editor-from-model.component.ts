@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Component,
   Input,
+  OnChanges,
   OnDestroy,
+  SimpleChanges,
   ViewChild
 } from '@angular/core';
 
@@ -10,14 +12,18 @@ import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-c
 import { editor, IDisposable } from 'monaco-editor';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import ITextModel = editor.ITextModel;
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'code-demo-editor-from-model',
   templateUrl: './editor-from-model.component.html',
   styleUrls: ['./editor-from-model.component.css'],
-  providers: [CodeDemoEditorInjector]
+  providers: [CodeDemoEditorInjector, MatSnackBar]
 })
-export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
+export class EditorFromModelComponent
+  implements AfterViewInit, OnChanges, OnDestroy {
+  // tslint:disable-next-line:no-input-rename
+  @Input('model') setModel: ITextModel;
   @ViewChild('editor', { static: false }) el;
   fontSize = 14;
   editor: any;
@@ -27,15 +33,9 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private editorInjector: CodeDemoEditorInjector,
-    readonly monacoConfigService: MonacoConfigService
+    readonly monacoConfigService: MonacoConfigService,
+    private snackBar: MatSnackBar
   ) {}
-
-  @Input('model') set setModel(model: ITextModel) {
-    this.model = model;
-    if (this.editor) {
-      this.editor.setModel(model);
-    }
-  }
 
   setUpEditor(el: HTMLElement) {
     return this.monacoConfigService.monaco.editor.create(el, {
@@ -75,6 +75,22 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
       this.el.nativeElement
     );
 
+    this.editor.addAction({
+      id: 'saveAction',
+      label: 'Save Shortcut Press',
+      keybindings: [
+        this.monacoConfigService.monaco.KeyMod.chord(
+          this.monacoConfigService.monaco.KeyMod.CtrlCmd |
+            this.monacoConfigService.monaco.KeyCode.KEY_S
+        )
+      ],
+      run: () => {
+        this.snackBar.open('Saved', '', {
+          duration: 2000
+        });
+      }
+    });
+
     this.resize();
     this.didChangeListener = this.editor.onDidChangeModelContent(() => {
       this.resize();
@@ -86,6 +102,15 @@ export class EditorFromModelComponent implements AfterViewInit, OnDestroy {
     if (this.didChangeListener) {
       this.didChangeListener.dispose();
       this.didChangeListener = null;
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('setModel' in changes) {
+      this.model = this.setModel;
+      if (this.editor) {
+        this.editor.setModel(this.setModel);
+      }
     }
   }
 }

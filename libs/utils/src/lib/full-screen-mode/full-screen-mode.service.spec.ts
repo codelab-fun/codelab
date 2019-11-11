@@ -6,7 +6,9 @@ describe('FullScreenModeService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: FullScreenModeService = TestBed.get(FullScreenModeService);
+    const service: FullScreenModeService = TestBed.inject(
+      FullScreenModeService
+    );
     expect(service).toBeTruthy();
   });
 });

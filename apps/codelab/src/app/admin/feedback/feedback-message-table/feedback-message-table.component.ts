@@ -6,7 +6,7 @@ import {
   EventEmitter,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Message } from '@codelab/feedback/src/lib/message';
@@ -34,12 +34,6 @@ const sortingDataAccessor = (item, property) => {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeedbackMessageTableComponent {
-  @Output() closeMessage = new EventEmitter<{
-    message: Message;
-    reason: string;
-  }>();
-  @Output() takeMessage = new EventEmitter<{ message: Message }>();
-  @ViewChild(MatMenuTrigger, { static: false }) private trigger: MatMenuTrigger;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   @Input('dataSource')
@@ -59,15 +53,4 @@ export class FeedbackMessageTableComponent {
   ];
 
   tableColumns = ['comment', 'name', 'header', 'timestamp', 'actions'];
-
-  selectCloseReason(closeReason) {
-    this.closeMessage.emit({
-      message: this.trigger.menuData.message,
-      reason: closeReason
-    });
-  }
-
-  selectTake() {
-    this.takeMessage.emit({ message: this.trigger.menuData.message });
-  }
 }

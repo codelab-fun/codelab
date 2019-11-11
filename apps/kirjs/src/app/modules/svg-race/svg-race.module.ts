@@ -2,13 +2,12 @@ import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { RaceComponent } from './race/race.component';
 import { LittleCarComponent } from './little-car/little-car.component';
 import { FinishComponent } from './finish/finish.component';
@@ -41,7 +40,6 @@ export class SafeHtml implements PipeTransform {
     FeedbackModule,
     CodeDemoModule,
     FormsModule,
-    FlexLayoutModule,
     MatButtonModule,
     SyncModule,
     ReactiveFormsModule

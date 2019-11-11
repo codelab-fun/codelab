@@ -21,7 +21,6 @@ describe('CodelabClosingSlideComponent', () => {
     {
       path: 'currentlesson',
       prod: true
-
     },
     {
       path: 'nextlesson',

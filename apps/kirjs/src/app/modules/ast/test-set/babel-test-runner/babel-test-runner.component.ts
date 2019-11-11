@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 
 import * as babylon from 'babylon';
 import * as types from 'babel-types';
-import babelTraverse from 'babel-traverse';
-import babelGenerator from 'babel-generator';
+import babelTraverse from '@babel/traverse';
+import babelGenerator from '@babel/generator';
 import { TestInfo } from '../../../../../../../codelab/src/app/shared/interfaces/test-info';
 
 declare const require;

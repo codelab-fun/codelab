@@ -1,14 +1,14 @@
 [![Join our Slack, #codelab channel](https://img.shields.io/badge/slack-%23codelab-yellowgreen)](https://nycjsorg.now.sh) [![Check out the demo](https://img.shields.io/badge/see%20the-Demo-brightgreen)](https://codelab.fun)
 
-# Angular Codelab - [codelab.fun](codelab.fun)
+# Angular Codelab - [codelab.fun](https://codelab.fun)
 
 Angular Codelab is a self-paced interactive Angular course:
 
 <img alt="interactive exercises" src="https://user-images.githubusercontent.com/2545357/66274607-4d17a880-e84e-11e9-8ed0-a1ae678988a5.gif"  width="600">
  
 - 🔥 Everything in the browser - **no setup needed**
-- 🔥 **Interactive code samples** - Change the code and see the result!
-- 🔥 Hand on **Exercises** to solidify your knowledge
+- 🔥 **Interactive code samples** - Change the code and see the result immediately!
+- 🔥 Hands-on **Exercises** to solidify your knowledge
 - 🔥 **Free** - Made for Angular enthusiasts by Angular enthusiasts  
 - 🔥 Written in Angular and **open source**
 

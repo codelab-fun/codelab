@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, Inject, Optional } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { MENU_ROUTES, MenuRoute } from '../../../common';
-import { Router, ActivatedRoute } from '@angular/router';
+import { MenuRouteService } from '../../../codelabs/angular/menu-route.service';
 
 @Component({
   selector: 'codelab-closing-slide',
@@ -14,26 +13,13 @@ export class CodelabClosingSlideComponent implements OnInit {
   @Input() footer: String;
 
   constructor(
-    private readonly activeRoute: ActivatedRoute,
-    private readonly router: Router,
-    private readonly presentation: SlidesDeckComponent,
-    @Inject(MENU_ROUTES) private readonly menuRoutes
+    private readonly menuRouteService: MenuRouteService,
+    private readonly presentation: SlidesDeckComponent
   ) {
-    if (this.menuRoutes != null) {
-      this.setupNext();
+    if (this.presentation != null) {
+      const nextLink = this.menuRouteService.getPreviousLink();
+      this.presentation.setNext(nextLink);
     }
-  }
-
-  private setupNext() {
-    const config = this.activeRoute.snapshot.pathFromRoot
-      .map(a => a.routeConfig)
-      .find(r => r && (r as MenuRoute).prod);
-    const index = this.menuRoutes.findIndex(c => c.path === config.path);
-    let nextLink = '';
-    if (index < this.menuRoutes.length - 1) {
-      nextLink = '../../' + this.menuRoutes[index + 1].path;
-    }
-    this.presentation.setNext(nextLink);
   }
 
   ngOnInit() {}

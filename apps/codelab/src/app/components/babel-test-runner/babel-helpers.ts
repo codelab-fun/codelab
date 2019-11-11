@@ -1,6 +1,6 @@
 import * as T from 'babel-types';
 import * as babylon from 'babylon';
-import babel_traverse from 'babel-traverse';
+import babel_traverse from '@babel/traverse';
 import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 import * as TsTypes from 'typescript';
 

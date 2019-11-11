@@ -11,8 +11,6 @@ export class RealtimeEvalComponent implements OnInit {
   result: string;
   error: string;
 
-  constructor() {}
-
   ngOnInit() {}
 
   evaluate() {

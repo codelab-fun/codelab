@@ -20,11 +20,11 @@ export class SlidesArrowsComponent {
   constructor(private presentation: SlidesDeckComponent) {}
 
   goToPreviousSlide() {
-      this.presentation.previousSlide();
+    this.presentation.previousSlide();
   }
 
   goToNextSlide() {
-      this.presentation.nextSlide();
+    this.presentation.nextSlide();
   }
 
   canGoNext(): boolean {

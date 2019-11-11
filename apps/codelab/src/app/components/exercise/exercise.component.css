@@ -12,3 +12,11 @@
   box-sizing: border-box;
   overflow-y: auto;
 }
+
+.solved-message {
+  margin-top: 16px;
+}
+
+.solved-message img {
+  height: 280px;
+}

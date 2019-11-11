@@ -1,7 +1,6 @@
-import { Component, Input, Optional, Inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { MENU_ROUTES, MenuRoutes, MenuRoute } from '../../../common';
-import { Router, ActivatedRoute } from '@angular/router';
+import { MenuRouteService } from '../../../codelabs/angular/menu-route.service';
 
 @Component({
   selector: 'codelab-title-slide',
@@ -14,25 +13,12 @@ export class TitleSlideComponent {
   @Input() prereqs: string;
 
   constructor(
-    private readonly activeRoute: ActivatedRoute,
-    private readonly router: Router,
-    private readonly presentation: SlidesDeckComponent,
-    @Inject(MENU_ROUTES) private readonly menuRoutes
+    private readonly menuRouteService: MenuRouteService,
+    private readonly presentation: SlidesDeckComponent
   ) {
     if (this.presentation != null) {
-      this.setupPrevious();
+      const previousLink = this.menuRouteService.getPreviousLink();
+      this.presentation.setPrevious(previousLink);
     }
-  }
-
-  private setupPrevious() {
-    const config = this.activeRoute.snapshot.pathFromRoot
-      .map(a => a.routeConfig)
-      .find((r) => r && (r as MenuRoute).prod);
-    const index = this.menuRoutes.findIndex(c => c.path === config.path);
-    let previousLink = '';
-    if (index > 0) {
-      previousLink = '../../' + this.menuRoutes[index - 1].path;
-    }
-    this.presentation.setPrevious(previousLink);
   }
 }

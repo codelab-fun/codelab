@@ -4,7 +4,10 @@ import {
   Component,
   forwardRef,
   Input,
-  OnDestroy
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
@@ -44,7 +47,7 @@ type Code = Record<string, string>;
   ]
 })
 export class MultitabEditorComponent
-  implements OnDestroy, ControlValueAccessor {
+  implements OnChanges, OnInit, OnDestroy, ControlValueAccessor {
   @Input() code: Code = {};
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
@@ -52,20 +55,25 @@ export class MultitabEditorComponent
   @Input() highlights = {};
   @Input() debounce = 250;
   @Input() autoFolding = false;
-  files = [];
+  // tslint:disable-next-line:no-input-rename
+  @Input('files') setFiles: string | string[];
   @Input() enableAutoFolding = true;
+  files = [];
   openModels: MonacoModel[];
   changeSubject = new Subject();
   private prefix = `prefix/${Math.random()}/`;
   private onChange: any;
   private editor: IStandaloneCodeEditor;
   private models: MonacoModel[];
+
   private subscription: Subscription;
 
   constructor(
     readonly monacoConfigService: MonacoConfigService,
     readonly cdr: ChangeDetectorRef
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.subscription = this.changeSubject
       .pipe(debounceTime(this.debounce))
       .subscribe(changes => {
@@ -75,12 +83,15 @@ export class MultitabEditorComponent
       });
   }
 
-  @Input('files') set setFiles(files: string | string[]) {
-    if (typeof files === 'string') {
-      files = files.split(',');
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('setFiles' in changes) {
+      let files = this.setFiles;
+      if (typeof files === 'string') {
+        files = files.split(',');
+      }
+      this.files = files;
+      this.updateOpenModels();
     }
-    this.files = files;
-    this.updateOpenModels();
   }
 
   handleFileChange(index, { value }) {

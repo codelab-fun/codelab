@@ -14,7 +14,7 @@ import {
 import { handleTestMessage } from './tests';
 import { createSystemJsSandbox } from '@codelab/code-demos/src/lib/shared/sandbox';
 import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
-import babel_traverse from 'babel-traverse';
+import babel_traverse from '@babel/traverse';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
@@ -64,7 +64,7 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
 export class SimpleAngularTestRunnerComponent
   implements OnChanges, AfterViewInit, OnDestroy {
   handleMessageBound: any;
-  @Output() solved = new EventEmitter();
+  @Output() solved: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() public selectFile: EventEmitter<string> = new EventEmitter<
     string
   >();
@@ -86,9 +86,9 @@ export class SimpleAngularTestRunnerComponent
       this.tests = handleTestMessage(message, this.tests);
 
       if (message.data.type === 'testEnd') {
-        if (this.tests.length && this.tests.every(test => test.pass)) {
-          this.solved.emit();
-        }
+        this.solved.emit(
+          this.tests.length > 0 && this.tests.every(test => test.pass)
+        );
       }
 
       this.cd.markForCheck();

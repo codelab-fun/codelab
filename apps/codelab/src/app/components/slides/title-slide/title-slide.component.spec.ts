@@ -45,9 +45,12 @@ describe('TitleSlideComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: ActivatedRoute, useValue: activatedRouteStub},
+        { provide: ActivatedRoute, useValue: activatedRouteStub },
         { provide: Router, useValue: routerStub },
-        { provide: SlidesDeckComponent, useFactory: () => slidesDeckComponentStub },
+        {
+          provide: SlidesDeckComponent,
+          useFactory: () => slidesDeckComponentStub
+        },
         { provide: MENU_ROUTES, useValue: menuRoutes }
       ],
       imports: [RouterTestingModule],

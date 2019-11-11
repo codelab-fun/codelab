@@ -13,7 +13,7 @@ import { BinaryViewModule } from '../binary/binary-view/binary-view.module';
 import { BinaryInlineModule } from '../binary/binary-inline/binary-inline.module';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { WebassemblyCodeModeComponent } from './webassembly-playground/webassembly-code-mode/webassembly-code-mode.component';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 
 import { ErrorMessageComponent } from './webassembly-playground/error-message/error-message.component';
 import { WasmTestRunnerComponent } from './webassembly-playground/runners/wasm-test-runner/wasm-test-runner.component';

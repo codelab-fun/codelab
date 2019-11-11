@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { BrowserWindowModule } from '@codelab/browser';
 import { CodeDemoComponent } from './code-demo/code-demo.component';
@@ -21,6 +23,7 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     BrowserWindowModule,
     MatSelectModule,
     MatButtonModule,
+    MatSnackBarModule,
     FormsModule
   ],
   declarations: [

@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+yarn.lock
 
 # IDEs and editors
 /.idea
@@ -28,17 +29,21 @@
 /.sass-cache
 /connect.lock
 /coverage
-/libpeerconnection.log
-npm-debug.log
-testem.log
 /typings
+.firebase
+*.log
+.floo
 
 # e2e
 /e2e/*.js
 /e2e/*.map
 
-# System Files
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-.firebase
-/yarn-error.log
+

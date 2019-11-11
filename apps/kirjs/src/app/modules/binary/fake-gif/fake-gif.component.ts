@@ -71,7 +71,7 @@ export class FakeGifComponent implements AfterViewInit {
     });
   }
 
-  updateBinary(binary) {
-    this.binary = binary;
+  updateChunk({ chunk, value }) {
+    this.update(chunk, value);
   }
 }

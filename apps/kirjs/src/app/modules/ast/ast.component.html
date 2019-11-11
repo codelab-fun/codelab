@@ -166,7 +166,7 @@
   </div>
 
   <div *slide id="console-log-structure" no-padding>
-    <div fxLayout style="height: 200px;flex-shrink: 0">
+    <div style="display: flex;height: 200px;flex-shrink: 0">
       <code-demo-editor
         [minLines]="1"
         [autoSize]="false"
@@ -285,7 +285,7 @@
   </div>
 
   <div *slide id="debugger-structure2" no-padding>
-    <div fxLayout style="height: 200px;flex-shrink: 0">
+    <div style="height: 200px;flex-shrink: 0; display: flex;">
       <code-demo-editor
         class="editor"
         [(ngModel)]="code.astPreviewDebugger"

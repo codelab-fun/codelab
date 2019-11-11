@@ -1,10 +1,11 @@
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { monacoReady } from '@codelab/code-demos';
-import { MatButtonModule, MatTableModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateSnippetComponent } from './create-snippet/create-snippet.component';
 import { CreateSnippetModule } from './create-snippet/create-snippet.module';

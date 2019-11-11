@@ -88,10 +88,12 @@ export class MonacoConfigService {
     files = JSON.parse(files);
 
     files.forEach(file => {
-      monaco.languages.typescript.typescriptDefaults.addExtraLib(
-        file.content,
-        'inmemory://model/' + file.path
-      );
+      file.paths.forEach(path => {
+        monaco.languages.typescript.typescriptDefaults.addExtraLib(
+          file.content,
+          'inmemory://model/' + path
+        );
+      });
     });
   }
 }

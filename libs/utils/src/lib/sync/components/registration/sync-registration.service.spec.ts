@@ -6,7 +6,7 @@ describe('SyncRegistrationService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SyncRegistrationService = TestBed.get(
+    const service: SyncRegistrationService = TestBed.inject(
       SyncRegistrationService
     );
     expect(service).toBeTruthy();
