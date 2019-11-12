@@ -4,15 +4,17 @@ import { By } from '@angular/platform-browser';
 
 import { TitleSlideComponent } from './title-slide.component';
 import { CodelabRippleAnimationComponent } from './ripple-animation/codelab-ripple-animation.component';
-import { MenuRoutes, MENU_ROUTES } from '../../../common';
-import { Router, ActivatedRoute } from '@angular/router';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { MenuRouteService } from '../../../codelabs/angular/menu-route.service';
 
 describe('TitleSlideComponent', () => {
   let component: TitleSlideComponent;
   let fixture: ComponentFixture<TitleSlideComponent>;
-  const routerStub = {
-    url: '/ngtest/currentlesson'
+
+  const menuRouteService = {
+    getPreviousLink: function() {
+      return 'previouslesson';
+    }
   };
 
   const slidesDeckComponentStub = {
@@ -21,37 +23,14 @@ describe('TitleSlideComponent', () => {
     setPrevious: jasmine.createSpy('setPrevious')
   };
 
-  const menuRoutes: MenuRoutes = [
-    {
-      path: 'previouslesson',
-      prod: true
-    },
-    {
-      path: 'currentlesson',
-      prod: true
-    }
-  ];
-
-  const activatedRouteStub = {
-    snapshot: {
-      pathFromRoot: [
-        {
-          routeConfig: menuRoutes[1]
-        }
-      ]
-    }
-  };
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: ActivatedRoute, useValue: activatedRouteStub },
-        { provide: Router, useValue: routerStub },
+        { provide: MenuRouteService, useValue: menuRouteService },
         {
           provide: SlidesDeckComponent,
           useFactory: () => slidesDeckComponentStub
-        },
-        { provide: MENU_ROUTES, useValue: menuRoutes }
+        }
       ],
       imports: [RouterTestingModule],
       declarations: [CodelabRippleAnimationComponent, TitleSlideComponent]

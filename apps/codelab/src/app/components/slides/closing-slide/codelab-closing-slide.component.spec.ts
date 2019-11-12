@@ -3,48 +3,27 @@ import { CodelabClosingSlideComponent } from './codelab-closing-slide.component'
 import { Router, ActivatedRoute } from '@angular/router';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 import { MENU_ROUTES, MenuRoutes } from '../../../common';
+import { MenuRouteService } from '../../../codelabs/angular/menu-route.service';
 
 describe('CodelabClosingSlideComponent', () => {
   let component: CodelabClosingSlideComponent;
   let fixture: ComponentFixture<CodelabClosingSlideComponent>;
-  const routerStub = {
-    url: '/ngtest/currentlesson'
+
+  const menuRouteService = {
+    getNextLink: function() {
+      return 'nextlesson';
+    }
   };
 
   const slidesDeckComponentStub = {
-    previousLink: '',
-    nextLink: '',
     setNext: jasmine.createSpy('setNext')
-  };
-
-  const menuRoutes: MenuRoutes = [
-    {
-      path: 'currentlesson',
-      prod: true
-    },
-    {
-      path: 'nextlesson',
-      prod: true
-    }
-  ];
-
-  const activatedRouteStub = {
-    snapshot: {
-      pathFromRoot: [
-        {
-          routeConfig: menuRoutes[0]
-        }
-      ]
-    }
   };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: ActivatedRoute, useValue: activatedRouteStub },
-        { provide: Router, useValue: routerStub },
-        { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub },
-        { provide: MENU_ROUTES, useValue: menuRoutes }
+        { provide: MenuRouteService, useValue: menuRouteService },
+        { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub }
       ],
       declarations: [CodelabClosingSlideComponent]
     }).compileComponents();
