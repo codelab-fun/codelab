@@ -232,7 +232,7 @@ describe('AppComponent', ()=>{
       },
       referenceBinding: {
         code: {
-          'app.component.html': require('!!raw-loader!./samples/reference-binding/app.component.html'),
+          'app.component.html': require('./samples/reference-binding/app.component.html'),
           'app.component.ts': require('!!raw-loader!./samples/reference-binding/app.component.ts'),
           'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
           'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),

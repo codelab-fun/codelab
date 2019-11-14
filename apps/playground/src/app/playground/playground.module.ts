@@ -4,6 +4,7 @@ import { PlaygroundComponent } from './playground.component';
 import { RouterModule } from '@angular/router';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
+import { FirebaseModule } from '@codelab/firebase';
 
 @NgModule({
   declarations: [PlaygroundComponent],
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([{ path: '', component: PlaygroundComponent }]),
     CodeDemoModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    FirebaseModule
   ]
 })
 export class PlaygroundModule {}

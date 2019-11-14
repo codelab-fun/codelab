@@ -18,13 +18,20 @@ const routes = [
       import('./playground/playground.module').then(m => m.PlaygroundModule)
   }
 ];
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+
+export const AngularFireApp = AngularFireModule.initializeApp(
+  environment.firebaseConfig
+);
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { initialNavigation: 'enabled' })
+    RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
+    AngularFireApp
   ],
   providers: [
     {

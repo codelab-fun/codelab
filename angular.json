@@ -591,7 +591,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumError": "20mb"
                 }
               ]
             }
@@ -872,7 +872,7 @@
             "main": "apps/playground/src/main.ts",
             "polyfills": "apps/playground/src/polyfills.ts",
             "tsConfig": "apps/playground/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/playground/src/favicon.ico",
               "apps/playground/src/assets",
@@ -905,8 +905,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "25mb"
                 },
                 {
                   "type": "anyComponentStyle",
