@@ -34,9 +34,7 @@ export class SyncFireStoreDirective<T> implements OnChanges {
   private doc: AngularFirestoreDocument<T>;
   private subscription?: Subscription;
 
-  constructor(private afs: AngularFirestore, control: NgControl) {
-    debugger;
-  }
+  constructor(private afs: AngularFirestore, control: NgControl) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.key) {
