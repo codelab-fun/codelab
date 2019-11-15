@@ -5,21 +5,28 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { monacoReady } from '@codelab/code-demos';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const routes = [
   {
     path: '',
-    redirectTo: 'angular',
+    redirectTo: 'code-sync',
     pathMatch: 'full'
   },
   {
     path: 'angular',
     loadChildren: () =>
       import('./playground/playground.module').then(m => m.PlaygroundModule)
+  },
+  {
+    path: 'code-sync',
+    loadChildren: () =>
+      import('./code-sync/code-sync.module').then(m => m.CodeSyncModule)
   }
 ];
-import { environment } from '../environments/environment';
-import { AngularFireModule } from '@angular/fire';
 
 export const AngularFireApp = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -31,7 +38,9 @@ export const AngularFireApp = AngularFireModule.initializeApp(
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
-    AngularFireApp
+    AngularFireApp,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     {
