@@ -13,12 +13,13 @@ $tab-filename-container-height: 25px;
   box-sizing: border-box;
   max-width: 27%;
   padding-top: 25px;
+  height: 100%;
+  overflow-y: scroll;
 
   // desktops
   @media only screen and (min-width : 1224px) {
     max-width: 20%;
   }
-    
 }
 
 .trigger {
@@ -33,7 +34,6 @@ $tab-filename-container-height: 25px;
     cursor: pointer;
     transform: rotateZ(-90deg);
     transform-origin: 50%  51%;
-    zoom: 1.005;
     width: max-content;
     position: absolute;
 
@@ -97,14 +97,12 @@ $tab-filename-container-height: 25px;
 .panel {
   position: absolute;
   width: 100%;
+  top: 10px;
+
   &--singlefile {
+    top: initial;
     position: relative;
     pointer-events: none;
-  }
-
-  &::not(panel--singlefile) {
-    top: 10px;
-    height: $tab-filename-container-height;
   }
 }
 
@@ -126,6 +124,17 @@ $tab-filename-container-height: 25px;
 :host::ng-deep {
   .mat-tab-labels {
     height: 40px;
+  }
+
+  .mat-tab-label {
+    padding: 0 8px;
+    height: inherit;
+  }
+
+  .mat-ink-bar,
+  .mat-tab-label {
+    min-width: 0px !important;
+    max-width: 130px !important;
   }
 
   .mat-tab-body-wrapper {

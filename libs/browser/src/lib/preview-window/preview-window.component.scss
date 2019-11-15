@@ -2,7 +2,8 @@ $border-color: #c2c2c2;
 
 :host {
   height: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
 
   ::ng-deep iframe {
     display: block;
@@ -16,7 +17,7 @@ $border-color: #c2c2c2;
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex-grow: 1;
   border-left: 1px solid $border-color;
 
   .frame {
