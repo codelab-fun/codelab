@@ -55,6 +55,16 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "angular-ivy",
+      "public": "dist/apps/playground",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ]
 }
