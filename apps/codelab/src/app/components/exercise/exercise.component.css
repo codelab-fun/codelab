@@ -17,12 +17,8 @@
   margin-top: 16px;
 }
 
-.solved-message h3:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
 .solved-message img {
+  display: block;
   height: 280px;
   margin-top: 16px;
 }
