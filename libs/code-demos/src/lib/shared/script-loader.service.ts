@@ -7,7 +7,7 @@ declare const require;
   providedIn: 'root'
 })
 export class ScriptLoaderService {
-  scripts = {
+  private readonly scripts = {
     SystemJS: require('!!raw-loader!systemjs/dist/system'),
     mocha: require('!!raw-loader!../../../assets/runner/js/mocha'),
     chai: require('!!raw-loader!chai/chai'),
@@ -21,8 +21,6 @@ export class ScriptLoaderService {
     // react: require('!!raw-loader!react/umd/react.development.js'),
     // 'react-dom': require('!!raw-loader!react-dom/umd/react-dom.development.js')
   };
-
-  constructor() {}
 
   getScript(url) {
     assert(this.scripts[url]);

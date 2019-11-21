@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CodeSyncComponent } from './code-sync.component';
+import { CodeSyncModule } from './code-sync.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('CodeSyncComponent', () => {
   let component: CodeSyncComponent;
@@ -8,7 +11,8 @@ describe('CodeSyncComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CodeSyncComponent]
+      imports: [CodeSyncModule, RouterTestingModule],
+      providers: [getMockAngularFireProviders()]
     }).compileComponents();
   }));
 

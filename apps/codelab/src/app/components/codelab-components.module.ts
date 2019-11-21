@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
-import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
+import { SimpleTestsProgressComponent } from '../../../../../libs/utils/src/lib/sandbox-runner/tests-progress/simple-tests-progress.component';
 import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
 import { TitleSlideComponent } from './slides/title-slide/title-slide.component';
@@ -58,7 +58,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodelabExercisePreviewComponent,
     CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
-    CodelabRippleAnimationComponent
+    CodelabRippleAnimationComponent,
+    SimpleTestsProgressComponent
   ]
 })
 export class CodelabComponentsModule {}

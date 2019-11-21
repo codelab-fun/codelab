@@ -1,0 +1,93 @@
+:host {
+  --test-succcess: #058b00;
+}
+
+:host ::ng-deep codelab-simple-tests-progress {
+  margin-bottom: 20px;
+  display: block;
+
+  .text-box.pass {
+    background: var(--test-succcess);
+  }
+}
+
+.test {
+  display: flex;
+  align-items: start;
+  margin-bottom: 16px;
+  color: #888;
+  padding-left: 8px;
+
+  &.featured {
+    background: rgba(255, 88, 75, 0.21);
+    border-radius: 5px;
+    padding: 16px 8px;
+
+    .name {
+      font-size: 20px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+
+    .error {
+      color: #888;
+    }
+  }
+
+  .state {
+    margin-right: 10px;
+  }
+
+  .name {
+    flex: 0;
+    max-width: 400px;
+    line-height: 22px;
+    height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .pass {
+    color: var(--test-succcess);
+  }
+
+  .fail {
+    color: #d61f22;
+  }
+}
+
+mat-icon.running {
+  animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+mat-checkbox {
+  margin-left: 8px;
+  margin-top: 16px;
+}
+
+.container {
+  position: relative;
+
+  .error-message {
+    position: absolute;
+    background: rgb(187, 2, 0);
+    color: white;
+    opacity: 0.8;
+    font-size: 20px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+  }
+}
