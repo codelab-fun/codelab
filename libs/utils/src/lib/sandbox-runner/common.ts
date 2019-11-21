@@ -1,19 +1,9 @@
 import produce from 'immer';
+import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 interface TestAction {
   type: 'terminate' | 'reset' | 'result' | 'error';
   data: any;
-}
-
-interface TestResult {
-  pass: boolean;
-  name: string;
-  error?: string;
-}
-
-export interface TestRunResult {
-  tests: TestResult[];
-  error?: string;
 }
 
 export const testReducer = produce(

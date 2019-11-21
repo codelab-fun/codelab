@@ -3,15 +3,17 @@ import { Component, OnInit } from '@angular/core';
 declare const require;
 
 @Component({
-  selector: 'slides-code-in-the-dark',
-  templateUrl: './code-in-the-dark.component.html',
-  styleUrls: ['./code-in-the-dark.component.css']
+  selector: 'sync-code-editor',
+  templateUrl: './sync-code-editor.component.html',
+  styleUrls: ['./sync-code-editor.component.css']
 })
-export class CodeInTheDarkComponent implements OnInit {
+export class SyncCodeEditorComponent implements OnInit {
   questions = [
     {
       title: 'Write an add function',
-      code: `function add(){}`,
+      code: `function add(a,b){
+
+}`,
       tests: `
     describe('tests', () => {
       it('Function add exists', () => {
@@ -29,7 +31,9 @@ export class CodeInTheDarkComponent implements OnInit {
     },
     {
       title: 'Write an subtract function',
-      code: `function subtract(){}`,
+      code: `function subtract(a,b){
+
+}`,
       tests: `
     describe('tests', () => {
       it('Function subtract exists', () => {
@@ -55,7 +59,5 @@ export class CodeInTheDarkComponent implements OnInit {
 
   ngOnInit() {}
 
-  update(q: any, $event: any) {
-    debugger;
-  }
+  update(q: any, $event: any) {}
 }

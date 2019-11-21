@@ -40,10 +40,6 @@ export class TestRunnerComponent implements OnChanges {
     this.testRunner.run(this.code, this.tests);
   }
 
-  getName(test) {
-    return test.name;
-  }
-
   constructor(
     private scriptLoaderService: ScriptLoaderService,
     private testRunner: TestRunnerService

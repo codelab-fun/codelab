@@ -1,11 +1,9 @@
 import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
 import { Runner } from '@codelab/utils/src/lib/sandbox-runner/runners/runner';
 import { scan } from 'rxjs/operators';
-import {
-  testReducer,
-  TestRunResult
-} from '@codelab/utils/src/lib/sandbox-runner/common';
+import { testReducer } from '@codelab/utils/src/lib/sandbox-runner/common';
 import { Observable } from 'rxjs';
+import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 export class TestRunner {
   private readonly code = {

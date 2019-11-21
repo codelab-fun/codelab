@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CodeInTheDarkComponent } from './code-in-the-dark.component';
+import { TestResultsComponent } from './test-results.component';
 
-describe('CodeInTheDarkComponent', () => {
-  let component: CodeInTheDarkComponent;
-  let fixture: ComponentFixture<CodeInTheDarkComponent>;
+describe('TestResultsComponent', () => {
+  let component: TestResultsComponent;
+  let fixture: ComponentFixture<TestResultsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CodeInTheDarkComponent]
+      declarations: [TestResultsComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CodeInTheDarkComponent);
+    fixture = TestBed.createComponent(TestResultsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
