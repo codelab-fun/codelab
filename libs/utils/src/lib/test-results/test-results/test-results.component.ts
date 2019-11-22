@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 @Component({
@@ -6,10 +13,19 @@ import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
   templateUrl: './test-results.component.html',
   styleUrls: ['./test-results.component.scss']
 })
-export class TestResultsComponent implements OnInit {
+export class TestResultsComponent implements OnChanges {
   @Input() result: TestRunResult;
+  @Output() selectFile = new EventEmitter<string>();
 
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges) {
+    // TODO(kirjs): I'm mutating the value below, there should be a better way.
+    if (changes.result) {
+      for (const test of this.result.tests) {
+        if (test.pass === false) {
+          test.featured = true;
+          return;
+        }
+      }
+    }
+  }
 }

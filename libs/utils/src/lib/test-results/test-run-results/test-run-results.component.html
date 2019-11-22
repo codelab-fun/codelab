@@ -8,10 +8,15 @@
     <div class="state">
       <mat-icon *ngIf="t.pass === true" class="pass">check_circle</mat-icon>
       <mat-icon *ngIf="t.pass === false" class="fail">error_outline</mat-icon>
-      <mat-icon *ngIf="t.pass === undefined" class="running">refresh </mat-icon>
+      <mat-icon *ngIf="t.pass === undefined" class="running">refresh</mat-icon>
     </div>
     <div>
-      <div class="name" [title]="t.name">{{ t.name }}</div>
+      <div class="name" [title]="t.name">
+        <slides-file-aware-description
+          [test]="t.name"
+          (selectFile)="selectFile.emit($event)"
+        ></slides-file-aware-description>
+      </div>
       <div class="error" *ngIf="t.featured">{{ t.error }}</div>
     </div>
   </div>

@@ -7,8 +7,9 @@ import {
 } from '@angular/core';
 import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
 import { TestRunnerService } from '@codelab/utils/src/lib/sandbox-runner/test-runner.service';
-import produce from 'immer';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 @Component({
   selector: 'slides-test-runner',
@@ -20,20 +21,10 @@ export class TestRunnerComponent implements OnChanges {
   @Input() tests;
 
   @Output() result = new EventEmitter();
-  seeAll = false;
-  readonly result$ = this.testRunner.result$.pipe(
+
+  readonly result$: Observable<TestRunResult> = this.testRunner.result$.pipe(
     // TODO(kirjs): Figure out why result$ can't be an output.
-    tap(a => this.result.next(a)),
-    map(
-      produce(result => {
-        for (const test of result.tests) {
-          if (test.pass === false) {
-            test.featured = true;
-            return;
-          }
-        }
-      })
-    )
+    tap(a => this.result.next(a))
   );
 
   ngOnChanges() {

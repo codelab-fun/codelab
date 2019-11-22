@@ -1,0 +1,6 @@
+.filename {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #444;
+  margin-right: -4px;
+}

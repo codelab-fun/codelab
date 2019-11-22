@@ -20,6 +20,7 @@ import * as babel_types from 'babel-types';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 const ts = getTypeScript();
 
@@ -77,6 +78,7 @@ export class SimpleAngularTestRunnerComponent
   changedFilesSubject = new BehaviorSubject<Record<string, string>>({});
   tests: any;
   private subscription: Subscription;
+  result: TestRunResult = { tests: [] };
 
   constructor(
     private scriptLoaderService: ScriptLoaderService,
@@ -84,6 +86,14 @@ export class SimpleAngularTestRunnerComponent
   ) {
     this.handleMessageBound = message => {
       this.tests = handleTestMessage(message, this.tests);
+
+      this.result = {
+        tests: this.tests.map(test => {
+          const name =
+            this.translations[test.title.replace('@@', '')] || test.title;
+          return { ...test, name, error: test.result };
+        })
+      };
 
       if (message.data.type === 'testEnd') {
         this.solved.emit(

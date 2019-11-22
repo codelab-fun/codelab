@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TestResult } from '@codelab/utils/src/lib/test-results/common';
 
 @Component({
@@ -7,6 +7,7 @@ import { TestResult } from '@codelab/utils/src/lib/test-results/common';
   styleUrls: ['./test-run-results.component.scss']
 })
 export class TestRunResultsComponent implements OnInit {
+  @Output() selectFile = new EventEmitter<string>();
   @Input() tests: TestResult[];
   @Input() seeAll = false;
 
