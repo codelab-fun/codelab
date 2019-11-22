@@ -6,9 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
-import { SimpleTestsProgressComponent } from '../../../../../libs/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.component';
-import { SimpleTestsComponent } from './tests/simple-tests.component';
-import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
+import { SimpleTestsProgressComponent } from '@codelab/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.component';
+
 import { TitleSlideComponent } from './slides/title-slide/title-slide.component';
 import { CodelabClosingSlideComponent } from './slides/closing-slide/codelab-closing-slide.component';
 import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
@@ -31,6 +30,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     MatButtonModule,
     MatMenuModule,
     MatSelectModule,
+    TestResultsModule,
     TestResultsModule
   ],
   declarations: [
@@ -45,9 +45,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
     CodelabRippleAnimationComponent,
-    SimpleTestsProgressComponent,
-    SimpleTestsComponent,
-    SimpleTestDescriptionComponent
+    SimpleTestsProgressComponent
   ],
   exports: [
     SimpleAngularTestRunnerComponent,
