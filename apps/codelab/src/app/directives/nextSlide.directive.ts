@@ -2,7 +2,7 @@ import { Directive, HostListener } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 
 @Directive({
-  selector: 'button[nextSlide]'
+  selector: '[nextSlide]'
 })
 export class NextSlideDirective {
   constructor(public deck: SlidesDeckComponent) {}
