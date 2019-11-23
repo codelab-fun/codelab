@@ -29,7 +29,8 @@
                 "glob": "**/*",
                 "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
-              }
+              },
+              "apps/codelab/src/manifest.webmanifest"
             ],
             "styles": ["apps/codelab/src/styles.scss"],
             "scripts": []
@@ -73,7 +74,9 @@
                   "replace": "apps/codelab/src/environments/environment.ts",
                   "with": "apps/codelab/src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/codelab/ngsw-config.json"
             }
           }
         },
@@ -108,7 +111,8 @@
             "styles": ["apps/codelab/src/styles.scss"],
             "assets": [
               "apps/codelab/src/assets",
-              "apps/codelab/src/favicon.ico"
+              "apps/codelab/src/favicon.ico",
+              "apps/codelab/src/manifest.webmanifest"
             ]
           }
         },
