@@ -15,6 +15,7 @@ import { NotFoundModule } from './components/not-found/not-found.module';
 import { MatButtonModule } from '@angular/material/button';
 import { DirectivesModule } from './directives/directives.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   imports: [
@@ -28,7 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireDatabaseModule,
     NotFoundModule,
     MatButtonModule,
-    DirectivesModule
+    DirectivesModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   declarations: [AppComponent],
   providers: [
