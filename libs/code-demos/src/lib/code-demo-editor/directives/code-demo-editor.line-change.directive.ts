@@ -4,7 +4,8 @@ import {
   EventEmitter,
   OnDestroy,
   Output,
-  Self
+  Self,
+  NgZone
 } from '@angular/core';
 import { CodeDemoEditorInjector } from '../code-demo-editor.injector';
 import { IDisposable } from 'monaco-editor';
@@ -26,11 +27,16 @@ export class CodeDemoEditorLineChangeDirective
 
   private subscription: IDisposable;
 
-  constructor(@Self() private editorInjector: CodeDemoEditorInjector) {}
+  constructor(
+    private zone: NgZone,
+    @Self() private editorInjector: CodeDemoEditorInjector
+  ) {}
 
   ngAfterViewInit(): void {
     this.editorInjector.editor.onDidChangeCursorPosition(() => {
-      this.onLineChange();
+      this.zone.run(() => {
+        this.onLineChange();
+      });
     });
   }
 
