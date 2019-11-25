@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CodelabClosingSlideComponent } from './codelab-closing-slide.component';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { MENU_ROUTES, MenuRoutes } from '../../../common';
+import { MenuRoutes } from '../../../common';
 import { MenuRouteService } from '../../../codelabs/angular/menu-route.service';
 
 describe('CodelabClosingSlideComponent', () => {
@@ -19,9 +19,29 @@ describe('CodelabClosingSlideComponent', () => {
     setNext: jasmine.createSpy('setNext')
   };
 
+  const menuRoutes: MenuRoutes = [
+    {
+      path: 'previouslesson',
+      prod: true
+    },
+    {
+      path: 'currentlesson',
+      prod: true
+    },
+    {
+      path: 'nextlesson',
+      prod: true
+    }
+  ];
+
+  const activatedRouteStub = {
+    snapshot: { pathFromRoot: [{ routeConfig: menuRoutes[1] }] }
+  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
+        { provide: ActivatedRoute, useValue: activatedRouteStub },
         { provide: MenuRouteService, useValue: menuRouteService },
         { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub }
       ],
@@ -37,9 +57,5 @@ describe('CodelabClosingSlideComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should call setNextLink', () => {
-    expect(slidesDeckComponentStub.setNext).toHaveBeenCalled();
   });
 });

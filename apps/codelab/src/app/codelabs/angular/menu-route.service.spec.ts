@@ -28,7 +28,7 @@ describe('MenuRouteService', () => {
         }
       ]
     }
-  };
+  } as ActivatedRoute;
 
   beforeEach(() =>
     TestBed.configureTestingModule({
