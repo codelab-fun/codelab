@@ -29,7 +29,8 @@
                 "glob": "**/*",
                 "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
-              }
+              },
+              "apps/codelab/src/manifest.webmanifest"
             ],
             "styles": ["apps/codelab/src/styles.scss"],
             "scripts": []
@@ -73,7 +74,9 @@
                   "replace": "apps/codelab/src/environments/environment.ts",
                   "with": "apps/codelab/src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/codelab/ngsw-config.json"
             }
           }
         },
@@ -108,7 +111,8 @@
             "styles": ["apps/codelab/src/styles.scss"],
             "assets": [
               "apps/codelab/src/assets",
-              "apps/codelab/src/favicon.ico"
+              "apps/codelab/src/favicon.ico",
+              "apps/codelab/src/manifest.webmanifest"
             ]
           }
         },
@@ -591,7 +595,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumError": "20mb"
                 }
               ]
             }
@@ -852,6 +856,134 @@
           }
         }
       }
+    },
+    "playground": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/playground",
+      "sourceRoot": "apps/playground/src",
+      "prefix": "codelab",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/playground",
+            "index": "apps/playground/src/index.html",
+            "main": "apps/playground/src/main.ts",
+            "polyfills": "apps/playground/src/polyfills.ts",
+            "tsConfig": "apps/playground/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/playground/src/favicon.ico",
+              "apps/playground/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/monaco-editor/",
+                "output": "./assets/monaco/"
+              }
+            ],
+            "styles": ["apps/playground/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/playground/src/environments/environment.ts",
+                  "with": "apps/playground/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "20mb",
+                  "maximumError": "25mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "playground:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "playground:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "playground:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/playground/tsconfig.app.json",
+              "apps/playground/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/playground/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/playground/jest.config.js",
+            "tsConfig": "apps/playground/tsconfig.spec.json",
+            "setupFile": "apps/playground/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "firebase": {
+      "projectType": "library",
+      "root": "libs/firebase",
+      "sourceRoot": "libs/firebase/src",
+      "prefix": "codelab",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/firebase/tsconfig.lib.json",
+              "libs/firebase/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/firebase/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/firebase/jest.config.js",
+            "tsConfig": "libs/firebase/tsconfig.spec.json",
+            "setupFile": "libs/firebase/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "defaultProject": "codelab",

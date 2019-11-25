@@ -17,6 +17,9 @@
         ],
         "lis": [
           "lis-lis"
+        ],
+        "angular-ivy": [
+            "angular-ivy"
         ]
       }
     }
