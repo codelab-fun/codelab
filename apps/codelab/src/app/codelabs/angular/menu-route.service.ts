@@ -1,44 +1,35 @@
 import { Injectable, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MENU_ROUTES, MenuRoute } from '../../common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuRouteService {
-  constructor(
-    private readonly activeRoute: ActivatedRoute,
-    @Inject(MENU_ROUTES) private readonly menuRoutes
-  ) {
-    console.log('constructor', this.activeRoute);
-  }
+  constructor(@Inject(MENU_ROUTES) private readonly menuRoutes) {}
 
-  getPreviousLink(): string {
-    const index = this.getCurrentIndex();
+  getPreviousLink(activeRoute: ActivatedRoute): string {
+    const index = this.getCurrentIndex(activeRoute);
     if (index > 0) {
       return this.menuRoutes[index - 1].path;
     }
     return '';
   }
 
-  getNextLink(): string {
-    const index = this.getCurrentIndex();
+  getNextLink(activeRoute: ActivatedRoute): string {
+    const index = this.getCurrentIndex(activeRoute);
     if (index < this.menuRoutes.length - 1) {
       return this.menuRoutes[index + 1].path;
     }
     return '';
   }
 
-  private getCurrentIndex() {
-    const ck = this.activeRoute.snapshot.pathFromRoot.map(a => a.routeConfig);
-
-    console.log('cks', ck);
-    const config = this.activeRoute.snapshot.pathFromRoot
+  private getCurrentIndex(activeRoute: ActivatedRoute) {
+    // TODO: inject ActivatedRoute but figure out a way to fix snapshot update issue
+    const config = activeRoute.snapshot.pathFromRoot
       .map(a => a.routeConfig)
       .find(r => r && (r as MenuRoute).prod);
-    console.log('menuroutes/config', this.menuRoutes, config, this.activeRoute);
     if (config == null) {
-      console.log('return -1');
       return -1;
     }
     const index = this.menuRoutes.findIndex(c => c.path === config.path);

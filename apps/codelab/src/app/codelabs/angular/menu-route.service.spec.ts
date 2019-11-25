@@ -32,10 +32,7 @@ describe('MenuRouteService', () => {
 
   beforeEach(() =>
     TestBed.configureTestingModule({
-      providers: [
-        { provide: ActivatedRoute, useValue: activatedRouteStub },
-        { provide: MENU_ROUTES, useValue: menuRoutes }
-      ]
+      providers: [{ provide: MENU_ROUTES, useValue: menuRoutes }]
     })
   );
 
@@ -46,13 +43,13 @@ describe('MenuRouteService', () => {
 
   it('getPreviousLink should return previouslesson', () => {
     const service: MenuRouteService = TestBed.inject(MenuRouteService);
-    const previousLink = service.getPreviousLink();
+    const previousLink = service.getPreviousLink(activatedRouteStub);
     expect(previousLink).toEqual(menuRoutes[0].path);
   });
 
   it('getNextLink should return nextlesson', () => {
     const service: MenuRouteService = TestBed.inject(MenuRouteService);
-    const nextLink = service.getNextLink();
+    const nextLink = service.getNextLink(activatedRouteStub);
     expect(nextLink).toEqual(menuRoutes[2].path);
   });
 });

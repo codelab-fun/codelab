@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 import { MenuRouteService } from '../../../codelabs/angular/menu-route.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'codelab-closing-slide',
@@ -13,11 +14,12 @@ export class CodelabClosingSlideComponent implements OnInit {
   @Input() footer: String;
 
   constructor(
+    private readonly activeRoute: ActivatedRoute,
     private readonly menuRouteService: MenuRouteService,
     private readonly presentation: SlidesDeckComponent
   ) {
     if (this.presentation != null) {
-      let nextLink = this.menuRouteService.getNextLink();
+      let nextLink = this.menuRouteService.getNextLink(this.activeRoute);
       if (nextLink) {
         nextLink = '../../' + nextLink;
       }

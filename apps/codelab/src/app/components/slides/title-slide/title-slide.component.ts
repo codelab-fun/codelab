@@ -19,11 +19,9 @@ export class TitleSlideComponent {
     private readonly presentation: SlidesDeckComponent
   ) {
     if (this.presentation != null) {
-      console.log('title', this.activeRoute);
-      const ck = this.activeRoute.snapshot.pathFromRoot.map(a => a.routeConfig);
-      console.log('title ck', ck);
-
-      let previousLink = this.menuRouteService.getPreviousLink();
+      let previousLink = this.menuRouteService.getPreviousLink(
+        this.activeRoute
+      );
       if (previousLink) {
         previousLink = '../../' + previousLink;
       }
