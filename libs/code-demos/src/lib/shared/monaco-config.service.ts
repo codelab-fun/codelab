@@ -49,7 +49,7 @@ export class MonacoConfigService {
   static initialized = false;
   public monaco: any;
 
-  constructor(private zone: NgZone) {
+  constructor(private readonly zone: NgZone) {
     this.monaco = monaco;
   }
 
