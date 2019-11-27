@@ -15,22 +15,6 @@ import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-ed
 import ITextModel = editor.ITextModel;
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-export const MONACO_DEFAULTS = {
-  wrappingColumn: 10,
-  scrollBeyondLastLine: false,
-  tabCompletion: true,
-  wordBasedSuggestions: true,
-  lineNumbersMinChars: 3,
-  cursorBlinking: 'phase',
-  renderIndentGuides: false,
-  lineNumbers: false,
-  automaticLayout: true,
-  fontSize: 12,
-  minimap: {
-    enabled: false
-  }
-};
-
 @Component({
   selector: 'code-demo-editor-from-model',
   templateUrl: './editor-from-model.component.html',
@@ -70,18 +54,13 @@ export class EditorFromModelComponent
   }
 
   ngAfterViewInit() {
-    const options = {
-      ...MONACO_DEFAULTS,
-      model: this.model,
-      fontSize: this.fontSize
-    };
-
-    this.zone.runOutsideAngular(() => {
-      this.editor = this.editorInjector.editor = this.monacoConfigService.monaco.editor.create(
-        this.el.nativeElement,
-        options
-      );
-    });
+    this.editor = this.editorInjector.editor = this.monacoConfigService.createEditor(
+      this.el.nativeElement,
+      {
+        model: this.model,
+        fontSize: this.fontSize
+      }
+    );
 
     this.editor.addAction({
       id: 'saveAction',

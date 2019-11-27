@@ -22,23 +22,6 @@ import { CodeDemoEditorInjector } from './code-demo-editor.injector';
 declare const monaco: any;
 declare const require: any;
 
-export const MONACO_DEFAULTS = {
-  wrappingColumn: 10,
-  scrollBeyondLastLine: false,
-  tabCompletion: true,
-  wordBasedSuggestions: true,
-  lineNumbersMinChars: 3,
-  cursorBlinking: 'phase',
-  renderIndentGuides: false,
-  lineNumbers: true,
-  automaticLayout: true,
-  fontSize: 12,
-  folding: true,
-  minimap: {
-    enabled: false
-  }
-};
-
 @Component({
   selector: 'code-demo-editor',
   template: `
@@ -137,19 +120,15 @@ export class CodeDemoEditorComponent
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
     }
 
-    const options = {
-      ...MONACO_DEFAULTS,
-      model: this.model,
-      lineNumbers: this.lineNumbers,
-      fontSize: this.fontSize
-    };
-
-    this.zone.runOutsideAngular(() => {
-      this.editor = this.editorInjector.editor = this.monacoConfigService.monaco.editor.create(
-        editor,
-        options
-      );
-    });
+    this.editor = this.editorInjector.editor = this.monacoConfigService.createEditor(
+      editor,
+      {
+        model: this.model,
+        lineNumbers: this.lineNumbers,
+        folding: true,
+        fontSize: this.fontSize
+      }
+    );
 
     this.editor.onDidChangeCursorSelection(({ selection }) => {
       this.zone.run(() => {
