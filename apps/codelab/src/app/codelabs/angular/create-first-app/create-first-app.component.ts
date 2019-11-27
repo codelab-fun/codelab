@@ -100,86 +100,17 @@ export class AppComponent {
         'app.module.ts': require('!!raw-loader!./samples/app-component/app.module.ts')
       },
       indexHtmlMatches: { 'index.html': /<hello-[^]*world>/ },
+      helloMatches: { 'app.component.ts': /hello-world/ },
       componentMatches: { 'app.component.ts': /export.*/ },
       decoratorsMatches: { 'app.component.ts': /@C[^]*?\)[^]/ },
-      decorators: {
-        code: `import {Component} from '@angular/core';
-// ${this.t.componentIsDecorator}
-@Component({
-  // metadata
-}) // ${this.t.noSemicolon}
-export class AppComponent {
-  // ${this.t.decoratorGoesAboveEntity}
-  // ${this.t.componentNameIsClassName}
-}`
-      },
-      componentAnatomy: {
-        // Component Anatomy - Milestone #1
-        code: `import { Component } from '@angular/core';
-@Component({
-  selector: 'hello-world',
-  template: '<h1>Hello World!</h1>',
-})
-export class HelloWorldComponent {}`,
-        matches: {
-          exportClass: /export.*/,
-          decorator: /@C[^]*?\)[^]/,
-          selector: /selector.*'.*'/,
-          template: /template.*'.*'/
-        },
-        readonly: true,
-        path: 'component.anatomy.ts',
-        type: 'typescript'
-      },
-
-      moduleAnatomy: {
-        // Module Anatomy - Milestone #1
-        code: `import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HelloWorldComponent } from './app.component';
-
-@NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ HelloWorldComponent ],
-  bootstrap: [ HelloWorldComponent ],
-})
-export class AppModule {}`,
-        matches: {
-          exportClass: /export.*/,
-          ngModule: /@N[^]*?\)[^]/,
-          importsArr: /imports.*/,
-
-          declarationsArr: /declarations.*/,
-          bootstrapArr: /bootstrap.*/
-        },
-        readonly: true
-      },
-      moduleBootstrapping: {
-        // Module Bootstrapping - Milestone #1
-        code: {
-          mainTs: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule);`,
-          indexHTML: `<!DOCTYPE>
-<body>
-  <hello-world>
-    Loading...
-  </hello-world>
-
-  <!--this is main.ts compiled.
-    Often build system will insert the script tag for you-->
-  <script src="main.js"></script>
-</body>`
-        },
-        matches: {
-          index: /<hello-[^]*world>/,
-          hello: /hello-world/,
-          bootstrap: /platformBrowserDynamic\(\).*/
-        },
-        readonly: true,
-        path: 'main.ts',
-        type: 'typescript'
+      selectorMatches: { 'app.component.ts': /selector.*'.*'/ },
+      templateMatches: { 'app.component.ts': /template: `[^]*?`[^]/ },
+      exportMatches: { 'app.module.ts': /export.*/ },
+      ngModuleMatches: { 'app.module.ts': /@N[^]*?\)[^]/ },
+      declarationsMatches: { 'app.module.ts': /declarations.*/ },
+      bootstrapMatches: { 'app.module.ts': /bootstrap.*/ },
+      bootstrapPlatformMatches: {
+        'bootstrap.ts': /platformBrowserDynamic\(\).*/
       }
     };
   }

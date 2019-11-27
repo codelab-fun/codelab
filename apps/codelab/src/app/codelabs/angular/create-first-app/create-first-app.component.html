@@ -165,26 +165,23 @@
       and render the component inside of it
     </h2>
 
-    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [fontSize]="30"
-      [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.selector]"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="app.component.ts"
+      [highlights]="code.selectorMatches"
+    ></code-demo>
   </div>
 
   <!--Template-->
   <div *slide id="template" milestone="Bootstrap">
     <codelab-breadcrumb i18n>Inline Template</codelab-breadcrumb>
     <h2 i18n>Template defines the HTML code that the component generates</h2>
-    <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
-    <code-demo-editor
-      [fontSize]="30"
-      [(ngModel)]="code.componentAnatomy.code"
-      [codeDemoHighlight]="[code.componentAnatomy.matches.template]"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="app.component.ts"
+      [highlights]="code.templateMatches"
+    ></code-demo>
     <div class="info" i18n>
       If the amount of HTML grows out of hand, it's possible (and recommended)
       to use a <b>templateUrl</b> instead and provide a path to the HTML file.
@@ -234,14 +231,12 @@
   <div *slide id="module-exercise" milestone="Bootstrap2">
     <codelab-breadcrumb i18n>Module Class</codelab-breadcrumb>
     <h2 i18n>Like a component, <b>Angular</b> module is just a class</h2>
-    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
-    <code-demo-editor
-      autoFolding
-      [fontSize]="30"
-      [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.exportClass]"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.exportMatches"
+    ></code-demo>
   </div>
 
   <!--MODULE ANATOMY-->
@@ -251,14 +246,12 @@
       Like a component, <b>Angular</b> module is adorned with a decorator
       providing metadata
     </h2>
-    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
-    <code-demo-editor
-      language="typescript"
-      [fontSize]="30"
-      [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.ngModule]"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.ngModuleMatches"
+    ></code-demo>
   </div>
 
   <!--Imports-->
@@ -274,13 +267,11 @@
       The <b>Declarations array</b> specifies components belonging to the
       AppModule
     </h2>
-    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [fontSize]="30"
-      [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.declarationsArr]"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.declarationsMatches"
+    ></code-demo>
   </div>
 
   <!--Bootstrap-->
@@ -290,13 +281,11 @@
       The component passed into the <b>bootstrap</b> array will be created and
       displayed in your <b>index.html</b> file
     </h2>
-    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [fontSize]="30"
-      [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.bootstrapArr]"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.bootstrapMatches"
+    ></code-demo>
   </div>
 
   <!--MODULE BOOTSTRAPPING-->
@@ -335,12 +324,7 @@
       Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will
       start up all the components from that module's bootstrap section
     </h2>
-    <code-demo-file-path path="main.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [fontSize]="25"
-      [(ngModel)]="code.moduleBootstrapping.code.mainTs"
-    ></code-demo-editor>
+    <code-demo [(ngModel)]="code.angularApp" files="bootstrap.ts"></code-demo>
     <div class="info" i18n>
       For most simple apps, you can just copy/paste the code above "as is"
     </div>
@@ -354,13 +338,11 @@
       1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
       Angular that we are operating in the browser
     </h2>
-    <code-demo-file-path path="main.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [fontSize]="25"
-      [(ngModel)]="code.moduleBootstrapping.code.mainTs"
-      [codeDemoHighlight]="code.moduleBootstrapping.matches.bootstrap"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="bootstrap.ts"
+      [highlights]="code.bootstrapPlatformMatches"
+    ></code-demo>
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
@@ -375,13 +357,11 @@
       2. Angular initializes the component from the <b>bootstrap</b> array in
       <b>app.module.ts</b> (<b>HelloWorldComponent</b> in this case)
     </h2>
-    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
-
-    <code-demo-editor
-      [fontSize]="25"
-      [(ngModel)]="code.moduleAnatomy.code"
-      [codeDemoHighlight]="[code.moduleAnatomy.matches.bootstrapArr]"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.bootstrapMatches"
+    ></code-demo>
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
@@ -397,14 +377,11 @@
       defined in <b>HelloWorldComponent</b> (<b>'hello-world'</b> in our case)
       and inserts the component inside that element
     </h2>
-    <code-demo-file-path path="index.html"></code-demo-file-path>
-
-    <code-demo-editor
-      [fontSize]="25"
-      language="html"
-      [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
-      [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
-    ></code-demo-editor>
+    <code-demo
+      [(ngModel)]="code.angularApp"
+      files="index.html"
+      [highlights]="code.indexHtmlMatches"
+    ></code-demo>
 
     <div class="info">
       <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
@@ -454,18 +431,18 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoHighlight]="code.moduleBootstrapping.matches.index"
+          [codeDemoHighlight]="code.indexHtmlMatches['index.html']"
           language="html"
-          [(ngModel)]="code.moduleBootstrapping.code.indexHTML"
+          [(ngModel)]="code.angularApp['index.html']"
         ></code-demo-editor>
       </div>
       <div class="col-6">
-        <code-demo-file-path path="main.ts"></code-demo-file-path>
+        <code-demo-file-path path="bootstrap.ts"></code-demo-file-path>
 
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [(ngModel)]="code.moduleBootstrapping.code.mainTs"
+          [(ngModel)]="code.angularApp['bootstrap.ts']"
         ></code-demo-editor>
       </div>
     </div>
@@ -476,7 +453,7 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [(ngModel)]="code.moduleAnatomy.code"
+          [(ngModel)]="code.angularApp['app.module.ts']"
         ></code-demo-editor>
       </div>
       <div class="col-6">
@@ -485,8 +462,8 @@
         <code-demo-editor
           style="height: 50vh"
           [fontSize]="18"
-          [codeDemoHighlight]="code.moduleBootstrapping.matches.hello"
-          [(ngModel)]="code.componentAnatomy.code"
+          [codeDemoHighlight]="code.helloMatches['app.component.ts']"
+          [(ngModel)]="code.angularApp['app.component.ts']"
         ></code-demo-editor>
       </div>
     </div>
