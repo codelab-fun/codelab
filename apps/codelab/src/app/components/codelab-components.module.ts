@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
+import { DirectivesModule } from '../directives/directives.module';
 import { SimpleTestsProgressComponent } from './tests-progress/simple-tests-progress.component';
 import { SimpleTestsComponent } from './tests/simple-tests.component';
 import { SimpleTestDescriptionComponent } from './test-description/simple-test-description.component';
@@ -29,7 +30,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CodeDemoModule,
     MatButtonModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    DirectivesModule
   ],
   declarations: [
     SimpleAngularTestRunnerComponent,
