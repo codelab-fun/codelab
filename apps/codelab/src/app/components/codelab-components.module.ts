@@ -6,8 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
+import { DirectivesModule } from '../directives/directives.module';
 import { SimpleTestsProgressComponent } from '@codelab/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.component';
-
 import { TitleSlideComponent } from './slides/title-slide/title-slide.component';
 import { CodelabClosingSlideComponent } from './slides/closing-slide/codelab-closing-slide.component';
 import { CodelabExercisePreviewComponent } from './exercise-preview/exercise-preview.component';
@@ -31,7 +31,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     MatMenuModule,
     MatSelectModule,
     TestResultsModule,
-    TestResultsModule
+    DirectivesModule
   ],
   declarations: [
     SimpleAngularTestRunnerComponent,

@@ -5,7 +5,8 @@ import {
   OnChanges,
   OnDestroy,
   SimpleChanges,
-  ViewChild
+  ViewChild,
+  NgZone
 } from '@angular/core';
 
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
@@ -32,29 +33,11 @@ export class EditorFromModelComponent
   private model: ITextModel;
 
   constructor(
+    private zone: NgZone,
     private editorInjector: CodeDemoEditorInjector,
     readonly monacoConfigService: MonacoConfigService,
     private snackBar: MatSnackBar
   ) {}
-
-  setUpEditor(el: HTMLElement) {
-    return this.monacoConfigService.monaco.editor.create(el, {
-      wrappingColumn: 10,
-      model: this.model,
-      scrollBeyondLastLine: false,
-      tabCompletion: true,
-      wordBasedSuggestions: true,
-      lineNumbersMinChars: 3,
-      cursorBlinking: 'phase',
-      renderIndentGuides: false,
-      lineNumbers: false,
-      automaticLayout: true,
-      fontSize: this.fontSize,
-      minimap: {
-        enabled: false
-      }
-    });
-  }
 
   resize() {
     const lines = this.editor.getModel().getLineCount();
@@ -71,8 +54,12 @@ export class EditorFromModelComponent
   }
 
   ngAfterViewInit() {
-    this.editor = this.editorInjector.editor = this.setUpEditor(
-      this.el.nativeElement
+    this.editor = this.editorInjector.editor = this.monacoConfigService.createEditor(
+      this.el.nativeElement,
+      {
+        model: this.model,
+        fontSize: this.fontSize
+      }
     );
 
     this.editor.addAction({
@@ -85,20 +72,26 @@ export class EditorFromModelComponent
         )
       ],
       run: () => {
-        this.snackBar.open('Saved', '', {
-          duration: 2000
+        this.zone.run(() => {
+          this.snackBar.open('Saved', '', {
+            duration: 2000
+          });
         });
       }
     });
 
     this.resize();
+
     this.didChangeListener = this.editor.onDidChangeModelContent(() => {
-      this.resize();
+      this.zone.run(() => {
+        this.resize();
+      });
     });
   }
 
   ngOnDestroy() {
     this.editor.dispose();
+
     if (this.didChangeListener) {
       this.didChangeListener.dispose();
       this.didChangeListener = null;

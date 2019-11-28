@@ -18,5 +18,7 @@
 }
 
 .solved-message img {
+  display: block;
   height: 280px;
+  margin-top: 16px;
 }
