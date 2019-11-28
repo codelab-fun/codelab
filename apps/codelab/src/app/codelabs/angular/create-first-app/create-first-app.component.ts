@@ -111,6 +111,17 @@ export class AppComponent {
       bootstrapMatches: { 'app.module.ts': /bootstrap.*/ },
       bootstrapPlatformMatches: {
         'bootstrap.ts': /platformBrowserDynamic\(\).*/
+      },
+      decorators: {
+        code: `import {Component} from '@angular/core';
+// ${this.t.componentIsDecorator}
+@Component({
+  // metadata
+}) // ${this.t.noSemicolon}
+export class AppComponent {
+  // ${this.t.decoratorGoesAboveEntity}
+  // ${this.t.componentNameIsClassName}
+}`
       }
     };
   }
