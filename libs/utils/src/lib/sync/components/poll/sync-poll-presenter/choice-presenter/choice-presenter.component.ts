@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges
-} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { LETTERS } from '@codelab/utils/src/lib/sync/components/poll/common/common';
 import { UserVote } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 

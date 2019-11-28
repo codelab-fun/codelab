@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { TestInfo } from '../../shared/interfaces/test-info';
 import { FileConfig } from '../../shared/interfaces/file-config';
+import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 declare const require;
 
@@ -23,6 +24,8 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
 
   constructor() {}
 
+  result: TestRunResult = { tests: [] };
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes.code) {
       this.run(this.code);
@@ -33,6 +36,19 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
     const test = files[this.bootstrap + '.ts.execute'];
     try {
       this.tests = test(files);
+      this.result = {
+        tests: this.tests.map(test => {
+          const name =
+            this.translations[test.title.replace('@@', '')] || test.title;
+
+          return {
+            ...test,
+            name,
+            error: test.result,
+            pass: !!test.pass
+          };
+        })
+      };
     } catch (e) {
       this.tests.find(t => !t.pass).result = '[Parsing error]' + e;
     }

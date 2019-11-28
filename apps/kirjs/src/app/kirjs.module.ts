@@ -43,12 +43,6 @@ const routes = [
     description: 'Image inclusion'
   },
   {
-    path: 'ii',
-    loadChildren: () => import('./modules/ii/ii.module').then(m => m.IiModule),
-    name: 'Image inclusion',
-    description: 'Image inclusion'
-  },
-  {
     path: 'music',
     loadChildren: () =>
       import('./modules/music/music.module').then(m => m.MusicModule),

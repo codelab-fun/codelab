@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as JsPDF from 'jspdf';
 import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
 
 @Component({
@@ -14,7 +13,7 @@ export class AngularSlidesToPdfComponent {
     const height = 600;
 
     this.presentation.goToSlide(0);
-
+    const JsPDF = function() {} as any;
     const doc = new JsPDF({
       orientation: 'landscape',
       unit: 'px',
