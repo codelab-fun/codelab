@@ -114,7 +114,7 @@ export class AppComponent {
             'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
             'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
             'app.module.ts': require('!!raw-loader!./samples/data-binding-extra/app.module.ts'),
-            'birthday-card.ts': require('!!raw-loader!./samples/data-binding-extra/birthday-card.ts'),
+            'number-praiser.ts': require('!!raw-loader!./samples/data-binding-extra/number-praiser.ts'),
             'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
           },
           files: ['app.component.html', 'app.component.ts']
@@ -201,18 +201,6 @@ describe('AppComponent', ()=>{
         `<h1>Hello, {{user.firstName}}</h1>`
       ),
       templateInterpolationExerciseMatch: /user.firstName/,
-      bindingProp: `<!-- Bind [property] to the template express property. -->
-<img [src]="person.photoUrl">
-<!-- Yes, this is valid HTML syntax. -->
-<input [value]="person.emailAddress">
-<!-- Yes, it works on attribute syntax. -->
-<button [attr.aria-label]="help">help</button>
-<!-- Yes, it works on class binding. -->
-<div [class.special]="isSpecial">Special</div>
-<!-- Yes, it works on style attributes. -->
-<button [style.color]="isSpecial ? 'red' : 'green'">
-<!-- This also works on your own components! -->
-<birthday-card [date]="person.birthday"> `,
       bindingPropMatch: /person.photoUrl/,
       bindingPropExercise: displayAngularComponentWithHtml(
         baseCode,
