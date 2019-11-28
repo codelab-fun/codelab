@@ -60,6 +60,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
   @Input() highlights: Record<string, string> = {};
   @Input() allowSwitchingFiles = true;
   @Input() enableAutoFolding = true;
+  @Input() fontSize = '18';
 
   openFileIndex = 0;
   code: Code = {};
