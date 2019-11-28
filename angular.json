@@ -29,8 +29,7 @@
                 "glob": "**/*",
                 "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
-              },
-              "apps/codelab/src/manifest.webmanifest"
+              }
             ],
             "styles": ["apps/codelab/src/styles.scss"],
             "scripts": []
@@ -74,9 +73,7 @@
                   "replace": "apps/codelab/src/environments/environment.ts",
                   "with": "apps/codelab/src/environments/environment.prod.ts"
                 }
-              ],
-              "serviceWorker": true,
-              "ngswConfigPath": "apps/codelab/ngsw-config.json"
+              ]
             }
           }
         },
@@ -111,8 +108,7 @@
             "styles": ["apps/codelab/src/styles.scss"],
             "assets": [
               "apps/codelab/src/assets",
-              "apps/codelab/src/favicon.ico",
-              "apps/codelab/src/manifest.webmanifest"
+              "apps/codelab/src/favicon.ico"
             ]
           }
         },
@@ -886,8 +882,18 @@
                 "output": "./assets/monaco/"
               }
             ],
-            "styles": ["apps/playground/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/animate.css/animate.min.css",
+              "node_modules/hover.css/css/hover-min.css",
+              "apps/playground/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
