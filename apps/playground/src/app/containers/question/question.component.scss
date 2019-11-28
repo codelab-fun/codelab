@@ -1,0 +1,136 @@
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+@font-face {
+  font-family: "Alarm Clock";
+  src: url("../../../assets/alarm-clock.ttf") format("truetype");
+}
+
+section.scoreboard {
+  margin-top: 10px !important;
+
+  .row {
+    display: inline;
+  }
+  .score {
+    float: left;
+    margin-left: 1rem;
+  }
+  .score .leader {
+    margin-left: 15px;
+  }
+  .badge {
+    float: left;
+    margin: 20px 10px 0 100px;
+    font-family: $font-stack;
+    font-size: 24px;
+    font-weight: $font-weight-max;
+    font-style: italic;
+  }
+  .time-left {
+    float: right;
+    margin-right: 1rem;
+  }
+  .time-left .leader {
+    margin-left: 20px;
+  }
+  .scoreboard {
+    font-family: "Alarm Clock", $font-stack;
+    font-weight: $font-weight-max;
+    font-size: 30px;
+    color: #006400;
+    display: inline-block;
+    margin: -5px 0 0 15px;
+    width: auto;
+  }
+  .leader {
+    display: block;
+    font-weight: $font-weight-max;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    top: -5px;
+  }
+}
+
+section.time-expired {
+  margin: 50px 0 20px 0 !important;
+  display: flex;
+  justify-content: center;
+
+  button.time-expired-btn {
+    font-family: $font-stack;
+    font-weight: $font-weight-max;
+    text-align: center;
+    font-style: italic;
+    color: #006400 !important;
+    width: 26.5rem;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .timer-expired-icon, .qa-icon {
+    font-weight: $font-weight-max;
+    font-size: 30px !important;
+    color: #9acd32;
+  }
+  span.proceed, span.viewResults {
+    margin-top: -30px;
+  }
+}
+
+#question {
+  font-family: $font-stack;
+  font-weight: 700;
+  font-size: 30px !important;
+  margin: 0 0 10px 0.4rem;
+  float: left;
+  border: 2px solid #007aff;
+  padding: 5px 10px 15px 20px;
+  background-color: #f5f5f5;
+  color: #0f0900;
+  width: 39rem !important;
+  height: auto;
+  vertical-align: middle;
+}
+
+section.paging {
+  width: 40rem;
+
+  mat-card-actions {
+    margin: -10px 0 10px 0;
+
+    .previousQuestionNav {
+      float: left;
+      margin-left: 1.5rem;
+    }
+    .nextQuestionNav {
+      float: right;
+      margin-right: -0.35rem;
+    }
+    .previousQuestionNav:hover, .nextQuestionNav:hover {
+      border: 1px solid #007aff;
+    }
+  }
+}
+
+section.progress-bar {
+  margin: 40px 0 10px 1.5rem;
+  width: 39rem;
+  height: auto;
+
+  ngb-progressbar {
+    border-radius: 10px;
+  }
+
+  .progress-note {
+    color: #ffff00;
+    font-family: $font-stack;
+    font-weight: $font-weight-max;
+    font-style: italic;
+    font-size: 20px;
+    padding-top: 5px;
+    margin-top: 5px;
+  }
+}
