@@ -1,0 +1,165 @@
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+section.results {
+  img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  h3, p {
+    text-align: center;
+  }
+
+  section.statistics {
+    h3, span, div.quiz-feedback, div span {
+      text-align: center;
+    }
+
+    span {
+      display: block;
+    }
+
+    div.quiz-feedback {
+      margin-top: 20px;
+    }
+  }
+
+  section.quizSummary {
+    display: flex;
+    flex-direction: column;
+
+    accordion {
+      text-align: center !important;
+
+      .panel.panel-heading {
+        background-color: white !important;
+      }
+
+      .quiz-summary-question {
+        font-family: $font-stack;
+        font-size: 14px;
+        border: 2px solid #385d8a;
+        border-radius: 5px;
+        color: black;
+        margin-bottom: 15px;
+        padding: 10px;
+        text-align: left;
+
+        .quiz-summary-field {
+          display: block !important;
+          margin-bottom: 10px;
+          text-align: left;
+
+          span {
+            display: inline !important;
+            text-align: left;
+            font-size: 16px;
+            color: #00008b;
+          }
+          span.leader {
+            font-weight: $font-weight-max;
+          }
+
+          mat-icon {
+            font-size: larger;
+            top: 10px !important;
+          }
+          mat-icon.correct {
+            color: #006400 !important;
+            font-weight: $font-weight-max;
+          }
+          mat-icon.incorrect {
+            color: #ff0000 !important;
+            font-weight: $font-weight-max;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+section.return {
+  text-align: center;
+  margin-top: -10px;
+
+  a.btn {
+    margin-right: 15px;
+    background-color: #20b2aa;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
+
+section.challenge-social {
+  text-align: center;
+
+  a.btn {
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 9px 15px 8px 42px;
+    background: no-repeat 10px 5px;
+    background-size: 25px 25px;
+    color: white;
+  }
+  a.btn.facebook {
+    background-color: #4267b2;
+    background-image: url('../../../assets/images/facebook.gif');
+    top: 5px;
+  }
+  a.btn.twitter {
+    background-color: #59adeb;
+    background-image: url('../../../assets/images/twitter.svg');
+    top: 5px;
+  }
+  a.btn.email {
+    background-color: #f0a121;
+    background-image: url('../../../assets/images/email.svg');
+    top: 5px;
+  }
+}
+
+/* add ripple effect to buttons on ResultsComponent */
+a.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+a.btn::after {
+  display: none;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+
+  /* Center the ripple */
+  top: 50%;
+  left: 50%;
+
+  animation: ripple 1s;
+  opacity: 0;
+}
+a.btn:focus:not(:active)::after {
+  display: block;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+}
