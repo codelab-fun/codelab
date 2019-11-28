@@ -9,6 +9,7 @@ import {
 import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'slides-test-results',
   templateUrl: './test-results.component.html',
   styleUrls: ['./test-results.component.scss']

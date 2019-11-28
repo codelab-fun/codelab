@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 declare const require;
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'sync-code-editor',
   templateUrl: './sync-code-editor.component.html',
   styleUrls: ['./sync-code-editor.component.css']
@@ -59,5 +60,5 @@ export class SyncCodeEditorComponent implements OnInit {
 
   ngOnInit() {}
 
-  update(q: any, $event: any) {}
+  update() {}
 }

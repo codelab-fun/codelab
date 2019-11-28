@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'slides-test-runner',
   templateUrl: './test-runner.component.html',
   styleUrls: ['./test-runner.component.scss']
