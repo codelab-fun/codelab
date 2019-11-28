@@ -1,0 +1,12 @@
+<mat-tab-group>
+  <mat-tab [label]="i.toString()" *ngFor="let q of questions; let i = index">
+    <ng-template matTabContent>
+      <code-demo-editor [(ngModel)]="q.code"></code-demo-editor>
+      <slides-test-runner
+        (result)="update(q, $event)"
+        [code]="q.code"
+        [tests]="q.tests"
+      ></slides-test-runner>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

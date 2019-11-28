@@ -1,0 +1,21 @@
+codelab-simple-tests-progress {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.container {
+  position: relative;
+
+  .error-message {
+    position: absolute;
+    background: rgb(187, 2, 0);
+    color: white;
+    opacity: 0.9;
+    font-size: 20px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+  }
+}
