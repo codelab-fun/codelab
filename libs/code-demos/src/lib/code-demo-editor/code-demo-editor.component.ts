@@ -9,7 +9,8 @@ import {
   OnDestroy,
   Output,
   SimpleChanges,
-  ViewChild
+  ViewChild,
+  NgZone
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
@@ -57,6 +58,7 @@ export class CodeDemoEditorComponent
   private subscription: Subscription;
 
   constructor(
+    private zone: NgZone,
     private editorInjector: CodeDemoEditorInjector,
     readonly monacoConfigService: MonacoConfigService
   ) {
@@ -108,6 +110,7 @@ export class CodeDemoEditorComponent
 
   ngAfterViewInit(): void {
     const editor = this.editorEl.nativeElement;
+
     this.model = this.monacoConfigService.monaco.editor.createModel(
       this.code,
       this.language
@@ -117,35 +120,28 @@ export class CodeDemoEditorComponent
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
     }
 
-    this.editor = this.editorInjector.editor = this.monacoConfigService.monaco.editor.create(
+    this.editor = this.editorInjector.editor = this.monacoConfigService.createEditor(
       editor,
       {
-        wrappingColumn: 10,
         model: this.model,
-        scrollBeyondLastLine: false,
-        tabCompletion: true,
-        wordBasedSuggestions: true,
-        lineNumbersMinChars: 3,
-        cursorBlinking: 'phase',
-        renderIndentGuides: false,
         lineNumbers: this.lineNumbers,
-        automaticLayout: true,
-        fontSize: this.fontSize,
         folding: true,
-        minimap: {
-          enabled: false
-        }
+        fontSize: this.fontSize
       }
     );
 
     this.editor.onDidChangeCursorSelection(({ selection }) => {
-      this.selectionChange.emit(
-        this.editor.getModel().getValueInRange(selection)
-      );
+      this.zone.run(() => {
+        this.selectionChange.emit(
+          this.editor.getModel().getValueInRange(selection)
+        );
+      });
     });
 
     this.model.onDidChangeContent(() => {
-      this.changeSubject.next(this.editor.getModel().getValue());
+      this.zone.run(() => {
+        this.changeSubject.next(this.editor.getModel().getValue());
+      });
     });
 
     this.resize();
