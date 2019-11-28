@@ -7,7 +7,8 @@ import {
   OnChanges,
   OnDestroy,
   OnInit,
-  SimpleChanges
+  SimpleChanges,
+  NgZone
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
@@ -69,6 +70,7 @@ export class MultitabEditorComponent
   private subscription: Subscription;
 
   constructor(
+    private zone: NgZone,
     readonly monacoConfigService: MonacoConfigService,
     readonly cdr: ChangeDetectorRef
   ) {}
@@ -154,8 +156,10 @@ export class MultitabEditorComponent
         );
 
         model.onDidChangeContent(() => {
-          this.code[path] = model.getValue();
-          this.changeSubject.next({ ...this.code });
+          this.zone.run(() => {
+            this.code[path] = model.getValue();
+            this.changeSubject.next({ ...this.code });
+          });
         });
 
         return {

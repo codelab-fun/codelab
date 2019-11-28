@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { environment } from '../../../../../apps/codelab/src/environments/environment';
 
 declare const require;
@@ -9,6 +9,23 @@ const monacoLoaderCode = require('!raw-loader!monaco-editor/' +
 
 const win = window as any;
 declare const monaco;
+
+export const MONACO_DEFAULTS = {
+  wrappingColumn: 10,
+  scrollBeyondLastLine: false,
+  tabCompletion: true,
+  wordBasedSuggestions: true,
+  lineNumbersMinChars: 3,
+  cursorBlinking: 'phase',
+  renderIndentGuides: false,
+  lineNumbers: false,
+  automaticLayout: true,
+  fontSize: 12,
+  folding: false,
+  minimap: {
+    enabled: false
+  }
+};
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +49,7 @@ export class MonacoConfigService {
   static initialized = false;
   public monaco: any;
 
-  constructor() {
+  constructor(private readonly zone: NgZone) {
     this.monaco = monaco;
   }
 
@@ -95,6 +112,14 @@ export class MonacoConfigService {
         );
       });
     });
+  }
+
+  createEditor(el: HTMLElement, options: any) {
+    const config = { ...MONACO_DEFAULTS, ...options };
+
+    return this.zone.runOutsideAngular(() =>
+      this.monaco.editor.create(el, config)
+    );
   }
 }
 
