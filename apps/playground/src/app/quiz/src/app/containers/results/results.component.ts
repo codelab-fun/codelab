@@ -25,9 +25,6 @@ export class ResultsComponent implements OnInit {
   TRY_AGAIN = '../../../assets/images/try-again.jpeg';
   codelabUrl = 'https://www.codelab.fun';
 
-  parsedAnswerOptionText: string;
-  parsedSelectedOptionText: string;
-
   constructor() {}
 
   ngOnInit() {
@@ -44,14 +41,5 @@ export class ResultsComponent implements OnInit {
 
     this.elapsedMinutes = Math.floor(this.completionTime / 60);
     this.elapsedSeconds = this.completionTime % 60;
-
-    this.convertText();
-  }
-
-  convertText() {
-    this.parsedAnswerOptionText = this.question.options[parseInt(this.allQuestions.answer) - 1].optionText;
-    this.parsedSelectedOptionText = this.question.options[parseInt(this.allQuestions.selectedOption) - 1].optionText;
-    console.log(this.parsedAnswerOptionText);
-    console.log(this.parsedSelectedOptionText);
   }
 }
