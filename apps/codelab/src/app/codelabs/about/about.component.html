@@ -1,10 +1,176 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
-  <div *slide id="start"><h1>Hello</h1></div>
-
-  <div *slide id="list">
-    <ul>
-      <li>a</li>
-      <li>b</li>
-    </ul>
+  <div *slide>
+    Meta What is codelab.fun - Online interactive angular tutorial no setup -
+    Interactive examples - Interactive exercises - All open source/Angular
+    Ivy/on Github - Add photo of a live event How it started - TBD What problem
+    does it solve - Get up to speed quickly - 10 milestones Who uses it/stats? -
+    TBD - Beginners Live-events - TBD Photos - 10 Countries Contributors -
+    Codelab is open source - almost 50 contributors on github - More about it
+    later Stream "Звуки программистов" - @kirjs and @thekiba meet on weekends
+    and do long technical stream in russian - https://www.twitch.tv/kirjs Other
+    cool things Russian translation - Codelab uses Angular standard i18n -
+    Codelab uses PoEditor (screenshotot TBD) - Anybody can help with translation
+    - Already translated into Russian 30 seconds - Angular snippets, learn new
+    thing in 30 seconds - Open source, anybody can add (using amazing form) 30
+    seconds AMAZING (experimental) form - anybody can add his own snippet (about
+    angular features) - boring way to create a new snippet -> amazing form -
+    Firebase + Github Auth - amazing form github integration - + edit form
+    Technical stuff Codelab for presentations Our goal was: *slide directive
+    Passing ID to slide directive examples:
+    https://kirjs.com/binary/binary-file-value-2 TODO(web assembly). Feedback +
+    Github Integration (alex bu?) - layout placement - roles model - TBD
+    Feedback Screenshot - Table Screenshot - Github Integration Upgrading to Ivy
+    - Show PDF Runner (TypeScript incremental compilation + HMR + iframe) -
+    Systemjs - изначальные проблемы: очень долго пересобиралось, потому что
+    пересоздавался iframe типы задавались вручную, поэтому было проблемно
+    подключать дополнительные библиотеки - что сделано: iframe стал
+    переиспользоваться инстанс ts compiler был переведен на watch режим
+    реализован bundler, который собирает типы в один файл оптимизация бандла с
+    пакетами, чтобы все сжималось - что получили: перезапуск вместо 0.5-1 сек
+    стало почти мгновенно (показать демонстрацию) размер бандла уменьшился в 2
+    раза (todo: посмотреть размер) появилась возможность подключать любые
+    библиотеки на этапе компиляции Running tests (mocha / babel + traversing
+    AST) - The goal is to quickly assess whether user's code does what we want.
+    - Initially the plan was to run unit tests in an iframe with TestBed, mocha
+    + chai (code TBD) - Phase 2 - We started reusing iframe (code TBD) - Special
+    case testing bootstrapping the app (code TBD) - We also added babel tests
+    (babel can parse TypeScript) (code TBD) - This works, we look at the code,
+    not at the result. Monaco - The goal is to give users a type aware editor
+    with SyntaxHighlighting quick, extensible - We chose monaco - Bundle
+    size/It's own AMD loader/Have to be included in the assets - Adding types to
+    monaco - Highlighting - Autofolding - Init on app load Experiments/What's
+    next? Sync lib - Codelab is not just an angular course it is a platform -
+    Demo New runner - What we want: - Generic runner (not just angular) - Does
+    not need types/libraries bundled (fetched them asynchronously from cdn) -
+    Where we are? - We don't know how to How/Why to contribute? Is is hard? How
+    to start Why to contribute? What's next?
   </div>
+
+  <div *slide>
+    <h1>codelab.fun</h1>
+  </div>
+  <div *slide>What is codelab.fun</div>
+  <div *slide>- Online interactive angular tutorial no setup</div>
+  <div *slide>- Interactive code samples</div>
+  <div *slide>- Hands on exercises</div>
+  <div *slide>- All open source/Angular Ivy/on Github</div>
+  <div *slide>- Add photo of a live event</div>
+  <div *slide>How it started</div>
+  <div *slide>- TBD</div>
+  <div *slide>What problem does it solve</div>
+  <div *slide>- Get up to speed quickly</div>
+  <div *slide>- 10 milestones</div>
+  <div *slide>Who uses it/stats?</div>
+  <div *slide>- TBD</div>
+  <div *slide>- Beginners</div>
+  <div *slide>Live-events</div>
+  <div *slide>- TBD Photos</div>
+  <div *slide>- 10 Countries</div>
+  <div *slide>Contributors</div>
+  <div *slide>- Codelab is open source</div>
+  <div *slide>- almost 50 contributors on github</div>
+  <div *slide>- More about it later</div>
+  <div *slide>Stream "Звуки программистов"</div>
+  <div *slide>
+    - @kirjs and @thekiba meet on weekends and do long technical stream in
+    russian
+  </div>
+  <div *slide>- https://www.twitch.tv/kirjs</div>
+  <div *slide>Other cool things</div>
+  <div *slide>Russian translation</div>
+  <div *slide>- Codelab uses Angular standard i18n</div>
+  <div *slide>- Codelab uses PoEditor (screenshotot TBD)</div>
+  <div *slide>- Anybody can help with translation</div>
+  <div *slide>- Already translated into Russian</div>
+  <div *slide>30 seconds</div>
+  <div *slide>- Angular snippets, learn new thing in 30 seconds</div>
+  <div *slide>- Open source, anybody can add (using amazing form)</div>
+  <div *slide>30 seconds AMAZING (experimental) form</div>
+  <div *slide>- anybody can add his own snippet (about angular features)</div>
+  <div *slide>- boring way to create a new snippet -> amazing form</div>
+  <div *slide>- Firebase + Github Auth</div>
+  <div *slide>- amazing form github integration</div>
+  <div *slide>- + edit form</div>
+  <div *slide>Technical stuff</div>
+  <div *slide>Codelab for presentations</div>
+  <div *slide>Our goal was:</div>
+  <div *slide>*slide directive</div>
+  <div *slide>Passing ID to slide directive</div>
+  <div *slide>examples:</div>
+  <div *slide>https://kirjs.com/binary/binary-file-value-2</div>
+  <div *slide>TODO(web assembly).</div>
+  <div *slide>Feedback + Github Integration (alex bu?)</div>
+  <div *slide>- layout placement</div>
+  <div *slide>- roles model</div>
+  <div *slide>- TBD Feedback Screenshot</div>
+  <div *slide>- Table Screenshot</div>
+  <div *slide>- Github Integration</div>
+  <div *slide>Upgrading to Ivy</div>
+  <div *slide>- Show PDF</div>
+  <div *slide>Runner (TypeScript incremental compilation + HMR + iframe)</div>
+  <div *slide>- Systemjs</div>
+  <div *slide>- изначальные проблемы:</div>
+  <div *slide>очень долго пересобиралось, потому что пересоздавался iframe</div>
+  <div *slide>
+    типы задавались вручную, поэтому было проблемно подключать дополнительные
+    библиотеки
+  </div>
+  <div *slide>- что сделано:</div>
+  <div *slide>iframe стал переиспользоваться</div>
+  <div *slide>инстанс ts compiler был переведен на watch режим</div>
+  <div *slide>реализован bundler, который собирает типы в один файл</div>
+  <div *slide>оптимизация бандла с пакетами, чтобы все сжималось</div>
+  <div *slide>- что получили:</div>
+  <div *slide>
+    перезапуск вместо 0.5-1 сек стало почти мгновенно (показать демонстрацию)
+  </div>
+  <div *slide>размер бандла уменьшился в 2 раза (todo: посмотреть размер)</div>
+  <div *slide>
+    появилась возможность подключать любые библиотеки на этапе компиляции
+  </div>
+  <div *slide>Running tests (mocha / babel + traversing AST)</div>
+  <div *slide>
+    - The goal is to quickly assess whether user's code does what we want.
+  </div>
+  <div *slide>
+    - Initially the plan was to run unit tests in an iframe with TestBed, mocha
+    + chai (code TBD)
+  </div>
+  <div *slide>- Phase 2 - We started reusing iframe (code TBD)</div>
+  <div *slide>- Special case testing bootstrapping the app (code TBD)</div>
+  <div *slide>
+    - We also added babel tests (babel can parse TypeScript) (code TBD)
+  </div>
+  <div *slide>- This works, we look at the code, not at the result.</div>
+  <div *slide>Monaco</div>
+  <div *slide>
+    - The goal is to give users a type aware editor with SyntaxHighlighting
+    quick, extensible
+  </div>
+  <div *slide>- We chose monaco</div>
+  <div *slide>
+    - Bundle size/It's own AMD loader/Have to be included in the assets
+  </div>
+  <div *slide>- Adding types to monaco</div>
+  <div *slide>- Highlighting</div>
+  <div *slide>- Autofolding</div>
+  <div *slide>- Init on app load</div>
+  <div *slide>Experiments/What's next?</div>
+  <div *slide>Sync lib</div>
+  <div *slide>- Codelab is not just an angular course it is a platform</div>
+  <div *slide>- Demo</div>
+  <div *slide>New runner</div>
+  <div *slide>- What we want:</div>
+  <div *slide>- Generic runner (not just angular)</div>
+  <div *slide>
+    - Does not need types/libraries bundled (fetched them asynchronously from
+    cdn)
+  </div>
+  <div *slide>- Where we are?</div>
+  <div *slide>- We don't know how to</div>
+  <div *slide>How/Why to contribute?</div>
+  <div *slide>Is is hard?</div>
+  <div *slide>How to start</div>
+  <div *slide>Why to contribute?</div>
+  <div *slide>What's next?</div>
 </slide-deck>
