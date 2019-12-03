@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IsLoggedInDirective } from './permissions/is-logged-in/is-loggen-in.directive';
+import { IsLoggedInDirective } from './permissions/is-logged-in/is-loggef-in.directive';
 import { CanLoadAdminDirective } from './permissions/can-load-admin/can-load-admin.directive';
 import { NextSlideDirective } from './nextSlide.directive';
 import { PreviousSlideDirective } from './previousSlide.directive';

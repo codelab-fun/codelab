@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
-import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/firebase-info.service';
 
 @Component({
   selector: 'codelab-online-indicator',
@@ -8,7 +7,7 @@ import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
   styleUrls: ['./online-indicator.component.css']
 })
 export class OnlineIndicatorComponent implements OnInit {
-  constructor(readonly dbService: SyncDbService<SyncDb>) {}
+  constructor(readonly firebaseInfoService: FirebaseInfoService) {}
 
   ngOnInit() {}
 }

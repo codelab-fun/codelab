@@ -51,7 +51,7 @@ export class SyncSessionService {
     this.loginService.preferredStatus$,
     this.preferredAdminStatusSubject.asObservable()
   ]).pipe(map(([a, b]) => b || a));
-  private readonly sessions = this.dbService.list('sync-sessions');
+  private readonly sessions = this.dbService.objectList('sync-sessions');
   readonly sessions$ = this.sessions.snapshots$.pipe(
     map(firebaseToValuesWithKey)
   );

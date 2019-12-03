@@ -4,34 +4,18 @@ import {
   AngularFireList,
   AngularFireObject
 } from '@angular/fire/database';
-import { isObservable, Observable, of, Subject } from 'rxjs';
+import { combineLatest, isObservable, Observable, of, Subject } from 'rxjs';
+import { first, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import {
-  filter,
-  first,
-  map,
-  shareReplay,
-  switchMap,
-  tap
-} from 'rxjs/operators';
-import {
+  ArrayElement,
   FirebaseDb,
   mergeValues
 } from '@codelab/utils/src/lib/sync/services/common';
 
-type ArrayElement<A> = A extends readonly (infer T)[] ? T : never;
-
 @Injectable({
   providedIn: 'root'
 })
-export class SyncDbService<T extends FirebaseDb> {
-  readonly online$ = this.object('.info')
-    .object('connected')
-    .valueChanges();
-  readonly offset$: Observable<number> = this.object('.info')
-    .object('serverTimeOffset')
-    .valueChanges()
-    .pipe(map(a => Number(a)));
-
+export class SyncDbService<T> {
   constructor(private db: AngularFireDatabase) {}
 
   object<K extends keyof T>(key$: Observable<K> | K): SyncDataObject<T[K]> {
@@ -39,52 +23,55 @@ export class SyncDbService<T extends FirebaseDb> {
       key$ = of(key$);
     }
 
-    // TODO(kirjs): At this point key$ is always an observable and this check
-    // is redundant.
-    if (isObservable(key$)) {
-      const db$ = key$.pipe(
-        filter(k => !!k),
-        // TODO(kirjs): Do we need to cast here?
-        map(key => this.db.object<T>(key as string))
-      ) as any;
-      // TODO(kirjs): Do we need to cast here?
-      return new SyncDataObject<T[K]>(db$, key$ as Observable<string>, this);
-    }
+    const keyString$ = key$.pipe(map(a => a.toString()));
+
+    const db$ = keyString$.pipe(map(key => this.db.object<T[K]>(key)));
+
+    // TODO(kirjs): Drop any
+    return new SyncDataObject<T[K]>(db$, keyString$, this as any);
   }
 
-  list<K extends keyof T, E extends keyof T[K]>(
+  objectList<K extends keyof T, E extends keyof T[K]>(
     key$: Observable<K> | K
   ): SyncDataList<T[K][E]> {
+    // TODO(kirjs): This whole function is only needed for typings.
+    // firebase has no real arrays, and we kinda pretend it does
+    return (this.list(key$) as unknown) as SyncDataList<T[K][E]>;
+  }
+
+  list<K extends keyof T>(
+    key$: Observable<K> | K
+  ): SyncDataList<ArrayElement<T[K]>> {
     if (!isObservable(key$)) {
       key$ = of(key$);
     }
-    // TODO(kirjs): Do we need to cast here?
-    const db$ = key$.pipe(map(key => this.db.list<T>(key as any))) as any;
-    // TODO(kirjs): Do we need to cast here?
-    return new SyncDataList<T>(db$, key$ as any, this) as any;
+    const keyString$ = key$.pipe(map(a => a.toString()));
+
+    const db$ = keyString$.pipe(
+      map(key => this.db.list<ArrayElement<T[K]>>(key))
+    );
+    // TODO(kirjs): Drop any
+    return new SyncDataList<ArrayElement<T[K]>>(db$, keyString$, this as any);
   }
 }
 
 export class SyncDataObject<T> {
   private values$?: Observable<T>;
-  private readonly valueChanges$: Observable<T> = this.db$
-    .pipe(
-      switchMap(db => {
-        return db.valueChanges();
-      })
-    )
-    .pipe(
-      map(value => {
-        // TODO(kirjs): figure this out
-        return mergeValues(value, this.defaultValue);
-      })
-    );
+  private readonly valueChanges$: Observable<T> = this.db$.pipe(
+    switchMap(db => {
+      return db.valueChanges();
+    }),
+    map(value => {
+      return mergeValues(value, this.defaultValue);
+    })
+  );
+
   private onDestroy: Subject<null> = new Subject<null>();
 
   constructor(
     protected readonly db$: Observable<AngularFireObject<T>>,
     protected readonly key$: Observable<string>,
-    protected readonly syncDbService: SyncDbService<FirebaseDb>,
+    protected readonly syncDbService: SyncDbService<T>,
     protected readonly defaultValue?: Partial<T>
   ) {}
 
@@ -134,25 +121,22 @@ export class SyncDataObject<T> {
   }
 
   object<K extends keyof T>(key$: Observable<K> | K): SyncDataObject<T[K]> {
-    if (typeof key$ === 'string') {
+    if (!isObservable(key$)) {
       key$ = of(key$);
     }
 
-    // TODO(kirjs): There should be a better way than casting to any
-    const newKey$ = this.key$.pipe(
-      switchMap(k => (key$ as Observable<K>).pipe(map(key => `${k}/${key}`)))
-    ) as any;
-    return this.syncDbService.object(newKey$);
+    const newKey$ = combineLatest([this.key$, key$]).pipe(
+      map((path, key) => path + '/' + key)
+    );
+    return this.syncDbService.object(newKey$ as any);
   }
 
   list<K extends keyof T>(
     key$: Observable<K> | K
   ): SyncDataList<ArrayElement<T[K]>> {
-    if (typeof key$ === 'string') {
+    if (!isObservable(key$)) {
       key$ = of(key$);
     }
-
-    // TODO(kirjs): There should be a better way than casting to any
     const newKey$ = this.key$.pipe(
       switchMap(k => (key$ as Observable<K>).pipe(map(key => `${k}/${key}`)))
     ) as any;

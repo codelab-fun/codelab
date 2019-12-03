@@ -11,10 +11,10 @@ import {
 import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
 import { database } from 'firebase/app';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
+import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/firebase-info.service';
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
 // TODO(kirjs): What's this?
@@ -107,7 +107,9 @@ export class SyncPoll {
 
   readonly timeLeft$ = this.timestamp$.pipe(
     switchMap(time => interval(500).pipe(map(() => time))),
-    withLatestFrom(this.syncDbService.offset$.pipe(distinctUntilChanged())),
+    withLatestFrom(
+      this.firebaseInfoService.offset$.pipe(distinctUntilChanged())
+    ),
     map(([time, offset]) =>
       Math.round(
         Math.max(
@@ -140,8 +142,7 @@ export class SyncPoll {
   constructor(
     private readonly syncDataService: SyncDataService,
     readonly config: SyncPollConfig,
-    // TODO(kirjs): We prod do not need generics
-    private readonly syncDbService: SyncDbService<any>
+    private readonly firebaseInfoService: FirebaseInfoService
   ) {
     // Reformatting breaks this if it's out of the constructor.
     this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
@@ -174,12 +175,12 @@ export class SyncPollService {
     private readonly syncDataService: SyncDataService,
     private readonly syncSessionService: SyncSessionService,
     // TODO(kirjs): Drop any
-    private readonly syncDbService: SyncDbService<any>,
+    private readonly firebaseInfoService: FirebaseInfoService,
     private readonly registrationService: SyncRegistrationService
   ) {}
 
   getPoll(config: SyncPollConfig) {
-    return new SyncPoll(this.syncDataService, config, this.syncDbService);
+    return new SyncPoll(this.syncDataService, config, this.firebaseInfoService);
   }
 
   calculateScores(syncPollConfigs: SyncPollConfig[]) {

@@ -5,6 +5,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import {
+  debounceTime,
   distinctUntilChanged,
   filter,
   mergeMapTo,
@@ -44,10 +45,10 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
           filter(s => s === SyncStatus.PRESENTING),
           mergeMapTo(this.presentation.slideChange),
           distinctUntilChanged(),
-          takeUntil(this.onDestroy)
+          takeUntil(this.onDestroy),
+          debounceTime(200)
         )
         .subscribe((slide: number) => {
-          console.log('set', slide);
           this.currentSlide.set(slide);
         });
 
@@ -60,7 +61,6 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
           takeUntil(this.onDestroy)
         )
         .subscribe((slide: number) => {
-          console.log(slide);
           this.presentation.goToSlide(slide);
         });
     }
