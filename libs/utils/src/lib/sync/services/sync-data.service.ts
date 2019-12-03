@@ -1,73 +1,123 @@
 import { Injectable } from '@angular/core';
 
-import { filter, map } from 'rxjs/operators';
-import { combineLatest } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
-import {
-  SyncDataList,
-  SyncDbService
-} from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { FirebaseDb } from '@codelab/utils/src/lib/sync/services/common';
+import { QuestionDb } from '@codelab/utils/src/lib/sync/components/questions/common/common';
+
+interface PresenterPollConfig {
+  enabled: boolean;
+  startTime: number;
+}
+
+export interface UserVotes {
+  [key: string]: number;
+}
+
+interface ViewerPollConfig {
+  answer: number;
+  time: number;
+}
+
+export interface PresenterConfig {
+  qna7: {
+    requireApproval: boolean;
+    starredQuestionKey: string;
+  };
+  poll: { [pollId: string]: PresenterPollConfig };
+  registration: {
+    shouldDisplayNames: boolean;
+    joinUrl: string;
+    isRegistrationEnabled: boolean;
+  };
+  enabled: boolean;
+  currentSlide: number;
+  'poll-timing': number;
+}
+
+interface PollConfig {
+  [pollId: string]: ViewerPollConfig;
+}
+
+export interface ViewerConfig {
+  poll: { [viewer: string]: PollConfig };
+  name: { [viewer: string]: string };
+  qna7: { [author: string]: { questions: QuestionDb[] } };
+  votes: { [viewer: string]: UserVotes };
+}
+
+export interface SyncSessionConfig {
+  autojoin: boolean;
+  active: boolean;
+  admins: string[];
+  owner: string;
+  name: string;
+}
+
+export interface SyncSession {
+  presenter: PresenterConfig;
+  viewer: ViewerConfig;
+  config: SyncSessionConfig;
+}
+
+export interface SyncDb extends FirebaseDb {
+  'sync-sessions': { [key: string]: SyncSession };
+  authorized_users: { [uid: string]: boolean };
+  admin: { [uid: string]: { permissions: { [permission: string]: boolean } } };
+  'user-data': {
+    [userId: string]: {
+      [key: string]: {
+        valueKey: any;
+      };
+    };
+  };
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class SyncDataService {
-  private readonly syncId$ = this.syncSesionService.sessionId$.pipe(
-    filter(a => !!a)
-  );
+  private readonly syncId$: Observable<
+    string
+  > = this.syncSessionService.sessionId$.pipe(filter(a => !!a));
 
   constructor(
-    private readonly syncSesionService: SyncSessionService,
-    private readonly dbService: SyncDbService
+    private readonly syncSessionService: SyncSessionService,
+    private readonly dbService: SyncDbService<SyncDb>
   ) {}
 
-  getPresenterObject<T>(key: string, defaultValue?: T) {
-    const key$ = this.syncId$.pipe(
-      map(syncId => `sync-sessions/${syncId}/presenter/${key}`)
-    );
-
-    return this.dbService.object(key$, defaultValue);
+  getPresenterObject<K extends keyof PresenterConfig>(key: K) {
+    return this.dbService
+      .object('sync-sessions')
+      .object(this.syncId$)
+      .object('presenter')
+      .object(key);
   }
 
-  getCurrentViewerObject<T>(key: string, defaultValue?: T) {
-    const key$ = combineLatest([
-      this.syncId$,
-      this.syncSesionService.viewerId$.pipe(filter(a => !!a))
-    ]).pipe(
-      map(([syncId, viewerId]) => {
-        return `sync-sessions/${syncId}/viewer/${key}/${viewerId}`;
-      })
+  getCurrentViewerObject<K extends keyof ViewerConfig>(key: K) {
+    return this.getViewerObject(
+      key,
+      // TODO(kirjs): We can do better
+      this.syncSessionService.viewerId$.pipe(filter(a => !!a)) as any
     );
-    return this.dbService.object(key$, defaultValue);
   }
 
-  getViewerObject<T>(key: string, viewerId: string, defaultValue?: T) {
-    const key$ = this.syncId$.pipe(
-      map(syncId => `sync-sessions/${syncId}/viewer/${key}/${viewerId}`)
-    );
-
-    return this.dbService.object(key$, defaultValue);
+  getViewerObject<K extends keyof ViewerConfig>(key: K, viewerId: string) {
+    return this.dbService
+      .object('sync-sessions')
+      .object(this.syncId$)
+      .object('viewer')
+      .object(key)
+      .object(viewerId);
   }
 
-  getCurrentViewerList<T>(key: string, defaultValue?: T[]): SyncDataList<T> {
-    const key$ = combineLatest([
-      this.syncId$,
-      this.syncSesionService.viewerId$.pipe(filter(a => !!a))
-    ]).pipe(
-      map(
-        ([syncId, viewerId]) =>
-          `sync-sessions/${syncId}/viewer/${key}/${viewerId}`
-      )
-    );
-
-    return this.dbService.list(key$, defaultValue);
-  }
-
-  getAdminAllUserData<T>(key: string, defaultValue?: T) {
-    const key$ = this.syncId$.pipe(
-      map(syncId => `sync-sessions/${syncId}/viewer/${key}`)
-    );
-
-    return this.dbService.object(key$, defaultValue);
+  getAdminAllUserData<K extends keyof ViewerConfig>(key: K) {
+    return this.dbService
+      .object('sync-sessions')
+      .object(this.syncId$)
+      .object('viewer')
+      .object(key);
   }
 }

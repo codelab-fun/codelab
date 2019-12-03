@@ -1,4 +1,5 @@
-<div @questionList *ngFor="let question of questions; trackBy: trackBy">
+<!--TODO(kirjs): add back @questionList. seems like Ivy broke it. -->
+<div *ngFor="let question of questions; trackBy: trackBy">
   <codelab-question
     tabindex="0"
     [question]="question"

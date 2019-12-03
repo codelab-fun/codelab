@@ -5,11 +5,11 @@
 <ng-container *isAdmin>
   <mat-form-field>
     <input
-      placeholder=" URL"
+      placeholder="URL"
       type="text"
       matInput
       [(ngModel)]="url"
-      [syncPresenterValue]="key"
+      [syncPresenterValue]="'registration/joinUrl'"
       [syncPresenterValueDefault]="defaultValue"
     />
   </mat-form-field>

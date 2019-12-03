@@ -8,6 +8,7 @@ import {
   distinctUntilChanged,
   filter,
   mergeMapTo,
+  switchMapTo,
   take,
   takeUntil
 } from 'rxjs/operators';
@@ -23,9 +24,9 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
   @Input() name = 'default';
   sync = {};
   private readonly onDestroy = new Subject<void>();
-  private readonly currentSlide = this.syncDataService.getPresenterObject<
-    number
-  >('currentSlide');
+  private readonly currentSlide = this.syncDataService.getPresenterObject(
+    'currentSlide'
+  );
 
   constructor(
     private readonly syncDataService: SyncDataService,
@@ -46,18 +47,20 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
           takeUntil(this.onDestroy)
         )
         .subscribe((slide: number) => {
+          console.log('set', slide);
           this.currentSlide.set(slide);
         });
 
       this.syncSessionService.status$
         .pipe(
           filter(s => s !== SyncStatus.PRESENTING),
-          mergeMapTo(this.currentSlide.valueChanges()),
+          switchMapTo(this.currentSlide.valueChanges()),
           distinctUntilChanged(),
-          filter(s => s !== null),
+          filter(s => s !== null && s !== undefined),
           takeUntil(this.onDestroy)
         )
         .subscribe((slide: number) => {
+          console.log(slide);
           this.presentation.goToSlide(slide);
         });
     }

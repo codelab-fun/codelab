@@ -17,6 +17,7 @@ import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
+// TODO(kirjs): What's this?
 const defaultPresenterSettings = {
   enabled: true,
   startTime: 0
@@ -91,12 +92,12 @@ export function calculateUserScore(configs, presenterData, userData) {
 }
 
 export class SyncPoll {
-  key = 'poll' + '/' + this.config.key;
+  readonly key = this.config.key;
+  readonly presenterSettings = this.syncDataService
+    .getPresenterObject('poll')
+    .object(this.config.key)
+    .withDefault(defaultPresenterSettings);
 
-  readonly presenterSettings = this.syncDataService.getPresenterObject(
-    this.key,
-    defaultPresenterSettings
-  );
   readonly isPollEnabled$ = this.presenterSettings
     .valueChanges()
     .pipe(map(a => a.enabled));
@@ -124,20 +125,23 @@ export class SyncPoll {
   readonly $isPollRunning = this.timeLeft$.pipe(map(time => time > 0));
   readonly hasVotes$: Observable<boolean>;
   readonly votesCount$: Observable<number>;
-  private readonly viewerData = this.syncDataService.getCurrentViewerObject<
-    UserVote
-  >(this.key, { answer: null, time: 0 });
+  private readonly viewerData = this.syncDataService
+    .getCurrentViewerObject('poll')
+    .object(this.key)
+    .withDefault({ answer: null, time: 0 });
   readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => a.answer));
-  private readonly votesData = this.syncDataService.getAdminAllUserData(
-    this.key,
-    {}
-  );
+  private readonly votesData = this.syncDataService
+    .getAdminAllUserData('poll')
+    .object(this.key)
+    .withDefault({});
+
   votes$ = this.votesData.valueChanges();
 
   constructor(
     private readonly syncDataService: SyncDataService,
     readonly config: SyncPollConfig,
-    private readonly syncDbService: SyncDbService
+    // TODO(kirjs): We prod do not need generics
+    private readonly syncDbService: SyncDbService<any>
   ) {
     // Reformatting breaks this if it's out of the constructor.
     this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
@@ -169,7 +173,8 @@ export class SyncPollService {
   constructor(
     private readonly syncDataService: SyncDataService,
     private readonly syncSessionService: SyncSessionService,
-    private readonly syncDbService: SyncDbService,
+    // TODO(kirjs): Drop any
+    private readonly syncDbService: SyncDbService<any>,
     private readonly registrationService: SyncRegistrationService
   ) {}
 

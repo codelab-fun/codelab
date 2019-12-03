@@ -2,14 +2,23 @@ import { Injectable } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import {
   firebaseToValuesWithKey,
-  SyncSession,
-  SyncSessionConfig,
   SyncStatus
 } from '@codelab/utils/src/lib/sync/common';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import produce from 'immer';
-import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
-import { filter, first, map, switchMap, takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import {
+  filter,
+  first,
+  map,
+  shareReplay,
+  switchMap,
+  takeUntil
+} from 'rxjs/operators';
+import {
+  SyncDb,
+  SyncSession
+} from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,17 +29,19 @@ export class SyncSessionService {
   readonly canStartSession$ = this.viewerId$.pipe(
     switchMap(uid => {
       return this.dbService
-        .object(of('authorized_users/' + uid), false)
+        .object('authorized_users')
+        .object(uid)
+        .withDefault(false)
         .valueChanges();
     })
   );
 
-  private readonly sessionId = new BehaviorSubject(null);
-  readonly sessionConfig = this.dbService.object<SyncSessionConfig>(
-    this.sessionId.pipe(
-      map(sessionId => (sessionId ? `sync-sessions/${sessionId}/config` : null))
-    )
-  );
+  private readonly sessionId = new BehaviorSubject<string>(null);
+  readonly sessionConfig = this.dbService
+    .object('sync-sessions')
+    .object(this.sessionId)
+    .object('config');
+
   readonly sessionId$ = this.sessionId.asObservable();
   readonly hasActiveSession$ = this.sessionId.pipe(
     map(sessionId => !!sessionId)
@@ -40,15 +51,13 @@ export class SyncSessionService {
     this.loginService.preferredStatus$,
     this.preferredAdminStatusSubject.asObservable()
   ]).pipe(map(([a, b]) => b || a));
-  private readonly sessions = this.dbService.list<SyncSession>(
-    of('sync-sessions')
-  );
+  private readonly sessions = this.dbService.list('sync-sessions');
   readonly sessions$ = this.sessions.snapshots$.pipe(
     map(firebaseToValuesWithKey)
   );
 
   constructor(
-    private readonly dbService: SyncDbService,
+    private readonly dbService: SyncDbService<SyncDb>,
     private loginService: LoginService
   ) {
     this.status$ = combineLatest([
@@ -57,6 +66,7 @@ export class SyncSessionService {
       this.preferredAdminStatus$
     ]).pipe(
       map(([uid, config, preferredAdminStatus]) => {
+        console.log(uid);
         if (!(config && config.active)) {
           return SyncStatus.OFF;
         }
@@ -65,7 +75,8 @@ export class SyncSessionService {
         }
 
         return SyncStatus.VIEWING;
-      })
+      }),
+      shareReplay(1)
     );
   }
 
@@ -74,7 +85,8 @@ export class SyncSessionService {
     uid
       .pipe(
         map(uid => {
-          const session: SyncSession = {
+          // TODO(kirjs): Figure this out
+          const session: Partial<SyncSession> = {
             config: {
               owner: uid,
               active: true,
@@ -86,7 +98,7 @@ export class SyncSessionService {
           return session;
         })
       )
-      .subscribe(session => this.sessions.push(session));
+      .subscribe(session => this.sessions.push(session as SyncSession));
     this.autoJoin(name);
   }
 
@@ -126,7 +138,7 @@ export class SyncSessionService {
   }
 
   flipActive(key: string) {
-    this.sessions.object<SyncSessionConfig>(key).updateWithCallback(
+    this.sessions.object(key).updateWithCallback(
       produce(s => {
         s.config.active = !s.config.active;
       })

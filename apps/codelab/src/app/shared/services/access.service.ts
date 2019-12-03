@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { filter, switchMap } from 'rxjs/operators';
-import { of, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 export enum Permissions {
   MANAGE_USERS = 'manage_users',
@@ -13,26 +14,33 @@ export enum Permissions {
 export class AccessService {
   readonly oldIsAdmin$ = this.loginService.uid$.pipe(
     switchMap(uid => {
-      return this.dbService
-        .object(of('authorized_users/' + uid), false)
-        .valueChanges();
+      return (
+        this.dbService
+          // TODO(kirjs): default: false
+          .object('authorized_users')
+          .object(uid)
+          .valueChanges()
+      );
     })
   );
 
   private readonly adminPermissions = this.dbService
-    .object<any>('admin')
-    .object(this.loginService.uid$, { permissions: {} })
+    .object('admin')
+    .object(this.loginService.uid$)
     .object('permissions');
 
   constructor(
     private readonly loginService: LoginService,
-    private readonly dbService: SyncDbService
+    private readonly dbService: SyncDbService<SyncDb>
   ) {}
 
   can(p: Permissions): Observable<boolean> {
-    return this.adminPermissions
-      .object(p, false)
-      .valueChanges()
-      .pipe(filter(a => a !== null));
+    return (
+      this.adminPermissions
+        // TODO(kirjs): default: false
+        .object(p)
+        .valueChanges()
+        .pipe(filter(a => a !== null))
+    );
   }
 }

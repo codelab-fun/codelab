@@ -1,16 +1,22 @@
 import { Directive, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { filter, takeUntil } from 'rxjs/operators';
+import {
+  PresenterConfig,
+  SyncDataService
+} from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { filter, map, takeUntil } from 'rxjs/operators';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: '[syncPresenterValue]',
   exportAs: 'presenterValue'
 })
-export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
-  @Input() syncPresenterValue: string;
+export class SyncPresenterValueDirective<
+  K extends keyof PresenterConfig,
+  T extends PresenterConfig[K]
+> implements OnInit, OnDestroy {
+  @Input() syncPresenterValue: K;
   @Input() syncPresenterValueDefault: T;
 
   private onDestroy$ = new Subject();
@@ -33,13 +39,14 @@ export class SyncPresenterValueDirective<T> implements OnInit, OnDestroy {
     }
 
     const data = this.syncDataService.getPresenterObject(
-      this.syncPresenterValue,
-      this.syncPresenterValueDefault
+      this.syncPresenterValue
     );
-
     data
       .valueChanges()
-      .pipe(takeUntil(this.onDestroy$))
+      .pipe(
+        map(a => (a === undefined ? this.syncPresenterValueDefault : a)),
+        takeUntil(this.onDestroy$)
+      )
       .subscribe(value => {
         this.control.valueAccessor.writeValue(value);
       });

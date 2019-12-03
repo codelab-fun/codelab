@@ -20,8 +20,8 @@ export class TestResultsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     // TODO(kirjs): I'm mutating the value below, there should be a better way.
-    if (changes.result) {
-      for (const test of this.result.tests) {
+    if (changes.result && Array.isArray(this.result)) {
+      for (const test of this.result.tests || []) {
         if (test.pass === false) {
           test.featured = true;
           return;

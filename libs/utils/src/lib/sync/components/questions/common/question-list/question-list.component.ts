@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Question } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
 
 @Component({
   selector: 'codelab-question-list',
@@ -35,9 +34,10 @@ export class QuestionListComponent {
   @Input() questions: Question[];
   @Output() vote = new EventEmitter<{ vote: number; question: Question }>();
 
-  constructor(public readonly questionsService: QuestionsService) {}
+  constructor() {}
 
   trackBy(i, question) {
+    console.log(question.key, '$$');
     return question.key;
   }
 }

@@ -4,10 +4,8 @@ import { combineLatest, Observable } from 'rxjs';
 import produce from 'immer';
 import {
   Question,
-  QuestionConfig,
   QuestionDb,
-  QuestionStatus,
-  UserVotes
+  QuestionStatus
 } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
@@ -27,29 +25,28 @@ const groupVotesByQuestionId = a => {
   providedIn: 'root'
 })
 export class QuestionsService {
-  readonly publicQuestions$;
-  readonly starredQuestion$;
   readonly key = 'qna7';
 
-  readonly presenterObject = this.syncDataService.getPresenterObject<
-    QuestionConfig
-  >(this.key, {
-    requireApproval: true,
-    starredQuestionKey: null
-  });
+  readonly presenterObject = this.syncDataService
+    .getPresenterObject(this.key)
+    .withDefault({
+      requireApproval: true,
+      starredQuestionKey: null
+    });
 
   readonly requireApproval$ = this.presenterObject
     .valueChanges()
     .pipe(map(a => a.requireApproval));
-  private readonly questionsObject = this.syncDataService.getAdminAllUserData(
-    this.key,
-    {}
-  );
+
+  private readonly questionsObject = this.syncDataService
+    .getAdminAllUserData(this.key)
+    .withDefault({});
+
   public readonly allQuestions$ = this.questionsObject.valueChanges().pipe(
     map(values => {
       return Object.entries(values || {})
         .map(([author, value]) => {
-          return Object.entries(value).map(([key, question]) => ({
+          return Object.entries(value.questions).map(([key, question]) => ({
             ...question,
             author,
             key
@@ -66,25 +63,28 @@ export class QuestionsService {
   private readonly votesKey = 'votes';
 
   private readonly votes$ = this.syncDataService
-    .getAdminAllUserData(this.votesKey, {})
+    .getAdminAllUserData(this.votesKey)
+    .withDefault({})
     .valueChanges()
     .pipe(map(groupVotesByQuestionId));
 
-  private readonly myQuestionsList = this.syncDataService.getCurrentViewerList<
-    QuestionDb
-  >(this.key);
+  private readonly myQuestionsList = this.syncDataService
+    .getCurrentViewerObject(this.key)
+    .list('questions');
+
   readonly myUnapprovedQuestions$ = this.myQuestionsList
     .valueChanges()
     .pipe(
-      map(questions =>
+      map((questions: QuestionDb) =>
         Object.values(questions).filter(
           a => a.status !== QuestionStatus.APPROVED
         )
       )
     );
-  private readonly myVotesObject = this.syncDataService.getCurrentViewerObject<
-    UserVotes
-  >(this.votesKey, {});
+  private readonly myVotesObject = this.syncDataService
+    .getCurrentViewerObject(this.votesKey)
+    .withDefault({});
+
   readonly questions$: Observable<Question[]> = combineLatest([
     this.allQuestions$,
     this.votes$,
@@ -123,26 +123,25 @@ export class QuestionsService {
     })
   );
 
+  publicQuestions$ = this.questions$.pipe(
+    map(questions => questions.filter(q => q.public))
+  );
+
+  starredQuestion$ = combineLatest([
+    this.starredQuestionKeyData.valueChanges(),
+    this.questions$
+  ]).pipe(
+    map(([starredQuestionKey, questions]) => {
+      return starredQuestionKey
+        ? questions.find(q => q.key === starredQuestionKey)
+        : null;
+    })
+  );
+
   constructor(
     private readonly syncDataService: SyncDataService,
     private readonly registrationService: SyncRegistrationService
-  ) {
-    // TODO(kirjs): webstorm bug moves it before questions$ when reformatting
-    this.publicQuestions$ = this.questions$.pipe(
-      map(questions => questions.filter(q => q.public))
-    );
-
-    this.starredQuestion$ = combineLatest([
-      this.starredQuestionKeyData.valueChanges(),
-      this.questions$
-    ]).pipe(
-      map(([starredQuestionKey, questions]) => {
-        return starredQuestionKey
-          ? questions.find(q => q.key === starredQuestionKey)
-          : null;
-      })
-    );
-  }
+  ) {}
 
   addQuestion(question: string) {
     this.myQuestionsList.push({
@@ -163,22 +162,15 @@ export class QuestionsService {
 
   updateQuestionStatus(question: Question, status: QuestionStatus) {
     this.syncDataService
-      .getViewerObject(this.key, question.author, {})
+      .getViewerObject(this.key, question.author)
+      .withDefault({})
       .updateWithCallback(a => {
-        a[question.key].status = status;
+        a.questions[question.key].status = status;
         return a;
       });
   }
 
-  approve(question: Question) {
-    this.updateQuestionStatus(question, QuestionStatus.APPROVED);
-  }
-
   starQuestion(starredQuestionKey: string) {
     this.starredQuestionKeyData.set(starredQuestionKey);
-  }
-
-  updateRequiresApproval(requireApproval: boolean) {
-    this.presenterObject.object('requireApproval').set(requireApproval);
   }
 }
