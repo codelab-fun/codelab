@@ -19,8 +19,10 @@ export class SyncComponent {
   readonly userId$ = this.syncSessionService.viewerId$;
 
   readonly isPresentationEnabled$ = this.syncDataService
-    .getPresenterObject('enabled', false)
+    .getPresenterObject('enabled')
+    .withDefault(false)
     .valueChanges();
+
   readonly shouldShowPresentation$ = this.syncSessionService.status$.pipe(
     switchMap(s => {
       if (canWritePresenterData(s)) {

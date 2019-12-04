@@ -22,6 +22,6 @@
   </div>
 </ng-container>
 
-<mat-checkbox [(ngModel)]="seeAll" *ngIf="tests?.length > 1" i18n>
+<mat-checkbox [(ngModel)]="seeAll" *ngIf="tests?.length > 1 || !focused" i18n>
   Display all tests
 </mat-checkbox>

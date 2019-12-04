@@ -2,8 +2,11 @@
   <mat-tab [label]="i.toString()" *ngFor="let q of questions; let i = index">
     <ng-template matTabContent>
       <code-demo-editor [(ngModel)]="q.code"></code-demo-editor>
+      <slides-typescript-checker-runner
+        [code]="q.code"
+      ></slides-typescript-checker-runner>
       <slides-test-runner
-        (result)="update(q, $event)"
+        (result)="update()"
         [code]="q.code"
         [tests]="q.tests"
       ></slides-test-runner>

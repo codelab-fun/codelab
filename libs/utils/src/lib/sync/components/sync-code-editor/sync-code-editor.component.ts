@@ -12,9 +12,11 @@ export class SyncCodeEditorComponent implements OnInit {
   questions = [
     {
       title: 'Write an add function',
-      code: `function add(a,b){
+      code: `export function add(a,b){
 
-}`,
+}
+console.log('hi');
+`,
       tests: `
     describe('tests', () => {
       it('Function add exists', () => {

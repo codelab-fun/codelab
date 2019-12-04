@@ -125,10 +125,11 @@ export class SyncDataObject<T> {
       key$ = of(key$);
     }
 
-    const newKey$ = combineLatest([this.key$, key$]).pipe(
-      map((path, key) => path + '/' + key)
-    );
-    return this.syncDbService.object(newKey$ as any);
+    // TODO(kirjs): There should be a better way than casting to any
+    const newKey$ = this.key$.pipe(
+      switchMap(k => (key$ as Observable<K>).pipe(map(key => `${k}/${key}`)))
+    ) as any;
+    return this.syncDbService.object(newKey$);
   }
 
   list<K extends keyof T>(

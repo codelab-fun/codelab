@@ -9,6 +9,7 @@ import { SimpleTestsProgressModule } from '@codelab/utils/src/lib/test-results/s
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-results.module';
+import { TypescriptCheckerRunnerModule } from '@codelab/utils/src/lib/sandbox-runner/typescript-checker-runner/typescript-checker-runner.module';
 
 @NgModule({
   declarations: [SyncCodeEditorComponent, TestRunnerComponent],
@@ -21,7 +22,8 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     SimpleTestsProgressModule,
     MatCheckboxModule,
     MatTabsModule,
-    TestResultsModule
+    TestResultsModule,
+    TypescriptCheckerRunnerModule
   ]
 })
 export class SyncCodeEditorModule {}

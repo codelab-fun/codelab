@@ -5,7 +5,6 @@ import {
   OnChanges,
   Output
 } from '@angular/core';
-import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
 import { TestRunnerService } from '@codelab/utils/src/lib/sandbox-runner/test-runner.service';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -32,8 +31,5 @@ export class TestRunnerComponent implements OnChanges {
     this.testRunner.run(this.code, this.tests);
   }
 
-  constructor(
-    private scriptLoaderService: ScriptLoaderService,
-    private testRunner: TestRunnerService
-  ) {}
+  constructor(private testRunner: TestRunnerService) {}
 }

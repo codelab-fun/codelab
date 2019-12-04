@@ -82,6 +82,9 @@ export class SyncDataService {
   private readonly syncId$: Observable<
     string
   > = this.syncSessionService.sessionId$.pipe(filter(a => !!a));
+  private readonly currentSession$ = this.dbService
+    .object('sync-sessions')
+    .object(this.syncId$);
 
   constructor(
     private readonly syncSessionService: SyncSessionService,
@@ -89,35 +92,28 @@ export class SyncDataService {
   ) {}
 
   getPresenterObject<K extends keyof PresenterConfig>(key: K) {
-    return this.dbService
-      .object('sync-sessions')
-      .object(this.syncId$)
-      .object('presenter')
-      .object(key);
+    return this.currentSession$.object('presenter').object(key);
   }
 
   getCurrentViewerObject<K extends keyof ViewerConfig>(key: K) {
     return this.getViewerObject(
       key,
       // TODO(kirjs): We can do better
-      this.syncSessionService.viewerId$.pipe(filter(a => !!a)) as any
+      this.syncSessionService.viewerId$.pipe(filter(a => !!a))
     );
   }
 
-  getViewerObject<K extends keyof ViewerConfig>(key: K, viewerId: string) {
-    return this.dbService
-      .object('sync-sessions')
-      .object(this.syncId$)
+  getViewerObject<K extends keyof ViewerConfig>(
+    key: K,
+    viewerId: Observable<string> | string
+  ) {
+    return this.currentSession$
       .object('viewer')
       .object(key)
       .object(viewerId);
   }
 
   getAdminAllUserData<K extends keyof ViewerConfig>(key: K) {
-    return this.dbService
-      .object('sync-sessions')
-      .object(this.syncId$)
-      .object('viewer')
-      .object(key);
+    return this.currentSession$.object('viewer').object(key);
   }
 }
