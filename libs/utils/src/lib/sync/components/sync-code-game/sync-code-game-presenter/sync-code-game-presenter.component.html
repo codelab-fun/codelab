@@ -1,1 +1,5 @@
-<p>sync-code-game-presenter works!</p>
+<div>
+  <div *ngFor="let user of registrationService.users$ | async">
+    {{ user.name }}
+  </div>
+</div>
