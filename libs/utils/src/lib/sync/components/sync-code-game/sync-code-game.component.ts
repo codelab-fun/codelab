@@ -5,10 +5,10 @@ declare const require;
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'sync-code-editor',
-  templateUrl: './sync-code-editor.component.html',
-  styleUrls: ['./sync-code-editor.component.css']
+  templateUrl: './sync-code-game.component.html',
+  styleUrls: ['./sync-code-game.component.css']
 })
-export class SyncCodeEditorComponent {
+export class SyncCodeGameComponent {
   questions = [
     {
       title: 'Write an add function',

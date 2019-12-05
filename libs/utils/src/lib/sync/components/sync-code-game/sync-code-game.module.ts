@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SyncCodeEditorComponent } from './sync-code-editor.component';
+import { SyncCodeGameComponent } from './sync-code-game.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
 
@@ -11,10 +11,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-results.module';
 import { TypescriptCheckerRunnerModule } from '@codelab/utils/src/lib/sandbox-runner/typescript-checker-runner/typescript-checker-runner.module';
 import { SandboxRunnerModule } from '@codelab/utils/src/lib/sandbox-runner/sandbox-runner.module';
+import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 
 @NgModule({
-  declarations: [SyncCodeEditorComponent],
-  exports: [SyncCodeEditorComponent],
+  declarations: [SyncCodeGameComponent],
+  exports: [SyncCodeGameComponent],
   imports: [
     CommonModule,
     CodeDemoModule,
@@ -25,7 +26,8 @@ import { SandboxRunnerModule } from '@codelab/utils/src/lib/sandbox-runner/sandb
     MatTabsModule,
     TestResultsModule,
     TypescriptCheckerRunnerModule,
-    SandboxRunnerModule
+    SandboxRunnerModule,
+    SyncDirectivesModule
   ]
 })
-export class SyncCodeEditorModule {}
+export class SyncCodeGameModule {}

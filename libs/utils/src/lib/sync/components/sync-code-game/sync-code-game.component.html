@@ -1,4 +1,7 @@
-<mat-tab-group>
+<div *isPresenting="1">
+  lol
+</div>
+<mat-tab-group *isViewing>
   <mat-tab [label]="i.toString()" *ngFor="let q of questions; let i = index">
     <ng-template matTabContent>
       <code-demo-editor fontSize="20" [(ngModel)]="q.code"></code-demo-editor>

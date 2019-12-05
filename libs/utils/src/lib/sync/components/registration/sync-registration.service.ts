@@ -9,7 +9,7 @@ export class SyncRegistrationService {
   readonly key = 'name';
   name = '';
 
-  readonly userData = this.syncDataService.getAdminAllUserData<any>(this.key);
+  readonly userData = this.syncDataService.getAdminAllUserData(this.key);
   readonly usersMap$ = this.userData.valueChanges();
   readonly users$ = this.usersMap$.pipe(
     map(a => {

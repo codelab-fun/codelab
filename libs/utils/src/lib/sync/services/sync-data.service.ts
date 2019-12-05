@@ -3,7 +3,10 @@ import { Injectable } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import {
+  SyncDataObject,
+  SyncDbService
+} from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { FirebaseDb } from '@codelab/utils/src/lib/sync/services/common';
 import { QuestionDb } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 
@@ -113,7 +116,9 @@ export class SyncDataService {
       .object(viewerId);
   }
 
-  getAdminAllUserData<K extends keyof ViewerConfig>(key: K) {
+  getAdminAllUserData<K extends keyof ViewerConfig>(
+    key: K
+  ): SyncDataObject<ViewerConfig[K]> {
     return this.currentSession$.object('viewer').object(key);
   }
 }

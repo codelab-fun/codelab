@@ -17,11 +17,6 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
 import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/firebase-info.service';
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
-// TODO(kirjs): What's this?
-const defaultPresenterSettings = {
-  enabled: true,
-  startTime: 0
-};
 
 export interface UserVote {
   answer: number;
@@ -96,7 +91,10 @@ export class SyncPoll {
   readonly presenterSettings = this.syncDataService
     .getPresenterObject('poll')
     .object(this.config.key)
-    .withDefault(defaultPresenterSettings);
+    .withDefault({
+      enabled: true,
+      startTime: 0
+    });
 
   readonly isPollEnabled$ = this.presenterSettings
     .valueChanges()
@@ -174,7 +172,6 @@ export class SyncPollService {
   constructor(
     private readonly syncDataService: SyncDataService,
     private readonly syncSessionService: SyncSessionService,
-    // TODO(kirjs): Drop any
     private readonly firebaseInfoService: FirebaseInfoService,
     private readonly registrationService: SyncRegistrationService
   ) {}
@@ -205,7 +202,7 @@ export class SyncPollService {
 
     return combineLatest([result$, this.registrationService.usersMap$]).pipe(
       map(([results, users]) => {
-        return Object.entries<number>(users).reduce((result, [uid, name]) => {
+        return Object.entries(users).reduce((result, [uid, name]) => {
           result[uid] = { name, score: results[uid] || 0 };
           return result;
         }, {});
