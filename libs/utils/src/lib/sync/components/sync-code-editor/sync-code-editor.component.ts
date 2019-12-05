@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 declare const require;
 
@@ -8,7 +8,7 @@ declare const require;
   templateUrl: './sync-code-editor.component.html',
   styleUrls: ['./sync-code-editor.component.css']
 })
-export class SyncCodeEditorComponent implements OnInit {
+export class SyncCodeEditorComponent {
   questions = [
     {
       title: 'Write an add function',
@@ -18,6 +18,7 @@ export class SyncCodeEditorComponent implements OnInit {
 console.log('hi');
 `,
       tests: `
+    import {add} from './main';
     describe('tests', () => {
       it('Function add exists', () => {
         chai.expect(typeof add).to.equal('function');
@@ -58,9 +59,7 @@ console.log('hi');
 }`;
   tests = require('!!raw-loader!./tests.ts');
 
-  constructor() {}
-
-  ngOnInit() {}
-
-  update() {}
+  update(info) {
+    console.log(JSON.stringify(info));
+  }
 }

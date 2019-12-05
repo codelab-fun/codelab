@@ -66,7 +66,6 @@ export class SyncSessionService {
       this.preferredAdminStatus$
     ]).pipe(
       map(([uid, config, preferredAdminStatus]) => {
-        console.log(uid);
         if (!(config && config.active)) {
           return SyncStatus.OFF;
         }

@@ -27,7 +27,7 @@ export class TestResultsComponent implements OnChanges {
   tests: TestResult[];
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.result && Array.isArray(this.result.tests)) {
+    if (changes.result && this.result && Array.isArray(this.result.tests)) {
       let hasFailures = false;
       this.tests = this.result.tests.map(t => {
         const result = { ...t, featured: !t.pass && !hasFailures };

@@ -4,7 +4,7 @@ import * as TsTypes from 'typescript';
 
 const ts = getTypeScript();
 
-interface Files {
+export interface Files {
   [key: string]: string;
 }
 
@@ -33,7 +33,8 @@ const compilerOptions: TsTypes.CompilerOptions = {
   experimentalDecorators: true,
   emitDecoratorMetadata: true,
   noImplicitAny: true,
-  declaration: true
+  declaration: true,
+  lib: ['dom', 'es6']
 };
 
 type ObservableFiles = Observable<Files>;

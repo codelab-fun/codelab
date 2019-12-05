@@ -1,6 +1,6 @@
 import { Runner } from '@codelab/utils/src/lib/sandbox-runner/runners/runner';
-import { Observable, ReplaySubject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { shareReplay, switchMap } from 'rxjs/operators';
 
 function run(code) {
   return new Observable(function(subscriber) {
@@ -22,8 +22,9 @@ function run(code) {
       const data = a.data;
       if (data.type === 'complete') {
         worker.terminate();
+      } else {
+        subscriber.next(data);
       }
-      subscriber.next(data);
     };
 
     return () => {
@@ -33,8 +34,11 @@ function run(code) {
 }
 
 export class WebworkerRunner<E> implements Runner {
-  private readonly executeSubject = new ReplaySubject(1);
-  result$ = this.executeSubject.asObservable().pipe(switchMap(run));
+  private readonly executeSubject = new Subject();
+  result$ = this.executeSubject.pipe(
+    switchMap(run),
+    shareReplay(1)
+  );
 
   destroy() {
     this.executeSubject.complete();
