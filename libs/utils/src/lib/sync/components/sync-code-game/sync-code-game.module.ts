@@ -12,9 +12,17 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
 import { TypescriptCheckerRunnerModule } from '@codelab/utils/src/lib/sandbox-runner/typescript-checker-runner/typescript-checker-runner.module';
 import { SandboxRunnerModule } from '@codelab/utils/src/lib/sandbox-runner/sandbox-runner.module';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
+import { SyncCodeGamePresenterComponent } from './sync-code-game-presenter/sync-code-game-presenter.component';
+import { SyncCodeGameAdminComponent } from './sync-code-game-admin/sync-code-game-admin.component';
+import { SyncCodeGameViewerComponent } from './sync-code-game-viewer/sync-code-game-viewer.component';
 
 @NgModule({
-  declarations: [SyncCodeGameComponent],
+  declarations: [
+    SyncCodeGameComponent,
+    SyncCodeGamePresenterComponent,
+    SyncCodeGameAdminComponent,
+    SyncCodeGameViewerComponent
+  ],
   exports: [SyncCodeGameComponent],
   imports: [
     CommonModule,
