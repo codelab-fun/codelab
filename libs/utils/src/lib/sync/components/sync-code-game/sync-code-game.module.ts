@@ -15,6 +15,7 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
 import { SyncCodeGamePresenterComponent } from './sync-code-game-presenter/sync-code-game-presenter.component';
 import { SyncCodeGameAdminComponent } from './sync-code-game-admin/sync-code-game-admin.component';
 import { SyncCodeGameViewerComponent } from './sync-code-game-viewer/sync-code-game-viewer.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SyncCodeGameViewerComponent } from './sync-code-game-viewer/sync-code-g
     TestResultsModule,
     TypescriptCheckerRunnerModule,
     SandboxRunnerModule,
-    SyncDirectivesModule
+    SyncDirectivesModule,
+    MatButtonModule
   ]
 })
 export class SyncCodeGameModule {}

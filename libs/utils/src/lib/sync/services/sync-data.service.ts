@@ -44,11 +44,22 @@ interface PollConfig {
   [pollId: string]: ViewerPollConfig;
 }
 
+export interface CodingSession {
+  code: string;
+  score: number;
+  maxScore: number;
+}
+
+export interface CodingSessions {
+  [key: string]: CodingSession;
+}
+
 export interface ViewerConfig {
   poll: { [viewer: string]: PollConfig };
   name: { [viewer: string]: string };
-  qna7: { [author: string]: { questions: QuestionDb[] } };
+  qna7: { [viewer: string]: { questions: QuestionDb[] } };
   votes: { [viewer: string]: UserVotes };
+  coding: { [viewer: string]: CodingSessions };
 }
 
 export interface SyncSessionConfig {

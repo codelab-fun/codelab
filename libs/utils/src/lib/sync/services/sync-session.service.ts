@@ -13,7 +13,8 @@ import {
   map,
   shareReplay,
   switchMap,
-  takeUntil
+  takeUntil,
+  tap
 } from 'rxjs/operators';
 import {
   SyncDb,
@@ -25,15 +26,19 @@ import {
 })
 export class SyncSessionService {
   readonly status$: Observable<SyncStatus>;
-  readonly viewerId$ = this.loginService.uid$;
+  readonly viewerId$: Observable<string> = this.loginService.uid$;
   readonly canStartSession$ = this.viewerId$.pipe(
-    switchMap(uid => {
+    tap(a => {
+      console.log({ a });
+    }),
+    switchMap((uid: string) => {
       return this.dbService
         .object('authorized_users')
         .object(uid)
         .withDefault(false)
         .valueChanges();
-    })
+    }),
+    shareReplay(1)
   );
 
   private readonly sessionId = new BehaviorSubject<string>(null);
@@ -44,7 +49,8 @@ export class SyncSessionService {
 
   readonly sessionId$ = this.sessionId.asObservable();
   readonly hasActiveSession$ = this.sessionId.pipe(
-    map(sessionId => !!sessionId)
+    map(sessionId => !!sessionId),
+    shareReplay(1)
   );
   private readonly preferredAdminStatusSubject = new BehaviorSubject(null);
   private readonly preferredAdminStatus$ = combineLatest([
@@ -75,6 +81,7 @@ export class SyncSessionService {
 
         return SyncStatus.VIEWING;
       }),
+      tap(a => console.log(a)),
       shareReplay(1)
     );
   }
@@ -106,6 +113,7 @@ export class SyncSessionService {
       filter(s => !!s),
       takeUntil(this.hasActiveSession$.pipe(filter(a => a)))
     );
+
     const availableSessions = sessions.pipe(
       map(sessions =>
         sessions.filter(snapshot => {
@@ -114,6 +122,7 @@ export class SyncSessionService {
         })
       )
     );
+
     availableSessions.subscribe(a => {
       if (a.length > 1) {
         console.log(

@@ -72,7 +72,6 @@ System.import("runner");
   run(code, tests = this.code.defaultTests, system = true) {
     this.runner.run(
       [
-        'console.log(1)',
         this.code.polyfill,
         this.code.chai,
         this.code.mocha,
@@ -80,8 +79,7 @@ System.import("runner");
         system ? wrapSystemJs(this.code.SystemJS) : '',
         code,
         tests,
-        system ? this.code.systemMochaRun : this.code.mochaRun,
-        'console.log(2)'
+        system ? this.code.systemMochaRun : this.code.mochaRun
       ].join('\n')
     );
   }
