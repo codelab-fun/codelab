@@ -14,13 +14,11 @@ export enum Permissions {
 export class AccessService {
   readonly oldIsAdmin$ = this.loginService.uid$.pipe(
     switchMap(uid => {
-      return (
-        this.dbService
-          // TODO(kirjs): default: false
-          .object('authorized_users')
-          .object(uid)
-          .valueChanges()
-      );
+      return this.dbService
+        .object('authorized_users')
+        .object(uid)
+        .withDefault(false)
+        .valueChanges();
     })
   );
 

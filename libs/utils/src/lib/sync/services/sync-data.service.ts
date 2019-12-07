@@ -112,7 +112,6 @@ export class SyncDataService {
   getCurrentViewerObject<K extends keyof ViewerConfig>(key: K) {
     return this.getViewerObject(
       key,
-      // TODO(kirjs): We can do better
       this.syncSessionService.viewerId$.pipe(filter(a => !!a))
     );
   }
