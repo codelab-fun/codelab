@@ -26,7 +26,3 @@ export interface QuestionConfig {
   starredQuestionKey: string;
   requireApproval: boolean;
 }
-
-export interface UserVotes {
-  [key: string]: number;
-}

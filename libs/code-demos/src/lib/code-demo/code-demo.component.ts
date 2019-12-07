@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, OnDestroy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   filter,
@@ -46,7 +46,7 @@ export function getChanges(current, previous) {
     }
   ]
 })
-export class CodeDemoComponent implements ControlValueAccessor {
+export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   @Input() bootstrapTest;
   @Input() milestone = '';
   @Input() url = 'about:blank';
@@ -83,6 +83,7 @@ export class CodeDemoComponent implements ControlValueAccessor {
       ),
       filter(value => Object.keys(value).length > 0),
       compileTsFilesWatch(),
+      map(a => a.files),
       startWith({})
     );
 
@@ -105,6 +106,11 @@ export class CodeDemoComponent implements ControlValueAccessor {
   }
 
   registerOnTouched() {}
+
+  ngOnDestroy() {
+    this.changedTsFilesSubject.complete();
+    this.changedStaticFilesSubject.complete();
+  }
 
   registerOnChange(onChange: (code: Code) => void) {
     this.onChange = onChange;

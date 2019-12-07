@@ -48,22 +48,27 @@ export interface SandBoxWithLoader extends SandBox {
 
 const iframes = new WeakMap();
 
+export function wrapSystemJs(systemCode) {
+  // SystemJS expects document.baseURI to be set on the document.
+  // Since it's a readonly property, I'm faking whole document property.
+  return `
+          (function(document){
+              ${systemCode}
+            }({
+              getElementsByTagName: ()=>[],
+              body: {},
+              documentElement: window,
+              createElement: ()=>({ refList: {} }),
+              baseURI: '${document.baseURI}'
+            }));
+          `;
+}
+
 function injectSystemJs({ evalJs }) {
   const systemCode = require('!!raw-loader!systemjs/dist/system.src');
   // SystemJS expects document.baseURI to be set on the document.
   // Since it's a readonly property, I'm faking whole document property.
-  const wrappedSystemCode = `
-          (function(document){
-              ${systemCode}
-            }({
-              getElementsByTagName: document.getElementsByTagName.bind(document),
-              head:document.head,
-              body: document.body,
-              documentElement: document.documentElement,
-              createElement: document.createElement.bind(document),
-              baseURI: '${document.baseURI}'
-            }));
-          `;
+  const wrappedSystemCode = wrapSystemJs(systemCode);
   evalJs(wrappedSystemCode);
 }
 

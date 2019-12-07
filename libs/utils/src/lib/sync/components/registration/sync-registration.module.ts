@@ -10,6 +10,7 @@ import { RegistrationAdminComponent } from '@codelab/utils/src/lib/sync/componen
 import { FormsModule } from '@angular/forms';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/components/sync-join-instructions/sync-join-instructions.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/componen
     MatFormFieldModule,
     MatInputModule,
     SyncDirectivesModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
   ]
 })
 export class SyncRegistrationModule {}

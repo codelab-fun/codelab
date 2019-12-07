@@ -5,14 +5,13 @@ import {
   distinctUntilChanged,
   filter,
   first,
-  map,
   mergeMapTo,
-  switchMap,
   takeUntil,
   tap
 } from 'rxjs/operators';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { LoginService } from '@codelab/firebase-login';
+import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -26,7 +25,7 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
   private onDestroy$ = new Subject();
 
   constructor(
-    private readonly dbService: SyncDbService,
+    private readonly dbService: SyncDbService<SyncDb>,
     private readonly loginService: LoginService,
     @Optional() private readonly control: NgControl
   ) {}
@@ -42,18 +41,12 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
         'syncPresenterValue directive must be attached to a formControl'
       );
     }
-    const $key = this.loginService.uid$.pipe(
-      map(uid => `user-data/${uid}/${this.syncUserValue}`)
-    );
 
-    const dataValue$ = this.control.valueChanges.pipe(
-      filter(a => a !== undefined),
-      first(),
-      switchMap(defaultValue => {
-        console.log({ defaultValue });
-        return this.dbService.object($key, defaultValue).valueChanges();
-      })
-    );
+    const syncDataObject = this.dbService
+      .object('user-data')
+      .object(this.loginService.uid$)
+      .object(this.syncUserValue);
+    const dataValue$ = syncDataObject.valueChanges();
 
     dataValue$.pipe(takeUntil(this.onDestroy$)).subscribe(value => {
       console.log('FROM STORE', value);
@@ -73,9 +66,7 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
       )
       .subscribe(newValue => {
         console.log('FROM CONTROL', newValue);
-        const service = this.dbService.object($key);
-        service.set(newValue);
-        service.destroy();
+        syncDataObject.set(newValue);
       });
   }
 }

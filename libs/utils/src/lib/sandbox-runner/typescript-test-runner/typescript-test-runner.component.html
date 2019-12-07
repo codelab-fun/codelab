@@ -1,0 +1,7 @@
+<slides-test-runner
+  (result)="result.emit($event)"
+  *ngIf="code$ | async as code"
+  [code]="code.code"
+  [tests]="code.tests"
+>
+</slides-test-runner>

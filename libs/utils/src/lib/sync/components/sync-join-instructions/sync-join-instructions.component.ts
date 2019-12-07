@@ -7,12 +7,14 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
   styleUrls: ['./sync-join-instructions.component.css']
 })
 export class SyncJoinInstructionsComponent {
-  readonly key = 'registration/joinUrl';
+  readonly key = 'joinUrl';
   readonly defaultValue = 'kirjs.com/start';
 
   url: string;
   readonly joinUrl$ = this.syncDataService
-    .getPresenterObject<string>(this.key)
+    .getPresenterObject('registration')
+    .object(this.key)
+    .withDefault(this.defaultValue)
     .valueChanges();
 
   constructor(private readonly syncDataService: SyncDataService) {}
