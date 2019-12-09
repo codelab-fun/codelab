@@ -984,6 +984,104 @@
         }
       },
       "schematics": {}
+    },
+    "playground-quiz": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/playground/quiz",
+      "sourceRoot": "apps/playground/quiz/src",
+      "prefix": "codelab",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/playground/quiz",
+            "index": "apps/playground/quiz/src/index.html",
+            "main": "apps/playground/quiz/src/main.ts",
+            "polyfills": "apps/playground/quiz/src/polyfills.ts",
+            "tsConfig": "apps/playground/quiz/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/playground/quiz/src/favicon.ico",
+              "apps/playground/quiz/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "apps/playground/quiz/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/playground/quiz/src/environments/environment.ts",
+                  "with": "apps/playground/quiz/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "playground-quiz:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "playground-quiz:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "playground-quiz:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/playground/quiz/tsconfig.app.json",
+              "apps/playground/quiz/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/playground/quiz/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/playground/quiz/jest.config.js",
+            "tsConfig": "apps/playground/quiz/tsconfig.spec.json",
+            "setupFile": "apps/playground/quiz/src/test-setup.ts"
+          }
+        }
+      }
     }
   },
   "defaultProject": "codelab",

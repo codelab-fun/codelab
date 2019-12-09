@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar class="header-image">
+    <mat-card-title>Dependency Injection Quiz</mat-card-title>
+    <mat-card-subtitle>How well do you know Dependency Injection?<br clear="all"/>
+      Take the quiz and find out!</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="QUIZ_TOPIC_IMAGE" alt="Photo of Dependency Injection diagram">
+  <mat-card-content>
+    <p>Take this awesome quiz that will help improve your understanding of Dependency Injection. The timed questionnaire
+      with automatic scoring provides you with a final score at the end. Match wits with your friends! Practice to
+      increase your knowledge. Good luck and have fun with this quiz. Share and enjoy!</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button type="button" disableRipple="false" (click)="startQuiz()">Start the Quiz!</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,14 @@
+mat-card-content p {
+  text-align: justify;
+}
+
+mat-card-actions {
+  text-align: center;
+
+  button {
+    margin-bottom: 10px !important;
+  }
+  button:hover {
+    border: 1px solid #007aff;
+  }
+}
