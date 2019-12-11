@@ -1,52 +1,5 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
   <div *slide>
-    Meta What is codelab.fun - Online interactive angular tutorial no setup -
-    Interactive examples - Interactive exercises - All open source/Angular
-    Ivy/on Github - Add photo of a live event How it started - TBD What problem
-    does it solve - Get up to speed quickly - 10 milestones Who uses it/stats? -
-    TBD - Beginners Live-events - TBD Photos - 10 Countries Contributors -
-    Codelab is open source - almost 50 contributors on github - More about it
-    later Stream "Звуки программистов" - @kirjs and @thekiba meet on weekends
-    and do long technical stream in russian - https://www.twitch.tv/kirjs Other
-    cool things Russian translation - Codelab uses Angular standard i18n -
-    Codelab uses PoEditor (screenshotot TBD) - Anybody can help with translation
-    - Already translated into Russian 30 seconds - Angular snippets, learn new
-    thing in 30 seconds - Open source, anybody can add (using amazing form) 30
-    seconds AMAZING (experimental) form - anybody can add his own snippet (about
-    angular features) - boring way to create a new snippet -> amazing form -
-    Firebase + Github Auth - amazing form github integration - + edit form
-    Technical stuff Codelab for presentations Our goal was: *slide directive
-    Passing ID to slide directive examples:
-    https://kirjs.com/binary/binary-file-value-2 TODO(web assembly). Feedback +
-    Github Integration (alex bu?) - layout placement - roles model - TBD
-    Feedback Screenshot - Table Screenshot - Github Integration Upgrading to Ivy
-    - Show PDF Runner (TypeScript incremental compilation + HMR + iframe) -
-    Systemjs - изначальные проблемы: очень долго пересобиралось, потому что
-    пересоздавался iframe типы задавались вручную, поэтому было проблемно
-    подключать дополнительные библиотеки - что сделано: iframe стал
-    переиспользоваться инстанс ts compiler был переведен на watch режим
-    реализован bundler, который собирает типы в один файл оптимизация бандла с
-    пакетами, чтобы все сжималось - что получили: перезапуск вместо 0.5-1 сек
-    стало почти мгновенно (показать демонстрацию) размер бандла уменьшился в 2
-    раза (todo: посмотреть размер) появилась возможность подключать любые
-    библиотеки на этапе компиляции Running tests (mocha / babel + traversing
-    AST) - The goal is to quickly assess whether user's code does what we want.
-    - Initially the plan was to run unit tests in an iframe with TestBed, mocha
-    + chai (code TBD) - Phase 2 - We started reusing iframe (code TBD) - Special
-    case testing bootstrapping the app (code TBD) - We also added babel tests
-    (babel can parse TypeScript) (code TBD) - This works, we look at the code,
-    not at the result. Monaco - The goal is to give users a type aware editor
-    with SyntaxHighlighting quick, extensible - We chose monaco - Bundle
-    size/It's own AMD loader/Have to be included in the assets - Adding types to
-    monaco - Highlighting - Autofolding - Init on app load Experiments/What's
-    next? Sync lib - Codelab is not just an angular course it is a platform -
-    Demo New runner - What we want: - Generic runner (not just angular) - Does
-    not need types/libraries bundled (fetched them asynchronously from cdn) -
-    Where we are? - We don't know how to How/Why to contribute? Is is hard? How
-    to start Why to contribute? What's next?
-  </div>
-
-  <div *slide>
     <h1>codelab.fun</h1>
   </div>
   <div *slide>What is codelab.fun</div>
@@ -76,7 +29,7 @@
     russian
   </div>
   <div *slide>- https://www.twitch.tv/kirjs</div>
-  <div *slide>Other cool things</div>
+  <div *slide cover>Other cool things</div>
   <div *slide>Russian translation</div>
   <div *slide>- Codelab uses Angular standard i18n</div>
   <div *slide>- Codelab uses PoEditor (screenshotot TBD)</div>
@@ -92,10 +45,28 @@
   <div *slide>- amazing form github integration</div>
   <div *slide>- + edit form</div>
   <div *slide>Technical stuff</div>
-  <div *slide>Codelab for presentations</div>
+  <div *slide cover>Codelab for presentations</div>
   <div *slide>Our goal was:</div>
   <div *slide>*slide directive</div>
   <div *slide>Passing ID to slide directive</div>
+
+  <div *slide>
+    How to have code in the template
+    <ul>
+      <li>{{ '{' }}</li>
+      <li>{{ ' Put in a string (`) multiline not supported' }}</li>
+      <li>Use different interpolation: interpolation: [``, `]`]</li>
+      <li>ngNonBindable</li>
+      <li>use ng-template</li>
+      <li>use plaintext</li>
+      <li>use script tag</li>
+      <li>textarea</li>
+      <li>textarea + ngNonBindable</li>
+      <li>Code in the component</li>
+      <li>!!raw-loader - code in files</li>
+    </ul>
+  </div>
+
   <div *slide>examples:</div>
   <div *slide>https://kirjs.com/binary/binary-file-value-2</div>
   <div *slide>TODO(web assembly).</div>
