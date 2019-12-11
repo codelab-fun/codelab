@@ -1,0 +1,29 @@
+<mat-card class="circle">
+  &nbsp;
+</mat-card>
+
+<mat-card
+  style="width: 240px;position: absolute;right: 10px;top: 10px;bottom: 10px"
+>
+  <h1>twitch.tv/kirjs</h1>
+  <p>Streams on Angular, TypeScript, Debugging</p>
+  <h2>Today</h2>
+  <p>Topic of the day: lol</p>
+  <h2>Today on the stream:</h2>
+  <div style="display:flex;text-align: center">
+    <div *ngFor="let guest of config.guests" style="width: 120px;">
+      <img
+        [src]="guest.avatar"
+        style="width: 90px;border-radius: 50%;height: 90px;"
+        [alt]="guest.name"
+      />
+      <div
+        style="font-size: 20px;font-weight: 400;height: 32px;line-height: 32px;"
+      >
+        {{ guest.name }}
+      </div>
+      <div>@{{ guest.twitter }}</div>
+    </div>
+  </div>
+  <h2>Chat</h2>
+</mat-card>

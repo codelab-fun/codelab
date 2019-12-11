@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { OverlayComponent } from './modules/streaming/overlay/overlay.component';
+import { MatCardModule } from '@angular/material/card';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -94,6 +96,15 @@ const routes = [
     description: 'Home'
   },
   {
+    path: 'streaming',
+    loadChildren: () =>
+      import('./modules/streaming/streaming.module').then(
+        m => m.StreamingModule
+      ),
+    name: 'Home',
+    description: 'Home'
+  },
+  {
     path: 'sync',
     loadChildren: () =>
       import('./modules/sync/sync.module').then(m => m.SyncModule),
@@ -145,14 +156,15 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, OverlayComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    angularFire
+    angularFire,
+    MatCardModule
   ],
   providers: [
     {
