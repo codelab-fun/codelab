@@ -6,9 +6,12 @@ import {
 } from '@angular/core';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { ReplaySubject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 export class SyncIsStatusDirective<T> implements OnInit {
   protected readonly status: SyncStatus = SyncStatus.OFF;
+  private readonly destroy = new ReplaySubject(1);
 
   constructor(
     private readonly viewContainer: ViewContainerRef,
@@ -17,9 +20,11 @@ export class SyncIsStatusDirective<T> implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.syncSession.status$.subscribe(status => {
-      this.toggleContentDisplay(status === this.status);
-    });
+    this.syncSession.status$
+      .pipe(takeUntil(this.destroy))
+      .subscribe((status: SyncStatus) => {
+        this.toggleContentDisplay(status === this.status);
+      });
   }
 
   toggleContentDisplay(isDisplayed: boolean) {

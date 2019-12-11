@@ -1,10 +1,13 @@
 <div *ngIf="result" class="container">
   <codelab-simple-tests-progress
-    [tests]="result.tests"
+    *ngIf="showProgress"
+    [tests]="tests"
   ></codelab-simple-tests-progress>
 
   <slides-test-run-results
-    [tests]="result.tests"
+    [seeAll]="!focused"
+    [focused]="focused"
+    [tests]="tests"
     (selectFile)="selectFile.emit($event)"
   ></slides-test-run-results>
 

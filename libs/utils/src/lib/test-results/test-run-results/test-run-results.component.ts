@@ -11,6 +11,7 @@ export class TestRunResultsComponent implements OnInit {
   @Output() selectFile = new EventEmitter<string>();
   @Input() tests: TestResult[];
   @Input() seeAll = false;
+  @Input() focused = true;
 
   getName(test) {
     return test.name;

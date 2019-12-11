@@ -12,6 +12,7 @@
         placeholder="Name"
         maxlength="25"
         required
+        (keydown.enter)="registrationService.save()"
         [(ngModel)]="registrationService.name"
       />
     </mat-form-field>

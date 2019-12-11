@@ -17,7 +17,7 @@
     [enabled]="poll.$isPollRunning | async"
     *ngIf="config.type === 'stars'"
     [(ngModel)]="stars"
-    [syncViewerValue]="this.poll.key"
+    [syncViewerValue]="'poll/' + this.poll.key"
   ></codelab-stars>
 
   <codelab-sync-poll-viewer-choice

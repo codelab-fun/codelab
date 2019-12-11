@@ -14,7 +14,7 @@ import { FileAwareDescriptionComponent } from './file-aware-description/file-awa
     TestResultsComponent,
     FileAwareDescriptionComponent
   ],
-  exports: [TestResultsComponent],
+  exports: [TestResultsComponent, TestRunResultsComponent],
   imports: [
     CommonModule,
     MatCheckboxModule,

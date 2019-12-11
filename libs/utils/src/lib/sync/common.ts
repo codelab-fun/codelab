@@ -7,28 +7,8 @@ export enum SyncStatus {
   ADMIN = 'admin'
 }
 
-export interface SyncMeta<T> {
-  time: number;
-  uid: string;
-  displayName: string;
-  presenter: Partial<T>;
-  users: Record<string, any>;
-}
-
 export const canWritePresenterData = status =>
   status === SyncStatus.PRESENTING || status === SyncStatus.ADMIN;
-
-export interface SyncSessionConfig {
-  autojoin: boolean;
-  active: boolean;
-  admins: string[];
-  owner: string;
-  name: string;
-}
-
-export interface SyncSession {
-  config: SyncSessionConfig;
-}
 
 export function firebaseToValuesWithKey<T>(
   list: AngularFireAction<DatabaseSnapshot<T>>[]

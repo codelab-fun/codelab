@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SyncCodeEditorComponent } from './sync-code-editor.component';
+import { SyncCodeGameComponent } from './sync-code-game.component';
 
 describe('CodeInTheDarkComponent', () => {
-  let component: SyncCodeEditorComponent;
-  let fixture: ComponentFixture<SyncCodeEditorComponent>;
+  let component: SyncCodeGameComponent;
+  let fixture: ComponentFixture<SyncCodeGameComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SyncCodeEditorComponent]
+      declarations: [SyncCodeGameComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SyncCodeEditorComponent);
+    fixture = TestBed.createComponent(SyncCodeGameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,9 +1,31 @@
-import { BehaviorSubject, MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { exhaustMap, finalize } from 'rxjs/operators';
+import { BehaviorSubject, Observable, OperatorFunction } from 'rxjs';
 import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 import * as TsTypes from 'typescript';
 
 const ts = getTypeScript();
+
+export interface Files {
+  [key: string]: string;
+}
+
+function toObject(acc, outputFile) {
+  if (outputFile) {
+    return {
+      ...acc,
+      [outputFile.name]: outputFile.text
+    };
+  }
+  return acc;
+}
+
+interface Diagnostic extends TsTypes.Diagnostic {
+  name: string;
+}
+
+interface Output {
+  diagnostics: Diagnostic[];
+  files: Files;
+}
 
 const compilerOptions: TsTypes.CompilerOptions = {
   module: ts.ModuleKind.System,
@@ -11,24 +33,21 @@ const compilerOptions: TsTypes.CompilerOptions = {
   experimentalDecorators: true,
   emitDecoratorMetadata: true,
   noImplicitAny: true,
-  declaration: true
+  declaration: true,
+  lib: ['dom', 'es6']
 };
 
-interface AdapterHost {
-  files: Observable<Record<string, string>>;
-  dispose: Function;
-}
-
-type ObservableFiles = Observable<Record<string, string>>;
+type ObservableFiles = Observable<Files>;
 
 function watch(
-  inputFiles$: ObservableFiles,
+  source$: ObservableFiles,
   options: TsTypes.CompilerOptions
-): AdapterHost {
-  const outputFiles: BehaviorSubject<
-    Record<string, string>
-  > = new BehaviorSubject<Record<string, string>>({});
-  // const rootFileNames = [];
+): Observable<Output> {
+  const outputFiles: BehaviorSubject<Output> = new BehaviorSubject<Output>({
+    diagnostics: [],
+    files: {}
+  });
+
   const files: TsTypes.MapLike<{ version: number; file: string }> = {};
 
   const getCurrentFileNames = () => {
@@ -64,46 +83,56 @@ function watch(
     ts.createDocumentRegistry()
   );
 
-  const subscription = inputFiles$.subscribe(newFiles => {
-    const filteredFiles = Object.entries(newFiles).filter(([fileName, _]) =>
-      fileName.match(/\.ts$/)
-    );
+  const subscription = source$.subscribe(
+    newFiles => {
+      const filteredFiles = Object.entries(newFiles).filter(([fileName, _]) =>
+        fileName.match(/\.ts$/)
+      );
 
-    filteredFiles.forEach(([fileName, file]) => {
-      if (!files[fileName]) {
-        files[fileName] = { version: 0, file };
+      filteredFiles.forEach(([fileName, file]) => {
+        if (!files[fileName]) {
+          files[fileName] = { version: 0, file };
+        }
+        files[fileName].version++;
+        files[fileName].file = file;
+      });
+
+      const fileNames = filteredFiles.map(([fileName]) => fileName);
+
+      emitFiles(fileNames);
+    },
+    () => {},
+    () => {
+      try {
+        services.dispose();
+      } catch (e) {
+        // TODO(kirjs): There's some funny error happening. Need to investigate.
+        // Ignore
       }
-      files[fileName].version++;
-      files[fileName].file = file;
-    });
 
-    const fileNames = filteredFiles.map(([fileName]) => fileName);
-    emitFiles(fileNames);
-  });
-
-  return {
-    files: outputFiles.asObservable(),
-    dispose: () => {
-      services.dispose();
       outputFiles.complete();
       subscription.unsubscribe();
     }
-  };
+  );
+
+  return outputFiles.asObservable();
+
+  function extractDiagnostics(file) {
+    return services
+      .getSemanticDiagnostics(file)
+      .map(d => ({ ...d, name: d.file.fileName }));
+  }
 
   function emitFiles(fileNames: string[]) {
-    const updated = fileNames.map(emitFile).reduce((acc, outputFile) => {
-      if (outputFile) {
-        return {
-          ...acc,
-          [outputFile.name]: outputFile.text
-        };
-      }
-      return acc;
-    }, {});
+    const updated = fileNames.map(emitFile).reduce(toObject, {});
+    const diagnostics = fileNames.map(extractDiagnostics).flat();
 
     outputFiles.next({
-      ...outputFiles.getValue(),
-      ...updated
+      diagnostics,
+      files: {
+        ...outputFiles.getValue().files,
+        ...updated
+      }
     });
   }
 
@@ -149,55 +178,17 @@ function watch(
             1}): ${message}`
         );
       } else {
-        console.log(`  Error: ${message}`);
+        console.log(`Error: ${message}`);
       }
     });
     console.groupEnd();
   }
 }
 
-export function compileTsFilesWatch(): MonoTypeOperatorFunction<
-  Record<string, string>
-> {
-  let host: AdapterHost;
+export function compileTsFilesWatch(
+  options = compilerOptions
+): OperatorFunction<Record<string, string>, Output> {
   return (source: Observable<Record<string, string>>) => {
-    return source.pipe(
-      exhaustMap(
-        (): Observable<Record<string, string>> => {
-          if (host) {
-            host.dispose();
-            host = null;
-          }
-
-          host = watch(source, compilerOptions);
-          return host.files;
-        }
-      ),
-      finalize(() => {
-        if (host) {
-          try {
-            host.dispose();
-          } catch (e) {
-            // Ignore
-          }
-          host = null;
-        }
-      })
-    );
+    return watch(source, options);
   };
-}
-
-export function compileTsFiles(files: Record<string, string>) {
-  return Object.entries(files)
-    .filter(([moduleName]) => moduleName.match(/\.ts$/))
-    .map(([moduleName, code]) => {
-      // TODO(kirjs): Add source maps.
-
-      return ts.transpileModule(code, {
-        compilerOptions: compilerOptions,
-        fileName: moduleName,
-        moduleName: moduleName.replace('.ts', ''),
-        reportDiagnostics: true
-      });
-    });
 }
