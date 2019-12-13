@@ -83,7 +83,11 @@
   <!--  PIPES WITH ARGUMENT -->
   <div *slide id="argument-pipes" milestone="Pipes">
     <h1>Pipes with arguments:</h1>
-    <code-demo-editor [(ngModel)]="code.argumentPipes.template" language="html">
+    <code-demo-editor
+      autoFolding
+      [(ngModel)]="code.argumentPipes.template"
+      language="html"
+    >
     </code-demo-editor>
     <div class="info" milestone="Pipes">
       To add parameters to a pipe, append a colon ( : ) followed by the
@@ -94,7 +98,11 @@
   <!--  PIPES AS FILTERS  -->
   <div *slide id="pipes-as-filters" milestone="Pipes">
     <h1>Using custom pipes to filter data</h1>
-    <code-demo-editor [(ngModel)]="code.filterPipes.template" language="html">
+    <code-demo-editor
+      autoFolding
+      [(ngModel)]="code.filterPipes.template"
+      language="html"
+    >
     </code-demo-editor>
   </div>
 
@@ -102,6 +110,7 @@
   <div *slide id="crating-pipe" milestone="Pipes">
     <h1>Creating a pipe</h1>
     <code-demo-editor
+      autoFolding
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [codeDemoHighlight]="code.creatingAPipe.matches.exportClass"
@@ -114,6 +123,7 @@
   <div *slide id="pipeTransform" milestone="Pipes">
     <h1>Creating a pipe</h1>
     <code-demo-editor
+      autoFolding
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [codeDemoHighlight]="code.creatingAPipe.matches.pipeTransform"
@@ -126,6 +136,7 @@
   <div *slide id="pipe-transform-method" milestone="Pipes">
     <h1>Creating a pipe</h1>
     <code-demo-editor
+      autoFolding
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [codeDemoHighlight]="code.creatingAPipe.matches.method"
@@ -141,6 +152,7 @@
   <div *slide id="pipe-decorator" milestone="Pipes">
     <h1>Creating a pipe</h1>
     <code-demo-editor
+      autoFolding
       [fontSize]="25"
       [(ngModel)]="code.creatingAPipe.template"
       [codeDemoHighlight]="code.creatingAPipe.matches.decorator"

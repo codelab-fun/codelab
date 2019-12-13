@@ -127,6 +127,7 @@
       <div class="col-6">
         <code-demo-file-path path="person.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.withOutDI.code"
           [codeDemoHighlight]="[code.withOutDI.matches.noDI, 'profession']"
@@ -139,6 +140,7 @@
       <div class="col-6" style="margin-left: 10px;">
         <code-demo-file-path path="person-di.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
           [codeDemoHighlight]="[code.withDI.matches.constructor]"
@@ -158,6 +160,7 @@
       <div class="col-6">
         <code-demo-file-path path="person.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.withOutDI.code2"
           [codeDemoHighlight]="[code.withOutDI.matches.noDI]"
@@ -170,6 +173,7 @@
       <div class="col-6" style="margin-left: 10px;">
         <code-demo-file-path path="person-di.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
           [codeDemoHighlight]="[code.withDI.matches.constructor]"
@@ -191,6 +195,7 @@
       <div class="col-6">
         <code-demo-file-path path="person-di.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.withDI.code"
         ></code-demo-editor>
@@ -198,6 +203,7 @@
       <div class="col-6">
         <code-demo-file-path path="person-di.spec.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.withDITesting.code"
         ></code-demo-editor>
@@ -229,6 +235,7 @@
     </h2>
     <code-demo-file-path path="unit-converter-service.ts"></code-demo-file-path>
     <code-demo-editor
+      autoFolding
       [(ngModel)]="code.classAsInjectable.code"
       [codeDemoHighlight]="[code.classAsInjectable.matches.injectable]"
     ></code-demo-editor>
@@ -246,6 +253,7 @@
     </h2>
     <code-demo-file-path path="app.module.ts"></code-demo-file-path>
     <code-demo-editor
+      autoFolding
       [(ngModel)]="code.provideInjectable.code"
       [codeDemoHighlight]="[
         code.provideInjectable.matches.providers,
@@ -266,6 +274,7 @@
       path="unit-conversion.component.ts"
     ></code-demo-file-path>
     <code-demo-editor
+      autoFolding
       [(ngModel)]="code.consumeInjectable.code"
       [codeDemoHighlight]="[code.consumeInjectable.matches.constructor]"
     ></code-demo-editor>

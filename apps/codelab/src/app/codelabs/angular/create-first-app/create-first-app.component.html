@@ -148,6 +148,7 @@
       class, function, property or variable
     </h2>
     <code-demo-editor
+      autoFolding
       language="typescript"
       [fontSize]="30"
       [(ngModel)]="code.decorators.code"
@@ -445,6 +446,7 @@
         <code-demo-file-path path="index.html"></code-demo-file-path>
 
         <code-demo-editor
+          autoFolding
           style="height: 50vh"
           [fontSize]="18"
           [codeDemoHighlight]="code.indexHtmlMatches['index.html']"
@@ -456,6 +458,7 @@
         <code-demo-file-path path="bootstrap.ts"></code-demo-file-path>
 
         <code-demo-editor
+          autoFolding
           style="height: 50vh"
           [fontSize]="18"
           [(ngModel)]="code.angularApp['bootstrap.ts']"
@@ -467,6 +470,7 @@
         <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
         <code-demo-editor
+          autoFolding
           style="height: 50vh"
           [fontSize]="18"
           [(ngModel)]="code.angularApp['app.module.ts']"
@@ -476,6 +480,7 @@
         <code-demo-file-path path="app.component.ts"></code-demo-file-path>
 
         <code-demo-editor
+          autoFolding
           style="height: 50vh"
           [fontSize]="18"
           [codeDemoHighlight]="code.helloMatches['app.component.ts']"
