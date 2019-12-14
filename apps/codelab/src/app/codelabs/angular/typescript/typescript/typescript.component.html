@@ -114,10 +114,36 @@
   <slide-arrows></slide-arrows>
 
   <div *slide id="test" milestone="TypeScript" no-padding>
-    <render-in-viewport>
-      <console-log number=1></console-log>
-    </render-in-viewport>
-    <render-in-viewport>
+ 
+      <div class="empty" style="min-height: 1000px; background-color: tomato;">
+        <console-log number=1 *intersectionObserver>
+      
+        </console-log>
+      </div>
+
+      <div class="empty" style="min-height: 1000px; background-color: green;">
+        <console-log number=2 *intersectionObserver>
+      
+        </console-log>
+      </div>
+
+      <div class="empty" style="min-height: 1000px; background-color: rgb(157, 71, 255);">
+        <console-log number=3 *intersectionObserver>
+      
+        </console-log>
+      </div>
+      <div class="empty" style="min-height: 1000px; background-color: rgb(255, 227, 71);">
+        <console-log number=4 *intersectionObserver>
+      
+        </console-log>
+      </div>
+
+ 
+      <!-- <render-in-viewport>
+        <console-log number=2></console-log>
+      </render-in-viewport> -->
+
+    <!-- <render-in-viewport>
       <console-log number=2></console-log>
     </render-in-viewport>
     <render-in-viewport>
@@ -128,10 +154,7 @@
     </render-in-viewport>
     <render-in-viewport>
       <console-log number=5></console-log>
-    </render-in-viewport>
-    <render-in-viewport>
-      <console-log number=6></console-log>
-    </render-in-viewport>
+    </render-in-viewport> -->
   </div>
 
 

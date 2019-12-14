@@ -9,7 +9,9 @@ export class ConsoleLogComponent implements OnInit, OnDestroy {
 
   @Input() number: number;
 
-  constructor() { }
+  constructor() {
+    console.log('Created', this.number);
+   }
 
   ngOnInit() {
     console.log('Created', this.number);

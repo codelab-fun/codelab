@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./render-in-viewport.component.css']
 })
 export class RenderInViewportComponent implements OnInit {
-
+  // showMyElement: boolean; // = true;
   constructor() { }
 
   ngOnInit() {
