@@ -11,7 +11,7 @@ export class MenuRouteService {
   getPreviousLink(activeRoute: ActivatedRoute): string {
     const index = this.getCurrentIndex(activeRoute);
     if (index > 0) {
-      return this.menuRoutes[index - 1].path;
+      return this.getMenuRoutePathByIndex(index - 1);
     }
     return '';
   }
@@ -19,13 +19,19 @@ export class MenuRouteService {
   getNextLink(activeRoute: ActivatedRoute): string {
     const index = this.getCurrentIndex(activeRoute);
     if (index < this.menuRoutes.length - 1) {
-      return this.menuRoutes[index + 1].path;
+      return this.getMenuRoutePathByIndex(index + 1);
     }
     return '';
   }
 
-  private getCurrentIndex(activeRoute: ActivatedRoute) {
-    // TODO: inject ActivatedRoute but figure out a way to fix snapshot update issue
+  private getCurrentIndex(activeRoute: ActivatedRoute): number {
+    // TODO: figure out a way to inject the ActivatedRoute instead of parameter
+    // This method gets the index of the current menuRoute. Ideally we should be able
+    // to inject in the ActivatedRoute in the constructor. However we noticed that
+    // probably because this is a service, activatedRoute has the value when the
+    // service is constructed and not the current activated route. We are using a
+    // workaround now which expects the calling method to pass the current activated
+    // route. Fix this to use DI.
     const config = activeRoute.snapshot.pathFromRoot
       .map(a => a.routeConfig)
       .find(r => r && (r as MenuRoute).prod);
@@ -34,5 +40,24 @@ export class MenuRouteService {
     }
     const index = this.menuRoutes.findIndex(c => c.path === config.path);
     return index;
+  }
+
+  private getMenuRouteByIndex(index: number) {
+    if (index >= 0 && index < this.menuRoutes.length) {
+      return this.menuRoutes[index];
+    }
+    return null;
+  }
+
+  private getMenuRoutePathByIndex(index: number): string {
+    const indexRoute = this.getMenuRouteByIndex(index);
+    if (indexRoute != null) {
+      let path = indexRoute.path;
+      if (path) {
+        path = '../../' + path;
+      }
+      return path;
+    }
+    return '';
   }
 }

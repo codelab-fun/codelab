@@ -33,10 +33,10 @@ export class SlidesDeckComponent {
   constructor(
     private readonly cdr: ChangeDetectorRef,
     private readonly router: Router,
-    @Optional() private readonly route: ActivatedRoute
+    @Optional() private readonly activeRoute: ActivatedRoute
   ) {
-    if (route) {
-      this.milestone = route.snapshot.queryParams.milestone;
+    if (activeRoute) {
+      this.milestone = activeRoute.snapshot.queryParams.milestone;
       this.hasMilestone = !!this.milestone;
     }
   }
@@ -57,7 +57,7 @@ export class SlidesDeckComponent {
     if (this.activeSlideIndex + 1 < this.slides.length) {
       this.goToSlide(this.activeSlideIndex + 1);
     } else if (this.nextLink) {
-      this.router.navigate([this.nextLink], { relativeTo: this.route });
+      this.router.navigate([this.nextLink], { relativeTo: this.activeRoute });
     }
   }
 
@@ -65,7 +65,9 @@ export class SlidesDeckComponent {
     if (this.activeSlideIndex > 0) {
       this.goToSlide(this.activeSlideIndex - 1);
     } else if (this.previousLink) {
-      this.router.navigate([this.previousLink], { relativeTo: this.route });
+      this.router.navigate([this.previousLink], {
+        relativeTo: this.activeRoute
+      });
     }
   }
 

@@ -44,12 +44,12 @@ describe('MenuRouteService', () => {
   it('getPreviousLink should return previouslesson', () => {
     const service: MenuRouteService = TestBed.inject(MenuRouteService);
     const previousLink = service.getPreviousLink(activatedRouteStub);
-    expect(previousLink).toEqual(menuRoutes[0].path);
+    expect(previousLink).toEqual('../../' + menuRoutes[0].path);
   });
 
   it('getNextLink should return nextlesson', () => {
     const service: MenuRouteService = TestBed.inject(MenuRouteService);
     const nextLink = service.getNextLink(activatedRouteStub);
-    expect(nextLink).toEqual(menuRoutes[2].path);
+    expect(nextLink).toEqual('../../' + menuRoutes[2].path);
   });
 });

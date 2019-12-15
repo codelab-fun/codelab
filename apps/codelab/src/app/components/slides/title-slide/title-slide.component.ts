@@ -19,12 +19,9 @@ export class TitleSlideComponent {
     private readonly presentation: SlidesDeckComponent
   ) {
     if (this.presentation != null) {
-      let previousLink = this.menuRouteService.getPreviousLink(
+      const previousLink = this.menuRouteService.getPreviousLink(
         this.activeRoute
       );
-      if (previousLink) {
-        previousLink = '../../' + previousLink;
-      }
       this.presentation.setPrevious(previousLink);
     }
   }

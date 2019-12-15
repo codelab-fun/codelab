@@ -19,10 +19,7 @@ export class CodelabClosingSlideComponent implements OnInit {
     private readonly presentation: SlidesDeckComponent
   ) {
     if (this.presentation != null) {
-      let nextLink = this.menuRouteService.getNextLink(this.activeRoute);
-      if (nextLink) {
-        nextLink = '../../' + nextLink;
-      }
+      const nextLink = this.menuRouteService.getNextLink(this.activeRoute);
       this.presentation.setNext(nextLink);
     }
   }
