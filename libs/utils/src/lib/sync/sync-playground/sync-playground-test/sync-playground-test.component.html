@@ -7,6 +7,9 @@
     <h2 *isViewing>Only viewer sees this</h2>
     <h2 *isAdmin>Only admin sees this</h2>
   </div>
+  <div *slide id="code">
+    <sync-code-editor></sync-code-editor>
+  </div>
 
   <div *slide id="registration">
     <codelab-registration></codelab-registration>
@@ -19,12 +22,12 @@
     <codelab-leaderboard [config]="polls"></codelab-leaderboard>
   </div>
 
-  <div *slide id="poll-2">
-    <codelab-poll [poll]="polls[1]"></codelab-poll>
-  </div>
-  <div *slide id="leaderboard-2">
-    <codelab-leaderboard [config]="polls"></codelab-leaderboard>
-  </div>
+  <!--  <div *slide id="poll-2">-->
+  <!--    <codelab-poll [poll]="polls[1]"></codelab-poll>-->
+  <!--  </div>-->
+  <!--  <div *slide id="leaderboard-2">-->
+  <!--    <codelab-leaderboard [config]="polls"></codelab-leaderboard>-->
+  <!--  </div>-->
   <!--  <div *slide id="poll-0">-->
   <!--    <slides-poll [poll]="polls[0]">-->
   <!--      <div class="question"></div>-->
@@ -66,12 +69,6 @@
   <!--  </div>-->
   <!--  <div *slide id="config-1-results">-->
   <!--    the-->
-  <!--  </div>-->
-
-  <!--  <div *slide id="config-2">-->
-  <!--    <slides-config [config]="polls[1]">-->
-  <!--      <div class="question"></div>-->
-  <!--    </slides-config>-->
   <!--  </div>-->
 
   <div *slide id="qna">

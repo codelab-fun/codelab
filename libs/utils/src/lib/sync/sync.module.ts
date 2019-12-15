@@ -22,6 +22,7 @@ import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-b
 import { SyncPlaygroundPresenterComponent } from './sync-playground/sync-playground-presenter/sync-playground-presenter.component';
 import { SyncPlaygroundTestComponent } from './sync-playground/sync-playground-test/sync-playground-test.component';
 import { SyncPlaygroundComponent } from './sync-playground/sync-playground.component';
+import { SyncCodeGameModule } from '@codelab/utils/src/lib/sync/components/sync-code-game/sync-code-game.module';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { SyncPlaygroundComponent } from './sync-playground/sync-playground.compo
     QuestionsModule,
     SyncPollModule,
     SyncButtonModule,
-    LeaderboardModule
+    LeaderboardModule,
+    SyncCodeGameModule
   ],
   providers: [LoginService],
   declarations: [

@@ -8,17 +8,21 @@ import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.serv
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
+import { TestRunnerService } from '@codelab/utils/src/lib/sandbox-runner/test-runner.service';
+import { SyncCodeGameService } from '@codelab/utils/src/lib/sync/components/sync-code-game/sync-code-game.service';
 
 @Component({
   selector: 'codelab-sync-playground-presenter',
   templateUrl: './sync-playground-presenter.component.html',
   styleUrls: ['./sync-playground-presenter.component.css'],
   providers: [
+    TestRunnerService,
     SyncDataService,
     SyncSessionService,
     SyncDbService,
     SyncPollService,
     SyncRegistrationService,
+    SyncCodeGameService,
     {
       provide: LoginService,
       useFactory: () => ({

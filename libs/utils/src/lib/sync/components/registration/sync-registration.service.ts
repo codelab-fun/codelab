@@ -9,7 +9,7 @@ export class SyncRegistrationService {
   readonly key = 'name';
   name = '';
 
-  readonly userData = this.syncDataService.getAdminAllUserData<any>(this.key);
+  readonly userData = this.syncDataService.getAdminAllUserData(this.key);
   readonly usersMap$ = this.userData.valueChanges();
   readonly users$ = this.usersMap$.pipe(
     map(a => {
@@ -19,17 +19,17 @@ export class SyncRegistrationService {
     })
   );
 
-  readonly nameObject = this.syncDataService.getCurrentViewerObject<string>(
-    this.key
-  );
+  readonly nameObject = this.syncDataService.getCurrentViewerObject(this.key);
   readonly currentUser$ = this.nameObject.valueChanges();
 
   readonly registrationConfig$ = this.syncDataService
-    .getPresenterObject('registration', {
+    .getPresenterObject('registration')
+    .withDefault({
       shouldDisplayNames: true,
       isRegistrationEnabled: true
     })
     .valueChanges();
+
   readonly shouldDisplayNames$ = this.registrationConfig$.pipe(
     map(a => a.shouldDisplayNames)
   );

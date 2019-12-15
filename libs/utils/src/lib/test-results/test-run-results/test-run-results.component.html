@@ -1,0 +1,27 @@
+<ng-container *ngFor="let t of tests; trackBy: getName">
+  <div
+    *ngIf="t.featured || seeAll"
+    class="test"
+    [class.featured]="t.featured"
+    [class.see-all]="seeAll"
+  >
+    <div class="state">
+      <mat-icon *ngIf="t.pass === true" class="pass">check_circle</mat-icon>
+      <mat-icon *ngIf="t.pass === false" class="fail">error_outline</mat-icon>
+      <mat-icon *ngIf="t.pass === undefined" class="running">refresh</mat-icon>
+    </div>
+    <div>
+      <div class="name" [title]="t.name">
+        <slides-file-aware-description
+          [test]="t.name"
+          (selectFile)="selectFile.emit($event)"
+        ></slides-file-aware-description>
+      </div>
+      <div class="error" *ngIf="t.featured">{{ t.error }}</div>
+    </div>
+  </div>
+</ng-container>
+
+<mat-checkbox [(ngModel)]="seeAll" *ngIf="tests?.length > 1 && focused" i18n>
+  Display all tests
+</mat-checkbox>

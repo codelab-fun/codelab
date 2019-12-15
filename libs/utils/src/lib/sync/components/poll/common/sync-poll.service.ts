@@ -11,16 +11,12 @@ import {
 import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
 import { database } from 'firebase/app';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
+import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/firebase-info.service';
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
-const defaultPresenterSettings = {
-  enabled: true,
-  startTime: 0
-};
 
 export interface UserVote {
   answer: number;
@@ -91,12 +87,15 @@ export function calculateUserScore(configs, presenterData, userData) {
 }
 
 export class SyncPoll {
-  key = 'poll' + '/' + this.config.key;
+  readonly key = this.config.key;
+  readonly presenterSettings = this.syncDataService
+    .getPresenterObject('poll')
+    .object(this.config.key)
+    .withDefault({
+      enabled: true,
+      startTime: 0
+    });
 
-  readonly presenterSettings = this.syncDataService.getPresenterObject(
-    this.key,
-    defaultPresenterSettings
-  );
   readonly isPollEnabled$ = this.presenterSettings
     .valueChanges()
     .pipe(map(a => a.enabled));
@@ -106,7 +105,9 @@ export class SyncPoll {
 
   readonly timeLeft$ = this.timestamp$.pipe(
     switchMap(time => interval(500).pipe(map(() => time))),
-    withLatestFrom(this.syncDbService.offset$.pipe(distinctUntilChanged())),
+    withLatestFrom(
+      this.firebaseInfoService.offset$.pipe(distinctUntilChanged())
+    ),
     map(([time, offset]) =>
       Math.round(
         Math.max(
@@ -124,20 +125,22 @@ export class SyncPoll {
   readonly $isPollRunning = this.timeLeft$.pipe(map(time => time > 0));
   readonly hasVotes$: Observable<boolean>;
   readonly votesCount$: Observable<number>;
-  private readonly viewerData = this.syncDataService.getCurrentViewerObject<
-    UserVote
-  >(this.key, { answer: null, time: 0 });
+  private readonly viewerData = this.syncDataService
+    .getCurrentViewerObject('poll')
+    .object(this.key)
+    .withDefault({ answer: null, time: 0 });
   readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => a.answer));
-  private readonly votesData = this.syncDataService.getAdminAllUserData(
-    this.key,
-    {}
-  );
+  private readonly votesData = this.syncDataService
+    .getAdminAllUserData('poll')
+    .object(this.key)
+    .withDefault({});
+
   votes$ = this.votesData.valueChanges();
 
   constructor(
     private readonly syncDataService: SyncDataService,
     readonly config: SyncPollConfig,
-    private readonly syncDbService: SyncDbService
+    private readonly firebaseInfoService: FirebaseInfoService
   ) {
     // Reformatting breaks this if it's out of the constructor.
     this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
@@ -169,12 +172,12 @@ export class SyncPollService {
   constructor(
     private readonly syncDataService: SyncDataService,
     private readonly syncSessionService: SyncSessionService,
-    private readonly syncDbService: SyncDbService,
+    private readonly firebaseInfoService: FirebaseInfoService,
     private readonly registrationService: SyncRegistrationService
   ) {}
 
   getPoll(config: SyncPollConfig) {
-    return new SyncPoll(this.syncDataService, config, this.syncDbService);
+    return new SyncPoll(this.syncDataService, config, this.firebaseInfoService);
   }
 
   calculateScores(syncPollConfigs: SyncPollConfig[]) {
@@ -199,7 +202,7 @@ export class SyncPollService {
 
     return combineLatest([result$, this.registrationService.usersMap$]).pipe(
       map(([results, users]) => {
-        return Object.entries<number>(users).reduce((result, [uid, name]) => {
+        return Object.entries(users).reduce((result, [uid, name]) => {
           result[uid] = { name, score: results[uid] || 0 };
           return result;
         }, {});

@@ -15,15 +15,19 @@ export interface Admin extends AdminDb {
   isCurrentUser: boolean;
 }
 
+export interface UserDb {
+  admin: AdminDb[];
+}
+
 @Component({
   selector: 'codelab-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
   readonly displayedColumns = ['isCurrentUser', 'key'];
 
-  readonly admins = this.dbService.list<AdminDb>('admin');
+  readonly admins = this.dbService.list('admin');
   private readonly allAdmins$ = this.admins.snapshots$.pipe(
     map(firebaseToValuesWithKey)
   );
@@ -42,8 +46,6 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private readonly loginService: LoginService,
-    private readonly dbService: SyncDbService
+    private readonly dbService: SyncDbService<UserDb>
   ) {}
-
-  ngOnInit() {}
 }

@@ -1,8 +1,11 @@
 import { Directive, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { filter, takeUntil } from 'rxjs/operators';
+import {
+  SyncDataService,
+  ViewerConfig
+} from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { filter, map, takeUntil } from 'rxjs/operators';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -10,7 +13,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   exportAs: 'viewerValue'
 })
 export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
-  @Input() syncViewerValue: string;
+  @Input() syncViewerValue: keyof ViewerConfig;
   @Input() syncViewerValueDefault: T;
 
   private onDestroy$ = new Subject();
@@ -32,14 +35,16 @@ export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
       );
     }
 
-    const data = this.syncDataService.getCurrentViewerObject<T>(
-      this.syncViewerValue,
-      this.syncViewerValueDefault
+    const data = this.syncDataService.getCurrentViewerObject(
+      this.syncViewerValue
     );
 
     data
       .valueChanges()
-      .pipe(takeUntil(this.onDestroy$))
+      .pipe(
+        takeUntil(this.onDestroy$),
+        map(a => (a === undefined ? this.syncViewerValueDefault : a))
+      )
       .subscribe(value => {
         this.control.valueAccessor.writeValue(value);
       });
