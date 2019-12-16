@@ -50,9 +50,6 @@ export class MenuRouteService {
     if (indexRoute != null) {
       let path = indexRoute.path;
       if (path) {
-        // TODO: This is a temporary work around. We need to
-        // make this more generic by using activatedRoute
-        // to figure out the current url.
         path = '../../' + path;
       }
       return path;
