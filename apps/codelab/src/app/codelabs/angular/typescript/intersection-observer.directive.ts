@@ -15,12 +15,9 @@ export class IntersectionObserverDirective implements AfterViewInit {
               ) { }
 
   public ngAfterViewInit () {
-    // console.log('happening');
     this._intersectionObserver = new IntersectionObserver(entries => {
         this.checkForIntersection(entries);
     }, {});
-
-
     this._intersectionObserver.observe(<Element>(this._element.nativeElement.parentElement));
   }
 
