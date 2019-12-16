@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './codelab-closing-slide.component.html',
   styleUrls: ['./codelab-closing-slide.component.css']
 })
-export class CodelabClosingSlideComponent implements OnInit {
+export class CodelabClosingSlideComponent {
   @Input() header: String;
   @Input() body: String;
   @Input() footer: String;
@@ -23,6 +23,4 @@ export class CodelabClosingSlideComponent implements OnInit {
       this.presentation.setNext(nextLink);
     }
   }
-
-  ngOnInit() {}
 }

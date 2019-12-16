@@ -38,15 +38,11 @@ export class MenuRouteService {
     if (config == null) {
       return -1;
     }
-    const index = this.menuRoutes.findIndex(c => c.path === config.path);
-    return index;
+    return this.menuRoutes.findIndex(c => c.path === config.path);
   }
 
   private getMenuRouteByIndex(index: number) {
-    if (index >= 0 && index < this.menuRoutes.length) {
-      return this.menuRoutes[index];
-    }
-    return null;
+    return this.menuRoutes[index];
   }
 
   private getMenuRoutePathByIndex(index: number): string {
@@ -54,6 +50,9 @@ export class MenuRouteService {
     if (indexRoute != null) {
       let path = indexRoute.path;
       if (path) {
+        // TODO: This is a temporary work around. We need to
+        // make this more generic by using activatedRoute
+        // to figure out the current url.
         path = '../../' + path;
       }
       return path;
