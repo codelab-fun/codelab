@@ -26,6 +26,38 @@
   height: 100%;
 }
 
+[pic-label] ::ng-deep{
+   line-height: 20vh;
+  text-align: center;
+  color: black;
+  font-size: 100px;
+  font-weight: 280;
+}
+
 .types-error {
   background-image: url('./images/types-error.png');
+}
+
+.no-setup {
+  background-image: url('./images/no-setup.png');
+}
+
+.examples {
+  background-image: url('./images/examples.gif');
+}
+
+.exercises {
+  background-image: url('./images/exercises.gif');
+}
+
+.github {
+  background-image: url('./images/github.png');
+}
+
+.issues {
+  background-image: url('./images/issues.gif');
+}
+
+.community {
+  background-image: url('./images/codelab.jpeg');
 }
