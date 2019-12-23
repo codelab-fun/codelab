@@ -13,6 +13,7 @@ import { CodeDemoRunnerComponent } from './code-demo-runner/code-demo-runner.com
 import { CodeDemoEditorHighlightDirective } from './code-demo-editor/directives/code-demo-editor.highlight.directive';
 import { CodeDemoEditorComponent } from './code-demo-editor/code-demo-editor.component';
 import { RealtimeEvalComponent } from './realtime-eval/realtime-eval.component';
+import { WithFullScreenComponent } from './with-full-screen/with-full-screen.component';
 
 import { CodeDemoEditorAutoFoldingDirective } from './code-demo-editor/directives/code-demo-editor.auto-folding.directive';
 import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives/code-demo-editor.line-change.directive';
@@ -36,7 +37,8 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
+    WithFullScreenComponent
   ],
   exports: [
     FilePathComponent,
@@ -48,7 +50,8 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
+    WithFullScreenComponent
   ]
 })
 export class CodeDemoModule {}
