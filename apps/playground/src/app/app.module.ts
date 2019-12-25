@@ -25,6 +25,11 @@ const routes = [
     path: 'code-sync',
     loadChildren: () =>
       import('./code-sync/code-sync.module').then(m => m.CodeSyncModule)
+  },
+  {
+    path: 'quiz',
+    loadChildren: () =>
+      import('./quiz/app.module').then(m => m.AppModule)
   }
 ];
 

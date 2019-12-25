@@ -1,0 +1,37 @@
+mat-card-header {
+  .mat-card-container {
+    float: right;
+    margin-top: 0;
+    margin-left: 40px;
+
+    .subtitle2 {
+      display: block;
+    }
+  }
+
+  .quiz-topic-img {
+    display: flex;
+    justify-content: center;
+    background: url('../../../../../assets/images/DIDiagram.png') no-repeat center center;
+    background-size: 100% !important;
+    margin: 90px -10px 0 -585px;
+    height: 300px !important;
+    width: 100% !important;
+  }
+}
+
+mat-card-content p {
+  text-align: justify;
+  margin-top: -25px;
+}
+
+mat-card-actions {
+  text-align: center;
+
+  button {
+    margin-bottom: 10px !important;
+  }
+  button:hover {
+    border: 1px solid #007aff;
+  }
+}
