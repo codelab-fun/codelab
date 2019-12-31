@@ -11,7 +11,6 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import { handleTestMessage } from './tests';
 import { createSystemJsSandbox } from '@codelab/code-demos/src/lib/shared/sandbox';
 import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
 import babel_traverse from '@babel/traverse';
@@ -21,6 +20,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
+import { handleTestMessage } from './tests';
 
 const ts = getTypeScript();
 
@@ -83,9 +83,11 @@ export class SimpleAngularTestRunnerComponent
   constructor(
     private scriptLoaderService: ScriptLoaderService,
     private cd: ChangeDetectorRef
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.handleMessageBound = message => {
-      this.tests = handleTestMessage(message, this.tests);
+      this.tests = handleTestMessage(message, this.tests || []);
 
       this.result = {
         tests: this.tests.map(test => {
