@@ -9,6 +9,7 @@ import { map, startWith, switchMap } from 'rxjs/operators';
   styleUrls: ['./overlay.component.scss']
 })
 export class OverlayComponent implements OnInit {
+  readonly layout = 'horizontal';
   data$: Observable<StreamSession> = interval(5000).pipe(
     startWith(0),
     switchMap(() => {
