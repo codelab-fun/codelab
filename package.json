@@ -92,6 +92,7 @@
     "core-js": "2.6.2",
     "dom-to-image": "^2.6.0",
     "firebase": "^7.5.0",
+    "flamelink": "^1.0.0-alpha.27",
     "fullscreen-api-polyfill": "^1.1.2",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",

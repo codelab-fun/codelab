@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { OverlayComponent } from './modules/streaming/overlay/overlay.component';
 import { MatCardModule } from '@angular/material/card';
+import { MarkdownModule } from 'ngx-markdown';
 
 export const angularFire = AngularFireModule.initializeApp(
   environment.firebaseConfig
@@ -164,7 +165,8 @@ const routes = [
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     angularFire,
-    MatCardModule
+    MatCardModule,
+    MarkdownModule
   ],
   providers: [
     {

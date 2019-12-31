@@ -15,7 +15,14 @@
   border-radius: 50%;
 }
 
-h2 {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-weight: 300;
+:host ::ng-deep {
+  h2 {
+    margin-bottom: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+  }
+
+  p {
+    margin-top: 8px;
+  }
 }

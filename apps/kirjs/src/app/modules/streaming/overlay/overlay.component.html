@@ -1,16 +1,11 @@
-<mat-card class="circle">
-  &nbsp;
-</mat-card>
-
 <mat-card
+  *ngIf="data$ | async as config"
   style="width: 240px;position: absolute;right: 10px;top: 10px;bottom: 10px"
 >
-  <h1>twitch.tv/kirjs</h1>
-  <p>Streams on Angular, TypeScript, Debugging</p>
-  <h2>Today</h2>
-  <p>Topic of the day: lol</p>
-  <h2>Today on the stream:</h2>
-  <div style="display:flex;text-align: center">
+  <h1>{{ config.header }}</h1>
+  <p>{{ config.subHeader }}</p>
+  <div [innerHTML]="config.description"></div>
+  <div style="display:flex;text-align: center; margin-top: 8px;">
     <div *ngFor="let guest of config.guests" style="width: 120px;">
       <img
         [src]="guest.avatar"

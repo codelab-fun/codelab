@@ -1,31 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FLAME_LINK, StreamSession } from '../common';
+import { interval, Observable } from 'rxjs';
+import { map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'slides-overlay',
   templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.css']
+  styleUrls: ['./overlay.component.scss']
 })
 export class OverlayComponent implements OnInit {
-  config = {
-    url: 'twitch.tv/kirjs',
-    topic: 'Topic of the day: lol',
-    guests: [
-      {
-        name: '🦊',
-        twitter: 'thekiba_io',
-        avatar:
-          'https://pbs.twimg.com/profile_images/668060945998938112/5o017-qp_400x400.jpg'
-      },
-      {
-        name: 'kirjs',
-        twitter: 'kirjs',
-        avatar:
-          'https://pbs.twimg.com/profile_images/869618855055839232/jqbSOmRU_400x400.jpg'
-      }
-    ]
-  };
+  data$: Observable<StreamSession> = interval(5000).pipe(
+    startWith(0),
+    switchMap(() => {
+      return this.flameLink.content.get({
+        schemaKey: 'currentSession',
+        populate: true
+      });
+    }),
+    map((a: any) => a.session)
+  );
 
-  constructor() {}
+  constructor(@Inject(FLAME_LINK) private flameLink: any) {}
 
   ngOnInit() {}
 }
