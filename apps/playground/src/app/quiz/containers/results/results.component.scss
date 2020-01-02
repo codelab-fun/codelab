@@ -27,7 +27,7 @@ section.results {
       margin-top: 20px;
 
       .great-job {
-        background: url('../../../../../../playground/assets/images/ngtrophy.png') no-repeat center center;
+        background: url('../../../../../../playground/assets/images/ngtrophy.jpg') no-repeat center center;
       }
       .not-bad {
         background: url('../../../../../../playground/assets/images/notbad.jpg') no-repeat center center;
@@ -129,23 +129,29 @@ section.return {
 section.challenge-social {
   text-align: center;
 
-  a.btn {
-    text-decoration: none;
-    margin-right: 20px;
-    padding: 9px 15px 8px 42px;
-    background: no-repeat 10px 5px;
-    background-size: 25px 25px;
-    color: white;
-  }
-  a.btn.twitter {
-    background-color: #59adeb;
-    background-image: url('../../../../../assets/images/twitter.svg');
-    top: 5px;
-  }
-  a.btn.email {
-    background-color: #f0a121;
-    background-image: url('../../../../../assets/images/email.svg');
-    top: 5px;
+  .social-buttons {
+    display: block;
+
+    a.btn {
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 9px 15px 8px 42px;
+      background: no-repeat 10px 5px;
+      background-size: 25px 25px;
+      color: white;
+    }
+
+    a.btn.twitter {
+      background-color: #59adeb;
+      background-image: url('../../../../../assets/images/twitter.svg');
+      top: 5px;
+    }
+
+    a.btn.email {
+      background-color: #f0a121;
+      background-image: url('../../../../../assets/images/email.svg');
+      top: 5px;
+    }
   }
 }
 

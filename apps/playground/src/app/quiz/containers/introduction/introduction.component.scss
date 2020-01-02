@@ -1,8 +1,14 @@
 mat-card-header {
+  display: block;
+
+  .header-image {
+    margin-left: 15px;
+  }
+
   .mat-card-container {
     float: right;
     margin-top: 0;
-    margin-left: 40px;
+    margin-right: 40px;
 
     .subtitle2 {
       display: block;
@@ -14,7 +20,7 @@ mat-card-header {
     justify-content: center;
     background: url('../../../../../assets/images/DIDiagram.png') no-repeat center center;
     background-size: 100% !important;
-    margin: 90px -10px 0 -585px;
+    margin: 90px -10px 0 5px;
     height: 300px !important;
     width: 100% !important;
   }

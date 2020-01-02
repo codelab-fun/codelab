@@ -1,4 +1,4 @@
-<mat-card *ngIf="question && question.questionId <= totalQuestions; else quiz_results">
+<mat-card>
   <mat-card-header>
     <div mat-card-avatar class="header-image"></div>
       <mat-card-title>Dependency Injection Quiz</mat-card-title>
@@ -29,11 +29,7 @@
     </section>
 
     <section id="question">{{ question.questionText }}</section>
-
-    <codelab-quiz-question
-      [question]="question"
-      [totalQuestions]="totalQuestions">
-    </codelab-quiz-question>
+    <codelab-quiz-question [question]="question"></codelab-quiz-question>
   </mat-card-content>
 
   <mat-card-footer>
@@ -61,15 +57,3 @@
     </section>
   </mat-card-footer>
 </mat-card>
-
-<ng-template #quiz_results>
-  <codelab-quiz-results
-    [question]="question"
-    [answer]="answer"
-    [allQuestions]="allQuestions"
-    [totalQuestions]="totalQuestions"
-    [correctAnswersCount]="correctAnswersCount"
-    [percentage]="percentage"
-    [completionTime]="completionTime">
-  </codelab-quiz-results>
-</ng-template>

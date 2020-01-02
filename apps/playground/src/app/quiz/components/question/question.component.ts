@@ -12,8 +12,6 @@ export class QuestionComponent implements OnInit, OnChanges {
   @Output() answer = new EventEmitter<string>();
   @Output() formGroup: FormGroup;
   @Input() question: QuizQuestion;
-  @Input() allQuestions: QuizQuestion[];
-  @Input() totalQuestions: number;
   option = '';
   grayBorder = '2px solid #979797';
 

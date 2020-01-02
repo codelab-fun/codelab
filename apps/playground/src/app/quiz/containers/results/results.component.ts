@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { QuizQuestion } from '../../model/QuizQuestion';
 
@@ -10,37 +11,27 @@ import { QuizQuestion } from '../../model/QuizQuestion';
 export class ResultsComponent implements OnInit {
   @Input() answer: string;
   @Input() question: QuizQuestion;
-  @Input() allQuestions: QuizQuestion[];
-  @Input() totalQuestions: number;
-  @Input() correctAnswersCount: number;
-  @Input() percentage: number;
-  @Input() completionTime: number;
-
+  allQuestions: QuizQuestion[];
+  totalQuestions: number;
+  correctAnswersCount: number;
+  percentage: number;
+  completionTime: number;
   elapsedMinutes: number;
   elapsedSeconds: number;
-
   codelabUrl = 'https://www.codelab.fun';
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe((params: Params) => {
+      this.totalQuestions = +params['totalQuestions'];
+      this.correctAnswersCount = +params['correctAnswersCount'];
+      this.percentage = +params['percentage'];
+      this.completionTime = +params['completionTime'];
+      this.allQuestions = JSON.parse(params['allQuestions']);
+    });
+  }
 
   ngOnInit() {
     this.elapsedMinutes = Math.floor(this.completionTime / 60);
     this.elapsedSeconds = this.completionTime % 60;
-    this.checkBounds();
-  }
-
-  checkBounds() {
-    // make sure the percentage is within bounds
-    if (this.percentage < 0) {
-      this.percentage = 0;
-    }
-    if (this.percentage > 100) {
-      this.percentage = 100;
-    }
-
-    // check if correct answer count is somehow greater than the total number of questions
-    if (this.correctAnswersCount > this.totalQuestions) {
-      this.correctAnswersCount = this.totalQuestions;
-    }
   }
 }
