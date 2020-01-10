@@ -14,7 +14,6 @@ export class QuestionComponent implements OnInit {
   @Input() formGroup: FormGroup;
   @Output() question: QuizQuestion;
   totalQuestions: number;
-  percentage: number;
   completionTime: number;
   correctAnswersCount = 0;
 
@@ -127,7 +126,6 @@ export class QuestionComponent implements OnInit {
       queryParams: {
         totalQuestions: this.totalQuestions,
         correctAnswersCount: this.correctAnswersCount,
-        percentage: this.percentage,
         completionTime: this.completionTime,
         allQuestions: JSON.stringify(this.allQuestions)
       }
@@ -180,10 +178,6 @@ export class QuestionComponent implements OnInit {
     this.progressValue = parseFloat((100 * (this.getQuestionID() + 1) / this.totalQuestions).toFixed(1));
   }
 
-  calculateQuizPercentage() {
-    this.percentage = Math.round(100 * this.correctAnswersCount / this.totalQuestions);
-  }
-
   calculateTotalElapsedTime(elapsedTimes) {
     if (this.getQuestionID() < this.totalQuestions) {
       this.completionTime = elapsedTimes.reduce((acc, cur) => acc + cur, 0);
@@ -224,7 +218,6 @@ export class QuestionComponent implements OnInit {
           this.checkIfAnsweredCorrectly();
 
           if (this.correctAnswersCount <= this.totalQuestions) {
-            this.calculateQuizPercentage();
             this.calculateTotalElapsedTime(this.elapsedTimes);
           }
 
