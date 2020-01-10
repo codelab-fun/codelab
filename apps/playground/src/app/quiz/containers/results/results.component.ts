@@ -24,7 +24,6 @@ export class ResultsComponent implements OnInit {
     this.route.queryParams.subscribe((params: Params) => {
       this.totalQuestions = +params['totalQuestions'];
       this.correctAnswersCount = +params['correctAnswersCount'];
-      this.percentage = +params['percentage'];
       this.completionTime = +params['completionTime'];
       this.allQuestions = JSON.parse(params['allQuestions']);
     });
@@ -33,5 +32,6 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     this.elapsedMinutes = Math.floor(this.completionTime / 60);
     this.elapsedSeconds = this.completionTime % 60;
+    this.percentage = Math.round(100 * this.correctAnswersCount / this.totalQuestions);
   }
 }

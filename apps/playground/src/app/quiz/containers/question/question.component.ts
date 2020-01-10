@@ -14,7 +14,6 @@ export class QuestionComponent implements OnInit {
   @Input() formGroup: FormGroup;
   @Output() question: QuizQuestion;
   totalQuestions: number;
-  percentage: number;
   completionTime: number;
   correctAnswersCount = 0;
 
@@ -85,7 +84,7 @@ export class QuestionComponent implements OnInit {
       answer: '2',
       explanation: 'object instantiations are taken care of by the constructor in Angular',
       selectedOption: ''
-    } // insert more questions here
+    } // add more questions here
   ];
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -109,9 +108,11 @@ export class QuestionComponent implements OnInit {
 
     this.questionIndex = this.questionID++;
 
-    if (typeof document.getElementById('question') !== 'undefined') {
+    if (typeof document.getElementById('question') !== 'undefined' && this.getQuestionID() <= this.totalQuestions) {
       document.getElementById('question').innerHTML = this.allQuestions[this.questionIndex]['questionText'];
       document.getElementById('question').style.border = this.blueBorder;
+    } else {
+      this.navigateToResults();
     }
   }
 
@@ -125,7 +126,6 @@ export class QuestionComponent implements OnInit {
       queryParams: {
         totalQuestions: this.totalQuestions,
         correctAnswersCount: this.correctAnswersCount,
-        percentage: this.percentage,
         completionTime: this.completionTime,
         allQuestions: JSON.stringify(this.allQuestions)
       }
@@ -175,16 +175,7 @@ export class QuestionComponent implements OnInit {
   }
 
   increaseProgressValue() {
-    this.progressValue = 100 * (this.getQuestionID() + 1) / this.totalQuestions;
-  }
-
-  calculateQuizPercentage() {
-    if (this.correctAnswersCount === this.totalQuestions) {
-      this.percentage = 100;
-    } else {
-      this.percentage = 100 * this.correctAnswersCount / this.totalQuestions;
-    }
-    return this.percentage;
+    this.progressValue = parseFloat((100 * (this.getQuestionID() + 1) / this.totalQuestions).toFixed(1));
   }
 
   calculateTotalElapsedTime(elapsedTimes) {
@@ -227,7 +218,6 @@ export class QuestionComponent implements OnInit {
           this.checkIfAnsweredCorrectly();
 
           if (this.correctAnswersCount <= this.totalQuestions) {
-            this.calculateQuizPercentage();
             this.calculateTotalElapsedTime(this.elapsedTimes);
           }
 

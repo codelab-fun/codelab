@@ -36,7 +36,7 @@
   <mat-card-footer>
     <section class="paging">
       <mat-card-actions>
-        <div class="nextQuestionNav" *ngIf="question && question.questionId < totalQuestions">
+        <div class="nextQuestionNav" *ngIf="question && question.questionId !== totalQuestions">
           <button type="button" [disabled]="disabled" (click)="navigateToNextQuestion()">
             Next &raquo;
           </button>
@@ -53,7 +53,7 @@
       <ngb-progressbar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
                               question && question.questionId <= totalQuestions"
                        type="success" [striped]="true" [animated]="true" [value]="progressValue">
-        <strong>{{ progressValue.toFixed(0) }}%</strong>
+        <strong>{{ progressValue }}%</strong>
       </ngb-progressbar>
     </section>
   </mat-card-footer>
