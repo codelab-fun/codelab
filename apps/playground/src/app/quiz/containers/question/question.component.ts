@@ -85,7 +85,7 @@ export class QuestionComponent implements OnInit {
       answer: '2',
       explanation: 'object instantiations are taken care of by the constructor in Angular',
       selectedOption: ''
-    }
+    } // add more questions here
   ];
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -109,20 +109,17 @@ export class QuestionComponent implements OnInit {
 
     this.questionIndex = this.questionID++;
 
-    if (typeof document.getElementById('question') !== 'undefined') {
+    if (typeof document.getElementById('question') !== 'undefined' && this.getQuestionID() <= this.totalQuestions) {
       document.getElementById('question').innerHTML = this.allQuestions[this.questionIndex]['questionText'];
       document.getElementById('question').style.border = this.blueBorder;
+    } else {
+      this.navigateToResults();
     }
   }
 
   navigateToNextQuestion(): void {
-    if (this.question.questionId < this.totalQuestions) {
-      // this.currentQuestion++;
-      this.router.navigate(['/quiz/question', this.getQuestionID() + 1]);
-      this.displayNextQuestion();
-    } else {
-      this.navigateToResults();
-    }
+    this.router.navigate(['/quiz/question', this.getQuestionID() + 1]);
+    this.displayNextQuestion();
   }
 
   navigateToResults(): void {
@@ -138,12 +135,12 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(['/quiz/results'], navigationExtras);
   }
 
-  // checks whether the question is a valid question and is answered correctly
+  // checks whether the question is valid and is answered correctly
   checkIfAnsweredCorrectly() {
-    if (this.isThereAnotherQuestion() && this.question.selectedOption === this.question.answer) {
+    if (this.isThereAnotherQuestion() && this.isCorrectAnswer()) {
+      this.incrementCorrectAnswersCount();
       this.correctAnswer = true;
       this.hasAnswer = true;
-      this.incrementCorrectAnswersCount();
       this.disabled = false;
 
       this.elapsedTime = Math.floor(this.timePerQuestion - this.timeLeft);
@@ -151,50 +148,44 @@ export class QuestionComponent implements OnInit {
         this.elapsedTimes.push(this.elapsedTime);
       } else {
         this.elapsedTimes.push(0);
-        this.elapsedTime = 0;
         this.completionTime = this.calculateTotalElapsedTime(this.elapsedTimes);
       }
 
       this.quizDelay(3000);
-      this.navigateToNextQuestion();
-    }
-  }
 
-  // increase the correct answer count when the correct answer is selected
-  incrementCorrectAnswersCount() {
-    if (this.questionID <= this.totalQuestions) {
-      if (this.question && this.question.selectedOption === this.question.answer) {
-        if (this.correctAnswersCount === this.totalQuestions) {
-          return this.correctAnswersCount;
-        } else {
-          this.correctAnswer = true;
-          this.hasAnswer = true;
-          return this.correctAnswersCount++;
-        }
+      if (this.getQuestionID() < this.totalQuestions) {
+        this.navigateToNextQuestion();
       } else {
-        this.correctAnswer = false;
-        this.hasAnswer = false;
+        this.navigateToResults();
       }
     }
   }
 
-  // increase the progress value when the user presses the next button
-  increaseProgressValue() {
-    this.progressValue = 100 * (this.getQuestionID() + 1) / this.totalQuestions;
+  incrementCorrectAnswersCount() {
+    if (this.questionID <= this.totalQuestions && this.isCorrectAnswer()) {
+      if (this.correctAnswersCount === this.totalQuestions) {
+        return this.correctAnswersCount;
+      } else {
+        this.correctAnswer = true;
+        this.hasAnswer = true;
+        return this.correctAnswersCount++;
+      }
+    } else {
+      this.correctAnswer = false;
+      this.hasAnswer = false;
+    }
   }
 
-  // determine the percentage from amount of correct answers given and the total number of questions
+  increaseProgressValue() {
+    this.progressValue = parseFloat((100 * (this.getQuestionID() + 1) / this.totalQuestions).toFixed(1));
+  }
+
   calculateQuizPercentage() {
-    if (this.question.questionId < this.totalQuestions && this.correctAnswersCount === this.totalQuestions) {
-      this.percentage = 100;
-    } else {
-      this.percentage = 100 * this.correctAnswersCount / this.totalQuestions;
-    }
-    return this.percentage;
+    this.percentage = Math.round(100 * this.correctAnswersCount / this.totalQuestions);
   }
 
   calculateTotalElapsedTime(elapsedTimes) {
-    if (this.question.questionId < this.totalQuestions) {
+    if (this.getQuestionID() < this.totalQuestions) {
       this.completionTime = elapsedTimes.reduce((acc, cur) => acc + cur, 0);
       return this.completionTime;
     }
@@ -213,6 +204,10 @@ export class QuestionComponent implements OnInit {
     return this.questionID <= this.allQuestions.length;
   }
 
+  isCorrectAnswer(): boolean {
+    return this.question.selectedOption === this.question.answer;
+  }
+
   get getQuestion(): QuizQuestion {
     return this.allQuestions.filter(
       question => question.questionId === this.questionID
@@ -227,28 +222,24 @@ export class QuestionComponent implements OnInit {
           this.timeLeft--;
 
           this.checkIfAnsweredCorrectly();
-          
+
           if (this.correctAnswersCount <= this.totalQuestions) {
             this.calculateQuizPercentage();
             this.calculateTotalElapsedTime(this.elapsedTimes);
           }
 
-          // check if timer is expired and if the question is less than the last question
-          if (this.timeLeft === 0 && this.question && this.currentQuestion < this.totalQuestions) {
+          // check if timer is expired and if the question is not the last question
+          if (this.timeLeft === 0 && this.question && this.currentQuestion !== this.totalQuestions) {
             this.navigateToNextQuestion();
           }
 
           // check if timer is expired and if the question is the last question
           if (this.timeLeft === 0 && this.question && this.currentQuestion === this.totalQuestions) {
-            this.elapsedTime = 0;
-            // this.completionTime = this.calculateTotalElapsedTime(this.elapsedTimes);
             this.navigateToResults();
           }
 
           // check if last question has been answered
-          if (this.question && this.currentQuestion === this.totalQuestions && this.hasAnswer === true) {
-            this.elapsedTime = 0;
-            // this.completionTime = this.calculateTotalElapsedTime(this.elapsedTimes);
+          if (this.currentQuestion === this.totalQuestions && this.hasAnswer === true) {
             this.navigateToResults();
             this.quizIsOver = true;
           }
