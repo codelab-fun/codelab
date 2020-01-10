@@ -141,8 +141,8 @@ export class QuestionComponent implements OnInit {
       this.hasAnswer = true;
       this.disabled = false;
 
-      this.elapsedTime = Math.floor(this.timePerQuestion - this.timeLeft);
-      if (this.correctAnswersCount <= this.totalQuestions) {
+      this.elapsedTime = Math.ceil(this.timePerQuestion - this.timeLeft);
+      if (this.getQuestionID() < this.totalQuestions) {
         this.elapsedTimes.push(this.elapsedTime);
       } else {
         this.elapsedTimes.push(0);
@@ -179,10 +179,7 @@ export class QuestionComponent implements OnInit {
   }
 
   calculateTotalElapsedTime(elapsedTimes) {
-    if (this.getQuestionID() < this.totalQuestions) {
-      this.completionTime = elapsedTimes.reduce((acc, cur) => acc + cur, 0);
-      return this.completionTime;
-    }
+    return this.completionTime = elapsedTimes.reduce((acc, cur) => acc + cur, 0);
   }
 
   /****************  public API  ***************/
