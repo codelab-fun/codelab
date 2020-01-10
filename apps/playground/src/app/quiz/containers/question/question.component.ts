@@ -99,7 +99,7 @@ export class QuestionComponent implements OnInit {
     this.totalQuestions = this.allQuestions.length;
     this.timeLeft = this.timePerQuestion;
     this.progressValue = 100 * (this.currentQuestion + 1) / this.totalQuestions;
-    this.countDown();
+    this.countdown();
   }
 
   displayNextQuestion() {
@@ -209,35 +209,27 @@ export class QuestionComponent implements OnInit {
     )[0];
   }
 
-  // countdown timer
-  private countDown() {
+  // countdown clock
+  private countdown() {
     if (this.questionID <= this.totalQuestions) {
       this.interval = setInterval(() => {
         if (this.timeLeft > 0) {
           this.timeLeft--;
-
           this.checkIfAnsweredCorrectly();
 
           if (this.correctAnswersCount <= this.totalQuestions) {
             this.calculateTotalElapsedTime(this.elapsedTimes);
           }
-
-          // check if timer is expired and if the question is not the last question
-          if (this.timeLeft === 0 && this.question && !this.isFinalQuestion()) {
+          if (this.timeLeft === 0 && !this.isFinalQuestion()) {
             this.navigateToNextQuestion();
           }
-
-          // check if timer is expired and if the question is the last question
-          if (this.timeLeft === 0 && this.question && this.isFinalQuestion()) {
+          if (this.timeLeft === 0 && this.isFinalQuestion()) {
             this.navigateToResults();
           }
-
-          // check if last question has been answered
           if (this.isFinalQuestion() && this.hasAnswer === true) {
             this.navigateToResults();
             this.quizIsOver = true;
           }
-
           // disable the next button until an option has been selected
           if (typeof this.question !== 'undefined') {
             this.question.selectedOption === '' ? this.disabled = true : this.disabled = false;
