@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 
 import { QuizQuestion } from '../../model/QuizQuestion';
@@ -84,7 +84,7 @@ export class QuestionComponent implements OnInit {
       answer: '2',
       explanation: 'object instantiations are taken care of by the constructor in Angular',
       selectedOption: ''
-    } // add more questions here
+    }
   ];
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -99,7 +99,7 @@ export class QuestionComponent implements OnInit {
     this.totalQuestions = this.allQuestions.length;
     this.timeLeft = this.timePerQuestion;
     this.progressValue = 100 * (this.currentQuestion + 1) / this.totalQuestions;
-    this.countDown();
+    this.countdown();
   }
 
   displayNextQuestion() {
@@ -122,15 +122,14 @@ export class QuestionComponent implements OnInit {
   }
 
   navigateToResults(): void {
-    const navigationExtras: NavigationExtras = {
-      queryParams: {
+    this.router.navigate(['/quiz/results'], { state:
+      {
         totalQuestions: this.totalQuestions,
         correctAnswersCount: this.correctAnswersCount,
         completionTime: this.completionTime,
-        allQuestions: JSON.stringify(this.allQuestions)
+        allQuestions: this.allQuestions
       }
-    };
-    this.router.navigate(['/quiz/results'], navigationExtras);
+    });
   }
 
   // checks whether the question is valid and is answered correctly
@@ -195,6 +194,10 @@ export class QuestionComponent implements OnInit {
     return this.questionID <= this.allQuestions.length;
   }
 
+  isFinalQuestion(): boolean {
+    return this.currentQuestion === this.totalQuestions;
+  }
+
   isCorrectAnswer(): boolean {
     return this.question.selectedOption === this.question.answer;
   }
@@ -205,35 +208,27 @@ export class QuestionComponent implements OnInit {
     )[0];
   }
 
-  // countdown timer
-  private countDown() {
+  // countdown clock
+  private countdown() {
     if (this.questionID <= this.totalQuestions) {
       this.interval = setInterval(() => {
         if (this.timeLeft > 0) {
           this.timeLeft--;
-
           this.checkIfAnsweredCorrectly();
 
           if (this.correctAnswersCount <= this.totalQuestions) {
             this.calculateTotalElapsedTime(this.elapsedTimes);
           }
-
-          // check if timer is expired and if the question is not the last question
-          if (this.timeLeft === 0 && this.question && this.currentQuestion !== this.totalQuestions) {
+          if (this.timeLeft === 0 && !this.isFinalQuestion()) {
             this.navigateToNextQuestion();
           }
-
-          // check if timer is expired and if the question is the last question
-          if (this.timeLeft === 0 && this.question && this.currentQuestion === this.totalQuestions) {
+          if (this.timeLeft === 0 && this.isFinalQuestion()) {
             this.navigateToResults();
           }
-
-          // check if last question has been answered
-          if (this.currentQuestion === this.totalQuestions && this.hasAnswer === true) {
+          if (this.isFinalQuestion() && this.hasAnswer === true) {
             this.navigateToResults();
             this.quizIsOver = true;
           }
-
           // disable the next button until an option has been selected
           if (typeof this.question !== 'undefined') {
             this.question.selectedOption === '' ? this.disabled = true : this.disabled = false;
