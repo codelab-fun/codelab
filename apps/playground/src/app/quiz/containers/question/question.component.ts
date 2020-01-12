@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 
 import { QuizQuestion } from '../../model/QuizQuestion';
@@ -84,7 +84,7 @@ export class QuestionComponent implements OnInit {
       answer: '2',
       explanation: 'object instantiations are taken care of by the constructor in Angular',
       selectedOption: ''
-    } // add more questions here
+    }
   ];
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -122,15 +122,14 @@ export class QuestionComponent implements OnInit {
   }
 
   navigateToResults(): void {
-    const navigationExtras: NavigationExtras = {
-      queryParams: {
+    this.router.navigate(['/quiz/results'], { state:
+      {
         totalQuestions: this.totalQuestions,
         correctAnswersCount: this.correctAnswersCount,
         completionTime: this.completionTime,
-        allQuestions: JSON.stringify(this.allQuestions)
+        allQuestions: this.allQuestions
       }
-    };
-    this.router.navigate(['/quiz/results'], navigationExtras);
+    });
   }
 
   // checks whether the question is valid and is answered correctly

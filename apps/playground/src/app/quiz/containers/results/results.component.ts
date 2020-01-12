@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { QuizQuestion } from '../../model/QuizQuestion';
+
 
 @Component({
   selector: 'codelab-quiz-results',
@@ -20,13 +21,11 @@ export class ResultsComponent implements OnInit {
   elapsedSeconds: number;
   codelabUrl = 'https://www.codelab.fun';
 
-  constructor(private route: ActivatedRoute) {
-    this.route.queryParams.subscribe((params: Params) => {
-      this.totalQuestions = +params['totalQuestions'];
-      this.correctAnswersCount = +params['correctAnswersCount'];
-      this.completionTime = +params['completionTime'];
-      this.allQuestions = JSON.parse(params['allQuestions']);
-    });
+  constructor(private router: Router) {
+    this.totalQuestions = this.router.getCurrentNavigation().extras.state.totalQuestions;
+    this.correctAnswersCount = this.router.getCurrentNavigation().extras.state.correctAnswersCount;
+    this.completionTime = this.router.getCurrentNavigation().extras.state.completionTime;
+    this.allQuestions = this.router.getCurrentNavigation().extras.state.allQuestions;
   }
 
   ngOnInit() {
