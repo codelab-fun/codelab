@@ -64,6 +64,13 @@ section.results {
         outline: none;
       }
 
+      accordion {
+        padding-bottom: 20px;
+      }
+      .quizAccordionClass {
+        background-color: #f5f5f5 !important;
+      }
+
       .allQuestions {
         clear: left;
       }
