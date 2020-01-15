@@ -34,39 +34,36 @@
       <section class="quizSummary">
         <details>
           <summary>View a more detailed summary of your quiz</summary>
-          <accordion>
-            <accordion-group *ngFor="let question of allQuestions" class="allQuestions" panelClass="quizAccordionClass"
-              heading='Question #{{ question.questionId }}: {{ question.questionText }}'>
-              <div class="quiz-summary-question">
-                <div class="quiz-summary-field">
-                  <span>
-                    <span class="leader">Question #{{ question.questionId }}: </span>{{ question.questionText }}
-                  </span>
-                </div>
-                <div class="quiz-summary-field">
-                  <span>
-                    <span class="leader">Your Answer: </span>
-                    Option {{ question.selectedOption }} &mdash; {{ question.options[question.selectedOption - 1].optionText }}
-                    <mat-icon class="correct" *ngIf="question.answer === question.selectedOption">done</mat-icon>
-                    <mat-icon class="incorrect" *ngIf="question.answer !== question.selectedOption">clear</mat-icon>
-                    <span *ngIf="question.selectedOption === ''"> (no answer provided)</span>
-                  </span>
-                </div>
-                <div class="quiz-summary-field">
-                  <span>
-                    <span class="leader">Correct Answer: </span>
-                    Option {{ question.answer }} &mdash; {{ question.options[question.answer - 1].optionText }}
-                  </span>
-                </div>
-                <div class="quiz-summary-field">
-                  <span>
-                    <span class="leader">Explanation: </span>
-                    Option {{ question.answer }} was correct because {{ question.explanation }}.
-                  </span>
-                </div>
+          <div class="allQuestions" *ngFor="let question of allQuestions">
+            <div class="quiz-summary-question">
+              <div class="quiz-summary-field">
+                <span>
+                  <span class="leader">Question #{{ question.questionId }}: </span>{{ question.questionText }}
+                </span>
               </div>
-            </accordion-group>
-          </accordion>
+              <div class="quiz-summary-field">
+                <span>
+                  <span class="leader">Your Answer: </span>
+                  Option {{ question.selectedOption }} &mdash; {{ question.options[question.selectedOption - 1].optionText }}
+                  <mat-icon class="correct" *ngIf="question.answer === question.selectedOption">done</mat-icon>
+                  <mat-icon class="incorrect" *ngIf="question.answer !== question.selectedOption">clear</mat-icon>
+                  <span *ngIf="question.selectedOption === ''"> (no answer provided)</span>
+                </span>
+              </div>
+              <div class="quiz-summary-field">
+                <span>
+                  <span class="leader">Correct Answer: </span>
+                  Option {{ question.answer }} &mdash; {{ question.options[question.answer - 1].optionText }}
+                </span>
+              </div>
+              <div class="quiz-summary-field">
+                <span>
+                  <span class="leader">Explanation: </span>
+                  Option {{ question.answer }} was correct because {{ question.explanation }}.
+                </span>
+              </div>
+            </div>
+          </div>
         </details>
       </section>
     </section>
