@@ -117,12 +117,12 @@ export class QuestionComponent implements OnInit {
   }
 
   navigateToNextQuestion(): void {
-    this.router.navigate(['/quiz/question', this.getQuestionID() + 1]);
+    this.router.navigate(['/question', this.getQuestionID() + 1]);
     this.displayNextQuestion();
   }
 
   navigateToResults(): void {
-    this.router.navigate(['/quiz/results'], { state:
+    this.router.navigate(['/results'], { state:
       {
         totalQuestions: this.totalQuestions,
         correctAnswersCount: this.correctAnswersCount,
@@ -135,19 +135,11 @@ export class QuestionComponent implements OnInit {
   // checks whether the question is valid and is answered correctly
   checkIfAnsweredCorrectly() {
     if (this.isThereAnotherQuestion() && this.isCorrectAnswer()) {
-      this.incrementCorrectAnswersCount();
       this.correctAnswer = true;
       this.hasAnswer = true;
       this.disabled = false;
-
-      this.elapsedTime = Math.ceil(this.timePerQuestion - this.timeLeft);
-      if (this.getQuestionID() < this.totalQuestions) {
-        this.elapsedTimes.push(this.elapsedTime);
-      } else {
-        this.elapsedTimes.push(0);
-        this.completionTime = this.calculateTotalElapsedTime(this.elapsedTimes);
-      }
-
+      this.incrementCorrectAnswersCount();
+      this.addElapsedTime();
       this.quizDelay(3000);
 
       if (this.getQuestionID() < this.totalQuestions) {
@@ -156,6 +148,16 @@ export class QuestionComponent implements OnInit {
         this.navigateToResults();
       }
     }
+  }
+
+  addElapsedTime() {
+    this.elapsedTime = Math.ceil(this.timePerQuestion - this.timeLeft);
+    if (this.getQuestionID() < this.totalQuestions) {
+      this.elapsedTimes = [...this.elapsedTimes, this.elapsedTime];
+    } else {
+      this.elapsedTimes = [...this.elapsedTimes, 0];
+    }
+    this.completionTime = this.calculateTotalElapsedTime(this.elapsedTimes);
   }
 
   incrementCorrectAnswersCount() {
@@ -229,10 +231,9 @@ export class QuestionComponent implements OnInit {
             this.navigateToResults();
             this.quizIsOver = true;
           }
+
           // disable the next button until an option has been selected
-          if (typeof this.question !== 'undefined') {
-            this.question.selectedOption === '' ? this.disabled = true : this.disabled = false;
-          }
+          this.question.selectedOption === '' ? this.disabled = true : this.disabled = false;
         }
       }, 1000);
     }
