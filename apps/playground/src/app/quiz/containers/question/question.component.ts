@@ -84,84 +84,6 @@ export class QuestionComponent implements OnInit {
       answer: '2',
       explanation: 'object instantiations are taken care of by the constructor in Angular',
       selectedOption: ''
-    },
-    {
-      questionId: 5,
-      questionText: 'Which access modifier is typically used in DI to make a service accessible within a class?',
-      options: [
-        { optionValue: '1', optionText: 'public' },
-        { optionValue: '2', optionText: 'protected' },
-        { optionValue: '3', optionText: 'private' },
-        { optionValue: '4', optionText: 'static' },
-      ],
-      answer: '3',
-      explanation: 'the private keyword indicates to Angular that the service is accessible across the class',
-      selectedOption: ''
-    },
-    {
-      questionId: 6,
-      questionText: 'How does Angular know that a service is available?',
-      options: [
-        { optionValue: '1', optionText: 'If listed in the constructor.' },
-        { optionValue: '2', optionText: 'If listed in the providers section of NgModule.' },
-        { optionValue: '3', optionText: 'If the service is declared as an interface.' },
-        { optionValue: '4', optionText: 'If the service is lazy-loaded.' },
-      ],
-      answer: '2',
-      explanation: 'Angular looks at the providers section of NgModule to locate services that are available',
-      selectedOption: ''
-    },
-    {
-      questionId: 7,
-      questionText: 'How does Angular avoid conflicts caused by using hardcoded strings as tokens?',
-      options: [
-        { optionValue: '1', optionText: 'Use an InjectionToken class' },
-        { optionValue: '2', optionText: 'Use @Inject()' },
-        { optionValue: '3', optionText: 'Use useFactory' },
-        { optionValue: '4', optionText: 'Use useValue' },
-      ],
-      answer: '1',
-      explanation: 'an InjectionToken class is preferable to using strings',
-      selectedOption: ''
-    },
-    {
-      questionId: 8,
-      questionText: 'Which is the preferred method for getting necessary data from a backend?',
-      options: [
-        { optionValue: '1', optionText: 'HttpClient' },
-        { optionValue: '2', optionText: 'WebSocket' },
-        { optionValue: '3', optionText: 'NgRx' },
-        { optionValue: '4', optionText: 'JSON' }
-      ],
-      answer: '1',
-      explanation: 'a server makes an HTTP request using the HttpClient service',
-      selectedOption: ''
-    },
-    {
-      questionId: 9,
-      questionText: 'In which of the following can Angular use services?',
-      options: [
-        { optionValue: '1', optionText: 'Lazy-loaded modules' },
-        { optionValue: '2', optionText: 'Eagerly loaded modules' },
-        { optionValue: '3', optionText: 'Feature modules' },
-        { optionValue: '4', optionText: 'All of the above.' },
-      ],
-      answer: '4',
-      explanation: 'Angular can utilize services with any of these methods',
-      selectedOption: ''
-    },
-    {
-      questionId: 10,
-      questionText: 'Which of the following is true concerning dependency injection?',
-      options: [
-        { optionValue: '1', optionText: 'It is a software design pattern.' },
-        { optionValue: '2', optionText: 'Injectors form a hierarchy.' },
-        { optionValue: '3', optionText: 'Providers register objects for future injection.' },
-        { optionValue: '4', optionText: 'All of the above.' }
-      ],
-      answer: '4',
-      explanation: 'all of these are correct statements about dependency injection',
-      selectedOption: ''
     }
   ];
 
@@ -195,12 +117,12 @@ export class QuestionComponent implements OnInit {
   }
 
   navigateToNextQuestion(): void {
-    this.router.navigate(['/quiz/question', this.getQuestionID() + 1]);
+    this.router.navigate(['/question', this.getQuestionID() + 1]);
     this.displayNextQuestion();
   }
 
   navigateToResults(): void {
-    this.router.navigate(['/quiz/results'], { state:
+    this.router.navigate(['/results'], { state:
       {
         totalQuestions: this.totalQuestions,
         correctAnswersCount: this.correctAnswersCount,
@@ -213,19 +135,11 @@ export class QuestionComponent implements OnInit {
   // checks whether the question is valid and is answered correctly
   checkIfAnsweredCorrectly() {
     if (this.isThereAnotherQuestion() && this.isCorrectAnswer()) {
-      this.incrementCorrectAnswersCount();
       this.correctAnswer = true;
       this.hasAnswer = true;
       this.disabled = false;
-
-      this.elapsedTime = Math.ceil(this.timePerQuestion - this.timeLeft);
-      if (this.getQuestionID() < this.totalQuestions) {
-        this.elapsedTimes.push(this.elapsedTime);
-      } else {
-        this.elapsedTimes.push(0);
-        this.completionTime = this.calculateTotalElapsedTime(this.elapsedTimes);
-      }
-
+      this.incrementCorrectAnswersCount();
+      this.addElapsedTime();
       this.quizDelay(3000);
 
       if (this.getQuestionID() < this.totalQuestions) {
@@ -234,6 +148,16 @@ export class QuestionComponent implements OnInit {
         this.navigateToResults();
       }
     }
+  }
+
+  addElapsedTime() {
+    this.elapsedTime = Math.ceil(this.timePerQuestion - this.timeLeft);
+    if (this.getQuestionID() < this.totalQuestions) {
+      this.elapsedTimes = [...this.elapsedTimes, this.elapsedTime];
+    } else {
+      this.elapsedTimes = [...this.elapsedTimes, 0];
+    }
+    this.completionTime = this.calculateTotalElapsedTime(this.elapsedTimes);
   }
 
   incrementCorrectAnswersCount() {
@@ -307,10 +231,9 @@ export class QuestionComponent implements OnInit {
             this.navigateToResults();
             this.quizIsOver = true;
           }
+
           // disable the next button until an option has been selected
-          if (typeof this.question !== 'undefined') {
-            this.question.selectedOption === '' ? this.disabled = true : this.disabled = false;
-          }
+          this.question.selectedOption === '' ? this.disabled = true : this.disabled = false;
         }
       }, 1000);
     }
