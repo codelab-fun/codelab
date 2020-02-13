@@ -1,25 +1,31 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
-  <div *slide title>
+  <div *slide cover>
     codelab.fun
   </div>
 
   <!--  TODO(anya):-->
   <div *slide cover>What is codelab.fun</div>
-  <div *slide>
-    <h2>Online interactive angular tutorial no setup</h2>
-    <div pic class="img-todo"></div>
+  <div *slide pic-label>
+    Online interactive angular tutorial no setup
+    <div class="no-setup" pic></div>
   </div>
-  <div *slide>
-    <h2>Interactive code samples</h2>
-    <div pic class="img-todo"></div>
+  <div *slide pic-label>
+    Interactive code samples
+    <div class="examples" pic></div>
   </div>
-  <div *slide>
-    <h2>Hands on exercises</h2>
-    <div pic class="img-todo"></div>
+  <div *slide pic-label>
+    Hands on exercises
+    <div class="exercises" pic></div>
   </div>
-  <div *slide>
-    <h2>All open source/Angular Ivy/on Github</h2>
-    <div pic class="img-todo"></div>
+  <div *slide pic-label>
+    All open source/Angular Ivy/on Github
+    <div class="github" pic></div>
+    <div class="issues" pic></div>
+  </div>
+
+  <div *slide pic-label>
+    Regular offline contributors meetings
+    <div class="community" pic></div>
   </div>
   <div *slide>
     <h2>20+ Live-events in 10+ countries</h2>
@@ -349,7 +355,14 @@
   <div *slide>
     появилась возможность подключать любые библиотеки на этапе компиляции
   </div>
-  <!--  end TODO(🦊):-->
+  <div *slide>Running tests (mocha / babel + traversing AST)</div>
+  <div *slide>
+    - The goal is to quickly assess whether user's code does what we want.
+  </div>
+  <div *slide>
+    - Initially the plan was to run unit tests in an iframe with TestBed, mocha
+    + chai (code TBD)
+  </div>
   <div *slide>- Phase 2 - We started reusing iframe (code TBD)</div>
   <div *slide>- Special case testing bootstrapping the app (code TBD)</div>
   <div *slide>
@@ -365,36 +378,13 @@
   <div *slide>
     - Bundle size/It's own AMD loader/Have to be included in the assets
   </div>
+  <div *slide>- Adding types to monaco</div>
+  <div *slide>- Highlighting</div>
   <div *slide>- Autofolding</div>
   <div *slide>- Init on app load</div>
-
-  <div *slide cover>Upgrading to Ivy</div>
-  <div *slide>- Show PDF</div>
-
-  <!--  end TODO(🦊): Alex Bu-->
-  <div *slide>Feedback + Github Integration (alex bu?)</div>
-
-  <div *slide cover>Experiments/What's next?</div>
-
-  <!--  TODO(Alex Bu):-->
-  <div *slide>30 seconds</div>
-  <div *slide>- Angular snippets, learn new thing in 30 seconds</div>
-  <div *slide>- Open source, anybody can add (using amazing form)</div>
-  <div *slide>30 seconds AMAZING (experimental) form</div>
-  <div *slide>- anybody can add his own snippet (about angular features)</div>
-  <div *slide>- boring way to create a new snippet -> amazing form</div>
-  <div *slide>- Firebase + Github Auth</div>
-  <div *slide>- amazing form github integration</div>
-  <div *slide>- + edit form</div>
-  <div *slide>Technical stuff</div>
-  <div *slide cover>Codelab for presentations</div>
-  <div *slide>Our goal was:</div>
-  <div *slide>*slide directive</div>
-  <div *slide>Passing ID to slide directive</div>
-  <!--  end TODO(Alex Bu):-->
-
-  <div *slide>- Codelab is not just an angular course it is a platform</div>
+  <div *slide>Experiments/What's next?</div>
   <div *slide>Sync lib</div>
+  <div *slide>- Codelab is not just an angular course it is a platform</div>
   <div *slide>- Demo</div>
   <div *slide>New runner</div>
   <div *slide>- What we want:</div>
@@ -410,15 +400,4 @@
   <div *slide>How to start</div>
   <div *slide>Why to contribute?</div>
   <div *slide>What's next?</div>
-
-  <!--  TODO: kirjs' presentations-->
-  <div *slide>examples:</div>
-  <div *slide>https://kirjs.com/binary/binary-file-value-2</div>
-  <div *slide>TODO(web assembly).</div>
-  <div *slide>Feedback + Github Integration (alex bu?)</div>
-  <div *slide>- layout placement</div>
-  <div *slide>- roles model</div>
-  <div *slide>- TBD Feedback Screenshot</div>
-  <div *slide>- Table Screenshot</div>
-  <div *slide>- Github Integration</div>
 </slide-deck>
