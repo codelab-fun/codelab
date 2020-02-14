@@ -25,10 +25,13 @@ export class StarsPresenterComponent implements OnChanges {
       this.average = sum(values) / values.length;
 
       this.breakdown = values
-        .reduce((r, a) => {
-          r[a]++;
-          return r;
-        }, Array.from(Array(6), () => 0))
+        .reduce(
+          (r, a) => {
+            r[a]++;
+            return r;
+          },
+          Array.from(Array(6), () => 0)
+        )
         .slice(1);
       this.max = Math.max(...this.breakdown);
     }

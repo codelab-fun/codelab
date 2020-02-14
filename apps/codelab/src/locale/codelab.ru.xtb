@@ -85,9 +85,9 @@
   <translation id="orStyleProps" desc="Or style properties&#13;&#10;Или CSS">Или CSS</translation>
   <translation id="worksWithCustomComponents">Все работает с пользовательскими компонентами</translation>
   <translation id="whenUserClicksItCallsSaveUser">При нажатии на кнопку, вызовется метод  компонента &quot;saveUser&quot; и передаст соответствующий event.</translation>
-  <translation id="youCanAlsoCreateEventsForCustomComponents">Вы также можете создавать события для собственных компонентов. 
+  <translation id="youCanAlsoCreateEventsForCustomComponents">Вы также можете создавать события для собственных компонентов.
 Здесь у нас есть событие &quot;depleted&quot;, которое вызовет &quot;soundAlarm&quot; когда сработает</translation>
-  <translation id="thereAreShortcutEventBindings">Еще есть упрощенный способ привязки событий! 
+  <translation id="thereAreShortcutEventBindings">Еще есть упрощенный способ привязки событий!
 Если пользователь нажмет CTRL+ENTER, запустится метод submit (это возможность Angular)</translation>
   <translation id="userNameHasRefToInput">в userName есть ссылка на input</translation>
   <translation id="tryChangingToTrue">Попробуйте изменить на true!</translation>
@@ -137,16 +137,16 @@
   <translation id="6346332284188948979">Узнайте больше о шаблонах в Angular!</translation>
   <translation id="createClassCodelab">Создайте класс  с именем &apos;Codelab&apos;</translation>
   <translation id="1425139040251941806">Основы JavaScript.</translation>
-  <translation id="addComponentDecoratorAndSetSelectorToMyVideo">video.component.ts: Отметьте компонент декоратором &apos;@Component&apos;  и добавьте в него селектор  &apos;my-video&apos;.</translation>
+  <translation id="addComponentDecoratorAndSetSelectorToMyVideo">video/video.component.ts: Отметьте компонент декоратором &apos;@Component&apos;  и добавьте в него селектор  &apos;my-video&apos;.</translation>
   <translation id="addVideoComponentToAppModule">app.module.ts: Объявите компонент VideoComponent в свойстве  &apos;declarations&apos; модуля AppModule.</translation>
   <translation id="setTemplateUrlToLoadAppropriateFile">video.component.ts Добавьте ссылку на соответствующий HTML файл с шаблоном в свойство templateUrl , чтобы загрузить шаблон в компонент</translation>
-  <translation id="addVideoPropertyAndDecorateWithInput">video.component.ts: Добавьте свойство video  и отметьте его декоратором @Input()</translation>
-  <translation id="displayVideoTitle">video.component.html: Отобразите название (title) видео</translation>
-  <translation id="displayVideoThumbnail">video.component.html: Отобразите превью (src) видео</translation>
-  <translation id="displayVideoDescription">video.component.html: Отобразите описание(description) видео</translation>
-  <translation id="displayVideoData">video.component.html: Выведите дату видео</translation>
-  <translation id="displayNumberOfVideoViews">video.component.html: Отобразите количество просмотров видео(views)</translation>
-  <translation id="displayNumberOfVideoLikes">video.component.html: Отобразите количество отметок &quot;нравится&quot;(likes)</translation>
+  <translation id="addVideoPropertyAndDecorateWithInput">video/video.component.ts: Добавьте свойство video  и отметьте его декоратором @Input()</translation>
+  <translation id="displayVideoTitle">video/video.component.html: Отобразите название (title) видео</translation>
+  <translation id="displayVideoThumbnail">video/video.component.html: Отобразите превью (src) видео</translation>
+  <translation id="displayVideoDescription">video/video.component.html: Отобразите описание(description) видео</translation>
+  <translation id="displayVideoData">video/video.component.html: Выведите дату видео</translation>
+  <translation id="displayNumberOfVideoViews">video/video.component.html: Отобразите количество просмотров видео(views)</translation>
+  <translation id="displayNumberOfVideoLikes">video/video.component.html: Отобразите количество отметок &quot;нравится&quot;(likes)</translation>
   <translation id="replaceTitleAndThumbnail">app.html: Замените текущие название и превью видео на наш чудесный компонент &lt;my-video&gt;</translation>
   <translation id="useDataBindingToPassVideoToComponent">app.html: С помощью биндинга передайте объект &quot;video&quot; в компонент my-video (не забудьте про квадратные скобки)</translation>
   <translation id="createClassAppComponent">Создайте класс &apos;AppComponent&apos;</translation>
@@ -207,7 +207,7 @@
   <translation id="1166207354981984344">Пока в нашем приложении только один компонент, но по мере роста приложения и добавления новых компонентов, у нас получится дерево компонентов</translation>
   <translation id="5463254600145635312">Внутри компонент может отобразить любой другой с помощью HTML тега, который соответствует селектору выбранного компонента</translation>
   <translation id="2842394284573918883">Родительский компонент передает свои данные дочернему через свойства</translation>
-  <translation id="8392567546535132259"> Измените <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> размер<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> 
+  <translation id="8392567546535132259"> Измените <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> размер<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>
  на <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> 100 <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> и <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> цвет <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> на <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> красный <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, чтобы получить японский флаг</translation>
   <translation id="6462196081007759452">Свойства дочернего класса должны быть декорированы специальным <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> @Input() <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> декоратором</translation>
   <translation id="2816636294709814885">В этом случае мы впервые применяем декораторы к свойствам, а не к классам</translation>
@@ -222,7 +222,7 @@
   <translation id="901484278635100487">&apos;Selector&apos; привязывает компонент к соответствующему элементу в HTML структуре документа. Когда Angular находит <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>hello-world<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> HTML тег в документе, он отрисовывает шаблон HelloWorldComponent&apos;а внутри этого тега</translation>
   <translation id="5776232626408915586">Шаблон (template) определяется HTML кодом, который генерируется компонентом.</translation>
   <translation id="3490030044563966992">Если количество тегов в HTML растет, можно (и рекомендуется) использовать  <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> templateUrl<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> вместо этого, указав путь к файлу HTML с шаблоном.</translation>
-  <translation id="7639270097778554357">На следующем слайде вы создадите свой первый <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>-компонент! 
+  <translation id="7639270097778554357">На следующем слайде вы создадите свой первый <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>-компонент!
 Подготовьте компонент и опишите его поведение по предложенным инструкциям, результат будет отображен автоматически. В итоге должно получиться следующее:</translation>
   <translation id="5126304564648715351"><ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NgModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> не имеет визуального представления и используется исключительно для группировки функциональных элементов Angular
 </translation>
@@ -296,7 +296,7 @@
   <translation id="5150753083587849200">В классе есть специальный метод: <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>constructor<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, который вызывается при создании класса и позволяет записать полученные параметры в свойства класса.</translation>
   <translation id="462788382585371115">Параметры конструктора, отмеченные как <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> public <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> (или private, или protected), записываются в свойства класса. Они будут доступны как <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> this.ParameterName <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> внутри класса.</translation>
   <translation id="4472178753190540128">Свойства &apos;private&apos; или &apos;protected&apos; не могут быть использованы вне класса.</translation>
-  <translation id="6571723708298379001">Возможно, вы заметили оператор <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> export <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> перед классом. 
+  <translation id="6571723708298379001">Возможно, вы заметили оператор <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph> export <ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> перед классом.
 Он используется для того, чтобы сделать класс доступным в других файлах. На следующем слайде мы покажем вам, как импортировать и использовать тот класс в другом файле.</translation>
   <translation id="687605542005054114">&quot;<ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>filter<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>&quot; - метод массива, который позволяет генерировать новый массив, выбрав только значения,  удовлетворяющие условию</translation>
   <translation id="2776231080049358900">TypeScript поддерживает множество других интересных и полезных штук, например:</translation>
@@ -381,7 +381,7 @@
       <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>здесь<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph></translation>
   <translation id="5179157556117527268">Добавьте <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>MatToolbarModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> в импорты</translation>
   <translation id="5392852815080322940">Используйте компонент в шаблоне</translation>
-  <translation id="4611890716836134126">Обратите внимание, что анимации в Angular вынесены в отдельный модуль. Мы добавляем 
+  <translation id="4611890716836134126">Обратите внимание, что анимации в Angular вынесены в отдельный модуль. Мы добавляем
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>NoopAnimationsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> здесь, но могли бы использовать
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>BrowserAnimationsModule<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> вместо того, чтобы получить полноценные анимации.</translation>
   <translation id="9159121920453591417">Теперь давайте добавим material card</translation>
@@ -414,11 +414,11 @@
   <translation id="4302113860648465389">Добро пожаловать в интерактивный курс по Angular. Здесь вы сможете выучить основы <ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Angular<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>!</translation>
   <translation id="AddMatModules">app.module.ts: Добавьте MatCardModule и MatToolbarModule в свойство &quot;imports&quot;.</translation>
   <translation id="AddMatToolbar">app.html: Добавьте material toolbar, содержащий значение свойства title</translation>
-  <translation id="UseMatCard">video.component.html: Используйте material card, чтобы отобразить дату</translation>
-  <translation id="AddMatCardTitle">video.component.html: Добавьте mat-card-title (внутри of the mat-card), чтобы отобразить заголовок видео (title)</translation>
-  <translation id="AddMatCardSubtitle">video.component.html: Добавьте mat-card-subtitle (внутри mat-card), чтобы отобразить описание (description)</translation>
-  <translation id="AddMatImage">video.component.html: Добавьте к картинке (img) аттрибут mat-card-image  и ее ширина увеличится до ширины mat-card</translation>
-  <translation id="MoveDataToNewComponent"> video.component.html: Перенесите дату/информацию о просмотрах/лайках в mat-card-content (внутри mat-card)</translation>
+  <translation id="UseMatCard">video/video.component.html: Используйте material card, чтобы отобразить дату</translation>
+  <translation id="AddMatCardTitle">video/video.component.html: Добавьте mat-card-title (внутри of the mat-card), чтобы отобразить заголовок видео (title)</translation>
+  <translation id="AddMatCardSubtitle">video/video.component.html: Добавьте mat-card-subtitle (внутри mat-card), чтобы отобразить описание (description)</translation>
+  <translation id="AddMatImage">video/video.component.html: Добавьте к картинке (img) аттрибут mat-card-image  и ее ширина увеличится до ширины mat-card</translation>
+  <translation id="MoveDataToNewComponent"> video/video.component.html: Перенесите дату/информацию о просмотрах/лайках в mat-card-content (внутри mat-card)</translation>
   <translation id="UseRouterModule">app.module.ts: Используя RouterModule.forRoot, передайте пустой массив в модуль</translation>
   <translation id="AddEmptyRoute">app.module.ts: Добавьте роут с пустым (&apos;&apos;) путем, отображающий SearchComponent</translation>
   <translation id="AddUploadRoute">app.module.ts: Добавьте роут с путем (&apos;upload&apos;), отображающий UploadComponent</translation>
@@ -510,8 +510,8 @@
   <translation id="3398399443611989744">С ростом нашего приложения, увеличивается и число зависимостей. В свою очередь, зависимости будут обрастать собственными зависимостями. Держать это все под контролем вручную становится все сложнее и сложнее</translation>
   <translation id="7439203421419595915">Чтобы упростить это, у <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> есть механизм, который называется <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Dependency injection<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> </translation>
   <translation id="5839870276585422607" desc="AddFormsModule">app.module.ts: Добавьте FormsModule и MatInputModule в свойство &quot;imports&quot;.</translation>
-  <translation id="891470929346566427" desc="AddTitle">upload.component.html: Добавьте поле ввода &quot;title&quot; и привяжите его к свойству title компонента </translation>
-  <translation id="6729408012939811950" desc="AddDescription">upload.component.html: Добавьте текстовое поле (textarea) &quot;description&quot; и привяжите к свойству description компонента </translation>
+  <translation id="891470929346566427" desc="AddTitle">upload/upload.component.html: Добавьте поле ввода &quot;title&quot; и привяжите его к свойству title компонента </translation>
+  <translation id="6729408012939811950" desc="AddDescription">upload/upload.component.html: Добавьте текстовое поле (textarea) &quot;description&quot; и привяжите к свойству description компонента </translation>
   <translation id="8362373699100533468">Значение <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>dirty<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> положительно, если пользователь изменил значение текстового поля.</translation>
   <translation id="889876683989703032">Узнайте, как начать работу с Angular приложением в разделе &quot;Angular-cli&quot;</translation>
   <translation id="1020036473936546385">Все компоненты Angular Material позволяют применять темы. Попробуйте различные темы, нажимая на кнопки ниже:</translation>
@@ -541,7 +541,7 @@
   <translation id="802747981858883975">Конец раздела &quot;Маршрутизация&quot;</translation>
   <translation id="7915809409906759185">Вы можете добавить material toolbar в два шага:</translation>
   <translation id="606239688044547568">Конец раздела &quot;angular-cli&quot;</translation>
-  <translation id="3925110322481983370">Выполните <ph name="START_TAG_CODE"><ex>&lt;code&gt;</ex>&lt;code&gt;</ph>npm install -g @angular/cli<ph name="CLOSE_TAG_CODE"><ex>&lt;/code&gt;</ex>&lt;/code&gt;</ph>, чтобы 
+  <translation id="3925110322481983370">Выполните <ph name="START_TAG_CODE"><ex>&lt;code&gt;</ex>&lt;code&gt;</ph>npm install -g @angular/cli<ph name="CLOSE_TAG_CODE"><ex>&lt;/code&gt;</ex>&lt;/code&gt;</ph>, чтобы
  установить
       <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>Angular cli<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph> на ваш компьютер</translation>
   <translation id="847815468721324902">Чтобы создать новое Angular приложение, выполните:

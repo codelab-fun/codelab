@@ -38,7 +38,7 @@ describe('Component Tree', () => {
     chai.expect(metadata.declarations || [], `Keep the app component`).contains(VideoComponent);
   });
 
-  it(`video.component.html: Use the thumbs component in the template`, () => {
+  it(`video/video.component.html: Use the thumbs component in the template`, () => {
     const fixture = TestBed.createComponent(VideoComponent);
     fixture.componentInstance.video = Api.fetch('')[0];
     fixture.detectChanges();

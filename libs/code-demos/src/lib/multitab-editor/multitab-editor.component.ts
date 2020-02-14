@@ -59,6 +59,7 @@ export class MultitabEditorComponent
   // tslint:disable-next-line:no-input-rename
   @Input('files') setFiles: string | string[];
   @Input() enableAutoFolding = true;
+  @Input() autoSize = true;
   files = [];
   openModels: MonacoModel[];
   changeSubject = new Subject();

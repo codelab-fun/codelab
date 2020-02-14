@@ -48,10 +48,7 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     });
 
     this.formGroup.valueChanges
-      .pipe(
-        debounceTime(500),
-        takeUntil(this.destroy)
-      )
+      .pipe(debounceTime(500), takeUntil(this.destroy))
       .subscribe(data => {
         localStorage[`feedback-${this.router.url}-comment`] = data.comment;
       });
