@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "ng": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng",
+    "ng": "node --max_old_space_size=16000 ./node_modules/@angular/cli/bin/ng",
     "//--------------- CODELAB ---------------------": "",
     "start": "ng serve",
     "build": "ng build",
@@ -37,7 +37,7 @@
     "serve:lis": "ng serve lis",
     "build:lis": "ng build lis  --prod",
     "//--------------- 30s OF ANGULAR   -------------------": "",
-    "build:30s": "ng build angular-thirty-seconds --prod",
+    "build:30s": "npm run ng build angular-thirty-seconds --prod",
     "serve:30s": "ng serve angular-thirty-seconds",
     "//--------------- NX      ---------------------": "",
     "affected:apps": "./node_modules/.bin/nx affected:apps",
