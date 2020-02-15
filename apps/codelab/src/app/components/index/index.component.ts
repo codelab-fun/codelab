@@ -7,6 +7,5 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class IndexComponent {
   @ViewChild('translations', { static: false }) translations;
-
-  showContents: boolean;
+  isContentExpanded = false;
 }

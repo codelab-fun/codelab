@@ -1,9 +1,8 @@
-<h3>Lessons</h3>
-<ol>
-  <li *ngFor="let route of menuRoutes">
-    <h2>
+<ul class="list-group list-group-flush">
+  <li *ngFor="let route of menuRoutes; let last = last" class="list-group-item">
+    <p class="mb-0">
       <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
-    </h2>
-    <div>{{ route.description }}</div>
+    </p>
+    <small>{{ route.description }}</small>
   </li>
-</ol>
+</ul>

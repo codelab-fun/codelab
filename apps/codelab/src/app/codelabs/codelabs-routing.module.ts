@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from '../components/index/index.component';
+import { IndexComponent } from '../components/index';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   {
     path: 'angular',
-    loadChildren: () =>
-      import('./angular/angular.module').then(m => m.AngularModule)
+    loadChildren: () => import('./angular').then(m => m.AngularModule)
   },
   {
     path: 'extra',
-    loadChildren: () => import('./extra/extra.module').then(m => m.ExtraModule)
+    loadChildren: () => import('./extra').then(m => m.ExtraModule)
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
+    loadChildren: () => import('./about').then(m => m.AboutModule)
   }
 ];
 

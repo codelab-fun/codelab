@@ -32,7 +32,7 @@
               },
               "apps/codelab/src/manifest.webmanifest"
             ],
-            "styles": ["apps/codelab/src/styles.scss"],
+            "styles": ["apps/codelab/src/styles/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -108,7 +108,7 @@
             "polyfills": "apps/codelab/src/polyfills.ts",
             "tsConfig": "apps/codelab/tsconfig.spec.json",
             "scripts": [],
-            "styles": ["apps/codelab/src/styles.scss"],
+            "styles": ["apps/codelab/src/styles/styles.scss"],
             "assets": [
               "apps/codelab/src/assets",
               "apps/codelab/src/favicon.ico",

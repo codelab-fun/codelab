@@ -1,0 +1,32 @@
+$white: #ffffff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+
+$blue: #1885ff !default;
+$indigo: #3f51b5 !default;
+$purple: #6f42c1 !default;
+$pink: #ff4081 !default;
+$red: #ff6144 !default;
+$orange: #f89406 !default;
+$yellow: #e9d460 !default;
+$green: #00c212 !default;
+$teal: #d3fffd !default;
+$cyan: #17a2b8 !default;
+
+$light-red: #c04e22 !default;
+
+$primary: $red !default;
+$secondary: $light-red !default;
+$success: $green !default;
+$info: $teal !default;
+$warning: $yellow !default;
+$danger: $red !default;
+
+@import '~node_modules/bootstrap/scss/bootstrap';

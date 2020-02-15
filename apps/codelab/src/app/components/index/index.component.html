@@ -32,44 +32,61 @@
   </div>
 </div>
 
-<slide-deck>
-  <codelab-sync-survey></codelab-sync-survey>
-  <codelab-buttons-nav-bar></codelab-buttons-nav-bar>
-
-  <div *slide id="index">
-    <h1 i18n>Angular Codelab</h1>
-    <h2 i18n>
-      Welcome to the interactive Angular Codelab. Here you can learn the basics
-      of <a href="https://angular.io">Angular</a>!
-    </h2>
-    <div class="play">
-      <button
-        class="learn-box typescript"
-        [routerLink]="['/angular', 'typescript', 'intro']"
-      >
-        <span aria-hidden="true">▶</span>
-        <div>
-          <div class="title" i18n>Learn TypeScript</div>
-          <div class="hint" i18n>Skip if you're familiar with TypeScript</div>
-        </div>
-        <img src="/assets/images/ts.png" alt="TypeScript logo" class="" />
-      </button>
-      <button routerLink="/angular/create-first-app/intro" class="learn-box">
-        <span aria-hidden="true">▶</span>
-        <div i18n>Learn Angular</div>
-        <img
-          src="/assets/images/angular.png"
-          alt="Angular logo"
-          class="angular"
-        />
-      </button>
+<div class="container pt-md-5">
+  <div class="row mt-md-5">
+    <div class="col-md-5 mt-md-5 mb-5">
+      <h1 class="display-4 text-center text-md-left mb-3">Angular Codelab</h1>
+      <p class="text-muted">
+        Welcome to the interactive Angular Codelab. Here you can learn the
+        basics of Angular!
+      </p>
+      <mat-accordion>
+        <mat-expansion-panel [(expanded)]="isContentExpanded">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Full content</mat-panel-title>
+            <mat-panel-description>
+              Click to open/close it</mat-panel-description
+            >
+          </mat-expansion-panel-header>
+          <codelab-angular-routes></codelab-angular-routes>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
-
-    <button class="contents" (click)="showContents = !showContents" i18n>
-      Or click here to see full contents...
-    </button>
-    <ng-container *ngIf="showContents">
-      <codelab-angular-routes></codelab-angular-routes>
-    </ng-container>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="card mb-5">
+        <div class="card-body">
+          <h3 class="mb-3">Start study right now!</h3>
+          <p class="text-muted">
+            <small>
+              With Codelab there is no need to install or prepare anything. For
+              practical tasks and tests, we built the compiler directly into the
+              browser!
+            </small>
+          </p>
+          <div class="d-flex">
+            <button
+              mat-raised-button
+              color="primary"
+              class="mx-auto"
+              [routerLink]="['/angular', 'create-first-app', 'intro']"
+            >
+              Go!
+            </button>
+          </div>
+          <hr />
+          <small class="font-italic">
+            * Angular uses typescript language. In case you are not familiar
+            with it, we recommend to start here.
+            <a [routerLink]="['/angular', 'typescript', 'intro']"
+              >Learn typescript?</a
+            >
+          </small>
+        </div>
+      </div>
+    </div>
   </div>
-</slide-deck>
+</div>
+
+<codelab-sync-survey></codelab-sync-survey>
+<codelab-buttons-nav-bar></codelab-buttons-nav-bar>
