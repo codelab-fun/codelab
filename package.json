@@ -67,6 +67,7 @@
   },
   "public": true,
   "dependencies": {
+    "@angular-builders/custom-webpack": "^9.0.0-beta.1",
     "@angular-devkit/schematics": "9.0.2",
     "@angular/animations": "9.0.1",
     "@angular/cdk": "9.0.0",
@@ -101,6 +102,7 @@
     "immer": "^5.3.6",
     "mocha": "^7.0.1",
     "monaco-editor": "^0.20.0",
+    "monaco-editor-webpack-plugin": "^1.8.2",
     "ngx-markdown": "^8.2.2",
     "raw-loader": "1.0.0",
     "rxjs": "^6.5.4",

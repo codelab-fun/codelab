@@ -9,8 +9,11 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "apps/codelab/extra-webpack.config.js"
+            },
             "outputPath": "dist/apps/codelab",
             "index": "apps/codelab/src/index.html",
             "main": "apps/codelab/src/main.ts",
@@ -81,7 +84,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "codelab:build"
           },
