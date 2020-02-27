@@ -1,20 +1,38 @@
 $font-stack: Space Mono, monospace;
 $font-weight-max: 900;
 
-section.results {
+mat-card-header {
+  display: block;
+
+  .header-image {
+    margin-left: 10px;
+  }
+
+  mat-card-title {
+    font-weight: 900;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 0 0 -50px;
+  }
+}
+
+.results {
+  display: block;
+  clear: both;
+
   h3 {
     text-align: center;
   }
   img {
     width: 150px;
     height: 150px;
-    margin: 0 auto !important;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     text-align: center;
   }
 
-  section.statistics {
+  .statistics {
     h3, span, .quiz-feedback, div span {
       text-align: center;
     }
@@ -25,36 +43,15 @@ section.results {
 
     .quiz-feedback {
       margin-top: 20px;
-
-      .great-job {
-        background: url('../../../assets/images/ngtrophy.jpg') no-repeat center center;
-      }
-      .not-bad {
-        background: url('../../../assets/images/notbad.jpg') no-repeat center center;
-      }
-      .try-again {
-        background: url('../../../assets/images/tryagain.jpeg') no-repeat center center;
-      }
-      .great-job, .not-bad, .try-again {
-        display: inline-block !important;
-        background-size: 100% !important;
-        border: 0 !important;
-        margin: -15px 0 0 -5px;
-        height: 160px !important;
-        width: 160px !important;
-      }
-      .great-job h3, .not-bad h3, .try-again h3 {
-        margin-top: -40px !important;
-      }
     }
   }
 
-  section.quizSummary {
+  .quizSummary {
     display: flex;
     flex-direction: column;
 
     details {
-      text-align: center !important;
+      display: block;
 
       summary {
         font-size: 16px;
@@ -62,10 +59,20 @@ section.results {
         font-weight: $font-weight-max;
         margin-bottom: 20px;
         outline: none;
+        text-align: center;
       }
 
-      .allQuestions {
-        clear: left;
+      accordion {
+        padding-bottom: 20px;
+      }
+
+      accordion-group:hover {
+        outline: blue;
+      }
+
+      .accordion-heading {
+        background-color: #f5f5f5 !important;
+        color: #0f0000 !important;
       }
 
       .quiz-summary-question {
@@ -90,7 +97,7 @@ section.results {
             font-size: 16px;
             color: #00008b;
           }
-          span.leader {
+          .leader {
             font-weight: $font-weight-max;
           }
 
@@ -112,7 +119,7 @@ section.results {
   }
 }
 
-section.return {
+.return {
   clear: left;
   text-align: center;
   margin-top: -10px;
@@ -126,7 +133,7 @@ section.return {
   }
 }
 
-section.challenge-social {
+.challenge-social {
   text-align: center;
 
   .social-buttons {
@@ -141,21 +148,21 @@ section.challenge-social {
       color: white;
     }
 
-    a.btn.facebook {
+    /* a.btn.facebook {
       background-color: #4267b2;
-      background-image: url('../../../assets/images/facebook.gif');
+      background-image: url('../../../../assets/images/facebook.gif');
       top: 5px;
-    }
+    } */
 
     a.btn.twitter {
       background-color: #59adeb;
-      background-image: url('../../../assets/images/twitter.svg');
+      background-image: url('../../../../../assets/images/twitter.svg');
       top: 5px;
     }
 
     a.btn.email {
       background-color: #f0a121;
-      background-image: url('../../../assets/images/email.svg');
+      background-image: url('../../../../../assets/images/email.svg');
       top: 5px;
     }
   }
