@@ -17,8 +17,7 @@ module.exports = (webpackConfig, cliConfig) => {
     const originalTest = loader.test;
     loader.test = file => {
       const isMonaco = !!file.match('node_modules/monaco-editor');
-      console.log(file, !isMonaco && !!file.match(originalTest));
-      return false;
+      return !isMonaco && !!file.match(originalTest);
     };
   }
 

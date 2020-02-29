@@ -78,8 +78,7 @@
                   "with": "apps/codelab/src/environments/environment.prod.ts"
                 }
               ],
-              "serviceWorker": true,
-              "ngswConfigPath": "apps/codelab/ngsw-config.json"
+              "serviceWorker": false
             }
           }
         },

@@ -41,11 +41,9 @@ export class EditorFromModelComponent
   ) {}
 
   resize() {
-    console.log(this.autoSize);
     if (!this.autoSize) {
       return;
     }
-    console.log(1212);
 
     const lines = this.editor.getModel().getLineCount();
     const lineHeight = this.fontSize * 1.6;
