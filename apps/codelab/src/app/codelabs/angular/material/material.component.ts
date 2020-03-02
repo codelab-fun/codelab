@@ -72,50 +72,75 @@ export class MaterialComponent implements AfterViewInit {
 
   code = {
     material: {
-      step1: matExercise(
-        `MatCardModule, MatToolbarModule`,
-        require('!!raw-loader!./samples/basic/app.1.html'),
-        {
-          appModule: /MatToolbarModule/,
-          appHtml: /<mat-toolbar[\s\S]*<\/mat-toolbar>/
+      step1: {
+        code: {
+          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
+          'app.module.ts': require('!!raw-loader!./samples/step1/app.module.ts'),
+          'app.html': require('!!raw-loader!./samples/step1/app.html'),
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'styles.css': this.themes.indigo
+        },
+        files: ['app.module.ts', 'app.html'],
+        highlights: {
+          'app.module.ts': 'MatToolbarModule,',
+          'app.html': /<mat-toolbar[\s\S]*<\/mat-toolbar>/
         }
-      ),
-      step2: matExercise(
-        `MatToolbarModule,\n    MatCardModule`,
-        require('!!raw-loader!./samples/basic/app.2.html'),
-        {
-          appModule: /MatCardModule(?:\n)/,
-          appHtml: /<mat-card[\s\S]*<\/mat-card>/
+      },
+      step2: {
+        code: {
+          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
+          'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts'),
+          'app.html': require('!!raw-loader!./samples/step2/app.html'),
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'styles.css': this.themes.indigo
+        },
+        files: ['app.module.ts', 'app.html'],
+        highlights: {
+          'app.module.ts': /MatCardModule,/,
+          'app.html': /<mat-card[\s\S]*<\/mat-card>/
         }
-      ),
-      step3: matExercise(
-        `MatToolbarModule,\n    MatCardModule`,
-        require('!!raw-loader!./samples/basic/app.3.html'),
-        {
-          appHtml: /<mat-card-header[\s\S]*?Photo of a Shiba Inu[\s\S]*?>/
+      },
+      step3: {
+        code: {
+          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
+          'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts'),
+          'app.html': require('!!raw-loader!./samples/step3/app.html'),
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'styles.css': this.themes.indigo
+        },
+        files: ['app.html'],
+        highlights: {
+          'app.html': /<mat-card-header[\s\S]*?Photo of a Shiba Inu[\s\S]*?>/
         }
-      ),
-      step4: matExercise(
-        `MatToolbarModule,\n    MatCardModule,\n    MatButtonModule`,
-        require('!!raw-loader!./samples/basic/app.4.html'),
-        {
-          appModule: /MatButtonModule/,
-          appHtml: /<mat-card-actions[\s\S]*<\/mat-card-actions>/
+      },
+      step4: {
+        code: {
+          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
+          'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts'),
+          'app.html': require('!!raw-loader!./samples/step4/app.html'),
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'styles.css': this.themes.indigo
+        },
+        files: ['app.module.ts', 'app.html'],
+        highlights: {
+          'app.module.ts': /MatButtonModule\n/,
+          'app.html': /<mat-card-actions[\s\S]*<\/mat-card-actions>/
         }
-      ),
+      },
+      themes: {
+        code: {
+          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
+          'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts'),
+          'app.html': require('!!raw-loader!./samples/step4/app.html'),
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'styles.css': this.themes.indigo
+        },
+        files: ['app.html', 'styles.css']
+      },
       theme: matExercise(
         `MatToolbarModule,\n    MatCardModule,\n    MatButtonModule`,
         require('!!raw-loader!./samples/basic/app.4.html')
       )
-    },
-    samples: {
-      button: `<button md-button md-raised-button>
-   I'm a button
-</button>`,
-      card: `<md-card>I'm material card</md-card>`,
-      input: `<md-form-field>
-  <input mdInput placeholder="All your secrets">
-</md-form-field>`
     }
   };
   private theme = 'indigo';
@@ -131,8 +156,7 @@ export class MaterialComponent implements AfterViewInit {
 
   setTheme(theme) {
     this.theme = theme;
-    const cssFile = this.code.material.theme.files.find(a => a.type === 'css');
-    cssFile.template = this.themes[theme];
-    this.code.material.theme = { ...this.code.material.theme };
+    this.code.material.themes.code['styles.css'] = this.themes[theme];
+    this.code.material.themes.code = { ...this.code.material.themes.code };
   }
 }

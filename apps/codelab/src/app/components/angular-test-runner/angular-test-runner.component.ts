@@ -7,6 +7,7 @@ import {
   Input,
   OnChanges,
   OnDestroy,
+  OnInit,
   Output,
   SimpleChanges,
   ViewChild
@@ -63,7 +64,7 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   styleUrls: ['./angular-test-runner.component.css']
 })
 export class SimpleAngularTestRunnerComponent
-  implements OnChanges, AfterViewInit, OnDestroy {
+  implements OnInit, OnChanges, AfterViewInit, OnDestroy {
   handleMessageBound: any;
   @Output() solved: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() public selectFile: EventEmitter<string> = new EventEmitter<

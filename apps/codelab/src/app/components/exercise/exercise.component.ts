@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { convertExerciseToMap } from '../../../../../../ng2ts/ng2ts';
 import { CodeDemoComponent } from '@codelab/code-demos/src/lib/code-demo/code-demo.component';
 
@@ -37,6 +37,15 @@ export function getChanges(current, previous) {
 })
 export class CodelabExerciseComponent extends CodeDemoComponent {
   isSolved = false;
+
+  constructor(private readonly cdr: ChangeDetectorRef) {
+    super();
+  }
+
+  showDogs() {
+    this.cdr.markForCheck();
+  }
+
   @Input() set exercise(exercise) {
     const map = convertExerciseToMap(exercise);
 
