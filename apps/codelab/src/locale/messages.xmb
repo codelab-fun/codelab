@@ -817,35 +817,35 @@
             Learn how to combine components together
           </msg>
   <msg id="addComponentDecoratorAndSetSelectorToMyVideo"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:5,8</source>
-    video.component.ts: Add the &apos;@Component&apos; decorator and set its selector
+    video/video.component.ts: Add the &apos;@Component&apos; decorator and set its selector
     property to &apos;my-video&apos;.
   </msg>
   <msg id="addVideoComponentToAppModule"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:9,11</source>
     app.module.ts: Add VideoComponent to the AppModule &apos;declarations&apos;.
   </msg>
   <msg id="setTemplateUrlToLoadAppropriateFile"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:16,18</source>
-    video.component.ts: Set the templateUrl to load the appropriate html file
+    video/video.component.ts: Set the templateUrl to load the appropriate html file
   </msg>
   <msg id="addVideoPropertyAndDecorateWithInput"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:22,24</source>
-    video.component.ts: Add a video property and decorate it with @Input()
+    video/video.component.ts: Add a video property and decorate it with @Input()
   </msg>
   <msg id="displayVideoTitle"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:25,27</source>
-    video.component.html: Display the video title
+    video/video.component.html: Display the video title
   </msg>
   <msg id="displayVideoThumbnail"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:28,30</source>
-    video.component.html: Display the video thumbnail (src)
+    video/video.component.html: Display the video thumbnail (src)
   </msg>
   <msg id="displayVideoDescription"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:31,33</source>
-    video.component.html: Display the video description
+    video/video.component.html: Display the video description
   </msg>
   <msg id="displayVideoData"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:34,36</source>
-    video.component.html: Display the video date
+    video/video.component.html: Display the video date
   </msg>
   <msg id="displayNumberOfVideoViews"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:37,39</source>
-    video.component.html: Display the number of video views
+    video/video.component.html: Display the number of video views
   </msg>
   <msg id="displayNumberOfVideoLikes"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:40,42</source>
-    video.component.html: Display the number video likes
+    video/video.component.html: Display the number video likes
   </msg>
   <msg id="replaceTitleAndThumbnail"><source>src/app/codelabs/angular/component-tree/component-tree.component.html:43,46</source>
     app.html: Replace existing title and thumbnail with our shiny new my-video
@@ -979,22 +979,22 @@
     app.html: Add material toolbar containing the title
   </msg>
   <msg id="UseMatCard"><source>src/app/codelabs/angular/material/material.component.html:9,11</source>
-    video.component.html: Use material card to display the data
+    video/video.component.html: Use material card to display the data
   </msg>
   <msg id="AddMatCardTitle"><source>src/app/codelabs/angular/material/material.component.html:12,15</source>
-    video.component.html: Add mat-card-title (inside of the mat-card) to display
+    video/video.component.html: Add mat-card-title (inside of the mat-card) to display
     video title
   </msg>
   <msg id="AddMatCardSubtitle"><source>src/app/codelabs/angular/material/material.component.html:16,19</source>
-    video.component.html: Add mat-card-subtitle (inside of the mat-card) to
+    video/video.component.html: Add mat-card-subtitle (inside of the mat-card) to
     display video description
   </msg>
   <msg id="AddMatImage"><source>src/app/codelabs/angular/material/material.component.html:20,23</source>
-    video.component.html: Mark img with mat-card-image attribute (inside of the
+    video/video.component.html: Mark img with mat-card-image attribute (inside of the
     mat-card) so that it takes full card size
   </msg>
   <msg id="MoveDataToNewComponent"><source>src/app/codelabs/angular/material/material.component.html:24,27</source>
-    video.component.html: move date/views/likes info inside of mat-card-content
+    video/video.component.html: move date/views/likes info inside of mat-card-content
     (inside of the mat-card)
   </msg>
   <msg id="4263648592710459003"><source>src/app/codelabs/angular/material/material.component.html:39</source>Material design</msg>
@@ -1079,11 +1079,11 @@
     app.module.ts: Add FormsModule and MatInputModule, to the imports.
   </msg>
   <msg id="891470929346566427" desc="AddTitle"><source>src/app/codelabs/angular/forms/forms.component.html:6,9</source>
-    upload.component.html: Add &quot;title&quot; input bound to the title property of the
+    upload/upload.component.html: Add &quot;title&quot; input bound to the title property of the
     component
   </msg>
   <msg id="6729408012939811950" desc="AddDescription"><source>src/app/codelabs/angular/forms/forms.component.html:10,13</source>
-    upload.component.html: Add &quot;description&quot; textarea bound to the description
+    upload/upload.component.html: Add &quot;description&quot; textarea bound to the description
     property of the component
   </msg>
   <msg id="2078785402028999261"><source>src/app/codelabs/angular/forms/forms.component.html:24</source>Forms</msg>

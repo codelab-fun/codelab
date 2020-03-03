@@ -35,10 +35,7 @@ function run(code) {
 
 export class WebworkerRunner<E> implements Runner {
   private readonly executeSubject = new Subject();
-  result$ = this.executeSubject.pipe(
-    switchMap(run),
-    shareReplay(1)
-  );
+  result$ = this.executeSubject.pipe(switchMap(run), shareReplay(1));
 
   destroy() {
     this.executeSubject.complete();

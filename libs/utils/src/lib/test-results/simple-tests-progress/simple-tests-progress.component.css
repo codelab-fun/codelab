@@ -18,3 +18,8 @@
 .counts {
   margin: 0 10px;
 }
+
+.preparing-tests {
+  display: flex;
+  align-items: center;
+}

@@ -3,6 +3,7 @@
     <code-demo-multitab-editor
       [codeDemoHighlight]="codeDemoHighlight"
       class="quarter"
+      [autoSize]="false"
       [files]="files"
       [solutions]="solutions"
       [(ngModel)]="code"
@@ -23,6 +24,7 @@
         *ngIf="testRunner === 'babel'"
         [translations]="translations"
         [bootstrap]="bootstrapTest"
+        (solved)="isSolved = $event; showDogs()"
         [code]="code"
       ></codelab-babel-test-runner>
       <div *ngIf="isSolved" class="solved-message">

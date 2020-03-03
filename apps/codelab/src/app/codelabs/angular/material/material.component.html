@@ -7,23 +7,23 @@
     app.html: Add material toolbar containing the title
   </div>
   <div i18n="@@UseMatCard" id="UseMatCard">
-    video.component.html: Use material card to display the data
+    video/video.component.html: Use material card to display the data
   </div>
   <div i18n="@@AddMatCardTitle" id="AddMatCardTitle">
-    video.component.html: Add mat-card-title (inside of the mat-card) to display
-    video title
+    video/video.component.html: Add mat-card-title (inside of the mat-card) to
+    display video title
   </div>
   <div i18n="@@AddMatCardSubtitle" id="AddMatCardSubtitle">
-    video.component.html: Add mat-card-subtitle (inside of the mat-card) to
-    display video description
+    video/video.component.html: Add mat-card-subtitle (inside of the mat-card)
+    to display video description
   </div>
   <div i18n="@@AddMatImage" id="AddMatImage">
-    video.component.html: Mark img with mat-card-image attribute (inside of the
-    mat-card) so that it takes full card size
+    video/video.component.html: Mark img with mat-card-image attribute (inside
+    of the mat-card) so that it takes full card size
   </div>
   <div i18n="@@MoveDataToNewComponent" id="MoveDataToNewComponent">
-    video.component.html: move date/views/likes info inside of mat-card-content
-    (inside of the mat-card)
+    video/video.component.html: move date/views/likes info inside of
+    mat-card-content (inside of the mat-card)
   </div>
 </div>
 
@@ -80,10 +80,11 @@
       <li i18n>Use the component in the template</li>
     </ul>
     <!--MatToolBar-->
-    <codelab-exercise-playground
-      files="app.module.ts,app.html"
-      [exercise]="code.material.step1"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.material.step1.code"
+      [files]="code.material.step1.files"
+      [highlights]="code.material.step1.highlights"
+    ></code-demo>
     <div class="info" i18n>
       Note that Angular animations come in a separate module. We're including
       <b>NoopAnimationsModule</b> here, but could have used
@@ -94,28 +95,34 @@
   <div *slide id="card" milestone="material">
     <codelab-breadcrumb i18n>Card</codelab-breadcrumb>
     <h2 i18n>Now let's add material card.</h2>
-    <codelab-exercise-playground
-      files="app.module.ts,app.html"
-      [exercise]="code.material.step2"
-    ></codelab-exercise-playground>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.step2.code"
+      [files]="code.material.step2.files"
+      [highlights]="code.material.step2.highlights"
+    ></code-demo>
   </div>
 
   <div *slide id="header" milestone="material">
     <codelab-breadcrumb i18n>Card Header</codelab-breadcrumb>
     <h2 i18n>Header and an image.</h2>
-    <codelab-exercise-playground
-      files="app.html"
-      [exercise]="code.material.step3"
-    ></codelab-exercise-playground>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.step3.code"
+      [files]="code.material.step3.files"
+      [highlights]="code.material.step3.highlights"
+    ></code-demo>
   </div>
 
   <div *slide id="buttons" milestone="material">
     <codelab-breadcrumb i18n>Buttons</codelab-breadcrumb>
     <h2 i18n>Adding some actions....</h2>
-    <codelab-exercise-playground
-      files="app.module.ts,app.html"
-      [exercise]="code.material.step4"
-    ></codelab-exercise-playground>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.step4.code"
+      [files]="code.material.step4.files"
+      [highlights]="code.material.step4.highlights"
+    ></code-demo>
     <div class="info" i18n>
       Note that for the button we're using <b>mat-button</b> attribute instead
       of a separate tag.
@@ -166,11 +173,11 @@
         Purple
       </button>
     </div>
-    <codelab-exercise-playground
-      files="app.module.ts,app.html"
-      #themePlayground
-      [exercise]="code.material.theme"
-    ></codelab-exercise-playground>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.themes.code"
+      [files]="code.material.themes.files"
+    ></code-demo>
     <div class="info" i18n>
       Read more on theming Angular Material
       <a href="https://material.angular.io/guide/theming">in this guide</a>

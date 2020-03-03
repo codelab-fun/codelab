@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 function getTestFile(test: string): string | null {
-  const match = test.trim().match(/^([\w.]+):/);
+  const match = test.trim().match(/^([\w.\/]+):/);
   return match && match[1];
 }
 

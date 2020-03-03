@@ -28,9 +28,6 @@ export class SyncSessionService {
   readonly status$: Observable<SyncStatus>;
   readonly viewerId$: Observable<string> = this.loginService.uid$;
   readonly canStartSession$ = this.viewerId$.pipe(
-    tap(a => {
-      console.log({ a });
-    }),
     switchMap((uid: string) => {
       return this.dbService
         .object('authorized_users')
@@ -81,7 +78,6 @@ export class SyncSessionService {
 
         return SyncStatus.VIEWING;
       }),
-      tap(a => console.log(a)),
       shareReplay(1)
     );
   }

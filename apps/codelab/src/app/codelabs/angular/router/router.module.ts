@@ -9,6 +9,7 @@ import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { SlidesModule } from '@codelab/slides';
 import { FormsModule } from '@angular/forms';
+import { CodeDemoModule } from '@codelab/code-demos';
 
 const routes = RouterModule.forChild([...SlidesRoutes.get(RouterComponent)]);
 
@@ -20,7 +21,8 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(RouterComponent)]);
     BrowserWindowModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
+    CodeDemoModule
   ],
   declarations: [RouterComponent],
   providers: [Ng2TsExercises],
