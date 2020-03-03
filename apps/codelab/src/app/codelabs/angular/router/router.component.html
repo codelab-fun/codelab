@@ -76,19 +76,23 @@
       Routes are configured by defining an array of mapping between URL path and
       a component
     </h2>
-    <codelab-exercise-playground
+    <code-demo
       url="/assets/runner"
-      [exercise]="code.routerConfig"
-    ></codelab-exercise-playground>
+      [(ngModel)]="code.files"
+      [files]="code.config.files"
+      [highlights]="code.config.highlights"
+    ></code-demo>
   </div>
 
   <div *slide id="router-config-pass-to-module" milestone="Router">
     <codelab-breadcrumb i18n>Configuration</codelab-breadcrumb>
     <h2 i18n>Then we have to pass the config to our module.</h2>
-    <codelab-exercise-playground
+    <code-demo
       url="/assets/runner"
-      [exercise]="code.routerConfigPass"
-    ></codelab-exercise-playground>
+      [(ngModel)]="code.files"
+      [files]="code.configPass.files"
+      [highlights]="code.configPass.highlights"
+    ></code-demo>
     <div class="info" i18n>
       Note that we're using <b>RouterModule.forRoot</b> which creates an Angular
       Module out of our configuration.
@@ -102,23 +106,26 @@
       component.
     </h2>
     <h2 i18n>It can be marked by placing <b>router-outlet</b> tag</h2>
-    <!--[openFilesIndex]="[1]"-->
-    <codelab-exercise-playground
-      files="app.component.html"
+
+    <code-demo
       url="/assets/runner"
-      [exercise]="code.routerOutlet"
-    ></codelab-exercise-playground>
+      [(ngModel)]="code.files"
+      [files]="code.routerOutlet.files"
+      [highlights]="code.routerOutlet.highlights"
+    ></code-demo>
   </div>
 
   <div *slide id="menu" milestone="Router">
     <codelab-breadcrumb i18n>Menu</codelab-breadcrumb>
     <h2 i18n>The last part is creating the menu.</h2>
     <h2 i18n>Use <b>routerLink</b> directive to provide the URL</h2>
-    <codelab-exercise-playground
-      files="app.component.html"
+
+    <code-demo
       url="/assets/runner"
-      [exercise]="code.menu"
-    ></codelab-exercise-playground>
+      [(ngModel)]="code.files"
+      [files]="code.menu.files"
+      [highlights]="code.menu.highlights"
+    ></code-demo>
   </div>
 
   <div *slide id="exercise-pre">
