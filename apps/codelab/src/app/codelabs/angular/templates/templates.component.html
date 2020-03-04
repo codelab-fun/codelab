@@ -131,10 +131,12 @@
       Angular has a very expressive template system, which takes HTML as a base,
       and extends it with custom elements
     </h2>
-    <codelab-exercise-playground
-      [highlights]="code.template.matches.template"
-      [exercise]="code.template.intro"
-    ></codelab-exercise-playground>
+
+    <code-demo
+      [(ngModel)]="code.intro.code"
+      [files]="code.intro.files"
+      [highlights]="code.intro.highlights"
+    ></code-demo>
   </div>
 
   <!--  INTERPOLATION-->
@@ -143,10 +145,11 @@
     <h2 i18n>
       Double curlies include the appropriate component property value
     </h2>
-    <codelab-exercise-playground
-      [exercise]="code.template.interpolation"
-      [highlights]="code.template.matches.curlies"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.interpolation.code"
+      [files]="code.interpolation.files"
+      [highlights]="code.interpolation.highlights"
+    ></code-demo>
     <div class="info" milestone="Templates" style="margin-top: -8px;" i18n>
       Backticks <b>` `</b>, are magic quotes that allow multi-line strings and
       text interpolation.
@@ -160,10 +163,11 @@
       Simple expressions are also allowed, you can run a component method (like
       fullName() below), or calculate <code>323213+34234</code>
     </h2>
-    <codelab-exercise-playground
-      [exercise]="code.template.interpolationMethod"
-      [highlights]="code.template.matches.curliesFullName"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.expressions.code"
+      [files]="code.expressions.files"
+      [highlights]="code.expressions.highlights"
+    ></code-demo>
   </div>
 
   <div *slide id="exercise-pre" milestone="Templates">
@@ -195,10 +199,12 @@
       String interpolation <b>{{ curlies }}</b> can also be used to pass a value
       to a child element's attribute
     </h2>
-    <codelab-exercise-playground
-      [exercise]="code.template.dataBindingPre"
-      [highlights]="code.template.matches.curliesAttribute"
-    ></codelab-exercise-playground>
+
+    <code-demo
+      [(ngModel)]="code.dataBindingPre.code"
+      [files]="code.dataBindingPre.files"
+      [highlights]="code.dataBindingPre.highlights"
+    ></code-demo>
   </div>
 
   <!--  DATA BINDING  -->
@@ -207,10 +213,11 @@
     <h2 i18n>
       Better option is to use property binding <b>[attribute] = property</b>
     </h2>
-    <codelab-exercise-playground
-      [exercise]="code.template.dataBinding"
-      [highlights]="code.template.matches.squares"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.dataBinding.code"
+      [files]="code.dataBinding.files"
+      [highlights]="code.dataBinding.highlights"
+    ></code-demo>
     <div class="info" style="margin-top: -10px; z-index: 2;" i18n>
       You can use arbitrary expressions in the binding.
     </div>
@@ -223,9 +230,9 @@
       Angular supports more advanced property bindings than just attribute name
     </h2>
     <code-demo
-      [files]="code.template.dataBindingExtra.files"
+      [files]="code.dataBindingExtra.files"
       [allowSwitchingFiles]="false"
-      [(ngModel)]="code.template.dataBindingExtra.code"
+      [(ngModel)]="code.dataBindingExtra.code"
     ></code-demo>
   </div>
 
@@ -287,10 +294,12 @@
       This conditional expression will add or remove an element from the DOM if
       it evaluates as a truthy
     </h2>
-    <codelab-exercise-playground
-      [exercise]="code.ngIfDirective.template"
-      [highlights]="code.ngIfDirective.matches.ngIf"
-    ></codelab-exercise-playground>
+    <code-demo
+      [files]="code.ngIf.files"
+      [highlights]="code.ngIf.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.ngIf.code"
+    ></code-demo>
   </div>
 
   <div *slide id="exercise-2-pre" milestone="Templates2">
@@ -323,10 +332,13 @@
       the page. Angular has a special syntax for that called <b>*ngFor</b>,
       let's see how it works on the next slide
     </h2>
-    <codelab-exercise-playground
-      [exercise]="code.ngForDirectivePre.template"
-      [highlights]="code.ngForDirectivePre.matches"
-    ></codelab-exercise-playground>
+
+    <code-demo
+      [files]="code.repeating.files"
+      [highlights]="code.repeating.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.repeating.code"
+    ></code-demo>
   </div>
 
   <div *slide id="conditional-display-ngfor" milestone="Templates3">

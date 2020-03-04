@@ -35,16 +35,95 @@ export class TemplatesComponent implements OnInit {
     this.t = extractMessages(this.translation);
 
     this.code = {
-      template: {
-        intro: displayAngularComponent(`import {Component} from '@angular/core';
+      intro: {
+        code: {
+          'bootstrap.ts': require('!!raw-loader!./samples/intro/bootstrap.ts'),
+          'app.component.ts': require('!!raw-loader!./samples/intro/app.component.ts')
+        },
+        files: ['app.component.ts'],
+        highlights: {
+          'app.component.ts': [/<h1>.*<\/h1>/]
+        }
+      },
 
-@Component({
-  selector: 'my-app',
-  template: '<h1>Hello World!</h1>'
-})
-export class AppComponent {
-}`),
+      interpolation: {
+        code: {
+          'bootstrap.ts': require('!!raw-loader!./samples/intro/bootstrap.ts'),
+          'app.component.ts': require('!!raw-loader!./samples/interpolation/app.component.ts')
+        },
+        files: ['app.component.ts'],
+        highlights: {
+          'app.component.ts': [/{{.*}}/, /firstName = .*/]
+        }
+      },
 
+      expressions: {
+        code: {
+          'bootstrap.ts': require('!!raw-loader!./samples/intro/bootstrap.ts'),
+          'app.component.ts': require('!!raw-loader!./samples/expressions/app.component.ts')
+        },
+        files: ['app.component.ts'],
+        highlights: {
+          'app.component.ts': [/{{.*}}/, /fullName\(\){/]
+        }
+      },
+
+      dataBindingPre: {
+        code: {
+          'bootstrap.ts': require('!!raw-loader!./samples/intro/bootstrap.ts'),
+          'app.component.ts': require('!!raw-loader!./samples/data-binding-pre/app.component.ts')
+        },
+        files: ['app.component.ts'],
+        highlights: {
+          'app.component.ts': [/"{{.*}}"/, /avatar = .*/]
+        }
+      },
+
+      dataBinding: {
+        code: {
+          'bootstrap.ts': require('!!raw-loader!./samples/intro/bootstrap.ts'),
+          'app.component.ts': require('!!raw-loader!./samples/data-binding/app.component.ts')
+        },
+        files: ['app.component.ts'],
+        highlights: {
+          'app.component.ts': /\[.*]/
+        }
+      },
+
+      dataBindingExtra: {
+        code: {
+          'app.component.html': require('!!raw-loader!./samples/data-binding-extra/app.component.html'),
+          'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
+          'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
+          'app.module.ts': require('!!raw-loader!./samples/data-binding-extra/app.module.ts'),
+          'number-praiser.ts': require('!!raw-loader!./samples/data-binding-extra/number-praiser.ts'),
+          'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
+        },
+        files: ['app.component.html', 'app.component.ts']
+      },
+
+      ngIf: {
+        code: {
+          'bootstrap.ts': require('!!raw-loader!./samples/intro/bootstrap.ts'),
+          'app.component.ts': require('!!raw-loader!./samples/ng-if/app.component.ts')
+        },
+        files: ['app.component.ts'],
+        highlights: {
+          'app.component.ts': /\*ngIf/
+        }
+      },
+      repeating: {
+        code: {
+          'bootstrap.ts': require('!!raw-loader!./samples/intro/bootstrap.ts'),
+          'app.component.ts': require('!!raw-loader!./samples/repeating/app.component.ts')
+        },
+        files: ['app.component.ts'],
+        highlights: {
+          'app.component.ts': ['???', /puppies.*;/]
+        }
+      },
+
+      lol: {
         matches: {
           curlies: { 'app.component.ts': [/{{.*}}/, /firstName = .*/] },
           curliesFullName: { 'app.component.ts': [/{{.*}}/, /fullName\(\){/] },

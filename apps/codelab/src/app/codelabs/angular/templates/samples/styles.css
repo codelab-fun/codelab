@@ -1,0 +1,19 @@
+body,
+html {
+  margin: 0;
+  padding: 2vw;
+  font-family: sans-serif;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 6vw;
+}
+h2 {
+  font-size: 4vw;
+}
