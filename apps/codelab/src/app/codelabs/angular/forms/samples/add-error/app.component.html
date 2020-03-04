@@ -1,0 +1,13 @@
+<label>
+  name:
+  <input #usernameModel="ngModel" [(ngModel)]="username" required />
+  <div *ngIf="usernameModel.invalid" class="error">
+    Username is required
+  </div>
+</label>
+<label>
+  email:
+  <input [(ngModel)]="email" />
+</label>
+
+<div class="values">name: {{ username }}, email: {{ email }}</div>

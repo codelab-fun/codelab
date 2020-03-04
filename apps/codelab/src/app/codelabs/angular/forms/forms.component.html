@@ -32,19 +32,20 @@
       We have this simple form, let's find out how to map input values with the
       ones from our Angular component!
     </h2>
-    <codelab-exercise-playground
-      [exercise]="samples.basicForm"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.simpleForm.code"
+      [files]="code.simpleForm.files"
+    ></code-demo>
   </div>
 
   <div *slide id="forms-module" milestone="forms" milestone="forms">
     <codelab-breadcrumb i18n>Simple Form</codelab-breadcrumb>
     <h2 i18n>First we have to add <b>FormsModule</b> to our NgModule.</h2>
-    <!--[openFilesIndex]="[1]"-->
-    <codelab-exercise-playground
-      files="app.module.ts"
-      [exercise]="samples.basicForm"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.formsModule.code"
+      [files]="code.formsModule.files"
+      [highlights]="code.formsModule.highlights"
+    ></code-demo>
   </div>
 
   <div *slide id="ng-model" milestone="forms" milestone="forms">
@@ -54,9 +55,11 @@
       component.
     </h2>
     <h2 i18n>Try changing the inputs and see the values updated.</h2>
-    <codelab-exercise-playground
-      [exercise]="samples.ngModel"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.ngModel.code"
+      [files]="code.ngModel.files"
+      [highlights]="code.ngModel.highlights"
+    ></code-demo>
     <div class="info" i18n>
       [(NgModel)] - <b>Banana in the box</b> is a simple mnemonic for the braces
       order.
@@ -66,13 +69,14 @@
   <div *slide id="forms-validation-1" milestone="forms">
     <codelab-breadcrumb i18n>Validation</codelab-breadcrumb>
     <h2 i18n>
-      It's really easy to add validation for your inputs using predefined
-      Angular directives.
+      Add validation to your inputs using predefined Angular directives.
     </h2>
     <h2 i18n>Let's make username <b>required</b></h2>
-    <codelab-exercise-playground
-      [exercise]="samples.ngValidation1"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.addValidation.code"
+      [files]="code.addValidation.files"
+      [highlights]="code.addValidation.highlights"
+    ></code-demo>
     <div class="info" i18n>
       If you clear the input it'll be marked with an error, however no error
       will be displayed. We'll learn how to display it in the next slide
@@ -88,9 +92,11 @@
       </li>
       <li i18n>Use <b>usernameModel</b>'s <b>errors</b> property.</li>
     </ul>
-    <codelab-exercise-playground
-      [exercise]="samples.ngValidation2"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.addError.code"
+      [files]="code.addError.files"
+      [highlights]="code.addError.highlights"
+    ></code-demo>
     <div class="info" i18n>
       Try clearing the username input and see the error displayed.
     </div>
@@ -105,14 +111,12 @@
       that Angular provides out of the box
     </h2>
     <ul>
-      <li i18n>min</li>
-      <li i18n>max</li>
+      <li i18n>min and max (for numbers)</li>
       <li i18n>required</li>
-      <li i18n>requiredTrue</li>
+      <li i18n>requiredTrue (for checkboxes)</li>
       <li i18n>email</li>
-      <li i18n>minLength</li>
-      <li i18n>maxLength</li>
-      <li i18n>pattern</li>
+      <li i18n>minLength and maxLength (for text)</li>
+      <li i18n>pattern (regular expression)</li>
     </ul>
     <div class="info" i18n>
       It's also possible to create custom validators, but it's out of scope for
@@ -129,33 +133,31 @@
       There's one small issue though, if we don't have initial values, the error
       is displayed right away.
     </h2>
-    <!--[openFilesIndex]="[0,2]" TODO(kirjs)-->
-    <codelab-exercise-playground
-      [exercise]="samples.touched"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.alwaysRequired.code"
+      [files]="code.alwaysRequired.files"
+    ></code-demo>
   </div>
 
   <div *slide id="forms-touched-dirty" milestone="forms">
-    <codelab-breadcrumb i18n>Touched & Dirty</codelab-breadcrumb>
+    <codelab-breadcrumb i18n>Dirty</codelab-breadcrumb>
     <h2 i18n>
       Luckily we can check if the user interacted with an input using
-      <b>touched</b> property.
+      <b>dirty</b> property.
     </h2>
     <ul>
       <li i18n>
         <b>dirty</b> is true if the user changed the value of the input.
       </li>
-      <li i18n>
-        <b>touched</b> is true if the user focused on the input, and then blured
-        without changing the value.
-      </li>
     </ul>
-    <codelab-exercise-playground
-      [exercise]="samples.touched2"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.dirty.code"
+      [files]="code.dirty.files"
+      [highlights]="code.dirty.highlights"
+    ></code-demo>
     <div class="info" i18n>
-      Try focusing/bluring the <b>username</b> field, or adding some value and
-      then removing to see the error.
+      Try adding and then removing value in the <b>username</b> field to see the
+      error.
     </div>
   </div>
 
@@ -171,9 +173,11 @@
       <li i18n><b>mat-error</b> - Smarter error wrapper</li>
     </ul>
 
-    <codelab-exercise-playground
-      [exercise]="samples.ngMaterial"
-    ></codelab-exercise-playground>
+    <code-demo
+      [(ngModel)]="code.material.code"
+      [files]="code.material.files"
+      [highlights]="code.material.highlights"
+    ></code-demo>
     <div class="info" i18n>
       Note that we don't need to <b>#name</b> the input anymore.
     </div>

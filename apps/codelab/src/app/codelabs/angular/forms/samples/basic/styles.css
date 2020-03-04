@@ -20,5 +20,10 @@ body {
 }
 
 .values {
-  margin-top: 20px;
+  padding: 16px;
+}
+
+label {
+  display: block;
+  padding: 16px;
 }
