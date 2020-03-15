@@ -32,7 +32,7 @@
   text-align: center;
   color: black;
   font-size: 100px;
-  font-weight: 280;
+  font-weight: 300;
 }
 
 .types-error {
@@ -55,6 +55,18 @@
   background-image: url('./images/highlight-slides.png');
 }
 
+.zvuki {
+  background-image: url('./images/zvuki.png');
+}
+
+.zvuki2 {
+  background-image: url('./images/zvuki2.png');
+}
+
+.visitors {
+  background-image: url('./images/visitors.png');
+}
+
 .img-todo {
   content: 'lol';
   border: 50px white dotted;
@@ -72,6 +84,7 @@
     color: white;
   }
 }
+
 h2 {
   padding: 20px;
 }
@@ -98,4 +111,11 @@ h2 {
 
 .community {
   background-image: url('./images/codelab.jpeg');
+}
+
+.contributors {
+  background-image: url('./images/contributors.png');
+}
+.v1 {
+  background-image: url('./images/v1.jpg');
 }

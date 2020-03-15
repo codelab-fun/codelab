@@ -5,27 +5,33 @@
 
   <!--  TODO(anya):-->
   <div *slide cover>What is codelab.fun</div>
-  <div *slide pic-label>
-    Online interactive angular tutorial no setup
-    <div class="no-setup" pic></div>
+  <div *slide>
+    <h2>Online interactive angular tutorial no setup</h2>
   </div>
-  <div *slide pic-label>
-    Interactive code samples
-    <div class="examples" pic></div>
+  <div *slide>
+    <h1>Interactive code samples</h1>
+    <code-demo
+      [(ngModel)]="code.simpleAngular.code"
+      [files]="code.simpleAngular.files"
+    ></code-demo>
   </div>
-  <div *slide pic-label>
-    Hands on exercises
-    <div class="exercises" pic></div>
+  <div *slide>
+    <h1>Hands on exercises</h1>
+    <codelab-exercise
+      testRunner="babel"
+      [translations]="code.exercise.translations"
+      [exercise]="code.exercise.config"
+      milestone="Bootstrap"
+    ></codelab-exercise>
   </div>
-  <div *slide pic-label>
-    All open source/Angular Ivy/on Github
-    <div class="github" pic></div>
+  <div *slide>
+    <h2>All open source/Angular Ivy/on Github</h2>
     <div class="issues" pic></div>
   </div>
 
-  <div *slide pic-label>
-    Regular offline contributors meetings
-    <div class="community" pic></div>
+  <div *slide>
+    <h2>Regular offline contributors meetings</h2>
+    <div pic class="community" pic></div>
   </div>
   <div *slide>
     <h2>20+ Live-events in 10+ countries</h2>
@@ -33,20 +39,29 @@
   </div>
   <div *slide>
     <h2>~1000 users a month</h2>
-    <div pic class="img-todo"></div>
+    <div pic class="visitors"></div>
   </div>
   <div *slide>
     <h2>Almost 50 contributors</h2>
-    <div pic class="img-todo"></div>
+    <div pic class="contributors"></div>
   </div>
-  <!-- end  TODO(anya):-->
+
   <div *slide>
     <h2>Live-Stream "Звуки программистов"</h2>
     <h2>
       @kirjs and @thekiba_io meet on weekends and do long technical streams in
       russian, https://www.twitch.tv/kirjs
     </h2>
-    <div pic class="img-todo"></div>
+    <div pic class="zvuki"></div>
+  </div>
+
+  <div *slide>
+    <h2>Live-Stream "Звуки программистов"</h2>
+    <h2>
+      @kirjs and @thekiba_io meet on weekends and do long technical streams in
+      russian, https://www.twitch.tv/kirjs
+    </h2>
+    <div pic class="zvuki2"></div>
   </div>
 
   <!--
@@ -54,14 +69,21 @@
   -->
   <div *slide cover>Nov 11, 2016</div>
   <div *slide text>Angular 2.1</div>
+
   <div *slide text>Kirjs did not know Angular</div>
+
   <div *slide text>Move exercises to the browser</div>
+  <div *slide>
+    <h2>v1 is out</h2>
+    <div pic class="v1"></div>
+  </div>
   <!--  MORE - TBD-->
 
   <!--
    TODO: Runner story
   -->
   <div *slide>Running tests (mocha / babel + traversing AST)</div>
+
   <div *slide>
     - The goal is to quickly assess whether user's code does what we want.
   </div>
@@ -87,7 +109,7 @@
   <div cover *slide>Creating slides library with Angular</div>
 
   <div *slide>
-    <h2>What's an ideal API for a presentation?</h2>
+    <h2>What's an ideal API for a presentation written in Angular?</h2>
     <code-demo-editor
       language="html"
       [(ngModel)]="code.slides.component"
@@ -103,10 +125,19 @@
   </div>
 
   <div *slide>
-    <h2>Can we use ng-template?</h2>
+    <h2>Structural directive?</h2>
     <code-demo-editor
       language="html"
       [(ngModel)]="code.slides.directive"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide>
+    <h2>But how do we get ID?</h2>
+    <div class="info">Don't repeat this at home!</div>
+    <code-demo-editor
+      language="typescript"
+      [(ngModel)]="code.gettingId.code"
     ></code-demo-editor>
   </div>
 
@@ -133,11 +164,11 @@
 
   <div *slide>
     <h2>We don't. We use highlight instead</h2>
-    <!--    <code-demo-editor></code-demo-editor>-->
-  </div>
-  <div *slide>
-    <h2>We don't. We use highlight instead</h2>
-    <!--    <code-demo-editor></code-demo-editor>-->
+    <code-demo
+      [(ngModel)]="code.simpleAngular.code"
+      [files]="code.simpleAngular.files"
+      [highlights]="code.highlights.appComponent"
+    ></code-demo>
   </div>
 
   <div *slide>
