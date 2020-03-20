@@ -1,0 +1,39 @@
+.theme-basic {
+  font-family: 'Helvetica Neue', sans-serif;
+  padding: 2vw;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li:not(.action-item) {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+  }
+
+  b {
+    color: #c04e22;
+    font-weight: 300;
+    background-color: #ffe;
+  }
+
+  h2,
+  li:not(.action-item) {
+    font-size: 3vw;
+    margin-bottom: 1vw;
+  }
+
+  li {
+    font-size: 18px !important;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+  h3 {
+    margin: 10px 0;
+  }
+}

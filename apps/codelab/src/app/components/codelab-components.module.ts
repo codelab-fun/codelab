@@ -19,6 +19,7 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-results.module';
+import { BasicsComponent } from './basics/basics.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     TitleSlideComponent,
     BabelTestRunnerComponent,
     BreadcrumbComponent,
+    BasicsComponent,
     CodelabExerciseComponent,
     CodelabPreviewComponent,
     CodelabClosingSlideComponent,
@@ -50,6 +52,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     TitleSlideComponent,
     BabelTestRunnerComponent,
     BreadcrumbComponent,
+    BasicsComponent,
     CodelabExerciseComponent,
     CodelabPreviewComponent,
     CodelabClosingSlideComponent,
