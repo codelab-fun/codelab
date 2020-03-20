@@ -20,22 +20,23 @@ export class SlideDirective {
     // Ivy
     if ((template as any)._declarationTContainer) {
       const attrs = (template as any)._declarationTContainer.attrs || [];
-      const idIndex = attrs.findIndex(n => n === ID_ATTR_NAME);
-      const milestineIndex = attrs.findIndex(n => n === MILESTONE_ATTR_NAME);
+      const indexPredicate = n => n === ID_ATTR_NAME;
+      const idIndex = attrs.findIndex(indexPredicate);
+      const milestoneIndex = attrs.findIndex(indexPredicate);
       slide = {
         id: idIndex !== -1 ? attrs[idIndex + 1] : undefined,
         milestone:
-          milestineIndex !== -1 ? attrs[milestineIndex + 1] : undefined,
+          milestoneIndex !== -1 ? attrs[milestoneIndex + 1] : undefined,
         template
       };
       // Old renderer
     } else {
       const attrs = (template as any)._def.element.template.nodes[0].element
         .attrs;
-      const idAttr = attrs.find(([, name]) => name === ID_ATTR_NAME);
-      const milestoneAttr = attrs.find(
-        ([, name]) => name === MILESTONE_ATTR_NAME
-      );
+      const attrPredicate = ([_, name]: string[]): boolean =>
+        name === ID_ATTR_NAME;
+      const idAttr = attrs.find(attrPredicate);
+      const milestoneAttr = attrs.find(attrPredicate);
       slide = {
         id: idAttr && idAttr[2],
         milestone: milestoneAttr && milestoneAttr[2],
