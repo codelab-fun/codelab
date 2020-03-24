@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <ul>
+    <li
+      *ngFor="let file of files"
+      [class.selected]="selectedFile === file"
+      (click)="selectFile(file)"
+    >
+      {{ file }}
+    </li>
+  </ul>
+  <ul>
+    <li
+      *ngFor="let stage of stages"
+      [class.selected]="selectedStage === stage"
+      (click)="selectStage(stage)"
+    >
+      {{ stage }}
+    </li>
+  </ul>
+  <div style="min-width: 800px; margin-left: 20px;">
+    <ng-container *ngIf="displayedContent">
+      <h3>Initial code</h3>
+      <code-demo-editor
+        [(ngModel)]="displayedContent.template"
+      ></code-demo-editor>
+      <h3>Solution</h3>
+      <code-demo-editor
+        [(ngModel)]="displayedContent.solution"
+      ></code-demo-editor>
+      <!--      <code-demo [(ngModel)]="displayedContent.template"></code-demo>-->
+    </ng-container>
+  </div>
+</div>

@@ -1,14 +1,11 @@
 import {
   ChangeDetectorRef,
   Component,
-  ContentChildren,
   EventEmitter,
   HostBinding,
   Input,
   Optional,
-  Output,
-  QueryList,
-  TemplateRef
+  Output
 } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
@@ -21,7 +18,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SlidesDeckComponent {
   slides: any[] = [];
   @Input() theme = 'basic';
-  @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
+
   activeSlideIndex = 0;
   @Output() slideChange = new EventEmitter<number>();
   @Output() slideAdded = new EventEmitter<{ index: number; id: string }>();

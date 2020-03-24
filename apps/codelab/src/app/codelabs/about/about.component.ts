@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../ng2ts/ng2ts';
 
 declare const require;
@@ -8,24 +8,41 @@ declare const require;
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
   code = {
-    fakeTypes: require('!!raw-loader!./samples/fake-types.d.ts.not-really'),
     slides: {
+      initial: require('!!raw-loader!./samples/slides/initial.html'),
       template: require('!!raw-loader!./samples/slides/ng-template.html'),
       component: require('!!raw-loader!./samples/slides/slide-component.html'),
-      directive: require('!!raw-loader!./samples/slides/structural-directive.html')
+      directive: require('!!raw-loader!./samples/slides/structural-directive.html'),
+      directiveId: require('!!raw-loader!./samples/slides/structural-directive-ids.html'),
+      directiveIdMilestone: require('!!raw-loader!./samples/slides/structural-directive-ids-milestone.html'),
+      final: require('!!raw-loader!./samples/slides/structural-directive-final.html')
     },
     storingCode: {
       plain: require('!!raw-loader!./samples/storing-code/plain.html'),
       backticks: require('!!raw-loader!./samples/storing-code/backticks.html'),
       backticksMatch: [/{{`/, /`}}/],
+      ngTemplate: require('!!raw-loader!./samples/storing-code/ng-template.html'),
+      ngNonBindable: require('!!raw-loader!./samples/storing-code/ng-non-bindable.html'),
+      script: require('!!raw-loader!./samples/storing-code/script.html'),
+      comment: require('!!raw-loader!./samples/storing-code/comment.html'),
+      textarea: require('!!raw-loader!./samples/storing-code/textarea.html'),
+      textareaNonBindable: require('!!raw-loader!./samples/storing-code/textarea-non-bindable.html'),
+      rawLoader: require('!!raw-loader!./about.component.ts'),
+      inComponent: require('!!raw-loader!./samples/storing-code/in-component.ts'),
       interpolation: {
         'bootstrap.ts': require('!!raw-loader!./samples/storing-code/interpolations.ts')
       }
     },
     gettingId: {
       code: require('!!raw-loader!@codelab/slides/src/lib/slide/slide.directive.ts')
+    },
+
+    stages: {
+      differ: require('!!raw-loader!@codelab/utils/src/lib/differ/differ'),
+      builders: require('!!raw-loader!./samples/versions/builders'),
+      component: require('!!raw-loader!../../../../../../ng2ts/app.component')
     },
     exercise: {
       translations: {
@@ -39,6 +56,7 @@ export class AboutComponent implements OnInit {
       },
       config: ng2tsConfig.milestones[1].exercises[1]
     },
+    preview: [ng2tsConfig.milestones[1].exercises[1]],
     simpleAngular: {
       code: {
         'bootstrap.ts': require('!!raw-loader!./../../shared/angular-code/bootstrap.ts'),
@@ -56,11 +74,15 @@ export class AboutComponent implements OnInit {
 
     highlights: {
       appComponent: { 'app.component.ts': 'AppComponent' },
-      find: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/utils/utils')
+      find: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/utils/utils'),
+      directive: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/directives/code-demo-editor.highlight.directive')
+    },
+    types: {
+      realtypes: require('!!raw-loader!./samples/types/realtypes.ts'),
+      fakeTypes: require('!!raw-loader!./samples/fake-types.d.ts.not-really'),
+      coreTypes: require('!!raw-loader!@angular/core/core.d.ts'),
+      rxjsTypes: require('!!raw-loader!rxjs/index.d.ts'),
+      bundler: require('!!raw-loader!@codelab/code-demos/assets/runner/ng-dts/bundler.ts')
     }
   };
-
-  constructor() {}
-
-  ngOnInit() {}
 }
