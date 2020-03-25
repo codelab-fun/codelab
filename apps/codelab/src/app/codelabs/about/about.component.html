@@ -10,6 +10,7 @@
       <ul>
         <li>🦊 @thekiba_io</li>
         <li>🍚 @kirjs</li>
+        <li>🦠</li>
       </ul>
     </div>
   </div>
@@ -80,8 +81,8 @@
     <div pic class="zvuki2"></div>
   </div>
 
-  <div *slide cover>
-    <h2>The plan</h2>
+  <div *slide>
+    <h2>Overview</h2>
     <ul>
       <li>How it all started</li>
       <li>Managing exercise source code</li>
@@ -902,34 +903,56 @@
     <div *slide>
       <ul>
         <li>Have strings in template with ids</li>
-        <li>Then query it in the Component</li>
       </ul>
-      {{ "@ViewChild('translations', { static: true }) translation;" }}
+
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.i18n.template"
+      ></code-demo-editor>
       <!--    TODO: Illustration-->
     </div>
 
-    <div *slide text>
-      How to we translate it in a way that scales?
+    <div *slide>
+      <ul>
+        <li>Use ViewChild to extract the messages</li>
+      </ul>
+
+      <code-demo-editor
+        language="typescript"
+        [(ngModel)]="code.i18n.ts"
+      ></code-demo-editor>
+      <!--    TODO: Illustration-->
     </div>
 
     <div *slide>
-      <h2>Codelab uses PoEditor</h2>
-      <div pic class="i18n-poeditor"></div>
+      <h2>i18n with DOM nodes in a template</h2>
+      <ul>
+        <li>✅ It works!</li>
+        <li>🚫 It's ugly</li>
+        <li>🚫 Hard to work with</li>
+        <li>🚫 Leads to having lots of stale messages</li>
+      </ul>
     </div>
 
     <div *slide>
-      <h2>Thanks PoEditor for providing us with an Open Source license!</h2>
-      <div pic class="i18n-poeditor"></div>
+      <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
+      <h2>Angular supporting non-template i18n</h2>
     </div>
 
-    <div *slide text>Anybody can help with translation</div>
-    <div *slide text>- Already translated into Russian</div>
+    <div *slide>
+      <h2>We use PoEditor</h2>
+      <div class="info">
+        Thanks PoEditor for providing us with an Open Source license!
+      </div>
+      <div pic class="i18n-poeditor"></div>
+    </div>
   </ng-container>
 
   <!--  What's next-->
   <ng-container>
     <div *slide text>What's next?</div>
     <div *slide>
+      <h2>What's next?</h2>
       <ul>
         <li>More milestones</li>
         <li>Other topics</li>
@@ -941,7 +964,7 @@
 
   <!--  How to contribute -->
   <ng-container>
-    <div *slide>How to contribute?</div>
+    <div *slide cover>How to contribute?</div>
     <div *slide>
       <h2>All kinds of work</h2>
       <ul>

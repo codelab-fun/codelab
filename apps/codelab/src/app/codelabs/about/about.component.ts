@@ -92,6 +92,10 @@ export class AboutComponent {
       coreTypes: require('!!raw-loader!@angular/core/core.d.ts'),
       rxjsTypes: require('!!raw-loader!rxjs/index.d.ts'),
       bundler: require('!!raw-loader!@codelab/code-demos/assets/runner/ng-dts/bundler.ts')
+    },
+    i18n: {
+      template: require('!!raw-loader!../angular/typescript/typescript/typescript.component.html'),
+      ts: require('!!raw-loader!../angular/typescript/typescript/typescript.component.ts')
     }
   };
 }
