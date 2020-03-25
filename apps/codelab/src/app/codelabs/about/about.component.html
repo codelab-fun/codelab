@@ -265,7 +265,7 @@
     </div>
 
     <div *slide>
-      <h2>Can we use hash slide content?</h2>
+      <h2>Can we hash slide content?</h2>
       <ul>
         <li>🚫 Feedback has to be attached to a slide</li>
         <li>✅ Minimum work required from presentation creator</li>
@@ -303,14 +303,14 @@
       <h2>What do we want</h2>
       <ul>
         <li>Clean and concise API</li>
-        <li>On-demand per-slide content loading</li>
-        <li>Additional per-slides attributes</li>
         <li>
           Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>On-demand per-slide content loading</li>
+        <li>Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -322,14 +322,14 @@
       ></code-demo-editor>
       <ul>
         <li>✅ Clean and concise API</li>
-        <li>🚫 On-demand per-slide content loading</li>
-        <li>🚫 Additional per-slides attributes</li>
         <li>
           🚫 Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>🚫 On-demand per-slide content loading</li>
+        <li>🚫 Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -342,14 +342,14 @@
 
       <ul>
         <li>✅ Clean and concise API</li>
-        <li>🚫 .On-demand per-slide content loading</li>
-        <li>🚫 Additional per-slides attributes</li>
         <li>
           ✅ Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>🚫 On-demand per-slide content loading</li>
+        <li>🚫 Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -361,14 +361,14 @@
       ></code-demo-editor>
       <ul>
         <li>🚫 Clean and concise API</li>
-        <li>✅ .On-demand per-slide content loading</li>
-        <li>🚫 Additional per-slides attributes</li>
         <li>
           🚫 Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>✅ On-demand per-slide content loading</li>
+        <li>🚫 Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -380,14 +380,14 @@
       ></code-demo-editor>
       <ul>
         <li>✅ Clean and concise API</li>
-        <li>✅ .On-demand per-slide content loading</li>
-        <li>✅ Additional per-slides attributes</li>
         <li>
           ✅ Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>✅ On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -399,14 +399,14 @@
       ></code-demo-editor>
       <ul>
         <li>🚫 Clean and concise API</li>
-        <li>✅ .On-demand per-slide content loading</li>
-        <li>✅ Additional per-slides attributes</li>
         <li>
           ✅ Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>✅ On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -418,14 +418,14 @@
       ></code-demo-editor>
       <ul>
         <li>🚫🚫🚫🚫 Clean and concise API 🚫🚫🚫🚫</li>
-        <li>✅ .On-demand per-slide content loading</li>
-        <li>✅ Additional per-slides attributes</li>
         <li>
           ✅ Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>✅ .On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -436,14 +436,14 @@
       ></code-demo-editor>
       <ul>
         <li>✅ Clean and concise API</li>
-        <li>✅ .On-demand per-slide content loading</li>
-        <li>✅ Additional per-slides attributes</li>
         <li>
           ✅ Ability to have
           <a href="https://codelab.fun/angular/router/router-intro"
             >feedback per slide</a
           >
         </li>
+        <li>✅ On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
       </ul>
     </div>
 
@@ -471,6 +471,18 @@
         [(ngModel)]="code.slides.final"
       ></code-demo-editor>
       <h2>Angular to support attributes for structural directives.</h2>
+    </div>
+  </ng-container>
+
+  <!-- Storing code samples -->
+  <ng-container>
+    <div *slide>
+      <div style="text-align: center;">
+        <h2>I'm watching you</h2>
+        <h2 style="font-size: 200px;">🦊</h2>
+        <h2>Always unsubscribe from observables!</h2>
+      </div>
+      <code-demo-editor [(ngModel)]="code.fox.unsubscribe"></code-demo-editor>
     </div>
   </ng-container>
 
@@ -529,7 +541,6 @@
       <code-demo-editor
         language="html"
         [(ngModel)]="code.storingCode.ngTemplate"
-        [codeDemoHighlight]="code.storingCode.backticksMatch"
       ></code-demo-editor>
       <ul>
         <li>🚫 Compiles</li>

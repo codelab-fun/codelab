@@ -93,6 +93,9 @@ export class AboutComponent {
       rxjsTypes: require('!!raw-loader!rxjs/index.d.ts'),
       bundler: require('!!raw-loader!@codelab/code-demos/assets/runner/ng-dts/bundler.ts')
     },
+    fox: {
+      unsubscribe: require('!!raw-loader!./samples/fox/unsubscribe')
+    },
     i18n: {
       template: require('!!raw-loader!../angular/typescript/typescript/typescript.component.html'),
       ts: require('!!raw-loader!../angular/typescript/typescript/typescript.component.ts')
