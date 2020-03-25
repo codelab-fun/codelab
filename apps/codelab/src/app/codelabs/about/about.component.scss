@@ -137,3 +137,19 @@ td {
   font-weight: 300;
   padding: 1vw;
 }
+
+[main][main][main] {
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  ul {
+    list-style: none;
+  }
+
+  h2 {
+    font-size: 15vw;
+  }
+}

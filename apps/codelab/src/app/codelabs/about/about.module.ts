@@ -8,6 +8,8 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
 import { StagesComponent } from './stages/stages.component';
+import { ButtonsNavBarModule } from '../../components/buttons-nav-bar/buttons-nav-bar.module';
+import { NewProgressBarModule } from '../../../../../kirjs/src/app/modules/ast/new-progress-bar/new-progress-bar.module';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(AboutComponent));
 
@@ -19,7 +21,9 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AboutComponent));
     routes,
     CodeDemoModule,
     FormsModule,
-    CodelabComponentsModule
+    CodelabComponentsModule,
+    ButtonsNavBarModule,
+    NewProgressBarModule
   ]
 })
 export class AboutModule {}

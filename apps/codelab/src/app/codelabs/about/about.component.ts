@@ -42,7 +42,8 @@ export class AboutComponent {
     stages: {
       differ: require('!!raw-loader!@codelab/utils/src/lib/differ/differ'),
       builders: require('!!raw-loader!./samples/versions/builders'),
-      component: require('!!raw-loader!../../../../../../ng2ts/app.component')
+      component: require('!!raw-loader!../../../../../../ng2ts/app.component'),
+      firstStage: "import { Component } from '@angular/core';"
     },
     exercise: {
       translations: {
@@ -56,7 +57,15 @@ export class AboutComponent {
       },
       config: ng2tsConfig.milestones[1].exercises[1]
     },
-    preview: [ng2tsConfig.milestones[1].exercises[1]],
+    preview: [
+      ng2tsConfig.milestones[1].exercises[1],
+      ng2tsConfig.milestones[2].exercises[1],
+      ng2tsConfig.milestones[3].exercises[1],
+      ng2tsConfig.milestones[4].exercises[1],
+      ng2tsConfig.milestones[5].exercises[0],
+      ng2tsConfig.milestones[6].exercises[0],
+      ng2tsConfig.milestones[7].exercises[0]
+    ],
     simpleAngular: {
       code: {
         'bootstrap.ts': require('!!raw-loader!./../../shared/angular-code/bootstrap.ts'),

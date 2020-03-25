@@ -15,6 +15,8 @@ import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component
 export class NewProgressBarComponent implements AfterViewInit {
   @Input() fontSize = 28;
   @Input() title = 'JavaScript AST';
+  @Input() handle = '@kirjs';
+  @Input() displayFontSize = true;
   @Output() fontSizeChange = new EventEmitter();
   slides = [];
   activeSlideIndex = 0;

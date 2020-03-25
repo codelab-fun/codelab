@@ -1,6 +1,17 @@
 <slide-deck slideShortcuts slidesRouting slides-tracking>
-  <div *slide cover>
-    codelab.fun
+  <kirjs-new-progress-bar
+    [displayFontSize]="false"
+    handle="@thekiba_io | @kirjs"
+    title="codelab.fun"
+  ></kirjs-new-progress-bar>
+  <div *slide main>
+    <div class="wrap">
+      <h2>codelab.fun</h2>
+      <ul>
+        <li>🦊 @thekiba_io</li>
+        <li>🍚 @kirjs</li>
+      </ul>
+    </div>
   </div>
 
   <!--  TODO(anya):-->
@@ -69,6 +80,22 @@
     <div pic class="zvuki2"></div>
   </div>
 
+  <div *slide cover>
+    <h2>The plan</h2>
+    <ul>
+      <li>How it all started</li>
+      <li>Managing exercise source code</li>
+      <li>Feedback</li>
+      <li>Creating slides</li>
+      <li>Storing code samples</li>
+      <li>Highlighting directives</li>
+      <li>Types</li>
+      <li>i18n</li>
+      <li>What's next</li>
+      <li>How to contribute</li>
+    </ul>
+  </div>
+
   <!--
    Story
   -->
@@ -81,12 +108,15 @@
     <div pic class="v1"></div>
   </div>
 
+  <!--  Manage exercise source code -->
   <ng-container>
     <div *slide text>Managing source code in exercises</div>
-    <div *slide text>
+    <div *slide>
+      <h2>Exercises are progressive</h2>
       <codelab-exercise-preview
-        *ngFor="let preview; in: code.preview"
+        *ngFor="let preview of code.preview"
         [exercise]="preview"
+        url="/assets/runner"
       ></codelab-exercise-preview>
     </div>
 
@@ -105,12 +135,24 @@
     </div>
 
     <div *slide>
-      <h2>TODO: One folder per exercise</h2>
+      <h2>One folder per exercise</h2>
+      <code-demo-file-path
+        path="create-new-app/app.component.ts"
+      ></code-demo-file-path>
+      <code-demo-editor [(ngModel)]="code.stages.firstStage"></code-demo-editor>
+      <code-demo-file-path
+        path="create-new-app-solution/app.component.ts"
+      ></code-demo-file-path>
+      <code-demo-editor
+        [(ngModel)]="code.simpleAngular.code['app.component.ts']"
+      ></code-demo-editor>
 
       <ul>
         <li>✅ Defined in text format</li>
-        <li>🚫 Easy to modify versions</li>
-        <li>🚫 Changes in older versions propagate to the newer versions</li>
+        <li>🚫Easy to modify versions</li>
+        <li>
+          🚫🚫🚫Changes in older versions propagate to the newer versions🚫🚫🚫
+        </li>
         <li>✅ Works in a browser</li>
       </ul>
     </div>
@@ -188,12 +230,747 @@
       <h2>Differ</h2>
       <code-demo-editor [(ngModel)]="code.stages.differ"></code-demo-editor>
     </div>
+    <div *slide>
+      <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
+      <ul>
+        <li>UI displaying multiple versions</li>
+        <li>Use existing VCS tools for commits/merging</li>
+        <li>Save full repo snapshot in a VCS</li>
+      </ul>
+    </div>
   </ng-container>
 
-  <div *slide>
-    <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
-    <h2>All code stored/edited online in a UI</h2>
+  <!--  Feedback -->
+  <ng-container>
+    <div *slide text>
+      feedback
+    </div>
+    <div *slide>
+      <h2>Users should be able to leave feedback</h2>
+      <ul>
+        <li>Feedback has to be attached to a slide</li>
+        <li>Minimum work required from presentation creator</li>
+      </ul>
+      <codelab-buttons-nav-bar></codelab-buttons-nav-bar>
+    </div>
+
+    <div *slide>
+      <h2>Can we use router URL (slide index)?</h2>
+      <ul>
+        <li>🚫 Feedback has to be attached to a slide</li>
+        <li>✅ Minimum work required from presentation creator</li>
+      </ul>
+      <h2>If a slide is added, all indexes get shifted</h2>
+    </div>
+
+    <div *slide>
+      <h2>Can we use hash slide content?</h2>
+      <ul>
+        <li>🚫 Feedback has to be attached to a slide</li>
+        <li>✅ Minimum work required from presentation creator</li>
+      </ul>
+      <h2>Is slide content gets changed - all feedback will be lost</h2>
+    </div>
+
+    <div *slide>
+      <h2>Set each ID manually</h2>
+      <ul>
+        <li>✅ Feedback has to be attached to a slide</li>
+        <li>🚫 Minimum work required from presentation creator</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
+      <h2>This would not be an issue if all the content was in a DB</h2>
+    </div>
+  </ng-container>
+
+  <!-- Creating slides -->
+  <ng-container>
+    <div cover *slide>Creating slides library with Angular</div>
+
+    <div *slide>
+      <h2>What's an ideal API for a presentation written in Angular?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.initial"
+      ></code-demo-editor>
+    </div>
+
+    <div *slide>
+      <h2>What do we want</h2>
+      <ul>
+        <li>Clean and concise API</li>
+        <li>On-demand per-slide content loading</li>
+        <li>Additional per-slides attributes</li>
+        <li>
+          Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>What's an ideal API for a presentation written in Angular?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.initial"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Clean and concise API</li>
+        <li>🚫 On-demand per-slide content loading</li>
+        <li>🚫 Additional per-slides attributes</li>
+        <li>
+          🚫 Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>The same but with ids</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.component"
+      ></code-demo-editor>
+
+      <ul>
+        <li>✅ Clean and concise API</li>
+        <li>🚫 .On-demand per-slide content loading</li>
+        <li>🚫 Additional per-slides attributes</li>
+        <li>
+          ✅ Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>Can we use ng-template?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.template"
+      ></code-demo-editor>
+      <ul>
+        <li>🚫 Clean and concise API</li>
+        <li>✅ .On-demand per-slide content loading</li>
+        <li>🚫 Additional per-slides attributes</li>
+        <li>
+          🚫 Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>Structural directive?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.directive"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Clean and concise API</li>
+        <li>✅ .On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
+        <li>
+          ✅ Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>But how do we get the ID?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.directiveId"
+      ></code-demo-editor>
+      <ul>
+        <li>🚫 Clean and concise API</li>
+        <li>✅ .On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
+        <li>
+          ✅ Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>What if we need more attributes</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.directiveIdMilestone"
+      ></code-demo-editor>
+      <ul>
+        <li>🚫🚫🚫🚫 Clean and concise API 🚫🚫🚫🚫</li>
+        <li>✅ .On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
+        <li>
+          ✅ Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.final"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Clean and concise API</li>
+        <li>✅ .On-demand per-slide content loading</li>
+        <li>✅ Additional per-slides attributes</li>
+        <li>
+          ✅ Ability to have
+          <a href="https://codelab.fun/angular/router/router-intro"
+            >feedback per slide</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>But how???</h2>
+    </div>
+
+    <div *slide>
+      <div
+        class="info"
+        style="background: red; color: white; margin-bottom: 20px;"
+      >
+        💀🙀Don't try this at home!🙀💀
+      </div>
+      <code-demo-editor
+        language="typescript"
+        [(ngModel)]="code.gettingId.code"
+      ></code-demo-editor>
+    </div>
+
+    <div *slide>
+      <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.slides.final"
+      ></code-demo-editor>
+      <h2>Angular to support attributes for structural directives.</h2>
+    </div>
+  </ng-container>
+
+  <!-- Storing code samples -->
+  <ng-container>
+    <div *slide cover>Storing code samples</div>
+    <div *slide>
+      <h2>Requirements:</h2>
+      <ul>
+        <li>Compiles</li>
+        <li>Easy to manage</li>
+        <li>Syntax highlighting</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>This can't be hard!</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.plain"
+      ></code-demo-editor>
+      <ul>
+        <li>🚫 Compiles</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>Can we use multiline strings?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.backticks"
+        [codeDemoHighlight]="code.storingCode.backticksMatch"
+      ></code-demo-editor>
+      <ul>
+        <li>🚫 Compiles</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>Custom interpolation to the rescue?</h2>
+      <code-demo
+        language="html"
+        [(ngModel)]="code.storingCode.interpolation"
+      ></code-demo>
+      <ul>
+        <li>🚫 Compiles</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>Can we use ng-template?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.ngTemplate"
+        [codeDemoHighlight]="code.storingCode.backticksMatch"
+      ></code-demo-editor>
+      <ul>
+        <li>🚫 Compiles</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>Can we use ngNonBindable?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.ngNonBindable"
+      ></code-demo-editor>
+      <ul>
+        <li>🚫 Compiles</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>Can we use Script tag?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.script"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Compiles</li>
+        <li>🚫🙀 Can't get access to it 🙀🚫 (security)</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>Can we use a comment?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.comment"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Compiles</li>
+        <li>🚫🙀 Can't get access to it 🙀🚫 (Angular strips comments)</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>Textarea?</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.textarea"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Compiles (although my IDE complains)</li>
+        <li>✅ Can get access</li>
+        <li>🚫🙀 Curlies intepolate</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>Textarea + ngNonBindable</h2>
+      <code-demo-editor
+        language="html"
+        [(ngModel)]="code.storingCode.textareaNonBindable"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Compiles</li>
+        <li>✅ Can get access</li>
+        <li>✅ Curlies do not interpolate</li>
+        <li>✅ Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>✨ We won! ✨</h2>
+      <div style="width:50%;height:0;padding-bottom:100%;position:relative;">
+        <iframe
+          src="https://giphy.com/embed/aXg4TKmvxHVAc"
+          width="480"
+          height="480"
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe>
+      </div>
+    </div>
+
+    <div *slide cover>Now, we need a sane way</div>
+
+    <div *slide>
+      <h2>Code in the component</h2>
+
+      <code-demo-editor
+        language="typescript"
+        [(ngModel)]="code.storingCode.inComponent"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Compiles</li>
+        <li>✅ Can get access</li>
+        <li>✅ Curlies do not interpolate</li>
+        <li>🚫 Easy to manage</li>
+        <li>🚫 Syntax highlighting</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>Storing it in appropriate files</h2>
+      <code-demo-editor
+        language="typescript"
+        [(ngModel)]="code.simpleAngular.code['app.component.ts']"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Compiles</li>
+        <li>✅ Can get access</li>
+        <li>✅ Curlies do not interpolate</li>
+        <li>🤷 ‍Easy to manage</li>
+        <li>✅ Syntax highlighting</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>raw-loader - code in files</h2>
+      <code-demo-editor
+        language="typescript"
+        [(ngModel)]="code.storingCode.rawLoader"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Compiles</li>
+        <li>✅ Can get access</li>
+        <li>✅ Curlies do not interpolate</li>
+        <li>🤷 ‍Easy to manage</li>
+        <li>✅ Syntax highlighting</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
+
+      <code-demo-editor
+        language="typescript"
+        [(ngModel)]="code.simpleAngular.code['app.component.ts']"
+      ></code-demo-editor>
+
+      <h2>UI for editing code (and content)</h2>
+    </div>
+  </ng-container>
+
+  <!-- Highlighting directive -->
+  <ng-container>
+    <div *slide cover>
+      Highlights
+    </div>
+
+    <div *slide>
+      <h2>How to implement this?</h2>
+      <div class="highlight-slides" pic></div>
+    </div>
+
+    <div *slide>
+      <h2>We need a popup which</h2>
+      <ul>
+        <li>plays well with Monaco</li>
+        <li>Updates when the code is updated</li>
+        <li>Not obstructive</li>
+        <li>Provides additional context</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>ng-popover, and 10 other libraries</h2>
+      <ul>
+        <li>🚫 plays well with Monaco</li>
+        <li>🚫 Updates when the code is updated</li>
+        <li>🚫 Not obstructive</li>
+        <li>✅ Provides additional context</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>We don't need popovers, we need highlight</h2>
+      <code-demo
+        [(ngModel)]="code.simpleAngular.code"
+        [files]="code.simpleAngular.files"
+        [highlights]="code.highlights.appComponent"
+      ></code-demo>
+      <ul>
+        <li>✅ plays well with Monaco</li>
+        <li>✅ Updates when the code is updated</li>
+        <li>✅ Not obstructive</li>
+        <li>🚫 Provides additional context</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>Find position by regex or string</h2>
+      <code-demo-editor [(ngModel)]="code.highlights.find"></code-demo-editor>
+    </div>
+
+    <div *slide>
+      <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
+      <div pic class="dream-highlight" style="flex-shrink: 0"></div>
+      <ul>
+        <li>✅ plays well with Monaco</li>
+        <li>✅ Updates when the code is updated</li>
+        <li>✅ Not obstructive</li>
+        <li>✅ Provides additional context</li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <!-- Types -->
+  <ng-container>
+    <div *slide text>Types</div>
+    <div *slide>
+      <h2>Types requirements:</h2>
+      <ul>
+        <li>Autocomplete words</li>
+        <li>Quick to implement</li>
+        <li>Quick to update</li>
+        <li>Lightweight</li>
+      </ul>
+    </div>
+    <div *slide>
+      <h2>No types ¯\_(ツ)_/¯</h2>
+      <ul>
+        <li>🚫 Autocomplete works</li>
+        <li>✅ Quick to implement</li>
+        <li>✅ Quick to update</li>
+        <li>✅ Lightweight</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>Fake types!</h2>
+      <code-demo-file-path path="fake-types.d.ts"></code-demo-file-path>
+      <code-demo-editor
+        [autoSize]="false"
+        [(ngModel)]="code.types.fakeTypes"
+      ></code-demo-editor>
+
+      <ul>
+        <li>✅ Autocomplete works</li>
+        <li>🚫 Quick to implement</li>
+        <li>🚫 Quick to update</li>
+        <li>✅ Lightweight</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>Then webstorm started shouting at me.</h2>
+      <div class="types-error" pic></div>
+    </div>
+    <div *slide>
+      <h2>Let's rename the file</h2>
+      <code-demo-file-path
+        path="fake-types.d.ts.not-really"
+      ></code-demo-file-path>
+      <code-demo-editor [(ngModel)]="code.types.fakeTypes"></code-demo-editor>
+    </div>
+
+    <div *slide>
+      <h2>Types work!</h2>
+      <div class="types-work" pic></div>
+    </div>
+
+    <div *slide>
+      <h2>Let's use real types!</h2>
+      <code-demo-editor
+        [(ngModel)]="code.types.realtypes"
+        language="typescript"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Autocomplete works</li>
+        <li>✅ Quick to implement</li>
+        <li>✅ Quick to update</li>
+        <li>✅ Lightweight</li>
+        <li>🚫 Actually works</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>@angular/core/core.d.ts</h2>
+      <code-demo-editor
+        [(ngModel)]="code.types.coreTypes"
+        language="typescript"
+      ></code-demo-editor>
+    </div>
+
+    <div *slide>
+      <h2>@rxjs/index.d.ts</h2>
+      <code-demo-editor
+        [(ngModel)]="code.types.rxjsTypes"
+        language="typescript"
+      ></code-demo-editor>
+    </div>
+
+    <div *slide>
+      <h2>It can't be too many files?</h2>
+    </div>
+
+    <div *slide>
+      <h2>It can't be too many files?</h2>
+      <table>
+        <tr>
+          <td></td>
+          <td># Files</td>
+          <td>Size</td>
+        </tr>
+        <tr>
+          <td>Angular</td>
+          <td>2808</td>
+          <td>14M</td>
+        </tr>
+        <tr>
+          <td>RxJS</td>
+          <td>686</td>
+          <td>2.7M</td>
+        </tr>
+      </table>
+    </div>
+
+    <div *slide>
+      <h2>Let's prebundle</h2>
+      <code-demo-editor
+        [(ngModel)]="code.types.bundler"
+        language="typescript"
+      ></code-demo-editor>
+      <ul>
+        <li>✅ Autocomplete works</li>
+        <li>✅ Quick to implement</li>
+        <li>🤷 Quick to update</li>
+        <li>🚫 Lightweight</li>
+        <li>✅ Actually works</li>
+      </ul>
+    </div>
+
+    <div *slide>
+      <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
+
+      <ol>
+        <li>Parse all user .ts files</li>
+        <li>Extract all the imports</li>
+        <li>Fetch types from a CDN (e.g. npmcdn.com)</li>
+      </ol>
+      <ul>
+        <li>✅ Autocomplete works</li>
+        <li>✅ Quick to implement</li>
+        <li>✅ Quick to update</li>
+        <li>✅ Lightweight</li>
+        <li>🚫 Actually works</li>
+      </ul>
+      <div class="info">
+        Many other tools like stackblitz do that, but proxy it through a server
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- i18n -->
+  <ng-container>
+    <div *slide cover>i18n</div>
+
+    <div *slide>
+      <h2>We use standard Angular i18n</h2>
+      <!--    TODO: Code sample-->
+    </div>
+    <div *slide>
+      <h2>But how can we translate code samples?</h2>
+      <!--    TODO: Illustration-->
+    </div>
+    <div *slide>
+      <ul>
+        <li>Have strings in template with ids</li>
+        <li>Then query it in the Component</li>
+      </ul>
+      {{ "@ViewChild('translations', { static: true }) translation;" }}
+      <!--    TODO: Illustration-->
+    </div>
+
+    <div *slide text>
+      How to we translate it in a way that scales?
+    </div>
+
+    <div *slide>
+      <h2>Codelab uses PoEditor</h2>
+      <div pic class="i18n-poeditor"></div>
+    </div>
+
+    <div *slide>
+      <h2>Thanks PoEditor for providing us with an Open Source license!</h2>
+      <div pic class="i18n-poeditor"></div>
+    </div>
+
+    <div *slide text>Anybody can help with translation</div>
+    <div *slide text>- Already translated into Russian</div>
+  </ng-container>
+
+  <!--  What's next-->
+  <ng-container>
+    <div *slide text>What's next?</div>
+    <div *slide>
+      <ul>
+        <li>More milestones</li>
+        <li>Other topics</li>
+        <li>UI for editing</li>
+        <li>Publishing slide-library</li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <!--  How to contribute -->
+  <ng-container>
+    <div *slide>How to contribute?</div>
+    <div *slide>
+      <h2>All kinds of work</h2>
+      <ul>
+        <li>Code</li>
+        <li>Docs</li>
+        <li>Translations</li>
+        <li>Product management</li>
+        <li>Design</li>
+        <li>Hosting events</li>
+        <li>Teaching</li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <div *slide main>
+    <div class="wrap">
+      <h2>codelab.fun</h2>
+      <ul>
+        <li>🦊 @thekiba_io</li>
+        <li>🍚 @kirjs</li>
+      </ul>
+    </div>
   </div>
+
+  <!--
+    Optimizing everything.
+   -->
+  <!--  TODO(🦊):-->
+  <div *slide>Let's make it faster</div>
 
   <!--
    TODO: Runner story
@@ -213,697 +990,6 @@
   -->
 
   <div *slide cover>Next level</div>
-
-  <!--
-      Creating slides
-  -->
-  <div cover *slide>Creating slides library with Angular</div>
-
-  <div *slide>
-    <h2>What's an ideal API for a presentation written in Angular?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.initial"
-    ></code-demo-editor>
-  </div>
-
-  <div *slide>
-    <h2>What do we want</h2>
-    <ul>
-      <li>Clean and concise API</li>
-      <li>On-demand per-slide content loading</li>
-      <li>Additional per-slides attributes</li>
-      <li>
-        Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>What's an ideal API for a presentation written in Angular?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.initial"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Clean and concise API</li>
-      <li>🚫 On-demand per-slide content loading</li>
-      <li>🚫 Additional per-slides attributes</li>
-      <li>
-        🚫 Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>The same but with ids</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.component"
-    ></code-demo-editor>
-
-    <ul>
-      <li>✅ Clean and concise API</li>
-      <li>🚫 .On-demand per-slide content loading</li>
-      <li>🚫 Additional per-slides attributes</li>
-      <li>
-        ✅ Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>Can we use ng-template?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.template"
-    ></code-demo-editor>
-    <ul>
-      <li>🚫 Clean and concise API</li>
-      <li>✅ .On-demand per-slide content loading</li>
-      <li>🚫 Additional per-slides attributes</li>
-      <li>
-        🚫 Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>Structural directive?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.directive"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Clean and concise API</li>
-      <li>✅ .On-demand per-slide content loading</li>
-      <li>✅ Additional per-slides attributes</li>
-      <li>
-        ✅ Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>But how do we get the ID?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.directiveId"
-    ></code-demo-editor>
-    <ul>
-      <li>🚫 Clean and concise API</li>
-      <li>✅ .On-demand per-slide content loading</li>
-      <li>✅ Additional per-slides attributes</li>
-      <li>
-        ✅ Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>What if we need more attributes</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.directiveIdMilestone"
-    ></code-demo-editor>
-    <ul>
-      <li>🚫🚫🚫🚫 Clean and concise API 🚫🚫🚫🚫</li>
-      <li>✅ .On-demand per-slide content loading</li>
-      <li>✅ Additional per-slides attributes</li>
-      <li>
-        ✅ Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.final"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Clean and concise API</li>
-      <li>✅ .On-demand per-slide content loading</li>
-      <li>✅ Additional per-slides attributes</li>
-      <li>
-        ✅ Ability to have
-        <a href="https://codelab.fun/angular/router/router-intro"
-          >feedback per slide</a
-        >
-      </li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>But how???</h2>
-  </div>
-
-  <div *slide>
-    <div
-      class="info"
-      style="background: red; color: white; margin-bottom: 20px;"
-    >
-      💀🙀Don't try this at home!🙀💀
-    </div>
-    <code-demo-editor
-      language="typescript"
-      [(ngModel)]="code.gettingId.code"
-    ></code-demo-editor>
-  </div>
-
-  <div *slide>
-    <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.slides.final"
-    ></code-demo-editor>
-    <h2>Angular to support attributes for structural directives.</h2>
-  </div>
-  <!--
-    Highlighting directive
-  -->
-  <div *slide cover>
-    Highlights
-  </div>
-
-  <div *slide>
-    <h2>How to implement this?</h2>
-    <div class="highlight-slides" pic></div>
-  </div>
-
-  <div *slide>
-    <h2>We need a popup which</h2>
-    <ul>
-      <li>plays well with Monaco</li>
-      <li>Updates when the code is updated</li>
-      <li>Not obstructive</li>
-      <li>Provides additional context</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>ng-popover, and 10 other libraries</h2>
-    <ul>
-      <li>🚫 plays well with Monaco</li>
-      <li>🚫 Updates when the code is updated</li>
-      <li>🚫 Not obstructive</li>
-      <li>✅ Provides additional context</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>We don't need popovers, we need highlight</h2>
-    <code-demo
-      [(ngModel)]="code.simpleAngular.code"
-      [files]="code.simpleAngular.files"
-      [highlights]="code.highlights.appComponent"
-    ></code-demo>
-    <ul>
-      <li>✅ plays well with Monaco</li>
-      <li>✅ Updates when the code is updated</li>
-      <li>✅ Not obstructive</li>
-      <li>🚫 Provides additional context</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>Find position by regex or string</h2>
-    <code-demo-editor [(ngModel)]="code.highlights.find"></code-demo-editor>
-  </div>
-
-  <div *slide>
-    <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
-    <div pic class="dream-highlight" style="flex-shrink: 0"></div>
-    <ul>
-      <li>✅ plays well with Monaco</li>
-      <li>✅ Updates when the code is updated</li>
-      <li>✅ Not obstructive</li>
-      <li>✅ Provides additional context</li>
-    </ul>
-  </div>
-
-  <!--
-      Code in a template
-  -->
-  <div *slide cover>Storing code samples</div>
-  <div *slide>
-    <h2>Requirements:</h2>
-    <ul>
-      <li>Compiles</li>
-      <li>Easy to manage</li>
-      <li>Syntax highlighting</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>This can't be hard!</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.plain"
-    ></code-demo-editor>
-    <ul>
-      <li>🚫 Compiles</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>Can we use multiline strings?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.backticks"
-      [codeDemoHighlight]="code.storingCode.backticksMatch"
-    ></code-demo-editor>
-    <ul>
-      <li>🚫 Compiles</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>Custom interpolation to the rescue?</h2>
-    <code-demo
-      language="html"
-      [(ngModel)]="code.storingCode.interpolation"
-    ></code-demo>
-    <ul>
-      <li>🚫 Compiles</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>Can we use ng-template?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.ngTemplate"
-      [codeDemoHighlight]="code.storingCode.backticksMatch"
-    ></code-demo-editor>
-    <ul>
-      <li>🚫 Compiles</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>Can we use ngNonBindable?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.ngNonBindable"
-    ></code-demo-editor>
-    <ul>
-      <li>🚫 Compiles</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>Can we use Script tag?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.script"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Compiles</li>
-      <li>🚫🙀 Can't get access to it 🙀🚫 (security)</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>Can we use a comment?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.comment"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Compiles</li>
-      <li>🚫🙀 Can't get access to it 🙀🚫 (Angular strips comments)</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>Textarea?</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.textarea"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Compiles (although my IDE complains)</li>
-      <li>✅ Can get access</li>
-      <li>🚫🙀 Curlies intepolate</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>Textarea + ngNonBindable</h2>
-    <code-demo-editor
-      language="html"
-      [(ngModel)]="code.storingCode.textareaNonBindable"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Compiles</li>
-      <li>✅ Can get access</li>
-      <li>✅ Curlies do not interpolate</li>
-      <li>✅ Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>✨ We won! ✨</h2>
-    <div style="width:50%;height:0;padding-bottom:100%;position:relative;">
-      <iframe
-        src="https://giphy.com/embed/aXg4TKmvxHVAc"
-        width="480"
-        height="480"
-        frameBorder="0"
-        class="giphy-embed"
-        allowFullScreen
-      ></iframe>
-    </div>
-  </div>
-
-  <div *slide cover>Now, we need a sane way</div>
-
-  <div *slide>
-    <h2>Code in the component</h2>
-
-    <code-demo-editor
-      language="typescript"
-      [(ngModel)]="code.storingCode.inComponent"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Compiles</li>
-      <li>✅ Can get access</li>
-      <li>✅ Curlies do not interpolate</li>
-      <li>🚫 Easy to manage</li>
-      <li>🚫 Syntax highlighting</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>Storing it in appropriate files</h2>
-    <code-demo-editor
-      language="typescript"
-      [(ngModel)]="code.simpleAngular.code['app.component.ts']"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Compiles</li>
-      <li>✅ Can get access</li>
-      <li>✅ Curlies do not interpolate</li>
-      <li>🤷 ‍Easy to manage</li>
-      <li>✅ Syntax highlighting</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>raw-loader - code in files</h2>
-    <code-demo-editor
-      language="typescript"
-      [(ngModel)]="code.storingCode.rawLoader"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Compiles</li>
-      <li>✅ Can get access</li>
-      <li>✅ Curlies do not interpolate</li>
-      <li>🤷 ‍Easy to manage</li>
-      <li>✅ Syntax highlighting</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
-
-    <code-demo-editor
-      language="typescript"
-      [(ngModel)]="code.simpleAngular.code['app.component.ts']"
-    ></code-demo-editor>
-
-    <h2>UI for editing code (and content)</h2>
-  </div>
-  <!--
-    Types
-   -->
-
-  <div *slide text>Types</div>
-  <div *slide>
-    <h2>Types requirements:</h2>
-    <ul>
-      <li>Autocomplete words</li>
-      <li>Quick to implement</li>
-      <li>Quick to update</li>
-      <li>Lightweight</li>
-    </ul>
-  </div>
-  <div *slide>
-    <h2>No types ¯\_(ツ)_/¯</h2>
-    <ul>
-      <li>🚫 Autocomplete works</li>
-      <li>✅ Quick to implement</li>
-      <li>✅ Quick to update</li>
-      <li>✅ Lightweight</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>Fake types!</h2>
-    <code-demo-file-path path="fake-types.d.ts"></code-demo-file-path>
-    <code-demo-editor
-      [autoSize]="false"
-      [(ngModel)]="code.fakeTypes"
-    ></code-demo-editor>
-
-    <ul>
-      <li>✅ Autocomplete works</li>
-      <li>🚫 Quick to implement</li>
-      <li>🚫 Quick to update</li>
-      <li>✅ Lightweight</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>Then webstorm started shouting at me.</h2>
-    <div class="types-error" pic></div>
-  </div>
-  <div *slide>
-    <h2>Let's rename the file</h2>
-    <code-demo-file-path
-      path="fake-types.d.ts.not-really"
-    ></code-demo-file-path>
-    <code-demo-editor [(ngModel)]="code.types.fakeTypes"></code-demo-editor>
-  </div>
-
-  <div *slide>
-    <h2>Types work!</h2>
-    <div class="types-work" pic></div>
-  </div>
-
-  <div *slide>
-    <h2>Let's use real types!</h2>
-    <code-demo-editor
-      [(ngModel)]="code.types.realtypes"
-      language="typescript"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Autocomplete works</li>
-      <li>✅ Quick to implement</li>
-      <li>✅ Quick to update</li>
-      <li>✅ Lightweight</li>
-      <li>🚫 Actually works</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>@angular/core/core.d.ts</h2>
-    <code-demo-editor
-      [(ngModel)]="code.types.coreTypes"
-      language="typescript"
-    ></code-demo-editor>
-  </div>
-
-  <div *slide>
-    <h2>@rxjs/index.d.ts</h2>
-    <code-demo-editor
-      [(ngModel)]="code.types.rxjsTypes"
-      language="typescript"
-    ></code-demo-editor>
-  </div>
-
-  <div *slide>
-    <h2>It can't be too many files?</h2>
-  </div>
-
-  <div *slide>
-    <h2>It can't be too many files?</h2>
-    <table>
-      <tr>
-        <td></td>
-        <td># Files</td>
-        <td>Size</td>
-      </tr>
-      <tr>
-        <td>Angular</td>
-        <td>2808</td>
-        <td>14M</td>
-      </tr>
-      <tr>
-        <td>RxJS</td>
-        <td>686</td>
-        <td>2.7M</td>
-      </tr>
-    </table>
-  </div>
-
-  <div *slide>
-    <h2>Let's prebundle</h2>
-    <code-demo-editor
-      [(ngModel)]="code.types.bundler"
-      language="typescript"
-    ></code-demo-editor>
-    <ul>
-      <li>✅ Autocomplete works</li>
-      <li>✅ Quick to implement</li>
-      <li>🤷 Quick to update</li>
-      <li>🚫 Lightweight</li>
-      <li>✅ Actually works</li>
-    </ul>
-  </div>
-
-  <div *slide>
-    <h2>☁️☁️🌤 My dream solution ☁️☁️☁️️</h2>
-
-    <ol>
-      <li>Parse all user .ts files</li>
-      <li>Extract all the imports</li>
-      <li>Fetch types from a CDN (e.g. npmcdn.com)</li>
-    </ol>
-    <ul>
-      <li>✅ Autocomplete works</li>
-      <li>✅ Quick to implement</li>
-      <li>✅ Quick to update</li>
-      <li>✅ Lightweight</li>
-      <li>🚫 Actually works</li>
-    </ul>
-    <div class="info">
-      Many other tools like stackblitz do that, but proxy it through a server
-    </div>
-  </div>
-
-  <div *slide>
-    <h2>People will probably get really mad?</h2>
-    <!--    TODO-->
-  </div>
-
-  <div *slide>
-    <h2>Let's add feedback feature</h2>
-    <!--    TODO screenshot-->
-  </div>
-  <div *slide>
-    <h2>We use firebase</h2>
-    <!--    TODO screenshot-->
-  </div>
-
-  <div *slide>
-    <h2>
-      We want the feedback to be as specific as possible, so we need to identify
-      the slide
-    </h2>
-    <!--    TODO screenshot-->
-  </div>
-
-  <div *slide>
-    <h2>We Already use routing, and each slide has a #</h2>
-    <!--    TODO screenshot-->
-  </div>
-
-  <div *slide>
-    <h2>We can't generate and ID</h2>
-    <!--    TODO screenshot-->
-  </div>
-  <div *slide>
-    <h2>We have to give an ID manually</h2>
-    <!--    TODO screenshot-->
-  </div>
-
-  <div *slide>
-    <h2>TADA</h2>
-    <!-- Ugly code -->
-  </div>
-
-  <!--
-    Success
-   -->
-
-  <!--
-    Translations
-   -->
-  <div *slide cover>i18n</div>
-
-  <div *slide>
-    <h2>We use standard Angular i18n</h2>
-    <!--    TODO: Code sample-->
-  </div>
-  <div *slide>
-    <h2>But how can we translate code samples?</h2>
-    <!--    TODO: Illustration-->
-  </div>
-  <div *slide>
-    <ul>
-      <li>Have strings in template with ids</li>
-      <li>Then query it in the Component</li>
-    </ul>
-    {{ "@ViewChild('translations', { static: true }) translation;" }}
-    <!--    TODO: Illustration-->
-  </div>
-
-  <div *slide text>
-    How to we translate it in a way that scales?
-  </div>
-
-  <div *slide>
-    <h2>Codelab uses PoEditor</h2>
-    <div pic class="i18n-poeditor"></div>
-  </div>
-
-  <div *slide>
-    <h2>Thanks PoEditor for providing us with an Open Source license!</h2>
-    <div pic class="i18n-poeditor"></div>
-  </div>
-
-  <div *slide text>Anybody can help with translation</div>
-  <div *slide text>- Already translated into Russian</div>
-
-  <!--
-    Optimizing everything.
-   -->
-  <!--  TODO(🦊):-->
-  <div *slide>Let's make it faster</div>
-
   <div *slide>- изначальные проблемы:</div>
   <div *slide>очень долго пересобиралось, потому что пересоздавался iframe</div>
   <div *slide>
