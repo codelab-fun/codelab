@@ -1,0 +1,59 @@
+<main>
+  <section>
+    <ng-content></ng-content>
+  </section>
+
+  <section>
+    <form [formGroup]="formGroup">
+      <ol>
+        <mat-radio-group
+          required
+          name="answer"
+          class="form-group"
+          formControlName="answer"
+          (change)="radioChange($event.value)"
+          aria-labelledby="quiz-form-mat-radio-group">
+
+          <div class="radio-options"
+               *ngFor="let option of currentQuestion.options; index as i">
+
+            <mat-radio-button
+              class="option"
+              name="option-radio-button"
+              [value]="i"
+              (change)="setSelected(i)"
+              [class.is-correct]="option.selected && option.correct"
+              [class.is-incorrect]="option.selected && !option.correct">
+
+              <li>{{ option.text }}</li>
+
+              <mat-icon
+                class="feedback-icon"
+                *ngIf="option.selected && option.correct && isCorrect(option.correct, i)">done
+              </mat-icon>
+              <mat-icon
+                class="feedback-icon"
+                *ngIf="option.selected && !option.correct">clear
+              </mat-icon>
+            </mat-radio-button>
+
+            <section class="messages" *ngIf="option.selected">
+              <div *ngIf="option.selected && option.correct && isCorrect(option.correct, i)">
+                <mat-icon class="sentiment">sentiment_very_satisfied</mat-icon>&nbsp;&nbsp;&nbsp;
+                <span class="message correct-message">
+                  You&apos;re right!&nbsp;{{ correctAnswerMessage }}
+                </span>
+              </div>
+              <div *ngIf="option.selected && !option.correct">
+                <mat-icon class="sentiment">sentiment_very_dissatisfied</mat-icon>&nbsp;&nbsp;&nbsp;
+                <span class="message wrong-message">
+                  That&apos;s wrong.&nbsp;{{ correctAnswerMessage }}
+                </span>
+              </div>
+            </section>
+          </div>
+        </mat-radio-group>
+      </ol>
+    </form>
+  </section>
+</main>

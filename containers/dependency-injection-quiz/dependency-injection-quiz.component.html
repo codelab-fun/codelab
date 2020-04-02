@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{ quizData?.milestone }} Quiz</mat-card-title>
+    <mat-card-subtitle>Assess your knowledge of {{ quizData?.milestone }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <codelab-scoreboard></codelab-scoreboard> <!-- [selectedAnswer]="answer" -->
+
+    <section id="question" [class.answered]="answer === null">
+      <span *ngIf="answer !== null">{{ question?.questionText }}</span>
+      <span *ngIf="answer === null">{{ explanationOptionsText }}</span>
+    </section>
+
+    <codelab-quiz-question [question]="question" (answer)="selectedAnswer($event)">
+    </codelab-quiz-question>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <section class="paging">
+      <mat-card-actions>
+        <div class="next-question-nav" *ngIf="question && questionIndex !== totalQuestions">
+          <button type="button" (click)="nextQuestion()">
+            Next &raquo;
+          </button>
+        </div>
+        <div class="show-score-nav" *ngIf="question && questionIndex === totalQuestions">
+          <button type="button" (click)="results()">
+            Show Your Score
+          </button>
+        </div>
+      </mat-card-actions>
+    </section>
+
+    <section class="progress-bar">
+      <ngb-progressbar type="success" [striped]="true" [animated]="true" [value]="progressValue">
+        <strong>{{ progressValue }}%</strong>
+      </ngb-progressbar>
+    </section>
+  </mat-card-footer>
+</mat-card>

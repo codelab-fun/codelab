@@ -1,0 +1,209 @@
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+mat-card-header {
+  display: block;
+
+  .header-image {
+    margin-left: 10px;
+  }
+
+  mat-card-title {
+    font-weight: 900;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 0 0 -50px;
+  }
+}
+
+.results {
+  display: block;
+  clear: both;
+
+  h3 {
+    text-align: center;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .statistics {
+    h3, span, .quiz-feedback, div span {
+      text-align: center;
+    }
+
+    span {
+      display: block;
+    }
+
+    .quiz-feedback {
+      margin-top: 20px;
+    }
+  }
+
+  .quizSummary {
+    display: flex;
+    flex-direction: column;
+
+    details {
+      display: block;
+
+      summary {
+        font-size: 16px;
+        color: #007aff;
+        font-weight: $font-weight-max;
+        margin-bottom: 20px;
+        outline: none;
+        text-align: center;
+      }
+
+      accordion {
+        padding-bottom: 20px;
+      }
+
+      accordion-group:hover {
+        outline: blue;
+      }
+
+      .accordion-heading {
+        background-color: #f5f5f5 !important;
+        color: #0f0000 !important;
+      }
+
+      .quiz-summary-question {
+        font-family: $font-stack;
+        font-size: 14px;
+        border: 2px solid #385d8a;
+        border-radius: 5px;
+        color: #0f0900;
+        background-color: #f5f5f5;
+        margin-bottom: 15px;
+        padding: 10px;
+        text-align: left;
+
+        .quiz-summary-field {
+          display: block !important;
+          margin-bottom: 10px;
+          text-align: left;
+
+          span {
+            display: inline !important;
+            text-align: left;
+            font-size: 16px;
+            color: #00008b;
+          }
+          .leader {
+            font-weight: $font-weight-max;
+          }
+
+          mat-icon {
+            font-size: larger;
+            top: 10px !important;
+          }
+          mat-icon.correct {
+            color: #006400 !important;
+            font-weight: $font-weight-max;
+          }
+          mat-icon.incorrect {
+            color: #ff0000 !important;
+            font-weight: $font-weight-max;
+          }
+        }
+      }
+    }
+  }
+}
+
+.return {
+  clear: left;
+  text-align: center;
+  margin-top: -10px;
+
+  a.btn {
+    margin-right: 15px;
+    background-color: #20b2aa;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
+
+.challenge-social {
+  text-align: center;
+
+  .social-buttons {
+    display: block;
+
+    a.btn {
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 9px 15px 8px 42px;
+      background: no-repeat 10px 5px;
+      background-size: 25px 25px;
+      color: white;
+    }
+
+    /* a.btn.facebook {
+      background-color: #4267b2;
+      background-image: url('../../../../../assets/images/facebook.gif');
+      top: 5px;
+    } */
+
+    a.btn.twitter {
+      background-color: #59adeb;
+      // background-image: url('../../../../../assets/images/twitter.svg');
+      top: 5px;
+    }
+
+    a.btn.email {
+      background-color: #f0a121;
+      // background-image: url('../../../../../assets/images/email.svg');
+      top: 5px;
+    }
+  }
+}
+
+/* add ripple effect to buttons */
+a.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+a.btn::after {
+  display: none;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+
+  /* Center the ripple */
+  top: 50%;
+  left: 50%;
+
+  animation: ripple 1s;
+  opacity: 0;
+}
+a.btn:focus:not(:active)::after {
+  display: block;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+}

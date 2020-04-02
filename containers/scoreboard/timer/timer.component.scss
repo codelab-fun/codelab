@@ -1,0 +1,39 @@
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+@font-face {
+  font-family: 'DjbUpOnTheScoreboard';
+  src: url('../../../../../../assets/fonts/DjbUpOnTheScoreboard.ttf') format('truetype');
+}
+
+.time-left {
+  float: right;
+  margin-right: 1.5rem;
+
+  .leader {
+    margin-left: 35px;
+  }
+
+  span.scoreboard {
+    font-family: 'DjbUpOnTheScoreboard', $font-stack;
+    font-weight: $font-weight-max;
+    font-size: 30px;
+    color: #006400;
+    display: inline-block;
+    margin: -5px 0 0 15px;
+    width: auto;
+    margin-left: 35px;
+  }
+}
+
+.leader {
+  display: block;
+  font-weight: $font-weight-max;
+  font-size: 18px;
+  text-transform: uppercase;
+  position: relative;
+  top: -5px;
+  padding: 0 10px;
+  background-color: #81e081;
+}
+
