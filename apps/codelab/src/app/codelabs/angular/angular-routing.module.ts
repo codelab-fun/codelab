@@ -19,7 +19,7 @@ const routes: MenuRoutes = [
         loadChildren: () =>
           import('./intro/intro.module').then(m => m.IntroModule),
         name: 'Introduction',
-        description: `Let's get acquainted`,
+        description: `Learn more about Angular`,
         page: 'main',
         prod: true
       },
