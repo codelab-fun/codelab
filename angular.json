@@ -23,6 +23,7 @@
             "assets": [
               "apps/codelab/src/assets",
               "apps/codelab/src/favicon.ico",
+              "apps/codelab/src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "node_modules/monaco-editor/",
@@ -30,10 +31,14 @@
               },
               {
                 "glob": "**/*",
+                "input": "libs/intro/assets/",
+                "output": "./assets/intro/"
+              },
+              {
+                "glob": "**/*",
                 "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
-              },
-              "apps/codelab/src/manifest.webmanifest"
+              }
             ],
             "styles": ["apps/codelab/src/styles.scss"],
             "scripts": []
