@@ -986,6 +986,33 @@
         }
       },
       "schematics": {}
+    },
+    "intro": {
+      "projectType": "library",
+      "root": "libs/intro",
+      "sourceRoot": "libs/intro/src",
+      "prefix": "codelab",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/intro/tsconfig.lib.json",
+              "libs/intro/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/intro/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/intro/jest.config.js",
+            "tsConfig": "libs/intro/tsconfig.spec.json",
+            "setupFile": "libs/intro/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "defaultProject": "codelab",
