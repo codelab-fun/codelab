@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { count } from '../../generate/slides.json';
 
 @Component({
   selector: 'codelab-slides-intro',
@@ -9,6 +10,6 @@ export class IntroComponent implements OnInit {
   public presentation: number[];
 
   public ngOnInit(): void {
-    this.presentation = Array.from({ length: 29 }, (_, i) => i);
+    this.presentation = Array.from({ length: count }, (_, i) => i);
   }
 }
