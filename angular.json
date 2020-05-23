@@ -23,6 +23,7 @@
             "assets": [
               "apps/codelab/src/assets",
               "apps/codelab/src/favicon.ico",
+              "apps/codelab/src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "node_modules/monaco-editor/",
@@ -30,10 +31,14 @@
               },
               {
                 "glob": "**/*",
+                "input": "libs/intro/assets/",
+                "output": "./assets/intro/"
+              },
+              {
+                "glob": "**/*",
                 "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
-              },
-              "apps/codelab/src/manifest.webmanifest"
+              }
             ],
             "styles": ["apps/codelab/src/styles.scss"],
             "scripts": []
@@ -982,6 +987,33 @@
             "jestConfig": "libs/firebase/jest.config.js",
             "tsConfig": "libs/firebase/tsconfig.spec.json",
             "setupFile": "libs/firebase/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "intro": {
+      "projectType": "library",
+      "root": "libs/intro",
+      "sourceRoot": "libs/intro/src",
+      "prefix": "codelab",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/intro/tsconfig.lib.json",
+              "libs/intro/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/intro/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/intro/jest.config.js",
+            "tsConfig": "libs/intro/tsconfig.spec.json",
+            "setupFile": "libs/intro/src/test-setup.ts"
           }
         }
       },

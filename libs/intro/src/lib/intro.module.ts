@@ -8,18 +8,14 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
 import { SlidesModule } from '@codelab/slides';
 import { IntroComponent } from './intro.component';
-import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-
-const routes = RouterModule.forChild([...SlidesRoutes.get(IntroComponent)]);
 
 @NgModule({
   imports: [
-    routes,
+    RouterModule.forChild([...SlidesRoutes.get(IntroComponent)]),
     FeedbackModule,
     CommonModule,
     CodeDemoModule,
     BrowserWindowModule,
-    CodelabComponentsModule,
     CodeDemoModule,
     SlidesModule,
     FormsModule

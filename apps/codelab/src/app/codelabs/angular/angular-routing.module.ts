@@ -16,8 +16,7 @@ const routes: MenuRoutes = [
       },
       {
         path: 'intro',
-        loadChildren: () =>
-          import('./intro/intro.module').then(m => m.IntroModule),
+        loadChildren: () => import('@codelab/intro').then(m => m.IntroModule),
         name: 'Introduction',
         description: `Learn more about Angular`,
         page: 'main',
