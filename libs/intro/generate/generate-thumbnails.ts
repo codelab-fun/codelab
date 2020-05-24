@@ -14,7 +14,7 @@ const CODELAB_PRESENTATION_ID = '1ecaXVe5qRS3YcphrTK9JVAaD1qNhLDkLhwgZIZTfNzw';
 const CREDENTIALS_PATH = resolve(__dirname, 'credentials.json');
 const TOKEN_PATH = resolve(__dirname, 'token.json');
 const SLIDES_METADATA_PATH = resolve(__dirname, 'slides.json');
-const SLIDES_PATH = resolve(__dirname, '../assets/slides');
+const ASSETS_SLIDES_PATH = resolve(__dirname, '../assets/slides');
 
 async function main() {
   const credentials = await readJSON(CREDENTIALS_PATH);
@@ -35,9 +35,11 @@ async function authorize(credentials) {
     const token = await readJSON(TOKEN_PATH);
     oAuth2Client.setCredentials(token);
     await listSlides(oAuth2Client);
+    console.log('Completed ✅ ');
   } catch (error) {
     console.log(error);
     getNewToken(oAuth2Client);
+    console.log('Completed ✅ ');
   }
 }
 
@@ -86,12 +88,12 @@ async function listSlides(auth) {
     })
   );
 
-  if (!existsSync(SLIDES_PATH)) {
-    mkdirSync(SLIDES_PATH);
+  if (!existsSync(ASSETS_SLIDES_PATH)) {
+    mkdirSync(ASSETS_SLIDES_PATH);
   }
 
   for (let i = 0; i < contentUrls.length; i += 1) {
-    const dest = resolve(SLIDES_PATH, `slide-${i}.png`);
+    const dest = resolve(ASSETS_SLIDES_PATH, `slide-${i}.png`);
     get(contentUrls[i], response => {
       response.pipe(createWriteStream(dest));
     });
