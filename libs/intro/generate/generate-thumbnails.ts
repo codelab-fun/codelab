@@ -47,38 +47,34 @@ const oAuth2Client$ = from<ObservableInput<Credentials>>(
   shareReplay(1)
 );
 
-const gSlides$ = oAuth2Client$.pipe(
+const slides$ = oAuth2Client$.pipe(
   map((auth: OAuth2Client): GSlides => google.slides({ version: 'v1', auth })),
-  shareReplay(1)
-);
-
-const slides$ = gSlides$.pipe(
   switchMap((gSlides: GSlides) =>
     from(
       gSlides.presentations.get({
         presentationId: CODELAB_PRESENTATION_ID
       })
-    ).pipe(map(response => response.data.slides.map(slide => slide.objectId)))
+    ).pipe(
+      map(response => response.data.slides.map(slide => slide.objectId)),
+      switchMap(objectIds => {
+        const thumbnailRequests: ObservableInput<string>[] = objectIds.map(
+          (pageObjectId: string): ObservableInput<string> =>
+            from(
+              gSlides.presentations.pages.getThumbnail({
+                presentationId: CODELAB_PRESENTATION_ID,
+                pageObjectId
+              })
+            ).pipe(map(response => response.data.contentUrl))
+        );
+        return forkJoin(thumbnailRequests);
+      })
+    )
   ),
-  withLatestFrom(gSlides$),
-  switchMap(([objectIds, gSlides]: [string[], GSlides]) => {
-    const thumbnailRequests: ObservableInput<string>[] = objectIds.map(
-      (pageObjectId: string): ObservableInput<string> =>
-        from(
-          gSlides.presentations.pages.getThumbnail({
-            presentationId: CODELAB_PRESENTATION_ID,
-            pageObjectId
-          })
-        ).pipe(map(response => response.data.contentUrl))
-    );
-    return forkJoin(thumbnailRequests);
-  }),
-  tap((): void => {
+  tap(contentUrls => {
     if (!existsSync(ASSETS_SLIDES_PATH)) {
       mkdirSync(ASSETS_SLIDES_PATH);
     }
-  }),
-  tap(contentUrls => {
+
     contentUrls.forEach((contentUrl, i) => {
       const dest = resolve(ASSETS_SLIDES_PATH, `slide-${i}.png`);
       get(contentUrl, response => {
@@ -122,10 +118,9 @@ const getNewToken$ = oAuth2Client$.pipe(
   switchMap(([code, oAuth2Client]) =>
     bindNodeCallback(oAuth2Client.getToken.bind(oAuth2Client))(code)
   ),
-  withLatestFrom(oAuth2Client$, readline$),
-  map(([[token], oAuth2Client, readline]) => {
+  withLatestFrom(oAuth2Client$),
+  map(([[token], oAuth2Client]) => {
     oAuth2Client.setCredentials(token);
-    readline.close();
     return token;
   }),
   switchMap(token => from(outputJSON(TOKEN_PATH, token, { spaces: 2 })))
