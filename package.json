@@ -119,6 +119,7 @@
     "@nrwl/cypress": "9.0.0",
     "@nrwl/jest": "9.0.0",
     "@nrwl/workspace": "9.0.0",
+    "@types/fs-extra": "^9.0.1",
     "@types/jasmine": "3.5.3",
     "@types/jest": "25.1.2",
     "@types/node": "^13.7.1",
