@@ -8,7 +8,6 @@ import {
 import { resolve } from 'path';
 import { createInterface } from 'readline';
 import { google } from 'googleapis';
-import { slides_v1 } from 'googleapis/build/src/apis/slides/v1';
 import { OAuth2Client } from 'googleapis-common';
 import { get } from 'https';
 import { forkJoin, from, Observable, ObservableInput } from 'rxjs';
@@ -22,9 +21,7 @@ import {
   tap,
   withLatestFrom
 } from 'rxjs/operators';
-import { Credentials, Token } from './types';
-
-type GSlides = slides_v1.Slides;
+import { GSlides, Credentials, Token } from './types';
 
 const CODELAB_PRESENTATION_ID = '1ecaXVe5qRS3YcphrTK9JVAaD1qNhLDkLhwgZIZTfNzw';
 const CREDENTIALS_PATH = resolve(__dirname, 'credentials.json');

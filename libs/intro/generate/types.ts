@@ -1,3 +1,7 @@
+import { slides_v1 } from 'googleapis/build/src/apis/slides/v1';
+
+export type GSlides = slides_v1.Slides;
+
 export interface Credentials {
   installed: {
     client_id: string;
