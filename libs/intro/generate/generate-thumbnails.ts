@@ -6,11 +6,18 @@ import {
   mkdirSync
 } from 'fs-extra';
 import { resolve } from 'path';
-import { createInterface } from 'readline';
+import { createInterface, Interface } from 'readline';
 import { google } from 'googleapis';
 import { OAuth2Client } from 'googleapis-common';
 import { get } from 'https';
-import { forkJoin, from, Observable, ObservableInput } from 'rxjs';
+import {
+  bindCallback,
+  bindNodeCallback,
+  forkJoin,
+  from,
+  ObservableInput,
+  of
+} from 'rxjs';
 import {
   catchError,
   finalize,
@@ -54,19 +61,18 @@ const slides$ = gSlides$.pipe(
     ).pipe(map(response => response.data.slides.map(slide => slide.objectId)))
   ),
   withLatestFrom(gSlides$),
-  switchMap(([objectIds, gSlides]: [string[], GSlides]) =>
-    forkJoin(
-      objectIds.map(
-        (pageObjectId: string): ObservableInput<string> =>
-          from(
-            gSlides.presentations.pages.getThumbnail({
-              presentationId: CODELAB_PRESENTATION_ID,
-              pageObjectId
-            })
-          ).pipe(map(response => response.data.contentUrl))
-      ) as ObservableInput<string>[]
-    )
-  ),
+  switchMap(([objectIds, gSlides]: [string[], GSlides]) => {
+    const thumbnailRequests: ObservableInput<string>[] = objectIds.map(
+      (pageObjectId: string): ObservableInput<string> =>
+        from(
+          gSlides.presentations.pages.getThumbnail({
+            presentationId: CODELAB_PRESENTATION_ID,
+            pageObjectId
+          })
+        ).pipe(map(response => response.data.contentUrl))
+    );
+    return forkJoin(thumbnailRequests);
+  }),
   tap((): void => {
     if (!existsSync(ASSETS_SLIDES_PATH)) {
       mkdirSync(ASSETS_SLIDES_PATH);
@@ -91,6 +97,13 @@ const slides$ = gSlides$.pipe(
   )
 );
 
+const readline$ = of<Interface>(
+  createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+);
+
 const getNewToken$ = oAuth2Client$.pipe(
   tap(oAuth2Client => {
     const authUrl = oAuth2Client.generateAuthUrl({
@@ -99,35 +112,21 @@ const getNewToken$ = oAuth2Client$.pipe(
     });
     console.log('Authorize this app by visiting this url:', authUrl);
   }),
-  map(() =>
-    createInterface({
-      input: process.stdin,
-      output: process.stdout
-    })
-  ),
-  switchMap(
-    (readline): Observable<string> => {
-      return new Observable(observer =>
-        readline.question('Enter the code from that page here: ', code => {
-          readline.close();
-          observer.next(code);
-        })
-      );
-    }
+  withLatestFrom(readline$),
+  switchMap(([, readline]) =>
+    bindCallback(
+      readline.question.bind(readline, 'Enter the code from that page here: ')
+    )()
   ),
   withLatestFrom(oAuth2Client$),
-  switchMap(([code, oAuth2Client]) => {
-    return new Observable(observer =>
-      oAuth2Client.getToken(code, (err, token) => {
-        if (err) {
-          observer.error(err);
-          return console.error('Error retrieving access token', err);
-        }
-
-        oAuth2Client.setCredentials(token);
-        observer.next(token);
-      })
-    );
+  switchMap(([code, oAuth2Client]) =>
+    bindNodeCallback(oAuth2Client.getToken.bind(oAuth2Client))(code)
+  ),
+  withLatestFrom(oAuth2Client$, readline$),
+  map(([[token], oAuth2Client, readline]) => {
+    oAuth2Client.setCredentials(token);
+    readline.close();
+    return token;
   }),
   switchMap(token => from(outputJSON(TOKEN_PATH, token, { spaces: 2 })))
 );
@@ -139,6 +138,8 @@ const token$ = from<ObservableInput<Token>>(readJSON(TOKEN_PATH)).pipe(
   }),
   catchError(() => getNewToken$),
   switchMap(() => slides$),
+  withLatestFrom(readline$),
+  tap(([, readline]) => readline.close()),
   finalize((): void => console.log('Completed ✅ '))
 );
 
