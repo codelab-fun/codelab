@@ -11,15 +11,14 @@ getSlides$.subscribe(
       mkdirSync(ASSETS_SLIDES_PATH);
     }
 
-    let i = 0;
-
-    for await (const url of contentUrls) {
-      const dest = resolve(ASSETS_SLIDES_PATH, `slide-${i}.png`);
-      const writeStream = createWriteStream(dest);
-      const response = await fetch(url);
-      response.body.pipe(writeStream);
-      i += 1;
-    }
+    Promise.all(
+      contentUrls.map(async (url, i) => {
+        const dest = resolve(ASSETS_SLIDES_PATH, `slide-${i}.png`);
+        const writeStream = createWriteStream(dest);
+        const response = await fetch(url);
+        response.body.pipe(writeStream);
+      })
+    );
 
     const count = contentUrls.length;
     await outputJSON(
