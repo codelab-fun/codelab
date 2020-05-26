@@ -6,7 +6,7 @@ import {
   catchError,
   map,
   switchMap,
-  take,
+  switchMapTo,
   tap,
   withLatestFrom
 } from 'rxjs/operators';
@@ -43,13 +43,12 @@ export const fetchSlides$ = oAuth2Client$.pipe(
 export const getSlides$ = from<ObservableInput<Token>>(
   readJSON(TOKEN_PATH)
 ).pipe(
-  take(1),
   withLatestFrom(oAuth2Client$),
   tap(([token, oAuth2Client]) => {
     oAuth2Client.setCredentials(token);
   }),
   catchError(() => getNewToken$),
-  withLatestFrom(readline$),
-  tap(([, readline]) => readline.close()),
-  switchMap(() => fetchSlides$)
+  switchMapTo(readline$),
+  tap(readline => readline.close()),
+  switchMapTo(fetchSlides$)
 );

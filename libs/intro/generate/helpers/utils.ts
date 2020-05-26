@@ -5,6 +5,7 @@ import {
   map,
   shareReplay,
   switchMap,
+  switchMapTo,
   tap,
   withLatestFrom
 } from 'rxjs/operators';
@@ -46,8 +47,8 @@ export const getNewToken$ = oAuth2Client$.pipe(
     });
     console.log('Authorize this app by visiting this url:', authUrl);
   }),
-  withLatestFrom(readline$),
-  switchMap(([, readline]) =>
+  switchMapTo(readline$),
+  switchMap(readline =>
     bindCallback(
       readline.question.bind(readline, 'Enter the code from that page here: ')
     )()
