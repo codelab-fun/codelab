@@ -13,7 +13,7 @@ import {
 
 import { GSlides, Token } from './types';
 import { CODELAB_PRESENTATION_ID, TOKEN_PATH } from './const';
-import { oAuth2Client$, readline$, getNewToken$ } from './utils';
+import { oAuth2Client$, getNewToken$ } from './utils';
 
 export const fetchSlides$ = oAuth2Client$.pipe(
   map((auth: OAuth2Client): GSlides => google.slides({ version: 'v1', auth })),
@@ -48,7 +48,5 @@ export const getSlides$ = from<ObservableInput<Token>>(
     oAuth2Client.setCredentials(token);
   }),
   catchError(() => getNewToken$),
-  switchMapTo(readline$),
-  tap(readline => readline.close()),
   switchMapTo(fetchSlides$)
 );

@@ -1,6 +1,6 @@
 import { createWriteStream, existsSync, mkdirSync, outputJSON } from 'fs-extra';
 import { resolve } from 'path';
-import { get } from 'https';
+import fetch from 'node-fetch';
 
 import { ASSETS_SLIDES_PATH, SLIDES_METADATA_PATH } from './helpers/const';
 import { getSlides$ } from './helpers/slides';
@@ -11,12 +11,15 @@ getSlides$.subscribe(
       mkdirSync(ASSETS_SLIDES_PATH);
     }
 
-    contentUrls.forEach((contentUrl: string, i: number): void => {
+    let i = 0;
+
+    for await (const url of contentUrls) {
       const dest = resolve(ASSETS_SLIDES_PATH, `slide-${i}.png`);
-      get(contentUrl, response => {
-        response.pipe(createWriteStream(dest));
-      });
-    });
+      const writeStream = createWriteStream(dest);
+      const response = await fetch(url);
+      response.body.pipe(writeStream);
+      i += 1;
+    }
 
     const count = contentUrls.length;
     await outputJSON(

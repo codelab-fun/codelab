@@ -13,6 +13,7 @@ import { createInterface, Interface } from 'readline';
 import {
   bindCallback,
   bindNodeCallback,
+  defer,
   from,
   ObservableInput,
   of
@@ -32,11 +33,13 @@ export const oAuth2Client$ = from<ObservableInput<Credentials>>(
   shareReplay(1)
 );
 
-export const readline$ = of<Interface>(
-  createInterface({
-    input: process.stdin,
-    output: process.stdout
-  })
+export const readline$ = defer(() =>
+  of<Interface>(
+    createInterface({
+      input: process.stdin,
+      output: process.stdout
+    })
+  )
 );
 
 export const getNewToken$ = oAuth2Client$.pipe(
@@ -62,5 +65,7 @@ export const getNewToken$ = oAuth2Client$.pipe(
     oAuth2Client.setCredentials(token);
     return token;
   }),
-  switchMap(token => from(outputJSON(TOKEN_PATH, token, { spaces: 2 })))
+  switchMap(token => from(outputJSON(TOKEN_PATH, token, { spaces: 2 }))),
+  switchMapTo(readline$),
+  tap(readline => readline.close())
 );
