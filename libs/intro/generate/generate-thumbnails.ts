@@ -2,16 +2,8 @@ import { createWriteStream, existsSync, mkdirSync, outputJSON } from 'fs-extra';
 import { resolve } from 'path';
 import fetch from 'node-fetch';
 
-import {
-  ASSETS_SLIDES_PATH,
-  CREDENTIALS_PATH,
-  SLIDES_METADATA_PATH
-} from './helpers/const';
+import { ASSETS_SLIDES_PATH, SLIDES_METADATA_PATH } from './helpers/const';
 import { getSlides$ } from './helpers/slides';
-
-if (!existsSync(CREDENTIALS_PATH)) {
-  throw new Error("credentials.json doesn't exist");
-}
 
 getSlides$.subscribe(
   async (contentUrls: string[]): Promise<void> => {

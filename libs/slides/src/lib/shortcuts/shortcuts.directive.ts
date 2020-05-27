@@ -1,6 +1,6 @@
 import { Directive, HostListener, Optional } from '@angular/core';
-import { SlidesDeckComponent } from '../deck/deck.component';
 import { FullScreenModeService } from '@codelab/utils';
+import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
   selector: '[slideShortcuts]'
