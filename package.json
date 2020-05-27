@@ -10,6 +10,7 @@
     "build:prod": "ng build --prod",
     "build:bundler": "ts-node -P libs/code-demos/assets/runner/tsconfig.json libs/code-demos/assets/runner/ng-dts/bundler.ts && node libs/code-demos/assets/runner/ng2/ng2-runner.js",
     "build:intro": "ts-node -P libs/intro/generate/tsconfig.json libs/intro/generate/generate-thumbnails.ts",
+    "build:intro:verbose": "NODE_DEBUG=cluster,net,http,fs,tls,module,timers ts-node -P libs/intro/generate/tsconfig.json libs/intro/generate/generate-thumbnails.ts",
     "test": "ng test",
     "lint": "ng lint",
     "i18n": "ng xi18n codelab --i18n-format xmb --output-path src/locale",

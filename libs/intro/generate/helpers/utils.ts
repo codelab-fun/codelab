@@ -12,9 +12,12 @@ import {
   of
 } from 'rxjs';
 import { mapTo, shareReplay, switchMap, tap } from 'rxjs/operators';
-
 import { Credentials, Token } from './types';
 import { CREDENTIALS_PATH, SCOPE, TOKEN_PATH } from './const';
+
+if (!existsSync(CREDENTIALS_PATH)) {
+  throw new Error("credentials.json doesn't exist");
+}
 
 const CREDENTIALS: Credentials = readJSONSync(CREDENTIALS_PATH);
 const { client_id, client_secret, redirect_uris } = CREDENTIALS.installed;
