@@ -26,7 +26,7 @@ const systemKeys = new Set([
   styleUrls: ['./ast-tree.component.css']
 })
 export class AstTreeComponent implements OnInit {
-  @Input() node = {};
+  @Input() node: any = {};
   @Input() key: string;
   @Input() shortNames = true;
   @Output() selectNode = new EventEmitter();
