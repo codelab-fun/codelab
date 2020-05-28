@@ -1,0 +1,22 @@
+.selected {
+  background: #6cae00;
+  color: white;
+}
+
+ul {
+  margin: 0 20px 0 0;
+  padding: 0;
+}
+
+:host li:not(.lol) {
+  margin: 0;
+  font-size: 14px !important;
+  list-style: none;
+  padding: 8px 4px;
+  display: block;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+}

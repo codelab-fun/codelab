@@ -128,6 +128,12 @@
       Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to
       recreate the Japanese flag.
     </div>
+    <code-demo
+      [files]="code.appModule.files"
+      [highlights]="code.appModule.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.appModule.code"
+    ></code-demo>
     <codelab-exercise-playground
       [exercise]="code.boxAndCircle"
     ></codelab-exercise-playground>

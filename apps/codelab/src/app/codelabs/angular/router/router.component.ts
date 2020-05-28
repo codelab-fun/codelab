@@ -1,4 +1,3 @@
-import { CodelabFile } from '../../../shared/helpers/codelabFile';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
@@ -31,8 +30,7 @@ export class RouterComponent implements AfterViewInit {
       'components/kitten.ts': require('!!raw-loader!./samples/simple-router/components/kitten.ts'),
       'components/puppy.ts': require('!!raw-loader!./samples/simple-router/components/puppy.ts'),
       'bootstrap.ts': require('!!raw-loader!./samples/simple-router/main.ts'),
-      'index.html': require('!!raw-loader!./samples/simple-router/index.html'),
-      'components/.html': require('!!raw-loader!./samples/simple-router/index.html')
+      'index.html': require('!!raw-loader!./samples/simple-router/index.html')
     },
     config: {
       files: ['app.module.ts'],

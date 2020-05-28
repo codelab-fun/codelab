@@ -1,16 +1,12 @@
-<div
-  class="progress-bar"
-  *ngIf="slides.length"
-  style="justify-content: space-between;display: flex;"
->
-  <span style="margin-right: 2vw;">{{ title }}</span>
-  <span class="font-size">
+<div class="progress-bar" *ngIf="slides.length" style="display: flex;">
+  <span style="margin-right: 1vw;" class="title">{{ title }}</span>
+  <span class="font-size" *ngIf="displayFontSize">
     <kirjs-size-picker
       (sizeChange)="fontSizeChange.emit($event)"
       [size]="fontSize"
     ></kirjs-size-picker>
   </span>
-  <div class="points-container" #progressBarDiv style="display: flex;">
+  <div class="points-container" style="display: flex;">
     <div *ngFor="let slide of slides; let i = index" (click)="goToSlide(i)">
       <div
         class="slide-block"
@@ -22,4 +18,4 @@
 
   <span></span>
 </div>
-<a href="https://twitter.com/kirjs" class="handle">sli.do/armadajs | @kirjs</a>
+<a href="https://twitter.com/kirjs" class="handle">{{ handle }}</a>

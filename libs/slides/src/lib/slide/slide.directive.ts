@@ -1,4 +1,4 @@
-import { Directive, Input, TemplateRef } from '@angular/core';
+import { Directive, TemplateRef } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 const ID_ATTR_NAME = 'id';
@@ -8,11 +8,9 @@ const MILESTONE_ATTR_NAME = 'milestone';
   selector: '[slide]'
 })
 export class SlideDirective {
-  @Input() class;
-
   constructor(
-    private presentation: SlidesDeckComponent,
-    private template: TemplateRef<any>
+    private readonly presentation: SlidesDeckComponent,
+    private readonly template: TemplateRef<any>
   ) {
     let slide;
 

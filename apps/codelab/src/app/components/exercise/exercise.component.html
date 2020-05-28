@@ -40,7 +40,12 @@
     </div>
   </div>
   <div class="row">
-    <codelab-preview class="quarter" [milestone]="milestone"></codelab-preview>
+    <div class="quarter">
+      <codelab-preview
+        [milestone]="milestone"
+        *ngIf="milestone"
+      ></codelab-preview>
+    </div>
     <code-demo-runner
       class="quarter"
       [url]="url"
