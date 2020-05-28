@@ -54,7 +54,7 @@ function updateSlidesModule(schema: SlideSchema): Rule {
       sourceFile,
       modulePath,
       'SlidesModule',
-      '@codelab/slides'
+      '@ng360/slides'
     );
 
     const routingImportChanges = addImportToModule(

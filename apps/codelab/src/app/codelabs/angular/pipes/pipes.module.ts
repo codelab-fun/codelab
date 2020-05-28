@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { PipesComponent } from './pipes.component';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { FormsModule } from '@angular/forms';
+import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { FeedbackModule } from '@codelab/feedback';
 import { BrowserWindowModule } from '@codelab/browser';
-import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-import { SlidesModule } from '@codelab/slides';
-import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '@codelab/code-demos';
+import { PipesComponent } from './pipes.component';
+import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(PipesComponent));
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FullScreenModeService } from '@codelab/slides';
+import { FullScreenModeService } from '@ng360/slides';
 
 @Component({
   selector: 'codelab-menu-fullscreen-widget',

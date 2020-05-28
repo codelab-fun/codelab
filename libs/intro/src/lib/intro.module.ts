@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '@codelab/browser';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FormsModule } from '@angular/forms';
-import { SlidesModule } from '@codelab/slides';
 import { IntroComponent } from './intro.component';
 
 @NgModule({

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlidesModule } from '@codelab/slides';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { RouterModule } from '@angular/router';
 import { CodeSyncComponent } from './code-sync.component';
 import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-button.module';

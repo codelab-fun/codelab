@@ -10,7 +10,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LoginService } from '@codelab/firebase-login';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from '@ng360/slides';
 import { LeaderboardModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll-presenter/leaderboard/leaderboard.module';
 import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
 import { QuestionsModule } from '@codelab/utils/src/lib/sync/components/questions/questions.module';
