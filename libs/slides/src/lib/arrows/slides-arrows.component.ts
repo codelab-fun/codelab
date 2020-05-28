@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 /**

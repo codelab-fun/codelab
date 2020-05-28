@@ -1,15 +1,66 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 
 import { TitleSlideComponent } from './title-slide.component';
 import { CodelabRippleAnimationComponent } from './ripple-animation/codelab-ripple-animation.component';
+import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { MenuRouteService } from '../../../codelabs/angular/menu-route.service';
+import { MenuRoutes } from '../../../common';
+import { ActivatedRoute } from '@angular/router';
 
 describe('TitleSlideComponent', () => {
   let component: TitleSlideComponent;
   let fixture: ComponentFixture<TitleSlideComponent>;
 
+  const menuRouteService = {
+    getPreviousLink: function() {
+      return 'previouslesson';
+    }
+  };
+
+  const slidesDeckComponentStub = {
+    previousLink: '',
+    nextLink: '',
+    setPrevious: jasmine.createSpy('setPrevious')
+  };
+
+  const menuRoutes: MenuRoutes = [
+    {
+      path: 'previouslesson',
+      prod: true
+    },
+    {
+      path: 'currentlesson',
+      prod: true
+    },
+    {
+      path: 'nextlesson',
+      prod: true
+    }
+  ];
+
+  const activatedRouteStub = {
+    snapshot: {
+      pathFromRoot: [
+        {
+          routeConfig: menuRoutes[1]
+        }
+      ]
+    }
+  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [
+        { provide: ActivatedRoute, useValue: activatedRouteStub },
+        { provide: MenuRouteService, useValue: menuRouteService },
+        {
+          provide: SlidesDeckComponent,
+          useFactory: () => slidesDeckComponentStub
+        }
+      ],
+      imports: [RouterTestingModule],
       declarations: [CodelabRippleAnimationComponent, TitleSlideComponent]
     }).compileComponents();
   }));
@@ -22,6 +73,10 @@ describe('TitleSlideComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call setPrevious', () => {
+    expect(slidesDeckComponentStub.setPrevious).toHaveBeenCalled();
   });
 
   it('should render a title', () => {

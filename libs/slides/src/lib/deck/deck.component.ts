@@ -11,7 +11,7 @@ import {
   TemplateRef
 } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'slide-deck',
@@ -27,13 +27,16 @@ export class SlidesDeckComponent {
   @Output() slideAdded = new EventEmitter<{ index: number; id: string }>();
   @HostBinding('class.has-milestone') hasMilestone = false;
   private milestone = '';
+  private previousLink: string;
+  private nextLink: string;
 
   constructor(
     private readonly cdr: ChangeDetectorRef,
-    @Optional() private readonly route: ActivatedRoute
+    private readonly router: Router,
+    @Optional() private readonly activeRoute: ActivatedRoute
   ) {
-    if (route) {
-      this.milestone = route.snapshot.queryParams.milestone;
+    if (activeRoute) {
+      this.milestone = activeRoute.snapshot.queryParams.milestone;
       this.hasMilestone = !!this.milestone;
     }
   }
@@ -51,18 +54,36 @@ export class SlidesDeckComponent {
   }
 
   nextSlide() {
-    this.goToSlide(this.activeSlideIndex + 1);
+    if (this.activeSlideIndex + 1 < this.slides.length) {
+      this.goToSlide(this.activeSlideIndex + 1);
+    } else if (this.nextLink) {
+      this.router.navigate([this.nextLink], { relativeTo: this.activeRoute });
+    }
   }
 
   previousSlide() {
-    this.goToSlide(this.activeSlideIndex - 1);
+    if (this.activeSlideIndex > 0) {
+      this.goToSlide(this.activeSlideIndex - 1);
+    } else if (this.previousLink) {
+      this.router.navigate([this.previousLink], {
+        relativeTo: this.activeRoute
+      });
+    }
   }
 
   canGoNext(): boolean {
-    return this.activeSlideIndex + 1 < this.slides.length;
+    return this.activeSlideIndex + 1 < this.slides.length || !!this.nextLink;
   }
 
   canGoPrevious(): boolean {
-    return this.activeSlideIndex > 0;
+    return this.activeSlideIndex > 0 || !!this.previousLink;
+  }
+
+  public setPrevious(previousLink) {
+    this.previousLink = previousLink;
+  }
+
+  public setNext(nextLink) {
+    this.nextLink = nextLink;
   }
 }
