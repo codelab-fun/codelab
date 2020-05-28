@@ -3,9 +3,8 @@ import { FeedbackModule } from '@codelab/feedback';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { VisualStudioCodeComponent } from './visual-studio-code.component';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
-import { SlidesModule } from '@codelab/slides';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
 const routes = RouterModule.forChild(

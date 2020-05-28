@@ -1,6 +1,6 @@
 import { Directive, HostListener, Optional } from '@angular/core';
+import { FullScreenModeService } from '../full-screen-mode';
 import { SlidesDeckComponent } from '../deck/deck.component';
-import { FullScreenModeService } from '@codelab/utils';
 
 @Directive({
   selector: '[slideShortcuts]'
@@ -42,7 +42,7 @@ export class ShortcutsDirective {
   /**
    * Limit keyboard shortcut events to scoped containers
    * to prevent slide navigation when using keyboard arrows to
-   * navigate an editble field like code editor.
+   * navigate an editable field like code editor.
    * Add '.shortcuts-context' to any component or container containig
    * focusable elements used for slide navigation.
    */

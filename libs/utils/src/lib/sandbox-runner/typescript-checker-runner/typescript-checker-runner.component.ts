@@ -1,9 +1,9 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 import { Observable, Subject } from 'rxjs';
-import { compileTsFilesWatch } from '@codelab/code-demos/src/lib/runner/compile-ts-files';
 import { filter, map } from 'rxjs/operators';
-import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
+import { compileTsFilesWatch } from '@codelab/code-demos/src/lib/runner/compile-ts-files';
+import { TestRunResult } from '../../test-results/common';
+import { getTypeScript } from '../../loaders/loaders';
 
 const ts = getTypeScript();
 

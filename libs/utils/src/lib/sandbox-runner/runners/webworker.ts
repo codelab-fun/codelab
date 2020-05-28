@@ -1,6 +1,6 @@
-import { Runner } from '@codelab/utils/src/lib/sandbox-runner/runners/runner';
 import { Observable, Subject } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
+import { Runner } from './runner';
 
 function run(code) {
   return new Observable(function(subscriber) {

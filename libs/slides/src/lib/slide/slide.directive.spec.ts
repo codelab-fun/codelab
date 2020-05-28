@@ -1,7 +1,7 @@
-import { SlideDirective } from './slide.directive';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SlidesModule } from '@codelab/slides';
-import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { SlidesModule } from '../slides.module';
+import { SlidesDeckComponent } from '../deck/deck.component';
+import { SlideDirective } from './slide.directive';
 
 describe('SlideDirective', () => {
   let fixture: ComponentFixture<SlidesDeckComponent>;

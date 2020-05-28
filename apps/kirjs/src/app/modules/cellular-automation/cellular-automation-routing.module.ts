@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { SlidesRoutes } from '@ng360/slides';
 
 import { CellularAutomationComponent } from './cellular-automation.component';
 import { CellularAutomationModule } from './cellular-automation.module';
