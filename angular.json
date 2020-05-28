@@ -437,6 +437,11 @@
           "options": {
             "tsConfig": "libs/code-demos/tsconfig.lib.json",
             "project": "libs/code-demos/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/code-demos/ng-package.prod.json"
+            }
           }
         },
         "lint": {

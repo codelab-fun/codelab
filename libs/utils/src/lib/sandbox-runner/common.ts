@@ -1,5 +1,5 @@
 import produce from 'immer';
-import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
+import { TestRunResult } from '../test-results/common';
 
 interface TestAction {
   type: 'terminate' | 'reset' | 'result' | 'error';

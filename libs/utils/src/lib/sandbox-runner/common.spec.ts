@@ -1,4 +1,4 @@
-import { testReducer } from '@codelab/utils/src/lib/sandbox-runner/common';
+import { testReducer } from '../sandbox-runner/common';
 
 fdescribe('Test reducer', () => {
   const data = {
