@@ -1,0 +1,21 @@
+@import "variables";
+
+.scoreboard {
+  margin-top: 10px;
+
+  .row {
+    display: inline;
+  }
+
+  .badge {
+    float: left;
+    margin: 30px -25px 0 85px;
+    font-family: $font-stack;
+    font-size: 26px;
+    font-weight: $font-weight-max;
+    font-style: italic;
+    color: $dark-green;
+    border-radius: 8px;
+    padding: -10px 0;
+  }
+}
