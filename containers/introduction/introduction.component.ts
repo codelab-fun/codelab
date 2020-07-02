@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { QUIZ_DATA } from '../../quiz';
-import { Quiz } from '../../models/quiz';
+import { QUIZ_DATA } from '@quiz-data';
+import { Quiz } from '@shared/models/Quiz.model';
+
 
 @Component({
   selector: 'codelab-quiz-intro',

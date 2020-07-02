@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { QuizService } from '../../../services/quiz.service';
-
+import { QuizService } from '@shared/services/quiz.service';
 
 @Component({
   selector: 'codelab-scoreboard-score',
   templateUrl: './score.component.html',
-  styleUrls: ['./score.component.scss'],
-  providers: [QuizService]
+  styleUrls: ['./score.component.scss']
 })
 export class ScoreComponent implements OnInit {
-  public correctAnswersCount: number;
-  public totalQuestions: number;
+  totalQuestions: number;
+  correctAnswersCount$: Observable<number>;
 
-  constructor(private quizService: QuizService) {}
+  constructor(private quizService: QuizService) { }
 
   ngOnInit() {
     this.totalQuestions = this.quizService.numberOfQuestions();
-    this.quizService.correctAnswer$.subscribe(data => {
-      this.correctAnswersCount = data;
-      console.log('correctAnswersCount: ', this.correctAnswersCount);
-    });
+    this.correctAnswersCount$ = this.quizService.correctAnswersCountSubject;
   }
 }

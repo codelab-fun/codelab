@@ -1,18 +1,19 @@
-$font-stack: Space Mono, monospace;
-$font-weight-max: 900;
+@import "variables";
 
 mat-card-header {
   display: block;
+  margin-top: 20px !important;
 
   .header-image {
     margin-left: 10px;
   }
 
   mat-card-title {
+    font-family: 'Roboto', arial, sans-serif;
+    font-size: 48px !important;
+    font-style: italic;
     font-weight: 900;
-    font-size: 30px;
-    text-align: center;
-    margin: 0 0 0 -50px;
+    color: $green-angular-leaf;
   }
 }
 
@@ -21,6 +22,9 @@ mat-card-header {
   clear: both;
 
   h3 {
+    font-family: $congratulations-font;
+    font-size: 32px;
+    font-style: italic;
     text-align: center;
   }
   img {
@@ -41,8 +45,39 @@ mat-card-header {
       display: block;
     }
 
+    .your-score, .elapsed-time {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .percent-sign {
+      font-size: large;
+      font-weight: $font-weight-max;
+    }
+
+    .progress-bar {
+      width: 400px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
     .quiz-feedback {
       margin-top: 20px;
+
+      img {
+        border-radius: 10px;
+      }
+
+      ul.resources {
+        line-height: 0.5;
+      }
+
+      ul.resources li {
+        list-style-type: square;
+        text-align: left;
+        margin-left: 16%;
+        width: 400px;
+      }
     }
   }
 
@@ -55,64 +90,103 @@ mat-card-header {
 
       summary {
         font-size: 16px;
-        color: #007aff;
+        color: $vivid-blue;
         font-weight: $font-weight-max;
         margin-bottom: 20px;
         outline: none;
         text-align: center;
       }
 
-      accordion {
+      mat-accordion {
         padding-bottom: 20px;
-      }
 
-      accordion-group:hover {
-        outline: blue;
-      }
+        mat-expansion-panel {
+          border: 2px solid $dark-blue;
+        }
 
-      .accordion-heading {
-        background-color: #f5f5f5 !important;
-        color: #0f0000 !important;
-      }
+        mat-expansion-panel:hover {
+          border: 2px solid $vivid-blue;
+        }
 
-      .quiz-summary-question {
-        font-family: $font-stack;
-        font-size: 14px;
-        border: 2px solid #385d8a;
-        border-radius: 5px;
-        color: #0f0900;
-        background-color: #f5f5f5;
-        margin-bottom: 15px;
-        padding: 10px;
-        text-align: left;
+        mat-panel-title {
+          background-color: $light-gray;
+          color: $black;
 
-        .quiz-summary-field {
-          display: block !important;
-          margin-bottom: 10px;
+          .question-leader {
+            font-weight: $font-weight-max;
+            color: $darker-blue;
+            white-space: nowrap;
+          }
+          .question-text {
+            font-weight: 700;
+            font-style: italic;
+            color: $black;
+            white-space: nowrap;
+          }
+        }
+
+        .accordion-icon {
+          position: absolute;
+          left: 0;
+          color: $gray;
+          font-weight: $font-weight-max;
+          font-size: 20px;
+        }
+
+        .quiz-summary-question {
+          font-family: $font-stack;
+          font-size: 14px;
+          border: 2px solid $chambray-blue;
+          border-radius: 5px;
+          color: $black;
+          background-color: $light-gray;
+          margin-bottom: 15px;
+          padding: 10px;
           text-align: left;
 
-          span {
-            display: inline !important;
+          ul.quiz-summary-fields {
+            display: block !important;
+            margin-bottom: 10px;
             text-align: left;
-            font-size: 16px;
-            color: #00008b;
-          }
-          .leader {
-            font-weight: $font-weight-max;
-          }
 
-          mat-icon {
-            font-size: larger;
-            top: 10px !important;
+            li {
+              display: block;
+              text-align: left;
+              font-size: 16px;
+              color: $darker-blue;
+              margin: 0 0 5px -30px;
+            }
+
+            .leader {
+              font-family: Roboto, "Helvetica Neue", sans-serif;
+              font-weight: 700;
+              display: inline;
+              background: none;
+              text-transform: inherit;
+              margin-left: -10px;
+            }
+
+            mat-icon {
+              font-size: larger;
+              top: 10px !important;
+            }
+            mat-icon.correct {
+              color: $green !important;
+              font-weight: $font-weight-max;
+            }
+            mat-icon.incorrect {
+              color: $red !important;
+              font-weight: $font-weight-max;
+            }
           }
-          mat-icon.correct {
-            color: #006400 !important;
-            font-weight: $font-weight-max;
-          }
-          mat-icon.incorrect {
-            color: #ff0000 !important;
-            font-weight: $font-weight-max;
-          }
+        }
+      }
+      .mat-accordion-buttons {
+        display: flex;
+        justify-content: center;
+
+        button {
+          margin-right: 10px;
         }
       }
     }
@@ -122,13 +196,13 @@ mat-card-header {
 .return {
   clear: left;
   text-align: center;
-  margin-top: -10px;
+  margin-top: 10px;
 
   a.btn {
     margin-right: 15px;
-    background-color: #20b2aa;
-    color: white;
-    border: 1px solid black;
+    background-color: $light-sea-green;
+    color: $white;
+    border: 1px solid $black;
     border-radius: 5px;
   }
 }
@@ -145,25 +219,25 @@ mat-card-header {
       padding: 9px 15px 8px 42px;
       background: no-repeat 10px 5px;
       background-size: 25px 25px;
-      color: white;
+      color: $white;
     }
 
-    /* a.btn.facebook {
-      background-color: #4267b2;
-      background-image: url('../../../../../assets/images/facebook.gif');
-      top: 5px;
-    } */
+    a.btn.facebook {
+      background-color: $dark-blue;
+      background-image: url($facebook-path);
+      top: 10px !important;
+    }
 
     a.btn.twitter {
-      background-color: #59adeb;
-      // background-image: url('../../../../../assets/images/twitter.svg');
-      top: 5px;
+      background-color: $soft-blue;
+      background-image: url($twitter-path);
+      top: 10px !important;
     }
 
     a.btn.email {
-      background-color: #f0a121;
-      // background-image: url('../../../../../assets/images/email.svg');
-      top: 5px;
+      background-color: $fuel-yellow;
+      background-image: url($email-path);
+      top: 10px !important;
     }
   }
 }

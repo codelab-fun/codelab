@@ -1,12 +1,7 @@
 <section class="scoreboard">
   <div class="row">
-    <codelab-scoreboard-score>
-    </codelab-scoreboard-score> <!-- [selectedAnswer]="answer" -->
-
-    <div class="badge">
-      <span>Question {{ badgeQuestionNumber }} of {{ totalQuestions }}</span>
-    </div>
-
-    <codelab-scoreboard-timer></codelab-scoreboard-timer>
+    <codelab-scoreboard-score></codelab-scoreboard-score>
+    <span class="badge" i18n>Question {{ badgeQuestionNumber }} of {{ totalQuestions }}</span>
+    <codelab-scoreboard-time></codelab-scoreboard-time>
   </div>
 </section>

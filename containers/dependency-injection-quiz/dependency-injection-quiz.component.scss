@@ -1,5 +1,4 @@
-$font-stack: Space Mono, monospace;
-$font-weight-max: 900;
+@import "variables";
 
 mat-card-header {
   display: block;
@@ -12,6 +11,7 @@ mat-card-header {
     display: inline-block;
     margin: -100px -150px 0 -120px !important;
     margin-top: 5px !important;
+    font-size: 36px;
   }
 
   mat-card-subtitle {
@@ -22,12 +22,16 @@ mat-card-header {
   }
 }
 
-/* section.unanswered {
-  border: 2px solid #007aff !important;
-} */
+.unanswered {
+  border: 4px thick $vivid-blue;
+}
 
-section.answered {
-  border: 2px solid #979797 !important;
+.answered {
+  border: 2px solid $medium-gray !important;
+}
+
+.number-correct {
+  color: $green;
 }
 
 #question {
@@ -35,12 +39,13 @@ section.answered {
   font-weight: 700;
   font-size: 30px !important;
   margin: 0 0 10px 0.4rem;
+  margin-bottom: 25px !important;
   float: left;
   padding: 5px 10px 15px 20px;
-  background-color: #f5f5f5;
-  border: 2px solid #007aff;
-  color: #0f0900;
-  width: 39rem !important;
+  background-color: $light-gray;
+  border: 2px solid $vivid-blue;
+  color: $dark-brown;
+  width: 39.5rem !important;
   height: auto;
   vertical-align: middle;
 }
@@ -50,25 +55,47 @@ section.answered {
   width: 40rem;
 
   mat-card-actions {
-    margin: -10px 0 10px 0;
+    margin: 10px 0 45px 0;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .prev-question-nav {
+      float: left;
+      margin-left: 0.7rem;
+    }
+
+    .restart-nav {
+      float: left;
+      margin-left: 14rem;
+    }
 
     .next-question-nav {
       float: right;
-      margin-right: -0.4rem;
+      margin-right: -1.7rem;
+    }
+
+    .prev-question-nav,
+    .next-question-nav,
+    .restart-nav {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transition: .3s ease-in-out;
+      transition: .3s ease-in-out;
+    }
+
+    .prev-question-nav:hover,
+    .next-question-nav:hover,
+    .restart-nav {
+      -webkit-transform: scale(1.3);
+      transform: scale(1.3);
     }
 
     .show-score-nav {
       width: 150px;
-      text-align: center;
-      margin: 0 auto;
-    }
-
-    .next-question-nav:hover, .show-score-nav:hover {
-      border: 1px solid #007aff;
-    }
-
-    .show-score-nav:hover {
-      width: 141.5px;
+      margin: 35px auto;
     }
   }
 }
@@ -77,8 +104,9 @@ section.progress-bar {
   margin: 40px 0 10px 1.5rem;
   width: 39rem;
   height: auto;
+  border-radius: 10px;
 
   ngb-progressbar {
-    border-radius: 10px;
+    height: 20px;
   }
 }

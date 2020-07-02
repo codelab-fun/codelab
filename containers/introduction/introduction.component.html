@@ -1,24 +1,33 @@
 <mat-card>
   <mat-card-header>
     <div mat-card-avatar class="header-image"></div>
-    <mat-card-title>{{ quizData?.milestone }} Quiz</mat-card-title>
-    <mat-card-subtitle>
-      How well do you know {{ quizData?.milestone }}?<br />
-      Take the quiz and find out!
+    <mat-card-title i18n>{{ quizData?.milestone }} Quiz</mat-card-title>
+    <mat-card-subtitle i18n>
+      <span>How well do you know {{ quizData?.milestone }}?</span>
+      <span>Take the quiz and find out!</span>
     </mat-card-subtitle>
-    <div mat-card-image class="quiz-topic-img"></div>
   </mat-card-header>
 
+  <div mat-card-image class="quiz-topic-image"
+       [ngStyle]="{ 'background': 'url(' + quizData?.imageUrl + ') no-repeat center center',
+                    'background-size': '95%' }">
+  </div>
+
   <mat-card-content>
-    <p><strong>{{ quizData?.summary }}</strong>  Taking this quiz will solidify your understanding of {{ quizData?.milestone }}. See if you can beat the clock! The timed questionnaire with automatic scoring provides you with a final score along with a summary of your answers. Match wits with your friends! Practice in order to increase your knowledge. Good luck and have fun with this quiz. Share and enjoy!</p>
+    <span i18n><strong>{{ quizData?.summary }}</strong>  This quiz is composed of
+      <strong>{{ quizData?.questions.length }}</strong> timed, multiple-choice questions. Taking this quiz should
+      solidify your understanding of {{ quizData?.milestone }}. Beat the clock and match wits with your friends! Good
+      luck and have fun with this quiz. Share and enjoy!</span>
   </mat-card-content>
 
   <mat-card-actions>
     <button
       type="button"
       mat-raised-button
-      disableRipple="false"
+      disableRipple="true"
       class="btn btn-outline-primary"
-      routerLink="/quiz/question/1">Start the Quiz!</button>
+      routerLink="/quiz/question/1">
+        <span i18n><strong>Start the Quiz!</strong></span>
+    </button>
   </mat-card-actions>
 </mat-card>

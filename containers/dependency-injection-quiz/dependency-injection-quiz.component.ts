@@ -1,43 +1,57 @@
-import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
-import { QUIZ_DATA } from '../../quiz';
-import { Quiz } from '../../models/quiz';
-import { QuizQuestion } from '../../models/QuizQuestion';
-import { QuizService } from '../../services/quiz.service';
-import { TimerService } from '../../services/timer.service';
+import { QUIZ_DATA } from '@quiz-data';
+import { Quiz } from '@shared/models/Quiz.model';
+import { QuizQuestion } from '@shared/models/QuizQuestion.model';
+import { QuizService } from '@shared/services/quiz.service';
+import { TimerService } from '@shared/services/timer.service';
 
+type AnimationState = 'animationStarted' | 'none';
 
 @Component({
-  selector: 'dependency-injection-quiz-component',
+  selector: 'codelab-dependency-injection-quiz-component',
   templateUrl: './dependency-injection-quiz.component.html',
   styleUrls: ['./dependency-injection-quiz.component.scss'],
-  providers: [QuizService, TimerService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('changeRoute', [
+      transition('* => animationStarted', [
+        animate('1s', keyframes([
+          style({ transform: 'scale(1.0)' }),
+          style({ transform: 'scale(1.3)' }),
+          style({ transform: 'scale(1.0)' })
+        ]))
+      ]),
+    ])
+  ]
 })
 export class DependencyInjectionQuizComponent implements OnInit {
   quizData: Quiz = QUIZ_DATA;
   question: QuizQuestion;
-  answer: number;
+  answer: number[] = [];
+  questionIndex: number;
   totalQuestions: number;
   progressValue: number;
-  explanationOptionsText: string;
-  questionIndex: number;
-  count: number;
-  @Input() hasAnswer: boolean;
+  correctCount: number;
+  numberOfCorrectOptions: number;
+  explanationText: string;
+  animationState$ = new BehaviorSubject<AnimationState>('none');
 
-  constructor(private quizService: QuizService,
-              private timerService: TimerService,
-              private route: ActivatedRoute) {}
+  constructor(
+    private quizService: QuizService,
+    private timerService: TimerService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.quizService.correctAnswer$.subscribe(data => {
-      this.count = data + 1;
-    });
+    this.explanationText = this.quizService.explanationText;
+    this.numberOfCorrectOptions = this.quizService.numberOfCorrectOptions;
 
-    this.route.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(params => {
       this.totalQuestions = this.quizService.numberOfQuestions();
 
       if (params.questionIndex) {
@@ -50,47 +64,80 @@ export class DependencyInjectionQuizComponent implements OnInit {
         } else {
           this.progressValue = ((this.questionIndex - 1) / this.totalQuestions) * 100;
         }
-
-        this.explanationOptionsText = this.quizService.explanationOptionsText;
       }
     });
+
     if (this.questionIndex === 1) {
-      this.quizService.correctAnswersCount.next(0);
+      this.quizService.correctAnswersCountSubject.next(0);
     }
+
+    this.correctCount = this.quizService.correctAnswersCountSubject.getValue();
+    this.sendCorrectCountToQuizService(this.correctCount);
+  }
+
+  animationDoneHandler(): void {
+    this.animationState$.next('none');
   }
 
   private getQuestion() {
     this.question = this.quizService.getQuestions().questions[this.questionIndex - 1];
-    this.explanationOptionsText = this.question.explanation;
   }
 
   selectedAnswer(data) {
-    this.answer = data;
+    const correctAnswers = this.question.options.filter((options) => options.correct);
+    if (correctAnswers.length > 1 && this.answer.indexOf(data) === -1) {
+      this.answer.push(data);
+    } else {
+      this.answer[0] = data;
+    }
+  }
+
+  previousQuestion() {
+    this.answer = null;
+    this.animationState$.next('animationStarted');
+    this.quizService.previousQuestion();
+  }
+
+  restart() {
+    this.quizService.resetAll();
+    this.quizService.resetQuestions();
+    this.timerService.elapsedTimes = [];
+    this.timerService.completionTime = 0;
+    this.answer = null;
+    this.router.navigate(['/quiz/intro']);
   }
 
   nextQuestion() {
     this.checkIfAnsweredCorrectly();
+    this.answer = [];
+    this.animationState$.next('animationStarted');
     this.quizService.nextQuestion();
   }
 
   results() {
+    this.quizService.resetAll();
     this.checkIfAnsweredCorrectly();
     this.quizService.navigateToResults();
   }
 
   checkIfAnsweredCorrectly() {
     if (this.question) {
-      if (this.question.options &&
-          this.question.options[this.answer] &&
-          this.question.options[this.answer]['selected'] &&
-          this.question.options[this.answer]['correct']
-      ) {
-        this.quizService.correctAnswersCount.next(this.count);
-        this.quizService.finalAnswers = [...this.quizService.finalAnswers, this.answer];
-        this.timerService.resetTimer();
-      } else {
-        console.log('Inside else...');
+      const incorrectAnswerFound = this.answer.find((answer) => {
+        return this.question.options &&
+          this.question.options[answer] &&
+          this.question.options[answer]['selected'] &&
+          !this.question.options[answer]['correct'];
+      });
+      if (!incorrectAnswerFound) {
+        this.sendCorrectCountToQuizService(this.correctCount + 1);
       }
+      const answers = this.answer && this.answer.length > 0 ? this.answer.map((answer) => answer + 1) : [];
+      this.quizService.userAnswers.push(this.answer && this.answer.length > 0 ? answers : this.answer);
     }
+  }
+
+  sendCorrectCountToQuizService(value: number): void {
+    this.correctCount = value;
+    this.quizService.sendCorrectCountToResults(this.correctCount);
   }
 }

@@ -1,5 +1,4 @@
-$font-stack: Space Mono, monospace;
-$font-weight-max: 900;
+@import "variables";
 
 .scoreboard {
   margin-top: 10px;
@@ -10,12 +9,12 @@ $font-weight-max: 900;
 
   .badge {
     float: left;
-    margin: 20px 10px 0 100px;
+    margin: 30px -25px 0 85px;
     font-family: $font-stack;
     font-size: 26px;
     font-weight: $font-weight-max;
     font-style: italic;
-    color: #006400;
+    color: $dark-green;
     border-radius: 8px;
     padding: -10px 0;
   }

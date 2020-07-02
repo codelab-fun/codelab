@@ -1,6 +1,6 @@
 <div class="score">
-  <span class="leader">Score</span>
-  <span class="scoreboard">
-    {{ correctAnswersCount }}/{{ totalQuestions }}
+  <label class="leader" i18n>Score</label>
+  <span class="scoreboard" i18n>
+    {{ correctAnswersCount$ | async }}/{{ totalQuestions }}
   </span>
 </div>

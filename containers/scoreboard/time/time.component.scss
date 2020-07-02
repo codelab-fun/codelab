@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+.time-left {
+  float: right;
+  margin-right: 1.5rem;
+
+  .leader, span.scoreboard {
+    margin: 5px 0 0 110px;
+  }
+}
