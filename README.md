@@ -1,7 +1,7 @@
 # codelab-angular-9-quiz-app
-Angular 9 quiz app created for Angular Codelab
+Angular 9 quiz app created for Angular Codelab (https://www.codelab.fun)
 
-Features
+# Features:
 - App developed using HTML5; CSS3/SCSS; Angular using TypeScript, JavaScript ES6 and NPM
 - Uses a basic, clean, modern and aesthetically pleasing UI for the quiz
 - Features a simple API and quiz data is retrieved from external file
