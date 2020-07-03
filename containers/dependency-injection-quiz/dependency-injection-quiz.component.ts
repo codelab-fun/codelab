@@ -104,7 +104,7 @@ export class DependencyInjectionQuizComponent implements OnInit {
     this.timerService.elapsedTimes = [];
     this.timerService.completionTime = 0;
     this.answer = null;
-    this.router.navigate(['/quiz/intro']);
+    this.router.navigate(['/quiz/intro']).then();
   }
 
   nextQuestion() {
