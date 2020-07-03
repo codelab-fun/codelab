@@ -36,8 +36,8 @@ export class DependencyInjectionQuizComponent implements OnInit {
   totalQuestions: number;
   progressValue: number;
   correctCount: number;
-  numberOfCorrectOptions: number;
-  explanationText: string;
+  get explanationText(): string { return this.quizService.explanationText; }
+  get numberOfCorrectOptions(): number { return this.quizService.numberOfCorrectOptions; }
   animationState$ = new BehaviorSubject<AnimationState>('none');
 
   constructor(
@@ -48,9 +48,6 @@ export class DependencyInjectionQuizComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.explanationText = this.quizService.explanationText;
-    this.numberOfCorrectOptions = this.quizService.numberOfCorrectOptions;
-
     this.activatedRoute.params.subscribe(params => {
       this.totalQuestions = this.quizService.numberOfQuestions();
 
