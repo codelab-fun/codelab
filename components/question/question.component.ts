@@ -48,7 +48,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     if (changes.question && changes.question.currentValue !== changes.question.firstChange) {
       this.currentQuestion = changes.question.currentValue;
       this.correctAnswers = this.quizService.getCorrectAnswers(this.currentQuestion);
-      this.multipleAnswer = this.correctAnswers.length > 1 ? true : false;
+      this.multipleAnswer = this.correctAnswers.length > 1;
 
       if (this.formGroup) {
         this.formGroup.patchValue({answer: ''});
