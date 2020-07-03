@@ -50,7 +50,6 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     this.correctAnswers = this.quizService.correctAnswers;
-    this.quizMetadata.totalQuestions = this.quizService.totalQuestions;
   }
 
   calculateElapsedTime() {
