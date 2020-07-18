@@ -1,4 +1,4 @@
-import { Option } from '@shared/models/Option.model';
+import { Option } from '@codelab-quiz/shared/models/Option.model';
 
 export interface QuizQuestion {
   questionText: string;

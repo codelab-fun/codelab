@@ -1,7 +1,7 @@
-import { QuizQuestion } from '@shared/models/QuizQuestion.model';
+import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
 
 export interface Quiz {
-  name: string;
+  quizId: string;
   milestone: string;
   summary: string;
   imageUrl: string;
