@@ -2,20 +2,30 @@
 
 .scoreboard {
   margin-top: 10px;
+  clear: both;
 
   .row {
-    display: inline;
+    display: inline-flex;
+  }
+
+  .scoreboard-score {
+    float: left;
+    margin-left: 1rem;
+  }
+
+  .scoreboard-time {
+    float: left;
+    margin-left: 0.3rem;
   }
 
   .badge {
     float: left;
-    margin: 30px -25px 0 85px;
+    margin: 30px -25px 0 100px;
     font-family: $font-stack;
     font-size: 26px;
     font-weight: $font-weight-max;
     font-style: italic;
     color: $dark-green;
-    border-radius: 8px;
     padding: -10px 0;
   }
 }

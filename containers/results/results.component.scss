@@ -84,6 +84,7 @@ mat-card-header {
   .quizSummary {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 
     details {
       display: block;
@@ -121,7 +122,6 @@ mat-card-header {
             font-weight: 700;
             font-style: italic;
             color: $black;
-            white-space: nowrap;
           }
         }
 

@@ -10,9 +10,9 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { QuizQuestion } from '@shared/models/QuizQuestion.model';
-import { QuizService } from '@shared/services/quiz.service';
-import { TimerService } from '@shared/services/timer.service';
+import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
+import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
+import { TimerService } from '@codelab-quiz/shared/services/timer.service';
 
 
 @Component({
@@ -29,9 +29,9 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   quizStarted: boolean;
   multipleAnswer: boolean;
   alreadyAnswered = false;
-  correctAnswers = [];
-  correctMessage: string;
   isCorrectAnswerSelected = false;
+  correctAnswers = [];
+  correctMessage = '';
 
   constructor(
     private quizService: QuizService,
@@ -68,7 +68,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     this.answer.emit(optionIndex);
 
     if (this.correctAnswers.length === 1) {
-      this.currentQuestion.options.forEach(o => o.selected = false);
+      this.currentQuestion.options.forEach((option) => option.selected = false);
     }
     this.currentQuestion.options[optionIndex].selected = true;
 

@@ -2,8 +2,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { concat, Observable, timer } from 'rxjs';
 import { first, repeatWhen, scan, shareReplay, skip, switchMapTo, takeUntil, tap } from 'rxjs/operators';
 
-import { QuizService } from '@shared/services/quiz.service';
-import { TimerService } from '@shared/services/timer.service';
+import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
+import { TimerService } from '@codelab-quiz/shared/services/timer.service';
 
 @Component({
   selector: 'codelab-scoreboard-time',
@@ -41,7 +41,7 @@ export class TimeComponent implements OnChanges {
       switchMapTo(
         timer(0, 1000).pipe(
           scan((acc) => acc > 0 ? (acc - 1 >= 10 ? acc - 1 : `0${acc - 1}`)
-                                                  : acc, this.timePerQuestion),
+                                                  : acc, this.timePerQuestion)
         )
       ),
       takeUntil(stop$.pipe(skip(1))),

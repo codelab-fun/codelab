@@ -4,33 +4,42 @@ import { BehaviorSubject } from 'rxjs';
 import { Howl } from 'howler';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
+import { Option } from '@codelab-quiz/shared/models/Option.model';
 import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
 import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
-import { Resource } from '@codelab-quiz/shared/models/Resource.model';
 import { TimerService } from '@codelab-quiz/shared/services/timer.service';
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class QuizService {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
   question: QuizQuestion;
   questions: QuizQuestion[];
-  // resources: Resource[];
   answers: number[];
   totalQuestions: number;
   currentQuestionIndex = 1;
-  correctAnswersForEachQuestion = [];
+  quizId: string;
+  indexOfQuizId: number;
+
   correctAnswers = [];
+  correctAnswersForEachQuestion = [];
+  correctAnswerOptions: number[] = [];
   userAnswers = [];
   numberOfCorrectAnswers: number;
-  correctAnswerOptions: number[] = [];
-  correctOptions: string;
+  numberOfCorrectAnswersArray = [];
+
   explanation: string;
   explanationText: string;
+  correctOptions: string;
   correctMessage: string;
+
+  quizCompleted: boolean;
+  status: string;
+
   hasAnswer: boolean;
   correctAnswersCountSubject = new BehaviorSubject<number>(0);
-  quizId: string;
 
   correctSound = new Howl({
     src: 'http://www.marvinrusinek.com/sound-correct.mp3',
@@ -50,18 +59,24 @@ export class QuizService {
     private router: Router
   ) {
     this.hasAnswer = true;
+    this.quizId = this.activatedRoute.snapshot.paramMap.get('quizId');
+    this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
   }
 
   getCorrectAnswers(question: QuizQuestion) {
-    const identifiedCorrectAnswers = question.options.filter(item => item.correct);
-    this.numberOfCorrectAnswers = identifiedCorrectAnswers.length;
-    this.correctAnswerOptions = question.options.filter(option => option.correct)
-                                                .map(option => question.options.indexOf(option) + 1);
-    this.correctAnswersForEachQuestion.push(this.correctAnswerOptions);
-    this.correctAnswers.push(this.correctAnswersForEachQuestion);
-    this.setExplanationAndCorrectAnswerMessages(this.correctAnswersForEachQuestion.sort());
+    if (this.question) {
+      const identifiedCorrectAnswers = question.options.filter((option) => option.correct);
+      this.correctAnswerOptions = identifiedCorrectAnswers.map((option) => question.options.indexOf(option) + 1);
 
-    return identifiedCorrectAnswers;
+      this.numberOfCorrectAnswers = identifiedCorrectAnswers.length;
+      this.numberOfCorrectAnswersArray.push(this.numberOfCorrectAnswers);
+
+      this.correctAnswersForEachQuestion.push(this.correctAnswerOptions);
+      this.correctAnswers.push(this.correctAnswersForEachQuestion);
+
+      this.setExplanationAndCorrectAnswerMessages(this.correctAnswersForEachQuestion.sort());
+      return identifiedCorrectAnswers;
+    }
   }
 
   setExplanationAndCorrectAnswerMessages(correctAnswers: number[]): void {
@@ -89,6 +104,26 @@ export class QuizService {
     }
   }
 
+  // randomize questions array in-place using Durstenfeld shuffle algorithm
+  shuffledQuestions(questions: QuizQuestion[]): void {
+    for (let i = questions.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+  }
+
+  // randomize answers array in-place using Durstenfeld shuffle algorithm
+  shuffledAnswers(answers: Option[]): void {
+    for (let i = answers.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [answers[i], answers[j]] = [answers[j], answers[i]];
+    }
+  }
+
+  setQuizId(quizId: string): void {
+    this.quizId = quizId;
+  }
+
   setQuestion(question: QuizQuestion): void {
     this.question = question;
   }
@@ -97,16 +132,12 @@ export class QuizService {
     this.questions = questions;
   }
 
-  setQuizId(quizId: string): void {
-    this.quizId = quizId;
-  }
-
-  /* setResources(resources: Resource[]): void {
-    this.resources = resources;
-  } */
-
   setTotalQuestions(totalQuestions: number): void {
     this.totalQuestions = totalQuestions;
+  }
+
+  setQuizStatus(status: string): void {
+    this.status = status;
   }
 
   sendCorrectCountToResults(value: number): void {
@@ -114,20 +145,23 @@ export class QuizService {
   }
 
   navigateToNextQuestion() {
+    this.quizCompleted = false;
     this.currentQuestionIndex++;
     const questionIndex = this.currentQuestionIndex;
-    this.router.navigate(['/quiz/question', this.quizId, questionIndex]).then();
+    this.router.navigate(['/quiz/question/', this.quizId, questionIndex]).then();
     this.resetAll();
     this.timerService.resetTimer();
   }
 
   navigateToPreviousQuestion() {
-    this.router.navigate(['/quiz/question', this.quizId, this.currentQuestionIndex - 1]).then();
+    this.quizCompleted = false;
+    this.router.navigate(['/quiz/question/', this.quizId, this.currentQuestionIndex - 1]).then();
     this.resetAll();
   }
 
   navigateToResults() {
-    this.router.navigate(['/quiz/results', this.quizId]).then();
+    this.quizCompleted = true;
+    this.router.navigate(['/quiz/results/', this.quizId]).then();
   }
 
   resetAll() {
@@ -135,8 +169,10 @@ export class QuizService {
     this.hasAnswer = false;
     this.correctAnswersForEachQuestion = [];
     this.correctAnswerOptions = [];
+    this.correctOptions = '';
     this.correctMessage = '';
     this.explanationText = '';
+    this.currentQuestionIndex = 0;
     this.timerService.stopTimer();
     this.timerService.resetTimer();
   }

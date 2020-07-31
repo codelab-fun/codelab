@@ -6,4 +6,5 @@ export interface Quiz {
   summary: string;
   imageUrl: string;
   questions: QuizQuestion[];
+  status: 'started' | 'continue' | 'completed' | '';
 }

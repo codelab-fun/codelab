@@ -4,8 +4,10 @@
 .time-left {
   float: right;
   margin-right: 1.5rem;
+  width: 150px;
 
   .leader, span.scoreboard {
     margin: 5px 0 0 110px;
+    width: 150px !important;
   }
 }
