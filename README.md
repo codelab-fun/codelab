@@ -1,6 +1,12 @@
 # codelab-angular-10-quiz-app
 Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 
+# TODO:
+- need to get the completed icon to show per quiz completed, not all quizzes
+- multiple-answer questions - score should only increase if ALL correct answers have been chosen
+- convert app with Ionic and Apache Cordova for usability on mobile devices
+- add state management with NgRx???
+
 # Features:
 - App developed using HTML5; CSS3/SCSS; Angular using TypeScript, JavaScript ES6 and NPM
 - Uses a basic, clean, modern and aesthetically pleasing UI for the quiz
