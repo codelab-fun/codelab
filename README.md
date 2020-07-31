@@ -7,7 +7,7 @@ Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 - Features a simple API and quiz data is retrieved from external file
 - Employs familiar Angular concepts such as services/dependency injection, routing and reactive form -- form display toggled depending on the type of question (either multiple choice (mat-checkbox) question or single-answer (mat-radio) question, determined in the quiz service)
 - Includes routing to different Angular milestone quizzes on a quiz selection screen
-- Supports advanced routing features with paging 1 question at a time using an inferred questionIndex instead of using questionId
+- Supports advanced routing features with paging 1 question at a time using an inferred questionIndex (instead of using questionId)
 - Utilizes Angular packages such as Angular Material/CDK, Angular animation library as well as Bootstrap, FontAwesome, hover.css and external 3rd party packages for progressbars (ngb-progressbar) and audio (howler)
 - Displays innovative scoreboard in which correct answer count and countdown clock are both fully controlled with RxJS
 - Uses SVG buttons for paging and quiz statuses
