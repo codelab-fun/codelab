@@ -17,6 +17,9 @@ export class QuizSelectionComponent implements OnInit {
   currentQuestionIndex: number;
   totalQuestions: number;
   quizId: string;
+  startedQuizId: string;
+  continueQuizId: string;
+  completedQuizId: string;
   quizName: string;
   quizCompleted: boolean;
   status: string;
@@ -33,19 +36,12 @@ export class QuizSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.quizId = this.quizService.quizId;
+    this.startedQuizId = this.quizService.startedQuizId;
+    this.continueQuizId = this.quizService.continueQuizId;
+    this.completedQuizId = this.quizService.completedQuizId;
     this.currentQuestionIndex = this.quizService.currentQuestionIndex;
     this.totalQuestions = this.quizService.totalQuestions;
     this.quizCompleted = this.quizService.quizCompleted;
     this.status = this.quizService.status;
-  }
-
-  onClick() {
-    if (this.currentQuestionIndex < this.totalQuestions) {
-      // start or continue
-      this.router.navigate(['/quiz/question/', this.quizId, this.currentQuestionIndex]).then();
-    } else if (this.currentQuestionIndex === this.totalQuestions) {
-      // results
-      this.router.navigate(['/quiz/results/', this.quizId]).then();
-    }
   }
 }

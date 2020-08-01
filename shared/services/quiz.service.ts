@@ -20,8 +20,14 @@ export class QuizService {
   answers: number[];
   totalQuestions: number;
   currentQuestionIndex = 1;
+
   quizId: string;
+  startedQuizId: string;
+  continueQuizId: string;
+  completedQuizId: string;
   indexOfQuizId: number;
+  quizCompleted: boolean;
+  status: string;
 
   correctAnswers = [];
   correctAnswersForEachQuestion = [];
@@ -34,9 +40,6 @@ export class QuizService {
   explanationText: string;
   correctOptions: string;
   correctMessage: string;
-
-  quizCompleted: boolean;
-  status: string;
 
   hasAnswer: boolean;
   correctAnswersCountSubject = new BehaviorSubject<number>(0);
@@ -120,8 +123,24 @@ export class QuizService {
     }
   }
 
+  setQuizStatus(status: string): void {
+    this.status = status;
+  }
+
   setQuizId(quizId: string): void {
     this.quizId = quizId;
+  }
+
+  setStartedQuizId(quizId: string) {
+    this.startedQuizId = quizId;
+  }
+
+  setContinueQuizId(quizId: string) {
+    this.continueQuizId = quizId;
+  }
+
+  setCompletedQuizId(quizId: string) {
+    this.completedQuizId = quizId;
   }
 
   setQuestion(question: QuizQuestion): void {
@@ -134,10 +153,6 @@ export class QuizService {
 
   setTotalQuestions(totalQuestions: number): void {
     this.totalQuestions = totalQuestions;
-  }
-
-  setQuizStatus(status: string): void {
-    this.status = status;
   }
 
   sendCorrectCountToResults(value: number): void {
@@ -172,7 +187,7 @@ export class QuizService {
     this.correctOptions = '';
     this.correctMessage = '';
     this.explanationText = '';
-    this.currentQuestionIndex = 0;
+    this.currentQuestionIndex = 1;
     this.timerService.stopTimer();
     this.timerService.resetTimer();
   }

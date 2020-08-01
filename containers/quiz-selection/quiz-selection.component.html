@@ -40,10 +40,11 @@
 
       <mat-grid-list cols="3" rowHeight="370px" gutterSize="5px">
         <mat-grid-tile
-          (click)="onClick()"
           *ngFor="let quiz of quizData"
           [routerLink]="['/quiz/intro/', quiz.quizId]"
-          [ngClass]="{ 'completed': status === 'completed' }"
+          [ngClass]="{ 'started': status === 'started' && quiz.quizId === startedQuizId,
+                       'continue': status === 'continue' && quiz.quizId === continueQuizId,
+                       'completed': status === 'completed' && quiz.quizId === completedQuizId }"
           [ngStyle]="{ 'background': 'url(' + quiz?.imageUrl + ') no-repeat center 10px',
                        'background-size': '300px 210px' }">
 
@@ -54,21 +55,21 @@
 
           <div class="status-icon">
             <span class="icon" matTooltip="Start"
-                  *ngIf="!quizCompleted"
+                  *ngIf="!quizCompleted || status === 'started' || quiz.quizId === startedQuizId"
                   [routerLink]="['/quiz/intro/', quiz.quizId]">
               <svg viewBox="0 0 24 24">
                 <path [attr.d]="quizStatusIcon.started" />
               </svg>
             </span>
             <span class="icon" matTooltip="Continue"
-                  *ngIf="status === 'continue'"
+                  *ngIf="status === 'continue' || quiz.quizId === continueQuizId"
                   [routerLink]="['/quiz/question/', quiz.quizId, currentQuestionIndex]">
               <svg viewBox="0 0 24 24">
                 <path [attr.d]="quizStatusIcon.continue" />
               </svg>
             </span>
             <span class="icon" matTooltip="Completed"
-                  *ngIf="status === 'completed'"
+                  *ngIf="status === 'completed' && quiz.quizId === completedQuizId"
                   [routerLink]="['/quiz/results/', quiz.quizId]">
               <svg viewBox="0 0 24 24">
                 <path [attr.d]="quizStatusIcon.completed" />

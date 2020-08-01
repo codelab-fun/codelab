@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatAccordion } from '@angular/material/expansion';
 
-import { QUIZ_DATA, QUIZ_RESOURCES } from '@codelab-quiz/shared/quiz-data';
+import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
 import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
 import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
 import { QuizMetadata } from '@codelab-quiz/shared/models/QuizMetadata.model';
@@ -62,6 +62,7 @@ export class ResultsComponent implements OnInit {
     this.quizData[this.indexOfQuizId].status = 'completed';
 
     this.calculateElapsedTime();
+    this.getResultsQuizId(this.quizId);
     this.getQuizStatus();
   }
 
@@ -71,6 +72,10 @@ export class ResultsComponent implements OnInit {
     });
     this.correctAnswers = this.quizService.correctAnswers;
     this.questions = this.quizService.questions;
+  }
+
+  private getResultsQuizId(quizId): void {
+    this.quizService.setCompletedQuizId(quizId);
   }
 
   private getQuizStatus(): void {
@@ -109,6 +114,10 @@ export class ResultsComponent implements OnInit {
   }
 
   selectQuiz() {
+    this.quizService.resetAll();
+    this.quizService.resetQuestions();
+    this.quizId = '';
+    this.indexOfQuizId = 0;
     this.router.navigate(['/quiz/select/']).then();
   }
 }
