@@ -32,6 +32,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   isCorrectAnswerSelected = false;
   correctAnswers = [];
   correctMessage = '';
+  previousUserAnswersText = [];
 
   constructor(
     private quizService: QuizService,
@@ -42,6 +43,8 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     this.formGroup = new FormGroup({
       answer: new FormControl(['', Validators.required])
     });
+
+    this.previousUserAnswersText = this.quizService.previousUserAnswersText;
   }
 
   ngOnChanges(changes: SimpleChanges) {

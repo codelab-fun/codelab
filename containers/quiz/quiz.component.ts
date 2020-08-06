@@ -3,11 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
-import { Animations } from '@codelab-quiz/animations';
 import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
 import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
 import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
 import { TimerService } from '@codelab-quiz/shared/services/timer.service';
+import { Animations } from '@codelab-quiz/animations';
 
 type AnimationState = 'animationStarted' | 'none';
 
@@ -34,6 +34,8 @@ export class QuizComponent implements OnInit {
   animationState$ = new BehaviorSubject<AnimationState>('none');
   get explanationText(): string { return this.quizService.explanationText; }
   get numberOfCorrectAnswers(): number { return this.quizService.numberOfCorrectAnswers; }
+  previousUserAnswers: any;
+  checked: boolean;
 
   paging = {
     previousButtonPoints: "298.052,24 266.052,0 112.206,205.129 266.052,410.258 298.052,386.258 162.206,205.129 ",
@@ -49,13 +51,17 @@ export class QuizComponent implements OnInit {
   ) {
     this.quizId = this.activatedRoute.snapshot.paramMap.get('quizId');
     this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
+
+    this.getPreviousUserAnswersText(this.quizService.previousUserAnswers);
   }
 
   ngOnInit() {
-    this.quizService.shuffledQuestions(this.quizData[this.indexOfQuizId].questions);
-    this.quizService.shuffledAnswers(
-      this.quizData[this.indexOfQuizId].questions[this.quizService.currentQuestionIndex].options
-    );
+    if (this.quizService.checked) {
+      this.quizService.shuffledQuestions(this.quizData[this.indexOfQuizId].questions);
+      this.quizService.shuffledAnswers(
+        this.quizData[this.indexOfQuizId].questions[this.quizService.currentQuestionIndex].options
+      );
+    }
 
     this.activatedRoute.url.subscribe(segments => {
       this.quizName = segments[1].toString();
@@ -77,8 +83,6 @@ export class QuizComponent implements OnInit {
         if (this.questionIndex === 1) {
           this.progressValue = 0;
           this.quizData[this.indexOfQuizId].status = 'started';
-          this.status = this.quizData[this.indexOfQuizId].status;
-          this.getStartedQuizId(this.status);
         } else {
           this.progressValue = ((this.questionIndex - 1) / this.totalQuestions) * 100;
         }
@@ -108,9 +112,8 @@ export class QuizComponent implements OnInit {
 
   advanceToNextQuestion() {
     this.checkIfAnsweredCorrectly();
-    this.quizData[this.indexOfQuizId].status = 'continue';
-    this.getContinueQuizId(this.quizData[this.indexOfQuizId].status);
     this.answers = [];
+    this.quizData[this.indexOfQuizId].status = 'continue';
     this.animationState$.next('animationStarted');
     this.quizService.navigateToNextQuestion();
   }
@@ -118,7 +121,6 @@ export class QuizComponent implements OnInit {
   advanceToPreviousQuestion() {
     this.answers = null;
     this.quizData[this.indexOfQuizId].status = 'continue';
-    this.getContinueQuizId(this.quizData[this.indexOfQuizId].status);
     this.animationState$.next('animationStarted');
     this.quizService.navigateToPreviousQuestion();
   }
@@ -148,7 +150,7 @@ export class QuizComponent implements OnInit {
       });
       if (correctAnswerFound > -1) {
         this.sendCorrectCountToQuizService(this.correctCount + 1);
-      } // for multiple-answer questions, all correct answers should be marked correct for the score to increase
+      } // for multiple-answer questions, ALL correct answers should be marked correct for the score to increase
 
       const answers = this.answers && this.answers.length > 0 ? this.answers.map((answer) => answer + 1) : [];
       this.quizService.userAnswers.push(this.answers && this.answers.length > 0 ? answers : this.answers);
@@ -169,17 +171,14 @@ export class QuizComponent implements OnInit {
     this.quizService.setQuizId(this.quizId);
   }
 
-  getStartedQuizId(quizId: string) {
-    this.quizService.setStartedQuizId(quizId);
-  }
-
-  getContinueQuizId(quizId: string) {
-    this.quizService.setContinueQuizId(quizId);
-  }
-
   private getQuizStatus(): void {
     this.status = this.quizData[this.indexOfQuizId].status;
     this.quizService.setQuizStatus(this.status);
+  }
+
+  private getPreviousUserAnswersText(previousAnswers): void {
+    this.questions = this.quizData[this.indexOfQuizId].questions;
+    this.quizService.setPreviousUserAnswersText(previousAnswers, this.questions);
   }
 
   sendCorrectCountToQuizService(value: number): void {

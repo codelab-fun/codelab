@@ -133,10 +133,10 @@
               </mat-expansion-panel>
             </mat-accordion>
             <mat-action-row class="mat-accordion-buttons">
-              <button mat-raised-button color="primary" (click)="openAllPanels()">
+              <button mat-raised-button color="primary" class="hvr-radial-out" (click)="openAllPanels()">
                 <strong>Expand All</strong>&nbsp;&nbsp;<mat-icon>unfold_more</mat-icon>
               </button> &nbsp;
-              <button mat-raised-button color="primary" (click)="closeAllPanels()">
+              <button mat-raised-button color="primary" class="hvr-radial-out" (click)="closeAllPanels()">
                 <strong>Collapse All</strong>&nbsp;&nbsp;<mat-icon>unfold_less</mat-icon>
               </button>
             </mat-action-row>
@@ -165,11 +165,13 @@
       <section class="challenge-social">
         <h4>Challenge your friends!</h4>
         <div class="social-buttons">
-          <!-- <a class="btn facebook hvr-shutter-out-horizontal" target="_blank"
-             href="https://www.facebook.com/share?text=I scored {{ quizMetadata?.percentage }}% on this awesome Angular quiz. Try to beat my score at &amp;hashtag=quiz&amp;url={{ codelabUrl }}">Share your score</a> -->
-          <a class="btn twitter hvr-shutter-out-horizontal" target="_blank"
-             href="https://www.twitter.com/share?text=I scored {{ quizMetadata?.percentage }}% on this awesome Angular quiz. Try to beat my score at &amp;hashtag=quiz&amp;url={{ codelabUrl }}">Tweet your score</a>
-          <a class="btn email hvr-shutter-out-horizontal"
+          <!--<div class="fb-share-button" data-href="https://www.codelab.fun" data-layout="button" data-size="large">
+            <a class="btn facebook hvr-shutter-out-horizontal" target="_blank"
+             href="https://www.facebook.com/sharer/sharer.php?u=I scored {{quizMetadata?.percentage}}/100 on this awesome Angular quiz. Try to beat my score at &amp;hashtag=quiz&amp;url={{codelabUrl}}!%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share your score</a>
+          </div>-->
+          <a class="btn twitter-share-button hvr-shutter-out-horizontal" data-size="large" target="_blank"
+             href="https://twitter.com/intent/tweet?text=I%20scored%20{{quizMetadata?.percentage}}/100%20on%20this%20awesome%20Angular%20quiz.%20Try%20to%20beat%20my%20score%20at%20&amp;hashtag=quiz&amp;url={{codelabUrl}}!">Tweet your score</a>
+          <a class="btn email hvr-shutter-out-horizontal" data-size="large" target="_blank"
              href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored {{ quizMetadata?.percentage }}% on this awesome Angular quiz. Try to beat my score at {{ codelabUrl }}">Email a friend</a>
         </div>
       </section>

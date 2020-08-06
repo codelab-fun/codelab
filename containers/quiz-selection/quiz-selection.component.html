@@ -39,14 +39,13 @@
       </mat-toolbar>
 
       <mat-grid-list cols="3" rowHeight="370px" gutterSize="5px">
-        <mat-grid-tile
-          *ngFor="let quiz of quizData"
+        <mat-grid-tile *ngFor="let quiz of quizData"
           [routerLink]="['/quiz/intro/', quiz.quizId]"
+          [ngStyle]="{ 'background': 'url(' + quiz?.imageUrl + ') no-repeat center 10px',
+                       'background-size': '300px 210px' }"
           [ngClass]="{ 'started': status === 'started' && quiz.quizId === startedQuizId,
                        'continue': status === 'continue' && quiz.quizId === continueQuizId,
-                       'completed': status === 'completed' && quiz.quizId === completedQuizId }"
-          [ngStyle]="{ 'background': 'url(' + quiz?.imageUrl + ') no-repeat center 10px',
-                       'background-size': '300px 210px' }">
+                       'completed': status === 'completed' && quiz.quizId === completedQuizId }">
 
           <summary class="quiz-info">
             <h5 class="quiz-title" i18n>{{ quiz?.milestone }}</h5>

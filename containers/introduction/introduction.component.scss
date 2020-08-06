@@ -29,8 +29,14 @@ mat-card-content {
 mat-card-actions {
   text-align: center;
 
+  mat-checkbox {
+    text-align: center;
+  }
+
   button {
+    display: block;
     margin-bottom: 10px;
+    margin: 0 auto;
   }
   button:hover {
     border: 1px solid $vivid-blue;

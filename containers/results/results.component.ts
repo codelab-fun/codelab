@@ -37,6 +37,7 @@ export class ResultsComponent implements OnInit {
   status: string;
 
   correctAnswers: number[] = [];
+  previousUserAnswers: any;
   numberOfCorrectAnswers = [];
   elapsedMinutes: number;
   elapsedSeconds: number;
@@ -57,24 +58,26 @@ export class ResultsComponent implements OnInit {
   ) {
     this.quizId = this.activatedRoute.snapshot.paramMap.get('quizId');
     this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
-    this.numberOfCorrectAnswers = this.quizService.numberOfCorrectAnswersArray;
-
     this.quizData[this.indexOfQuizId].status = 'completed';
 
-    this.calculateElapsedTime();
-    this.getResultsQuizId(this.quizId);
+    this.getCompletedQuizId(this.quizId);
     this.getQuizStatus();
+    this.getUserAnswers(this.previousUserAnswers);
+    this.calculateElapsedTime();
   }
 
   ngOnInit() {
     this.activatedRoute.url.subscribe(segments => {
       this.quizName = segments[1].toString();
     });
-    this.correctAnswers = this.quizService.correctAnswers;
+
     this.questions = this.quizService.questions;
+    this.correctAnswers = this.quizService.correctAnswers;
+    this.numberOfCorrectAnswers = this.quizService.numberOfCorrectAnswersArray;
+    this.previousUserAnswers = this.quizService.userAnswers;
   }
 
-  private getResultsQuizId(quizId): void {
+  private getCompletedQuizId(quizId: string): void {
     this.quizService.setCompletedQuizId(quizId);
   }
 
@@ -83,7 +86,11 @@ export class ResultsComponent implements OnInit {
     this.quizService.setQuizStatus(this.status);
   }
 
-  calculateElapsedTime() {
+  private getUserAnswers(previousAnswers: []): void {
+    this.quizService.setUserAnswers(previousAnswers);
+  }
+
+  calculateElapsedTime(): void {
     this.elapsedMinutes = Math.floor(this.quizMetadata.completionTime / 60);
     this.elapsedSeconds = this.quizMetadata.completionTime % 60;
   }
@@ -98,10 +105,10 @@ export class ResultsComponent implements OnInit {
              userAnswers[index].find((answer) => correctAnswers[index][0].indexOf(answer) === -1));
   }
 
-  openAllPanels() {
+  openAllPanels(): void {
     this.accordion.openAll();
   }
-  closeAllPanels() {
+  closeAllPanels(): void {
     this.accordion.closeAll();
   }
 
