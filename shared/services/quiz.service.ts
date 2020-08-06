@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Howl } from 'howler';
@@ -38,6 +38,7 @@ export class QuizService {
   previousUserAnswersInnerText = [];
   numberOfCorrectAnswers: number;
   numberOfCorrectAnswersArray = [];
+  correctAnswersCountSubject = new BehaviorSubject<number>(0);
 
   explanation: string;
   explanationText: string;
@@ -45,15 +46,15 @@ export class QuizService {
   correctMessage: string;
 
   hasAnswer: boolean;
-  correctAnswersCountSubject = new BehaviorSubject<number>(0);
+  checked: boolean;
 
   correctSound = new Howl({
-    src: 'http://www.marvinrusinek.com/sound-correct.mp3',
+    src: '../../../assets/audio/sound-correct.mp3',
     html5: true,
     format: ['mp3', 'aac']
   });
   incorrectSound = new Howl({
-    src: 'http://www.marvinrusinek.com/sound-incorrect.mp3',
+    src: '../../../assets/audio/sound-incorrect.mp3',
     html5: true,
     format: ['mp3', 'aac']
   });
@@ -130,6 +131,7 @@ export class QuizService {
     this.previousUserAnswers = previousAnswers;
   }
 
+  // set the text of the previous answers to an array to show in the following quiz
   setPreviousUserAnswersText(previousAnswers, questions: QuizQuestion[]): void {
     for (let i = 0; i < previousAnswers.length; i++) {
       if (previousAnswers[i].length === 1) {
@@ -145,7 +147,6 @@ export class QuizService {
         this.previousUserAnswersText.push(this.previousUserAnswersInnerText);
       }
     }
-    console.log('PUAText: ', this.previousUserAnswersText);
   }
 
   setQuizStatus(status: string): void {
@@ -178,6 +179,10 @@ export class QuizService {
 
   setTotalQuestions(totalQuestions: number): void {
     this.totalQuestions = totalQuestions;
+  }
+
+  setChecked(checked: boolean): void {
+    this.checked = checked;
   }
 
   sendCorrectCountToResults(value: number): void {
