@@ -54,6 +54,7 @@ mat-card {
       button span {
         font-size: 24px;
         font-weight: 700;
+        color: $fire-red;
       }
 
       button:hover {
@@ -70,6 +71,7 @@ mat-card {
         justify-content: center;
         width: 320px !important;
         height: 350px !important;
+        background-color: $off-white;
         border: 1px solid black;
         border-radius: 10px;
         cursor: pointer;
@@ -78,10 +80,6 @@ mat-card {
         &.continue,
         &.completed {
           opacity: 0.6;
-
-          .quiz-info {
-            opacity: 0.6;
-          }
         }
 
         .quiz-info {
@@ -94,9 +92,11 @@ mat-card {
             font-weight: $font-weight-max;
             text-align: center;
             margin-top: 20px;
+            color: $fire-red;
           }
 
           .quiz-subtitle {
+            font-family: Helvetica Neue, sans-serif;
             font-size: 14px;
             font-weight: 700;
           }
@@ -117,6 +117,7 @@ mat-card {
         }
       }
       mat-grid-tile:hover {
+        background-color: $very-light-gray;
         border: 2px solid $dodger-blue;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
         transition: 0.3s !important;

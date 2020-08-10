@@ -14,7 +14,7 @@ import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
 })
 export class IntroductionComponent implements OnInit {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
-  quizName = '';
+  quizName: String = '';
 
   constructor(private quizService: QuizService,
               private activatedRoute: ActivatedRoute

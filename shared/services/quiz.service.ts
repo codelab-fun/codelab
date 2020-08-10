@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Howl } from 'howler';
@@ -46,7 +46,7 @@ export class QuizService {
   correctMessage: string;
 
   hasAnswer: boolean;
-  checked: boolean;
+  checkedShuffle: boolean;
 
   correctSound = new Howl({
     src: '../../../assets/audio/sound-correct.mp3',
@@ -127,11 +127,7 @@ export class QuizService {
     }
   }
 
-  setUserAnswers(previousAnswers: []): void {
-    this.previousUserAnswers = previousAnswers;
-  }
-
-  // set the text of the previous answers to an array to show in the following quiz
+  // set the text of the previous answers in an array to show in the following quiz
   setPreviousUserAnswersText(previousAnswers, questions: QuizQuestion[]): void {
     for (let i = 0; i < previousAnswers.length; i++) {
       if (previousAnswers[i].length === 1) {
@@ -181,8 +177,12 @@ export class QuizService {
     this.totalQuestions = totalQuestions;
   }
 
+  setUserAnswers(previousAnswers: []): void {
+    this.previousUserAnswers = previousAnswers;
+  }
+
   setChecked(checked: boolean): void {
-    this.checked = checked;
+    this.checkedShuffle = checked;
   }
 
   sendCorrectCountToResults(value: number): void {

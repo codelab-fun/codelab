@@ -1,4 +1,5 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+
 export const Animations = {
   changeRoute: trigger('changeRoute', [
     transition('* => animationStarted', [

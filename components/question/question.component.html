@@ -25,8 +25,9 @@
         </div>
       </div>
 
-      <div *ngFor="let prev of previousUserAnswersText[i]">
-        <div *ngIf="previousUserAnswersText[i] && option.selected" class="previous-answer-text">
+      <!-- TODO: need to work on showing previous user answers for single-answer questions -->
+      <div *ngFor="let prev of previousUserAnswersText[i]" class="previous-answer-text">
+        <div *ngIf="previousUserAnswersText[i] && option.selected">
           <span><em>{{ prev }}</em> was selected in your previous quiz.</span>
         </div>
       </div>

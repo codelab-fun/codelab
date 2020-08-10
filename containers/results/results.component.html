@@ -51,7 +51,7 @@
             type="success"
             [striped]="true"
             [animated]="true"
-            [value]="quizMetadata.percentage"
+            [value]="quizMetadata?.percentage"
             class="progress-bar bg-success">
             <strong>{{ quizMetadata?.percentage }}%</strong>
           </ngb-progressbar>
@@ -133,10 +133,10 @@
               </mat-expansion-panel>
             </mat-accordion>
             <mat-action-row class="mat-accordion-buttons">
-              <button mat-raised-button color="primary" class="hvr-radial-out" (click)="openAllPanels()">
+              <button mat-raised-button color="primary" class="btn hvr-radial-out" (click)="openAllPanels()">
                 <strong>Expand All</strong>&nbsp;&nbsp;<mat-icon>unfold_more</mat-icon>
               </button> &nbsp;
-              <button mat-raised-button color="primary" class="hvr-radial-out" (click)="closeAllPanels()">
+              <button mat-raised-button color="primary" class="btn hvr-radial-out" (click)="closeAllPanels()">
                 <strong>Collapse All</strong>&nbsp;&nbsp;<mat-icon>unfold_less</mat-icon>
               </button>
             </mat-action-row>

@@ -20,7 +20,7 @@ type AnimationState = 'animationStarted' | 'none';
 })
 export class QuizComponent implements OnInit {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
-  quizName = '';
+  quizName: String = '';
   question: QuizQuestion;
   questions: QuizQuestion[];
   answers: number[] = [];
@@ -31,11 +31,11 @@ export class QuizComponent implements OnInit {
   quizId: string;
   indexOfQuizId: number;
   status: string;
+  previousUserAnswers: any;
+  checkedShuffle: boolean;
   animationState$ = new BehaviorSubject<AnimationState>('none');
   get explanationText(): string { return this.quizService.explanationText; }
   get numberOfCorrectAnswers(): number { return this.quizService.numberOfCorrectAnswers; }
-  previousUserAnswers: any;
-  checked: boolean;
 
   paging = {
     previousButtonPoints: "298.052,24 266.052,0 112.206,205.129 266.052,410.258 298.052,386.258 162.206,205.129 ",
@@ -56,16 +56,8 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.quizService.checked) {
-      this.quizService.shuffledQuestions(this.quizData[this.indexOfQuizId].questions);
-      this.quizService.shuffledAnswers(
-        this.quizData[this.indexOfQuizId].questions[this.quizService.currentQuestionIndex].options
-      );
-    }
-
-    this.activatedRoute.url.subscribe(segments => {
-      this.quizName = segments[1].toString();
-    });
+    this.getQuizNameFromRoute();
+    this.shuffleQuestionsAndAnswers();
 
     this.activatedRoute.params.subscribe(params => {
       this.totalQuestions = this.quizData[this.indexOfQuizId].questions.length;
@@ -101,12 +93,21 @@ export class QuizComponent implements OnInit {
     this.animationState$.next('none');
   }
 
-  selectedAnswer(data) {
+  selectedAnswer(data): void {
     const correctAnswers = this.question.options.filter((options) => options.correct);
     if (correctAnswers.length > 1 && this.answers.indexOf(data) === -1) {
       this.answers.push(data);
     } else {
       this.answers[0] = data;
+    }
+  }
+
+  shuffleQuestionsAndAnswers(): void {
+    if (this.quizService.checkedShuffle) {
+      this.quizService.shuffledQuestions(this.quizData[this.indexOfQuizId].questions);
+      this.quizService.shuffledAnswers(
+        this.quizData[this.indexOfQuizId].questions[this.quizService.currentQuestionIndex].options
+      );
     }
   }
 
@@ -150,11 +151,17 @@ export class QuizComponent implements OnInit {
       });
       if (correctAnswerFound > -1) {
         this.sendCorrectCountToQuizService(this.correctCount + 1);
-      } // for multiple-answer questions, ALL correct answers should be marked correct for the score to increase
+      } // TODO: for multiple-answer questions, ALL correct answers should be marked correct for the score to increase
 
       const answers = this.answers && this.answers.length > 0 ? this.answers.map((answer) => answer + 1) : [];
       this.quizService.userAnswers.push(this.answers && this.answers.length > 0 ? answers : this.answers);
     }
+  }
+
+  getQuizNameFromRoute(): void {
+    this.activatedRoute.url.subscribe(segments => {
+      this.quizName = segments[1].toString();
+    });
   }
 
   private getQuestion(): void {

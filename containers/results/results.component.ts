@@ -62,6 +62,7 @@ export class ResultsComponent implements OnInit {
 
     this.getCompletedQuizId(this.quizId);
     this.getQuizStatus();
+    this.previousUserAnswers = this.quizService.userAnswers;
     this.getUserAnswers(this.previousUserAnswers);
     this.calculateElapsedTime();
   }
@@ -74,7 +75,6 @@ export class ResultsComponent implements OnInit {
     this.questions = this.quizService.questions;
     this.correctAnswers = this.quizService.correctAnswers;
     this.numberOfCorrectAnswers = this.quizService.numberOfCorrectAnswersArray;
-    this.previousUserAnswers = this.quizService.userAnswers;
   }
 
   private getCompletedQuizId(quizId: string): void {
