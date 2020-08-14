@@ -32,13 +32,14 @@ export class QuizService {
   correctAnswers = [];
   correctAnswersForEachQuestion = [];
   correctAnswerOptions: number[] = [];
-  userAnswers = [];
-  previousUserAnswers = [];
-  previousUserAnswersText = [];
-  previousUserAnswersInnerText = [];
   numberOfCorrectAnswers: number;
   numberOfCorrectAnswersArray = [];
   correctAnswersCountSubject = new BehaviorSubject<number>(0);
+
+  userAnswers = [];
+  previousUserAnswers = [];
+  previousUserAnswersTextSingleAnswer = [];
+  previousUserAnswersTextMultipleAnswer = [];
 
   explanation: string;
   explanationText: string;
@@ -132,15 +133,15 @@ export class QuizService {
     for (let i = 0; i < previousAnswers.length; i++) {
       if (previousAnswers[i].length === 1) {
         const previousAnswersString = questions[i].options[previousAnswers[i] - 1].text;
-        this.previousUserAnswersText.push(previousAnswersString);
+        this.previousUserAnswersTextSingleAnswer.push(previousAnswersString);
       }
       if (previousAnswers[i].length > 1) {
         const previousAnswerOptionsInner = previousAnswers[i].slice();
         for (let j = 0; j < previousAnswerOptionsInner.length; j++) {
           const previousAnswersInnerString = questions[i].options[previousAnswerOptionsInner[j] - 1].text;
-          this.previousUserAnswersInnerText.push(previousAnswersInnerString);
+          this.previousUserAnswersTextMultipleAnswer.push(previousAnswersInnerString);
         }
-        this.previousUserAnswersText.push(this.previousUserAnswersInnerText);
+        // this.previousUserAnswersText.push(this.previousUserAnswersInnerText);
       }
     }
   }
