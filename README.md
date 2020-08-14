@@ -2,6 +2,7 @@
 Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 
 # TODO:
+- fix scoring issue - in multiple-answer q, if one correct answer is selected and one incorrect, the score still increases by 1, should only be for correct answers
 - add previous user answers text for single answer questions in QuizQuestionComponent template
 - fix the undefined options issue (in QuizService -> setPreviousUserAnswers function) which occurs when quiz is restarted for third time 
 - fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent
