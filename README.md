@@ -3,7 +3,7 @@ Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 
 # TODO:
 - add previous user answers text for single answer questions in QuizQuestionComponent template
-- fix the undefined options issue which occurs when quiz is restarted for third time 
+- fix the undefined options issue (in QuizService -> setPreviousUserAnswers function) which occurs when quiz is restarted for third time 
 - fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent
 - add animation to mat-grid-tile in QuizSelectionComponent
 - convert app with Ionic and Apache Cordova for usability on mobile devices
