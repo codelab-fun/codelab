@@ -2,7 +2,6 @@
 Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 
 # TODO:
-- in multiple-answer questions, score should only increase if ALL correct answers have been chosen
 - add previous user answers text for single answer questions in QuizQuestionComponent template
 - convert app with Ionic and Apache Cordova for usability on mobile devices
 - add state management with NgRx???
