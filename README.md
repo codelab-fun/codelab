@@ -3,6 +3,7 @@ Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 
 # TODO:
 - add previous user answers text for single answer questions in QuizQuestionComponent template
+- fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent
 - convert app with Ionic and Apache Cordova for usability on mobile devices
 - add state management with NgRx???
 
