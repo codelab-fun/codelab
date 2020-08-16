@@ -7,7 +7,6 @@ Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 - fix the undefined options issue (in QuizService -> setPreviousUserAnswers function) which occurs when quiz is restarted for third time 
 - fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent
 - add another animation (slideInOut) to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
-- explanationText in QuizComponent - getting undefined for this.correctOptions
 - get rid of selected in model and use "inferred" selected
 - handle keypresses
 - say questions/answers were shuffled in ResultsComponent?
