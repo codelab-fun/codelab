@@ -2,8 +2,8 @@
 Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
 
 # TODO:
-- get rid of selected in model and use "inferred" selected
-- add another animation (slideInOut) to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
+- get rid of selected in Option model and use "inferred" selected instead???
+- add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
 - fix scoring issue - in a multiple-answer question, if one correct answer is selected and one incorrect, the score still increases by 1, should only increase if all correct answers have been selected
 - add previous user answers text for single-answer questions in QuizQuestionComponent template
 - fix the undefined options issue (in QuizService -> setPreviousUserAnswers function) which occurs when quiz is restarted for third time 
