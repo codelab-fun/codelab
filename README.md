@@ -8,7 +8,7 @@ Angular 10 quiz application created for open-source Angular Codelab (https://www
 - add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
 - add previous user answers text for single-answer questions in QuizQuestionComponent template
 - fix the undefined options issue (in QuizService -> setPreviousUserAnswers function) which occurs when quiz is restarted for third time 
-- get rid of selected in Option model and use "inferred" selected instead???
+- get rid of "selected" field in Option model and use an 'inferred' selected variable instead???
 - convert app with Ionic and Apache Cordova for usability on mobile devices - priority when everything else has been finished
 - add state management with NgRx???
 - add route guards? probably wait for NgRx...
