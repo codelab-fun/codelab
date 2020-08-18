@@ -1,18 +1,21 @@
 # codelab-angular-10-quiz-app
-Angular 10 quiz app created for Angular Codelab (https://www.codelab.fun)
+Angular 10 quiz application created for open-source Angular Codelab (https://www.codelab.fun)
 
 # TODO:
-- get rid of selected in Option model and use "inferred" selected instead???
+- fix scoring issue - in a multiple-answer question, if one correct answer is selected and one incorrect, the score still increases by 1; it should only increase if ALL correct answers have been selected
+- fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent - added the code (ternary operator inside data-binding) but doesn't seem to work properly...
+- JoinPipe in quiz.module.ts - path aliasing doesn't seem to work if I use @codelab-quiz/...
 - add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
-- fix scoring issue - in a multiple-answer question, if one correct answer is selected and one incorrect, the score still increases by 1, should only increase if all correct answers have been selected
 - add previous user answers text for single-answer questions in QuizQuestionComponent template
 - fix the undefined options issue (in QuizService -> setPreviousUserAnswers function) which occurs when quiz is restarted for third time 
-- fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent
-- add route guards?
-- convert app with Ionic and Apache Cordova for usability on mobile devices
+- get rid of selected in Option model and use "inferred" selected instead???
+- convert app with Ionic and Apache Cordova for usability on mobile devices - priority when everything else has been finished
 - add state management with NgRx???
+- add route guards? probably wait for NgRx...
 
-# Features:
+------------------------------------------------------------------------------------------------------------------------------------
+
+# FEATURES:
 - App developed using HTML5; CSS3/SCSS; Angular using TypeScript, JavaScript ES6 and NPM
 - Uses a basic, clean, modern and aesthetically pleasing UI for the quiz
 - Features a simple API and quiz data is retrieved from external file
