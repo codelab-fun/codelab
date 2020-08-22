@@ -118,18 +118,18 @@ export class ResultsComponent implements OnInit {
   }
 
   saveHighScores(): void {
-    this.quizMetadata.correctAnswersCount$
-      .subscribe((correctAnswersCount: number) => this.correctAnswersCount = correctAnswersCount);
-
     this.score = {
-      quizId: '',
-      score: this.correctAnswersCount,
+      quizId: this.quizId,
+      score: this.quizService.correctAnswersCountSubject.getValue(),
       datetime: new Date()
     };
-    // TODO: set a max of 5 high scores per quizId, is the code below sufficient?
+
     const MAX_LENGTH = 5;
     if (this.quizId === this.quizName) {
       this.highScores = new Array(MAX_LENGTH);
+    }
+    if (this.highScores.length > MAX_LENGTH) {
+      console.log('ERROR: ' + this.quizData[this.indexOfQuizId].milestone + ' can only be taken ' + MAX_LENGTH + ' times');
     }
     this.highScores.push(this.score);
     console.log('High Scores:', this.highScores);
