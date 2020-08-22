@@ -4,7 +4,6 @@ Angular 10 quiz application created for open-source Angular Codelab (https://www
 # TODO:
 - fix scoring issue - in a multiple-answer question, if one correct answer is selected and one incorrect, the score still increases by 1; it should only increase if ALL correct answers have been selected (there also seems to be an issue with switching Observable to BehaviorSubject)
 - fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent - added the code (ternary operator inside data-binding) but doesn't seem to work as expected...
-- JoinPipe in quiz.module.ts - path aliasing doesn't seem to work if I use @codelab-quiz/...
 - status field - I added status variable types to the Quiz interface, but if I remove all the "status: ''" from quiz.ts, it will complain and give an error. I should be able to set it initially somewhere else and have it update as needed.
 - saveHighScores function -- check if limit MAX_LENGTH is applied to how many scores can be saved per quizId/milestone
 - add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
