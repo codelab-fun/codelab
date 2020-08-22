@@ -6,7 +6,7 @@ Angular 10 quiz application created for open-source Angular Codelab (https://www
 - fix Option/Options issue in User Answers field in mat-accordion in ResultsComponent - added the code (ternary operator inside data-binding) but doesn't seem to work as expected...
 - JoinPipe in quiz.module.ts - path aliasing doesn't seem to work if I use @codelab-quiz/...
 - status field - I added status variable types to the Quiz interface, but if I remove all the "status: ''" from quiz.ts, it will complain and give an error. I should be able to set it initially somewhere else and have it update as needed.
-- saveHighScores function - test if I limit is set on how many scores can be saved per quizId
+- saveHighScores function -- check if limit MAX_LENGTH is applied to how many scores can be saved per quizId/milestone
 - add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
 - add previous user answers text for single-answer questions in QuizQuestionComponent template
 - fix the undefined options issue (in QuizService -> setPreviousUserAnswers function) which occurs when quiz is restarted for third time 
