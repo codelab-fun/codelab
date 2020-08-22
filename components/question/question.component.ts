@@ -29,10 +29,13 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   quizStarted: boolean;
   multipleAnswer: boolean;
   alreadyAnswered = false;
+  isAnswered: boolean;
   isCorrectAnswerSelected = false;
   correctAnswers = [];
   correctMessage = '';
   previousUserAnswersText = [];
+  previousUserAnswersTextSingleAnswer = [];
+  previousUserAnswersTextMultipleAnswer = [];
 
   constructor(
     private quizService: QuizService,
@@ -44,7 +47,9 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       answer: new FormControl(['', Validators.required])
     });
 
-    this.previousUserAnswersText = this.quizService.previousUserAnswersText;
+    this.previousUserAnswersTextSingleAnswer = this.quizService.previousUserAnswersTextSingleAnswer;
+    this.previousUserAnswersTextMultipleAnswer = this.quizService.previousUserAnswersTextMultipleAnswer;
+    this.isAnswered = this.quizService.isAnswered;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -52,12 +57,17 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.currentQuestion = changes.question.currentValue;
       this.correctAnswers = this.quizService.getCorrectAnswers(this.currentQuestion);
       this.multipleAnswer = this.correctAnswers.length > 1;
+      this.sendMultipleAnswerToQuizService();
 
       if (this.formGroup) {
         this.formGroup.patchValue({answer: ''});
         this.alreadyAnswered = false;
       }
     }
+  }
+
+  private sendMultipleAnswerToQuizService(): void {
+    this.quizService.setMultipleAnswer(this.multipleAnswer);
   }
 
   isCorrect(correct: boolean, optionIndex: number): boolean {
@@ -87,7 +97,6 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     } else {
       this.quizService.incorrectSound.play();
     }
-
     this.alreadyAnswered = true;
   }
 }

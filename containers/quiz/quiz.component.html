@@ -16,13 +16,18 @@
     <mat-card-content>
       <codelab-scoreboard></codelab-scoreboard>
 
-      <section id="question" [ngClass]="!answers || answers.length === 0 ? 'unanswered': 'answered'">
-        <span *ngIf="!answers || answers.length === 0" i18n>{{ question?.questionText }}&nbsp;
+      <section id="question" [ngClass]="!isAnswered() ? 'unanswered': 'answered'">
+        <span *ngIf="!isAnswered()" i18n>{{ question?.questionText }}&nbsp;
           <span class="number-correct" *ngIf="numberOfCorrectAnswers > 1">
             <em>({{ numberOfCorrectAnswers }} answers are correct.)</em>
           </span>
         </span>
-        <span *ngIf="answers && answers.length > 0" i18n>{{ explanationText }}</span>
+        <span *ngIf="isAnswered()" i18n>
+          {{ numberOfCorrectAnswers === 1 ?
+            'Option ' + correctOptions + ' was correct because ' :
+            'Options ' + correctOptions + ' were correct because ' }}
+          {{ explanationText }}.
+        </span>
       </section>
 
       <codelab-quiz-question
@@ -32,6 +37,9 @@
     </mat-card-content>
 
     <mat-card-footer>
+      <span *ngIf="!isAnswered()" class="selection-message">
+        Please select an option to continue&hellip;
+      </span>
       <section class="paging">
         <mat-card-actions>
           <mat-nav-list>
@@ -54,7 +62,7 @@
             </div>
 
             <div class="next-question-nav" *ngIf="question && questionIndex !== totalQuestions">
-              <button type="button" mat-flat-button (click)="advanceToNextQuestion()"
+              <button type="button" mat-flat-button (click)="advanceToNextQuestion()" [disabled]="!isAnswered()"
                       matTooltip="Next Question &raquo;" matTooltipPosition="above">
                 <svg viewBox="0 0 410.258 410.258">
                   <polygon [attr.points]="paging.nextButtonPoints"/>

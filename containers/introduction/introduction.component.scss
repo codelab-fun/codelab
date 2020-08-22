@@ -28,6 +28,7 @@ mat-card-content {
 
 mat-card-actions {
   text-align: center;
+  padding-bottom: 15px !important;
 
   mat-checkbox {
     text-align: center;
@@ -35,10 +36,22 @@ mat-card-actions {
 
   button {
     display: block;
-    margin-bottom: 10px;
     margin: 0 auto;
+    background: $vivid-blue;
+    color: $black;
   }
   button:hover {
-    border: 1px solid $vivid-blue;
+    border: 2px solid $vivid-blue;
   }
+}
+
+
+// overwrite the checkbox background
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: $green !important;
+}
+
+// overwrite the ripple overlay on hover and click
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: $black !important;
 }

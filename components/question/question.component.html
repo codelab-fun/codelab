@@ -19,19 +19,6 @@
         </mat-radio-label>
       </mat-radio-button>
 
-      <div *ngIf="previousUserAnswersText[i] && option.selected">
-        <div *ngIf="previousUserAnswersText[i].length === 1">
-          <span>&ldquo;{{ previousUserAnswersText[i] }}&rdquo; selected previously.</span>
-        </div>
-      </div>
-
-      <!-- TODO: need to work on showing previous user answers for single-answer questions -->
-      <div *ngFor="let prev of previousUserAnswersText[i]" class="previous-answer-text">
-        <div *ngIf="previousUserAnswersText[i] && option.selected">
-          <span><em>{{ prev }}</em> was selected in your previous quiz.</span>
-        </div>
-      </div>
-
       <section class="messages">
         <div *ngIf="option.selected && option.correct && isCorrectAnswerSelected">
           <span>
@@ -44,6 +31,10 @@
             <mat-icon class="sentiment-icon">sentiment_very_dissatisfied</mat-icon>&nbsp;&nbsp;&nbsp;
             <span class="message wrong-message" i18n>&nbsp;&nbsp;&nbsp;That&apos;s wrong. {{ correctMessage }}</span>
           </span>
+        </div>
+        <!-- TODO: show previous user answers for single-answer questions -->
+        <div *ngFor="let previousText of previousUserAnswersTextSingleAnswer" class="previous-answer-text">
+          <span *ngIf="option.selected"><em>{{ previousText }}</em> was selected in your previous quiz.</span>
         </div>
       </section>
     </div>
@@ -77,13 +68,10 @@
             <span class="message wrong-message" i18n>&nbsp;&nbsp;&nbsp;That&apos;s wrong. {{ correctMessage }}</span>
           </span>
         </div>
+        <div *ngFor="let previousText of previousUserAnswersTextMultipleAnswer" class="previous-answer-text">
+          <span *ngIf="option.selected">{{ previousText }}</span>&nbsp;was selected in your previous quiz.
+        </div>
       </section>
-    </div>
-
-    <div *ngFor="let previousText of previousUserAnswersText[i]" class="previous-answer-text">
-      <div *ngIf="previousUserAnswersText[i].length > 1 && option.selected">
-        <span>{{ previousText }}</span>&nbsp;was selected in your previous quiz.
-      </div>
     </div>
   </div>
 </form>

@@ -14,6 +14,7 @@ mat-card-header {
     font-style: italic;
     font-weight: 900;
     color: $green-angular-leaf;
+    text-shadow: 1px 0 0 $black, 0 -1px 0 $black, 0 1px 0 $black, -1px 0 0 $black;
   }
 }
 
@@ -50,6 +51,12 @@ mat-card-header {
       font-weight: bold;
     }
 
+    .result {
+      font-family: $font-stack;
+      font-size: 26px;
+      display: inline;
+    }
+
     .percent-sign {
       font-size: large;
       font-weight: $font-weight-max;
@@ -81,7 +88,7 @@ mat-card-header {
     }
   }
 
-  .quizSummary {
+  .quiz-summary {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
@@ -93,12 +100,58 @@ mat-card-header {
         font-size: 16px;
         color: $vivid-blue;
         font-weight: $font-weight-max;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
         outline: none;
         text-align: center;
       }
 
+      .printout {
+        float: right;
+        margin-right: 15px;
+        margin-top: -40px;
+
+        a {
+          text-decoration: none !important;
+        }
+      }
+
+      .summary-report {
+        margin: 0 auto;
+        border: 2px double $black;
+        width: 32.5rem;
+        clear: both;
+        padding: 5px;
+        margin-bottom: 25px;
+
+        .summary-report-header {
+          text-align: center;
+          font-weight: $font-weight-max;
+        }
+
+        ul li {
+          list-style-type: none;
+        }
+
+        .summary-stats-leader {
+          font-weight: $font-weight-max;
+          font-color: $green-angular-leaf;
+          font-size: 16px;
+        }
+
+        .result {
+          font-size: 20px;
+        }
+
+        .quiz-note {
+          font-family: $font-stack;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+        }
+      }
+
       mat-accordion {
+        clear: both;
         padding-bottom: 20px;
 
         mat-expansion-panel {
@@ -209,6 +262,7 @@ mat-card-header {
 
 .challenge-social {
   text-align: center;
+  padding-bottom: 15px;
 
   .social-buttons {
     display: block;

@@ -1,7 +1,9 @@
 <ng-container *ngFor="let quiz of quizData">
   <mat-card *ngIf="quiz.quizId === quizName">
     <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
+      <div mat-card-avatar class="header-image" (click)="selectQuiz()"
+           matTooltip="back to Codelab Quiz Selection" matTooltipPosition="left">
+      </div>
       <mat-card-title i18n>Results</mat-card-title>
     </mat-card-header>
 
@@ -10,8 +12,9 @@
         <h3 i18n>Congratulations! You&apos;ve completed the quiz!</h3>
         <section class="statistics">
           <span class="your-score" i18n>
-            You scored {{ quizMetadata?.correctAnswersCount$ | async }} out of {{ quizMetadata?.totalQuestions }}
-            ({{ quizMetadata?.percentage }}%) questions correctly.
+            You scored <span class="result">{{ quizMetadata?.correctAnswersCount$ | async }}</span> out of
+            <span class="result">{{ quizMetadata?.totalQuestions }}</span>&nbsp;
+            <span class="result">({{ quizMetadata?.percentage }}%)</span> questions correctly.
           </span>
 
           <div class="quiz-feedback">
@@ -47,6 +50,12 @@
             </div>
           </div>
 
+          <!-- <progress max="100" [value]="quizMetadata?.percentage">
+            <div class="progress-bar">
+              <span style="'width': quizMetadata?.percentage%">Progress: {{ quizMetadata?.percentage }}%</span>
+            </div>
+          </progress> -->
+
           <ngb-progressbar
             type="success"
             [striped]="true"
@@ -58,19 +67,55 @@
 
           <section class="completion-time">
             <span class="elapsed-time" i18n>
-              You completed the quiz in {{ elapsedMinutes }} minutes and {{ elapsedSeconds }} seconds.
+              You completed the quiz in <span class="result">{{ elapsedMinutes }}</span> minutes and
+              <span class="result">{{ elapsedSeconds }}</span> seconds.
             </span>
           </section>
         </section>
 
-        <section class="quizSummary">
+        <section class="quiz-summary">
           <details>
             <summary i18n>Click to view a more detailed summary of your quiz&hellip;</summary>
 
+            <div class="summary-report">
+              <h2 class="summary-report-header">Summary Report</h2>
+              <div class="printout">
+                <a href="javascript:window.print()" matTooltip="Print">
+                  <mat-icon>printer</mat-icon>
+                </a>
+              </div>
+              <ul class="summary-stats">
+                <li><span class="summary-stats-leader">
+                  Your Score: </span> <span class="result">{{ quizMetadata?.correctAnswersCount$ | async }}</span></li>
+                <li><span class="summary-stats-leader">
+                  Total Questions: </span> <span class="result">{{ quizMetadata?.totalQuestions }}</span></li>
+                <li><span class="summary-stats-leader">
+                  Total Questions Attempted: </span> <span class="result">{{ quizMetadata?.totalQuestionsAttempted }}
+                  </span></li>
+                <li><span class="summary-stats-leader">
+                  Your Score (percentage): </span> <span class="result">{{ quizMetadata?.percentage }}%</span></li>
+                <li><span class="summary-stats-leader">
+                  Passing Score: </span> <span class="result">60%</span></li>
+                <li><span class="summary-stats-leader">
+                  Test Status: </span> <span class="result">{{ quizMetadata?.percentage > 60 ? 'Passed' : 'Failed' }}
+                  </span></li>
+                <li><span class="summary-stats-leader">
+                  Time Elapsed: </span> <span class="result">{{ elapsedMinutes }} minutes and {{ elapsedSeconds }}
+                  seconds</span></li>
+                <li><span class="summary-stats-leader">
+                  Date/Time Completed: </span> <span class="result">{{ score.datetime | date:'medium' }}</span></li>
+              </ul><br />
+
+              <span *ngIf="checkedShuffle" class="quiz-note">
+                <mat-icon>shuffle</mat-icon>&nbsp;<strong><em>Note:</em></strong>&nbsp;
+                Questions and answers were shuffled prior to quiz.
+              </span>
+            </div>
+
             <mat-accordion [multi]="true" #accordion="matAccordion">
               <mat-expansion-panel class="quiz-summary-question"
-                *ngFor="let question of questions; let i = index"
-                (opened)="panelOpenState = true" (closed)="panelOpenState = false" hideToggle="true">
+                                   *ngFor="let question of questions; let i = index"
+                                   (opened)="panelOpenState = true" (closed)="panelOpenState = false" hideToggle="true">
 
                 <mat-expansion-panel-header>
                   <mat-panel-description>
@@ -89,14 +134,15 @@
                       <li i18n>
                         <span class="leader">Your Answer(s):</span>
                         <ng-container *ngIf="results?.userAnswers[i]">
-                          Option {{ results?.userAnswers[i] | join }} &mdash;
+                          {{ results?.userAnswers?.length === 1 ? 'Option' : 'Options' }}
+                          {{ results?.userAnswers[i] | join }} &mdash;
                           <ng-container *ngFor="let item of results?.userAnswers[i]; let isLast = last">
                             {{ question?.options[item - 1].text }} <span *ngIf="!isLast"> AND </span>
                           </ng-container>
                           <mat-icon class="correct"
-                            *ngIf="checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">done</mat-icon>
+                                    *ngIf="checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">done</mat-icon>
                           <mat-icon class="incorrect"
-                            *ngIf="!checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">clear</mat-icon>
+                                    *ngIf="!checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">clear</mat-icon>
                         </ng-container>
                         <span *ngIf="!results?.userAnswers[i] || results?.userAnswers.length === 0">
                           (no answer provided)
@@ -133,12 +179,12 @@
               </mat-expansion-panel>
             </mat-accordion>
             <mat-action-row class="mat-accordion-buttons">
-              <button mat-raised-button color="primary" class="btn hvr-radial-out" (click)="openAllPanels()">
+              <a mat-raised-button color="primary" name="expand all" class="btn hvr-radial-out" (click)="openAllPanels()">
                 <strong>Expand All</strong>&nbsp;&nbsp;<mat-icon>unfold_more</mat-icon>
-              </button> &nbsp;
-              <button mat-raised-button color="primary" class="btn hvr-radial-out" (click)="closeAllPanels()">
+              </a> &nbsp;
+              <a mat-raised-button color="primary" name="collapse all" class="btn hvr-radial-out" (click)="closeAllPanels()">
                 <strong>Collapse All</strong>&nbsp;&nbsp;<mat-icon>unfold_less</mat-icon>
-              </button>
+              </a>
             </mat-action-row>
           </details>
         </section>
@@ -147,13 +193,13 @@
       <section class="return">
         <mat-card-actions>
           <mat-nav-list>
-            <a class="btn hvr-radial-out" (click)="restartQuiz()">
+            <a class="btn hvr-radial-out" title="restart" (click)="restartQuiz()">
               <i class="fas fa-power-off"></i>&nbsp;&nbsp;Restart Quiz
             </a>
-            <a class="btn hvr-radial-out" (click)="selectQuiz()">
+            <a class="btn hvr-radial-out" title="select quiz" (click)="selectQuiz()">
               <i class="fas fa-mouse-pointer"></i>&nbsp;&nbsp;Select Quiz
             </a>
-            <a class="btn hvr-radial-out" [href]="codelabUrl">
+            <a class="btn hvr-radial-out" title="back to Codelab" [href]="codelabUrl">
               <i class="fas fa-laptop"></i>&nbsp;&nbsp;Back to Codelab
             </a>
           </mat-nav-list>
@@ -166,13 +212,13 @@
         <h4>Challenge your friends!</h4>
         <div class="social-buttons">
           <!--<div class="fb-share-button" data-href="https://www.codelab.fun" data-layout="button" data-size="large">
-            <a class="btn facebook hvr-shutter-out-horizontal" target="_blank"
-             href="https://www.facebook.com/sharer/sharer.php?u=I scored {{quizMetadata?.percentage}}/100 on this awesome Angular quiz. Try to beat my score at &amp;hashtag=quiz&amp;url={{codelabUrl}}!%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share your score</a>
+            <a class="btn facebook hvr-shutter-out-horizontal" title="Facebook" target="_blank"
+             href="https://www.facebook.com/sharer/sharer.php?u=I scored {{quizMetadata?.percentage}}/100 on this awesome quiz about Angular {{quizData?.milestone}}. Try to beat my score at &amp;hashtag=quiz&amp;url={{codelabUrl}}!%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share your score</a>
           </div>-->
-          <a class="btn twitter-share-button hvr-shutter-out-horizontal" data-size="large" target="_blank"
-             href="https://twitter.com/intent/tweet?text=I%20scored%20{{quizMetadata?.percentage}}/100%20on%20this%20awesome%20Angular%20quiz.%20Try%20to%20beat%20my%20score%20at%20&amp;hashtag=quiz&amp;url={{codelabUrl}}!">Tweet your score</a>
-          <a class="btn email hvr-shutter-out-horizontal" data-size="large" target="_blank"
-             href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored {{ quizMetadata?.percentage }}% on this awesome Angular quiz. Try to beat my score at {{ codelabUrl }}">Email a friend</a>
+          <a class="btn twitter-share-button hvr-shutter-out-horizontal" title="Twitter" data-size="large" target="_blank"
+             href="https://twitter.com/intent/tweet?text=I%20scored%20{{quizMetadata?.percentage}}/100%20on%20this%20awesome%20quiz%20about%20Angular%20{{quiz?.milestone}}.%20Try%20to%20beat%20my%20score%20at%20&amp;hashtag=quiz&amp;url={{codelabUrl}}!">Tweet your score</a>
+          <a class="btn email hvr-shutter-out-horizontal" title="e-mail" data-size="large" target="_blank"
+             href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored {{ quizMetadata?.percentage }}% on this awesome quiz about Angular {{quiz?.milestone}}. Try to beat my score at {{ codelabUrl }}">Email a friend</a>
         </div>
       </section>
     </mat-card-content>

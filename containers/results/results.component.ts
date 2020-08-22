@@ -7,6 +7,7 @@ import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
 import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
 import { QuizMetadata } from '@codelab-quiz/shared/models/QuizMetadata.model';
 import { Result } from '@codelab-quiz/shared/models/Result.model';
+import { Score } from '@codelab-quiz/shared/models/Score.model';
 import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
 import { TimerService } from '@codelab-quiz/shared/services/timer.service';
 
@@ -22,6 +23,7 @@ export class ResultsComponent implements OnInit {
 
   quizMetadata: Partial<QuizMetadata> = {
     totalQuestions: this.quizService.totalQuestions,
+    totalQuestionsAttempted: this.quizService.totalQuestionsAttempted,
     correctAnswersCount$: this.quizService.correctAnswersCountSubject,
     percentage: this.calculatePercentageOfCorrectlyAnsweredQuestions(),
     completionTime: this.timerService.calculateTotalElapsedTime(this.timerService.elapsedTimes)
@@ -30,6 +32,11 @@ export class ResultsComponent implements OnInit {
     userAnswers: this.quizService.userAnswers,
     elapsedTimes: this.timerService.elapsedTimes
   };
+
+  highScores: Score[] = [];
+  score: Score;
+  correctAnswersCount: number;
+
   questions: QuizQuestion[];
   quizName = '';
   quizId: string;
@@ -39,13 +46,16 @@ export class ResultsComponent implements OnInit {
   correctAnswers: number[] = [];
   previousUserAnswers: any;
   numberOfCorrectAnswers = [];
+
   elapsedMinutes: number;
   elapsedSeconds: number;
+
+  checkedShuffle: boolean;
 
   @ViewChild('accordion', { static: false }) accordion: MatAccordion;
   panelOpenState = false;
 
-  CONGRATULATIONS = '../../assets/images/congratulations.jpg';
+  CONGRATULATIONS = '../../assets/images/congrats.gif';
   NOT_BAD = '../../assets/images/not-bad.jpg';
   TRY_AGAIN = '../../assets/images/try-again.jpeg';
   codelabUrl = 'https://www.codelab.fun';
@@ -65,6 +75,7 @@ export class ResultsComponent implements OnInit {
     this.previousUserAnswers = this.quizService.userAnswers;
     this.getUserAnswers(this.previousUserAnswers);
     this.calculateElapsedTime();
+    this.saveHighScores();
   }
 
   ngOnInit() {
@@ -75,6 +86,7 @@ export class ResultsComponent implements OnInit {
     this.questions = this.quizService.questions;
     this.correctAnswers = this.quizService.correctAnswers;
     this.numberOfCorrectAnswers = this.quizService.numberOfCorrectAnswersArray;
+    this.checkedShuffle = this.quizService.checkedShuffle;
   }
 
   private getCompletedQuizId(quizId: string): void {
@@ -103,6 +115,24 @@ export class ResultsComponent implements OnInit {
     return !(!userAnswers[index] ||
              userAnswers[index].length === 0 ||
              userAnswers[index].find((answer) => correctAnswers[index][0].indexOf(answer) === -1));
+  }
+
+  saveHighScores(): void {
+    this.quizMetadata.correctAnswersCount$
+      .subscribe((correctAnswersCount: number) => this.correctAnswersCount = correctAnswersCount);
+
+    this.score = {
+      quizId: '',
+      score: this.correctAnswersCount,
+      datetime: new Date()
+    };
+    // TODO: set a max of 5 high scores per quizId, is the code below sufficient?
+    const MAX_LENGTH = 5;
+    if (this.quizId === this.quizName) {
+      this.highScores = new Array(MAX_LENGTH);
+    }
+    this.highScores.push(this.score);
+    console.log('High Scores:', this.highScores);
   }
 
   openAllPanels(): void {

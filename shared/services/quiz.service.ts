@@ -18,7 +18,9 @@ export class QuizService {
   question: QuizQuestion;
   questions: QuizQuestion[];
   answers: number[];
+  multipleAnswer: boolean;
   totalQuestions: number;
+  totalQuestionsAttempted: number;
   currentQuestionIndex = 1;
 
   quizId: string;
@@ -46,7 +48,8 @@ export class QuizService {
   correctOptions: string;
   correctMessage: string;
 
-  hasAnswer: boolean;
+  // hasAnswer: boolean;
+  isAnswered: boolean;
   checkedShuffle: boolean;
 
   correctSound = new Howl({
@@ -66,7 +69,7 @@ export class QuizService {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.hasAnswer = true;
+    // this.hasAnswer = true;
     this.quizId = this.activatedRoute.snapshot.paramMap.get('quizId');
     this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
   }
@@ -82,34 +85,29 @@ export class QuizService {
       this.correctAnswersForEachQuestion.push(this.correctAnswerOptions);
       this.correctAnswers.push(this.correctAnswersForEachQuestion);
 
-      this.setExplanationAndCorrectAnswerMessages(this.correctAnswersForEachQuestion.sort());
+      this.setCorrectAnswerMessagesAndExplanationText(this.correctAnswersForEachQuestion.sort());
       return identifiedCorrectAnswers;
     }
   }
 
-  setExplanationAndCorrectAnswerMessages(correctAnswers: number[]): void {
+  setCorrectAnswerMessagesAndExplanationText(correctAnswers: number[]): void {
     if (correctAnswers[0][0]) {
-      this.explanation = ' was correct because ' + this.question.explanation + '.';
       this.correctOptions = correctAnswers[0][0];
-      this.explanationText = 'Option ' + correctAnswers + this.explanation;
       this.correctMessage = 'The correct answer was Option ' + this.correctOptions + '.';
     }
     if (correctAnswers[0][0] && correctAnswers[0][1]) {
-      this.explanation = ' were correct because ' + this.question.explanation + '.';
       this.correctOptions = correctAnswers[0][0].toString().concat(' and ', correctAnswers[0][1]);
-      this.explanationText = 'Options ' + this.correctOptions + this.explanation;
       this.correctMessage = 'The correct answers were Options ' + this.correctOptions + '.';
     }
     if (correctAnswers[0][0] && correctAnswers[0][1] && correctAnswers[0][2]) {
-      this.explanation = ' were correct because ' + this.question.explanation + '.';
       this.correctOptions = correctAnswers[0][0].toString().concat(', ', correctAnswers[0][1], ' and ', correctAnswers[0][2]);
-      this.explanationText = 'Options ' + this.correctOptions + this.explanation;
       this.correctMessage = 'The correct answers were Options ' + this.correctOptions + '.';
     }
     if (correctAnswers[0][0] && correctAnswers[0][1] && correctAnswers[0][2] && correctAnswers[0][3]) {
       this.explanationText = 'All were correct!';
       this.correctMessage = 'All were correct!';
     }
+    this.explanationText = this.question.explanation;
   }
 
   // randomize questions array in-place using Durstenfeld shuffle algorithm
@@ -136,12 +134,11 @@ export class QuizService {
         this.previousUserAnswersTextSingleAnswer.push(previousAnswersString);
       }
       if (previousAnswers[i].length > 1) {
-        const previousAnswerOptionsInner = previousAnswers[i].slice();
-        for (let j = 0; j < previousAnswerOptionsInner.length; j++) {
-          const previousAnswersInnerString = questions[i].options[previousAnswerOptionsInner[j] - 1].text;
+        const previousAnswerOptionsInnerArray = previousAnswers[i].slice();
+        for (let j = 0; j < previousAnswerOptionsInnerArray.length; j++) {
+          const previousAnswersInnerString = questions[i].options[previousAnswerOptionsInnerArray[j] - 1].text;
           this.previousUserAnswersTextMultipleAnswer.push(previousAnswersInnerString);
         }
-        // this.previousUserAnswersText.push(this.previousUserAnswersInnerText);
       }
     }
   }
@@ -178,6 +175,10 @@ export class QuizService {
     this.totalQuestions = totalQuestions;
   }
 
+  setTotalQuestionsAttempted(totalQuestionsAttempted: number): void {
+    this.totalQuestionsAttempted = totalQuestionsAttempted;
+  }
+
   setUserAnswers(previousAnswers: []): void {
     this.previousUserAnswers = previousAnswers;
   }
@@ -186,8 +187,16 @@ export class QuizService {
     this.checkedShuffle = checked;
   }
 
+  setMultipleAnswer(multipleAnswer: boolean): void {
+    this.multipleAnswer = multipleAnswer;
+  }
+
   sendCorrectCountToResults(value: number): void {
     this.correctAnswersCountSubject.next(value);
+  }
+
+  setIsAnswered(isAnswered: boolean): void {
+    this.isAnswered = isAnswered;
   }
 
   navigateToNextQuestion() {
@@ -212,7 +221,7 @@ export class QuizService {
 
   resetAll() {
     this.answers = null;
-    this.hasAnswer = false;
+    // this.hasAnswer = false;
     this.correctAnswersForEachQuestion = [];
     this.correctAnswerOptions = [];
     this.correctOptions = '';
