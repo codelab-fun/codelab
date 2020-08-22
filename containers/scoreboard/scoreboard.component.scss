@@ -1,31 +1,26 @@
 @import "variables";
 
 .scoreboard {
+  display: flex;
+  justify-content: space-between;
   margin-top: 10px;
   clear: both;
 
-  .row {
-    display: inline-flex;
-  }
-
   .scoreboard-score {
-    float: left;
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
 
   .scoreboard-time {
-    float: left;
-    margin-left: 0.3rem;
+    margin-right: 1.7rem;
   }
 
   .badge {
-    float: left;
-    margin: 30px -25px 0 100px;
     font-family: $font-stack;
     font-size: 26px;
     font-weight: $font-weight-max;
     font-style: italic;
     color: $dark-green;
-    padding: -10px 0;
+    margin: 30px 0 0 10px;
+    padding: -10px 0; // fix
   }
 }

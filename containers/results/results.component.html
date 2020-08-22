@@ -50,12 +50,6 @@
             </div>
           </div>
 
-          <!-- <progress max="100" [value]="quizMetadata?.percentage">
-            <div class="progress-bar">
-              <span style="'width': quizMetadata?.percentage%">Progress: {{ quizMetadata?.percentage }}%</span>
-            </div>
-          </progress> -->
-
           <ngb-progressbar
             type="success"
             [striped]="true"
@@ -179,10 +173,10 @@
               </mat-expansion-panel>
             </mat-accordion>
             <mat-action-row class="mat-accordion-buttons">
-              <a mat-raised-button color="primary" name="expand all" class="btn hvr-radial-out" (click)="openAllPanels()">
+              <a mat-raised-button color="primary" title="expand all" class="btn hvr-radial-out" (click)="openAllPanels()">
                 <strong>Expand All</strong>&nbsp;&nbsp;<mat-icon>unfold_more</mat-icon>
               </a> &nbsp;
-              <a mat-raised-button color="primary" name="collapse all" class="btn hvr-radial-out" (click)="closeAllPanels()">
+              <a mat-raised-button color="primary" title="collapse all" class="btn hvr-radial-out" (click)="closeAllPanels()">
                 <strong>Collapse All</strong>&nbsp;&nbsp;<mat-icon>unfold_less</mat-icon>
               </a>
             </mat-action-row>

@@ -1,6 +1,6 @@
 <ng-container *ngFor="let quiz of quizData">
-  <mat-card
-    *ngIf="quiz.quizId === quizName && question && questionIndex <= totalQuestions"
+  <mat-card *ngIf="quiz.quizId === quizName &&
+                   question && questionIndex <= totalQuestions"
     [@changeRoute]="animationState$ | async"
     (@changeRoute.done)="animationDoneHandler()">
 
@@ -44,8 +44,11 @@
         <mat-card-actions>
           <mat-nav-list>
             <div class="prev-question-nav" *ngIf="question && questionIndex > 1">
-              <button type="button" mat-flat-button (click)="advanceToPreviousQuestion()"
-                      matTooltip="&laquo; Previous Question" matTooltipPosition="above">
+              <button type="button"
+                      mat-flat-button
+                      (click)="advanceToPreviousQuestion()"
+                      matTooltip="&laquo; Previous Question"
+                      matTooltipPosition="above">
                 <svg viewBox="0 0 410.258 410.258">
                   <polygon [attr.points]="paging.previousButtonPoints"/>
                 </svg>
@@ -53,8 +56,11 @@
             </div>
 
             <div class="restart-nav" *ngIf="question && questionIndex > 1 && questionIndex < totalQuestions">
-              <button type="button" mat-flat-button (click)="restartQuiz()"
-                      matTooltip="Restart Quiz" matTooltipPosition="above">
+              <button type="button"
+                      mat-flat-button
+                      (click)="restartQuiz()"
+                      matTooltip="Restart Quiz"
+                      matTooltipPosition="above">
                 <svg viewBox="0 0 305.836 305.836">
                   <path [attr.d]="paging.restartButtonPath"/>
                 </svg>
@@ -62,8 +68,12 @@
             </div>
 
             <div class="next-question-nav" *ngIf="question && questionIndex !== totalQuestions">
-              <button type="button" mat-flat-button (click)="advanceToNextQuestion()" [disabled]="!isAnswered()"
-                      matTooltip="Next Question &raquo;" matTooltipPosition="above">
+              <button type="button"
+                      mat-flat-button
+                      [disabled]="!isAnswered()"
+                      (click)="advanceToNextQuestion()"
+                      matTooltip="Next Question &raquo;"
+                      matTooltipPosition="above">
                 <svg viewBox="0 0 410.258 410.258">
                   <polygon [attr.points]="paging.nextButtonPoints"/>
                 </svg>
@@ -71,7 +81,11 @@
             </div>
 
             <div class="show-score-nav" *ngIf="question && questionIndex === totalQuestions">
-              <button type="submit" mat-raised-button (click)="advanceToResults()" disableRipple="true"
+              <button type="submit"
+                      mat-raised-button
+                      [disabled]="!isAnswered()"
+                      (click)="advanceToResults()"
+                      disableRipple="true"
                       class="btn btn-outline-primary">
                 <strong>Show Your Score</strong>
               </button>

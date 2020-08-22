@@ -124,17 +124,8 @@ export class QuizComponent implements OnInit {
   }
 
   advanceToNextQuestion() {
-    if (this.quizService.multipleAnswer === true &&
-        this.isAnswered() &&
-        this.answers.length === this.quizService.numberOfCorrectAnswers) {
-      this.totalQuestionsAttempted++;
-    } else {
-      this.totalQuestionsAttempted++;
-    }
-    console.log('TQA: ', this.totalQuestionsAttempted);
-    // sendTotalQuestionsAttemptedToQuizService();
-
     this.checkIfAnsweredCorrectly();
+    this.setTotalQuestionsAttempted();
     this.answers = [];
     this.quizData[this.indexOfQuizId].status = 'continue';
     this.animationState$.next('animationStarted');
@@ -184,6 +175,18 @@ export class QuizComponent implements OnInit {
     if (correctAnswerFound > -1 && answers.length === this.quizService.numberOfCorrectAnswers) {
       this.sendCorrectCountToQuizService(this.correctCount + 1);
     }
+  }
+
+  setTotalQuestionsAttempted(): void {
+    if (this.quizService.multipleAnswer === true &&
+      this.isAnswered() &&
+      this.answers.length === this.quizService.numberOfCorrectAnswers) {
+      this.totalQuestionsAttempted += 1;  // or is it ++?
+    } else {
+      this.totalQuestionsAttempted++;
+    }
+    console.log('TQA: ', this.totalQuestionsAttempted); // check in console
+    this.sendTotalQuestionsAttemptedToQuizService();
   }
 
   getQuizNameFromRoute(): void {
