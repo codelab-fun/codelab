@@ -1,5 +1,5 @@
 # codelab-angular-10-quiz-app
-Angular 10 quiz application created for open-source Angular Codelab (https://www.codelab.fun)
+This application was created for the open-source Angular Codelab (https://www.codelab.fun)
 
 # TODO:
 - fix scoring issue - in a multiple-answer question, if one correct answer is selected and one incorrect, the score still increases by 1; it should only increase if ALL correct answers have been selected (there also seems to be an issue with switching Observable to BehaviorSubject)
