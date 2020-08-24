@@ -70,10 +70,9 @@ export class ResultsComponent implements OnInit {
     this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
     this.quizData[this.indexOfQuizId].status = 'completed';
 
-    this.getCompletedQuizId(this.quizId);
     this.getQuizStatus();
-    this.previousUserAnswers = this.quizService.userAnswers;
     this.getUserAnswers(this.previousUserAnswers);
+    this.getCompletedQuizId(this.quizId);
     this.calculateElapsedTime();
     this.saveHighScores();
   }
@@ -87,15 +86,16 @@ export class ResultsComponent implements OnInit {
     this.correctAnswers = this.quizService.correctAnswers;
     this.numberOfCorrectAnswers = this.quizService.numberOfCorrectAnswersArray;
     this.checkedShuffle = this.quizService.checkedShuffle;
-  }
-
-  private getCompletedQuizId(quizId: string): void {
-    this.quizService.setCompletedQuizId(quizId);
+    this.previousUserAnswers = this.quizService.userAnswers;
   }
 
   private getQuizStatus(): void {
     this.status = this.quizData[this.indexOfQuizId].status;
     this.quizService.setQuizStatus(this.status);
+  }
+
+  private getCompletedQuizId(quizId: string): void {
+    this.quizService.setCompletedQuizId(quizId);
   }
 
   private getUserAnswers(previousAnswers: []): void {
@@ -124,11 +124,11 @@ export class ResultsComponent implements OnInit {
       datetime: new Date()
     };
 
-    const MAX_LENGTH = 5;
+    const MAX_LENGTH = 2;
     if (this.quizId === this.quizName) {
       this.highScores = new Array(MAX_LENGTH);
     }
-    if (this.highScores.length > MAX_LENGTH) {
+    if (this.quizId && this.highScores.length > MAX_LENGTH) {
       console.log('ERROR: ' + this.quizData[this.indexOfQuizId].milestone + ' can only be taken ' + MAX_LENGTH + ' times');
     }
     this.highScores.push(this.score);

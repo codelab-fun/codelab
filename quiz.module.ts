@@ -26,7 +26,7 @@ import { ResultsComponent } from '@codelab-quiz/containers/results/results.compo
 import { ScoreboardComponent } from '@codelab-quiz/containers/scoreboard/scoreboard.component';
 import { ScoreComponent } from '@codelab-quiz/containers/scoreboard/score/score.component';
 import { TimeComponent } from '@codelab-quiz/containers/scoreboard/time/time.component';
-import { JoinPipe } from './pipes/join.pipe';
+import { JoinPipe } from '@codelab-quiz/pipes/join.pipe';
 
 
 @NgModule({

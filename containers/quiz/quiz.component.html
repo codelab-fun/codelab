@@ -67,13 +67,12 @@
               </button>
             </div>
 
-            <div class="next-question-nav" *ngIf="question && questionIndex !== totalQuestions">
+            <div class="next-question-nav" *ngIf="question && questionIndex !== totalQuestions"
+                 matTooltip="Next Question &raquo;" matTooltipPosition="above" [matTooltipDisabled]="false">
               <button type="button"
                       mat-flat-button
                       [disabled]="!isAnswered()"
-                      (click)="advanceToNextQuestion()"
-                      matTooltip="Next Question &raquo;"
-                      matTooltipPosition="above">
+                      (click)="advanceToNextQuestion()">
                 <svg viewBox="0 0 410.258 410.258">
                   <polygon [attr.points]="paging.nextButtonPoints"/>
                 </svg>

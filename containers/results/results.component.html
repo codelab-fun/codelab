@@ -128,7 +128,7 @@
                       <li i18n>
                         <span class="leader">Your Answer(s):</span>
                         <ng-container *ngIf="results?.userAnswers[i]">
-                          {{ results?.userAnswers?.length === 1 ? 'Option' : 'Options' }}
+                          {{ results?.userAnswers[i].length === 1 ? 'Option' : 'Options' }}
                           {{ results?.userAnswers[i] | join }} &mdash;
                           <ng-container *ngFor="let item of results?.userAnswers[i]; let isLast = last">
                             {{ question?.options[item - 1].text }} <span *ngIf="!isLast"> AND </span>
