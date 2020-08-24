@@ -35,7 +35,6 @@ export class ResultsComponent implements OnInit {
 
   highScores: Score[] = [];
   score: Score;
-  correctAnswersCount: number;
 
   questions: QuizQuestion[];
   quizName = '';
@@ -44,8 +43,8 @@ export class ResultsComponent implements OnInit {
   status: string;
 
   correctAnswers: number[] = [];
-  previousUserAnswers: any;
-  numberOfCorrectAnswers = [];
+  previousUserAnswers: any[] = [];
+  numberOfCorrectAnswers: number[] = [];
 
   elapsedMinutes: number;
   elapsedSeconds: number;
@@ -71,8 +70,8 @@ export class ResultsComponent implements OnInit {
     this.quizData[this.indexOfQuizId].status = 'completed';
 
     this.getQuizStatus();
-    this.getUserAnswers(this.previousUserAnswers);
     this.getCompletedQuizId(this.quizId);
+    this.getUserAnswers(this.previousUserAnswers);
     this.calculateElapsedTime();
     this.saveHighScores();
   }
@@ -98,7 +97,7 @@ export class ResultsComponent implements OnInit {
     this.quizService.setCompletedQuizId(quizId);
   }
 
-  private getUserAnswers(previousAnswers: []): void {
+  private getUserAnswers(previousAnswers: any): void {
     this.quizService.setUserAnswers(previousAnswers);
   }
 
@@ -108,10 +107,10 @@ export class ResultsComponent implements OnInit {
   }
 
   calculatePercentageOfCorrectlyAnsweredQuestions(): number {
-    return Math.ceil(100 * this.quizService.correctAnswersCountSubject.value / this.quizService.totalQuestions);
+    return Math.ceil(100 * this.quizService.correctAnswersCountSubject.getValue() / this.quizService.totalQuestions);
   }
 
-  checkIfAnswersAreCorrect(correctAnswers, userAnswers, index: number): boolean {
+  checkIfAnswersAreCorrect(correctAnswers: any, userAnswers: any, index: number): boolean {
     return !(!userAnswers[index] ||
              userAnswers[index].length === 0 ||
              userAnswers[index].find((answer) => correctAnswers[index][0].indexOf(answer) === -1));
@@ -128,6 +127,8 @@ export class ResultsComponent implements OnInit {
     if (this.quizId === this.quizName) {
       this.highScores = new Array(MAX_LENGTH);
     }
+
+    // TODO: checked, error doesn't get thrown if quiz is taken more than 2 times; maybe need to use localstorage
     if (this.quizId && this.highScores.length > MAX_LENGTH) {
       console.log('ERROR: ' + this.quizData[this.indexOfQuizId].milestone + ' can only be taken ' + MAX_LENGTH + ' times');
     }

@@ -218,7 +218,7 @@ export class QuizComponent implements OnInit {
     this.quizService.setTotalQuestionsAttempted(this.totalQuestionsAttempted);
   }
 
-  private sendPreviousUserAnswersToQuizService(previousAnswers): void {
+  private sendPreviousUserAnswersToQuizService(previousAnswers: any): void {
     this.questions = this.quizData[this.indexOfQuizId].questions;
     this.quizService.setPreviousUserAnswersText(previousAnswers, this.questions);
   }

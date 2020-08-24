@@ -39,7 +39,7 @@ export class QuizService {
   correctAnswersCountSubject = new BehaviorSubject<number>(0);
 
   userAnswers = [];
-  previousUserAnswers = [];
+  previousUserAnswers: any = [];
   previousUserAnswersTextSingleAnswer = [];
   previousUserAnswersTextMultipleAnswer = [];
 
@@ -127,13 +127,13 @@ export class QuizService {
   }
 
   // set the text of the previous answers in an array to show in the following quiz
-  setPreviousUserAnswersText(previousAnswers, questions: QuizQuestion[]): void {
+  setPreviousUserAnswersText(previousAnswers: any, questions: QuizQuestion[]): void {
     for (let i = 0; i < previousAnswers.length; i++) {
-      if (previousAnswers[i].length === 1) {
+      if (previousAnswers.length === 1) {
         const previousAnswersString = questions[i].options[previousAnswers[i] - 1].text;
         this.previousUserAnswersTextSingleAnswer.push(previousAnswersString);
       }
-      if (previousAnswers[i].length > 1) {
+      if (previousAnswers.length > 1) {
         const previousAnswerOptionsInnerArray = previousAnswers[i].slice();
         for (let j = 0; j < previousAnswerOptionsInnerArray.length; j++) {
           const previousAnswersInnerString = questions[i].options[previousAnswerOptionsInnerArray[j] - 1].text;
