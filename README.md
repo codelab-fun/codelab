@@ -3,7 +3,6 @@ This application was created for the open-source Angular Codelab (https://www.co
 
 # TODO:
 - fix scoring issue - in a multiple-answer question, if one correct answer is selected and one incorrect, the score still increases by 1; it should only increase if ALL correct answers have been selected (there also seems to be an issue with switching Observable to BehaviorSubject)
-- set opacity on completed quiz in QuizSelectionComponent (doesn't seem to be setting, need to look at the ngStyle and CSS)
 - status field - I added status variable types to the Quiz interface, but if I remove all the "status: ''" from quiz.ts, it will complain and give an error. I should be able to set it initially somewhere else and have it update as needed.
 - saveHighScores function -- doesn't seem to throw error if quiz is taken more than MAX_LENGTH times, weird
 - add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
