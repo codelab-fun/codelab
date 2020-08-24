@@ -8,7 +8,7 @@ This application was created for the open-source Angular Codelab (https://www.co
 - saveHighScores function -- doesn't seem to throw error if quiz is taken more than MAX_LENGTH times, weird
 - add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
 - add previous user answers text for single-answer questions in QuizQuestionComponent template
-- get rid of "selected" field in Option model and use an 'inferred' selected variable instead???
+- remove "selected" field in Option model and probably use an 'inferred' selected variable instead
 - convert app with Ionic and Apache Cordova for usability on mobile devices - priority when everything else has been finished
 - add state management with NgRx???
 - add route guards? probably wait for NgRx...
