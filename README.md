@@ -3,6 +3,8 @@ This application was created for the open-source Angular Codelab (https://www.co
 
 # TODO:
 - fix scoring issue - in a multiple-answer question, if one correct answer is selected and one incorrect, the score still increases by 1; it should only increase if ALL correct answers have been selected (there also seems to be an issue with switching Observable to BehaviorSubject)
+  - if correct, then incorrect, then correct, score doesn't increment
+  - similarly if incorrect, then correct, then correct, score doesn't increment
 - checking and then unchecking of mat-checkbox in IntroductionComponent doesn't seem to set checkedShuffle back to false -- check this!
 - checkbox with shuffle q&a text in IntroductionComponent needs to be fixed in the center so it doesn't move the next time the intro screen is encountered
 - status field - I added status variable types to the Quiz interface, but if I remove all the "status: ''" from quiz.ts, it will complain and give an error. I should be able to set it initially somewhere else and have it update as needed.
