@@ -151,18 +151,6 @@ export class QuizService {
     this.quizId = quizId;
   }
 
-  setStartedQuizId(quizId: string) {
-    this.startedQuizId = quizId;
-  }
-
-  setContinueQuizId(quizId: string) {
-    this.continueQuizId = quizId;
-  }
-
-  setCompletedQuizId(quizId: string) {
-    this.completedQuizId = quizId;
-  }
-
   setQuestion(question: QuizQuestion): void {
     this.question = question;
   }
