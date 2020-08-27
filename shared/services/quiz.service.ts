@@ -70,7 +70,6 @@ export class QuizService {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    // this.hasAnswer = true;
     this.quizId = this.activatedRoute.snapshot.paramMap.get('quizId');
     this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
   }
@@ -217,7 +216,6 @@ export class QuizService {
 
   resetAll() {
     this.answers = null;
-    // this.hasAnswer = false;
     this.correctAnswersForEachQuestion = [];
     this.correctAnswerOptions = [];
     this.correctOptions = '';
