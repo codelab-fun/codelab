@@ -79,7 +79,7 @@ export class QuizComponent implements OnInit {
         this.sendQuizIdToQuizService();
         this.sendQuizStatusToQuizService();
         this.sendTotalQuestionsAttemptedToQuizService();
-        this.sendPreviousUserAnswersToQuizService(this.quizService.previousUserAnswers);
+        this.sendPreviousUserAnswersToQuizService();
         this.sendIsAnsweredToQuizService();
       }
     });
@@ -177,11 +177,12 @@ export class QuizComponent implements OnInit {
     }
   }
 
+  // TODO: could probably remove this since the next button is disabled
   setTotalQuestionsAttempted(): void {
     if (this.quizService.multipleAnswer === true &&
       this.isAnswered() &&
       this.answers.length === this.quizService.numberOfCorrectAnswers) {
-      this.totalQuestionsAttempted += 1;  // or is it ++?
+      this.totalQuestionsAttempted++; // increments 2 times for the 2 answer question, should only be once (TODO)
     } else {
       this.totalQuestionsAttempted++;
     }
@@ -218,9 +219,9 @@ export class QuizComponent implements OnInit {
     this.quizService.setTotalQuestionsAttempted(this.totalQuestionsAttempted);
   }
 
-  private sendPreviousUserAnswersToQuizService(previousAnswers: any): void {
+  private sendPreviousUserAnswersToQuizService(): void {
     this.questions = this.quizData[this.indexOfQuizId].questions;
-    this.quizService.setPreviousUserAnswersText(previousAnswers, this.questions);
+    this.quizService.setPreviousUserAnswersText(this.quizService.previousUserAnswers, this.questions);
   }
 
   private sendCorrectCountToQuizService(value: number): void {

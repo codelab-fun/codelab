@@ -4,8 +4,8 @@ import { MatAccordion } from '@angular/material/expansion';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
 import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
-import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
 import { QuizMetadata } from '@codelab-quiz/shared/models/QuizMetadata.model';
+import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
 import { Result } from '@codelab-quiz/shared/models/Result.model';
 import { Score } from '@codelab-quiz/shared/models/Score.model';
 import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
@@ -23,13 +23,13 @@ export class ResultsComponent implements OnInit {
 
   quizMetadata: Partial<QuizMetadata> = {
     totalQuestions: this.quizService.totalQuestions,
-    totalQuestionsAttempted: this.quizService.totalQuestionsAttempted,
+    totalQuestionsAttempted: this.quizService.totalQuestions, // should be same as totalQuestions since next button is disabled
     correctAnswersCount$: this.quizService.correctAnswersCountSubject,
     percentage: this.calculatePercentageOfCorrectlyAnsweredQuestions(),
     completionTime: this.timerService.calculateTotalElapsedTime(this.timerService.elapsedTimes)
   };
   results: Result = {
-    userAnswers: this.quizService.userAnswers,
+    answer: this.quizService.userAnswers,
     elapsedTimes: this.timerService.elapsedTimes
   };
 
@@ -69,9 +69,9 @@ export class ResultsComponent implements OnInit {
     this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
     this.quizData[this.indexOfQuizId].status = 'completed';
 
-    this.getQuizStatus();
-    this.getCompletedQuizId(this.quizId);
-    this.getUserAnswers(this.previousUserAnswers);
+    this.sendQuizStatusToQuizService();
+    this.sendCompletedQuizIdToQuizService();
+    this.sendPreviousUserAnswersToQuizService();
     this.calculateElapsedTime();
     this.saveHighScores();
   }
@@ -88,17 +88,17 @@ export class ResultsComponent implements OnInit {
     this.previousUserAnswers = this.quizService.userAnswers;
   }
 
-  private getQuizStatus(): void {
+  private sendQuizStatusToQuizService(): void {
     this.status = this.quizData[this.indexOfQuizId].status;
     this.quizService.setQuizStatus(this.status);
   }
 
-  private getCompletedQuizId(quizId: string): void {
-    this.quizService.setCompletedQuizId(quizId);
+  private sendCompletedQuizIdToQuizService(): void {
+    this.quizService.setCompletedQuizId(this.quizId);
   }
 
-  private getUserAnswers(previousAnswers: any): void {
-    this.quizService.setUserAnswers(previousAnswers);
+  private sendPreviousUserAnswersToQuizService(): void {
+    this.quizService.setPreviousUserAnswers(this.previousUserAnswers);
   }
 
   calculateElapsedTime(): void {
@@ -110,10 +110,10 @@ export class ResultsComponent implements OnInit {
     return Math.ceil(100 * this.quizService.correctAnswersCountSubject.getValue() / this.quizService.totalQuestions);
   }
 
-  checkIfAnswersAreCorrect(correctAnswers: any, userAnswers: any, index: number): boolean {
-    return !(!userAnswers[index] ||
-             userAnswers[index].length === 0 ||
-             userAnswers[index].find((answer) => correctAnswers[index][0].indexOf(answer) === -1));
+  checkIfAnswersAreCorrect(correctAnswers: any, answer: any, index: number): boolean {
+    return !(!answer[index] ||
+             answer[index].length === 0 ||
+             answer[index].find((answer) => correctAnswers[index][0].indexOf(answer) === -1));
   }
 
   saveHighScores(): void {

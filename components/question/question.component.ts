@@ -33,9 +33,12 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   isCorrectAnswerSelected = false;
   correctAnswers = [];
   correctMessage = '';
+  previousUserAnswers: any[] = [];
   previousUserAnswersText = [];
-  previousUserAnswersTextSingleAnswer = [];
-  previousUserAnswersTextMultipleAnswer = [];
+  puaTextSingleAnswer: string[] = [];
+  puaTextMultipleAnswer: string[] = [];
+  // get puaTextSingleAnswer(): string[] { return this.quizService.previousUserAnswersTextSingleAnswer; }
+  // get puaTextMultipleAnswer(): string[] { return this.quizService.previousUserAnswersTextMultipleAnswer; }
 
   constructor(
     private quizService: QuizService,
@@ -47,9 +50,10 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       answer: new FormControl(['', Validators.required])
     });
 
-    this.previousUserAnswersTextSingleAnswer = this.quizService.previousUserAnswersTextSingleAnswer;
-    this.previousUserAnswersTextMultipleAnswer = this.quizService.previousUserAnswersTextMultipleAnswer;
-    this.isAnswered = this.quizService.isAnswered;
+    this.previousUserAnswers = this.quizService.userAnswers;
+    console.log('QUESTIONCOMP: ', this.previousUserAnswers);
+
+    this.isAnswered = this.quizService.isAnswered;  // am I using this here?
   }
 
   ngOnChanges(changes: SimpleChanges) {

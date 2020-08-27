@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
 import { TimerService } from '@codelab-quiz/shared/services/timer.service';
 
-
 @Component({
   selector: 'codelab-scoreboard',
   templateUrl: './scoreboard.component.html',

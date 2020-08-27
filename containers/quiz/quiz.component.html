@@ -1,5 +1,5 @@
 <ng-container *ngFor="let quiz of quizData">
-  <mat-card *ngIf="quiz.quizId === quizName &&
+  <mat-card *ngIf="quiz?.quizId === quizName &&
                    question && questionIndex <= totalQuestions"
     [@changeRoute]="animationState$ | async"
     (@changeRoute.done)="animationDoneHandler()">
@@ -14,8 +14,10 @@
     </mat-card-header>
 
     <mat-card-content>
+      <!-- the scoreboard area -->
       <codelab-scoreboard></codelab-scoreboard>
 
+      <!-- the question/explanation area -->
       <section id="question" [ngClass]="!isAnswered() ? 'unanswered': 'answered'">
         <span *ngIf="!isAnswered()" i18n>{{ question?.questionText }}&nbsp;
           <span class="number-correct" *ngIf="numberOfCorrectAnswers > 1">
@@ -30,6 +32,7 @@
         </span>
       </section>
 
+      <!-- the options -->
       <codelab-quiz-question
         [question]="question"
         (answer)="selectedAnswer($event)">
@@ -37,9 +40,11 @@
     </mat-card-content>
 
     <mat-card-footer>
+      <!-- selection message -->
       <span *ngIf="!isAnswered()" class="selection-message">
         Please select an option to continue&hellip;
       </span>
+      <!-- paging -->
       <section class="paging">
         <mat-card-actions>
           <mat-nav-list>
@@ -93,6 +98,7 @@
         </mat-card-actions>
       </section>
 
+      <!-- progress bar -->
       <section class="progress-bar" *ngIf="question && questionIndex > 1">
         <ngb-progressbar
           max="100"

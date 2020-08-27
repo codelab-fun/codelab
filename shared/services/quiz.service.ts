@@ -39,16 +39,17 @@ export class QuizService {
   correctAnswersCountSubject = new BehaviorSubject<number>(0);
 
   userAnswers = [];
-  previousUserAnswers: any = [];
-  previousUserAnswersTextSingleAnswer = [];
-  previousUserAnswersTextMultipleAnswer = [];
+  previousUserAnswers: any[] = [];
+  previousUserAnswersText: any[] = [];
+  previousUserAnswersInnerText = [];
+  previousUserAnswersTextSingleAnswer: string[] = [];
+  previousUserAnswersTextMultipleAnswer: string[] = [];
 
   explanation: string;
   explanationText: string;
   correctOptions: string;
   correctMessage: string;
 
-  // hasAnswer: boolean;
   isAnswered: boolean;
   checkedShuffle: boolean;
 
@@ -126,19 +127,21 @@ export class QuizService {
     }
   }
 
+  /********* setter functions ***********/
   // set the text of the previous answers in an array to show in the following quiz
-  setPreviousUserAnswersText(previousAnswers: any, questions: QuizQuestion[]): void {
+  setPreviousUserAnswersText(previousAnswers, questions: QuizQuestion[]): void {
     for (let i = 0; i < previousAnswers.length; i++) {
-      if (previousAnswers.length === 1) {
+      if (previousAnswers[i].length === 1) {
         const previousAnswersString = questions[i].options[previousAnswers[i] - 1].text;
-        this.previousUserAnswersTextSingleAnswer.push(previousAnswersString);
+        this.previousUserAnswersText.push(previousAnswersString);
       }
-      if (previousAnswers.length > 1) {
-        const previousAnswerOptionsInnerArray = previousAnswers[i].slice();
-        for (let j = 0; j < previousAnswerOptionsInnerArray.length; j++) {
-          const previousAnswersInnerString = questions[i].options[previousAnswerOptionsInnerArray[j] - 1].text;
-          this.previousUserAnswersTextMultipleAnswer.push(previousAnswersInnerString);
+      if (previousAnswers[i].length > 1) {
+        const previousAnswerOptionsInner = previousAnswers[i].slice();
+        for (let j = 0; j < previousAnswerOptionsInner.length; j++) {
+          const previousAnswersInnerString = questions[i].options[previousAnswerOptionsInner[j] - 1].text;
+          this.previousUserAnswersInnerText.push(previousAnswersInnerString);
         }
+        this.previousUserAnswersText.push(this.previousUserAnswersInnerText);
       }
     }
   }
@@ -171,8 +174,8 @@ export class QuizService {
     this.totalQuestionsAttempted = totalQuestionsAttempted;
   }
 
-  setUserAnswers(previousAnswers: []): void {
-    this.previousUserAnswers = previousAnswers;
+  setPreviousUserAnswers(previousUserAnswers) {
+    this.previousUserAnswers = previousUserAnswers;
   }
 
   setChecked(checked: boolean): void {
@@ -183,14 +186,15 @@ export class QuizService {
     this.multipleAnswer = multipleAnswer;
   }
 
-  sendCorrectCountToResults(value: number): void {
-    this.correctAnswersCountSubject.next(value);
-  }
-
   setIsAnswered(isAnswered: boolean): void {
     this.isAnswered = isAnswered;
   }
 
+  sendCorrectCountToResults(value: number): void {
+    this.correctAnswersCountSubject.next(value);
+  }
+
+  /********* navigation functions ***********/
   navigateToNextQuestion() {
     this.quizCompleted = false;
     this.currentQuestionIndex++;

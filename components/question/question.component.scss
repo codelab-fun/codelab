@@ -1,10 +1,9 @@
 @import "variables";
 
 .options {
-  margin-left: 0.4rem;
+  margin: 0 0 10px 0.4rem;
   padding: 5px;
   width: 39.5rem !important;
-  margin-bottom: 10px;
 
   mat-radio-button, mat-checkbox {
     cursor: pointer;
@@ -26,17 +25,13 @@
 
   mat-radio-label, mat-checkbox-label {
     white-space: normal;
+    margin-top: 5px;
 
     .feedback-icon {
       position: absolute;
       right: 0;
-      margin-top: 5px;
-      margin-right: 40px;
+      margin: 5px 40px 0 0 !important;
     }
-  }
-
-  mat-checkbox-label .feedback-icon {
-    margin-top: -50px;
   }
 
   .is-correct {
@@ -135,6 +130,10 @@
   mat-checkbox {
     padding-top: 15px;
     padding-bottom: 15px;
+
+    label .feedback-icon {
+      margin-top: -50px;
+    }
   }
   mat-checkbox:first-child {
     margin-top: -20px !important;

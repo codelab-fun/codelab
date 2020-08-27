@@ -1,5 +1,5 @@
 <ng-container *ngFor="let quiz of quizData">
-  <mat-card *ngIf="quiz.quizId === quizName">
+  <mat-card *ngIf="quiz?.quizId === quizName">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
       <mat-card-title i18n>{{ quiz?.milestone }} Quiz</mat-card-title>
@@ -22,8 +22,8 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <mat-checkbox [checked]="false" (change)="onChange($event)">
-        <mat-checkbox-label>Shuffle Questions and Answers</mat-checkbox-label>
+      <mat-checkbox (change)="onChange($event)" disableRipple="true">
+        <mat-checkbox-label labelPosition="after">Shuffle Questions and Answers</mat-checkbox-label>
       </mat-checkbox>
 
       <button
@@ -33,7 +33,7 @@
         disableRipple="true"
         class="btn btn-outline-primary"
         [routerLink]="['/quiz/question/', quiz.quizId, 1]">
-        <span i18n><strong>Start the Quiz</strong>&nbsp;<mat-icon inline="true">play_arrow</mat-icon></span>
+        <span i18n><strong>Start the Quiz!</strong>&nbsp;<mat-icon inline="true">play_arrow</mat-icon></span>
       </button>
     </mat-card-actions>
   </mat-card>

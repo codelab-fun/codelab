@@ -32,11 +32,13 @@
             <span class="message wrong-message" i18n>&nbsp;&nbsp;&nbsp;That&apos;s wrong. {{ correctMessage }}</span>
           </span>
         </div>
-        <!-- TODO: show previous user answers for single-answer questions -->
-        <div *ngFor="let previousText of previousUserAnswersTextSingleAnswer" class="previous-answer-text">
-          <span *ngIf="option.selected"><em>{{ previousText }}</em> was selected in your previous quiz.</span>
-        </div>
       </section>
+      <!-- TODO: get this working, except with previousUserAnswersText -->
+      <!-- <div *ngFor="let previousOption of previousUserAnswers[i]" class="previous-answer-text">
+        <span *ngIf="option.selected && previousUserAnswers[i].length === 1">
+          Option {{ previousOption }} was selected in your previous quiz.
+        </span>
+      </div> -->
     </div>
 
     <div class="multiple-answer" *ngIf="multipleAnswer">
@@ -68,10 +70,13 @@
             <span class="message wrong-message" i18n>&nbsp;&nbsp;&nbsp;That&apos;s wrong. {{ correctMessage }}</span>
           </span>
         </div>
-        <div *ngFor="let previousText of previousUserAnswersTextMultipleAnswer" class="previous-answer-text">
-          <span *ngIf="option.selected">{{ previousText }}</span>&nbsp;was selected in your previous quiz.
-        </div>
       </section>
+      <!-- TODO: get this working, except with previousUserAnswersText -->
+      <!-- <div *ngFor="let previousOption of previousUserAnswers[i]" class="previous-answer-text">
+        <span *ngIf="option.selected && previousUserAnswers[i].length > 1">
+          Options {{ previousOption | join }} were selected in your previous quiz.
+        </span>
+      </div> -->
     </div>
   </div>
 </form>

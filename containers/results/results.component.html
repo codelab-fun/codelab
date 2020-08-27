@@ -1,5 +1,5 @@
 <ng-container *ngFor="let quiz of quizData">
-  <mat-card *ngIf="quiz.quizId === quizName">
+  <mat-card *ngIf="quiz?.quizId === quizName">
     <mat-card-header>
       <div mat-card-avatar class="header-image" (click)="selectQuiz()"
            matTooltip="back to Codelab Quiz Selection" matTooltipPosition="left">
@@ -102,7 +102,7 @@
 
               <span *ngIf="checkedShuffle" class="quiz-note">
                 <mat-icon>shuffle</mat-icon>&nbsp;<strong><em>Note:</em></strong>&nbsp;
-                Questions and answers were shuffled prior to quiz.
+                Questions and answers were shuffled prior to start of the quiz.
               </span>
             </div>
 
@@ -127,18 +127,18 @@
                     <ul class="quiz-summary-fields" *ngIf="correctAnswers?.length >= 1">
                       <li i18n>
                         <span class="leader">Your Answer(s):</span>
-                        <ng-container *ngIf="results?.userAnswers[i]">
-                          {{ results?.userAnswers[i].length === 1 ? 'Option' : 'Options' }}
-                          {{ results?.userAnswers[i] | join }} &mdash;
-                          <ng-container *ngFor="let item of results?.userAnswers[i]; let isLast = last">
+                        <ng-container *ngIf="results?.answer[i]">
+                          {{ results?.answer[i].length === 1 ? 'Option' : 'Options' }}
+                          {{ results?.answer[i] | join }} &mdash;
+                          <ng-container *ngFor="let item of results?.answer[i]; let isLast = last">
                             {{ question?.options[item - 1].text }} <span *ngIf="!isLast"> AND </span>
                           </ng-container>
                           <mat-icon class="correct"
-                                    *ngIf="checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">done</mat-icon>
+                                    *ngIf="checkIfAnswersAreCorrect(correctAnswers, results?.answer, i)">done</mat-icon>
                           <mat-icon class="incorrect"
-                                    *ngIf="!checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">clear</mat-icon>
+                                    *ngIf="!checkIfAnswersAreCorrect(correctAnswers, results?.answer, i)">clear</mat-icon>
                         </ng-container>
-                        <span *ngIf="!results?.userAnswers[i] || results?.userAnswers.length === 0">
+                        <span *ngIf="!results?.answer[i] || results?.answer.length === 0">
                           (no answer provided)
                         </span>
                       </li>
