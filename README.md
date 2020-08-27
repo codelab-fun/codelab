@@ -8,6 +8,7 @@ This application was created for the open-source Angular Codelab (https://www.co
 - checking and then unchecking of mat-checkbox in IntroductionComponent sets checkedShuffle back to false but loads a shuffled quiz instead
 - checkbox with shuffle q&a text in IntroductionComponent needs to be remain fixed in the center so it doesn't move the next time the intro screen is encountered
 - status field - I added status variable types to the Quiz interface, but if I remove all the "status: ''" from quiz.ts, it will complain and give an error. I should be able to set it initially somewhere else and have it update as needed.
+- totalQuestionsAnswered - probably can remove the incrementing code since next button is disabled
 - saveHighScores function -- doesn't seem to throw error if quiz is taken more than MAX_LENGTH times, weird
 - add another animation to mat-grid-tile in QuizSelectionComponent - probably need to create a separate file for the new animation and link it
 - add previous user answers text for single-answer questions in QuizQuestionComponent template
