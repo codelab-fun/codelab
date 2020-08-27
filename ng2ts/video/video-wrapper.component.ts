@@ -6,6 +6,7 @@ import {Component, Input} from '@angular/core';
 })
 export class VideoWrapperComponent {
   private video = {
+    date: new Date().toDateString(),
     title: 'Cute Cat',
     src: '/assets/images/cat-00.png',
     description: 'here is the descr',

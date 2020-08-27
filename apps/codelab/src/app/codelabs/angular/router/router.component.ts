@@ -13,36 +13,6 @@ interface FileHighlights {
   appHtml?: RegExp | RegExp[];
 }
 
-function routeExercise(highlights: FileHighlights) {
-  return {
-    files: [
-      CodelabFile.TypeScriptFile('app.module')
-        .setCode(require('!!raw-loader!./samples/simple-router/app.module.ts'))
-        .withHighlight(highlights.appModule),
-      CodelabFile.Html('app.component')
-        .setCode(
-          require('!!raw-loader!./samples/simple-router/app.component.html')
-        )
-        .withHighlight(highlights.appHtml),
-      CodelabFile.TypeScriptFile('app.component').setCode(
-        require('!!raw-loader!./samples/simple-router/app.component.ts')
-      ),
-      CodelabFile.TypeScriptFile('components/kitten').setCode(
-        require('!!raw-loader!./samples/simple-router/components/kitten.ts')
-      ),
-      CodelabFile.TypeScriptFile('components/puppy').setCode(
-        require('!!raw-loader!./samples/simple-router/components/puppy.ts')
-      ),
-      CodelabFile.TypeScriptFile('bootstrap')
-        .setCode(require('!!raw-loader!./samples/simple-router/main.ts'))
-        .makeBootstrappable(),
-      CodelabFile.Html('index').setCode(
-        require('!!raw-loader!./samples/simple-router/index.html')
-      )
-    ]
-  };
-}
-
 @Component({
   selector: 'codelab-slides-router',
   templateUrl: './router.component.html',
@@ -54,25 +24,31 @@ export class RouterComponent implements AfterViewInit {
   exercise: ExerciseConfigTemplate;
 
   code = {
-    routerConfig: routeExercise({
-      appModule: /const routes[\s\S]*?];[\s\S]/
-    }),
-    routerConfigPass: routeExercise({
-      appModule: /RouterModule.forRoot\(routes\)/
-    }),
-    routerOutlet: routeExercise({
-      appHtml: /<router-outlet><\/router-outlet>/
-    }),
-    menu: routeExercise({
-      appHtml: /<a[\s\S]*\/a>/
-    }),
-    kittens: {
-      runner: 'html',
-      files: [CodelabFile.Html('index').setCode(`<h1>Kittens</h1>`)]
+    files: {
+      'app.module.ts': require('!!raw-loader!./samples/simple-router/app.module.ts'),
+      'app.component.html': require('!!raw-loader!./samples/simple-router/app.component.html'),
+      'app.component.ts': require('!!raw-loader!./samples/simple-router/app.component.ts'),
+      'components/kitten.ts': require('!!raw-loader!./samples/simple-router/components/kitten.ts'),
+      'components/puppy.ts': require('!!raw-loader!./samples/simple-router/components/puppy.ts'),
+      'bootstrap.ts': require('!!raw-loader!./samples/simple-router/main.ts'),
+      'index.html': require('!!raw-loader!./samples/simple-router/index.html'),
+      'components/.html': require('!!raw-loader!./samples/simple-router/index.html')
     },
-    puppies: {
-      runner: 'html',
-      files: [CodelabFile.Html('index').setCode(`<h1>Puppies</h1>`)]
+    config: {
+      files: ['app.module.ts'],
+      highlights: { 'app.module.ts': /const routes[\s\S]*?];[\s\S]/ }
+    },
+    configPass: {
+      files: ['app.module.ts'],
+      highlights: { 'app.module.ts': /RouterModule.forRoot\(routes\)/ }
+    },
+    routerOutlet: {
+      files: ['app.component.html'],
+      highlights: { 'app.component.html': /<router-outlet><\/router-outlet>/ }
+    },
+    menu: {
+      files: ['app.component.html'],
+      highlights: { 'app.component.html': /<a[\s\S]*\/a>/ }
     }
   };
 

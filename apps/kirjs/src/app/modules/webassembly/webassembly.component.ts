@@ -190,7 +190,12 @@ export class WebassemblyComponent implements OnInit {
       pattern: {
         randomPattern,
         randomPatternSparce,
-        stillLife: [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
+        stillLife: [
+          [0, 0, 0, 0],
+          [0, 1, 1, 0],
+          [0, 1, 1, 0],
+          [0, 0, 0, 0]
+        ]
       }
     }
   };

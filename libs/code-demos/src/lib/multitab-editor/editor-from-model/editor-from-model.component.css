@@ -7,3 +7,9 @@
 ::ng-deep .current-line {
   display: none !important;
 }
+
+:host {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}

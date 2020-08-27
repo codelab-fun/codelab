@@ -962,7 +962,11 @@ const LanguageConfiguration: IRichLanguageConfiguration = {
   comments: {
     lineComment: ';;'
   },
-  brackets: [['{', '}'], ['[', ']'], ['(', ')']],
+  brackets: [
+    ['{', '}'],
+    ['[', ']'],
+    ['(', ')']
+  ],
   autoClosingPairs: [
     { open: '{', close: '}' },
     { open: '[', close: ']' },

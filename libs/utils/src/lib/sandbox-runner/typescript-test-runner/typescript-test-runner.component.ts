@@ -7,11 +7,11 @@ import {
   Output
 } from '@angular/core';
 import { Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import {
   compileTsFilesWatch,
   Files
 } from '@codelab/code-demos/src/lib/runner/compile-ts-files';
-import { filter, map } from 'rxjs/operators';
 
 @Component({
   // tslint:disable-next-line:component-selector

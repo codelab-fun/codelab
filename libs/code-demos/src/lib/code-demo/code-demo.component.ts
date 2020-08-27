@@ -57,7 +57,7 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   @Input() presets = ['angular'];
   @Input() bootstrap = 'bootstrap';
   @Input() solutions: Code = {};
-  @Input() highlights: Record<string, string> = {};
+  @Input() highlights: Record<string, string | RegExp> = {};
   @Input() allowSwitchingFiles = true;
   @Input() enableAutoFolding = true;
   @Input() fontSize = '18';

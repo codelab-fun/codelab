@@ -1,14 +1,13 @@
 import { AngularCliComponent } from './angular-cli.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
 import { FeedbackModule } from '@codelab/feedback';
 import { CommonModule } from '@angular/common';
 import { BrowserWindowModule } from '@codelab/browser';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
-import { SlidesModule } from '@codelab/slides';
 import { FormsModule } from '@angular/forms';
 import { ExternalLinkDirectiveDirective } from '../../../components/external-link-directive/external-link-directive.directive';
+import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 
 const routes = RouterModule.forChild([
   ...SlidesRoutes.get(AngularCliComponent)

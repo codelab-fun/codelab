@@ -1,8 +1,10 @@
 import {
   AfterViewInit,
   Component,
+  EventEmitter,
   Input,
   OnChanges,
+  Output,
   SimpleChanges
 } from '@angular/core';
 import { TestInfo } from '../../shared/interfaces/test-info';
@@ -21,6 +23,7 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
   tests: Array<TestInfo> = [];
   @Input() translations: { [key: string]: string } = {};
   @Input() code: any;
+  @Output() solved: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -49,6 +52,9 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
           };
         })
       };
+
+      const isSolved = this.result.tests.every(a => a.pass);
+      this.solved.emit(isSolved);
     } catch (e) {
       this.tests.find(t => !t.pass).result = '[Parsing error]' + e;
     }

@@ -104,7 +104,11 @@ export function gifParser(t: { [key: string]: string }) {
         );
       },
       converter(bits) {
-        return lzw(2, bits.match(/.{8}/g).map(a => parseInt(a, 2)), 4);
+        return lzw(
+          2,
+          bits.match(/.{8}/g).map(a => parseInt(a, 2)),
+          4
+        );
       }
     })
     .constBits('00000000');

@@ -10,7 +10,6 @@ import {
   QueryList,
   TemplateRef
 } from '@angular/core';
-
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

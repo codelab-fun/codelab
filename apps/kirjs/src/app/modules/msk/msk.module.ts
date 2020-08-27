@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlidesModule } from '@codelab/slides';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { RouterModule } from '@angular/router';
-import { MskComponent } from './msk.component';
+import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
@@ -13,10 +12,10 @@ import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-b
 import { QuestionsModule } from '@codelab/utils/src/lib/sync/components/questions/questions.module';
 import { SyncModule } from '@codelab/utils/src/lib/sync/sync.module';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.module';
 import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
+import { MskComponent } from './msk.component';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(MskComponent));
 

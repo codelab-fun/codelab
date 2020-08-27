@@ -1,4 +1,3 @@
-
 import { Codelab } from './Codelab';
 import { Guest } from './Guest';
 
@@ -21,9 +20,17 @@ const guests: Guest[] = [
     name: `Charles Darwin`
   }];
 
-const codelab = new Codelab(guests);
+let guestsOutput;
+try {
+  const codelab = new Codelab(guests);
+   guestsOutput = codelab.getGuestsComing && codelab.getGuestsComing().map((guest: Guest) => `<li>${guest.name}</li>`).join('');
+} catch (e) {
+  /* swallow */
+}
+if (guestsOutput) {
+  // Angular is so much better than this:
+  document.body.innerHTML = '<ul>' + guestsOutput + '</ul>';
 
-// Angular is so much better than this:
-document.body.innerHTML = '<ul>' +
-  codelab.getGuestsComing().map((guest: Guest) => `<li>${guest.name}</li>`).join('') +
-  '</ul>';
+} else {
+  document.body.innerHTML = 'make all tests pass to see the preview';
+}

@@ -7,9 +7,9 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { SlidesDeckComponent } from '../deck/deck.component';
 import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.

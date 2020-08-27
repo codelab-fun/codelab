@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegexComponent } from './regex.component';
-import { SlidesModule } from '@codelab/slides';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@codelab/slides/src/lib/routing/slide-routes';
-
+import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { RegexComponent } from './regex.component';
 import { LiveModule } from './live';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(RegexComponent));

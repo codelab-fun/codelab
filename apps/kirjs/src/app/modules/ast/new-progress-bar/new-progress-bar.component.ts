@@ -5,7 +5,7 @@ import {
   Input,
   Output
 } from '@angular/core';
-import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { SlidesDeckComponent } from '@ng360/slides';
 
 @Component({
   selector: 'kirjs-new-progress-bar',

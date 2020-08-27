@@ -9,8 +9,11 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "apps/codelab/extra-webpack.config.js"
+            },
             "outputPath": "dist/apps/codelab",
             "index": "apps/codelab/src/index.html",
             "main": "apps/codelab/src/main.ts",
@@ -20,6 +23,7 @@
             "assets": [
               "apps/codelab/src/assets",
               "apps/codelab/src/favicon.ico",
+              "apps/codelab/src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "node_modules/monaco-editor/",
@@ -27,10 +31,14 @@
               },
               {
                 "glob": "**/*",
+                "input": "libs/intro/assets/",
+                "output": "./assets/intro/"
+              },
+              {
+                "glob": "**/*",
                 "input": "libs/code-demos/assets/runner/",
                 "output": "./assets/runner/"
-              },
-              "apps/codelab/src/manifest.webmanifest"
+              }
             ],
             "styles": ["apps/codelab/src/styles.scss"],
             "scripts": []
@@ -75,13 +83,12 @@
                   "with": "apps/codelab/src/environments/environment.prod.ts"
                 }
               ],
-              "serviceWorker": true,
-              "ngswConfigPath": "apps/codelab/ngsw-config.json"
+              "serviceWorker": false
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "codelab:build"
           },
@@ -317,7 +324,7 @@
       "prefix": "codelab",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/angular-ast-viz/tsconfig.lib.json",
             "project": "libs/angular-ast-viz/ng-package.json"
@@ -355,7 +362,7 @@
       "prefix": "codelab",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/angular-slides-to-pdf/tsconfig.lib.json",
             "project": "libs/angular-slides-to-pdf/ng-package.json"
@@ -393,7 +400,7 @@
       "prefix": "codelab",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/feedback/tsconfig.lib.json",
             "project": "libs/feedback/ng-package.json"
@@ -419,39 +426,6 @@
         }
       }
     },
-    "slides": {
-      "root": "libs/slides",
-      "sourceRoot": "libs/slides/src",
-      "projectType": "library",
-      "prefix": "codelab",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "libs/slides/tsconfig.lib.json",
-            "project": "libs/slides/ng-package.json"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/slides/tsconfig.lib.json",
-              "libs/slides/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/slides/jest.config.js",
-            "tsConfig": "libs/slides/tsconfig.spec.json",
-            "setupFile": "libs/slides/src/test-setup.ts"
-          }
-        }
-      }
-    },
     "code-demos": {
       "root": "libs/code-demos",
       "sourceRoot": "libs/code-demos/src",
@@ -459,10 +433,15 @@
       "prefix": "codelab",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/code-demos/tsconfig.lib.json",
             "project": "libs/code-demos/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/code-demos/ng-package.prod.json"
+            }
           }
         },
         "lint": {
@@ -492,7 +471,7 @@
       "prefix": "live",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/live/tsconfig.lib.json",
             "project": "libs/live/ng-package.json"
@@ -525,7 +504,7 @@
       "prefix": "angular-presentation",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/firebase-login/tsconfig.lib.json",
             "project": "libs/firebase-login/ng-package.json"
@@ -984,13 +963,79 @@
         }
       },
       "schematics": {}
+    },
+    "intro": {
+      "projectType": "library",
+      "root": "libs/intro",
+      "sourceRoot": "libs/intro/src",
+      "prefix": "codelab",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/intro/tsconfig.lib.json",
+              "libs/intro/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/intro/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/intro/jest.config.js",
+            "tsConfig": "libs/intro/tsconfig.spec.json",
+            "setupFile": "libs/intro/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "slides": {
+      "projectType": "library",
+      "root": "libs/slides",
+      "sourceRoot": "libs/slides/src",
+      "prefix": "codelab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/slides/tsconfig.lib.json",
+            "project": "libs/slides/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/slides/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/slides/tsconfig.lib.json",
+              "libs/slides/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/slides/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/slides/jest.config.js",
+            "tsConfig": "libs/slides/tsconfig.spec.json",
+            "setupFile": "libs/slides/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "defaultProject": "codelab",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "slides",
-      "styleext": "css"
+      "style": "css"
     },
     "@schematics/angular:directive": {
       "prefix": "slides"

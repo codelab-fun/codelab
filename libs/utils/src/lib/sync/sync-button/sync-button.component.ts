@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
-import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
+import { SlidesDeckComponent } from '@ng360/slides';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';

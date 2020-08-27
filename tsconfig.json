@@ -12,14 +12,15 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "target": "es2015",
     "paths": {
       "jszip": ["node_modules/jszip/dist/jszip.min.js"],
       "@codelab/*": ["libs/*"],
+      "@ng360/slides": ["libs/slides/src/index.ts"],
       "@codelab/browser": ["libs/browser/src/index.ts"],
       "@codelab/console": ["libs/console/src/index.ts"],
       "@codelab/utils": ["libs/utils/src/index.ts"],
-      "@codelab/slides": ["libs/slides/src/index.ts"],
       "@codelab/angular-ast-viz": ["libs/angular-ast-viz/src/index.ts"],
       "@codelab/angular-slides-to-pdf": [
         "libs/angular-slides-to-pdf/src/index.ts"
@@ -31,7 +32,8 @@
       "@angular-presentation/firebase-login": [
         "libs/firebase-login/src/index.ts"
       ],
-      "@codelab/firebase": ["libs/firebase/src/index.ts"]
+      "@codelab/firebase": ["libs/firebase/src/index.ts"],
+      "@codelab/intro": ["libs/intro/src/index.ts"]
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "esnext", "dom"],

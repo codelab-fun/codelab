@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SlidesDeckComponent } from '@codelab/slides/src/lib/deck/deck.component';
-import { SlidesModule } from '@codelab/slides';
+import { SlidesModule } from '../slides.module';
+import { SlidesDeckComponent } from '../deck/deck.component';
 
 describe('Deck', () => {
   let component: SlidesDeckComponent;

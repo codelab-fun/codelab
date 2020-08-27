@@ -4,3 +4,15 @@ import '@angular/localize/init';
 
 // Needed for babel :(
 (window as any).Buffer = {};
+
+(window as any).process = {
+  env: { DEBUG: undefined },
+  argv: {
+    indexOf() {
+      return 0;
+    }
+  },
+  getuid() {
+    return 0;
+  }
+};
