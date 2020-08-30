@@ -1,0 +1,33 @@
+mat-card-header {
+  display: block;
+
+  .header-image {
+    margin: 5px 0 0 15px;
+  }
+
+  .quiz-topic-img {
+    display: flex;
+    justify-content: center;
+    background: url('images/DIDiagram.png') no-repeat;
+    background-size: 100%;
+    margin: 20px -10px 0 5px;
+    height: 300px;
+    width: 100%;
+  }
+}
+
+mat-card-content p {
+  text-align: justify;
+  margin-top: -25px;
+}
+
+mat-card-actions {
+  text-align: center;
+
+  button {
+    margin-bottom: 10px;
+  }
+  button:hover {
+    border: 1px solid #007aff;
+  }
+}

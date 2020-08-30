@@ -1,0 +1,99 @@
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+ol {
+  margin-top: 15px;
+  margin-left: -40px;
+  cursor: pointer;
+}
+ol li {
+  margin-left: 30px;
+}
+
+.radio-options {
+  margin-bottom: 5px;
+  margin-left: 0.5rem;
+  padding: 4px;
+}
+
+.option {
+  border: 2px solid #979797;
+  font-family: $font-stack;
+  font-size: 20px;
+  color: #0f0900;
+  background-color: #f5f5f5;
+  width: 39rem !important;
+  height: auto;
+  padding: 5px 5px 0 30px;
+  margin-left: -5px;
+  vertical-align: middle;
+}
+.option:hover {
+  outline: 2px solid #007aff;
+}
+
+.is-correct {
+  background-color: #00c853 !important;
+}
+.is-incorrect {
+  background-color: #ff0000 !important;
+}
+
+.feedback-icon {
+  position: absolute;
+  right: 0;
+  margin-right: 40px;
+  margin-top: -25px;
+}
+
+section.messages {
+  display: flex;
+  justify-content: center;
+
+  .message {
+    font-family: $font-stack;
+    font-weight: $font-weight-max;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center !important;
+    margin: 10px 0 0 0;
+    padding: 10px !important;
+    width: 32rem !important;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    margin-top: 10px !important;
+  }
+  .correct-message {
+    font-weight: $font-weight-max;
+    font-style: italic;
+    border: 2px solid #007aff;
+    border-radius: 5px;
+    color: #00c853 !important;
+  }
+  .wrong-message {
+    font-weight: $font-weight-max;
+    font-style: italic;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    color: #ff0000 !important;
+    padding: 5px;
+  }
+  mat-icon.sentiment {
+    font-size: 30px !important;
+    color: #9acd32;
+    margin-right: -50px !important;
+    vertical-align: top;
+    margin-top: 18px;
+  }
+  pre {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+}
+
+::ng-deep .mat-radio-button .mat-radio-container {
+  display: none;
+}

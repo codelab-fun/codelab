@@ -1,0 +1,141 @@
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+@font-face {
+  font-family: "DjbUpOnTheScoreboard";
+  src: url("../../../../../assets/DjbUpOnTheScoreboard.ttf") format("truetype");
+}
+
+mat-card-header {
+  display: block;
+
+  .header-image {
+    margin: 5px 0 0 15px;
+  }
+
+  mat-card-title {
+    display: inline-block;
+    margin: -100px -150px 0 -120px !important;
+    margin-top: 5px !important;
+  }
+
+  mat-card-subtitle {
+    display: block;
+    float: right;
+    margin: -55px -15px 0 0 !important;
+    clear: both;
+  }
+}
+
+
+section.scoreboard {
+  margin-top: 10px;
+
+  .row {
+    display: inline;
+  }
+  .score {
+    float: left;
+    margin-left: 1rem;
+
+    .leader {
+      margin-left: 15px;
+    }
+  }
+
+  .badge {
+    float: left;
+    margin: 20px 10px 0 100px;
+    font-family: $font-stack;
+    font-size: 24px;
+    font-weight: $font-weight-max;
+    font-style: italic;
+  }
+  .time-left {
+    float: right;
+    margin-right: 1.5rem;
+
+    .leader {
+      margin-left: 35px;
+    }
+  }
+
+  span.scoreboard {
+    font-family: "DjbUpOnTheScoreboard", $font-stack;
+    font-weight: $font-weight-max;
+    font-size: 30px;
+    color: #006400;
+    display: inline-block;
+    margin: -5px 0 0 15px;
+    width: auto;
+  }
+  .leader {
+    display: block;
+    font-weight: $font-weight-max;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    top: -5px;
+  }
+}
+
+section.unanswered {
+  border: 2px solid #007aff !important;
+}
+
+section.answered {
+  border: 2px solid #979797 !important;
+}
+
+#question {
+  font-family: $font-stack;
+  font-weight: 700;
+  font-size: 30px !important;
+  margin: 0 0 10px 0.4rem;
+  float: left;
+  padding: 5px 10px 15px 20px;
+  background-color: #f5f5f5;
+  border: 2px solid #007aff;
+  color: #0f0900;
+  width: 39rem !important;
+  height: auto;
+  vertical-align: middle;
+}
+
+
+.paging {
+  width: 40rem;
+
+  mat-card-actions {
+    margin: -10px 0 10px 0;
+
+    .next-question-nav {
+      float: right;
+      margin-right: -0.4rem;
+    }
+
+    .show-score-nav {
+      width: 150px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .next-question-nav:hover, .show-score-nav:hover {
+      border: 1px solid #007aff;
+    }
+
+    .show-score-nav:hover {
+      width: 141.5px;
+    }
+  }
+}
+
+section.progress-bar {
+  margin: 40px 0 10px 1.5rem;
+  width: 39rem;
+  height: auto;
+
+  ngb-progressbar {
+    border-radius: 10px;
+  }
+}

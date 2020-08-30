@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>Dependency Injection Quiz</mat-card-title>
+      <mat-card-subtitle>
+        Assess your knowledge of Dependency Injection (<abbr>DI</abbr>)
+      </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <section class="scoreboard">
+      <div class="row">
+        <div class="score">
+          <span class="leader">Score</span>
+          <span class="scoreboard">
+            {{ correctAnswersCount }}/{{ totalQuestions }}
+          </span>
+        </div>
+        <div class="badge" *ngIf="question && question.index <= totalQuestions">
+          <span>Question {{ question.index }} of {{ totalQuestions }}</span>
+        </div>
+        <div class="time-left">
+          <span class="leader">Time</span>
+          <span class="scoreboard">
+            0:<span *ngIf="timeLeft < 10">0</span>{{ timeLeft }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="question">{{ question.questionText }}</section>
+
+    <codelab-quiz-question [question]="question"></codelab-quiz-question>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <section class="paging">
+      <mat-card-actions>
+        <div class="nextQuestionNav" *ngIf="question && question.index !== totalQuestions">
+          <button type="button" [disabled]="disabled" (click)="navigateToNextQuestion()">
+            Next &raquo;
+          </button>
+        </div>
+        <div class="showScoreNav" *ngIf="question && question.index === totalQuestions">
+          <button type="button" (click)="navigateToResults()">
+            Show Your Score
+          </button>
+        </div>
+      </mat-card-actions>
+    </section>
+
+    <section class="progress-bar">
+      <ngb-progressbar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
+                              question && question.index <= totalQuestions"
+                       type="success" [striped]="true" [animated]="true" [value]="progressValue">
+        <strong>{{ progressValue }}%</strong>
+      </ngb-progressbar>
+    </section>
+  </mat-card-footer>
+</mat-card>
