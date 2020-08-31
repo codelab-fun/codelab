@@ -68,6 +68,16 @@ mat-card-header {
       border-radius: 10px;
     }
 
+    .mat-progress-spinner {
+      margin: 0 auto;
+    }
+    .mat-progress-spinner-percentage {
+      font-family: $font-stack;
+      font-size: 16px;
+      text-align: center;
+      clear: both;
+    }
+
     .quiz-feedback {
       margin-top: 20px;
 
@@ -100,18 +110,35 @@ mat-card-header {
         font-size: 16px;
         color: $vivid-blue;
         font-weight: $font-weight-max;
-        // margin-bottom: 20px;
         outline: none;
         text-align: center;
       }
 
-      .printout {
+      .summary-icons {
+        display: inline;
         float: right;
-        margin-right: 15px;
-        margin-top: -40px;
 
         a {
-          text-decoration: none !important;
+          color: $gray;
+          text-decoration: none;
+        }
+
+        .printout {
+          float: right;
+          margin-right: 60px;
+          margin-top: -40px;
+        }
+
+        .email {
+          float: right;
+          margin-right: 35px;
+          margin-top: -40px;
+        }
+
+        .share {
+          float: right;
+          margin-right: 10px;
+          margin-top: -40px;
         }
       }
 
@@ -149,6 +176,7 @@ mat-card-header {
           display: flex;
           justify-content: center;
           word-wrap: break-word;
+          margin-left: 10px;
         }
       }
 
@@ -158,10 +186,10 @@ mat-card-header {
 
         mat-expansion-panel {
           border: 2px solid $dark-blue;
-        }
 
-        mat-expansion-panel:hover {
-          border: 2px solid $vivid-blue;
+          &:hover {
+            border: 2px solid $vivid-blue;
+          }
         }
 
         mat-panel-title {
@@ -336,4 +364,9 @@ a.btn:focus:not(:active)::after {
     opacity: 0;
     transform: scale(10);
   }
+}
+
+// set the color of mat-progress-spinner to green
+:host ::ng-deep .mat-progress-spinner circle {
+  stroke: $green;
 }

@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
 import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
@@ -12,18 +14,26 @@ import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
   styleUrls: ['./introduction.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IntroductionComponent implements OnInit {
+export class IntroductionComponent implements OnInit, OnDestroy {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
   quizName: String = '';
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private quizService: QuizService,
               private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.url.subscribe(segments => {
-      this.quizName = segments[1].toString();
-    });
+    this.activatedRoute.url
+      .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(segments => {
+          this.quizName = segments[1].toString();
+        });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   onChange($event) {

@@ -20,7 +20,6 @@ export class QuizService {
   answers: number[];
   multipleAnswer: boolean;
   totalQuestions: number;
-  totalQuestionsAttempted: number;
   currentQuestionIndex = 1;
 
   quizId: string;
@@ -90,6 +89,21 @@ export class QuizService {
     }
   }
 
+  shuffledQuestions(questions: QuizQuestion[]): void {
+    for (let i = questions.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+  }
+
+  shuffledAnswers(answers: Option[]): void {
+    for (let i = answers.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [answers[i], answers[j]] = [answers[j], answers[i]];
+    }
+  }
+
+  /********* setter functions ***********/
   setCorrectAnswerMessagesAndExplanationText(correctAnswers: number[]): void {
     if (correctAnswers[0][0]) {
       this.correctOptions = correctAnswers[0][0];
@@ -110,24 +124,7 @@ export class QuizService {
     this.explanationText = this.question.explanation;
   }
 
-  // randomize questions array in-place using Durstenfeld shuffle algorithm
-  shuffledQuestions(questions: QuizQuestion[]): void {
-    for (let i = questions.length - 1; i >= 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [questions[i], questions[j]] = [questions[j], questions[i]];
-    }
-  }
-
-  // randomize answers array in-place using Durstenfeld shuffle algorithm
-  shuffledAnswers(answers: Option[]): void {
-    for (let i = answers.length - 1; i >= 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [answers[i], answers[j]] = [answers[j], answers[i]];
-    }
-  }
-
-  /********* setter functions ***********/
-  // set the text of the previous answers in an array to show in the following quiz
+  // set the text of the previous user answers in an array to show in the following quiz
   setPreviousUserAnswersText(previousAnswers, questions: QuizQuestion[]): void {
     for (let i = 0; i < previousAnswers.length; i++) {
       if (previousAnswers[i].length === 1) {
@@ -145,48 +142,44 @@ export class QuizService {
     }
   }
 
-  setQuizStatus(status: string): void {
-    this.status = status;
+  setQuizStatus(value: string): void {
+    this.status = value;
   }
 
-  setQuizId(quizId: string): void {
-    this.quizId = quizId;
+  setQuizId(value: string): void {
+    this.quizId = value;
   }
 
-  setCompletedQuizId(quizId: string) {
-    this.completedQuizId = quizId;
+  setCompletedQuizId(value: string) {
+    this.completedQuizId = value;
   }
 
-  setQuestion(question: QuizQuestion): void {
-    this.question = question;
+  setQuestion(value: QuizQuestion): void {
+    this.question = value;
   }
 
-  setQuestions(questions: QuizQuestion[]): void {
-    this.questions = questions;
+  setQuestions(value: QuizQuestion[]): void {
+    this.questions = value;
   }
 
-  setTotalQuestions(totalQuestions: number): void {
-    this.totalQuestions = totalQuestions;
+  setTotalQuestions(value: number): void {
+    this.totalQuestions = value;
   }
 
-  setTotalQuestionsAttempted(totalQuestionsAttempted: number): void {
-    this.totalQuestionsAttempted = totalQuestionsAttempted;
+  setPreviousUserAnswers(value: any) {
+    this.previousUserAnswers = value;
   }
 
-  setPreviousUserAnswers(previousUserAnswers) {
-    this.previousUserAnswers = previousUserAnswers;
+  setChecked(value: boolean): void {
+    this.checkedShuffle = value;
   }
 
-  setChecked(checked: boolean): void {
-    this.checkedShuffle = checked;
+  setMultipleAnswer(value: boolean): void {
+    this.multipleAnswer = value;
   }
 
-  setMultipleAnswer(multipleAnswer: boolean): void {
-    this.multipleAnswer = multipleAnswer;
-  }
-
-  setIsAnswered(isAnswered: boolean): void {
-    this.isAnswered = isAnswered;
+  setIsAnswered(value: boolean): void {
+    this.isAnswered = value;
   }
 
   sendCorrectCountToResults(value: number): void {
@@ -214,6 +207,10 @@ export class QuizService {
     this.router.navigate(['/quiz/results/', this.quizId]).then();
   }
 
+  resetQuestions() {
+    this.quizData = JSON.parse(JSON.stringify(QUIZ_DATA));
+  }
+
   resetAll() {
     this.answers = null;
     this.correctAnswersForEachQuestion = [];
@@ -224,9 +221,5 @@ export class QuizService {
     this.currentQuestionIndex = 0;
     this.timerService.stopTimer();
     this.timerService.resetTimer();
-  }
-
-  resetQuestions() {
-    this.quizData = JSON.parse(JSON.stringify(QUIZ_DATA));
   }
 }

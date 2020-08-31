@@ -120,11 +120,12 @@ mat-card {
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
         transition: 0.3s !important;
       }
-      mat-grid-title:active {
+      mat-grid-tile:active, mat-grid-tile:visited {
         border: 2px solid $dodger-blue;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
         transition: 0.3s !important;
       }
+
     }
   }
 }

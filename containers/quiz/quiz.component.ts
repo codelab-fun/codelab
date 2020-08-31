@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { Animations } from '@codelab-quiz/animations';
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
@@ -18,7 +19,7 @@ type AnimationState = 'animationStarted' | 'none';
   animations: [Animations.changeRoute],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class QuizComponent implements OnInit {
+export class QuizComponent implements OnInit, OnDestroy {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
   quizName: String = '';
   question: QuizQuestion;
@@ -26,7 +27,6 @@ export class QuizComponent implements OnInit {
   answers: number[] = [];
   questionIndex: number;
   totalQuestions: number;
-  totalQuestionsAttempted = 0;
   progressValue: number;
   correctCount: number;
   quizId: string;
@@ -34,6 +34,7 @@ export class QuizComponent implements OnInit {
   status: string;
   previousUserAnswers: any;
   checkedShuffle: boolean;
+  private unsubscribe$ = new Subject<void>();
   animationState$ = new BehaviorSubject<AnimationState>('none');
   get explanationText(): string { return this.quizService.explanationText; }
   get correctOptions(): string { return this.quizService.correctOptions; }
@@ -55,33 +56,34 @@ export class QuizComponent implements OnInit {
     this.indexOfQuizId = this.quizData.findIndex(el => el.quizId === this.quizId);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getQuizNameFromRoute();
     this.shuffleQuestionsAndAnswers();
 
-    this.activatedRoute.params.subscribe(params => {
-      this.totalQuestions = this.quizData[this.indexOfQuizId].questions.length;
-      this.quizService.setTotalQuestions(this.totalQuestions);
+    this.activatedRoute.params
+      .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(params => {
+          this.totalQuestions = this.quizData[this.indexOfQuizId].questions.length;
+          this.quizService.setTotalQuestions(this.totalQuestions);
 
-      if (params.questionIndex) {
-        this.questionIndex = parseInt(params.questionIndex, 0);
-        this.quizService.currentQuestionIndex = this.questionIndex;
+        if (params.questionIndex) {
+          this.questionIndex = parseInt(params.questionIndex, 0);
+          this.quizService.currentQuestionIndex = this.questionIndex;
 
-        if (this.questionIndex === 1) {
-          this.progressValue = 0;
-          this.quizData[this.indexOfQuizId].status = 'started';
-        } else {
-          this.progressValue = ((this.questionIndex - 1) / this.totalQuestions) * 100;
+          if (this.questionIndex === 1) {
+            this.progressValue = 0;
+            this.quizData[this.indexOfQuizId].status = 'started';
+          } else {
+            this.progressValue = ((this.questionIndex - 1) / this.totalQuestions) * 100;
+          }
+
+          this.sendQuestionToQuizService();
+          this.sendQuestionsToQuizService();
+          this.sendQuizIdToQuizService();
+          this.sendQuizStatusToQuizService();
+          this.sendPreviousUserAnswersToQuizService();
+          this.sendIsAnsweredToQuizService();
         }
-
-        this.sendQuestionToQuizService();
-        this.sendQuestionsToQuizService();
-        this.sendQuizIdToQuizService();
-        this.sendQuizStatusToQuizService();
-        this.sendTotalQuestionsAttemptedToQuizService();
-        this.sendPreviousUserAnswersToQuizService();
-        this.sendIsAnsweredToQuizService();
-      }
     });
 
     if (this.questionIndex === 1) {
@@ -90,7 +92,11 @@ export class QuizComponent implements OnInit {
 
     this.correctCount = this.quizService.correctAnswersCountSubject.getValue();
     this.sendCorrectCountToQuizService(this.correctCount);
-    this.totalQuestionsAttempted = 1;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   isAnswered(): boolean {
@@ -125,7 +131,6 @@ export class QuizComponent implements OnInit {
 
   advanceToNextQuestion() {
     this.checkIfAnsweredCorrectly();
-    this.setTotalQuestionsAttempted();
     this.answers = [];
     this.quizData[this.indexOfQuizId].status = 'continue';
     this.animationState$.next('animationStarted');
@@ -177,19 +182,6 @@ export class QuizComponent implements OnInit {
     }
   }
 
-  // TODO: could probably remove this since the next button is disabled
-  setTotalQuestionsAttempted(): void {
-    if (this.quizService.multipleAnswer === true &&
-      this.isAnswered() &&
-      this.answers.length === this.quizService.numberOfCorrectAnswers) {
-      this.totalQuestionsAttempted++; // increments 2 times for the 2 answer question, should only be once (TODO)
-    } else {
-      this.totalQuestionsAttempted++;
-    }
-    console.log('TQA: ', this.totalQuestionsAttempted); // check in console
-    this.sendTotalQuestionsAttemptedToQuizService();
-  }
-
   getQuizNameFromRoute(): void {
     this.activatedRoute.url.subscribe(segments => {
       this.quizName = segments[1].toString();
@@ -213,10 +205,6 @@ export class QuizComponent implements OnInit {
   private sendQuizStatusToQuizService(): void {
     this.status = this.quizData[this.indexOfQuizId].status;
     this.quizService.setQuizStatus(this.status);
-  }
-
-  private sendTotalQuestionsAttemptedToQuizService(): void {
-    this.quizService.setTotalQuestionsAttempted(this.totalQuestionsAttempted);
   }
 
   private sendPreviousUserAnswersToQuizService(): void {

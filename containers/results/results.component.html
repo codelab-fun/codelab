@@ -50,6 +50,20 @@
             </div>
           </div>
 
+          <!-- was trying to use a circular progress-bar...
+          <mat-progress-spinner
+            class="mat-progress-spinner"
+            [mode]="mode"
+            [value]="value"
+            [animated]="true"
+            [diameter]="100"
+            strokeWidth="5"
+            aria-label="percentage">
+          </mat-progress-spinner>
+          <div class="mat-progress-spinner-percentage">
+            <strong>{{ quizMetadata?.percentage }}%</strong>
+          </div> -->
+
           <ngb-progressbar
             type="success"
             [striped]="true"
@@ -73,11 +87,24 @@
 
             <div class="summary-report">
               <h2 class="summary-report-header">Summary Report</h2>
-              <div class="printout">
-                <a href="javascript:window.print()" matTooltip="Print">
-                  <mat-icon>printer</mat-icon>
-                </a>
+              <div class="summary-icons">
+                <div class="printout">
+                  <a matTooltip="Print" href="javascript:window.print()">
+                    <mat-icon>printer</mat-icon>
+                  </a>
+                </div>
+                <div class="email">
+                  <a target="_blank" matTooltip="E-mail" href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored {{ quizMetadata?.percentage }}% on this awesome quiz about Angular {{quiz?.milestone}}. Try to beat my score at {{ codelabUrl }}">
+                    <mat-icon>email</mat-icon>
+                  </a>
+                </div>
+                <div class="share">
+                  <a target="_blank" matTooltip="Share on Twitter" href="https://twitter.com/intent/tweet?text=I%20scored%20{{quizMetadata?.percentage}}/100%20on%20this%20awesome%20quiz%20about%20Angular%20{{quiz?.milestone}}.%20Try%20to%20beat%20my%20score%20at%20&amp;hashtag=quiz&amp;url={{codelabUrl}}!">
+                    <mat-icon>share</mat-icon>
+                  </a>
+                </div>
               </div>
+
               <ul class="summary-stats">
                 <li><span class="summary-stats-leader">
                   Your Score: </span> <span class="result">{{ quizMetadata?.correctAnswersCount$ | async }}</span></li>
@@ -101,8 +128,8 @@
               </ul><br />
 
               <span *ngIf="checkedShuffle" class="quiz-note">
-                <mat-icon>shuffle</mat-icon>&nbsp;<strong><em>Note:</em></strong>&nbsp;
-                Questions and answers were shuffled prior to start of the quiz.
+                <i class="material-icons" matTooltip="quiz note" matTooltipPosition="left">announcement</i>&nbsp;
+                <strong><em>Note:</em></strong>&nbsp;Questions and answers were shuffled prior to the start of the quiz.
               </span>
             </div>
 

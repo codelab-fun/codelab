@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatAccordion } from '@angular/material/expansion';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
 import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
@@ -17,10 +19,9 @@ import { TimerService } from '@codelab-quiz/shared/services/timer.service';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss']
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, OnDestroy {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
   // quizResources: QuizResource[] = JSON.parse(JSON.stringify(QUIZ_RESOURCES));
-
   quizMetadata: Partial<QuizMetadata> = {
     totalQuestions: this.quizService.totalQuestions,
     totalQuestionsAttempted: this.quizService.totalQuestions, // should be same as totalQuestions since next button is disabled
@@ -32,24 +33,20 @@ export class ResultsComponent implements OnInit {
     answer: this.quizService.userAnswers,
     elapsedTimes: this.timerService.elapsedTimes
   };
-
-  highScores: Score[] = [];
-  score: Score;
-
   questions: QuizQuestion[];
   quizName = '';
   quizId: string;
   indexOfQuizId: number;
   status: string;
-
   correctAnswers: number[] = [];
   previousUserAnswers: any[] = [];
   numberOfCorrectAnswers: number[] = [];
-
   elapsedMinutes: number;
   elapsedSeconds: number;
-
   checkedShuffle: boolean;
+  highScores: Score[] = [];
+  score: Score;
+  private unsubscribe$ = new Subject<void>();
 
   @ViewChild('accordion', { static: false }) accordion: MatAccordion;
   panelOpenState = false;
@@ -76,16 +73,23 @@ export class ResultsComponent implements OnInit {
     this.saveHighScores();
   }
 
-  ngOnInit() {
-    this.activatedRoute.url.subscribe(segments => {
-      this.quizName = segments[1].toString();
-    });
+  ngOnInit(): void {
+    this.activatedRoute.url
+      .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(segments => {
+          this.quizName = segments[1].toString();
+        });
 
     this.questions = this.quizService.questions;
     this.correctAnswers = this.quizService.correctAnswers;
     this.numberOfCorrectAnswers = this.quizService.numberOfCorrectAnswersArray;
     this.checkedShuffle = this.quizService.checkedShuffle;
     this.previousUserAnswers = this.quizService.userAnswers;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   private sendQuizStatusToQuizService(): void {
