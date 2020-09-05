@@ -20,4 +20,3 @@ This application was created for Angular Codelab (https://www.codelab.fun), an o
 - When there is more than one answer to a question, the number of correct answers is shown
 - Utilizes clean import paths via path aliasing
 - Supports internationalization
-- App is being finalized to convert to NgRx
