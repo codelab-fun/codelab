@@ -37,12 +37,7 @@ const routes = [
     path: 'quiz',
     loadChildren: () =>
       import('./quiz/routing/quiz-routing.module').then(m => m.QuizRoutingModule)
-  }/*,
-  {
-    path: 'quiz-ionic',
-    loadChildren: () =>
-      import('./quiz-ionic/routing/quiz-routing.module').then(m => m.QuizRoutingModule)
-  } */
+  }
 ];
 
 export const AngularFireApp = AngularFireModule.initializeApp(
