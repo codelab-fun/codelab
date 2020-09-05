@@ -1,6 +1,6 @@
 # codelab-angular-10-quiz-app
 
-<img src="https://raw.githubusercontent.com/marvinrusinek/codelab-angular-10-quiz-app/quiz/codelab-quiz-app.png">
+<img src="https://raw.githubusercontent.com/marvinrusinek/codelab-angular-10-quiz-app/quiz/codelab-quiz-app.png" height="500" width="400" alt="Angular Codelab Quiz App">
 
 This application was created for Angular Codelab (https://www.codelab.fun), an open-source software project written in Angular.
 
