@@ -16,4 +16,5 @@ This application was created for the open-source Angular Codelab (https://www.co
 - Utilizes Javascript ES6 arrow functions to store the correct answers stored in an array and user answers are also kept in an array
 - When there is more than one answer to a question, the number of correct answers is shown
 - Utilizes clean import paths via path aliasing
+- Supports internationalization
 - App is being finalized to convert to NgRx
