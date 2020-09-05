@@ -1,5 +1,8 @@
 # codelab-angular-10-quiz-app
-This application was created for the open-source Angular Codelab (https://www.codelab.fun)
+
+https://raw.githubusercontent.com/marvinrusinek/codelab-angular-10-quiz-app/quiz/codelab-quiz-app.png
+
+This application was created for Angular Codelab (https://www.codelab.fun), an open-source software project written in Angular.
 
 # FEATURES:
 - App developed using HTML5; CSS3/SCSS; Angular using TypeScript, JavaScript ES6 and NPM
