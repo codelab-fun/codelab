@@ -1,8 +1,8 @@
 <ng-container *ngFor="let quiz of quizData">
   <mat-card *ngIf="quiz?.quizId === quizName &&
                    question && questionIndex <= totalQuestions"
-    [@changeRoute]="animationState$ | async"
-    (@changeRoute.done)="animationDoneHandler()">
+            [@changeRoute]="animationState$ | async"
+            (@changeRoute.done)="animationDoneHandler()">
 
     <mat-card-header>
       <div mat-card-avatar class="header-image"
@@ -44,6 +44,7 @@
       <span *ngIf="!isAnswered()" class="selection-message">
         Please select an option to continue&hellip;
       </span>
+
       <!-- paging -->
       <section class="paging">
         <mat-card-actions>
@@ -52,6 +53,7 @@
               <button type="button"
                       mat-flat-button
                       (click)="advanceToPreviousQuestion()"
+                      (window:keydown.ArrowLeft)="advanceToPreviousQuestion()"
                       matTooltip="&laquo; Previous Question"
                       matTooltipPosition="above">
                 <svg viewBox="0 0 410.258 410.258">
@@ -77,7 +79,9 @@
               <button type="button"
                       mat-flat-button
                       [disabled]="!isAnswered()"
-                      (click)="advanceToNextQuestion()">
+                      (click)="advanceToNextQuestion()"
+                      (window:keydown.ArrowRight)="advanceToNextQuestion()"
+                      (window:keydown.Enter)="advanceToNextQuestion()">
                 <svg viewBox="0 0 410.258 410.258">
                   <polygon [attr.points]="paging.nextButtonPoints"/>
                 </svg>
@@ -87,9 +91,11 @@
             <div class="show-score-nav" *ngIf="question && questionIndex === totalQuestions">
               <button type="submit"
                       mat-raised-button
+                      disableRipple="true"
                       [disabled]="!isAnswered()"
                       (click)="advanceToResults()"
-                      disableRipple="true"
+                      (window:keydown.Enter)="advanceToResults()"
+                      (window:keydown.ArrowRight)="advanceToResults()"
                       class="btn btn-outline-primary">
                 <strong>Show Your Score</strong>
               </button>

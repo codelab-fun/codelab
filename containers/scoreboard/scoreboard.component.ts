@@ -3,9 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
-import { TimerService } from '@codelab-quiz/shared/services/timer.service';
-
+import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
 
 @Component({
   selector: 'codelab-scoreboard',
@@ -13,11 +11,11 @@ import { TimerService } from '@codelab-quiz/shared/services/timer.service';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() set selectedAnswer(value) { this.answer = value; }
-  answer;
+  @Input() set selectedAnswer(value: number) { this.answer = value; }
+  answer: number;
   totalQuestions: number;
   badgeQuestionNumber: number;
-  private unsubscribe$ = new Subject<void>();
+  unsubscribe$ = new Subject<void>();
 
   constructor(
     private quizService: QuizService,

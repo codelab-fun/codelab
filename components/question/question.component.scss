@@ -75,7 +75,7 @@
 
   .correct-message {
     border: 2px solid $vivid-blue;
-    color: $green;
+    color: $dark-green;
   }
 
   .wrong-message {
@@ -150,6 +150,7 @@
 
   .sentiment-icon {
     margin-top: 40px;
+    margin-left: 15px;
   }
 }
 

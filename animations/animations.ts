@@ -1,6 +1,17 @@
-import { animate, group, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 
-export const Animations = {
+/************** animation utilized in QuizSelectionComponent *********************/
+export const SlideLeftToRightAnimation = {
+  slideLeftToRight: trigger('slideLeftToRight', [
+    transition(':enter', [
+      style({transform: 'translateX(-100%)'}),
+      animate('500ms ease-in', style({transform: 'translateX(0%)'}))
+    ])
+  ])
+};
+
+/************** animation utilized in QuizComponent *********************/
+export const ChangeRouteAnimation = {
   changeRoute: trigger('changeRoute', [
     transition('* => animationStarted', [
       animate('1s', keyframes([
@@ -9,40 +20,5 @@ export const Animations = {
         style({transform: 'scale(1.0)'})
       ]))
     ]),
-  ])
-};
-
-export const SlideInOutAnimation = {
-  slideInOut: trigger('slideInOut', [
-    state('in', style({
-      'max-height': '500px', 'opacity': '1', 'visibility': 'visible'
-    })),
-    state('out', style({
-      'max-height': '0px', 'opacity': '0', 'visibility': 'hidden'
-    })),
-    transition('in => out', [group([
-        animate('400ms ease-in-out', style({
-          'opacity': '0'
-        })),
-        animate('600ms ease-in-out', style({
-          'max-height': '0px'
-        })),
-        animate('700ms ease-in-out', style({
-          'visibility': 'hidden'
-        }))
-      ]
-    )]),
-    transition('out => in', [group([
-        animate('1ms ease-in-out', style({
-          'visibility': 'visible'
-        })),
-        animate('600ms ease-in-out', style({
-          'max-height': '500px'
-        })),
-        animate('800ms ease-in-out', style({
-          'opacity': '1'
-        }))
-      ]
-    )])
   ])
 };

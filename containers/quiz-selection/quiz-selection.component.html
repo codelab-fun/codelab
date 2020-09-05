@@ -4,7 +4,7 @@
       <div class="container">
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 logo">
           <a href="https://www.codelab.fun" title="Angular Codelab" target="_blank">
-            <div mat-card-avatar class="header-image"></div>
+            <img mat-card-avatar class="header-image">
           </a>
         </div>
         <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
@@ -39,9 +39,11 @@
       </mat-toolbar>
 
       <mat-grid-list cols="3" rowHeight="370px" gutterSize="5px">
-        <mat-grid-tile *ngFor="let quiz of quizData" [@slideInOut]="animationState"
+        <mat-grid-tile *ngFor="let quiz of quizData"
+                       [@slideLeftToRight]="animationState$ | async"
+                       (@slideLeftToRight.done)="animationDoneHandler()"
                        [routerLink]="['/quiz/intro/', quiz?.quizId]"
-                       [ngStyle]="{ 'background': 'url(' + quiz?.imageUrl + ') no-repeat center 10px',
+                       [ngStyle]="{ 'background': 'url(' + imagePath + quiz?.image + ') no-repeat center 10px',
                                     'background-size': '300px 210px' }"
                        [ngClass]="{ 'started': status === 'started' && quiz?.quizId === startedQuizId,
                                     'continue': status === 'continue' && quiz?.quizId === continueQuizId,
@@ -80,7 +82,7 @@
     </mat-card-content>
 
     <mat-card-footer>
-      <h3 class="text-center" i18n>Copyright &copy; 2020 codelab.fun</h3>
+      <h3 i18n>Copyright &copy; 2020 <a target="_blank" href="https://www.codelab.fun">codelab.fun</a></h3>
     </mat-card-footer>
   </mat-card>
 </ng-container>

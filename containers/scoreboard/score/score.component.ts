@@ -14,7 +14,7 @@ export class ScoreComponent implements OnInit {
 
   constructor(private quizService: QuizService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.correctAnswersCount$ = this.quizService.correctAnswersCountSubject;
     this.totalQuestions = this.quizService.totalQuestions;
   }

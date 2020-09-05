@@ -10,10 +10,8 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
-import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
-import { TimerService } from '@codelab-quiz/shared/services/timer.service';
-
+import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model.ts';
+import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
 
 @Component({
   selector: 'codelab-quiz-question',
@@ -51,9 +49,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     });
 
     this.previousUserAnswers = this.quizService.userAnswers;
-    console.log('QUESTIONCOMP: ', this.previousUserAnswers);
-
-    this.isAnswered = this.quizService.isAnswered;  // am I using this here?
+    this.isAnswered = this.quizService.isAnswered;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -68,10 +64,6 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
         this.alreadyAnswered = false;
       }
     }
-  }
-
-  private sendMultipleAnswerToQuizService(): void {
-    this.quizService.setMultipleAnswer(this.multipleAnswer);
   }
 
   isCorrect(correct: boolean, optionIndex: number): boolean {
@@ -102,5 +94,9 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.quizService.incorrectSound.play();
     }
     this.alreadyAnswered = true;
+  }
+
+  private sendMultipleAnswerToQuizService(): void {
+    this.quizService.setMultipleAnswer(this.multipleAnswer);
   }
 }

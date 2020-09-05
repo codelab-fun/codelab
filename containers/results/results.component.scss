@@ -167,6 +167,7 @@ mat-card-header {
         }
 
         .result {
+          font-family: $font-stack;
           font-size: 20px;
         }
 
@@ -211,6 +212,7 @@ mat-card-header {
         .accordion-icon {
           position: absolute;
           left: 0;
+          margin-left: 25px;
           color: $gray;
           font-weight: $font-weight-max;
           font-size: 20px;
@@ -364,9 +366,4 @@ a.btn:focus:not(:active)::after {
     opacity: 0;
     transform: scale(10);
   }
-}
-
-// set the color of mat-progress-spinner to green
-:host ::ng-deep .mat-progress-spinner circle {
-  stroke: $green;
 }

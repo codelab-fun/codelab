@@ -4,13 +4,13 @@
       <div mat-card-avatar class="header-image"></div>
       <mat-card-title i18n>{{ quiz?.milestone }} Quiz</mat-card-title>
       <mat-card-subtitle i18n>
-        <span>How well do you know {{ quiz?.milestone }}?</span>
+        <span>How well versed are you in {{ quiz?.milestone }}?</span>
         <span>Take the quiz and find out!</span>
       </mat-card-subtitle>
     </mat-card-header>
 
     <div mat-card-image class="quiz-topic-image"
-         [ngStyle]="{ 'background': 'url(' + quiz?.imageUrl + ') no-repeat center top',
+         [ngStyle]="{ 'background': 'url(' + imagePath + quiz?.image + ') no-repeat center top',
                       'background-size': '400px 280px' }">
     </div>
 
@@ -27,10 +27,10 @@
       </mat-checkbox>
 
       <button
-        mat-raised-button
         type="button"
-        name="start quiz"
+        mat-raised-button
         disableRipple="true"
+        name="start quiz"
         class="btn btn-outline-primary"
         [routerLink]="['/quiz/question/', quiz.quizId, 1]">
         <span i18n><strong>Start the Quiz!</strong>&nbsp;<mat-icon inline="true">play_arrow</mat-icon></span>

@@ -5,14 +5,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
-import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
-import { QuizMetadata } from '@codelab-quiz/shared/models/QuizMetadata.model';
-import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
-import { Result } from '@codelab-quiz/shared/models/Result.model';
-import { Score } from '@codelab-quiz/shared/models/Score.model';
-import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
-import { TimerService } from '@codelab-quiz/shared/services/timer.service';
-
+import { Quiz, QuizMetadata, QuizQuestion, Result, Score } from '@codelab-quiz/shared/models/';
+import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
 
 @Component({
   selector: 'codelab-quiz-results',
@@ -21,16 +15,16 @@ import { TimerService } from '@codelab-quiz/shared/services/timer.service';
 })
 export class ResultsComponent implements OnInit, OnDestroy {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
-  // quizResources: QuizResource[] = JSON.parse(JSON.stringify(QUIZ_RESOURCES));
+  // quizResources: QuizResource[] = QUIZ_RESOURCES;
   quizMetadata: Partial<QuizMetadata> = {
     totalQuestions: this.quizService.totalQuestions,
-    totalQuestionsAttempted: this.quizService.totalQuestions, // should be same as totalQuestions since next button is disabled
+    totalQuestionsAttempted: this.quizService.totalQuestions, // same as totalQuestions since next button is disabled
     correctAnswersCount$: this.quizService.correctAnswersCountSubject,
     percentage: this.calculatePercentageOfCorrectlyAnsweredQuestions(),
     completionTime: this.timerService.calculateTotalElapsedTime(this.timerService.elapsedTimes)
   };
   results: Result = {
-    answer: this.quizService.userAnswers,
+    userAnswers: this.quizService.userAnswers,
     elapsedTimes: this.timerService.elapsedTimes
   };
   questions: QuizQuestion[];
@@ -40,13 +34,12 @@ export class ResultsComponent implements OnInit, OnDestroy {
   status: string;
   correctAnswers: number[] = [];
   previousUserAnswers: any[] = [];
-  numberOfCorrectAnswers: number[] = [];
   elapsedMinutes: number;
   elapsedSeconds: number;
   checkedShuffle: boolean;
   highScores: Score[] = [];
   score: Score;
-  private unsubscribe$ = new Subject<void>();
+  unsubscribe$ = new Subject<void>();
 
   @ViewChild('accordion', { static: false }) accordion: MatAccordion;
   panelOpenState = false;
@@ -82,7 +75,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
     this.questions = this.quizService.questions;
     this.correctAnswers = this.quizService.correctAnswers;
-    this.numberOfCorrectAnswers = this.quizService.numberOfCorrectAnswersArray;
     this.checkedShuffle = this.quizService.checkedShuffle;
     this.previousUserAnswers = this.quizService.userAnswers;
   }
@@ -114,10 +106,10 @@ export class ResultsComponent implements OnInit, OnDestroy {
     return Math.ceil(100 * this.quizService.correctAnswersCountSubject.getValue() / this.quizService.totalQuestions);
   }
 
-  checkIfAnswersAreCorrect(correctAnswers: any, answer: any, index: number): boolean {
-    return !(!answer[index] ||
-             answer[index].length === 0 ||
-             answer[index].find((answer) => correctAnswers[index][0].indexOf(answer) === -1));
+  checkIfAnswersAreCorrect(correctAnswers: any, userAnswers: any, index: number): boolean {
+    return !(!userAnswers[index] ||
+             userAnswers[index].length === 0 ||
+             userAnswers[index].find((answer) => correctAnswers[index][0].indexOf(answer) === -1));
   }
 
   saveHighScores(): void {
@@ -132,7 +124,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
       this.highScores = new Array(MAX_LENGTH);
     }
 
-    // TODO: checked, error doesn't get thrown if quiz is taken more than 2 times; maybe need to use localstorage
+    // TODO: checked, error doesn't get thrown if quiz is taken more than 2 times; perhaps need to use localstorage
     if (this.quizId && this.highScores.length > MAX_LENGTH) {
       console.log('ERROR: ' + this.quizData[this.indexOfQuizId].milestone + ' can only be taken ' + MAX_LENGTH + ' times');
     }
@@ -147,7 +139,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.accordion.closeAll();
   }
 
-  restartQuiz() {
+  restartQuiz(): void {
     this.quizService.resetAll();
     this.quizService.resetQuestions();
     this.timerService.elapsedTimes = [];
@@ -155,7 +147,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.router.navigate(['/quiz/intro/', this.quizId]).then();
   }
 
-  selectQuiz() {
+  selectQuiz(): void {
     this.quizService.resetAll();
     this.quizService.resetQuestions();
     this.quizId = '';

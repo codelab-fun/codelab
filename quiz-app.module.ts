@@ -16,8 +16,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgBackToTopModule } from 'ng-back-to-top';
 
-import { QuizAppComponent } from '@codelab-quiz/app.component';
+import { QuizAppComponent } from './quiz-app.component';
 import { QuizQuestionComponent } from '@codelab-quiz/components/question/question.component';
 import { IntroductionComponent } from '@codelab-quiz/containers/introduction/introduction.component';
 import { QuizComponent } from '@codelab-quiz/containers/quiz/quiz.component';
@@ -27,6 +28,7 @@ import { ScoreboardComponent } from '@codelab-quiz/containers/scoreboard/scorebo
 import { ScoreComponent } from '@codelab-quiz/containers/scoreboard/score/score.component';
 import { TimeComponent } from '@codelab-quiz/containers/scoreboard/time/time.component';
 import { JoinPipe } from '@codelab-quiz/pipes/join.pipe';
+import { QuizService, TimerService } from './shared/services';
 
 
 @NgModule({
@@ -59,9 +61,11 @@ import { JoinPipe } from '@codelab-quiz/pipes/join.pipe';
     MatRadioModule,
     MatToolbarModule,
     MatTooltipModule,
-    NgbModule
+    NgbModule,
+    NgBackToTopModule
   ],
   bootstrap: [QuizAppComponent],
+  providers: [QuizService, TimerService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class QuizAppModule { }

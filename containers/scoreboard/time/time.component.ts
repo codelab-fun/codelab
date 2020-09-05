@@ -2,8 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { concat, Observable, timer } from 'rxjs';
 import { first, repeatWhen, scan, shareReplay, skip, switchMapTo, takeUntil, tap } from 'rxjs/operators';
 
-import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
-import { TimerService } from '@codelab-quiz/shared/services/timer.service';
+import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
 
 @Component({
   selector: 'codelab-scoreboard-time',
@@ -32,7 +31,7 @@ export class TimeComponent implements OnChanges {
     }
   }
 
-  countdownClock() {
+  countdownClock(): void {
     const start$ = this.timerService.isStart.asObservable().pipe(shareReplay(1));
     const reset$ = this.timerService.isReset.asObservable();
     const stop$ = this.timerService.isStop.asObservable();

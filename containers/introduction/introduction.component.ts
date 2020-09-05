@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
-import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
+import { Quiz } from '@codelab-quiz/shared/models/Quiz.model.ts';
 import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
 
 
@@ -16,8 +16,9 @@ import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
 })
 export class IntroductionComponent implements OnInit, OnDestroy {
   quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
-  quizName: String = '';
-  private unsubscribe$ = new Subject<void>();
+  quizName = '';
+  unsubscribe$ = new Subject<void>();
+  imagePath = '../../../assets/images/';
 
   constructor(private quizService: QuizService,
               private activatedRoute: ActivatedRoute
@@ -36,7 +37,7 @@ export class IntroductionComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  onChange($event) {
+  onChange($event): void {
     if ($event.checked === true) {
       this.quizService.setChecked($event.checked);
     }

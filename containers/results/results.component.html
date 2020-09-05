@@ -50,21 +50,8 @@
             </div>
           </div>
 
-          <!-- was trying to use a circular progress-bar...
-          <mat-progress-spinner
-            class="mat-progress-spinner"
-            [mode]="mode"
-            [value]="value"
-            [animated]="true"
-            [diameter]="100"
-            strokeWidth="5"
-            aria-label="percentage">
-          </mat-progress-spinner>
-          <div class="mat-progress-spinner-percentage">
-            <strong>{{ quizMetadata?.percentage }}%</strong>
-          </div> -->
-
           <ngb-progressbar
+            *ngIf="status === 'completed'"
             type="success"
             [striped]="true"
             [animated]="true"
@@ -121,8 +108,8 @@
                   Test Status: </span> <span class="result">{{ quizMetadata?.percentage > 60 ? 'Passed' : 'Failed' }}
                   </span></li>
                 <li><span class="summary-stats-leader">
-                  Time Elapsed: </span> <span class="result">{{ elapsedMinutes }} minutes and {{ elapsedSeconds }}
-                  seconds</span></li>
+                  Time Elapsed: </span> <span class="result">{{ elapsedMinutes }} minutes and
+                  {{ elapsedSeconds }} seconds</span></li>
                 <li><span class="summary-stats-leader">
                   Date/Time Completed: </span> <span class="result">{{ score.datetime | date:'medium' }}</span></li>
               </ul><br />
@@ -136,7 +123,9 @@
             <mat-accordion [multi]="true" #accordion="matAccordion">
               <mat-expansion-panel class="quiz-summary-question"
                                    *ngFor="let question of questions; let i = index"
-                                   (opened)="panelOpenState = true" (closed)="panelOpenState = false" hideToggle="true">
+                                   (opened)="panelOpenState = true"
+                                   (closed)="panelOpenState = false"
+                                   hideToggle="true">
 
                 <mat-expansion-panel-header>
                   <mat-panel-description>
@@ -154,28 +143,29 @@
                     <ul class="quiz-summary-fields" *ngIf="correctAnswers?.length >= 1">
                       <li i18n>
                         <span class="leader">Your Answer(s):</span>
-                        <ng-container *ngIf="results?.answer[i]">
-                          {{ results?.answer[i].length === 1 ? 'Option' : 'Options' }}
-                          {{ results?.answer[i] | join }} &mdash;
-                          <ng-container *ngFor="let item of results?.answer[i]; let isLast = last">
+                        <ng-container *ngIf="results?.userAnswers[i]">
+                          {{ results?.userAnswers[i].length === 1 ? 'Option' : 'Options' }}
+                          {{ results?.userAnswers[i] | join }} &mdash;
+                          <ng-container *ngFor="let item of results?.userAnswers[i]; let isLast = last">
                             {{ question?.options[item - 1].text }} <span *ngIf="!isLast"> AND </span>
                           </ng-container>
                           <mat-icon class="correct"
-                                    *ngIf="checkIfAnswersAreCorrect(correctAnswers, results?.answer, i)">done</mat-icon>
+                            *ngIf="checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">done</mat-icon>
                           <mat-icon class="incorrect"
-                                    *ngIf="!checkIfAnswersAreCorrect(correctAnswers, results?.answer, i)">clear</mat-icon>
+                            *ngIf="!checkIfAnswersAreCorrect(correctAnswers, results?.userAnswers, i)">clear</mat-icon>
                         </ng-container>
-                        <span *ngIf="!results?.answer[i] || results?.answer.length === 0">
+                        <span *ngIf="!results?.userAnswers[i] || results?.userAnswers.length === 0">
                           (no answer provided)
                         </span>
                       </li>
                       <li i18n>
                         <span class="leader">Correct Answer(s):</span>
-                        <span *ngIf="numberOfCorrectAnswers[i] === 1">
-                          Option {{ correctAnswers[i] }} &mdash; {{ question?.options[i].text }}
+                        {{ correctAnswers[i][0].length === 1 ? 'Option' : 'Options' }}
+                        <span *ngIf="correctAnswers?.length === 1">
+                          {{ correctAnswers[i] }} &mdash; {{ question?.options[i].text }}
                         </span>
-                        <span *ngIf="numberOfCorrectAnswers[i] > 1">
-                          Options {{ correctAnswers[i][0] | join }} &mdash;
+                        <span *ngIf="correctAnswers?.length > 1">
+                          {{ correctAnswers[i][0] | join }} &mdash;
                           <ng-container *ngFor="let item of correctAnswers[i][0]; let isLast = last">
                             {{ question?.options[item - 1].text }} <span *ngIf="!isLast"> AND </span>
                           </ng-container>
@@ -200,10 +190,18 @@
               </mat-expansion-panel>
             </mat-accordion>
             <mat-action-row class="mat-accordion-buttons">
-              <a mat-raised-button color="primary" title="expand all" class="btn hvr-radial-out" (click)="openAllPanels()">
+              <a mat-raised-button
+                 color="primary"
+                 title="expand all"
+                 class="btn hvr-radial-out"
+                 (click)="openAllPanels()">
                 <strong>Expand All</strong>&nbsp;&nbsp;<mat-icon>unfold_more</mat-icon>
               </a> &nbsp;
-              <a mat-raised-button color="primary" title="collapse all" class="btn hvr-radial-out" (click)="closeAllPanels()">
+              <a mat-raised-button
+                 color="primary"
+                 title="collapse all"
+                 class="btn hvr-radial-out"
+                 (click)="closeAllPanels()">
                 <strong>Collapse All</strong>&nbsp;&nbsp;<mat-icon>unfold_less</mat-icon>
               </a>
             </mat-action-row>
@@ -243,5 +241,6 @@
         </div>
       </section>
     </mat-card-content>
+    <ng-back-to-top bgColor="#43e756" color="#006400"></ng-back-to-top>
   </mat-card>
 </ng-container>

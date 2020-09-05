@@ -4,11 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Howl } from 'howler';
 
 import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
-import { Option } from '@codelab-quiz/shared/models/Option.model';
-import { Quiz } from '@codelab-quiz/shared/models/Quiz.model';
-import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
-import { TimerService } from '@codelab-quiz/shared/services/timer.service';
-
+import { Option, Quiz, QuizQuestion } from '@codelab-quiz/shared/models/';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +30,6 @@ export class QuizService {
   correctAnswersForEachQuestion = [];
   correctAnswerOptions: number[] = [];
   numberOfCorrectAnswers: number;
-  numberOfCorrectAnswersArray = [];
   correctAnswersCountSubject = new BehaviorSubject<number>(0);
 
   userAnswers = [];
@@ -65,7 +60,6 @@ export class QuizService {
 
 
   constructor(
-    private timerService: TimerService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
@@ -76,10 +70,8 @@ export class QuizService {
   getCorrectAnswers(question: QuizQuestion) {
     if (this.question) {
       const identifiedCorrectAnswers = question.options.filter((option) => option.correct);
-      this.correctAnswerOptions = identifiedCorrectAnswers.map((option) => question.options.indexOf(option) + 1);
-
       this.numberOfCorrectAnswers = identifiedCorrectAnswers.length;
-      this.numberOfCorrectAnswersArray.push(this.numberOfCorrectAnswers);
+      this.correctAnswerOptions = identifiedCorrectAnswers.map((option) => question.options.indexOf(option) + 1);
 
       this.correctAnswersForEachQuestion.push(this.correctAnswerOptions);
       this.correctAnswers.push(this.correctAnswersForEachQuestion);
@@ -89,14 +81,16 @@ export class QuizService {
     }
   }
 
-  shuffledQuestions(questions: QuizQuestion[]): void {
+  // shuffle questions array in-place using Durstenfeld's shuffling algorithm
+  shuffleQuestions(questions: QuizQuestion[]): void {
     for (let i = questions.length - 1; i >= 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [questions[i], questions[j]] = [questions[j], questions[i]];
     }
   }
 
-  shuffledAnswers(answers: Option[]): void {
+  // shuffle answers array in-place using Durstenfeld's shuffling algorithm
+  shuffleAnswers(answers: Option[]): void {
     for (let i = answers.length - 1; i >= 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [answers[i], answers[j]] = [answers[j], answers[i]];
@@ -193,7 +187,6 @@ export class QuizService {
     const questionIndex = this.currentQuestionIndex;
     this.router.navigate(['/quiz/question/', this.quizId, questionIndex]).then();
     this.resetAll();
-    this.timerService.resetTimer();
   }
 
   navigateToPreviousQuestion() {
@@ -207,11 +200,12 @@ export class QuizService {
     this.router.navigate(['/quiz/results/', this.quizId]).then();
   }
 
-  resetQuestions() {
+  /********* reset functions ***********/
+  resetQuestions(): void {
     this.quizData = JSON.parse(JSON.stringify(QUIZ_DATA));
   }
 
-  resetAll() {
+  resetAll(): void {
     this.answers = null;
     this.correctAnswersForEachQuestion = [];
     this.correctAnswerOptions = [];
@@ -219,7 +213,5 @@ export class QuizService {
     this.correctMessage = '';
     this.explanationText = '';
     this.currentQuestionIndex = 0;
-    this.timerService.stopTimer();
-    this.timerService.resetTimer();
   }
 }

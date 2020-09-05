@@ -16,11 +16,11 @@
 
   .badge {
     font-family: $font-stack;
-    font-size: 26px;
     font-weight: $font-weight-max;
     font-style: italic;
+    font-size: 26px;
     color: $dark-green;
     margin: 30px 0 0 10px;
-    padding: -10px 0; // fix
+    padding: -10px 0;
   }
 }
