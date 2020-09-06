@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> quiz-holder
 @import "variables";
 
 mat-card-header {
   display: block;
   margin-top: 20px !important;
+<<<<<<< HEAD
 =======
 $font-stack: Space Mono, monospace;
 $font-weight-max: 900;
@@ -11,6 +15,8 @@ $font-weight-max: 900;
 mat-card-header {
   display: block;
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+>>>>>>> quiz-holder
 
   .header-image {
     margin-left: 10px;
@@ -18,17 +24,24 @@ mat-card-header {
 
   mat-card-title {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> quiz-holder
     font-family: 'Roboto', arial, sans-serif;
     font-size: 48px !important;
     font-style: italic;
     font-weight: 900;
     color: $green-angular-leaf;
+<<<<<<< HEAD
 =======
     font-weight: 900;
     font-size: 30px;
     text-align: center;
     margin: 0 0 0 -50px;
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+    text-shadow: 1px 0 0 $black, 0 -1px 0 $black, 0 1px 0 $black, -1px 0 0 $black;
+>>>>>>> quiz-holder
   }
 }
 
@@ -38,11 +51,17 @@ mat-card-header {
 
   h3 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-family: $congratulations-font;
     font-size: 32px;
     font-style: italic;
 =======
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+    font-family: $congratulations-font;
+    font-size: 32px;
+    font-style: italic;
+>>>>>>> quiz-holder
     text-align: center;
   }
   img {
@@ -64,11 +83,23 @@ mat-card-header {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> quiz-holder
     .your-score, .elapsed-time {
       font-size: 18px;
       font-weight: bold;
     }
 
+<<<<<<< HEAD
+=======
+    .result {
+      font-family: $font-stack;
+      font-size: 26px;
+      display: inline;
+    }
+
+>>>>>>> quiz-holder
     .percent-sign {
       font-size: large;
       font-weight: $font-weight-max;
@@ -80,6 +111,19 @@ mat-card-header {
       border-radius: 10px;
     }
 
+<<<<<<< HEAD
+=======
+    .mat-progress-spinner {
+      margin: 0 auto;
+    }
+    .mat-progress-spinner-percentage {
+      font-family: $font-stack;
+      font-size: 16px;
+      text-align: center;
+      clear: both;
+    }
+
+>>>>>>> quiz-holder
     .quiz-feedback {
       margin-top: 20px;
 
@@ -97,6 +141,7 @@ mat-card-header {
         margin-left: 16%;
         width: 400px;
       }
+<<<<<<< HEAD
 =======
     .quiz-feedback {
       margin-top: 20px;
@@ -107,6 +152,15 @@ mat-card-header {
   .quizSummary {
     display: flex;
     flex-direction: column;
+=======
+    }
+  }
+
+  .quiz-summary {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+>>>>>>> quiz-holder
 
     details {
       display: block;
@@ -114,26 +168,110 @@ mat-card-header {
       summary {
         font-size: 16px;
 <<<<<<< HEAD
+<<<<<<< HEAD
         color: $vivid-blue;
 =======
         color: #007aff;
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
         font-weight: $font-weight-max;
         margin-bottom: 20px;
+=======
+        color: $vivid-blue;
+        font-weight: $font-weight-max;
+>>>>>>> quiz-holder
         outline: none;
         text-align: center;
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       mat-accordion {
+=======
+      .summary-icons {
+        display: inline;
+        float: right;
+
+        a {
+          color: $gray;
+          text-decoration: none;
+        }
+
+        .printout {
+          float: right;
+          margin-right: 60px;
+          margin-top: -40px;
+        }
+
+        .email {
+          float: right;
+          margin-right: 35px;
+          margin-top: -40px;
+        }
+
+        .share {
+          float: right;
+          margin-right: 10px;
+          margin-top: -40px;
+        }
+      }
+
+      .summary-report {
+        margin: 0 auto;
+        border: 2px double $black;
+        width: 32.5rem;
+        clear: both;
+        padding: 5px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+
+        .summary-report-header {
+          text-align: center;
+          font-weight: $font-weight-max;
+        }
+
+        ul li {
+          list-style-type: none;
+        }
+
+        .summary-stats-leader {
+          font-weight: $font-weight-max;
+          font-color: $green-angular-leaf;
+          font-size: 16px;
+        }
+
+        .result {
+          font-family: $font-stack;
+          font-size: 20px;
+        }
+
+        .quiz-note {
+          font-family: $font-stack;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          word-wrap: break-word;
+          margin-left: 10px;
+        }
+      }
+
+      mat-accordion {
+        clear: both;
+>>>>>>> quiz-holder
         padding-bottom: 20px;
 
         mat-expansion-panel {
           border: 2px solid $dark-blue;
+<<<<<<< HEAD
         }
 
         mat-expansion-panel:hover {
           border: 2px solid $vivid-blue;
+=======
+
+          &:hover {
+            border: 2px solid $vivid-blue;
+          }
+>>>>>>> quiz-holder
         }
 
         mat-panel-title {
@@ -149,13 +287,20 @@ mat-card-header {
             font-weight: 700;
             font-style: italic;
             color: $black;
+<<<<<<< HEAD
             white-space: nowrap;
+=======
+>>>>>>> quiz-holder
           }
         }
 
         .accordion-icon {
           position: absolute;
           left: 0;
+<<<<<<< HEAD
+=======
+          margin-left: 25px;
+>>>>>>> quiz-holder
           color: $gray;
           font-weight: $font-weight-max;
           font-size: 20px;
@@ -215,6 +360,7 @@ mat-card-header {
 
         button {
           margin-right: 10px;
+<<<<<<< HEAD
 =======
       accordion {
         padding-bottom: 20px;
@@ -268,6 +414,8 @@ mat-card-header {
             font-weight: $font-weight-max;
           }
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+>>>>>>> quiz-holder
         }
       }
     }
@@ -278,6 +426,9 @@ mat-card-header {
   clear: left;
   text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> quiz-holder
   margin-top: 10px;
 
   a.btn {
@@ -285,6 +436,7 @@ mat-card-header {
     background-color: $light-sea-green;
     color: $white;
     border: 1px solid $black;
+<<<<<<< HEAD
 =======
   margin-top: -10px;
 
@@ -294,12 +446,18 @@ mat-card-header {
     color: white;
     border: 1px solid black;
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+>>>>>>> quiz-holder
     border-radius: 5px;
   }
 }
 
 .challenge-social {
   text-align: center;
+<<<<<<< HEAD
+=======
+  padding-bottom: 15px;
+>>>>>>> quiz-holder
 
   .social-buttons {
     display: block;
@@ -311,6 +469,9 @@ mat-card-header {
       background: no-repeat 10px 5px;
       background-size: 25px 25px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> quiz-holder
       color: $white;
     }
 
@@ -320,7 +481,11 @@ mat-card-header {
       top: 10px !important;
     }
 
+<<<<<<< HEAD
     a.btn.twitter {
+=======
+    a.btn.twitter-share-button {
+>>>>>>> quiz-holder
       background-color: $soft-blue;
       background-image: url($twitter-path);
       top: 10px !important;
@@ -330,6 +495,7 @@ mat-card-header {
       background-color: $fuel-yellow;
       background-image: url($email-path);
       top: 10px !important;
+<<<<<<< HEAD
 =======
       color: white;
     }
@@ -351,6 +517,8 @@ mat-card-header {
       background-image: url('../../../../../assets/images/email.svg');
       top: 5px;
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+>>>>>>> quiz-holder
     }
   }
 }

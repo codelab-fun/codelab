@@ -40,7 +40,11 @@ export class TimerService {
   }
 
   calculateTotalElapsedTime(elapsedTimes: number[]): number {
+<<<<<<< HEAD
     if (elapsedTimes.length > 0) {
+=======
+    if (elapsedTimes?.length > 0) {
+>>>>>>> quiz-holder
       this.completionTime = elapsedTimes.reduce((acc, cur) => acc + cur, 0);
       return this.completionTime;
     }

@@ -1,6 +1,7 @@
 <ng-content></ng-content>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <form [formGroup]="formGroup">
   <ol class="single-answer" *ngIf="!multipleAnswer">
     <div class="options" *ngFor="let option of currentQuestion.options; index as i">
@@ -15,6 +16,25 @@
                   *ngIf="option.selected && option.correct && isCorrectAnswerSelected">done</mat-icon>
         <mat-icon class="feedback-icon"
                   *ngIf="option.selected && !option.correct">clear</mat-icon>
+=======
+<form [formGroup]="formGroup">
+  <div class="options" *ngFor="let option of currentQuestion.options; index as i">
+    <div class="single-answer" *ngIf="!multipleAnswer">
+      <mat-radio-button
+        (change)="setSelected(i)"
+        [disabled]="alreadyAnswered"
+        [class.is-correct]="option.selected && option.correct"
+        [class.is-incorrect]="option.selected && !option.correct">
+
+        <mat-radio-label>
+          <span>{{ i + 1 }}. {{ option.text }}</span>
+
+          <mat-icon class="feedback-icon"
+                    *ngIf="option.selected && option.correct && isCorrectAnswerSelected">done</mat-icon>
+          <mat-icon class="feedback-icon"
+                    *ngIf="option.selected && !option.correct">clear</mat-icon>
+        </mat-radio-label>
+>>>>>>> quiz-holder
       </mat-radio-button>
 
       <section class="messages">
@@ -31,22 +51,45 @@
           </span>
         </div>
       </section>
+<<<<<<< HEAD
     </div>
   </ol>
 
   <ol class="multiple-answer" *ngIf="multipleAnswer">
     <div class="options" *ngFor="let option of currentQuestion.options; index as i">
+=======
+      <!-- TODO: get this working, except with previousUserAnswersText -->
+      <!-- <div *ngFor="let previousOption of previousUserAnswers[i]" class="previous-answer-text">
+        <span *ngIf="option.selected && previousUserAnswers[i].length === 1">
+          Option {{ previousOption }} was selected in your previous quiz.
+        </span>
+      </div> -->
+    </div>
+
+    <div class="multiple-answer" *ngIf="multipleAnswer">
+>>>>>>> quiz-holder
       <mat-checkbox
         (change)="setSelected(i)"
         [class.is-correct]="option.selected && option.correct"
         [class.is-incorrect]="option.selected && !option.correct">
 
+<<<<<<< HEAD
         <li i18n>{{ option.text }}</li>
 
         <mat-icon class="feedback-icon"
                   *ngIf="option.selected && option.correct && isCorrectAnswerSelected">done</mat-icon>
         <mat-icon class="feedback-icon"
                   *ngIf="option.selected && !option.correct">clear</mat-icon>
+=======
+        <mat-checkbox-label>
+          <span>{{ i + 1 }}. {{ option.text }}</span>
+
+          <mat-icon class="feedback-icon"
+                    *ngIf="option.selected && option.correct && isCorrectAnswerSelected">done</mat-icon>
+          <mat-icon class="feedback-icon"
+                    *ngIf="option.selected && !option.correct">clear</mat-icon>
+        </mat-checkbox-label>
+>>>>>>> quiz-holder
       </mat-checkbox>
 
       <section class="messages">
@@ -63,6 +106,7 @@
           </span>
         </div>
       </section>
+<<<<<<< HEAD
     </div>
 =======
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
@@ -93,4 +137,14 @@
     </mat-radio-group>
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
   </ol>
+=======
+      <!-- TODO: get this working, except with previousUserAnswersText -->
+      <!-- <div *ngFor="let previousOption of previousUserAnswers[i]" class="previous-answer-text">
+        <span *ngIf="option.selected && previousUserAnswers[i].length > 1">
+          Options {{ previousOption | join }} were selected in your previous quiz.
+        </span>
+      </div> -->
+    </div>
+  </div>
+>>>>>>> quiz-holder
 </form>

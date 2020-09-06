@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @import "variables";
 
 ol {
@@ -34,6 +35,19 @@ ol li {
     cursor: pointer;
     width: 39.5rem;
     height: 47px;
+=======
+@import "variables";
+
+.options {
+  margin: 0 0 10px 0.4rem;
+  padding: 5px;
+  width: 39.5rem !important;
+
+  mat-radio-button, mat-checkbox {
+    cursor: pointer;
+    width: 39.5rem !important;
+    height: auto !important;
+>>>>>>> quiz-holder
     font-family: $font-stack;
     font-size: 20px !important;
     color: $dark-brown;
@@ -48,6 +62,7 @@ ol li {
     }
   }
 
+<<<<<<< HEAD
   .feedback-icon {
     position: absolute;
     right: 0;
@@ -57,6 +72,17 @@ ol li {
 
   mat-checkbox .feedback-icon {
     margin-top: -50px;
+=======
+  mat-radio-label, mat-checkbox-label {
+    white-space: normal;
+    margin-top: 5px;
+
+    .feedback-icon {
+      position: absolute;
+      right: 0;
+      margin: 5px 40px 0 0 !important;
+    }
+>>>>>>> quiz-holder
   }
 
   .is-correct {
@@ -90,6 +116,10 @@ ol li {
   .message {
     font-family: $font-stack;
     margin: 20px auto;
+<<<<<<< HEAD
+=======
+    margin-left: -10px;
+>>>>>>> quiz-holder
     padding: 10px;
     width: 36rem;
     display: inline-flex;
@@ -99,7 +129,11 @@ ol li {
 
   .correct-message {
     border: 2px solid $vivid-blue;
+<<<<<<< HEAD
     color: $green;
+=======
+    color: $dark-green;
+>>>>>>> quiz-holder
   }
 
   .wrong-message {
@@ -114,6 +148,7 @@ ol li {
   }
 }
 
+<<<<<<< HEAD
 .single-answer {
   mat-radio-button {
     height: 57.6px;
@@ -121,6 +156,32 @@ ol li {
   }
   mat-radio-button:first-child {
     margin-top: -10px !important;
+=======
+.previous-answer-text {
+  clear: both;
+
+  div {
+    font-family: $font-stack;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+
+    span {
+      font-weight: $font-weight-max;
+      font-style: italic;
+    }
+  }
+}
+
+.single-answer {
+  margin-top: 15px;
+
+  mat-radio-button {
+    height: 57.6px;
+  }
+  mat-radio-button:first-child {
+    margin-top: -25px;
+>>>>>>> quiz-holder
   }
 
   .message {
@@ -131,6 +192,7 @@ ol li {
     display: inline;
     margin-top: 30px;
   }
+<<<<<<< HEAD
 
   .feedback-icon {
     margin-top: -30px;
@@ -144,6 +206,35 @@ ol li {
 
   .sentiment-icon {
     margin-top: 20px;
+=======
+}
+
+.multiple-answer {
+  mat-checkbox {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    label .feedback-icon {
+      margin-top: -50px;
+    }
+  }
+  mat-checkbox:first-child {
+    margin-top: -20px !important;
+  }
+
+  .message {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .feedback-icon {
+    margin-top: 5px !important;
+  }
+
+  .sentiment-icon {
+    margin-top: 40px;
+    margin-left: 15px;
+>>>>>>> quiz-holder
   }
 }
 
@@ -155,6 +246,7 @@ ol li {
   display: none;
 }
 
+<<<<<<< HEAD
 =======
 $font-stack: Space Mono, monospace;
 $font-weight-max: 900;
@@ -256,3 +348,10 @@ section.messages {
   display: none;
 }
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+// set width and height of mat-checkbox
+::ng-deep .mat-checkbox .mat-checkbox-layout {
+  width: 37rem;
+  height: auto;
+}
+>>>>>>> quiz-holder

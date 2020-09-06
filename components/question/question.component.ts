@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> quiz-holder
 import {
   ChangeDetectionStrategy,
   Component,
@@ -11,10 +14,15 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+<<<<<<< HEAD
 import { QuizQuestion } from '@shared/models/QuizQuestion.model';
 import { QuizService } from '@shared/services/quiz.service';
 import { TimerService } from '@shared/services/timer.service';
 
+=======
+import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model.ts';
+import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
+>>>>>>> quiz-holder
 
 @Component({
   selector: 'codelab-quiz-question',
@@ -30,9 +38,22 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   quizStarted: boolean;
   multipleAnswer: boolean;
   alreadyAnswered = false;
+<<<<<<< HEAD
   correctAnswers = [];
   correctMessage: string;
   isCorrectAnswerSelected = false;
+=======
+  isAnswered: boolean;
+  isCorrectAnswerSelected = false;
+  correctAnswers = [];
+  correctMessage = '';
+  previousUserAnswers: any[] = [];
+  previousUserAnswersText = [];
+  puaTextSingleAnswer: string[] = [];
+  puaTextMultipleAnswer: string[] = [];
+  // get puaTextSingleAnswer(): string[] { return this.quizService.previousUserAnswersTextSingleAnswer; }
+  // get puaTextMultipleAnswer(): string[] { return this.quizService.previousUserAnswersTextMultipleAnswer; }
+>>>>>>> quiz-holder
 
   constructor(
     private quizService: QuizService,
@@ -43,6 +64,12 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     this.formGroup = new FormGroup({
       answer: new FormControl(['', Validators.required])
     });
+<<<<<<< HEAD
+=======
+
+    this.previousUserAnswers = this.quizService.userAnswers;
+    this.isAnswered = this.quizService.isAnswered;
+>>>>>>> quiz-holder
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -50,6 +77,10 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.currentQuestion = changes.question.currentValue;
       this.correctAnswers = this.quizService.getCorrectAnswers(this.currentQuestion);
       this.multipleAnswer = this.correctAnswers.length > 1;
+<<<<<<< HEAD
+=======
+      this.sendMultipleAnswerToQuizService();
+>>>>>>> quiz-holder
 
       if (this.formGroup) {
         this.formGroup.patchValue({answer: ''});
@@ -69,7 +100,11 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     this.answer.emit(optionIndex);
 
     if (this.correctAnswers.length === 1) {
+<<<<<<< HEAD
       this.currentQuestion.options.forEach(o => o.selected = false);
+=======
+      this.currentQuestion.options.forEach((option) => option.selected = false);
+>>>>>>> quiz-holder
     }
     this.currentQuestion.options[optionIndex].selected = true;
 
@@ -85,6 +120,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     } else {
       this.quizService.incorrectSound.play();
     }
+<<<<<<< HEAD
 
     this.alreadyAnswered = true;
   }
@@ -149,3 +185,12 @@ export class QuestionComponent implements OnInit, OnChanges {
   }
 }
 >>>>>>> 970bc9feaf1792343871197b517f495f0567e967
+=======
+    this.alreadyAnswered = true;
+  }
+
+  private sendMultipleAnswerToQuizService(): void {
+    this.quizService.setMultipleAnswer(this.multipleAnswer);
+  }
+}
+>>>>>>> quiz-holder
