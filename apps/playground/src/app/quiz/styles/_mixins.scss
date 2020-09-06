@@ -1,0 +1,43 @@
+@import "variables";
+
+@mixin leader {
+  display: block;
+  font-family: $font-stack;
+  font-weight: $font-weight-max;
+  font-size: 18px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0 10px;
+  background-color: darken($pastel-green, 5%);
+  color: $black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+@mixin scoreboard-span {
+  font-family: 'DjbUpOnTheScoreboard', $font-stack;
+  font-weight: $font-weight-max;
+  font-size: 30px;
+  color: darken($dark-green, 5%);
+  display: inline-block;
+}
+
+@mixin message {
+  font-weight: $font-weight-max;
+  font-style: italic;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+
+.leader {
+  @include leader;
+}
+
+span.scoreboard {
+  @include scoreboard-span;
+}
+
+.message, .correct-message, .wrong-message {
+  @include message;
+}

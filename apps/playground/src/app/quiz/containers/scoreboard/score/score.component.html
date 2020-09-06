@@ -1,0 +1,8 @@
+<ng-container class="score">
+  <label class="leader" i18n>
+    <strong>Score</strong>
+  </label>
+  <span class="scoreboard" i18n>
+    {{ correctAnswersCount$ | async }}/{{ totalQuestions }}
+  </span>
+</ng-container>

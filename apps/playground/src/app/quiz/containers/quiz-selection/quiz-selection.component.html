@@ -1,0 +1,88 @@
+<ng-container *ngIf="quizData.length > 0">
+  <mat-card>
+    <mat-card-header>
+      <div class="container">
+        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 logo">
+          <a href="https://www.codelab.fun" title="Angular Codelab" target="_blank">
+            <img mat-card-avatar class="header-image">
+          </a>
+        </div>
+        <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+          <mat-card-title i18n>
+            <h1>Angular Codelab Quiz App</h1>
+          </mat-card-title>
+          <mat-card-subtitle i18n>
+            <span>How well do you know Angular? Find out!</span>
+          </mat-card-subtitle>
+        </div>
+        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
+          <a href="https://www.github.com/codelab-fun/codelab/blob/master/README.md#angular-codelab---codelabfun" target="_blank">
+            <i class="material-icons" matTooltip="Angular Codelab info" matTooltipPosition="right">info</i>
+          </a>
+        </div>
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-toolbar>
+        <button mat-button [matMenuTriggerFor]="menu" aria-label="Milestones Menu">
+          <span i18n>Milestones &#x25BC;</span>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <div *ngFor="let quiz of quizData">
+            <button mat-menu-item name="milestone"
+                    [routerLink]="['/quiz/intro/', quiz?.quizId]"
+                    data-i18n="quiz.milestone">{{ quiz?.milestone }}
+            </button>
+          </div>
+        </mat-menu>
+      </mat-toolbar>
+
+      <mat-grid-list cols="3" rowHeight="370px" gutterSize="5px">
+        <mat-grid-tile *ngFor="let quiz of quizData"
+                       [@slideLeftToRight]="animationState$ | async"
+                       (@slideLeftToRight.done)="animationDoneHandler()"
+                       [routerLink]="['/quiz/intro/', quiz?.quizId]"
+                       [ngStyle]="{ 'background': 'url(' + imagePath + quiz?.image + ') no-repeat center 10px',
+                                    'background-size': '300px 210px' }"
+                       [ngClass]="{ 'started': status === 'started' && quiz?.quizId === startedQuizId,
+                                    'continue': status === 'continue' && quiz?.quizId === continueQuizId,
+                                    'completed': status === 'completed' && quiz?.quizId === completedQuizId }">
+
+          <summary class="quiz-info">
+            <h5 class="quiz-title" i18n>{{ quiz?.milestone }}</h5>
+            <h6 class="quiz-subtitle text-justify" i18n>{{ quiz?.summary }}</h6>
+          </summary>
+
+          <div class="status-icon">
+            <span class="icon" name="start" matTooltip="Start"
+                  *ngIf="!quizCompleted || status === 'started' || quiz?.quizId === startedQuizId"
+                  [routerLink]="['/quiz/intro/', quiz?.quizId]">
+              <svg viewBox="0 0 24 24">
+                <path [attr.d]="quizStatusIcon.started" />
+              </svg>
+            </span>
+            <span class="icon" name="continue" matTooltip="Continue"
+                  *ngIf="status === 'continue' || quiz?.quizId === continueQuizId"
+                  [routerLink]="['/quiz/question/', quiz?.quizId, currentQuestionIndex]">
+              <svg viewBox="0 0 24 24">
+                <path [attr.d]="quizStatusIcon.continue" />
+              </svg>
+            </span>
+            <span class="icon" name="completed" matTooltip="Completed"
+                  *ngIf="status === 'completed' && quiz?.quizId === completedQuizId"
+                  [routerLink]="['/quiz/results/', quiz?.quizId]">
+              <svg viewBox="0 0 24 24">
+                <path [attr.d]="quizStatusIcon.completed" />
+              </svg>
+            </span>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <h3 i18n>Copyright &copy; 2020 <a target="_blank" href="https://www.codelab.fun">codelab.fun</a></h3>
+    </mat-card-footer>
+  </mat-card>
+</ng-container>

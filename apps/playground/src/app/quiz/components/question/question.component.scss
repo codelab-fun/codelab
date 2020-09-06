@@ -1,99 +1,169 @@
-$font-stack: Space Mono, monospace;
-$font-weight-max: 900;
+@import "variables";
 
-ol {
-  margin-top: 15px;
-  margin-left: -40px;
-  cursor: pointer;
-}
-ol li {
-  margin-left: 30px;
-}
+.options {
+  margin: 0 0 10px 0.4rem;
+  padding: 5px;
+  width: 39.5rem !important;
 
-.radio-options {
-  margin-bottom: 5px;
-  margin-left: 0.5rem;
-  padding: 4px;
-}
+  mat-radio-button, mat-checkbox {
+    cursor: pointer;
+    width: 39.5rem !important;
+    height: auto !important;
+    font-family: $font-stack;
+    font-size: 20px !important;
+    color: $dark-brown;
+    background-color: $light-gray;
+    border: 2px solid $medium-gray;
+    padding: 10px 5px 5px 30px;
+    margin-left: -5px;
+    vertical-align: middle;
 
-.option {
-  border: 2px solid #979797;
-  font-family: $font-stack;
-  font-size: 20px;
-  color: #0f0900;
-  background-color: #f5f5f5;
-  width: 39rem !important;
-  height: auto;
-  padding: 5px 5px 0 30px;
-  margin-left: -5px;
-  vertical-align: middle;
-}
-.option:hover {
-  outline: 2px solid #007aff;
-}
+    &:hover {
+      border: 2px solid $vivid-blue;
+    }
+  }
 
-.is-correct {
-  background-color: #00c853 !important;
-}
-.is-incorrect {
-  background-color: #ff0000 !important;
-}
+  mat-radio-label, mat-checkbox-label {
+    white-space: normal;
+    margin-top: 5px;
 
-.feedback-icon {
-  position: absolute;
-  right: 0;
-  margin-right: 40px;
-  margin-top: -25px;
+    .feedback-icon {
+      position: absolute;
+      right: 0;
+      margin: 5px 40px 0 0 !important;
+    }
+  }
+
+  .is-correct {
+    background-color: $green;
+  }
+
+  .is-incorrect {
+    background-color: $red;
+  }
 }
 
-section.messages {
+.messages {
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
+  height: auto;
 
-  .message {
-    font-family: $font-stack;
-    font-weight: $font-weight-max;
-    font-size: 16px;
-    font-style: italic;
-    text-align: center !important;
-    margin: 10px 0 0 0;
-    padding: 10px !important;
-    width: 32rem !important;
-    display: inline-flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center !important;
-    margin: 0 auto !important;
-    margin-top: 10px !important;
-  }
-  .correct-message {
-    font-weight: $font-weight-max;
-    font-style: italic;
-    border: 2px solid #007aff;
-    border-radius: 5px;
-    color: #00c853 !important;
-  }
-  .wrong-message {
-    font-weight: $font-weight-max;
-    font-style: italic;
-    border: 2px solid #ff0000;
-    border-radius: 5px;
-    color: #ff0000 !important;
-    padding: 5px;
-  }
-  mat-icon.sentiment {
-    font-size: 30px !important;
-    color: #9acd32;
-    margin-right: -50px !important;
-    vertical-align: top;
-    margin-top: 18px;
-  }
-  pre {
+  span {
     font-size: 17px;
     margin-top: 10px;
   }
+
+  .sentiment-icon {
+    font-size: 30px;
+    color: $light-yellow;
+    margin: 30px -50px 0 25px;
+    vertical-align: top;
+    float: left;
+  }
+
+  .message {
+    font-family: $font-stack;
+    margin: 20px auto;
+    margin-left: -10px;
+    padding: 10px;
+    width: 36rem;
+    display: inline-flex;
+    justify-content: center;
+    vertical-align: middle;
+  }
+
+  .correct-message {
+    border: 2px solid $vivid-blue;
+    color: $dark-green;
+  }
+
+  .wrong-message {
+    border: 2px solid $red;
+    color: $red;
+    margin-top: -10px;
+
+    .sentiment-icon {
+      float: left;
+      margin-top: -40px;
+    }
+  }
 }
 
+.previous-answer-text {
+  clear: both;
+
+  div {
+    font-family: $font-stack;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+
+    span {
+      font-weight: $font-weight-max;
+      font-style: italic;
+    }
+  }
+}
+
+.single-answer {
+  margin-top: 15px;
+
+  mat-radio-button {
+    height: 57.6px;
+  }
+  mat-radio-button:first-child {
+    margin-top: -25px;
+  }
+
+  .message {
+    margin-top: 20px;
+  }
+
+  .sentiment-icon {
+    display: inline;
+    margin-top: 30px;
+  }
+}
+
+.multiple-answer {
+  mat-checkbox {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    label .feedback-icon {
+      margin-top: -50px;
+    }
+  }
+  mat-checkbox:first-child {
+    margin-top: -20px !important;
+  }
+
+  .message {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .feedback-icon {
+    margin-top: 5px !important;
+  }
+
+  .sentiment-icon {
+    margin-top: 40px;
+    margin-left: 15px;
+  }
+}
+
+// hide mat-radio-buttons/mat-checkboxes next to answer choices
 ::ng-deep .mat-radio-button .mat-radio-container {
   display: none;
+}
+::ng-deep .mat-checkbox .mat-checkbox-inner-container {
+  display: none;
+}
+
+// set width and height of mat-checkbox
+::ng-deep .mat-checkbox .mat-checkbox-layout {
+  width: 37rem;
+  height: auto;
 }
