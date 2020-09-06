@@ -1,0 +1,22 @@
+/*d:initial:initial*/<!-- Write your code here -->
+/*/d*//*d:videoComponentCreateSolved/trimLeading*/
+<h2>{{video.title}}</h2>
+<img [src]="video.src">
+/*/d*//*d:videoComponentCreateSolved:fuzzyPipeUseSolved/trimLeading*/
+<div>Date {{video.date}}</div>
+/*/d*//*d:fuzzyPipeUseSolved*/<div>Date {{video.date | fuzzy}}</div>
+/*/d*//*d:videoComponentCreateSolved:togglePanelComponentUse/trimLeading*/
+<div>Views {{video.views}}</div>
+<div>Likes {{video.likes}}</div>
+<div>Description {{video.description}}</div>
+/*/d*//*d:thumbsComponentUseSolved/trimBoth*/
+<my-thumbs (onThumbs)="onThumbs($event)"></my-thumbs>
+/*/d*//*d:togglePanelComponentUseSolved*/
+<my-toggle-panel>
+  <div class="description">Description: {{video?.description}}</div>
+  <div class="extra">
+    <div class="views">Views: {{video?.views}}</div>
+    <div class="likes">Likes: {{video?.likes}}</div>
+  </div>
+</my-toggle-panel>
+/*/d*/

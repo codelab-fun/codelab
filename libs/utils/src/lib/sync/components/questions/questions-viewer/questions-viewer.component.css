@@ -1,0 +1,16 @@
+textarea,
+mat-form-field {
+  width: 100%;
+}
+
+.question-body {
+  white-space: pre-line;
+}
+
+.question-form {
+  margin-bottom: 20px;
+}
+
+mat-expansion-panel {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,12 @@
+<codelab-stars readonly [ngModel]="average" [enabled]="false"></codelab-stars>
+
+<div class="wrapper">
+  <div *ngFor="let star of breakdown; trackBy: trackBy; let i = index">
+    <div class="bar">
+      <div class="filler" [style.height]="((max - star) / max) * 100 + '%'">
+        <div class="star" *ngIf="star > 0">{{ star }}</div>
+      </div>
+    </div>
+    <div class="label">{{ i + 1 }}</div>
+  </div>
+</div>

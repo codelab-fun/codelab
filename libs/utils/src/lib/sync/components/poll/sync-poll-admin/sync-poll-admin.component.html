@@ -1,0 +1,18 @@
+<h1>{{ config.question }}</h1>
+
+<mat-card>
+  <mat-card-content *ngIf="config">
+    <div>
+      <mat-checkbox
+        syncPresenterValue="poll/{{ config.key }}/enabled"
+        [syncPresenterValueDefault]="true"
+        [(ngModel)]="pollEnabled"
+      >
+        Enable the poll
+      </mat-checkbox>
+    </div>
+    <div>
+      <button mat-button (click)="start()">Start the poll</button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,14 @@
+<div class="progress">
+  <div
+    *ngFor="let test of tests"
+    [class.pass]="test.pass"
+    class="text-box"
+  ></div>
+  <div class="preparing-tests" *ngIf="tests.length === 0">
+    <slides-loading-indicator></slides-loading-indicator>
+    Preparing tests...
+  </div>
+  <div class="counts" *ngIf="tests.length > 0">
+    {{ countPassing() }}/{{ (tests || []).length }}
+  </div>
+</div>

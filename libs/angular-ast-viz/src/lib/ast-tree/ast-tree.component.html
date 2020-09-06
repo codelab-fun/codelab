@@ -1,0 +1,53 @@
+<ng-container *ngIf="node">
+  <ng-container *ngIf="node.type">
+    <div style="display: flex;">
+      <div class="box {{ node.type }}" (click)="selectNode.emit(node)" #box>
+        <div class="header">{{ key ? key + ': ' : '' }}</div>
+        <div class="node">{{ split(node.type) }}</div>
+        <div
+          class="props"
+          *ngFor="let key of stringKeys"
+          style="white-space: nowrap"
+        >
+          {{ key }} = '{{ node[key] }}'
+        </div>
+      </div>
+      <div style="padding-left: 20px;">
+        <ast-viz
+          *ngFor="let key of objectKeys"
+          [node]="node[key]"
+          (selectNode)="selectNode.emit($event)"
+          [key]="key"
+        ></ast-viz>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isArray">
+    <ng-container *ngIf="node.length > 0">
+      <div style="display: flex;">
+        <div class="box Array" *ngIf="key">
+          <div class="header">{{ key ? key + ': ' : '' }}</div>
+          <div class="node">Array</div>
+        </div>
+
+        <div>
+          <div style="margin-left: 20px" *ngFor="let child of node">
+            <ast-viz
+              (selectNode)="selectNode.emit($event)"
+              [node]="child"
+            ></ast-viz>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="node.length === 0">
+      <div class="box Array">{{ key }}: []</div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="!node">
+  <div class="box Empty">
+    <span class="key">{{ key ? key + ': ' : '' }} </span>
+    <span class="node">Null</span>
+  </div>
+</ng-container>

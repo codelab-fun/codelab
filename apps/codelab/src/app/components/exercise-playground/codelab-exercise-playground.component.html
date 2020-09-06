@@ -1,0 +1,32 @@
+<codelab-simple-angular-test-runner
+  *ngIf="bootstrapTest"
+  [translations]="translations"
+  (selectFile)="files = [$event]"
+  [bootstrap]="bootstrapTest"
+  [code]="files$ | async"
+></codelab-simple-angular-test-runner>
+<div style=" display: flex;height: 100%;">
+  <div style="width: 50%;flex-grow: 0; display: flex;">
+    <div *ngIf="path" style="margin-left: 20px;color: red;">{{ path }}</div>
+    <code-demo-multitab-editor
+      style="width: 100%"
+      [displayFileName]="true"
+      [allowSwitchingFiles]="allowSwitchingFiles"
+      [highlights]="highlights"
+      class="quarter"
+      [files]="files"
+      [solutions]="solutions"
+      [(ngModel)]="code"
+      (ngModelChange)="update($event)"
+    ></code-demo-multitab-editor>
+  </div>
+
+  <code-demo-runner
+    [url]="url"
+    style="width: 50%;flex-grow: 0"
+    [ui]="ui"
+    [presets]="presets"
+    [bootstrap]="bootstrap"
+    [code]="files$ | async"
+  ></code-demo-runner>
+</div>

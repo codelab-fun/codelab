@@ -1,0 +1,77 @@
+<button class="menu-bar-btn" [matMenuTriggerFor]="menu">
+  <img alt="chat-img" src="/assets/images/chat.png" />
+  <ng-container *ngIf="messages$ | async as message">
+    <ng-container *ngIf="message.length">
+      <span class="messages-count"> {{ message.length }} </span>
+    </ng-container>
+  </ng-container>
+</button>
+
+<mat-menu #menu="matMenu">
+  <div
+    (click)="$event.stopPropagation()"
+    (keydown)="$event.stopPropagation()"
+    class="buttons-nav-bar-modal-content-wrapper"
+  >
+    <h2 class="modal-title">Feedback</h2>
+    <ng-container *ngIf="messages$ | async as message">
+      <ng-container *ngIf="message.length">
+        <div class="feedback-items">
+          <ng-container *ngFor="let item of message">
+            <div class="feedback-item">
+              <div class="header">
+                <span class="name">{{ item.name }}</span>
+                <div style="display: flex;">
+                  <span class="date"> {{ item.timestamp | date }}</span>
+                  <feedback-issue-dropdown
+                    *ngIf="accessService.oldIsAdmin$ | async"
+                    [message]="item"
+                  ></feedback-issue-dropdown>
+                </div>
+              </div>
+              <div class="comment">{{ item.comment }}</div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </ng-container>
+    <form [formGroup]="formGroup" (submit)="submit()" class="form-container">
+      <input
+        formControlName="name"
+        placeholder="Enter your name"
+        type="text"
+        class="mt-0"
+        i18n-placeholder
+      />
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="Enter your email"
+      />
+      <small class="text-muted" i18n
+        >Email is optional and, will not displayed
+      </small>
+      <div>
+        <textarea
+          i18n-placeholder
+          placeholder="Describe your issue or share your ideas"
+          formControlName="comment"
+          (keydown.control.enter)="submit()"
+        ></textarea>
+      </div>
+      <div>
+        <button
+          (click)="submit()"
+          [disabled]="formGroup.invalid"
+          mat-raised-button
+          type="button"
+          class="btn"
+          i18n
+        >
+          Send
+        </button>
+      </div>
+      <div [class.error]="error">{{ statusMessage }}</div>
+    </form>
+  </div>
+</mat-menu>

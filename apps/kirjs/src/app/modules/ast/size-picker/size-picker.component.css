@@ -1,0 +1,15 @@
+.button:hover {
+  background: #444444;
+  color: white;
+}
+
+.button {
+  border: 1px solid #000;
+  border-radius: 50%;
+  height: 1vw;
+  width: 1vw;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  line-height: 1vw;
+}

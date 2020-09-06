@@ -1,0 +1,44 @@
+.buttons {
+  margin: 20px 0 40px;
+  text-align: center;
+}
+
+.complete {
+  text-align: center;
+}
+
+.stack {
+  margin-left: 30px;
+}
+
+.item {
+  white-space: nowrap;
+  margin-bottom: 10px;
+  height: 55px;
+  display: block;
+  line-height: 55px;
+}
+
+.initial {
+  color: #666;
+  text-align: right;
+}
+
+.function-usage {
+  text-align: right;
+}
+
+.history {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.next {
+  background: #dddddd;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.remove-button {
+  margin-right: 10px;
+}

@@ -1,0 +1,4 @@
+<div *ngIf="myScore$ | async as result">
+  <h1>Place: {{ result.place }}</h1>
+  <h1>Score: {{ result.score | number: '1.2-2' }}</h1>
+</div>

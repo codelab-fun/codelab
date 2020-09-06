@@ -1,0 +1,105 @@
+::ng-deep {
+  .has-milestone .btn-bar {
+    display: none;
+  }
+}
+
+:host {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+:host ::ng-deep {
+  .slide.slide [vertical-split],
+  [vertical-split] .slide.slide {
+    display: flex;
+    flex-direction: row;
+
+    > *:first-child {
+      width: 49vw;
+      margin-right: 1vw;
+    }
+
+    > *:nth-child(2) {
+      width: 49vw;
+      margin-left: 1vw;
+    }
+  }
+
+  .theme-basic {
+    font-family: 'Helvetica Neue', sans-serif;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    li:not(.action-item) {
+      margin: 0;
+      padding: 0;
+      font-weight: 300;
+    }
+
+    b {
+      color: #c04e22;
+      font-weight: 300;
+      background-color: #ffe;
+    }
+
+    h2,
+    li:not(.action-item) {
+      font-size: 3vw;
+      margin-bottom: 1vw;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .info,
+    .exercise {
+      font-size: 2vw;
+    }
+
+    .header {
+      font-size: 7vw;
+    }
+
+    .description {
+      font-size: 3vw;
+    }
+
+    .instructions {
+      font-size: 2vw;
+    }
+  }
+
+  [vertical-flex-layout] {
+    display: flex;
+    flex-direction: column;
+
+    [stretch] {
+    }
+  }
+
+  .slides-layout {
+    height: 100%;
+
+    //TODO(kirjs): find a better way to assign a class name
+    & > div {
+      height: 100%;
+      padding: 2vw;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      &[no-padding] {
+        padding: 0;
+      }
+    }
+  }
+}

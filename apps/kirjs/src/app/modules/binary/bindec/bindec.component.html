@@ -1,0 +1,27 @@
+<div class="powers">
+  <label *ngIf="displaySign" class="power">
+    <div class="dec">{{ sign ? '-' : '+' }}</div>
+    <div><input type="checkbox" [(ngModel)]="sign" /></div>
+    <div class="bin">{{ sign ? '1' : '0' }}</div>
+  </label>
+  <label *ngFor="let v of digits; let i = index" class="power">
+    <div class="dec">{{ getBaseValue(i) }}</div>
+    <div>
+      <input type="checkbox" [checked]="v" (ngModelChange)="result[i] = v" />
+    </div>
+    <div class="bin">{{ v ? '1' : '0' }}</div>
+  </label>
+</div>
+<input type="text" class="number" [value]="convertedValue" />
+<div style="display: flex;margin-top: 10px;">
+  <div class="link" (click)="digits = [0]">1</div>
+  <div class="link" (click)="digits = [0, 0]">2</div>
+  <div class="link" (click)="digits = [0, 0, 0, 0]">4</div>
+  <div class="link" (click)="digits = [0, 0, 0, 0, 0, 0, 0, 0]">8</div>
+  <div class="link" (click)="digits.unshift(0)">Add one</div>
+  <div class="link" (click)="digits.shift()">Remove one</div>
+  <div class="link" (click)="displaySign = true">Add sign</div>
+  <div class="link" (click)="displaySign = false; sign = false">
+    Remove sign
+  </div>
+</div>

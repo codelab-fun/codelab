@@ -1,0 +1,94 @@
+<slide-deck slidesRouting slides-tracking>
+  <div *isPresenting slideShortcuts></div>
+  <div *isAdmin slideShortcuts></div>
+
+  <codelab-sync-button></codelab-sync-button>
+
+  <div *slide id="start">
+    <h1 style="font-size: 60px;">What's new in the Angular World</h1>
+    <h2>by @kirjs</h2>
+  </div>
+
+  <div *slide id="registration">
+    <codelab-registration></codelab-registration>
+  </div>
+
+  <div *slide id="poll-0">
+    <codelab-poll [poll]="polls[0]"></codelab-poll>
+  </div>
+
+  <div *slide id="poll-1">
+    <codelab-poll [poll]="polls[1]"></codelab-poll>
+  </div>
+
+  <div *slide id="poll-2">
+    <codelab-poll [poll]="polls[2]"></codelab-poll>
+  </div>
+
+  <div *slide id="poll-3">
+    <codelab-poll [poll]="polls[3]"></codelab-poll>
+  </div>
+
+  <div *slide id="quiz-1">
+    <codelab-poll [poll]="polls[4]"></codelab-poll>
+  </div>
+
+  <div *slide id="awesome">
+    <h1>ng make-this-awesome</h1>
+    <div class="pic awesome"></div>
+  </div>
+
+  <div *slide id="ng-deploy">
+    <h1>ng deploy</h1>
+    <h2>
+      Now you can deploy your angular-cli app to multiple cloud providers using
+      ng deploy command
+    </h2>
+    <code>
+      <pre style="font-size: 2vw;">
+ng add @angular/fire@next
+ng deploy
+    </pre
+      >
+    </code>
+    <h2>Now you can deploy</h2>
+    <ul>
+      <li>Firebase</li>
+      <li>Netlify</li>
+      <li>Azure</li>
+      <li>Github</li>
+      <li>And more...</li>
+    </ul>
+  </div>
+  <div *slide id="differential-loading">
+    <h1>Differential loading</h1>
+    <div class="pic differential-loading"></div>
+    <div style="background: #444;color: #fff; padding: 20px;">
+      <h2>✨ Juan's tip ✨</h2>
+      <h2>https://browserl.ist/</h2>
+    </div>
+  </div>
+
+  <div *slide id="default-app">
+    <h1>New default app</h1>
+    <div class="pic default"></div>
+  </div>
+
+  <div *slide id="quiz-2">
+    <codelab-poll [poll]="polls[5]"></codelab-poll>
+  </div>
+
+  <div *slide id="ivy">
+    <h1>Angular ivy</h1>
+    <div class="pic ivy"></div>
+  </div>
+
+  <div *slide id="quiz-3">
+    <codelab-poll [poll]="polls[6]"></codelab-poll>
+  </div>
+
+  <div *slide id="material">
+    <h1>cdk-experimental clipboard service + directive</h1>
+    <div class="pic ivy"></div>
+  </div>
+</slide-deck>

@@ -1,0 +1,34 @@
+<ng-container *ngIf="code">
+  <code-demo-editor
+    (slidesMonacoWatPosition)="selectFunction($event)"
+    [codeDemoHighlight]="selectedMode.highlights"
+    (slidesMonacoLoadAnswer)="update()"
+    #monacoWatLoadAnswer="MonacoWatLoadAnswer"
+    minLines="20"
+    class="webassembly-code"
+    [class.has-highlight]="selectedMode.highlights"
+    [fontSize]="fontSize"
+    language="wat"
+    [(ngModel)]="code.wat"
+    (ngModelChange)="update()"
+    [lineNumbers]="false"
+    [language]="'wat'"
+  ></code-demo-editor>
+
+  <code-demo-editor
+    (slidesMonacoJsPosition)="selectFunction($event)"
+    [fontSize]="fontSize"
+    class="js-code"
+    [(ngModel)]="code.js"
+    (ngModelChange)="update()"
+    [lineNumbers]="false"
+    [language]="'typescript'"
+  ></code-demo-editor>
+
+  <slides-webassembly-code-mode
+    (loadAnswer)="monacoWatLoadAnswer.loadAnswer($event)"
+    [sideBarBlocks]="sideBarBlocks"
+    [code]="code"
+    (wasmSelectionHighlight)="wasmSelectionHighlight = $event"
+  ></slides-webassembly-code-mode>
+</ng-container>

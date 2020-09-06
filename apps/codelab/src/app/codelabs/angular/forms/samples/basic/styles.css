@@ -1,0 +1,24 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.field {
+  padding: 10px;
+  border-bottom: 1px #ddd solid;
+  width: 200px;
+}
+
+.field input {
+  float: right;
+}
+
+.values {
+  margin-top: 20px;
+}

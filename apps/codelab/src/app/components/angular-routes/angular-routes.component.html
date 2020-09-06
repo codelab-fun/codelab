@@ -1,0 +1,9 @@
+<h3>Lessons</h3>
+<ol>
+  <li *ngFor="let route of menuRoutes">
+    <h2>
+      <a [routerLink]="['/angular', route.path]">{{ route.name }}</a>
+    </h2>
+    <div>{{ route.description }}</div>
+  </li>
+</ol>

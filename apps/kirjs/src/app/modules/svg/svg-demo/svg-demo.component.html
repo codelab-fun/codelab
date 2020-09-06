@@ -1,0 +1,12 @@
+<div style="height: 100%;display: flex;">
+  <div style="flex: 1; height: 100%">
+    <code-demo-editor
+      [(ngModel)]="code"
+      [lineNumbers]="false"
+      fontSize="30"
+    ></code-demo-editor>
+  </div>
+  <div style="height: 100%;flex: 1">
+    <div style="height: 100%;" [innerHTML]="code | safeHtml"></div>
+  </div>
+</div>

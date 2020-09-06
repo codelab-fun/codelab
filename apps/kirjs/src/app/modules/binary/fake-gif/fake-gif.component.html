@@ -1,0 +1,76 @@
+<div style="position: fixed; right: 0; top: 0;width: 250px;" *ngIf="preview">
+  <kirjs-binary-gif [binary]="binary"></kirjs-binary-gif>
+  <input type="file" (change)="upload(file)" #file />
+</div>
+
+<div #translations style="display: none">
+  <div i18n id="headerConst">This is always "GIF"</div>
+  <div i18n id="version">This is always "87a" or "89a"</div>
+  <div i18n id="width">Width of the image</div>
+  <div i18n id="height">Height of the image</div>
+
+  <div i18n id="globalPalette">Whether global palette is present</div>
+  <div i18n id="resolution">Number of bits per primary color available</div>
+  <div i18n id="isPaletteSorted">Whether the palette is sorted</div>
+  <div i18n id="paletteSize">
+    Specifies number of colors in the palette proportional a power of two. e.g.
+  </div>
+  <div i18n id="background">
+    If present specifies index of a color in the global color table that would
+    be transparent
+  </div>
+  <div i18n id="ratio">Ratio of the pixel</div>
+
+  <div i18n id="reservedBits">Reserved bits</div>
+  <div i18n id="disposalMethod">
+    Disposal Method - Indicates the way in which the graphic is to be treated
+    after being displayed. Values : 0 - No disposal specified. The decoder is
+    not required to take any action. 1 - Do not dispose. The graphic is to be
+    left in place. 2 - Restore to background color. The area used by the graphic
+    must be restored to the background color. 3 - Restore to previous. The
+    decoder is required to restore the area overwritten by the graphic with what
+    was there prior to rendering the graphic. 4-7 - To be defined.
+  </div>
+  <div i18n id="UI">
+    Not used, the initial intention was to allow user interactions
+  </div>
+  <div i18n id="isTransparent">
+    Whether the frame should have a transparent color
+  </div>
+  <div i18n id="delay">Animation delay for next image</div>
+  <div i18n id="transparentColor">Optional transparent color index</div>
+  <div i18n id="left">Horizontal shift in pixels</div>
+  <div i18n id="top">Vertical shift in pixels</div>
+  <div i18n id="imageWidth">Width of the image</div>
+  <div i18n id="imageHeight">Height of the image</div>
+  <div i18n id="localPalette">Whether the image has local palette</div>
+  <div i18n id="isImageInterlacingEnabld">
+    Indicates if the image is interlaced.
+  </div>
+  <div i18n id="isLocalPaletteSorted">Whether local palette is sorted</div>
+  <div i18n id="localPaletteSize">Bucket of sizes of local palette.</div>
+
+  <div i18n id="netscapeLoopingExtensionId">
+    Identifies the Netscape Looping Extension. This field contains the fixed
+    value 0x01
+  </div>
+  <div i18n id="extensionSize">Size of the extension block in bytes</div>
+  <div i18n id="loops">Number of animation loops</div>
+  <div i18n id="graphicBlock">This is the actual image encoded with LZW</div>
+</div>
+
+<div>
+  <div style="margin-right: 220px;">
+    <kirjs-binary-plain
+      (updateChunk)="updateChunk($event)"
+      [parser]="parser"
+      [binary]="binary"
+      [spacing]="spacing"
+      [mini]="mini"
+      [showPopups]="showPopups"
+      [filterClassName]="filterClassName"
+      [highlightGroups]="highlightGroups"
+      [highlightedMap]="highlightedMap"
+    ></kirjs-binary-plain>
+  </div>
+</div>

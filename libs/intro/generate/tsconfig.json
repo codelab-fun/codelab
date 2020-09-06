@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "inlineSources": true,
+    "allowJs": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "lib": ["dom", "esnext.array"]
+  }
+}

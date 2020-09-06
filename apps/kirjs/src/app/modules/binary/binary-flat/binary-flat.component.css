@@ -1,0 +1,52 @@
+.wrapper {
+  word-break: break-all;
+  padding: 40px;
+}
+
+.binary {
+  letter-spacing: 2vw;
+}
+
+.item,
+.detail-item {
+  font-size: 3vw;
+}
+
+.item-1 {
+  background: #eee;
+}
+
+.detail-item {
+  padding: 20px;
+}
+
+.detail {
+  width: 60%;
+  word-break: break-all;
+}
+
+.field-header {
+  font-size: 2vw;
+}
+
+.raw-value {
+  width: 40%;
+  font-size: 2vw;
+  word-break: break-all;
+  padding-right: 1vw;
+  margin-right: 1vw;
+  border-right: 1px #444 solid;
+}
+
+button {
+  display: block;
+  width: 100%;
+  background: #e51400;
+  color: #fff;
+  padding: 1vw;
+  font-size: 4vw;
+}
+
+h3 {
+  font-size: 2vw;
+}

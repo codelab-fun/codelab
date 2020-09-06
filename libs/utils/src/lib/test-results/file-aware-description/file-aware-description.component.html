@@ -1,0 +1,5 @@
+<a class="filename" *ngIf="file" (click)="selectFile.emit(file)">
+  {{ file }}
+</a>
+<span *ngIf="file">:&nbsp;</span>
+<span class="title">{{ title }}</span>

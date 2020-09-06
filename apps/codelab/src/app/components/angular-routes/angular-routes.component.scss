@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 30px;
+
+  ol {
+    margin-block-start: 0;
+
+    h2 {
+      font-size: 1.2em;
+      margin-block-end: 0.5em;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  :host {
+    font-size: 20px;
+  }
+}

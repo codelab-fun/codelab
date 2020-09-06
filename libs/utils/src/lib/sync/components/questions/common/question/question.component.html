@@ -1,0 +1,57 @@
+<mat-card class="question" *ngIf="question">
+  <mat-card-content>
+    <div class="question-body-wrapper">
+      <div class="questions-score">{{ question.score }}</div>
+      <div class="question-body">
+        <div class="author">{{ question.displayName }}</div>
+        <div>{{ question.question }}</div>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="showControls">
+    <ng-container *isViewing>
+      <button
+        mat-icon-button
+        class="upvote"
+        (click)="questionsService.setVote(question.key, 1)"
+        [class.voted]="question.myVote === 1"
+      >
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >thumb_up</mat-icon
+        >
+      </button>
+      <span>{{ question.score }}</span>
+      <button
+        mat-icon-button
+        class="downvote"
+        (click)="questionsService.setVote(question.key, -1)"
+        [class.voted]="question.myVote === -1"
+      >
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >thumb_down</mat-icon
+        >
+      </button>
+    </ng-container>
+    <div *isAdmin>
+      <ng-container *ngFor="let status of statuses">
+        <button
+          mat-raised-button
+          *ngIf="question.status !== status"
+          (click)="questionsService.updateQuestionStatus(question, status)"
+        >
+          {{ status }}
+        </button>
+      </ng-container>
+      <button
+        mat-icon-button
+        *ngIf="question.status === QuestionStatus.APPROVED"
+        (click)="
+          questionsService.starQuestion(question.starred ? null : question.key)
+        "
+      >
+        <mat-icon>{{ question.starred ? 'star' : 'star_border' }}</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

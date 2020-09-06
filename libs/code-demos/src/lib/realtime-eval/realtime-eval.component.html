@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="console">
+    <div class="input">
+      <code-demo-editor
+        [(ngModel)]="code"
+        (ngModelChange)="evaluate()"
+        [language]="language"
+        [lineNumbers]="false"
+        style="height: 100px;"
+        [fontSize]="60"
+      ></code-demo-editor>
+    </div>
+    <code class="output result" *ngIf="result">{{ result }}</code>
+    <code class="output error" *ngIf="error">{{ error }}</code>
+  </div>
+</div>

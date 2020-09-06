@@ -1,0 +1,161 @@
+h2 {
+  font-weight: 800;
+}
+
+pre {
+  font-size: 24px;
+}
+
+.empty-slide {
+  width: 400px;
+  height: 250px;
+  border: 1px solid #000;
+  margin-left: 300px;
+  margin-top: 10px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(181, 172, 181, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(181, 172, 181, 1);
+  box-shadow: 10px 10px 5px 0px rgba(181, 172, 181, 1);
+}
+
+.html-elements {
+  font-size: 28px;
+  margin-top: 20px;
+  margin-left: 24px;
+}
+
+.kirjs {
+  width: 800px;
+  height: 300px;
+
+  background: url(intro/kirjs.png) no-repeat;
+  background-size: 100%;
+  margin: 0 auto;
+}
+
+.rules {
+  display: flex;
+}
+
+.play:hover {
+  background-color: #d6510f;
+}
+
+.play {
+  font-size: 14px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: #000000;
+  color: #ffffee;
+  height: 30px;
+  width: 30px;
+}
+
+.grid-header {
+  margin-top: 20px;
+  display: flex;
+}
+
+.img-wolfram {
+  width: 400px;
+  height: 400px;
+  background: url('intro/wolfram.jpg');
+}
+
+.img-moore {
+  width: 400px;
+  height: 400px;
+  background: url('intro/moore.jpg') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-neuman {
+  width: 400px;
+  height: 400px;
+  background: url('intro/JohnvonNeumann.gif') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-conway {
+  width: 600px;
+  height: 400px;
+  background: url('intro/Conway_.jpg') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.neighborhood {
+  display: flex;
+}
+
+.img-gun {
+  width: 800px;
+  height: 600px;
+  background: url('intro/Gosperglidergun.gif') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-turing {
+  width: 800px;
+  height: 800px;
+  background: url('intro/turing.gif') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-mp {
+  width: 800px;
+  height: 800px;
+  background: url('intro/metapixel.png') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-30 {
+  width: 800px;
+  height: 800px;
+  background: url('intro/30.png') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-30-2 {
+  width: 800px;
+  height: 800px;
+  background: url('intro/30-2.png') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-gosper {
+  width: 800px;
+  height: 800px;
+  background: url('intro/Bill_Gosper_2006.jpg') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-cave {
+  width: 800px;
+  height: 800px;
+  background: url('intro/maze.png') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+.img-nks {
+  width: 800px;
+  height: 800px;
+  background: url('intro/nks.jpg') no-repeat;
+  background-size: 100%;
+  margin-right: 50px;
+}
+
+:host /deep/ .slide {
+  display: block;
+}

@@ -1,0 +1,101 @@
+#intro,
+#outro {
+  /*  background: url(./browser/landscape-with-trees-1.jpg) no-repeat; */
+  background-size: 100% auto;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 20px;
+}
+h2 {
+  font-size: 20px;
+}
+
+.hb {
+  width: 200px;
+  height: 200px;
+  background: url('hb.jpg');
+  background-size: 200px;
+  background-repeat: no-repeat;
+}
+
+.header p {
+  font-size: 14px;
+}
+
+b {
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+li {
+  font-size: 12px;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+  }
+}
+
+.front {
+  display: flex;
+  width: 1024px;
+  height: 768px;
+}
+
+.main-board {
+  width: 360px;
+  height: 360px;
+  display: block;
+  margin: 0 auto;
+}
+
+.left,
+.right {
+  width: 512px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.board84 {
+  display: block;
+  width: 120px;
+  height: 60px;
+}
+
+.explanation {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.explanation .text p {
+  text-align: right;
+  padding-right: 20px;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.explanation .text {
+  flex: 1;
+  font-size: 12px;
+}
+
+.back {
+  margin: 0 auto;
+  width: 1024px;
+  padding: 0 60px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mini-board {
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}

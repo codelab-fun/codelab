@@ -1,0 +1,70 @@
+<div *ngIf="mode === 'web'">
+  <h2 i18n>
+    Because we're building a browser web app, we need to pass
+    <b>BrowserModule</b> to the <b>imports</b> array
+  </h2>
+  <div class="box-row">
+    <div class="box-row-fill">
+      <code-demo-file-path path="app.module.ts"></code-demo-file-path>
+
+      <code-demo-editor
+        [fontSize]="30"
+        [(ngModel)]="code.moduleAnatomy.code"
+        style="height: 400px;"
+        [codeDemoHighlight]="[code.moduleAnatomy.matches.importsArr]"
+      ></code-demo-editor>
+    </div>
+    <preview-browser-window style="width: 490px; height: 300px;">
+      <h1>Hello World</h1>
+      <div style="width: 100%; text-align: center;">
+        <img class="angular" src="/assets/images/angular.svg" />
+      </div>
+    </preview-browser-window>
+  </div>
+</div>
+<div *ngIf="mode === 'mobile'">
+  <h2 i18n>With Angular we build mobile apps using NativeScript or Ionic.</h2>
+  <div class="box-row">
+    <div class="box-row-fill">
+      <code-demo-editor
+        [fontSize]="30"
+        [(ngModel)]="code.moduleAnatomy.codeMobile"
+        [codeDemoHighlight]="[code.moduleAnatomy.matches.importsArr]"
+      ></code-demo-editor>
+    </div>
+    <img
+      style="height: 340px; padding-top: 10px;"
+      src="/assets/images/helloworldapp.png"
+    />
+  </div>
+</div>
+<div *ngIf="mode === 'vr'">
+  <h2 i18n>With Angular you can build VR apps with A-FRAME or WEBGL.</h2>
+  <div class="box-row">
+    <div class="box-row-fill">
+      <code-demo-editor
+        [fontSize]="30"
+        [(ngModel)]="code.moduleAnatomy.codeVR"
+      ></code-demo-editor>
+    </div>
+    <img
+      style="width: 680px; padding-top: 10px;"
+      src="/assets/images/vrhelloworld.png"
+    />
+  </div>
+</div>
+
+<div class="info mt-60" i18n style="display: flex;">
+  <div>
+    Angular is not just for web apps anymore; you can also use it to create
+    native phone apps and even VR scenes.
+  </div>
+  <div class="module-options">
+    <a
+      class="mode mode-{{ m }}"
+      *ngFor="let m of modes"
+      [class.mode-current]="mode === m"
+      (click)="mode = m"
+    ></a>
+  </div>
+</div>

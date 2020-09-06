@@ -1,0 +1,918 @@
+<slide-deck slideShortcuts slidesRouting kirjs-tracking>
+  <div style="position: absolute; right: 1vw; bottom: 1vh">
+    <feedback-widget></feedback-widget>
+  </div>
+
+  <!--<kirjs-progress-bar></kirjs-progress-bar>-->
+  <slide-arrows></slide-arrows>
+
+  <!--  INTRO -->
+  <div *slide id="intro"><div class="kirjs"></div></div>
+
+  <div *slide id="set-of-cells">
+    <h1>Grid</h1>
+    <kirjs-board
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 0, 0, 0, 0, 0]]"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="cells-with-state">
+    <h1>Rules</h1>
+    <div class="rules">
+      <div class="rule" style="margin-right: 50px;">
+        <kirjs-board [pattern]="[[0]]"></kirjs-board>
+        <div class="arrow" style="text-align: center;">⇩</div>
+        <kirjs-board [pattern]="[[1]]"></kirjs-board>
+      </div>
+      <div class="rule">
+        <kirjs-board [pattern]="[[1]]"></kirjs-board>
+        <div class="arrow" style="text-align: center;">⇩</div>
+        <kirjs-board [pattern]="[[0]]"></kirjs-board>
+      </div>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 1, 0, 0, 0, 0]]"
+      [transform]="examples.intro.inverse"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="more-rules">
+    <h1>Rules</h1>
+    <div class="rules">
+      <kirjs-rule3 [rule]="16" [arrow]="true"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 1, 0, 0, 0, 0]]"
+      [transform]="examples.intro.inPlace16"
+      [delay]="150"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="more-rules-90">
+    <h1>Rules</h1>
+    <div class="rules">
+      <kirjs-rule3 [rule]="30" [arrow]="true"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 1, 0, 0, 0, 0]]"
+      [transform]="examples.intro.inPlace90"
+      [delay]="150"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="two-d-90">
+    <h1>Rule 90</h1>
+    <div class="rules">
+      <kirjs-rule3 [rule]="90" [arrow]="true"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="[
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]"
+      [transform]="examples.intro.twoD90"
+      [delay]="50"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="two-d-30">
+    <h1>Stephen Wolfram (Rule 30)</h1>
+    <div class="img-wolfram"></div>
+    <div class="rules">
+      <kirjs-rule3 [rule]="30" [arrow]="true"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="[
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]"
+      [transform]="examples.intro.twoD30"
+      [delay]="50"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="two-d-110">
+    <div class="rules">
+      <kirjs-rule3 [rule]="110" [arrow]="true"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="[
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]"
+      [transform]="examples.intro.twoD110"
+      [delay]="50"
+    ></kirjs-board>
+  </div>
+  <div *slide id="two-d-random">
+    <div class="rules">
+      <kirjs-rule3 [rule]="examples.intro.rand" [arrow]="true"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="[
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]"
+      [transform]="examples.intro.twoDRand"
+      [delay]="50"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="nks">
+    <h1>New kind of science</h1>
+    <div class="img-nks"></div>
+  </div>
+  <div *slide id="cam">
+    <h1>cambridge</h1>
+    <div class="img-30"></div>
+    <div class="img-30-2"></div>
+  </div>
+
+  <div *slide id="need-more-rules">
+    <h1>Cellular Automata 2D!</h1>
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.randomPattern"
+      [transform]="examples.life.random"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="2d-neighborhoods">
+    <h1>Neighborhoods</h1>
+    <div>
+      <div class="neighborhood">
+        <div class="img-moore"></div>
+        <div>
+          <h1>Edward F. Moore</h1>
+          <kirjs-rule
+            [before]="[
+              [0, 0, 0],
+              [0, 1, 0],
+              [0, 0, 0]
+            ]"
+          ></kirjs-rule>
+        </div>
+      </div>
+      <div class="neighborhood">
+        <div class="img-neuman"></div>
+        <div>
+          <h1>John von Neumann</h1>
+          <kirjs-rule
+            [before]="[
+              ['x', 0, 'x'],
+              [0, 1, 0],
+              ['x', 0, 'x']
+            ]"
+          ></kirjs-rule>
+        </div>
+        <div>
+          <h1>Extended</h1>
+          <kirjs-rule
+            [before]="[
+              ['x', 'x', 0, 'x', 'x'],
+              ['x', 'x', 0, 'x', 'x'],
+              [0, 0, 1, 0, 0],
+              ['x', 'x', 0, 'x', 'x'],
+              ['x', 'x', 0, 'x', 'x']
+            ]"
+          ></kirjs-rule>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *slide id="2d">
+    <div class="rules"><kirjs-rule8></kirjs-rule8></div>
+  </div>
+
+  <div *slide id="2d-random">
+    <h1 class="grid-header">
+      Random Rules: Survive: {{ examples.life.randomRules.survive }} Born:
+      {{ examples.life.randomRules.born }}
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.randomPattern"
+      [transform]="examples.life.random"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="2d-labyrynth">
+    <h1 class="grid-header">
+      Survive: {{ examples.life.labyrynthRules.survive }} Born:
+      {{ examples.life.labyrynthRules.born }}
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.randomPatternSparce"
+      [transform]="examples.life.labyrynth"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+  <div *slide id="2d-labyrynth4">
+    <h1 class="grid-header">
+      Survive: {{ examples.life.labRules4.survive }} Born:
+      {{ examples.life.labRules4.born }}
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.randomPatternSparce"
+      [transform]="examples.life.labyrynth4"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="2d-labyrynth5">
+    <h1 class="grid-header">
+      Survive: {{ examples.life.labRules5.survive }} Born:
+      {{ examples.life.labRules5.born }}
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.randomPatternSparce"
+      [transform]="examples.life.labyrynth5"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="2d-labyrynth6">
+    <h1 class="grid-header">
+      Survive: {{ examples.life.labRules6.survive }} Born:
+      {{ examples.life.labRules6.born }}
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.randomPatternSparce"
+      [transform]="examples.life.labyrynth6"
+      [delay]="260"
+    ></kirjs-board>
+  </div>
+  <div *slide id="2d-cave">
+    <h1 class="grid-header">Random cave generation</h1>
+
+    <div class="img-cave"></div>
+  </div>
+
+  <div *slide id="game-of-life">
+    <div class="img-conway"></div>
+    <h1 class="grid-header">
+      game of life: Survive: {{ examples.life.gameOfLifeRules.survive }} Born:
+      {{ examples.life.gameOfLifeRules.born }}
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.randomPattern"
+      [transform]="examples.life.gameOfLife"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="2d-life-still-life">
+    <h1 class="grid-header">
+      Still life
+
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.stillLife"
+      [transform]="examples.life.gameOfLife"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="2d-life-oscilator">
+    <h1 class="grid-header">
+      What's that?
+
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.oscilator"
+      [transform]="examples.life.gameOfLife"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+  <div *slide id="2d-life-oscilator-2">
+    <h1 class="grid-header">
+      What's that?
+      <div class="play" (click)="board1.playing = !board1.playing">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [pattern]="examples.life.pattern.oscilatorClock"
+      [transform]="examples.life.gameOfLife"
+      [delay]="250"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="2d-life-oscilator-2">
+    <div>
+      <h1 class="grid-header">List of oscilators</h1>
+      <kirjs-oscilators></kirjs-oscilators>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-space-ships">
+    <div>
+      <h1 class="grid-header">
+        Space ships - glider (by Richard K. Guy)
+        <div class="play" (click)="board1.playing = !board1.playing">
+          {{ board1.playing ? '❚❚' : '▶' }}
+        </div>
+      </h1>
+
+      <kirjs-board
+        #board1
+        [cellHeight]="20"
+        [cellWidth]="20"
+        [pattern]="examples.life.pattern.glider"
+        [transform]="examples.life.gameOfLife"
+        [delay]="50"
+      ></kirjs-board>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-space-ships-copperhead">
+    <div>
+      <h1 class="grid-header">
+        Copperhead (2016)
+        <div class="play" (click)="board1.playing = !board1.playing">
+          {{ board1.playing ? '❚❚' : '▶' }}
+        </div>
+      </h1>
+
+      <kirjs-board
+        #board1
+        [cellHeight]="20"
+        [cellWidth]="20"
+        [pattern]="examples.life.pattern.copperhead"
+        [transform]="examples.life.gameOfLife"
+        [delay]="50"
+      ></kirjs-board>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-guns">
+    <div>
+      <h1 class="grid-header">Guns - Gosper Gun ($50)</h1>
+      <div class="img-gosper"></div>
+      <div class="img-gun"></div>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-glider-synthesis">
+    <div>
+      <h1 class="grid-header">Synthesis</h1>
+      <iframe
+        width="800"
+        height="500"
+        src="https://www.youtube.com/embed/j4p75EdGd-Q"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-mp">
+    <div>
+      <h1 class="grid-header">Metapixel (Guess The Size)</h1>
+      <div class="img-mp"></div>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-mp-answer">
+    <div>
+      <h1 class="grid-header">Metapixel (2048x2048)</h1>
+      <div class="img-mp"></div>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-mp-video">
+    <div>
+      <h1 class="grid-header">Life in life</h1>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/xP5-iIeKXE8"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <div *slide id="2d-life-turing machine">
+    <div>
+      <h1 class="grid-header">Turing Machine</h1>
+      <div class="img-turing"></div>
+    </div>
+  </div>
+
+  <div *slide id="demos"><h1>Bunch of demos</h1></div>
+
+  <div *slide id="demos-3d">
+    <h1>3d</h1>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/iiEQg-SHY1g"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div *slide id="demos-3d">
+    <h1>Art</h1>
+    <a href="http://rainbowsmoke.hu/gallery">http://rainbowsmoke.hu/gallery</a>
+  </div>
+</slide-deck>

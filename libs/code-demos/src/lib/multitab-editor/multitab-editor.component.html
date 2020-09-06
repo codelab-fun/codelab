@@ -1,0 +1,44 @@
+<div
+  class="wrapper"
+  *ngFor="let model of openModels; trackBy: trackByEditorIndex; let i = index"
+>
+  <div class="panel" *ngIf="displayFileName">
+    <code-demo-file-path
+      style="margin: 1px 0 10px 0;display: block;"
+      [path]="openModels[i].path"
+    ></code-demo-file-path>
+  </div>
+  <div class="panel" *ngIf="allowSwitchingFiles">
+    <mat-form-field>
+      <mat-select
+        [ngModel]="openModels[i]"
+        (selectionChange)="handleFileChange(i, $event)"
+      >
+        <mat-select-trigger>
+          <code-demo-file-path
+            [path]="openModels[i].path"
+          ></code-demo-file-path>
+        </mat-select-trigger>
+
+        <mat-option *ngFor="let m of models" [value]="m">
+          <code-demo-file-path [path]="m.path"></code-demo-file-path>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      mat-button
+      *ngIf="solutions[model.path] && solutions[model.path] != code[model.path]"
+      style="cursor: pointer"
+      (click)="loadSolution(model.path)"
+    >
+      Load solution
+    </button>
+  </div>
+
+  <code-demo-editor-from-model
+    [autoSize]="autoSize"
+    [autoFolding]="enableAutoFolding"
+    [model]="model.model"
+    [codeDemoHighlight]="model.highlight"
+  ></code-demo-editor-from-model>
+</div>

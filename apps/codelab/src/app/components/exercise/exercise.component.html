@@ -1,0 +1,52 @@
+<div *ngIf="code">
+  <div class="row">
+    <code-demo-multitab-editor
+      [codeDemoHighlight]="codeDemoHighlight"
+      class="quarter"
+      [autoSize]="false"
+      [files]="files"
+      [solutions]="solutions"
+      [(ngModel)]="code"
+      (ngModelChange)="update($event)"
+    ></code-demo-multitab-editor>
+    <div class="quarter tests">
+      <ng-content select=".description"></ng-content>
+      <codelab-simple-angular-test-runner
+        *ngIf="testRunner === 'iframe'"
+        [translations]="translations"
+        (selectFile)="files = [$event]"
+        [bootstrap]="bootstrapTest"
+        [code]="files$ | async"
+        (solved)="isSolved = $event"
+      ></codelab-simple-angular-test-runner>
+
+      <codelab-babel-test-runner
+        *ngIf="testRunner === 'babel'"
+        [translations]="translations"
+        [bootstrap]="bootstrapTest"
+        (solved)="isSolved = $event; showDogs()"
+        [code]="code"
+      ></codelab-babel-test-runner>
+      <div *ngIf="isSolved" class="solved-message">
+        <button mat-button i18n nextSlide>
+          Well done! Now you can go to the next slide
+        </button>
+        <img
+          src="/assets/images/well_done.gif"
+          i18n-alt
+          alt="Happy dogs celebrating your success"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <codelab-preview class="quarter" [milestone]="milestone"></codelab-preview>
+    <code-demo-runner
+      class="quarter"
+      [url]="url"
+      [presets]="presets"
+      [bootstrap]="bootstrap"
+      [code]="files$ | async"
+    ></code-demo-runner>
+  </div>
+</div>

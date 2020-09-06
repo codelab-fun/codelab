@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+  <select formControlName="status">
+    <option value="presenter">Presenter</option>
+    <option value="viewer">Viewer</option>
+  </select>
+
+  <input formControlName="user" />
+
+  <pre>{{ data | json }}</pre>
+</form>

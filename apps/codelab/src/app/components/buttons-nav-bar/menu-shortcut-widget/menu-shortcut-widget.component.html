@@ -1,0 +1,16 @@
+<button class="menu-bar-btn index-menu" [matMenuTriggerFor]="menu">
+  <img alt="MenuShortcut" src="/assets/images/home.png" />
+</button>
+
+<mat-menu #menu="matMenu">
+  <div class="buttons-nav-bar-modal-content-wrapper">
+    <ul>
+      <li><a routerLink="/">🏡 Index </a></li>
+      <li *ngFor="let navigationRoute of menuRoutes">
+        <a [routerLink]="['/angular', navigationRoute['path']]">
+          {{ navigationRoute['name'] }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</mat-menu>

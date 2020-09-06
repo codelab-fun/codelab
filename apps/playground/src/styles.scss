@@ -1,0 +1,53 @@
+@import "../../../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+mat-card {
+  margin: 0 auto;
+  margin: 5% 0 20px 25% !important;
+  width: 42rem;
+  height: inherit;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 10px !important;
+}
+mat-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+  transition: 0.3s !important;
+}
+
+mat-card-header {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  .header-image {
+    float: left;
+    background: url('../assets/images/angular.png') no-repeat center center;
+    background-size: cover;
+    margin: -10px 0 0 -10px;
+    height: 100px !important;
+    width: 100px !important;
+  }
+
+  mat-card-title {
+    font-family: $font-stack;
+    font-weight: $font-weight-max;
+    font-size: 30px !important;
+    margin: -10px 0 10px 10px;
+    color: #007aff;
+    text-align: center;
+  }
+  mat-card-subtitle {
+    font-family: $font-stack;
+    font-weight: $font-weight-max;
+    font-size: 17.5px !important;
+    font-style: italic;
+    color: #808080;
+    text-align: center;
+  }
+}

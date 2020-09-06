@@ -1,0 +1,104 @@
+:host ::ng-deep .slide.slide > div.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  padding: 0 20vw;
+
+  p {
+    font-weight: 300;
+  }
+}
+
+::ng-deep {
+  font-weight: 300;
+}
+
+.button-wrapper {
+  margin: 20px 0;
+}
+
+.rules {
+  display: flex;
+
+  .rule {
+    .arrow {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.grid-header {
+  display: flex;
+  margin-top: 20px;
+
+  .play {
+    margin-left: 8px;
+  }
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-shadow: 0 0 10px #444 inset;
+}
+
+.img.milica {
+  background-image: url('./pics/milica.jpg');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+}
+
+.img.nks {
+  background-image: url('./pics/nks.jpg');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 800px;
+}
+
+.img.feynman {
+  background-image: url('./pics/feynman.png');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 800px;
+}
+
+.img.joking {
+  background-image: url('./pics/joking.jpg');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 800px;
+}
+
+.key-items {
+  display: flex;
+  text-align: center;
+
+  .item {
+    flex: 1;
+    font-size: 40px;
+  }
+}
+
+.img-30 {
+  background-image: url('./pics/30.png');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 800px;
+}
+
+.img-30-2 {
+  background-image: url('./pics/30-2.png');
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 800px;
+}

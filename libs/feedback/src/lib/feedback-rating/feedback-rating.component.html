@@ -1,0 +1,47 @@
+<div #translations style="display: none">
+  <div i18n="@@perfect" id="perfect">Perfect</div>
+  <div i18n="@@good" id="good">good</div>
+  <div i18n="@@ok" id="ok">ok</div>
+  <div i18n="@@hopedForMore" id="hopedForMore">Hoped for more</div>
+</div>
+
+<div *ngIf="!showSummary" style="height: 340px; overflow: hidden">
+  <div [class]="ratingsClass">
+    <br />
+    <br />
+    <h1 i18n>Rate this lesson ...</h1>
+    <div row>
+      <div *ngFor="let rate of rates; let i = index" class="rateoption">
+        <div [class]="rateClass(i)" (click)="selectRate(i)">
+          <img [src]="'assets/images/' + rate.src" />
+        </div>
+        <h1>{{ rate.text }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showSummary">
+  <table class="summarytable">
+    <thead>
+      <tr>
+        <th style="width: 40%; text-align: left; vertical-align: bottom;">
+          <h1>Lesson</h1>
+        </th>
+        <th *ngFor="let rate of rates" class="rateheading">
+          <div class="rate"><img [src]="'assets/images/' + rate.src" /></div>
+          <b>{{ rate.text }}</b>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rating of ratings$ | async; let i = index">
+        <td>
+          <h3>{{ rating.lesson }}</h3>
+        </td>
+        <td *ngFor="let rate of rates" class="rateheading">
+          <h3>{{ rating[rate.value] }}</h3>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

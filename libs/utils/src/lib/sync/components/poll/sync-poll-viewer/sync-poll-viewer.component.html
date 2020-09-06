@@ -1,0 +1,35 @@
+<div class="time">
+  <div *ngIf="poll.$isPollRunning | async; else timeOver">
+    <h2>⏱ {{ poll.timeLeft$ | async }} seconds left</h2>
+  </div>
+</div>
+<ng-template #timeOver>
+  <h2>⏱ Time is over</h2>
+</ng-template>
+
+<h1>{{ config.question }}</h1>
+
+<div
+  *ngIf="poll.isPollEnabled$ | async; else wait"
+  [class.disabled]="(poll.$isPollRunning | async) !== true"
+>
+  <codelab-stars
+    [enabled]="poll.$isPollRunning | async"
+    *ngIf="config.type === 'stars'"
+    [(ngModel)]="stars"
+    [syncViewerValue]="'poll/' + this.poll.key"
+  ></codelab-stars>
+
+  <codelab-sync-poll-viewer-choice
+    [myVote]="poll.myVote$ | async"
+    [enabled]="poll.$isPollRunning | async"
+    [options]="config.options"
+    (vote)="poll.vote($event)"
+    *ngIf="config.type === 'choice'"
+  >
+  </codelab-sync-poll-viewer-choice>
+</div>
+
+<ng-template #wait>
+  <h1>not started</h1>
+</ng-template>

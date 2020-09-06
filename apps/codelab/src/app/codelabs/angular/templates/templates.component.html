@@ -1,0 +1,391 @@
+<div #translations style="display: none">
+  <div i18n="@@thisIsValidHTML" id="thisIsValidHTML">
+    This is valid HTML syntax.
+  </div>
+  <div i18n="@@worksOnAttributeSyntax" id="worksOnAttributeSyntax">
+    It works on attribute syntax.
+  </div>
+  <div
+    i18n="@@allowsToConditionallyBindClass"
+    id="allowsToConditionallyBindClass"
+  >
+    It allows to conditionally bind a class
+  </div>
+  <div i18n="@@orStyleProps" id="orStyleProps">Or style properties</div>
+  <div i18n="@@worksWithCustomComponents" id="worksWithCustomComponents">
+    And works with custom components!
+  </div>
+  <div
+    i18n="@@whenUserClicksItCallsSaveUser"
+    id="whenUserClicksItCallsSaveUser"
+  >
+    When user clicks the button, it calls the "saveUser" function on the
+    component instance and passes the underlying event.
+  </div>
+  <div
+    i18n="@@youCanAlsoCreateEventsForCustomComponents"
+    id="youCanAlsoCreateEventsForCustomComponents"
+  >
+    You can also create events for custom components. Here we have a depleted
+    event, and it's going to call the "soundAlarm" function on the component
+    instance when it fires.
+  </div>
+  <div
+    i18n="@@thereAreShortcutEventBindings"
+    id="thereAreShortcutEventBindings"
+  >
+    There are also shortcut event bindings! The submit function on the component
+    instance will be called when the user presses control and enter (this is an
+    Angular feature).
+  </div>
+  <div i18n="@@userNameHasRefToInput" id="userNameHasRefToInput">
+    userName has a reference to the input element
+  </div>
+  <div i18n="@@tryChangingToTrue" id="tryChangingToTrue">
+    Try changing to true!
+  </div>
+  <div i18n="@@needToRepeatPuppiesHere" id="needToRepeatPuppiesHere">
+    Need to repeat puppies here
+  </div>
+  <div i18n="@@addVideosProperty" id="addVideosProperty">
+    app.component.ts: Add a 'videos' property, set the value as empty array.
+  </div>
+  <div i18n="@@assignFakeVideosToComponent" id="assignFakeVideosToComponent">
+    app.component.ts: Inside of the 'search' method assign FAKE_VIDEOS, to the
+    component 'videos' property.
+  </div>
+  <div i18n="@@addH1HeaderWithATitle" id="addH1HeaderWithATitle">
+    app.html: Add an H1 header, display the 'title' property of the AppComponent
+    inside
+  </div>
+
+  <div i18n="@@addSearchMethodOnComponent" id="addSearchMethodOnComponent">
+    app.component.ts: Add a 'search' method on the component, that takes a
+    'searchString' parameter.
+  </div>
+  <div
+    i18n="@@addClickHandlerToButtonCallSearch"
+    id="addClickHandlerToButtonCallSearch"
+  >
+    app.html: Add a click handler to the button, call 'search' method and pass
+    the input value (Actual search functionality will be implemented in the next
+    exercise)
+  </div>
+  <div i18n="@@addMessageNoVideos" id="addMessageNoVideos">
+    app.html: Add a message saying 'no videos' which is displayed only when the
+    videos array is empty
+  </div>
+
+  <div
+    i18n="@@bonusDisplayAllVideosByDefault"
+    id="bonusDisplayAllVideosByDefault"
+  >
+    #Bonus app.component.ts: Right now it takes pressing a search button to
+    display the videos. Instead display all videos by default.
+  </div>
+  <div
+    i18n="@@insideSearchMethodFilterFakeVideos"
+    id="insideSearchMethodFilterFakeVideos"
+  >
+    app.component.ts: Inside of the 'search' method filter FAKE_VIDEOS and only
+    return videos with the title containing searchString. (hint: use .includes
+    or .indexOf string methods)
+  </div>
+  <div i18n="@@alsoDisplayThumbnail" id="alsoDisplayThumbnail">
+    app.html: Also display a thumbnail
+  </div>
+  <div
+    i18n="@@IterateWithNgForAndDisplayTitle"
+    id="IterateWithNgForAndDisplayTitle"
+  >
+    app.html: Iterate over the videos using '*ngFor', and display a title for
+    each
+  </div>
+
+  <div i18n="@@addButtonWithtextSearch" id="addButtonWithtextSearch">
+    app.html: Add a button tag with a text 'search'
+  </div>
+  <div i18n="@@addInputWithPlaceholderVideo" id="addInputWithPlaceholderVideo">
+    app.html: Add an input tag with a 'placeholder' attribute set to 'video'
+  </div>
+</div>
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <!--  INTRO -->
+  <div *slide id="intro" no-padding>
+    <codelab-title-slide
+      title="Templates"
+      i18n-title="@@templates"
+      description="Learn more about Angular templates!"
+      i18n-description
+      prereqs=""
+    ></codelab-title-slide>
+  </div>
+
+  <!--  COMPONENT -->
+  <div *slide id="component" milestone="Templates">
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+    <h2 i18n>
+      Angular has a very expressive template system, which takes HTML as a base,
+      and extends it with custom elements
+    </h2>
+    <codelab-exercise-playground
+      [highlights]="code.template.matches.template"
+      [exercise]="code.template.intro"
+    ></codelab-exercise-playground>
+  </div>
+
+  <!--  INTERPOLATION-->
+  <div *slide id="interpolation" milestone="Templates">
+    <codelab-breadcrumb i18n>Interpolation</codelab-breadcrumb>
+    <h2 i18n>
+      Double curlies include the appropriate component property value
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.template.interpolation"
+      [highlights]="code.template.matches.curlies"
+    ></codelab-exercise-playground>
+    <div class="info" milestone="Templates" style="margin-top: -8px;" i18n>
+      Backticks <b>` `</b>, are magic quotes that allow multi-line strings and
+      text interpolation.
+    </div>
+  </div>
+
+  <!--INTERPOLATION-METHOD-->
+  <div *slide id="interpolation-method" milestone="Templates">
+    <codelab-breadcrumb i18n>Interpolation</codelab-breadcrumb>
+    <h2 i18n>
+      Simple expressions are also allowed, you can run a component method (like
+      fullName() below), or calculate <code>323213+34234</code>
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.template.interpolationMethod"
+      [highlights]="code.template.matches.curliesFullName"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="exercise-pre" milestone="Templates">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
+      In the next slide you'll edit a component template to create a simple
+      header and search form. The result will look like this:
+    </h2>
+
+    <codelab-exercise-preview
+      column-5
+      [exercise]="exercises[0]"
+    ></codelab-exercise-preview>
+  </div>
+
+  <div *slide id="exercise" no-padding>
+    <codelab-exercise
+      milestone="Templates"
+      [translations]="t"
+      [exercise]="exercises[0]"
+    >
+    </codelab-exercise>
+  </div>
+
+  <!--  PRE DATA BINDING-->
+  <div *slide id="data-binding-pre" milestone="Templates2">
+    <codelab-breadcrumb i18n>Properties</codelab-breadcrumb>
+    <h2 i18n>
+      String interpolation <b>{{ curlies }}</b> can also be used to pass a value
+      to a child element's attribute
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.template.dataBindingPre"
+      [highlights]="code.template.matches.curliesAttribute"
+    ></codelab-exercise-playground>
+  </div>
+
+  <!--  DATA BINDING  -->
+  <div *slide id="data-binding" milestone="Templates2">
+    <codelab-breadcrumb i18n>Property Binding</codelab-breadcrumb>
+    <h2 i18n>
+      Better option is to use property binding <b>[attribute] = property</b>
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.template.dataBinding"
+      [highlights]="code.template.matches.squares"
+    ></codelab-exercise-playground>
+    <div class="info" style="margin-top: -10px; z-index: 2;" i18n>
+      You can use arbitrary expressions in the binding.
+    </div>
+  </div>
+
+  <!--  DATA BINDING EXTRAS-->
+  <div *slide id="data-binding-extras" milestone="Templates2">
+    <codelab-breadcrumb i18n>Data binding extras</codelab-breadcrumb>
+    <h2 i18n>
+      Angular supports more advanced property bindings than just attribute name
+    </h2>
+    <code-demo
+      [files]="code.template.dataBindingExtra.files"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.template.dataBindingExtra.code"
+    ></code-demo>
+  </div>
+
+  <div *slide id="event-binding" milestone="Templates2">
+    <codelab-breadcrumb i18n>Event binding: (event)</codelab-breadcrumb>
+    <h2 i18n>
+      For handling user actions we can use event bindings. To do that we wrap
+      the event name in parentheses, and pass an expression performing required
+      action:
+    </h2>
+    <code-demo
+      [files]="code.eventBinding.files"
+      [highlights]="code.eventBinding.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.eventBinding.code"
+    ></code-demo>
+    <div class="info" i18n>
+      While parentheses are used for event binding: <b>(event)</b>, "on-" can
+      also be used, e.g. <b>on-click</b> is the same as <b>(click)</b>.
+    </div>
+  </div>
+
+  <div *slide id="reference-bindings" milestone="Templates2">
+    <codelab-breadcrumb i18n>Event binding shortcuts</codelab-breadcrumb>
+    <h2 i18n>
+      When we need to access an HTML element or an Angular component from the
+      template, we can mark it with <b>#name</b>, and it becomes available as
+      <b>name</b> everywhere in the template:
+    </h2>
+    <code-demo
+      [files]="code.referenceBinding.files"
+      [highlights]="code.referenceBinding.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.referenceBinding.code"
+    ></code-demo>
+    <div class="info" i18n>
+      We'll learn a better way to work with inputs in Forms milestone.
+    </div>
+  </div>
+
+  <div *slide id="event-binding-shortcuts" milestone="Templates2">
+    <codelab-breadcrumb i18n>Event binding shortcuts</codelab-breadcrumb>
+    <h2 i18n>
+      Angular also provides a shortcut for handling keyboard shortcuts. Try
+      updating the message by pressing Control + Enter in the input.
+    </h2>
+    <code-demo
+      [files]="code.eventBindingShortcuts.files"
+      [highlights]="code.eventBindingShortcuts.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.eventBindingShortcuts.code"
+    ></code-demo>
+  </div>
+
+  <!--  CONDITIONAL DISPLAY-->
+  <div *slide id="conditional-display-ngif" milestone="Templates2">
+    <codelab-breadcrumb i18n>Conditional Display (*ngIf)</codelab-breadcrumb>
+    <h2 i18n>
+      This conditional expression will add or remove an element from the DOM if
+      it evaluates as a truthy
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.ngIfDirective.template"
+      [highlights]="code.ngIfDirective.matches.ngIf"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="exercise-2-pre" milestone="Templates2">
+    <codelab-breadcrumb i18n>Exercise 2</codelab-breadcrumb>
+    <h2 i18n>
+      In the next slide you'll add a click handler to the search button, and
+      display a message for the case where no videos were found. The result will
+      look like this:
+    </h2>
+
+    <codelab-exercise-preview
+      column-5
+      [exercise]="exercises[1]"
+    ></codelab-exercise-preview>
+  </div>
+
+  <div *slide id="exercise-2" no-padding>
+    <codelab-exercise
+      milestone="Templates2"
+      [translations]="t"
+      [exercise]="exercises[1]"
+    >
+    </codelab-exercise>
+  </div>
+
+  <div *slide id="repeating" milestone="Templates3">
+    <codelab-breadcrumb i18n>Repeating elements</codelab-breadcrumb>
+    <h2 i18n>
+      Let's say you have an array of puppies, and want to display all of them on
+      the page. Angular has a special syntax for that called <b>*ngFor</b>,
+      let's see how it works on the next slide
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.ngForDirectivePre.template"
+      [highlights]="code.ngForDirectivePre.matches"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="conditional-display-ngfor" milestone="Templates3">
+    <codelab-breadcrumb i18n>Repeating elements (*ngFor)</codelab-breadcrumb>
+    <h2 i18n>
+      Here <b>*ngFor</b> repeats HTML element it's attached to (li in this case)
+      for every single puppy in the puppies array
+    </h2>
+    <codelab-exercise-playground
+      #forExercise
+      [exercise]="code.ngForDirective.template"
+      [highlights]="code.ngForDirective.matches.ngFor"
+    ></codelab-exercise-playground>
+    <div class="info mt-60" i18n>
+      HTML attributes in <b>Angular</b> are case sensitive:
+      <b><s>*ngfor</s></b> won't work, <b>*ngFor</b> will
+    </div>
+  </div>
+
+  <div *slide id="exercise-3-pre" milestone="Templates3">
+    <codelab-breadcrumb i18n>Exercise 3</codelab-breadcrumb>
+    <div flex style="height: 100%;">
+      <div column-5>
+        <h2 i18n>
+          In the next slide you'll finally display the videos! The result will
+          look like this:
+        </h2>
+      </div>
+      <codelab-exercise-preview
+        column-5
+        [exercise]="exercises[2]"
+      ></codelab-exercise-preview>
+    </div>
+  </div>
+
+  <div *slide id="exercise-3" no-padding>
+    <codelab-exercise
+      [translations]="t"
+      [exercise]="exercises[2]"
+      milestone="Templates3"
+    >
+    </codelab-exercise>
+  </div>
+
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div class="header" header>
+        <codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb>
+      </div>
+      <div class="body" body></div>
+      <div class="footer" footer>
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../dependency-injection/0" i18n>
+            Learn how to use Angular Dependency Injection
+          </a>
+        </h2>
+        <feedback-rating lesson="AngularTemplates"></feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

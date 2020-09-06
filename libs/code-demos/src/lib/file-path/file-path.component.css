@@ -1,0 +1,39 @@
+:host ::ng-deep .mat-form-field-infix {
+  padding: 0 !important;
+}
+
+.file {
+  display: block;
+  box-shadow: 0 0 1px #999;
+}
+
+.file.ts:before {
+  content: 'ts';
+  background: #1885ff;
+  color: #eeeeee;
+}
+
+.file.html:before {
+  content: '<>';
+  background: #fbff20;
+  color: #424242;
+}
+
+.file.css:before {
+  content: '{}';
+  background: #6cff37;
+  color: #424242;
+}
+
+.file:before {
+  font-family: roboto-mono, monospace;
+  font-size: 12px;
+  padding: 0.2vw;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  box-shadow: 0 0 1px #444444;
+  margin: 0.2vw 1vw 0.2vw 0.2vw;
+  line-height: 18px;
+  text-align: center;
+}

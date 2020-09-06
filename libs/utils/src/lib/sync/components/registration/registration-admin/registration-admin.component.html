@@ -1,0 +1,28 @@
+<div *ngIf="registrationService.users$ | async as users">
+  <codelab-sync-join-instructions></codelab-sync-join-instructions>
+  <div>
+    <mat-checkbox
+      [syncPresenterValue]="'registration/shouldDisplayNames'"
+      [syncPresenterValueDefault]="true"
+      [(ngModel)]="displayNames"
+    >
+      Display names
+    </mat-checkbox>
+  </div>
+
+  <div>
+    <mat-checkbox
+      [syncPresenterValue]="'registration/isRegistrationEnabled'"
+      [syncPresenterValueDefault]="true"
+      [(ngModel)]="isRegistrationEnabled"
+    >
+      Enable registration
+    </mat-checkbox>
+  </div>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.name }}
+      <button mat-button (click)="drop(user.userId)">🗑</button>
+    </li>
+  </ul>
+</div>

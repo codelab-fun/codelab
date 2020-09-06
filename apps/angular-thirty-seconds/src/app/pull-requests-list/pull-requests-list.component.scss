@@ -1,0 +1,27 @@
+h1 {
+  color: #444;
+}
+
+.container {
+  max-width: 850px;
+  padding: 0 15px 30px 15px;
+  margin: 0 auto;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-cell-padding {
+  padding: 0 5px;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-center {
+  align-self: center;
+}

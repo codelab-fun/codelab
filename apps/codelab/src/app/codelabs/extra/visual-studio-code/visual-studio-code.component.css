@@ -1,0 +1,16 @@
+.vscode-gifs img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.feature-title {
+  text-align: center;
+  font-style: italic;
+  margin: 20px 1px 1px 1px;
+}
+
+.vscode-gifs {
+  display: inline-block;
+  padding: 5px;
+}

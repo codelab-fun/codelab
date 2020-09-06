@@ -1,0 +1,20 @@
+<mat-card>
+  <h2>Angular Codelab 🔥 Admin</h2>
+
+  <nav mat-tab-nav-bar>
+    <a
+      *ngFor="let link of links"
+      mat-tab-link
+      routerLinkActive
+      #rla="routerLinkActive"
+      [routerLink]="link.link"
+      [active]="rla.isActive"
+    >
+      {{ link.name }}
+    </a>
+  </nav>
+
+  <div class="wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</mat-card>

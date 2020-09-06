@@ -1,0 +1,37 @@
+.wrapper {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  border-top: 10vw black solid;
+  border-bottom: 10vw black solid;
+  box-sizing: border-box;
+}
+
+kirjs-polaroid {
+  display: block;
+  margin-left: 30px;
+}
+
+.picture.fb {
+  background: url(pics/fb.png);
+  background-size: cover;
+}
+
+.picture.lastfm {
+  background: url(pics/lastfm.png);
+  background-size: cover;
+}
+
+.picture.binary {
+  background: url(pics/binary.png);
+  background-size: cover;
+}
+
+.picture.kirjs {
+  background: url(pics/kirjs.jpg);
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}

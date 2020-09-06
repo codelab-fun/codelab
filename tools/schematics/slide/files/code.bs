@@ -1,0 +1,7 @@
+
+import { SlidesRoutes } from '@ng360/slides';
+import { RouterModule } from '@angular/router';
+
+const routes = RouterModule.forChild(
+  SlidesRoutes.get(EmptyComponent)
+);
