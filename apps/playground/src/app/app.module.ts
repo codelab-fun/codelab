@@ -5,10 +5,17 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { monacoReady } from '@codelab/code-demos';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 const routes = [
   {
@@ -29,7 +36,7 @@ const routes = [
   {
     path: 'quiz',
     loadChildren: () =>
-      import('./quiz/app.module').then(m => m.AppModule)
+      import('./quiz/routing/quiz-routing.module').then(m => m.QuizRoutingModule)
   }
 ];
 
@@ -43,9 +50,15 @@ export const AngularFireApp = AngularFireModule.initializeApp(
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
+    HttpClientModule,
     AngularFireApp,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatTooltipModule
   ],
   providers: [
     {
