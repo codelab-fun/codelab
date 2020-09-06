@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 @import "variables";
 
+=======
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
 mat-card-header {
   display: block;
 
   .header-image {
     margin: 5px 0 0 15px;
   }
+<<<<<<< HEAD
 }
 
 .quiz-topic-image {
@@ -23,6 +27,23 @@ mat-card-content {
     text-align: justify;
     margin-top: -25px;
   }
+=======
+
+  .quiz-topic-img {
+    display: flex;
+    justify-content: center;
+    background: url('images/DIDiagram.png') no-repeat;
+    background-size: 100%;
+    margin: 20px -10px 0 5px;
+    height: 300px;
+    width: 100%;
+  }
+}
+
+mat-card-content p {
+  text-align: justify;
+  margin-top: -25px;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
 }
 
 mat-card-actions {
@@ -32,6 +53,10 @@ mat-card-actions {
     margin-bottom: 10px;
   }
   button:hover {
+<<<<<<< HEAD
     border: 1px solid $vivid-blue;
+=======
+    border: 1px solid #007aff;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
   }
 }

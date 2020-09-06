@@ -1,19 +1,34 @@
+<<<<<<< HEAD
 @import "variables";
 
 mat-card-header {
   display: block;
   margin-top: 20px !important;
+=======
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+mat-card-header {
+  display: block;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
 
   .header-image {
     margin-left: 10px;
   }
 
   mat-card-title {
+<<<<<<< HEAD
     font-family: 'Roboto', arial, sans-serif;
     font-size: 48px !important;
     font-style: italic;
     font-weight: 900;
     color: $green-angular-leaf;
+=======
+    font-weight: 900;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 0 0 -50px;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
   }
 }
 
@@ -22,9 +37,12 @@ mat-card-header {
   clear: both;
 
   h3 {
+<<<<<<< HEAD
     font-family: $congratulations-font;
     font-size: 32px;
     font-style: italic;
+=======
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
     text-align: center;
   }
   img {
@@ -45,6 +63,7 @@ mat-card-header {
       display: block;
     }
 
+<<<<<<< HEAD
     .your-score, .elapsed-time {
       font-size: 18px;
       font-weight: bold;
@@ -78,6 +97,10 @@ mat-card-header {
         margin-left: 16%;
         width: 400px;
       }
+=======
+    .quiz-feedback {
+      margin-top: 20px;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
     }
   }
 
@@ -90,13 +113,18 @@ mat-card-header {
 
       summary {
         font-size: 16px;
+<<<<<<< HEAD
         color: $vivid-blue;
+=======
+        color: #007aff;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
         font-weight: $font-weight-max;
         margin-bottom: 20px;
         outline: none;
         text-align: center;
       }
 
+<<<<<<< HEAD
       mat-accordion {
         padding-bottom: 20px;
 
@@ -187,6 +215,59 @@ mat-card-header {
 
         button {
           margin-right: 10px;
+=======
+      accordion {
+        padding-bottom: 20px;
+      }
+
+      accordion-group:hover {
+        outline: blue;
+      }
+
+      .accordion-heading {
+        background-color: #f5f5f5 !important;
+        color: #0f0000 !important;
+      }
+
+      .quiz-summary-question {
+        font-family: $font-stack;
+        font-size: 14px;
+        border: 2px solid #385d8a;
+        border-radius: 5px;
+        color: #0f0900;
+        background-color: #f5f5f5;
+        margin-bottom: 15px;
+        padding: 10px;
+        text-align: left;
+
+        .quiz-summary-field {
+          display: block !important;
+          margin-bottom: 10px;
+          text-align: left;
+
+          span {
+            display: inline !important;
+            text-align: left;
+            font-size: 16px;
+            color: #00008b;
+          }
+          .leader {
+            font-weight: $font-weight-max;
+          }
+
+          mat-icon {
+            font-size: larger;
+            top: 10px !important;
+          }
+          mat-icon.correct {
+            color: #006400 !important;
+            font-weight: $font-weight-max;
+          }
+          mat-icon.incorrect {
+            color: #ff0000 !important;
+            font-weight: $font-weight-max;
+          }
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
         }
       }
     }
@@ -196,6 +277,7 @@ mat-card-header {
 .return {
   clear: left;
   text-align: center;
+<<<<<<< HEAD
   margin-top: 10px;
 
   a.btn {
@@ -203,6 +285,15 @@ mat-card-header {
     background-color: $light-sea-green;
     color: $white;
     border: 1px solid $black;
+=======
+  margin-top: -10px;
+
+  a.btn {
+    margin-right: 15px;
+    background-color: #20b2aa;
+    color: white;
+    border: 1px solid black;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
     border-radius: 5px;
   }
 }
@@ -219,6 +310,7 @@ mat-card-header {
       padding: 9px 15px 8px 42px;
       background: no-repeat 10px 5px;
       background-size: 25px 25px;
+<<<<<<< HEAD
       color: $white;
     }
 
@@ -238,6 +330,27 @@ mat-card-header {
       background-color: $fuel-yellow;
       background-image: url($email-path);
       top: 10px !important;
+=======
+      color: white;
+    }
+
+    /* a.btn.facebook {
+      background-color: #4267b2;
+      background-image: url('../../../../assets/images/facebook.gif');
+      top: 5px;
+    } */
+
+    a.btn.twitter {
+      background-color: #59adeb;
+      background-image: url('../../../../../assets/images/twitter.svg');
+      top: 5px;
+    }
+
+    a.btn.email {
+      background-color: #f0a121;
+      background-image: url('../../../../../assets/images/email.svg');
+      top: 5px;
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
     }
   }
 }

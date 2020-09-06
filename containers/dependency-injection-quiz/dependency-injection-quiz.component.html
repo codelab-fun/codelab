@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <mat-card
   [@changeRoute]="animationState$ | async"
   (@changeRoute.done)="animationDoneHandler()"
@@ -19,17 +20,61 @@
         </span>
       </span>
       <span *ngIf="answer && answer.length > 0" i18n>{{ explanationText }}</span>
+=======
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>Dependency Injection Quiz</mat-card-title>
+    <mat-card-subtitle>Assess your knowledge of Dependency Injection</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <section class="scoreboard">
+      <div class="row">
+        <div class="score">
+          <span class="leader">Score</span>
+          <span class="scoreboard">
+            {{ correctAnswersCount }}/{{ totalQuestions }}
+          </span>
+        </div>
+        <div class="badge" *ngIf="question && question.index <= totalQuestions">
+          <span>Question {{ badgeQuestionNumber }} of {{ totalQuestions }}</span>
+        </div>
+        <div class="time-left">
+          <span class="leader">Time</span>
+          <span class="scoreboard">
+            0:<span *ngIf="timeLeft < 10">0</span>{{ timeLeft }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="question"
+      #questionElem
+      [class.unanswered]="!hasAnswer"
+      [class.answered]="hasAnswer">
+      <span *ngIf="!hasAnswer">{{ question.questionText }}</span>
+      <span *ngIf="(answer !== null) && hasAnswer && showExplanation">
+        Option {{ question.answer }} is correct because {{ question.explanation }}.
+      </span>
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
     </section>
 
     <codelab-quiz-question
       [question]="question"
+<<<<<<< HEAD
       (answer)="selectedAnswer($event)">
+=======
+      (answer)="answerChanged($event)">
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
     </codelab-quiz-question>
   </mat-card-content>
 
   <mat-card-footer>
     <section class="paging">
       <mat-card-actions>
+<<<<<<< HEAD
         <mat-nav-list>
           <div class="prev-question-nav" *ngIf="question && questionIndex > 1">
             <button
@@ -106,11 +151,43 @@
     <section class="progress-bar" *ngIf="question && questionIndex > 1">
       <ngb-progressbar
         max="100"
+=======
+        <div class="next-question-nav" *ngIf="question && question.index !== totalQuestions">
+          <button type="button" (click)="navigateToNextQuestion()">
+            Next &raquo;
+          </button>
+        </div>
+        <div class="show-score-nav" *ngIf="question && question.index === totalQuestions">
+          <button type="button" (click)="navigateToResults()">
+            Show Your Score
+          </button>
+        </div>
+      </mat-card-actions>
+    </section>
+
+    <section class="progress-bar">
+      <!-- <mat-progress-bar
+        color="accent"
+        class="mat-elevation-z8"
+        mode="determinate"
+        value="progressValue"
+        aria-labelledby="codelab-quiz-progress-bar"
+        *ngIf="(progressValue >= 0 && progressValue <= 100) && question && question.index <= totalQuestions">
+        <strong>{{ progressValue }}%</strong>
+      </mat-progress-bar> -->
+
+      <ngb-progressbar
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
         type="success"
         [striped]="true"
         [animated]="true"
         [value]="progressValue"
+<<<<<<< HEAD
         class="progress-bar bg-info">
+=======
+        *ngIf="progressValue >= 0 && progressValue <= 100 &&
+               question && question.index <= totalQuestions">
+>>>>>>> 970bc9feaf1792343871197b517f495f0567e967
         <strong>{{ progressValue }}%</strong>
       </ngb-progressbar>
     </section>

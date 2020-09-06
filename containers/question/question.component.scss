@@ -1,0 +1,106 @@
+$font-stack: Space Mono, monospace;
+$font-weight-max: 900;
+
+@font-face {
+  font-family: "Alarm Clock";
+  src: url("../../../../../assets/alarm-clock.ttf") format("truetype");
+}
+
+section.scoreboard {
+  margin-top: 10px !important;
+
+  .row {
+    display: inline;
+  }
+  .score {
+    float: left;
+    margin-left: 1rem;
+  }
+  .score .leader {
+    margin-left: 15px;
+  }
+  .badge {
+    float: left;
+    margin: 20px 10px 0 100px;
+    font-family: $font-stack;
+    font-size: 24px;
+    font-weight: $font-weight-max;
+    font-style: italic;
+  }
+  .time-left {
+    float: right;
+    margin-right: 1rem;
+  }
+  .time-left .leader {
+    margin-left: 20px;
+  }
+  .scoreboard {
+    font-family: "Alarm Clock", $font-stack;
+    font-weight: $font-weight-max;
+    font-size: 30px;
+    color: #006400;
+    display: inline-block;
+    margin: -5px 0 0 15px;
+    width: auto;
+  }
+  .leader {
+    display: block;
+    font-weight: $font-weight-max;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    top: -5px;
+  }
+}
+
+section#question {
+  font-family: $font-stack;
+  font-weight: 700;
+  font-size: 30px !important;
+  margin: 0 0 10px 0.4rem;
+  float: left;
+  border: 2px solid #007aff;
+  padding: 5px 10px 15px 20px;
+  background-color: #f5f5f5;
+  color: #0f0900;
+  width: 39rem !important;
+  height: auto;
+  vertical-align: middle;
+}
+
+section.paging {
+  width: 40rem;
+
+  mat-card-actions {
+    margin: -10px 0 10px 0;
+
+    .nextQuestionNav {
+      float: right;
+      margin-right: -0.4rem;
+    }
+
+    .showScoreNav {
+      width: 150px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .nextQuestionNav:hover, .showScoreNav:hover {
+      border: 1px solid #007aff;
+    }
+
+    .showScoreNav:hover {
+      width: 141.5px !important;
+    }
+  }
+}
+
+section.progress-bar {
+  margin: 40px 0 10px 1.5rem;
+  width: 39rem;
+  height: auto;
+
+  ngb-progressbar {
+    border-radius: 10px;
+  }
+}
