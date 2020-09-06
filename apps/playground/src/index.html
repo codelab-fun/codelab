@@ -2,16 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Playground</title>
+    <title>Angular Codelab Quiz App</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script>
+      // var global = global || window; // open this if you take global error
+      // var Buffer = Buffer || []; // open this if you take buffer error
+      var process = process || {
+        env: { DEBUG: undefined },
+        version: []
+      };
+    </script>
   </head>
   <body>
-    <codelab-root></codelab-root>
+    <codelab-root>
+      <div class="preload">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </codelab-root>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
   </body>
 </html>
