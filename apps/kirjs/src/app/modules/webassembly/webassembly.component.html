@@ -1,0 +1,370 @@
+<slide-deck slideShortcuts slidesRouting>
+  <kirjs-new-progress-bar
+    (fontSizeChange)="fontSize = fontSize + $event"
+    [fontSize]="fontSize"
+    title="CA ❤ WA"
+  ></kirjs-new-progress-bar>
+  <div *slide class="center" id="start">
+    <h2>Cellular Automata</h2>
+    <h2>Web assembly</h2>
+    <h1>@kirjs</h1>
+  </div>
+
+  <div *slide class="center" id="previously">
+    <h1>Previously In @BibyDigital's talk...</h1>
+    <div class="milica img"></div>
+    <h2>(Or WebAssembly in 15 seconds)</h2>
+  </div>
+
+  <div *slide class="center" id="wa">
+    <h1>🔥 Web Assembly 🔥</h1>
+    <h2>Not exactly an assembly</h2>
+    <h2>Also not only for web</h2>
+  </div>
+
+  <div *slide class="center" id="wa-2">
+    <h1>Web Assembly</h1>
+    <h1>Intermediate representation</h1>
+    <h2>Compile from (almost) any typed language</h2>
+    <h2>Run in your browser, from other language, or in a cloud...</h2>
+  </div>
+
+  <div *slide class="center" id="wa-types">
+    <h2>Web Assembly can only operate on 4 types</h2>
+    <ul>
+      <li>i32</li>
+      <li>i64</li>
+      <li>f32</li>
+      <li>f64</li>
+    </ul>
+  </div>
+
+  <div *slide class="center" id="is-in-binary">
+    <h1>Web Assembly</h1>
+    <h2>Has a binary representation</h2>
+    <kirjs-wasm-binary #binaryc style="display: none"></kirjs-wasm-binary>
+    <h2 style="word-break: break-all">
+      {{ binaryc.binary.slice(0, 400) }}
+    </h2>
+  </div>
+
+  <div *slide class="center" id="wat">
+    <h1>Web Assembly</h1>
+    <h2>...and a text representation. It is stack based</h2>
+    <h2>
+      <code-demo-editor
+        [(ngModel)]="examples.wat"
+        [fontSize]="30"
+        [lineNumbers]="false"
+        language="wat"
+        style="height: 100px;margin: 0 auto;width: 800px;margin-top: 30px;"
+      ></code-demo-editor>
+    </h2>
+  </div>
+
+  <div *slide class="center" id="wa-3">
+    <h2>Cellular Automata</h2>
+  </div>
+
+  <div *slide class="center" id="single-cell">
+    <slides-single-cell></slides-single-cell>
+  </div>
+
+  <div *slide class="center" id="grid">
+    <slides-single-grid></slides-single-grid>
+  </div>
+
+  <div *slide id="set-of-cells">
+    <h1>Grid</h1>
+    <kirjs-board
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 0, 0, 0, 0, 0]]"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="cells-with-state">
+    <h1>Rules</h1>
+    <div class="rules">
+      <div class="rule" style="margin-right: 50px;">
+        <kirjs-board [pattern]="[[0]]"></kirjs-board>
+        <div class="arrow" style="text-align: center;">⇩</div>
+        <kirjs-board [pattern]="[[1]]"></kirjs-board>
+      </div>
+      <div class="rule">
+        <kirjs-board [pattern]="[[1]]"></kirjs-board>
+        <div class="arrow" style="text-align: center;">⇩</div>
+        <kirjs-board [pattern]="[[0]]"></kirjs-board>
+      </div>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div (click)="board1.playing = !board1.playing" class="play">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 1, 0, 0, 0, 0]]"
+      [transform]="examples.intro.inverse"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="more-rules">
+    <h1>Rules</h1>
+    <div class="rules">
+      <kirjs-rule3 [arrow]="true" [rule]="16"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div (click)="board1.playing = !board1.playing" class="play">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [delay]="150"
+      [pattern]="[[0, 0, 0, 0, 1, 0, 0, 0, 0]]"
+      [transform]="examples.intro.inPlace16"
+    ></kirjs-board>
+  </div>
+
+  <div *slide id="more-rules-90">
+    <h1>Rules</h1>
+    <div class="rules">
+      <kirjs-rule3 [arrow]="true" [rule]="30"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div (click)="board1.playing = !board1.playing" class="play">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [delay]="150"
+      [pattern]="[[0, 0, 0, 0, 1, 0, 0, 0, 0]]"
+      [transform]="examples.intro.inPlace90"
+    ></kirjs-board>
+  </div>
+
+  <div *slide class="center" id="feynman">
+    <h1>Rule 30:</h1>
+    <div class="img feynman"></div>
+  </div>
+
+  <div *slide class="center" id="nks">
+    <h1>Book rec #1:</h1>
+    <h2>
+      <a
+        href="https://blog.stephenwolfram.com/2017/05/a-new-kind-of-science-a-15-year-view/"
+      >
+        New kind of science by Stephen Wolfram 🆓</a
+      >
+    </h2>
+    <div class="nks img"></div>
+  </div>
+
+  <div *slide class="center" id="feynman-book">
+    <h1>Book rec #2:</h1>
+    <h2>Surely You're Joking, Mr. Feynman! by Richard Feynman</h2>
+    <div class="joking img"></div>
+  </div>
+
+  <div *slide class="center" id="feynman-30">
+    <blockquote>
+      Well, we'd just been crawling around the floor—with help from some other
+      people—trying to use meter rules to measure some feature of a giant
+      printout of it. And Feynman took me aside, rather conspiratorially, and
+      said, "Look, I just want to ask you one thing: how did you know rule 30
+      would do all this crazy stuff?" "You know me," I said. "I didn't. I just
+      had a computer try all the possible rules. And I found it." "Ah," he said,
+      "now I feel much better. I was worried you had some way to figure it out."
+    </blockquote>
+  </div>
+
+  <div *slide id="two-d-30">
+    <h1>Rule 30</h1>
+    <div class="rules">
+      <kirjs-rule3 [arrow]="true" [rule]="30"></kirjs-rule3>
+    </div>
+
+    <h1 class="grid-header">
+      Grid
+      <div class="play">
+        {{ board1.playing ? '❚❚' : '▶' }}
+      </div>
+    </h1>
+
+    <kirjs-board
+      #board1
+      [cellHeight]="20"
+      [cellWidth]="20"
+      [delay]="50"
+      [pattern]="[patterns.rule90Start]"
+      [transform]="examples.intro.twoD90"
+    ></kirjs-board>
+  </div>
+
+  <div *slide class="center" id="to-see-rule-30">
+    <h1>Let's build it in WebAssembly!</h1>
+  </div>
+
+  <div *slide id="web-assembly-start">
+    <kirjs-webassembly-playground
+      [(ngModel)]="code.add"
+      [fontSize]="fontSize"
+      [modeConfig]="addModeConfig"
+    ></kirjs-webassembly-playground>
+  </div>
+
+  <div *slide class="center" id="stack-pre">
+    <h1>3 minute intro</h1>
+    <h2>Into stack-based programming</h2>
+  </div>
+  <div *slide class="center" id="stack">
+    <p>
+      <b>Stack</b> is a data structure, serving as a collection. Here's a stack
+      of fruit:
+    </p>
+
+    <slides-simple-stack value="🍏🍏🍏🍏🍏🍓"></slides-simple-stack>
+
+    <p>All operations are possible only with the last element of the stack.</p>
+  </div>
+
+  <div *slide class="center" id="pop">
+    <p>First operation is called <b>pop</b>, it removes the last element.</p>
+    <slides-stack-game [level]="levels.pop"></slides-stack-game>
+  </div>
+
+  <div *slide class="center" id="push">
+    <p>
+      The other operation is <b>push</b>. It adds an element on top of the
+      stack.
+    </p>
+    <slides-stack-game [level]="levels.push"></slides-stack-game>
+  </div>
+
+  <div *slide class="center" id="peek">
+    <p>
+      Some implementations also have a <b>peek</b> operation. It tells you what
+      top element on the stack is. You can try it below:
+    </p>
+    <slides-simple-stack value="🍏🍋"></slides-simple-stack>
+    <div class="button-wrapper">
+      <slides-stack-function-button
+        (click)="itIsALemon = true"
+        [func]="{ name: 'peek' }"
+      ></slides-stack-function-button>
+    </div>
+    <div *ngIf="itIsALemon">Congrats! It is a 🍋</div>
+  </div>
+
+  <div *slide class="center" id="practice">
+    <p>Let's practice!</p>
+    <p>
+      Use the commands you know already to get a stack of:
+      <slides-simple-stack value="🍓🍋"></slides-simple-stack>
+    </p>
+    <slides-stack-game [level]="levels.together"></slides-stack-game>
+  </div>
+
+  <div *slide class="center" id="test">
+    <slides-stack-test></slides-stack-test>
+  </div>
+
+  <div *slide class="center" id="stack-machines">
+    <p>
+      Stack machine is one of the fundamental principles used in JVM Java Byte
+      Code, WebAssembly byte code
+    </p>
+  </div>
+
+  <div *slide class="center" id="instructions">
+    <p>
+      Stack machine offers various instructions that can pop and then push
+      multiple element on the stack
+    </p>
+    <p>
+      For example (🌲🍏)=>🍍 takes two elements from the stack (Pine and Apple)
+      and pushes a 🍍 back
+    </p>
+  </div>
+
+  <div *slide class="center" id="lemonade">
+    <p>Now use the instructions below to prepare a lemonade drink:</p>
+    <slides-stack-game [level]="levels.lemonade"></slides-stack-game>
+  </div>
+
+  <div *slide id="coding-time">
+    <h2>Coding time! The plan:</h2>
+    <kirjs-board
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 1, 0, 0, 1, 1, 0, 0, 0]]"
+    ></kirjs-board>
+    <kirjs-board
+      [cellHeight]="120"
+      [cellWidth]="120"
+      [pattern]="[[0, 0, 0, 0, 0, 0, 0, 0, 0]]"
+    ></kirjs-board>
+
+    <div class="rules" style="margin-top: 40px;">
+      <kirjs-rule3 [arrow]="true" [indexes]="true" [rule]="90"></kirjs-rule3>
+    </div>
+  </div>
+
+  <div *slide id="use-wat">
+    <kirjs-webassembly-playground
+      [(ngModel)]="code.simple"
+      [fontSize]="fontSize"
+      [modeConfig]="modeConfig"
+    ></kirjs-webassembly-playground>
+  </div>
+
+  <div *slide id="result">
+    <slides-full-screen-runner [code]="code.simple"></slides-full-screen-runner>
+  </div>
+
+  <div *slide id="cam">
+    <h1>cambridge</h1>
+    <div class="img img-30"></div>
+    <div class="img img-30-2"></div>
+  </div>
+
+  <div *slide id="binary-1">
+    <!--    https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md-->
+    <h2>
+      <a href="https://wasdk.github.io/wasmcodeexplorer/">wasmcodeexplorer</a>
+    </h2>
+    <kirjs-wasm-binary></kirjs-wasm-binary>
+  </div>
+
+  <div *slide class="center" id="wasm-playgroud">
+    <h1><a href="https://webassembly.studio/">webassembly.studio</a></h1>
+  </div>
+
+  <div *slide class="center" id="thanks">
+    <h1>Thanks</h1>
+    <h2>Stefan Fejes</h2>
+    <h2>ArmadaJS team</h2>
+  </div>
+  <div *slide class="center" id="end">
+    <h2>Cellular Automata</h2>
+    <h2>Web assembly</h2>
+    <h1>@kirjs</h1>
+  </div>
+</slide-deck>

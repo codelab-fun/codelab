@@ -1,0 +1,222 @@
+<div *ngIf="!isLoading; else loadingTmp" class="container">
+  <h1>
+    {{ isEditing ? '' : 'New' }} Snippet
+    <button (click)="openPreview()" mat-button class="btn-submit">
+      {{ isEditing ? 'Edit' : 'Create' }} Snippet
+    </button>
+  </h1>
+
+  <codelab-snippet-info></codelab-snippet-info>
+
+  <form [formGroup]="snippetForm">
+    <section>
+      <div class="input-block">
+        <div>
+          <label for="snippetTitle">
+            Title <span class="required">*</span>
+          </label>
+          <mat-form-field>
+            <input
+              formControlName="title"
+              maxlength="120"
+              id="snippetTitle"
+              type="text"
+              matInput
+            />
+          </mat-form-field>
+          <span class="input-info"> Maximum 120 symbols </span>
+          <div
+            *ngIf="
+              snippetForm.get('title').touched &&
+              snippetForm.get('title').invalid
+            "
+          >
+            <div
+              *ngIf="snippetForm.get('title').errors['required']"
+              class="validation-message"
+            >
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="snippetLevel">
+            Level <span class="required">*</span>
+          </label>
+          <mat-form-field>
+            <mat-select formControlName="level" id="snippetLevel">
+              <mat-option value="beginner">beginner</mat-option>
+              <mat-option value="intermediate">intermediate</mat-option>
+              <mat-option value="advanced">advanced</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div
+            *ngIf="
+              snippetForm.get('level').touched &&
+              snippetForm.get('level').invalid
+            "
+          >
+            <div
+              *ngIf="snippetForm.get('level').errors['required']"
+              class="validation-message"
+            >
+              This field is required
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="snippetTwitter">
+            Your twitter handle
+          </label>
+          <mat-form-field>
+            <input
+              formControlName="twitter"
+              id="snippetTwitter"
+              type="text"
+              matInput
+            />
+          </mat-form-field>
+        </div>
+
+        <div>
+          <label for="tags"> Tags <span class="required">*</span> </label>
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip
+                *ngFor="let tag of tags"
+                [removable]="true"
+                (removed)="removeTag(tag)"
+              >
+                {{ tag }}
+              </mat-chip>
+              <input
+                #tagInput
+                formControlName="tags"
+                id="tags"
+                [matAutocomplete]="auto"
+                [matChipInputFor]="chipList"
+                [matChipInputAddOnBlur]="true"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addTag($event)"
+              />
+            </mat-chip-list>
+            <mat-autocomplete
+              #auto="matAutocomplete"
+              (optionSelected)="selectedTags($event)"
+            >
+              <mat-option
+                *ngFor="let tag of filteredTags | async"
+                [value]="tag"
+              >
+                {{ tag }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <span class="input-info"> Maximum 5 tags </span>
+          <div
+            *ngIf="
+              snippetForm.get('tags').touched && snippetForm.get('tags').invalid
+            "
+          >
+            <div
+              *ngIf="snippetForm.get('tags').errors['required']"
+              class="validation-message"
+            >
+              This field is required
+            </div>
+            <div
+              *ngIf="snippetForm.get('tags').errors['tagsError']"
+              class="validation-message"
+            >
+              {{ snippetForm.get('tags').errors['tagsError'] }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="w-50">
+        <label for="content"> Content <span class="required">*</span> </label>
+        <mat-form-field>
+          <textarea formControlName="content" id="content" type="text" matInput>
+          </textarea>
+        </mat-form-field>
+        <div
+          *ngIf="
+            snippetForm.get('content').touched &&
+            snippetForm.get('content').invalid
+          "
+        >
+          <div
+            *ngIf="snippetForm.get('content').errors['required']"
+            class="validation-message"
+          >
+            This field is required
+          </div>
+          <div
+            *ngIf="snippetForm.get('content').errors['linesError']"
+            class="validation-message"
+          >
+            {{ snippetForm.get('content').errors['linesError'] }}
+          </div>
+        </div>
+      </div>
+      <div class="markdown-info">
+        <markdown [data]="snippetForm.get('content').value"></markdown>
+      </div>
+    </section>
+
+    <p (click)="hasBonus = !hasBonus" class="cursor-pointer">
+      <span *ngIf="!hasBonus" class="icon-plus"> Add Bonus section </span>
+      <span *ngIf="hasBonus" class="icon-minus"> Remove Bonus section </span>
+    </p>
+    <ng-container *ngIf="hasBonus">
+      <section>
+        <div class="w-50">
+          <label for="bonus"> Bonus </label>
+          <mat-form-field>
+            <textarea formControlName="bonus" id="bonus" type="text" matInput>
+            </textarea>
+          </mat-form-field>
+        </div>
+        <div class="markdown-info">
+          <markdown [data]="snippetForm.get('bonus').value"></markdown>
+        </div>
+      </section>
+    </ng-container>
+
+    <p (click)="hasLinks = !hasLinks" class="cursor-pointer">
+      <span *ngIf="!hasLinks" class="icon-plus"> Add Links section </span>
+      <span *ngIf="hasLinks" class="icon-minus"> Remove Links section </span>
+    </p>
+    <ng-container *ngIf="hasLinks">
+      <section>
+        <div class="w-50">
+          <label for="links"> Links </label>
+          <mat-form-field>
+            <textarea formControlName="links" id="links" type="text" matInput>
+            </textarea>
+          </mat-form-field>
+        </div>
+      </section>
+    </ng-container>
+
+    <p (click)="hasDemo = !hasDemo" class="cursor-pointer">
+      <span *ngIf="!hasDemo" class="icon-plus"> Add Demo section </span>
+      <span *ngIf="hasDemo" class="icon-minus"> Remove Demo section </span>
+    </p>
+    <ng-container *ngIf="hasDemo">
+      <section>
+        <div class="w-100">
+          <code-demo formControlName="demo" bootstrap="main"></code-demo>
+        </div>
+      </section>
+    </ng-container>
+  </form>
+</div>
+
+<ng-template #loadingTmp>
+  <codelab-snippet-spinner></codelab-snippet-spinner>
+</ng-template>

@@ -1,0 +1,20 @@
+<h1>
+  <a routerLink="/">Angular Codelab</a> {{ separator }}
+  <span [matMenuTriggerFor]="menu">
+    {{ active }} <span class="arrow">▼</span>
+  </span>
+  {{ separator }}
+  <ng-content></ng-content>
+</h1>
+
+<mat-menu #menu="matMenu">
+  <a
+    *ngFor="let milestone of menuRoutes"
+    #link="routerLinkActive"
+    routerLinkActive
+    mat-menu-item
+    [disabled]="link.isActive"
+    [routerLink]="['../..', milestone.path]"
+    >{{ milestone.name }}
+  </a>
+</mat-menu>

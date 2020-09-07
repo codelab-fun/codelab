@@ -1,0 +1,10 @@
+.indicator {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.test-result {
+  display: flex;
+}

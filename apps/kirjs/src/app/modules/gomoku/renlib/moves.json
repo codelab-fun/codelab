@@ -1,0 +1,173 @@
+{
+  "header": { "open": 255, "type": "RenLib", "major": 3, "minor": 0 },
+  "moves": [
+    {
+      "move": [7, 7],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [6, 7],
+      "down": 1,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [5, 7],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [4, 7],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [3, 7],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [2, 7],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [1, 7],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [0, 7],
+      "down": 0,
+      "right": 1,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [6, 8],
+      "down": 1,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [5, 9],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [4, 8],
+      "down": 1,
+      "right": 1,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [4, 10],
+      "down": 0,
+      "right": 0,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [3, 11],
+      "down": 0,
+      "right": 1,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    },
+    {
+      "move": [7, 8],
+      "down": 0,
+      "right": 1,
+      "hz4": 0,
+      "mark": 0,
+      "hasComment": 0,
+      "hz2": 0,
+      "hz1": 0,
+      "extension": 0,
+      "comment": {}
+    }
+  ]
+}

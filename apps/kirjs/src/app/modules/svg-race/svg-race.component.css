@@ -1,0 +1,36 @@
+:host ::ng-deep .monaco-editor .view-overlays .current-line {
+  display: none;
+}
+
+:host ::ng-deep .decorationsOverviewRuler {
+  display: none;
+}
+
+:host ::ng-deep .scrollbar.vertical {
+  display: none;
+}
+
+.timer {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+
+.btn-bar {
+  line-height: 3vw;
+}
+
+.btn-bar:hover .font-size {
+  display: block;
+  font-size: 4vw;
+}
+
+.btn-bar .font-size {
+  display: none;
+}
+
+.twitter {
+  color: #444;
+  font-size: 3vw;
+  margin: 2vw;
+}

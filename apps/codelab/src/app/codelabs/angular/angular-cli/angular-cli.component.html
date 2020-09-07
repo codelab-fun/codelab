@@ -1,0 +1,197 @@
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <!--  INTRO -->
+  <div *slide id="intro" no-padding>
+    <codelab-title-slide
+      i18n-title
+      title="Angular-cli"
+      i18n-description
+      description="Learn how to quickly start working on your Angular app"
+    ></codelab-title-slide>
+  </div>
+
+  <div *slide id="angular-cli">
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+    <h2 i18n>
+      Angular CLI is a command line tool that can be used to quickly get up to
+      speed with running your Angular app.
+    </h2>
+
+    <preview-terminal-window>
+      $ ng hello
+      <span class="success" i18n>
+        Hi, I'm <b>angular-cli</b>, I'm a command line tool!
+      </span>
+      <span i18n> It may sound scary, but I'm really easy to use! </span>
+    </preview-terminal-window>
+    <!--Привет, я - <ph name="START_BOLD_TEXT"><ex>&lt;b&gt;</ex>&lt;b&gt;</ph>angular-cli<ph name="CLOSE_BOLD_TEXT"><ex>&lt;/b&gt;</ex>&lt;/b&gt;</ph>, я инструмент для командой строки!-->
+  </div>
+
+  <div *slide id="npm">
+    <codelab-breadcrumb i18n>node</codelab-breadcrumb>
+    <h2 i18n>Before you start, make sure you have node.js on your machine.</h2>
+    <h2 i18n>Open terminal and type in: <code>node -v</code></h2>
+    <ul>
+      <li i18n>
+        If there is an error, follow the
+        <a href="https://nodejs.org/en/download/">NodeJS setup instructions</a>
+      </li>
+      <li i18n>
+        If the output is a number, you're good, move to the next slide.
+      </li>
+    </ul>
+    <preview-terminal-window>
+      $ node -v<span class="success"> v6.11.3</span>
+    </preview-terminal-window>
+  </div>
+
+  <div *slide id="install">
+    <codelab-breadcrumb i18n>installing</codelab-breadcrumb>
+    <h2 i18n>
+      Run <code>npm install -g @angular/cli</code> to install
+      <b>Angular cli</b> on your machine
+    </h2>
+    <preview-terminal-window>
+      <pre>
+      $ sudo npm install -g @angular/cli<span class="skipped">
+      &hellip; A bunch of output omitted for brevety &hellip;</span>
+      │ ├─┬ strip-ansi@3.0.1
+      │ │ └── ansi-regex@2.1.1
+      │ ├─┬ supports-color@3.2.3
+      │ │ └── has-flag@1.0.0
+      │ └─┬ yargs@6.6.0
+      │ ├── camelcase@3.0.0
+      │ ├── os-locale@1.4.0
+      │ ├─┬ string-width@1.0.2
+      │ │ ├── code-point-at@1.1.0
+      │ │ └─┬ is-fullwidth-code-point@1.0.0
+      │ │ └── number-is-nan@1.0.1
+      │ ├── which-module@1.0.0
+      │ └── yargs-parser@4.2.1
+      ├── webpack-merge@4.1.0
+      ├── webpack-sources@1.0.1
+      └── zone.js@0.8.18
+      </pre>
+    </preview-terminal-window>
+  </div>
+
+  <div *slide id="new-app">
+    <codelab-breadcrumb i18n>Creating new Angular app</codelab-breadcrumb>
+    <h2 i18n>
+      To create a new Angular app run:
+      <code>ng new awesome-app</code>, then <code>cd awesome-app</code>
+    </h2>
+    <preview-terminal-window>
+      <pre>
+      $ ng new awesome-app
+
+      create awesome-app/README.md (1026 bytes)
+      create awesome-app/.angular-cli.json (1288 bytes)
+      create awesome-app/.editorconfig (245 bytes)<span class="skipped">
+        &hellip; A bunch of output omitted for brevety &hellip;</span>
+      create awesome-app/src/app/app.component.spec.ts (986 bytes)
+      create awesome-app/src/app/app.component.ts (207 bytes)
+      <div class="success">
+        Installing packages for tooling via npm.
+        Installed packages for tooling via npm.
+        Successfully initialized git.
+        Project 'awesome-app' successfully created.
+      </div>
+      </pre>
+    </preview-terminal-window>
+  </div>
+
+  <div *slide id="starting">
+    <codelab-breadcrumb i18n>Starting the app</codelab-breadcrumb>
+    <h2 i18n>
+      Once you're in the app folder, start the app with <code>ng serve</code>
+    </h2>
+    <preview-terminal-window
+      >>
+      <pre>
+      $ ng serve
+      ** NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+      Date: 2017-10-22T03:25:09.430Z - Hash: 6af162d0da3cc77873d4
+      Time: 6417ms
+      chunk {{'{'}}inline{{'}'}} inline.bundle.js, inline.bundle.js.map (inline) 5.83 kB [entry] [rendered]
+      chunk {{'{'}}main{{'}'}} main.bundle.js, main.bundle.js.map (main) 8.63 kB {{'{'}}vendor{{'}'}} [initial]
+      [rendered]
+      chunk {{'{'}}polyfills{{'}'}} polyfills.bundle.js, polyfills.bundle.js.map (polyfills) 199 kB {{'{'}}inline{{'}'}}
+        [initial] [rendered]
+      chunk {{'{'}}styles{{'}'}} styles.bundle.js, styles.bundle.js.map (styles) 11.3 kB {{'{'}}inline{{'}'}} [initial]
+      [rendered]
+      chunk {{'{'}}vendor{{'}'}} vendor.bundle.js, vendor.bundle.js.map (vendor) 2.32 MB [initial] [rendered]
+      <span class="success">
+      webpack: Compiled successfully.
+      </span>
+    </pre>
+    </preview-terminal-window>
+
+    <h2 i18n>
+      Once the app is started just open
+      <a href="http://localhost:4200/">http://localhost:4200/</a> in your
+      browser
+    </h2>
+  </div>
+
+  <div *slide id="generating">
+    <codelab-breadcrumb i18n>Generating components</codelab-breadcrumb>
+    <h2 i18n>
+      You can easily generate new components
+      <code>ng generate component my-component</code>
+    </h2>
+    <preview-terminal-window
+      ><pre>
+      $ ng generate component my-component
+      create src/app/my-component/my-component.component.css (0 bytes)
+      create src/app/my-component/my-component.component.html (31 bytes)
+      create src/app/my-component/my-component.component.spec.ts (664 bytes)
+      create src/app/my-component/my-component.component.ts (292 bytes)
+      update src/app/app.module.ts (418 bytes)
+    </pre
+      >
+    </preview-terminal-window>
+
+    <h2 i18n>You can also generate modules, services and pipes</h2>
+    <div class="info" i18n>
+      You can use a shorter version: <code>ng g c my-component</code>
+    </div>
+  </div>
+
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div class="header" header>
+        <codelab-breadcrumb i18n
+          >End of The Angular-cli Milestone
+        </codelab-breadcrumb>
+      </div>
+      <div class="body" body>
+        <h2 i18n>
+          This is <b>the end</b> of the codelab, but it's just the beginning of
+          your Angular journey. Below are some links that can help you continue
+          learning.
+        </h2>
+        <ul>
+          <li>
+            <a href="https://angular.io/" target="_blank">Angular.io</a> &mdash;
+            <span i18n>Find features, docs and events listed here</span>
+          </li>
+          <li>
+            <a href="https://cli.angular.io/" target="_blank">Angular CLI</a>
+            <span i18n>
+              makes it easy to create an application that already works, right
+              out of the box and generate new components! It also takes care of
+              the build system for you
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer" footer>
+        <feedback-rating lesson="AngularCli"></feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

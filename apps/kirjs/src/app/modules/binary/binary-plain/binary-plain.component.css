@@ -1,0 +1,137 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-size: inherit;
+}
+
+.legend {
+  width: 200px;
+  font-size: 2vw;
+  padding: 3vw 0;
+  display: flex;
+}
+
+.legend .item {
+  margin-right: 10px;
+  background: #dddddd;
+  border-radius: 4px;
+  padding: 0.5vw 1vw;
+}
+
+.enums .enums {
+  background: #ff3302;
+  color: black;
+}
+
+.string .string {
+  background: #ffaf00;
+  color: black;
+}
+
+.const .const {
+  background: #aaaaaa;
+  color: black;
+}
+
+.number .number {
+  background: #00ff51;
+  color: black;
+}
+
+.hex .color,
+.hex .hex {
+  background: #00a4ff;
+  color: black;
+}
+
+.boolean .boolean {
+  background: #f600ff;
+  color: black;
+}
+
+.binary {
+  white-space: normal;
+  font-size: 3vw;
+  word-break: break-all;
+  padding-right: 3vw;
+}
+
+.spacing .binary {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.spacing .bin-block {
+  margin-right: 4vw;
+  white-space: nowrap;
+}
+
+.groups .parent-palette {
+  background: #00ff51;
+}
+
+.groups .parent-header {
+  background: #ffaf00;
+}
+
+.groups .parent-extensions {
+  background: #00a4ff;
+}
+
+.spacing {
+  line-height: 50px;
+}
+
+.mini .legend {
+  font-size: 1.2vw;
+  padding: 0;
+}
+
+.mini .legend .item {
+  padding: 0.2vw;
+  height: 2vw;
+}
+
+.mini input[type='checkbox'] {
+  zoom: 2 !important;
+}
+
+.mini .spacing {
+  line-height: 2vw;
+}
+
+.item-header:first-child {
+  margin-top: 0;
+}
+
+.item-header {
+  width: 100%;
+  font-size: 5vw;
+  display: block;
+  margin-bottom: 2vw;
+  margin-top: 4vw;
+}
+
+.selected {
+  width: 100%;
+  border: 1px #ddd solid;
+  padding: 1vw;
+}
+
+.label {
+  display: inline-block;
+  width: 24vw;
+  flex-shrink: 0;
+}
+
+.meta {
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+}
+
+.selected .bin-block {
+  font-size: 4vw;
+}

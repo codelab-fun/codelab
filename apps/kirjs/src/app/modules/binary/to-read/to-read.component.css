@@ -1,0 +1,16 @@
+h2 {
+  font-size: 5vw !important;
+  line-height: 5vw !important;
+}
+
+h3 {
+  font-size: 3vw;
+  color: #444;
+}
+
+:host ::ng-deep .book {
+  width: 40vw;
+  height: 100vw;
+  background-repeat: no-repeat;
+  background-size: 40vw;
+}

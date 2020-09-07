@@ -1,0 +1,8 @@
+<ng-container *ngIf="post$ | async as post">
+  <codelab-single-post
+    [post]="post"
+    [full]="true"
+    [key]="key"
+  ></codelab-single-post>
+  <button routerLink="/">Back</button>
+</ng-container>

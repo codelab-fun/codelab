@@ -1,0 +1,104 @@
+.intro li a:hover {
+  text-decoration: underline;
+}
+
+.intro li a {
+  text-decoration: none;
+  color: #888;
+}
+
+.intro ul {
+  margin: 0;
+  padding: 0;
+}
+
+.intro li {
+  margin: 0;
+  padding: 0;
+  padding-left: 21px;
+  font-size: 1.3vw;
+  margin-bottom: 16px;
+}
+
+.intro li h2 {
+  font-size: 2vw;
+}
+
+.feedback-shift {
+  position: fixed;
+  right: 107px;
+  bottom: 1vh;
+}
+
+img .angular {
+  width: 30vw;
+}
+
+.learn-box:hover {
+  background: #eee;
+}
+
+.title {
+  color: #444;
+}
+
+.hint {
+  color: #666;
+  font-size: 3vw;
+}
+
+.learn-box.typescript {
+  opacity: 0.8;
+}
+
+.learn-box {
+  display: flex;
+  width: 100%;
+  font-size: 7vw;
+  justify-content: space-between;
+  background: #fafafa;
+  padding: 2vw;
+  margin-bottom: 2vw;
+  cursor: pointer;
+  border: 1px #999 solid;
+  border-radius: 10px;
+}
+
+.learn-box img {
+  width: 10vw;
+  height: 10vw;
+  font-size: 10px;
+}
+
+::ng-deep .slide {
+  display: block;
+}
+
+.play {
+  margin: 4vw 0;
+}
+
+.contents {
+  border-bottom: 1px #999 dashed;
+  display: inline-block;
+  cursor: pointer;
+  min-height: 20px;
+}
+
+::ng-deep {
+  .btn-bar {
+    z-index: 110;
+  }
+
+  .menu-bar-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: no-repeat center #3498db;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+}

@@ -1,0 +1,32 @@
+:host {
+  background-color: #444444;
+  height: 100%;
+  padding: 10px;
+  display: block;
+}
+
+.result {
+  font-size: 20px;
+  padding: 20px;
+  width: 20px;
+  text-align: center;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: #007302;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.error {
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: #ff4e3d;
+  color: #fff;
+  opacity: 0.9;
+}

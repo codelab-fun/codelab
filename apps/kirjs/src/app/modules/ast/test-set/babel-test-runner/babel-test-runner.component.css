@@ -1,0 +1,108 @@
+:host {
+  height: 100%;
+  display: flex;
+}
+
+.runner {
+  display: none;
+}
+
+.test {
+  margin-bottom: 5px;
+  background: #ff9a86;
+  padding: 5px 10px;
+  font-size: 3vw;
+}
+
+.test.pass {
+  background: #b2ff37;
+}
+
+.mini {
+  font-size: 30%;
+  display: block;
+}
+
+pre {
+  margin: 0;
+}
+
+.test.future.future {
+  background: #e8e8e8;
+  color: #ddd;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.test-point:hover {
+  border: 3px black solid;
+}
+
+.test-point {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+  background: #999999;
+}
+
+.test-point.pass {
+  background: #b2ff37;
+  border: 1px solid #444444;
+}
+
+.test-point.current {
+  background: #ff9a86;
+  border: 1px solid #444444;
+}
+
+code.failing {
+  color: #ff4e3d;
+}
+
+code {
+  font-size: 3vw;
+  margin-top: 4px;
+  display: block;
+  margin-bottom: 24px;
+}
+
+mat-card {
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  color: #444;
+  font-size: 1.5vw;
+}
+
+.summary .label {
+  margin-bottom: 12px;
+}
+
+.summary {
+  padding-bottom: 24px;
+}
+
+.results {
+  padding-top: 24px;
+}
+
+.ast-full {
+  background: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+}
+
+kirjs-size-picker {
+  margin-left: 20px;
+}

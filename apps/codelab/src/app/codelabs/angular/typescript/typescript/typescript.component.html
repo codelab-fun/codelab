@@ -1,0 +1,471 @@
+<div #translations style="display: none" codelabBreadcrumbParent="TypeScript">
+  <div i18n="@@shorthandFunction" id="shorthandFunction">
+    Or use shorthand function notation.
+  </div>
+  <div i18n="@@errorNotAPuppy" id="errorNotAPuppy">
+    Error: this is clearly not a puppy
+  </div>
+  <div i18n="@@thisIsNumber" id="thisIsNumber">This is a number</div>
+  <div i18n="@@useShorthandNotation" id="useShorthandNotation">
+    Or use shorthand function notation.
+  </div>
+  <div i18n="@@calledArrowFunction" id="calledArrowFunction">
+    (Also called arrow function)
+  </div>
+  <div i18n="@@typescriptCanInferNumber" id="typescriptCanInferNumber">
+    Actually TypeScript can infer number here;
+  </div>
+  <div i18n="@@typescriptCanInferString" id="typescriptCanInferString">
+    TypeScript can infer it's a string.
+  </div>
+  <div i18n="@@cantAddNumAndBool" id="cantAddNumAndBool">
+    Can't add number and boolean
+  </div>
+  <div i18n="@@cantSliceNum" id="cantSliceNum">Can't slice a number</div>
+  <div i18n="@@canSliceString" id="canSliceString">But can slice a string!</div>
+  <div i18n="@@works" id="works">Works!</div>
+  <div i18n="@@typeDoesSameThing" id="typeDoesSameThing">
+    Type[] does the same thing.
+  </div>
+  <div i18n="@@thisIsMethod" id="thisIsMethod">This is a method.</div>
+  <div i18n="@@commonDogName" id="commonDogName">
+    This a common russian dog name.
+  </div>
+  <div i18n="@@thatsHowRussianDogsTalk" id="thatsHowRussianDogsTalk">
+    That's how russian dogs talk.
+  </div>
+  <div i18n="@@nowWeCanInstantiate" id="nowWeCanInstantiate">
+    Now we can instantiate (create) it
+  </div>
+  <div i18n="@@andUseItsMethods" id="andUseItsMethods">And use its methods</div>
+  <div i18n="@@laterWeWillHaveCode" id="laterWeWillHaveCode">
+    Later we'll have code here
+  </div>
+  <div i18n="@@letsCreateMorePuppies" id="letsCreateMorePuppies">
+    Let's create more puppies
+  </div>
+  <div i18n="@@varAllowedNotRecommended" id="varAllowedNotRecommended">
+    Var is still allowed but not recommended.
+  </div>
+  <div i18n="@@letInsteadOfVar" id="letInsteadOfVar">
+    Let should be used instead of var.
+  </div>
+  <div
+    i18n="@@letUnavailableOutsideIfUnlikeIf"
+    id="letUnavailableOutsideIfUnlikeIf"
+  >
+    Unlike var let is unavailable outside of this if.
+  </div>
+  <div i18n="@@constLikeLet" id="constLikeLet">
+    Const is like let, but if you try to change it, TS will give you an error.
+  </div>
+  <div i18n="@@definitelyBoolean" id="definitelyBoolean">
+    okay, definitely a boolean
+  </div>
+  <div i18n="@@createClassCodelab" id="createClassCodelab">
+    Create a class called 'Codelab'
+  </div>
+  <div i18n="@@exportClass" id="exportClass">Export the class</div>
+  <div i18n="@@addConstructor" id="addConstructor">Add a constructor</div>
+  <div
+    i18n="@@makeConstructorTakeParamGuests"
+    id="makeConstructorTakeParamGuests"
+  >
+    Make constructor take a parameter 'guests'
+  </div>
+  <div i18n="@@specifyTheTypeForGuests" id="specifyTheTypeForGuests">
+    Specify the type for the guests parameter (hint: it's an array of a type
+    Guest)
+  </div>
+  <div i18n="@@makeParemeterPublic" id="makeParemeterPublic">
+    Make the parameter public (note that now you can access it anywhere in the
+    class using this.guests)
+  </div>
+  <div
+    i18n="@@createNewMethodGetGuestsComing"
+    id="createNewMethodGetGuestsComing"
+  >
+    Create new method 'getGuestsComing'
+  </div>
+
+  <div i18n="@@specifyTheTypeForB" id="specifyTheTypeForB">
+    "b" in the code below is highlighted, because TypeScript is missing the
+    type. Specify the type for b.
+  </div>
+  <div
+    i18n="@@typescriptHighlightsErrorFix224"
+    id="typescriptHighlightsErrorFix224"
+  >
+    With this information TypeScript can highlight the error. Fix it, make 2 + 2
+    = 4 again!
+  </div>
+
+  <div
+    i18n="@@modifyGetGuestsComingToFilter"
+    id="modifyGetGuestsComingToFilter"
+  >
+    Modify getGuestsComing to filter the guests array return an array of guests
+    with the 'coming' property set to true.
+  </div>
+</div>
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+
+  <slide-arrows></slide-arrows>
+
+  <div *slide id="intro" milestone="TypeScript" no-padding>
+    <codelab-title-slide
+      title="TypeScript"
+      i18n-title="@@typescript"
+      description="Angular is written in TypeScript. Learn more about the language basics."
+      i18n-description="@@AngularIsWrittenInTypeScript"
+      prereqs="Basic understanding of JavaScript is required."
+      i18n-prereqs=""
+    ></codelab-title-slide>
+  </div>
+
+  <div *slide id="why-typescript" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Why TypeScript</codelab-breadcrumb>
+    <h2 i18n>
+      <b>JavaScript</b> is a great language, but there's space for improvement:
+    </h2>
+    <ul>
+      <li i18n>
+        JS is not type safe which makes it harder to develop large scale
+        applications
+      </li>
+      <li i18n>
+        New features of the latest versions of JS standards (ES2018, ES2019) are
+        not supported well across all the browsers
+      </li>
+    </ul>
+    <div class="info" i18n>
+      <b>ES</b> stands for
+      <a href="https://en.wikipedia.org/wiki/ECMAScript"><b>ECMAScript</b></a
+      >, which is the name of the JavaScript language specification (standard)
+    </div>
+  </div>
+
+  <div *slide id="about-typescript-2" milestone="TypeScript">
+    <codelab-breadcrumb i18n>TypeScript</codelab-breadcrumb>
+    <h2 i18n>
+      This is why <b>TypeScript</b> has been created. Since TypeScript can be
+      compiled to JavaScript, it can be used in any modern browser.
+    </h2>
+    <div row>
+      <div>
+        <ul>
+          <li i18n>TypeScript extends the latest version of JavaScript</li>
+          <li i18n>
+            TypeScript adds new features from the next version of JavaScript
+          </li>
+          <li i18n>
+            On top of it, TypeScript adds an optional type system and decorators
+          </li>
+        </ul>
+      </div>
+      <div class="space-left">
+        <codelab-typescript-svg></codelab-typescript-svg>
+      </div>
+    </div>
+    <div class="info" i18n>
+      Decorator looks like @twitter_handles, we'll learn more about them later
+    </div>
+  </div>
+
+  <!--  NUMBER-TYPE  -->
+  <div
+    *slide
+    id="typescript-why-ts"
+    milestone="TypeScript"
+    style="display: flex"
+  >
+    <codelab-breadcrumb i18n>Type System</codelab-breadcrumb>
+    <h2 i18n>
+      Below we have an <b>add</b> function, and we're adding 2 and 2. What could
+      go wrong?
+    </h2>
+    <codelab-exercise-playground
+      presets=""
+      ui="console"
+      [highlights]="code.tsExerciseMatch"
+      [exercise]="code.js2And2"
+    ></codelab-exercise-playground>
+    <h2 i18n>
+      Turns out it's possible to pass a string to this function and we get
+      <b>22</b> instead of <b>4</b>. Let's see how TypeScript can help address
+      this issue on the next slide
+    </h2>
+  </div>
+
+  <!--  NUMBER-TYPE  -->
+  <div *slide id="typescript-mini-exercise" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Type System</codelab-breadcrumb>
+    <h2 i18n>
+      TypeScript uses "<b>:</b>" to specify the type information (e.g.
+      <b>n: number</b>). Both <b>a</b> and <b>b</b> should be numbers. We
+      specified the type for <b>a</b>, now it's your turn!
+    </h2>
+    <codelab-exercise-playground
+      presets=""
+      ui="console"
+      [exercise]="code.tsExercise"
+    ></codelab-exercise-playground>
+    <div data-position="top" class="info" i18n>The code above is editable!</div>
+  </div>
+
+  <div *slide id="types-primitives" milestone="TypeScript">
+    <codelab-breadcrumb i18n
+      >Primitives (strings, numbers, etc...)
+    </codelab-breadcrumb>
+    <h2 i18n>Below are more types we can use</h2>
+
+    <code-demo-file-path path="types.ts"></code-demo-file-path>
+    <code-demo-editor
+      style="height: 400px;"
+      language="typescript"
+      [lineNumbers]="false"
+      [fontSize]="20"
+      [(ngModel)]="code.moreTypes.code"
+    >
+    </code-demo-editor>
+  </div>
+
+  <div *slide id="types-more" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Interfaces</codelab-breadcrumb>
+    <h2 i18n>
+      TypeScript Interfaces allow to specify properties and methods for an
+      object.
+    </h2>
+    <code-demo-file-path path="puppies.ts"></code-demo-file-path>
+    <code-demo-editor
+      style="height: 400px;"
+      language="typescript"
+      [lineNumbers]="false"
+      [fontSize]="20"
+      [(ngModel)]="code.moreTypes.codeInterfaces"
+    >
+    </code-demo-editor>
+    <div class="info" i18n>
+      Here, <b>realPuppy</b> is an implementation of the <b>Puppy</b> Interface.
+    </div>
+  </div>
+
+  <div *slide id="types-arrays" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Arrays</codelab-breadcrumb>
+    <h2 i18n>
+      Array types are defined as <b>Array{{ '<' }}Type{{ '>' }}</b> or
+      <b>Type[]</b>
+    </h2>
+    <codelab-exercise-playground
+      presets=""
+      ui="console"
+      [highlights]="code.classDescription.matches.arrayMatch"
+      [exercise]="code.moreTypes.codeArrays"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      Here, each element in the <b>betterCats</b> array is an instance of the
+      <b>Cat</b> Interface.
+    </div>
+  </div>
+
+  <!--  CLASSES  -->
+  <div *slide id="classes" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Classes</codelab-breadcrumb>
+    <h2 i18n>TypeScript has <b>classes</b>, and Angular uses them heavily.</h2>
+    <h2 i18n>
+      They are similar to classes in other languages, and are used to group
+      methods and properties together
+    </h2>
+    <codelab-exercise-playground
+      presets=""
+      ui="console"
+      [highlights]="code.classDescription.matches.classPuppyMatch"
+      [exercise]="code.classDescription.code"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="classes-constructor" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Constructor</codelab-breadcrumb>
+    <h2 i18n>
+      There's a special method on the class called <b>constructor</b>. It's run
+      when the class is instantiated and allows the class to take parameters
+    </h2>
+    <codelab-exercise-playground
+      presets=""
+      ui="console"
+      [exercise]="code.classDescription.codeConstructor"
+      [highlights]="code.classDescription.matches.constructorMatch"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="classes-access-modifier" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Access Modifiers</codelab-breadcrumb>
+    <h2 i18n>
+      Constructor parameters marked as <b>public</b> (or private, or protected),
+      become class properties accessible as <b>this.ParameterName</b> within the
+      class
+    </h2>
+    <codelab-exercise-playground
+      presets=""
+      ui="console"
+      [highlights]="code.classDescription.matches.modifierMatch"
+      [exercise]="code.classDescription.codeConstructor"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      private or protected properties are not visible outside of the class.
+    </div>
+  </div>
+
+  <div *slide id="export" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Export</codelab-breadcrumb>
+    <h2 i18n>
+      By the way, did you notice the <b>export</b> keyword before class? It is
+      used to share information between files. In the next slide, we'll show you
+      how to import and use this class in a different file
+    </h2>
+
+    <code-demo-file-path path="puppy.ts"></code-demo-file-path>
+    <code-demo-editor
+      style="height: 400px;"
+      [codeDemoHighlight]="[code.classDescription.matches.exportMatch]"
+      language="typescript"
+      [lineNumbers]="false"
+      [fontSize]="20"
+      [(ngModel)]="code.classDescription.codeExport.files[0].code"
+    >
+    </code-demo-editor>
+  </div>
+
+  <div *slide id="import" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Import</codelab-breadcrumb>
+    <h2 i18n>Now we can use the <b>Puppy</b> class in the other file</h2>
+    <codelab-exercise-playground
+      presets=""
+      ui="console"
+      files="puppy.ts,app.ts"
+      [highlights]="code.classDescription.matches.importMatch"
+      [exercise]="code.classDescription.codeImport"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      <b>import</b> and <b>export</b> keywords are not just for classes. They
+      work with variables, functions and other things!
+    </div>
+  </div>
+
+  <div *slide id="filter" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Filter (One last thing)</codelab-breadcrumb>
+    <h2 i18n>
+      "<b>filter</b>" is an Array method that allows you to generate a new array
+      keeping only values that satisfy the condition
+    </h2>
+    <codelab-exercise-playground
+      presets=""
+      [exercise]="code.filter"
+    ></codelab-exercise-playground>
+  </div>
+
+  <div *slide id="more" milestone="TypeScript">
+    <codelab-breadcrumb i18n>More</codelab-breadcrumb>
+    <h2 i18n>TypeScript supports lots of other cool features such as:</h2>
+    <ul>
+      <li>
+        <a
+          i18n
+          href="https://www.typescriptlang.org/docs/handbook/enums.html"
+          target="_blank"
+          >Enums</a
+        >
+      </li>
+      <li>
+        <a
+          i18n
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+          target="_blank"
+          >Async / Await</a
+        >
+      </li>
+      <li>
+        <a
+          i18n
+          href="https://www.typescriptlang.org/docs/handbook/classes.html"
+          target="_blank"
+          >Accessors (Getters / Setters)</a
+        >
+      </li>
+      <li>
+        <a
+          i18n
+          href="https://www.typescriptlang.org/docs/handbook/variable-declarations.html"
+          target="_blank"
+          >Destructuring</a
+        >
+      </li>
+      <li>
+        <a
+          i18n
+          href="https://www.typescriptlang.org/docs/handbook/functions.html"
+          target="_blank"
+          >Arrow functions</a
+        >
+      </li>
+      <li i18n>And more!</li>
+    </ul>
+    <h2 i18n>
+      We won't cover them in detail, check out the
+      <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>
+      website!
+    </h2>
+  </div>
+
+  <div *slide id="exercise-pre" milestone="TypeScript">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>In the next slide we have a TypeScript exercise</h2>
+    <h2 i18n>
+      Your task is to build a TypeScript class called Codelab which will take a
+      list of guests, and will have a method to output only the ones who are
+      coming.
+    </h2>
+    <h2 i18n>The result will be as follows:</h2>
+    <codelab-exercise-preview
+      [presets]="[]"
+      [exercise]="exercises[0]"
+    ></codelab-exercise-preview>
+  </div>
+
+  <div *slide id="exercise-new" no-padding>
+    <codelab-exercise
+      [translations]="t"
+      [presets]="[]"
+      [exercise]="exercises[0]"
+      milestone="TypeScript"
+    >
+    </codelab-exercise>
+  </div>
+
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div header>
+        <codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb>
+      </div>
+      <div body>
+        <h2 i18n>
+          Now you should know enough <b>TypeScript</b> to start learning
+          <b>Angular</b>! Read more about TypeScript on
+          <a href="http://www.typescriptlang.org/">TypeScript web site</a>
+        </h2>
+      </div>
+      <div footer>
+        <br />
+        <br />
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../create-first-app/0" i18n>
+            Learn how to create your first Angular app!
+          </a>
+        </h2>
+        <feedback-rating lesson="TypeScript"></feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

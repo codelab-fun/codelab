@@ -1,0 +1,42 @@
+:host ::ng-deep {
+  .btn-bar {
+    z-index: 110;
+  }
+
+  button:focus {
+    outline: 0;
+  }
+
+  .menu-bar-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: no-repeat center white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+}
+
+::ng-deep {
+  .modal-title {
+    margin: 0 0 10px 0;
+  }
+
+  .buttons-nav-bar-modal-content-wrapper {
+    padding: 8px;
+    font-weight: 300;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  @media screen and (max-width: 350px) {
+    .cdk-overlay-pane {
+      width: 100%;
+    }
+    .buttons-nav-bar-modal-content-wrapper {
+      width: 100%;
+    }
+  }
+}

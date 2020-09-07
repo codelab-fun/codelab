@@ -1,0 +1,214 @@
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <div class="twitter">@kirjs</div>
+
+  <div class="btn-bar">
+    <div class="increase-font-size font-size" (click)="updateFontSize(2)">
+      +
+    </div>
+    <div class="decrease-font-size font-size" (click)="updateFontSize(-2)">
+      -
+    </div>
+  </div>
+
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <div *slide id="intro" no-padding>
+    <div class="bg">
+      <h1>Structural directives</h1>
+      <h2>By @kirjs</h2>
+    </div>
+  </div>
+  <div *slide id="we-need-tabs" no-padding><h1>We need tabs</h1></div>
+
+  <div *slide id="intro2" no-padding>
+    <codelab-exercise-playground
+      files="app.component.ts"
+      [exercise]="code.materialTabs"
+    ></codelab-exercise-playground>
+    <!--<slides-exercise [files]="code.materialTabs">-->
+    <!--<div class="description"></div>-->
+    <!--<slides-new-editors class="editor" [fontSize]="fontSize">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
+  </div>
+
+  <div *slide id="bsod" no-padding>
+    <div class="container">
+      <div class="msg" align="center">
+        <p class="highlight">Windows</p>
+        <p>
+          A fatal exception 0E has occured at 028:C00068F8 in VxD VMM(01)
+          000059F8. The current application will be terminated.
+        </p>
+        <p>* Press any key to terminate the application.</p>
+        <p>
+          * Press CTRL+ALT+DEL to restart your computer. You will lose any
+          unsaved information in all aplications.
+        </p>
+        <br />
+        <p class="continue">
+          Press any key to continue <span class="blink">_</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div *slide id="bsod-2" no-padding>
+    <div class="alfred-upset"></div>
+    <div class="container">
+      <div class="msg" align="center">
+        <p class="highlight">Windows</p>
+        <p>
+          A fatal exception 0E has occured at 028:C00068F8 in VxD VMM(01)
+          000059F8. The current application will be terminated.
+        </p>
+        <p>* Press any key to terminate the application.</p>
+        <p>
+          * Press CTRL+ALT+DEL to restart your computer. You will lose any
+          unsaved information in all aplications.
+        </p>
+        <br />
+        <p class="continue">
+          Press any key to continue <span class="blink">_</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div *slide id="bsod-beautiful" no-padding>
+    <div class="container">
+      <div class="msg" align="center">
+        <p class="highlight">Windows</p>
+        <p>
+          A fatal exception 0E has occured at 028:C00068F8 in VxD VMM(01)
+          000059F8. The current application will be terminated.
+        </p>
+        <p>* Press any key to terminate the application.</p>
+        <p>
+          * Press CTRL+ALT+DEL to restart your computer. You will lose any
+          unsaved information in all aplications.
+        </p>
+        <br />
+        <p class="continue">
+          Press any key to continue <span class="blink">_</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="play-with-tabs" no-padding>
+    <!--<slides-exercise [files]="code.materialTabs">-->
+    <!--<div class="description"></div>-->
+    <!--<slides-new-editors [fontSize]="fontSize" class="editor">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
+  </div>
+
+  <div *slide id="structural-directives-ng-if">
+    <h1>Structural directives ngIf</h1>
+    <div>
+      <code-demo-file-path path="before"></code-demo-file-path>
+      <code-demo-editor
+        [fontSize]="fontSize"
+        [minLines]="3"
+        language="html"
+        [(ngModel)]="code.structuralDirectives.ngIfBefore"
+      ></code-demo-editor>
+      <br /><br />
+      <h2>Desugars into</h2>
+      <br /><br />
+      <code-demo-file-path path="after"></code-demo-file-path>
+      <code-demo-editor
+        [fontSize]="fontSize"
+        [minLines]="3"
+        language="html"
+        [(ngModel)]="code.structuralDirectives.ngIfAfter"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="structural-directives-ng-for">
+    <h1>Structural directives ngFor</h1>
+    <div>
+      <code-demo-file-path path="before"></code-demo-file-path>
+      <code-demo-editor
+        [fontSize]="fontSize"
+        [minLines]="3"
+        language="html"
+        [(ngModel)]="code.structuralDirectives.ngForBefore"
+      ></code-demo-editor>
+      <br /><br />
+      <h2>Desugars into</h2>
+      <br /><br />
+      <code-demo-file-path path="after"></code-demo-file-path>
+      <code-demo-editor
+        [fontSize]="fontSize"
+        [minLines]="3"
+        language="html"
+        [(ngModel)]="code.structuralDirectives.ngForAfter"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="structural-directives-microsyntax">
+    <h1>Angular MicroSyntax</h1>
+    <div>
+      <code-demo-file-path path="before"></code-demo-file-path>
+      <code-demo-editor
+        language="text"
+        readonly="false"
+        [fontSize]="fontSize"
+        [minLines]="3"
+        [(ngModel)]="code.structuralDirectives.microSyntax"
+      ></code-demo-editor>
+    </div>
+    <a
+      href="https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855#file-microsyntax-md"
+      >More details</a
+    >
+  </div>
+
+  <div *slide id="play-with-tabs-structural-directive" no-padding>
+    <!--<slides-exercise [files]="code.materialTabsStructuralDirective">-->
+    <!--<div class="description"></div>-->
+    <!--<slides-new-editors class="editor" [fontSize]="fontSize">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
+  </div>
+
+  <div *slide id="mat-tab-nav-bar" no-padding>
+    <!--<slides-exercise [files]="code.mdTabNavBar">-->
+    <!--<slides-new-editors class="editor" [fontSize]="fontSize">-->
+    <!--</slides-new-editors>-->
+    <!--<slides-angular-preview-runner class="preview"></slides-angular-preview-runner>-->
+    <!--</slides-exercise>-->
+  </div>
+
+  <div *slide id="micro-syntax" no-padding>
+    <h1>Russian pop music</h1>
+    <h2>@kirjs</h2>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/i9AHJkHqkpw"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/et281UHNoOU"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/n3Go8ub9a1k"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</slide-deck>

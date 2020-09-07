@@ -1,0 +1,27 @@
+span {
+  font-size: 50px;
+  word-wrap: break-word;
+}
+
+.header {
+  background: #52ff93;
+}
+
+.palette {
+  background: #ffb71a;
+}
+
+.extensions {
+  background: #61e9ff;
+}
+
+.item:hover {
+  box-shadow: 0px 0px 4px 4px #444;
+  cursor: pointer;
+}
+
+input {
+  background: transparent;
+  border: 0 solid;
+  font-size: inherit;
+}

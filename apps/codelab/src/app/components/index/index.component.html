@@ -1,0 +1,75 @@
+<div #translations style="display: none">
+  <div i18n="@@createFirstNgApp" id="createFirstNgApp">
+    Create your first Angular app
+  </div>
+  <div i18n="@@templates" id="templates">Templates</div>
+  <div i18n="@@dependencyInjection" id="dependencyInjection">
+    Dependency-Injection
+  </div>
+  <div i18n="@@componentTree" id="componentTree">Component-Tree</div>
+  <div i18n="@@customEvents" id="customEvents">Custom-Events</div>
+  <div i18n="@@angularWrittenInTypeScript" id="angularWrittenInTypeScript">
+    Angular is written in TypeScript, a superset of JavaScript. Learn
+    TypeScript.
+  </div>
+  <div i18n="@@learnHowToBootstrapApp" id="learnHowToBootstrapApp">
+    Learn how to create and bootstrap your first Angular application
+  </div>
+  <div i18n="@@learnUsingTemplates" id="learnUsingTemplates">
+    Learn how to use Angular templates
+  </div>
+  <div i18n="@@learnToProvideDependencies" id="learnToProvideDependencies">
+    Learn how to provide dependencies to your code instead of hard-coding them
+  </div>
+  <div
+    i18n="@@learnToStructureAppWithReusableComponents"
+    id="learnToStructureAppWithReusableComponents"
+  >
+    Learn how to structure your app with reusable components
+  </div>
+  <div i18n="@@learnToBindToEvents" id="learnToBindToEvents">
+    Learn to bind to events.
+  </div>
+</div>
+
+<slide-deck>
+  <codelab-sync-survey></codelab-sync-survey>
+  <codelab-buttons-nav-bar></codelab-buttons-nav-bar>
+
+  <div *slide id="index">
+    <h1 i18n>Angular Codelab</h1>
+    <h2 i18n>
+      Welcome to the interactive Angular Codelab. Here you can learn the basics
+      of <a href="https://angular.io">Angular</a>!
+    </h2>
+    <div class="play">
+      <button
+        class="learn-box typescript"
+        [routerLink]="['/angular', 'typescript', 'intro']"
+      >
+        <span aria-hidden="true">▶</span>
+        <div>
+          <div class="title" i18n>Learn TypeScript</div>
+          <div class="hint" i18n>Skip if you're familiar with TypeScript</div>
+        </div>
+        <img src="/assets/images/ts.png" alt="TypeScript logo" class="" />
+      </button>
+      <button routerLink="/angular/create-first-app/intro" class="learn-box">
+        <span aria-hidden="true">▶</span>
+        <div i18n>Learn Angular</div>
+        <img
+          src="/assets/images/angular.png"
+          alt="Angular logo"
+          class="angular"
+        />
+      </button>
+    </div>
+
+    <button class="contents" (click)="showContents = !showContents" i18n>
+      Or click here to see full contents...
+    </button>
+    <ng-container *ngIf="showContents">
+      <codelab-angular-routes></codelab-angular-routes>
+    </ng-container>
+  </div>
+</slide-deck>

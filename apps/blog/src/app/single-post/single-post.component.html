@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-content>
+    <p class="head">
+      <span class="title">{{ post.title }}</span>
+      <span class="date"
+        >by <span>{{ post.author }}</span> on
+        {{ post.date | date: 'short' }}</span
+      >
+    </p>
+
+    <div class="container">
+      <markdown ngPreserveWhitespaces>
+        <div [class.text]="!full" [innerHTML]="post.text"></div>
+      </markdown>
+
+      <span *ngIf="!full"><a routerLink="/post/{{ post.key }}">More</a> </span>
+      <span *ngIf="full">
+        <button (click)="edit()">Edit</button>
+        <button (click)="delete()">Delete</button>
+      </span>
+    </div>
+  </mat-card-content>
+</mat-card>
