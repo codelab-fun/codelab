@@ -1,0 +1,40 @@
+<ng-container *ngFor="let quiz of quizData">
+  <mat-card *ngIf="quiz?.quizId === quizName">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title i18n>{{ quiz?.milestone }} Quiz</mat-card-title>
+      <mat-card-subtitle i18n>
+        <span>How well versed are you in {{ quiz?.milestone }}?</span>
+        <span>Take the quiz and find out!</span>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <div mat-card-image class="quiz-topic-image"
+         [ngStyle]="{ 'background': 'url(' + imagePath + quiz?.image + ') no-repeat center top',
+                      'background-size': '400px 280px' }">
+    </div>
+
+    <mat-card-content>
+      <span i18n><strong>{{ quiz?.summary }}</strong>  This quiz is composed of
+        <strong>{{ quiz?.questions.length }}</strong> timed multiple-choice question(s). Taking this quiz should
+        solidify your understanding of {{ quiz?.milestone }}. Beat the clock and match wits with your friends!
+        Good luck and have fun with this quiz. Share and enjoy!</span>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <mat-checkbox (change)="onChange($event)" disableRipple="true">
+        <mat-checkbox-label labelPosition="after">Shuffle Questions and Answers</mat-checkbox-label>
+      </mat-checkbox>
+
+      <button
+        type="button"
+        mat-raised-button
+        disableRipple="true"
+        name="start quiz"
+        class="btn btn-outline-primary"
+        [routerLink]="['/quiz/question/', quiz.quizId, 1]">
+        <span i18n><strong>Start the Quiz!</strong>&nbsp;<mat-icon inline="true">play_arrow</mat-icon></span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

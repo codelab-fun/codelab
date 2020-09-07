@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+.score {
+  float: left;
+  margin-left: 1.5rem;
+
+  .leader, span.scoreboard {
+    margin: 5px 0 0 15px;
+  }
+}

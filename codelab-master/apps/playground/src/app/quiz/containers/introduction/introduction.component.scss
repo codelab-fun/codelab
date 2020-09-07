@@ -1,0 +1,57 @@
+@import "variables";
+
+mat-card-header {
+  display: block;
+
+  .header-image {
+    margin: 5px 0 0 15px;
+  }
+}
+
+.quiz-topic-image {
+  display: flex;
+  justify-content: center;
+  margin: 20px -10px 0 -15px;
+  height: 300px;
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  span {
+    text-align: justify;
+    margin-top: -25px;
+  }
+}
+
+mat-card-actions {
+  text-align: center;
+  padding-bottom: 15px !important;
+
+  mat-checkbox {
+    text-align: center;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    background: $vivid-blue;
+    color: $black;
+  }
+  button:hover {
+    border: 2px solid $vivid-blue;
+  }
+}
+
+
+// overwrite the checkbox background
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: $green !important;
+}
+
+// overwrite the ripple overlay on hover and click
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: $black !important;
+}

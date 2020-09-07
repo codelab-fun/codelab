@@ -1,0 +1,114 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "variables";
+@import "mixins";
+
+@font-face {
+  font-family: 'DjbUpOnTheScoreboard';
+  src: url($scoreboard-font) format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LucidaUnicodeCalligraphy';
+  src: url($congratulations-font) format('truetype');
+  font-display: swap;
+}
+
+mat-card {
+  margin: 2% 0 20px 25%;
+  width: 42.5rem;
+  height: auto;
+  padding: 20px;
+  border: 1px solid $black;
+  border-radius: 10px !important;
+  box-shadow: 10px 10px 5px $gray !important;
+
+  mat-card-header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    .header-image {
+      float: left;
+      background: url($header-image) no-repeat center center;
+      background-size: contain;
+      margin: -10px 0 0 -40px;
+      height: 100px !important;
+      width: 180px !important;
+    }
+
+    mat-card-title {
+      font-family: $font-stack;
+      font-weight: $font-weight-max;
+      font-size: 30px !important;
+      margin: -10px 0 10px 10px;
+      color: $vivid-blue;
+      text-align: center;
+    }
+    mat-card-subtitle {
+      font-family: $font-stack;
+      font-weight: $font-weight-max;
+      font-size: 17.5px !important;
+      font-style: italic;
+      color: $gray;
+      text-align: center;
+
+      span {
+        display: block;
+      }
+    }
+  }
+}
+
+.preload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
+
+.preload div {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite;
+}
+
+.preload :first-child {
+  background: #19a68c;
+  animation-delay: -1.5s;
+}
+
+.preload :nth-child(2) {
+  background: #f63d3a;
+  animation-delay: -1s;
+}
+
+.preload :nth-child(3) {
+  background: #fda543;
+  animation-delay: -0.5s;
+}
+
+.preload :last-child {
+  background: #193b48;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(160%);
+  }
+  50% {
+    transform: translate(160%, 160%);
+  }
+  75% {
+    transform: translate(0, 160%);
+  }
+}
