@@ -4,7 +4,7 @@
 
 Angular Codelab is a self-paced interactive Angular course:
 
-<img alt="interactive exercises" src="https://user-images.githubusercontent.com/2545357/66274607-4d17a880-e84e-11e9-8ed0-a1ae678988a5.gif"  width="600">
+<img alt="interactive exercises" src="https://user-images.githubusercontent.com/2545357/66274607-4d17a880-e84e-11e9-8ed0-a1ae678988a5.gif">
  
 - 🔥 Everything in the browser - **no setup needed**
 - 🔥 **Interactive code samples** - Change the code and see the result immediately!
