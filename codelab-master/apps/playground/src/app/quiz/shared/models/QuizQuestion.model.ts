@@ -1,8 +1,8 @@
-import { Option } from '@codelab-quiz/shared/models/Option.model';
+import { Option } from './Option.model';
 
 export interface QuizQuestion {
-  questionText: string;
-  options: Option[];
-  explanation: string;
+  questionText: string,
+  options: Option[],
+  explanation: string
 }
-type Questions = QuizQuestion[];
+// type Questions = QuizQuestion[];

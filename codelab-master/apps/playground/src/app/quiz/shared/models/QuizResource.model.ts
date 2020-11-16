@@ -1,4 +1,4 @@
-import { Resource } from '@codelab-quiz/shared/models/Resource.model';
+import { Resource } from './Resource.model';
 
 export interface QuizResource {
   quizId: string;

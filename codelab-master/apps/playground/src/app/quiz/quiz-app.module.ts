@@ -19,16 +19,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgBackToTopModule } from 'ng-back-to-top';
 
 import { QuizAppComponent } from './quiz-app.component';
-import { QuizQuestionComponent } from '@codelab-quiz/components/question/question.component';
-import { IntroductionComponent } from '@codelab-quiz/containers/introduction/introduction.component';
-import { QuizComponent } from '@codelab-quiz/containers/quiz/quiz.component';
-import { QuizSelectionComponent } from '@codelab-quiz/containers/quiz-selection/quiz-selection.component';
-import { ResultsComponent } from '@codelab-quiz/containers/results/results.component';
-import { ScoreboardComponent } from '@codelab-quiz/containers/scoreboard/scoreboard.component';
-import { ScoreComponent } from '@codelab-quiz/containers/scoreboard/score/score.component';
-import { TimeComponent } from '@codelab-quiz/containers/scoreboard/time/time.component';
+import { QuizQuestionComponent, SingleAnswerComponent, MultipleAnswerComponent } from '@codelab-quiz/components/';
+import { IntroductionComponent } from '@codelab-quiz/containers/introduction';
+import { QuizComponent } from '@codelab-quiz/containers/quiz';
+import { QuizSelectionComponent } from '@codelab-quiz/containers/quiz-selection';
+import { AccordionComponent, ChallengeComponent, ResultsComponent,
+         ReturnComponent, StatisticsComponent, SummaryReportComponent } from '@codelab-quiz/containers/results';
+import { ScoreboardComponent, ScoreComponent, TimerComponent } from '@codelab-quiz/containers/scoreboard/';
+import { QuizService, TimerService } from '@codelab-quiz/shared/services/';
 import { JoinPipe } from '@codelab-quiz/pipes/join.pipe';
-import { QuizService, TimerService } from './shared/services';
 
 
 @NgModule({
@@ -38,10 +37,17 @@ import { QuizService, TimerService } from './shared/services';
     QuizComponent,
     QuizQuestionComponent,
     QuizSelectionComponent,
+    AccordionComponent,
+    ChallengeComponent,
     ResultsComponent,
+    ReturnComponent,
+    StatisticsComponent,
+    SummaryReportComponent,
     ScoreboardComponent,
     ScoreComponent,
-    TimeComponent,
+    TimerComponent,
+    SingleAnswerComponent,
+    MultipleAnswerComponent,
     JoinPipe
   ],
   imports: [

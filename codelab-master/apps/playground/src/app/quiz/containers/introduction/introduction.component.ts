@@ -1,12 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { QUIZ_DATA } from '@codelab-quiz/shared/quiz-data';
-import { Quiz } from '@codelab-quiz/shared/models/Quiz.model.ts';
-import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
-
+import { Quiz } from '@codelab-quiz/shared/models/';
+import { QuizService } from '@codelab-quiz/shared/services/*';
 
 @Component({
   selector: 'codelab-quiz-intro',
@@ -14,27 +12,21 @@ import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
   styleUrls: ['./introduction.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IntroductionComponent implements OnInit, OnDestroy {
-  quizData: Quiz[] = JSON.parse(JSON.stringify(QUIZ_DATA));
-  quizName = '';
-  unsubscribe$ = new Subject<void>();
-  imagePath = '../../../assets/images/';
+export class IntroductionComponent implements OnInit {
+  quizzes$: Observable<Quiz[]>;
+  quizName$: Observable<string>;
+  imagePath = "assets/images/milestones/";
 
-  constructor(private quizService: QuizService,
-              private activatedRoute: ActivatedRoute
+  constructor(
+    private quizService: QuizService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.url
-      .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(segments => {
-          this.quizName = segments[1].toString();
-        });
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+    this.quizzes$ = this.quizService.getQuizzes();
+    this.quizName$ = this.activatedRoute.url.pipe(
+      map((segments) => segments[1].toString())
+    );
   }
 
   onChange($event): void {

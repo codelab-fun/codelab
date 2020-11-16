@@ -1,0 +1,17 @@
+<ng-container *ngFor="let quiz of quizzes$ | async">
+  <div *ngIf="quiz.quizId === (quizName$ | async)">
+    <section class="challenge" aria-labelledby="Challenge">
+      <h4>Challenge your friends!</h4>
+      <div class="social-buttons">
+        <!--<div class="fb-share-button" data-href="https://www.codelab.fun" data-layout="button" data-size="large">
+          <a class="btn facebook hvr-shutter-out-horizontal mdc-button mdc-button--outlined" title="Facebook" target="_blank"
+           href="https://www.facebook.com/sharer/sharer.php?u=I scored {{quizMetadata.percentage}}/100 on this awesome quiz about Angular {{quiz.milestone}}. Try to beat my score at &amp;hashtag=quiz&amp;url={{codelabUrl}}!%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share your score</a>
+        </div>-->
+        <a class="btn twitter-share-button hvr-shutter-out-horizontal mdc-button mdc-button--outlined" title="Twitter" data-size="large" data-i18n="Twitter" target="_blank"
+           href="https://twitter.com/intent/tweet?text=I%20scored%20{{quizMetadata.percentage}}/100%20on%20this%20awesome%20quiz%20about%20Angular%20{{quiz.milestone}}.%20Try%20to%20beat%20my%20score%20at%20&amp;hashtag=quiz&amp;url={{codelabUrl}}!"><strong>Tweet your score</strong></a>
+        <a class="btn email hvr-shutter-out-horizontal mdc-button mdc-button--outlined" title="e-mail" data-size="large" data-i18n="Email" target="_blank"
+           href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored {{ quizMetadata.percentage }}% on this awesome quiz about Angular {{quiz.milestone}}. Try to beat my score at {{ codelabUrl }}"><strong>Email a friend</strong></a>
+      </div>
+    </section>
+  </div>
+</ng-container>

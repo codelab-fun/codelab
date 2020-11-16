@@ -1,4 +1,4 @@
-import { QuizQuestion } from '@codelab-quiz/shared/models/QuizQuestion.model';
+import { QuizQuestion } from './QuizQuestion.model';
 
 export interface Quiz {
   quizId: string;
@@ -6,5 +6,5 @@ export interface Quiz {
   summary: string;
   image: string;
   questions: QuizQuestion[];
-  status: 'started' | 'continue' | 'completed' | '';
 }
+

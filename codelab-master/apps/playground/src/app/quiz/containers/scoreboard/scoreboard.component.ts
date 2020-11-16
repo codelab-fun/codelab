@@ -11,7 +11,7 @@ import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() set selectedAnswer(value: number) { this.answer = value; }
+  @Input() selectedAnswer: number;
   answer: number;
   totalQuestions: number;
   badgeQuestionNumber: number;
@@ -24,6 +24,9 @@ export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.selectedAnswer = this.answer;
+    this.totalQuestions = this.quizService.totalQuestions;
+
     this.activatedRoute.params
       .pipe(takeUntil(this.unsubscribe$))
         .subscribe((params) => {
@@ -32,13 +35,6 @@ export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
             this.timerService.resetTimer();
           }
     });
-
-    this.totalQuestions = this.quizService.totalQuestions;
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -46,5 +42,10 @@ export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
         changes.selectedAnswer.currentValue !== changes.selectedAnswer.firstChange) {
       this.answer = changes.selectedAnswer.currentValue;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

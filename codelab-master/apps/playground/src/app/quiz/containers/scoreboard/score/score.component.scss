@@ -3,9 +3,35 @@
 
 .score {
   float: left;
-  margin-left: 1.5rem;
+  margin-left: 30px;
 
-  .leader, span.scoreboard {
-    margin: 5px 0 0 15px;
+  .mat-menu {
+    margin-left: -40px;
+
+    .leader, span.scoreboard {
+      margin-left: 40px;
+    }
   }
+}
+
+.scoreboard-score {
+  margin-top: -10px;
+  margin-left: 5px;
+}
+
+mat-toolbar {
+  background-color: $white;
+
+  &:hover {
+    background-color: $white !important;
+  }
+
+  .leader {
+    margin-left: -35px !important;
+  }
+}
+button {
+  outline: none;
+  text-transform: uppercase;
+  font-family: $font-stack;
 }

@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 export interface QuizMetadata {
   totalQuestions: number;
   totalQuestionsAttempted: number;
-  correctAnswersCount$: Observable<number>;
   percentage: number;
+  correctAnswersCount$: Observable<number>;
   completionTime: number;
 }
+
