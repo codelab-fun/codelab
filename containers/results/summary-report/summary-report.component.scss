@@ -1,0 +1,121 @@
+@import "variables";
+
+.summary-report {
+  border: 2px double $black;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  width: 520px;
+  clear: both;
+  padding: 5px;
+
+  h2 {
+    text-align: center;
+    font-weight: $font-weight-max;
+  }
+
+  .summary-icons {
+    float: right;
+
+    a {
+      color: $gray;
+      text-decoration: none;
+    }
+
+    .print {
+      float: right;
+      margin-top: -40px;
+      margin-right: 60px;
+    }
+
+    .email {
+      float: right;
+      margin-top: -40px;
+      margin-right: 35px;
+    }
+
+    .share {
+      float: right;
+      margin-top: -40px;
+      margin-right: 10px;
+    }
+  }
+
+  ul {
+    margin-left: -15px;
+
+    li {
+      list-style-type: none;
+    }
+  }
+
+  .summary-stats-leader {
+    font-size: 16px;
+    font-weight: $font-weight-max;
+    color: $green-angular-leaf;
+  }
+
+  .result {
+    font-family: $font-stack;
+    font-size: 20px;
+  }
+
+  .quiz-note {
+    font-family: $font-stack;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    margin-left: 10px;
+  }
+
+  details {
+    summary {
+      font-family: $font-stack;
+      text-align: center;
+      font-size: 16px;
+      font-weight: $font-weight-max !important;
+      color: $light-sea-green;
+    }
+
+    .high-scores-heading {
+      font-family: $font-stack;
+      font-weight: $font-weight-max;
+      text-align: center !important;
+    }
+
+    .high-scores {
+      table {
+        display: block;
+        width: 100%;
+        margin-left: 5%;
+        margin-bottom: 15px;
+        border-collapse: collapse;
+        font-family: $font-stack;
+
+        tr {
+          &:nth-child(even) {
+            background-color: $white-smoke;
+          }
+
+          &:hover {
+            background-color: $green;
+          }
+
+          th {
+            text-transform: uppercase;
+            border-bottom: 1px solid $black;
+            background-color: $dark-green;
+            color: $white;
+            text-align: center;
+            font-weight: $font-weight-max;
+          }
+        }
+
+        th, td {
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}

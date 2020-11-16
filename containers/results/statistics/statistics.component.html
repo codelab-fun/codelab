@@ -1,0 +1,62 @@
+<ng-container *ngFor="let quiz of quizzes$ | async">
+  <div *ngIf="quiz.quizId === (quizName$ | async)">
+    <section class="statistics">
+      <span class="your-score" i18n>
+        You scored <span class="result">{{ quizMetadata.correctAnswersCount$ | async }}</span> out of
+        <span class="result">{{ quizMetadata.totalQuestions }}</span>&nbsp;
+        <span class="result">({{ quizMetadata.percentage }}%)</span> questions correctly.
+      </span>
+
+      <div class="quiz-feedback">
+        <div *ngIf="quizMetadata.percentage >= 80">
+          <img mat-card-image loading="lazy"
+               [src]="CONGRATULATIONS"
+               alt="Photo of 'Congratulations'"
+               i18n-title title="Congratulations" />
+          <h3 i18n>Great job!</h3>
+        </div>
+        <div *ngIf="quizMetadata.percentage >= 60 && quizMetadata.percentage < 80">
+          <img mat-card-image loading="lazy"
+               [src]="NOT_BAD"
+               alt="Photo of 'Not Bad'"
+               i18n-title title="Not Bad" />
+          <h3 i18n>Not bad!</h3>
+        </div>
+        <div *ngIf="quizMetadata.percentage < 60">
+          <img mat-card-image loading="lazy"
+               [src]="TRY_AGAIN"
+               alt="Photo of 'Try Again'"
+               i18n-title title="Try Again" />
+          <h3 i18n>Try again!</h3>
+
+          <p i18n>Brush up your knowledge of {{ quiz.milestone }} with these valuable resources:</p>
+          <ul class="resources" *ngFor="let resource of resources">
+            <li i18n>
+              <a href='{{resource.url}}' target="_blank">
+                <span class="resource-title">{{ resource.title }}</span>
+              </a>,&nbsp;
+              <span class="resource-host">{{ resource.host }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <ngb-progressbar
+        *ngIf="status === 'Completed'"
+        type="success"
+        [striped]="true"
+        [animated]="true"
+        [value]="quizMetadata.percentage"
+        class="progress-bar bg-success">
+        <strong>{{ quizMetadata.percentage }}%</strong>
+      </ngb-progressbar>
+
+      <section class="completion-time">
+        <span class="elapsed-time" i18n>
+          You completed the quiz in <span class="result">{{ elapsedMinutes }}</span> minutes and
+          <span class="result">{{ elapsedSeconds }}</span> seconds.
+        </span>
+      </section>
+    </section>
+  </div>
+</ng-container>

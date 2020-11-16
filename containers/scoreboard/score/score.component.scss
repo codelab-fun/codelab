@@ -1,0 +1,37 @@
+@import "variables";
+@import "mixins";
+
+.score {
+  float: left;
+  margin-left: 30px;
+
+  .mat-menu {
+    margin-left: -40px;
+
+    .leader, span.scoreboard {
+      margin-left: 40px;
+    }
+  }
+}
+
+.scoreboard-score {
+  margin-top: -10px;
+  margin-left: 5px;
+}
+
+mat-toolbar {
+  background-color: $white;
+
+  &:hover {
+    background-color: $white !important;
+  }
+
+  .leader {
+    margin-left: -35px !important;
+  }
+}
+button {
+  outline: none;
+  text-transform: uppercase;
+  font-family: $font-stack;
+}

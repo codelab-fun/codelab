@@ -1,0 +1,24 @@
+<section class="return" aria-labelledby="return">
+  <mat-card-actions>
+    <mat-nav-list>
+      <a class="btn hvr-radial-out mdc-button mdc-button--outlined" title="restart"
+         aria-labelledby="Restart" data-i18n="Restart" (click)="restartQuiz()">
+        <div class="mdc-button__ripple"></div>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">power_settings_new</i>&nbsp;&nbsp;
+        <span class="mdc-button__label"><strong>Restart Quiz</strong></span>
+      </a>
+      <a class="btn hvr-radial-out mdc-button mdc-button--outlined" title="select quiz"
+         aria-labelledby="Select Quiz" data-i18n="Select Quiz" (click)="selectQuiz()">
+        <div class="mdc-button__ripple"></div>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">select_all</i>&nbsp;&nbsp;
+        <span class="mdc-button__label"><strong>Select Quiz</strong></span>
+      </a>
+      <a class="btn hvr-radial-out mdc-button mdc-button--outlined" title="back to Codelab"
+         aria-labelledby="Back to Codelab" data-i18n="Back to Codelab" [href]="codelabUrl">
+        <div class="mdc-button__ripple"></div>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">laptop</i>&nbsp;&nbsp;
+        <span class="mdc-button__label"><strong>Back to Codelab</strong></span>
+      </a>
+    </mat-nav-list>
+  </mat-card-actions>
+</section>
