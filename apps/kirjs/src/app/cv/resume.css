@@ -1,0 +1,115 @@
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/*.......| Resume                      |.......................*/
+#resume {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: verdana, sans-serif;
+}
+#resume #header {
+  width: 250px;
+  float: left;
+}
+#resume #header .title {
+  width: 90px;
+}
+#resume #info {
+  margin-left: 300px;
+}
+#resume h1 {
+  font-size: 1.4em;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+#resume h2 {
+  color: #900;
+  font-size: 1.4em;
+  font-weight: 400;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+#resume h3 {
+  margin: 0;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+#resume h4 {
+  font-size: 0.8em;
+  color: #444;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+#resume a {
+  color: #990000;
+}
+#resume .line {
+  font-size: 0.8em;
+  overflow: hidden;
+  padding-top: 12px;
+}
+#resume .title {
+  color: #444;
+  width: 130px;
+  display: block;
+  float: left;
+}
+#resume dl {
+  line-height: 30px;
+}
+#resume dt {
+  width: 190px;
+  float: left;
+}
+#resume .spanstart:after {
+  content: ' - ';
+}
+#resume .date_duration {
+  font-weight: 400;
+}
+#resume .vcard > h1 {
+  font-size: 1.6em;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+#resume .experience {
+  padding-bottom: 20px;
+}
+#resume .experience:last-child {
+  padding-bottom: 0;
+}
+#resume .experience-header {
+  overflow: hidden;
+}
+#resume .experience-hgroup {
+  float: left;
+}
+#resume .vcalendar li {
+  font-size: 0.8em;
+}
+#resume .description {
+  list-style: circle;
+  color: #666;
+  margin-left: 20px;
+  padding-left: 20px;
+  line-height: 25px;
+}
+#resume .skills {
+  overflow: hidden;
+  margin: 0;
+}
+#resume .skills li {
+  float: left;
+}

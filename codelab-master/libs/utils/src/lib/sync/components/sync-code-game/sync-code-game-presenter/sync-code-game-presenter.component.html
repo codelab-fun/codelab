@@ -1,0 +1,20 @@
+<div style="display:flex;">
+  <div style="display:flex;flex-direction: column">
+    <button
+      *ngFor="let user of codeGameService.allStatuses$ | async"
+      mat-button
+      [class.selected]="(selectedUserSubject | async) === user.name"
+      (click)="selectedUserSubject.next(user.name)"
+    >
+      {{ user.name }}
+      | {{ user.status.maxScore }}
+    </button>
+  </div>
+
+  <div style="flex-grow: 1" *ngIf="selectedUser$ | async as user">
+    <code-demo-editor
+      fontSize="20"
+      [ngModel]="user.status.code"
+    ></code-demo-editor>
+  </div>
+</div>

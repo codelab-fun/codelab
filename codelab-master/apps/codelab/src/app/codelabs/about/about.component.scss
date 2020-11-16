@@ -1,0 +1,101 @@
+.screenshot {
+  /*background: url("images/sss");*/
+}
+
+[cover] ::ng-deep {
+  line-height: 100vh;
+  text-align: center;
+  background: #6cae00;
+  color: white;
+  font-size: 100px;
+  font-weight: 300;
+}
+
+[text] ::ng-deep {
+  line-height: 100vh;
+  text-align: center;
+  background: #6cae00;
+  color: white;
+  font-size: 100px;
+  font-weight: 300;
+}
+
+[pic] {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+[pic-label] ::ng-deep {
+  line-height: 20vh;
+  text-align: center;
+  color: black;
+  font-size: 100px;
+  font-weight: 280;
+}
+
+.types-error {
+  background-image: url('./images/types-error.png');
+}
+
+.types-missing {
+  background-image: url('./images/types-missing.png');
+}
+
+.types-work {
+  background-image: url('./images/types-work.png');
+}
+
+.i18n-poeditor {
+  background-image: url('./images/i18n-poeditor.png');
+}
+
+.highlight-slides {
+  background-image: url('./images/highlight-slides.png');
+}
+
+.img-todo {
+  content: 'lol';
+  border: 50px white dotted;
+  margin-top: 20px;
+  background: #d68200;
+  box-sizing: border-box;
+
+  &:before {
+    line-height: 100%;
+    font-size: 200px;
+    content: 'IMAGE-TBD';
+    padding: 100px 0;
+    text-align: center;
+    display: block;
+    color: white;
+  }
+}
+h2 {
+  padding: 20px;
+}
+
+.no-setup {
+  background-image: url('./images/no-setup.png');
+}
+
+.examples {
+  background-image: url('./images/examples.gif');
+}
+
+.exercises {
+  background-image: url('./images/exercises.gif');
+}
+
+.github {
+  background-image: url('./images/github.png');
+}
+
+.issues {
+  background-image: url('./images/issues.gif');
+}
+
+.community {
+  background-image: url('./images/codelab.jpeg');
+}

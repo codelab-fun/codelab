@@ -1,0 +1,112 @@
+:host {
+  label {
+    color: #3e515b;
+  }
+
+  textarea {
+    width: 100%;
+    height: 280px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  section {
+    display: flex;
+    margin: 30px 0;
+  }
+
+  .icon {
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+
+    &-plus:before {
+      content: '\FF0B';
+      border: 1px solid #444;
+      border-radius: 50%;
+      color: #444;
+    }
+
+    &-minus:before {
+      content: '\FF0D';
+      border: 1px solid #444;
+      border-radius: 50%;
+      color: #444;
+    }
+  }
+
+  .btn-submit {
+    float: right;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #213451;
+    font-size: 14px;
+    color: #fff;
+    background-color: #213451;
+    cursor: pointer;
+  }
+
+  .container {
+    max-width: 850px;
+    padding: 0 15px 30px 15px;
+    margin: 0 auto;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+
+  .input-info {
+    display: block;
+    height: 10px;
+    line-height: 10px;
+    font-size: 0.625em;
+    margin-top: -15px;
+    color: #8b8b8b;
+  }
+
+  .markdown-info {
+    width: 50%;
+    padding: 15px 35px;
+    border: 1px solid #a4b7c1;
+    margin-left: 30px;
+  }
+
+  .input-block {
+    width: 300px;
+
+    div {
+      margin-bottom: 25px;
+      width: 100%;
+    }
+  }
+
+  .required {
+    color: red;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .w {
+    &-100 {
+      width: 100%;
+    }
+
+    &-50 {
+      width: 50%;
+    }
+  }
+
+  .validation-message {
+    color: red;
+    position: absolute;
+    width: 100%;
+    height: 1em;
+    margin-top: 5px;
+    line-height: 1em;
+    font-size: 0.75em;
+    text-align: left;
+  }
+}

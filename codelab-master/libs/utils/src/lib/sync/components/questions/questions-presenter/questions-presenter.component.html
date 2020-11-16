@@ -1,0 +1,17 @@
+<ng-container *isPresenting>
+  <h2>Questions</h2>
+
+  <ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
+    <codelab-question
+      *ngIf="questionsService.starredQuestion$ | async as question"
+      tabindex="0"
+      [question]="question"
+      class="starred"
+    ></codelab-question>
+
+    <codelab-question-list [questions]="questions"> </codelab-question-list>
+    <div *ngIf="questions.length === 0">
+      Waiting for questions...
+    </div>
+  </ng-container>
+</ng-container>

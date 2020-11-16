@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@font-face {
+  font-family: 'Droid Sans';
+  src: url('/assets/fonts/droid-sans/DroidSans.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Droid Sans Bold';
+  src: url('/assets/fonts/droid-sans/DroidSans-Bold.ttf') format('opentype');
+}
+
+body {
+  font-family: 'Droid Sans', 'Droid Sans Bold';
+}

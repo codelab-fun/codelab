@@ -1,0 +1,9 @@
+<mat-card *isAdmin>
+  <mat-checkbox
+    syncPresenterValue="enabled"
+    [syncPresenterValueDefault]="false"
+    [(ngModel)]="enabled"
+  >
+    Enable the survey
+  </mat-checkbox>
+</mat-card>

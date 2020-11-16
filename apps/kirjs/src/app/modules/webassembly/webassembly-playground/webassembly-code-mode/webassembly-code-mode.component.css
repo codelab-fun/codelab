@@ -1,0 +1,35 @@
+:host {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #444;
+  color: #fff;
+  width: 400px;
+  padding: 10px 20px;
+  bottom: 0;
+  overflow: scroll;
+  transition: width 200ms;
+}
+
+.back {
+  margin-bottom: 10px;
+}
+
+.has-meta {
+  text-decoration: underline;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content {
+  overflow: visible;
+  margin-bottom: 200px;
+}
+
+h2 {
+  font-size: 20px;
+}

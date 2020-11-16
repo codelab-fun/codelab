@@ -1,0 +1,13 @@
+<div class="rule">
+  <kirjs-rule
+    *ngFor="let v of before; let i = index"
+    [before]="[before[i]]"
+    [after]="[after[i]]"
+    [arrow]="arrow"
+  ></kirjs-rule>
+</div>
+<div class="rule" *ngIf="indexes">
+  <div *ngFor="let v of after; let i = index" class="index">
+    {{ v[1] }}
+  </div>
+</div>

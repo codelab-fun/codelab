@@ -1,0 +1,13 @@
+<code-demo-editor
+  fontSize="20"
+  [(ngModel)]="questions[0].code"
+></code-demo-editor>
+<!--      <slides-typescript-checker-runner-->
+<!--        [code]="q.code"-->
+<!--      ></slides-typescript-checker-runner>-->
+
+<slides-typescript-test-runner
+  (result)="update($event)"
+  [code]="questions[0].code"
+  [tests]="questions[0].tests"
+></slides-typescript-test-runner>

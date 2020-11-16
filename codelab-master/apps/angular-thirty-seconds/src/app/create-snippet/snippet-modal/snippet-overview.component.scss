@@ -1,0 +1,23 @@
+:host {
+  h1 {
+    color: #444;
+  }
+
+  .snippet-modal {
+    &-footer {
+      float: right;
+    }
+  }
+
+  .btn-submit {
+    float: right;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #213451;
+    font-size: 14px;
+    color: #fff;
+    background-color: #213451;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,56 @@
+<ng-container *ngIf="service.liveInfo | async as data">
+  <ng-container *ngIf="data.status === 'viewer'">
+    <ng-container *ngIf="!(service.myData | async)">
+      2
+      <ul *ngTemplateOutlet="answers"></ul>
+    </ng-container>
+
+    <ng-container *ngIf="service.myData | async">
+      {{ service.allData | async | json }} 3
+      <ul *ngTemplateOutlet="answers"></ul>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="data.status === 'presenter'">
+    Results are here!!!
+  </ng-container>
+</ng-container>
+
+<!--*ngIf="showResult then result"-->
+<!--*ngIf="showAnswers then answers"-->
+
+<!--<ng-container [ngSwitch]="(service.liveInfo | async)?.status">-->
+<!--<ng-container *ngSwitchCase="'presenter'">-->
+<!--<ng-container *ngTemplateOutlet="result"></ng-container>-->
+<!--<ng-container *ngTemplateOutlet="answers"></ng-container>-->
+
+<!--</ng-container>-->
+<!--<ng-container *ngSwitchCase="'viewer'">-->
+<!--<ng-container *ngTemplateOutlet="result"></ng-container>-->
+<!--</ng-container>-->
+<!--</ng-container>-->
+
+<!--<live-info viewer="viewer" presenter="presenter"></live-info>-->
+
+<ng-template #answers let-data>
+  // results myDAta
+  <ng-content></ng-content>
+</ng-template>
+
+<!--<ng-template #presenter>-->
+<!--// Result-->
+<!--</ng-template>-->
+
+<!--<live-info>-->
+<!--<my-custom-viewer *viewer="let data" [data]="data"></my-custom-viewer>-->
+<!--<ng-container *presenter="let data"></ng-container>-->
+<!--</live-info>-->
+
+<!--<kirjs-live>-->
+<!--<kirjs-live-config>-->
+<!--&lt;!&ndash;Poll&ndash;&gt;-->
+<!--&lt;!&ndash;Yes | No&ndash;&gt;-->
+<!--</kirjs-live-config>-->
+<!--<kirjs-live-viewer>-->
+<!--...-->
+<!--</kirjs-live-viewer>-->
+<!--</kirjs-live>-->

@@ -1,0 +1,12 @@
+<span
+  class="block"
+  [class.show-meta]="showMeta"
+  *ngFor="let item of data.value; trackBy: trackBy"
+>
+  <span class="name">{{ item.name }}</span>
+  <kirjs-block
+    [showMeta]="showMeta"
+    [class]="item.name"
+    [data]="item"
+  ></kirjs-block>
+</span>

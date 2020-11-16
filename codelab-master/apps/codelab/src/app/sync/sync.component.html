@@ -1,0 +1,38 @@
+<div class="survey" *ngIf="shouldShowPresentation$ | async; else userId">
+  <h1>Quick Survey</h1>
+
+  <slide-deck>
+    <div *isPresenting slideShortcuts></div>
+
+    <codelab-sync-button name="default"></codelab-sync-button>
+    <codelab-configure-sync></codelab-configure-sync>
+    <div *slide>
+      <codelab-poll [poll]="polls[0]">
+        <div class="question"></div>
+      </codelab-poll>
+    </div>
+
+    <div *slide>
+      <codelab-poll [poll]="polls[1]">
+        <div class="question"></div>
+      </codelab-poll>
+    </div>
+
+    <div *slide>
+      <codelab-poll [poll]="polls[2]">
+        <div class="question"></div>
+      </codelab-poll>
+    </div>
+
+    <div *slide>
+      <codelab-poll [poll]="polls[3]">
+        <div class="question"></div>
+      </codelab-poll>
+    </div>
+  </slide-deck>
+</div>
+<ng-template #userId>
+  <ng-container *ngIf="admin">
+    {{ userId$ | async }}
+  </ng-container>
+</ng-template>

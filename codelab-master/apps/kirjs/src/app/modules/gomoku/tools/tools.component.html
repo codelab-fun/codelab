@@ -1,0 +1,9 @@
+<div class="tools">
+  <div
+    *ngFor="let tool of tools"
+    class="tool tool-{{ tool.name }}"
+    [class.selected]="selectedTool.name === tool.name"
+    (click)="handle(tool)"
+  ></div>
+</div>
+{{ selectedTool | json }}?

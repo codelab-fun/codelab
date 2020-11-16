@@ -1,0 +1,282 @@
+<slide-deck slideShortcuts slidesRouting kirjs-tracking>
+  <!--(21) ["H8", "I8", "H9", "H7", "J9", "I9", "I10", "h21", "J11", "K12", "J10", "J12", "G10", "h20", "G8", "F7", "G9", "G7", "I7", "J6", "h22"]0: "H8"1: "I8"2: "H9"3: "H7"4: "J9"5: "I9"6: "I10"7: "h21"8: "J11"9: "K12"10: "J10"11: "J12"12: "G10"13: "h20"14: "G8"15: "F7"16: "G9"17: "G7"18: "I7"19: "J6"20: "h22"length: 21__proto__: Array(0)-->
+  <!--(30) ["H8", "I8", "I9", "H9", "J10", "G7", "h20", "G10", "J7", "G8", "G11", "J8", "I10", "G6", "G9", "G5", "G4", "H7", "J9", "I6", "J5", "H6", "K10", "L10", "J6", "I7", "F4", "I5", "I4", "J4"]0: "H8"1: "I8"2: "I9"3: "H9"4: "J10"5: "G7"6: "h20"7: "G10"8: "J7"9: "G8"10: "G11"11: "J8"12: "I10"13: "G6"14: "G9"15: "G5"16: "G4"17: "H7"18: "J9"19: "I6"20: "J5"21: "H6"22: "K10"23: "L10"24: "J6"25: "I7"26: "F4"27: "I5"28: "I4"29: "J4"length: 30__proto__: Array(0)-->
+
+  <slide-arrows></slide-arrows>
+
+  <div *slide no-padding title>
+    <h1>Gomoku</h1>
+    <div class="hb"></div>
+    <h2>by @kirjs</h2>
+  </div>
+
+  <div *slide>
+    <h2>Plan</h2>
+    <ol>
+      <li>What's gomoku?</li>
+      <li>Rules</li>
+      <li>Why Gomoku?</li>
+      <li>Gomoku and Computers</li>
+      <li>Sample game</li>
+    </ol>
+  </div>
+
+  <!--
+    Rules
+  -->
+
+  <div *slide title>
+    <h1>Gomoku</h1>
+    <h2><b>Abstract</b> <b>strategy</b> <b>board</b> game</h2>
+    <h2>coming from ancient asia (China & Japan)</h2>
+  </div>
+
+  <div *slide>
+    <h2>tic-tac-toe</h2>
+    <kirjs-board center theme="xo" [game]="games.ticTacToe"></kirjs-board>
+  </div>
+
+  <div *slide>
+    <h2>Gomoku</h2>
+    <kirjs-board [game]="games.wonGame"></kirjs-board>
+  </div>
+
+  <div *slide title><h1>Rules</h1></div>
+
+  <div *slide>
+    <h2>Rule 1: Black puts a stone first</h2>
+    <kirjs-board [game]="games.start"></kirjs-board>
+  </div>
+
+  <div *slide>
+    <h2>
+      Rule 2: Players alternate, putting a stone of their color on an empty cell
+    </h2>
+    <kirjs-board [game]="games.start2"></kirjs-board>
+  </div>
+
+  <div *slide>
+    <h2>Rule 3: The first player to get 5 in a row wins</h2>
+    <kirjs-board [game]="games.start5"></kirjs-board>
+  </div>
+
+  <div *slide>
+    <h2>Sample game</h2>
+    <div style="display: flex;">
+      <kirjs-board [game]="games.sample"></kirjs-board>
+      <div>
+        <h2>Winning plan:</h2>
+        <ul>
+          <li><input type="checkbox" /> Open 3 attack</li>
+          <li><input type="checkbox" /> Open 4 attack</li>
+          <li><input type="checkbox" /> Victory on continuous 4s</li>
+          <li><input type="checkbox" /> A fork</li>
+          <li><input type="checkbox" /> ????</li>
+          <li><input type="checkbox" /> Profit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Why gomoku?
+  -->
+
+  <div *slide title>
+    <h1>8 Reasons to play <b>Gomoku</b></h1>
+  </div>
+
+  <div *slide>
+    <h2>1. Brain massage</h2>
+    <ul>
+      <li>Lots of memorization</li>
+      <li>Patterns recognition</li>
+      <li>Problem solving</li>
+      <li>A lot of gomoku playes became successful at poker</li>
+    </ul>
+  </div>
+
+  <div *slide>
+    <h2>2. Transferable life skills</h2>
+    <ul>
+      <li>Learn to win/lose</li>
+      <li>Opportunities to learn from mistakes</li>
+      <li>The skill is directly proportional to the amount of work put in</li>
+      <li>Strategical/Tacting thinking</li>
+      <li>Understanding consequences / thinking ahead</li>
+    </ul>
+  </div>
+
+  <div *slide>
+    <h2>3. Social Aspect</h2>
+    <ul>
+      <li>Cross cultures/ages/accessible to everyone</li>
+      <li>Play people from different countries</li>
+      <li>Play in Tournaments or online</li>
+      <li>Play solo or in a team.</li>
+      <li>Hopefully soon play in real life :)</li>
+    </ul>
+  </div>
+
+  <div *slide>
+    <h2>4. Quantifiable</h2>
+    <ul>
+      <li>All stats are out there</li>
+      <li>Learning curve - plateaus and accelerations.</li>
+    </ul>
+  </div>
+
+  <div *slide>
+    <h2>5. Easy to start</h2>
+    <ul>
+      <li>Can play with pen and paper</li>
+      <li>Play online</li>
+      <li>A bunch of android apps</li>
+      <li>Very simple rules</li>
+    </ul>
+  </div>
+
+  <div *slide>
+    <h2>6.Not very popular in the US</h2>
+    <ul>
+      <li>Very few people are playing</li>
+      <li>Not much has been done</li>
+      <li>Not much learning materials/tutorials/videos in english</li>
+    </ul>
+  </div>
+
+  <div *slide>
+    <h2>7. Lots of space for technical solutions</h2>
+    <ul>
+      <li>No good database of games</li>
+      <li>Existing online playing platforms not perfect</li>
+    </ul>
+  </div>
+  <div *slide><h2>8. It's Fun!</h2></div>
+
+  <div *slide title><h1>Gomoku and Computers 🤖</h1></div>
+
+  <div *slide>
+    <h2>Complexity</h2>
+    <table>
+      <tr>
+        <th>Game</th>
+        <th>Space/State<br />as log to base 10</th>
+        <th>Game Tree<br />as log to base 10</th>
+        <th>Branching Factor</th>
+      </tr>
+      <tr>
+        <td>Gomoku</td>
+        <td>105</td>
+        <td>70</td>
+        <td>210</td>
+      </tr>
+      <tr>
+        <td>Chess</td>
+        <td>47</td>
+        <td>123</td>
+        <td>35</td>
+      </tr>
+      <tr>
+        <td>Go</td>
+        <td>170</td>
+        <td>360</td>
+        <td>250</td>
+      </tr>
+      <tr>
+        <td>Draughts (8x8)</td>
+        <td>20</td>
+        <td>20</td>
+        <td>2.8</td>
+      </tr>
+      <tr>
+        <td>Tic-Tac-Toe</td>
+        <td>3</td>
+        <td>5</td>
+        <td>4</td>
+      </tr>
+    </table>
+
+    <a href="https://en.wikipedia.org/wiki/Game_complexity"
+      >More on wikipedia</a
+    >
+  </div>
+
+  <div *slide title blue>
+    <h1>In the initial rules ⚫️ always started in the center</h1>
+  </div>
+
+  <div *slide title blue>
+    <h1>
+      In 1994 Victor Ellis proved that this way ⚫️ always win.
+      <a
+        href="http://digitalarchive.maastrichtuniversity.nl/fedora/get/guid:36b5cf0a-cf06-4602-afdb-1af04d65c23b/ASSET1"
+      >
+        📄
+      </a>
+    </h1>
+  </div>
+
+  <div *slide title blue>
+    <h1>
+      Since then more advanced opening rules have been used, which haven't yet
+      been solved.
+    </h1>
+  </div>
+
+  <div *slide title blue>
+    <h1>One of them is swap2</h1>
+    <div class="cake"></div>
+    <h2>(Using divide and choose)</h2>
+  </div>
+
+  <div *slide>
+    <h2>Black is stronger</h2>
+    <kirjs-board [game]="games.swap23"></kirjs-board>
+  </div>
+
+  <div *slide>
+    <h2>A draw?</h2>
+    <kirjs-board [game]="games.swap26"></kirjs-board>
+  </div>
+
+  <div *slide>
+    <h2>White surewin</h2>
+    <kirjs-board [game]="games.swap25"></kirjs-board>
+  </div>
+
+  <div *slide title blue>
+    <h1>Swap2 opening hasn't been solved by a computer</h1>
+  </div>
+
+  <div *slide title blue>
+    <h1>
+      <a href="https://gomocup.org">Gomocup</a> is a yearly gomoku AI
+      tournament.
+    </h1>
+  </div>
+
+  <div *slide title><h1>Now let's look at a real game</h1></div>
+
+  <div *slide>
+    <h2>Very Advanced - Defend from 4s</h2>
+    <kirjs-board [game]="games.defendFrom4s"></kirjs-board>
+  </div>
+
+  <div *slide><h1>How to start playing</h1></div>
+  <div *slide>
+    <h2>How to start playing</h2>
+    <ul>
+      <li>Online: <a href="https://www.playok.com/en/gomoku/">playok</a></li>
+      <li>Meetup: <a href="https://meetup.com/gomoku">meetup.com/gomoku</a></li>
+      <li>Here: I have brought pens and papers.</li>
+      <li>
+        Bonus:
+        <a href="http://kizu.ru/en/blog/counters-and-stones/"
+          >Gomoku in pure CSS</a
+        >
+      </li>
+      <li>Follow: <a href="thttps://twitter.com/kirjs">@kirjs</a></li>
+    </ul>
+  </div>
+</slide-deck>

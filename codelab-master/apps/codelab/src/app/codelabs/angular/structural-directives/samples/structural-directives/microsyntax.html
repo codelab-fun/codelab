@@ -1,0 +1,6 @@
+*:prefix="( :let | :expression ) (';' | ',')? ( :let | :as | :keyExp )*"
+:prefix: HTML attribute key. :key: HTML attribute key. :local: local variable
+name used in the template. :export: value exported by the directive under a
+given name. :experession: standard Angular expression :keyExp = :key ":"?
+:expression ("as" :local)? ";"? :let = "let" :local "=" :export ";"? :as =
+:export "as" :local ";"?

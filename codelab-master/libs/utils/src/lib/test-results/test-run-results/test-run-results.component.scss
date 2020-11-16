@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  min-height: 80px;
+}
+
+.test {
+  display: flex;
+  align-items: start;
+  margin-bottom: 16px;
+  color: #888;
+  padding-left: 8px;
+
+  &.featured {
+    background: rgba(255, 88, 75, 0.21);
+    border-radius: 5px;
+    padding: 16px 8px;
+
+    .name {
+      font-size: 20px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+
+    .error {
+      color: #888;
+    }
+  }
+
+  .state {
+    margin-right: 10px;
+  }
+
+  &:not(.featured) .name {
+    flex: 0;
+    max-width: 400px;
+    line-height: 22px;
+    height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .pass {
+    color: var(--test-succcess);
+  }
+
+  .fail {
+    color: #d61f22;
+  }
+}
+
+mat-icon.running {
+  animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

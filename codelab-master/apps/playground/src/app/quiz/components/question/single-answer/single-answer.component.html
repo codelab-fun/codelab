@@ -1,0 +1,20 @@
+<div class="options" *ngFor="let option of currentQuestion.options; index as i">
+  <mat-radio-button (change)="setSelected(i)" [class]="option.className">
+    <span i18n>{{ i + 1 }}. {{ option.text }}</span>
+    <ng-container>
+      <i class="material-icons" *ngIf="option.correct">done</i>
+      <i class="material-icons" *ngIf="!option.correct">clear</i>
+    </ng-container>
+  </mat-radio-button>
+
+  <section class="message" *ngIf="option.selected">
+    <div *ngIf="option.correct">
+      <i class="material-icons">sentiment_very_satisfied</i>
+      <span class="correct-message" i18n>You&apos;re right! {{ correctMessage }}</span>
+    </div>
+    <div *ngIf="!option.correct">
+      <i class="material-icons">sentiment_very_dissatisfied</i>
+      <span class="wrong-message" i18n>That&apos;s wrong. {{ correctMessage }}</span>
+    </div>
+  </section>
+</div>

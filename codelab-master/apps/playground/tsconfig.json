@@ -1,0 +1,44 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["node", "jest"],
+    "paths": {
+      "@codelab/*": ["../../../codelab-master/libs/*"],
+      "@ng360/slides": ["../../../codelab-master/libs/slides/src/index.ts"],
+      "@codelab/utils": ["../../../codelab-master/libs/utils/src/index.ts"],
+      "@codelab/code-demos": ["../../../codelab-master/libs/code-demos/src/index.ts"],
+      "@codelab/firebase": ["../../../codelab-master/libs/firebase/src/index.ts"],
+      "@codelab/intro": ["../../../codelab-master/libs/intro/src/index.ts"],
+      "@codelab/browser": ["../../../codelab-master/libs/browser/src/index.ts"],
+      "@codelab-quiz/animations/*": [
+        "src/app/quiz/animations/index.ts"
+      ],
+      "@codelab-quiz/components/*": [
+        "src/app/quiz/components/index.ts"
+      ],
+      "@codelab-quiz/containers/*": [
+        "src/app/quiz/containers/index.ts"
+      ],
+      "@codelab-quiz/pipes/*": [
+        "src/app/quiz/pipes/index.ts"
+      ],
+      "@codelab-quiz/shared/*": [
+        "src/app/quiz/shared/index.ts"
+      ],
+      "@codelab-quiz/shared/models/*": [
+        "src/app/quiz/shared/models/index.ts"
+      ],
+      "@codelab-quiz/shared/quiz-data": [
+        "src/app/quiz/shared/quiz.ts"
+      ],
+      "@codelab-quiz/shared/services/*": [
+        "src/app/quiz/shared/services/index.ts"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false
+  },
+  "include": ["**/*.ts"]
+}

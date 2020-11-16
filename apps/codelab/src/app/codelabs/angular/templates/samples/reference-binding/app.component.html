@@ -1,0 +1,7 @@
+<h2>Message: {{ message }}</h2>
+
+<input #input />
+
+<button (click)="message = input.value; input.value = ''">
+  Update message
+</button>

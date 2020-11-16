@@ -1,0 +1,23 @@
+<div *ngFor="let answer of options; let i = index" class="button-wrapper">
+  <button
+    [disabled]="!enabled"
+    (click)="enabled && vote.emit(i)"
+    mat-raised-button
+    [color]="i === myVote ? 'warn' : undefined"
+    [class.selected]="i === myVote"
+    class="answer"
+  >
+    <span class="letter">{{ LETTERS[i] }}</span>
+    {{ answer }}
+  </button>
+</div>
+
+<button
+  *ngIf="myVote !== null"
+  [disabled]="!enabled"
+  (click)="enabled && vote.emit(null)"
+  mat-button
+  class="answer"
+>
+  Clear vote
+</button>

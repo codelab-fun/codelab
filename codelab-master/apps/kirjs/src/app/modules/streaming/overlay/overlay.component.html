@@ -1,0 +1,45 @@
+<ng-container *ngIf="data$ | async as config">
+  <mat-card
+    *ngIf="layout === 'vertical'"
+    style="width: 240px;position: absolute;right: 10px;top: 10px;bottom: 10px"
+  >
+    <h1>{{ config.header }}</h1>
+    <p>{{ config.subHeader }}</p>
+    <div [innerHTML]="config.description"></div>
+    <div style="display:flex;text-align: center; margin-top: 8px;">
+      <div *ngFor="let guest of config.guests" style="width: 120px;">
+        <img
+          [src]="guest.avatar"
+          style="width: 90px;border-radius: 50%;height: 90px;"
+          [alt]="guest.name"
+        />
+        <div
+          style="font-size: 20px;font-weight: 400;height: 32px;line-height: 32px;"
+        >
+          {{ guest.name }}
+        </div>
+        <div>@{{ guest.twitter }}</div>
+      </div>
+    </div>
+    <h2>Chat</h2>
+  </mat-card>
+
+  <div
+    *ngIf="layout === 'horizontal'"
+    style="width: 240px;position: absolute;left: 10px;top: 10px;bottom: 10px; display:flex;"
+  >
+    <h2 style="margin-right: 20px;">
+      @kirjs
+    </h2>
+    <div *ngFor="let guest of config.guests" style="display:flex;">
+      <ng-container *ngIf="guest.name !== 'kirjs'">
+        <img
+          [src]="guest.avatar"
+          style="width: 35px;border-radius: 50%;height: 35px;"
+          [alt]="guest.name"
+        />
+        <div>@{{ guest.twitter }}</div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,8 @@
+<div *ngIf="func.name" class="name">
+  {{ func.name }}
+</div>
+<div class="grid" *ngIf="!func.name">
+  <span class="inputs">({{ func.inputs }})</span>
+  <span class="arrow">=></span>
+  <span>{{ func.outputs }}</span>
+</div>

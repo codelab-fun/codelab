@@ -1,0 +1,19 @@
+/*d:material:material/trimLeading*/
+<h2>{{video.title}}</h2>
+<img [src]="video.src">
+<div>Date {{video.date}}</div>
+<div>Views {{video.views}}</div>
+<div>Likes {{video.likes}}</div>
+<div>Description {{video.description}}</div>
+/*/d*//*d:materialSolved/trimLeading*/
+<mat-card>
+  <mat-card-title>{{video.title}}</mat-card-title>
+  <mat-card-subtitle>{{video.description}}</mat-card-subtitle>
+  <img mat-card-image [src]="video.src">
+  <mat-card-content>
+    <div>Date {{video.date}}</div>
+    <div>Views {{video.views}}</div>
+    <div>Likes {{video.likes}}</div>
+  </mat-card-content>
+</mat-card>
+/*/d*/

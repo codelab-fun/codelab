@@ -1,0 +1,241 @@
+<slide-deck kirjs-tracking slidesRouting slideShortcuts>
+  <slide-arrows></slide-arrows>
+
+  <!--<kirjs-new-progress-bar title="Angular ❤️ SVG" [fontSize]="fontSize"-->
+  <!--(fontSizeChange)="fontSize =fontSize+ $event"></kirjs-new-progress-bar>-->
+
+  <!--  INTRO -->
+  <div no-padding *slide id="intro">
+    <div class="bg intro">
+      <h2>
+        Angular ❤️ SVG <br />
+        @kirjs
+      </h2>
+    </div>
+  </div>
+
+  <div no-padding *slide id="kirjs">
+    <div class="bg kirjs">
+      <ul>
+        <li>I read 📖📖📖</li>
+        <li>@kirjs</li>
+      </ul>
+    </div>
+  </div>
+
+  <div *slide id="why-svg">
+    <h1>What is SVG?</h1>
+    <ul>
+      <li>Scalable Vector Graphic Format</li>
+      <li>Can be edited with a text editor!</li>
+      <li>Every object is just an XML tag</li>
+      <li>Works with CSS</li>
+      <li>Plays well with angular templates!</li>
+    </ul>
+  </div>
+
+  <div *slide id="angular-gif">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.gifang"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="angular-intro">
+    <kirjs-svg-demo
+      [fontSize]="fontSize"
+      [code]="code.angular"
+    ></kirjs-svg-demo>
+  </div>
+
+  <!--  INTRO -->
+  <div no-padding *slide id="svg-in-60">
+    <div class="bg svg-60"><h2>SVG in 5 minutes</h2></div>
+  </div>
+
+  <div *slide id="svg-circle">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.circle"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-ellipse">
+    <kirjs-svg-demo
+      [fontSize]="fontSize"
+      [code]="code.ellipse"
+    ></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-rect">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.rect"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-line">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.line"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-text">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.text"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-linewrap">
+    <kirjs-svg-demo
+      [fontSize]="fontSize"
+      [code]="code.linewrap"
+    ></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-foreign-object">
+    <kirjs-svg-demo
+      [fontSize]="fontSize"
+      [code]="code.foreignObject"
+    ></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-polygon">
+    <kirjs-svg-demo
+      [fontSize]="fontSize"
+      [code]="code.polygon"
+    ></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-path">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.path"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-group">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.group"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="cool-stuff"><h2>Some cool stuff</h2></div>
+
+  <div *slide id="svg-clip">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.clip"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-path-2">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.path"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-clip2">
+    <kirjs-svg-demo [fontSize]="fontSize" [code]="code.clip2"></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="svg-textPath">
+    <kirjs-svg-demo
+      [fontSize]="fontSize"
+      [code]="code.textPath"
+    ></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="completed">
+    <h2>Now you're an SVG expert!</h2>
+    <h2>However SVG has a couple of edge cases</h2>
+  </div>
+
+  <div *slide id="completed2" no-padding>
+    <div class="bg dog">
+      <h2>Sign up for my 80 hour workshop "Wait, SVG, LOL, Really?"</h2>
+    </div>
+  </div>
+
+  <div *slide id="examples" no-padding>
+    <div class="bg example"><h2>Let's check out some examples:</h2></div>
+  </div>
+
+  <div *slide id="angular">
+    <kirjs-svg-demo
+      [fontSize]="fontSize"
+      [code]="code.angular"
+    ></kirjs-svg-demo>
+  </div>
+
+  <div *slide id="examples-hc">
+    <h2><a href="https://www.highcharts.com/demo">Highcharts</a></h2>
+  </div>
+
+  <div *slide id="svg-attrs" no-padding>
+    <h1>SVG attributes binding</h1>
+    <code-demo
+      [(ngModel)]="code.componentAttrs"
+      file="app.component.ts"
+    ></code-demo>
+  </div>
+
+  <div *slide id="attr-vs-prop-2">
+    <h1>LOL, but why?</h1>
+    <div style="height: 100%;">
+      <code-demo-editor
+        fontSize="40"
+        [lineNumbers]="false"
+        [(ngModel)]="code.attrVsProp"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="svg-chart" no-padding>
+    <h1>Let's create a simple barchart</h1>
+    <code-demo
+      [(ngModel)]="code.basicChart"
+      file="app.component.ts"
+    ></code-demo>
+  </div>
+
+  <div *slide id="svg-chart-2" no-padding>
+    <h1>Custom SVG Elements</h1>
+
+    <code-demo
+      [(ngModel)]="code.chart2"
+      [solutions]="code.chart2Solutions"
+      file="app.component.ts"
+    ></code-demo>
+  </div>
+
+  <!--<div *slide id="svg-chart3" no-padding>-->
+  <!--<h1>Foreign object</h1>-->
+
+  <!--<kirjs-exercise [files]="code.chart3">-->
+  <!--<div class="description"></div>-->
+  <!--<kirjs-new-editors [fontSize]="fontSize" class="editor">-->
+  <!--</kirjs-new-editors>-->
+  <!--<kirjs-angular-preview-runner class="description"></kirjs-angular-preview-runner>-->
+  <!--</kirjs-exercise>-->
+  <!--</div>-->
+
+  <div *slide id="attr-vs-prop-3">
+    <h1>But why?</h1>
+    <div style="height: 100%;">
+      <code-demo-editor
+        fontSize="40"
+        [lineNumbers]="false"
+        [(ngModel)]="code.createElement"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="links">
+    <h2>Links</h2>
+    <ul>
+      <li>
+        <a href="https://www.youtube.com/watch?v=ADXX4fmWHbo"
+          >SVG Can do that? (eng)</a
+        >
+      </li>
+      <li>
+        <a href="https://swimlane.github.io/ngx-charts/bar-vertical"
+          >NGX Charts</a
+        >
+      </li>
+      <li><a href="https://codelab.fun/svg/0">https://codelab.fun/svg/0</a></li>
+    </ul>
+  </div>
+
+  <!--<div *slide id="draw">-->
+  <!--<kirjs-svg-together [fontSize]="fontSize"></kirjs-svg-together>-->
+  <!--</div>-->
+
+  <!--<div *slide id="svg-together-result" no-padding="">-->
+  <!--<kirjs-svg-together-result [fontSize]="fontSize"></kirjs-svg-together-result>-->
+  <!--</div>-->
+
+  <div *slide id="links-2" no-padding>
+    <div class="bg the-end"><h2>@kirjs</h2></div>
+  </div>
+
+  <div class="timer" no-padding><kirjs-timer></kirjs-timer></div>
+</slide-deck>

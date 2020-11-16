@@ -1,0 +1,68 @@
+<slide-deck slideShortcuts slidesRouting kirjs-tracking>
+  <!--  <codelab-sync-button></codelab-sync-button>-->
+
+  <!--  INTRO -->
+  <div *slide no-padding id="intro">
+    <div class="bg intro">
+      <h2>
+        Angular ❤️ SVG
+        <br />
+        @kirjs
+      </h2>
+    </div>
+  </div>
+
+  <div *slide id="playground">
+    <codelab-sync-playground></codelab-sync-playground>
+  </div>
+
+  <div *slide id="sync">
+    <h1>Anybody will see this info!</h1>
+    <h2 *isPresenting>Only presenter sees this</h2>
+    <h2 *isViewing>Only viewer sees this</h2>
+  </div>
+
+  <div *slide id="user">
+    <h1>We can take user input</h1>
+
+    <div *isViewing>
+      <input [(ngModel)]="input" syncViewerValue="name" />
+    </div>
+    <div *isPresenting syncAllUserValues="name" #values="allViewerValues">
+      <div *ngFor="let item of values.values">
+        {{ item.value }}
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="why-svg">
+    <div *isPresenting>
+      <h1>You are a presenter</h1>
+    </div>
+    <div *isViewing>
+      <h1>You are a viewer</h1>
+    </div>
+
+    <h1>What is SVG?</h1>
+    <ul>
+      <li>Scalable Vector Graphic Format</li>
+      <li>Every object is just an XML tag</li>
+      <li>Also works with CSS</li>
+    </ul>
+  </div>
+
+  <div *slide id="tbd">
+    <h1>LOL</h1>
+    <input [(ngModel)]="input2" syncPresenterValue="other" />
+  </div>
+
+  <div *slide id="race">
+    <h1>Race</h1>
+    <kirjs-race [track]="'M50 450 v -400 h 400 v 400 h-300'"></kirjs-race>
+  </div>
+
+  <div *slide id="race2">
+    <h1>Race</h1>
+    <kirjs-race [track]="tracks.advanced"></kirjs-race>
+  </div>
+</slide-deck>

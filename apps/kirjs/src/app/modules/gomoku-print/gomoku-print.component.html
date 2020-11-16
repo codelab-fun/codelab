@@ -1,0 +1,98 @@
+<div class="front">
+  <div class="left">
+    <h1>Hi, I'm Gomoku!</h1>
+    <div style="display: flex">
+      <div class="header">
+        <p>I'm an awesome board game coming from ancient Asia!</p>
+        <b>My Rules are super simple:</b>
+        <ol>
+          <li>First player puts <x></x> in a cell on the board below</li>
+          <li>Second player puts <o></o></li>
+          <li>
+            Players go in turns until someone puts 5 items in a row on the board
+            (that person wins!)
+          </li>
+          <li>Putting more than 5 items in a row is not a win</li>
+        </ol>
+      </div>
+      <div><img width="200" src="assets/images/hb.jpg" /></div>
+    </div>
+
+    <kirjs-board
+      class="main-board"
+      [showTools]="false"
+      [game]="game"
+    ></kirjs-board>
+  </div>
+  <div class="right">
+    <h2>Some gomoku hints:</h2>
+    <p>When playing try to create one of the patterns below:</p>
+
+    <div class="explanation">
+      <div class="text">
+        <p><x></x>’s have an “Open 3” attack.</p>
+        <p>if <o></o>’s don’t block it from either side, they lose.</p>
+      </div>
+      <kirjs-board
+        theme="print"
+        class="board84"
+        [showTools]="false"
+        [game]="examples.open3"
+      ></kirjs-board>
+    </div>
+
+    <div class="explanation">
+      <div class="text">
+        <p>This is also an “Open 3” .</p>
+        <p>Now there are 3 places where it can (and should) be blocked.</p>
+      </div>
+      <kirjs-board
+        theme="print"
+        class="board84"
+        [showTools]="false"
+        [game]="examples.open32"
+      ></kirjs-board>
+    </div>
+
+    <div class="explanation">
+      <div class="text">
+        <p>Here <o></o>’s have “Open 3”, but X’s went with “Open 4” attack</p>
+        <p>It’s even stronger and must be blocked asap!</p>
+      </div>
+      <kirjs-board
+        theme="print"
+        class="board84"
+        [showTools]="false"
+        [game]="examples.close4"
+      ></kirjs-board>
+    </div>
+
+    <div class="explanation">
+      <div class="text">
+        <p>And here <x></x> has a “3 by 4 fork”. They will win this game!!</p>
+        <p><o></o>’s can’t block both attacks, and will lose.</p>
+        <p>(despite having an “Open 3” attack)</p>
+      </div>
+      <kirjs-board
+        theme="print"
+        class="board84"
+        [showTools]="false"
+        [game]="examples.fork"
+      ></kirjs-board>
+    </div>
+
+    Enjoy!
+  </div>
+</div>
+<div class="back">
+  <kirjs-board
+    class="mini-board"
+    [showTools]="false"
+    [game]="game"
+  ></kirjs-board>
+  <kirjs-board
+    class="mini-board"
+    [showTools]="false"
+    [game]="game"
+  ></kirjs-board>
+</div>

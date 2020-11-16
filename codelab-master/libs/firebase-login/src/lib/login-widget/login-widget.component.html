@@ -1,0 +1,23 @@
+<button class="menu-bar-btn" [matMenuTriggerFor]="menu">
+  <ng-container *ngIf="loginService.user$ | async; else showLogin">
+    <!-- TODO add an avatar if present? -->
+    👩‍💻
+  </ng-container>
+</button>
+
+<ng-template #showLogin> 🗝</ng-template>
+
+<mat-menu #menu="matMenu">
+  <div class="buttons-nav-bar-modal-content-wrapper">
+    <div *ngIf="loginService.user$ | async as user; else showLogin">
+      <b>{{ user.email }}!</b>
+      <p>More features coming soon!</p>
+      <button (click)="logout()">Logout</button>
+    </div>
+    <ng-template #showLogin>
+      <p class="mb-0">To open an issue in feedback widget,</p>
+      <p>please log in</p>
+      <a class="link cursor-pointer" (click)="login()">Login with Google</a>
+    </ng-template>
+  </div>
+</mat-menu>

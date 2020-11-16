@@ -1,0 +1,30 @@
+<div
+  class="wrapper"
+  [class.highlight-index]="highlightedIndex !== undefined"
+  [class.vertical]="vertical"
+  [class.horizontal]="!vertical"
+>
+  <div
+    *ngFor="let item of breakdown; trackBy: trackBy; let i = index"
+    class="item"
+  >
+    <div class="bar" [class.highlighted]="i === highlightedIndex">
+      <div
+        class="filler"
+        [style.height]="
+          vertical ? '100%' : ((max - item.value) / max) * 100 + '%'
+        "
+        [style.width]="
+          vertical ? ((max - item.value) / max) * 100 + '%' : '100%'
+        "
+      >
+        <div class="star" *ngIf="item.value > 0">
+          {{ item.value | number: '1.2-2' }}
+        </div>
+      </div>
+    </div>
+    <div class="label" [class.highlighted]="i === highlightedIndex">
+      {{ item.key }}
+    </div>
+  </div>
+</div>

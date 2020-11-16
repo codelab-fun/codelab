@@ -1,0 +1,122 @@
+ul {
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*.......| Resume                      |.......................*/
+
+#resume {
+  #header {
+    width: 250px;
+    float: left;
+    .title {
+      width: 90px;
+    }
+  }
+
+  #info {
+    margin-left: 300px;
+  }
+  h1 {
+    font-size: 1.4em;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    color: #900;
+    font-size: 1.4em;
+    font-weight: 400;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
+  h3 {
+    margin: 0;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+  h4 {
+    font-size: 0.8em;
+    color: #444;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    color: #990000;
+  }
+
+  .line {
+    font-size: 0.8em;
+    overflow: hidden;
+    padding-top: 12px;
+  }
+  .title {
+    color: #444;
+    width: 130px;
+    display: block;
+    float: left;
+  }
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: verdana, sans-serif;
+  dl {
+    line-height: 30px;
+  }
+  dt {
+    width: 190px;
+    float: left;
+  }
+  .spanstart:after {
+    content: ' - ';
+  }
+  .date_duration {
+    font-weight: 400;
+  }
+  .vcard > h1 {
+    font-size: 1.6em;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    padding-bottom: 10px;
+  }
+
+  .experience {
+    &:last-child {
+      padding-bottom: 0;
+    }
+    padding-bottom: 20px;
+  }
+  .experience-header {
+    overflow: hidden;
+  }
+  .experience-hgroup {
+    float: left;
+  }
+
+  .vcalendar li {
+    font-size: 0.8em;
+  }
+
+  .description {
+    list-style: circle;
+    color: #666;
+    margin-left: 20px;
+    padding-left: 20px;
+    line-height: 25px;
+  }
+
+  .skills {
+    overflow: hidden;
+    margin: 0;
+    li {
+      float: left;
+    }
+  }
+}

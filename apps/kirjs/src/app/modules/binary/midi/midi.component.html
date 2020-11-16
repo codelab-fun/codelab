@@ -1,0 +1,8 @@
+<input type="file" (change)="upload(file)" #file />
+<label> meta <input type="checkbox" [(ngModel)]="showMeta" /> </label>
+<kirjs-binary-parent
+  (updateBinary)="updateBinary($event)"
+  [parser]="parser"
+  [binary]="binary"
+  [showMeta]="showMeta"
+></kirjs-binary-parent>

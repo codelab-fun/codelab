@@ -1,0 +1,6 @@
+<a routerLink="/form">Tell us what you have done!</a>
+
+<div *ngFor="let post of posts$ | async">
+  <codelab-single-post [post]="post" [full]="false"></codelab-single-post>
+  <div></div>
+</div>

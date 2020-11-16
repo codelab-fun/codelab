@@ -1,0 +1,16 @@
+<div class="flags" style="display: flex;">
+  <div>
+    <div *ngFor="let flag of flags; let i = index">
+      <input
+        type="checkbox"
+        [checked]="flag.checked"
+        #c
+        (click)="handleClick(c.checked, flag.value)"
+      />
+      {{ flag.name }} = {{ flag.value }}
+    </div>
+  </div>
+  <div>
+    <h2>{{ number }}</h2>
+  </div>
+</div>

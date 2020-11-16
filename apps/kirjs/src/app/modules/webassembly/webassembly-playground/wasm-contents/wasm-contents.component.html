@@ -1,0 +1,18 @@
+<div *ngFor="let m of config.milestones">
+  <div class="test-result">
+    <div>
+      <div *ngIf="m.firstFailed" style="display: flex;">
+        <div>
+          {{ m.name }}
+        </div>
+        <button mat-button (click)="loadFunction(m)">Add</button>
+      </div>
+
+      <div *ngIf="!m.firstFailed">
+        <div style="color: #666">
+          {{ m.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

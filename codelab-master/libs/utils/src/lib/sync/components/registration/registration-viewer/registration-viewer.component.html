@@ -1,0 +1,28 @@
+<ng-container
+  *ngIf="
+    registrationService.isRegistrationEnabled$ | async;
+    else registrationOver
+  "
+>
+  <ng-container *ngIf="!(registrationService.currentUser$ | async)">
+    <h2>What is your name?</h2>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Name"
+        maxlength="25"
+        required
+        (keydown.enter)="registrationService.save()"
+        [(ngModel)]="registrationService.name"
+      />
+    </mat-form-field>
+    <button mat-button (click)="registrationService.save()">Save</button>
+  </ng-container>
+  <ng-container *ngIf="registrationService.currentUser$ | async as user">
+    <h2>Your name is: {{ user }}</h2>
+    <button mat-button (click)="registrationService.clear()">Change</button>
+  </ng-container>
+</ng-container>
+<ng-template #registrationOver>
+  <h1>Registration is over</h1>
+</ng-template>

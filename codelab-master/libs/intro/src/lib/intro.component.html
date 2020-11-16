@@ -1,0 +1,43 @@
+<slide-deck slideShortcuts slidesRouting>
+  <!--  <codelab-progress-bar></codelab-progress-bar>-->
+  <slide-arrows></slide-arrows>
+
+  <!--  <div *slide id="start" no-padding>-->
+  <!--    <codelab-title-slide-->
+  <!--      title="Introduction to Codelab"-->
+  <!--      i18n-title="@@Introduction"-->
+  <!--      description="Now let's talk about what Angular is and what awaits you on the Codelab platform."-->
+  <!--      i18n-description-->
+  <!--    ></codelab-title-slide>-->
+  <!--    TITLE SLIDE-->
+  <!--  </div>-->
+
+  <div *ngFor="let slide of presentation">
+    <div *slide milestone="Intro">
+      <img
+        class="image"
+        src="/assets/intro/slides/slide-{{ slide }}.png"
+        alt="slide number {{ slide }}"
+      />
+    </div>
+  </div>
+
+  <!--  <ng-container *ngIf="presentation.length > 0">-->
+  <!--    <div *slide id="end">-->
+  <!--      <codelab-closing-slide>-->
+  <!--        <div class="header" header>-->
+  <!--          <codelab-breadcrumb i18n>End of Introduction</codelab-breadcrumb>-->
+  <!--        </div>-->
+  <!--        <div class="footer" footer>-->
+  <!--          <h2>-->
+  <!--            <ng-container i18n>Next:</ng-container>-->
+  <!--            <a routerLink="../../create-first-app/0" i18n>-->
+  <!--              Go to the Create First App milestone-->
+  <!--            </a>-->
+  <!--          </h2>-->
+  <!--        </div>-->
+  <!--      </codelab-closing-slide>-->
+  <!--      CLOSING SLIDE-->
+  <!--    </div>-->
+  <!--  </ng-container>-->
+</slide-deck>

@@ -1,0 +1,512 @@
+<div #translations style="display: none">
+  <div i18n="@@componentIsDecorator" id="componentIsDecorator">
+    @Component is an Angular decorator
+  </div>
+  <div i18n="@@noSemicolon" id="noSemicolon">
+    No semicolon here (as it attaches itself to the class below
+  </div>
+  <div i18n="@@decoratorGoesAboveEntity" id="decoratorGoesAboveEntity">
+    The Decorator goes directly above the decorated entity (class in this case)
+  </div>
+  <div i18n="@@componentNameIsClassName" id="componentNameIsClassName">
+    Component name is the class name (AppComponent).
+  </div>
+  <div i18n="@@createClassAppComponent" id="createClassAppComponent">
+    Create a class called 'AppComponent'
+  </div>
+  <div i18n="@@createClassAppModule" id="createClassAppModule">
+    Create a class called 'AppModule'
+  </div>
+  <div i18n="@@allSetBootstrapApp" id="allSetBootstrapApp">
+    All set! Bootstrap your application
+  </div>
+
+  <div i18n="@@exportClass" id="exportClass">Export the class</div>
+  <div i18n="@@addComponentDecorator" id="addComponentDecorator">
+    Add a Component decorator for the class
+  </div>
+  <div i18n="@@addSelectorMyApp" id="addSelectorMyApp">
+    Add a selector to the component decorator and set it to 'my-app'
+  </div>
+  <div i18n="@@addTemplateHelloMewTube" id="addTemplateHelloMewTube">
+    Add a template that contains: h1 with a text "Hello MewTube!"
+  </div>
+  <div i18n="@@addNgModuleDecorator" id="addNgModuleDecorator">
+    Add a NgModule decorator for the class
+  </div>
+  <div i18n="@@addBrowserModuleToNgModule" id="addBrowserModuleToNgModule">
+    Add 'BrowserModule' to the NgModule decorator imports
+  </div>
+  <div
+    i18n="@@addAppComponentToDeclarations"
+    id="addAppComponentToDeclarations"
+  >
+    Add 'AppComponent' to the 'declarations' property of the decorator
+  </div>
+  <div i18n="@@addAppComponentToBootstrap" id="addAppComponentToBootstrap">
+    Add 'AppComponent' to the 'bootstrap' property of the decorator
+  </div>
+</div>
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <div *slide id="intro" no-padding>
+    <codelab-title-slide
+      title="Create your first Angular app"
+      i18n-title="@@CreateYFirstAgApp"
+      description="You will learn how to create your first Angular component, put it in a module, and bootstrap the app."
+      i18n-description
+      prereqs="Knowing TypeScript basics would help a lot"
+      i18n-prereqs
+    ></codelab-title-slide>
+  </div>
+
+  <!--WHAT IS ANGULAR-->
+  <div *slide id="angular-description" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>What is Angular?</codelab-breadcrumb>
+    <div class="centered-vertically">
+      <h2 i18n>
+        Angular is a <b>development platform</b> for building mobile and desktop
+        applications. Angular lets you <b>extend HTML's syntax</b> to express
+        your application's components clearly and succinctly. Angular's binding
+        and Dependency Injection <b>eliminate much of the code</b> you would
+        otherwise have to write.
+      </h2>
+    </div>
+  </div>
+
+  <!--index.html-->
+  <div *slide id="index-html" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+    <h2 i18n>Given an HTML file:</h2>
+    <code-demo
+      [fontSize]="18"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.indexHtml"
+      [highlights]="code.indexHtmlMatches"
+    ></code-demo>
+    <h2 i18n style="margin-top: 20px;">
+      Let's create an Angular app which replaces the <b>hello-world</b> HTML
+      element with the app's contents.
+    </h2>
+    <h2 i18n>This can be done with 3 simple steps.</h2>
+  </div>
+
+  <!--Steps to create an Angular app-->
+  <div *slide id="angular-app" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+    <h2 i18n>The 3 steps are:</h2>
+    <ol>
+      <li i18n>Create an Angular component</li>
+      <li i18n>Create an Angular module</li>
+      <li i18n>Bootstrap the module</li>
+    </ol>
+  </div>
+
+  <!--COMPONENT-->
+  <div *slide id="component" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Step 1</codelab-breadcrumb>
+    <h2 i18n>
+      Start by creating an Angular <b>Component</b>. Components in Angular are
+      responsible for the visual part of the app
+    </h2>
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.component.ts"
+      [highlights]="code.componentMatches"
+    ></code-demo>
+    <h2 i18n>
+      An Angular component is just a class. Properties and behavior can be added
+      inside.
+    </h2>
+  </div>
+
+  <!--@-Decorator-->
+  <div *slide id="component-decorator" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Decorators</codelab-breadcrumb>
+
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.component.ts"
+      [highlights]="code.decoratorsMatches"
+    ></code-demo>
+
+    <h2 i18n>The class is adorned with a <b>@Component</b> decorator</h2>
+    <div class="info" i18n>
+      Decorators attach <b>Angular</b> specific information to the class.
+    </div>
+  </div>
+
+  <!--@-Decorator-->
+  <div *slide id="decorator" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Decorators</codelab-breadcrumb>
+    <h2 i18n>
+      Decorators are a new feature of TypeScript. They attach metadata to a
+      class, function, property or variable
+    </h2>
+    <code-demo-editor
+      language="typescript"
+      [fontSize]="30"
+      [(ngModel)]="code.decorators.code"
+    ></code-demo-editor>
+
+    <div class="info" i18n>
+      TypeScript decorators are inspired by a similar feature in the Python
+      language.
+    </div>
+  </div>
+
+  <!--Selector-->
+  <div *slide id="selector" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Selector</codelab-breadcrumb>
+    <h2 i18n>
+      Selectors define the location of the component. When Angular renders this
+      component, it'll find a <b>hello-world</b> HTML element in the document
+      and render the component inside of it
+    </h2>
+
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.component.ts"
+      [highlights]="code.selectorMatches"
+    ></code-demo>
+  </div>
+
+  <!--Template-->
+  <div *slide id="template" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Inline Template</codelab-breadcrumb>
+    <h2 i18n>Template defines the HTML code that the component generates</h2>
+
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.component.ts"
+      [highlights]="code.templateMatches"
+    ></code-demo>
+    <div class="info" i18n>
+      If the amount of HTML grows out of hand, it's possible (and recommended)
+      to use a <b>templateUrl</b> instead and provide a path to the HTML file.
+    </div>
+  </div>
+
+  <!--MODULE BOOTSTRAPPING-->
+  <div *slide id="exercise-component-pre" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
+      In the next slide you'll create your first <b>Angular</b> component! We'll
+      do all the wiring for you. The result will look like this:
+    </h2>
+
+    <codelab-exercise-preview
+      column-5
+      [exercise]="exercises[0]"
+    ></codelab-exercise-preview>
+  </div>
+
+  <!--Angular app exercise-->
+  <div *slide no-padding id="exercise-component">
+    <codelab-exercise
+      [translations]="t"
+      testRunner="babel"
+      [exercise]="exercises[0]"
+      milestone="Bootstrap"
+    >
+      <div class="description"><p i18n>Create first Angular component!</p></div>
+    </codelab-exercise>
+  </div>
+
+  <!--ngModule intro-->
+  <div *slide id="module" milestone="Bootstrap2">
+    <codelab-breadcrumb i18n>Step 2</codelab-breadcrumb>
+    <h2 i18n>Next step is to declare the component in an <b>NgModule</b>.</h2>
+    <h2 i18n>
+      <b>NgModule</b> does not have any visual representation and is used
+      exclusively for grouping Angular building blocks together
+    </h2>
+    <div class="info" i18n>
+      We will learn more about NgModules in the future milestones
+    </div>
+  </div>
+
+  <!--MODULE ANATOMY-->
+  <div *slide id="module-exercise" milestone="Bootstrap2">
+    <codelab-breadcrumb i18n>Module Class</codelab-breadcrumb>
+    <h2 i18n>Like a component, <b>Angular</b> module is just a class</h2>
+
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.exportMatches"
+    ></code-demo>
+  </div>
+
+  <!--MODULE ANATOMY-->
+  <div *slide id="module-decorator" milestone="Bootstrap2">
+    <codelab-breadcrumb i18n>NgModule Decorator</codelab-breadcrumb>
+    <h2 i18n>
+      Like a component, <b>Angular</b> module is adorned with a decorator
+      providing metadata
+    </h2>
+
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.ngModuleMatches"
+    ></code-demo>
+  </div>
+
+  <!--Imports-->
+  <div *slide id="imports" milestone="Bootstrap2">
+    <codelab-breadcrumb i18n>Browser Module</codelab-breadcrumb>
+    <codelab-slides-ng-module-mode></codelab-slides-ng-module-mode>
+  </div>
+
+  <!--Declarations-->
+  <div *slide id="declarations" milestone="Bootstrap2">
+    <codelab-breadcrumb i18n>Declarations</codelab-breadcrumb>
+    <h2 i18n>
+      The <b>declarations</b> array specifies components belonging to the
+      AppModule
+    </h2>
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.declarationsMatches"
+    ></code-demo>
+  </div>
+
+  <!--Bootstrap-->
+  <div *slide id="bootstrap" milestone="Bootstrap2">
+    <codelab-breadcrumb i18n>Bootstrap</codelab-breadcrumb>
+    <h2 i18n>
+      The component passed into the <b>bootstrap</b> array will be created and
+      displayed in your <b>index.html</b> file
+    </h2>
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.bootstrapMatches"
+    ></code-demo>
+  </div>
+
+  <!--MODULE BOOTSTRAPPING-->
+  <div *slide id="exercise-module-pre" milestone="Bootstrap2">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
+      In the next slide you'll create your first <b>Angular</b> module! We'll
+      use the component from the previous exercises and do all the wiring for
+      you. The result will look like this:
+    </h2>
+    <codelab-exercise-preview
+      column-5
+      [exercise]="exercises[1]"
+    ></codelab-exercise-preview>
+  </div>
+
+  <!--DESCRIPTION 1-->
+  <div *slide id="exercise-module" no-padding>
+    <codelab-exercise
+      [translations]="t"
+      testRunner="babel"
+      [exercise]="exercises[1]"
+      milestone="Bootstrap2"
+    >
+      <div class="description"><p i18n>Create first NgModule.</p></div>
+    </codelab-exercise>
+  </div>
+
+  <!--MODULE BOOTSTRAPPING-->
+  <div *slide id="bootstrapping" milestone="Bootstrap3">
+    <codelab-breadcrumb i18n>Bootstrapping</codelab-breadcrumb>
+    <h2 i18n>
+      We have everything ready, so now it's time to start (bootstrap) the app!
+    </h2>
+    <h2 i18n>
+      Passing your <b>AppModule</b> to the <b>bootstrapModule</b> method will
+      start up all the components from that module's bootstrap section
+    </h2>
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="bootstrap.ts"
+    ></code-demo>
+    <div class="info" i18n>
+      For most simple apps, you can just copy/paste the code above "as is"
+    </div>
+  </div>
+
+  <div *slide id="bootstrapping-more" milestone="Bootstrap">
+    <codelab-breadcrumb i18n>Bootstrapping 1</codelab-breadcrumb>
+    <h2 i18n>How does bootstrapping work in Angular?</h2>
+    <br />
+    <h2 i18n>
+      1. Kicks off execution environment. <b>platformBrowserDynamic()</b> tells
+      Angular that we are operating in the browser
+    </h2>
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="bootstrap.ts"
+      [highlights]="code.bootstrapPlatformMatches"
+    ></code-demo>
+
+    <div class="info">
+      <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
+        >Read more about root module and bootstrapping in Angular
+      </a>
+    </div>
+  </div>
+
+  <div *slide id="bootstrapping-more-2" milestone="Bootstrap3">
+    <codelab-breadcrumb i18n>Bootstrapping 2</codelab-breadcrumb>
+    <h2 i18n>
+      2. Angular initializes the component from the <b>bootstrap</b> array in
+      <b>app.module.ts</b> (<b>HelloWorldComponent</b> in this case)
+    </h2>
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="app.module.ts"
+      [highlights]="code.bootstrapMatches"
+    ></code-demo>
+
+    <div class="info">
+      <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
+        >Read more about root module and bootstrapping in Angular
+      </a>
+    </div>
+  </div>
+
+  <div *slide id="bootstrapping-more-3" milestone="Bootstrap3">
+    <codelab-breadcrumb i18n>Bootstrapping 3</codelab-breadcrumb>
+    <h2 i18n>
+      3. Angular looks in the document for an element matching the selector
+      defined in <b>HelloWorldComponent</b> (<b>'hello-world'</b> in our case)
+      and inserts the component inside that element
+    </h2>
+    <code-demo
+      [fontSize]="18"
+      [(ngModel)]="code.angularApp"
+      files="index.html"
+      [highlights]="code.indexHtmlMatches"
+    ></code-demo>
+
+    <div class="info">
+      <a href="https://angular.io/guide/bootstrapping" target="_blank" i18n
+        >Read more about root module and bootstrapping in Angular
+      </a>
+    </div>
+  </div>
+
+  <div *slide id="exercise-bootstrap-pre" milestone="Bootstrap3">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
+      All set! In the next page you'll bootstrap your first <b>Angular</b> app!
+    </h2>
+    <codelab-exercise-preview
+      column-5
+      [exercise]="exercises[2]"
+    ></codelab-exercise-preview>
+  </div>
+
+  <!--DESCRIPTION 2-->
+  <div *slide id="exercise-bootstrap" no-padding>
+    <codelab-exercise
+      milestone="Bootstrap3"
+      testRunner="babel"
+      [translations]="t"
+      [exercise]="exercises[2]"
+    >
+      <div class="description">
+        <p i18n>
+          Now that we've got both NgModule and the component ready, let's
+          bootstrap the app!
+        </p>
+      </div>
+    </codelab-exercise>
+    <!--TODO: check the result area - it's shown if the test passed for the first time, but doesn't disappear in case if to broke the test-->
+  </div>
+
+  <!--Whole picture-->
+  <div *slide id="overview">
+    <codelab-breadcrumb i18n>Review</codelab-breadcrumb>
+    <h2 i18n>Loading order: index -> main -> app.module -> app.component</h2>
+
+    <div row>
+      <div class="col-6">
+        <code-demo-file-path path="index.html"></code-demo-file-path>
+
+        <code-demo-editor
+          style="height: 50vh"
+          [fontSize]="18"
+          [codeDemoHighlight]="code.indexHtmlMatches['index.html']"
+          language="html"
+          [(ngModel)]="code.angularApp['index.html']"
+        ></code-demo-editor>
+      </div>
+      <div class="col-6">
+        <code-demo-file-path path="bootstrap.ts"></code-demo-file-path>
+
+        <code-demo-editor
+          style="height: 50vh"
+          [fontSize]="18"
+          [(ngModel)]="code.angularApp['bootstrap.ts']"
+        ></code-demo-editor>
+      </div>
+    </div>
+    <div row>
+      <div class="col-6">
+        <code-demo-file-path path="app.module.ts"></code-demo-file-path>
+
+        <code-demo-editor
+          style="height: 50vh"
+          [fontSize]="18"
+          [(ngModel)]="code.angularApp['app.module.ts']"
+        ></code-demo-editor>
+      </div>
+      <div class="col-6">
+        <code-demo-file-path path="app.component.ts"></code-demo-file-path>
+
+        <code-demo-editor
+          style="height: 50vh"
+          [fontSize]="18"
+          [codeDemoHighlight]="code.helloMatches['app.component.ts']"
+          [(ngModel)]="code.angularApp['app.component.ts']"
+        ></code-demo-editor>
+      </div>
+    </div>
+
+    <div class="info" i18n>
+      While Angular is loading, the contents of the element will stay the same
+      (<b>Loading...</b>) in this case
+    </div>
+  </div>
+
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div class="header" header>
+        <codelab-breadcrumb i18n>End of Bootstrap Section</codelab-breadcrumb>
+      </div>
+      <div class="body" body>
+        <h2 i18n>Well done! This is the end of the milestone!</h2>
+      </div>
+      <div class="footer" footer>
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../templates/0" i18n>
+            Go to the templates Milestone
+          </a>
+        </h2>
+        <feedback-rating lesson="FirstAngularApp"></feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

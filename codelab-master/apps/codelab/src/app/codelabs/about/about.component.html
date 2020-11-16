@@ -1,0 +1,403 @@
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <div *slide cover>
+    codelab.fun
+  </div>
+
+  <!--  TODO(anya):-->
+  <div *slide cover>What is codelab.fun</div>
+  <div *slide pic-label>
+    Online interactive angular tutorial no setup
+    <div class="no-setup" pic></div>
+  </div>
+  <div *slide pic-label>
+    Interactive code samples
+    <div class="examples" pic></div>
+  </div>
+  <div *slide pic-label>
+    Hands on exercises
+    <div class="exercises" pic></div>
+  </div>
+  <div *slide pic-label>
+    All open source/Angular Ivy/on Github
+    <div class="github" pic></div>
+    <div class="issues" pic></div>
+  </div>
+
+  <div *slide pic-label>
+    Regular offline contributors meetings
+    <div class="community" pic></div>
+  </div>
+  <div *slide>
+    <h2>20+ Live-events in 10+ countries</h2>
+    <div pic class="img-todo"></div>
+  </div>
+  <div *slide>
+    <h2>~1000 users a month</h2>
+    <div pic class="img-todo"></div>
+  </div>
+  <div *slide>
+    <h2>Almost 50 contributors</h2>
+    <div pic class="img-todo"></div>
+  </div>
+  <!-- end  TODO(anya):-->
+  <div *slide>
+    <h2>Live-Stream "Звуки программистов"</h2>
+    <h2>
+      @kirjs and @thekiba_io meet on weekends and do long technical streams in
+      russian, https://www.twitch.tv/kirjs
+    </h2>
+    <div pic class="img-todo"></div>
+  </div>
+
+  <!--
+   Story
+  -->
+  <div *slide cover>Nov 11, 2016</div>
+  <div *slide text>Angular 2.1</div>
+  <div *slide text>Kirjs did not know Angular</div>
+  <div *slide text>Move exercises to the browser</div>
+  <!--  MORE - TBD-->
+
+  <!--
+   TODO: Runner story
+  -->
+  <div *slide>Running tests (mocha / babel + traversing AST)</div>
+  <div *slide>
+    - The goal is to quickly assess whether user's code does what we want.
+  </div>
+  <div *slide>
+    - Initially the plan was to run unit tests in an iframe with TestBed, mocha
+    + chai (code TBD)
+  </div>
+
+  <!--
+     Types
+  -->
+  <div *slide text>Types</div>
+  <div *slide text>There's no types (TODO: Explain)</div>
+
+  <!--
+      Creating slides
+  -->
+  <div *slide cover>Next level</div>
+
+  <!--
+      Creating slides
+  -->
+  <div cover *slide>Creating slides library with Angular</div>
+
+  <div *slide>
+    <h2>What's an ideal API for a presentation?</h2>
+    <code-demo-editor
+      language="html"
+      [(ngModel)]="code.slides.component"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide>
+    <h2>Can we use ng-template?</h2>
+    <code-demo-editor
+      language="html"
+      [(ngModel)]="code.slides.template"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide>
+    <h2>Can we use ng-template?</h2>
+    <code-demo-editor
+      language="html"
+      [(ngModel)]="code.slides.directive"
+    ></code-demo-editor>
+  </div>
+
+  <!--
+    Highlighting directive
+  -->
+  <div *slide cover>
+    Highlights
+  </div>
+
+  <div *slide>
+    <h2>How to implement this?</h2>
+    <div class="highlight-slides" pic></div>
+  </div>
+
+  <div *slide>
+    <h2>We need a popup which</h2>
+    <ul>
+      <li>plays well with Monaco</li>
+      <li>Updates when the code is updated</li>
+      <li>Not obstructive</li>
+    </ul>
+  </div>
+
+  <div *slide>
+    <h2>We don't. We use highlight instead</h2>
+    <!--    <code-demo-editor></code-demo-editor>-->
+  </div>
+  <div *slide>
+    <h2>We don't. We use highlight instead</h2>
+    <!--    <code-demo-editor></code-demo-editor>-->
+  </div>
+
+  <div *slide>
+    <h2>Find position by regex or string</h2>
+    <code-demo-editor [(ngModel)]="code.highlights.find"></code-demo-editor>
+  </div>
+
+  <div *slide>
+    <h2>Add classes using Monaco's deltaDecorations</h2>
+    <!--    TODO-->
+  </div>
+
+  <!--
+      Code in a template
+  -->
+  <div *slide cover>Storing code samples</div>
+  <div *slide>
+    <h2>This can't be hard!</h2>
+    <code-demo-editor
+      language="html"
+      [(ngModel)]="code.storingCode.plain"
+    ></code-demo-editor>
+  </div>
+  <div *slide>
+    <h2>Can we use multiline strings?</h2>
+    <code-demo-editor
+      language="html"
+      [(ngModel)]="code.storingCode.backticks"
+      [codeDemoHighlight]="code.storingCode.backticksMatch"
+    ></code-demo-editor>
+  </div>
+  <div *slide>
+    <h2>Custom interpolation to the rescue?</h2>
+    <code-demo
+      language="html"
+      [(ngModel)]="code.storingCode.interpolation"
+    ></code-demo>
+  </div>
+
+  <div *slide>
+    <h2>Can we use ng-template?</h2>
+    <!--    TODO-->
+  </div>
+  <div *slide>
+    <h2>Can we use ngNonBindable?</h2>
+    <!--    TODO-->
+  </div>
+  <div *slide>
+    <h2>Can we use Script tag?</h2>
+    <!--    TODO-->
+  </div>
+  <div *slide>
+    <h2>Can we use Textarea?</h2>
+    <!--    TODO-->
+  </div>
+  <div *slide>
+    <h2>Textarea + ngNonBindable</h2>
+    <!--    TODO-->
+  </div>
+
+  <div *slide>
+    <h2>Code in the component</h2>
+    <!--    TODO-->
+  </div>
+
+  <div *slide>
+    <h2>raw-loader - code in files</h2>
+    <!--    TODO-->
+  </div>
+
+  <!--
+    Types
+   -->
+
+  <div *slide cover>
+    Can we use figure out the types now?
+  </div>
+
+  <div *slide>
+    <h2>Let's fake it!</h2>
+    <code-demo-file-path path="fake-types.d.ts"></code-demo-file-path>
+    <code-demo-editor [(ngModel)]="code.fakeTypes"></code-demo-editor>
+  </div>
+
+  <div *slide>
+    <h2>Then webstorm started shouting at me.</h2>
+    <div class="types-error" pic></div>
+  </div>
+  <div *slide>
+    <h2>Let's fake it!</h2>
+    <code-demo-file-path
+      path="fake-types.d.ts.not-really"
+    ></code-demo-file-path>
+    <code-demo-editor [(ngModel)]="code.fakeTypes"></code-demo-editor>
+  </div>
+  <div *slide>
+    <h2>Types work!</h2>
+    <div class="types-work" pic></div>
+  </div>
+
+  <!--
+   Feedback
+  -->
+  <div *slide>
+    <h2>So we kinda ready for prime time, except nothing really works</h2>
+    <!--    TODO-->
+  </div>
+
+  <div *slide>
+    <h2>People will probably get really mad?</h2>
+    <!--    TODO-->
+  </div>
+
+  <div *slide>
+    <h2>Let's add feedback feature</h2>
+    <!--    TODO screenshot-->
+  </div>
+  <div *slide>
+    <h2>We use firebase</h2>
+    <!--    TODO screenshot-->
+  </div>
+
+  <div *slide>
+    <h2>
+      We want the feedback to be as specific as possible, so we need to identify
+      the slide
+    </h2>
+    <!--    TODO screenshot-->
+  </div>
+
+  <div *slide>
+    <h2>We Already use routing, and each slide has a #</h2>
+    <!--    TODO screenshot-->
+  </div>
+
+  <div *slide>
+    <h2>We can't generate and ID</h2>
+    <!--    TODO screenshot-->
+  </div>
+  <div *slide>
+    <h2>We have to give an ID manually</h2>
+    <!--    TODO screenshot-->
+  </div>
+
+  <div *slide>
+    <h2>TADA</h2>
+    <!-- Ugly code -->
+  </div>
+
+  <!--
+    Success
+   -->
+
+  <!--
+    Translations
+   -->
+  <div *slide cover>i18n</div>
+
+  <div *slide>
+    <h2>We use standard Angular i18n</h2>
+    <!--    TODO: Code sample-->
+  </div>
+  <div *slide>
+    <h2>But how can we translate code samples?</h2>
+    <!--    TODO: Illustration-->
+  </div>
+  <div *slide>
+    <ul>
+      <li>Have strings in template with ids</li>
+      <li>Then query it in the Component</li>
+    </ul>
+    {{ "@ViewChild('translations', { static: true }) translation;" }}
+    <!--    TODO: Illustration-->
+  </div>
+
+  <div *slide text>
+    How to we translate it in a way that scales?
+  </div>
+
+  <div *slide>
+    <h2>Codelab uses PoEditor</h2>
+    <div pic class="i18n-poeditor"></div>
+  </div>
+
+  <div *slide>
+    <h2>Thanks PoEditor for providing us with an Open Source license!</h2>
+    <div pic class="i18n-poeditor"></div>
+  </div>
+
+  <div *slide text>Anybody can help with translation</div>
+  <div *slide text>- Already translated into Russian</div>
+
+  <!--
+    Optimizing everything.
+   -->
+  <!--  TODO(🦊):-->
+  <div *slide>Let's make it faster</div>
+
+  <div *slide>- изначальные проблемы:</div>
+  <div *slide>очень долго пересобиралось, потому что пересоздавался iframe</div>
+  <div *slide>
+    типы задавались вручную, поэтому было проблемно подключать дополнительные
+    библиотеки
+  </div>
+  <div *slide>- что сделано:</div>
+  <div *slide>iframe стал переиспользоваться</div>
+  <div *slide>инстанс ts compiler был переведен на watch режим</div>
+  <div *slide>реализован bundler, который собирает типы в один файл</div>
+  <div *slide>оптимизация бандла с пакетами, чтобы все сжималось</div>
+  <div *slide>- что получили:</div>
+  <div *slide>
+    перезапуск вместо 0.5-1 сек стало почти мгновенно (показать демонстрацию)
+  </div>
+  <div *slide>размер бандла уменьшился в 2 раза (todo: посмотреть размер)</div>
+  <div *slide>
+    появилась возможность подключать любые библиотеки на этапе компиляции
+  </div>
+  <div *slide>Running tests (mocha / babel + traversing AST)</div>
+  <div *slide>
+    - The goal is to quickly assess whether user's code does what we want.
+  </div>
+  <div *slide>
+    - Initially the plan was to run unit tests in an iframe with TestBed, mocha
+    + chai (code TBD)
+  </div>
+  <div *slide>- Phase 2 - We started reusing iframe (code TBD)</div>
+  <div *slide>- Special case testing bootstrapping the app (code TBD)</div>
+  <div *slide>
+    - We also added babel tests (babel can parse TypeScript) (code TBD)
+  </div>
+  <div *slide>- This works, we look at the code, not at the result.</div>
+  <div *slide>Monaco</div>
+  <div *slide>
+    - The goal is to give users a type aware editor with SyntaxHighlighting
+    quick, extensible
+  </div>
+  <div *slide>- We chose monaco</div>
+  <div *slide>
+    - Bundle size/It's own AMD loader/Have to be included in the assets
+  </div>
+  <div *slide>- Adding types to monaco</div>
+  <div *slide>- Highlighting</div>
+  <div *slide>- Autofolding</div>
+  <div *slide>- Init on app load</div>
+  <div *slide>Experiments/What's next?</div>
+  <div *slide>Sync lib</div>
+  <div *slide>- Codelab is not just an angular course it is a platform</div>
+  <div *slide>- Demo</div>
+  <div *slide>New runner</div>
+  <div *slide>- What we want:</div>
+  <div *slide>- Generic runner (not just angular)</div>
+  <div *slide>
+    - Does not need types/libraries bundled (fetched them asynchronously from
+    cdn)
+  </div>
+  <div *slide>- Where we are?</div>
+  <div *slide>- We don't know how to</div>
+  <div *slide>How/Why to contribute?</div>
+  <div *slide>Is is hard?</div>
+  <div *slide>How to start</div>
+  <div *slide>Why to contribute?</div>
+  <div *slide>What's next?</div>
+</slide-deck>

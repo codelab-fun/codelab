@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+  font-weight: 300;
+}
+
+span {
+  cursor: pointer;
+}
+
+span.arrow {
+  font-size: 0.5em;
+  vertical-align: middle;
+}

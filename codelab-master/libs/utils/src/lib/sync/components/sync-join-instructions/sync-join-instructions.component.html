@@ -1,0 +1,16 @@
+<ng-container *isPresenting>
+  <h2 style="font-size: 6vw;">{{ joinUrl$ | async }}</h2>
+</ng-container>
+
+<ng-container *isAdmin>
+  <mat-form-field>
+    <input
+      placeholder="URL"
+      type="text"
+      matInput
+      [(ngModel)]="url"
+      [syncPresenterValue]="'registration/joinUrl'"
+      [syncPresenterValueDefault]="defaultValue"
+    />
+  </mat-form-field>
+</ng-container>

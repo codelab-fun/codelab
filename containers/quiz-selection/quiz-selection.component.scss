@@ -37,11 +37,18 @@ mat-card {
 
       i {
         font-size: 40px;
+<<<<<<< HEAD
 
         &:hover {
           -webkit-transform: scale(1.3);
           transform: scale(1.3);
         }
+=======
+      }
+      i:hover {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
       }
     }
   }
@@ -50,6 +57,7 @@ mat-card {
     mat-toolbar {
       width: 220px;
       margin: 0 auto;
+<<<<<<< HEAD
       background-color: transparentize($light-gray, 0.5);
 
       button {
@@ -61,6 +69,18 @@ mat-card {
           font-weight: 700;
           color: $fire-red;
         }
+=======
+      background: transparentize($light-gray, 0.5);
+
+      button span {
+        font-size: 24px;
+        font-weight: 700;
+        color: $fire-red;
+      }
+
+      button:hover {
+        border: 1px solid $dodger-blue;
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
       }
     }
 
@@ -78,6 +98,7 @@ mat-card {
         border-radius: 10px;
         cursor: pointer;
 
+<<<<<<< HEAD
         &:hover {
           background-color: $very-light-gray;
           border: 2px solid $dodger-blue;
@@ -90,6 +111,8 @@ mat-card {
           transition: 0.3s;
         }
 
+=======
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
         &.completed {
           opacity: 0.6 !important;
         }
@@ -119,6 +142,7 @@ mat-card {
           top: 10px;
           right: 10px;
 
+<<<<<<< HEAD
           i {
             font-size: 24px;
             color: $green-angular-leaf;
@@ -140,6 +164,29 @@ mat-card {
     a {
       color: $fire-red;
       text-decoration: none;
+=======
+          span.icon {
+            svg {
+              height: 24px;
+              width: 24px;
+              fill: $green-angular-leaf;
+            }
+          }
+        }
+      }
+      mat-grid-tile:hover {
+        background-color: $very-light-gray;
+        border: 2px solid $dodger-blue;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+        transition: 0.3s !important;
+      }
+      mat-grid-tile:active, mat-grid-tile:visited {
+        border: 2px solid $dodger-blue;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+        transition: 0.3s !important;
+      }
+
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
     }
   }
 }

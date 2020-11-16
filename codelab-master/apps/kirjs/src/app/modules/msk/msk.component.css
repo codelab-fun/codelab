@@ -1,0 +1,23 @@
+.pic {
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.awesome {
+  background-image: url(./pics/awesome.png);
+}
+
+.default {
+  background-image: url(./pics/default.png);
+}
+
+.ivy {
+  background-image: url(./pics/ivy.png);
+}
+
+.differential-loading {
+  background-image: url(./pics/differential-loading.png);
+}

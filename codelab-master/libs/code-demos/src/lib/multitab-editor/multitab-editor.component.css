@@ -1,0 +1,50 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+code-demo-editor-from-model {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 50%;
+  margin: 0 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.panel {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.editor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+code-demo-editor {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.monaco-editor {
+  display: flex;
+}
+
+.monaco-editor,
+.monaco-editor ::ng-deep > .monaco-single-editor {
+  display: block;
+  width: 100%;
+  height: 500px;
+  flex-grow: 1;
+}

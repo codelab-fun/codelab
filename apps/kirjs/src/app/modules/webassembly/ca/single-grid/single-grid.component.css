@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell {
+  width: 10vh;
+  height: 10vh;
+  animation: toColor 4s linear infinite;
+  /*animation: size 15s linear;*/
+}
+
+.row {
+  display: flex;
+}
+
+.central {
+  animation: none;
+  background: #000;
+}
+
+@keyframes size {
+  0% {
+    width: 60vh;
+    height: 60vh;
+  }
+  100% {
+    width: 10vh;
+    height: 10vh;
+  }
+}
+
+@keyframes toColor {
+  0% {
+    background: #000;
+  }
+  45% {
+    background: #000;
+  }
+  50% {
+    background: #fff;
+  }
+  95% {
+    background: #fff;
+  }
+  100% {
+    background: #000;
+  }
+}

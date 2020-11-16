@@ -1,0 +1,57 @@
+<h2>Ask a question:</h2>
+<div class="question-form">
+  <mat-form-field>
+    <mat-label>Your question:</mat-label>
+    <textarea
+      maxlength="280"
+      style="height: 120px;"
+      required
+      matInput
+      #q
+      (keydown.control.enter)="addQuestion(q)"
+      (keydown.command.enter)="addQuestion(q)"
+    ></textarea>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    [disabled]="q.value.trim() === ''"
+    (click)="addQuestion(q)"
+  >
+    Submit
+  </button>
+</div>
+
+<ng-container *ngIf="questionsService.requireApproval$ | async">
+  <ng-container
+    *ngIf="questionsService.myUnapprovedQuestions$ | async as unapproved"
+  >
+    <mat-expansion-panel *ngIf="unapproved.length">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Your questions pending approval: {{ unapproved.length }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-container *ngFor="let question of unapproved">
+        <codelab-question
+          [question]="question"
+          [showControls]="false"
+        ></codelab-question>
+      </ng-container>
+    </mat-expansion-panel>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="questionsService.publicQuestions$ | async as questions">
+  <ng-container *ngIf="questions.length">
+    <h2>All questions:</h2>
+    <codelab-question
+      *ngIf="questionsService.starredQuestion$ | async as question"
+      tabindex="0"
+      [question]="question"
+      class="starred"
+    ></codelab-question>
+
+    <codelab-question-list [questions]="questions"></codelab-question-list>
+  </ng-container>
+</ng-container>

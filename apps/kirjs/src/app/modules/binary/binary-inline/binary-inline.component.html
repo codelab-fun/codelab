@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <ng-container *ngFor="let item of structure; let i = index">
+    <ng-container *ngIf="item.data">
+      <div
+        class="{{ item.type }} {{ item.className }} bin-block cell"
+        [attr.name]="item.name"
+        contenteditable="true"
+      >
+        <kirjs-binary-display [binary]="item.rawValue"></kirjs-binary-display>
+      </div>
+
+      <div
+        class="{{ item.type }} {{ item.className }} value cell"
+        style="display: inline;"
+        [attr.name]="item.name"
+        contenteditable="true"
+      >
+        {{ item.displayValue || item.value }}
+      </div>
+      <div class="cell" [attr.name]="item.name">
+        <div class="meta">
+          <div>
+            {{ item.name }}
+          </div>
+          <div *ngIf="item.description">
+            <span class="label">description:</span
+            ><span>{{ item.description }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

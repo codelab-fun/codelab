@@ -1,0 +1,63 @@
+<div *ngIf="logs.length">
+  <div *ngFor="let log of logs">
+    <pre>{{ log | json }}</pre>
+    <hr />
+  </div>
+</div>
+
+<mat-card>
+  <div class="summary">
+    <div class="label">Running {{ tests.length }} tests.</div>
+    <div>
+      <div
+        *ngFor="let test of tests; let i = index"
+        [class.pass]="test.pass"
+        [class.test-point]="true"
+        [class.compeleted]="i < firstFailingIndex()"
+        [class.current]="test === firstFailing"
+        [class.future]="i > firstFailingIndex()"
+        (mouseenter)="displayedTest = test"
+        (mouseout)="displayedTest = null"
+      ></div>
+    </div>
+  </div>
+  <hr />
+  <div class="results" *ngIf="displayedTest || firstFailing as test">
+    <ng-container *ngIf="test.error">
+      <div class="label">For the code:</div>
+      <code class="failing">{{ test.error }}</code>
+    </ng-container>
+    <ng-container *ngIf="!test.error">
+      <div class="label">For the code:</div>
+      <pre><code>{{test.code.trim()}}</code></pre>
+      <div class="label">Expected:</div>
+      <code> {{ test.expected | json }} </code>
+      <div class="label">Actual:</div>
+      <code class="failing"> {{ test.result | json }} </code>
+    </ng-container>
+    <ng-container *ngIf="showAst">
+      <div class="label">AST:</div>
+      <div class="ast" (click)="showFull = true">
+        <kirjs-ast-preview-runner
+          [code]="test.code.trim()"
+        ></kirjs-ast-preview-runner>
+      </div>
+
+      <div class="ast-full" *ngIf="showFull">
+        <span style="float: right" (click)="showFull = false">╳</span>
+        <pre><code>{{test.code.trim()}}</code></pre>
+        <kirjs-size-picker
+          (sizeChange)="scale = scale + $event"
+          [step]="1"
+          [size]="scale"
+        ></kirjs-size-picker>
+        <kirjs-ast-preview-runner
+          [style.zoom]="scale / 10"
+          [code]="test.code.trim()"
+        ></kirjs-ast-preview-runner>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="!firstFailing"><ng-content></ng-content></div>
+</mat-card>

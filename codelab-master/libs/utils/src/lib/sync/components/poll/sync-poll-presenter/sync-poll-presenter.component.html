@@ -1,0 +1,65 @@
+<div class="time">
+  <div *ngIf="poll.$isPollRunning | async; else timeOver">
+    <h2 class="timer">⏱ {{ poll.timeLeft$ | async }} seconds left</h2>
+  </div>
+</div>
+<ng-template #timeOver>
+  <h2 class="timer">⏱ Time is over</h2>
+</ng-template>
+
+<h1 class="question">{{ config.question }}</h1>
+
+<ng-container *ngIf="poll.isPollEnabled$ | async; else wait">
+  <ng-container *ngIf="poll.hasVotes$ | async; else waiting">
+    <div *ngIf="poll.config.answer && (poll.$isPollRunning | async) === true">
+      <h2>Collecting answers</h2>
+      <h2>{{ poll.votesCount$ | async }} votes</h2>
+    </div>
+    <div
+      class="results"
+      *ngIf="!poll.config.answer || (poll.$isPollRunning | async) === false"
+    >
+      <codelab-choice-presenter
+        *ngIf="config.type === 'choice'"
+        [answerIndex]="
+          (poll.timestamp$ | async) > 0 &&
+          (poll.$isPollRunning | async) === false &&
+          getAnswerIndex()
+        "
+        [votes]="poll.votes$ | async"
+        [options]="poll.config.options"
+      ></codelab-choice-presenter>
+      <codelab-stars-presenter
+        *ngIf="config.type === 'stars'"
+        [votes]="poll.votes$ | async"
+      ></codelab-stars-presenter>
+    </div>
+  </ng-container>
+  <ng-template #waiting>
+    <div *ngIf="poll.$isPollRunning | async">
+      <h1 style="text-align: center;">Waiting for votes...</h1>
+      <div class="bunny"></div>
+    </div>
+  </ng-template>
+</ng-container>
+
+<ng-template #wait>
+  Poll has not been started yet.
+</ng-template>
+
+<div
+  *ngIf="poll.isPollEnabled$ | async; else wait"
+  [class.disabled]="(poll.$isPollRunning | async) !== true"
+>
+  <codelab-sync-poll-viewer-choice
+    [myVote]="
+      (poll.timestamp$ | async) > 0 &&
+      (poll.$isPollRunning | async) === false &&
+      getAnswerIndex()
+    "
+    [options]="config.options"
+    (vote)="poll.vote($event)"
+    *ngIf="config.type === 'choice'"
+  >
+  </codelab-sync-poll-viewer-choice>
+</div>

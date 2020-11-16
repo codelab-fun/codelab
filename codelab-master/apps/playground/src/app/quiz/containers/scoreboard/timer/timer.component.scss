@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+
+.timer {
+  float: right;
+  width: 150px;
+
+  .mat-menu {
+    margin-left: -60px;
+
+    .leader, span.scoreboard {
+      margin-left: -40px;
+    }
+  }
+}
+
+.scoreboard-timer {
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+mat-toolbar {
+  background-color: $white;
+
+  &:hover {
+    background-color: $white !important;
+  }
+
+  .leader {
+    margin-left: -40px !important;
+  }
+}
+button {
+  outline: none;
+  text-transform: uppercase;
+  font-family: $font-stack;
+}
+

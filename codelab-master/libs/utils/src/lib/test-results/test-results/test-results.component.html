@@ -1,0 +1,17 @@
+<div *ngIf="result" class="container">
+  <codelab-simple-tests-progress
+    *ngIf="showProgress"
+    [tests]="tests"
+  ></codelab-simple-tests-progress>
+
+  <slides-test-run-results
+    [seeAll]="!focused"
+    [focused]="focused"
+    [tests]="tests"
+    (selectFile)="selectFile.emit($event)"
+  ></slides-test-run-results>
+
+  <div *ngIf="result.error" class="error-message">
+    Error: {{ result.error?.message }}
+  </div>
+</div>

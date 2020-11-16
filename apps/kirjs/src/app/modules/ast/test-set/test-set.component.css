@@ -1,0 +1,7 @@
+.show-solution .icon {
+  visibility: hidden;
+}
+
+.show-solution:hover .icon {
+  visibility: visible;
+}

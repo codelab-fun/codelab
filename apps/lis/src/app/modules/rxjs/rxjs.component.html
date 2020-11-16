@@ -1,0 +1,31 @@
+<slide-deck slidesRouting slides-tracking>
+  <div *isPresenting slideShortcuts></div>
+  <div *isAdmin slideShortcuts></div>
+  <div *isOff><h1>🥺 There is no active session</h1></div>
+
+  <div><codelab-sync-button name="lis"></codelab-sync-button></div>
+
+  <div *slide id="test">
+    here
+    <div *isAdmin>isAdmin</div>
+    <div *isPresenting>isPresenting</div>
+    <div *isViewing>isViewing</div>
+  </div>
+
+  <div *slide id="registration">
+    <codelab-registration></codelab-registration>
+  </div>
+
+  <div *slide id="poll-0"><codelab-poll [poll]="polls[0]"></codelab-poll></div>
+
+  <div *slide id="rxjs"><code-demo [ngModel]="code"></code-demo></div>
+
+  <div *slide id="start"><h1>Hello</h1></div>
+
+  <div *slide id="list">
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </div>
+</slide-deck>

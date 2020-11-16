@@ -1,0 +1,19 @@
+<div *ngIf="files$ | async as compiledCode" class="wrapper">
+  <code-demo-multitab-editor
+    class="quarter"
+    [enableAutoFolding]="enableAutoFolding"
+    [files]="files"
+    [allowSwitchingFiles]="true"
+    [solutions]="solutions"
+    [(ngModel)]="code"
+    [highlights]="highlights"
+    (ngModelChange)="update($event)"
+  ></code-demo-multitab-editor>
+  <code-demo-runner
+    class="quarter"
+    [url]="url"
+    [presets]="presets"
+    [bootstrap]="bootstrap"
+    [code]="compiledCode"
+  ></code-demo-runner>
+</div>

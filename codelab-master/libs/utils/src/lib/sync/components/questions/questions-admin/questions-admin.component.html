@@ -1,0 +1,39 @@
+<h2>Admin</h2>
+
+<mat-tab-group>
+  <ng-container *ngIf="questionsByStatus$ | async as questionsByStatus">
+    <ng-container *ngFor="let status of statuses">
+      <mat-tab
+        [label]="status + ' (' + questionsByStatus[status]?.length + ')'"
+        *ngIf="questionsByStatus[status]?.length"
+      >
+        <codelab-question
+          *ngIf="questionsService.starredQuestion$ | async as question"
+          tabindex="0"
+          [question]="question"
+          class="starred"
+        ></codelab-question>
+
+        <codelab-question-list [questions]="questionsByStatus[status]">
+        </codelab-question-list>
+      </mat-tab>
+    </ng-container>
+  </ng-container>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>settings</mat-icon>
+    </ng-template>
+
+    <mat-card>
+      <mat-card-content>
+        <mat-checkbox
+          [(ngModel)]="requireApproval"
+          [syncPresenterValueDefault]="true"
+          syncPresenterValue="{{ questionsService.key }}/requireApproval"
+        >
+          Require approval
+        </mat-checkbox>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

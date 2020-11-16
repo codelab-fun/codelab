@@ -1,0 +1,66 @@
+{
+  "npmScope": "codelab",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "codelab": {
+      "tags": []
+    },
+    "browser": {
+      "tags": []
+    },
+    "console": {
+      "tags": []
+    },
+    "utils": {
+      "tags": []
+    },
+    "kirjs": {
+      "tags": []
+    },
+    "angular-ast-viz": {
+      "tags": []
+    },
+    "angular-slides-to-pdf": {
+      "tags": []
+    },
+    "feedback": {
+      "tags": []
+    },
+    "slides": {
+      "tags": []
+    },
+    "code-demos": {
+      "tags": []
+    },
+    "live": {
+      "tags": []
+    },
+    "firebase-login": {
+      "tags": []
+    },
+    "angular-thirty-seconds": {
+      "tags": []
+    },
+    "blog": {
+      "tags": []
+    },
+    "lis": {
+      "tags": []
+    },
+    "playground": {
+      "tags": []
+    },
+    "firebase": {
+      "tags": []
+    },
+    "intro": {
+      "tags": []
+    }
+  }
+}

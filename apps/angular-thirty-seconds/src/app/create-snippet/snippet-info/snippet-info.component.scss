@@ -1,0 +1,58 @@
+:host {
+  .snippets-info {
+    float: right;
+    top: 40px;
+    max-width: 50%;
+    padding: 35px 35px 15px 35px;
+    margin-left: 30px;
+  }
+
+  .nav {
+    &-fixed-wrapper {
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+      z-index: 2000;
+    }
+
+    &-btn {
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-weight: bold;
+      display: table;
+      text-align: center;
+
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.9);
+
+      &-go-up {
+        background: #213451;
+        color: white;
+        cursor: pointer;
+      }
+
+      p {
+        vertical-align: middle;
+        display: table-cell;
+      }
+    }
+  }
+
+  .animated {
+    animation-duration: 1s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+}

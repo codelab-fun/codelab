@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+
+  .message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .error-code {
+      font-size: 70px;
+      margin-right: 20px;
+    }
+
+    .error-message {
+      .header {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .subheader {
+        font-size: 14px;
+      }
+    }
+  }
+
+  nav {
+    max-width: 100%;
+    width: 400px;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding-inline-start: 0;
+
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container .message {
+    flex-direction: column;
+    text-align: center;
+  }
+}

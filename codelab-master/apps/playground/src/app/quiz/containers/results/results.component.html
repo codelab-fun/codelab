@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar class="header-image" loading="lazy" (click)="selectQuiz()"
+         matTooltip="back to Codelab Quiz Selection" matTooltipPosition="left" />
+    <mat-card-title i18n>Results</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <section class="results">
+      <h3 i18n>Congratulations! You&apos;ve completed the quiz!</h3>
+      <codelab-results-statistics></codelab-results-statistics>
+
+      <section class="quiz-summary">
+        <details>
+          <summary i18n>Click to view a more detailed summary of your quiz&hellip;</summary>
+          <codelab-results-summary></codelab-results-summary>
+          <codelab-results-accordion></codelab-results-accordion>
+        </details>
+      </section>
+    </section>
+
+    <codelab-results-return></codelab-results-return>
+    <hr />
+    <codelab-results-challenge></codelab-results-challenge>
+  </mat-card-content>
+
+  <ng-back-to-top bgColor="#43e756" color="#006400"></ng-back-to-top>
+</mat-card>

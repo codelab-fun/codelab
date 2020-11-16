@@ -1,0 +1,14 @@
+<!--{{game.getPosition()}}-->
+
+<kirjs-tools #tools [game]="game" [highlights]="highlights"></kirjs-tools>
+<!--<div (click)="log()">log</div>-->
+
+<div class="board theme-{{ theme }}">
+  <div *ngFor="let line of game.getPosition(); let x = index" class="column">
+    <div
+      *ngFor="let cell of line; let y = index"
+      (click)="tools.selectedTool.action([x, y], game, highlights)"
+      class="cell cell-{{ cell }} {{ this.highlights.get([x, y]) }}"
+    ></div>
+  </div>
+</div>

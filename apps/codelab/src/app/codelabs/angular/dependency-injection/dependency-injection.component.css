@@ -1,0 +1,33 @@
+.content-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.center-preview {
+  margin: 0 auto;
+}
+
+.mewtube-preview {
+  height: 100%;
+  padding: 2vw;
+  overflow: auto;
+}
+
+.comparision {
+  padding: 0.5em;
+}
+
+.diagram-container {
+  height: 500px;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+.di-diagram {
+  height: 100%;
+  width: 100%;
+  background: url(./pics/deps.svg) no-repeat;
+  background-size: contain;
+}

@@ -3,7 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+<<<<<<< HEAD
 import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
+=======
+import { QuizService } from '@codelab-quiz/shared/services/quiz.service';
+import { TimerService } from '@codelab-quiz/shared/services/timer.service';
+
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
 
 @Component({
   selector: 'codelab-scoreboard',
@@ -11,11 +17,19 @@ import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
+<<<<<<< HEAD
   @Input() selectedAnswer: number;
   answer: number;
   totalQuestions: number;
   badgeQuestionNumber: number;
   unsubscribe$ = new Subject<void>();
+=======
+  @Input() set selectedAnswer(value) { this.answer = value; }
+  answer;
+  totalQuestions: number;
+  badgeQuestionNumber: number;
+  private unsubscribe$ = new Subject<void>();
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
 
   constructor(
     private quizService: QuizService,
@@ -24,9 +38,12 @@ export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.selectedAnswer = this.answer;
     this.totalQuestions = this.quizService.totalQuestions;
 
+=======
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
     this.activatedRoute.params
       .pipe(takeUntil(this.unsubscribe$))
         .subscribe((params) => {
@@ -35,6 +52,16 @@ export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
             this.timerService.resetTimer();
           }
     });
+<<<<<<< HEAD
+=======
+
+    this.totalQuestions = this.quizService.totalQuestions;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -43,9 +70,12 @@ export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
       this.answer = changes.selectedAnswer.currentValue;
     }
   }
+<<<<<<< HEAD
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+=======
+>>>>>>> 035150f6244b14c2b94304c0793372e3f9d745f6
 }

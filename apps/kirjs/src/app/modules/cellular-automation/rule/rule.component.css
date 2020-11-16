@@ -1,0 +1,13 @@
+:host {
+  margin: 10px 0;
+}
+
+.rule {
+  margin-left: 10px;
+}
+
+.arrow {
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}

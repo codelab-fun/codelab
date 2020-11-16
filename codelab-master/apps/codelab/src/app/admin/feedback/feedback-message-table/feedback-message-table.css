@@ -1,0 +1,35 @@
+.done-row {
+  background: #fcfcfc;
+  color: #666;
+}
+
+.mat-column-comment {
+  width: 55%;
+  padding-right: 5px;
+}
+
+.mat-column-name {
+  width: 10%;
+  padding-right: 5px;
+}
+
+.mat-column-header {
+  width: 20%;
+  padding-right: 5px;
+}
+
+.mat-column-timestamp {
+  width: 10%;
+  max-width: 120px;
+  padding-right: 5px;
+}
+
+.mat-column-actions {
+  width: 5%;
+  max-width: 20px;
+}
+
+table {
+  width: 100%;
+  overflow: hidden;
+}

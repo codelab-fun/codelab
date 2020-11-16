@@ -1,0 +1,22 @@
+.fire:hover {
+  opacity: 1;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0 0 2px #333333;
+}
+
+.fire {
+  opacity: 0.8;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  background: #ddd;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+  text-indent: 3px;
+  z-index: 100;
+}

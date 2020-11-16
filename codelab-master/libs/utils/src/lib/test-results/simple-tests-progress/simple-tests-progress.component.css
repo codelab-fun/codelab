@@ -1,0 +1,25 @@
+.progress {
+  height: 1vw;
+  font-size: 0.7vw;
+  line-height: 1.1vw;
+  display: flex;
+}
+
+.text-box {
+  border: 1px solid #fff;
+  background: #ff6144;
+  flex: 1;
+}
+
+.text-box.pass {
+  background: #5ccb5d;
+}
+
+.counts {
+  margin: 0 10px;
+}
+
+.preparing-tests {
+  display: flex;
+  align-items: center;
+}

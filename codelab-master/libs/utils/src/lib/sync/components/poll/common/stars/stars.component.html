@@ -1,0 +1,8 @@
+<mat-icon
+  class="star"
+  *ngFor="let star of stars"
+  (click)="setValue(star)"
+  (mouseover)="setHover(star)"
+  (mouseleave)="setHover(0)"
+  >{{ getStarIcon(star) }}</mat-icon
+>

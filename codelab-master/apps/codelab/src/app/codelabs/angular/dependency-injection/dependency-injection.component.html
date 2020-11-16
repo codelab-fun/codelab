@@ -1,0 +1,320 @@
+<div #translations style="display: none">
+  <div
+    i18n="@@shorthandMakesProfessionAvailable"
+    id="shorthandMakesProfessionAvailable"
+  >
+    * TypeScript shorthand makes 'profession' * available to component instance.
+  </div>
+  <div i18n="@@assumingJobHasPropTitle" id="assumingJobHasPropTitle">
+    assuming Job has property '.title'
+  </div>
+  <div i18n="@@addIjectableDecoraterToClass" id="addIjectableDecoraterToClass">
+    video.service.ts: Add @Injectable() decorator to the class
+  </div>
+
+  <div i18n="@@addVideoServiceToNgModule" id="addVideoServiceToNgModule">
+    app.module.ts: Add VideoService to the NgModule providers property
+  </div>
+  <div i18n="@@getRidOfFakeVideos" id="getRidOfFakeVideos">
+    app.component.ts: Get rid of FAKE_VIDEOS
+  </div>
+  <div i18n="@@injectVideoService" id="injectVideoService">
+    app.component.ts: Inject 'VideoService' in the component constructor as
+    'videoService'
+  </div>
+  <div
+    i18n="@@updateAppComponentSearchmethod"
+    id="updateAppComponentSearchmethod"
+  >
+    app.component.ts: Update the app component's search method to use
+    videoService's search method
+  </div>
+</div>
+
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <div *slide id="intro" no-padding milestone="dependency-injection">
+    <codelab-title-slide
+      title="Dependency Injection"
+      i18n-title="@@dependencyInjection"
+      description="Learn more about Angular's powerful Dependency Injection system"
+      i18n-description="@@dependencyInjectionLearnMore"
+    ></codelab-title-slide>
+  </div>
+
+  <!--  MILESTONE #3  Dependency Injection  -->
+  <!-- RECAP -->
+  <div *slide id="dependency" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Example of a dependency</codelab-breadcrumb>
+    <h2 i18n>
+      We display a list of hard-coded videos in our component, but in the real
+      world we'd load them from the server.
+    </h2>
+    <h2 i18n>
+      The code for fetching the data would live in a separate class (service)
+      called VideoService
+    </h2>
+    <h2 i18n>Therefore our component will depend on the VideoService:</h2>
+    <svg viewBox="99 99 601 201" style="margin-top: 2vw">
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="100"
+        fill="#fff"
+        stroke="#000"
+        rx="15"
+        ry="15"
+        stroke-width="1.5"
+      ></rect>
+      <text
+        x="200"
+        y="150"
+        fill="#000"
+        text-anchor="middle"
+        alignment-baseline="middle"
+      >
+        AppComponent
+      </text>
+      <rect
+        x="400"
+        y="100"
+        width="200"
+        height="100"
+        fill="#fff"
+        stroke="#000"
+        rx="15"
+        ry="15"
+        stroke-width="1.5"
+      ></rect>
+      <text
+        x="500"
+        y="150"
+        fill="#000"
+        text-anchor="middle"
+        alignment-baseline="middle"
+      >
+        VideoService
+      </text>
+      <line x1="300" x2="400" y1="150" y2="150" stroke="#000"></line>
+      <path d="M 300 150 l 10 6 l -3 -6 l 3 -6 " stroke="#444"></path>
+    </svg>
+  </div>
+
+  <div *slide id="dependency-injection-intro" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Intro</codelab-breadcrumb>
+
+    <h2 i18n>
+      As our app grows, number of dependencies will increase. Dependencies, in
+      order, will have their own dependencies. Managing all of them manually
+      becomes increasingly harder.
+    </h2>
+    <h2 i18n>
+      To simplify that <b>Angular</b> provides a mechanism called
+      <b>Dependency injection</b>
+    </h2>
+    <div class="diagram-container">
+      <div class="di-diagram"></div>
+    </div>
+  </div>
+
+  <!--  COMPARISON -->
+  <div *slide id="comparison" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Comparison</codelab-breadcrumb>
+    <div style="display: flex;">
+      <div class="col-6">
+        <code-demo-file-path path="person.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.withOutDI.code"
+          [codeDemoHighlight]="[code.withOutDI.matches.noDI, 'profession']"
+        ></code-demo-editor>
+        <h2 class="comparision" i18n>
+          Without Dependency Injection, <b>Profession</b> has to be instantiated
+          in the <b>Person</b> class
+        </h2>
+      </div>
+      <div class="col-6" style="margin-left: 10px;">
+        <code-demo-file-path path="person-di.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.withDI.code"
+          [codeDemoHighlight]="[code.withDI.matches.constructor]"
+        ></code-demo-editor>
+        <h2 class="comparision" i18n>
+          With Dependency Injection, <b>Person</b> class just "requires" an
+          instance of <b>Job</b> in the constructor, and Angular takes care of
+          instantiating it
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="comparison-2" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Parameters</codelab-breadcrumb>
+    <div class="content-container">
+      <div class="col-6">
+        <code-demo-file-path path="person.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.withOutDI.code2"
+          [codeDemoHighlight]="[code.withOutDI.matches.noDI]"
+        ></code-demo-editor>
+        <h2 class="comparision" i18n>
+          Without Dependency Injection, you have to figure out all the
+          parameters yourself
+        </h2>
+      </div>
+      <div class="col-6" style="margin-left: 10px;">
+        <code-demo-file-path path="person-di.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.withDI.code"
+          [codeDemoHighlight]="[code.withDI.matches.constructor]"
+        ></code-demo-editor>
+        <h2 class="comparision" i18n>
+          With Dependency Injection, Angular takes care of it
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="comparison-3" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Testing</codelab-breadcrumb>
+    <h2 i18n>
+      Also Dependency Injection simplifies testing a lot, because you can just
+      pass mock dependencies as constructor parameters
+    </h2>
+    <div class="content-container">
+      <div class="col-6">
+        <code-demo-file-path path="person-di.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.withDI.code"
+        ></code-demo-editor>
+      </div>
+      <div class="col-6">
+        <code-demo-file-path path="person-di.spec.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.withDITesting.code"
+        ></code-demo-editor>
+      </div>
+    </div>
+  </div>
+
+  <!--  Steps to create an Angular app -->
+  <div *slide id="angular-app" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Example</codelab-breadcrumb>
+    <h2 i18n>
+      Let's say we have an existing <b>UnitConverterService</b> and we want to
+      start using it in <b>UnitConversionComponent</b>. It will take 3 simple
+      steps:
+    </h2>
+    <ol>
+      <li i18n>Mark dependency as @Injectable()</li>
+      <li i18n>Provide in the module</li>
+      <li i18n>Require in the component</li>
+    </ol>
+  </div>
+
+  <!--  IMPLEMENTATION STEP #1  -->
+  <div *slide id="make-injectable" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Step 1</codelab-breadcrumb>
+    <h2 i18n>
+      Mark the class as <b>@Injectable()</b>. This lets Angular know that this
+      class is part of Angular Dependency Injection system
+    </h2>
+    <code-demo-file-path path="unit-converter-service.ts"></code-demo-file-path>
+    <code-demo-editor
+      [(ngModel)]="code.classAsInjectable.code"
+      [codeDemoHighlight]="[code.classAsInjectable.matches.injectable]"
+    ></code-demo-editor>
+    <div class="info" i18n>
+      If a service class is marked as injectable, it can require other services
+      in its constructor.
+    </div>
+  </div>
+
+  <!--  IMPLEMENTATION STEP #2  -->
+  <div *slide id="provide-injectable" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Step 2</codelab-breadcrumb>
+    <h2 i18n>
+      Provide the injectable to the <b>providers</b> section of <b>NgModule</b>
+    </h2>
+    <code-demo-file-path path="app.module.ts"></code-demo-file-path>
+    <code-demo-editor
+      [(ngModel)]="code.provideInjectable.code"
+      [codeDemoHighlight]="[
+        code.provideInjectable.matches.providers,
+        'UnitConverterService'
+      ]"
+    ></code-demo-editor>
+    <div class="info" i18n>
+      Now, this service becomes available for every <b>Component</b> and other
+      service in this <b>NgModule</b>.
+    </div>
+  </div>
+
+  <!--  IMPLEMENTATION STEP #3  -->
+  <div *slide id="consume-injectable" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Step 3</codelab-breadcrumb>
+    <h2 i18n>Consume the Injectable in the component</h2>
+    <code-demo-file-path
+      path="unit-conversion.component.ts"
+    ></code-demo-file-path>
+    <code-demo-editor
+      [(ngModel)]="code.consumeInjectable.code"
+      [codeDemoHighlight]="[code.consumeInjectable.matches.constructor]"
+    ></code-demo-editor>
+    <div class="info" i18n>
+      Because of the <b>private</b> access modifier the service becomes
+      accessible across the class as <b>this.converter</b>.
+    </div>
+  </div>
+
+  <div *slide id="exercise-pre" milestone="dependency-injection">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
+      In the next slide you'll use videoService which has even more cats!!! The
+      result will look like this:
+    </h2>
+
+    <codelab-exercise-preview
+      column-5
+      [exercise]="exercise"
+    ></codelab-exercise-preview>
+  </div>
+
+  <!--  CREATE FIRST ANGULAR COMPONENT EXERCISE-->
+  <div *slide id="exercise" no-padding>
+    <codelab-exercise
+      milestone="dependency-injection"
+      [translations]="t"
+      [exercise]="exercise"
+    >
+    </codelab-exercise>
+  </div>
+
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div class="header" header>
+        <codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb>
+      </div>
+      <div class="body" body></div>
+      <div class="footer" footer>
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../component-tree/0" i18n>
+            Learn how to combine components together
+          </a>
+        </h2>
+
+        <feedback-rating lesson="Angulardependency-injection">
+        </feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

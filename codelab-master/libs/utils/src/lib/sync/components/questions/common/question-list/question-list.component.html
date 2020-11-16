@@ -1,0 +1,8 @@
+<!--TODO(kirjs): add back @questionList. seems like Ivy broke it. -->
+<div *ngFor="let question of questions; trackBy: trackBy">
+  <codelab-question
+    tabindex="0"
+    [question]="question"
+    *ngIf="!question.starred"
+  ></codelab-question>
+</div>

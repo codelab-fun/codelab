@@ -1,0 +1,13 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body,
+h1,
+p,
+div {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
