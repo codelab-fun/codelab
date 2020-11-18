@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Quiz, QuizMetadata, Resource } from '@codelab-quiz/shared/models/';
@@ -38,8 +38,6 @@ export class StatisticsComponent implements OnInit {
   CONGRATULATIONS = this.imagePath.concat("congrats.gif");
   NOT_BAD = this.imagePath.concat("not-bad.jpg");
   TRY_AGAIN = this.imagePath.concat("try-again.jpeg");
-
-  unsubscribe$ = new Subject<void>();
 
   constructor(
     private quizService: QuizService,

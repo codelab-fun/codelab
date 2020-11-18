@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Quiz, QuizMetadata, Score } from '@codelab-quiz/shared/models/';
@@ -30,7 +30,6 @@ export class SummaryReportComponent implements OnInit {
   score: Score;
   highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-  unsubscribe$ = new Subject<void>();
   codelabUrl = "https://www.codelab.fun";
 
   constructor(

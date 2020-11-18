@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
 
@@ -15,12 +14,10 @@ export class ReturnComponent implements OnInit {
   quizId: string;
   indexOfQuizId: number;
   codelabUrl = "https://www.codelab.fun";
-  unsubscribe$ = new Subject<void>();
 
   constructor(
     private quizService: QuizService,
     private timerService: TimerService,
-    private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
 
