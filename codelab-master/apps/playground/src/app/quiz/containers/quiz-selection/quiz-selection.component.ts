@@ -16,22 +16,15 @@ type AnimationState = 'animationStarted' | 'none';
 })
 export class QuizSelectionComponent implements OnInit, OnDestroy {
   quizzes$: Observable<Quiz[]>;
-  quizId: string;
-  currentQuestionIndex: number;
-  totalQuestions: number;
-
   selectionParams: Object;
   animationState$ = new BehaviorSubject<AnimationState>('none');
   unsubscribe$ = new Subject<void>();
   imagePath = "assets/images/milestones/";
 
-  constructor(private quizService: QuizService) { }
+  constructor(private quizService: QuizService) {}
 
   ngOnInit(): void {
     this.quizzes$ = this.quizService.getQuizzes();
-    this.quizId = this.quizService.quizId;
-    this.currentQuestionIndex = this.quizService.currentQuestionIndex;
-    this.totalQuestions = this.quizService.totalQuestions;
     this.selectionParams = this.quizService.returnQuizSelectionParams();
   }
 
