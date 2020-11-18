@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { Quiz, QuizMetadata, Score } from '@codelab-quiz/shared/models/';
 import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
@@ -12,7 +12,7 @@ import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
   styleUrls: ['./summary-report.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SummaryReportComponent implements OnInit, OnDestroy {
+export class SummaryReportComponent implements OnInit {
   quizzes$: Observable<Quiz[]>;
   quizName$: Observable<string>;
   quizId: string;
@@ -42,17 +42,10 @@ export class SummaryReportComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.quizzes$ = this.quizService.getQuizzes();
     this.quizName$ = this.activatedRoute.url.pipe(map((segments) => segments[1].toString()));
-    this.activatedRoute.paramMap
-      .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((params) => this.quizId = params.get('quizId'));
+    this.quizId = this.quizService.quizId;
     this.checkedShuffle = this.quizService.checkedShuffle;
     this.calculateElapsedTime();
     this.saveHighScores();
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
   calculatePercentageOfCorrectlyAnsweredQuestions(): number {

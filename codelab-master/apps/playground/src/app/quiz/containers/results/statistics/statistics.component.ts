@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { Quiz, QuizMetadata, Resource } from '@codelab-quiz/shared/models/';
 import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
@@ -18,7 +18,7 @@ enum Status {
   styleUrls: ['./statistics.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StatisticsComponent implements OnInit, OnDestroy {
+export class StatisticsComponent implements OnInit {
   quizzes$: Observable<Quiz[]>;
   quizName$: Observable<string>;
   quizId: string;
@@ -50,18 +50,11 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.quizzes$ = this.quizService.getQuizzes();
     this.quizName$ = this.activatedRoute.url.pipe(map((segments) => segments[1].toString()));
-    this.activatedRoute.paramMap
-      .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((params) => this.quizId = params.get('quizId'));
+    this.quizId = this.quizService.quizId;
     this.resources = this.quizService.resources;
     this.status = Status.Completed;
     this.calculateElapsedTime();
     this.sendQuizStatusToQuizService();
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
   calculateElapsedTime(): void {

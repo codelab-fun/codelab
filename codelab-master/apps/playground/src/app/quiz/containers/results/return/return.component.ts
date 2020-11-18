@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
 
@@ -12,7 +11,7 @@ import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
   styleUrls: ['./return.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ReturnComponent implements OnInit, OnDestroy {
+export class ReturnComponent implements OnInit {
   quizId: string;
   indexOfQuizId: number;
   codelabUrl = "https://www.codelab.fun";
@@ -26,14 +25,7 @@ export class ReturnComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap
-      .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((params) => this.quizId = params.get('quizId'));
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+    this.quizId = this.quizService.quizId;
   }
 
   restartQuiz(): void {
