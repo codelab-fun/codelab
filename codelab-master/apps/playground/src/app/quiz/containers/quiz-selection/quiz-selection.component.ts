@@ -16,6 +16,7 @@ type AnimationState = 'animationStarted' | 'none';
 })
 export class QuizSelectionComponent implements OnInit {
   quizzes$: Observable<Quiz[]>;
+  currentQuestionIndex: number;
   selectionParams: Object;
   animationState$ = new BehaviorSubject<AnimationState>('none');
   imagePath = "assets/images/milestones/";
@@ -24,6 +25,7 @@ export class QuizSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.quizzes$ = this.quizService.getQuizzes();
+    this.currentQuestionIndex = this.quizService.currentQuestionIndex;
     this.selectionParams = this.quizService.returnQuizSelectionParams();
   }
 
