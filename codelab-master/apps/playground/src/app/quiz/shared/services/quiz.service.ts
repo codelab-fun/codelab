@@ -9,7 +9,6 @@ import cloneDeep from 'lodash.cloneDeep';
 import { QUIZ_DATA, QUIZ_RESOURCES } from '@codelab-quiz/shared/data/*';
 import { Option, Quiz, QuizQuestion, QuizResource, Resource } from '@codelab-quiz/shared/models/';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -136,7 +135,7 @@ export class QuizService implements OnDestroy {
 
     for (let i = 0; i < correctAnswersArray.length; i++) {
       if (correctAnswers[i]) {
-        this.correctOptions = correctAnswers[i].toString().concat("");
+        this.correctOptions = correctAnswers[i];
         this.correctMessage = "The correct answer is Option " + this.correctOptions + ".";
       }
 
@@ -151,8 +150,8 @@ export class QuizService implements OnDestroy {
         this.correctMessage = "The correct answers are Options " + this.correctOptions + ".";
       }
       if (correctAnswers.length === this.question.options.length) {
-        this.correctOptions = "ALL are correct!";
-        this.correctMessage = "ALL are correct!";
+        this.correctOptions = "All are correct!";
+        this.correctMessage = "All are correct!";
       }
     }
   }
