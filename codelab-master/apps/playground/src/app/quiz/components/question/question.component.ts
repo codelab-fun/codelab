@@ -26,14 +26,14 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   formGroup: FormGroup;
   optionSelected: Option;
   correctAnswers: Option[] = [];
+  correctMessage = "";
+  multipleAnswer: boolean;
   quizStarted: boolean;
   alreadyAnswered = false;
-  multipleAnswer: boolean;
-  correctMessage = "";
 
   constructor(
-    public quizService: QuizService,
-    public timerService: TimerService
+    private quizService: QuizService,
+    private timerService: TimerService
   ) { }
 
   ngOnInit(): void {
@@ -54,7 +54,6 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.correctAnswers = this.quizService.getCorrectAnswers(this.currentQuestion);
       this.correctMessage = this.quizService.correctMessage;
       this.multipleAnswer = this.correctAnswers.length > 1;
-
 
       if (this.formGroup) {
         this.formGroup.patchValue({ answer: "" });
