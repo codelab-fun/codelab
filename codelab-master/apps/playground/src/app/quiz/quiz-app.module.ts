@@ -19,7 +19,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgBackToTopModule } from 'ng-back-to-top';
 
 import { QuizAppComponent } from './quiz-app.component';
-import { QuizQuestionComponent, SingleAnswerComponent, MultipleAnswerComponent } from '@codelab-quiz/components/';
+
+import { MultipleAnswerComponent } from '@codelab-quiz/components/question/multiple-answer.component';
+import { SingleAnswerComponent } from '@codelab-quiz/components/question/single-answer.component';
+import { QuizQuestionComponent } from '@codelab-quiz/components/question.component';
 import { IntroductionComponent } from '@codelab-quiz/containers/introduction';
 import { QuizComponent } from '@codelab-quiz/containers/quiz';
 import { QuizSelectionComponent } from '@codelab-quiz/containers/quiz-selection';
