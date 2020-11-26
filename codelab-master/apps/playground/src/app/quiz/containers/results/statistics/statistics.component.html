@@ -32,7 +32,7 @@
           <p i18n>Brush up your knowledge of {{ quiz.milestone }} with these valuable resources:</p>
           <ul class="resources" *ngFor="let resource of resources">
             <li i18n>
-              <a href='{{resource.url}}' target="_blank">
+              <a [href]="resource.url" target="_blank">
                 <span class="resource-title">{{ resource.title }}</span>
               </a>,&nbsp;
               <span class="resource-host">{{ resource.host }}</span>
@@ -51,12 +51,10 @@
         <strong>{{ quizMetadata.percentage }}%</strong>
       </ngb-progressbar>
 
-      <section class="completion-time">
-        <span class="elapsed-time" i18n>
-          You completed the quiz in <span class="result">{{ elapsedMinutes }}</span> minutes and
-          <span class="result">{{ elapsedSeconds }}</span> seconds.
-        </span>
-      </section>
+      <span class="elapsed-time" i18n>
+        You completed the quiz in <span class="result">{{ elapsedMinutes }}</span> minutes and
+        <span class="result">{{ elapsedSeconds }}</span> seconds.
+      </span>
     </section>
   </div>
 </ng-container>
