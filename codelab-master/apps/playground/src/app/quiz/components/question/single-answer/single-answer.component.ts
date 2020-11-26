@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 import { QuizQuestionComponent } from '../question.component';
 
@@ -9,10 +9,4 @@ import { QuizQuestionComponent } from '../question.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class SingleAnswerComponent extends QuizQuestionComponent implements OnInit {
-  multipleAnswer = false;
-
-  ngOnInit(): void {
-    this.sendMultipleAnswerToQuizService(this.multipleAnswer);
-  }
-}
+export class SingleAnswerComponent extends QuizQuestionComponent {}

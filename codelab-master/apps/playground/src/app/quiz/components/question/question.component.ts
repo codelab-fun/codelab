@@ -39,6 +39,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     this.formGroup = new FormGroup({
       answer: new FormControl(["", Validators.required])
     });
+    this.sendMultipleAnswerToQuizService(this.multipleAnswer);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
