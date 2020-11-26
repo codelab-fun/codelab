@@ -28,7 +28,6 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   correctAnswers: Option[] = [];
   correctMessage = "";
   multipleAnswer: boolean;
-  quizStarted: boolean;
   alreadyAnswered = false;
 
   constructor(
@@ -40,9 +39,6 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     this.formGroup = new FormGroup({
       answer: new FormControl(["", Validators.required])
     });
-
-    this.question = this.currentQuestion;
-    this.sendCurrentQuestionToQuizService();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -63,7 +59,6 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   }
 
   setSelected(optionIndex: number): void {
-    this.quizStarted = true;
     this.alreadyAnswered = true;
     this.answer.emit(optionIndex);
 
@@ -90,10 +85,6 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.optionSelected.className = "incorrect";
       this.quizService.incorrectSound.play();
     }
-  }
-
-  sendCurrentQuestionToQuizService(): void {
-    this.quizService.setCurrentQuestion(this.currentQuestion);
   }
 
   sendMultipleAnswerToQuizService(multipleAnswer: boolean): void {
