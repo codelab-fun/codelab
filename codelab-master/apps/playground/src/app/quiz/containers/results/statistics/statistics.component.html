@@ -30,7 +30,7 @@
           <h3 i18n>Try again!</h3>
 
           <p i18n>Brush up your knowledge of {{ quiz.milestone }} with these valuable resources:</p>
-          <ul class="resources" *ngFor="let resource of resources">
+          <ul *ngFor="let resource of resources">
             <li i18n>
               <a [href]="resource.url" target="_blank">
                 <span class="resource-title">{{ resource.title }}</span>
