@@ -1,66 +1,64 @@
 <ng-container *ngFor="let quiz of quizzes$ | async">
-  <div *ngIf="quiz.quizId === (quizName$ | async)">
-    <section class="summary-report" aria-labelledby="Summary Report">
-      <h2>Summary Report</h2>
-      <div class="summary-icons">
-        <div class="print">
-          <a matTooltip="Print" aria-labelledby="Print" href="javascript:window.print()">
-            <i class="material-icons">print</i>
-          </a>
-        </div>
-        <div class="email">
-          <a target="_blank" matTooltip="E-mail" aria-labelledby="E-mail" href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored {{ quizMetadata.percentage }}% on this awesome quiz about Angular {{quiz.milestone}}. Try to beat my score at {{ codelabUrl }}">
-            <i class="material-icons">email</i>
-          </a>
-        </div>
-        <div class="share">
-          <a target="_blank" matTooltip="Share on Twitter" aria-labelledby="Twitter" href="https://twitter.com/intent/tweet?text=I%20scored%20{{quizMetadata.percentage}}/100%20on%20this%20awesome%20quiz%20about%20Angular%20{{quiz.milestone}}.%20Try%20to%20beat%20my%20score%20at%20&amp;hashtag=quiz&amp;url={{codelabUrl}}!">
-            <i class="material-icons">share</i>
-          </a>
-        </div>
+  <div class="summary-report" *ngIf="quiz.quizId === (quizName$ | async)">
+    <h2>Summary Report</h2>
+    <div class="summary-icons">
+      <div class="print">
+        <a matTooltip="Print" aria-labelledby="Print" href="javascript:window.print()">
+          <i class="material-icons">print</i>
+        </a>
       </div>
+      <div class="email">
+        <a target="_blank" matTooltip="E-mail" aria-labelledby="E-mail" href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored {{ quizMetadata.percentage }}% on this awesome quiz about Angular {{quiz.milestone}}. Try to beat my score at {{ codelabUrl }}">
+          <i class="material-icons">email</i>
+        </a>
+      </div>
+      <div class="share">
+        <a target="_blank" matTooltip="Share on Twitter" aria-labelledby="Twitter" href="https://twitter.com/intent/tweet?text=I%20scored%20{{quizMetadata.percentage}}/100%20on%20this%20awesome%20quiz%20about%20Angular%20{{quiz.milestone}}.%20Try%20to%20beat%20my%20score%20at%20&amp;hashtag=quiz&amp;url={{codelabUrl}}!">
+          <i class="material-icons">share</i>
+        </a>
+      </div>
+    </div>
 
-      <ul class="summary-stats">
-        <li><span class="summary-stats-leader">
-          Your Score: </span> <span class="result">{{ quizMetadata.correctAnswersCount$ | async }}</span></li>
-        <li><span class="summary-stats-leader">
-          Total Questions: </span> <span class="result">{{ quizMetadata.totalQuestions }}</span></li>
-        <li><span class="summary-stats-leader">
-          Total Questions Attempted: </span> <span class="result">{{ quizMetadata.totalQuestionsAttempted }}</span></li>
-        <li><span class="summary-stats-leader">
-          Your Score (percentage): </span> <span class="result">{{ quizMetadata.percentage }}%</span></li>
-        <li><span class="summary-stats-leader">
-          Passing Score: </span> <span class="result">60%</span></li>
-        <li><span class="summary-stats-leader">
-          Test Status: </span> <span class="result">{{ quizMetadata.percentage > 60 ? 'Passed' : 'Failed' }}</span></li>
-        <li><span class="summary-stats-leader">
-          Time Elapsed: </span> <span class="result">{{ elapsedMinutes }} minutes and
-          {{ elapsedSeconds }} seconds</span></li>
-        <li><span class="summary-stats-leader">
-          Date/Time Completed: </span> <span class="result">{{ score.attemptDateTime | date:'medium' }}</span></li>
-      </ul><br />
+    <ul class="summary-stats">
+      <li><span class="summary-stats-leader">
+        Your Score: </span> <span class="result">{{ quizMetadata.correctAnswersCount$ | async }}</span></li>
+      <li><span class="summary-stats-leader">
+        Total Questions: </span> <span class="result">{{ quizMetadata.totalQuestions }}</span></li>
+      <li><span class="summary-stats-leader">
+        Total Questions Attempted: </span> <span class="result">{{ quizMetadata.totalQuestionsAttempted }}</span></li>
+      <li><span class="summary-stats-leader">
+        Your Score (percentage): </span> <span class="result">{{ quizMetadata.percentage }}%</span></li>
+      <li><span class="summary-stats-leader">
+        Passing Score: </span> <span class="result">60%</span></li>
+      <li><span class="summary-stats-leader">
+        Test Status: </span> <span class="result">{{ quizMetadata.percentage > 60 ? 'Passed' : 'Failed' }}</span></li>
+      <li><span class="summary-stats-leader">
+        Time Elapsed: </span> <span class="result">{{ elapsedMinutes }} minutes and
+        {{ elapsedSeconds }} seconds</span></li>
+      <li><span class="summary-stats-leader">
+        Date/Time Completed: </span> <span class="result">{{ score.attemptDateTime | date:'medium' }}</span></li>
+    </ul><br />
 
-      <span *ngIf="checkedShuffle" class="quiz-note">
-        <i class="material-icons" matTooltip="quiz note" matTooltipPosition="left">announcement</i>&nbsp;
-        <strong><em>Note:</em></strong>&nbsp;Questions and answers were shuffled prior to the start of the quiz.
-      </span>
+    <span *ngIf="checkedShuffle" class="quiz-note">
+      <i class="material-icons" matTooltip="quiz note" matTooltipPosition="left">announcement</i>&nbsp;
+      <strong><em>Note:</em></strong>&nbsp;Questions and answers were shuffled prior to the start of the quiz.
+    </span>
 
-      <details>
-        <summary i18n>View High Scores</summary>
-        <h2 class="high-scores-heading">High Scores</h2>
-        <table data-i18n="High Scores">
-          <tr i18n>
-            <th>Milestone</th>
-            <th>Score (%)</th>
-            <th>Date/Time</th>
-          </tr>
-          <tr *ngFor="let highScore of highScoresArray" i18n>
-            <td>{{ highScore.quizId }}</td>
-            <td>{{ highScore.score }}</td>
-            <td>{{ highScore.attemptDateTime | date: 'medium' }}</td>
-          </tr>
-        </table>
-      </details>
-    </section>
+    <details>
+      <summary i18n>View High Scores</summary>
+      <h2 class="high-scores-heading">High Scores</h2>
+      <table data-i18n="High Scores">
+        <tr i18n>
+          <th>Milestone</th>
+          <th>Score (%)</th>
+          <th>Date/Time</th>
+        </tr>
+        <tr *ngFor="let highScore of highScoresArray" i18n>
+          <td>{{ highScore.quizId }}</td>
+          <td>{{ highScore.score }}</td>
+          <td>{{ highScore.attemptDateTime | date: 'medium' }}</td>
+        </tr>
+      </table>
+    </details>
   </div>
 </ng-container>
