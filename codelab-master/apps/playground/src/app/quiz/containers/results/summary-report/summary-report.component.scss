@@ -46,18 +46,18 @@
 
     li {
       list-style-type: none;
+
+      .summary-stats-leader {
+        font-size: 16px;
+        font-weight: $font-weight-max;
+        color: $green-angular-leaf;
+      }
+
+      .result {
+        font-family: $font-stack;
+        font-size: 20px;
+      }
     }
-  }
-
-  .summary-stats-leader {
-    font-size: 16px;
-    font-weight: $font-weight-max;
-    color: $green-angular-leaf;
-  }
-
-  .result {
-    font-family: $font-stack;
-    font-size: 20px;
   }
 
   .quiz-note {

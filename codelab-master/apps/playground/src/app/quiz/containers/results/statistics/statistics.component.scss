@@ -41,14 +41,15 @@
 
     ul.resources {
       line-height: 0.5;
+
+      li {
+        list-style-type: square;
+        text-align: left;
+        margin-left: 16%;
+        width: 500px;
+      }
     }
 
-    ul.resources li {
-      list-style-type: square;
-      text-align: left;
-      margin-left: 16%;
-      width: 500px;
-    }
     .resource-title {
       font-weight: bold;
       font-style: italic;

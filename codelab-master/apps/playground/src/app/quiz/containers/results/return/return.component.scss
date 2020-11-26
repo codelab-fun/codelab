@@ -23,29 +23,29 @@
 a.btn {
   position: relative;
   overflow: hidden;
-}
 
-a.btn::after {
-  display: none;
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
+  &::after {
+    display: none;
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
 
-  width: 100px;
-  height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
 
-  /* Center the ripple */
-  top: 50%;
-  left: 50%;
+    /* Center the ripple */
+    top: 50%;
+    left: 50%;
 
-  animation: ripple 1s;
-  opacity: 0;
-}
-a.btn:focus:not(:active)::after {
-  display: block;
+    animation: ripple 1s;
+    opacity: 0;
+  }
+  &:focus:not(:active)::after {
+    display: block;
+  }
 }
 
 @keyframes ripple {

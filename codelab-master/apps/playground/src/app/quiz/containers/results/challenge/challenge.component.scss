@@ -15,24 +15,24 @@
       background: no-repeat 10px 5px;
       background-size: 25px 25px;
       color: $white;
-    }
 
-    a.btn.facebook {
-      background-color: $dark-blue;
-      background-image: url($facebook-path);
-      top: 10px !important;
-    }
+      &.facebook {
+        background-color: $dark-blue;
+        background-image: url($facebook-path);
+        top: 10px !important;
+      }
 
-    a.btn.twitter-share-button {
-      background-color: $soft-blue;
-      background-image: url($twitter-path);
-      top: 10px !important;
-    }
+      &.twitter-share-button {
+        background-color: $soft-blue;
+        background-image: url($twitter-path);
+        top: 10px !important;
+      }
 
-    a.btn.email {
-      background-color: $fuel-yellow;
-      background-image: url($email-path);
-      top: 10px !important;
+      &.email {
+        background-color: $fuel-yellow;
+        background-image: url($email-path);
+        top: 10px !important;
+      }
     }
   }
 }

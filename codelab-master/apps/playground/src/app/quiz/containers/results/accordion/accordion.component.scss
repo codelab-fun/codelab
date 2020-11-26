@@ -59,28 +59,29 @@ mat-accordion {
         font-size: 16px;
         color: $darker-blue;
         margin: 0 0 5px -30px;
-      }
 
-      .leader {
-        font-family: Roboto, "Helvetica Neue", sans-serif;
-        font-weight: 700;
-        display: inline;
-        background: none;
-        text-transform: inherit;
-        margin-left: -10px;
-      }
+        .leader {
+          font-family: Roboto, "Helvetica Neue", sans-serif;
+          font-weight: 700;
+          display: inline;
+          background: none;
+          text-transform: inherit;
+          margin-left: -10px;
+        }
 
-      i {
-        font-size: larger;
-        top: 10px !important;
-      }
-      i.correct {
-        color: $green;
-        font-weight: $font-weight-max;
-      }
-      i.incorrect {
-        color: $red;
-        font-weight: $font-weight-max;
+        i {
+          font-size: larger;
+          top: 10px !important;
+        }
+
+        .correct {
+          color: $green;
+          font-weight: $font-weight-max;
+        }
+        .incorrect {
+          color: $red;
+          font-weight: $font-weight-max;
+        }
       }
     }
   }
