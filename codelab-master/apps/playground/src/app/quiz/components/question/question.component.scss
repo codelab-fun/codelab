@@ -4,7 +4,7 @@
   margin: 0 0 17.5px 6.5px;
   padding: 5px;
 
-  mat-radio-button {
+  mat-checkbox, mat-radio-button {
     cursor: pointer;
     display: inline-block;
     width: 590px;
@@ -45,13 +45,6 @@
     position: absolute;
     right: 40px;
   }
-}
-
-.mat-radio-layout {
-  display: block !important;
-}
-div.mat-radio-inner-container {
-  display: none;
 }
 
 .message {
