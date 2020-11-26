@@ -84,37 +84,32 @@
       text-align: center !important;
     }
 
-    .high-scores {
-      table {
-        display: block;
-        width: 100%;
-        margin-left: 5%;
-        margin-bottom: 15px;
-        border-collapse: collapse;
-        font-family: $font-stack;
+    table {
+      margin-left: 5%;
+      margin-bottom: 15px;
+      font-family: $font-stack;
 
-        tr {
-          &:nth-child(even) {
-            background-color: $white-smoke;
-          }
-
-          &:hover {
-            background-color: $green;
-          }
-
-          th {
-            text-transform: uppercase;
-            border-bottom: 1px solid $black;
-            background-color: $dark-green;
-            color: $white;
-            text-align: center;
-            font-weight: $font-weight-max;
-          }
+      tr {
+        &:nth-child(even) {
+          background-color: $white-smoke;
         }
 
-        th, td {
-          padding-right: 20px;
+        &:hover {
+          background-color: $green;
         }
+
+        th {
+          text-transform: uppercase;
+          border-bottom: 1px solid $black;
+          background-color: $dark-green;
+          color: $white;
+          text-align: center;
+          font-weight: $font-weight-max;
+        }
+      }
+
+      th, td {
+        padding-right: 20px;
       }
     }
   }

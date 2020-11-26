@@ -29,6 +29,7 @@ export class SummaryReportComponent implements OnInit {
 
   score: Score;
   highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  highScoresArray: Score[];
 
   codelabUrl = "https://www.codelab.fun";
 
@@ -70,5 +71,6 @@ export class SummaryReportComponent implements OnInit {
     this.highScores.reverse();        // show high scores from most recent to latest
     this.highScores.splice(MAX_HIGH_SCORES);
     localStorage.setItem('highScores', JSON.stringify(this.highScores));
+    this.highScoresArray = this.highScores;
   }
 }

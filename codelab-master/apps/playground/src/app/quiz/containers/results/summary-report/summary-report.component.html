@@ -48,20 +48,18 @@
       <details>
         <summary i18n>View High Scores</summary>
         <h2 class="high-scores-heading">High Scores</h2>
-        <section class="high-scores" aria-labelledby="High Scores">
-          <table>
-            <tr>
-              <th>Milestone</th>
-              <th>Score (%)</th>
-              <th>Date/Time</th>
-            </tr>
-            <tr *ngFor="let highScore of highScores">
-              <td>{{ highScore.quizId }}</td>
-              <td>{{ highScore.score }}</td>
-              <td>{{ highScore.attemptDateTime | date: 'medium' }}</td>
-            </tr>
-          </table>
-        </section>
+        <table data-i18n="High Scores">
+          <tr i18n>
+            <th>Milestone</th>
+            <th>Score (%)</th>
+            <th>Date/Time</th>
+          </tr>
+          <tr *ngFor="let highScore of highScoresArray" i18n>
+            <td>{{ highScore.quizId }}</td>
+            <td>{{ highScore.score }}</td>
+            <td>{{ highScore.attemptDateTime | date: 'medium' }}</td>
+          </tr>
+        </table>
       </details>
     </section>
   </div>
