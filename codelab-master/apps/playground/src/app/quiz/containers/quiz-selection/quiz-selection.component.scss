@@ -12,10 +12,9 @@ mat-card {
     height: 100px;
 
     .logo {
-      float: left;
+      margin-left: 20px;
 
       img {
-        float: left;
         text-align: center;
         width: 160px;
         height: 80px;
@@ -27,13 +26,12 @@ mat-card {
       font-family: $font-stack;
       font-weight: $font-weight-max;
       color: $dodger-blue;
-      margin: 15px 0 0 100px !important;
-      width: 100%;
+      margin-top: 15px;
     }
 
     .info {
-      float: right;
-      margin-top: -80px;
+      margin-top: 10px;
+      margin-left: -100px;
 
       i {
         font-size: 40px;
