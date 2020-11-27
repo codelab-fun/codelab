@@ -55,7 +55,7 @@
 
       <!-- paging -->
       <section class="paging">
-        <mat-card-actions>
+        <mat-card-actions [class.last-question]="question && questionIndex === totalQuestions && isAnswered()">
           <div class="prev-question-nav" *ngIf="question && questionIndex > 1">
             <button type="button"
                     mat-icon-button
