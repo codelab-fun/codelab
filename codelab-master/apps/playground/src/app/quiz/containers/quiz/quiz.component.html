@@ -8,8 +8,10 @@
       <img mat-card-avatar class="header-image" loading="lazy"
            [routerLink]="['/quiz/select']"
            matTooltip="back to Codelab Quiz Selection" matTooltipPosition="left" />
-      <mat-card-title i18n>{{ quiz.milestone }} Quiz</mat-card-title>
-      <mat-card-subtitle i18n>Assess your knowledge of {{ quiz.milestone }}</mat-card-subtitle>
+      <div class="header-titles">
+        <mat-card-title i18n>{{ quiz.milestone }} Quiz</mat-card-title>
+        <mat-card-subtitle i18n>Assess your knowledge of {{ quiz.milestone }}</mat-card-subtitle>
+      </div>
     </mat-card-header>
 
     <mat-card-content>
