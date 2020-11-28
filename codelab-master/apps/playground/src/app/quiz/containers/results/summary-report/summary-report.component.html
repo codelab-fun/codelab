@@ -33,8 +33,8 @@
       <li><span class="summary-stats-leader">
         Test Status: </span> <span class="result">{{ quizMetadata.percentage > 60 ? 'Passed' : 'Failed' }}</span></li>
       <li><span class="summary-stats-leader">
-        Time Elapsed: </span> <span class="result">{{ elapsedMinutes }} minutes and
-        {{ elapsedSeconds }} seconds</span></li>
+        Time Elapsed: </span> <span class="result">{{ elapsedMinutes }}
+        {{ elapsedMinutes === 1 ? 'minute' : 'minutes' }} and {{ elapsedSeconds }} seconds</span></li>
       <li><span class="summary-stats-leader">
         Date/Time Completed: </span> <span class="result">{{ score.attemptDateTime | date:'medium' }}</span></li>
     </ul><br />
