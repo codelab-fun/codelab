@@ -8,7 +8,7 @@
   </mat-checkbox>
 
   <ng-container *ngIf="option.selected">
-    <div class="message">
+    <section class="message">
       <div *ngIf="option.correct">
         <i class="material-icons">sentiment_very_satisfied</i>
         <span class="correct-message" i18n>You&apos;re right! {{ correctMessage }}</span>
@@ -17,6 +17,6 @@
         <i class="material-icons">sentiment_very_dissatisfied</i>
         <span class="wrong-message" i18n>That&apos;s wrong. {{ correctMessage }}</span>
       </div>
-    </div>
+    </section>
   </ng-container>
 </div>
