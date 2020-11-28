@@ -28,8 +28,8 @@ export class SummaryReportComponent implements OnInit {
   checkedShuffle: boolean;
 
   score: Score;
-  highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  highScoresArray: Score[];
+  highScoresLocal = JSON.parse(localStorage.getItem("highScoresLocal")) || [];
+  highScores: Score[];
 
   codelabUrl = "https://www.codelab.fun";
 
@@ -65,12 +65,12 @@ export class SummaryReportComponent implements OnInit {
       totalQuestions: this.quizService.totalQuestions
     };
 
-    const MAX_HIGH_SCORES = 10;       // show results of the last 10 quizzes
-    this.highScores.push(this.score);
-    this.highScores.sort((a, b) => b.attemptDateTime - a.attemptDateTime);
-    this.highScores.reverse();        // show high scores from most recent to latest
-    this.highScores.splice(MAX_HIGH_SCORES);
-    localStorage.setItem('highScores', JSON.stringify(this.highScores));
-    this.highScoresArray = this.highScores;
+    const MAX_HIGH_SCORES = 10;            // show results of the last 10 quizzes
+    this.highScoresLocal.push(this.score);
+    this.highScoresLocal.sort((a, b) => b.attemptDateTime - a.attemptDateTime);
+    this.highScoresLocal.reverse();        // show high scores from most recent to latest
+    this.highScoresLocal.splice(MAX_HIGH_SCORES);
+    localStorage.setItem('highScores', JSON.stringify(this.highScoresLocal));
+    this.highScores = this.highScoresLocal;
   }
 }

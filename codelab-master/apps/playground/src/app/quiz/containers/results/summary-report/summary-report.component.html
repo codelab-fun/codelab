@@ -53,7 +53,7 @@
           <th>Score (%)</th>
           <th>Date/Time</th>
         </tr>
-        <tr *ngFor="let highScore of highScoresArray" i18n>
+        <tr *ngFor="let highScore of highScores" i18n>
           <td>{{ highScore.quizId }}</td>
           <td>{{ highScore.score }}</td>
           <td>{{ highScore.attemptDateTime | date: 'medium' }}</td>
