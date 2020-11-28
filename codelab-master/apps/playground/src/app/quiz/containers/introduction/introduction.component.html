@@ -2,11 +2,13 @@
   <mat-card *ngIf="quiz.quizId === (quizName$ | async)">
     <mat-card-header>
       <img mat-card-avatar class="header-image" loading="lazy" />
-      <mat-card-title i18n>{{ quiz.milestone }} Quiz</mat-card-title>
-      <mat-card-subtitle i18n>
-        <span>How well versed are you in {{ quiz.milestone }}?</span>
-        <span>Take the quiz and find out!</span>
-      </mat-card-subtitle>
+      <mat-card-title-group>
+        <mat-card-title i18n>{{ quiz.milestone }} Quiz</mat-card-title>
+        <mat-card-subtitle i18n>
+          <span>How well versed are you in {{ quiz.milestone }}?</span>
+          <span>Take the quiz and find out!</span>
+        </mat-card-subtitle>
+      </mat-card-title-group>
     </mat-card-header>
 
     <img mat-card-image class="quiz-topic-image" [src]="imagePath + quiz.image" loading="lazy" />
