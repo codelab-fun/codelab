@@ -7,14 +7,16 @@
     </ng-container>
   </mat-checkbox>
 
-  <section class="message" *ngIf="option.selected">
-    <div *ngIf="option.correct">
-      <i class="material-icons">sentiment_very_satisfied</i>
-      <span class="correct-message" i18n>You&apos;re right! {{ correctMessage }}</span>
+  <ng-container *ngIf="option.selected">
+    <div class="message">
+      <div *ngIf="option.correct">
+        <i class="material-icons">sentiment_very_satisfied</i>
+        <span class="correct-message" i18n>You&apos;re right! {{ correctMessage }}</span>
+      </div>
+      <div *ngIf="!option.correct">
+        <i class="material-icons">sentiment_very_dissatisfied</i>
+        <span class="wrong-message" i18n>That&apos;s wrong. {{ correctMessage }}</span>
+      </div>
     </div>
-    <div *ngIf="!option.correct">
-      <i class="material-icons">sentiment_very_dissatisfied</i>
-      <span class="wrong-message" i18n>That&apos;s wrong. {{ correctMessage }}</span>
-    </div>
-  </section>
+  </ng-container>
 </div>
