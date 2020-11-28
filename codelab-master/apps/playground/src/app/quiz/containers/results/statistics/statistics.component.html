@@ -3,7 +3,8 @@
     <span class="your-score" i18n>
       You scored <span class="result">{{ quizMetadata.correctAnswersCount$ | async }}</span> out of
       <span class="result">{{ quizMetadata.totalQuestions }}</span>&nbsp;
-      <span class="result">({{ quizMetadata.percentage }}%)</span> questions correctly.
+      <span class="result">({{ quizMetadata.percentage }}%)</span>
+      {{ quizMetadata.totalQuestions === 1 ? 'question' : 'questions' }} correctly.
     </span>
 
     <div class="quiz-feedback">
