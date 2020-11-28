@@ -51,7 +51,8 @@
     </ngb-progressbar>
 
     <span class="elapsed-time" i18n>
-      You completed the quiz in <span class="result">{{ elapsedMinutes }}</span> minutes and
+      You completed the quiz in <span class="result">{{ elapsedMinutes }}</span>
+      {{ elapsedMinutes === 1 ? 'minute' : 'minutes' }} and
       <span class="result">{{ elapsedSeconds }}</span> seconds.
     </span>
   </div>
