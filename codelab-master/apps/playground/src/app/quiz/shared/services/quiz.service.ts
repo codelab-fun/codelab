@@ -7,7 +7,7 @@ import { Howl } from 'howler';
 import cloneDeep from 'lodash.cloneDeep';
 
 import { QUIZ_DATA, QUIZ_RESOURCES } from '@codelab-quiz/shared/data/*';
-import { Option, Quiz, QuizQuestion, QuizResource, Resource } from '@codelab-quiz/shared/models/';
+import { Option, Quiz, QuizQuestion, QuizResource, Resource, Score } from '@codelab-quiz/shared/models/';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +48,10 @@ export class QuizService implements OnDestroy {
 
   multipleAnswer: boolean;
   checkedShuffle: boolean;
+
+  score: Score;
+  highScores: Score[];
+  highScoresLocal = JSON.parse(localStorage.getItem("highScoresLocal")) || [];
 
   unsubscribe$ = new Subject<void>();
   private url = "assets/data/quiz.json";
@@ -97,7 +101,7 @@ export class QuizService implements OnDestroy {
     return this.quizResources;
   }
 
-  getQuizzes(): Observable<Quiz[]> {
+  getQuizzes(): Observable <Quiz[]> {
     return this.http.get<Quiz[]>(`${this.url}`);
   }
 
@@ -114,6 +118,27 @@ export class QuizService implements OnDestroy {
       this.setExplanationText(question);
       return identifiedCorrectAnswers;
     }
+  }
+
+  calculatePercentageOfCorrectlyAnsweredQuestions(): number {
+    return Math.ceil((this.correctAnswersCountSubject.getValue() / this.totalQuestions) * 100);
+  }
+
+  saveHighScores(): void {
+    this.score = {
+      quizId: this.quizId,
+      attemptDateTime: new Date(),
+      score: this.calculatePercentageOfCorrectlyAnsweredQuestions(),
+      totalQuestions: this.totalQuestions
+    };
+
+    const MAX_HIGH_SCORES = 10; // show results of the last 10 quizzes
+    this.highScoresLocal.push(this.score);
+    this.highScoresLocal.sort((a, b) => b.attemptDateTime - a.attemptDateTime);
+    this.highScoresLocal.reverse(); // show high scores from most recent to latest
+    this.highScoresLocal.splice(MAX_HIGH_SCORES);
+    localStorage.setItem("highScoresLocal", JSON.stringify(this.highScoresLocal));
+    this.highScores = this.highScoresLocal;
   }
 
   /********* setter functions ***********/
