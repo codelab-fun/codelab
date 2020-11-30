@@ -4,11 +4,10 @@
             [@changeRoute]="animationState$ | async"
             (@changeRoute.done)="animationDoneHandler()">
 
-    <mat-card-header>
-      <img mat-card-avatar class="header-image" loading="lazy"
-           [routerLink]="['/quiz/select']"
-           matTooltip="back to Codelab Quiz Selection" matTooltipPosition="left" />
-      <mat-card-title-group>
+    <mat-card-header class="container row">
+      <img mat-card-avatar class="header-image col-3" loading="lazy" [routerLink]="['/quiz/select']"
+           matTooltip="back to Codelab Quiz Selection" matTooltipPosition="left">
+      <mat-card-title-group class="col-9">
         <mat-card-title i18n>{{ quiz.milestone }} Quiz</mat-card-title>
         <mat-card-subtitle i18n>Assess your knowledge of {{ quiz.milestone }}</mat-card-subtitle>
       </mat-card-title-group>

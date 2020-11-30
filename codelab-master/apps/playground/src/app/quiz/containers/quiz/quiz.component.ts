@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 
 import { ChangeRouteAnimation } from '@codelab-quiz/animations/';
-import { Quiz, QuizQuestion, QuizResource, Resource, Status } from '@codelab-quiz/shared/models/';
+import { Quiz, QuizQuestion, QuizResource, Resource, Status } from '@codelab-quiz/shared/models/*';
 import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
 
 type AnimationState = 'animationStarted' | 'none';

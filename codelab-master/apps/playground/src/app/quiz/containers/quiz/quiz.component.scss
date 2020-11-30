@@ -8,25 +8,23 @@ mat-card {
 
     .header-image {
       float: left;
-      margin: -15px 0 0 15px;
+      margin: -15px 0 0 0;
     }
 
     mat-card-title-group {
       float: left;
-      margin-top: -90px;
 
       mat-card-title {
         display: inline-block;
         margin-top: 5px;
-        margin-left: 160px;
+        margin-left: 15px;
         font-size: 36px;
       }
 
       mat-card-subtitle {
         display: block;
         float: right;
-        margin-top: -10px !important;
-        margin-right: 25px !important;
+        margin-right: -15px;
         clear: both;
       }
     }
