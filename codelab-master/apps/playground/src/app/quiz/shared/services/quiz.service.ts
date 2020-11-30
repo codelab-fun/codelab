@@ -132,10 +132,10 @@ export class QuizService implements OnDestroy {
       totalQuestions: this.totalQuestions
     };
 
-    const MAX_HIGH_SCORES = 10; // show results of the last 10 quizzes
+    const MAX_HIGH_SCORES = 10;         // show results of the last 10 quizzes
     this.highScoresLocal.push(this.score);
     this.highScoresLocal.sort((a, b) => b.attemptDateTime - a.attemptDateTime);
-    this.highScoresLocal.reverse(); // show high scores from most recent to latest
+    this.highScoresLocal.reverse();     // show high scores from most recent to latest
     this.highScoresLocal.splice(MAX_HIGH_SCORES);
     localStorage.setItem("highScoresLocal", JSON.stringify(this.highScoresLocal));
     this.highScores = this.highScoresLocal;

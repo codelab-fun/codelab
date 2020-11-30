@@ -141,7 +141,7 @@ export const QUIZ_DATA: Quiz[] = [
           { text: 'To attach metadata to a class, function, property or variable.', correct: true },
           { text: 'To add properties and methods to the class.' },
           { text: 'To minimize the amount of code you will write.' },
-          { text: 'To perform databinding.' }
+          { text: 'To perform data-binding.' }
         ],
         explanation: 'a decorator attaches metadata to a class, function, property or variable'
       },
@@ -251,7 +251,7 @@ export const QUIZ_DATA: Quiz[] = [
           { text: '[class.property]="isProperty"', correct: true },
           { text: 'property$' }
         ],
-        explanation: 'we use the [class.property] syntax to assign a class name based on a value of property.'
+        explanation: 'we use the [class.property] syntax to assign a class name based on a value of property'
       },
       {
         questionText: 'What is the proper way to bind styles to a button in Angular?',
@@ -425,7 +425,7 @@ export const QUIZ_DATA: Quiz[] = [
           { text: 'Templates' },
           { text: 'Material' }
         ],
-        explanation: 'Router is used to provide URLs to the different parts of your app.'
+        explanation: 'router is used to provide URLs to the different parts of your app'
       },
       {
         questionText: 'How are routes configured in Angular?',
@@ -611,7 +611,7 @@ export const QUIZ_DATA: Quiz[] = [
           { text: 'untouched' },
           { text: 'pristine' }
         ],
-        explanation: 'dirty is true when the user changes the value of the input '
+        explanation: 'dirty is true when the user changes the value of the input'
       },
       {
         questionText: 'Which is true if the user focused on the input and then blurred without changing the value?',
@@ -687,7 +687,7 @@ export const QUIZ_DATA: Quiz[] = [
           { text: 'http://www.google.com' },
           { text: 'http://angular.io' },
           { text: 'http://localhost' },
-          { text: 'http://localhost:4200/', correct: true  }
+          { text: 'http://localhost:4200/', correct: true }
         ],
         explanation: 'viewing http://localhost:4200/ allows us to view the app in the browser'
       },
