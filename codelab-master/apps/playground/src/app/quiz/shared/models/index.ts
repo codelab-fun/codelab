@@ -6,3 +6,4 @@ export * from './QuizResource.model';
 export * from './Resource.model';
 export * from './Result.model';
 export * from './Score.model';
+export * from './Status.enum';

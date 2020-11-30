@@ -3,14 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Quiz, QuizMetadata, Resource } from '@codelab-quiz/shared/models/';
+import { Quiz, QuizMetadata, Resource, Status } from '@codelab-quiz/shared/models/';
 import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
-
-enum Status {
-  Started = 'Started',
-  Continue = 'Continue',
-  Completed = 'Completed'
-}
 
 @Component({
   selector: 'codelab-results-statistics',
