@@ -38,8 +38,7 @@
       </codelab-quiz-question>
     </mat-card-content>
 
-    <mat-card-footer [class.multiple-unanswered]="multipleAnswer && !isAnswered()"
-                     [class.single-unanswered]="!multipleAnswer && !isAnswered()">
+    <mat-card-footer>
       <!-- selection message/next message -->
       <ng-container *ngIf="!isAnswered(); else answered">
 				<span i18n class="selection-message">
