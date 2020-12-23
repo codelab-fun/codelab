@@ -17,7 +17,7 @@ type AnimationState = 'animationStarted' | 'none';
 export class QuizSelectionComponent implements OnInit {
   quizzes$: Observable<Quiz[]>;
   currentQuestionIndex: number;
-  selectionParams: Object;
+  selectionParams: Object = {};
   animationState$ = new BehaviorSubject<AnimationState>('none');
   imagePath = "assets/images/milestones/";
 

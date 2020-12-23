@@ -42,7 +42,7 @@
         *ngFor="let quiz of quizzes$ | async"
         [@slideLeftToRight]="animationState$ | async"
         (@slideLeftToRight.done)="animationDoneHandler()"
-        [routerLink]="['/quiz/intro/', quiz.quizId]"
+        [routerLink]="['/quiz/intro/', quiz.quizId]" loading="lazy"
         [ngStyle]="{ 'background': 'url(' + imagePath + quiz.image + ') no-repeat center 10px',
                      'background-size': '300px 210px' }">
 
@@ -57,13 +57,13 @@
                         selectionParams.status === 'Started' &&
                         quiz.quizId === selectionParams.startedQuizId"
                 [routerLink]="['/quiz/intro/', quiz.quizId]">
-            <i class="material-icons">launch</i>
+                <i class="material-icons">launch</i>
           </span>
           <span name="continue" matTooltip="Continue"
                 *ngIf="selectionParams.status === 'Continue' &&
                        quiz.quizId === selectionParams.continueQuizId"
                 [routerLink]="['/quiz/question/', quiz.quizId, currentQuestionIndex]">
-            <i class="material-icons">play_arrow</i>
+                <i class="material-icons">play_arrow</i>
           </span>
           <span name="completed" matTooltip="Completed"
                 *ngIf="selectionParams.status === 'Completed' &&

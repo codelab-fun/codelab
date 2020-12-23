@@ -39,7 +39,7 @@
     </mat-card-content>
 
     <mat-card-footer>
-      <!-- selection message/next message -->
+      <!-- selection/next message -->
       <ng-container *ngIf="!isAnswered(); else answered">
 				<span i18n class="selection-message">
           Please select an option to continue&hellip;
@@ -53,7 +53,7 @@
 
       <!-- paging -->
       <section class="paging">
-        <mat-card-actions [class.last-question]="question && questionIndex === totalQuestions && isAnswered()">
+        <mat-card-actions [class.last-question]="isAnswered() && questionIndex === totalQuestions">
           <div class="prev-question-nav" *ngIf="question && questionIndex > 1">
             <button type="button"
                     mat-icon-button
