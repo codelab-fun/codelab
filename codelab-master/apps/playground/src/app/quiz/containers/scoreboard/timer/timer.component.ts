@@ -20,6 +20,9 @@ export class TimerComponent implements OnChanges {
 
   constructor(private timerService: TimerService) {
     this.selectedAnswer = this.answer;
+    this.start$ = this.timerService.start$;
+    this.reset$ = this.timerService.reset$;
+    this.stop$ = this.timerService.stop$;
     this.countdown();
   }
 
@@ -33,10 +36,6 @@ export class TimerComponent implements OnChanges {
   }
 
   countdown(): void {
-    this.start$ = this.timerService.start$;
-    this.reset$ = this.timerService.reset$;
-    this.stop$ = this.timerService.stop$;
-
     this.time$ = concat(this.start$.pipe(first()), this.reset$).pipe(
       switchMapTo(
         timer(0, 1000).pipe(
@@ -59,10 +58,6 @@ export class TimerComponent implements OnChanges {
   }
 
   stopwatch(): void {
-    this.start$ = this.timerService.start$;
-    this.reset$ = this.timerService.reset$;
-    this.stop$ = this.timerService.stop$;
-
     this.time$ = concat(this.start$.pipe(first()), this.reset$).pipe(
       switchMapTo(
         timer(0, 1000)
