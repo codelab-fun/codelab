@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { concat, Observable, timer } from 'rxjs';
 import { first, repeatWhen, scan, skip, switchMapTo, take, takeUntil, tap } from 'rxjs/operators';
 
@@ -9,7 +9,7 @@ import { TimerService } from '@codelab-quiz/shared/services/*';
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss']
 })
-export class TimerComponent implements OnChanges {
+export class TimerComponent implements OnInit, OnChanges {
   @Input() selectedAnswer: number;
   answer: number;
   timePerQuestion = 30;
@@ -18,7 +18,9 @@ export class TimerComponent implements OnChanges {
   reset$: Observable<number>;
   stop$: Observable<number>;
 
-  constructor(private timerService: TimerService) {
+  constructor(private timerService: TimerService) { }
+
+  ngOnInit(): void {
     this.selectedAnswer = this.answer;
     this.start$ = this.timerService.start$;
     this.reset$ = this.timerService.reset$;
