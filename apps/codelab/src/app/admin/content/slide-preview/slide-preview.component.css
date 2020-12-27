@@ -1,0 +1,21 @@
+:host {
+  border: 1px #ddd solid;
+  width: 256px;
+  display: block;
+  margin-top: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: #444;
+  color: #ddd;
+  padding: 4px;
+}
+
+.slide {
+  width: 1024px;
+  height: 768px;
+  display: block;
+  zoom: 0.25;
+}

@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AdminComponent {
   readonly links = [
     { link: 'users', name: 'Users' },
-    { link: 'feedback', name: 'Feedback' }
+    { link: 'feedback', name: 'Feedback' },
+    { link: 'content', name: 'Content' }
   ];
 }

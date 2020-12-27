@@ -6,11 +6,13 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { UsersModule } from './users/users.module';
+import { ContentModule } from './content/content.module';
 
 @NgModule({
   imports: [
     AdminRoutingModule,
     CommonModule,
+    ContentModule,
     FeedbackModule,
     UsersModule,
     MatCardModule,
