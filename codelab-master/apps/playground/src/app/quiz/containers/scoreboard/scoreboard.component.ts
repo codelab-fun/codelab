@@ -37,7 +37,7 @@ export class ScoreboardComponent implements OnInit, OnChanges, OnDestroy {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes.selectedAnswer &&
         changes.selectedAnswer.currentValue !== changes.selectedAnswer.firstChange) {
       this.answer = changes.selectedAnswer.currentValue;
