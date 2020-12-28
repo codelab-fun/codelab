@@ -33,7 +33,6 @@ export class QuizComponent implements OnInit, OnDestroy {
   quizName$: Observable<string>;
   indexOfQuizId: number;
   status: Status;
-  checkedShuffle: boolean;
 
   get multipleAnswer(): boolean {
     return this.quizService.multipleAnswer;
