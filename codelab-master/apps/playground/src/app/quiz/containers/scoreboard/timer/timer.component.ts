@@ -17,6 +17,7 @@ export class TimerComponent implements OnInit, OnChanges {
   start$: Observable<number>;
   reset$: Observable<number>;
   stop$: Observable<number>;
+  concat$: Observable<number>;
 
   constructor(private timerService: TimerService) { }
 
@@ -25,6 +26,7 @@ export class TimerComponent implements OnInit, OnChanges {
     this.start$ = this.timerService.start$;
     this.reset$ = this.timerService.reset$;
     this.stop$ = this.timerService.stop$;
+    this.concat$ = concat(this.start$.pipe(first()), this.reset$);
     this.countdown();
   }
 
@@ -38,7 +40,7 @@ export class TimerComponent implements OnInit, OnChanges {
   }
 
   countdown(): void {
-    this.time$ = concat(this.start$.pipe(first()), this.reset$).pipe(
+    this.time$ = this.concat$.pipe(
       switchMapTo(
         timer(0, 1000).pipe(
           scan((acc) => acc > 0 ? (acc - 1 >= 10 ? acc - 1 : `0${acc - 1}`)
@@ -60,7 +62,7 @@ export class TimerComponent implements OnInit, OnChanges {
   }
 
   stopwatch(): void {
-    this.time$ = concat(this.start$.pipe(first()), this.reset$).pipe(
+    this.time$ = this.concat$.pipe(
       switchMapTo(
         timer(0, 1000)
           .pipe(scan(acc => acc + 1, 0),
