@@ -5,8 +5,9 @@ import {
   ɵɵelementStart,
   ɵɵtext
 } from '@angular/core';
-import { CodelabExercisePlaygroundComponent } from '../../../components/exercise-playground/codelab-exercise-playground.component';
 import { CodelabExerciseComponent } from '../../../components/exercise/exercise.component';
+import { ExercisePlaygroundEditorComponent } from '../custom-component-editors/exercise-playground-editor/exercise-playground-editor.component';
+import { CodelabExercisePlaygroundComponent } from '../../../components/exercise-playground/codelab-exercise-playground.component';
 
 export function fakeCompileSlide(slide) {
   class GeneratedComponent {}
@@ -38,13 +39,18 @@ export function fakeCompileSlide(slide) {
   };
   (GeneratedComponent as any).ɵcmp = ɵɵdefineComponent({
     type: GeneratedComponent,
-    directives: [CodelabExerciseComponent, CodelabExercisePlaygroundComponent],
+    directives: [
+      CodelabExerciseComponent,
+      ExercisePlaygroundEditorComponent,
+      CodelabExercisePlaygroundComponent
+    ],
     selectors: [['slides-dynamic-tag-renderer']],
     decls: 300,
     vars: 0,
     template: function GeneratedComponent_Template(rf, ctx) {
       if (rf & 1) {
-        renderElement(slide.slide);
+        renderElement(slide);
+        console.log(slide);
       }
     }
   });

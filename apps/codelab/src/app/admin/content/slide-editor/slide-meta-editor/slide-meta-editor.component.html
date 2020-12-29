@@ -1,6 +1,6 @@
 <div>
   <input
-    [value]="slide.slide.title"
+    [value]="slide.title"
     class="title"
     (keyup)="updateTitle.emit($event.target.value)"
   />
@@ -8,7 +8,7 @@
 <div>
   #<input
     class="id"
-    [value]="slide.slide.id"
+    [value]="slide.id"
     (keyup)="updateId.emit($event.target.value)"
   />
 </div>

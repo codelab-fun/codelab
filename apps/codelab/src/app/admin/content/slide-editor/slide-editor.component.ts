@@ -2,6 +2,7 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
   ViewEncapsulation
@@ -13,17 +14,23 @@ import {
   styleUrls: ['./slide-editor.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SlideEditorComponent implements OnInit {
+export class SlideEditorComponent implements OnInit, OnChanges {
   @Input() slide;
   @Output() updateSlide = new EventEmitter();
 
   blocks = [];
 
+  ngOnChanges() {
+    if (JSON.stringify(this.generateBlocks()) !== JSON.stringify(this.blocks)) {
+      this.blocks = this.generateBlocks();
+    }
+  }
+
   generateBlocks() {
     let current = { type: '', code: '' };
     const blocks = [];
 
-    for (const tag of this.slide.slide.childNodes) {
+    for (const tag of this.slide.childNodes) {
       const type =
         tag.tagName && tag.tagName.toLowerCase().startsWith('codelab')
           ? 'custom'
@@ -36,22 +43,22 @@ export class SlideEditorComponent implements OnInit {
       current.code += (tag.outerHTML || tag.textContent).trim();
     }
 
-    this.blocks = blocks;
+    return blocks;
   }
 
   ngOnInit() {
-    this.generateBlocks();
+    this.blocks = this.generateBlocks();
   }
 
   updateAttr(id: string, value: any) {
-    this.slide.slide.setAttribute(id, value);
-    this.updateSlide.emit(this.slide.slide);
+    this.slide.setAttribute(id, value);
+    this.updateSlide.emit(this.slide);
   }
 
   updateHtml(i: number, html: string) {
     this.blocks[i].code = html.trim();
     const innerHTML = this.blocks.map(b => b.code).join('\n');
-    this.slide.slide.innerHTML = innerHTML;
-    this.updateSlide.emit(this.slide.slide);
+    this.slide.innerHTML = innerHTML;
+    this.updateSlide.emit(this.slide);
   }
 }

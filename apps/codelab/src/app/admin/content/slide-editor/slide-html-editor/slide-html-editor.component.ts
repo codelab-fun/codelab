@@ -1,12 +1,12 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   Input,
   OnChanges,
   OnDestroy,
-  OnInit,
   Output,
   SimpleChanges
 } from '@angular/core';
@@ -15,7 +15,8 @@ import MediumEditor from 'medium-editor';
 @Component({
   selector: 'slides-slide-html-editor',
   templateUrl: './slide-html-editor.component.html',
-  styleUrls: ['./slide-html-editor.component.css']
+  styleUrls: ['./slide-html-editor.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SlideHtmlEditorComponent
   implements AfterViewInit, OnChanges, OnDestroy {

@@ -1,10 +1,9 @@
-import { Component, Injector, Input } from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import { fakeCompileSlide } from './compiler';
 
 @Component({
   selector: 'slides-dynamic-tag-renderer',
   template: `
-    <h1>dsd</h1>
     <ng-template
       *ngIf="component"
       [ngComponentOutlet]="component"
@@ -12,13 +11,15 @@ import { fakeCompileSlide } from './compiler';
     ></ng-template>
   `
 })
-export class DynamicTagRendererComponent {
+export class DynamicTagRendererComponent implements OnInit {
   @Input() slide;
 
   component;
+
   constructor(readonly injector: Injector) {}
 
   ngOnInit() {
+    console.log(this.slide);
     this.component = fakeCompileSlide(this.slide);
   }
 }

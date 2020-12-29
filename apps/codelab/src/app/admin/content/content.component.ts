@@ -4,14 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 declare const require;
 
 function importSlide(s, sanitizer: DomSanitizer) {
-  const slide = s.cloneNode(true);
-
-  return {
-    slide,
-    id: slide.id,
-    title: slide.getAttribute('title'),
-    content: sanitizer.bypassSecurityTrustHtml(slide.innerHTML)
-  };
+  return s;
 }
 
 function getContent(code: string, sanitizer: DomSanitizer) {
@@ -87,9 +80,5 @@ export class ContentComponent implements OnInit {
   addSlide() {
     this.setCode(addSlide(this.code, this.selectedSlide));
     this.selectedSlide++;
-  }
-
-  updateAttr(attr: string, value: any) {
-    this.setCode(updateAttr(this.code, this.selectedSlide, attr, value));
   }
 }

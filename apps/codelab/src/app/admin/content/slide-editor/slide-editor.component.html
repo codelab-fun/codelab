@@ -11,4 +11,10 @@
       (changeHtml)="updateHtml(i, $event)"
     ></slides-slide-html-editor>
   </div>
+  <div *ngIf="block.type === 'custom'">
+    <slides-custom-editor
+      [html]="block.code"
+      (changeHtml)="updateHtml(i, $event)"
+    ></slides-custom-editor>
+  </div>
 </div>
