@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  border: 0 solid;
+  font-size: 24px;
+  padding: 0;
+}
+
+.id {
+  border: 0 solid;
+  padding: 0;
+  color: #585a6b;
+}

@@ -1,7 +1,25 @@
-<div *ngFor="let slide of slides; let i = index">
-  <slides-full-slide [slide]="slide"></slides-full-slide>
-</div>
-
-<!--<div *ngFor="let slide of slides; let i = index;">-->
-<!--  <slides-slide-preview [slide]="slide"></slides-slide-preview>-->
+<!--<div *ngFor="let slide of slides; let i = index">-->
+<!--  <slides-full-slide [slide]="slide"></slides-full-slide>-->
 <!--</div>-->
+<div class="wrapper">
+  <div class="slides-wrapper">
+    <button (click)="addSlide()">Add</button>
+    <button
+      *ngFor="let slide of slides; let i = index"
+      (click)="selectedSlide = i"
+      class="slide"
+    >
+      <slides-slide-preview
+        [slide]="slide"
+        [class.selected]="i === selectedSlide"
+      ></slides-slide-preview>
+    </button>
+  </div>
+
+  <div class="editor">
+    <slides-slide-editor
+      [slide]="slides[selectedSlide]"
+      (updateSlide)="updateSlide($event)"
+    ></slides-slide-editor>
+  </div>
+</div>

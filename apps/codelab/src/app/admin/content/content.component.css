@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+}
+
+.selected {
+  border: 1px #999 solid;
+  background: radial-gradient(#fff, #f5f5f5);
+}
+
+.editor {
+  padding: 0 24px;
+}
+
+.slides-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide {
+  padding: 0;
+  background: white;
+  height: 50px;
+  overflow: hidden;
+  border: 1px #888 solid;
+  display: flex;
+  margin: 0 0 8px 0;
+  text-align: left;
+}

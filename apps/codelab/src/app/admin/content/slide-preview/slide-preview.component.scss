@@ -1,9 +1,9 @@
 :host {
-  border: 1px #eee solid;
   display: block;
-  margin-bottom: 32px;
   border-radius: 8px;
   padding: 24px;
+  zoom: 0.25;
+  width: 250px;
 }
 
 .header {
@@ -61,6 +61,7 @@
 
   code {
     font-size: 20px;
+
     &:before {
       //content: attr(data-name, "lol");
       display: block;

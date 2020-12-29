@@ -1,0 +1,49 @@
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
+import MediumEditor from 'medium-editor';
+
+@Component({
+  selector: 'slides-slide-html-editor',
+  templateUrl: './slide-html-editor.component.html',
+  styleUrls: ['./slide-html-editor.component.css']
+})
+export class SlideHtmlEditorComponent
+  implements AfterViewInit, OnChanges, OnDestroy {
+  @Input() html;
+  @Output() changeHtml = new EventEmitter();
+  private editor: any;
+  code = '';
+
+  constructor(private readonly el: ElementRef) {}
+
+  ngAfterViewInit(): void {
+    this.editor = new MediumEditor(this.el.nativeElement);
+    this.editor.setContent(this.html);
+    this.editor.subscribe('editableInput', (_, element) => {
+      this.code = element.innerHTML;
+      this.changeHtml.emit(element.innerHTML);
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.editor) {
+      if (this.code !== this.html) {
+        this.editor.setContent(this.html);
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.editor.destroy();
+  }
+}

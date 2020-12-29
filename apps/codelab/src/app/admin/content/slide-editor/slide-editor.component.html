@@ -1,0 +1,14 @@
+<slides-slide-meta-editor
+  [slide]="slide"
+  (updateId)="updateAttr('id', $event)"
+  (updateTitle)="updateAttr('title', $event)"
+></slides-slide-meta-editor>
+
+<div *ngFor="let block of blocks; let i = index">
+  <div *ngIf="block.type === 'html'">
+    <slides-slide-html-editor
+      [html]="block.code"
+      (changeHtml)="updateHtml(i, $event)"
+    ></slides-slide-html-editor>
+  </div>
+</div>

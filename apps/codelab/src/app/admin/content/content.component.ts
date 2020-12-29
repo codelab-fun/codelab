@@ -5,23 +5,17 @@ declare const require;
 
 function importSlide(s, sanitizer: DomSanitizer) {
   const slide = s.cloneNode(true);
-  const header = slide.querySelector('h2, h3, h4');
-
-  if (header) {
-    header.remove();
-  }
 
   return {
     slide,
     id: slide.id,
-    title: header && header.innerText,
+    title: slide.getAttribute('title'),
     content: sanitizer.bypassSecurityTrustHtml(slide.innerHTML)
   };
 }
 
-function getContent(sanitizer: DomSanitizer) {
-  const sample = require(`!raw-loader!./sample/sample.html`);
-  const node = new DOMParser().parseFromString(sample, 'text/html');
+function getContent(code: string, sanitizer: DomSanitizer) {
+  const node = new DOMParser().parseFromString(code, 'text/html');
 
   return {
     slides: Array.from(node.querySelectorAll('slide')).map(slide =>
@@ -30,16 +24,72 @@ function getContent(sanitizer: DomSanitizer) {
   };
 }
 
+function updateSlide(code, slideIndex, html) {
+  const node = new DOMParser().parseFromString(code, 'text/html');
+  node.querySelectorAll('slide')[slideIndex].outerHTML = html;
+  return node.body.innerHTML;
+}
+
+function addSlide(code, slideIndex) {
+  const node = new DOMParser().parseFromString(code, 'text/html');
+  const slides = node.querySelectorAll('slide');
+  const parent = slides[slideIndex].parentNode;
+
+  const newSlide = document.createElement('slide');
+  newSlide.innerHTML = 'new';
+
+  if (slideIndex + 1 === slides.length) {
+    parent.appendChild(newSlide);
+  } else {
+    parent.insertBefore(newSlide, slides[slideIndex].nextElementSibling);
+  }
+  return node.body.innerHTML;
+}
+
+function updateAttr(
+  code: string,
+  slideIndex: number,
+  attr: string,
+  value: any
+) {
+  const node = new DOMParser().parseFromString(code, 'text/html');
+  node.querySelectorAll('slide')[slideIndex].setAttribute(attr, value);
+  return node.body.innerHTML;
+}
+
 @Component({
   selector: 'slides-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  readonly content = getContent(this.sanitizer);
-  readonly slides = this.content.slides;
+  code = '';
+  content;
+  slides = [];
+  selectedSlide = 0;
 
-  constructor(readonly sanitizer: DomSanitizer) {}
+  constructor(readonly sanitizer: DomSanitizer) {
+    this.setCode(require(`!raw-loader!./sample/sample.html`));
+  }
 
   ngOnInit(): void {}
+
+  setCode(code: string) {
+    this.code = code;
+    this.content = getContent(this.code, this.sanitizer);
+    this.slides = this.content.slides;
+  }
+
+  updateSlide(slide) {
+    this.setCode(updateSlide(this.code, this.selectedSlide, slide.outerHTML));
+  }
+
+  addSlide() {
+    this.setCode(addSlide(this.code, this.selectedSlide));
+    this.selectedSlide++;
+  }
+
+  updateAttr(attr: string, value: any) {
+    this.setCode(updateAttr(this.code, this.selectedSlide, attr, value));
+  }
 }
