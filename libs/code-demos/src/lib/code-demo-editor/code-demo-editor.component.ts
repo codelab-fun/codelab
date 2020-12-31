@@ -103,6 +103,11 @@ export class CodeDemoEditorComponent
     if (changes.fontSize) {
       this.resize();
     }
+
+    if (changes.lineNumbers && this.editor) {
+      console.log('updating line numbers');
+      this.editor.updateOptions({ lineNumbers: this.lineNumbers });
+    }
   }
 
   ngAfterViewInit(): void {

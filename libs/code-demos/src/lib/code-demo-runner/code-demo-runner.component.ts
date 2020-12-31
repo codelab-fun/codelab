@@ -16,6 +16,7 @@ import { createSystemJsSandbox } from '@codelab/code-demos/src/lib/shared/sandbo
 import { compileTemplates } from '../runner/prepare-templates';
 import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
 import { addMetaInformation } from '../shared/helpers';
+import { assertObject } from '@codelab/code-demos/src/lib/shared/utils';
 
 interface CodeFiles {
   [key: string]: string;
@@ -83,6 +84,7 @@ export class CodeDemoRunnerComponent
   }
 
   async ngAfterViewInit() {
+    assertObject(this.code);
     const sandbox = await createSystemJsSandbox(
       this.runnerElement.nativeElement,
       {

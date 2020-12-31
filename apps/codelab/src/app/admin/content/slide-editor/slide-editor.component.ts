@@ -61,4 +61,15 @@ export class SlideEditorComponent implements OnInit, OnChanges {
     this.slide.innerHTML = innerHTML;
     this.updateSlide.emit(this.slide);
   }
+
+  addP() {
+    this.blocks.push({ type: 'html', code: '<p>lol</p>' });
+  }
+
+  addCode() {
+    this.blocks.push({
+      type: 'custom',
+      code: '<codelab-code-demo-editor>//code</codelab-code-demo-editor>'
+    });
+  }
 }

@@ -1,0 +1,7 @@
+.config {
+  display: flex;
+}
+
+input {
+  width: 20px;
+}

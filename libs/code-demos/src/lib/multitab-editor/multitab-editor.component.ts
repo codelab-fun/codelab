@@ -198,7 +198,7 @@ export class MultitabEditorComponent
   }
 
   private updateOpenModels() {
-    if (this.models) {
+    if (this.models && this.models.length) {
       this.openModels = this.files.map((file, index) => {
         const model = this.getModelByFileName(file);
         model.editorIndex = index;

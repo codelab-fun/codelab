@@ -1,18 +1,26 @@
 import {
   ɵɵdefineComponent,
-  ɵɵelement,
   ɵɵelementEnd,
   ɵɵelementStart,
+  ɵɵlistener,
   ɵɵtext
 } from '@angular/core';
 import { CodelabExerciseComponent } from '../../../components/exercise/exercise.component';
 import { ExercisePlaygroundEditorComponent } from '../custom-component-editors/exercise-playground-editor/exercise-playground-editor.component';
-import { CodelabExercisePlaygroundComponent } from '../../../components/exercise-playground/codelab-exercise-playground.component';
+import { CodeDemoEditorEditorComponent } from '../custom-component-editors/code-demo-editor-editor/code-demo-editor.component';
+import { DefaultValueAccessor, NgControlStatus, NgModel } from '@angular/forms';
 
 export function fakeCompileSlide(slide) {
   class GeneratedComponent {}
 
   let i = 0;
+  let constIndex = 0;
+
+  function getConsts(element) {
+    return [
+      Array.from(element.attributes).flatMap((a: Attr) => [a.name, a.value])
+    ];
+  }
 
   function renderElement(element) {
     if (element.nodeType === 3 /* Text Node */) {
@@ -20,12 +28,29 @@ export function fakeCompileSlide(slide) {
       return;
     }
 
+    const tag = element.tagName.toLowerCase();
+
     if (element.childNodes.length === 0) {
-      ɵɵelement(i++, element.tagName.toLowerCase());
+      ɵɵelementStart(
+        i++,
+        tag,
+        element.attributes.length ? constIndex++ : undefined
+      );
+      for (const prop in element) {
+        if (element.hasOwnProperty(prop)) {
+          if (prop.startsWith('(')) {
+            ɵɵlistener(prop.slice(1, -1), element[prop]);
+          }
+
+          console.log(prop);
+        }
+      }
+
+      ɵɵelementEnd();
       return;
     }
 
-    ɵɵelementStart(i++, element.tagName);
+    ɵɵelementStart(i++, tag);
 
     for (const child of element.childNodes) {
       renderElement(child);
@@ -42,15 +67,18 @@ export function fakeCompileSlide(slide) {
     directives: [
       CodelabExerciseComponent,
       ExercisePlaygroundEditorComponent,
-      CodelabExercisePlaygroundComponent
+      CodeDemoEditorEditorComponent,
+      DefaultValueAccessor,
+      NgControlStatus,
+      NgModel
     ],
-    selectors: [['slides-dynamic-tag-renderer']],
+    consts: getConsts(slide),
+    selectors: [['generated']],
     decls: 300,
     vars: 0,
     template: function GeneratedComponent_Template(rf, ctx) {
       if (rf & 1) {
         renderElement(slide);
-        console.log(slide);
       }
     }
   });

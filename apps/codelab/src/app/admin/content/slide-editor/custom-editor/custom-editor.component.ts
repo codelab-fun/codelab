@@ -10,13 +10,39 @@ export class CustomEditorComponent implements OnInit {
   @Output() changeHtml = new EventEmitter();
   slide;
 
-  ngOnInit(): void {
-    const tag = this.html.match(/<([\w\d-]*) /)[1];
-    const html = this.html.replaceAll(tag, tag + '-editor');
+  updateHtml(props) {
+    const slide = new DOMParser().parseFromString(this.html, 'text/html').body
+      .children[0] as HTMLElement;
 
-    this.slide = new DOMParser().parseFromString(
-      html,
-      'text/html'
-    ).body.children[0];
+    slide.innerHTML = props.content;
+
+    Object.entries(props)
+      .filter(([key]) => key !== 'content')
+      .forEach(([key, value]) => {
+        slide.setAttribute(key, value.toString());
+      });
+
+    this.changeHtml.emit(slide.outerHTML);
+  }
+
+  ngOnInit(): void {
+    const slide = new DOMParser().parseFromString(this.html, 'text/html').body
+      .children[0] as HTMLElement;
+
+    this.slide = document.createElement(slide.tagName + '-editor');
+    const attrs = {
+      content: slide.innerHTML
+    };
+    for (const attr of Array.from(slide.attributes)) {
+      attrs[attr.name] = attr.value;
+    }
+
+    this.slide.setAttribute('data', JSON.stringify(attrs));
+
+    this.slide['[data]'] = JSON.stringify(attrs);
+
+    this.slide['(dataChange)'] = props => {
+      this.updateHtml(props);
+    };
   }
 }

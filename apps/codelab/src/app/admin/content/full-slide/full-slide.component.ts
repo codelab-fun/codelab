@@ -5,7 +5,6 @@ import {
   ElementRef,
   Input
 } from '@angular/core';
-import { CodelabExercisePlaygroundComponent } from '../../../components/exercise-playground/codelab-exercise-playground.component';
 
 @Component({
   selector: 'slides-full-slide',
@@ -20,12 +19,5 @@ export class FullSlideComponent implements AfterViewInit {
     private readonly cfr: ComponentFactoryResolver
   ) {}
 
-  ngAfterViewInit(): void {
-    const exercise = this.el.nativeElement.querySelector('exercise');
-    if (exercise) {
-      const factory = this.cfr.resolveComponentFactory(
-        CodelabExercisePlaygroundComponent
-      );
-    }
-  }
+  ngAfterViewInit(): void {}
 }
