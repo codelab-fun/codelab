@@ -13,21 +13,18 @@
              [src]="CONGRATULATIONS"
              alt="Photo of 'Congratulations'"
              i18n-title title="Congratulations" />
-        <h3 i18n>Great job!</h3>
       </div>
       <div *ngIf="quizMetadata.percentage >= 60 && quizMetadata.percentage < 80">
         <img mat-card-image loading="lazy"
              [src]="NOT_BAD"
              alt="Photo of 'Not Bad'"
              i18n-title title="Not Bad" />
-        <h3 i18n>Not bad!</h3>
       </div>
       <div *ngIf="quizMetadata.percentage < 60">
         <img mat-card-image loading="lazy"
              [src]="TRY_AGAIN"
              alt="Photo of 'Try Again'"
              i18n-title title="Try Again" />
-        <h3 i18n>Try again!</h3>
 
         <p i18n>Brush up your knowledge of {{ quiz.milestone }} with these valuable resources:</p>
         <ul *ngFor="let resource of resources">
