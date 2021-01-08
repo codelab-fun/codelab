@@ -18,6 +18,17 @@ function updateSlide(code, slideIndex, html) {
   return node.body.innerHTML;
 }
 
+function moveSlide(code, previousIndex, currentIndex) {
+  const node = new DOMParser().parseFromString(code, 'text/html');
+  const slides = node.querySelectorAll('slide');
+  if (previousIndex < currentIndex) {
+    slides[currentIndex].after(slides[previousIndex]);
+  } else {
+    slides[currentIndex].before(slides[previousIndex]);
+  }
+  return node.body.innerHTML;
+}
+
 function addSlide(code, slideIndex) {
   const node = new DOMParser().parseFromString(code, 'text/html');
   const slides = node.querySelectorAll('slide');
@@ -90,5 +101,9 @@ export class ContentComponent implements OnInit {
   addSlide() {
     this.setCode(addSlide(this.code, this.selectedSlide));
     this.selectedSlide++;
+  }
+
+  reorder(move) {
+    this.setCode(moveSlide(this.code, move.previousIndex, move.currentIndex));
   }
 }

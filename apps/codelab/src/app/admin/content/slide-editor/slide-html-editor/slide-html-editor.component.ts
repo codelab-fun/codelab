@@ -31,7 +31,20 @@ export class SlideHtmlEditorComponent
   constructor(private readonly el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    this.editor = new MediumEditor(this.el.nativeElement);
+    this.editor = new MediumEditor(this.el.nativeElement, {
+      toolbar: {
+        buttons: [
+          'bold',
+          {
+            name: 'aside',
+            action: 'append-aside',
+            aria: 'aside',
+            tagNames: ['aside'],
+            contentDefault: '<b>aside</b>'
+          }
+        ]
+      }
+    });
     this.editor.setContent(this.html);
     this.editor.subscribe('editableInput', (_, element) => {
       this.code = element.innerHTML;
