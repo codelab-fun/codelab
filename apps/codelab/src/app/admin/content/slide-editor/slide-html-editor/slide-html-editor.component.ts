@@ -19,7 +19,6 @@ import MediumEditor from 'medium-editor';
     './slide-html-editor.component.css',
     '../../../../shared/slide-styles.scss'
   ],
-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SlideHtmlEditorComponent
