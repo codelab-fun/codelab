@@ -31,7 +31,7 @@
     log(...args);
     for (const arg of args) {
       const log = document.createElement('pre');
-      log.innerText = JSON.stringify(arg);
+      log.innerText = JSON.stringify(arg, null, '  ');
       consoleDiv.appendChild(log);
       document.body.scrollTo(0, document.body.scrollHeight);
     }

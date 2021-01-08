@@ -71,6 +71,13 @@ export class SlideEditorComponent implements OnInit, OnChanges {
     this.blocks.push({ type: 'html', code: '<p>lol</p>' });
   }
 
+  addCustom(code: string) {
+    this.blocks.push({
+      type: 'custom',
+      code
+    });
+  }
+
   addCode() {
     this.blocks.push({
       type: 'custom',

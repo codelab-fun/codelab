@@ -26,6 +26,21 @@
 </div>
 <div>
   <button (click)="addP()">p</button>
-  <button (click)="addCode()">code</button>
+  <button
+    (click)="
+      addCustom('<codelab-code-demo-editor>//code</codelab-code-demo-editor>')
+    "
+  >
+    code
+  </button>
+  <button
+    (click)="
+      addCustom(
+        '<codelab-code-demo-console ui=console></codelab-code-demo-console>'
+      )
+    "
+  >
+    demo
+  </button>
   <button (click)="addImage()">img</button>
 </div>

@@ -8,6 +8,7 @@
       *ngFor="let slide of slides; let i = index"
       (click)="selectedSlide = i"
       class="slide"
+      [class.selected]="i === selectedSlide"
     >
       <slides-slide-preview
         [slide]="slide"
@@ -16,7 +17,7 @@
     </button>
   </div>
 
-  <div class="editor">
+  <div class="editor" *ngIf="slides[selectedSlide]">
     <slides-slide-editor
       [slide]="slides[selectedSlide]"
       (updateSlide)="updateSlide($event)"

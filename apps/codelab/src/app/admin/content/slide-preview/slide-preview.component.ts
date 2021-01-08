@@ -4,7 +4,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'slides-slide-preview',
   templateUrl: './slide-preview.component.html',
-  styleUrls: ['./slide-preview.component.scss']
+  styleUrls: [
+    './slide-preview.component.scss',
+    '../../../shared/slide-styles.scss'
+  ]
 })
 export class SlidePreviewComponent implements OnInit, OnChanges {
   @Input() slide;

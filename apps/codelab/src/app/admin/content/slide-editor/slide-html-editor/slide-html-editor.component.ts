@@ -15,7 +15,11 @@ import MediumEditor from 'medium-editor';
 @Component({
   selector: 'slides-slide-html-editor',
   templateUrl: './slide-html-editor.component.html',
-  styleUrls: ['./slide-html-editor.component.css'],
+  styleUrls: [
+    './slide-html-editor.component.css',
+    '../../../../shared/slide-styles.scss'
+  ],
+
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SlideHtmlEditorComponent

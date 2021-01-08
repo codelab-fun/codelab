@@ -1,21 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { query } from '@angular/animations';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 declare const require;
 
-function importSlide(s, sanitizer: DomSanitizer) {
-  return s;
-}
-
-function getContent(code: string, sanitizer: DomSanitizer) {
+function getContent(code: string) {
   const node = new DOMParser().parseFromString(code, 'text/html');
 
   return {
-    slides: Array.from(node.querySelectorAll('slide')).map(slide =>
-      importSlide(slide, sanitizer)
-    )
+    slides: Array.from(node.querySelectorAll('slide')).map(slide => slide)
   };
 }
 
@@ -62,20 +55,32 @@ export class ContentComponent implements OnInit {
   content;
   slides = [];
   selectedSlide = 0;
+  readonly presentations = this.firestore.collection('presentations');
+  readonly presentation = this.presentations.doc('typescript');
 
-  constructor(readonly sanitizer: DomSanitizer, route: ActivatedRoute) {
-    this.setCode(require(`!raw-loader!./sample/sample.html`));
+  constructor(readonly firestore: AngularFirestore, route: ActivatedRoute) {
     route.paramMap.subscribe(a => {
       this.selectedSlide = Number((a as any)?.params?.id) || 0;
     });
+    this.fetchPresentation();
+  }
+
+  async fetchPresentation() {
+    const data = (await this.presentation.get().toPromise()).data();
+    this.parseCode(data.code);
   }
 
   ngOnInit(): void {}
 
-  setCode(code: string) {
+  parseCode(code: string) {
     this.code = code;
-    this.content = getContent(this.code, this.sanitizer);
+    this.content = getContent(this.code);
     this.slides = this.content.slides;
+  }
+
+  setCode(code: string) {
+    this.parseCode(code);
+    this.presentation.set({ code });
   }
 
   updateSlide(slide) {

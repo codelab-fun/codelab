@@ -16,9 +16,7 @@ export class CodelabCodeDemoConsoleComponent implements OnInit {
 
   ngOnInit(): void {
     const props = JSON.parse(this.data);
-    this.code = props.code
-      ? JSON.parse(props.code)
-      : { 'app.ts': ';console.log(i++);' };
+    this.code = props.code ? JSON.parse(props.code) : { 'app.ts': '' };
     this.ui = props.ui;
   }
 
