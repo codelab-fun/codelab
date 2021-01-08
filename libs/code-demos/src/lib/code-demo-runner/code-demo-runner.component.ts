@@ -98,6 +98,8 @@ export class CodeDemoRunnerComponent
         '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
+    sandbox.evalJs(this.scriptLoaderService.getScript('mock-console'));
+
     this.presets.forEach(preset =>
       presets[preset](sandbox, this.scriptLoaderService)
     );
@@ -148,11 +150,7 @@ export class CodeDemoRunnerComponent
         });
 
       if (jsFiles.length) {
-        if (!this.bootstrap) {
-          console.error('Bootstrap missing');
-        }
-
-        if (!hasErrors) {
+        if (this.bootstrap && !hasErrors) {
           sandbox.evalJs(`System.import('${this.bootstrap}')`);
         }
       }

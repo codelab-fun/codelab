@@ -17,6 +17,7 @@ import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
+import { assertObject } from '@codelab/code-demos/src/lib/shared/utils';
 
 declare const monaco;
 const extenstionToLang = {
@@ -77,6 +78,7 @@ export class MultitabEditorComponent
   ) {}
 
   ngOnInit(): void {
+    assertObject(this.code);
     this.subscription = this.changeSubject
       .pipe(debounceTime(this.debounce))
       .subscribe(changes => {

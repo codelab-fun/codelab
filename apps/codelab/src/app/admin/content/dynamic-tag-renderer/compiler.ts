@@ -6,9 +6,13 @@ import {
   ɵɵtext
 } from '@angular/core';
 import { CodelabExerciseComponent } from '../../../components/exercise/exercise.component';
-import { ExercisePlaygroundEditorComponent } from '../custom-component-editors/exercise-playground-editor/exercise-playground-editor.component';
-import { CodeDemoEditorEditorComponent } from '../custom-component-editors/code-demo-editor-editor/code-demo-editor.component';
+import { ExercisePlaygroundEditorComponent } from '../custom-component-editors/codelab-exercise-playground-editor/exercise-playground-editor.component';
+import { CodeDemoEditorEditorComponent } from '../custom-component-editors/codelab-code-demo-editor-editor/code-demo-editor.component';
 import { DefaultValueAccessor, NgControlStatus, NgModel } from '@angular/forms';
+import { CodelabTitleSlideEditorComponent } from '../custom-component-editors/codelab-title-slide-editor/codelab-title-slide-editor.component';
+import { CodelabCodeDemoFilePathEditorComponent } from '../custom-component-editors/codelab-code-demo-file-path-editor/codelab-code-demo-file-path-editor.component';
+import { CodelabCodeDemoConsoleComponent } from '../custom-component-editors/codelab-code-demo-console/codelab-code-demo-console.component';
+import { CodelabImageEditorComponent } from '../custom-component-editors/codelab-image-editor/codelab-image-editor.component';
 
 export function fakeCompileSlide(slide) {
   class GeneratedComponent {}
@@ -41,8 +45,6 @@ export function fakeCompileSlide(slide) {
           if (prop.startsWith('(')) {
             ɵɵlistener(prop.slice(1, -1), element[prop]);
           }
-
-          console.log(prop);
         }
       }
 
@@ -66,11 +68,15 @@ export function fakeCompileSlide(slide) {
     type: GeneratedComponent,
     directives: [
       CodelabExerciseComponent,
+      CodelabTitleSlideEditorComponent,
+      CodelabCodeDemoFilePathEditorComponent,
       ExercisePlaygroundEditorComponent,
+      CodelabCodeDemoConsoleComponent,
       CodeDemoEditorEditorComponent,
       DefaultValueAccessor,
       NgControlStatus,
-      NgModel
+      NgModel,
+      CodelabImageEditorComponent
     ],
     consts: getConsts(slide),
     selectors: [['generated']],

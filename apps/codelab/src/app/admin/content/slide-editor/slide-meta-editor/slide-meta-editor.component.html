@@ -1,12 +1,11 @@
-<div>
-  <input
-    placeholder="title"
-    [value]="slide.title"
-    class="title"
-    (keyup)="updateTitle.emit($event.target.value)"
-  />
-</div>
-<div>
+<input
+  placeholder="title"
+  [value]="slide.title"
+  class="title"
+  (keyup)="updateTitle.emit($event.target.value)"
+/>
+
+<div class="id-wrapper">
   #<input
     class="id"
     placeholder="id"

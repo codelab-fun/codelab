@@ -50,6 +50,7 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   @Input() bootstrapTest;
   @Input() milestone = '';
   @Input() url = 'about:blank';
+  @Input() ui = 'browser';
   @Input() translations = {};
   @Input() codeDemoHighlight = [];
   @Input() testRunner: 'babel' | 'iframe' = 'iframe';

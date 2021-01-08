@@ -37,15 +37,16 @@ $border-color: #c2c2c2;
 
 .console-frame {
   font: 16px monospace;
+  font-weight: 400;
 
   .address-bar {
     padding: 0.2em;
-    font-weight: bold;
+    background: #eee;
 
     &::before {
       display: inline;
       color: #ff4081;
-      content: '>>';
+      content: '';
     }
 
     .url {

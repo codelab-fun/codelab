@@ -6,6 +6,7 @@ import { SlideHtmlEditorComponent } from './slide-html-editor/slide-html-editor.
 import { CustomEditorComponent } from './custom-editor/custom-editor.component';
 import { DynamicTagRendererModule } from '../dynamic-tag-renderer/dynamic-tag-renderer.module';
 import { CustomComponentEditorsModule } from '../custom-component-editors/custom-component-editors.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CustomComponentEditorsModule } from '../custom-component-editors/custom
   imports: [
     CommonModule,
     DynamicTagRendererModule,
-    CustomComponentEditorsModule
+    CustomComponentEditorsModule,
+    MatIconModule
   ]
 })
 export class SlideEditorModule {}

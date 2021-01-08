@@ -1,0 +1,17 @@
+<div *ngIf="src">
+  <img [src]="src" style="width: 200px;" />
+</div>
+<div *ngIf="!src">
+  <ngx-file-drop
+    dropZoneLabel="Drop files here"
+    accept=".png,.jpg"
+    (onFileDrop)="uploadFile($event)"
+  >
+    <ng-template
+      ngx-file-drop-content-tmp
+      let-openFileSelector="openFileSelector"
+    >
+      <button type="button" (click)="openFileSelector()">Upload file</button>
+    </ng-template>
+  </ngx-file-drop>
+</div>

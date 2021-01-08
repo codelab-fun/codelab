@@ -1,0 +1,27 @@
+.block-wrapper {
+  margin-bottom: 8px;
+  display: flex;
+
+  .content {
+    width: 100%;
+    border: 1px #efefef dotted;
+  }
+
+  &:hover .controls {
+    visibility: visible;
+  }
+
+  .controls {
+    margin-right: 8px;
+    visibility: hidden;
+
+    button {
+      border: 0 solid;
+      background: #eeeee9;
+      color: #444;
+    }
+
+    .remove {
+    }
+  }
+}

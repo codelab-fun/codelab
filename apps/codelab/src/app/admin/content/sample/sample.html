@@ -1,5 +1,5 @@
 <slide-deck>
-  <slide id="intro" milestone="TypeScript" no-padding>
+  <slide id="intro" title="TypeScript" milestone="TypeScript" no-padding>
     <codelab-title-slide
       title="TypeScript"
       description="Angular is written in TypeScript. Learn more about the language basics."
@@ -65,17 +65,7 @@
       Below we have an <b>add</b> function, and we're adding 2 and 2. What could
       go wrong?
     </p>
-    <pre>
-        <code name="app.ts">
-          function add(a, b){
-          return a+b;
-          };
-
-          console.log(add(2, '2'));
-        </code>
-      </pre>
     <codelab-exercise-playground
-      presets=""
       ui="console"
       [highlights]="code.tsExerciseMatch"
       [exercise]="code.js2And2"
@@ -112,47 +102,57 @@
     milestone="TypeScript"
     title="Primitives (strings, numbers, etc...)"
     ><p>Below are more types we can use</p>
-    <code-demo-file-path path="types.ts"></code-demo-file-path>
-    <code-demo-editor
+    <codelab-code-demo-file-path path="types.ts"></codelab-code-demo-file-path>
+    <codelab-code-demo-editor
       style="height: 400px;"
       language="typescript"
       [lineNumbers]="false"
       [fontSize]="20"
-      [(ngModel)]="code.moreTypes.code"
     >
-    </code-demo-editor
-  ></slide>
+      const price: number = 100; // ${this.t.thisIsNumber} const tax = 20; //
+      ${this.t.typescriptCanInferNumber} const productName = 'pikachu'; //
+      ${this.t.typescriptCanInferString} const isHungry = true; // Boolean const
+      weird = tax + isHungry; // ${this.t.cantAddNumAndBool} tax.slice(1,5); //
+      ${this.t.cantSliceNum} productName.slice(1,5); // ${this.t.canSliceString}
+      const total = price + tax; // ${this.t.works}
+    </codelab-code-demo-editor></slide
+  >
 
   <slide id="types-more" milestone="TypeScript" title="Interfaces"
     ><p>
       TypeScript Interfaces allow to specify properties and methods for an
       object.
     </p>
-    <code-demo-file-path path="puppies.ts"></code-demo-file-path>
-    <code-demo-editor
+    <codelab-code-demo-file-path
+      path="puppies.ts"
+    ></codelab-code-demo-file-path>
+    <codelab-code-demo-editor
       style="height: 400px;"
       language="typescript"
       [lineNumbers]="false"
       [fontSize]="20"
-      [(ngModel)]="code.moreTypes.codeInterfaces"
     >
-    </code-demo-editor>
+      interface Puppy { name: string; age: number; }; const realPuppy: Puppy = {
+      name: 'Pikachu', age: 1 }; const notRealPuppy: Puppy = { says: 'meow' //
+      ${this.t.errorNotAPuppy} }
+    </codelab-code-demo-editor>
     <aside>
       Here, <b>realPuppy</b> is an implementation of the <b>Puppy</b> Interface.
     </aside></slide
   >
 
-  <slide id="types-arrays" milestone="TypeScript" title="Arrays"
-    ><p>
+  <slide id="types-arrays" milestone="TypeScript" title="Arrays">
+    <p>
       Array types are defined as <b>Array&lt;Type&gt;</b> or
       <b>Type[]</b>
     </p>
-    <codelab-exercise-playground
-      presets=""
-      ui="console"
+    <codelab-code-demo-console
       [highlights]="code.classDescription.matches.arrayMatch"
-      [exercise]="code.moreTypes.codeArrays"
-    ></codelab-exercise-playground>
+      code='{"app.ts": "console.log(2)"}'
+      ui="console"
+    >
+    </codelab-code-demo-console>
+
     <aside>
       Here, each element in the <b>betterCats</b> array is an instance of the
       <b>Cat</b> Interface.
@@ -213,8 +213,8 @@
       used to share information between files. In the next slide, we'll show you
       how to import and use this class in a different file
     </p>
-    <code-demo-file-path path="puppy.ts"></code-demo-file-path>
-    <code-demo-editor
+    <codelab-code-demo-file-path path="puppy.ts"></codelab-code-demo-file-path>
+    <codelab-code-demo-editor
       style="height: 400px;"
       [codeDemoHighlight]="[code.classDescription.matches.exportMatch]"
       language="typescript"
@@ -222,8 +222,9 @@
       [fontSize]="20"
       [(ngModel)]="code.classDescription.codeExport.files[0].code"
     >
-    </code-demo-editor
-  ></slide>
+      lol
+    </codelab-code-demo-editor></slide
+  >
 
   <slide id="import" milestone="TypeScript" title="Import"
     ><p>Now we can use the <b>Puppy</b> class in the other file</p>

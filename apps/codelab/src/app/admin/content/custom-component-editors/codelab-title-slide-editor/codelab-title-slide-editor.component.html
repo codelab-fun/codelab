@@ -1,1 +1,10 @@
-<p>codelab-title-slide-editor works!</p>
+<input [(ngModel)]="title" (ngModelChange)="update()" />
+<input [(ngModel)]="description" (ngModelChange)="update()" />
+<input [(ngModel)]="prereqs" (ngModelChange)="update()" />
+
+<codelab-title-slide
+  style="zoom: 0.5"
+  [title]="title"
+  [description]="description"
+  [prereqs]="prereqs"
+></codelab-title-slide>

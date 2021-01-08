@@ -15,6 +15,7 @@ export class ScriptLoaderService {
     shim: require('!!raw-loader!core-js/client/shim.min.js'),
     zone: require('!!raw-loader!zone.js/dist/zone.js'),
     'system-config': require('!!raw-loader!../../../assets/runner/js/system-config'),
+    'mock-console': require('!!raw-loader!../../../assets/runner/js/mock-console'),
     'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle')
     // TODO(kirjs): not sure we still need vue and react libs
     // vue: require('!!raw-loader!vue/dist/vue.js'),

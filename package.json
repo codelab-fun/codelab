@@ -105,6 +105,7 @@
     "monaco-editor": "^0.20.0",
     "monaco-editor-webpack-plugin": "^1.8.2",
     "ng2-medium-editor": "^1.0.0",
+    "ngx-file-drop": "^10.1.1",
     "ngx-markdown": "^8.2.2",
     "raw-loader": "1.0.0",
     "rxjs": "^6.5.4",

@@ -11,7 +11,7 @@ import {
 @Component({
   selector: 'slides-slide-editor',
   templateUrl: './slide-editor.component.html',
-  styleUrls: ['./slide-editor.component.css'],
+  styleUrls: ['./slide-editor.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SlideEditorComponent implements OnInit, OnChanges {
@@ -28,14 +28,19 @@ export class SlideEditorComponent implements OnInit, OnChanges {
 
   generateBlocks() {
     let current = { type: '', code: '' };
-    const blocks = [];
+    const blocks = [current];
 
     for (const tag of this.slide.childNodes) {
+      if (tag.nodeType === 3 && tag.textContent.trim() === '') {
+        continue;
+      }
+
       const type =
         tag.tagName && tag.tagName.toLowerCase().startsWith('codelab')
           ? 'custom'
           : 'html';
-      if (current.type !== type) {
+
+      if (current.type !== type || type === 'custom') {
         current = { type, code: '' };
         blocks.push(current);
       }
@@ -71,5 +76,16 @@ export class SlideEditorComponent implements OnInit, OnChanges {
       type: 'custom',
       code: '<codelab-code-demo-editor>//code</codelab-code-demo-editor>'
     });
+  }
+
+  addImage() {
+    this.blocks.push({
+      type: 'custom',
+      code: '<codelab-image></codelab-image>'
+    });
+  }
+
+  removeBlock(i: number) {
+    this.blocks.splice(i, 1);
   }
 }

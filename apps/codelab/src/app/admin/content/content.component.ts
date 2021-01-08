@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { query } from '@angular/animations';
 
 declare const require;
 
@@ -61,8 +63,11 @@ export class ContentComponent implements OnInit {
   slides = [];
   selectedSlide = 0;
 
-  constructor(readonly sanitizer: DomSanitizer) {
+  constructor(readonly sanitizer: DomSanitizer, route: ActivatedRoute) {
     this.setCode(require(`!raw-loader!./sample/sample.html`));
+    route.paramMap.subscribe(a => {
+      this.selectedSlide = Number((a as any)?.params?.id) || 0;
+    });
   }
 
   ngOnInit(): void {}
