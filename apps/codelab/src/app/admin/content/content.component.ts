@@ -106,4 +106,8 @@ export class ContentComponent implements OnInit {
   reorder(move) {
     this.setCode(moveSlide(this.code, move.previousIndex, move.currentIndex));
   }
+
+  next() {
+    this.selectedSlide++;
+  }
 }

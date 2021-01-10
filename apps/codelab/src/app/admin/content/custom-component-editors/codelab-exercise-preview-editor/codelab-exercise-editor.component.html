@@ -1,0 +1,31 @@
+<span>Legacy exercise: </span>
+
+<mat-form-field>
+  <mat-label>Type</mat-label>
+  <mat-select [(ngModel)]="type" (ngModelChange)="update()">
+    <mat-option value="preview">preview</mat-option>
+    <mat-option value="exercise">exercise</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Milestone</mat-label>
+  <mat-select [(ngModel)]="milestone" (ngModelChange)="update()">
+    <mat-option
+      *ngFor="let milestone of config.milestones"
+      [value]="milestone"
+      >{{ milestone.name }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field *ngIf="milestone">
+  <mat-label>Exercise</mat-label>
+  <mat-select [(ngModel)]="exercise" (ngModelChange)="update()">
+    <ng-container *ngFor="let exercise of milestone.exercises">
+      <mat-option [value]="exercise" *ngIf="exercise.files">{{
+        exercise.name
+      }}</mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>

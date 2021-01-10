@@ -6,6 +6,7 @@ import { FullSlideModule } from './full-slide/full-slide.module';
 import { SlideEditorModule } from './slide-editor/slide-editor.module';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ContentComponent, SlidePreviewComponent],
@@ -16,7 +17,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FullSlideModule,
     SlideEditorModule,
     AngularFirestoreModule,
-    DragDropModule
+    DragDropModule,
+    RouterModule
   ]
 })
 export class ContentModule {}

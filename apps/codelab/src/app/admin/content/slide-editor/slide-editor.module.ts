@@ -7,6 +7,7 @@ import { CustomEditorComponent } from './custom-editor/custom-editor.component';
 import { DynamicTagRendererModule } from '../dynamic-tag-renderer/dynamic-tag-renderer.module';
 import { CustomComponentEditorsModule } from '../custom-component-editors/custom-component-editors.module';
 import { MatIconModule } from '@angular/material/icon';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     DynamicTagRendererModule,
     CustomComponentEditorsModule,
-    MatIconModule
+    MatIconModule,
+    DragDropModule
   ]
 })
 export class SlideEditorModule {}

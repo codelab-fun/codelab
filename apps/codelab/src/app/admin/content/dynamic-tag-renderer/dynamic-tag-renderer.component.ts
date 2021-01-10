@@ -19,7 +19,6 @@ export class DynamicTagRendererComponent implements OnInit {
   constructor(readonly injector: Injector) {}
 
   ngOnInit() {
-    console.log(this.slide);
     this.component = fakeCompileSlide(this.slide);
   }
 }

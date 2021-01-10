@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExercisePlaygroundEditorComponent } from './codelab-exercise-playground-editor/exercise-playground-editor.component';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { CodeDemoEditorEditorComponent } from './codelab-code-demo-editor-editor/code-demo-editor.component';
 import { CodeDemoModule } from '@codelab/code-demos';
@@ -15,15 +14,18 @@ import { CodelabImageEditorComponent } from './codelab-image-editor/codelab-imag
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
+import { MatSelectModule } from '@angular/material/select';
+import { CodelabExerciseEditorComponent } from './codelab-exercise-preview-editor/codelab-exercise-editor.component';
+
 @NgModule({
   declarations: [
-    ExercisePlaygroundEditorComponent,
     CodeDemoEditorEditorComponent,
     CodelabTitleSlideEditorComponent,
     CodelabCodeDemoFilePathEditorComponent,
     CodelabPresetComponent,
     CodelabCodeDemoConsoleComponent,
-    CodelabImageEditorComponent
+    CodelabImageEditorComponent,
+    CodelabExerciseEditorComponent
   ],
   exports: [],
   imports: [
@@ -34,6 +36,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     MatCheckboxModule,
     MatIconModule,
     NgxFileDropModule,
+    MatSelectModule,
     AngularFireStorageModule
   ]
 })

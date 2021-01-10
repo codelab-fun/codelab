@@ -7,6 +7,7 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'slides-slide-editor',
@@ -94,5 +95,9 @@ export class SlideEditorComponent implements OnInit, OnChanges {
 
   removeBlock(i: number) {
     this.blocks.splice(i, 1);
+  }
+
+  reorder(event) {
+    moveItemInArray(this.blocks, event.previousIndex, event.currentIndex);
   }
 }

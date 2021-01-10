@@ -11,6 +11,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import MediumEditor from 'medium-editor';
+import { AsideButton } from './aside-button';
 
 @Component({
   selector: 'slides-slide-html-editor',
@@ -33,16 +34,10 @@ export class SlideHtmlEditorComponent
   ngAfterViewInit(): void {
     this.editor = new MediumEditor(this.el.nativeElement, {
       toolbar: {
-        buttons: [
-          'bold',
-          {
-            name: 'aside',
-            action: 'append-aside',
-            aria: 'aside',
-            tagNames: ['aside'],
-            contentDefault: '<b>aside</b>'
-          }
-        ]
+        buttons: ['bold', 'aside', 'unorderedlist', 'removeFormat']
+      },
+      extensions: {
+        highlighter: new AsideButton()
       }
     });
     this.editor.setContent(this.html);

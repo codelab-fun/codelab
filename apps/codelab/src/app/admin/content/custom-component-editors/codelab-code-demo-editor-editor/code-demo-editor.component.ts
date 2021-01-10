@@ -18,7 +18,7 @@ export class CodeDemoEditorEditorComponent implements OnInit {
 
   ngOnInit(): void {
     const props = JSON.parse(this.data);
-    this.fontSize = props.fontSize || 14;
+    this.fontSize = props.fontSize || 24;
     this.lineNumbers = props.lineNumbers || false;
     this.content = props.content;
   }
