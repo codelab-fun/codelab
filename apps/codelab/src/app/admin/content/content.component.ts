@@ -69,7 +69,10 @@ export class ContentComponent implements OnInit {
   readonly presentations = this.firestore.collection('presentations');
   readonly presentation = this.presentations.doc('typescript');
 
-  constructor(readonly firestore: AngularFirestore, route: ActivatedRoute) {
+  constructor(
+    readonly firestore: AngularFirestore,
+    readonly route: ActivatedRoute
+  ) {
     route.paramMap.subscribe(a => {
       this.selectedSlide = Number((a as any)?.params?.id) || 0;
     });

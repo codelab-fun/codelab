@@ -12,13 +12,13 @@ const routes = [
     component: AdminComponent,
     children: [
       { path: 'users', component: UsersComponent },
-      { path: 'feedback', component: FeedbackComponent },
-      {
-        path: 'content/:milestone/:id',
-        component: ContentComponent,
-        children: [{ path: '', ContentComponent }]
-      }
+      { path: 'feedback', component: FeedbackComponent }
     ]
+  },
+  {
+    path: 'content/:milestone/:id',
+    component: ContentComponent,
+    children: [{ path: '', ContentComponent }]
   }
 ];
 
