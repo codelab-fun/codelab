@@ -1,6 +1,12 @@
+:host {
+  box-shadow: 0 0 1px 1px #ddd;
+  display: block;
+}
 .block-wrapper {
   margin-bottom: 8px;
+  padding: 16px;
   display: flex;
+  position: relative;
 
   .content {
     width: 100%;
@@ -12,16 +18,20 @@
   }
 
   .controls {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    background: #fff;
+    box-shadow: 0 0 2px 1px #ddd;
+    top: 0;
+    width: 40px;
     margin-right: 8px;
     visibility: hidden;
 
-    button {
-      border: 0 solid;
-      background: #eeeee9;
-      color: #444;
-    }
-
-    .remove {
+    [mat-icon-button] {
+      mat-icon {
+        color: #999;
+      }
     }
   }
 }

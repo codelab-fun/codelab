@@ -1,0 +1,50 @@
+<div>
+  <button mat-icon-button (click)="addP()">p</button>
+  <button
+    mat-icon-button
+    (click)="
+      addCustom('<codelab-code-demo-editor>//code</codelab-code-demo-editor>')
+    "
+  >
+    <mat-icon>code</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    (click)="
+      addCustom(
+        '<codelab-code-demo-console ui=console></codelab-code-demo-console>'
+      )
+    "
+  >
+    <mat-icon>web</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    (click)="addCustom('<codelab-image></codelab-image>')"
+  >
+    <mat-icon>image</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button
+      mat-menu-item
+      (click)="addCustom('<codelab-exercise></codelab-exercise>')"
+    >
+      Legacy exercise
+    </button>
+    <button
+      mat-menu-item
+      (click)="addCustom('<codelab-title-slide></codelab-title-slide>')"
+    >
+      Title slide
+    </button>
+  </mat-menu>
+</div>

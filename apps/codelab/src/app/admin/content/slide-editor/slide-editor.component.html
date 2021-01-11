@@ -8,46 +8,26 @@
     <!--  TODO: ngIf below is a hack -->
     <div class="block-wrapper" *ngIf="block.type !== ''">
       <div class="controls">
-        <button (click)="removeBlock(i)" class="remove">x</button>
-        <button (click)="removeBlock(i)" cdkDragHandle>=</button>
+        <button mat-icon-button (click)="removeBlock(i)" class="remove">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-icon-button cdkDragHandle>
+          <mat-icon>drag_indicator</mat-icon>
+        </button>
       </div>
       <div class="content" *ngIf="block.type === 'html'">
         <slides-slide-html-editor
           [html]="block.code"
-          (changeHtml)="updateHtml(i, $event)"
+          (changeHtml)="updateBlocks(i, $event)"
         ></slides-slide-html-editor>
       </div>
       <div class="content" *ngIf="block.type === 'custom'">
         <slides-custom-editor
           [html]="block.code"
-          (changeHtml)="updateHtml(i, $event)"
+          (changeHtml)="updateBlocks(i, $event)"
         ></slides-custom-editor>
       </div>
     </div>
   </div>
 </div>
-<div>
-  <button (click)="addP()">p</button>
-  <button
-    (click)="
-      addCustom('<codelab-code-demo-editor>//code</codelab-code-demo-editor>')
-    "
-  >
-    code
-  </button>
-  <button
-    (click)="
-      addCustom(
-        '<codelab-code-demo-console ui=console></codelab-code-demo-console>'
-      )
-    "
-  >
-    demo
-  </button>
-
-  <button (click)="addImage()">img</button>
-  -
-  <button (click)="addCustom('<codelab-exercise></codelab-exercise>')">
-    Legacy exercise
-  </button>
-</div>
+<slides-action-bar (addBlock)="addBlock($event)"></slides-action-bar>

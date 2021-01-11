@@ -4,16 +4,14 @@ import {
   Input,
   OnChanges,
   OnInit,
-  Output,
-  ViewEncapsulation
+  Output
 } from '@angular/core';
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'slides-slide-editor',
   templateUrl: './slide-editor.component.html',
-  styleUrls: ['./slide-editor.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./slide-editor.component.scss']
 })
 export class SlideEditorComponent implements OnInit, OnChanges {
   @Input() slide;
@@ -61,43 +59,28 @@ export class SlideEditorComponent implements OnInit, OnChanges {
     this.updateSlide.emit(this.slide);
   }
 
-  updateHtml(i: number, html: string) {
-    this.blocks[i].code = html.trim();
+  updateHTML() {
     const innerHTML = this.blocks.map(b => b.code).join('\n');
     this.slide.innerHTML = innerHTML;
     this.updateSlide.emit(this.slide);
   }
 
-  addP() {
-    this.blocks.push({ type: 'html', code: '<p>lol</p>' });
-  }
-
-  addCustom(code: string) {
-    this.blocks.push({
-      type: 'custom',
-      code
-    });
-  }
-
-  addCode() {
-    this.blocks.push({
-      type: 'custom',
-      code: '<codelab-code-demo-editor>//code</codelab-code-demo-editor>'
-    });
-  }
-
-  addImage() {
-    this.blocks.push({
-      type: 'custom',
-      code: '<codelab-image></codelab-image>'
-    });
+  updateBlocks(i: number, html: string) {
+    this.blocks[i].code = html.trim();
+    this.updateHTML();
   }
 
   removeBlock(i: number) {
     this.blocks.splice(i, 1);
+    this.updateHTML();
   }
 
   reorder(event) {
     moveItemInArray(this.blocks, event.previousIndex, event.currentIndex);
+  }
+
+  addBlock(block: any) {
+    this.blocks.push(block);
+    this.updateHTML();
   }
 }

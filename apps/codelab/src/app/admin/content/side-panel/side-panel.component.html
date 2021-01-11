@@ -1,21 +1,20 @@
 <div class="slides-wrapper">
   <button (click)="addSlide.emit()">Add</button>
-  <div class="container">
-    <div cdkDropList (cdkDropListDropped)="reorder.emit($event)">
-      <a
-        *ngFor="let slide of slides; let i = index"
-        [class.selected]="i === selectedSlide"
-        [routerLink]="'../' + i"
-        cdkDrag
-        class="slide"
-        style="text-decoration: none; color: inherit"
-      >
+
+  <div cdkDropList (cdkDropListDropped)="reorder.emit($event)">
+    <button
+      class="slide-wrapper"
+      *ngFor="let slide of slides; let i = index"
+      [class.selected]="i === selectedSlide"
+      inert="true"
+      (click)="updateIndex(i)"
+    >
+      <div cdkDrag class="slide" style="text-decoration: none; color: inherit">
         <slides-slide-preview
-          inert="true"
           [slide]="slide"
           [class.selected]="i === selectedSlide"
         ></slides-slide-preview>
-      </a>
-    </div>
+      </div>
+    </button>
   </div>
 </div>

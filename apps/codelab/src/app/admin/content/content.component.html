@@ -5,6 +5,8 @@
   <slides-side-panel
     (addSlide)="addSlide()"
     (reorder)="reorder($event)"
+    [selectedSlide]="selectedSlide"
+    (updateSelectedSlideIndex)="updateSelectedSlideIndex($event)"
     [slides]="slides"
   ></slides-side-panel>
   <div class="editor" *ngIf="slides[selectedSlide]">

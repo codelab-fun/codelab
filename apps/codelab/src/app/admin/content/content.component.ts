@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Location } from '@angular/common';
 
 declare const require;
 
@@ -71,7 +72,9 @@ export class ContentComponent implements OnInit {
 
   constructor(
     readonly firestore: AngularFirestore,
-    readonly route: ActivatedRoute
+    readonly route: ActivatedRoute,
+    readonly router: Router,
+    readonly location: Location
   ) {
     route.paramMap.subscribe(a => {
       this.selectedSlide = Number((a as any)?.params?.id) || 0;
@@ -112,5 +115,13 @@ export class ContentComponent implements OnInit {
 
   next() {
     this.selectedSlide++;
+  }
+
+  updateSelectedSlideIndex(index: number) {
+    this.selectedSlide = index;
+    const url = this.router
+      .createUrlTree(['..', index], { relativeTo: this.route })
+      .toString();
+    this.location.replaceState(url);
   }
 }

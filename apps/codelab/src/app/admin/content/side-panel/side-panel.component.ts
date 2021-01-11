@@ -6,6 +6,8 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { Location } from '@angular/common';
+
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -17,28 +19,33 @@ export class SidePanelComponent implements OnInit {
   @Input() slides;
   @Output() addSlide = new EventEmitter();
   @Output() reorder = new EventEmitter();
-  selectedSlide = 0;
+  @Output() updateSelectedSlideIndex = new EventEmitter();
+  @Input() selectedSlide = 0;
 
-  constructor(readonly route: ActivatedRoute, readonly router: Router) {
+  constructor(
+    readonly location: Location,
+    readonly route: ActivatedRoute,
+    readonly router: Router
+  ) {
     route.paramMap.subscribe(a => {
       this.selectedSlide = Number((a as any)?.params?.id) || 0;
     });
   }
 
+  updateIndex(index: number) {
+    if (index < this.slides.length && index >= 0) {
+      this.updateSelectedSlideIndex.emit(index);
+    }
+  }
+
   @HostListener('keydown.arrowdown')
   nextSlide() {
-    const next = this.selectedSlide + 1;
-    if (next < this.slides.length) {
-      this.router.navigate(['admin', 'content', 'a', next]);
-    }
+    this.updateIndex(this.selectedSlide + 1);
   }
 
   @HostListener('keydown.arrowup')
   prevSlide() {
-    const next = this.selectedSlide - 1;
-    if (next >= 0) {
-      this.router.navigate(['admin', 'content', 'a', next]);
-    }
+    this.updateIndex(this.selectedSlide - 1);
   }
 
   ngOnInit(): void {}
