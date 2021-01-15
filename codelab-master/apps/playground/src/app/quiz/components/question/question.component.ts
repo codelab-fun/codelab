@@ -20,9 +20,9 @@ import { QuizService, TimerService } from '@codelab-quiz/shared/services/*';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuizQuestionComponent implements OnInit, OnChanges {
-  currentQuestion: QuizQuestion;
   @Output() answer = new EventEmitter<number>();
   @Input() question: QuizQuestion;
+  currentQuestion: QuizQuestion;
   formGroup: FormGroup;
   optionSelected: Option;
   correctAnswers: Option[] = [];
