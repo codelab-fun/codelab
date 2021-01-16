@@ -1,0 +1,62 @@
+@import "variables";
+
+.statistics {
+  h3, span, .quiz-feedback {
+    text-align: center;
+  }
+
+  span {
+    display: block;
+  }
+
+  .your-score, .elapsed-time {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .result {
+    font-family: $font-stack;
+    font-size: 26px;
+    display: inline;
+  }
+
+  .progress-bar {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .quiz-feedback {
+    margin-top: 20px;
+
+    img {
+      width: 180px;
+      height: 180px;
+      border-radius: 10px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    ul.resources {
+      line-height: 0.5;
+    }
+
+    ul.resources li {
+      list-style-type: square;
+      text-align: left;
+      margin-left: 16%;
+      width: 500px;
+    }
+    .resource-title {
+      font-weight: bold;
+      font-style: italic;
+      display: inline;
+    }
+    .resource-host {
+      font-style: italic;
+      display: inline;
+    }
+  }
+}

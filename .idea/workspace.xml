@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f870ac63-bdf8-4e90-84e3-a6fdd1762d1a" name="Default Changelist" comment="testing upload of quiz to GH">
+      <change afterPath="$PROJECT_DIR$/../../../../../.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.firebaserc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.flooignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.nvmrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/create-snippet.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/snippet-info/snippet-info.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/snippet-info/snippet-info.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/snippet-modal/snippet-overview.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/snippet-modal/snippet-overview.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/snippet-spinner/snippet-spinner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/snippet-spinner/snippet-spinner.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/create-snippet/snippet-spinner/snippet-spinner.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/pull-requests-list/pull-requests-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/pull-requests-list/pull-requests-list.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/pull-requests-list/pull-requests-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/shared/functions/parse-snippet.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/shared/functions/parse-snippet.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/shared/functions/validation/validation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/shared/interfaces/branch.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/shared/interfaces/commit-info.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/shared/interfaces/repo.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/app/shared/interfaces/user.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../angular-thirty-seconds/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/browserslist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/app/feed/feed.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/app/feed/feed.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/app/form/form.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/app/single-post/single-post.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/assets/fonts/droid-sans/Apache License.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/assets/fonts/droid-sans/DroidSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/assets/fonts/droid-sans/DroidSans.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../blog/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/extra-webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/admin/admin-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/admin/admin.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/admin/feedback/feedback-message-table/feedback-message-table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/admin/feedback/feedback.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/admin/feedback/feedback.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/admin/feedback/github.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/admin/users/users.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/about/about.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/about/images/no-setup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/about/images/types-work.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/about/samples/storing-code/plain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/angular-cli/angular-cli.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/angular.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/component-tree/component-tree.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/component-tree/component-tree.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/component-tree/component-tree.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/component-tree/samples/module/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/component-tree/samples/module/box.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/create-first-app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/create-first-app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/mode/mode.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/mode/mode.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/mode/mode.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/mode/pics/vricon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/samples/app-component/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/create-first-app/samples/app-component/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/forms/forms.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/forms/samples/basic/app.component.5.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/forms/samples/basic/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/forms/samples/basic/app.module.6.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/forms/samples/basic/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/material/material.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/material/samples/basic/app.4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/material/samples/basic/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/material/samples/basic/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/material/samples/step4/app.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/pipes/pipes.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/pipes/samples/pipes/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/playground/playground.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/playground/playground.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/playground/playground.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/router/router.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/router/router.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/router/samples/simple-router/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/router/samples/simple-router/components/puppy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/pics/Alfred_Sisley_photo_full.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/pics/alfred-sisley-9485226-1-402.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/mat-tab-nav-bar/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/mat-tab-nav-bar/tab.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/material-tabs-structural-directive/hideme.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/material-tabs/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/material-tabs/app.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/material-tabs/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/micro-syntax/ms.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/micro-syntax/ms.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/structural-directives/microsyntax.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/structural-directives/ng-for-after.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/samples/structural-directives/ng-if-before.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/structural-directives.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/structural-directives/structural-directives.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/templates/samples/data-binding-extra/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/templates/samples/event-binding-shortcuts/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/templates/samples/event-binding/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/templates/samples/event-binding/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/templates/samples/reference-binding/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/templates/templates.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/typescript/typescript-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/typescript/typescript.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/typescript/typescript/code/code.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/typescript/typescript/typescript-svg/typescript-svg.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/typescript/typescript/typescript.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/typescript/typescript/typescript.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/angular/typescript/typescript/typescript.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/extra/extra-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/extra/visual-studio-code/visual-studio-code.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/codelabs/extra/visual-studio-code/visual-studio-code.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/angular-routes/angular-routes.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/angular-routes/angular-routes.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/angular-test-runner/angular-test-runner.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/angular-test-runner/angular-test-runner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/angular-test-runner/angular-test-runner.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/babel-test-runner/babel-test-runner.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/babel-test-runner/babel-test-runner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/babel-test-runner/babel-test-runner.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/breadcrumb/breadcrumb.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/buttons-nav-bar/buttons-nav-bar.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/buttons-nav-bar/menu-fullscreen-widget/menu-fullscreen-widget.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/buttons-nav-bar/menu-github-widget/menu-github-widget.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/buttons-nav-bar/menu-shortcut-widget/menu-shortcut-widget.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/buttons-nav-bar/menu-shortcut-widget/menu-shortcut-widget.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/buttons-nav-bar/menu-shortcut-widget/menu-shortcut-widget.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/codelab-progress-bar/codelab-progress-bar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/exercise-playground/codelab-exercise-playground.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/exercise-preview/exercise-preview.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/exercise/exercise.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/not-found/not-found.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/slides-preview/codelab-preview.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/slides-preview/codelab-preview.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/slides/closing-slide/codelab-closing-slide.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/slides/title-slide/ripple-animation/codelab-ripple-animation.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/components/slides/title-slide/title-slide.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/containers/full-layout/full-layout.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/containers/full-layout/full-layout.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/containers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/directives/permissions/can-load-admin/can-load-admin.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/directives/permissions/is-logged-in/is-loggef-in.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/directives/previousSlide.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/shared/helpers/codelabFile.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/shared/interfaces/file-config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/app/shared/shared.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/icons/icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/icons/icon-384x384.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/icons/icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/angular.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/block.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/bzU-gXSyAcs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/cat-00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/cat-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/cat-03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/cat-09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/cat-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/cat-13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/cat-18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/consoletop-middle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/document_view.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/file-html.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/folder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/hb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/ng-ok.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/ng-sleepy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/ng-smile.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/tree.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/ts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/assets/images/well_done.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/locale/codelab.ru.xtb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/manifest.webmanifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../codelab/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/ast-preview-runner/ast-preview-runner.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/ast.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/babel-highlight/babel-highlight-match.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/debugger/debugger.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/debugger/debugger.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/debugger/debugger.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/new-progress-bar/new-progress-bar.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/new-progress-bar/new-progress-bar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/babylon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/cat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/doggie.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/landscape-with-trees-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/magicshialabeouf-650x400.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/panda.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/patreon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/roses-garden.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/sausage-pre.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/semicolon-missing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/success/dancing-dog.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/success/disco.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/the-garden.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/tree_yanik.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/two-button3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/pics/woman-in-a-landscape (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/dec-to-bin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-console-log/find-console-log-regex.solved.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-console-log/find-console-log.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-console-log/remove-console-log.solved.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-console-log/remove-console-log.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-console-log/traverse-console-log-babel.solved2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-debugger/find-debugger-babel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-debugger/find-debugger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-debugger/find-debugger.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-debugger/remove-debugger.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/find-fit/find-fit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/it-lines/it-lines.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/it-lines/it-lines.solved.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/samples/tricky.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/size-picker/size-picker.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/test-set/babel-test-runner/babel-test-runner.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/ast/test-set/test-set.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/angular-flags/angular-flags.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/angular-flags/angular-flags.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/ascii/ascii.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-flat/binary-flat.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-flat/binary-flat.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-inline/binary-display/binary-display.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-inline/binary-display/binary-display.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-inline/binary-display/binary-display.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-inline/binary-inline.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-inline/binary-inline.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-inline/binary-inline.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-parser-demo/binary-parser-demo.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-parser-demo/binary-parser-demo.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/array/array.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/binary-parent/binary-parent.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/bits/bits.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/block/block.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/color/color.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/hex/hex.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/hex/hex.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/inline-root/inline-root.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/number/number.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/object/object.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/object/object.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/object/object.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/string/string.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/string/string.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/binary-view/string/string.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/bindec/bindec.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/bit/bit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/bitwise/bitwise.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/bitwise/bitwise.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/color-indexing/color-indexing.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/color-indexing/color-indexing.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/color-indexing/color-indexing.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/compare/compare.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/fake-gif/fake-gif.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/fake-gif/gif-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/hexdec/hexdec.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/json/json.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/json/json.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/memory/memory.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/binary-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/bit-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/choice-parser.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/choice-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/debugger-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/first-bit-parser.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/object-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/string-parser.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/parsers/string-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/parser/readers/abstract-reader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/MVIMG_20181224_181143.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/T02092_10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/endianness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/jqbSOmRU_400x400.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/kaitai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/kirjs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/little.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/pics/p1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/binary/to-read/to-read.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/board/board.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/board/board.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/cellular-automation.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/intro/30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/intro/Bill_Gosper_2006.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/intro/Gosperglidergun.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/intro/JohnvonNeumann.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/rule/rule.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/rule3/rule4/rule4.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/rule3/rule4/rule4.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/cellular-automation/rule8/rule8.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku-print/gomoku-print.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku-print/o/o.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku-print/x/x.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku-print/x/x.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/board/board.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/board/board.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/board/board.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/board/board.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/gomoku.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/gomoku.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/print/hb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/tools/tools.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/gomoku/tools/tools.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/home/home.module.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/home/pics/lastfm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/home/polaroid/polaroid.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/msk/msk.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/msk/msk.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/msk/pics/differential-loading.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/music/music.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/qna/qna.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/qna/qna.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/qna/qna.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/qna/qna.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/live/live-mock/live-mock.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/live/live-mock/live-mock.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/live/live.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/live/live.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/live/poll/poll.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/live/poll/poll.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/regex.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/regex/regex.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack-game/stack-function-button/stack-function-button.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack-game/stack-function-button/stack-function-button.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack-game/stack-game.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack-test/assets/sb-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack-test/assets/so-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack-test/stack-test.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack-test/stack-test.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/stack/stack.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/streaming/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/streaming/overlay/overlay.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/finish/finish.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/finish/finish.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/finish/finish.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/little-car/little-car.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/player/player.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/race/race.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/svg-race.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg-race/timer/timer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/pics/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/pics/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/pics/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/pics/ava.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/samples/bs.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/samples/chart2/app.component.solved.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/samples/chart2/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/samples/chart3/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/samples/chart3/ticks.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/samples/chart4/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/svg-demo/svg-demo.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/svg-demo/svg-demo.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/svg-playground/svg-playground.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/svg-playground/svg-playground.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/svg-together-result/svg-together-result.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/svg-together/svg-together.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/svg/svg-together/svg-together.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/test/test.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/test/test.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/test/test.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/ca/single-cell/single-cell.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/ca/single-grid/single-grid.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/ca/single-grid/single-grid.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/full-screen-runner/full-screen-runner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/full-screen-runner/full-screen-runner.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/pics/30-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/pics/JohnvonNeumann.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/pics/feynman.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/pics/joking.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/pics/wolfram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/tests/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/tests/disable-tests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/tests/enable-tests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/tests/evolve.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/tests/load-previous-cell.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/tests/rotate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/error-message/error-message.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/error-message/error-message.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/monaco-directives/monaco-js-position.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/monaco-directives/monaco-load-answer.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/monaco-directives/monaco-wat-position.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/runners/wasm-test-runner/wasm-test-runner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/runners/wasm-test-runner/wasm-test-runner.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/viz/viz.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/viz/viz.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/viz/viz.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/viz/viz.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/wasm-contents/wasm-contents.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/wasm-contents/wasm-contents.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/web-assembly.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/webassembly-code-mode/webassembly-code-mode.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/app/modules/webassembly/webassembly-playground/webassembly-runner/webassembly-runner.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../kirjs/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/src/app/modules/rxjs/rxjs.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/src/app/modules/rxjs/rxjs.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/src/test-setup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../lis/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../browserslist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/quiz.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/question/question.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/question/question.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/question/question.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/dependency-injection-quiz/dependency-injection-quiz.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/dependency-injection-quiz/dependency-injection-quiz.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/dependency-injection-quiz/dependency-injection-quiz.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/introduction/introduction.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/introduction/introduction.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/introduction/introduction.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/results/results.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/results/results.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/results/results.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/score/score.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/score/score.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/score/score.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/scoreboard.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/scoreboard.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/scoreboard.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/time/time.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/time/time.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containers/scoreboard/time/time.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routing/quiz-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/Answer.type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/Option.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/Quiz.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/QuizQuestion.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/Result.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/quiz.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/services/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/services/quiz.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/services/timer.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test-setup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../create-issue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../cypress.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../cypress/integration/codelab/home.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../cypress/snapshots/codelab/home.spec.js/home.snap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../cypress/support/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../cypress/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../firebase.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/ng-package.prod.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/lib/angular-ast-viz.module.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/lib/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/lib/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/lib/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/lib/ast-tree/ast-tree.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/lib/ast-tree/ast-tree.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/lib/ast-tree/short-name-babel.pipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/tsconfig.lib.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-ast-viz/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-slides-to-pdf/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-slides-to-pdf/ng-package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-slides-to-pdf/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-slides-to-pdf/src/lib/angular-slides-to-pdf.module.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/angular-slides-to-pdf/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/browser/src/lib/browser-window/pics/browsertop-left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/browser/src/lib/browser-window/pics/browsertop-right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/browser/src/lib/browser.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/browser/src/lib/terminal-window/terminal-window.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/browser/src/lib/terminal-window/terminal-window.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/browser/tsconfig.lib.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/assets/runner/js/mocha.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/assets/runner/ng2/basic.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/assets/runner/ng2/rxjs.operators.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/ng-package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/code-demo-editor/directives/code-demo-editor.auto-folding.directive.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/code-demo-editor/editor.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/code-demo-editor/themes/devtools.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/code-demo-runner/code-demo-runner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/code-demo-runner/code-demo-runner.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/code-demo.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/multitab-editor/editor-from-model/editor-from-model.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/multitab-editor/editor-from-model/editor-from-model.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/multitab-editor/editor-from-model/editor-from-model.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/multitab-editor/multitab-editor.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/realtime-eval/realtime-eval.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/realtime-eval/realtime-eval.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/runner/compile-ts-files.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/runner/prepare-templates.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/shared/deps-order.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/shared/deps-order.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/shared/monaco-config.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/shared/monaco-config.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/shared/script-loader.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/shared/types-not-really.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/src/lib/shared/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/code-demos/tsconfig.lib.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/console/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/console/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/console/src/lib/console.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/console/src/lib/console.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/console/src/lib/console.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/console/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/console/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/ng-package.prod.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/lib/feedback-issue-dropdown/feedback-issue-dropdown.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/lib/feedback-issue-dropdown/feedback-issue-dropdown.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/lib/feedback-issue-dropdown/feedback-issue-dropdown.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/lib/feedback-rating/feedback-rating.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/lib/feedback-widget/feedback-widget.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/lib/feedback.module.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/lib/feedback.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/tsconfig.lib.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/feedback/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase-login/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase-login/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase-login/src/lib/firebase-login.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase-login/src/lib/login-widget/login-widget.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase-login/src/lib/login.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase-login/src/lib/login.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase-login/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase/src/lib/firebase.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase/src/lib/sync-fire-store.directive.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/firebase/tsconfig.lib.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/assets/slides/slide-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/generate/helpers/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/src/lib/intro.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/src/test-setup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/intro/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/live/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/live/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/slides/src/lib/arrows/slides-arrows.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/slides/src/lib/arrows/slides-arrows.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/slides/src/lib/full-screen-mode/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/slides/src/lib/routing/slides-routing.directive.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/slides/src/lib/shortcuts/shortcuts.directive.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/slides/src/lib/slides.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/loaders/loaders.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/loading-indicator/loading-indicator.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/loading-indicator/loading-indicator/loading-indicator.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/loading-indicator/loading-indicator/loading-indicator.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/pipes/pipes.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sandbox-runner/sandbox-runner.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sandbox-runner/test-runner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sandbox-runner/test-runner.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sandbox-runner/typescript-checker-runner/typescript-checker-runner.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sandbox-runner/typescript-checker-runner/typescript-checker-runner.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sandbox-runner/typescript-checker-runner/typescript-checker-runner.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/configure-sync/configure-sync.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/configure-sync/configure-sync.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/configure-sync/configure-sync.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/common/bar-chart/bar-chart.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/common/bar-chart/bar-chart.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/common/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/common/stars/stars.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/common/stars/stars.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/common/sync-poll.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-admin/sync-poll-admin.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-admin/sync-poll-admin.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-admin/sync-poll-admin.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-presenter/choice-presenter/choice-presenter.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-presenter/choice-presenter/choice-presenter.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-presenter/choice-presenter/choice-presenter.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-presenter/leaderboard/leaderboard.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-presenter/stars-presenter/stars-presenter.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-viewer/sync-poll-viewer-choice/sync-poll-viewer-choice.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-viewer/sync-poll-viewer-choice/sync-poll-viewer-choice.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/poll/sync-poll-viewer/sync-poll-viewer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/common/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/common/question-list/question-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/common/questions.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/questions-admin/questions-admin.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/questions-presenter/questions-presenter.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/questions-presenter/questions-presenter.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/questions-viewer/questions-viewer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/questions-viewer/questions-viewer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/questions-viewer/questions-viewer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/questions/questions.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/registration/registration-admin/registration-admin.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/registration/registration-admin/registration-admin.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/registration/registration-presenter/registration-presenter.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/registration/registration-presenter/registration-presenter.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/registration/registration-presenter/registration-presenter.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/registration/registration.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/registration/registration.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game-admin/sync-code-game-admin.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game-admin/sync-code-game-admin.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game-admin/sync-code-game-admin.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game-presenter/sync-code-game-presenter.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game-presenter/sync-code-game-presenter.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game-presenter/sync-code-game-presenter.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/sync-code-game.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-code-game/tests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-join-instructions/sync-join-instructions.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-join-instructions/sync-join-instructions.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-sessions/sync-sessions.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-sessions/sync-sessions.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/components/sync-sessions/sync-sessions.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/directives/all-viewer-values.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/directives/sync-presenter-value.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/directives/sync-user-value.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/images/bunny.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/services/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/services/sync-data.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/services/sync-db.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/sync-button/sync-button.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/sync-playground/sync-playground-presenter/sync-playground-presenter.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/sync-playground/sync-playground-test/sync-playground-test.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/sync-playground/sync-playground.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/sync/sync-playground/sync-playground.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/file-aware-description/file-aware-description.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/file-aware-description/file-aware-description.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/test-results/test-results.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/test-results/test-results.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/test-results/test-results.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/test-run-results/test-run-results.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/test-run-results/test-run-results.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/test-results/test-run-results/test-run-results.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/src/lib/testing/mocks/angular-fire.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../libs/utils/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/context/context.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/context/context.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/data-binding/DataBinding.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/ThumbsComponentCreateTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/ThumbsComponentUseTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/bootstrapTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/codelabTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/diInjectServiceTestBabel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/fuzzyPipeCreateTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/fuzzyPipeUseTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/tests/videoComponentUseTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/thumbs/thumbs.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/toggle-panel/toggle-panel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/typescript-intro/Main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/upload/upload.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../ng2ts/video/video-item.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../nx.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../tools/schematics/slide/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../tools/schematics/slide/files/template.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../tools/schematics/slide/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../tools/tsconfig.tools.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../old quiz backup/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../old quiz backup/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../old quiz backup/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../old quiz backup/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../old quiz backup/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/dependency-injection-quiz/dependency-injection-quiz.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/dependency-injection-quiz/dependency-injection-quiz.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/dependency-injection-quiz/dependency-injection-quiz.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/introduction/introduction.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/introduction/introduction.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/introduction/introduction.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/results/results.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/results/results.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/results/results.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/score/score.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/score/score.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/score/score.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/scoreboard.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/scoreboard.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/scoreboard.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/time/time.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/time/time.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/containers/scoreboard/time/time.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/routing/quiz-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/models/Answer.type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/models/Option.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/models/Quiz.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/models/QuizQuestion.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/models/Result.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/quiz.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/services/quiz.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/shared/services/timer.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/styles/styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/app/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/assets/alarm-clock.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/assets/audio/sound-correct.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/assets/audio/sound-incorrect.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/assets/quiz.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../src/styles.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="ProjectId" id="1d0UXRRGqzRlTKvIgfaOyLFOxXL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f870ac63-bdf8-4e90-84e3-a6fdd1762d1a" name="Default Changelist" comment="" />
+      <created>1591561543202</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591561543202</updated>
+      <workItem from="1591561545209" duration="1279000" />
+      <workItem from="1591563406525" duration="10230000" />
+      <workItem from="1591633959302" duration="5908000" />
+      <workItem from="1591645915187" duration="6318000" />
+      <workItem from="1591806871217" duration="4601000" />
+      <workItem from="1591923153207" duration="822000" />
+      <workItem from="1591978644511" duration="16156000" />
+    </task>
+    <task id="LOCAL-00001" summary="testing upload of quiz to GH">
+      <created>1591562148848</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591562148848</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="testing upload of quiz to GH" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing upload of quiz to GH" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="494" y="223" key="#Notifications" timestamp="1591563457977">
+      <screen x="0" y="0" width="1217" height="720" />
+    </state>
+    <state x="494" y="223" key="#Notifications/0.0.1217.720@0.0.1217.720" timestamp="1591563457977" />
+    <state x="46" y="15" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591562273318">
+      <screen x="0" y="0" width="1181" height="720" />
+    </state>
+    <state x="46" y="15" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1181.720@0.0.1181.720" timestamp="1591562273318" />
+    <state x="242" y="0" key="SettingsEditor" timestamp="1591993651402">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="242" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1591993651402" />
+    <state x="347" y="74" width="779" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1591564768664">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="347" y="74" width="779" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1280.680@0.0.1280.680" timestamp="1591564768664" />
+    <state x="413" y="274" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591563439223">
+      <screen x="0" y="0" width="1217" height="720" />
+    </state>
+    <state x="401" y="274" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1181.720@0.0.1181.720" timestamp="1591562312214" />
+    <state x="413" y="274" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1217.720@0.0.1217.720" timestamp="1591563439223" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1591645701301">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1591645701301" />
+  </component>
+</project>

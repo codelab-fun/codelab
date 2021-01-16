@@ -1,0 +1,74 @@
+<div style="height: 100%;display: flex;">
+  <div [style.height]="'100%'" style="flex: 1">
+    <code-demo-editor
+      style="width: 100%; height: 500px"
+      [(ngModel)]="d"
+      (ngModelChange)="updateCurrentPlayer()"
+      [lineNumbers]="false"
+      [fontSize]="'30'"
+    ></code-demo-editor>
+  </div>
+  <div style="height: 100%;flex: 1">
+    <!--https://www.flaticon.com/free-icon/car_809998#term=car%20top&page=1&position=5-->
+
+    <div>
+      <h1>Progress</h1>
+      <div *ngFor="let car of cars" style="display: flex;margin-bottom: 10px">
+        <div style="width: 200px">{{ car.name }}</div>
+        <div style="width: 200px; background: #ddd">
+          <div
+            [style.background]="car.color"
+            style="height: 20px; border: 1px #444 solid"
+            [style.width.%]="car.score"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <svg style="width: 500px; height: 500px">
+      <filter id="blur">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+      </filter>
+
+      <!--Track Border -->
+      <path
+        style="stroke: #444;  fill:transparent;"
+        [attr.d]="track"
+        [style.stroke-width]="trackWidth * 2 + 2"
+      ></path>
+
+      <!--Track -->
+      <path
+        #path
+        style="stroke: #666;  fill:transparent;"
+        [attr.d]="track"
+        [style.stroke-width]="trackWidth * 2"
+      ></path>
+
+      <!--    TODO(kirjs):  [style.stroke-dasharray]="this.pathLength + ' 10000'"-->
+
+      <path
+        style="stroke: #999; fill:transparent;"
+        [style.stroke-width]="trackWidth * 2"
+        [attr.d]="track"
+      ></path>
+      <path
+        style="stroke: #ddd; stroke-dasharray: 4px 6px;stroke-width: 2px; fill:transparent;"
+        [attr.d]="track"
+      ></path>
+
+      <!--<circle r=20 fill="#ddd" *ngFor="let point of points" [attr.cx]="point.x" [attr.cy]="point.y"></circle>-->
+
+      <g
+        *ngFor="let car of cars"
+        kirjs-player
+        [color]="car.color"
+        (scoreChanged)="setScore(car.name, $event)"
+        [path]="path"
+        [d]="car.d"
+      ></g>
+      <g kirjs-finish [position]="finishPosition"></g>
+    </svg>
+    <!--<div style="height: 100%;" [innerHTML]="code|safeHtml"></div>-->
+  </div>
+</div>

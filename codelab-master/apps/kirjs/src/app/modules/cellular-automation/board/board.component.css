@@ -1,0 +1,20 @@
+.cell {
+  border: 1px #888 solid;
+  margin-left: -1px;
+  margin-top: -5px;
+}
+
+.cell.cell-x {
+  border: none;
+}
+.cell-1 {
+  background: black;
+}
+
+.board,
+.cell {
+  display: inline-block;
+}
+
+.line {
+}

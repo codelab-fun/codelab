@@ -1,0 +1,429 @@
+<slide-deck slideShortcuts slidesRouting kirjs-tracking>
+  <!--<kirjs-new-progress-bar [fontSize]="fontSize" (fontSizeChange)="updateFontSize($event)"></kirjs-new-progress-bar>-->
+  <slide-arrows></slide-arrows>
+
+  <div *slide id="intro" no-padding>
+    <div class="bg">
+      <h1><b>Абстрактные Синтаксические Деревья</b> в JavaScript</h1>
+      <h2>@kirjs</h2>
+    </div>
+  </div>
+
+  <div *slide id="kirjs" no-padding>
+    <div class="bg"><h2>@kirjs</h2></div>
+  </div>
+
+  <div *slide id="what-s-ast">
+    <h1>Абстрактные синтаксические деревья (АСД)</h1>
+    <h2>
+      Это выступление о том как научить код <b>понимать</b> и
+      <b>трансформировать</b> другой код.
+    </h2>
+  </div>
+
+  <div *slide id="debugger-pre" no-padding>
+    <div class="bg">
+      <h1>Начнем сразу с примера</h1>
+      <h2>Как определить что из файла забыли вырезать <b>console.log</b></h2>
+    </div>
+  </div>
+
+  <div no-padding *slide id="two-buttons">
+    <div class="bg two-button"></div>
+    <div class="bg two-button2"></div>
+  </div>
+
+  <div *slide id="console-log-regex" no-padding>
+    <kirjs-test-set [files]="code.findConsoleLog" [fontSize]="fontSize">
+      <div class="success-complete-dancing"></div>
+    </kirjs-test-set>
+  </div>
+
+  <div no-padding *slide id="two-buttons-push">
+    <div class="bg two-button3"></div>
+  </div>
+
+  <div *slide id="sausage-pre" no-padding></div>
+
+  <div *slide id="not-like-sausage" no-padding></div>
+
+  <div *slide id="parser" no-padding></div>
+
+  <div *slide id="parser-code">
+    <h2>Парсим с помощью babylon:</h2>
+    <code-demo-editor
+      class="editor"
+      language="javascript"
+      [lineNumbers]="false"
+      [(ngModel)]="code.parser"
+      [fontSize]="fontSize * 1.5"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide id="babylon-update">
+    <h2>19 Мая <b>babylon</b> был переименован в <b>@babel/parser</b></h2>
+    <br />
+    <br />
+    <div class="babylon"></div>
+  </div>
+
+  <div *slide id="consle-log-ast-again">
+    <h1>Пример Абстрактного Синтаксического Дерева:</h1>
+
+    <div style="display: flex;">
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLog"
+        type="javascript"
+        lineNumbers="on"
+      ></code-demo-editor>
+
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLogAst"
+        type="JSON"
+        lineNumbers="on"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="scary-tree" no-padding><div class="bad-tree"></div></div>
+
+  <div *slide id="console-log-ast-highlight-body">
+    <div style="display: flex;">
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLog"
+        type="javascript"
+        lineNumbers="on"
+      ></code-demo-editor>
+
+      <!--// TODO(kirjs): [slidesBabelHighlightMatch]="matchTreePartsBody"-->
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLogAstJs"
+        type="JSON"
+        lineNumbers="on"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="console-log-ast-just-body">
+    <div style="display: flex;">
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLog"
+        type="javascript"
+        lineNumbers="on"
+      ></code-demo-editor>
+
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLogBodyAstCode"
+        type="JSON"
+        lineNumbers="on"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="panda" no-padding></div>
+
+  <div *slide id="console-log-ast-just-body-highlight-loc">
+    <div style="display: flex;">
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLog"
+        type="javascript"
+        lineNumbers="on"
+      ></code-demo-editor>
+
+      <!--// TODO(kirjs): [babelHighlightMatch]="matchTreePartsLoc"-->
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLogBodyAstCode"
+        type="JSON"
+        lineNumbers="on"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="console-log-ast-no-loc">
+    <div style="display: flex;">
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLog"
+        type="javascript"
+        lineNumbers="on"
+      ></code-demo-editor>
+
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLogNoLocCode"
+        type="JSON"
+        lineNumbers="on"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="console-log-structure" no-padding>
+    <div style="display: flex;height: 200px;flex-shrink: 0">
+      <code-demo-editor
+        [minLines]="1"
+        [autoSize]="false"
+        class="editor"
+        [(ngModel)]="code.astPreview"
+        [fontSize]="fontSize * 2"
+        [lineNumbers]="false"
+        style="width: 70%;"
+      ></code-demo-editor>
+      <div class="ast-preview-helper-list">
+        <ul>
+          <li (click)="code.astPreview = 'log'">log</li>
+          <li (click)="code.astPreview = 'console.log'">console.log</li>
+          <li (click)="code.astPreview = 'log()'">log()</li>
+          <li (click)="code.astPreview = 'console.log()'">console.log()</li>
+          <li (click)="code.astPreview = 'console.log(1)'">console.log(1)</li>
+          <li (click)="code.astPreview = 'console.log(1,a.b)'">
+            console.log(1, a.b)
+          </li>
+          <li (click)="code.astPreview = 'hi;\n123;\n/lol/;\ntrue;\nnull'">
+            All literals
+          </li>
+        </ul>
+      </div>
+    </div>
+    <kirjs-ast-preview-runner
+      (highlight)="asthighlight = $event"
+      #astPreview
+      [code]="code.astPreview"
+      class="ast-preview"
+    ></kirjs-ast-preview-runner>
+    <div
+      class="collie ast-preview"
+      [class.display]="displayCallee"
+      (click)="displayCallee = !displayCallee"
+    ></div>
+  </div>
+
+  <div *slide id="console-log-ast-no-loc2">
+    <div style="display: flex;">
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLog"
+        type="javascript"
+        lineNumbers="on"
+      ></code-demo-editor>
+
+      <code-demo-editor
+        style="width: 50%"
+        [(ngModel)]="code.consoleLogNoLocCode"
+        type="JSON"
+        lineNumbers="on"
+      ></code-demo-editor>
+    </div>
+  </div>
+
+  <div *slide id="babel-traverse" no-padding>
+    <div class="bg">Обход AST с помощью <b>babel-traverse</b></div>
+  </div>
+
+  <div *slide id="console-log-babel-traverse" no-padding>
+    <kirjs-test-set
+      [files]="code.traverseConsoleLogBabel"
+      [fontSize]="fontSize"
+      [showAst]="true"
+    >
+      <div class="success-complete-husky"></div>
+    </kirjs-test-set>
+  </div>
+
+  <div *slide id="babel-types" no-padding>
+    <div class="bg">Упрощаем работу с AST с помощью <b>babel-types</b></div>
+  </div>
+
+  <div *slide id="babel-types-identifier" no-padding>
+    <code-demo-editor
+      class="editor"
+      language="javascript"
+      [lineNumbers]="false"
+      [(ngModel)]="code.types.identifier"
+      [fontSize]="fontSize * 1.5"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide id="babel-types-name" no-padding>
+    <code-demo-editor
+      class="editor"
+      language="javascript"
+      [lineNumbers]="false"
+      [(ngModel)]="code.types.name"
+      [fontSize]="fontSize * 1.5"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide id="console-log-babel-traverse1" no-padding>
+    <kirjs-test-set
+      [files]="code.traverseConsoleLogBabel2"
+      [fontSize]="fontSize"
+    >
+      <div class="success-complete-husky"></div>
+    </kirjs-test-set>
+  </div>
+
+  <div *slide id="babel-transform" no-padding>
+    <div class="bg">Трансформируем АСД с помощью <b>babel-traverse</b></div>
+  </div>
+
+  <div *slide id="console-log-babel-transform" no-padding>
+    <kirjs-test-set [files]="code.removeConsoleLogBabel" [fontSize]="fontSize">
+      <div class="success-complete-disco"></div>
+    </kirjs-test-set>
+  </div>
+
+  <div *slide id="fond-debugger" no-padding>
+    <div class="bg">Давайте найдем в коде <b>debugger</b></div>
+  </div>
+
+  <div *slide id="debugger-structure2" no-padding>
+    <div style="height: 200px;flex-shrink: 0; display: flex;">
+      <code-demo-editor
+        class="editor"
+        [(ngModel)]="code.astPreviewDebugger"
+        [fontSize]="fontSize"
+        style="width: 70%;"
+      ></code-demo-editor>
+      <div
+        class="ast-preview-helper-list"
+        style="font-size: 2vw;padding: 20px;"
+      >
+        <a href="http://astexplorer.net/">astexplorer.net</a>
+      </div>
+    </div>
+    <kirjs-ast-preview-runner
+      #astPreview
+      [code]="code.astPreviewDebugger"
+      class="ast-preview"
+    ></kirjs-ast-preview-runner>
+  </div>
+
+  <div *slide id="eslint" no-padding>
+    <div class="bg">
+      Давайте напишем плагин для <b>ESLint</b> (на
+      <a href="http://astexplorer.net">AstExplorer</a>)
+    </div>
+  </div>
+
+  <div *slide id="why-break">
+    <h1>Где еще полезны АСД?</h1>
+    <ul>
+      <li>Больше контроля надо кодом, проще рефакторинг, codemods</li>
+      <li>Меньше споров про оформление кода</li>
+      <li>Создание игровых проэктов</li>
+      <li>Лучшее понимание JavaScript</li>
+    </ul>
+  </div>
+
+  <div *slide id="ast-links">
+    <div class="bg">
+      <h2>
+        Когда вы увидите эти 5 ссылок про <b>Babel</b> вы не поверите своим
+        глаза...
+      </h2>
+    </div>
+  </div>
+
+  <div *slide id="ast-links-1">
+    <b class="link-number">1</b>
+    <h2>
+      Все трансформации Babel используют этот API.
+      <a href="https://github.com/babel/babel/tree/master/packages"
+        >плагины и пресеты
+      </a>
+    </h2>
+  </div>
+  <div *slide id="ast-links-2">
+    <b class="link-number">2</b>
+    <h2>
+      Часть процесса добавления новой функциональности в EcmaScript - создание
+      плагина для Babel.
+    </h2>
+    <h2>
+      <a
+        href="https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-logical-assignment-operators"
+      >
+        например logical-assignment-operator</a
+      >
+    </h2>
+  </div>
+
+  <div *slide id="ast-links-3">
+    <b class="link-number">3</b>
+    <h2>Babel Generator теряет форматирование при гегенерации кода.</h2>
+    <h2>
+      <a href="https://www.npmjs.com/package/recast">Recast</a> и
+      <a href="https://www.npmjs.com/package/babel-codemod">Babel CodeMod</a>
+      решают это проблему.
+    </h2>
+  </div>
+
+  <div *slide id="ast-links-4">
+    <b class="link-number">4</b>
+    <h2>
+      Оргомная подборка информации про Babel в репозитории
+      <a href="https://github.com/babel/awesome-babel">Awesome Babel</a>
+    </h2>
+  </div>
+
+  <div *slide id="ast-links-5">
+    <b class="link-number">5</b>
+    <h2>
+      Babel - проект с открытыми исходниками, над ним трудится команда
+      волонтеров и им не помешала бы помощь :)
+    </h2>
+  </div>
+
+  <div *slide id="ast-links-5-1">
+    <b class="link-number">5</b>
+    <h2><a href="https://www.patreon.com/henryzhu">patreon.com/henryzhu</a></h2>
+    <br />
+    <br />
+    <div class="henry-zhu"></div>
+  </div>
+
+  <div *slide id="ast-links-5-2">
+    <b class="link-number">5</b>
+    <h2><a href="opencollective.com/babel">opencollective.com/babel</a></h2>
+    <br />
+    <br />
+    <div class="opencollective"></div>
+  </div>
+
+  <div *slide id="ast-links-5-3">
+    <b class="link-number">5</b>
+    <h2>
+      <a href="github.com/babel/babel/issues">github.com/babel/babel/issues</a>
+    </h2>
+    <br />
+    <br />
+    <div class="github"></div>
+  </div>
+
+  <div *slide id="renoir" no-padding>
+    <div class="bg">
+      <h2>
+        Эта презентация:
+        <a href="https://codelab.fun/ast/intro"
+          >https://codelab.fun/ast/intro</a
+        >
+      </h2>
+      <h2>
+        Картинки: <a href="https://twitter.com/artist_renoir">@artist_renoir</a>
+      </h2>
+      <h2>Мой твиттер: <a href="https://twitter.com/kirjs">@kirjs</a></h2>
+    </div>
+  </div>
+
+  <div *slide id="outro" no-padding>
+    <div class="bg"><h1>Thank you!</h1></div>
+  </div>
+</slide-deck>

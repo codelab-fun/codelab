@@ -1,0 +1,243 @@
+<div #translations style="display: none">
+  ¬
+  <div i18n="@@AddMatModules" id="AddMatModules">
+    app.module.ts: Add MatCardModule and MatToolbarModule, to the imports.
+  </div>
+  <div i18n="@@AddMatToolbar" id="AddMatToolbar">
+    app.html: Add material toolbar containing the title
+  </div>
+  <div i18n="@@UseMatCard" id="UseMatCard">
+    video/video.component.html: Use material card to display the data
+  </div>
+  <div i18n="@@AddMatCardTitle" id="AddMatCardTitle">
+    video/video.component.html: Add mat-card-title (inside of the mat-card) to
+    display video title
+  </div>
+  <div i18n="@@AddMatCardSubtitle" id="AddMatCardSubtitle">
+    video/video.component.html: Add mat-card-subtitle (inside of the mat-card)
+    to display video description
+  </div>
+  <div i18n="@@AddMatImage" id="AddMatImage">
+    video/video.component.html: Mark img with mat-card-image attribute (inside
+    of the mat-card) so that it takes full card size
+  </div>
+  <div i18n="@@MoveDataToNewComponent" id="MoveDataToNewComponent">
+    video/video.component.html: move date/views/likes info inside of
+    mat-card-content (inside of the mat-card)
+  </div>
+</div>
+
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+  <slide-arrows></slide-arrows>
+
+  <!--  INTRO -->
+  <div *slide id="intro" no-padding>
+    <codelab-title-slide
+      i18n-title
+      i18n-description
+      title="Material design"
+      description="Learn how to use Angular Material"
+    ></codelab-title-slide>
+  </div>
+  <!--  INTRO -->
+  <div *slide id="components" milestone="material">
+    <h2 i18n>
+      Now let's use
+      <a href="https://material.angular.io" target="_blank">Angular Material</a>
+      to make our app look beautiful ✨✨
+    </h2>
+    <h2 i18n>
+      Angular Material provides you with a set of
+      <a href="https://material.io/" target="_blank">Material Design</a>
+      components for Angular:
+    </h2>
+    <!--Angular Material предоставляет множество Angular-компонентов в стиле-->
+    <!--<ph name="START_LINK"><ex>&lt;a&gt;</ex>&lt;a&gt;</ph>Material Design<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>:-->
+    <ul>
+      <li i18n>Fast and Consistent</li>
+      <li i18n>Versatile</li>
+      <li i18n>Accessible</li>
+      <li i18n>Optimized for Angular</li>
+      <li i18n>Look great on mobile</li>
+    </ul>
+
+    <h2 i18n>
+      See the list of components
+      <a
+        href="https://material.angular.io/components/categories"
+        target="_blank"
+        >here</a
+      >
+    </h2>
+  </div>
+
+  <div *slide id="toolbar" milestone="material">
+    <codelab-breadcrumb i18n>MatToolBar</codelab-breadcrumb>
+    <h2 i18n>Adding a toolbar takes 2 steps:</h2>
+    <ul>
+      <li i18n>Add <b>MatToolbarModule</b> to the imports</li>
+      <li i18n>Use the component in the template</li>
+    </ul>
+    <!--MatToolBar-->
+    <code-demo
+      [(ngModel)]="code.material.step1.code"
+      [files]="code.material.step1.files"
+      [highlights]="code.material.step1.highlights"
+    ></code-demo>
+    <div class="info" i18n>
+      Note that Angular animations come in a separate module. We're including
+      <b>NoopAnimationsModule</b> here, but could have used
+      <b>BrowserAnimationsModule</b> instead, to have full-fledged animations.
+    </div>
+  </div>
+
+  <div *slide id="card" milestone="material">
+    <codelab-breadcrumb i18n>Card</codelab-breadcrumb>
+    <h2 i18n>Now let's add material card.</h2>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.step2.code"
+      [files]="code.material.step2.files"
+      [highlights]="code.material.step2.highlights"
+    ></code-demo>
+  </div>
+
+  <div *slide id="header" milestone="material">
+    <codelab-breadcrumb i18n>Card Header</codelab-breadcrumb>
+    <h2 i18n>Header and an image.</h2>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.step3.code"
+      [files]="code.material.step3.files"
+      [highlights]="code.material.step3.highlights"
+    ></code-demo>
+  </div>
+
+  <div *slide id="buttons" milestone="material">
+    <codelab-breadcrumb i18n>Buttons</codelab-breadcrumb>
+    <h2 i18n>Adding some actions....</h2>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.step4.code"
+      [files]="code.material.step4.files"
+      [highlights]="code.material.step4.highlights"
+    ></code-demo>
+    <div class="info" i18n>
+      Note that for the button we're using <b>mat-button</b> attribute instead
+      of a separate tag.
+    </div>
+  </div>
+
+  <div *slide id="themes" milestone="material">
+    <codelab-breadcrumb i18n>Themes</codelab-breadcrumb>
+    <h2 i18n>
+      All Angular Material components allow to apply themes. Try different
+      themes by clicking the buttons below:
+    </h2>
+    <div style="margin-bottom: 1.5vw;">
+      <button
+        mat-button
+        mat-raised-button
+        [color]="theme === 'indigo' ? 'primary' : 'secondary'"
+        (click)="setTheme('indigo')"
+        i18n
+      >
+        Indigo
+      </button>
+      <button
+        mat-button
+        mat-raised-button
+        [color]="theme === 'deeppurple' ? 'primary' : 'secondary'"
+        (click)="setTheme('deeppurple')"
+        i18n
+      >
+        Deep purple
+      </button>
+      <button
+        mat-button
+        mat-raised-button
+        [color]="theme === 'pink' ? 'primary' : 'secondary'"
+        (click)="setTheme('pink')"
+        i18n
+      >
+        Pink
+      </button>
+      <button
+        mat-button
+        mat-raised-button
+        [color]="theme === 'purple' ? 'primary' : 'secondary'"
+        (click)="setTheme('purple')"
+        i18n
+      >
+        Purple
+      </button>
+    </div>
+    <code-demo
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.material.themes.code"
+      [files]="code.material.themes.files"
+    ></code-demo>
+    <div class="info" i18n>
+      Read more on theming Angular Material
+      <a href="https://material.angular.io/guide/theming">in this guide</a>
+    </div>
+  </div>
+
+  <div *slide id="exercise-pre" milestone="material">
+    <codelab-breadcrumb i18n>Exercise</codelab-breadcrumb>
+    <h2 i18n>
+      In the next slide there is an exercise. We're going to materialize our
+      application
+    </h2>
+    <codelab-exercise-preview
+      style="height: 50vh;width: 100%"
+      [exercise]="exercise"
+      [url]="'/assets/runner/'"
+    ></codelab-exercise-preview>
+    <div class="info" i18n>
+      Note: the final app won't be super beautiful, we're still working on that.
+    </div>
+  </div>
+
+  <div *slide id="exercise" no-padding>
+    <codelab-exercise
+      milestone="material"
+      url="/assets/runner"
+      [translations]="t"
+      [exercise]="exercise"
+    >
+    </codelab-exercise>
+  </div>
+
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div class="header" header>
+        <codelab-breadcrumb i18n
+          >End of The Material Milestone
+        </codelab-breadcrumb>
+      </div>
+      <div class="body" body>
+        <h2 i18n>Well done! This is the end of the milestone!</h2>
+        <h2 i18n>
+          Check out Angular Material
+          <a
+            href="https://material.angular.io/guide/getting-started"
+            target="_blank"
+            >"Getting Started"</a
+          >
+          Guide
+        </h2>
+      </div>
+      <div class="footer" footer>
+        <h2>
+          <ng-container i18n>Next:</ng-container>
+          <a routerLink="../../forms/0" i18n>
+            Learn how to create simple forms with Angular
+          </a>
+        </h2>
+        <feedback-rating lesson="Material"></feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

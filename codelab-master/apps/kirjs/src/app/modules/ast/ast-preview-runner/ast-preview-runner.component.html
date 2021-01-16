@@ -1,0 +1,4 @@
+<div>
+  <div *ngIf="hasError" class="error">Parsing error</div>
+  <ast-viz (selectNode)="selectNode($event)" [node]="ast"></ast-viz>
+</div>

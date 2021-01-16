@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+input,
+textarea {
+  width: 600px;
+}
+
+.form-control {
+  margin: 2px;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}

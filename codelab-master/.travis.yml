@@ -1,0 +1,31 @@
+dist: trusty
+language: node_js
+node_js:
+  - "10"
+
+env:
+  matrix:
+    - TRIGGER="format:check"
+    - TRIGGER="lint"
+    - TRIGGER="ng build --  --prod --source-map=false --build-optimizer=false"
+
+script:
+  - npm run $TRIGGER
+
+notifications:
+  email: false
+
+cache:
+  npm: true
+  directories:
+    - node_modules
+
+deploy:
+  provider: firebase
+  project: "angular-presentation"
+  token:
+    secure: "ed9U/81s4sR9ihLEogOdbXlKin0/vhJdk9XaLLTv6jVxGG/n40tcwwsCze6F3sBTibjq90OJHZn1ip+4uDdF+BzdzJ+hjU0SCR4B/Fi3OtxW73vz//ou1BktVrkHh+kzyS+3AvLQ9xvkz1h57vfzgfW8V/Jhy3PviZXvoPO4ttOQs2HwbO3C0BvwIaneRlNDudRz/rIQDHxHPaR6Hh3gG69vBc6D0eWhbMbFcWr6kHN3t2ki3APFR3omtNhZIdrFF9icSkeQ1fwiMKKfQaxmHXT1HZhxSCfvcqYwIqqidcFWTpABlt+2MNpWjnPLJV0l4D2HGSVF4RWtLFqfHhm/cyJTB/1ejDB92U4bA5W/tSGGgry5mgvD2pGrRHqHt+awtP9G4hgrZB3oADj3Q0nbj4VRDMgAYbAvrRYSFzxeXg50j7NwogGh02osAGpBhZzJA1I93c2yEPmcu+ysG1FkCnggh65LYX3Zjyu2eRyuPj0kaT+5OhFUanpCYO2cM/pGFMnG8+InvwLKUKfAtgUrP6yefd5CGJZaWbLGemNue6teAyMVWye4Ep2swY3DW0di5Ikn5lrV2V33yzeNd2OoSQbCaBbFLEYrlHw1+/7yNf928jj4vG0TYJwdUhlZDWdkogFIGx5cyu7dNEa5UnlzhJFkqIoo77kQrD0PKCyoAVg="
+  before_deploy:
+    - npm run pre-deploy
+  on:
+    branch: release

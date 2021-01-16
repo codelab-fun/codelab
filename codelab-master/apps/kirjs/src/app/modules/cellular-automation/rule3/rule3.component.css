@@ -1,0 +1,16 @@
+.rule {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.index {
+  text-align: center;
+  font-size: 50px;
+  flex: 1;
+  margin-left: -20px;
+}
+
+kirjs-rule {
+  margin-right: 20px;
+}

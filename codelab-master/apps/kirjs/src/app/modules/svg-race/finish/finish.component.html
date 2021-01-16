@@ -1,0 +1,21 @@
+<svg:g
+  [style.transform]="'translate(' + position.x + 'px,' + position.y + 'px)'"
+>
+  <svg:g
+    style="transform-origin: 10px -10px; "
+    [style.transform]="'rotate(90deg)'"
+  >
+    <path
+      style="stroke:white; stroke-width: 10px"
+      [attr.d]="'m 0 2.5 h 40'"
+    ></path>
+    <path
+      style="stroke-dasharray: 5px 5px; stroke:red; stroke-width: 5px"
+      [attr.d]="'m 0 0  h 40'"
+    ></path>
+    <path
+      style="stroke-dasharray: 5px 5px; stroke:red; stroke-width: 5px"
+      [attr.d]="'m 5 5 h 35'"
+    ></path>
+  </svg:g>
+</svg:g>

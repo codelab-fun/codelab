@@ -1,0 +1,29 @@
+:host ::ng-deep {
+  .block {
+    display: block;
+    font-size: 30px;
+    margin-left: 40px;
+  }
+
+  .name {
+    width: 200px;
+  }
+
+  kirjs-object .block > .name {
+    display: block;
+  }
+}
+
+.block {
+  margin-left: 0;
+  font-size: 40px;
+}
+
+:host ::ng-deep {
+  input {
+    background: transparent;
+    font-size: inherit;
+    border: 0 solid;
+    font-family: Monaco, 'Lucida Console', monospace;
+  }
+}

@@ -1,0 +1,17 @@
+.survey {
+  opacity: 0.98;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid #000;
+  background-color: #fff;
+  padding: 20px;
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}

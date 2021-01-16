@@ -1,0 +1,32 @@
+.bits {
+  display: flex;
+  margin-bottom: 4vw;
+}
+
+.size-16 .bit {
+  font-size: 5vw;
+}
+
+.size-24 .bit {
+  font-size: 4vw;
+}
+.size-32 .bit {
+  font-size: 2.5vw;
+}
+
+.bit {
+  font-size: 10vw;
+  margin-left: 1vw;
+  color: #444;
+  border-bottom: 0.2vw #888 solid;
+}
+
+.label {
+  color: #999;
+  border: none;
+  margin-right: 2vw;
+}
+
+:host ::ng-deep .content.content.content table td {
+  font-size: 4vw;
+}

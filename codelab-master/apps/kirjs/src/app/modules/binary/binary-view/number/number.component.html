@@ -1,0 +1,13 @@
+<input
+  AutoSizeInput
+  (change)="updateBinary(b.value)"
+  [value]="data.rawValue"
+  #b
+/>
+<input
+  AutoSizeInput
+  *ngIf="showMeta"
+  [value]="data.value"
+  (change)="update(i.value)"
+  #i
+/>

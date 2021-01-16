@@ -1,0 +1,14 @@
+<ng-container *ngIf="isArray">
+  <span *ngFor="let v of value" [class]="v.name">
+    <kirjs-inline [data]="v"></kirjs-inline>
+  </span>
+</ng-container>
+<input
+  class="item"
+  [style.width.px]="data.rawValue ? data.rawValue.length * 28 + 12 : 10"
+  (focus)="display(data)"
+  *ngIf="!isArray"
+  [value]="data.rawValue"
+  (keyup)="updateValue(i.value)"
+  #i
+/>

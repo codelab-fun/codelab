@@ -1,0 +1,39 @@
+<ng-container *ngIf="result$ | async as result">
+  <div *ngIf="result.type === 'result'">
+    <div *ngFor="let test of result.value">
+      <div
+        class="test-result"
+        [class.focused]="isFocused(test)"
+        (click)="focused = test"
+      >
+        <div
+          class="indicator"
+          [style.background]="test.pass ? '#43ff00' : '#ff5300'"
+        ></div>
+        <div>
+          <div>
+            <div class="call">
+              {{ config.name }}({{ test.args }}) {{ test.memory }}
+            </div>
+            <div *ngIf="test.output !== undefined">
+              <div class="result-expected">
+                result: {{ test.result.value.result }}
+              </div>
+              <div class="result-expected">expected: {{ test.output }}</div>
+            </div>
+            <div *ngIf="test.expectedMemory !== undefined">
+              result: {{ test.actualMemory }} expected:
+              {{ test.expectedMemory }}
+            </div>
+          </div>
+          <slides-viz
+            *ngIf="isFocused(test) && test.viz"
+            [config]="config"
+            [test]="test"
+          ></slides-viz>
+        </div>
+      </div>
+    </div>
+  </div>
+  <slides-error-message [result]="result"></slides-error-message>
+</ng-container>

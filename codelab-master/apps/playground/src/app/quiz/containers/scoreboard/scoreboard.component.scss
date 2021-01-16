@@ -1,0 +1,25 @@
+@import "variables";
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  clear: both;
+
+  .scoreboard-score {
+    margin-left: 25px;
+  }
+
+  .scoreboard-timer {
+    margin-right: -10px;
+  }
+
+  .badge {
+    font-family: $font-stack;
+    font-size: 26px;
+    font-weight: $font-weight-max;
+    font-style: italic;
+    color: $dark-green;
+    margin: 30px 0 0 -20px;
+    padding: -10px 0;
+  }
+}

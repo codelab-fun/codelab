@@ -1,0 +1,38 @@
+@import "variables";
+
+.challenge {
+  text-align: center;
+  padding-bottom: 15px;
+
+  .social-buttons {
+    display: inline-flex;
+    vertical-align: middle;
+
+    a.btn {
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 9px 15px 8px 42px;
+      background: no-repeat 10px 5px;
+      background-size: 25px 25px;
+      color: $white;
+    }
+
+    a.btn.facebook {
+      background-color: $dark-blue;
+      background-image: url($facebook-path);
+      top: 10px !important;
+    }
+
+    a.btn.twitter-share-button {
+      background-color: $soft-blue;
+      background-image: url($twitter-path);
+      top: 10px !important;
+    }
+
+    a.btn.email {
+      background-color: $fuel-yellow;
+      background-image: url($email-path);
+      top: 10px !important;
+    }
+  }
+}

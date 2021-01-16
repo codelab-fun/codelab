@@ -1,0 +1,712 @@
+<slide-deck slideShortcuts class="binary-presentation" slidesRouting>
+  <slide-arrows></slide-arrows>
+  <!--<kirjs-new-progress-bar [fontSize]="fontSize"-->
+  <!--title="Binary ❤️ JavaScript"-->
+  <!--(fontSizeChange)="fontSize = fontSize + $event"></kirjs-new-progress-bar>-->
+  <!--<feedback-widget></feedback-widget>-->
+
+  <div *slide id="intro" bg intro no-padding>
+    <h1 i18n>@kirjs</h1>
+    <h2 i18n>️JavaScript ❤️ Binary</h2>
+    <h3>kirjs.com/binary/0</h3>
+  </div>
+
+  <div *slide id="font-size" bg style="padding: 4vw">
+    <h2 i18n="@@fontSize">
+      If you can't read the numbers below, move closer or go to
+      <b>kirjs.com/binary/0</b>
+    </h2>
+    <div style="font-size: 3vw;word-break: break-all">
+      {{ binaryLittleGif.substr(0, 200) }}
+    </div>
+  </div>
+
+  <div *slide id="binary-abstraction" bg>
+    <h2 i18n>Binary is hidden behind many layers of abstraction</h2>
+  </div>
+
+  <div *slide id="overview-2">
+    <h1 i18n>In this talk:</h1>
+    <ul>
+      <li i18n>Binary in files (images, video, other media, zip)</li>
+      <li i18n>Binary for data transfer (instead of JSON)</li>
+      <li i18n>Javascript using binary in memory</li>
+    </ul>
+  </div>
+
+  <!--<div *slide id="binary-message" bg vc message>-->
+  <!--</div>-->
+
+  <div *slide id="gif-internals" bg vc gif>
+    <h1 i18n>Let's see what's inside of <b>gif</b></h1>
+  </div>
+
+  <div *slide id="binary-file-upload">
+    <input type="file" />
+    <hr />
+    <code-demo-editor
+      [lineNumbers]="false"
+      [fontSize]="40"
+      [(ngModel)]="code.fileHandler"
+      [codeDemoHighlight]="code.fileHandlerHighlight"
+      language="javascript"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide id="binary-file-value-2" vertical-split>
+    <code style="font-size: 2vw;font-weight: 300;word-break: break-word">
+      {{ chikinGif }}
+    </code>
+    <kirjs-binary-gif [binary]="binaryChikinGif"></kirjs-binary-gif>
+  </div>
+
+  <div *slide id="binary-file-string-value" vertical-split>
+    <code
+      style="font-size: 10vw;font-weight: 300;word-break: break-word"
+      contenteditable="true"
+      (input)="setLittleGifBinary($event.target.innerText)"
+    >
+      {{ littleGif }}
+    </code>
+    <kirjs-binary-gif [binary]="binaryLittleGif"></kirjs-binary-gif>
+  </div>
+
+  <div *slide id="binary-file-upload-buffer">
+    <code-demo-editor
+      [lineNumbers]="false"
+      [fontSize]="40"
+      [(ngModel)]="code.fileHandlerBinary"
+      language="javascript"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide id="binary-file-value" vertical-split>
+    <code style="font-size: 3vw; font-weight: 300;word-break: break-word">
+      {{ binaryLittleGif }}
+    </code>
+    <kirjs-binary-gif [binary]="binaryLittleGif"></kirjs-binary-gif>
+  </div>
+
+  <div *slide id="schema" binary-schema>
+    <h2 i18n>Binary data makes no sense without a schema</h2>
+    <table>
+      <tr>
+        <td i18n style="width: 30%">Binary data</td>
+        <td i18n>
+          01001110 01101111 01110110 01101001 00100000 01110011 01100001
+          01100100
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">+</td>
+      </tr>
+      <tr>
+        <td i18n>Schema</td>
+        <td i18n>Lol, what's this?</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">=</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          Numbers? Picture? Archive? Text?
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div *slide id="schema-2" binary-schema>
+    <h2 i18n>Binary data makes no sense without a schema</h2>
+    <table>
+      <tr>
+        <td i18n style="width: 30%">Binary data</td>
+        <td i18n>
+          01001110 01101111 01110110 01101001 00100000 01110011 01100001
+          01100100
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">+</td>
+      </tr>
+      <tr>
+        <td i18n>Schema</td>
+        <td><b i18n>This is UTF-8 string!</b></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">=</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">Novi Sad</td>
+      </tr>
+    </table>
+  </div>
+
+  <div *slide id="gif-standard" vc>
+    <pre style="text-align: center;font-size: 2vw;">
+GRAPHICS INTERCHANGE FORMAT(sm)
+
+<a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">Version 89a</a>
+
+(c)1987,1988,1989,1990
+
+Copyright
+CompuServe Incorporated
+Columbus, Ohio
+      </pre>
+  </div>
+
+  <div *slide id="gif-unspaced">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [binary]="binaryLittleGif"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="gif-spaced">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [binary]="binaryLittleGif"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="gif-spaced-sections">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [binary]="binaryLittleGif"
+      [spacing]="true"
+      [highlightGroups]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="gif-structure" vc>
+    <h2 i18n>Header</h2>
+    <ul class="text parent-header">
+      <li i18n>Contains size, global pallets specs, transparency.</li>
+    </ul>
+    <h2 i18n>Palette (Optional, size defined )</h2>
+    <ul class="text  parent-palette">
+      <li i18n>Contains indexed colors</li>
+    </ul>
+    <h2 i18n>Extensions (Optional)</h2>
+    <div class="text  parent-extensions">
+      <ul style="margin: 0;">
+        <li i18n i18n>Actual image data</li>
+        <li i18n i18n>Image Control</li>
+        <li i18n i18n>Animation Control</li>
+        <li i18n i18n>Comments</li>
+      </ul>
+    </div>
+  </div>
+
+  <kirjs-color-indexing *slide id="color-indexing"></kirjs-color-indexing>
+
+  <div *slide id="gif-spaced-sections-2">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [binary]="binaryLittleGif"
+      [spacing]="true"
+      [highlightGroups]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="gif-boolean">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [showPopups]="true"
+      [binary]="binaryLittleGif"
+      [highlightedMap]="{ boolean: true }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="gif-number">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [showPopups]="true"
+      [binary]="binaryLittleGif"
+      [highlightedMap]="{ boolean: true, number: true }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="bin-dec"><kirjs-bindec param="uint8"></kirjs-bindec></div>
+
+  <div *slide id="convert-bin-to-dec">
+    <h2 i18n>Convert binary to decimal with JavaScript</h2>
+    <code-demo-realtime-eval
+      code="parseInt('01010101', 2)"
+    ></code-demo-realtime-eval>
+  </div>
+
+  <div *slide id="convert-dec-to-bin">
+    <h2 i18n>Convert decimal to binary</h2>
+    <code-demo-realtime-eval
+      code="(1212).toString(2)"
+    ></code-demo-realtime-eval>
+  </div>
+
+  <div *slide id="gif-spaced-bin-dec">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [showPopups]="true"
+      [binary]="binaryLittleGif"
+      [highlightedMap]="{ boolean: true, number: true }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="gif-spaced-hex">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [showPopups]="true"
+      [binary]="binaryLittleGif"
+      [highlightedMap]="{ boolean: true, number: true, hex: true }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="bin-hex-explained"><kirjs-hexdec></kirjs-hexdec></div>
+  <div *slide id="bin-hex">
+    <h2 i18n>Convert binary to hexadecimal with JavaScript</h2>
+    <code-demo-realtime-eval
+      code="parseInt('01010101', 2).toString(16)"
+    ></code-demo-realtime-eval>
+  </div>
+
+  <div *slide id="hex-bin">
+    <h2 i18n>Convert hexadecimal to binary with JavaScript</h2>
+    <code-demo-realtime-eval
+      code="parseInt('FEFEFE', 16).toString(2)"
+    ></code-demo-realtime-eval>
+  </div>
+
+  <div *slide id="gif-spaced-bin-hex">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [showPopups]="true"
+      [binary]="binaryLittleGif"
+      [highlightedMap]="{ boolean: true, number: true, hex: true }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="gif-spaced-string">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [showPopups]="true"
+      [binary]="binaryLittleGif"
+      [highlightedMap]="{
+        boolean: true,
+        number: true,
+        hex: true,
+        string: true
+      }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="ascii"><kirjs-ascii></kirjs-ascii></div>
+
+  <div *slide id="ascii-2">
+    <kirjs-ascii param="ascii - Page 2"></kirjs-ascii>
+  </div>
+
+  <div *slide id="windows-1251">
+    <kirjs-ascii param="windows-1251"></kirjs-ascii>
+  </div>
+
+  <div *slide id="pelmen" pelmen><h1 i18n>ПЕЛЬМЕНЬ</h1></div>
+
+  <div *slide id="pelmen2" pelmen>
+    <h1 i18n>ПЕЛЬМЕНЬ</h1>
+    <h1 i18n>ПЕЉМЕЊ</h1>
+  </div>
+
+  <div *slide id="KOI8-R"><kirjs-ascii param="KOI8-R"></kirjs-ascii></div>
+  <div *slide id="boxes">
+    <pre style="font-size: 3vw;font-family: monospace; line-height: 1.8vw;">
+┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕
+│ ││  ║ ║║  ║ ║║  │ ││
+├─┼┤  ╠═╬╣  ╟─╫╢  ╞═╪╡
+└─┴┘  ╚═╩╝  ╙─╨╜  ╘═╧╛
+┌───────────────────┐
+│  ╔═══╗            │
+│  ╚═╦═╝            │
+╞═╤══╩══╤═══════════╡
+│ ├──┬──┤           │
+│ └──┴──┘           │
+└───────────────────┘
+    </pre>
+  </div>
+
+  <div *slide id="krakoziabry" bg krakoziabry></div>
+
+  <div *slide id="utf-8"><kirjs-ascii param="utf-8"></kirjs-ascii></div>
+
+  <div *slide id="str-to-charcode">
+    <h2 i18n>Get charcode from string</h2>
+    <code-demo-realtime-eval
+      code="'lol'.charCodeAt(0)"
+    ></code-demo-realtime-eval>
+  </div>
+
+  <div *slide id="charcode-to-str">
+    <h2 i18n>Get letter from charcode</h2>
+    <code-demo-realtime-eval
+      code="String.fromCharCode(118)"
+    ></code-demo-realtime-eval>
+  </div>
+
+  <!--<div *slide id="binary-message-2" bg vc message>-->
+  <!--</div>-->
+  <!--<div *slide id="binary-message-decoded" vertical-split>-->
+  <!--<div>-->
+  <!--<code-demo-editor language="javascript" [fontSize]="40" [(ngModel)]="code.message"-->
+  <!--(ngModelChange)="evalMessage()"></code-demo-editor>-->
+  <!--</div>-->
+  <!--<div style="font-size: 5vw; word-wrap: break-word">{{evaledMessage}}</div>-->
+  <!--</div>-->
+
+  <div *slide id="gif-string-2">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryLittleGif = $event"
+      [showPopups]="true"
+      [binary]="binaryLittleGif"
+      [highlightedMap]="{
+        boolean: true,
+        number: true,
+        hex: true,
+        string: true
+      }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <div *slide id="chikin">
+    <kirjs-fake-gif
+      (binaryUpdate)="binaryChikinGif = $event"
+      [showPopups]="true"
+      [binary]="binaryChikinGif"
+      [highlightedMap]="{
+        boolean: true,
+        number: true,
+        hex: true,
+        string: true
+      }"
+      [spacing]="true"
+    ></kirjs-fake-gif>
+  </div>
+
+  <!--<div *slide id="charcode-to-str">-->
+  <!--<code-demo-realtime-eval code="String.fromCharCode(1034)"></code-demo-realtime-eval>-->
+  <!--</div>-->
+
+  <div *slide id="parsing-binary" bg vc gif>
+    <h1 i18n>Parsing binary(with <b>binary-parser</b>)</h1>
+  </div>
+
+  <div *slide id="binary-parser-header">
+    <kirjs-binary-parser-demo
+      [filterClassName]="binaryParserHeaderMatch"
+      [helpers]="binaryParserHeaderHelpers"
+      [binary]="binaryLittleGif"
+    ></kirjs-binary-parser-demo>
+  </div>
+
+  <div *slide id="endianness" bg endianness></div>
+  <div *slide id="binary-parser-palette">
+    <kirjs-binary-parser-demo
+      [helpers]="binaryParserPaletteHelpers"
+      [filterClassName]="binaryParserPaletteMatch"
+      [binary]="binaryLittleGif"
+    ></kirjs-binary-parser-demo>
+  </div>
+
+  <div *slide id="facts">
+    <h2 i18n>Gif facts</h2>
+    <ul>
+      <li i18n>Image size: 1х1 to 65535х65535</li>
+      <li i18n>Colors: 2 - 256</li>
+      <li i18n>True color gifs are possible</li>
+      <li i18n>Max number of animation frames - unlimited</li>
+      <li i18n>Animation delay 1/100 - 655 seconds</li>
+      <li i18n>There's a plain text extension</li>
+      <li i18n>24 pages + 12 pages appendix in gif89 standard</li>
+    </ul>
+  </div>
+
+  <div *slide id="files">
+    <h2 i18n>File header constants</h2>
+    <ul>
+      <li i18n>Gif - GIF87a (or GIF89a)</li>
+      <li i18n>Jpeg - begin with ‘FF D8‘ and end with ‘FF D9'</li>
+      <li i18n>Java class - CAFEBABE</li>
+      <li i18n>ZIP files begin with ‘PK‘ (50 4B)</li>
+      <li i18n>PDF files start with ‘%PDF‘ (25 50 44 46)</li>
+      <li i18n>
+        PNG image files begin with “\211 P N G \r \n 32 \n” (89 50 4E 47 0D 0A
+        1A 0A)
+      </li>
+      <li i18n>HTTP2 - PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
+    </ul>
+  </div>
+
+  <div *slide id="kaitai" bg kaitai>
+    <h1 i18n>Big library of binary formats</h1>
+    <h2 i18n>https://formats.kaitai.io/</h2>
+  </div>
+
+  <div *slide id="binary-json" bg vc json>
+    <h1 i18n>Can we use <b>binary</b> instead of <b>JSON</b>?</h1>
+  </div>
+
+  <div *slide id="json"><kirjs-json></kirjs-json></div>
+
+  <div *slide id="json-1"><kirjs-json [code]="code.jsonOne"></kirjs-json></div>
+
+  <div *slide id="compare-size">
+    <h1 i18n>Serialized Size</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
+        <h2 i18n>JSON</h2>
+        <ul>
+          <li i18n class="compare-value">Bigger</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 i18n>Binary</h2>
+        <ul>
+          <li i18n class="compare-value">Smaller</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="compare-speed">
+    <h1 i18n>Serialization speed</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
+        <h2 i18n>JSON</h2>
+        <ul>
+          <li i18n class="compare-value">Slower</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 i18n>Binary</h2>
+        <ul>
+          <li i18n class="compare-value">Faster</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="compare-debugging">
+    <h1 i18n>Debugging</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
+        <h2 i18n>JSON</h2>
+
+        <ul>
+          <li i18n class="compare-value">Easy to understand</li>
+          <li i18n class="compare-value">Human readable</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 i18n>Binary</h2>
+        <ul>
+          <li i18n class="compare-value">Requires special tooling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="compare-tooling">
+    <h1 i18n>Tooling</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
+        <h2 i18n>JSON</h2>
+        <ul>
+          <li i18n class="compare-value">For JS works out of the box</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 i18n>Binary</h2>
+        <ul>
+          <li i18n class="compare-value">Requires special tooling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="compare-schema">
+    <h1 i18n>Schema</h1>
+    <div style="display: flex;" class="compare-serialization">
+      <div class="compare-json">
+        <h2 i18n>JSON</h2>
+        <ul>
+          <li i18n>No schema</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 i18n>Binary</h2>
+        <ul>
+          <li i18n>Needs a schema</li>
+          <li i18n>Comes with type checking</li>
+          <li i18n>Comes with validation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="compare-examples">
+    <h2 i18n>Existing solutions</h2>
+    <ul>
+      <li i18n>
+        <a href="https://developers.google.com/protocol-buffers/"
+          >Protocol buffers</a
+        >
+        (Google)
+      </li>
+      <li i18n>
+        <a href="https://google.github.io/flatbuffers/">Flatbuffers</a> (Google)
+      </li>
+      <li i18n>
+        <a href="https://thrift.apache.org/">Thrift</a> (Apache/Facebook)
+      </li>
+    </ul>
+  </div>
+
+  <div *slide id="binary-memory" bg vc>
+    <h1 i18n>Thought experiment</h1>
+    <h2 i18n>Memory management in JavaScript</h2>
+  </div>
+
+  <div *slide id="binary-memory-1">
+    <h2 i18n>Let's see how memory works in typed arrays</h2>
+    <kirjs-memory></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-2">
+    <kirjs-memory
+      [param]="1"
+      code="Boolean[] b = new Boolean[5];"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-3">
+    <kirjs-memory
+      [param]="2"
+      code="Boolean[] b = new Boolean[5];
+System.out.println(b[3]);"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-4">
+    <kirjs-memory [param]="3" code="Uint8[] b = new Uint8[5];"></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-5">
+    <kirjs-memory
+      [param]="4"
+      code="Uint8[] b = new Uint8[5];
+System.out.println(b[3]);"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-6">
+    <kirjs-memory
+      [param]="5"
+      code="a = [true, false, true, false, true];
+console.log(a[3]);"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-7">
+    <kirjs-memory
+      [param]="6"
+      code="a = [true, 3, true, false, true];
+console.log(a[3]);"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-8">
+    <kirjs-memory
+      [param]="7"
+      code="a = [true, 3, true, false, true];
+console.log(a[3]);"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-9">
+    <kirjs-memory
+      [param]="8"
+      code="a = [true, 3, true, false, true];
+console.log(a[3]);"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-10">
+    <kirjs-memory
+      [param]="9"
+      code="a = [true, 3, true, false, true];
+a[1] = false;
+console.log(a[3]);"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-memory-11">
+    <kirjs-memory
+      [param]="4"
+      code="cons a = new Uint8Array(5);
+console.log(a[1])"
+    ></kirjs-memory>
+  </div>
+
+  <div *slide id="binary-operations">
+    <code-demo-editor
+      [lineNumbers]="false"
+      [fontSize]="50"
+      language="javascript"
+      [(ngModel)]="code.simpleBinaryOperations"
+    ></code-demo-editor>
+  </div>
+
+  <div *slide id="angular-flags">
+    <h2 i18n>Angular Component Flags (bitmask)</h2>
+    <kirjs-angular-flags></kirjs-angular-flags>
+  </div>
+
+  <div *slide id="react-flags">
+    <h2 i18n>ReactDOM Flags (bitmask)</h2>
+    <code-demo-editor fontSize="40" [ngModel]="reactBitmask">
+    </code-demo-editor>
+  </div>
+
+  <div *slide id="bitwise-to-read" bg>
+    <kirjs-to-read title="Hacker's delight " author="Henry S. Warren">
+      <div class="book"></div>
+    </kirjs-to-read>
+  </div>
+
+  <div *slide id="the-end">
+    <h1 i18n>The end:</h1>
+    <ul>
+      <li i18n>Binary in files (images, video, other media, zip)</li>
+      <li i18n>Binary for data transfer (instead of JSON)</li>
+      <li i18n>Javascript using binary in memory</li>
+    </ul>
+  </div>
+
+  <div *slide id="outro" bg intro>
+    <h1 i18n>@kirjs</h1>
+    <h2 i18n>Binary ❤️ JavaScript</h2>
+    <h2 i18n>kirjs.com/binary/0</h2>
+    <h3 i18n>Thanks @andrey_sitnik, @_bmsdave, @NisamProgramer for review</h3>
+  </div>
+</slide-deck>

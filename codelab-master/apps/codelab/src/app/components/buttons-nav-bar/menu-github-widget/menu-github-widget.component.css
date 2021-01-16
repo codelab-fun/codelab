@@ -1,0 +1,39 @@
+.menu-bar-btn.github-widget {
+  background-color: white;
+}
+
+img {
+  width: 100%;
+}
+
+.octocat {
+  float: left;
+  width: 224px;
+  margin: 0 auto;
+  height: 224px;
+  background: url(images/octocat.png) no-repeat;
+  margin-right: 16px;
+}
+
+.content {
+  float: right;
+  width: 250px;
+}
+
+@media screen and (max-width: 350px) {
+  .octocat {
+    float: none;
+    margin: 5px auto;
+    display: block;
+  }
+
+  .content {
+    margin: 0 auto;
+    float: none;
+    text-align: center;
+  }
+}
+
+h3 {
+  font-weight: 300;
+}

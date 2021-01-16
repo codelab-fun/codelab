@@ -1,0 +1,291 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.presentation.size-600 li {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.space-left {
+  margin-left: 20px;
+}
+
+[row] {
+  flex-direction: row;
+  display: flex;
+}
+
+/* GRID TO USE */
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.presentation.presentation.presentation [no-padding] .slide {
+  padding: 0;
+}
+
+.browser-frame,
+.runner,
+.browser-frame,
+.frame {
+}
+
+.slide [large-font] {
+  font-size: 30px;
+}
+
+.slide [p20] {
+  padding-top: 20px;
+}
+
+.slide [m20] {
+  margin-top: 20px;
+}
+
+.slide [m40] {
+  margin-top: 40px;
+}
+
+.slide [column-5] {
+  width: 50%;
+  padding: 0 1vw;
+}
+
+.slide [column-4] {
+  width: 40%;
+}
+
+.slide [column-2] {
+  width: 20%;
+}
+
+.slide [column-1] {
+  width: 10%;
+}
+
+.slide [flex] {
+  display: flex;
+}
+
+.slide .browser-frame h1 {
+  font-size: 60px;
+}
+
+.slide .browser-frame h2 {
+  font-size: 20px;
+}
+
+/* TODO(kirjs): Support themes */
+.slide h1 {
+  font-size: 20px;
+}
+
+.centered-vertically {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.popup-message {
+  padding: 5px 5px 0 5px;
+  background: black;
+  color: white;
+  font-size: 20px;
+}
+
+.popup-arrow {
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 8px solid black;
+}
+
+.monaco-editor.vs
+  .grayed-out-code.grayed-out-code.grayed-out-code.grayed-out-code {
+}
+
+.monaco-editor.vs .loc.loc.loc.loc {
+  background: yellow;
+}
+
+.monaco-editor.vs
+  .highlighted-code.highlighted-code.highlighted-code.highlighted-code {
+  background: yellow;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.info:before {
+  content: 'ⓘ';
+  margin-right: 10px;
+}
+
+a {
+  color: #a03800;
+  font-weight: 400;
+}
+
+.info {
+  font-weight: 300;
+  margin-top: 20px;
+  background: #d3fffd;
+  padding: 12px;
+  font-size: 30px;
+}
+
+/*  BUTTONS BAR CONTAINER  */
+.btn-bar {
+  z-index: 2;
+  position: fixed;
+  bottom: 1%;
+  right: 4%;
+  display: flex;
+  flex-direction: row;
+}
+
+.exercise {
+  font-size: 30px;
+  padding: 10px;
+  margin-top: 20px;
+  font-weight: 300;
+  border: 1px #ddd solid;
+}
+
+.exercise:before {
+  content: '💡';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.exercise.solved {
+  color: #90dd59;
+}
+
+.exercise.solved:before {
+  content: '✔';
+  background: none;
+}
+
+/* context: https://github.com/Microsoft/monaco-editor/issues/113 */
+.monaco-editor .inputarea {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.preload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*change these sizes to fit into your project*/
+  width: 100px;
+  height: 100px;
+}
+
+.preload div {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite;
+}
+
+.preload :first-child {
+  background: #19a68c;
+  animation-delay: -1.5s;
+}
+
+.preload :nth-child(2) {
+  background: #f63d3a;
+  animation-delay: -1s;
+}
+
+.preload :nth-child(3) {
+  background: #fda543;
+  animation-delay: -0.5s;
+}
+
+.preload :last-child {
+  background: #193b48;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(160%);
+  }
+  50% {
+    transform: translate(160%, 160%);
+  }
+  75% {
+    transform: translate(0, 160%);
+  }
+}
+
+.mt-60 {
+  margin-top: 60px;
+}

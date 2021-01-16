@@ -1,0 +1,68 @@
+0000000000000000000000000000000000000000 46f5f256c1ed0b1d894c9606b83ce0133a3b1a6f Marvin Rusinek <marvinrusinek@gmail.com> 1598909856 -0400	branch: Created from origin/quiz
+46f5f256c1ed0b1d894c9606b83ce0133a3b1a6f b3a99416b3eab09fd19d5e2c53bf8207e4a18b37 Marvin Rusinek <marvinrusinek@gmail.com> 1599417324 -0400	pull --progress origin: Fast-forward
+b3a99416b3eab09fd19d5e2c53bf8207e4a18b37 df65fc541f01a32b7452ce97df6e60ef5d45dd40 Marvin Rusinek <marvinrusinek@gmail.com> 1599507745 -0400	pull --progress origin: Fast-forward
+df65fc541f01a32b7452ce97df6e60ef5d45dd40 901ebc12a18f92f155822e29fb09855806b528d6 Marvin Rusinek <marvinrusinek@gmail.com> 1599507864 -0400	commit: upload quiz files
+901ebc12a18f92f155822e29fb09855806b528d6 172a774f840efc0b87fa7f52f5619f39f7dbec60 Marvin Rusinek <marvinrusinek@gmail.com> 1599508159 -0400	commit: removed some extra files from root
+172a774f840efc0b87fa7f52f5619f39f7dbec60 2edaebfdf3277dba59307d031e8dff05549d9bc8 Marvin Rusinek <marvinrusinek@gmail.com> 1599508322 -0400	commit: removed apps folder from root
+2edaebfdf3277dba59307d031e8dff05549d9bc8 ef78677ad61993223510609e64e663dc34418cd9 Marvin Rusinek <marvinrusinek@gmail.com> 1601381845 -0400	commit: quiz backup 09-29-20
+ef78677ad61993223510609e64e663dc34418cd9 2edaebfdf3277dba59307d031e8dff05549d9bc8 Marvin Rusinek <marvinrusinek@gmail.com> 1601385159 -0400	reset: moving to 2edaebfdf3277dba59307d031e8dff05549d9bc8
+2edaebfdf3277dba59307d031e8dff05549d9bc8 201c699aa2e6c4cfbe98597fd8874c2a4148de34 Marvin Rusinek <marvinrusinek@gmail.com> 1601385237 -0400	commit: quiz backup 09-29-20
+201c699aa2e6c4cfbe98597fd8874c2a4148de34 1441dbe2e450896dce18df6286ed5e309bdba5dc Marvin Rusinek <marvinrusinek@gmail.com> 1601385278 -0400	pull --progress origin: Merge made by the 'recursive' strategy.
+1441dbe2e450896dce18df6286ed5e309bdba5dc c257f7b6ce6aadf9e3490047f9a3c15201a40a0e Marvin Rusinek <marvinrusinek@gmail.com> 1603033185 -0400	commit: backup of code 10-18-20
+c257f7b6ce6aadf9e3490047f9a3c15201a40a0e c203499fdad147872ab67ff45f7e3a50ff6c1f24 Marvin Rusinek <marvinrusinek@gmail.com> 1603485957 -0400	commit: quiz app backup 10-23-20
+c203499fdad147872ab67ff45f7e3a50ff6c1f24 20d59a2a8e87be7394d22cfad50e35f5c1b0187f Marvin Rusinek <marvinrusinek@gmail.com> 1603485963 -0400	pull --progress origin: Merge made by the 'recursive' strategy.
+20d59a2a8e87be7394d22cfad50e35f5c1b0187f dc60ebe14fd91b4c1dfb9763edd7505f333dff07 Marvin Rusinek <marvinrusinek@gmail.com> 1604092643 -0400	commit: got class working in question templates
+dc60ebe14fd91b4c1dfb9763edd7505f333dff07 3348166ec03111ae17167b435e7d7d1f6054a0fc Marvin Rusinek <marvinrusinek@gmail.com> 1604092650 -0400	pull --progress origin: Merge made by the 'recursive' strategy.
+3348166ec03111ae17167b435e7d7d1f6054a0fc 3910127c12a6794f1b38fb4bcff5c6c786de023e Marvin Rusinek <marvinrusinek@gmail.com> 1604152357 -0400	commit: simplify code inside setSelected
+3910127c12a6794f1b38fb4bcff5c6c786de023e abc0803ebfa39b953cc70c52b72c4e48512b8b18 Marvin Rusinek <marvinrusinek@gmail.com> 1604270035 -0500	commit: got restarting/resetting working
+abc0803ebfa39b953cc70c52b72c4e48512b8b18 696b475cf78d2798081e67b1846f7077e84d3754 Marvin Rusinek <marvinrusinek@gmail.com> 1604272928 -0500	commit: Update multiple-answer.component.html
+696b475cf78d2798081e67b1846f7077e84d3754 bc1dfda666472674ecf64e77580a2580f9c56c27 Marvin Rusinek <marvinrusinek@gmail.com> 1604273011 -0500	commit: made option field entirely clickable
+bc1dfda666472674ecf64e77580a2580f9c56c27 36c19fa0fa90ecfae7f2e8026abbf6a26c0625f4 Marvin Rusinek <marvinrusinek@gmail.com> 1604328418 -0500	commit: removed time component
+36c19fa0fa90ecfae7f2e8026abbf6a26c0625f4 9099694595fd9fe23d6848d4cc08a074d643d27d Marvin Rusinek <marvinrusinek@gmail.com> 1604328491 -0500	commit: backup of quiz 11-2-20
+9099694595fd9fe23d6848d4cc08a074d643d27d e4ac2a32fe964d5dc29609e13e1863fc2c02d694 Marvin Rusinek <marvinrusinek@gmail.com> 1604329156 -0500	commit: removed QUIZ_DATA imports
+e4ac2a32fe964d5dc29609e13e1863fc2c02d694 4908f9f70eb2748b6ecf5905371c3d95618b4b68 Marvin Rusinek <marvinrusinek@gmail.com> 1604330431 -0500	commit: removed previousAnswers remnants, formatted code
+4908f9f70eb2748b6ecf5905371c3d95618b4b68 060bb2c2010a74fe3676f92ea5fec8bb7a30ebdf Marvin Rusinek <marvinrusinek@gmail.com> 1604435747 -0500	commit: added localstorage and highScores
+060bb2c2010a74fe3676f92ea5fec8bb7a30ebdf 2bba853105277f54183a4fff2186e6e26d16bac7 Marvin Rusinek <marvinrusinek@gmail.com> 1604881782 -0500	commit: simplified question templates HTML and CSS
+2bba853105277f54183a4fff2186e6e26d16bac7 ee8b48af590b731ad91a89e733647ed6df814889 Marvin Rusinek <marvinrusinek@gmail.com> 1605032529 -0500	commit: simplify logic some more in question templates
+ee8b48af590b731ad91a89e733647ed6df814889 abeb77e99012e2da31b87482c46d4dc2fdbd6323 Marvin Rusinek <marvinrusinek@gmail.com> 1605033133 -0500	commit: remove feedback and sentiment icons classes from template
+abeb77e99012e2da31b87482c46d4dc2fdbd6323 3dda95a098d51a697fd9455a7685ea23fa6558f7 Marvin Rusinek <marvinrusinek@gmail.com> 1605034411 -0500	commit: some more minor changes to the templates
+3dda95a098d51a697fd9455a7685ea23fa6558f7 38cb105679ddd839964165cb822b115ced0c3060 Marvin Rusinek <marvinrusinek@gmail.com> 1605038226 -0500	commit: remove message class from question templates and update css
+38cb105679ddd839964165cb822b115ced0c3060 8a81a9f77dec0d395157e1ed711f65347db0f2d2 Marvin Rusinek <marvinrusinek@gmail.com> 1605039115 -0500	commit: simplify messages section in template and css
+8a81a9f77dec0d395157e1ed711f65347db0f2d2 4f5e5a9da924e6b08a21e0f715e22b5e0d3ffa9e Marvin Rusinek <marvinrusinek@gmail.com> 1605039525 -0500	commit: change div to section
+4f5e5a9da924e6b08a21e0f715e22b5e0d3ffa9e 714831bb5aaca1eb9aae1c801685c070a06aa3c5 Marvin Rusinek <marvinrusinek@gmail.com> 1605109289 -0500	commit: fix setExplanationTextAndCorrectMessages function
+714831bb5aaca1eb9aae1c801685c070a06aa3c5 a546de4bf6150a90dde5283bf8e0620345201f14 Marvin Rusinek <marvinrusinek@gmail.com> 1605110468 -0500	commit: add setExplanationText function
+a546de4bf6150a90dde5283bf8e0620345201f14 0ae67b9f4d695a6fe28c5cc38b190a6ff4cf57ec Marvin Rusinek <marvinrusinek@gmail.com> 1605111480 -0500	commit: made some changes to the span css in question template
+0ae67b9f4d695a6fe28c5cc38b190a6ff4cf57ec d9069d9090dcafd8b5a401ce3e6406e9c43174c2 Marvin Rusinek <marvinrusinek@gmail.com> 1605112956 -0500	commit: made changes to messages class css
+d9069d9090dcafd8b5a401ce3e6406e9c43174c2 7a9239665782bb2eede0f20b1020d7f71d9d89fc Marvin Rusinek <marvinrusinek@gmail.com> 1605113171 -0500	commit: changed spans to divs in quiz component template
+7a9239665782bb2eede0f20b1020d7f71d9d89fc 014718f64caa1df7745bffcd01e384634dc200de Marvin Rusinek <marvinrusinek@gmail.com> 1605114239 -0500	commit: nested number-correct inside #question in css
+014718f64caa1df7745bffcd01e384634dc200de 464d1c17cd96609c9229978b5477a860595964ee Marvin Rusinek <marvinrusinek@gmail.com> 1605119016 -0500	commit: small changes to setCorrectMessages function
+464d1c17cd96609c9229978b5477a860595964ee 925cfc65bb1f714a43ea7ab8172478fc0a34a8fd Marvin Rusinek <marvinrusinek@gmail.com> 1605119247 -0500	commit: remove argument from function setCorrectMessages params
+925cfc65bb1f714a43ea7ab8172478fc0a34a8fd b20355e8802b6edc5ec9f1ba437e7d952b178c62 Marvin Rusinek <marvinrusinek@gmail.com> 1605121305 -0500	commit: remove empty concat from setCorrectMessages
+b20355e8802b6edc5ec9f1ba437e7d952b178c62 95139527253ab0f047a6baab22375cf69f75ca0e Marvin Rusinek <marvinrusinek@gmail.com> 1605139368 -0500	commit: some small changes to scoreboard, QuizComponent and QuizService
+95139527253ab0f047a6baab22375cf69f75ca0e e5dd4cc0fb1e46f3ecc11ed9984b745700102635 Marvin Rusinek <marvinrusinek@gmail.com> 1605139976 -0500	commit: add types to arguments in QuizComponent
+e5dd4cc0fb1e46f3ecc11ed9984b745700102635 0f20cea8d77adc75986946cb778cd63dfd981ca3 Marvin Rusinek <marvinrusinek@gmail.com> 1605140382 -0500	commit: add initializeQuizVariables function
+0f20cea8d77adc75986946cb778cd63dfd981ca3 5c2139793571e5e4b8f9be9caf520e3c466ab215 Marvin Rusinek <marvinrusinek@gmail.com> 1605203879 -0500	commit: some small changes
+5c2139793571e5e4b8f9be9caf520e3c466ab215 98cddeb20ea51e5ac55c191bd0c4aba2e1fe363d Marvin Rusinek <marvinrusinek@gmail.com> 1605286829 -0500	commit: some more small changes
+98cddeb20ea51e5ac55c191bd0c4aba2e1fe363d 3cb21837f254a1bd6652e712bfb0aeac4ffd27cd Marvin Rusinek <marvinrusinek@gmail.com> 1605367492 -0500	commit: add httpClient to QuizSelectionComponent and some other minor changes
+3cb21837f254a1bd6652e712bfb0aeac4ffd27cd 2e445c49b8066b5d3a124f8d9d9d97ad95ac7335 Marvin Rusinek <marvinrusinek@gmail.com> 1605368324 -0500	commit: fix position of mat-card and paging
+2e445c49b8066b5d3a124f8d9d9d97ad95ac7335 7a7b50468ce7e1911b91a306e4a8f83c83545862 Marvin Rusinek <marvinrusinek@gmail.com> 1605380753 -0500	commit: removed this.quizData if this.quizzes$ is available
+7a7b50468ce7e1911b91a306e4a8f83c83545862 708073d8aff1bbb6f279596f386994425be72fdf Marvin Rusinek <marvinrusinek@gmail.com> 1605380757 -0500	pull --progress origin: Merge made by the 'recursive' strategy.
+708073d8aff1bbb6f279596f386994425be72fdf d1cff397b08634d2371336add3361bbf34644916 Marvin Rusinek <marvinrusinek@gmail.com> 1605385776 -0500	commit: move "http: HttpClient" to QuizService
+d1cff397b08634d2371336add3361bbf34644916 e43d18a54da7a5a270c8c671f7875f394d7506a7 Marvin Rusinek <marvinrusinek@gmail.com> 1605393546 -0500	commit: some more small changes
+e43d18a54da7a5a270c8c671f7875f394d7506a7 7bd3037784ed3abc63cbd237e0927cbb3a4b57b4 Marvin Rusinek <marvinrusinek@gmail.com> 1605397707 -0500	commit: use parentheses in arrow functions to show types
+7bd3037784ed3abc63cbd237e0927cbb3a4b57b4 68c6c162708a7a7905f2d38c1b57cea56f02ea4d Marvin Rusinek <marvinrusinek@gmail.com> 1605455331 -0500	commit: Update scoreboard.component.scss
+68c6c162708a7a7905f2d38c1b57cea56f02ea4d 5fa315e1d17a690c10f97d2448dfd2a9244bbdef Marvin Rusinek <marvinrusinek@gmail.com> 1605455380 -0500	commit: fix paths in TS files
+5fa315e1d17a690c10f97d2448dfd2a9244bbdef a36e6b9e10cfc76f9c42d621465300e67dfa4747 Marvin Rusinek <marvinrusinek@gmail.com> 1605457351 -0500	commit: sort by dates for localstorage
+a36e6b9e10cfc76f9c42d621465300e67dfa4747 f0ed927a58bdce97f634747b9c03d765e225b432 Marvin Rusinek <marvinrusinek@gmail.com> 1605462334 -0500	commit: simplify the code for sounds
+f0ed927a58bdce97f634747b9c03d765e225b432 a485785750c8a5c8cd055e07251cbd8cf73d4580 Marvin Rusinek <marvinrusinek@gmail.com> 1605470521 -0500	commit: made some changes to the CSS
+a485785750c8a5c8cd055e07251cbd8cf73d4580 e7e624de3319cd8ca9c6697be74075116a790b1c Marvin Rusinek <marvinrusinek@gmail.com> 1605471318 -0500	commit: some more CSS changes
+e7e624de3319cd8ca9c6697be74075116a790b1c e5c762b01ac64fde002799815f4da48ce358b151 Marvin Rusinek <marvinrusinek@gmail.com> 1605475089 -0500	commit: removed class binding from mat-card; some more HTML/CSS changes
+e5c762b01ac64fde002799815f4da48ce358b151 f1296569b4f261899c1e67382a06a6b2851cf531 Marvin Rusinek <marvinrusinek@gmail.com> 1605475414 -0500	commit: change section to ng-container
+f1296569b4f261899c1e67382a06a6b2851cf531 50b3fab22e7c9b676188b4d92efd8affb68923da Marvin Rusinek <marvinrusinek@gmail.com> 1605475535 -0500	commit: changed back to section
+50b3fab22e7c9b676188b4d92efd8affb68923da 157a0261ef0f22d0b6903519a6f070bff2cd4d25 Marvin Rusinek <marvinrusinek@gmail.com> 1605541249 -0500	commit: some minor adjustments
+157a0261ef0f22d0b6903519a6f070bff2cd4d25 15cb4d3455ddfd59d70d880a7512c703dc6750b7 Marvin Rusinek <marvinrusinek@gmail.com> 1605542874 -0500	commit: remove this.multipleAnswer from question components
+15cb4d3455ddfd59d70d880a7512c703dc6750b7 1117b48d34e29dc2abb934b93215866264119c74 Marvin Rusinek <marvinrusinek@gmail.com> 1605543082 -0500	commit: simplify sendMultipleAnswer function
+1117b48d34e29dc2abb934b93215866264119c74 10ca43da75baba353148d5e6414e2567b39f4254 Marvin Rusinek <marvinrusinek@gmail.com> 1605546672 -0500	commit: removed correctMessage in QuizQuestionComponent
+10ca43da75baba353148d5e6414e2567b39f4254 19f0ab18225ecfe1c8cc9a7fcda6d993f4b3a2de Marvin Rusinek <marvinrusinek@gmail.com> 1605549166 -0500	commit: added some more types, fix quotes, simplify sending functions
+19f0ab18225ecfe1c8cc9a7fcda6d993f4b3a2de 4c0c4448fd8925ed1508af83f00da6383f9a5d57 Marvin Rusinek <marvinrusinek@gmail.com> 1605550974 -0500	commit: changed single quotes to double quotes for strings
+035150f6244b14c2b94304c0793372e3f9d745f6 a869d947ff96660622b6e532c35b8191f3d1e09e Marvin Rusinek <marvinrusinek@gmail.com> 1605573236 -0500	pull: Fast-forward

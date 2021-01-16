@@ -1,0 +1,96 @@
+.column {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+kirjs-tools {
+  display: none;
+}
+
+.board {
+  width: 100%;
+  height: 100%;
+  border-left: 1px #999 solid;
+  border-top: 1px #999 solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  &.highlight-yellow {
+    background: #ff0;
+  }
+  &.highlight-orange {
+    background: #ffb900;
+  }
+
+  &.highlight-transparent {
+    opacity: 0.4;
+  }
+
+  flex-grow: 1;
+  flex-basis: 0;
+  border-right: 1px #999 solid;
+  border-bottom: 1px #999 solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.theme-print {
+  .cell-1:before {
+    content: 'x';
+    color: #c53a00;
+  }
+
+  .cell-2:before {
+    content: 'o';
+    color: #666;
+  }
+  .cell-1:before,
+  .cell-2:before {
+    font-size: 12px;
+  }
+}
+
+.theme-gomoku {
+  .cell-1:before {
+    content: '⚫';
+  }
+
+  .cell-2:before {
+    content: '🔴';
+  }
+  .cell-3:before {
+    content: '⚫';
+    opacity: 0.5;
+  }
+
+  .cell-4:before {
+    content: '🔴';
+    opacity: 0.5;
+  }
+  .cell-1:before,
+  .cell-2:before {
+    font-size: 28px;
+  }
+}
+
+.theme-xo {
+  .cell-1:before {
+    content: '×';
+    color: red;
+  }
+
+  .cell-2:before {
+    content: '⚬';
+    color: blue;
+  }
+
+  .cell-1:before,
+  .cell-2:before {
+    font-size: 200px;
+  }
+}

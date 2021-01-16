@@ -1,0 +1,31 @@
+@keyframes circle {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(0.5);
+  }
+}
+
+.circle {
+  margin: 0 auto;
+  width: 25vw;
+  height: 25vw;
+  border: 1vw solid rgba(255, 89, 75, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.one {
+  animation: circle 4s infinite linear;
+}
+
+.two {
+  animation: circle 3s infinite linear;
+}
+
+.three {
+  animation: circle 2s infinite linear;
+}

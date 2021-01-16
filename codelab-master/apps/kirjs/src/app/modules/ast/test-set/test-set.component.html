@@ -1,0 +1,24 @@
+<div style="display: flex;">
+  <code-demo-editor
+    [(ngModel)]="files[0].code"
+    (ngModelChange)="runner.runTests()"
+    [lineNumbers]="false"
+    [fontSize]="fontSize"
+    language="javascript"
+    style="height: 100vh;width: 55vw;"
+  ></code-demo-editor>
+  <div
+    (click)="files[0].code = files[0].solution; runner.runTests()"
+    class="show-solution"
+  >
+    <div class="icon">🙀</div>
+  </div>
+  <kirjs-babel-test-runner
+    #runner
+    class="tests"
+    [showAst]="showAst"
+    [files]="files"
+  >
+    <ng-content></ng-content>
+  </kirjs-babel-test-runner>
+</div>

@@ -1,0 +1,40 @@
+<div vertical-split style="padding: 2vw;">
+  <div>
+    <h2 i18n>Unindexed image</h2>
+    <table>
+      <tr *ngFor="let row of noIndexing; let r = index">
+        <td
+          *ngFor="let cell of row; let c = index"
+          [style.background]="cell"
+          class="cell"
+          contenteditable="true"
+          (keydown.control.enter)="
+            noIndexing[r][c] = $event.target.innerText.trim(); generate()
+          "
+        >
+          {{ cell }}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h2 i18n>Color table (Palette)</h2>
+    <div style="display: flex;flex-wrap: wrap">
+      <div
+        *ngFor="let color of colorTable"
+        [style.background]="color.color"
+        class="cell"
+      >
+        {{ color.index }}
+      </div>
+    </div>
+    <h2 i18n>Indexed image</h2>
+    <table>
+      <tr *ngFor="let row of noIndexing">
+        <td *ngFor="let cell of row" [style.background]="cell" class="cell">
+          {{ hash[cell] }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

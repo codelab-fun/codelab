@@ -1,0 +1,115 @@
+@import "variables";
+
+.options {
+  margin: 0 0 17.5px 6.5px;
+  padding: 5px;
+
+  mat-radio-button {
+    cursor: pointer;
+    display: inline-block;
+    width: 590px;
+    height: auto;
+    font-family: $font-stack;
+    font-size: 20px;
+    color: $dark-brown;
+    background-color: $light-gray;
+    border: 2px solid $medium-gray;
+    padding: 10px 5px 10px 30px;
+    margin-left: -5px;
+
+    &:hover {
+      border: 2px solid $vivid-blue;
+    }
+
+    &:first-child {
+      margin-top: -25px;
+    }
+  }
+
+  .correct {
+    background-color: $green;
+    border: 2px solid $vivid-blue;
+  }
+
+  .incorrect {
+    background-color: $red;
+    border: 2px solid $vivid-blue;
+  }
+
+  span {
+    white-space: normal;
+    margin-top: 5px;
+  }
+
+  i {
+    position: absolute;
+    right: 40px;
+  }
+}
+
+.mat-radio-layout {
+  display: block !important;
+}
+div.mat-radio-inner-container {
+  display: none;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  margin: 5px 15px 5px 0;
+
+  i {
+    font-size: 30px;
+    color: $light-yellow;
+    position: relative;
+    top: 10px;
+    left: 15px;
+  }
+
+  span {
+    font-family: $font-stack;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 10px 0 0 -15px !important;
+    padding: 10px;
+    width: 570px;
+    display: inline-flex;
+    justify-content: center;
+    background: transparentize($light-gray, 0.5);
+  }
+
+  .correct-message {
+    border-color: $vivid-blue;
+    color: $dark-green;
+  }
+
+  .wrong-message {
+    border-color: $red;
+    color: $red;
+  }
+
+  .correct-message,
+  .wrong-message {
+    margin: -5px 0 -5px 25px;
+    border: 2px solid;
+    border-radius: 10px;
+  }
+}
+
+.material-icons {
+  font-family: "Material Icons", $font-stack;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}

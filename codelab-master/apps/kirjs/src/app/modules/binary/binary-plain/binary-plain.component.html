@@ -1,0 +1,85 @@
+<div
+  class="wrapper"
+  [class.groups]="highlightGroups"
+  [class.mini]="mini"
+  [class.spacing]="spacing"
+>
+  <div [class]="highlighted">
+    <div class="legend">
+      <button
+        class="item {{ type }}"
+        (click)="highlightedMap[type] = !highlightedMap[type]"
+        *ngFor="let type of types"
+      >
+        {{ type }}
+      </button>
+      <label style="display: flex;margin-left: 3vw;">
+        <span class="spacing">Spacing</span>
+        <input style="zoom:3" type="checkbox" [(ngModel)]="spacing" />
+      </label>
+    </div>
+
+    <div class="binary">
+      <ng-container *ngFor="let item of structure; let i = index">
+        <div
+          *ngIf="!item.data && item.nesting === 1 && spacing"
+          class="item-header"
+        >
+          {{ item.name }}
+        </div>
+        <span
+          *ngIf="item.data"
+          class="{{ item.type }} {{ item.className }} bin-block"
+          style="display: inline;"
+          (click)="show[i] = !show[i]"
+          [attr.name]="item.name"
+          (keydown.enter)="update(item, $event.target.innerText)"
+          contenteditable="true"
+          >{{ item.rawValue }}
+          <!--          TODO(kirjs): This is hack, remove-->
+          <span *ngIf="item.name === 'section-type'">
+            - {{ hackHack[item.value] }}</span
+          >
+        </span>
+
+        <div
+          [class.selected]="show[i]"
+          *ngIf="item.data && show[i]"
+          style="display: inline;word-break: break-all"
+        >
+          <div style="display: flex;justify-content: space-between;">
+            <div
+              class="{{ item.type }} {{ item.className }} bin-block"
+              (click)="show[i] = true"
+              [attr.name]="item.name"
+              (keydown.enter)="update(item, $event.target.innerText)"
+              contenteditable="true"
+            >
+              {{ item.rawValue }}
+            </div>
+            <button
+              style="border: 0 solid;
+              line-height: 2vw;cursor: pointer;"
+              (click)="show[i] = false"
+              *ngIf="show[i]"
+            >
+              &times;
+            </button>
+          </div>
+          <div *ngIf="show[i]" class="meta">
+            <div>
+              <span class="label">value:</span><span>{{ item.value }}</span>
+            </div>
+            <div>
+              <span class="label">name:</span><span>{{ item.name }}</span>
+            </div>
+            <div style="display: flex;">
+              <span class="label">description:</span
+              ><span>{{ item.description }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

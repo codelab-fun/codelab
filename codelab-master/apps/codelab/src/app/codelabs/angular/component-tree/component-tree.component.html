@@ -1,0 +1,282 @@
+<div #translations style="display: none">
+  <div
+    i18n="@@addComponentDecoratorAndSetSelectorToMyVideo"
+    id="addComponentDecoratorAndSetSelectorToMyVideo"
+  >
+    video/video.component.ts: Add the '@Component' decorator and set its
+    selector property to 'my-video'.
+  </div>
+  <div i18n="@@addVideoComponentToAppModule" id="addVideoComponentToAppModule">
+    app.module.ts: Add VideoComponent to the AppModule 'declarations'.
+  </div>
+
+  <div
+    i18n="@@setTemplateUrlToLoadAppropriateFile"
+    id="setTemplateUrlToLoadAppropriateFile"
+  >
+    video/video.component.ts: Set the templateUrl to load the appropriate html
+    file
+  </div>
+  <div
+    i18n="@@addVideoPropertyAndDecorateWithInput"
+    id="addVideoPropertyAndDecorateWithInput"
+  >
+    video/video.component.ts: Add a video property and decorate it with @Input()
+  </div>
+  <div i18n="@@displayVideoTitle" id="displayVideoTitle">
+    video/video.component.html: Display the video title
+  </div>
+  <div i18n="@@displayVideoThumbnail" id="displayVideoThumbnail">
+    video/video.component.html: Display the video thumbnail (src)
+  </div>
+  <div i18n="@@displayVideoDescription" id="displayVideoDescription">
+    video/video.component.html: Display the video description
+  </div>
+  <div i18n="@@displayVideoData" id="displayVideoData">
+    video/video.component.html: Display the video date
+  </div>
+  <div i18n="@@displayNumberOfVideoViews" id="displayNumberOfVideoViews">
+    video/video.component.html: Display the number of video views
+  </div>
+  <div i18n="@@displayNumberOfVideoLikes" id="displayNumberOfVideoLikes">
+    video/video.component.html: Display the number video likes
+  </div>
+  <div i18n="@@replaceTitleAndThumbnail" id="replaceTitleAndThumbnail">
+    app.html: Replace existing title and thumbnail with our shiny new my-video
+    component
+  </div>
+  <div
+    i18n="@@useDataBindingToPassVideoToComponent"
+    id="useDataBindingToPassVideoToComponent"
+  >
+    app.html: Use the data binding to pass the video object to the component
+    (don't forget the square brackets)
+  </div>
+</div>
+
+<slide-deck slideShortcuts slidesRouting slides-tracking>
+  <codelab-progress-bar></codelab-progress-bar>
+
+  <slide-arrows></slide-arrows>
+
+  <!--  MILESTONE #3  Dependency Injection  -->
+  <!-- RECAP -->
+
+  <div *slide id="intro" no-padding>
+    <codelab-title-slide
+      i18n-title
+      title="Component Tree"
+      i18n-description
+      description="Combine components together"
+      prereqs=""
+    ></codelab-title-slide>
+  </div>
+
+  <!--  COMPONENT TREE  -->
+  <div *slide id="description" milestone="component-tree">
+    <codelab-breadcrumb i18n>Component Tree</codelab-breadcrumb>
+    <h2 i18n>
+      So far we have only one component, but as your app grows it will form a
+      tree of components
+    </h2>
+    <codelab-components-hierarchy-svg></codelab-components-hierarchy-svg>
+  </div>
+
+  <!--  Parent/Child COMPONENTS-->
+  <div *slide id="parent-child-component" milestone="Component Tree">
+    <codelab-breadcrumb i18n>Parent and Child</codelab-breadcrumb>
+    <h2 i18n>
+      Any component can render another one by using an HTML element that matches
+      the selector of the other component
+    </h2>
+    <div row>
+      <div column-5>
+        <code-demo-file-path path="box.component.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.circleAndBox.other.boxNoParams"
+          [codeDemoHighlight]="code.parentComponentSkeleton.match"
+        ></code-demo-editor>
+      </div>
+      <div column-5>
+        <code-demo-file-path path="circle.component.ts"></code-demo-file-path>
+        <code-demo-editor
+          [fontSize]="15"
+          [(ngModel)]="code.circleAndBox.files[0].code"
+          [codeDemoHighlight]="code.parentComponentSkeleton.match"
+        ></code-demo-editor>
+      </div>
+    </div>
+    <preview-browser-window style="margin-top: 280px;">
+      <div style="border: 1px #ddd solid; width: 100px">
+        <div
+          style="width: 100px;height: 100px;background-color: green;border-radius: 50%"
+        ></div>
+      </div>
+    </preview-browser-window>
+  </div>
+
+  <!--  PASSING DATA  -->
+  <div *slide id="passing-data" milestone="component-tree">
+    <codelab-breadcrumb i18n
+      >Passing Data from Parent to Child</codelab-breadcrumb
+    >
+    <h2 i18n>
+      Parent component passes its data to the child component via properties
+    </h2>
+    <div class="exercise" i18n>
+      Change the <b>size</b> to <b>100</b> and <b>color</b> to <b>red</b> to
+      recreate the Japanese flag.
+    </div>
+    <codelab-exercise-playground
+      [exercise]="code.boxAndCircle"
+    ></codelab-exercise-playground>
+  </div>
+
+  <!--  PASSING DATA  -->
+  <div *slide id="passing-data-child" milestone="component-tree">
+    <codelab-breadcrumb i18n
+      >Passing Data from Parent to Child</codelab-breadcrumb
+    >
+    <h2 i18n>
+      The child class must decorate its properties with a special
+      <b>@Input()</b> decorator
+    </h2>
+    <codelab-exercise-playground
+      [exercise]="code.circleAndBox"
+      [highlights]="code.passingDataToChildHighlights"
+    ></codelab-exercise-playground>
+    <div class="info" i18n>
+      This is the first time we're applying decorators to properties (as opposed
+      to classes).
+    </div>
+  </div>
+
+  <div *slide id="exercise-1-pre" milestone="component-tree">
+    <codelab-breadcrumb i18n>Exercise 1</codelab-breadcrumb>
+    <h2 i18n>
+      We already know how to create a component. Let's move all the
+      video-related information into a new component called VideoComponent.
+    </h2>
+    <h3 i18n>
+      We will bootstrap the component for you; the result will be as follows:
+    </h3>
+    <preview-browser-window>
+      <div>
+        <h2 i18n>Cute kitten</h2>
+        <img src="/assets/images/cat-00.png" />
+        <div>Date 2016-11-25</div>
+        <div>Views 100</div>
+        <div>Likes 49329</div>
+        <div>Description todo</div>
+      </div>
+    </preview-browser-window>
+  </div>
+
+  <!--  COMPONENT TREE EXERCISE 1 -->
+  <div *slide id="exercise-1" no-padding>
+    <codelab-exercise
+      milestone="component-tree"
+      [translations]="t"
+      [exercise]="exercise"
+    >
+    </codelab-exercise>
+  </div>
+  <!--TODO: looks like exercise is broken: after entering "selector: 'my-video'" it has error 'undefined in selector-->
+
+  <!-- NgModule -->
+  <div *slide id="module" milestone="component-tree-2">
+    <codelab-breadcrumb i18n>Parent and Child component</codelab-breadcrumb>
+    <h2 i18n>
+      Components won't know about each other unless they're declared in the same
+      module
+    </h2>
+    <code-demo
+      [files]="code.appModule.files"
+      [highlights]="code.appModule.highlights"
+      [allowSwitchingFiles]="false"
+      [(ngModel)]="code.appModule.code"
+    ></code-demo>
+  </div>
+
+  <div *slide id="recap" milestone="component-tree-2">
+    <codelab-breadcrumb i18n>Review</codelab-breadcrumb>
+    <div>
+      <div row>
+        <div column-5>
+          <code-demo-file-path path="box.component.ts"></code-demo-file-path>
+          <code-demo-editor
+            [fontSize]="15"
+            [(ngModel)]="code.circleAndBox.files[1].code"
+            [codeDemoHighlight]="code.parentComponentSkeleton.match"
+          ></code-demo-editor>
+        </div>
+        <div column-5>
+          <code-demo-file-path path="circle.component.ts"></code-demo-file-path>
+          <code-demo-editor
+            [fontSize]="15"
+            [(ngModel)]="code.circleAndBox.files[0].code"
+            [codeDemoHighlight]="code.parentComponentSkeleton.match"
+          ></code-demo-editor>
+        </div>
+      </div>
+      <div row>
+        <div column-5>
+          <code-demo-file-path path="module.ts"></code-demo-file-path>
+          <code-demo-editor
+            [fontSize]="15"
+            [(ngModel)]="code.circleAndBox.files[2].code"
+            [codeDemoHighlight]="code.appModule.match"
+          ></code-demo-editor>
+        </div>
+        <preview-browser-window
+          style="display: block;width: 50vw; height: 50vh;"
+        >
+          <div style="border: 1px #ddd solid; width: 100px">
+            <div
+              style="width: 30px;height: 30px;background-color: green;border-radius: 50%"
+            ></div>
+          </div>
+        </preview-browser-window>
+      </div>
+    </div>
+  </div>
+
+  <div *slide id="exercise-2-pre" milestone="component-tree-2">
+    <codelab-breadcrumb i18n>Exercise 2</codelab-breadcrumb>
+    <h2 i18n>In the next exercise you will use the newly created component</h2>
+    <codelab-exercise-preview
+      column-5
+      [exercise]="exercise2"
+    ></codelab-exercise-preview>
+  </div>
+
+  <!--  COMPONENT TREE EXERCISE 2-->
+  <div *slide id="exercise-2" no-padding>
+    <codelab-exercise
+      [translations]="t"
+      [exercise]="exercise2"
+      milestone="component-tree-2"
+    >
+    </codelab-exercise>
+  </div>
+
+  <!--  COMPONENT TREE EXERCISE 2-->
+  <div *slide id="end">
+    <codelab-closing-slide>
+      <div header>
+        <codelab-breadcrumb i18n>Milestone Completed</codelab-breadcrumb>
+      </div>
+      <div body></div>
+      <div footer>
+        <h2>
+          <ng-container i18n>Next: </ng-container>
+          <a routerLink="../../router/0" i18n>
+            Learn how to set up routing in your Angular app
+          </a>
+        </h2>
+        <feedback-rating lesson="AngularComponentTree"></feedback-rating>
+      </div>
+    </codelab-closing-slide>
+  </div>
+</slide-deck>

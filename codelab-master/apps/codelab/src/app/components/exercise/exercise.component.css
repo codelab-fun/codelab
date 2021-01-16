@@ -1,0 +1,24 @@
+.quarter {
+  width: 50vw;
+  height: 50vh;
+}
+
+.row {
+  display: flex;
+}
+
+.tests {
+  padding: 0.5vw;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.solved-message {
+  margin-top: 16px;
+}
+
+.solved-message img {
+  display: block;
+  height: 280px;
+  margin-top: 16px;
+}
