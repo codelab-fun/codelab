@@ -98,7 +98,7 @@
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
     "husky": "^4.2.3",
-    "immer": "^5.3.6",
+    "immer": "^8.0.1",
     "mocha": "^7.0.1",
     "monaco-editor": "^0.20.0",
     "monaco-editor-webpack-plugin": "^1.8.2",
