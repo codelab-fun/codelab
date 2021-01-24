@@ -4,6 +4,29 @@
   (updateTitle)="updateAttr('title', $event)"
 ></slides-slide-meta-editor>
 <div cdkDropList (cdkDropListDropped)="reorder($event)">
-  <slides-slide-preview [slide]="slide" mode="edit"></slides-slide-preview>
+  <div *ngFor="let block of slide.blocks; let i = index" cdkDrag>
+    <div class="block-wrapper">
+      <div class="controls">
+        <button mat-icon-button (click)="removeBlock(i)" class="remove">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-icon-button cdkDragHandle>
+          <mat-icon>drag_indicator</mat-icon>
+        </button>
+      </div>
+      <div class="content" *ngIf="block.type === 'html'">
+        <slides-slide-html-editor
+          [html]="block.code"
+          (changeHtml)="updateBlocks(i, $event)"
+        ></slides-slide-html-editor>
+      </div>
+      <div class="content" *ngIf="block.type === 'custom'">
+        <slides-dynamic-renderer
+          [block]="block"
+          mode="edit"
+        ></slides-dynamic-renderer>
+      </div>
+    </div>
+  </div>
 </div>
 <slides-action-bar (addBlock)="addBlock($event)"></slides-action-bar>

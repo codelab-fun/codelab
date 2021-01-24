@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  padding: 16px 0;
+}
+
+.left {
+  width: 50%;
+  padding: 16px;
+  background: #ceecff;
+  border: 1px #0981d0 solid;
+  height: 100px;
+  border-radius: 8px;
+}
+.right {
+  width: 50%;
+  padding: 16px;
+  margin-left: 16px;
+  background: #ffd8ef;
+  border: 1px #d009cd solid;
+  height: 100px;
+  border-radius: 8px;
+}

@@ -12,7 +12,7 @@ import { BlankComponent } from './slide-preview/blank/blank.component';
     DynamicRendererComponent,
     BlankComponent
   ],
-  exports: [PreviewComponent, SlidePreviewComponent],
+  exports: [PreviewComponent, SlidePreviewComponent, DynamicRendererComponent],
   imports: [CommonModule]
 })
 export class PreviewModule {}

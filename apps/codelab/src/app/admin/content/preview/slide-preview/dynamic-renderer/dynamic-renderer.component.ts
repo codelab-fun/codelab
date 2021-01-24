@@ -13,6 +13,8 @@ import { CodelabCodeDemoConsoleComponent } from '../../../wrappers/custom-compon
 import { CodeDemoEditorEditorComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-editor-editor/code-demo-editor.component';
 import { CodelabImageEditorComponent } from '../../../wrappers/custom-component-editors/codelab-image-editor/codelab-image-editor.component';
 import { BlankComponent } from '../blank/blank.component';
+import { CodelabCodeDemoPreviewComponent } from '../../../wrappers/custom-component-previews/codelab-code-demo-preview/codelab-code-demo-preview.component';
+import { TitleSlideComponent } from '../../../../../components/slides/title-slide/title-slide.component';
 
 @Component({
   selector: 'slides-dynamic-renderer',
@@ -31,13 +33,13 @@ export class DynamicRendererComponent implements OnInit {
   async ngOnInit() {
     const componentMap = {
       preview: {
-        'codelab-title-slide': CodelabTitleSlideEditorComponent,
-        'codelab-code-demo-console': CodelabCodeDemoConsoleComponent,
-        'codelab-exercise-preview': CodelabExerciseComponent,
-        'codelab-exercise': CodelabExerciseComponent,
+        'codelab-title-slide': TitleSlideComponent,
+        'codelab-code-demo-console': CodelabCodeDemoPreviewComponent,
+        'codelab-exercise-preview': CodelabCodeDemoPreviewComponent,
+        'codelab-exercise': CodelabCodeDemoPreviewComponent,
         'codelab-closing-slide': CodelabTitleSlideEditorComponent,
-        'codelab-code-demo-file-path': CodelabCodeDemoFilePathEditorComponent,
-        'codelab-code-demo-editor': CodeDemoEditorEditorComponent,
+        'codelab-code-demo-file-path': CodelabCodeDemoPreviewComponent,
+        'codelab-code-demo-editor': CodelabCodeDemoPreviewComponent,
         'codelab-image': CodelabImageEditorComponent
       },
       view: {

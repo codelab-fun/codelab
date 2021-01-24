@@ -9,8 +9,13 @@
       inert="true"
       (click)="this.contentService.goToSlide(i)"
     >
-      <div cdkDrag class="slide" style="text-decoration: none; color: inherit">
+      <div
+        cdkDrag
+        class="slide"
+        style="pointer-events: none;text-decoration: none; color: inherit"
+      >
         <slides-slide-preview
+          mode="preview"
           [slide]="slide"
           [class.selected]="i === selectedSlide"
         ></slides-slide-preview>

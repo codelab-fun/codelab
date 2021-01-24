@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -29,22 +22,19 @@ export class SlideEditorComponent {
     this.updateSlide.emit(this.slide);
   }
 
-  updateBlocks(i: number, html: string) {
-    this.blocks[i].code = html.trim();
-    this.updateHTML();
-  }
-
   removeBlock(i: number) {
-    this.blocks.splice(i, 1);
-    this.updateHTML();
+    this.slide.blocks.splice(i, 1);
   }
 
   reorder(event) {
-    moveItemInArray(this.blocks, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.slide.blocks, event.previousIndex, event.currentIndex);
   }
 
   addBlock(block: any) {
-    this.blocks.push(block);
-    this.updateHTML();
+    this.slide.blocks.push(block);
+  }
+
+  updateBlocks(i: number, code: string) {
+    this.slide.blocks[i].code = code;
   }
 }
