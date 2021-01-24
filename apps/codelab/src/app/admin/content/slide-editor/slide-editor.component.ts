@@ -13,46 +13,11 @@ import { moveItemInArray } from '@angular/cdk/drag-drop';
   templateUrl: './slide-editor.component.html',
   styleUrls: ['./slide-editor.component.scss']
 })
-export class SlideEditorComponent implements OnInit, OnChanges {
+export class SlideEditorComponent {
   @Input() slide;
   @Output() updateSlide = new EventEmitter();
 
   blocks = [];
-
-  ngOnChanges() {
-    if (JSON.stringify(this.generateBlocks()) !== JSON.stringify(this.blocks)) {
-      this.blocks = this.generateBlocks();
-    }
-  }
-
-  generateBlocks() {
-    let current = { type: '', code: '' };
-    const blocks = [current];
-
-    for (const tag of this.slide.childNodes) {
-      if (tag.nodeType === 3 && tag.textContent.trim() === '') {
-        continue;
-      }
-
-      const type =
-        tag.tagName && tag.tagName.toLowerCase().startsWith('codelab')
-          ? 'custom'
-          : 'html';
-
-      if (current.type !== type || type === 'custom') {
-        current = { type, code: '' };
-        blocks.push(current);
-      }
-
-      current.code += (tag.outerHTML || tag.textContent).trim();
-    }
-
-    return blocks;
-  }
-
-  ngOnInit() {
-    this.blocks = this.generateBlocks();
-  }
 
   updateAttr(id: string, value: any) {
     this.slide.setAttribute(id, value);
@@ -60,8 +25,7 @@ export class SlideEditorComponent implements OnInit, OnChanges {
   }
 
   updateHTML() {
-    const innerHTML = this.blocks.map(b => b.code).join('\n');
-    this.slide.innerHTML = innerHTML;
+    this.slide.innerHTML = this.blocks.map(b => b.code).join('\n');
     this.updateSlide.emit(this.slide);
   }
 

@@ -3,20 +3,18 @@ import { CommonModule } from '@angular/common';
 import { SlideEditorComponent } from './slide-editor.component';
 import { SlideMetaEditorComponent } from './slide-meta-editor/slide-meta-editor.component';
 import { SlideHtmlEditorComponent } from './slide-html-editor/slide-html-editor.component';
-import { CustomEditorComponent } from './custom-editor/custom-editor.component';
-import { DynamicTagRendererModule } from '../dynamic-tag-renderer/dynamic-tag-renderer.module';
-import { CustomComponentEditorsModule } from '../custom-component-editors/custom-component-editors.module';
+import { CustomComponentEditorsModule } from '../wrappers/custom-component-editors/custom-component-editors.module';
 import { MatIconModule } from '@angular/material/icon';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
 import { ActionBarModule } from './action-bar/action-bar.module';
+import { PreviewModule } from '../preview/preview.module';
 
 @NgModule({
   declarations: [
     SlideEditorComponent,
     SlideMetaEditorComponent,
-    SlideHtmlEditorComponent,
-    CustomEditorComponent
+    SlideHtmlEditorComponent
   ],
   exports: [
     SlideEditorComponent,
@@ -25,12 +23,12 @@ import { ActionBarModule } from './action-bar/action-bar.module';
   ],
   imports: [
     CommonModule,
-    DynamicTagRendererModule,
     CustomComponentEditorsModule,
     MatIconModule,
     DragDropModule,
     MatButtonModule,
-    ActionBarModule
+    ActionBarModule,
+    PreviewModule
   ]
 })
 export class SlideEditorModule {}

@@ -1,0 +1,17 @@
+<div class="config">
+  <mat-checkbox [(ngModel)]="lineNumbers" (ngModelChange)="update()">
+    <mat-icon aria-label="line numbers">format_list_numbered</mat-icon>
+  </mat-checkbox>
+
+  <div>
+    <input [(ngModel)]="fontSize" (ngModelChange)="update()" />
+    <mat-icon>format_size</mat-icon>
+  </div>
+</div>
+
+<code-demo-editor
+  [(ngModel)]="content"
+  [lineNumbers]="lineNumbers"
+  [fontSize]="fontSize"
+  (ngModelChange)="update()"
+></code-demo-editor>

@@ -1,17 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Location } from '@angular/common';
+import { ContentService } from './content.service';
 
 declare const require;
-
-function getContent(code: string) {
-  const node = new DOMParser().parseFromString(code, 'text/html');
-
-  return {
-    slides: Array.from(node.querySelectorAll('slide')).map(slide => slide)
-  };
-}
 
 function updateSlide(code, slideIndex, html) {
   const node = new DOMParser().parseFromString(code, 'text/html');
@@ -62,66 +52,39 @@ function updateAttr(
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit {
-  code = '';
-  content;
-  slides = [];
-  selectedSlide = 0;
-  readonly presentations = this.firestore.collection('presentations');
-  readonly presentation = this.presentations.doc('typescript');
+export class ContentComponent {
+  slides$ = this.contentService.slides$;
+  selectedSlide$ = this.contentService.selectedSlide$;
 
-  constructor(
-    readonly firestore: AngularFirestore,
-    readonly route: ActivatedRoute,
-    readonly router: Router,
-    readonly location: Location
-  ) {
-    route.paramMap.subscribe(a => {
-      this.selectedSlide = Number((a as any)?.params?.id) || 0;
-    });
-    this.fetchPresentation();
-  }
-
-  async fetchPresentation() {
-    const data = (await this.presentation.get().toPromise()).data();
-    this.parseCode(data.code);
-  }
-
-  ngOnInit(): void {}
-
-  parseCode(code: string) {
-    this.code = code;
-    this.content = getContent(this.code);
-    this.slides = this.content.slides;
-  }
-
-  setCode(code: string) {
-    this.parseCode(code);
-    this.presentation.set({ code });
-  }
+  constructor(readonly contentService: ContentService) {}
 
   updateSlide(slide) {
-    this.setCode(updateSlide(this.code, this.selectedSlide, slide.outerHTML));
+    this.contentService.setCode(
+      updateSlide(
+        this.contentService.code$.value,
+        this.contentService.selectedSlide$.value,
+        slide.outerHTML
+      )
+    );
   }
 
   addSlide() {
-    this.setCode(addSlide(this.code, this.selectedSlide));
-    this.selectedSlide++;
+    this.contentService.setCode(
+      addSlide(
+        this.contentService.code$.value,
+        this.contentService.selectedSlide$.value
+      )
+    );
+    this.contentService.nextSlide();
   }
 
   reorder(move) {
-    this.setCode(moveSlide(this.code, move.previousIndex, move.currentIndex));
-  }
-
-  next() {
-    this.selectedSlide++;
-  }
-
-  updateSelectedSlideIndex(index: number) {
-    this.selectedSlide = index;
-    const url = this.router
-      .createUrlTree(['..', index], { relativeTo: this.route })
-      .toString();
-    this.location.replaceState(url);
+    this.contentService.setCode(
+      moveSlide(
+        this.contentService.code$.value,
+        move.previousIndex,
+        move.currentIndex
+      )
+    );
   }
 }

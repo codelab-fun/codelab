@@ -7,6 +7,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { UsersModule } from './users/users.module';
 import { ContentModule } from './content/content.module';
+import { PreviewModule } from './content/preview/preview.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { ContentModule } from './content/content.module';
     CommonModule,
     ContentModule,
     FeedbackModule,
+    PreviewModule,
     UsersModule,
     MatCardModule,
     MatTabsModule

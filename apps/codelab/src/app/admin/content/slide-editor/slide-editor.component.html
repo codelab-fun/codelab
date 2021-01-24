@@ -4,30 +4,6 @@
   (updateTitle)="updateAttr('title', $event)"
 ></slides-slide-meta-editor>
 <div cdkDropList (cdkDropListDropped)="reorder($event)">
-  <div *ngFor="let block of blocks; let i = index" cdkDrag>
-    <!--  TODO: ngIf below is a hack -->
-    <div class="block-wrapper" *ngIf="block.type !== ''">
-      <div class="controls">
-        <button mat-icon-button (click)="removeBlock(i)" class="remove">
-          <mat-icon>cancel</mat-icon>
-        </button>
-        <button mat-icon-button cdkDragHandle>
-          <mat-icon>drag_indicator</mat-icon>
-        </button>
-      </div>
-      <div class="content" *ngIf="block.type === 'html'">
-        <slides-slide-html-editor
-          [html]="block.code"
-          (changeHtml)="updateBlocks(i, $event)"
-        ></slides-slide-html-editor>
-      </div>
-      <div class="content" *ngIf="block.type === 'custom'">
-        <slides-custom-editor
-          [html]="block.code"
-          (changeHtml)="updateBlocks(i, $event)"
-        ></slides-custom-editor>
-      </div>
-    </div>
-  </div>
+  <slides-slide-preview [slide]="slide" mode="edit"></slides-slide-preview>
 </div>
 <slides-action-bar (addBlock)="addBlock($event)"></slides-action-bar>
