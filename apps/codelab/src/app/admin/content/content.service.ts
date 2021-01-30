@@ -89,7 +89,8 @@ export class ContentService {
   }
 
   async fetchPresentation() {
-    this.parseCode((await this.presentation.get().toPromise()).data().code);
+    const code = (await this.presentation.get().toPromise()).data().code;
+    this.parseCode(code);
   }
 
   parseCode(code: string) {

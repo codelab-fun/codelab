@@ -1,28 +1,13 @@
 <div>
   <button mat-icon-button (click)="addP()">p</button>
-  <button
-    mat-icon-button
-    (click)="
-      addCustom('<codelab-code-demo-editor>//code</codelab-code-demo-editor>')
-    "
-  >
+  <button mat-icon-button (click)="addCustom('codelab-code-demo-editor')">
     <mat-icon>code</mat-icon>
   </button>
-  <button
-    mat-icon-button
-    (click)="
-      addCustom(
-        '<codelab-code-demo-console ui=console></codelab-code-demo-console>'
-      )
-    "
-  >
+  <button mat-icon-button (click)="addCustom('codelab-code-demo-console')">
     <mat-icon>web</mat-icon>
   </button>
 
-  <button
-    mat-icon-button
-    (click)="addCustom('<codelab-image></codelab-image>')"
-  >
+  <button mat-icon-button (click)="addCustom('codelab-image')">
     <mat-icon>image</mat-icon>
   </button>
 
@@ -34,16 +19,10 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button
-      mat-menu-item
-      (click)="addCustom('<codelab-exercise></codelab-exercise>')"
-    >
+    <button mat-menu-item (click)="addCustom('codelab-exercise')">
       Legacy exercise
     </button>
-    <button
-      mat-menu-item
-      (click)="addCustom('<codelab-title-slide></codelab-title-slide>')"
-    >
+    <button mat-menu-item (click)="addCustom('codelab-title-slide')">
       Title slide
     </button>
   </mat-menu>

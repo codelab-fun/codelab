@@ -15,8 +15,7 @@ export class CodelabImageEditorComponent implements OnInit {
   constructor(private storage: AngularFireStorage) {}
 
   ngOnInit(): void {
-    const props = JSON.parse(this.data);
-    this.src = props.src;
+    debugger;
   }
 
   uploadFile([f]: NgxFileDropEntry[]) {
