@@ -4,6 +4,7 @@ import { PreviewComponent } from './preview.component';
 import { SlidePreviewComponent } from './slide-preview/slide-preview.component';
 import { DynamicRendererComponent } from './slide-preview/dynamic-renderer/dynamic-renderer.component';
 import { BlankComponent } from './slide-preview/blank/blank.component';
+import { NgxdModule } from '@ngxd/core';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,6 @@ import { BlankComponent } from './slide-preview/blank/blank.component';
     BlankComponent
   ],
   exports: [PreviewComponent, SlidePreviewComponent, DynamicRendererComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, NgxdModule]
 })
 export class PreviewModule {}
