@@ -1,38 +1,56 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../../../ng2ts/ng2ts';
+import { ContentSlide, CustomBlock } from '../../../types';
+import { ContentService } from '../../../content.service';
 
 @Component({
   selector: 'codelab-exercise-editor',
   templateUrl: './codelab-exercise-editor.component.html',
   styleUrls: ['./codelab-exercise-editor.component.css']
 })
-export class CodelabExerciseEditorComponent implements OnInit {
+export class CodelabExerciseEditorComponent implements OnChanges {
   @Input() data;
   @Output() dataChange = new EventEmitter();
+  @Input() block!: CustomBlock;
+  @Input() slide!: ContentSlide;
 
   readonly config = ng2tsConfig;
-  milestone?: any;
-  exercise?: any;
-  type = 'preview';
+  @Input() milestone: string;
+  @Input() exercise: string;
+  @Input() type = 'preview';
+  selectedMilestone: any;
+  selectedExercise: any;
 
-  ngOnInit(): void {
-    const props = JSON.parse(this.data);
-    this.milestone = ng2tsConfig.milestones.find(
-      m => m.name === props.milestone
+  ngOnChanges() {
+    this.selectedMilestone = ng2tsConfig.milestones.find(
+      m => m.name === this.milestone
     );
+
     if (this.milestone) {
-      this.exercise = this.milestone.exercises.find(
-        m => m.name === props.exercise
+      this.selectedExercise = this.selectedMilestone.exercises.find(
+        m => m.name === this.exercise
       );
     }
-    this.type = props.type;
   }
 
+  constructor(private readonly contentService: ContentService) {}
+
   update() {
-    this.dataChange.emit({
-      milestone: this.milestone ? this.milestone.name : '',
-      exercise: this.exercise ? this.exercise.name : '',
-      type: this.type || ''
+    console.log(this.selectedMilestone);
+
+    this.contentService.updateBlock(this.slide.id, {
+      ...this.block,
+      props: {
+        milestone: this.selectedMilestone?.name || '',
+        exercise: this.selectedExercise?.name || '',
+        type: this.type
+      }
     });
   }
 }

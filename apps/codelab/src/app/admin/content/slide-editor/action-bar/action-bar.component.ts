@@ -10,10 +10,13 @@ import { ContentService } from '../../content.service';
 export class ActionBarComponent {
   @Output() addBlock = new EventEmitter<ContentBlock>();
   @Input() slide: ContentSlide;
+  defaultDemoProps = {
+    code: { 'app.ts': '// Type your code here!' }
+  };
 
   constructor(private contentService: ContentService) {}
 
-  addCustom(tag: string, props: Record<string, string> = {}) {
+  addCustom(tag: string, props: Record<string, any> = {}) {
     this.contentService.addBlock(this.slide.id, {
       type: 'custom',
       tag,

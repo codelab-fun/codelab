@@ -10,7 +10,7 @@ export interface CustomBlock {
   type: 'custom';
   id: string;
   tag: string;
-  props: Record<string, string>;
+  props: Record<string, any>;
 }
 
 export type ContentBlock = HTMLBlock | CustomBlock;

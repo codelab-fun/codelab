@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ContentService } from '../../../content.service';
+import { ContentSlide, CustomBlock } from '../../../types';
 
 @Component({
   selector: 'codelab-code-demo-console-editor',
@@ -9,7 +11,17 @@ export class CodelabCodeDemoConsoleComponent {
   @Input() files = ['app.ts'];
   @Input() code = {};
   @Input() ui = 'browser';
+  @Input() block!: CustomBlock;
+  @Input() slide!: ContentSlide;
 
-  constructor() {}
-  update() {}
+  constructor(private readonly contentService: ContentService) {}
+
+  update() {
+    this.contentService.updateBlock(this.slide.id, {
+      ...this.block,
+      props: {
+        code: this.code
+      }
+    });
+  }
 }

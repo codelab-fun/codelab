@@ -1,9 +1,19 @@
 <div>
   <button mat-icon-button (click)="addP()">p</button>
-  <button mat-icon-button (click)="addCustom('codelab-code-demo-editor')">
+  <button
+    mat-icon-button
+    (click)="
+      addCustom('codelab-code-demo-editor', {
+        content: '// Type your code here!'
+      })
+    "
+  >
     <mat-icon>code</mat-icon>
   </button>
-  <button mat-icon-button (click)="addCustom('codelab-code-demo-console')">
+  <button
+    mat-icon-button
+    (click)="addCustom('codelab-code-demo-console', defaultDemoProps)"
+  >
     <mat-icon>web</mat-icon>
   </button>
 

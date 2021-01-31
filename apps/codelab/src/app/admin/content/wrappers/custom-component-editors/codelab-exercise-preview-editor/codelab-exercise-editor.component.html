@@ -10,7 +10,7 @@
 
 <mat-form-field>
   <mat-label>Milestone</mat-label>
-  <mat-select [(ngModel)]="milestone" (ngModelChange)="update()">
+  <mat-select [(ngModel)]="selectedMilestone" (ngModelChange)="update()">
     <mat-option
       *ngFor="let milestone of config.milestones"
       [value]="milestone"
@@ -19,10 +19,10 @@
   </mat-select>
 </mat-form-field>
 
-<mat-form-field *ngIf="milestone">
+<mat-form-field *ngIf="selectedMilestone">
   <mat-label>Exercise</mat-label>
-  <mat-select [(ngModel)]="exercise" (ngModelChange)="update()">
-    <ng-container *ngFor="let exercise of milestone.exercises">
+  <mat-select [(ngModel)]="selectedExercise" (ngModelChange)="update()">
+    <ng-container *ngFor="let exercise of selectedMilestone.exercises">
       <mat-option [value]="exercise" *ngIf="exercise.files">{{
         exercise.name
       }}</mat-option>

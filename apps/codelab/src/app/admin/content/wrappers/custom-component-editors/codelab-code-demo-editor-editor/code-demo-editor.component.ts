@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ContentSlide, CustomBlock } from '../../../types';
+import { ContentService } from '../../../content.service';
 
 @Component({
   selector: 'codelab-code-demo-editor-editor',
@@ -6,15 +8,24 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./code-demo-editor.component.css']
 })
 export class CodeDemoEditorEditorComponent implements OnInit {
-  props;
+  @Input() lineNumbers = true;
+  @Input() fontSize = 20;
+  @Input() content = 'lol';
+  @Input() block!: CustomBlock;
+  @Input() slide!: ContentSlide;
 
-  @Input() lineNumbers: boolean;
-  @Input() fontSize: number;
-  @Input() content = '';
-
-  constructor() {}
+  constructor(private readonly contentService: ContentService) {}
 
   ngOnInit(): void {}
 
-  update() {}
+  update() {
+    this.contentService.updateBlock(this.slide.id, {
+      ...this.block,
+      props: {
+        lineNumbers: this.lineNumbers,
+        fontSize: this.fontSize,
+        content: this.content
+      }
+    });
+  }
 }

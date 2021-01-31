@@ -5,7 +5,12 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
-import { SlideViewType } from '../../../types';
+import {
+  ContentBlock,
+  ContentSlide,
+  CustomBlock,
+  SlideViewType
+} from '../../../types';
 import { CodelabExerciseComponent } from '../../../../../components/exercise/exercise.component';
 import { CodelabTitleSlideEditorComponent } from '../../../wrappers/custom-component-editors/codelab-title-slide-editor/codelab-title-slide-editor.component';
 import { CodelabCodeDemoFilePathEditorComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-file-path-editor/codelab-code-demo-file-path-editor.component';
@@ -17,6 +22,7 @@ import { CodelabCodeDemoPreviewComponent } from '../../../wrappers/custom-compon
 import { TitleSlideComponent } from '../../../../../components/slides/title-slide/title-slide.component';
 
 import { NgxdResolver } from '@ngxd/core';
+import { CodelabExerciseEditorComponent } from '../../../wrappers/custom-component-editors/codelab-exercise-preview-editor/codelab-exercise-editor.component';
 
 @Injectable({ providedIn: 'root' })
 export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {
@@ -68,8 +74,11 @@ export class EditDynamicComponentResolver extends NgxdResolver<string, any> {
         type: 'codelab-code-demo-console',
         component: CodelabCodeDemoConsoleComponent
       },
-      { type: 'codelab-exercise-preview', component: CodelabExerciseComponent },
-      { type: 'codelab-exercise', component: CodelabExerciseComponent },
+      {
+        type: 'codelab-exercise-preview',
+        component: CodelabExerciseEditorComponent
+      },
+      { type: 'codelab-exercise', component: CodelabExerciseEditorComponent },
       {
         type: 'codelab-closing-slide',
         component: CodelabTitleSlideEditorComponent
@@ -91,16 +100,15 @@ export class EditDynamicComponentResolver extends NgxdResolver<string, any> {
   selector: 'slides-dynamic-renderer',
   template: `
     <ng-container
-      *ngxComponentOutlet="resolver | resolve: block.tag; context: props"
+      *ngxComponentOutlet="resolver | resolve: block.tag; context: block.props"
     ></ng-container>
   `,
   styleUrls: ['./dynamic-renderer.component.css']
 })
 export class DynamicRendererComponent implements OnChanges {
-  @Input() block;
+  @Input() block: CustomBlock;
   @Input() mode: SlideViewType = 'preview';
-
-  props = {};
+  @Input() slide: ContentSlide;
 
   resolver: NgxdResolver<string, any>;
 

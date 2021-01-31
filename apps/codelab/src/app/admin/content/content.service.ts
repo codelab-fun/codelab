@@ -89,6 +89,9 @@ export class ContentService {
   ) {
     // TODO: There should be a better way
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
+    this.presentationJs.valueChanges().subscribe(a => {
+      console.log(a);
+    });
   }
 
   uniqueId() {
@@ -138,10 +141,7 @@ export class ContentService {
         }
         case 'updateBlock': {
           const slide = getSlide();
-          const blockIndex = slide.blocks.findIndex(
-            ({ id }) => id === payload.block.id
-          );
-          console.assert(blockIndex);
+          const blockIndex = findBlockById(slide, payload.block.id);
           slide.blocks[blockIndex] = payload.block;
           break;
         }
@@ -149,7 +149,7 @@ export class ContentService {
           const slide = getSlide();
           const toIndex = findBlockById(slide, payload.toId);
           const fromIndex = findBlockById(slide, payload.fromId);
-          moveItemInArray(slide.blocks, toIndex, fromIndex);
+          moveItemInArray(slide.blocks, fromIndex, toIndex);
           break;
         }
         case 'deleteBlock': {

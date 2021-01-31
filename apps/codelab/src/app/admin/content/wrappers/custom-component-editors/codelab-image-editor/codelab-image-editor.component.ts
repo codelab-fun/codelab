@@ -1,6 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { ContentService } from '../../../content.service';
+import * as flamelink from 'flamelink';
+import { ContentBlock, ContentSlide, CustomBlock } from '../../../types';
 
 @Component({
   selector: 'codelab-image-editor',
@@ -10,9 +13,13 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class CodelabImageEditorComponent {
   @Input() src;
   @Input() data;
-  @Input() dataChange;
+  @Input() slide: ContentSlide;
+  @Input() block: CustomBlock;
 
-  constructor(private storage: AngularFireStorage) {}
+  constructor(
+    private readonly contentService: ContentService,
+    private readonly storage: AngularFireStorage
+  ) {}
 
   uploadFile([f]: NgxFileDropEntry[]) {
     const entry = f.fileEntry;
@@ -28,10 +35,9 @@ export class CodelabImageEditorComponent {
   }
 
   update() {
-    const props = {
-      src: this.src
-    };
-
-    this.dataChange(props);
+    this.contentService.updateBlock(this.slide.id, {
+      ...this.block,
+      props: { src: this.src }
+    });
   }
 }
