@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ContentService } from '../../content.service';
 
 @Component({
   selector: 'slides-slide-meta-editor',
@@ -7,9 +8,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SlideMetaEditorComponent implements OnInit {
   @Input() slide;
-  @Output() updateTitle = new EventEmitter();
-  @Output() updateId = new EventEmitter();
-  constructor() {}
+
+  constructor(private contentService: ContentService) {}
+
+  updateAttr(id: string, value: any) {
+    this.contentService.updateSlideMeta(this.slide.id, id, value);
+  }
+
+  deleteSlide() {
+    this.contentService.deleteSlide(this.slide.id);
+  }
 
   ngOnInit(): void {}
 }

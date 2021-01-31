@@ -9,17 +9,6 @@ function updateSlide(code, slideIndex, html) {
   return node.body.innerHTML;
 }
 
-function moveSlide(code, previousIndex, currentIndex) {
-  const node = new DOMParser().parseFromString(code, 'text/html');
-  const slides = node.querySelectorAll('slide');
-  if (previousIndex < currentIndex) {
-    slides[currentIndex].after(slides[previousIndex]);
-  } else {
-    slides[currentIndex].before(slides[previousIndex]);
-  }
-  return node.body.innerHTML;
-}
-
 function addSlide(code, slideIndex) {
   const node = new DOMParser().parseFromString(code, 'text/html');
   const slides = node.querySelectorAll('slide');
@@ -58,33 +47,17 @@ export class ContentComponent {
 
   constructor(readonly contentService: ContentService) {}
 
-  updateSlide(slide) {
-    this.contentService.setCode(
-      updateSlide(
-        this.contentService.code$.value,
-        this.contentService.selectedSlide$.value,
-        slide.outerHTML
-      )
-    );
-  }
-
   addSlide() {
-    this.contentService.setCode(
-      addSlide(
-        this.contentService.code$.value,
-        this.contentService.selectedSlide$.value
-      )
-    );
-    this.contentService.nextSlide();
+    this.contentService.addSlide();
   }
 
   reorder(move) {
-    this.contentService.setCode(
-      moveSlide(
-        this.contentService.code$.value,
-        move.previousIndex,
-        move.currentIndex
-      )
-    );
+    // this.contentService.setCode(
+    //   moveSlide(
+    //     this.contentService.code$.value,
+    //     move.previousIndex,
+    //     move.currentIndex
+    //   )
+    // );
   }
 }

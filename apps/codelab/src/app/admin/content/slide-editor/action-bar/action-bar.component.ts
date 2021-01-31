@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { ContentBlock } from '../../types';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ContentBlock, ContentSlide } from '../../types';
+import { ContentService } from '../../content.service';
 
 @Component({
   selector: 'slides-action-bar',
@@ -8,21 +9,24 @@ import { ContentBlock } from '../../types';
 })
 export class ActionBarComponent {
   @Output() addBlock = new EventEmitter<ContentBlock>();
+  @Input() slide: ContentSlide;
+
+  constructor(private contentService: ContentService) {}
 
   addCustom(tag: string, props: Record<string, string> = {}) {
-    this.addBlock.emit({
-      id: '11',
+    this.contentService.addBlock(this.slide.id, {
       type: 'custom',
       tag,
-      props
+      props,
+      id: this.contentService.uniqueId()
     });
   }
 
   addP() {
-    this.addBlock.emit({
-      id: '12',
+    this.contentService.addBlock(this.slide.id, {
       type: 'html',
-      code: '<p>TODO</p>'
+      code: 'Add your content here...',
+      id: this.contentService.uniqueId()
     });
   }
 }

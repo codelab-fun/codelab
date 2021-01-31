@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moveItemInArray } from '@angular/cdk/drag-drop';
+import { ContentService } from '../content.service';
+import { ContentBlock } from '../types';
 
 @Component({
   selector: 'slides-slide-editor',
@@ -10,31 +12,34 @@ export class SlideEditorComponent {
   @Input() slide;
   @Output() updateSlide = new EventEmitter();
 
-  blocks = [];
+  constructor(private contentService: ContentService) {}
 
   updateAttr(id: string, value: any) {
-    this.slide.setAttribute(id, value);
-    this.updateSlide.emit(this.slide);
+    this.contentService.updateSlideMeta(this.slide.id, id, value);
   }
 
-  updateHTML() {
-    this.slide.innerHTML = this.blocks.map(b => b.code).join('\n');
-    this.updateSlide.emit(this.slide);
-  }
-
-  removeBlock(i: number) {
-    this.slide.blocks.splice(i, 1);
-  }
-
-  reorder(event) {
-    moveItemInArray(this.slide.blocks, event.previousIndex, event.currentIndex);
+  reorder({ previousIndex, currentIndex }) {
+    this.contentService.reorderBlocks(
+      this.slide.id,
+      this.slide.blocks[previousIndex].id,
+      this.slide.blocks[currentIndex].id
+    );
   }
 
   addBlock(block: any) {
-    this.slide.blocks.push(block);
+    this.contentService.updateBlock(this.slide.id, block);
   }
 
-  updateBlocks(i: number, code: string) {
-    this.slide.blocks[i].code = code;
+  trackByBlockId(i: number, block: ContentBlock) {
+    return block.id || i;
+  }
+
+  updateBlockHTML(blockId: string, code: string) {
+    const block = this.slide.blocks.find(({ id }) => id === blockId);
+    this.contentService.updateBlock(this.slide.id, { ...block, code });
+  }
+
+  deleteBlock(block: ContentBlock) {
+    this.contentService.deleteBlock(this.slide.id, block.id);
   }
 }

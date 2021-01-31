@@ -2,7 +2,7 @@
   placeholder="title"
   [value]="slide.title"
   class="title"
-  (keyup)="updateTitle.emit($event.target.value)"
+  (keyup)="updateAttr('title', $event.target.value)"
 />
 
 <div class="id-wrapper">
@@ -10,6 +10,9 @@
     class="id"
     placeholder="id"
     [value]="slide.id"
-    (keyup)="updateId.emit($event.target.value)"
+    (keyup)="updateAttr('id', $event.target.value)"
   />
 </div>
+<button mat-icon-button (click)="deleteSlide()">
+  <mat-icon>cancel</mat-icon>
+</button>

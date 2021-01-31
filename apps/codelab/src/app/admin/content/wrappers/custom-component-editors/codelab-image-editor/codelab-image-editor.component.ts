@@ -7,16 +7,12 @@ import { AngularFireStorage } from '@angular/fire/storage';
   templateUrl: './codelab-image-editor.component.html',
   styleUrls: ['./codelab-image-editor.component.scss']
 })
-export class CodelabImageEditorComponent implements OnInit {
+export class CodelabImageEditorComponent {
   @Input() src;
   @Input() data;
-  @Output() dataChange = new EventEmitter();
+  @Input() dataChange;
 
   constructor(private storage: AngularFireStorage) {}
-
-  ngOnInit(): void {
-    debugger;
-  }
 
   uploadFile([f]: NgxFileDropEntry[]) {
     const entry = f.fileEntry;
@@ -36,6 +32,6 @@ export class CodelabImageEditorComponent implements OnInit {
       src: this.src
     };
 
-    this.dataChange.emit(props);
+    this.dataChange(props);
   }
 }
