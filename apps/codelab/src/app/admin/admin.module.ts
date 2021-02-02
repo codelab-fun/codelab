@@ -6,8 +6,9 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { UsersModule } from './users/users.module';
-import { ContentModule } from './content/content.module';
-import { PreviewModule } from './content/preview/preview.module';
+import { ContentModule } from './content/presentation-editor/content.module';
+import { PreviewModule } from './content/presentation-editor/preview/preview.module';
+import { PresentationListModule } from './content/presentation-list/presentation-list.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { PreviewModule } from './content/preview/preview.module';
     ContentModule,
     FeedbackModule,
     PreviewModule,
+    PresentationListModule,
     UsersModule,
     MatCardModule,
     MatTabsModule

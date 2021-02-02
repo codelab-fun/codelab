@@ -6,7 +6,7 @@ import { ContentSlide, SlideViewType } from '../../types';
   templateUrl: './slide-preview.component.html',
   styleUrls: [
     './slide-preview.component.css',
-    '../../../../shared/slide-styles.scss'
+    '../../../../../shared/slide-styles.scss'
   ]
 })
 export class SlidePreviewComponent {

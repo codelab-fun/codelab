@@ -21,3 +21,7 @@ export interface ContentSlide {
   title: string;
   milestone?: string;
 }
+
+export interface ContentPresentation {
+  slides?: ContentSlide[];
+}

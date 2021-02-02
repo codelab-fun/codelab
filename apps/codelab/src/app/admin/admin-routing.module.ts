@@ -3,9 +3,11 @@ import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { UsersComponent } from './users/users.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { ContentComponent } from './content/content.component';
+
 import { CommonModule } from '@angular/common';
-import { PreviewComponent } from './content/preview/preview.component';
+import { PresentationListComponent } from './content/presentation-list/presentation-list.component';
+import { PreviewComponent } from './content/presentation-editor/preview/preview.component';
+import { ContentComponent } from './content/presentation-editor/content.component';
 
 const routes = [
   {
@@ -17,13 +19,22 @@ const routes = [
     ]
   },
   {
-    path: 'content/:milestone/:id/preview',
-    component: PreviewComponent
-  },
-  {
-    path: 'content/:milestone/:id',
-    component: ContentComponent,
-    children: [{ path: '', ContentComponent }]
+    path: 'content',
+    children: [
+      {
+        path: '',
+        component: PresentationListComponent
+      },
+      {
+        path: ':milestone/:id/preview',
+        component: PreviewComponent
+      },
+      {
+        path: ':milestone/:id',
+        component: ContentComponent,
+        children: [{ path: '', ContentComponent }]
+      }
+    ]
   }
 ];
 

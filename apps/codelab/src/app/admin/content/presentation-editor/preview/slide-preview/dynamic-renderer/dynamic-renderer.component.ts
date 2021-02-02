@@ -5,13 +5,7 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
-import {
-  ContentBlock,
-  ContentSlide,
-  CustomBlock,
-  SlideViewType
-} from '../../../types';
-import { CodelabExerciseComponent } from '../../../../../components/exercise/exercise.component';
+import { ContentSlide, CustomBlock, SlideViewType } from '../../../types';
 import { CodelabTitleSlideEditorComponent } from '../../../wrappers/custom-component-editors/codelab-title-slide-editor/codelab-title-slide-editor.component';
 import { CodelabCodeDemoFilePathEditorComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-file-path-editor/codelab-code-demo-file-path-editor.component';
 import { CodelabCodeDemoConsoleComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-console/codelab-code-demo-console.component';
@@ -19,10 +13,10 @@ import { CodeDemoEditorEditorComponent } from '../../../wrappers/custom-componen
 import { CodelabImageEditorComponent } from '../../../wrappers/custom-component-editors/codelab-image-editor/codelab-image-editor.component';
 import { BlankComponent } from '../blank/blank.component';
 import { CodelabCodeDemoPreviewComponent } from '../../../wrappers/custom-component-previews/codelab-code-demo-preview/codelab-code-demo-preview.component';
-import { TitleSlideComponent } from '../../../../../components/slides/title-slide/title-slide.component';
 
 import { NgxdResolver } from '@ngxd/core';
 import { CodelabExerciseEditorComponent } from '../../../wrappers/custom-component-editors/codelab-exercise-preview-editor/codelab-exercise-editor.component';
+import { TitleSlideComponent } from '../../../../../../components/slides/title-slide/title-slide.component';
 
 @Injectable({ providedIn: 'root' })
 export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {

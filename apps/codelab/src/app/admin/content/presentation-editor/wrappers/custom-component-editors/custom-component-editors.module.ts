@@ -16,7 +16,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { MatSelectModule } from '@angular/material/select';
 import { CodelabExerciseEditorComponent } from './codelab-exercise-preview-editor/codelab-exercise-editor.component';
-import { CodelabComponentsModule } from '../../../../components/codelab-components.module';
+import { CodelabComponentsModule } from '../../../../../components/codelab-components.module';
 
 @NgModule({
   declarations: [

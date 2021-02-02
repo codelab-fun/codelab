@@ -18,7 +18,7 @@ import { AsideButton } from './aside-button';
   templateUrl: './slide-html-editor.component.html',
   styleUrls: [
     './slide-html-editor.component.css',
-    '../../../../shared/slide-styles.scss'
+    '../../../../../shared/slide-styles.scss'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
