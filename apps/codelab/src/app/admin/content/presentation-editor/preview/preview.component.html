@@ -1,7 +1,7 @@
-<div class="wrapper" *ngIf="contentService.slides$ | async as slides">
+<div class="wrapper" *ngIf="contentService.state$ | async as presentations">
   <div
     class="editor"
-    *ngIf="slides[contentService.selectedSlide$ | async] as slide"
+    *ngIf="presentations[contentService.selectedSlide$ | async] as slide"
   >
     <slides-slide-preview [slide]="slide"></slides-slide-preview>
   </div>

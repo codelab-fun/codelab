@@ -2,17 +2,9 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { BehaviorSubject, combineLatest, from, merge, Subject } from 'rxjs';
-import {
-  auditTime,
-  map,
-  mergeMap,
-  scan,
-  share,
-  take,
-  takeUntil
-} from 'rxjs/operators';
-import { ContentBlock, ContentSlide } from './types';
+import { BehaviorSubject, from, merge, Subject } from 'rxjs';
+import { map, mergeMap, scan, share, take } from 'rxjs/operators';
+import { ContentBlock, ContentPresentation, ContentSlide } from './types';
 import { nanoid } from 'nanoid';
 import * as firebase from 'firebase';
 import { reducer } from './reducer';
@@ -24,6 +16,8 @@ export class ContentService implements OnDestroy {
   public readonly selectedSlide$ = this.selectedSlideSubject;
 
   readonly presentations = this.firestore.collection('presentations');
+  readonly presentation$ = this.presentations.valueChanges();
+
   private readonly presentationJs = this.presentations.doc('typescriptjs');
   private readonly presentationActions = this.presentationJs.collection(
     'actions',
@@ -50,6 +44,16 @@ export class ContentService implements OnDestroy {
   private readonly localActions$ = new Subject();
 
   readonly appliedActions = new Set();
+  const;
+  allActions2$ = merge(
+    this.presentation$.pipe(
+      map((presentations: ContentPresentation[] = []) => ({
+        type: 'init',
+        payload: presentations
+      }))
+    ),
+    this.localActions$
+  );
   private readonly allActions$ = merge(
     this.presentationSnapshots.valueChanges().pipe(
       map((slides: ContentSlide[] = []) => ({
@@ -65,14 +69,20 @@ export class ContentService implements OnDestroy {
   );
   i = 0;
 
-  public readonly slides$ = this.allActions$.pipe(
-    scan((state, action: any) => {
-      if (this.appliedActions.has(action.id)) {
-        return state;
-      }
-      this.appliedActions.add(action.id);
+  // public readonly slides$ = this.allActions$.pipe(
+  //   scan((state, action: any) => {
+  //     if (this.appliedActions.has(action.id)) {
+  //       return state;
+  //     }
+  //     this.appliedActions.add(action.id);
+  //     return reducer(state, action);
+  //   }, []),
+  //   share()
+  // );
+  public readonly state$ = this.allActions2$.pipe(
+    scan((state: ContentPresentation[], action: any) => {
       return reducer(state, action);
-    }, []),
+    }, {}),
     share()
   );
 
@@ -82,16 +92,16 @@ export class ContentService implements OnDestroy {
     readonly router: Router,
     readonly location: Location
   ) {
-    // TODO: There should be a better way
-    // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
-    combineLatest([this.slides$, this.localActions$])
-      .pipe(auditTime(1000), takeUntil(this.onDestroy))
-      .subscribe(([slide, action]) => {
-        this.presentationSnapshots.add({
-          created: firebase.firestore.FieldValue.serverTimestamp(),
-          snapshot: slide
-        });
-      });
+    // // TODO: There should be a better way
+    // // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
+    // combineLatest([this.slides$])
+    //   .pipe(auditTime(1000), takeUntil(this.onDestroy))
+    //   .subscribe(([slide]) => {
+    //     // this.presentationSnapshots.add({
+    //     //   created: firebase.firestore.FieldValue.serverTimestamp(),
+    //     //   snapshot: slide
+    //     // });
+    //   });
   }
 
   readonly onDestroy = new Subject();
@@ -105,29 +115,34 @@ export class ContentService implements OnDestroy {
     this.onDestroy.complete();
   }
 
-  goToSlide(index: number) {
+  // TODO: Move this out
+  goToSlide(presentationId: string, index: number) {
     if (index >= 0) {
       this.selectedSlideSubject.next(index);
-      this.location.replaceState('admin/content/a/' + index);
+      this.location.replaceState(
+        'admin/content/' + presentationId + '/' + index
+      );
     }
   }
 
-  dispatch(action) {
+  dispatch(presentationId, action) {
     const a = {
       ...action,
+      presentationId,
       created: firebase.firestore.FieldValue.serverTimestamp(),
       id: this.uniqueId()
     };
     this.localActions$.next(a);
-    this.presentationActions.add(a);
   }
 
-  nextSlide() {
-    this.goToSlide(this.selectedSlide$.value + 1);
+  // TODO: Move out
+  nextSlide(presentationId: string) {
+    this.goToSlide(presentationId, this.selectedSlide$.value + 1);
   }
 
-  previousSlide() {
-    this.goToSlide(this.selectedSlide$.value - 1);
+  // TODO: Move out
+  previousSlide(presentationId: string) {
+    this.goToSlide(presentationId, this.selectedSlide$.value - 1);
   }
 
   addSlide(presentationId: string) {
@@ -143,7 +158,7 @@ export class ContentService implements OnDestroy {
         index
       }
     };
-    this.dispatch(action);
+    this.dispatch(presentationId, action);
   }
 
   updateSlideMeta(
@@ -160,7 +175,7 @@ export class ContentService implements OnDestroy {
         slideId
       }
     };
-    this.dispatch(action);
+    this.dispatch(presentationId, action);
   }
 
   deleteSlide(presentationId: string, slideId: string) {
@@ -170,7 +185,7 @@ export class ContentService implements OnDestroy {
         slideId
       }
     };
-    this.dispatch(action);
+    this.dispatch(presentationId, action);
   }
 
   addBlock(presentationId: string, slideId: string, block: ContentBlock) {
@@ -182,7 +197,7 @@ export class ContentService implements OnDestroy {
       }
     };
 
-    this.dispatch(action);
+    this.dispatch(presentationId, action);
   }
 
   updateBlock(presentationId: string, slideId: string, block: ContentBlock) {
@@ -194,7 +209,7 @@ export class ContentService implements OnDestroy {
       }
     };
 
-    this.dispatch(action);
+    this.dispatch(presentationId, action);
   }
 
   deleteBlock(presentationId: string, slideId: string, blockId: string) {
@@ -206,7 +221,7 @@ export class ContentService implements OnDestroy {
       }
     };
 
-    this.dispatch(action);
+    this.dispatch(presentationId, action);
   }
 
   reorderBlocks(
@@ -224,6 +239,6 @@ export class ContentService implements OnDestroy {
       }
     };
 
-    this.dispatch(action);
+    this.dispatch(presentationId, action);
   }
 }

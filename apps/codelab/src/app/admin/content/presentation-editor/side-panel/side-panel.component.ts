@@ -3,7 +3,6 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  OnInit,
   Output
 } from '@angular/core';
 import { Location } from '@angular/common';
@@ -18,9 +17,9 @@ import { ContentService } from '../content.service';
 })
 export class SidePanelComponent {
   @Input() slides;
-  @Output() addSlide = new EventEmitter();
   @Output() reorder = new EventEmitter();
   @Input() selectedSlide = 0;
+  @Input() presentationId!: string;
 
   constructor(
     readonly location: Location,
@@ -29,13 +28,17 @@ export class SidePanelComponent {
     readonly contentService: ContentService
   ) {}
 
+  addSlide() {
+    this.contentService.addSlide(this.presentationId);
+  }
+
   @HostListener('keydown.arrowdown')
   nextSlide() {
-    this.contentService.nextSlide();
+    this.contentService.nextSlide(this.presentationId);
   }
 
   @HostListener('keydown.arrowup')
   prevSlide() {
-    this.contentService.previousSlide();
+    this.contentService.previousSlide(this.presentationId);
   }
 }

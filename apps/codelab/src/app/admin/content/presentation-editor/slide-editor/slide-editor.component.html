@@ -1,5 +1,5 @@
 <slides-slide-meta-editor
-  [presentantionId]="presentationId"
+  [presentationId]="presentationId"
   [slide]="slide"
 ></slides-slide-meta-editor>
 <div cdkDropList (cdkDropListDropped)="reorder($event)">
@@ -34,6 +34,7 @@
   </div>
 </div>
 <slides-action-bar
+  [presentationId]="presentationId"
   [slide]="slide"
   (addBlock)="addBlock($event)"
 ></slides-action-bar>

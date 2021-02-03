@@ -8,14 +8,15 @@ import { ContentService } from '../content.service';
 })
 export class PreviewComponent {
   constructor(readonly contentService: ContentService) {}
+  presentationId = 'TBD';
 
   @HostListener('window:keydown.arrowleft')
   previousSlide() {
-    this.contentService.previousSlide();
+    this.contentService.previousSlide(this.presentationId);
   }
 
   @HostListener('window:keydown.arrowright')
   nextSlide() {
-    this.contentService.nextSlide();
+    this.contentService.nextSlide(this.presentationId);
   }
 }

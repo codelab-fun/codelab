@@ -1,7 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { ContentService } from '../content.service';
-import { ContentBlock, ContentSlide, HTMLBlock } from '../types';
+import {
+  assertIsHtmlBlock,
+  ContentBlock,
+  ContentSlide,
+  HTMLBlock
+} from '../types';
 
 @Component({
   selector: 'slides-slide-editor',
@@ -34,7 +39,7 @@ export class SlideEditorComponent {
 
   updateBlockHTML(blockId: string, code: string) {
     const block = this.slide.blocks.find(({ id }) => id === blockId);
-    console.assert(block.type === 'html');
+    assertIsHtmlBlock(block);
 
     this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...block,

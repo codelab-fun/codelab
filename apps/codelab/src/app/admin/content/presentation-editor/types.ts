@@ -25,7 +25,9 @@ export interface ContentSlide {
 export interface ContentPresentation {
   slides?: ContentSlide[];
 }
-
+export interface ContentPresentation {
+  id: string;
+}
 export function assertIsHtmlBlock(
   block: ContentBlock
 ): asserts block is HTMLBlock {

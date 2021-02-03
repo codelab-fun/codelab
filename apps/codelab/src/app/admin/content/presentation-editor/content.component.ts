@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContentService } from './content.service';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { ContentPresentation } from './types';
 
 declare const require;
 
@@ -9,15 +13,31 @@ declare const require;
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
-  slides$ = this.contentService.slides$;
+  readonly presentation$ = combineLatest([
+    this.activeRoute.params,
+    this.contentService.state$
+  ]).pipe(
+    map(([params, presentations]) => {
+      return presentations.find(
+        (p: ContentPresentation) => p.id === params.presentation
+      );
+    })
+  );
+
   selectedSlide$ = this.contentService.selectedSlide$;
-  readonly presentationId = 'lol';
 
-  constructor(readonly contentService: ContentService) {}
+  currentSlide$ = combineLatest([this.presentation$, this.selectedSlide$]).pipe(
+    map(([presentation, selectedSlide]) => {
+      return presentation.slides[selectedSlide];
+    })
+  );
 
-  addSlide() {
-    this.contentService.addSlide(this.presentationId);
-  }
+  constructor(
+    readonly contentService: ContentService,
+    readonly activeRoute: ActivatedRoute
+  ) {}
+
+  addSlide() {}
 
   reorder(move) {
     // this.contentService.setCode(

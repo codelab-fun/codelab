@@ -26,11 +26,11 @@ const routes = [
         component: PresentationListComponent
       },
       {
-        path: ':milestone/:id/preview',
+        path: ':presentation/:slide/preview',
         component: PreviewComponent
       },
       {
-        path: ':milestone/:id',
+        path: ':presentation/:slide',
         component: ContentComponent,
         children: [{ path: '', ContentComponent }]
       }

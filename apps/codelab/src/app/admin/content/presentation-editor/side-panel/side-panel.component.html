@@ -1,5 +1,5 @@
 <div class="slides-wrapper">
-  <button (click)="addSlide.emit()">Add</button>
+  <button (click)="addSlide()">Add</button>
 
   <div cdkDropList (cdkDropListDropped)="reorder.emit($event)">
     <button
@@ -7,7 +7,7 @@
       *ngFor="let slide of slides; let i = index"
       [class.selected]="i === selectedSlide"
       inert="true"
-      (click)="this.contentService.goToSlide(i)"
+      (click)="this.contentService.goToSlide(presentationId, i)"
     >
       <div
         cdkDrag

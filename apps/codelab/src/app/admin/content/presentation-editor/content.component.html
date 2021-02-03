@@ -1,17 +1,18 @@
 <!--<div *ngFor="let slide of slides; let i = index">-->
 <!--  <slides-full-slide [slide]="slide"></slides-full-slide>-->
 <!--</div>-->
-<div class="wrapper" *ngIf="slides$ | async as slides">
+<div class="wrapper" *ngIf="presentation$ | async as presentation">
   <slides-side-panel
-    (addSlide)="addSlide()"
+    [presentationId]="presentation.id"
     (reorder)="reorder($event)"
     [selectedSlide]="selectedSlide$ | async"
-    [slides]="slides"
+    [slides]="presentation.slides"
   ></slides-side-panel>
-  <div class="editor" *ngIf="slides[selectedSlide$ | async]">
+
+  <div class="editor" *ngIf="currentSlide$ | async as slide">
     <slides-slide-editor
-      [presentationId]="presentationId"
-      [slide]="slides[selectedSlide$ | async]"
+      [presentationId]="presentation.id"
+      [slide]="slide"
     ></slides-slide-editor>
   </div>
 </div>
