@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ContentSlide, CustomBlock } from '../../../types';
 import { ContentService } from '../../../content.service';
 
@@ -14,11 +14,12 @@ export class CodelabTitleSlideEditorComponent {
 
   @Input() block!: CustomBlock;
   @Input() slide!: ContentSlide;
+  @Input() presentationId!: string;
 
   constructor(private readonly contentService: ContentService) {}
 
   update() {
-    this.contentService.updateBlock(this.slide.id, {
+    this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...this.block,
       props: {
         title: this.title,

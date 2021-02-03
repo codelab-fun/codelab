@@ -19,6 +19,7 @@ export class CodelabExerciseEditorComponent implements OnChanges {
   @Output() dataChange = new EventEmitter();
   @Input() block!: CustomBlock;
   @Input() slide!: ContentSlide;
+  @Input() presentationId!: string;
 
   readonly config = ng2tsConfig;
   @Input() milestone: string;
@@ -44,7 +45,7 @@ export class CodelabExerciseEditorComponent implements OnChanges {
   update() {
     console.log(this.selectedMilestone);
 
-    this.contentService.updateBlock(this.slide.id, {
+    this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...this.block,
       props: {
         milestone: this.selectedMilestone?.name || '',

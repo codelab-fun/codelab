@@ -8,15 +8,21 @@ import { ContentService } from '../../content.service';
 })
 export class SlideMetaEditorComponent implements OnInit {
   @Input() slide;
+  @Input() presentationId!: string;
 
   constructor(private contentService: ContentService) {}
 
   updateAttr(id: string, value: any) {
-    this.contentService.updateSlideMeta(this.slide.id, id, value);
+    this.contentService.updateSlideMeta(
+      this.presentationId,
+      this.slide.id,
+      id,
+      value
+    );
   }
 
   deleteSlide() {
-    this.contentService.deleteSlide(this.slide.id);
+    this.contentService.deleteSlide(this.presentationId, this.slide.id);
   }
 
   ngOnInit(): void {}

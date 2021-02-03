@@ -13,13 +13,14 @@ export class CodeDemoEditorEditorComponent implements OnInit {
   @Input() content = 'lol';
   @Input() block!: CustomBlock;
   @Input() slide!: ContentSlide;
+  @Input() presentationId!: string;
 
   constructor(private readonly contentService: ContentService) {}
 
   ngOnInit(): void {}
 
   update() {
-    this.contentService.updateBlock(this.slide.id, {
+    this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...this.block,
       props: {
         lineNumbers: this.lineNumbers,

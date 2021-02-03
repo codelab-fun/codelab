@@ -13,11 +13,12 @@ export class CodelabCodeDemoConsoleComponent {
   @Input() ui = 'browser';
   @Input() block!: CustomBlock;
   @Input() slide!: ContentSlide;
+  @Input() presentationId!: string;
 
   constructor(private readonly contentService: ContentService) {}
 
   update() {
-    this.contentService.updateBlock(this.slide.id, {
+    this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...this.block,
       props: {
         code: this.code

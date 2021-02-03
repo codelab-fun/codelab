@@ -1,4 +1,7 @@
-<slides-slide-meta-editor [slide]="slide"></slides-slide-meta-editor>
+<slides-slide-meta-editor
+  [presentantionId]="presentationId"
+  [slide]="slide"
+></slides-slide-meta-editor>
 <div cdkDropList (cdkDropListDropped)="reorder($event)">
   <div
     *ngFor="let block of slide.blocks; let i = index; trackBy: trackByBlockId"
@@ -21,6 +24,7 @@
       </div>
       <div class="content" *ngIf="block.type === 'custom'">
         <slides-dynamic-renderer
+          [presentationId]="presentationId"
           [slide]="slide"
           [block]="block"
           mode="edit"

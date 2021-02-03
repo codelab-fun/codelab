@@ -10,8 +10,8 @@
   ></slides-side-panel>
   <div class="editor" *ngIf="slides[selectedSlide$ | async]">
     <slides-slide-editor
+      [presentationId]="presentationId"
       [slide]="slides[selectedSlide$ | async]"
-      (updateSlide)="updateSlide($event)"
     ></slides-slide-editor>
   </div>
 </div>

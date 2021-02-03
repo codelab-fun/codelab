@@ -25,3 +25,18 @@ export interface ContentSlide {
 export interface ContentPresentation {
   slides?: ContentSlide[];
 }
+
+export function assertIsHtmlBlock(
+  block: ContentBlock
+): asserts block is HTMLBlock {
+  if (block.type !== 'html') {
+    throw new Error('Block type must be HTML!!! 🦊');
+  }
+}
+export function assertIsCustomBlock(
+  block: ContentBlock
+): asserts block is CustomBlock {
+  if (block.type !== 'custom') {
+    throw new Error('Block type must be HTML!!! 🦊');
+  }
+}

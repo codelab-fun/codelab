@@ -51,14 +51,12 @@ export class ContentService implements OnDestroy {
 
   readonly appliedActions = new Set();
   private readonly allActions$ = merge(
-    this.presentationSnapshots
-      .valueChanges()
-      .pipe(
-        map((slides: ContentSlide[] = []) => ({
-          type: 'init',
-          payload: slides
-        }))
-      ),
+    this.presentationSnapshots.valueChanges().pipe(
+      map((slides: ContentSlide[] = []) => ({
+        type: 'init',
+        payload: slides
+      }))
+    ),
     this.presentationActions.valueChanges().pipe(
       take(1),
       mergeMap(actions => from(actions))
@@ -132,7 +130,7 @@ export class ContentService implements OnDestroy {
     this.goToSlide(this.selectedSlide$.value - 1);
   }
 
-  addSlide() {
+  addSlide(presentationId: string) {
     const index = this.selectedSlide$.value;
     const action = {
       type: 'addSlide',
@@ -148,7 +146,12 @@ export class ContentService implements OnDestroy {
     this.dispatch(action);
   }
 
-  updateSlideMeta(slideId: string, name: string, value: string) {
+  updateSlideMeta(
+    presentationId: string,
+    slideId: string,
+    name: string,
+    value: string
+  ) {
     const action = {
       type: 'updateSlideMeta',
       payload: {
@@ -160,7 +163,7 @@ export class ContentService implements OnDestroy {
     this.dispatch(action);
   }
 
-  deleteSlide(slideId: string) {
+  deleteSlide(presentationId: string, slideId: string) {
     const action = {
       type: 'deleteSlide',
       payload: {
@@ -170,7 +173,7 @@ export class ContentService implements OnDestroy {
     this.dispatch(action);
   }
 
-  addBlock(slideId: string, block: ContentBlock) {
+  addBlock(presentationId: string, slideId: string, block: ContentBlock) {
     const action = {
       type: 'addBlock',
       payload: {
@@ -182,7 +185,7 @@ export class ContentService implements OnDestroy {
     this.dispatch(action);
   }
 
-  updateBlock(slideId: string, block: ContentBlock) {
+  updateBlock(presentationId: string, slideId: string, block: ContentBlock) {
     const action = {
       type: 'updateBlock',
       payload: {
@@ -194,7 +197,7 @@ export class ContentService implements OnDestroy {
     this.dispatch(action);
   }
 
-  deleteBlock(slideId: string, blockId: string) {
+  deleteBlock(presentationId: string, slideId: string, blockId: string) {
     const action = {
       type: 'deleteBlock',
       payload: {
@@ -206,7 +209,12 @@ export class ContentService implements OnDestroy {
     this.dispatch(action);
   }
 
-  reorderBlocks(slideId: string, fromId: string, toId: string) {
+  reorderBlocks(
+    presentationId: string,
+    slideId: string,
+    fromId: string,
+    toId: string
+  ) {
     const action = {
       type: 'reorderBlocks',
       payload: {

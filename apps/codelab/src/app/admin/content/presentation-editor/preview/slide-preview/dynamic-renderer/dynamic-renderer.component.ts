@@ -103,6 +103,7 @@ export class DynamicRendererComponent implements OnChanges {
   @Input() block: CustomBlock;
   @Input() mode: SlideViewType = 'preview';
   @Input() slide: ContentSlide;
+  @Input() presentationId!: string;
 
   resolver: NgxdResolver<string, any>;
 

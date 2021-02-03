@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ContentService } from '../../../content.service';
-import * as flamelink from 'flamelink';
-import { ContentBlock, ContentSlide, CustomBlock } from '../../../types';
+import { ContentSlide, CustomBlock } from '../../../types';
 
 @Component({
   selector: 'codelab-image-editor',
@@ -15,6 +14,7 @@ export class CodelabImageEditorComponent {
   @Input() data;
   @Input() slide: ContentSlide;
   @Input() block: CustomBlock;
+  @Input() presentationId!: string;
 
   constructor(
     private readonly contentService: ContentService,
@@ -35,7 +35,7 @@ export class CodelabImageEditorComponent {
   }
 
   update() {
-    this.contentService.updateBlock(this.slide.id, {
+    this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...this.block,
       props: { src: this.src }
     });
