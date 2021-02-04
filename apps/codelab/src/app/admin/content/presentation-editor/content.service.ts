@@ -9,6 +9,8 @@ import { nanoid } from 'nanoid';
 import * as firebase from 'firebase';
 import { reducer } from './reducer';
 
+const DOC_KEY = 'presentations';
+
 @Injectable()
 export class ContentService implements OnDestroy {
   private readonly selectedSlideSubject = new BehaviorSubject(0);
@@ -16,14 +18,22 @@ export class ContentService implements OnDestroy {
   public readonly selectedSlide$ = this.selectedSlideSubject;
 
   readonly presentations = this.firestore.collection('presentations');
-  readonly presentation$ = this.presentations.valueChanges();
+  private readonly presentations$ = this.presentations
+    .doc(DOC_KEY)
+    .valueChanges()
+    .pipe(
+      map((doc: any) => {
+        console.log({ doc });
+        return doc?.presentations || [];
+      })
+    );
 
   private readonly localActions$ = new Subject();
 
   readonly appliedActions = new Set();
   const;
   allActions2$ = merge(
-    this.presentation$.pipe(
+    this.presentations$.pipe(
       map((presentations: ContentPresentation[] = []) => ({
         type: 'init',
         payload: presentations
@@ -47,13 +57,10 @@ export class ContentService implements OnDestroy {
   ) {
     // TODO: There should be a better way
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
-    combineLatest([this.state$])
+    this.state$
       .pipe(auditTime(1000), takeUntil(this.onDestroy))
-      .subscribe(([slide]) => {
-        // this.presentationSnapshots.add({
-        //   created: firebase.firestore.FieldValue.serverTimestamp(),
-        //   snapshot: slide
-        // });
+      .subscribe(presentations => {
+        this.presentations.doc('presentations').set({ presentations });
       });
   }
 
@@ -85,6 +92,7 @@ export class ContentService implements OnDestroy {
       created: firebase.firestore.FieldValue.serverTimestamp(),
       id: this.uniqueId()
     };
+
     this.localActions$.next(a);
   }
 
@@ -190,6 +198,30 @@ export class ContentService implements OnDestroy {
         fromId,
         toId
       }
+    };
+
+    this.dispatch(presentationId, action);
+  }
+
+  createPresentation(payload: {
+    slides: any[];
+    name: string;
+    id: string;
+    actions: any[];
+    version: number;
+  }) {
+    const action = {
+      type: 'createPresentation',
+      payload
+    };
+
+    this.dispatch(payload.id, action);
+  }
+
+  deletePresentation(presentationId: string) {
+    const action = {
+      type: 'deletePresentation',
+      payload: { presentationId }
     };
 
     this.dispatch(presentationId, action);

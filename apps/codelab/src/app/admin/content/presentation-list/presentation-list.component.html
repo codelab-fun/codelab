@@ -1,7 +1,8 @@
-<p>presentation-list works!</p>
-
 <div *ngFor="let presentation of presentations$ | async">
   <a [routerLink]="'./' + presentation.id + '/0'">{{ presentation | json }}</a>
+  <button mat-icon-button (click)="deletePresentation(presentation.id)">
+    <mat-icon>cancel</mat-icon>
+  </button>
 </div>
 
 <button mat-button (click)="createPresentation()">Create presentation</button>

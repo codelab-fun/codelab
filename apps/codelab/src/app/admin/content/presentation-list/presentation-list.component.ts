@@ -7,18 +7,25 @@ import { ContentService } from '../presentation-editor/content.service';
   styleUrls: ['./presentation-list.component.css']
 })
 export class PresentationListComponent implements OnInit {
-  presentations$ = this.contentService.presentations.valueChanges();
+  presentations$ = this.contentService.state$;
+
   constructor(private readonly contentService: ContentService) {}
 
   ngOnInit(): void {}
 
   createPresentation() {
-    this.contentService.presentations.add({
+    const presentation = {
       id: this.contentService.uniqueId(),
       name: 'new presentation',
       actions: [],
       slides: [],
       version: 0
-    });
+    };
+
+    this.contentService.createPresentation(presentation);
+  }
+
+  deletePresentation(presentationId: string) {
+    this.contentService.deletePresentation(presentationId);
   }
 }
