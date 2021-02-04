@@ -17,7 +17,8 @@ export class PresentationListComponent implements OnInit {
       id: this.contentService.uniqueId(),
       name: 'new presentation',
       actions: [],
-      slides: []
+      slides: [],
+      version: 0
     });
   }
 }

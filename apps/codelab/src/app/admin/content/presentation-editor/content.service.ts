@@ -2,9 +2,9 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { BehaviorSubject, from, merge, Subject } from 'rxjs';
-import { map, mergeMap, scan, share, take } from 'rxjs/operators';
-import { ContentBlock, ContentPresentation, ContentSlide } from './types';
+import { BehaviorSubject, combineLatest, merge, Subject } from 'rxjs';
+import { auditTime, map, scan, share, takeUntil } from 'rxjs/operators';
+import { ContentBlock, ContentPresentation } from './types';
 import { nanoid } from 'nanoid';
 import * as firebase from 'firebase';
 import { reducer } from './reducer';
@@ -17,29 +17,6 @@ export class ContentService implements OnDestroy {
 
   readonly presentations = this.firestore.collection('presentations');
   readonly presentation$ = this.presentations.valueChanges();
-
-  private readonly presentationJs = this.presentations.doc('typescriptjs');
-  private readonly presentationActions = this.presentationJs.collection(
-    'actions',
-    ref => ref.orderBy('created', 'asc')
-  );
-  private readonly presentationSnapshots = this.presentationJs.collection(
-    'snapshots',
-    ref => ref.orderBy('created', 'desc').limit(1)
-  );
-
-  private readonly newActions$ = this.presentationSnapshots.valueChanges().pipe(
-    take(1),
-    mergeMap(([snap]) => {
-      return this.presentationJs
-        .collection('actions', ref => {
-          const r = ref.orderBy('created', 'asc');
-          return snap.created ? r.where('created', '>', snap.created) : r;
-        })
-        .valueChanges()
-        .pipe(take(1));
-    })
-  );
 
   private readonly localActions$ = new Subject();
 
@@ -54,31 +31,7 @@ export class ContentService implements OnDestroy {
     ),
     this.localActions$
   );
-  private readonly allActions$ = merge(
-    this.presentationSnapshots.valueChanges().pipe(
-      map((slides: ContentSlide[] = []) => ({
-        type: 'init',
-        payload: slides
-      }))
-    ),
-    this.presentationActions.valueChanges().pipe(
-      take(1),
-      mergeMap(actions => from(actions))
-    ),
-    this.localActions$
-  );
-  i = 0;
 
-  // public readonly slides$ = this.allActions$.pipe(
-  //   scan((state, action: any) => {
-  //     if (this.appliedActions.has(action.id)) {
-  //       return state;
-  //     }
-  //     this.appliedActions.add(action.id);
-  //     return reducer(state, action);
-  //   }, []),
-  //   share()
-  // );
   public readonly state$ = this.allActions2$.pipe(
     scan((state: ContentPresentation[], action: any) => {
       return reducer(state, action);
@@ -92,16 +45,16 @@ export class ContentService implements OnDestroy {
     readonly router: Router,
     readonly location: Location
   ) {
-    // // TODO: There should be a better way
-    // // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
-    // combineLatest([this.slides$])
-    //   .pipe(auditTime(1000), takeUntil(this.onDestroy))
-    //   .subscribe(([slide]) => {
-    //     // this.presentationSnapshots.add({
-    //     //   created: firebase.firestore.FieldValue.serverTimestamp(),
-    //     //   snapshot: slide
-    //     // });
-    //   });
+    // TODO: There should be a better way
+    // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
+    combineLatest([this.state$])
+      .pipe(auditTime(1000), takeUntil(this.onDestroy))
+      .subscribe(([slide]) => {
+        // this.presentationSnapshots.add({
+        //   created: firebase.firestore.FieldValue.serverTimestamp(),
+        //   snapshot: slide
+        // });
+      });
   }
 
   readonly onDestroy = new Subject();

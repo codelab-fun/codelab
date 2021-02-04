@@ -26,7 +26,9 @@ export class ContentComponent {
 
   selectedSlide$ = this.contentService.selectedSlide$;
 
-  currentSlide$ = combineLatest([this.presentation$, this.selectedSlide$]).pipe(
+  currentSlide$ = combineLatest(
+    git[(this.presentation$, this.selectedSlide$)]
+  ).pipe(
     map(([presentation, selectedSlide]) => {
       return presentation.slides[selectedSlide];
     })
