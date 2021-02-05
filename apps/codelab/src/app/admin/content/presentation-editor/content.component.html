@@ -1,18 +1,26 @@
 <!--<div *ngFor="let slide of slides; let i = index">-->
 <!--  <slides-full-slide [slide]="slide"></slides-full-slide>-->
 <!--</div>-->
+<div>
+  <button mat-icon-button routerLink="/admin/content">
+    <mat-icon>home</mat-icon>
+  </button>
+</div>
 <div class="wrapper" *ngIf="presentation$ | async as presentation">
   <slides-side-panel
     [presentationId]="presentation.id"
-    (reorder)="reorder($event)"
     [selectedSlide]="selectedSlide$ | async"
     [slides]="presentation.slides"
   ></slides-side-panel>
-
-  <div class="editor" *ngIf="currentSlide$ | async as slide">
+  <div class="editor" *ngIf="currentSlide$ | async as slide; else noSlide">
     <slides-slide-editor
       [presentationId]="presentation.id"
       [slide]="slide"
     ></slides-slide-editor>
   </div>
+  <ng-template #noSlide>
+    <button mat-button (click)="addSlide(presentation.id)">
+      Create new slide
+    </button>
+  </ng-template>
 </div>

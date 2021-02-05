@@ -1,8 +1,17 @@
 <div *ngFor="let presentation of presentations$ | async">
-  <a [routerLink]="'./' + presentation.id + '/0'">{{ presentation | json }}</a>
+  <a [routerLink]="'./' + presentation.id + '/0'">
+    {{ presentation.id }}
+    <div *ngIf="presentation.slides[0] as slide">
+      <slides-slide-preview
+        style="display: block;width: 200px;"
+        mode="preview"
+        [slide]="slide"
+      ></slides-slide-preview>
+    </div>
+  </a>
   <button mat-icon-button (click)="deletePresentation(presentation.id)">
     <mat-icon>cancel</mat-icon>
   </button>
 </div>
 
-<button mat-button (click)="createPresentation()">Create presentation</button>
+<button mat-button (click)="addPresentation()">Create presentation</button>

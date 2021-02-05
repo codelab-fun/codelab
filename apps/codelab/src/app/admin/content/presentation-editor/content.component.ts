@@ -26,9 +26,12 @@ export class ContentComponent {
 
   selectedSlide$ = this.contentService.selectedSlide$;
 
-  currentSlide$ = combineLatest([this.presentation$, this.selectedSlide$]).pipe(
-    map(([presentation, selectedSlide]) => {
-      return presentation.slides[selectedSlide];
+  currentSlide$ = combineLatest([
+    this.activeRoute.params,
+    this.presentation$
+  ]).pipe(
+    map(([params, presentation]) => {
+      return presentation.slides[params.slide || 0];
     })
   );
 
@@ -37,15 +40,7 @@ export class ContentComponent {
     readonly activeRoute: ActivatedRoute
   ) {}
 
-  addSlide() {}
-
-  reorder(move) {
-    // this.contentService.setCode(
-    //   moveSlide(
-    //     this.contentService.code$.value,
-    //     move.previousIndex,
-    //     move.currentIndex
-    //   )
-    // );
+  addSlide(presentationId: string) {
+    this.contentService.addSlide(presentationId);
   }
 }

@@ -1,12 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { ContentService } from '../content.service';
-import {
-  assertIsHtmlBlock,
-  ContentBlock,
-  ContentSlide,
-  HTMLBlock
-} from '../types';
+import { assertIsHtmlBlock, ContentBlock, ContentSlide } from '../types';
 
 @Component({
   selector: 'slides-slide-editor',

@@ -61,7 +61,7 @@ export function reducer(
     case 'updateSlideMeta':
       getSlide()[payload.name] = payload.value;
       return presentations;
-    case 'createPresentation':
+    case 'addPresentation':
       presentations.push(payload);
       return presentations;
     case 'deletePresentation':

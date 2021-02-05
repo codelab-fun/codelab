@@ -13,7 +13,7 @@ export class PresentationListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  createPresentation() {
+  addPresentation() {
     const presentation = {
       id: this.contentService.uniqueId(),
       name: 'new presentation',
@@ -22,7 +22,7 @@ export class PresentationListComponent implements OnInit {
       version: 0
     };
 
-    this.contentService.createPresentation(presentation);
+    this.contentService.addPresentation(presentation);
   }
 
   deletePresentation(presentationId: string) {

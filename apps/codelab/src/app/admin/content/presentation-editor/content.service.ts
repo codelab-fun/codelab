@@ -203,7 +203,7 @@ export class ContentService implements OnDestroy {
     this.dispatch(presentationId, action);
   }
 
-  createPresentation(payload: {
+  addPresentation(payload: {
     slides: any[];
     name: string;
     id: string;
@@ -211,7 +211,7 @@ export class ContentService implements OnDestroy {
     version: number;
   }) {
     const action = {
-      type: 'createPresentation',
+      type: 'addPresentation',
       payload
     };
 
