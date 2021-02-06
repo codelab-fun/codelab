@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ContentService } from './content.service';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { combineLatest } from 'rxjs';
-import { ContentPresentation } from './types';
 
-declare const require;
+import { combineLatest } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+
+import { ContentService } from './content.service';
+import { ContentPresentation } from './types';
 
 @Component({
   selector: 'slides-content',
@@ -21,10 +21,11 @@ export class ContentComponent {
       return presentations.find(
         (p: ContentPresentation) => p.id === params.presentation
       );
-    })
+    }),
+    shareReplay(1)
   );
 
-  selectedSlide$ = this.contentService.selectedSlide$;
+  currentSlideIndex$ = this.contentService.currentSlideIndex$;
 
   currentSlide$ = combineLatest([
     this.activeRoute.params,

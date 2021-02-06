@@ -9,7 +9,7 @@
 <div class="wrapper" *ngIf="presentation$ | async as presentation">
   <slides-side-panel
     [presentationId]="presentation.id"
-    [selectedSlide]="selectedSlide$ | async"
+    [currentSlideIndex]="currentSlideIndex$ | async"
     [slides]="presentation.slides"
   ></slides-side-panel>
   <div class="editor" *ngIf="currentSlide$ | async as slide; else noSlide">

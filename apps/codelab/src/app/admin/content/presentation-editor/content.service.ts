@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { BehaviorSubject, combineLatest, merge, Subject } from 'rxjs';
+import { BehaviorSubject, merge, Subject } from 'rxjs';
 import { auditTime, map, scan, share, takeUntil } from 'rxjs/operators';
 import { ContentBlock, ContentPresentation } from './types';
 import { nanoid } from 'nanoid';
@@ -13,9 +13,9 @@ const DOC_KEY = 'presentations';
 
 @Injectable()
 export class ContentService implements OnDestroy {
-  private readonly selectedSlideSubject = new BehaviorSubject(0);
+  private readonly currentSlideSubject = new BehaviorSubject(0);
 
-  public readonly selectedSlide$ = this.selectedSlideSubject;
+  public readonly currentSlideIndex$ = this.currentSlideSubject;
 
   readonly presentations = this.firestore.collection('presentations');
   private readonly presentations$ = this.presentations
@@ -78,10 +78,11 @@ export class ContentService implements OnDestroy {
   // TODO: Move this out
   goToSlide(presentationId: string, index: number) {
     if (index >= 0) {
-      this.selectedSlideSubject.next(index);
-      this.location.replaceState(
-        'admin/content/' + presentationId + '/' + index
-      );
+      this.currentSlideSubject.next(index);
+      this.router.navigateByUrl('admin/content/' + presentationId + '/' + index);
+      // this.location.replaceState(
+      //   'admin/content/' + presentationId + '/' + index
+      // );
     }
   }
 
@@ -98,16 +99,16 @@ export class ContentService implements OnDestroy {
 
   // TODO: Move out
   nextSlide(presentationId: string) {
-    this.goToSlide(presentationId, this.selectedSlide$.value + 1);
+    this.goToSlide(presentationId, this.currentSlideIndex$.value + 1);
   }
 
   // TODO: Move out
   previousSlide(presentationId: string) {
-    this.goToSlide(presentationId, this.selectedSlide$.value - 1);
+    this.goToSlide(presentationId, this.currentSlideIndex$.value - 1);
   }
 
   addSlide(presentationId: string) {
-    const index = this.selectedSlide$.value;
+    const index = this.currentSlideIndex$.value;
     const action = {
       type: 'addSlide',
       payload: {

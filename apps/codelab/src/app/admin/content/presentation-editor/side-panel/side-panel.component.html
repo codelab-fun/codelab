@@ -5,7 +5,7 @@
     <button
       class="slide-wrapper"
       *ngFor="let slide of slides; let i = index"
-      [class.selected]="i === selectedSlide"
+      [class.selected]="i === currentSlideIndex"
       inert="true"
       (click)="this.contentService.goToSlide(presentationId, i)"
     >
@@ -17,7 +17,7 @@
         <slides-slide-preview
           mode="preview"
           [slide]="slide"
-          [class.selected]="i === selectedSlide"
+          [class.selected]="i === currentSlideIndex"
         ></slides-slide-preview>
       </div>
     </button>
