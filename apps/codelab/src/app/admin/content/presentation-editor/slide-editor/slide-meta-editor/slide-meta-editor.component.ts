@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ContentService } from '../../content.service';
+import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'slides-slide-meta-editor',

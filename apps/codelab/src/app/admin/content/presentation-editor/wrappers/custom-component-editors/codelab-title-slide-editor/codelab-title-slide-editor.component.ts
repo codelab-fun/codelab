@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ContentSlide, CustomBlock } from '../../../types';
-import { ContentService } from '../../../content.service';
+import { ContentService } from '../../../services/content.service';
 
 @Component({
   selector: 'codelab-title-slide-editor',

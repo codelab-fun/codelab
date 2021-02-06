@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContentBlock, ContentSlide } from '../../types';
-import { ContentService } from '../../content.service';
+import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'slides-action-bar',

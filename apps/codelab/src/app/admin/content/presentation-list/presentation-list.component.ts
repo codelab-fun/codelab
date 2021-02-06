@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentService } from '../presentation-editor/content.service';
+import { ContentService } from '../presentation-editor/services/content.service';
+import { NavigationService } from '../presentation-editor/services/navigation.service';
 
 @Component({
   selector: 'slides-presentation-list',
   templateUrl: './presentation-list.component.html',
   styleUrls: ['./presentation-list.component.css']
 })
-export class PresentationListComponent implements OnInit {
+export class PresentationListComponent {
   presentations$ = this.contentService.state$;
 
-  constructor(private readonly contentService: ContentService) {}
-
-  ngOnInit(): void {}
+  constructor(
+    private readonly contentService: ContentService,
+    private readonly navigationService: NavigationService
+  ) {}
 
   addPresentation() {
     const presentation = {

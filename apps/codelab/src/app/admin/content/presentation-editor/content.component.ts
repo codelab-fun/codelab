@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { ContentService } from './content.service';
+import { ContentService } from './services/content.service';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import { ContentPresentation } from './types';
+import { NavigationService } from './services/navigation.service';
 
 declare const require;
 
@@ -14,12 +15,13 @@ declare const require;
 })
 export class ContentComponent {
   readonly presentation$ = combineLatest([
-    this.activeRoute.params,
+    this.navigationService.selectedPresentationId$,
     this.contentService.state$
   ]).pipe(
-    map(([params, presentations]) => {
+    map(([presentationId, presentations]) => {
+      debugger;
       return presentations.find(
-        (p: ContentPresentation) => p.id === params.presentation
+        (p: ContentPresentation) => p.id === presentationId
       );
     })
   );
@@ -27,18 +29,22 @@ export class ContentComponent {
   selectedSlide$ = this.contentService.selectedSlide$;
 
   currentSlide$ = combineLatest([
-    this.activeRoute.params,
+    this.navigationService.selectedSlide$,
     this.presentation$
   ]).pipe(
-    map(([params, presentation]) => {
-      return presentation.slides[params.slide || 0];
+    map(([slide, presentation]) => {
+      debugger;
+      return presentation.slides[slide || 0];
     })
   );
 
   constructor(
     readonly contentService: ContentService,
+    readonly navigationService: NavigationService,
     readonly activeRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.contentService.state$.subscribe(a => console.log());
+  }
 
   addSlide(presentationId: string) {
     this.contentService.addSlide(presentationId);

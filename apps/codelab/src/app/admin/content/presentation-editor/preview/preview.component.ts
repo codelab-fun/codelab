@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { ContentService } from '../content.service';
+import { NavigationService } from '../services/navigation.service';
+import { ContentService } from '../services/content.service';
 
 @Component({
   selector: 'slides-preview',
@@ -7,16 +8,20 @@ import { ContentService } from '../content.service';
   styleUrls: ['./preview.component.css']
 })
 export class PreviewComponent {
-  constructor(readonly contentService: ContentService) {}
+  constructor(
+    readonly navigationService: NavigationService,
+    readonly contentService: ContentService
+  ) {}
+
   presentationId = 'TBD';
 
   @HostListener('window:keydown.arrowleft')
   previousSlide() {
-    this.contentService.previousSlide(this.presentationId);
+    this.navigationService.previousSlide(this.presentationId);
   }
 
   @HostListener('window:keydown.arrowright')
   nextSlide() {
-    this.contentService.nextSlide(this.presentationId);
+    this.navigationService.nextSlide(this.presentationId);
   }
 }

@@ -2,12 +2,19 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { BehaviorSubject, combineLatest, merge, Subject } from 'rxjs';
-import { auditTime, map, scan, share, takeUntil } from 'rxjs/operators';
-import { ContentBlock, ContentPresentation } from './types';
+import { BehaviorSubject, merge, Subject } from 'rxjs';
+import {
+  auditTime,
+  map,
+  scan,
+  share,
+  shareReplay,
+  takeUntil
+} from 'rxjs/operators';
 import { nanoid } from 'nanoid';
 import * as firebase from 'firebase';
-import { reducer } from './reducer';
+import { ContentBlock, ContentPresentation } from '../types';
+import { reducer } from '../reducer';
 
 const DOC_KEY = 'presentations';
 
@@ -31,8 +38,8 @@ export class ContentService implements OnDestroy {
   private readonly localActions$ = new Subject();
 
   readonly appliedActions = new Set();
-  const;
-  allActions2$ = merge(
+
+  readonly allActions$ = merge(
     this.presentations$.pipe(
       map((presentations: ContentPresentation[] = []) => ({
         type: 'init',
@@ -42,11 +49,11 @@ export class ContentService implements OnDestroy {
     this.localActions$
   );
 
-  public readonly state$ = this.allActions2$.pipe(
+  public readonly state$ = this.allActions$.pipe(
     scan((state: ContentPresentation[], action: any) => {
       return reducer(state, action);
     }, {}),
-    share()
+    shareReplay(1)
   );
 
   constructor(
@@ -75,16 +82,6 @@ export class ContentService implements OnDestroy {
     this.onDestroy.complete();
   }
 
-  // TODO: Move this out
-  goToSlide(presentationId: string, index: number) {
-    if (index >= 0) {
-      this.selectedSlideSubject.next(index);
-      this.location.replaceState(
-        'admin/content/' + presentationId + '/' + index
-      );
-    }
-  }
-
   dispatch(presentationId, action) {
     const a = {
       ...action,
@@ -94,16 +91,6 @@ export class ContentService implements OnDestroy {
     };
 
     this.localActions$.next(a);
-  }
-
-  // TODO: Move out
-  nextSlide(presentationId: string) {
-    this.goToSlide(presentationId, this.selectedSlide$.value + 1);
-  }
-
-  // TODO: Move out
-  previousSlide(presentationId: string) {
-    this.goToSlide(presentationId, this.selectedSlide$.value - 1);
   }
 
   addSlide(presentationId: string) {
