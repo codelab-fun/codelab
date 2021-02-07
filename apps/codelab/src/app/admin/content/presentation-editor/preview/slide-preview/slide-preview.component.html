@@ -1,3 +1,6 @@
+<div *ngIf="slide.blocks.length === 0" class="empty-slide">
+  Empty slide
+</div>
 <ng-container *ngFor="let block of slide.blocks">
   <ng-container *ngIf="block.type === 'custom'">
     <slides-dynamic-renderer
