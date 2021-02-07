@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ContentService } from '../../../services/content.service';
 import { ContentSlide, CustomBlock } from '../../../types';
 
@@ -12,7 +12,7 @@ interface SelectableFiles {
   templateUrl: './codelab-code-demo-console-editor.component.html',
   styleUrls: ['./codelab-code-demo-console-editor.component.css']
 })
-export class CodelabCodeDemoConsoleEditorComponent {
+export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   files = ['app.ts'];
   @Input() code = {};
   @Input() ui = 'browser';
@@ -25,9 +25,25 @@ export class CodelabCodeDemoConsoleEditorComponent {
 
   openFiles: string[] = [];
 
+  ngOnInit() {
+    this.inferVars();
+  }
   constructor(private readonly contentService: ContentService) {}
 
   update() {
+    this.inferVars();
+
+    this.contentService.updateBlock(this.presentationId, this.slide.id, {
+      ...this.block,
+      props: {
+        code: this.code,
+        selectedFiles: this.selectedFiles,
+        showPreview: this.showPreview
+      }
+    });
+  }
+
+  private inferVars() {
     this.files = Object.keys(this.code);
     this.selectedFiles =
       this.selectedFiles.length === 0
@@ -40,15 +56,6 @@ export class CodelabCodeDemoConsoleEditorComponent {
     this.openFiles = this.selectedFiles
       .filter(file => file.selected)
       .map(({ name }) => name);
-
-    this.contentService.updateBlock(this.presentationId, this.slide.id, {
-      ...this.block,
-      props: {
-        code: this.code,
-        selectedFiles: this.selectedFiles,
-        showPreview: this.showPreview
-      }
-    });
   }
 
   updateFileName(index: number, oldName: string, newName: string) {

@@ -38,8 +38,8 @@ export function getChanges(current, previous) {
 export class CodelabExerciseComponent extends CodeDemoComponent {
   isSolved = false;
 
-  constructor(private readonly cdr: ChangeDetectorRef) {
-    super();
+  constructor(protected readonly cdr: ChangeDetectorRef) {
+    super(cdr);
   }
 
   showDogs() {

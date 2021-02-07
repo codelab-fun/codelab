@@ -1,4 +1,10 @@
-import { Component, forwardRef, Input, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnDestroy
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   filter,
@@ -69,7 +75,7 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   @Input() showPreview = true;
 
   openFileIndex = 0;
-  code: Code = {};
+  code?: Code;
   filesConfig: any;
   changedTsFilesSubject = new BehaviorSubject<Record<string, string>>({});
   changedStaticFilesSubject = new ReplaySubject<Record<string, string>>(1);
@@ -79,7 +85,7 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   private codeCache: Record<string, string> = {};
   private onChange: (code: Code) => void;
 
-  constructor() {
+  constructor(protected readonly cdr: ChangeDetectorRef) {
     const ts = this.changedTsFilesSubject.pipe(
       map(files =>
         Object.entries(files).reduce((result, [file, code]) => {
@@ -128,6 +134,7 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
       this.code = code;
       this.files = this.files || [Object.keys(this.code)[0]];
       this.update(code);
+      this.cdr.markForCheck();
     }
   }
 
