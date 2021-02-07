@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blank.component.css']
 })
 export class BlankComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {
     console.assert(false);
   }
