@@ -8,24 +8,34 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  box-shadow: 1px 0 2px 0 #ddd;
   width: 114px;
+  height: 100%;
+  padding: 0 4px;
+  box-shadow: 1px 0 2px 0 #ddd;
   background: #f8f8f8;
 }
 
 .slide-wrapper.selected {
   background: #dde;
 }
+
 .slide-wrapper {
   display: flex;
   justify-content: space-around;
+  width: 100%;
+  min-height: 40px;
   padding: 4px 20px;
   box-sizing: border-box;
-  border: 0 solid;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   background: #f8f8f8;
   margin: 0;
 }
+
+.slide-wrapper + .slide-wrapper {
+  margin-top: 4px;
+}
+
 .slide {
   padding: 0;
   background: #fff;
@@ -35,6 +45,9 @@
   display: flex;
   margin: 0;
   text-align: left;
+  pointer-events: none;
+  text-decoration: none;
+  color: inherit;
 
   slides-slide-preview {
     zoom: 0.2;
