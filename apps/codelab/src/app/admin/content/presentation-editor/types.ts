@@ -23,11 +23,12 @@ export interface ContentSlide {
 }
 
 export interface ContentPresentation {
-  slides?: ContentSlide[];
-}
-export interface ContentPresentation {
   id: string;
+  name: string;
+  slides: ContentSlide[];
+  version: number;
 }
+
 export function assertIsHtmlBlock(
   block: ContentBlock
 ): asserts block is HTMLBlock {

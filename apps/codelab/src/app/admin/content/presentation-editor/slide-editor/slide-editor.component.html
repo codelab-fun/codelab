@@ -2,7 +2,6 @@
   [presentationId]="presentationId"
   [slide]="slide"
 ></slides-slide-meta-editor>
-Hello
 <div cdkDropList (cdkDropListDropped)="reorder($event)">
   <div
     *ngFor="let block of slide.blocks; let i = index; trackBy: trackByBlockId"

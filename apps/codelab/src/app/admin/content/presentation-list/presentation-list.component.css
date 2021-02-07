@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.presentation {
+  background: white;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  min-height: 200px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: fit-content(200px) fit-content(200px) fit-content(
+      200px
+    );
+  grid-gap: 20px;
+}
