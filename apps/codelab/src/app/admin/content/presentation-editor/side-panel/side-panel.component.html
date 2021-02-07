@@ -4,7 +4,7 @@
   <div (cdkDropListDropped)='reorder.emit($event)' cdkDropList >
     <button
       inert
-      (click)='this.contentService.goToSlide(presentationId, i)'
+      (click)='this.navigationService.goToSlide(presentationId, i)'
       *ngFor='let slide of slides; let i = index'
       [class.selected]='i === currentSlideIndex'
       class='slide-wrapper'

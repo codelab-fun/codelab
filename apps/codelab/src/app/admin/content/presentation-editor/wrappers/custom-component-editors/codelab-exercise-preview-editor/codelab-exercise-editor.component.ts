@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../../../../ng2ts/ng2ts';
 import { ContentSlide, CustomBlock } from '../../../types';
-import { ContentService } from '../../../content.service';
+import { ContentService } from '../../../services/content.service';
 
 @Component({
   selector: 'codelab-exercise-editor',

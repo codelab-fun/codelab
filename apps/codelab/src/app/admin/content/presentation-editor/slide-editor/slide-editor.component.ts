@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ContentService } from '../content.service';
+import { ContentService } from '../services/content.service';
 import { assertIsHtmlBlock, ContentBlock, ContentSlide } from '../types';
 
 @Component({

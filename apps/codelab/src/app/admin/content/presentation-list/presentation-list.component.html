@@ -1,5 +1,5 @@
 <div *ngFor="let presentation of presentations$ | async">
-  <a [routerLink]="'./' + presentation.id + '/0'">
+  <a (click)="navigationService.goToPresentation(presentation.id)">
     {{ presentation.id }}
     <div *ngIf="presentation.slides[0] as slide">
       <slides-slide-preview
