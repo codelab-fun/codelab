@@ -17,7 +17,11 @@ export class ActionBarComponent {
       code: { 'app.ts': '// Type your code here!' }
     },
     angularApp: {
-      code: { 'app.ts': '// Angular app!!' }
+      code: {
+        'app.ts': '// Angular app!!',
+        'component.ts': '// C',
+        'module.ts': '// M'
+      }
     }
   };
 
