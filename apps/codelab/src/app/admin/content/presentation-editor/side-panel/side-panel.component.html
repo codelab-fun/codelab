@@ -1,7 +1,7 @@
 <div class="slides-wrapper">
   <button (click)="addSlide()">Add</button>
 
-  <div (cdkDropListDropped)="reorder.emit($event)" cdkDropList >
+  <div (cdkDropListDropped)="reorder.emit($event)" cdkDropList>
     <button
       inert
       (click)="this.navigationService.goToSlide(presentationId, i)"
