@@ -6,8 +6,6 @@ import { combineLatest } from 'rxjs';
 import { ContentPresentation } from './types';
 import { NavigationService } from './services/navigation.service';
 
-declare const require;
-
 @Component({
   selector: 'slides-content',
   templateUrl: './content.component.html',
@@ -25,7 +23,7 @@ export class ContentComponent {
     })
   );
 
-  selectedSlide$ = this.contentService.selectedSlide$;
+  currentSlideIndex$ = this.contentService.currentSlideIndex$;
 
   currentSlide$ = combineLatest([
     this.navigationService.selectedSlide$,

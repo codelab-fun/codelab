@@ -19,7 +19,7 @@ import { NavigationService } from '../services/navigation.service';
 export class SidePanelComponent {
   @Input() slides;
   @Output() reorder = new EventEmitter();
-  @Input() selectedSlide = 0;
+  @Input() currentSlideIndex = 0;
   @Input() presentationId!: string;
 
   constructor(

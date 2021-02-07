@@ -20,9 +20,9 @@ const DOC_KEY = 'presentations';
 
 @Injectable()
 export class ContentService implements OnDestroy {
-  private readonly selectedSlideSubject = new BehaviorSubject(0);
+  private readonly currentSlideSubject = new BehaviorSubject(0);
 
-  public readonly selectedSlide$ = this.selectedSlideSubject;
+  public readonly currentSlideIndex$ = this.currentSlideSubject;
 
   readonly presentations = this.firestore.collection('presentations');
   private readonly presentations$ = this.presentations
@@ -94,7 +94,7 @@ export class ContentService implements OnDestroy {
   }
 
   addSlide(presentationId: string) {
-    const index = this.selectedSlide$.value;
+    const index = this.currentSlideIndex$.value;
     const action = {
       type: 'addSlide',
       payload: {
