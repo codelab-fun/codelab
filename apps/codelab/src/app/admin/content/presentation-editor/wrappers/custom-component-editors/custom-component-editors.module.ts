@@ -17,6 +17,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { MatSelectModule } from '@angular/material/select';
 import { CodelabExerciseEditorComponent } from './codelab-exercise-preview-editor/codelab-exercise-editor.component';
 import { CodelabComponentsModule } from '../../../../../components/codelab-components.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CodelabComponentsModule } from '../../../../../components/codelab-compo
     MatIconModule,
     NgxFileDropModule,
     MatSelectModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatButtonModule
   ]
 })
 export class CustomComponentEditorsModule {}

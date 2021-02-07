@@ -1,17 +1,25 @@
-<mat-form-field *ngIf="files.length > 1">
-  <mat-label>Selected File</mat-label>
-  <mat-select [(ngModel)]="selectedFiles" multiple (ngModelChange)="update()">
-    <mat-option *ngFor="let file of files" [value]="file">
-      {{ file }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div>
+  <div *ngFor="let file of selectedFiles; let i = index">
+    <mat-checkbox [(ngModel)]="file.selected" (ngModelChange)="update()">
+      <input
+        [ngModel]="file.name"
+        (ngModelChange)="updateFileName(i, file.name, $event)"
+      />
+    </mat-checkbox>
+    <button mat-icon-button (click)="deleteFile(file.name)">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <button mat-button [disabled]="code[defaultNewFileName]" (click)="addFile()">
+    Add file
+  </button>
+</div>
 
 <code-demo
   [allowSwitchingFiles]="false"
   [(ngModel)]="code"
   (ngModelChange)="update()"
-  [files]="selectedFiles"
+  [files]="openFiles"
   [ui]="ui"
   [bootstrap]="false"
 ></code-demo>
