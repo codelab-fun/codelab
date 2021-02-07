@@ -20,6 +20,7 @@ export class CodelabCodeDemoConsoleEditorComponent {
   @Input() slide!: ContentSlide;
   @Input() presentationId!: string;
   @Input() selectedFiles: SelectableFiles[] = [];
+  @Input() showPreview = true;
   readonly defaultNewFileName = 'new.ts';
 
   openFiles: string[] = [];
@@ -44,7 +45,8 @@ export class CodelabCodeDemoConsoleEditorComponent {
       ...this.block,
       props: {
         code: this.code,
-        selectedFiles: this.selectedFiles
+        selectedFiles: this.selectedFiles,
+        showPreview: this.showPreview
       }
     });
   }

@@ -1,18 +1,29 @@
-<div>
-  <div *ngFor="let file of selectedFiles; let i = index">
-    <mat-checkbox [(ngModel)]="file.selected" (ngModelChange)="update()">
-      <input
-        [ngModel]="file.name"
-        (ngModelChange)="updateFileName(i, file.name, $event)"
-      />
-    </mat-checkbox>
-    <button mat-icon-button (click)="deleteFile(file.name)">
-      <mat-icon>cancel</mat-icon>
+<div class="wrapper">
+  <div class="file-editor">
+    <div *ngFor="let file of selectedFiles; let i = index">
+      <mat-checkbox [(ngModel)]="file.selected" (ngModelChange)="update()">
+        <input
+          [ngModel]="file.name"
+          (ngModelChange)="updateFileName(i, file.name, $event)"
+        />
+      </mat-checkbox>
+      <button mat-icon-button (click)="deleteFile(file.name)">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+    <button
+      mat-button
+      [disabled]="code[defaultNewFileName]"
+      (click)="addFile()"
+    >
+      Add file
     </button>
   </div>
-  <button mat-button [disabled]="code[defaultNewFileName]" (click)="addFile()">
-    Add file
-  </button>
+  <div>
+    <mat-checkbox [(ngModel)]="showPreview" (ngModelChange)="update()">
+      Show preview
+    </mat-checkbox>
+  </div>
 </div>
 
 <code-demo
