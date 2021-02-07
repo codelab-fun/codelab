@@ -1,19 +1,19 @@
-<div class='slides-wrapper'>
-  <button (click)='addSlide()'>Add</button>
+<div class="slides-wrapper">
+  <button (click)="addSlide()">Add</button>
 
-  <div (cdkDropListDropped)='reorder.emit($event)' cdkDropList >
+  <div (cdkDropListDropped)="reorder.emit($event)" cdkDropList >
     <button
       inert
-      (click)='this.navigationService.goToSlide(presentationId, i)'
-      *ngFor='let slide of slides; let i = index'
-      [class.selected]='i === currentSlideIndex'
-      class='slide-wrapper'
+      (click)="this.navigationService.goToSlide(presentationId, i)"
+      *ngFor="let slide of slides; let i = index"
+      [class.selected]="i === currentSlideIndex"
+      class="slide-wrapper"
     >
-      <div cdkDrag class='slide'>
+      <div cdkDrag class="slide">
         <slides-slide-preview
-          [class.selected]='i === currentSlideIndex'
-          [slide]='slide'
-          mode='preview'
+          [class.selected]="i === currentSlideIndex"
+          [slide]="slide"
+          mode="preview"
         ></slides-slide-preview>
       </div>
     </button>
