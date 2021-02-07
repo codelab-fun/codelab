@@ -9,7 +9,6 @@ export class BlankComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // @ts-ignore: Debugger
-    debugger;
+    console.assert(false);
   }
 }
