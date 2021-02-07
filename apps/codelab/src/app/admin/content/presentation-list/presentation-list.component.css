@@ -12,10 +12,9 @@
 }
 
 .wrapper {
+  width: 100%;
   display: grid;
-  grid-template-columns: fit-content(200px) fit-content(200px) fit-content(
-      200px
-    );
+  grid-template-columns: repeat(auto-fill, 250px);
   grid-gap: 20px;
 }
 
