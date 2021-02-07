@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CodelabTitleSlideEditorComponent } from './codelab-title-slide-editor/codelab-title-slide-editor.component';
 import { CodelabCodeDemoFilePathEditorComponent } from './codelab-code-demo-file-path-editor/codelab-code-demo-file-path-editor.component';
 import { CodelabPresetComponent } from './codelab-preset/codelab-preset.component';
-import { CodelabCodeDemoConsoleComponent } from './codelab-code-demo-console/codelab-code-demo-console.component';
+import { CodelabCodeDemoConsoleEditorComponent } from './codelab-code-demo-console-editor/codelab-code-demo-console-editor.component';
 import { CodelabImageEditorComponent } from './codelab-image-editor/codelab-image-editor.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -25,7 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
     CodelabTitleSlideEditorComponent,
     CodelabCodeDemoFilePathEditorComponent,
     CodelabPresetComponent,
-    CodelabCodeDemoConsoleComponent,
+    CodelabCodeDemoConsoleEditorComponent,
     CodelabImageEditorComponent,
     CodelabExerciseEditorComponent
   ],

@@ -9,10 +9,10 @@ interface SelectableFiles {
 
 @Component({
   selector: 'codelab-code-demo-console-editor',
-  templateUrl: './codelab-code-demo-console.component.html',
-  styleUrls: ['./codelab-code-demo-console.component.css']
+  templateUrl: './codelab-code-demo-console-editor.component.html',
+  styleUrls: ['./codelab-code-demo-console-editor.component.css']
 })
-export class CodelabCodeDemoConsoleComponent {
+export class CodelabCodeDemoConsoleEditorComponent {
   files = ['app.ts'];
   @Input() code = {};
   @Input() ui = 'browser';

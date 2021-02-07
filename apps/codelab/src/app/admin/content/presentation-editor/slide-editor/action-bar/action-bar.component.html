@@ -12,7 +12,7 @@
   </button>
   <button
     mat-icon-button
-    (click)="addCustom('codelab-code-demo-console', templates.simpleApp)"
+    (click)="addCustom('codelab-code-demo-console-editor', templates.simpleApp)"
   >
     <mat-icon>web</mat-icon>
   </button>
@@ -23,13 +23,17 @@
   <mat-menu #templatesMenu="matMenu">
     <button
       mat-menu-item
-      (click)="addCustom('codelab-code-demo-console', templates.simpleApp)"
+      (click)="
+        addCustom('codelab-code-demo-console-editor', templates.simpleApp)
+      "
     >
       Simple / One File
     </button>
     <button
       mat-menu-item
-      (click)="addCustom('codelab-code-demo-console', templates.angularApp)"
+      (click)="
+        addCustom('codelab-code-demo-console-editor', templates.angularApp)
+      "
     >
       Angular App
     </button>
