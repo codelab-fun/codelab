@@ -19,7 +19,6 @@ export class ContentComponent {
     this.contentService.state$
   ]).pipe(
     map(([presentationId, presentations]) => {
-      debugger;
       return presentations.find(
         (p: ContentPresentation) => p.id === presentationId
       );
@@ -33,7 +32,6 @@ export class ContentComponent {
     this.presentation$
   ]).pipe(
     map(([slide, presentation]) => {
-      debugger;
       return presentation.slides[slide || 0];
     })
   );
