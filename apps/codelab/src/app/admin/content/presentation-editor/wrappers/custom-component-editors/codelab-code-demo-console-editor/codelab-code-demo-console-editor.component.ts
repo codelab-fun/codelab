@@ -21,6 +21,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   @Input() presentationId!: string;
   @Input() selectedFiles: SelectableFiles[] = [];
   @Input() showPreview = true;
+  @Input() allowSwitchingFiles = true;
+  @Input() displayFileName = false;
   readonly defaultNewFileName = 'new.ts';
 
   openFiles: string[] = [];
@@ -38,7 +40,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
       props: {
         code: this.code,
         selectedFiles: this.selectedFiles,
-        showPreview: this.showPreview
+        showPreview: this.showPreview,
+        allowSwitchingFiles: this.allowSwitchingFiles
       }
     });
   }

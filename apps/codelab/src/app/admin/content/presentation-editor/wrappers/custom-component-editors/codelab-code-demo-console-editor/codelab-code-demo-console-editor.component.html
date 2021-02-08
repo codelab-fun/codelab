@@ -24,12 +24,18 @@
       Show preview
     </mat-checkbox>
   </div>
+  <div>
+    <mat-checkbox [(ngModel)]="allowSwitchingFiles" (ngModelChange)="update()">
+      Allow switching files
+    </mat-checkbox>
+  </div>
 </div>
 
 <code-demo
   [showPreview]="showPreview"
-  [allowSwitchingFiles]="false"
+  [allowSwitchingFiles]="allowSwitchingFiles"
   [(ngModel)]="code"
+  [displayFileName]="!allowSwitchingFiles"
   (ngModelChange)="update()"
   [files]="openFiles"
   [ui]="ui"
