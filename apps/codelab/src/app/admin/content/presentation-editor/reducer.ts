@@ -35,7 +35,9 @@ export function reducer(
       getPresentation().slides.filter(({ id }) => id !== payload.id);
       return presentations;
     case 'deleteSlides':
-      getPresentation().slides = getPresentation().slides.filter((slide, index) => !payload.selections.includes(index));
+      getPresentation().slides = getPresentation().slides.filter(
+        (slide, index) => !payload.selections.includes(index)
+      );
 
       return presentations;
     case 'reorderSlides':
@@ -58,14 +60,16 @@ export function reducer(
         const moveValues = normalizedIndexes.map(moveIndex => array[moveIndex]);
 
         const dontMoveValues = array.filter(
-          (item, index) => normalizedIndexes.indexOf(index) === -1,
+          (item, index) => normalizedIndexes.indexOf(index) === -1
         );
 
         dontMoveValues.splice(normalizedToIndex, 0, ...moveValues);
         return dontMoveValues;
       };
 
-      getPresentation().slides = [...arrayMoveByIndex(slides, selections, toIndex)];
+      getPresentation().slides = [
+        ...arrayMoveByIndex(slides, selections, toIndex)
+      ];
 
       return presentations;
 

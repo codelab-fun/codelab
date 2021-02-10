@@ -1,4 +1,10 @@
-import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit
+} from '@angular/core';
 import { Location } from '@angular/common';
 import { CdkDragDrop, CdkDragStart, DragRef } from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,7 +12,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from '../services/content.service';
 import { NavigationService } from '../services/navigation.service';
 import { ContentSlide } from '../types';
-import { isCtrlEvent, isShiftEvent, MultiSelectionService } from './multi-selection.service';
+import {
+  isCtrlEvent,
+  isShiftEvent,
+  MultiSelectionService
+} from './multi-selection.service';
 
 @Component({
   selector: 'slides-side-panel',
@@ -32,7 +42,7 @@ export class SidePanelComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.multiSelectionService.selections$.subscribe((selections) => {
+    this.multiSelectionService.selections$.subscribe(selections => {
       console.log({ selections });
     });
 
@@ -81,7 +91,10 @@ export class SidePanelComponent implements OnInit {
 
       event.preventDefault();
     } else if (event.key === 'Delete') {
-      this.contentService.deleteSlides(this.presentationId, this.multiSelectionService.selections);
+      this.contentService.deleteSlides(
+        this.presentationId,
+        this.multiSelectionService.selections
+      );
       this.multiSelectionService.resetSelection(this.currentSlideIndex);
 
       event.preventDefault();
@@ -126,5 +139,4 @@ export class SidePanelComponent implements OnInit {
       this.navigationService.goToSlide(this.presentationId, index);
     }
   }
-
 }

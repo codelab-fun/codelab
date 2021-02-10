@@ -12,14 +12,12 @@ export function isShiftEvent(event: MouseEvent) {
 
 @Injectable()
 export class MultiSelectionService {
-
   public selections$ = new BehaviorSubject<number[]>([]);
   public selections: number[] = [];
 
   public lastSingleSelection: number | null = null;
 
-  constructor() {
-  }
+  constructor() {}
 
   isAlreadySelected(index: number): boolean {
     return this.selections.indexOf(index) >= 0;
@@ -45,25 +43,25 @@ export class MultiSelectionService {
   }
 
   select(event: MouseEvent, selectedIndex: number) {
-    const shiftSelect = isShiftEvent(event) &&
+    const shiftSelect =
+      isShiftEvent(event) &&
       (this.lastSingleSelection || this.lastSingleSelection === 0) &&
       this.lastSingleSelection !== selectedIndex;
 
     if (this.isSelectionEmpty()) {
-
       this.setSelections([selectedIndex]);
       this.lastSingleSelection = selectedIndex;
-
     } else if (isCtrlEvent(event)) {
-
       const alreadySelected = this.isAlreadySelected(selectedIndex);
 
       if (alreadySelected) {
-        const selectionsWithoutSelectedIndex = this.selections.filter((index) => index !== selectedIndex);
+        const selectionsWithoutSelectedIndex = this.selections.filter(
+          index => index !== selectedIndex
+        );
 
         if (selectionsWithoutSelectedIndex.length > 0) {
           this.setSelections(selectionsWithoutSelectedIndex);
-        } else  {
+        } else {
           this.setSelections([selectedIndex]);
           this.lastSingleSelection = selectedIndex;
         }
@@ -71,25 +69,21 @@ export class MultiSelectionService {
         this.setSelections([...this.selections, selectedIndex]);
         this.lastSingleSelection = selectedIndex;
       }
-
     } else if (shiftSelect) {
-
       const newSelectionBefore = selectedIndex < this.lastSingleSelection;
-      const count = (
-        newSelectionBefore
-          ? this.lastSingleSelection - (selectedIndex - 1)
-          : (selectedIndex + 1) - this.lastSingleSelection
-      );
+      const count = newSelectionBefore
+        ? this.lastSingleSelection - (selectedIndex - 1)
+        : selectedIndex + 1 - this.lastSingleSelection;
 
       const shiftSelection = new Array(count)
         .fill(0)
-        .map((_, index) => newSelectionBefore
-          ? this.lastSingleSelection - index
-          : this.lastSingleSelection + index
+        .map((_, index) =>
+          newSelectionBefore
+            ? this.lastSingleSelection - index
+            : this.lastSingleSelection + index
         );
 
       this.setSelections([...shiftSelection]);
-
     } else {
       this.resetSelection(selectedIndex);
     }
@@ -104,5 +98,4 @@ export class MultiSelectionService {
   selectAll(indexes: number[]) {
     this.setSelections(indexes);
   }
-
 }
