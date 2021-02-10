@@ -8,11 +8,11 @@ import { take } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NavigationService {
-  private readonly selectedSlideSubject = new BehaviorSubject(0);
+  private readonly currentSlideIndexSubject = new BehaviorSubject(0);
   private readonly selectedPresentationIdSubject = new BehaviorSubject<
     string | undefined
   >(undefined);
-  public selectedSlide$ = this.selectedSlideSubject.asObservable();
+  public currentSlideIndex$ = this.currentSlideIndexSubject.asObservable();
   public selectedPresentationId$ = this.selectedPresentationIdSubject.asObservable();
 
   constructor(
@@ -24,7 +24,7 @@ export class NavigationService {
     const params =
       router.routerState.snapshot.root.firstChild.firstChild.firstChild.params;
     this.selectedPresentationIdSubject.next(params.presentation);
-    this.selectedSlideSubject.next(params.slide);
+    this.currentSlideIndexSubject.next(Number(params.slide));
   }
 
   goToPresentation(presentationId: string) {
@@ -34,7 +34,7 @@ export class NavigationService {
 
   goToSlide(presentationId: string, index: number) {
     if (index >= 0) {
-      this.selectedSlideSubject.next(index);
+      this.currentSlideIndexSubject.next(index);
       this.location.replaceState(
         'admin/content/' + presentationId + '/' + index
       );
@@ -42,10 +42,10 @@ export class NavigationService {
   }
 
   nextSlide(presentationId: string) {
-    this.goToSlide(presentationId, this.selectedSlideSubject.value + 1);
+    this.goToSlide(presentationId, this.currentSlideIndexSubject.value + 1);
   }
 
   previousSlide(presentationId: string) {
-    this.goToSlide(presentationId, this.selectedSlideSubject.value - 1);
+    this.goToSlide(presentationId, this.currentSlideIndexSubject.value - 1);
   }
 }

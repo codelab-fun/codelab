@@ -23,10 +23,10 @@ export class ContentComponent {
     })
   );
 
-  currentSlideIndex$ = this.contentService.currentSlideIndex$;
+  currentSlideIndex$ = this.navigationService.currentSlideIndex$;
 
   currentSlide$ = combineLatest([
-    this.navigationService.selectedSlide$,
+    this.navigationService.currentSlideIndex$,
     this.presentation$
   ]).pipe(
     map(([slide, presentation]) => {
