@@ -39,7 +39,7 @@ export class CodeDemoEditorHighlightDirective
 
     const editor = this.editorInjector.editor;
     if (editor) {
-      if (!this.codeDemoHighlight) {
+      if (!this.codeDemoHighlight || !editor.getModel()) {
         return;
       }
 
@@ -47,9 +47,6 @@ export class CodeDemoEditorHighlightDirective
         this.codeDemoHighlight = [this.codeDemoHighlight];
       }
 
-      if (!editor.getModel()) {
-        return;
-      }
       const code = editor.getModel().getValue();
 
       if (!code.length) {
@@ -61,17 +58,23 @@ export class CodeDemoEditorHighlightDirective
           typeof match !== 'string' && match.match ? match : { match }
         )
         .reduce((ranges, { match, className }) => {
-          const { indexStart, lineStart, indexEnd, lineEnd } = findPosition(
-            code,
-            match
-          );
+          let range: [number, number, number, number];
+          if (match.endColumn) {
+            range = [
+              match.selectionStartLineNumber,
+              match.selectionStartColumn,
+              match.endLineNumber,
+              match.endColumn
+            ];
+          } else {
+            const position = findPosition(code, match);
+
+            const { indexStart, lineStart, indexEnd, lineEnd } = position;
+            range = [lineStart, indexStart, lineEnd, indexEnd];
+          }
+
           ranges.push({
-            range: new this.monacoConfigService.monaco.Range(
-              lineStart,
-              indexStart,
-              lineEnd,
-              indexEnd
-            ),
+            range: new this.monacoConfigService.monaco.Range(...range),
             options: { inlineClassName: className || 'highlighted-code' }
           });
 

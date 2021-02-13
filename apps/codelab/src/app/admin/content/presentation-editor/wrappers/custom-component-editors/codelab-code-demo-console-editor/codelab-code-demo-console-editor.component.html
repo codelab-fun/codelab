@@ -1,6 +1,7 @@
 <div class="wrapper">
   <div class="file-editor">
     <div *ngFor="let file of selectedFiles; let i = index">
+      [{{ selection$ | async | json }}]$$
       <mat-checkbox [(ngModel)]="file.selected" (ngModelChange)="update()">
         <input
           [ngModel]="file.name"
@@ -10,6 +11,28 @@
       <button mat-icon-button (click)="deleteFile(file.name)">
         <mat-icon>cancel</mat-icon>
       </button>
+      <div>
+        <div
+          *ngFor="let highlight of file.highlights; let highlightIndex = index"
+        >
+          {{ highlight.text | slice: 0:20 }}
+          <button
+            mat-icon-button
+            (click)="deleteHighlight(file, highlightIndex)"
+          >
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </div>
+        <ng-container *ngIf="selection$ | async as selection">
+          <button
+            mat-button
+            *ngIf="selection.file === file.name"
+            (click)="addHighlight(file, selection)"
+          >
+            Highlight selected
+          </button>
+        </ng-container>
+      </div>
     </div>
     <button
       mat-button
@@ -34,6 +57,7 @@
 <code-demo
   [showPreview]="showPreview"
   [allowSwitchingFiles]="allowSwitchingFiles"
+  [highlights]="highlights"
   [(ngModel)]="code"
   [displayFileName]="!allowSwitchingFiles"
   (ngModelChange)="update()"
