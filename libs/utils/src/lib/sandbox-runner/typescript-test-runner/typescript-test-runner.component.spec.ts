@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TypescriptTestRunnerComponent } from './typescript-test-runner.component';
 
@@ -6,7 +6,7 @@ describe('TypescriptTestRunnerComponent', () => {
   let component: TypescriptTestRunnerComponent;
   let fixture: ComponentFixture<TypescriptTestRunnerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TypescriptTestRunnerComponent]
     }).compileComponents();

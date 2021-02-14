@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ComponentsHierarchySvgComponent } from './components-hierarchy-svg.component';
 
@@ -6,7 +6,7 @@ describe('ComponentsHierarchySvgComponent', () => {
   let component: ComponentsHierarchySvgComponent;
   let fixture: ComponentFixture<ComponentsHierarchySvgComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ComponentsHierarchySvgComponent]
     }).compileComponents();

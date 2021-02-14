@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CodeSyncComponent } from './code-sync.component';
 import { CodeSyncModule } from './code-sync.module';
@@ -9,7 +9,7 @@ describe('CodeSyncComponent', () => {
   let component: CodeSyncComponent;
   let fixture: ComponentFixture<CodeSyncComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [CodeSyncModule, RouterTestingModule],
       providers: [getMockAngularFireProviders()]

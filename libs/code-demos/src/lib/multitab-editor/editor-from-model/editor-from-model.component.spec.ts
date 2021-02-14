@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EditorFromModelComponent } from './editor-from-model.component';
 
@@ -6,7 +6,7 @@ describe('EditorFromModelComponent', () => {
   let component: EditorFromModelComponent;
   let fixture: ComponentFixture<EditorFromModelComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [EditorFromModelComponent]
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WebassemblyRunnerComponent } from './webassembly-runner.component';
 
@@ -6,7 +6,7 @@ describe('WebassemblyRunnerComponent', () => {
   let component: WebassemblyRunnerComponent;
   let fixture: ComponentFixture<WebassemblyRunnerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [WebassemblyRunnerComponent]
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StackFunctionButtonComponent } from './stack-function-button.component';
 
@@ -6,7 +6,7 @@ describe('StackFunctionButtonComponent', () => {
   let component: StackFunctionButtonComponent;
   let fixture: ComponentFixture<StackFunctionButtonComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [StackFunctionButtonComponent]
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BinaryFlatComponent } from './binary-flat.component';
 
@@ -6,7 +6,7 @@ describe('BinaryFlatComponent', () => {
   let component: BinaryFlatComponent;
   let fixture: ComponentFixture<BinaryFlatComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [BinaryFlatComponent]
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MultitabEditorComponent } from './multitab-editor.component';
 
@@ -6,7 +6,7 @@ describe('MultitabEditorComponent', () => {
   let component: MultitabEditorComponent;
   let fixture: ComponentFixture<MultitabEditorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MultitabEditorComponent]
     }).compileComponents();

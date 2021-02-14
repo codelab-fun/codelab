@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RxjsComponent } from './rxjs.component';
 
@@ -6,7 +6,7 @@ describe('RxjsComponent', () => {
   let component: RxjsComponent;
   let fixture: ComponentFixture<RxjsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [RxjsComponent]
     }).compileComponents();

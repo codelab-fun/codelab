@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncComponent } from './sync.component';
 import { SyncModule } from './sync.module';
@@ -14,7 +14,7 @@ describe('SyncComponent', () => {
   let component: SyncComponent;
   let fixture: ComponentFixture<SyncComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SyncModule],
       providers: [getMockAngularFireProviders()]

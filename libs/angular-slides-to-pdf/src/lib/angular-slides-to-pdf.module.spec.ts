@@ -1,8 +1,8 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AngularSlidesToPdfModule } from './angular-slides-to-pdf.module';
 
 describe('AngularSlidesToPdfModule', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [AngularSlidesToPdfModule]
     }).compileComponents();

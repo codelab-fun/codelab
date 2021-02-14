@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StackFunctionComponent } from './stack-function.component';
 
@@ -6,7 +6,7 @@ describe('StackFunctionComponent', () => {
   let component: StackFunctionComponent;
   let fixture: ComponentFixture<StackFunctionComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [StackFunctionComponent]
     }).compileComponents();

@@ -51,7 +51,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     MatSnackBarModule,
 
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled' })
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' })
   ],
   providers: [PostService],
   bootstrap: [AppComponent],

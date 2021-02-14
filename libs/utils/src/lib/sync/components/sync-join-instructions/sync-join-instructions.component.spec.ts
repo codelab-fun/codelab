@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncJoinInstructionsComponent } from './sync-join-instructions.component';
 import { SyncJoinInstructionsModule } from '@codelab/utils/src/lib/sync/components/sync-join-instructions/sync-join-instructions.module';
@@ -9,7 +9,7 @@ describe('SyncJoinInstructionsComponent', () => {
   let component: SyncJoinInstructionsComponent;
   let fixture: ComponentFixture<SyncJoinInstructionsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SyncJoinInstructionsModule],
       providers: [...getSyncDbService(), ...getMockAngularFireProviders()]

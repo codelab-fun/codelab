@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DynamicRendererComponent } from './dynamic-renderer.component';
 
@@ -6,7 +6,7 @@ describe('DynamicRendererComponent', () => {
   let component: DynamicRendererComponent;
   let fixture: ComponentFixture<DynamicRendererComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [DynamicRendererComponent]
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SizePickerComponent } from './size-picker.component';
 
@@ -6,7 +6,7 @@ describe('SizePickerComponent', () => {
   let component: SizePickerComponent;
   let fixture: ComponentFixture<SizePickerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SizePickerComponent]
     }).compileComponents();

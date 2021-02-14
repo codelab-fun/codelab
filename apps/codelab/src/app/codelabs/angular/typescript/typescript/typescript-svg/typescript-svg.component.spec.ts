@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TypeScriptSvgComponent } from './typescript-svg.component';
 
@@ -6,7 +6,7 @@ describe('TypeScriptSvgComponent', () => {
   let component: TypeScriptSvgComponent;
   let fixture: ComponentFixture<TypeScriptSvgComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TypeScriptSvgComponent]
     }).compileComponents();

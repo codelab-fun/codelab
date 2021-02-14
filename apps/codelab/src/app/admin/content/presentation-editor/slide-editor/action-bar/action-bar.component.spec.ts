@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ActionBarComponent } from './action-bar.component';
 
@@ -6,7 +6,7 @@ describe('ActionBarComponent', () => {
   let component: ActionBarComponent;
   let fixture: ComponentFixture<ActionBarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ActionBarComponent]
     }).compileComponents();

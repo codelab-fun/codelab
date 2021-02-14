@@ -32,7 +32,7 @@ const routes: Routes = [
     angularFire,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     MatButtonModule,
     MatTableModule,
     HttpClientModule,

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MenuFullscreenWidgetComponent } from './menu-fullscreen-widget.component';
 
@@ -6,7 +6,7 @@ describe('MenuFullscreenWidgetComponent', () => {
   let component: MenuFullscreenWidgetComponent;
   let fixture: ComponentFixture<MenuFullscreenWidgetComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MenuFullscreenWidgetComponent]
     }).compileComponents();

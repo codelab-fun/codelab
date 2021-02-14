@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LiveMockComponent } from './live-mock.component';
 
@@ -6,7 +6,7 @@ describe('LiveMockComponent', () => {
   let component: LiveMockComponent;
   let fixture: ComponentFixture<LiveMockComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [LiveMockComponent]
     }).compileComponents();

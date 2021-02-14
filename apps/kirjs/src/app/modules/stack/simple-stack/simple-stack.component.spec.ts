@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SimpleStackComponent } from './simple-stack.component';
 
@@ -6,7 +6,7 @@ describe('SimpleStackComponent', () => {
   let component: SimpleStackComponent;
   let fixture: ComponentFixture<SimpleStackComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SimpleStackComponent]
     }).compileComponents();

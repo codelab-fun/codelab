@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { InlineComponent } from './inline.component';
 
@@ -6,7 +6,7 @@ describe('InlineComponent', () => {
   let component: InlineComponent;
   let fixture: ComponentFixture<InlineComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [InlineComponent]
     }).compileComponents();

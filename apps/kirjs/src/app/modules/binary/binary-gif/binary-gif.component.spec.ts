@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BinaryGifComponent } from './binary-gif.component';
 
@@ -6,7 +6,7 @@ describe('BinaryGifComponent', () => {
   let component: BinaryGifComponent;
   let fixture: ComponentFixture<BinaryGifComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [BinaryGifComponent]
     }).compileComponents();

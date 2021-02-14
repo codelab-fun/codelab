@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CodelabCodeDemoConsoleEditorComponent } from './codelab-code-demo-console-editor.component';
 
@@ -6,7 +6,7 @@ describe('CodelabCodeDemoConsoleComponent', () => {
   let component: CodelabCodeDemoConsoleEditorComponent;
   let fixture: ComponentFixture<CodelabCodeDemoConsoleEditorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CodelabCodeDemoConsoleEditorComponent]
     }).compileComponents();

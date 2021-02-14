@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AstTreeComponent } from './ast-tree.component';
 
@@ -6,7 +6,7 @@ describe('AstTreeComponent', () => {
   let component: AstTreeComponent;
   let fixture: ComponentFixture<AstTreeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [AstTreeComponent]
     }).compileComponents();

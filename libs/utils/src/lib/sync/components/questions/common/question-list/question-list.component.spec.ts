@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { QuestionsComponent } from '@codelab/utils/src/lib/sync/components/questions/questions.component';
 
 describe('QuestionsComponent', () => {
   let component: QuestionsComponent;
   let fixture: ComponentFixture<QuestionsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [QuestionsComponent]
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GifPaletteComponent } from './gif-palette.component';
 
@@ -6,7 +6,7 @@ describe('GifPaletteComponent', () => {
   let component: GifPaletteComponent;
   let fixture: ComponentFixture<GifPaletteComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [GifPaletteComponent]
     }).compileComponents();

@@ -1,8 +1,8 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FirebaseLoginModule } from './firebase-login.module';
 
 describe('FirebaseLoginModule', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [FirebaseLoginModule]
     }).compileComponents();

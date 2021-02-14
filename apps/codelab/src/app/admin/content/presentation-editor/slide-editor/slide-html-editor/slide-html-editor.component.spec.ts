@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SlideHtmlEditorComponent } from './slide-html-editor.component';
 
@@ -6,7 +6,7 @@ describe('SlideHtmlEditorComponent', () => {
   let component: SlideHtmlEditorComponent;
   let fixture: ComponentFixture<SlideHtmlEditorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SlideHtmlEditorComponent]
     }).compileComponents();

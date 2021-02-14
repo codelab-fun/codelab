@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncPollComponent } from './sync-poll.component';
 import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
@@ -7,7 +7,7 @@ describe('SyncPollComponent', () => {
   let component: SyncPollComponent;
   let fixture: ComponentFixture<SyncPollComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SyncPollModule]
     }).compileComponents();

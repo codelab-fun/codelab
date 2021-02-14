@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BinaryParentComponent } from './binary-parent.component';
 
@@ -6,7 +6,7 @@ describe('BinaryParentComponent', () => {
   let component: BinaryParentComponent;
   let fixture: ComponentFixture<BinaryParentComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [BinaryParentComponent]
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ColorIndexingComponent } from './color-indexing.component';
 
@@ -6,7 +6,7 @@ describe('ColorIndexingComponent', () => {
   let component: ColorIndexingComponent;
   let fixture: ComponentFixture<ColorIndexingComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ColorIndexingComponent]
     }).compileComponents();

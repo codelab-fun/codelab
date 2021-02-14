@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CreateSnippetComponent } from './create-snippet.component';
 import { CreateSnippetModule } from './create-snippet.module';
@@ -14,7 +14,7 @@ describe('CreateSnippetComponent', () => {
   let snippetService: SpyObj<SnippetService>;
   let activatedRoute: Partial<ActivatedRoute>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     activatedRoute = {
       snapshot: {
         params: {}

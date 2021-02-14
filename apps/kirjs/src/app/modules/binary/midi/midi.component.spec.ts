@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MidiComponent } from './midi.component';
 
@@ -6,7 +6,7 @@ describe('MidiComponent', () => {
   let component: MidiComponent;
   let fixture: ComponentFixture<MidiComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MidiComponent]
     }).compileComponents();

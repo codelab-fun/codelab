@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncPollViewerChoiceComponent } from './sync-poll-viewer-choice.component';
 
@@ -6,7 +6,7 @@ describe('SyncPollViewerChoiceComponent', () => {
   let component: SyncPollViewerChoiceComponent;
   let fixture: ComponentFixture<SyncPollViewerChoiceComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SyncPollViewerChoiceComponent]
     }).compileComponents();

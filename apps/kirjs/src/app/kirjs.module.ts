@@ -161,7 +161,7 @@ const routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     angularFire,

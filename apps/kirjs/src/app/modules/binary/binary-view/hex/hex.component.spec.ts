@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HexComponent } from './hex.component';
 
@@ -6,7 +6,7 @@ describe('HexComponent', () => {
   let component: HexComponent;
   let fixture: ComponentFixture<HexComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HexComponent]
     }).compileComponents();

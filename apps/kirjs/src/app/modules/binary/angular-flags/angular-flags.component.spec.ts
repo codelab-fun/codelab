@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AngularFlagsComponent } from './angular-flags.component';
 
@@ -6,7 +6,7 @@ describe('AngularFlagsComponent', () => {
   let component: AngularFlagsComponent;
   let fixture: ComponentFixture<AngularFlagsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [AngularFlagsComponent]
     }).compileComponents();

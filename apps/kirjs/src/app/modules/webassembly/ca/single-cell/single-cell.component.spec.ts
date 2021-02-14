@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SingleCellComponent } from './single-cell.component';
 
@@ -6,7 +6,7 @@ describe('SingleCellComponent', () => {
   let component: SingleCellComponent;
   let fixture: ComponentFixture<SingleCellComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SingleCellComponent]
     }).compileComponents();

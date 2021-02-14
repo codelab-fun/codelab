@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { async, inject, TestBed } from '@angular/core/testing';
+import { inject, TestBed, waitForAsync } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
 import { Component } from '@angular/core';
 import { FeedbackService } from './feedback.service';
@@ -87,7 +87,7 @@ xdescribe('FeedbackService', () => {
     }
   ));
 
-  it('should list messages filtered by the router url', async(
+  it('should list messages filtered by the router url', waitForAsync(
     inject(
       [FeedbackService, ActivatedRoute, Router],
       (
@@ -106,7 +106,7 @@ xdescribe('FeedbackService', () => {
     )
   ));
 
-  it('should list messages filtered by the router url when the activated route changes', async(
+  it('should list messages filtered by the router url when the activated route changes', waitForAsync(
     inject(
       [FeedbackService, ActivatedRoute, Router],
       (
@@ -133,7 +133,7 @@ xdescribe('FeedbackService', () => {
     )
   ));
 
-  it('should add a message from the current url', async(
+  it('should add a message from the current url', waitForAsync(
     inject(
       [FeedbackService, Router],
       (service: FeedbackService, router: Router) => {

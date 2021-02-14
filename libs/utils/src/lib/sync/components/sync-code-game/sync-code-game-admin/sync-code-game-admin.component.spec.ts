@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncCodeGameAdminComponent } from './sync-code-game-admin.component';
 
@@ -6,7 +6,7 @@ describe('SyncCodeGameAdminComponent', () => {
   let component: SyncCodeGameAdminComponent;
   let fixture: ComponentFixture<SyncCodeGameAdminComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SyncCodeGameAdminComponent]
     }).compileComponents();

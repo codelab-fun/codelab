@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FeedbackComponent } from './feedback.component';
 import { FeedbackModule } from './feedback.module';
 import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
@@ -9,7 +9,7 @@ describe('FeedbackComponent', () => {
   let component: FeedbackComponent;
   let fixture: ComponentFixture<FeedbackComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [FeedbackModule, NoopAnimationsModule],
       providers: [

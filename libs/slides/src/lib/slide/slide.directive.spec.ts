@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { SlidesModule } from '../slides.module';
 import { SlidesDeckComponent } from '../deck/deck.component';
 import { SlideDirective } from './slide.directive';
@@ -7,7 +7,7 @@ describe('SlideDirective', () => {
   let fixture: ComponentFixture<SlidesDeckComponent>;
   let directive: SlidesDeckComponent;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SlidesModule]
     }).compileComponents();

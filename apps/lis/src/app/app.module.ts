@@ -30,7 +30,7 @@ export const AngularFireApp = AngularFireModule.initializeApp(
             import('./modules/rxjs/rxjs.module').then(_ => _.RxjsModule)
         }
       ],
-      { initialNavigation: 'enabled' }
+      { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' }
     )
   ],
   providers: [

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CodelabClosingSlideComponent } from './codelab-closing-slide.component';
 
@@ -6,7 +6,7 @@ describe('CodelabClosingSlideComponent', () => {
   let component: CodelabClosingSlideComponent;
   let fixture: ComponentFixture<CodelabClosingSlideComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CodelabClosingSlideComponent]
     }).compileComponents();

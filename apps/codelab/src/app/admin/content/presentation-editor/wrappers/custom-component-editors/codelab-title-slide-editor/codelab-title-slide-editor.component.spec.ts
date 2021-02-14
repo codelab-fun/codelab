@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CodelabTitleSlideEditorComponent } from './codelab-title-slide-editor.component';
 
@@ -6,7 +6,7 @@ describe('CodelabTitleSlideEditorComponent', () => {
   let component: CodelabTitleSlideEditorComponent;
   let fixture: ComponentFixture<CodelabTitleSlideEditorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CodelabTitleSlideEditorComponent]
     }).compileComponents();
