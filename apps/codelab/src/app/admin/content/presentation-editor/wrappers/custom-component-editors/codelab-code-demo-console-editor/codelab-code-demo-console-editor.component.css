@@ -1,3 +1,14 @@
 .wrapper {
   display: flex;
 }
+
+
+.file {
+  display: flex;
+  border-bottom: 1px #999999 solid;
+}
+
+.highlights {
+  margin-left: 16px;
+  background: #ddd;
+}

@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ContentService } from '../../../services/content.service';
-import { ContentSlide, CustomBlock } from '../../../types';
-import { MonacoConfigService } from '@codelab/code-demos';
-import { Observable } from 'rxjs';
-import { Selection } from 'monaco-editor';
-import { tap } from 'rxjs/operators';
+import {Component, Input, OnInit} from '@angular/core';
+import {ContentService} from '../../../services/content.service';
+import {ContentSlide, CustomBlock} from '../../../types';
+import {MonacoConfigService} from '@codelab/code-demos';
+import {Observable} from 'rxjs';
+import {Selection} from 'monaco-editor';
 
 interface SelectableFile {
   selected: boolean;
@@ -14,7 +13,7 @@ interface SelectableFile {
 
 interface Highlight {
   file: string;
-  selection: Selection;
+  selection?: Selection|string;
   prefix: string;
   text: string;
 }
@@ -54,7 +53,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
           }
           const [, prefix, file] = match;
 
-          subscriber.next({ file, prefix, selection, text });
+          subscriber.next({file, prefix, selection, text});
         });
 
         editor.onDidDispose(() => subscription.dispose());
@@ -72,7 +71,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   constructor(
     private readonly monacoConfigService: MonacoConfigService,
     private readonly contentService: ContentService
-  ) {}
+  ) {
+  }
 
   update() {
     this.inferVars();
@@ -94,10 +94,10 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
     this.selectedFiles =
       this.selectedFiles.length === 0
         ? this.files.map((name, i) => ({
-            name,
-            selected: i === 0,
-            highlights: []
-          }))
+          name,
+          selected: i === 0,
+          highlights: []
+        }))
         : this.selectedFiles;
 
     this.highlights = this.selectedFiles.reduce((result, file) => {
@@ -109,7 +109,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
 
     this.openFiles = this.selectedFiles
       .filter(file => file.selected)
-      .map(({ name }) => name);
+      .map(({name}) => name);
   }
 
   updateFileName(index: number, oldName: string, newName: string) {
@@ -146,5 +146,15 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   deleteHighlight(file: SelectableFile, highlightIndex: number) {
     file.highlights.splice(highlightIndex, 1);
     this.update();
+  }
+
+  addRegexHighlight(file: SelectableFile) {
+    file.highlights.push({
+      text: 'hi',
+      prefix: 'hi',
+      file: 'dsd',
+      selection: '/dsdasdsad/'
+    });
+
   }
 }

@@ -1,7 +1,6 @@
 <div class="wrapper">
   <div class="file-editor">
-    <div *ngFor="let file of selectedFiles; let i = index">
-      [{{ selection$ | async | json }}]$$
+    <div class="file" *ngFor="let file of selectedFiles; let i = index">
       <mat-checkbox [(ngModel)]="file.selected" (ngModelChange)="update()">
         <input
           [ngModel]="file.name"
@@ -11,7 +10,7 @@
       <button mat-icon-button (click)="deleteFile(file.name)">
         <mat-icon>cancel</mat-icon>
       </button>
-      <div>
+      <div class="highlights">
         <div
           *ngFor="let highlight of file.highlights; let highlightIndex = index"
         >
@@ -23,13 +22,21 @@
             <mat-icon>cancel</mat-icon>
           </button>
         </div>
-        <ng-container *ngIf="selection$ | async as selection">
+        <ng-container *ngIf="selection$ | async as selection ">
           <button
             mat-button
             *ngIf="selection.file === file.name"
             (click)="addHighlight(file, selection)"
           >
             Highlight selected
+          </button>
+        </ng-container>
+        <ng-container *ngIf="!(selection$ | async)">
+          <button
+            mat-button
+            (click)="addRegexHighlight(file)"
+          >
+            Add regex highlight
           </button>
         </ng-container>
       </div>
