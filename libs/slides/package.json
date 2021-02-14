@@ -12,8 +12,7 @@
   "peerDependencies": {
     "@angular/common": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
     "@angular/core": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
-    "@angular/router": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
-    "tslib": "^1.10.0"
+    "@angular/router": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0"
   },
   "keywords": [
     "angular",
@@ -22,6 +21,9 @@
     "ng360",
     "codelab"
   ],
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "publishConfig": {
     "access": "public"
   }

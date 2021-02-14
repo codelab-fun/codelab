@@ -9,6 +9,7 @@ import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-se
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+@Directive()
 export class SyncIsStatusDirective<T> implements OnInit {
   protected readonly status: SyncStatus = SyncStatus.OFF;
   private readonly destroy = new ReplaySubject(1);

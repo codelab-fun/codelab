@@ -142,14 +142,15 @@ export function injectIframe(
         }
       }
 
-      iframe.contentWindow.console.log = function() {
+      // TODO(kirjs): add types later
+      (iframe.contentWindow as any).console.log = function() {
         console.log.apply(console, arguments);
       };
 
       iframe.contentWindow.onerror = function(error, message) {
         logError(error, message);
       };
-      iframe.contentWindow.console.error = function(error, message) {
+      (iframe.contentWindow as any).console.error = function(error, message) {
         // handle Angular error 1/3
         logError(error, message);
 
