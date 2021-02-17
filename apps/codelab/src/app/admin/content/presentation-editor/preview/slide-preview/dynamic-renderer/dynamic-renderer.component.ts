@@ -8,7 +8,7 @@ import {
 import { ContentSlide, CustomBlock, SlideViewType } from '../../../types';
 import { CodelabTitleSlideEditorComponent } from '../../../wrappers/custom-component-editors/codelab-title-slide-editor/codelab-title-slide-editor.component';
 import { CodelabCodeDemoFilePathEditorComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-file-path-editor/codelab-code-demo-file-path-editor.component';
-import { CodelabCodeDemoConsoleComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-console/codelab-code-demo-console.component';
+import { CodelabCodeDemoConsoleEditorComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-console-editor/codelab-code-demo-console-editor.component';
 import { CodeDemoEditorEditorComponent } from '../../../wrappers/custom-component-editors/codelab-code-demo-editor-editor/code-demo-editor.component';
 import { CodelabImageEditorComponent } from '../../../wrappers/custom-component-editors/codelab-image-editor/codelab-image-editor.component';
 import { BlankComponent } from '../blank/blank.component';
@@ -24,7 +24,7 @@ export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {
     super([
       { type: 'codelab-title-slide', component: TitleSlideComponent },
       {
-        type: 'codelab-code-demo-console',
+        type: 'codelab-code-demo-console-editor',
         component: CodelabCodeDemoPreviewComponent
       },
       {
@@ -65,8 +65,8 @@ export class EditDynamicComponentResolver extends NgxdResolver<string, any> {
         component: CodelabTitleSlideEditorComponent
       },
       {
-        type: 'codelab-code-demo-console',
-        component: CodelabCodeDemoConsoleComponent
+        type: 'codelab-code-demo-console-editor',
+        component: CodelabCodeDemoConsoleEditorComponent
       },
       {
         type: 'codelab-exercise-preview',
@@ -132,7 +132,7 @@ export class DynamicRendererComponent implements OnChanges {
     //   const componentMap = {
     //     preview: {
     //       'codelab-title-slide': TitleSlideComponent,
-    //       'codelab-code-demo-console': CodelabCodeDemoPreviewComponent,
+    //       'codelab-code-demo-console-editor': CodelabCodeDemoPreviewComponent,
     //       'codelab-exercise-preview': CodelabCodeDemoPreviewComponent,
     //       'codelab-exercise': CodelabCodeDemoPreviewComponent,
     //       'codelab-closing-slide': CodelabTitleSlideEditorComponent,
@@ -145,7 +145,7 @@ export class DynamicRendererComponent implements OnChanges {
     //     },
     //     edit: {
     //       'codelab-title-slide': CodelabTitleSlideEditorComponent,
-    //       'codelab-code-demo-console': CodelabCodeDemoConsoleComponent,
+    //       'codelab-code-demo-console-editor': CodelabCodeDemoConsoleEditorComponent,
     //       'codelab-exercise-preview': CodelabExerciseComponent,
     //       'codelab-exercise': CodelabExerciseComponent,
     //       'codelab-closing-slide': CodelabTitleSlideEditorComponent,

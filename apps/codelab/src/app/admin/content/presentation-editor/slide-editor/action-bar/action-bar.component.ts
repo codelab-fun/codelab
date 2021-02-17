@@ -11,8 +11,18 @@ export class ActionBarComponent {
   @Output() addBlock = new EventEmitter<ContentBlock>();
   @Input() slide: ContentSlide;
   @Input() presentationId!: string;
-  defaultDemoProps = {
-    code: { 'app.ts': '// Type your code here!' }
+
+  readonly templates = {
+    simpleApp: {
+      code: { 'app.ts': '// Type your code here!' }
+    },
+    angularApp: {
+      code: {
+        'app.ts': '// Angular app!!',
+        'component.ts': '// C',
+        'module.ts': '// M'
+      }
+    }
   };
 
   constructor(private contentService: ContentService) {}

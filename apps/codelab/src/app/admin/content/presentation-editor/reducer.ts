@@ -99,11 +99,16 @@ export function reducer(
     case 'updateSlideMeta':
       getSlide()[payload.name] = payload.value;
       return presentations;
+
+    // Presentations
     case 'addPresentation':
       presentations.push(payload);
       return presentations;
     case 'deletePresentation':
       return presentations.filter(({ id }) => id !== payload.presentationId);
+    case 'updatePresentationMeta':
+      getPresentation()[payload.name] = payload.value;
+      return presentations;
   }
 
   console.assert(false);

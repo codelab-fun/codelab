@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CodelabCodeDemoConsoleComponent } from './codelab-code-demo-console.component';
+import { CodelabCodeDemoConsoleEditorComponent } from './codelab-code-demo-console-editor.component';
 
 describe('CodelabCodeDemoConsoleComponent', () => {
-  let component: CodelabCodeDemoConsoleComponent;
-  let fixture: ComponentFixture<CodelabCodeDemoConsoleComponent>;
+  let component: CodelabCodeDemoConsoleEditorComponent;
+  let fixture: ComponentFixture<CodelabCodeDemoConsoleEditorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabCodeDemoConsoleComponent]
+      declarations: [CodelabCodeDemoConsoleEditorComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CodelabCodeDemoConsoleComponent);
+    fixture = TestBed.createComponent(CodelabCodeDemoConsoleEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

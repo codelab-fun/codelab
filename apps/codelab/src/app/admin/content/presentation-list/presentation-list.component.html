@@ -1,17 +1,25 @@
-<div *ngFor="let presentation of presentations$ | async">
-  <a (click)="navigationService.goToPresentation(presentation.id)">
-    {{ presentation.id }}
-    <div *ngIf="presentation.slides[0] as slide">
+<div class="wrapper">
+  <div
+    *ngFor="let presentation of presentations$ | async"
+    (click)="navigationService.goToPresentation(presentation.id)"
+    class="presentation"
+    role="button"
+    tabindex="0"
+  >
+    <div class="header">
+      <div>{{ presentation.name }}</div>
+      <button mat-icon-button (click)="deletePresentation(presentation.id)">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="presentation.slides[0] as slide" class="first-slide">
       <slides-slide-preview
         style="display: block;width: 200px;"
         mode="preview"
         [slide]="slide"
       ></slides-slide-preview>
     </div>
-  </a>
-  <button mat-icon-button (click)="deletePresentation(presentation.id)">
-    <mat-icon>cancel</mat-icon>
-  </button>
+  </div>
 </div>
 
 <button mat-button (click)="addPresentation()">Create presentation</button>

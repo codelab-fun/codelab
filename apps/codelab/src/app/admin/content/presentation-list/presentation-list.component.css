@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.presentation {
+  background: white;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  min-height: 200px;
+  padding: 16px;
+}
+
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-gap: 20px;
+}
+
+.first-slide {
+  border: 1px #ddd solid;
+  border-radius: 4px;
+}

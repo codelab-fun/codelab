@@ -125,6 +125,16 @@ export class ContentService implements OnDestroy {
     };
     this.dispatch(presentationId, action);
   }
+  updatePresentationMeta(presentationId: string, name: string, value: string) {
+    const action = {
+      type: 'updatePresentationMeta',
+      payload: {
+        name,
+        value
+      }
+    };
+    this.dispatch(presentationId, action);
+  }
 
   deleteSlide(presentationId: string, slideId: string) {
     const action = {

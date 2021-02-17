@@ -12,10 +12,32 @@
   </button>
   <button
     mat-icon-button
-    (click)="addCustom('codelab-code-demo-console', defaultDemoProps)"
+    (click)="addCustom('codelab-code-demo-console-editor', templates.simpleApp)"
   >
     <mat-icon>web</mat-icon>
   </button>
+  <button class="templates" mat-icon-button [matMenuTriggerFor]="templatesMenu">
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+
+  <mat-menu #templatesMenu="matMenu">
+    <button
+      mat-menu-item
+      (click)="
+        addCustom('codelab-code-demo-console-editor', templates.simpleApp)
+      "
+    >
+      Simple / One File
+    </button>
+    <button
+      mat-menu-item
+      (click)="
+        addCustom('codelab-code-demo-console-editor', templates.angularApp)
+      "
+    >
+      Angular App
+    </button>
+  </mat-menu>
 
   <button mat-icon-button (click)="addCustom('codelab-image')">
     <mat-icon>image</mat-icon>

@@ -45,4 +45,8 @@ export class ContentComponent {
   addSlide(presentationId: string) {
     this.contentService.addSlide(presentationId);
   }
+
+  updatePresentationMeta(presentationId: string, name: string, value: string) {
+    this.contentService.updatePresentationMeta(presentationId, name, value);
+  }
 }
