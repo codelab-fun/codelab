@@ -14,9 +14,8 @@ import { NavigationService } from '../services/navigation.service';
 import { ContentSlide } from '../types';
 import {
   isCtrlEvent,
-  isShiftEvent,
-  MultiSelectionService
-} from './multi-selection.service';
+  isShiftEvent
+} from '../../../../multiselect/multiselect.service';
 
 @Component({
   selector: 'slides-side-panel',
@@ -30,24 +29,19 @@ export class SidePanelComponent implements OnInit {
 
   public dragging: DragRef = null;
   public sidePanelInFocus = false;
+  public selectedSlideIndexes: number[] = [];
 
   constructor(
     readonly el: ElementRef,
     readonly location: Location,
     readonly route: ActivatedRoute,
     readonly router: Router,
-    readonly multiSelectionService: MultiSelectionService,
     readonly contentService: ContentService,
     readonly navigationService: NavigationService
   ) {}
 
   ngOnInit() {
-    this.multiSelectionService.selections$.subscribe(selections => {
-      console.log({ selections });
-    });
-
-    this.multiSelectionService.addToSelections(this.currentSlideIndex);
-    this.multiSelectionService.lastSingleSelection = this.currentSlideIndex;
+    this.selectedSlideIndexes = [this.currentSlideIndex];
   }
 
   trackBySlideId(index: number, slide: ContentSlide) {
@@ -80,12 +74,7 @@ export class SidePanelComponent implements OnInit {
       return;
     }
 
-    if (event.key === 'a' && (event.ctrlKey || event.metaKey)) {
-      const allSideIndexes = this.slides.map((slide, index) => index);
-      this.multiSelectionService.selectAll(allSideIndexes);
-
-      event.preventDefault();
-    } else if (event.key === 'Escape' && this.dragging) {
+    if (event.key === 'Escape' && this.dragging) {
       this.dragging.reset();
       document.dispatchEvent(new Event('mouseup'));
 
@@ -93,9 +82,10 @@ export class SidePanelComponent implements OnInit {
     } else if (event.key === 'Delete') {
       this.contentService.deleteSlides(
         this.presentationId,
-        this.multiSelectionService.selections
+        this.selectedSlideIndexes
       );
-      this.multiSelectionService.resetSelection(this.currentSlideIndex);
+
+      this.selectedSlideIndexes = [this.currentSlideIndex];
 
       event.preventDefault();
     }
@@ -104,10 +94,6 @@ export class SidePanelComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   private handleClickEvent(event: MouseEvent) {
     this.sidePanelInFocus = this.el.nativeElement.contains(event.target);
-
-    if (!this.sidePanelInFocus) {
-      this.multiSelectionService.resetSelection(this.currentSlideIndex);
-    }
   }
 
   dragStarted(event: CdkDragStart) {
@@ -125,18 +111,17 @@ export class SidePanelComponent implements OnInit {
   droppedIntoList(event: CdkDragDrop<any, any>) {
     this.contentService.reorderSlides(
       this.presentationId,
-      this.multiSelectionService.selections,
-      event.currentIndex - this.multiSelectionService.selections.length + 1
+      this.selectedSlideIndexes,
+      event.currentIndex - this.selectedSlideIndexes.length + 1
     );
 
-    this.multiSelectionService.resetSelection(this.currentSlideIndex);
+    this.selectedSlideIndexes = [this.currentSlideIndex];
   }
 
   select(event: MouseEvent, index: number) {
-    this.multiSelectionService.select(event, index);
-
     if (!(isShiftEvent(event) || isCtrlEvent(event)) || !this.dragging) {
       this.navigationService.goToSlide(this.presentationId, index);
     }
   }
+
 }

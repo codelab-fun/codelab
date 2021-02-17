@@ -11,62 +11,61 @@ export function isShiftEvent(event: MouseEvent) {
 }
 
 @Injectable()
-export class MultiSelectionService {
-  public selections$ = new BehaviorSubject<number[]>([]);
-  public selections: number[] = [];
+export class MultiselectService {
+  public selection$ = new BehaviorSubject<number[]>([]);
+  public selection: number[] = [];
 
   public lastSingleSelection: number | null = null;
 
   constructor() {}
 
   isAlreadySelected(index: number): boolean {
-    return this.selections.indexOf(index) >= 0;
+    return this.selection.indexOf(index) >= 0;
   }
 
-  normalizeSelections(indexes: number[]): number[] {
+  normalizeSelection(indexes: number[]): number[] {
     return indexes.sort((a, b) => a - b);
   }
 
   isSelectionEmpty(): boolean {
-    return this.selections.length < 1;
+    return this.selection.length < 1;
   }
 
-  setSelections(indexes: number[]) {
-    this.selections = this.normalizeSelections(indexes);
-    this.selections$.next(this.selections);
+  setSelection(indexes: number[]) {
+    this.selection = this.normalizeSelection(indexes);
+    this.selection$.next(this.selection);
   }
 
-  addToSelections(index: number) {
+  addToSelection(index: number) {
     if (!this.isAlreadySelected(index)) {
-      this.setSelections([...this.selections, index]);
+      this.setSelection([...this.selection, index]);
     }
   }
 
   select(event: MouseEvent, selectedIndex: number) {
-    const shiftSelect =
-      isShiftEvent(event) &&
-      (this.lastSingleSelection || this.lastSingleSelection === 0) &&
-      this.lastSingleSelection !== selectedIndex;
+    const shiftSelect = isShiftEvent(event)
+      && this.lastSingleSelection >= 0
+      && this.lastSingleSelection !== selectedIndex;
 
     if (this.isSelectionEmpty()) {
-      this.setSelections([selectedIndex]);
+      this.setSelection([selectedIndex]);
       this.lastSingleSelection = selectedIndex;
     } else if (isCtrlEvent(event)) {
       const alreadySelected = this.isAlreadySelected(selectedIndex);
 
       if (alreadySelected) {
-        const selectionsWithoutSelectedIndex = this.selections.filter(
+        const selectionWithoutSelectedIndex = this.selection.filter(
           index => index !== selectedIndex
         );
 
-        if (selectionsWithoutSelectedIndex.length > 0) {
-          this.setSelections(selectionsWithoutSelectedIndex);
+        if (selectionWithoutSelectedIndex.length > 0) {
+          this.setSelection(selectionWithoutSelectedIndex);
         } else {
-          this.setSelections([selectedIndex]);
+          this.setSelection([selectedIndex]);
           this.lastSingleSelection = selectedIndex;
         }
       } else {
-        this.setSelections([...this.selections, selectedIndex]);
+        this.setSelection([...this.selection, selectedIndex]);
         this.lastSingleSelection = selectedIndex;
       }
     } else if (shiftSelect) {
@@ -83,7 +82,7 @@ export class MultiSelectionService {
             : this.lastSingleSelection + index
         );
 
-      this.setSelections([...shiftSelection]);
+      this.setSelection([...shiftSelection]);
     } else {
       this.resetSelection(selectedIndex);
     }
@@ -92,10 +91,10 @@ export class MultiSelectionService {
   resetSelection(currentIndex: number) {
     this.lastSingleSelection = currentIndex;
 
-    this.setSelections([currentIndex]);
+    this.setSelection([currentIndex]);
   }
 
   selectAll(indexes: number[]) {
-    this.setSelections(indexes);
+    this.setSelection(indexes);
   }
 }

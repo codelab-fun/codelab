@@ -5,6 +5,9 @@
     (cdkDropListDropped)="droppedIntoList($event)"
     [class.dragging]="dragging"
     cdkDropList
+    multiselectList
+    [items]="slides"
+    [(select)]="selectedSlideIndexes"
   >
     <div
       (cdkDragDropped)="dropped()"
@@ -12,15 +15,17 @@
       (cdkDragStarted)="dragStarted($event)"
       (click)="select($event, index)"
       *ngFor="let slide of slides; let index = index; trackBy: trackBySlideId"
-      [class.selected]="multiSelectionService.selections.includes(index)"
+      [class.selected]="selectedSlideIndexes.includes(index)"
       [class.current]="index == currentSlideIndex"
       cdkDragLockAxis="y"
+      multiselectItem
+      [item]="index"
       cdkDrag
       class="slide-wrapper"
       role="button"
     >
       <div *cdkDragPreview>
-        <div *ngFor="let sel of multiSelectionService.selections"></div>
+        <div *ngFor="let sel of selectedSlideIndexes"></div>
       </div>
       <div *cdkDragPlaceholder>
         <div
