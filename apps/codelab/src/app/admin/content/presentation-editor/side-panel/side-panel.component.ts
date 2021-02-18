@@ -41,7 +41,7 @@ export class SidePanelComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.selectedSlideIndexes = [this.currentSlideIndex];
+    this.resetSelected();
   }
 
   trackBySlideId(index: number, slide: ContentSlide) {
@@ -85,7 +85,7 @@ export class SidePanelComponent implements OnInit {
         this.selectedSlideIndexes
       );
 
-      this.selectedSlideIndexes = [this.currentSlideIndex];
+      this.resetSelected();
 
       event.preventDefault();
     }
@@ -115,6 +115,10 @@ export class SidePanelComponent implements OnInit {
       event.currentIndex - this.selectedSlideIndexes.length + 1
     );
 
+    this.resetSelected();
+  }
+
+  resetSelected() {
     this.selectedSlideIndexes = [this.currentSlideIndex];
   }
 
