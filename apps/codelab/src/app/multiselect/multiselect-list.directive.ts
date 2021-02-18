@@ -61,9 +61,8 @@ export class MultiselectListDirective implements OnInit, OnChanges, OnDestroy {
     this.elementHasFocus = this.el.nativeElement.contains(event.target);
 
 
-    // TODO
+    // TODO need a better way to reset
     // if (!this.elementHasFocus) {
-    //
     //   this.multiselectService.resetSelection(this.currentSlideIndex);
     // }
   }
