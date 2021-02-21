@@ -50,6 +50,17 @@ describe('forms', () => {
     chai.expect(metadata.imports).to.contain(FormsModule);
   });
 
+  it('AddInput', done => {
+    const fixture = TestBed.createComponent(UploadComponent);
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      const input = fixture.nativeElement.querySelector('input');
+      chai.expect(input).is.ok;
+      done();
+    });
+  });
+
   it('AddTitle', done => {
     const fixture = TestBed.createComponent(UploadComponent);
     fixture.componentInstance.title = 'hello';
@@ -57,7 +68,6 @@ describe('forms', () => {
 
     fixture.whenStable().then(() => {
       const input = fixture.nativeElement.querySelector('input');
-      chai.expect(input).is.ok;
       chai.expect(input.value).is.equal('hello');
       fixture.componentInstance.title = 'greatTitle';
       fixture.detectChanges();
