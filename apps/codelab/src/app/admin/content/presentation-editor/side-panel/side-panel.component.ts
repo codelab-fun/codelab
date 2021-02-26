@@ -3,7 +3,9 @@ import {
   ElementRef,
   HostListener,
   Input,
-  OnInit
+  OnChanges,
+  OnInit,
+  SimpleChanges
 } from '@angular/core';
 import { Location } from '@angular/common';
 import { CdkDragDrop, CdkDragStart, DragRef } from '@angular/cdk/drag-drop';
@@ -12,24 +14,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from '../services/content.service';
 import { NavigationService } from '../services/navigation.service';
 import { ContentSlide } from '../types';
-import {
-  isCtrlEvent,
-  isShiftEvent
-} from '../../../../multiselect/multiselect.service';
+
+import { MultiselectModel } from '../../../../multiselect/multiselect-model';
+
+function normalizeSelectionIndexes(indexes: number[]): number[] {
+    return indexes.filter((index) => index >= 0);
+}
+
+function selectionModelToIndexes<T>(items: T[], model: MultiselectModel<T>): number[] {
+    return normalizeSelectionIndexes(model.selected.map((item) => items.indexOf(item)));
+}
+
+function slideIdsMapper(slides: ContentSlide[]): string[] {
+  return slides.map(slide => slide.id);
+}
 
 @Component({
   selector: 'slides-side-panel',
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss']
 })
-export class SidePanelComponent implements OnInit {
+export class SidePanelComponent implements OnInit, OnChanges {
   @Input() slides: ContentSlide[];
   @Input() currentSlideIndex = 0;
   @Input() presentationId!: string;
 
   public dragging: DragRef = null;
   public sidePanelInFocus = false;
-  public selectedSlideIndexes: number[] = [];
+  public selectionModel: MultiselectModel<string> = new MultiselectModel();
+  public slideIds: string[] = [];
 
   constructor(
     readonly el: ElementRef,
@@ -42,6 +55,14 @@ export class SidePanelComponent implements OnInit {
 
   ngOnInit() {
     this.resetSelected();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.slides) {
+      this.slideIds = slideIdsMapper(changes.slides.currentValue);
+
+      this.resetSelected();
+    }
   }
 
   trackBySlideId(index: number, slide: ContentSlide) {
@@ -82,10 +103,8 @@ export class SidePanelComponent implements OnInit {
     } else if (event.key === 'Delete') {
       this.contentService.deleteSlides(
         this.presentationId,
-        this.selectedSlideIndexes
+        selectionModelToIndexes(this.slideIds, this.selectionModel)
       );
-
-      this.resetSelected();
 
       event.preventDefault();
     }
@@ -109,21 +128,25 @@ export class SidePanelComponent implements OnInit {
   }
 
   droppedIntoList(event: CdkDragDrop<any, any>) {
+    const selectedSlideIndexes = selectionModelToIndexes(this.slideIds, this.selectionModel);
+
     this.contentService.reorderSlides(
       this.presentationId,
-      this.selectedSlideIndexes,
-      event.currentIndex - this.selectedSlideIndexes.length + 1
+      selectedSlideIndexes,
+      event.currentIndex - selectedSlideIndexes.length + 1
     );
-
-    this.resetSelected();
   }
 
   resetSelected() {
-    this.selectedSlideIndexes = [this.currentSlideIndex];
+    this.selectSingle(this.slides[this.currentSlideIndex].id);
+  }
+
+  selectSingle(id: string) {
+    this.selectionModel.selectSingle(id);
   }
 
   select(event: MouseEvent, index: number) {
-    if (!(isShiftEvent(event) || isCtrlEvent(event)) || !this.dragging) {
+    if (!this.dragging) {
       this.navigationService.goToSlide(this.presentationId, index);
     }
   }

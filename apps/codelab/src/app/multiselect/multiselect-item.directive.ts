@@ -4,19 +4,25 @@ import { MULTISELECT_LIST, MultiselectListDirective } from './multiselect-list.d
 @Directive({
   selector: '[multiselectItem]'
 })
-export class MultiselectItemDirective {
+export class MultiselectItemDirective<T> {
 
-  @Input() item: number;
+  @Input() msItem: T;
 
   constructor(
-    @Inject(MULTISELECT_LIST) public parentList: MultiselectListDirective
+    @Inject(MULTISELECT_LIST) public parentList: MultiselectListDirective<T>
   ) {
 
   }
 
   @HostListener('click', ['$event'])
   private handleClickEvent(event: MouseEvent) {
-    this.parentList.multiselectService.select(event, this.item);
+    if (event.ctrlKey || event.metaKey) {
+      this.parentList.msModel.toggleSingle(this.msItem);
+    } else if (event.shiftKey) {
+      this.parentList.msModel.toggleContinuous(this.msItem);
+    } else {
+      this.parentList.msModel.selectSingle(this.msItem);
+    }
   }
 
 }
