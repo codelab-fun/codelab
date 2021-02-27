@@ -11,10 +11,51 @@
         <mat-icon>cancel</mat-icon>
       </button>
       <div class="highlights">
+        <div class="highlights-header">
+          <h3>Highlights</h3>
+          <ng-container *ngIf="selection$ | async as selection ">
+            <button
+              mat-button
+              *ngIf="selection.file === file.name"
+              (click)="addHighlight(file, selection)"
+            >
+              (add selected)
+            </button>
+          </ng-container>
+          <ng-container *ngIf="!(selection$ | async)">
+            <button
+              mat-button
+              (click)="addRegexHighlight(file)"
+            >
+              (Add regex)
+            </button>
+          </ng-container>
+        </div>
+
         <div
+          class="highlight"
           *ngFor="let highlight of file.highlights; let highlightIndex = index"
         >
-          {{ highlight.text | slice: 0:20 }}
+          <ng-container *ngIf="highlight.selection?.selectionStartLineNumber !== undefined else highlightInput">
+            {{ highlight.text | slice: 0:20 }}
+          </ng-container>
+          <ng-template #highlightInput>
+
+            <mat-form-field >
+              <mat-label>Regex</mat-label>
+
+              <input [(ngModel)]="highlight.selection"
+                     [validateInputMatchesText]="code[file.name]"
+                     matInput
+                     #model="ngModel"
+                     (ngModelChange)="model.valid && update()">
+
+              <mat-error *ngIf="model.errors?.invalidRegex">Invalid regex</mat-error>
+              <mat-error *ngIf="model.errors?.regexDoesNotMatch">Regex doesn't match</mat-error>
+            </mat-form-field>
+
+
+          </ng-template>
           <button
             mat-icon-button
             (click)="deleteHighlight(file, highlightIndex)"
@@ -22,23 +63,7 @@
             <mat-icon>cancel</mat-icon>
           </button>
         </div>
-        <ng-container *ngIf="selection$ | async as selection ">
-          <button
-            mat-button
-            *ngIf="selection.file === file.name"
-            (click)="addHighlight(file, selection)"
-          >
-            Highlight selected
-          </button>
-        </ng-container>
-        <ng-container *ngIf="!(selection$ | async)">
-          <button
-            mat-button
-            (click)="addRegexHighlight(file)"
-          >
-            Add regex highlight
-          </button>
-        </ng-container>
+
       </div>
     </div>
     <button
@@ -60,6 +85,7 @@
     </mat-checkbox>
   </div>
 </div>
+
 
 <code-demo
   [showPreview]="showPreview"

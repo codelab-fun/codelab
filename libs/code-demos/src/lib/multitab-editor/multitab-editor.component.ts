@@ -10,14 +10,14 @@ import {
   SimpleChanges,
   NgZone
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { editor } from 'monaco-editor';
-import { Subject, Subscription } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
-import { MonacoConfigService } from '../shared/monaco-config.service';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {editor} from 'monaco-editor';
+import {Subject, Subscription} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
+import {MonacoConfigService} from '../shared/monaco-config.service';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
-import { assertObject } from '@codelab/code-demos/src/lib/shared/utils';
+import {assertObject} from '@codelab/code-demos/src/lib/shared/utils';
 
 declare const monaco;
 const extenstionToLang = {
@@ -75,7 +75,8 @@ export class MultitabEditorComponent
     private zone: NgZone,
     readonly monacoConfigService: MonacoConfigService,
     readonly cdr: ChangeDetectorRef
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     assertObject(this.code);
@@ -97,9 +98,13 @@ export class MultitabEditorComponent
       this.files = files;
       this.updateOpenModels();
     }
+
+    if ('highlights' in changes) {
+      this.generateModels();
+    }
   }
 
-  handleFileChange(index, { value }) {
+  handleFileChange(index, {value}) {
     if (this.models) {
       const m = this.getModelByFileName(value.path);
       m.model.setValue(m.model.getValue());
@@ -115,7 +120,8 @@ export class MultitabEditorComponent
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {}
+  registerOnTouched(fn: any): void {
+  }
 
   loadSolution(file) {
     const model = this.getModelByFileName(file).model;
@@ -135,7 +141,7 @@ export class MultitabEditorComponent
 
   getModelByFileName(file): MonacoModel | undefined {
     if (this.models) {
-      return this.models.find(({ path }) => path === file);
+      return this.models.find(({path}) => path === file);
     }
   }
 
@@ -148,6 +154,7 @@ export class MultitabEditorComponent
       const monacoModel = this.getModelByFileName(path);
 
       if (monacoModel) {
+        monacoModel.highlight = this.highlights[monacoModel.path];
         return monacoModel;
       } else {
         const language = extenstionToLang[path.match(/\.(\w+)$/)[1]];
@@ -161,7 +168,7 @@ export class MultitabEditorComponent
         model.onDidChangeContent(() => {
           this.zone.run(() => {
             this.code[path] = model.getValue();
-            this.changeSubject.next({ ...this.code });
+            this.changeSubject.next({...this.code});
           });
         });
 
@@ -182,7 +189,7 @@ export class MultitabEditorComponent
 
   writeValue(code: Code): void {
     if (code) {
-      this.code = { ...code };
+      this.code = {...code};
       this.generateModels();
     }
   }

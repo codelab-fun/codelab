@@ -121,6 +121,13 @@ const routes: MenuRoutes = [
         description: 'Learn how to add Forms to your app',
         page: 'main',
         prod: true
+      },   {
+        path: 'importer',
+        loadChildren: () =>
+          import('./importer/importer.module').then(m => m.ImporterModule),
+        name: 'Importer',
+        description: 'LOL',
+        prod: false,
       },
       {
         path: 'angular-cli',

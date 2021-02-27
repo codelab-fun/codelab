@@ -13,7 +13,7 @@ interface SelectableFile {
 
 interface Highlight {
   file: string;
-  selection?: Selection|string;
+  selection?: Selection | string;
   prefix: string;
   text: string;
 }
@@ -21,7 +21,7 @@ interface Highlight {
 @Component({
   selector: 'codelab-code-demo-console-editor',
   templateUrl: './codelab-code-demo-console-editor.component.html',
-  styleUrls: ['./codelab-code-demo-console-editor.component.css']
+  styleUrls: ['./codelab-code-demo-console-editor.component.scss']
 })
 export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   files = ['app.ts'];
@@ -100,8 +100,20 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
         }))
         : this.selectedFiles;
 
+    console.log('hi');
+
     this.highlights = this.selectedFiles.reduce((result, file) => {
-      result[file.name] = file.highlights.map(h => h.selection);
+      result[file.name] = file.highlights.map(highlight => {
+        if (typeof highlight.selection === 'string') {
+          try {
+            return new RegExp(highlight.selection);
+          } catch (e) {
+            console.error('Invalid regexp', highlight.selection);
+          }
+        }
+
+        return highlight.selection;
+      });
       return result;
     }, {});
 
@@ -155,6 +167,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
       file: 'dsd',
       selection: '/dsdasdsad/'
     });
-
+    this.update();
   }
+
 }

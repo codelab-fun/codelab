@@ -87,6 +87,7 @@ export class CodeDemoEditorHighlightDirective
   }
 
   ngOnChanges() {
+    console.log('Changes', this.codeDemoHighlight);
     this.highlight();
   }
 }
