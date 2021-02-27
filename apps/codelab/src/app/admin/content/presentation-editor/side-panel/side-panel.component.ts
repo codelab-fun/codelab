@@ -40,7 +40,7 @@ export class SidePanelComponent implements OnInit, OnChanges {
   @Input() presentationId!: string;
 
   public dragging: DragRef = null;
-  public sidePanelInFocus = false;
+  public elementHasFocus = false;
   public selectionModel: MultiselectModel<string> = new MultiselectModel();
   public slideIds: string[] = [];
 
@@ -61,7 +61,7 @@ export class SidePanelComponent implements OnInit, OnChanges {
     if (changes.slides) {
       this.slideIds = slideIdsMapper(changes.slides.currentValue);
 
-      this.resetSelected();
+      this.selectionModel.setValues(this.slideIds);
     }
   }
 
@@ -75,7 +75,7 @@ export class SidePanelComponent implements OnInit, OnChanges {
 
   @HostListener('document:keydown.arrowdown', ['$event'])
   nextSlide(event: KeyboardEvent) {
-    if (this.sidePanelInFocus) {
+    if (this.elementHasFocus) {
       this.navigationService.nextSlide(this.presentationId);
       event.preventDefault();
     }
@@ -83,7 +83,7 @@ export class SidePanelComponent implements OnInit, OnChanges {
 
   @HostListener('document:keydown.arrowup', ['$event'])
   prevSlide(event: KeyboardEvent) {
-    if (this.sidePanelInFocus) {
+    if (this.elementHasFocus) {
       this.navigationService.previousSlide(this.presentationId);
       event.preventDefault();
     }
@@ -91,7 +91,7 @@ export class SidePanelComponent implements OnInit, OnChanges {
 
   @HostListener('document:keydown', ['$event'])
   private handleKeyboardEvent(event: KeyboardEvent) {
-    if (!this.sidePanelInFocus) {
+    if (!this.elementHasFocus) {
       return;
     }
 
@@ -112,7 +112,7 @@ export class SidePanelComponent implements OnInit, OnChanges {
 
   @HostListener('document:click', ['$event'])
   private handleClickEvent(event: MouseEvent) {
-    this.sidePanelInFocus = this.el.nativeElement.contains(event.target);
+    this.elementHasFocus = this.el.nativeElement.contains(event.target);
   }
 
   dragStarted(event: CdkDragStart) {

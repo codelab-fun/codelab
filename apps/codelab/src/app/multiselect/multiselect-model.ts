@@ -14,11 +14,11 @@ export class MultiselectModel<T> {
     return Array.from(this.selection.values());
   }
 
-  setValues(values: T[]) {
+  setValues(values: T[]): void {
     this.values = values;
   }
 
-  findBetween(item1: T, item2: T) {
+  findBetween(item1: T, item2: T): T[] {
     const index1 = this.values.indexOf(item1);
     const index2 = this.values.indexOf(item2);
 
@@ -28,7 +28,7 @@ export class MultiselectModel<T> {
     return this.values.slice(firstIndex, firstIndex + numberOfItems);
   }
 
-  toggleAllItems(items: T[], shouldSelect: boolean) {
+  toggleAllItems(items: T[], shouldSelect: boolean): void {
     for (const item of items) {
       if (shouldSelect) {
         this.selection.add(item);
@@ -56,6 +56,10 @@ export class MultiselectModel<T> {
     this.toggleAllItems(between, !this.isSelected(item));
 
     this.stack.push(item);
+  }
+
+  selectAllItems(): void {
+    this.toggleAllItems(this.values, true);
   }
 
   selectSingle(item: T): void {

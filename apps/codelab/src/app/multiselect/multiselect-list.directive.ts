@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, InjectionToken, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, HostListener, InjectionToken, Input } from '@angular/core';
 
 import { MultiselectModel } from './multiselect-model';
 
@@ -13,10 +13,9 @@ export const MULTISELECT_LIST = new InjectionToken<MultiselectListDirective<any>
     },
   ]
 })
-export class MultiselectListDirective<T> implements OnChanges {
+export class MultiselectListDirective<T> {
   elementHasFocus = false;
 
-  @Input() msItems = [];
   @Input() msModel: MultiselectModel<T>;
 
   constructor(
@@ -37,15 +36,9 @@ export class MultiselectListDirective<T> implements OnChanges {
     }
 
     if (event.key === 'a' && (event.ctrlKey || event.metaKey)) {
-      this.msModel.toggleAllItems(this.msItems, true);
+      this.msModel.selectAllItems();
 
       event.preventDefault();
-    }
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.msItems) {
-      this.msModel.setValues(changes.msItems.currentValue);
     }
   }
 
