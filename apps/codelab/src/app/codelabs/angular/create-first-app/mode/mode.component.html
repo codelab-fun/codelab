@@ -8,6 +8,7 @@
       <code-demo-file-path path="app.module.ts"></code-demo-file-path>
 
       <code-demo-editor
+        autoFolding
         [fontSize]="30"
         [(ngModel)]="code.moduleAnatomy.code"
         style="height: 400px;"
@@ -27,6 +28,7 @@
   <div class="box-row">
     <div class="box-row-fill">
       <code-demo-editor
+        autoFolding
         [fontSize]="30"
         [(ngModel)]="code.moduleAnatomy.codeMobile"
         [codeDemoHighlight]="[code.moduleAnatomy.matches.importsArr]"
@@ -43,6 +45,7 @@
   <div class="box-row">
     <div class="box-row-fill">
       <code-demo-editor
+        autoFolding
         [fontSize]="30"
         [(ngModel)]="code.moduleAnatomy.codeVR"
       ></code-demo-editor>

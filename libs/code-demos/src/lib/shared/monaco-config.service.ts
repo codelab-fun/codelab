@@ -21,7 +21,7 @@ export const MONACO_DEFAULTS = {
   lineNumbers: false,
   automaticLayout: true,
   fontSize: 12,
-  folding: false,
+  folding: true,
   minimap: {
     enabled: false
   }

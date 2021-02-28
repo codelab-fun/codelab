@@ -28,6 +28,7 @@
       <div column-5>
         <code-demo-file-path path="parent.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.exercise1a.code"
           [codeDemoHighlight]="code.exercise1a.match"
@@ -40,6 +41,7 @@
       <div column-5>
         <code-demo-file-path path="child.ts"></code-demo-file-path>
         <code-demo-editor
+          autoFolding
           [fontSize]="15"
           [(ngModel)]="code.exercise1b.code"
           [codeDemoHighlight]="code.exercise1a.match"
