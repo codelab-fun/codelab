@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { BasicsComponent } from './components/basics/basics.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminGuard } from './shared/services/guards/admin-guard';
 import { LoginGuard } from './shared/services/guards/login-guard';
@@ -25,6 +26,10 @@ const routes: Routes = [
     path: 'sync',
     loadChildren: () =>
       import('./sync/sync.module').then(m => m.SyncAdminModule)
+  },
+  {
+    path: 'codelab',
+    component: BasicsComponent
   },
   { path: '**', component: NotFoundComponent }
 ];
