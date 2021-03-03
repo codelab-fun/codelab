@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ContentService} from '../../../services/content.service';
-import {ContentSlide, CustomBlock} from '../../../types';
-import {MonacoConfigService} from '@codelab/code-demos';
-import {Observable} from 'rxjs';
-import {Selection} from 'monaco-editor';
+import { Component, Input, OnInit } from '@angular/core';
+import { ContentService } from '../../../services/content.service';
+import { ContentSlide, CustomBlock } from '../../../types';
+import { MonacoConfigService } from '@codelab/code-demos';
+import { Observable } from 'rxjs';
+import { Selection } from 'monaco-editor';
 
 interface SelectableFile {
   selected: boolean;
@@ -21,7 +21,7 @@ interface Highlight {
 @Component({
   selector: 'codelab-code-demo-console-editor',
   templateUrl: './codelab-code-demo-console-editor.component.html',
-  styleUrls: ['./codelab-code-demo-console-editor.component.scss']
+  styleUrls: ['./codelab-code-demo-console-editor.component.scss'],
 })
 export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   files = ['app.ts'];
@@ -36,10 +36,10 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   @Input() displayFileName = false;
   readonly defaultNewFileName = 'new.ts';
 
-  readonly selection$ = new Observable<Highlight | undefined>(subscriber => {
+  readonly selection$ = new Observable<Highlight | undefined>((subscriber) => {
     // TODO: Unsubscribe
     MonacoConfigService.monacoReady.then((monaco: any) => {
-      monaco.editor.onDidCreateEditor(editor => {
+      monaco.editor.onDidCreateEditor((editor) => {
         const subscription = editor.onDidChangeCursorPosition(() => {
           const selection = editor.getSelection();
           const text = editor.getModel().getValueInRange(selection);
@@ -53,7 +53,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
           }
           const [, prefix, file] = match;
 
-          subscriber.next({file, prefix, selection, text});
+          subscriber.next({ file, prefix, selection, text });
         });
 
         editor.onDidDispose(() => subscription.dispose());
@@ -65,14 +65,14 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   highlights: Record<string, Selection>;
 
   async ngOnInit() {
+    debugger;
     this.inferVars();
   }
 
   constructor(
     private readonly monacoConfigService: MonacoConfigService,
     private readonly contentService: ContentService
-  ) {
-  }
+  ) {}
 
   update() {
     this.inferVars();
@@ -83,8 +83,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
         code: this.code,
         selectedFiles: this.selectedFiles,
         showPreview: this.showPreview,
-        allowSwitchingFiles: this.allowSwitchingFiles
-      }
+        allowSwitchingFiles: this.allowSwitchingFiles,
+      },
     });
   }
 
@@ -94,16 +94,16 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
     this.selectedFiles =
       this.selectedFiles.length === 0
         ? this.files.map((name, i) => ({
-          name,
-          selected: i === 0,
-          highlights: []
-        }))
+            name,
+            selected: i === 0,
+            highlights: [],
+          }))
         : this.selectedFiles;
 
     console.log('hi');
 
     this.highlights = this.selectedFiles.reduce((result, file) => {
-      result[file.name] = file.highlights.map(highlight => {
+      result[file.name] = file.highlights.map((highlight) => {
         if (typeof highlight.selection === 'string') {
           try {
             return new RegExp(highlight.selection);
@@ -120,8 +120,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
     console.log(this.highlights);
 
     this.openFiles = this.selectedFiles
-      .filter(file => file.selected)
-      .map(({name}) => name);
+      .filter((file) => file.selected)
+      .map(({ name }) => name);
   }
 
   updateFileName(index: number, oldName: string, newName: string) {
@@ -139,7 +139,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
       this.selectedFiles.push({
         name: this.defaultNewFileName,
         selected: false,
-        highlights: []
+        highlights: [],
       });
       this.code[this.defaultNewFileName] = '// code';
     }
@@ -147,7 +147,9 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
 
   deleteFile(name: string) {
     delete this.code[name];
-    this.selectedFiles = this.selectedFiles.filter(file => file.name !== name);
+    this.selectedFiles = this.selectedFiles.filter(
+      (file) => file.name !== name
+    );
   }
 
   addHighlight(file: SelectableFile, highlight: Highlight) {
@@ -165,9 +167,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
       text: 'hi',
       prefix: 'hi',
       file: 'dsd',
-      selection: '/dsdasdsad/'
+      selection: '/dsdasdsad/',
     });
     this.update();
   }
-
 }

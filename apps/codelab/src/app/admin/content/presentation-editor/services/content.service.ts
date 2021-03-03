@@ -9,7 +9,7 @@ import {
   scan,
   share,
   shareReplay,
-  takeUntil
+  takeUntil,
 } from 'rxjs/operators';
 import { nanoid } from 'nanoid';
 import * as firebase from 'firebase';
@@ -43,7 +43,7 @@ export class ContentService implements OnDestroy {
     this.presentations$.pipe(
       map((presentations: ContentPresentation[] = []) => ({
         type: 'init',
-        payload: presentations
+        payload: presentations,
       }))
     ),
     this.localActions$
@@ -66,7 +66,7 @@ export class ContentService implements OnDestroy {
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
     this.state$
       .pipe(auditTime(1000), takeUntil(this.onDestroy))
-      .subscribe(presentations => {
+      .subscribe((presentations) => {
         this.presentations.doc('presentations').set({ presentations });
       });
   }
@@ -87,7 +87,7 @@ export class ContentService implements OnDestroy {
       ...action,
       presentationId,
       created: firebase.firestore.FieldValue.serverTimestamp(),
-      id: this.uniqueId()
+      id: this.uniqueId(),
     };
 
     this.localActions$.next(a);
@@ -101,10 +101,10 @@ export class ContentService implements OnDestroy {
         slide: {
           id: this.uniqueId(),
           title: 'New slide',
-          blocks: []
+          blocks: [],
         },
-        index
-      }
+        index,
+      },
     };
     this.dispatch(presentationId, action);
   }
@@ -120,8 +120,8 @@ export class ContentService implements OnDestroy {
       payload: {
         name,
         value,
-        slideId
-      }
+        slideId,
+      },
     };
     this.dispatch(presentationId, action);
   }
@@ -130,8 +130,8 @@ export class ContentService implements OnDestroy {
       type: 'updatePresentationMeta',
       payload: {
         name,
-        value
-      }
+        value,
+      },
     };
     this.dispatch(presentationId, action);
   }
@@ -140,8 +140,8 @@ export class ContentService implements OnDestroy {
     const action = {
       type: 'deleteSlide',
       payload: {
-        slideId
-      }
+        slideId,
+      },
     };
     this.dispatch(presentationId, action);
   }
@@ -151,8 +151,8 @@ export class ContentService implements OnDestroy {
       type: 'addBlock',
       payload: {
         block,
-        slideId
-      }
+        slideId,
+      },
     };
 
     this.dispatch(presentationId, action);
@@ -163,8 +163,8 @@ export class ContentService implements OnDestroy {
       type: 'updateBlock',
       payload: {
         block,
-        slideId
-      }
+        slideId,
+      },
     };
 
     this.dispatch(presentationId, action);
@@ -175,8 +175,8 @@ export class ContentService implements OnDestroy {
       type: 'deleteBlock',
       payload: {
         blockId,
-        slideId
-      }
+        slideId,
+      },
     };
 
     this.dispatch(presentationId, action);
@@ -193,8 +193,8 @@ export class ContentService implements OnDestroy {
       payload: {
         slideId,
         fromId,
-        toId
-      }
+        toId,
+      },
     };
 
     this.dispatch(presentationId, action);
@@ -209,7 +209,7 @@ export class ContentService implements OnDestroy {
   }) {
     const action = {
       type: 'addPresentation',
-      payload
+      payload,
     };
 
     this.dispatch(payload.id, action);
@@ -218,7 +218,7 @@ export class ContentService implements OnDestroy {
   deletePresentation(presentationId: string) {
     const action = {
       type: 'deletePresentation',
-      payload: { presentationId }
+      payload: { presentationId },
     };
 
     this.dispatch(presentationId, action);

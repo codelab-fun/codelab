@@ -9,12 +9,12 @@ import { NavigationService } from './services/navigation.service';
 @Component({
   selector: 'slides-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  styleUrls: ['./content.component.css'],
 })
 export class ContentComponent {
   readonly presentation$ = combineLatest([
     this.navigationService.selectedPresentationId$,
-    this.contentService.state$
+    this.contentService.state$,
   ]).pipe(
     map(([presentationId, presentations]) => {
       return presentations.find(
@@ -27,7 +27,7 @@ export class ContentComponent {
 
   currentSlide$ = combineLatest([
     this.navigationService.selectedSlide$,
-    this.presentation$
+    this.presentation$,
   ]).pipe(
     map(([slide, presentation]) => {
       return presentation.slides[slide || 0];
@@ -39,7 +39,7 @@ export class ContentComponent {
     readonly navigationService: NavigationService,
     readonly activeRoute: ActivatedRoute
   ) {
-    this.contentService.state$.subscribe(a => console.log());
+    this.contentService.state$.subscribe((a) => console.log());
   }
 
   addSlide(presentationId: string) {
