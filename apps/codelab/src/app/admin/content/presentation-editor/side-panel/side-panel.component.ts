@@ -18,11 +18,16 @@ import { ContentSlide } from '../types';
 import { MultiselectModel } from '../../../../multiselect/multiselect-model';
 
 function normalizeSelectionIndexes(indexes: number[]): number[] {
-    return indexes.filter((index) => index >= 0);
+  return indexes.filter(index => index >= 0);
 }
 
-function selectionModelToIndexes<T>(items: T[], model: MultiselectModel<T>): number[] {
-    return normalizeSelectionIndexes(model.selected.map((item) => items.indexOf(item)));
+function selectionModelToIndexes<T>(
+  items: T[],
+  model: MultiselectModel<T>
+): number[] {
+  return normalizeSelectionIndexes(
+    model.selected.map(item => items.indexOf(item))
+  );
 }
 
 function slideIdsMapper(slides: ContentSlide[]): string[] {
@@ -128,7 +133,10 @@ export class SidePanelComponent implements OnInit, OnChanges {
   }
 
   droppedIntoList(event: CdkDragDrop<any, any>) {
-    const selectedSlideIndexes = selectionModelToIndexes(this.slideIds, this.selectionModel);
+    const selectedSlideIndexes = selectionModelToIndexes(
+      this.slideIds,
+      this.selectionModel
+    );
 
     this.contentService.reorderSlides(
       this.presentationId,
@@ -150,5 +158,4 @@ export class SidePanelComponent implements OnInit, OnChanges {
       this.navigationService.goToSlide(this.presentationId, index);
     }
   }
-
 }

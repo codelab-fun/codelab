@@ -1,5 +1,6 @@
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { ContentPresentation } from './types';
+import { arrayMoveByIndex } from '../../../shared/helpers/helpers';
 
 export function reducer(
   presentations: ContentPresentation[],
@@ -46,30 +47,9 @@ export function reducer(
 
       const slides = getPresentation().slides;
 
-      const normalizeIndexes = (indexes, array) =>
-        indexes.filter(index => index >= 0 && index < array.length);
+      const reorderedSlides = arrayMoveByIndex(slides, selections, toIndex);
 
-      const normalizeToIndex = (toIndex, array, moveIndexes) =>
-        Math.min(Math.max(0, toIndex), array.length - moveIndexes.length);
-
-      const arrayMoveByIndex = (array, index, toIndex) => {
-        const indexes = Array.isArray(index) ? index : [index];
-        const normalizedIndexes = normalizeIndexes(indexes, array);
-        const normalizedToIndex = normalizeToIndex(toIndex, array, indexes);
-
-        const moveValues = normalizedIndexes.map(moveIndex => array[moveIndex]);
-
-        const dontMoveValues = array.filter(
-          (item, index) => normalizedIndexes.indexOf(index) === -1
-        );
-
-        dontMoveValues.splice(normalizedToIndex, 0, ...moveValues);
-        return dontMoveValues;
-      };
-
-      getPresentation().slides = [
-        ...arrayMoveByIndex(slides, selections, toIndex)
-      ];
+      getPresentation().slides = [...reorderedSlides];
 
       return presentations;
 

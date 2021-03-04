@@ -10,6 +10,12 @@ import { MultiselectModule } from '../../../../multiselect/multiselect.module';
 @NgModule({
   declarations: [SidePanelComponent],
   exports: [SidePanelComponent],
-  imports: [CommonModule, RouterModule, DragDropModule, PreviewModule, MultiselectModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    DragDropModule,
+    PreviewModule,
+    MultiselectModule
+  ]
 })
 export class SidePanelModule {}

@@ -1,8 +1,16 @@
-import { Directive, ElementRef, HostListener, InjectionToken, Input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  InjectionToken,
+  Input
+} from '@angular/core';
 
 import { MultiselectModel } from './multiselect-model';
 
-export const MULTISELECT_LIST = new InjectionToken<MultiselectListDirective<any>>('MultiselectList');
+export const MULTISELECT_LIST = new InjectionToken<
+  MultiselectListDirective<any>
+>('MultiselectList');
 
 @Directive({
   selector: '[multiselectList]',
@@ -10,7 +18,7 @@ export const MULTISELECT_LIST = new InjectionToken<MultiselectListDirective<any>
     {
       provide: MULTISELECT_LIST,
       useExisting: MultiselectListDirective
-    },
+    }
   ]
 })
 export class MultiselectListDirective<T> {
@@ -18,11 +26,7 @@ export class MultiselectListDirective<T> {
 
   @Input() msModel: MultiselectModel<T>;
 
-  constructor(
-    private readonly el: ElementRef
-  ) {
-
-  }
+  constructor(private readonly el: ElementRef) {}
 
   @HostListener('document:click', ['$event'])
   private handleClickEvent(event: MouseEvent) {
@@ -41,5 +45,4 @@ export class MultiselectListDirective<T> {
       event.preventDefault();
     }
   }
-
 }

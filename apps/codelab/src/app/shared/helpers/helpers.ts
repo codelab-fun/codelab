@@ -366,3 +366,31 @@ export function solve(exerciseConfig) {
     }))
   };
 }
+
+const normalizeIndexes = (indexes: number[], array: any[]) =>
+  indexes.filter(index => index >= 0 && index < array.length);
+
+const normalizeToIndex = (
+  toIndex: number,
+  array: any[],
+  moveIndexes: number[]
+) => Math.min(Math.max(0, toIndex), array.length - moveIndexes.length);
+
+export function arrayMoveByIndex<T>(
+  array: T[],
+  index: number[] | number,
+  toIndex: number
+): T[] {
+  const indexes = Array.isArray(index) ? index : [index];
+  const normalizedIndexes = normalizeIndexes(indexes, array);
+  const normalizedToIndex = normalizeToIndex(toIndex, array, indexes);
+
+  const moveValues = normalizedIndexes.map(moveIndex => array[moveIndex]);
+
+  const remainingValues = array.filter(
+    (item, index) => !normalizedIndexes.includes(index)
+  );
+
+  remainingValues.splice(normalizedToIndex, 0, ...moveValues);
+  return remainingValues;
+}

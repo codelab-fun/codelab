@@ -1,7 +1,6 @@
 import { Subject } from 'rxjs';
 
 export class MultiselectModel<T> {
-
   private selection = new Set<T>();
 
   private stack: T[] = [];
@@ -86,5 +85,4 @@ export class MultiselectModel<T> {
   emitChangeEvent(): void {
     this.changed.next(this.selected);
   }
-
 }
