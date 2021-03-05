@@ -40,7 +40,7 @@ export class MultiselectListDirective<T> {
     }
 
     if (event.key === 'a' && (event.ctrlKey || event.metaKey)) {
-      this.msModel.selectAllItems();
+      this.msModel.toggleAll();
 
       event.preventDefault();
     }

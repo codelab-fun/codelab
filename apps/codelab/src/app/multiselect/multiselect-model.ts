@@ -5,26 +5,26 @@ export class MultiselectModel<T> {
 
   private stack: T[] = [];
 
-  private values: T[] = [];
-
   changed = new Subject<T[]>();
+
+  constructor(private items: T[] = []) {}
 
   get selected(): T[] {
     return Array.from(this.selection.values());
   }
 
-  setValues(values: T[]): void {
-    this.values = values;
+  setItems(items: T[]): void {
+    this.items = items;
   }
 
   findBetween(item1: T, item2: T): T[] {
-    const index1 = this.values.indexOf(item1);
-    const index2 = this.values.indexOf(item2);
+    const index1 = this.items.indexOf(item1);
+    const index2 = this.items.indexOf(item2);
 
     const numberOfItems = Math.abs(index1 - index2) + 1;
     const firstIndex = index1 < index2 ? index1 : index2;
 
-    return this.values.slice(firstIndex, firstIndex + numberOfItems);
+    return this.items.slice(firstIndex, firstIndex + numberOfItems);
   }
 
   toggleAllItems(items: T[], shouldSelect: boolean): void {
@@ -57,8 +57,12 @@ export class MultiselectModel<T> {
     this.stack.push(item);
   }
 
-  selectAllItems(): void {
-    this.toggleAllItems(this.values, true);
+  toggleAll(): void {
+    if (this.selected.length === this.items.length) {
+      this.clear();
+    } else {
+      this.toggleAllItems(this.items, true);
+    }
   }
 
   selectSingle(item: T): void {

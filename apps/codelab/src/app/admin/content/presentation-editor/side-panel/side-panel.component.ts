@@ -66,7 +66,7 @@ export class SidePanelComponent implements OnInit, OnChanges {
     if (changes.slides) {
       this.slideIds = slideIdsMapper(changes.slides.currentValue);
 
-      this.selectionModel.setValues(this.slideIds);
+      this.selectionModel.setItems(this.slideIds);
     }
   }
 
