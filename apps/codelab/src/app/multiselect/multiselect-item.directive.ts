@@ -1,4 +1,10 @@
-import { Directive, HostListener, Inject, Input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Inject,
+  Input
+} from '@angular/core';
 import {
   MULTISELECT_LIST,
   MultiselectListDirective
@@ -11,6 +17,7 @@ export class MultiselectItemDirective<T> {
   @Input() msItem: T;
 
   constructor(
+    public element: ElementRef<HTMLElement>,
     @Inject(MULTISELECT_LIST) public parentList: MultiselectListDirective<T>
   ) {}
 
