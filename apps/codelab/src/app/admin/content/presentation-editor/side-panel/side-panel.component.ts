@@ -5,9 +5,7 @@ import {
   Input,
   Output
 } from '@angular/core';
-import { Location } from '@angular/common';
 
-import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from '../services/content.service';
 import { NavigationService } from '../services/navigation.service';
 
@@ -23,9 +21,6 @@ export class SidePanelComponent {
   @Input() presentationId!: string;
 
   constructor(
-    readonly location: Location,
-    readonly route: ActivatedRoute,
-    readonly router: Router,
     readonly contentService: ContentService,
     readonly navigationService: NavigationService
   ) {}
@@ -36,11 +31,11 @@ export class SidePanelComponent {
 
   @HostListener('keydown.arrowdown')
   nextSlide() {
-    this.navigationService.nextSlide(this.presentationId);
+    this.navigationService.nextSlide();
   }
 
   @HostListener('keydown.arrowup')
   prevSlide() {
-    this.navigationService.previousSlide(this.presentationId);
+    this.navigationService.previousSlide();
   }
 }

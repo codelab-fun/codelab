@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { UsersComponent } from './users/users.component';
 import { FeedbackComponent } from './feedback/feedback.component';
@@ -9,7 +9,7 @@ import { PresentationListComponent } from './content/presentation-list/presentat
 import { PreviewComponent } from './content/presentation-editor/preview/preview.component';
 import { ContentComponent } from './content/presentation-editor/content.component';
 
-const routes = [
+export const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
@@ -31,8 +31,7 @@ const routes = [
       },
       {
         path: ':presentation/:slide',
-        component: ContentComponent,
-        children: [{ path: '', ContentComponent }]
+        component: ContentComponent
       }
     ]
   }

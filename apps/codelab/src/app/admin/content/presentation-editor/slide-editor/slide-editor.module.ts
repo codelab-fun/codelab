@@ -8,9 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
 import { ActionBarModule } from './action-bar/action-bar.module';
-import { PreviewModule } from '../preview/preview.module';
 import { CustomComponentPreviewsModule } from '../wrappers/custom-component-previews/custom-component-previews.module';
-import { CustomComponentEditorsModule } from '../wrappers/custom-component-editors/custom-component-editors.module';
+import { SlidesDynamicRendererModule } from '../preview/slide-preview/dynamic-renderer/slides-dynamic-renderer.module';
 
 @NgModule({
   declarations: [
@@ -25,13 +24,12 @@ import { CustomComponentEditorsModule } from '../wrappers/custom-component-edito
   ],
   imports: [
     CommonModule,
-    CustomComponentEditorsModule,
     CustomComponentPreviewsModule,
     MatIconModule,
     DragDropModule,
     MatButtonModule,
     ActionBarModule,
-    PreviewModule
+    SlidesDynamicRendererModule
   ]
 })
 export class SlideEditorModule {}

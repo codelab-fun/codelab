@@ -18,7 +18,7 @@ import { NgxdResolver } from '@ngxd/core';
 import { CodelabExerciseEditorComponent } from '../../../wrappers/custom-component-editors/codelab-exercise-preview-editor/codelab-exercise-editor.component';
 import { TitleSlideComponent } from '../../../../../../components/slides/title-slide/title-slide.component';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {
   constructor() {
     super([
@@ -49,14 +49,14 @@ export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {
   }
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class ViewDynamicComponentResolver extends NgxdResolver<string, any> {
   constructor() {
     super([{ type: 'codelab-title-slide', component: BlankComponent }]);
   }
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class EditDynamicComponentResolver extends NgxdResolver<string, any> {
   constructor() {
     super([
@@ -97,9 +97,9 @@ export class EditDynamicComponentResolver extends NgxdResolver<string, any> {
       *ngxComponentOutlet="resolver | resolve: block.tag; context: block.props"
     ></ng-container>
   `,
-  styleUrls: ['./dynamic-renderer.component.css']
+  styleUrls: ['./slides-dynamic-renderer.component.css']
 })
-export class DynamicRendererComponent implements OnChanges {
+export class SlidesDynamicRendererComponent implements OnChanges {
   @Input() block: CustomBlock;
   @Input() mode: SlideViewType = 'preview';
   @Input() slide: ContentSlide;
