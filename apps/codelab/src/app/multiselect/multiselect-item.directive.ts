@@ -14,7 +14,7 @@ import {
   selector: '[multiselectItem]'
 })
 export class MultiselectItemDirective<T> {
-  @Input() msItem: T;
+  @Input() multiselectItem: T;
 
   constructor(
     public element: ElementRef<HTMLElement>,
@@ -24,11 +24,17 @@ export class MultiselectItemDirective<T> {
   @HostListener('click', ['$event'])
   private handleClickEvent(event: MouseEvent) {
     if (event.ctrlKey || event.metaKey) {
-      this.parentList.msModel.toggleSingle(this.msItem);
-    } else if (event.shiftKey) {
-      this.parentList.msModel.toggleContinuous(this.msItem);
-    } else {
-      this.parentList.msModel.selectSingle(this.msItem);
+      this.parentList.multiselectList.toggleSingle(this.multiselectItem);
+
+      return;
     }
+
+    if (event.shiftKey) {
+      this.parentList.multiselectList.toggleContinuous(this.multiselectItem);
+
+      return;
+    }
+
+    this.parentList.multiselectList.selectSingle(this.multiselectItem);
   }
 }

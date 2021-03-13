@@ -77,6 +77,10 @@ export class MultiselectModel<T> {
     return this.selection.has(item);
   }
 
+  getSelectedIndexes(): number[] {
+    return this.selected.map(item => this.items.indexOf(item));
+  }
+
   clear(): void {
     this.selection.clear();
     this.emitChangeEvent();

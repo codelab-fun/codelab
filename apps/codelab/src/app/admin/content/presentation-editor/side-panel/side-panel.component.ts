@@ -16,19 +16,10 @@ import { NavigationService } from '../services/navigation.service';
 import { ContentSlide } from '../types';
 
 import { MultiselectModel } from '../../../../multiselect/multiselect-model';
-
-function normalizeSelectionIndexes(indexes: number[]): number[] {
-  return indexes.filter(index => index >= 0);
-}
-
-function selectionModelToIndexes<T>(
-  items: T[],
-  model: MultiselectModel<T>
-): number[] {
-  return normalizeSelectionIndexes(
-    model.selected.map(item => items.indexOf(item))
-  );
-}
+import {
+  isFromContext,
+  KeyboardEventWithTarget
+} from '../../../../shared/helpers/helpers';
 
 function slideIdsMapper(slides: ContentSlide[]): string[] {
   return slides.map(slide => slide.id);
@@ -45,7 +36,6 @@ export class SidePanelComponent implements OnInit, OnChanges {
   @Input() presentationId!: string;
 
   public dragging: DragRef = null;
-  public elementHasFocus = false;
   public selectionModel: MultiselectModel<string> = new MultiselectModel();
   public slideIds: string[] = [];
 
@@ -79,48 +69,69 @@ export class SidePanelComponent implements OnInit, OnChanges {
   }
 
   @HostListener('document:keydown.arrowdown', ['$event'])
-  nextSlide(event: KeyboardEvent) {
-    if (this.elementHasFocus) {
+  nextSlide(event: KeyboardEventWithTarget<HTMLElement>) {
+    if (this.isFromSidePanelContext(event.target)) {
       this.navigationService.nextSlide(this.presentationId);
+
       event.preventDefault();
     }
   }
 
   @HostListener('document:keydown.arrowup', ['$event'])
-  prevSlide(event: KeyboardEvent) {
-    if (this.elementHasFocus) {
+  prevSlide(event: KeyboardEventWithTarget<HTMLElement>) {
+    if (this.isFromSidePanelContext(event.target)) {
       this.navigationService.previousSlide(this.presentationId);
+
       event.preventDefault();
     }
   }
 
-  @HostListener('document:keydown', ['$event'])
-  private handleKeyboardEvent(event: KeyboardEvent) {
-    if (!this.elementHasFocus) {
-      return;
-    }
-
-    if (event.key === 'Escape' && this.dragging) {
+  @HostListener('document:keydown.Escape', ['$event'])
+  private handleEscapeEvent(event: KeyboardEventWithTarget<HTMLElement>) {
+    if (this.isFromSidePanelContext(event.target) && this.dragging) {
       this.dragging.reset();
+
+      // This is a workaround to completely reset dragging
+      // https://stackoverflow.com/a/62537983
       document.dispatchEvent(new Event('mouseup'));
 
       event.preventDefault();
-    } else if (event.key === 'Delete') {
+    }
+  }
+
+  @HostListener('document:keydown.Delete', ['$event'])
+  private handleDeleteEvent(event: KeyboardEventWithTarget<HTMLElement>) {
+    if (this.isFromSidePanelContext(event.target)) {
+      const selectedSlideIndexes = this.getSelectedSlideIndexes();
+
       this.contentService.deleteSlides(
         this.presentationId,
-        selectionModelToIndexes(this.slideIds, this.selectionModel)
+        selectedSlideIndexes
       );
 
       event.preventDefault();
     }
   }
 
-  @HostListener('document:click', ['$event'])
-  private handleClickEvent(event: MouseEvent) {
-    this.elementHasFocus = this.el.nativeElement.contains(event.target);
+  @HostListener('document:keydown.control.a', ['$event'])
+  @HostListener('document:keydown.meta.a', ['$event'])
+  private handleCtrlMetaEvent(event: KeyboardEventWithTarget<HTMLElement>) {
+    if (this.isFromSidePanelContext(event.target)) {
+      this.selectionModel.toggleAll();
+
+      event.preventDefault();
+    }
+  }
+
+  private isFromSidePanelContext(target: HTMLElement): boolean {
+    return isFromContext(target, target =>
+      target.classList.contains('slides-wrapper')
+    );
   }
 
   dragStarted(event: CdkDragStart) {
+    // Undocumented reference to the underlying drag instance.
+    // Its needed to reset dragging
     this.dragging = event.source._dragRef;
   }
 
@@ -132,11 +143,8 @@ export class SidePanelComponent implements OnInit, OnChanges {
     this.dragging = null;
   }
 
-  droppedIntoList(event: CdkDragDrop<any, any>) {
-    const selectedSlideIndexes = selectionModelToIndexes(
-      this.slideIds,
-      this.selectionModel
-    );
+  droppedIntoList(event: CdkDragDrop<ElementRef<HTMLElement>>) {
+    const selectedSlideIndexes = this.getSelectedSlideIndexes();
 
     this.contentService.reorderSlides(
       this.presentationId,
@@ -149,11 +157,15 @@ export class SidePanelComponent implements OnInit, OnChanges {
     this.selectSingle(this.slides[this.currentSlideIndex].id);
   }
 
+  getSelectedSlideIndexes(): number[] {
+    return this.selectionModel.getSelectedIndexes();
+  }
+
   selectSingle(id: string) {
     this.selectionModel.selectSingle(id);
   }
 
-  select(event: MouseEvent, index: number) {
+  makeCurrent(event: MouseEvent, index: number) {
     if (!this.dragging) {
       this.navigationService.goToSlide(this.presentationId, index);
     }

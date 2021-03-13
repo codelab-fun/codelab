@@ -15,6 +15,10 @@
   background: #f8f8f8;
 }
 
+.slides-wrapper:focus {
+  outline: 0;
+}
+
 .slide-wrapper.current {
   border: 1px #ddd solid;
   box-shadow: 0 0 2px 1px #155ad0;

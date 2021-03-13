@@ -394,3 +394,24 @@ export function arrayMoveByIndex<T>(
   remainingValues.splice(normalizedToIndex, 0, ...moveValues);
   return remainingValues;
 }
+
+export type KeyboardEventWithTarget<T> = KeyboardEvent & {
+  target: T;
+};
+
+export function isFromContext(
+  target: HTMLElement,
+  compareFn: (target: HTMLElement) => boolean
+): boolean {
+  let parent = target;
+
+  while (parent) {
+    if (compareFn(parent)) {
+      return true;
+    }
+
+    parent = parent.parentElement;
+  }
+
+  return false;
+}

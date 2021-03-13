@@ -1,25 +1,23 @@
-<div class="slides-wrapper">
+<div class="slides-wrapper" tabindex="0">
   <button (click)="addSlide()">Add</button>
 
   <div
     (cdkDropListDropped)="droppedIntoList($event)"
     [class.dragging]="dragging"
     cdkDropList
-    multiselectList
-    [msModel]="selectionModel"
+    [multiselectList]="selectionModel"
   >
     <div
       (cdkDragDropped)="dropped()"
       (cdkDragEnded)="dragEnded()"
       (cdkDragStarted)="dragStarted($event)"
-      (click)="select($event, index)"
+      (click)="makeCurrent($event, index)"
       *ngFor="let slide of slides; let index = index; trackBy: trackBySlideId"
       [class.selected]="selectionModel.isSelected(slide.id)"
       [class.current]="index == currentSlideIndex"
       cdkDragLockAxis="y"
       cdkDrag
-      multiselectItem
-      [msItem]="slide.id"
+      [multiselectItem]="slide.id"
       class="slide-wrapper"
       role="button"
     >

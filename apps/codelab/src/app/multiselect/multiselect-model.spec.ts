@@ -140,6 +140,23 @@ describe('MultiselectModel', () => {
     });
   });
 
+  describe('getSelectedIndexes', () => {
+    it('returns selected indexes', () => {
+      model.toggleSingle(item1);
+
+      expect(model.getSelectedIndexes()).toEqual([0]);
+
+      model.clear();
+
+      expect(model.getSelectedIndexes()).toEqual([]);
+
+      model.toggleSingle('e');
+      model.toggleContinuous('c');
+
+      expect(model.getSelectedIndexes()).toEqual([4, 2, 3]);
+    });
+  });
+
   describe('emitChangeEvent', () => {
     it('should emit change event after selection', done => {
       const subscription = model.changed.subscribe(changes => {

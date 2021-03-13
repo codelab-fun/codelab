@@ -14,8 +14,8 @@ import { MultiselectItemDirective } from './multiselect-item.directive';
 
 @Component({
   template: `
-    <div [msModel]="selectionModel" multiselectList>
-      <div *ngFor="let item of items" [msItem]="item" multiselectItem>
+    <div [multiselectList]="selectionModel">
+      <div *ngFor="let item of items" [multiselectItem]="item">
         {{ item }}
       </div>
     </div>
