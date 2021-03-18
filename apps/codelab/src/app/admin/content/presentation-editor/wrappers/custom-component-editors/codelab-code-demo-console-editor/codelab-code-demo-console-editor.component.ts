@@ -65,7 +65,6 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   highlights: Record<string, Selection>;
 
   async ngOnInit() {
-    debugger;
     this.inferVars();
   }
 

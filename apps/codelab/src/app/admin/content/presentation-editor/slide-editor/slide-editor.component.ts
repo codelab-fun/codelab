@@ -5,7 +5,7 @@ import { assertIsHtmlBlock, ContentBlock, ContentSlide } from '../types';
 @Component({
   selector: 'slides-slide-editor',
   templateUrl: './slide-editor.component.html',
-  styleUrls: ['./slide-editor.component.scss']
+  styleUrls: ['./slide-editor.component.scss'],
 })
 export class SlideEditorComponent {
   @Input() slide: ContentSlide;
@@ -37,7 +37,7 @@ export class SlideEditorComponent {
 
     this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...block,
-      code
+      code,
     });
   }
 

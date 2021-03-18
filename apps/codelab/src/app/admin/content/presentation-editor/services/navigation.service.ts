@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { take } from 'rxjs/operators';
+
+export const NAVIGATION_BASE_URL = new InjectionToken<string>('BaseUrl');
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NavigationService {
   private readonly selectedSlideSubject = new BehaviorSubject(0);
@@ -16,28 +17,33 @@ export class NavigationService {
   public selectedPresentationId$ = this.selectedPresentationIdSubject.asObservable();
 
   constructor(
+    @Inject(NAVIGATION_BASE_URL) readonly baseUrl,
     readonly route: ActivatedRoute,
     readonly router: Router,
     readonly location: Location
   ) {
-    // TODO(kirjs): need a better way
-    const params =
-      router.routerState.snapshot.root.firstChild.firstChild.firstChild.params;
+    // TODO(kirjs): Because we're in a service we don't have access to the proper level
+    //  ActivatedRoute, so we have use magic.
+    let firstChild = router.routerState.snapshot.root.firstChild;
+
+    while (firstChild.firstChild) {
+      firstChild = firstChild.firstChild;
+    }
+
+    const params = firstChild.params;
     this.selectedPresentationIdSubject.next(params.presentation);
     this.selectedSlideSubject.next(params.slide);
   }
 
   goToPresentation(presentationId: string) {
     this.selectedPresentationIdSubject.next(presentationId);
-    this.router.navigate(['admin', 'content', presentationId, '0']);
+    this.router.navigate([...this.baseUrl.split('/'), presentationId, '0']);
   }
 
   goToSlide(presentationId: string, index: number) {
     if (index >= 0) {
       this.selectedSlideSubject.next(index);
-      this.location.replaceState(
-        'admin/content/' + presentationId + '/' + index
-      );
+      this.location.replaceState(this.baseUrl + presentationId + '/' + index);
     }
   }
 

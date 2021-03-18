@@ -1,16 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { BehaviorSubject, merge, Subject } from 'rxjs';
-import {
-  auditTime,
-  map,
-  scan,
-  share,
-  shareReplay,
-  takeUntil,
-} from 'rxjs/operators';
+import { auditTime, map, scan, shareReplay, takeUntil } from 'rxjs/operators';
 import { nanoid } from 'nanoid';
 import * as firebase from 'firebase';
 import { ContentBlock, ContentPresentation } from '../types';
@@ -18,7 +10,7 @@ import { reducer } from '../reducer';
 
 const DOC_KEY = 'presentations';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ContentService implements OnDestroy {
   private readonly currentSlideSubject = new BehaviorSubject(0);
 
@@ -59,8 +51,7 @@ export class ContentService implements OnDestroy {
   constructor(
     readonly firestore: AngularFirestore,
     readonly route: ActivatedRoute,
-    readonly router: Router,
-    readonly location: Location
+    readonly router: Router
   ) {
     // TODO: There should be a better way
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
@@ -125,6 +116,7 @@ export class ContentService implements OnDestroy {
     };
     this.dispatch(presentationId, action);
   }
+
   updatePresentationMeta(presentationId: string, name: string, value: string) {
     const action = {
       type: 'updatePresentationMeta',

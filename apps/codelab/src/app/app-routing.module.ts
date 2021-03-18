@@ -9,28 +9,33 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./codelabs/codelabs.module').then(m => m.CodelabsModule)
+      import('./codelabs/codelabs.module').then((m) => m.CodelabsModule),
+  },
+  {
+    path: 'v2',
+    loadChildren: () => import('./v2/v2.module').then((m) => m.V2Module),
   },
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-    canActivate: [AdminGuard]
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [AdminGuard],
   },
   {
     path: 'sync',
     loadChildren: () =>
-      import('./sync/sync.module').then(m => m.SyncAdminModule)
+      import('./sync/sync.module').then((m) => m.SyncAdminModule),
   },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

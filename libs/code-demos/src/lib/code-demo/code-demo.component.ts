@@ -3,7 +3,7 @@ import {
   Component,
   forwardRef,
   Input,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
@@ -12,13 +12,13 @@ import {
   publishReplay,
   refCount,
   startWith,
-  takeWhile
+  takeWhile,
 } from 'rxjs/operators';
 import {
   BehaviorSubject,
   combineLatest,
   Observable,
-  ReplaySubject
+  ReplaySubject,
 } from 'rxjs';
 import { compileTsFilesWatch } from '../runner/compile-ts-files';
 import { Code } from '../shared/types';
@@ -28,7 +28,7 @@ function filterByFileType(
   files: Record<string, string>
 ): Record<string, string> {
   return Object.entries(files)
-    .filter(([path, code]) => path.endsWith(type))
+    .filter(([path]) => path.endsWith(type))
     .reduce((changedFiles, [path, code]) => {
       changedFiles[path] = code;
       return changedFiles;
@@ -52,9 +52,9 @@ export function getChanges(current, previous) {
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CodeDemoComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   @Input() bootstrapTest;
@@ -88,28 +88,28 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
 
   constructor(protected readonly cdr: ChangeDetectorRef) {
     const ts = this.changedTsFilesSubject.pipe(
-      map(files =>
+      map((files) =>
         Object.entries(files).reduce((result, [file, code]) => {
           result[file] = this.retrieveFile(file, code);
           return result;
         }, {})
       ),
-      filter(value => Object.keys(value).length > 0),
+      filter((value) => Object.keys(value).length > 0),
       compileTsFilesWatch(),
-      map(a => a.files),
+      map((a) => a.files),
       startWith({})
     );
 
     const staticFiles = this.changedStaticFilesSubject.pipe(
-      filter(value => Object.keys(value).length > 0),
+      filter((value) => Object.keys(value).length > 0),
       startWith({})
     );
 
     this.files$ = combineLatest([ts, staticFiles]).pipe(
       takeWhile(() => this.showPreview),
       map(([js, staticFiles]) => ({ ...staticFiles, ...js })),
-      map(files => ({ ...this.code, ...files })),
-      filter(value => Object.keys(value).length > 0),
+      map((files) => ({ ...this.code, ...files })),
+      filter((value) => Object.keys(value).length > 0),
       publishReplay(1),
       refCount()
     );
@@ -155,11 +155,11 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
     const changesStatic = getChanges(
       {
         ...filterByFileType('html', code),
-        ...filterByFileType('css', code)
+        ...filterByFileType('css', code),
       },
       {
         ...filterByFileType('html', this.codeCache),
-        ...filterByFileType('css', this.codeCache)
+        ...filterByFileType('css', this.codeCache),
       }
     );
 

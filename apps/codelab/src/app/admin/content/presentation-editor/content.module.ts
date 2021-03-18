@@ -9,13 +9,20 @@ import { SidePanelModule } from './side-panel/side-panel.module';
 import { ContentService } from './services/content.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Observable, OperatorFunction } from 'rxjs';
+import {
+  NAVIGATION_BASE_URL,
+  NavigationService,
+} from './services/navigation.service';
 
 @NgModule({
   declarations: [ContentComponent],
   exports: [ContentComponent],
   entryComponents: [ContentComponent],
-  providers: [ContentService],
+  providers: [
+    NavigationService,
+    ContentService,
+    { provide: NAVIGATION_BASE_URL, useValue: 'admin/content' },
+  ],
   imports: [
     CommonModule,
     SlideEditorModule,
@@ -24,7 +31,7 @@ import { Observable, OperatorFunction } from 'rxjs';
     RouterModule,
     SidePanelModule,
     MatIconModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+  ],
 })
 export class ContentModule {}

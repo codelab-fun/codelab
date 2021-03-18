@@ -4,7 +4,7 @@ import { PresentationListComponent } from './presentation-list.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { PreviewModule } from '../presentation-editor/preview/preview.module';
+import { PreviewModule } from '../../admin/content/presentation-editor/preview/preview.module';
 
 @NgModule({
   declarations: [PresentationListComponent],

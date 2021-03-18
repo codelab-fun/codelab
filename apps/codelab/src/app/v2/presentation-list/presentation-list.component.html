@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div
+    *ngFor="let presentation of presentations$ | async"
+    (click)="navigationService.goToPresentation(presentation.id)"
+    class="presentation"
+    role="button"
+    tabindex="0"
+  >
+    <div class="header">
+      <div>{{ presentation.name }}</div>
+    </div>
+    <div *ngIf="presentation.slides[0] as slide" class="first-slide">
+      <slides-slide-preview
+        style="display: block; width: 200px"
+        mode="preview"
+        [slide]="slide"
+      ></slides-slide-preview>
+    </div>
+  </div>
+</div>
