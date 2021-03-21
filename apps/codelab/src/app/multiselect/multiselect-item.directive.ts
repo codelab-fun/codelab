@@ -1,14 +1,5 @@
-import {
-  Directive,
-  ElementRef,
-  HostListener,
-  Inject,
-  Input
-} from '@angular/core';
-import {
-  MULTISELECT_LIST,
-  MultiselectListDirective
-} from './multiselect-list.directive';
+import { Directive, HostListener, Input } from '@angular/core';
+import { MultiselectListDirective } from './multiselect-list.directive';
 
 @Directive({
   selector: '[multiselectItem]'
@@ -16,10 +7,7 @@ import {
 export class MultiselectItemDirective<T> {
   @Input() multiselectItem: T;
 
-  constructor(
-    public element: ElementRef<HTMLElement>,
-    @Inject(MULTISELECT_LIST) public parentList: MultiselectListDirective<T>
-  ) {}
+  constructor(private readonly parentList: MultiselectListDirective<T>) {}
 
   @HostListener('click', ['$event'])
   private handleClickEvent(event: MouseEvent) {

@@ -37,7 +37,6 @@ export class SidePanelComponent implements OnInit, OnChanges {
 
   public dragging: DragRef = null;
   public selectionModel: MultiselectModel<string> = new MultiselectModel();
-  public slideIds: string[] = [];
 
   constructor(
     readonly el: ElementRef,
@@ -54,9 +53,9 @@ export class SidePanelComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.slides) {
-      this.slideIds = slideIdsMapper(changes.slides.currentValue);
+      const slideIds = slideIdsMapper(changes.slides.currentValue);
 
-      this.selectionModel.setItems(this.slideIds);
+      this.selectionModel.setItems(slideIds);
     }
   }
 

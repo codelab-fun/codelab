@@ -11,11 +11,12 @@ import { MultiselectModule } from './multiselect.module';
 import { MultiselectModel } from './multiselect-model';
 import { MultiselectListDirective } from './multiselect-list.directive';
 import { MultiselectItemDirective } from './multiselect-item.directive';
+import { By } from '@angular/platform-browser';
 
 @Component({
   template: `
     <div [multiselectList]="selectionModel">
-      <div *ngFor="let item of items" [multiselectItem]="item">
+      <div class="item" *ngFor="let item of items" [multiselectItem]="item">
         {{ item }}
       </div>
     </div>
@@ -55,11 +56,9 @@ describe('Multiselect', () => {
 
     fixture.detectChanges();
 
-    const itemEls = fixture.componentInstance.multiselectItems.map(
-      item => item.element.nativeElement
-    );
+    const itemEls = fixture.debugElement.queryAll(By.css('.item'));
 
-    const itemEl = itemEls[0];
+    const itemEl = itemEls[0].nativeElement;
 
     itemEl.dispatchEvent(new MouseEvent('click'));
 
@@ -73,11 +72,9 @@ describe('Multiselect', () => {
 
     fixture.detectChanges();
 
-    const itemEls = fixture.componentInstance.multiselectItems.map(
-      item => item.element.nativeElement
-    );
+    const itemEls = fixture.debugElement.queryAll(By.css('.item'));
 
-    const itemEl = itemEls[0];
+    const itemEl = itemEls[0].nativeElement;
 
     itemEl.dispatchEvent(new MouseEvent('click'));
 
@@ -95,12 +92,10 @@ describe('Multiselect', () => {
 
     fixture.detectChanges();
 
-    const itemEls = fixture.componentInstance.multiselectItems.map(
-      item => item.element.nativeElement
-    );
+    const itemEls = fixture.debugElement.queryAll(By.css('.item'));
 
-    const itemFirstEl = itemEls[0];
-    const itemSecondEl = itemEls[1];
+    const itemFirstEl = itemEls[0].nativeElement;
+    const itemSecondEl = itemEls[1].nativeElement;
 
     itemFirstEl.dispatchEvent(new MouseEvent('click'));
 
@@ -125,12 +120,10 @@ describe('Multiselect', () => {
 
     fixture.detectChanges();
 
-    const itemEls = fixture.componentInstance.multiselectItems.map(
-      item => item.element.nativeElement
-    );
+    const itemEls = fixture.debugElement.queryAll(By.css('.item'));
 
-    const itemFirstEl = itemEls[0];
-    const itemSecondEl = itemEls[3];
+    const itemFirstEl = itemEls[0].nativeElement;
+    const itemSecondEl = itemEls[3].nativeElement;
 
     itemFirstEl.dispatchEvent(new MouseEvent('click'));
 

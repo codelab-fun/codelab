@@ -5,10 +5,9 @@
 }
 
 .slides-wrapper {
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 158px;
   height: 100%;
   padding: 0 4px;
   box-shadow: 1px 0 2px 0 #ddd;
@@ -33,7 +32,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  min-height: 150px;
+  min-height: 100px;
   padding: 4px 20px;
   box-sizing: border-box;
   border: 1px solid #ddd;
@@ -44,6 +43,13 @@
 
 .slide-wrapper + .slide-wrapper {
   margin-top: 4px;
+}
+
+.slides-list {
+  max-height: calc(100vh - 21px - 40px);
+  width: 150px;
+  overflow: auto;
+  padding: 0 4px;
 }
 
 .slide {
