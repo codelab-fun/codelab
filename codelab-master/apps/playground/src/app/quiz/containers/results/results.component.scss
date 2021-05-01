@@ -50,3 +50,29 @@ mat-card-header {
     }
   }
 }
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  mat-card { width: 440px !important; }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

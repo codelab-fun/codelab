@@ -36,3 +36,17 @@ button {
   font-family: $font-stack;
 }
 
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  mat-toolbar {
+    margin-left: 0 !important;
+  }
+  .leader {
+    font-size: small !important;
+    margin-left: 20px !important;
+  }
+  span.scoreboard {
+    font-size: 24px !important;
+    margin-left: 0 !important;
+  }
+}

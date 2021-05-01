@@ -147,3 +147,38 @@ mat-card {
     }
   }
 }
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  mat-card { width: 440px !important; height: auto !important; margin-bottom: 30px !important; }
+  img.header-image { top: 0; left: 10px; height: 150px !important; width: 170px !important;}
+  mat-card-title { margin-left: 20px !important; }
+  mat-card-subtitle { margin-left: -100px !important; }
+  #question { width: 400px !important; word-wrap: break-word; }
+  .paging { width: 400px !important;
+    .restart-nav { margin-left: 35% !important; }
+  }
+  .progress-bar { width: 400px !important; }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+

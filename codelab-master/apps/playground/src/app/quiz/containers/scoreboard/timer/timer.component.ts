@@ -81,4 +81,8 @@ export class TimerComponent implements OnInit, OnChanges {
     )
     .pipe(tap((value) => this.timerService.setElapsed(value)));
   }
+
+  pauseTimer(): void {
+    // pause timer code here
+  }
 }

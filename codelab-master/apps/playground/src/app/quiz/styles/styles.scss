@@ -13,6 +13,11 @@
   font-display: swap;
 }
 
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
 mat-card {
   margin-top: 2%;
   margin-bottom: 20px;

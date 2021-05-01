@@ -1,19 +1,23 @@
 @import "variables";
 
-mat-card {
+.container {
   margin-top: 1%;
   margin-bottom: 20px;
   width: 1100px;
-  height: auto;
+  height: fit-content;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid $black;
   background: transparentize($light-gray, 0.5);
 
-  mat-card-header {
+  header {
     height: 100px;
+    display: grid;
+    grid-template-columns: 250px 850px 50px;
+    padding-bottom: 60px;
 
     .logo {
-      margin-left: 20px;
+      padding-top: 20px;
+      padding-left: 30px;
 
       img {
         text-align: center;
@@ -23,15 +27,20 @@ mat-card {
       }
     }
 
-    mat-card-title h1 {
+    h1 {
       font-family: $font-stack;
       font-weight: $font-weight-max;
       color: $dodger-blue;
       margin-top: 15px;
     }
 
+    h4 {
+      margin-left: 40px;
+      font-style: italic;
+    }
+
     .info {
-      margin-top: 10px;
+      margin-top: 20px;
       margin-left: -100px;
 
       i {
@@ -45,89 +54,95 @@ mat-card {
     }
   }
 
-  mat-card-content {
-    mat-toolbar {
-      width: 220px;
-      margin: 0 auto;
-      background-color: transparentize($light-gray, 0.5);
+  .toolbar {
+    width: 220px;
+    padding-top: 30px;
+    margin: 0 auto;
+    background-color: transparentize($light-gray, 0.5);
 
-      button {
-        &:hover {
-          border: 1px solid $dodger-blue;
-        }
-        span {
-          font-size: 24px;
-          font-weight: 700;
-          color: $fire-red;
-        }
+    button {
+      &:hover {
+        border: 1px solid $dodger-blue;
+      }
+
+      span {
+        font-size: 24px;
+        font-weight: 700;
+        color: $fire-red;
       }
     }
+  }
 
-    mat-grid-list {
-      margin: 10px 0 0 15px;
+  .quiz-grid {
+    margin: 10px 0 0 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
 
-      mat-grid-tile {
-        margin: 0 10px 20px 0;
-        width: 320px !important;
-        height: 350px !important;
-        background-color: $off-white;
-        border: 1px solid black;
-        border-radius: 10px;
-        cursor: pointer;
+    .quiz-tile {
+      margin: 0 10px 20px 0;
+      width: 320px;
+      height: 350px;
+      background-color: $off-white;
+      border: 1px solid $black;
+      border-radius: 10px;
+      cursor: pointer;
 
-        &:hover {
-          background-color: $very-light-gray;
-          border: 2px solid $dodger-blue;
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-          transition: 0.3s;
-        }
-        &:active, &:visited {
-          border: 2px solid $dodger-blue;
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-          transition: 0.3s;
-        }
+      &:hover {
+        background-color: $very-light-gray;
+        border: 2px solid $dodger-blue;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
 
-        &.completed {
-          opacity: 0.6 !important;
-        }
+      &:active, &:visited {
+        border: 2px solid $dodger-blue;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
 
-        .quiz-info {
-          margin: 60% 0 0 5px;
-          padding: 10px;
-          width: 370px;
-          height: 110px;
+      &.completed {
+        opacity: 0.6 !important;
+      }
 
-          .quiz-title {
-            font-weight: $font-weight-max;
-            text-align: center;
-            margin-top: 20px;
-            color: $fire-red;
-          }
+      .quiz-info {
+        list-style-type: none;
+        margin: 65% 0 0 5px;
+        padding: 10px;
+        width: 370px;
+        height: 110px;
 
-          .quiz-subtitle {
-            font-family: Helvetica Neue, sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            text-align: justify;
-          }
+        .quiz-title {
+          font-weight: $font-weight-max;
+          margin-top: 20px;
+          color: $fire-red;
         }
 
-        .status-icon {
-          position: absolute;
-          top: 10px;
-          right: 10px;
+        .quiz-summary {
+          font: 700 14px "Helvetica Neue", sans-serif;
+          text-align: justify;
+          width: 280px;
+        }
+      }
 
-          i {
-            font-size: 24px;
-            color: $green-angular-leaf;
-          }
+      .status-icon {
+        position: relative;
+        top: -310px;
+        left: 285px;
+
+        i {
+          font-size: 24px;
+          color: $green-angular-leaf;
         }
       }
     }
   }
 
-  mat-card-footer {
+  footer {
     margin-bottom: 5px;
+    padding-top: 50px;
+    padding-bottom: 20px;
 
     h3 {
       font-weight: $font-weight-max;
@@ -140,4 +155,43 @@ mat-card {
       text-decoration: none;
     }
   }
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  .container { width: 450px; height: fit-content; }
+  header { display: grid !important; grid-template-columns: 240px auto auto !important; height: fit-content !important; padding-bottom: 10px !important; }
+  .logo { width: 50px; height: 50px; margin-left: -20px !important; }
+  h1 { margin-left: -80px; display: inline-block !important; word-break: break-word !important; }
+  h4 { margin-left: -170px !important; margin-top: 15px !important; display: inline-block !important;
+    word-break: break-word !important; }
+  .toolbar { margin-top: 0 }
+  .quiz-grid { width: 420px; padding-bottom: 20px; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; grid-template-rows: auto !important; }
+  .quiz-tile {
+    width: 380px;
+    height: 370px;
+    margin-left: 30px !important;
+  }
+  footer { width: 440px; margin: 0 auto !important; }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }

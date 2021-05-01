@@ -1,54 +1,46 @@
-<mat-card class="container">
-  <mat-card-header class="row">
+<div class="container">
+  <header class="row">
     <div class="col logo">
       <a href="https://www.codelab.fun" title="Angular Codelab" target="_blank">
-        <img mat-card-avatar class="header-image" loading="lazy">
+        <img mat-card-avatar src="assets/images/codelab_logo.jpeg" class="header-image" loading="lazy" />
       </a>
     </div>
     <div class="col-8">
-      <mat-card-title-group>
-        <mat-card-title i18n>
-          <h1>Angular Codelab Quiz App</h1>
-        </mat-card-title>
-        <mat-card-subtitle i18n>
-          <span>How well do you know Angular? Find out!</span>
-        </mat-card-subtitle>
-      </mat-card-title-group>
+      <h1 i18n>Angular Codelab Quiz App</h1>
+      <h4>How well do you know Angular? Find out!</h4>
     </div>
     <div class="col info">
       <a href="https://www.github.com/codelab-fun/codelab/blob/master/README.md#angular-codelab---codelabfun" target="_blank">
         <i class="material-icons" matTooltip="Angular Codelab info" matTooltipPosition="right">info</i>
       </a>
     </div>
-  </mat-card-header>
+  </header>
 
-  <mat-card-content>
-    <mat-toolbar>
-      <button mat-button [matMenuTriggerFor]="menu" aria-label="Milestones Menu">
-        <span i18n>Milestones &#x25BC;</span>
-      </button>
-      <mat-menu #menu="matMenu" xPosition="before">
-        <div *ngFor="let quiz of quizzes$ | async">
-          <button mat-menu-item name="milestone"
-                  [routerLink]="['/quiz/intro/', quiz.quizId]"
-                  data-i18n="quiz.milestone">{{ quiz.milestone }}
-          </button>
-        </div>
-      </mat-menu>
-    </mat-toolbar>
+  <div class="toolbar">
+    <button mat-button [matMenuTriggerFor]="menu" aria-label="Milestones Menu">
+      <span i18n>Milestones &#x25BC;</span>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <div *ngFor="let quiz of quizzes$ | async">
+        <button mat-menu-item name="milestone"
+                [routerLink]="['/quiz/intro/', quiz.quizId]"
+                data-i18n="quiz.milestone">{{ quiz.milestone }}
+        </button>
+      </div>
+    </mat-menu>
+  </div>
 
-    <mat-grid-list cols="3" rowHeight="370px" gutterSize="5px">
-      <mat-grid-tile
+  <div class="quiz-grid">
+      <div class="quiz-tile"
         *ngFor="let quiz of quizzes$ | async"
         [@slideLeftToRight]="animationState$ | async"
         (@slideLeftToRight.done)="animationDoneHandler()"
         [routerLink]="['/quiz/intro/', quiz.quizId]" loading="lazy"
         [ngStyle]="{ 'background': 'url(' + imagePath + quiz.image + ') no-repeat center 10px',
                      'background-size': '300px 210px' }">
-
         <summary class="quiz-info">
           <h5 class="quiz-title" i18n>{{ quiz.milestone }}</h5>
-          <h6 class="quiz-subtitle" i18n>{{ quiz.summary }}</h6>
+          <h6 class="quiz-summary" i18n>{{ quiz.summary }}</h6>
         </summary>
 
         <div class="status-icon">
@@ -72,11 +64,10 @@
             <i class="material-icons">done_all</i>
           </span>
         </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-card-content>
+      </div>
+    </div>
 
-  <mat-card-footer>
-    <h3 i18n>Copyright &copy; 2020 <a target="_blank" href="https://www.codelab.fun">codelab.fun</a></h3>
-  </mat-card-footer>
-</mat-card>
+  <footer>
+    <h3 i18n>Copyright &copy; 2021 <a target="_blank" href="https://www.codelab.fun">codelab.fun</a></h3>
+  </footer>
+</div>

@@ -21,7 +21,7 @@ export class QuizSelectionComponent implements OnInit {
   animationState$ = new BehaviorSubject<AnimationState>('none');
   imagePath = "assets/images/milestones/";
 
-  constructor(private quizService: QuizService) {}
+  constructor(private quizService: QuizService) { }
 
   ngOnInit(): void {
     this.quizzes$ = this.quizService.getQuizzes();
