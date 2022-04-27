@@ -3,7 +3,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  Output
+  Output,
 } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
@@ -12,7 +12,7 @@ import { flatten } from '../binary-flat/binary-flat.component';
 @Component({
   selector: 'kirjs-binary-plain',
   templateUrl: './binary-plain.component.html',
-  styleUrls: ['./binary-plain.component.css']
+  styleUrls: ['./binary-plain.component.css'],
 })
 export class BinaryPlainComponent implements OnChanges {
   @Output() updateChunk = new EventEmitter();
@@ -28,7 +28,7 @@ export class BinaryPlainComponent implements OnChanges {
     0x05: 'Table',
     0x07: 'Export',
     0x08: 'Start',
-    0x0a: 'Code'
+    0x0a: 'Code',
   };
   show = [];
   types = ['boolean', 'number', 'hex', 'string', 'const', 'enums'];
@@ -44,7 +44,7 @@ export class BinaryPlainComponent implements OnChanges {
 
   get highlighted() {
     return Object.keys(this.highlightedMap)
-      .filter(key => this.highlightedMap[key])
+      .filter((key) => this.highlightedMap[key])
       .join(' ');
   }
 
@@ -53,7 +53,7 @@ export class BinaryPlainComponent implements OnChanges {
       try {
         this.structure = flatten(
           this.parser.readOrdered(new StringBinaryReader(this.binary)).value
-        ).filter(a => a.className.match(this.filterClassName));
+        ).filter((a) => a.className.match(this.filterClassName));
       } catch (e) {
         console.log(e);
       }

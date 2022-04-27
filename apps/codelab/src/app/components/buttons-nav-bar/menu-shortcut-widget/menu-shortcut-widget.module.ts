@@ -7,6 +7,6 @@ import { MenuShortcutWidgetComponent } from './menu-shortcut-widget.component';
 @NgModule({
   imports: [CommonModule, RouterModule, MatMenuModule],
   declarations: [MenuShortcutWidgetComponent],
-  exports: [MenuShortcutWidgetComponent]
+  exports: [MenuShortcutWidgetComponent],
 })
 export class MenuShortcutWidgetModule {}

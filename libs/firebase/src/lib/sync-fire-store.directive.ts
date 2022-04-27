@@ -5,29 +5,29 @@ import {
   HostListener,
   Input,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
-  NgControl
+  NgControl,
 } from '@angular/forms';
 import {
   AngularFirestore,
-  AngularFirestoreDocument
+  AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
 
 export const SYNC_FIRESTORE_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => SyncFireStoreDirective),
-  multi: true
+  multi: true,
 };
 
 // TODO(kirjs): This is not yet working
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[syncFireStore]'
+  selector: '[syncFireStore]',
 })
 export class SyncFireStoreDirective<T> implements OnChanges {
   @Input() syncFireStore!: T;

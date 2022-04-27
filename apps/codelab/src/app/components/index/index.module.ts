@@ -18,9 +18,9 @@ import { AngularRoutesModule } from '../angular-routes/angular-routes.module';
     SlidesModule,
     MatCardModule,
     SyncModule,
-    AngularRoutesModule
+    AngularRoutesModule,
   ],
   declarations: [IndexComponent],
-  exports: [IndexComponent]
+  exports: [IndexComponent],
 })
 export class IndexModule {}

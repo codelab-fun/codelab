@@ -8,7 +8,7 @@ describe('WasmContentsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [WasmContentsComponent]
+      declarations: [WasmContentsComponent],
     }).compileComponents();
   }));
 

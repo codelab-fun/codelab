@@ -6,6 +6,6 @@ import { SizePickerModule } from '../size-picker/size-picker.module';
 @NgModule({
   imports: [CommonModule, SizePickerModule],
   declarations: [NewProgressBarComponent],
-  exports: [NewProgressBarComponent]
+  exports: [NewProgressBarComponent],
 })
 export class NewProgressBarModule {}

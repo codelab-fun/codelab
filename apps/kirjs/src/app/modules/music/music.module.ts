@@ -4,6 +4,6 @@ import { MusicComponent } from './music.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [MusicComponent]
+  declarations: [MusicComponent],
 })
 export class MusicModule {}

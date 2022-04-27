@@ -8,7 +8,7 @@ describe('ConfigureSyncComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ConfigureSyncComponent]
+      declarations: [ConfigureSyncComponent],
     }).compileComponents();
   }));
 

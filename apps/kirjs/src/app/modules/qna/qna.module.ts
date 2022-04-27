@@ -25,7 +25,7 @@ const routes = RouterModule.forChild([{ path: '', component: QnaComponent }]);
     SyncSessionService,
     SyncDbService,
     SyncPollService,
-    SyncRegistrationService
+    SyncRegistrationService,
   ],
   imports: [
     CommonModule,
@@ -37,7 +37,7 @@ const routes = RouterModule.forChild([{ path: '', component: QnaComponent }]);
     AngularFireDatabaseModule,
     SyncButtonModule,
     SyncDirectivesModule,
-    SyncRegistrationModule
-  ]
+    SyncRegistrationModule,
+  ],
 })
 export class QnaModule {}

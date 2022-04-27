@@ -5,6 +5,6 @@ import { PollComponent, SlidesAnswerComponent } from './poll.component';
 @NgModule({
   declarations: [PollComponent, SlidesAnswerComponent],
   exports: [PollComponent, SlidesAnswerComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class PollModule {}

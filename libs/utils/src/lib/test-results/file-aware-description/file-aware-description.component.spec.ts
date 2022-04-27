@@ -8,7 +8,7 @@ describe('FileAwareDescriptionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [FileAwareDescriptionComponent]
+      declarations: [FileAwareDescriptionComponent],
     }).compileComponents();
   }));
 

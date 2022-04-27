@@ -8,7 +8,7 @@ describe('BinaryDisplayComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BinaryDisplayComponent]
+      declarations: [BinaryDisplayComponent],
     }).compileComponents();
   }));
 

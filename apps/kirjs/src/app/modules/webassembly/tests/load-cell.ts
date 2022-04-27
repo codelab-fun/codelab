@@ -11,7 +11,7 @@ export const memoryRepViz = {
       return 'lime';
     }
     return Math.floor((i / 4) % 2) === 0 ? '#ddd' : '#999';
-  }
+  },
 };
 
 export const loadCellTests = [
@@ -20,34 +20,34 @@ export const loadCellTests = [
     memory: [0, 0, 0],
     output: 0,
     imports: { config: { rowSize } },
-    viz: memoryRepViz
+    viz: memoryRepViz,
   },
   {
     args: [0, 0],
     memory: [1, 0, 0],
     output: 1,
     imports: { config: { rowSize } },
-    viz: memoryRepViz
+    viz: memoryRepViz,
   },
   {
     args: [1, 0],
     memory: [1, 1, 0, 0],
     output: 1,
     imports: { config: { rowSize } },
-    viz: memoryRepViz
+    viz: memoryRepViz,
   },
   {
     args: [0, 1],
     memory: [1, 0, 1, 0],
     viz: memoryRepViz,
     output: 1,
-    imports: { config: { rowSize } }
+    imports: { config: { rowSize } },
   },
   {
     args: [1, 1],
     memory: [1, 0, 0, 0],
     output: 0,
     viz: memoryRepViz,
-    imports: { config: { rowSize } }
-  }
+    imports: { config: { rowSize } },
+  },
 ];

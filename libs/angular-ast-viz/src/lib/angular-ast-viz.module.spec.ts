@@ -4,7 +4,7 @@ import { AngularAstVizModule } from './angular-ast-viz.module';
 describe('AngularAstVizModule', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [AngularAstVizModule]
+      imports: [AngularAstVizModule],
     }).compileComponents();
   }));
 

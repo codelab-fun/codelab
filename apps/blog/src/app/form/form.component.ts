@@ -10,7 +10,7 @@ import { Post } from '../common';
   selector: 'codelab-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
   title = new FormControl('', Validators.required);
@@ -21,7 +21,7 @@ export class FormComponent {
   myform = new FormGroup({
     title: this.title,
     author: this.author,
-    text: this.text
+    text: this.text,
   });
   statusMessage = '';
   error = false;

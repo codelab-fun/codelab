@@ -7,19 +7,19 @@ const funcTypes = {
   0x7c: 'f64',
   0x70: 'anyfunc',
   0x60: 'func',
-  0x40: 'empty_block'
+  0x40: 'empty_block',
 };
 
 const valueTypes = {
   0x7f: 'i32',
   0x7e: 'i64',
   0x7d: 'f32',
-  0x7c: 'f64'
+  0x7c: 'f64',
 };
 
 export function wasmParser() {
   const funcParamTypeParser = new BinaryParser().uInt8('type', {
-    enum: valueTypes
+    enum: valueTypes,
   });
 
   const funcTypeParser = new BinaryParser()
@@ -27,12 +27,12 @@ export function wasmParser() {
     .uInt8('paramCount')
     .array('params', {
       parser: funcParamTypeParser,
-      length: 'paramCount'
+      length: 'paramCount',
     })
     .uInt8('returnCount')
     .array('returns', {
       parser: funcParamTypeParser,
-      length: 'returnCount'
+      length: 'returnCount',
     });
 
   const fieldParser = new BinaryParser()
@@ -43,8 +43,8 @@ export function wasmParser() {
     key: 'kind',
     values: {
       0: new BinaryParser().varuint7('function'),
-      2: new BinaryParser().varuint7('memory-tbd')
-    }
+      2: new BinaryParser().varuint7('memory-tbd'),
+    },
   });
 
   const exportItemParser = new BinaryParser()
@@ -65,7 +65,7 @@ export function wasmParser() {
   const sectionParsers = {
     type: new BinaryParser().uInt8('count').array('params', {
       length: 'count',
-      parser: funcTypeParser
+      parser: funcTypeParser,
     }),
 
     import: new BinaryParser()
@@ -81,14 +81,14 @@ export function wasmParser() {
 
     export: new BinaryParser().varuint7('count').array('items', {
       length: 'count',
-      parser: exportItemParser
+      parser: exportItemParser,
     }),
 
     start: new BinaryParser().varuint7('index'),
 
     code: new BinaryParser()
       .varuint7('number_of_functions')
-      .block('lol', codeBodyParser)
+      .block('lol', codeBodyParser),
   };
 
   const sectionParser = new BinaryParser()
@@ -100,8 +100,8 @@ export function wasmParser() {
         0x05: 'Table',
         0x07: 'Export',
         0x08: 'Start',
-        0x0a: 'Code'
-      }
+        0x0a: 'Code',
+      },
     })
     .varuint7('size')
     .choice('section', {
@@ -113,14 +113,14 @@ export function wasmParser() {
         0x05: sectionParsers.table,
         0x07: sectionParsers.export,
         0x08: sectionParsers.start,
-        0x0a: sectionParsers.code
-      }
+        0x0a: sectionParsers.code,
+      },
     });
 
   const header = new BinaryParser()
     .string('headerConst', {
       length: 4,
-      description: `header const`
+      description: `header const`,
     })
     .uInt32le('version')
     .array('sections', { length: 7, parser: sectionParser });

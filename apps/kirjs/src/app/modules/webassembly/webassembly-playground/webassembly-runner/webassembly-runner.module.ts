@@ -5,6 +5,6 @@ import { WebassemblyRunnerComponent } from './webassembly-runner.component';
 @NgModule({
   declarations: [WebassemblyRunnerComponent],
   exports: [WebassemblyRunnerComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class WebassemblyRunnerModule {}

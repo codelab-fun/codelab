@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SyncRegistrationService {
   readonly key = 'name';
@@ -12,7 +12,7 @@ export class SyncRegistrationService {
   readonly userData = this.syncDataService.getAdminAllUserData(this.key);
   readonly usersMap$ = this.userData.valueChanges();
   readonly users$ = this.usersMap$.pipe(
-    map(a => {
+    map((a) => {
       return a
         ? Object.entries(a).map(([userId, name]) => ({ userId, name }))
         : [];
@@ -26,15 +26,15 @@ export class SyncRegistrationService {
     .getPresenterObject('registration')
     .withDefault({
       shouldDisplayNames: true,
-      isRegistrationEnabled: true
+      isRegistrationEnabled: true,
     })
     .valueChanges();
 
   readonly shouldDisplayNames$ = this.registrationConfig$.pipe(
-    map(a => a.shouldDisplayNames)
+    map((a) => a.shouldDisplayNames)
   );
   readonly isRegistrationEnabled$ = this.registrationConfig$.pipe(
-    map(a => a.isRegistrationEnabled)
+    map((a) => a.isRegistrationEnabled)
   );
 
   constructor(private readonly syncDataService: SyncDataService) {}

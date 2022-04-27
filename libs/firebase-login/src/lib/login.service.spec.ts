@@ -10,9 +10,9 @@ describe('LoginService', () => {
       providers: [
         {
           provide: AngularFireAuth,
-          useValue: { user: of({}) }
-        }
-      ]
+          useValue: { user: of({}) },
+        },
+      ],
     })
   );
 

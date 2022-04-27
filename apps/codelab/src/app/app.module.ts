@@ -28,13 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireDatabaseModule,
     NotFoundModule,
     MatButtonModule,
-    DirectivesModule
+    DirectivesModule,
   ],
   declarations: [AppComponent],
   providers: [
     { provide: MENU_ROUTES, useValue: menuRoutes },
-    { provide: APP_INITIALIZER, useValue: monacoReady, multi: true }
+    { provide: APP_INITIALIZER, useValue: monacoReady, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

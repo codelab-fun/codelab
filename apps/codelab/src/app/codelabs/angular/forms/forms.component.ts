@@ -2,7 +2,7 @@ import { CodelabFile } from '../../../shared/helpers/codelabFile';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
-  Ng2TsExercises
+  Ng2TsExercises,
 } from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
@@ -19,7 +19,7 @@ function formsConfig(code, highlights: FileHighlights = {}) {
     appHtml: require('!!raw-loader!./samples/basic/app.1.html'),
     appModule: require('!!raw-loader!./samples/basic/app.module.ts'),
     appComponent: require('!!raw-loader!./samples/basic/app.component.ts'),
-    ...code
+    ...code,
   };
 
   return {
@@ -46,15 +46,15 @@ function formsConfig(code, highlights: FileHighlights = {}) {
 
       CodelabFile.Css('extra').setCode(
         require('!!raw-loader!./samples/basic/styles.css')
-      )
-    ]
+      ),
+    ],
   };
 }
 
 @Component({
   selector: 'codelab-slides-forms',
   templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.css']
+  styleUrls: ['./forms.component.css'],
 })
 export class FormsComponent implements AfterViewInit {
   @ViewChild('translations', { static: false }) translations;
@@ -63,62 +63,63 @@ export class FormsComponent implements AfterViewInit {
     basicForm: formsConfig(
       { appHtml: require('!!raw-loader!./samples/basic/app.1.html') },
       {
-        appModule: /FormsModule]/
+        appModule: /FormsModule]/,
       }
     ),
     ngModel: formsConfig(
       { appHtml: require('!!raw-loader!./samples/basic/app.2.html') },
       {
-        appHtml: [/ngModel/g]
+        appHtml: [/ngModel/g],
       }
     ),
     ngValidation1: formsConfig(
       { appHtml: require('!!raw-loader!./samples/basic/app.3.html') },
       {
-        appHtml: [/required/]
+        appHtml: [/required/],
       }
     ),
     ngValidation2: formsConfig(
       { appHtml: require('!!raw-loader!./samples/basic/app.4.html') },
       {
-        appHtml: [/#usernameModel="ngModel"/, /<div \*[\s\S]*?<\/div>/]
+        appHtml: [/#usernameModel="ngModel"/, /<div \*[\s\S]*?<\/div>/],
       }
     ),
     touched: formsConfig(
       {
         appHtml: require('!!raw-loader!./samples/basic/app.4.html'),
-        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts')
+        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts'),
       },
       {
-        appComponent: /username = ''/
+        appComponent: /username = ''/,
       }
     ),
     touched2: formsConfig(
       {
         appHtml: require('!!raw-loader!./samples/basic/app.5.html'),
-        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts')
+        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts'),
       },
       {
-        appHtml: /(usernameModel.touched \|\| usernameModel.dirty)/
+        appHtml: /(usernameModel.touched \|\| usernameModel.dirty)/,
       }
     ),
     ngMaterial: formsConfig(
       {
         appHtml: require('!!raw-loader!./samples/basic/app.6.html'),
-        appModule: require('!!raw-loader!./samples/basic/app.module.6.ts').replace(
-          'component.5',
-          'component' /*Stupid hack*/
-        )
+        appModule:
+          require('!!raw-loader!./samples/basic/app.module.6.ts').replace(
+            'component.5',
+            'component' /*Stupid hack*/
+          ),
       },
       {
         appHtml: [
           /<mat-form-field>/,
           /<\/mat-form-field>/,
           /matInput/,
-          /<mat-error>.*<\/mat-error>/
-        ]
+          /<mat-error>.*<\/mat-error>/,
+        ],
       }
-    )
+    ),
   };
   private t: Record<string, string>;
 

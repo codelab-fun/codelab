@@ -11,7 +11,7 @@ import { ModeComponent } from './mode/mode.component';
 import { CreateFirstAppComponent } from './create-first-app.component';
 
 const routes = RouterModule.forChild([
-  ...SlidesRoutes.get(CreateFirstAppComponent)
+  ...SlidesRoutes.get(CreateFirstAppComponent),
 ]);
 
 @NgModule({
@@ -24,9 +24,9 @@ const routes = RouterModule.forChild([
     CodelabComponentsModule,
     CodeDemoModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [CreateFirstAppComponent, ModeComponent],
-  exports: [CreateFirstAppComponent]
+  exports: [CreateFirstAppComponent],
 })
 export class CreateFirstAppModule {}

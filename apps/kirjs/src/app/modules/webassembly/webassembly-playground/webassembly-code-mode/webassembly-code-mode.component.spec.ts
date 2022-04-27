@@ -8,7 +8,7 @@ describe('WebassemblyCodeModeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [WebassemblyCodeModeComponent]
+      declarations: [WebassemblyCodeModeComponent],
     }).compileComponents();
   }));
 

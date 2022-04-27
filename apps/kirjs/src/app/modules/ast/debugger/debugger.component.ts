@@ -6,7 +6,7 @@ const code = require('!!raw-loader!./debugger.ts');
 @Component({
   selector: 'kirjs-debugger-sample',
   templateUrl: './debugger.component.html',
-  styleUrls: ['./debugger.component.css']
+  styleUrls: ['./debugger.component.css'],
 })
 export class DebuggerComponent implements OnInit {
   @Input() fontSize = 20;

@@ -4,7 +4,7 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
 @Component({
   selector: 'codelab-registration-admin',
   templateUrl: './registration-admin.component.html',
-  styleUrls: ['./registration-admin.component.css']
+  styleUrls: ['./registration-admin.component.css'],
 })
 export class RegistrationAdminComponent {
   url: string;

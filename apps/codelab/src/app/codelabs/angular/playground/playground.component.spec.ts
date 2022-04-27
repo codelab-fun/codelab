@@ -14,15 +14,15 @@ describe('PlaygroundComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: { snapshot: { queryParams: { code: '' } } }
+          useValue: { snapshot: { queryParams: { code: '' } } },
         },
         {
           provide: Router,
           useValue: {
-            navigate: jasmine.createSpy('navigate')
-          }
-        }
-      ]
+            navigate: jasmine.createSpy('navigate'),
+          },
+        },
+      ],
     }).compileComponents();
   }));
 

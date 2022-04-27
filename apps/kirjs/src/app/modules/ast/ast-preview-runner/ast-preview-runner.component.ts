@@ -4,7 +4,7 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { parse } from 'babylon';
 
@@ -13,7 +13,7 @@ declare const require;
 @Component({
   selector: 'kirjs-ast-preview-runner',
   templateUrl: './ast-preview-runner.component.html',
-  styleUrls: ['./ast-preview-runner.component.css']
+  styleUrls: ['./ast-preview-runner.component.css'],
 })
 export class AstPreviewRunnerComponent implements OnChanges {
   ast: any;
@@ -31,7 +31,7 @@ export class AstPreviewRunnerComponent implements OnChanges {
       loc.start.line,
       loc.start.column + 1,
       loc.end.line,
-      loc.end.column + 1
+      loc.end.column + 1,
     ]);
   }
 

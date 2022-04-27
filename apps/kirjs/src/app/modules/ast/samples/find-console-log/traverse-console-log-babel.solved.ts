@@ -16,7 +16,7 @@ function traverseConsoleLogSolved(
       ) {
         hasConsoleLog = true;
       }
-    }
+    },
   });
 
   return hasConsoleLog;

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TestRunnerService {
   readonly testRunner = new TestRunner(

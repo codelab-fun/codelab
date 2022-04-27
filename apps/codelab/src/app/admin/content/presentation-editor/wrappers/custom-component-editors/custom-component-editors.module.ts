@@ -18,8 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { CodelabExerciseEditorComponent } from './codelab-exercise-preview-editor/codelab-exercise-editor.component';
 import { CodelabComponentsModule } from '../../../../../components/codelab-components.module';
 import { MatButtonModule } from '@angular/material/button';
-import {InputMatchesTextValidatorDirective} from "./codelab-code-demo-console-editor/input-matches-text-validator";
-import {MatInputModule} from "@angular/material/input";
+import { InputMatchesTextValidatorDirective } from './codelab-code-demo-console-editor/input-matches-text-validator';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import {MatInputModule} from "@angular/material/input";
     CodelabPresetComponent,
     CodelabCodeDemoConsoleEditorComponent,
     CodelabImageEditorComponent,
-    CodelabExerciseEditorComponent
+    CodelabExerciseEditorComponent,
   ],
   exports: [],
   imports: [
@@ -44,7 +44,7 @@ import {MatInputModule} from "@angular/material/input";
     MatSelectModule,
     AngularFireStorageModule,
     MatButtonModule,
-    MatInputModule
-  ]
+    MatInputModule,
+  ],
 })
 export class CustomComponentEditorsModule {}

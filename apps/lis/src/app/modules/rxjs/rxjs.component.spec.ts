@@ -8,7 +8,8 @@ describe('RxjsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RxjsComponent]
+      declarations: [RxjsComponent],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

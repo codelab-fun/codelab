@@ -7,7 +7,7 @@ declare const require;
 @Component({
   selector: 'kirjs-gomoku',
   templateUrl: './gomoku-print.component.html',
-  styleUrls: ['./gomoku-print.component.css']
+  styleUrls: ['./gomoku-print.component.css'],
 })
 export class GomokuPrintComponent {
   fontSize = 18;
@@ -50,6 +50,6 @@ export class GomokuPrintComponent {
       'F4',
       'E4',
       'F2'
-    )
+    ),
   };
 }

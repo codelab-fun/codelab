@@ -5,7 +5,7 @@ import { ContentService } from '../services/content.service';
 @Component({
   selector: 'slides-preview',
   templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.css']
+  styleUrls: ['./preview.component.css'],
 })
 export class PreviewComponent {
   constructor(

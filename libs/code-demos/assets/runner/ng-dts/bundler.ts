@@ -45,7 +45,7 @@ const folders = [
   '@angular/material/tooltip',
   '@angular/material/tree',
   '@angular/forms',
-  'rxjs'
+  'rxjs',
 ];
 
 interface FileModule {
@@ -58,17 +58,17 @@ const fileModules: FileModule[] = folders.map(
     typings: (
       JSON.parse(
         readFileSync(`node_modules/${folder}/package.json`, {
-          encoding: 'utf-8'
+          encoding: 'utf-8',
         })
       ) || {}
     ).typings,
-    dtsPaths: glob.sync(`node_modules/${folder}/**/*.d.ts`)
+    dtsPaths: glob.sync(`node_modules/${folder}/**/*.d.ts`),
   })
 );
 
 const vendors = [].concat(
   ...fileModules.map(({ typings, dtsPaths }) => {
-    return dtsPaths.map(path => {
+    return dtsPaths.map((path) => {
       const paths = [path];
       if (typings) {
         const dtsFileName = basename(path);

@@ -4,16 +4,16 @@ export enum SyncStatus {
   OFF = 'off',
   VIEWING = 'viewing',
   PRESENTING = 'presenting',
-  ADMIN = 'admin'
+  ADMIN = 'admin',
 }
 
-export const canWritePresenterData = status =>
+export const canWritePresenterData = (status) =>
   status === SyncStatus.PRESENTING || status === SyncStatus.ADMIN;
 
 export function firebaseToValuesWithKey<T>(
   list: AngularFireAction<DatabaseSnapshot<T>>[]
 ) {
-  return list.map(action => ({ key: action.key, ...action.payload.val() }));
+  return list.map((action) => ({ key: action.key, ...action.payload.val() }));
 }
 
 export function toValuesAndKeys<T>(object: {

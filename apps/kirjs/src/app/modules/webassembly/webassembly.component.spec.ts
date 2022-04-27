@@ -8,7 +8,7 @@ describe('WebassemblyComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [WebassemblyComponent]
+      declarations: [WebassemblyComponent],
     }).compileComponents();
   }));
 

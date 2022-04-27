@@ -14,8 +14,8 @@ import { TaetLedComponent } from './taet-led.component';
     AppComponent,
     AlertComponent,
     BreakMyComputerComponent,
-    TaetLedComponent
+    TaetLedComponent,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

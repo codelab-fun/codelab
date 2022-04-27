@@ -9,7 +9,7 @@ const wasm = require('!binary-loader!./test._wasm');
 @Component({
   selector: 'kirjs-wasm-binary',
   templateUrl: './wasm-binary.component.html',
-  styleUrls: ['./wasm-binary.component.css']
+  styleUrls: ['./wasm-binary.component.css'],
 })
 export class WasmBinaryComponent {
   readonly binary = strToBin(wasm);

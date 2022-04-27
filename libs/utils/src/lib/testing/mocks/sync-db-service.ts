@@ -10,10 +10,10 @@ export function getSyncDbService() {
           return {
             valueChanges() {
               return of({});
-            }
+            },
           };
-        }
-      }
-    }
+        },
+      },
+    },
   ];
 }

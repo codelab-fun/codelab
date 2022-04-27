@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Directive,
   TemplateRef,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
 import { MatTabGroup, MatTab } from '@angular/material/tabs';
 

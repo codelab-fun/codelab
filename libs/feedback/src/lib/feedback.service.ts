@@ -10,13 +10,13 @@ import {
   publishReplay,
   refCount,
   repeatWhen,
-  switchMap
+  switchMap,
 } from 'rxjs/operators';
 
 function normalize(feedback: Array<any>) {
-  return feedback.map(item => ({
+  return feedback.map((item) => ({
     ...(item.payload && item.payload.val()),
-    key: item.key
+    key: item.key,
   }));
 }
 
@@ -33,17 +33,17 @@ export class FeedbackService {
   // Get a stream of messages filtered by href (of a message)
   getMessages(url: string): Observable<Message[]> {
     return this.database
-      .list('/feedback', ref => ref.orderByChild('href').equalTo(url))
+      .list('/feedback', (ref) => ref.orderByChild('href').equalTo(url))
       .snapshotChanges()
       .pipe(
         map(normalize),
-        map((items: Message[]) => items.filter(item => !item.isDone))
+        map((items: Message[]) => items.filter((item) => !item.isDone))
       );
   }
 
   getMessagesForCurrentPage(): Observable<Message[]> {
     const onNavigationEnd: Observable<Event> = this.router.events.pipe(
-      filter(val => val instanceof NavigationEnd)
+      filter((val) => val instanceof NavigationEnd)
     );
 
     const url: Observable<string> = defer(() => of(this.router.url)).pipe(
@@ -51,7 +51,7 @@ export class FeedbackService {
     );
 
     return url.pipe(
-      switchMap(url => this.getMessages(url)),
+      switchMap((url) => this.getMessages(url)),
       publishReplay(1),
       refCount()
     );
@@ -69,7 +69,7 @@ export class FeedbackService {
       comment,
       header,
       timestamp: new Date().toUTCString(),
-      href: this.router.url
+      href: this.router.url,
     };
     return this.repo$.push(message);
   }
@@ -80,10 +80,10 @@ export class FeedbackService {
 
   addRating(lesson: string, rating: string) {
     const path = 'ratings/' + lesson;
-    getRef(this.database.database, path).transaction(ratings => {
+    getRef(this.database.database, path).transaction((ratings) => {
       if (ratings == null) {
         ratings = {
-          lesson: lesson
+          lesson: lesson,
         };
       }
       const count = ratings[rating] || 0;

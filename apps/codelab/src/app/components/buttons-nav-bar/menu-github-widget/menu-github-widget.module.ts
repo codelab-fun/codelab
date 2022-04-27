@@ -6,6 +6,6 @@ import { MenuGithubWidgetComponent } from './menu-github-widget.component';
 @NgModule({
   imports: [CommonModule, MatMenuModule],
   declarations: [MenuGithubWidgetComponent],
-  exports: [MenuGithubWidgetComponent]
+  exports: [MenuGithubWidgetComponent],
 })
 export class MenuGithubWidgetModule {}

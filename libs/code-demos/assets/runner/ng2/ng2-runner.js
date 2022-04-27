@@ -16,16 +16,16 @@ const config = {
     experimentalDecorators: true,
     lib: ['es2015', 'dom', 'tslib'],
     noImplicitAny: true,
-    suppressImplicitAnyIndexErrors: true
+    suppressImplicitAnyIndexErrors: true,
   },
   meta: {
     typescript: {
-      exports: 'ts'
-    }
+      exports: 'ts',
+    },
   },
   paths: {
     'npm:': 'node_modules/',
-    'rxjs/': 'node_modules/rxjs/'
+    'rxjs/': 'node_modules/rxjs/',
   },
   // map tells the System loader where to look for things
   map: {
@@ -152,29 +152,29 @@ const config = {
     typescript: 'npm:typescript/lib/typescript.js',
     ts: 'npm:plugin-typescript/lib',
     'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
-    googlemaps: 'npm:googlemaps/lib/index.js'
+    googlemaps: 'npm:googlemaps/lib/index.js',
   },
   // packages tells the System loader how to load when no filename and/or no extension
   packages: {
     app: {
       main: './main',
-      defaultExtension: 'ts'
+      defaultExtension: 'ts',
     },
     ts: {
-      main: 'plugin.js'
+      main: 'plugin.js',
     },
     'rxjs/operators': {
-      main: 'index'
+      main: 'index',
     },
     rxjs: {
-      main: 'index'
+      main: 'index',
     },
 
     'angular2-in-memory-web-api': {
       main: 'index',
-      defaultExtension: 'js'
-    }
-  }
+      defaultExtension: 'js',
+    },
+  },
 };
 
 const inputFileName = join(rel, 'basic.ts');
@@ -183,7 +183,7 @@ const outputFileName = join(rel, 'ng-bundle.js');
 const builder = new Builder('./', config);
 builder
   .bundle(inputFileName, outputFileName)
-  .then(function() {
+  .then(function () {
     const content = readFileSync(outputFileName, { encoding: 'utf-8' });
     const minified = UglifyJS.minify(content);
     if (minified.error) {
@@ -195,7 +195,7 @@ builder
       console.log('Minified File size (kb): ', minified.code.length / 1000);
     }
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.log('Build error');
     console.log(err);
   });

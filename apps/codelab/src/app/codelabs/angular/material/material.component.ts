@@ -2,12 +2,12 @@ import {
   AfterViewInit,
   Component,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 import {
   ExerciseConfigTemplate,
-  Ng2TsExercises
+  Ng2TsExercises,
 } from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import { CodelabFile } from '../../../shared/helpers/codelabFile';
@@ -25,19 +25,18 @@ function matExercise(
   highlights: FileHighlights = {},
   theme = 'purple'
 ) {
-  const moduleCode = require('!!raw-loader!./samples/basic/app.module.ts').replace(
-    /MatCardModule, MatToolbarModule/g,
-    modules
-  );
+  const moduleCode =
+    require('!!raw-loader!./samples/basic/app.module.ts').replace(
+      /MatCardModule, MatToolbarModule/g,
+      modules
+    );
 
   return {
     files: [
       CodelabFile.TypeScriptFile('app.module')
         .setCode(moduleCode)
         .withHighlight(highlights.appModule),
-      CodelabFile.Html('app')
-        .setCode(html)
-        .withHighlight(highlights.appHtml),
+      CodelabFile.Html('app').setCode(html).withHighlight(highlights.appHtml),
       CodelabFile.TypeScriptFile('app.component').setCode(
         require('!!raw-loader!./samples/basic/app.component.ts')
       ),
@@ -47,8 +46,8 @@ function matExercise(
       CodelabFile.Css('styles').setCode(
         require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
       ),
-      CodelabFile.Css('extra').setCode('body {padding: 0; margin: 0;}')
-    ]
+      CodelabFile.Css('extra').setCode('body {padding: 0; margin: 0;}'),
+    ],
   };
 }
 
@@ -56,7 +55,7 @@ function matExercise(
   selector: 'codelab-slides-material',
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class MaterialComponent implements AfterViewInit {
   exercise: ExerciseConfigTemplate;
@@ -67,7 +66,7 @@ export class MaterialComponent implements AfterViewInit {
     indigo: require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
     deeppurple: require('!!raw-loader!@angular/material/prebuilt-themes/deeppurple-amber.css'),
     pink: require('!!raw-loader!@angular/material/prebuilt-themes/pink-bluegrey.css'),
-    purple: require('!!raw-loader!@angular/material/prebuilt-themes/purple-green.css')
+    purple: require('!!raw-loader!@angular/material/prebuilt-themes/purple-green.css'),
   };
 
   code = {
@@ -78,13 +77,13 @@ export class MaterialComponent implements AfterViewInit {
           'app.module.ts': require('!!raw-loader!./samples/step1/app.module.ts'),
           'app.html': require('!!raw-loader!./samples/step1/app.html'),
           'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
-          'styles.css': this.themes.indigo
+          'styles.css': this.themes.indigo,
         },
         files: ['app.module.ts', 'app.html'],
         highlights: {
           'app.module.ts': 'MatToolbarModule,',
-          'app.html': /<mat-toolbar[\s\S]*<\/mat-toolbar>/
-        }
+          'app.html': /<mat-toolbar[\s\S]*<\/mat-toolbar>/,
+        },
       },
       step2: {
         code: {
@@ -92,13 +91,13 @@ export class MaterialComponent implements AfterViewInit {
           'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts'),
           'app.html': require('!!raw-loader!./samples/step2/app.html'),
           'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
-          'styles.css': this.themes.indigo
+          'styles.css': this.themes.indigo,
         },
         files: ['app.module.ts', 'app.html'],
         highlights: {
           'app.module.ts': /MatCardModule,/,
-          'app.html': /<mat-card[\s\S]*<\/mat-card>/
-        }
+          'app.html': /<mat-card[\s\S]*<\/mat-card>/,
+        },
       },
       step3: {
         code: {
@@ -106,12 +105,12 @@ export class MaterialComponent implements AfterViewInit {
           'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts'),
           'app.html': require('!!raw-loader!./samples/step3/app.html'),
           'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
-          'styles.css': this.themes.indigo
+          'styles.css': this.themes.indigo,
         },
         files: ['app.html'],
         highlights: {
-          'app.html': /<mat-card-header[\s\S]*?Photo of a Shiba Inu[\s\S]*?>/
-        }
+          'app.html': /<mat-card-header[\s\S]*?Photo of a Shiba Inu[\s\S]*?>/,
+        },
       },
       step4: {
         code: {
@@ -119,13 +118,13 @@ export class MaterialComponent implements AfterViewInit {
           'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts'),
           'app.html': require('!!raw-loader!./samples/step4/app.html'),
           'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
-          'styles.css': this.themes.indigo
+          'styles.css': this.themes.indigo,
         },
         files: ['app.module.ts', 'app.html'],
         highlights: {
           'app.module.ts': /MatButtonModule\n/,
-          'app.html': /<mat-card-actions[\s\S]*<\/mat-card-actions>/
-        }
+          'app.html': /<mat-card-actions[\s\S]*<\/mat-card-actions>/,
+        },
       },
       themes: {
         code: {
@@ -133,15 +132,15 @@ export class MaterialComponent implements AfterViewInit {
           'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts'),
           'app.html': require('!!raw-loader!./samples/step4/app.html'),
           'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
-          'styles.css': this.themes.indigo
+          'styles.css': this.themes.indigo,
         },
-        files: ['app.html', 'styles.css']
+        files: ['app.html', 'styles.css'],
       },
       theme: matExercise(
         `MatToolbarModule,\n    MatCardModule,\n    MatButtonModule`,
         require('!!raw-loader!./samples/basic/app.4.html')
-      )
-    }
+      ),
+    },
   };
   private theme = 'indigo';
   private t: Record<string, string>;

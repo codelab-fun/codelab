@@ -5,7 +5,7 @@ function genGlobalStep() {
     answer: `global $rowSize i32))
   (global $step (export "step") (mut i32) (i32.const 1))
 `,
-    originalCode: /global \$rowSize i32\)\)/
+    originalCode: /global \$rowSize i32\)\)/,
   };
 }
 
@@ -15,7 +15,7 @@ function genMemory(name) {
   (memory 1)
   (export "memory" (memory 0))
 `,
-    originalCode: /global \$rowSize i32\)\)/
+    originalCode: /global \$rowSize i32\)\)/,
   };
 }
 
@@ -26,7 +26,7 @@ function genTable() {
   (table 8 anyfunc)
   (type $return_i32 (func (result i32)))
 `,
-    originalCode: /\(memory 0\)\)/
+    originalCode: /\(memory 0\)\)/,
   };
 }
 
@@ -53,7 +53,7 @@ function genElem() {
     $enable ;; 111
   )
 `,
-    originalCode: /\(table 8 anyfunc\)/
+    originalCode: /\(table 8 anyfunc\)/,
   };
 }
 
@@ -62,7 +62,7 @@ function genRowSize() {
     answer: `(module
   (import "config" "rowSize" (global $rowSize i32))
 `,
-    originalCode: /\(module/
+    originalCode: /\(module/,
   };
 }
 
@@ -72,7 +72,7 @@ function genModule() {
 
 )
 `,
-    originalCode: /^/
+    originalCode: /^/,
   };
 }
 
@@ -84,14 +84,14 @@ function genFuncName(name) {
   )
 )
 `,
-    originalCode: /\)\s*$/
+    originalCode: /\)\s*$/,
   };
 }
 
 @Component({
   selector: 'slides-wasm-contents',
   templateUrl: './wasm-contents.component.html',
-  styleUrls: ['./wasm-contents.component.css']
+  styleUrls: ['./wasm-contents.component.css'],
 })
 export class WasmContentsComponent {
   @Input() config: any;
@@ -101,45 +101,45 @@ export class WasmContentsComponent {
     if (m.type === 'func') {
       this.loadAnswer.emit({
         ...genFuncName(m.name),
-        ...m
+        ...m,
       });
     }
     if (m.type === 'module') {
       this.loadAnswer.emit({
         ...genModule(),
-        ...m
+        ...m,
       });
     }
 
     if (m.type === 'global.step') {
       this.loadAnswer.emit({
         ...genGlobalStep(),
-        ...m
+        ...m,
       });
     }
     if (m.type === 'table') {
       this.loadAnswer.emit({
         ...genTable(),
-        ...m
+        ...m,
       });
     }
     if (m.type === 'elem') {
       this.loadAnswer.emit({
         ...genElem(),
-        ...m
+        ...m,
       });
     }
     if (m.type === 'global.rowSize') {
       this.loadAnswer.emit({
         ...genRowSize(),
-        ...m
+        ...m,
       });
     }
 
     if (m.type === 'memory') {
       this.loadAnswer.emit({
         ...genMemory(m.name),
-        ...m
+        ...m,
       });
     }
   }

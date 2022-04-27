@@ -2,7 +2,7 @@ import { Directive, Input, ElementRef } from '@angular/core';
 
 @Directive({
   // tslint:disable-next-line
-  selector: '[href]'
+  selector: '[href]',
 })
 // TODO(meinou): Remove the second postfix
 export class ExternalLinkDirectiveDirective {

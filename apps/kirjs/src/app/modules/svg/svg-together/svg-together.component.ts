@@ -4,7 +4,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 @Component({
   selector: 'kirjs-svg-together',
   templateUrl: './svg-together.component.html',
-  styleUrls: ['./svg-together.component.css']
+  styleUrls: ['./svg-together.component.css'],
 })
 export class SvgTogetherComponent implements OnInit {
   code = '';
@@ -23,7 +23,7 @@ export class SvgTogetherComponent implements OnInit {
   stroke="black"
   stroke-width="2">
 </circle>
-</svg>`
+</svg>`,
     },
     {
       label: '⬭',
@@ -36,7 +36,7 @@ export class SvgTogetherComponent implements OnInit {
         fill="#ff0000"
         stroke="black"
         stroke-width="2"/>
-</svg>`
+</svg>`,
     },
     {
       label: '▭',
@@ -50,7 +50,7 @@ export class SvgTogetherComponent implements OnInit {
   stroke="black"
   stroke-width="2">
 </rect>
-</svg>`
+</svg>`,
     },
     {
       label: '_',
@@ -63,7 +63,7 @@ export class SvgTogetherComponent implements OnInit {
   stroke="#ff0000"
   stroke-width="2">
 </line>
-</svg>`
+</svg>`,
     },
     {
       label: 't',
@@ -77,7 +77,7 @@ export class SvgTogetherComponent implements OnInit {
   stroke-width=10>
 LOL❤
 </text>
-</svg>`
+</svg>`,
     },
     {
       label: '☆',
@@ -87,7 +87,7 @@ LOL❤
   opacity="0.3"
   stroke="black"
   stroke-width="2"/>
-</svg>`
+</svg>`,
     },
     {
       label: '⌇',
@@ -98,15 +98,15 @@ LOL❤
     stroke="black"
     stroke-width=1
     />
-</svg>`
-    }
+</svg>`,
+    },
   ];
 
   constructor(af: AngularFireDatabase) {
     this.angularFireList = af.list('/svg-together');
-    this.angularFireList.snapshotChanges().subscribe(a => {
+    this.angularFireList.snapshotChanges().subscribe((a) => {
       this.allCode =
-        '<svg>' + a.map(a => a.payload.val()).join('\n') + '</svg>';
+        '<svg>' + a.map((a) => a.payload.val()).join('\n') + '</svg>';
     });
     this.reset();
   }

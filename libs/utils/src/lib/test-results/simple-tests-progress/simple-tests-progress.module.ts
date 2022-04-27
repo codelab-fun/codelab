@@ -6,6 +6,6 @@ import { LoadingIndicatorModule } from '@codelab/utils/src/lib/loading-indicator
 @NgModule({
   declarations: [SimpleTestsProgressComponent],
   exports: [SimpleTestsProgressComponent],
-  imports: [CommonModule, LoadingIndicatorModule]
+  imports: [CommonModule, LoadingIndicatorModule],
 })
 export class SimpleTestsProgressModule {}

@@ -5,9 +5,9 @@
   [bootstrap]="bootstrapTest"
   [code]="files$ | async"
 ></codelab-simple-angular-test-runner>
-<div style=" display: flex;height: 100%;">
-  <div style="width: 50%;flex-grow: 0; display: flex;">
-    <div *ngIf="path" style="margin-left: 20px;color: red;">{{ path }}</div>
+<div style="display: flex; height: 100%">
+  <div style="width: 50%; flex-grow: 0; display: flex">
+    <div *ngIf="path" style="margin-left: 20px; color: red">{{ path }}</div>
     <code-demo-multitab-editor
       style="width: 100%"
       [displayFileName]="true"
@@ -23,7 +23,7 @@
 
   <code-demo-runner
     [url]="url"
-    style="width: 50%;flex-grow: 0"
+    style="width: 50%; flex-grow: 0"
     [ui]="ui"
     [presets]="presets"
     [bootstrap]="bootstrap"

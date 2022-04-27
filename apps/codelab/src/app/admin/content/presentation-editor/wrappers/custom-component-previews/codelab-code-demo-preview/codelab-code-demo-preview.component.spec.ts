@@ -8,7 +8,7 @@ describe('CodelabCodeDemoPreviewComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabCodeDemoPreviewComponent]
+      declarations: [CodelabCodeDemoPreviewComponent],
     }).compileComponents();
   }));
 

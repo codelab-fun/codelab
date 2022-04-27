@@ -3,22 +3,22 @@ import { shareReplay, switchMap } from 'rxjs/operators';
 import { Runner } from './runner';
 
 function run(code) {
-  return new Observable(function(subscriber) {
+  return new Observable(function (subscriber) {
     const file = new Blob([code], { type: 'text/javascript' });
     const worker = new Worker(window.URL.createObjectURL(file), {
-      name: Math.random().toString(36)
+      name: Math.random().toString(36),
     });
 
-    worker.onerror = e => {
+    worker.onerror = (e) => {
       subscriber.next({
         type: 'error',
-        data: e
+        data: e,
       });
       subscriber.complete();
       worker.terminate();
     };
 
-    worker.onmessage = function(a) {
+    worker.onmessage = function (a) {
       const data = a.data;
       if (data.type === 'complete') {
         worker.terminate();

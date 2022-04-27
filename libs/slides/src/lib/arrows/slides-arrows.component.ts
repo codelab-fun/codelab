@@ -7,7 +7,7 @@ import { SlidesDeckComponent } from '../deck/deck.component';
 @Component({
   selector: 'slide-arrows',
   templateUrl: './slides-arrows.component.html',
-  styleUrls: ['./slides-arrows.component.css']
+  styleUrls: ['./slides-arrows.component.css'],
 })
 export class SlidesArrowsComponent {
   /**

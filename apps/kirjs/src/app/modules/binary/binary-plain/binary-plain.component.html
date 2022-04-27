@@ -13,9 +13,9 @@
       >
         {{ type }}
       </button>
-      <label style="display: flex;margin-left: 3vw;">
+      <label style="display: flex; margin-left: 3vw">
         <span class="spacing">Spacing</span>
-        <input style="zoom:3" type="checkbox" [(ngModel)]="spacing" />
+        <input style="zoom: 3" type="checkbox" [(ngModel)]="spacing" />
       </label>
     </div>
 
@@ -30,7 +30,7 @@
         <span
           *ngIf="item.data"
           class="{{ item.type }} {{ item.className }} bin-block"
-          style="display: inline;"
+          style="display: inline"
           (click)="show[i] = !show[i]"
           [attr.name]="item.name"
           (keydown.enter)="update(item, $event.target.innerText)"
@@ -45,9 +45,9 @@
         <div
           [class.selected]="show[i]"
           *ngIf="item.data && show[i]"
-          style="display: inline;word-break: break-all"
+          style="display: inline; word-break: break-all"
         >
-          <div style="display: flex;justify-content: space-between;">
+          <div style="display: flex; justify-content: space-between">
             <div
               class="{{ item.type }} {{ item.className }} bin-block"
               (click)="show[i] = true"
@@ -58,8 +58,7 @@
               {{ item.rawValue }}
             </div>
             <button
-              style="border: 0 solid;
-              line-height: 2vw;cursor: pointer;"
+              style="border: 0 solid; line-height: 2vw; cursor: pointer"
               (click)="show[i] = false"
               *ngIf="show[i]"
             >
@@ -73,7 +72,7 @@
             <div>
               <span class="label">name:</span><span>{{ item.name }}</span>
             </div>
-            <div style="display: flex;">
+            <div style="display: flex">
               <span class="label">description:</span
               ><span>{{ item.description }}</span>
             </div>

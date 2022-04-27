@@ -6,7 +6,7 @@ describe('Utils', () => {
         lineStart: 1,
         indexStart: 1,
         indexEnd: 6,
-        lineEnd: 1
+        lineEnd: 1,
       });
     });
 
@@ -15,7 +15,7 @@ describe('Utils', () => {
         lineStart: 1,
         indexStart: 3,
         indexEnd: 8,
-        lineEnd: 1
+        lineEnd: 1,
       });
     });
 
@@ -83,7 +83,7 @@ He\nlloooo`,
         lineStart: 1,
         indexStart: 7,
         indexEnd: 13,
-        lineEnd: 1
+        lineEnd: 1,
       });
     });
   });

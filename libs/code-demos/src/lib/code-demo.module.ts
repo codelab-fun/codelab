@@ -24,7 +24,7 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     MatSelectModule,
     MatButtonModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     MultitabEditorComponent,
@@ -36,7 +36,7 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
+    CodeDemoEditorAutoFoldingDirective,
   ],
   exports: [
     FilePathComponent,
@@ -48,7 +48,7 @@ import { CodeDemoEditorLineChangeDirective } from './code-demo-editor/directives
     CodeDemoEditorComponent,
     RealtimeEvalComponent,
     CodeDemoEditorLineChangeDirective,
-    CodeDemoEditorAutoFoldingDirective
-  ]
+    CodeDemoEditorAutoFoldingDirective,
+  ],
 })
 export class CodeDemoModule {}

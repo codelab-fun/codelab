@@ -7,7 +7,8 @@ describe('FilePathComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [FilePathComponent]
+      declarations: [FilePathComponent],
+      teardown: { destroyAfterEach: false },
     });
     fixture = TestBed.createComponent(FilePathComponent);
     component = fixture.componentInstance;

@@ -21,7 +21,7 @@ export function getTypeScript(): typeof ts {
 
   // Used inside of eval. Typescript will think it's a real module and populate exports.
   const module = {
-    exports: {}
+    exports: {},
   };
 
   eval(require('!!raw-loader!typescript'));

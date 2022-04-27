@@ -1,6 +1,6 @@
 import {
   BaseBlock,
-  CodeHelperBlock
+  CodeHelperBlock,
 } from './webassembly-playground/monaco-directives/common';
 
 export function extractFunction(name, code) {
@@ -17,9 +17,9 @@ export function prepareTableCode(code) {
     debugger;
   }
   const functions = [
-    ...new Set([...elements.matchAll(/\$(\w+)\b/g)].map(a => a[1]))
+    ...new Set([...elements.matchAll(/\$(\w+)\b/g)].map((a) => a[1])),
   ]
-    .map(name => extractFunction(name, code))
+    .map((name) => extractFunction(name, code))
     .join('\n');
 
   const tableDef = extractExpressionByMatch(/\(table/, code);
@@ -63,7 +63,7 @@ function getType(code) {
 }
 
 export function serializeBlocks(blocks: CodeHelperBlock[]) {
-  return blocks.map(b => b.type + (b.name ? `(${b.name})` : '')).join('/');
+  return blocks.map((b) => b.type + (b.name ? `(${b.name})` : '')).join('/');
 }
 
 export function populateBlocks(blocks: BaseBlock[]): CodeHelperBlock[] {
@@ -73,7 +73,7 @@ export function populateBlocks(blocks: BaseBlock[]): CodeHelperBlock[] {
     return {
       name: getName(b.code),
       type,
-      ...b
+      ...b,
     };
   });
 }
@@ -99,9 +99,9 @@ export function extractBlocks(
       {
         before,
         after,
-        code: before + prependLeft + prependRight + after
+        code: before + prependLeft + prependRight + after,
       },
-      ...next
+      ...next,
     ];
   }
 
@@ -172,7 +172,7 @@ export function extractExpressionByMatch(regex, code) {
 
 export function extractGlobalAccess(code) {
   const match = /(?:get_global|global\.get)\s+\$(\w+)*/g;
-  return [...new Set([...code.matchAll(match)].map(a => a[1]))];
+  return [...new Set([...code.matchAll(match)].map((a) => a[1]))];
 }
 
 export function extractGlobals(code, allCode) {
@@ -203,9 +203,9 @@ export function populateTestCode(
 ) {
   if (test.table) {
     const funcs = unique(test.table)
-      .map(name => extractFunction(name, allCode))
+      .map((name) => extractFunction(name, allCode))
       .join('\n\n');
-    const elements = test.table.map(e => '    $' + e).join('\n');
+    const elements = test.table.map((e) => '    $' + e).join('\n');
     table = `
 (table ${test.table.length} funcref)
 (elem (i32.const 0)
@@ -230,7 +230,7 @@ export function extractFunctionWithDependencies(
   dependencies: string[]
 ) {
   return extractFunctionDependencyNames(name, code, dependencies)
-    .map(name => extractFunction(name, code))
+    .map((name) => extractFunction(name, code))
     .join('\n\n');
 }
 
@@ -249,9 +249,9 @@ export function extractFunctionDependencyNames(
     return [];
   }
   const functions = [
-    ...new Set([...funcCode.matchAll(match)].map(a => a[1]))
-  ].filter(d => !dependencies.includes(d));
-  const nestedDeps = functions.flatMap(f =>
+    ...new Set([...funcCode.matchAll(match)].map((a) => a[1])),
+  ].filter((d) => !dependencies.includes(d));
+  const nestedDeps = functions.flatMap((f) =>
     extractFunctionDependencyNames(f, code, [...dependencies, ...functions])
   );
   return [...new Set([...dependencies, ...nestedDeps, ...functions])];
@@ -271,11 +271,11 @@ export function generateWatTestCode({
   globals,
   name,
   hasMemory,
-  types
+  types,
 }: any) {
   const globalsCode = globals
     .map(
-      global =>
+      (global) =>
         `(global  \$${global} (export "${global}") (mut i32) (i32.const 0))`
     )
     .join('\n');
@@ -297,13 +297,13 @@ export function generateWatTestCode({
 
 export function extractAllFunctions(code) {
   const match = /func\s+\$(\w+)*/g;
-  return [...new Set([...code.matchAll(match)].map(a => a[1]))];
+  return [...new Set([...code.matchAll(match)].map((a) => a[1]))];
 }
 
 export function extractAnswers(code) {
-  const functions = extractAllFunctions(code).map(name => [
+  const functions = extractAllFunctions(code).map((name) => [
     name,
-    extractFunction(name, code)
+    extractFunction(name, code),
   ]);
   return new Map(functions as any);
 }

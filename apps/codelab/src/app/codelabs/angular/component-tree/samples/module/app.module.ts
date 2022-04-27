@@ -6,6 +6,6 @@ import { CircleComponent } from './circle.component';
 @NgModule({
   imports: [BrowserModule],
   declarations: [BoxComponent, CircleComponent],
-  bootstrap: [BoxComponent]
+  bootstrap: [BoxComponent],
 })
 export class AppModule {}

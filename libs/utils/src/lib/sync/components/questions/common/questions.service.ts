@@ -5,12 +5,12 @@ import produce from 'immer';
 import {
   Question,
   QuestionDb,
-  QuestionStatus
+  QuestionStatus,
 } from '@codelab/utils/src/lib/sync/components/questions/common/common';
 import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 
-const groupVotesByQuestionId = a => {
+const groupVotesByQuestionId = (a) => {
   return Object.values(a).reduce(
     (a, r) =>
       Object.entries(r).reduce((a, [key, value]) => {
@@ -22,7 +22,7 @@ const groupVotesByQuestionId = a => {
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuestionsService {
   readonly key = 'qna7';
@@ -31,34 +31,33 @@ export class QuestionsService {
     .getPresenterObject(this.key)
     .withDefault({
       requireApproval: true,
-      starredQuestionKey: null
+      starredQuestionKey: null,
     });
 
   readonly requireApproval$ = this.presenterObject
     .valueChanges()
-    .pipe(map(a => a.requireApproval));
+    .pipe(map((a) => a.requireApproval));
 
   private readonly questionsObject = this.syncDataService
     .getAdminAllUserData(this.key)
     .withDefault({});
 
   public readonly allQuestions$ = this.questionsObject.valueChanges().pipe(
-    map(values => {
+    map((values) => {
       return Object.entries(values || {})
         .map(([author, value]) => {
           return Object.entries(value.questions).map(([key, question]) => ({
             ...question,
             author,
-            key
+            key,
           }));
         })
         .flat();
     })
   );
 
-  private readonly starredQuestionKeyData = this.presenterObject.object(
-    'starredQuestionKey'
-  );
+  private readonly starredQuestionKeyData =
+    this.presenterObject.object('starredQuestionKey');
 
   private readonly votesKey = 'votes';
 
@@ -77,7 +76,7 @@ export class QuestionsService {
     .pipe(
       map((questions: QuestionDb) =>
         Object.values(questions).filter(
-          a => a.status !== QuestionStatus.APPROVED
+          (a) => a.status !== QuestionStatus.APPROVED
         )
       )
     );
@@ -91,7 +90,7 @@ export class QuestionsService {
     this.myVotesObject.valueChanges(),
     this.starredQuestionKeyData.valueChanges(),
     this.presenterObject.valueChanges(),
-    this.registrationService.usersMap$
+    this.registrationService.usersMap$,
   ]).pipe(
     map(
       ([
@@ -100,9 +99,9 @@ export class QuestionsService {
         myVotes,
         starredQuestionKey,
         presenterData,
-        usersMap
+        usersMap,
       ]) => {
-        return questions.map(q => {
+        return questions.map((q) => {
           const status = q.status;
           return {
             ...q,
@@ -113,27 +112,27 @@ export class QuestionsService {
             public: presenterData.requireApproval
               ? status === QuestionStatus.APPROVED
               : status === QuestionStatus.APPROVED ||
-                status === QuestionStatus.NEW
+                status === QuestionStatus.NEW,
           } as Question;
         });
       }
     ),
-    map(questions => {
+    map((questions) => {
       return questions.sort((a, b) => b.score - a.score || a.time - b.time);
     })
   );
 
   publicQuestions$ = this.questions$.pipe(
-    map(questions => questions.filter(q => q.public))
+    map((questions) => questions.filter((q) => q.public))
   );
 
   starredQuestion$ = combineLatest([
     this.starredQuestionKeyData.valueChanges(),
-    this.questions$
+    this.questions$,
   ]).pipe(
     map(([starredQuestionKey, questions]) => {
       return starredQuestionKey
-        ? questions.find(q => q.key === starredQuestionKey)
+        ? questions.find((q) => q.key === starredQuestionKey)
         : null;
     })
   );
@@ -148,13 +147,13 @@ export class QuestionsService {
       question,
       score: 0,
       time: Date.now(),
-      status: QuestionStatus.NEW
+      status: QuestionStatus.NEW,
     });
   }
 
   setVote(key: string, score: number) {
     this.myVotesObject.updateWithCallback(
-      produce(upvotes => {
+      produce((upvotes) => {
         upvotes[key] = upvotes[key] === score ? 0 : score;
       })
     );
@@ -164,7 +163,7 @@ export class QuestionsService {
     this.syncDataService
       .getViewerObject(this.key, question.author)
       .withDefault({})
-      .updateWithCallback(a => {
+      .updateWithCallback((a) => {
         a.questions[question.key].status = status;
         return a;
       });

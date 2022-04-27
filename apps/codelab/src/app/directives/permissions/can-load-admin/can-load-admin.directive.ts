@@ -2,19 +2,21 @@ import {
   Directive,
   OnInit,
   TemplateRef,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
 import {
   AccessService,
-  Permissions
+  Permissions,
 } from '../../../shared/services/access.service';
 import { AbstractPermission } from '../abstract-permission';
 
 @Directive({
-  selector: '[canLoadAdmin]'
+  selector: '[canLoadAdmin]',
 })
-export class CanLoadAdminDirective extends AbstractPermission
-  implements OnInit {
+export class CanLoadAdminDirective
+  extends AbstractPermission
+  implements OnInit
+{
   constructor(
     templateRef: TemplateRef<any>,
     viewContainer: ViewContainerRef,

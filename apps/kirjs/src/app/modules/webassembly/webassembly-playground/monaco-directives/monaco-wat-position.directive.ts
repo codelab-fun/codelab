@@ -4,14 +4,14 @@ import {
   EventEmitter,
   Optional,
   Output,
-  Self
+  Self,
 } from '@angular/core';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import { extractBlocks, populateBlocks, serializeBlocks } from '../../utils';
 import { CodePath } from './common';
 
 @Directive({
-  selector: '[slidesMonacoWatPosition]'
+  selector: '[slidesMonacoWatPosition]',
 })
 export class MonacoWatPositionDirective implements AfterViewInit {
   @Output() slidesMonacoWatPosition = new EventEmitter<CodePath>();
@@ -23,7 +23,7 @@ export class MonacoWatPositionDirective implements AfterViewInit {
 
   ngAfterViewInit() {
     const editor = this.editorInjector.editor;
-    editor.onDidChangeCursorPosition(x => {
+    editor.onDidChangeCursorPosition((x) => {
       const position = x.position;
       const model = editor.getModel();
       const offset = model.getOffsetAt(position);

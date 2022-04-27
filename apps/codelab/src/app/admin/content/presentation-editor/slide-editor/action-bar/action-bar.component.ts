@@ -5,7 +5,7 @@ import { ContentService } from '../../services/content.service';
 @Component({
   selector: 'slides-action-bar',
   templateUrl: './action-bar.component.html',
-  styleUrls: ['./action-bar.component.css']
+  styleUrls: ['./action-bar.component.css'],
 })
 export class ActionBarComponent {
   @Output() addBlock = new EventEmitter<ContentBlock>();
@@ -14,15 +14,15 @@ export class ActionBarComponent {
 
   readonly templates = {
     simpleApp: {
-      code: { 'app.ts': '// Type your code here!' }
+      code: { 'app.ts': '// Type your code here!' },
     },
     angularApp: {
       code: {
         'app.ts': '// Angular app!!',
         'component.ts': '// C',
-        'module.ts': '// M'
-      }
-    }
+        'module.ts': '// M',
+      },
+    },
   };
 
   constructor(private contentService: ContentService) {}
@@ -32,7 +32,7 @@ export class ActionBarComponent {
       type: 'custom',
       tag,
       props,
-      id: this.contentService.uniqueId()
+      id: this.contentService.uniqueId(),
     });
   }
 
@@ -40,7 +40,7 @@ export class ActionBarComponent {
     this.contentService.addBlock(this.presentationId, this.slide.id, {
       type: 'html',
       code: 'Add your content here...',
-      id: this.contentService.uniqueId()
+      id: this.contentService.uniqueId(),
     });
   }
 }

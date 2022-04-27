@@ -6,6 +6,6 @@ import { TicksComponent } from './ticks.component';
 @NgModule({
   imports: [BrowserModule],
   declarations: [AppComponent, TicksComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

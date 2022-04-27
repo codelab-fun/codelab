@@ -8,7 +8,7 @@ describe('TypeScriptSvgComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TypeScriptSvgComponent]
+      declarations: [TypeScriptSvgComponent],
     }).compileComponents();
   }));
 

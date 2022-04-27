@@ -6,7 +6,7 @@ import {
   OnChanges,
   OnDestroy,
   SimpleChanges,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
@@ -19,10 +19,11 @@ import ITextModel = editor.ITextModel;
   selector: 'code-demo-editor-from-model',
   templateUrl: './editor-from-model.component.html',
   styleUrls: ['./editor-from-model.component.css'],
-  providers: [CodeDemoEditorInjector, MatSnackBar]
+  providers: [CodeDemoEditorInjector, MatSnackBar],
 })
 export class EditorFromModelComponent
-  implements AfterViewInit, OnChanges, OnDestroy {
+  implements AfterViewInit, OnChanges, OnDestroy
+{
   // tslint:disable-next-line:no-input-rename
   @Input('model') setModel: ITextModel;
   @ViewChild('editor', { static: false }) el;
@@ -59,13 +60,11 @@ export class EditorFromModelComponent
   }
 
   ngAfterViewInit() {
-    this.editor = this.editorInjector.editor = this.monacoConfigService.createEditor(
-      this.el.nativeElement,
-      {
+    this.editor = this.editorInjector.editor =
+      this.monacoConfigService.createEditor(this.el.nativeElement, {
         model: this.model,
-        fontSize: this.fontSize
-      }
-    );
+        fontSize: this.fontSize,
+      });
 
     this.editor.addAction({
       id: 'saveAction',
@@ -74,15 +73,15 @@ export class EditorFromModelComponent
         this.monacoConfigService.monaco.KeyMod.chord(
           this.monacoConfigService.monaco.KeyMod.CtrlCmd |
             this.monacoConfigService.monaco.KeyCode.KEY_S
-        )
+        ),
       ],
       run: () => {
         this.zone.run(() => {
           this.snackBar.open('Saved', '', {
-            duration: 2000
+            duration: 2000,
           });
         });
-      }
+      },
     });
 
     this.resize();

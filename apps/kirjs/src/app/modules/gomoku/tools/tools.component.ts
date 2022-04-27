@@ -4,7 +4,7 @@ import { Highlights } from '../highlights';
 @Component({
   selector: 'kirjs-tools',
   templateUrl: './tools.component.html',
-  styleUrls: ['./tools.component.css']
+  styleUrls: ['./tools.component.css'],
 })
 export class ToolsComponent implements OnInit {
   @Input() game;
@@ -13,76 +13,76 @@ export class ToolsComponent implements OnInit {
   tools = [
     {
       name: 'next',
-      action: function(point, game) {
+      action: function (point, game) {
         game.moveTo(point);
       },
-      init: function() {
+      init: function () {
         return this;
-      }
+      },
     },
     {
       name: 'red-maybe',
-      action: function(point, game, highlights) {
+      action: function (point, game, highlights) {
         highlights.toggle(point, 'highlight-transparent cell-2');
       },
-      init: function() {
+      init: function () {
         return this;
-      }
+      },
     },
     {
       name: 'black-maybe',
-      action: function(point, game, highlights) {
+      action: function (point, game, highlights) {
         highlights.toggle(point, 'highlight-transparent cell-1');
       },
-      init: function() {
+      init: function () {
         return this;
-      }
+      },
     },
     {
       name: 'highlight',
-      action: function(point, game, highlights) {
+      action: function (point, game, highlights) {
         highlights.toggle(point, 'highlight-yellow');
       },
-      init: function() {
+      init: function () {
         return this;
-      }
+      },
     },
     {
       name: 'highlight2',
-      action: function(point, game, highlights: Highlights) {
+      action: function (point, game, highlights: Highlights) {
         highlights.toggle(point, 'highlight-orange');
       },
-      init: function() {
+      init: function () {
         return this;
-      }
+      },
     },
     {
       name: 'clear',
-      action: function(point, game, highlights) {
+      action: function (point, game, highlights) {
         highlights.clear(point);
       },
-      init: function() {
+      init: function () {
         return this;
-      }
+      },
     },
     {
       name: 'clear-all',
-      init: function(game, highlights: Highlights) {
+      init: function (game, highlights: Highlights) {
         highlights.clear();
-      }
+      },
     },
     {
       name: 'undo',
-      init: function(game, highlights: Highlights) {
+      init: function (game, highlights: Highlights) {
         highlights.undo();
-      }
+      },
     },
     {
       name: 'redo',
-      init: function(game, highlights: Highlights) {
+      init: function (game, highlights: Highlights) {
         highlights.redo();
-      }
-    }
+      },
+    },
   ];
   selectedTool: any;
 

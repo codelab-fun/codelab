@@ -4,21 +4,21 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'codelab-not-found',
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotFoundComponent {
   public routes = [
     {
       path: '',
-      name: 'Home'
+      name: 'Home',
     },
     {
       path: '/angular/typescript',
-      name: 'Typescript'
+      name: 'Typescript',
     },
     {
       path: '/angular',
-      name: 'Angular'
-    }
+      name: 'Angular',
+    },
   ];
 }

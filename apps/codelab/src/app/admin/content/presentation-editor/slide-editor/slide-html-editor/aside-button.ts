@@ -13,17 +13,17 @@ export const AsideButton = MediumEditor.extensions.button.extend({
   aria: 'Highlight', // used as both aria-label and title attributes
   action: 'highlight', // used as the data-action attribute of the button
 
-  init: function() {
+  init: function () {
     MediumEditor.extensions.button.prototype.init.call(this);
 
     this.classApplier = rangy.createClassApplier('highlight', {
       elementTagName: 'aside',
-      normalize: true
+      normalize: true,
     });
   },
 
-  handleClick: function(event) {
+  handleClick: function (event) {
     this.classApplier.toggleSelection();
     this.base.checkContentChanged();
-  }
+  },
 });

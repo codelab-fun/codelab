@@ -10,14 +10,14 @@ import {
   CommitInfo,
   CreatePullRequest,
   Repo,
-  User
+  User,
 } from '../interfaces';
 
 // TODO work on github api names
 // Here is an example link: https://github.com/github-tools/github
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GitHubService {
   private apiGithubUrl = 'https://api.github.com';
@@ -89,7 +89,7 @@ export class GitHubService {
     const branchRef = `refs/heads/${branchName}`;
     const requestData = {
       ref: branchRef,
-      sha: baseBranch.object.sha
+      sha: baseBranch.object.sha,
     };
 
     return this.http
@@ -109,7 +109,7 @@ export class GitHubService {
     const requestData = {
       message: commitInfo.message,
       branch: commitInfo.branchName,
-      content: commitInfo.content
+      content: commitInfo.content,
     };
 
     return this.http
@@ -132,7 +132,7 @@ export class GitHubService {
       head: `${user.login}:${pullRequest.branchName}`,
       base: 'master',
       body: pullRequest.body,
-      labels: pullRequest.labels
+      labels: pullRequest.labels,
     };
 
     return this.http
@@ -147,11 +147,11 @@ export class GitHubService {
         this.options
       )
       .pipe(
-        map(res =>
+        map((res) =>
           res.filter(
-            x =>
+            (x) =>
               x['labels'].length &&
-              x['labels'].map(y => y['name']).indexOf('snippet') > -1
+              x['labels'].map((y) => y['name']).indexOf('snippet') > -1
           )
         ),
         this.showSnackbarOnError("Can't fetch user repos")
@@ -180,7 +180,7 @@ export class GitHubService {
       .patch<any>(
         `${this.apiGithubUrl}/repos/${owner}/${repoName}/pulls/${pullNumber}`,
         {
-          body: `Here you can edit snippet content: https://30.codelab.fun/new/${pullNumber}`
+          body: `Here you can edit snippet content: https://30.codelab.fun/new/${pullNumber}`,
         },
         this.options
       )
@@ -222,7 +222,7 @@ export class GitHubService {
       message: `Snippet Update`,
       content: btoa(snippetData),
       sha: fileInfo['sha'],
-      branch: fileInfo['branchName']
+      branch: fileInfo['branchName'],
     };
     return this.http
       .put<any>(requestUrl, requestPayload, this.options)

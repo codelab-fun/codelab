@@ -5,30 +5,30 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export const MockAngularFireDatabase = {
   list: jasmine.createSpy('list').and.returnValue({
     snapshotChanges: () => of([]),
-    valueChanges: () => of([])
+    valueChanges: () => of([]),
   }),
   object: jasmine.createSpy('object').and.returnValue(
     of({
       snapshotChanges: () => of({}),
-      valueChanges: () => of({})
+      valueChanges: () => of({}),
     })
-  )
+  ),
 };
 
 export const MockAngularFireAuth = {
   user: of({ isAnonymous: true, uid: 'lol' }),
-  authState: of({})
+  authState: of({}),
 };
 
 export function getMockAngularFireProviders() {
   return [
     {
       provide: AngularFireDatabase,
-      useValue: MockAngularFireDatabase
+      useValue: MockAngularFireDatabase,
     },
     {
       provide: AngularFireAuth,
-      useValue: MockAngularFireAuth
-    }
+      useValue: MockAngularFireAuth,
+    },
   ];
 }

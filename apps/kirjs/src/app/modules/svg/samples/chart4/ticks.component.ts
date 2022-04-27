@@ -11,7 +11,7 @@ import { Component, Input } from '@angular/core';
     >
       {{ i }}
     </svg:text>
-  `
+  `,
 })
 export class TicksComponent {
   @Input() data;

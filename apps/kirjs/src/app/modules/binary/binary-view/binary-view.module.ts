@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     HexComponent,
     InlineComponent,
     InlineRootComponent,
-    BinaryPlainComponent
+    BinaryPlainComponent,
   ],
   exports: [
     BinaryFlatComponent,
@@ -43,19 +43,7 @@ import { FormsModule } from '@angular/forms';
     ArrayComponent,
     ColorComponent,
     BinaryParentComponent,
-    HexComponent
-  ],
-  entryComponents: [
-    BinaryFlatComponent,
-    BlockComponent,
-    ObjectComponent,
-    BitsComponent,
-    StringComponent,
-    NumberComponent,
-    ArrayComponent,
-    ColorComponent,
     HexComponent,
-    BinaryPlainComponent
-  ]
+  ],
 })
 export class BinaryViewModule {}

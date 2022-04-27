@@ -32,14 +32,14 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AstComponent));
     SizePickerModule,
     MatCardModule,
     NewProgressBarModule,
-    AngularSlidesToPdfModule
+    AngularSlidesToPdfModule,
   ],
   declarations: [
     AstComponent,
     BabelTestRunnerComponent,
     DebuggerComponent,
-    TestSetComponent
+    TestSetComponent,
   ],
-  exports: [AstComponent]
+  exports: [AstComponent],
 })
 export class AstModule {}

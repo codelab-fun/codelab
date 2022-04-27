@@ -5,7 +5,7 @@ import { ContentService } from '../../../services/content.service';
 @Component({
   selector: 'codelab-title-slide-editor',
   templateUrl: './codelab-title-slide-editor.component.html',
-  styleUrls: ['./codelab-title-slide-editor.component.css']
+  styleUrls: ['./codelab-title-slide-editor.component.css'],
 })
 export class CodelabTitleSlideEditorComponent {
   @Input() title = '';
@@ -24,8 +24,8 @@ export class CodelabTitleSlideEditorComponent {
       props: {
         title: this.title,
         description: this.description,
-        prereqs: this.prereqs
-      }
+        prereqs: this.prereqs,
+      },
     });
   }
 }

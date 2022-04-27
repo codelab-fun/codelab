@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 function toByte(message) {
-  return Array.from(message.match(/.{8}/gi)).map(bin => ({
+  return Array.from(message.match(/.{8}/gi)).map((bin) => ({
     className: 'basic',
-    bin
+    bin,
   }));
 }
 
@@ -11,56 +11,56 @@ const transforms = {
   basic: toByte,
   bytes: toByte,
   boolean(message) {
-    return message.split('').map(bin => {
+    return message.split('').map((bin) => {
       return {
         className: 'basic',
         bin,
-        human: (!!Number(bin)).toString()
+        human: (!!Number(bin)).toString(),
       };
     });
   },
   uint16(message) {
-    return Array.from(message.match(/.{16}/gi)).map(bin => ({
+    return Array.from(message.match(/.{16}/gi)).map((bin) => ({
       className: 'basic',
       bin,
-      human: parseInt(bin as string, 2)
+      human: parseInt(bin as string, 2),
     }));
   },
   uint17(message) {
-    return Array.from(message.match(/.{17}/gi)).map(bin => ({
+    return Array.from(message.match(/.{17}/gi)).map((bin) => ({
       className: 'basic',
       bin,
-      human: parseInt(bin as string, 2)
+      human: parseInt(bin as string, 2),
     }));
   },
   uint32(message) {
-    return Array.from(message.match(/.{32}/gi)).map(bin => ({
+    return Array.from(message.match(/.{32}/gi)).map((bin) => ({
       className: 'basic',
       bin,
-      human: parseInt(bin as string, 2)
+      human: parseInt(bin as string, 2),
     }));
   },
   hex(message) {
     return Array.from(message.match(/.{8}/gi)).map((bin: string) => ({
       className: 'basic',
       bin,
-      human: parseInt(bin, 2).toString(16)
+      human: parseInt(bin, 2).toString(16),
     }));
   },
   uint8(message) {
-    return Array.from(message.match(/.{8}/gi)).map(bin => ({
+    return Array.from(message.match(/.{8}/gi)).map((bin) => ({
       className: 'basic',
       bin,
-      human: parseInt(bin as string, 2)
+      human: parseInt(bin as string, 2),
     }));
   },
   int8(message) {
-    return Array.from(message.match(/.{8}/gi)).map(bin => {
+    return Array.from(message.match(/.{8}/gi)).map((bin) => {
       const sign = !!(Number(bin) & 128) ? 1 : -1;
       return {
         className: 'basic',
         bin,
-        human: sign * (Number(bin) & 127)
+        human: sign * (Number(bin) & 127),
       };
     });
   },
@@ -68,15 +68,15 @@ const transforms = {
     return Array.from(message.match(/.{8}/gi)).map((bin: string) => ({
       className: 'basic',
       bin,
-      human: String.fromCharCode(parseInt(bin, 2))
+      human: String.fromCharCode(parseInt(bin, 2)),
     }));
-  }
+  },
 };
 
 @Component({
   selector: 'kirjs-message',
   templateUrl: './message.component.html',
-  styleUrls: ['./message.component.css']
+  styleUrls: ['./message.component.css'],
 })
 export class MessageComponent implements OnInit {
   message =

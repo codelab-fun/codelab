@@ -8,7 +8,7 @@ describe('MenuFullscreenWidgetComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MenuFullscreenWidgetComponent]
+      declarations: [MenuFullscreenWidgetComponent],
     }).compileComponents();
   }));
 

@@ -8,7 +8,7 @@ describe('OscilatorsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [OscilatorsComponent]
+      declarations: [OscilatorsComponent],
     }).compileComponents();
   }));
 

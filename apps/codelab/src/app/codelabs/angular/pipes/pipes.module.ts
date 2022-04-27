@@ -18,9 +18,9 @@ const routes = RouterModule.forChild(SlidesRoutes.get(PipesComponent));
     FeedbackModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [PipesComponent],
-  exports: [PipesComponent]
+  exports: [PipesComponent],
 })
 export class PipesModule {}

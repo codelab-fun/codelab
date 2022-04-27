@@ -5,10 +5,10 @@ import { Post } from './common';
 import { database } from 'firebase/app';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostService {
-  repo$: AngularFireList<Post> = this.database.list('/posts', ref => {
+  repo$: AngularFireList<Post> = this.database.list('/posts', (ref) => {
     return ref.orderByChild('hidden').equalTo(null);
   });
 
@@ -29,7 +29,7 @@ export class PostService {
   addPost(post: Post): any {
     return this.repo$.push({
       ...post,
-      date: database.ServerValue.TIMESTAMP as string
+      date: database.ServerValue.TIMESTAMP as string,
     });
   }
 

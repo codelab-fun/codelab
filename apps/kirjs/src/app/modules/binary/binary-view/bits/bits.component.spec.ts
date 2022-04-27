@@ -8,7 +8,7 @@ describe('BitsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BitsComponent]
+      declarations: [BitsComponent],
     }).compileComponents();
   }));
 

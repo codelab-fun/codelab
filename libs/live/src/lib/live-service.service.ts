@@ -1,7 +1,7 @@
 import { Injectable, Input } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LiveServiceService {
   @Input() user = 'pikachu';

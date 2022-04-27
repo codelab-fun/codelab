@@ -4,7 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   selector: 'feedback-rating',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './feedback-rating.component.html',
-  styleUrls: ['./feedback-rating.component.css']
+  styleUrls: ['./feedback-rating.component.css'],
 })
 export class FeedbackRatingComponent implements OnInit, AfterViewInit {
   @Input() showSummary = false;
@@ -25,23 +25,23 @@ export class FeedbackRatingComponent implements OnInit, AfterViewInit {
     {
       src: 'ng-smile.svg',
       value: '"perfect',
-      text: 'Perfect!'
+      text: 'Perfect!',
     },
     {
       src: 'ng-ok.svg',
       value: 'good',
-      text: 'Good'
+      text: 'Good',
     },
     {
       src: 'ng-soso.svg',
       value: 'soso',
-      text: 'Ok'
+      text: 'Ok',
     },
     {
       src: 'ng-sleepy.svg',
       value: 'hopedformore',
-      text: 'Hoped for more!'
-    }
+      text: 'Hoped for more!',
+    },
   ];
 
   constructor(

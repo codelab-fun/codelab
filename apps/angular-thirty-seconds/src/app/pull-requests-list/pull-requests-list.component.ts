@@ -8,7 +8,7 @@ const REPO_NAME = '30-seconds-of-angular';
 @Component({
   selector: 'codelab-pull-requests-list',
   templateUrl: './pull-requests-list.component.html',
-  styleUrls: ['./pull-requests-list.component.scss']
+  styleUrls: ['./pull-requests-list.component.scss'],
 })
 export class PullRequestsListComponent {
   repoOwner = REPO_OWNER;

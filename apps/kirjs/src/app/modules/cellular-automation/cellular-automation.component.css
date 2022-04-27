@@ -156,6 +156,6 @@ pre {
   margin-right: 50px;
 }
 
-:host /deep/ .slide {
+:host ::ng-deep .slide {
   display: block;
 }

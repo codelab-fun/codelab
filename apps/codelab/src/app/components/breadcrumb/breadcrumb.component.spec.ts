@@ -17,14 +17,14 @@ describe('BreadcrumbComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            pathFromRoot: [{ routeConfig: { name: 'lol' } }]
-          }
+            pathFromRoot: [{ routeConfig: { name: 'lol' } }],
+          },
         },
         {
           provide: MENU_ROUTES,
-          useValue: []
-        }
-      ]
+          useValue: [],
+        },
+      ],
     }).compileComponents();
   }));
 

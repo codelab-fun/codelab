@@ -8,7 +8,7 @@ describe('CompareComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CompareComponent]
+      declarations: [CompareComponent],
     }).compileComponents();
   }));
 

@@ -8,7 +8,7 @@ describe('SlidePreviewComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SlidePreviewComponent]
+      declarations: [SlidePreviewComponent],
     }).compileComponents();
   }));
 

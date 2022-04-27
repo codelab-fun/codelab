@@ -10,11 +10,10 @@ import { PolaroidComponent } from './polaroid/polaroid.component';
     RouterModule.forChild([
       {
         path: '',
-        component: HomeComponent
-      }
-    ])
+        component: HomeComponent,
+      },
+    ]),
   ],
   declarations: [HomeComponent, PolaroidComponent],
-  entryComponents: [HomeComponent]
 })
 export class HomeModule {}

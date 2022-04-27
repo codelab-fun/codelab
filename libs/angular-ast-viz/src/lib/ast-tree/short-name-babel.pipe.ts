@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'shortNameBabel'
+  name: 'shortNameBabel',
 })
 export class ShortNameBabelPipe implements PipeTransform {
   transform(value: string): any {

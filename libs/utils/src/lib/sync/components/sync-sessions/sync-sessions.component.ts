@@ -7,7 +7,7 @@ import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-se
   selector: 'codelab-sync-sessions',
   templateUrl: './sync-sessions.component.html',
   styleUrls: ['./sync-sessions.component.css'],
-  providers: [SyncDataService, SyncSessionService, SyncDbService]
+  providers: [SyncDataService, SyncSessionService, SyncDbService],
 })
 export class SyncSessionsComponent {
   readonly displayedColumns = ['name', 'owner', 'key', 'active', 'actions'];

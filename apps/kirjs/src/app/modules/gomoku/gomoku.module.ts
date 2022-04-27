@@ -17,9 +17,9 @@ const routes = RouterModule.forChild(SlidesRoutes.get(GomokuComponent));
     FeedbackModule,
     CommonModule,
     GomokuBoardModule,
-    SlidesModule
+    SlidesModule,
   ],
   declarations: [GomokuComponent],
-  exports: [GomokuComponent]
+  exports: [GomokuComponent],
 })
 export class GomokuModule {}

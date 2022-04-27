@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './angular-cli.component.html',
   styleUrls: [
     '../../../components/css/codelab-styles.scss',
-    './angular-cli.component.css'
-  ]
+    './angular-cli.component.css',
+  ],
 })
 export class AngularCliComponent {}

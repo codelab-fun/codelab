@@ -4,7 +4,7 @@ import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/fireba
 @Component({
   selector: 'codelab-online-indicator',
   templateUrl: './online-indicator.component.html',
-  styleUrls: ['./online-indicator.component.css']
+  styleUrls: ['./online-indicator.component.css'],
 })
 export class OnlineIndicatorComponent implements OnInit {
   constructor(readonly firebaseInfoService: FirebaseInfoService) {}

@@ -5,49 +5,49 @@ const deps = {
   componentA: {
     path: 'component.ts',
     code: 'import {a} from "./depA"',
-    template: ''
+    template: '',
   },
   componentABC: {
     path: 'component.ts',
-    code:
-      'import {a} from "./depA";import {a} from "./depB";import {a} from "./depC";',
-    template: ''
+    code: 'import {a} from "./depA";import {a} from "./depB";import {a} from "./depC";',
+    template: '',
   },
   depA: {
     path: 'depA.ts',
     code: 'import {Component} from "@angular/core"',
-    template: ''
+    template: '',
   },
   depB: {
     path: 'depB.ts',
     code: 'import {Component} from "@angular/core"',
-    template: ''
+    template: '',
   },
   depC: {
     path: 'depC.ts',
     code: 'import {Component} from "@angular/core"',
-    template: ''
+    template: '',
   },
   depAB: {
     path: 'depAB.ts',
     code: 'import {a} from "./depA";import {a} from "./depB";',
-    template: ''
+    template: '',
   },
   depAB_C: {
     path: 'depAB_C.ts',
     code: 'import {a} from "./depAB";import {a} from "./depC";',
-    template: ''
+    template: '',
   },
   depX_A: {
     path: 'x/a.ts',
     code: 'import {a} from "../depA";',
-    template: ''
-  }
+    template: '',
+  },
 };
 describe('DepsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DepsService]
+      providers: [DepsService],
+      teardown: { destroyAfterEach: false },
     });
   });
 
@@ -96,7 +96,7 @@ describe('DepsService', () => {
     (service: DepsService) => {
       expect(service.order([deps.componentA, deps.depA])).toEqual([
         deps.depA,
-        deps.componentA
+        deps.componentA,
       ]);
     }
   ));
@@ -119,7 +119,7 @@ describe('DepsService', () => {
           deps.depC,
           deps.depAB_C,
           deps.depAB,
-          deps.depA
+          deps.depA,
         ])
       ).toEqual([deps.depB, deps.depC, deps.depA, deps.depAB, deps.depAB_C]);
     }
@@ -130,7 +130,7 @@ describe('DepsService', () => {
     (service: DepsService) => {
       expect(service.order([deps.depX_A, deps.depA])).toEqual([
         deps.depA,
-        deps.depX_A
+        deps.depX_A,
       ]);
     }
   ));

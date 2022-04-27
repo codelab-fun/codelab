@@ -3,7 +3,7 @@ import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-ed
 import { findPosition } from '@codelab/code-demos/src/lib/code-demo-editor/utils/utils';
 
 @Directive({
-  selector: '[slidesMonacoScrolling]'
+  selector: '[slidesMonacoScrolling]',
 })
 export class MonacoScrollingDirective implements OnChanges {
   @Input() slidesMonacoScrolling = '';
@@ -33,7 +33,7 @@ export class MonacoScrollingDirective implements OnChanges {
           startColumn: range.indexStart,
           endColumn: range.indexEnd,
           startLineNumber: range.lineStart,
-          endLineNumber: range.lineEnd
+          endLineNumber: range.lineEnd,
         });
       }
     }

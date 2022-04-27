@@ -6,9 +6,9 @@ describe('BinaryParser', () => {
   beforeEach(() => {
     const s = 'Universal Serial Bus'
       .split('')
-      .map(a => a.charCodeAt(0))
-      .map(a => a.toString(2))
-      .map(a => (a as any).padStart(8, 0))
+      .map((a) => a.charCodeAt(0))
+      .map((a) => a.toString(2))
+      .map((a) => (a as any).padStart(8, 0))
       .join('');
     this.reader = new StringBinaryReader(s);
   });
@@ -27,16 +27,16 @@ describe('BinaryParser', () => {
     describe('readuntil', () => {
       const s = 'lollol'
         .split('')
-        .map(a => a.charCodeAt(0))
-        .map(a => a.toString(2))
-        .map(a => (a as any).padStart(8, 0))
+        .map((a) => a.charCodeAt(0))
+        .map((a) => a.toString(2))
+        .map((a) => (a as any).padStart(8, 0))
         .join('');
 
       const s2 = 'ogogog'
         .split('')
-        .map(a => a.charCodeAt(0))
-        .map(a => a.toString(2))
-        .map(a => (a as any).padStart(8, 0))
+        .map((a) => a.charCodeAt(0))
+        .map((a) => a.toString(2))
+        .map((a) => (a as any).padStart(8, 0))
         .join('');
 
       it('can read until 00', () => {

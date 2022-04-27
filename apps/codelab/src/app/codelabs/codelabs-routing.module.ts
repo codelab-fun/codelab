@@ -7,20 +7,22 @@ const routes: Routes = [
   {
     path: 'angular',
     loadChildren: () =>
-      import('./angular/angular.module').then(m => m.AngularModule)
+      import('./angular/angular.module').then((m) => m.AngularModule),
   },
   {
     path: 'extra',
-    loadChildren: () => import('./extra/extra.module').then(m => m.ExtraModule)
+    loadChildren: () =>
+      import('./extra/extra.module').then((m) => m.ExtraModule),
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
-  }
+    loadChildren: () =>
+      import('./about/about.module').then((m) => m.AboutModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class CodelabsRoutingModule {}

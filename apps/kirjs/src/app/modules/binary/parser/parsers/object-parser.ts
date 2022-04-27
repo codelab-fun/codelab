@@ -38,17 +38,12 @@ export class BinaryObjectParser extends AbstractBinaryParser {
     let len = 0;
 
     const value = this.steps.reduce((result, step) => {
-      const {
-        value,
-        rawValue,
-        type,
-        description,
-        displayValue
-      } = step.parser.readOrdered(
-        reader,
-        [...result, { name: '_parent', value: data }],
-        start + len
-      );
+      const { value, rawValue, type, description, displayValue } =
+        step.parser.readOrdered(
+          reader,
+          [...result, { name: '_parent', value: data }],
+          start + len
+        );
       raw += rawValue;
       if (!type) {
         // tslint:disable-next-line:no-debugger
@@ -65,7 +60,7 @@ export class BinaryObjectParser extends AbstractBinaryParser {
         value,
         displayValue,
         rawValue,
-        type
+        type,
       });
 
       return result;
@@ -77,7 +72,7 @@ export class BinaryObjectParser extends AbstractBinaryParser {
       end: start + len,
       value,
       rawValue: raw,
-      type: 'object'
+      type: 'object',
     };
   }
 }

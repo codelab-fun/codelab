@@ -5,7 +5,7 @@ export type PreviewWindowType = 'console' | 'browser';
 @Component({
   selector: 'preview-window',
   templateUrl: './preview-window.component.html',
-  styleUrls: ['./preview-window.component.scss']
+  styleUrls: ['./preview-window.component.scss'],
 })
 export class PreviewWindowComponent {
   @Input() set url(url: string) {

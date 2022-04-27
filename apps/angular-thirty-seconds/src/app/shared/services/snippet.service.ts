@@ -10,11 +10,11 @@ import {
   GithubAuth,
   PullRequest,
   Repo,
-  User
+  User,
 } from '../interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SnippetService {
   constructor(private githubService: GitHubService) {}
@@ -31,13 +31,13 @@ export class SnippetService {
       .pipe(
         switchMap(([file]) => {
           return this.githubService.getSnippetBody(file['contents_url']).pipe(
-            map(res => {
+            map((res) => {
               const body = atob(res.content);
               return {
                 ...res[0],
                 body,
                 sha: file['sha'],
-                fileName: file['filename']
+                fileName: file['filename'],
               };
             })
           );
@@ -50,7 +50,7 @@ export class SnippetService {
           sha: file['sha'],
           fileName: file['fileName'],
           snippet: file['body'] as string,
-          branchName: pr['head']['ref']
+          branchName: pr['head']['ref'],
         };
       })
     );
@@ -67,7 +67,7 @@ export class SnippetService {
 
     return this.githubService.getMyRepos(user).pipe(
       switchMap((repos: Repo[]) => {
-        const repo = repos.find(r => r.name === repoName);
+        const repo = repos.find((r) => r.name === repoName);
         return this.githubService.updateFile(
           repo.full_name,
           snippetData,
@@ -100,7 +100,7 @@ export class SnippetService {
       switchMap((baseRepo: Repo) => {
         return this.githubService.getMyRepos(user).pipe(
           switchMap((repos: Repo[]) => {
-            const repo = repos.find(r => r.name === repoName);
+            const repo = repos.find((r) => r.name === repoName);
             return repo
               ? of(repo)
               : this.githubService.forkRepo(baseRepo).pipe(debounceTime(5000));
@@ -120,7 +120,7 @@ export class SnippetService {
                     'I have added awesome snippet. Look at my awesome snippet!',
                   content: btoa(snippetData),
                   branchName: branchName,
-                  filePath: filePath
+                  filePath: filePath,
                 };
                 return this.githubService.createCommit(userRepo, commit);
               }),
@@ -129,7 +129,7 @@ export class SnippetService {
                   title: `Add - new snippet: ${title}`,
                   body: 'Here is a new snippet. Hope you like it :)',
                   labels: ['snippet'],
-                  branchName: branchName
+                  branchName: branchName,
                 };
                 return this.githubService.createPullRequest(
                   baseRepo,

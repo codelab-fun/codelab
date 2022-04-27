@@ -14,7 +14,8 @@ export class NavigationService {
     string | undefined
   >(undefined);
   public selectedSlide$ = this.selectedSlideSubject.asObservable();
-  public selectedPresentationId$ = this.selectedPresentationIdSubject.asObservable();
+  public selectedPresentationId$ =
+    this.selectedPresentationIdSubject.asObservable();
 
   constructor(
     @Inject(NAVIGATION_BASE_URL) readonly baseUrl,

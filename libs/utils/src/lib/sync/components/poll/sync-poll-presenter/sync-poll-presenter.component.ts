@@ -2,13 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
 import {
   SyncPoll,
-  SyncPollService
+  SyncPollService,
 } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 
 @Component({
   selector: 'codelab-sync-poll-presenter',
   templateUrl: './sync-poll-presenter.component.html',
-  styleUrls: ['./sync-poll-presenter.component.css']
+  styleUrls: ['./sync-poll-presenter.component.css'],
 })
 export class SyncPollPresenterComponent implements OnInit {
   @Input() config: SyncPollConfig;

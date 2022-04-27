@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-memory',
   templateUrl: './memory.component.html',
-  styleUrls: ['./memory.component.css']
+  styleUrls: ['./memory.component.css'],
 })
 export class MemoryComponent implements OnInit {
   @Input() param = 0;
@@ -12,7 +12,7 @@ export class MemoryComponent implements OnInit {
 
   memory = Array.from({ length: 64 }).fill({
     value: 0,
-    type: 'empty'
+    type: 'empty',
   }) as any;
 
   constructor() {}
@@ -27,7 +27,7 @@ export class MemoryComponent implements OnInit {
           type:
             (y === v.length - 1 ? 'cell-number-end' : 'number') +
             ' ' +
-            (classes[x] || '')
+            (classes[x] || ''),
         };
 
         i++;
@@ -48,7 +48,7 @@ export class MemoryComponent implements OnInit {
     for (let y = 0; y < 8; y++) {
       this.memory[i * 8 + y] = {
         value: Math.round(Math.random()),
-        type: y === 7 ? 'number-end-highlight' : 'number-highlight'
+        type: y === 7 ? 'number-end-highlight' : 'number-highlight',
       };
     }
   }
@@ -73,7 +73,7 @@ export class MemoryComponent implements OnInit {
         '00000000',
         '00000000',
         '00000000',
-        '00000000'
+        '00000000',
       ]);
     }
 
@@ -83,7 +83,7 @@ export class MemoryComponent implements OnInit {
         '00000000',
         '00000000',
         '00000000',
-        '00000000'
+        '00000000',
       ]);
       this.highlightNumber(3);
     }
@@ -115,7 +115,7 @@ export class MemoryComponent implements OnInit {
         '0',
         '001',
         '1',
-        '000'
+        '000',
       ];
       this.allocValues(typedArray, [
         ' bool',
@@ -126,7 +126,7 @@ export class MemoryComponent implements OnInit {
         '',
         ' bool',
         ' cell-selected ',
-        ' bool'
+        ' bool',
       ]);
     }
 
@@ -145,7 +145,7 @@ export class MemoryComponent implements OnInit {
       '001',
       '0',
       '001',
-      '1'
+      '1',
     ];
     if (this.param === 8) {
       this.allocValues(typedArray, [
@@ -162,7 +162,7 @@ export class MemoryComponent implements OnInit {
         '',
         ' bool',
         '',
-        ' bool'
+        ' bool',
       ]);
     }
 
@@ -187,7 +187,7 @@ export class MemoryComponent implements OnInit {
         '',
         ' bool',
         '',
-        ' bool'
+        ' bool',
       ]);
     }
   }

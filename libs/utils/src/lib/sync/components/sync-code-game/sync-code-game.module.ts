@@ -22,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     SyncCodeGameComponent,
     SyncCodeGamePresenterComponent,
     SyncCodeGameAdminComponent,
-    SyncCodeGameViewerComponent
+    SyncCodeGameViewerComponent,
   ],
   exports: [SyncCodeGameComponent],
   imports: [
@@ -37,7 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
     TypescriptCheckerRunnerModule,
     SandboxRunnerModule,
     SyncDirectivesModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+  ],
 })
 export class SyncCodeGameModule {}

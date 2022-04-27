@@ -8,7 +8,7 @@ describe('XComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [XComponent]
+      declarations: [XComponent],
     }).compileComponents();
   }));
 

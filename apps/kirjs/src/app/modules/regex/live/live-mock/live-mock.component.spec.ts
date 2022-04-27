@@ -8,7 +8,7 @@ describe('LiveMockComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [LiveMockComponent]
+      declarations: [LiveMockComponent],
     }).compileComponents();
   }));
 

@@ -5,7 +5,7 @@ import { MENU_ROUTES } from '../../common';
 @Component({
   selector: 'codelab-breadcrumb',
   templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.css']
+  styleUrls: ['./breadcrumb.component.css'],
 })
 export class BreadcrumbComponent {
   active: string;
@@ -16,7 +16,7 @@ export class BreadcrumbComponent {
     @Inject(MENU_ROUTES) readonly menuRoutes
   ) {
     this.active = this.activatedRoute.pathFromRoot.find(
-      route => route.routeConfig && route.routeConfig['name']
+      (route) => route.routeConfig && route.routeConfig['name']
     ).routeConfig['name'];
   }
 }

@@ -6,7 +6,7 @@ import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
 const ts = getTypeScript();
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DepsService {
   constructor() {}
@@ -40,7 +40,7 @@ export class DepsService {
       );
       simpleVisitor(
         source,
-        node => node.kind === ts.SyntaxKind.ImportDeclaration,
+        (node) => node.kind === ts.SyntaxKind.ImportDeclaration,
         (node: any) => {
           if (DepsService.isLocalDep(node.moduleSpecifier.text)) {
             result[file.path].deps.push(
@@ -70,8 +70,10 @@ export class DepsService {
           if (result[key].deps.length === 0) {
             orderedFiles_.push(result[key].file);
 
-            Object.keys(result).forEach(key_ => {
-              result[key_].deps = result[key_].deps.filter(dep => dep !== key);
+            Object.keys(result).forEach((key_) => {
+              result[key_].deps = result[key_].deps.filter(
+                (dep) => dep !== key
+              );
             });
 
             delete deps[key];

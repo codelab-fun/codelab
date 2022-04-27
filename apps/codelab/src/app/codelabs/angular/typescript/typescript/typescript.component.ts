@@ -4,7 +4,7 @@ import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 import { ng2tsConfig } from '../../../../../../../../ng2ts/ng2ts';
 import {
   javaScriptWithConsoleLog,
-  typeScriptWithConsoleLog
+  typeScriptWithConsoleLog,
 } from '../../../../shared/helpers/helpers';
 
 declare const require;
@@ -12,7 +12,7 @@ declare const require;
 @Component({
   selector: 'codelab-slides-typescript',
   templateUrl: './typescript.component.html',
-  styleUrls: ['./typescript.component.css']
+  styleUrls: ['./typescript.component.css'],
 })
 export class TypeScriptComponent implements OnInit {
   t: { [key: string]: string };
@@ -77,7 +77,7 @@ const isHungry = true; // Boolean
 const weird = tax + isHungry; // ${this.t.cantAddNumAndBool}
 tax.slice(1,5); // ${this.t.cantSliceNum}
 productName.slice(1,5); // ${this.t.canSliceString}
-const total = price + tax; // ${this.t.works}`
+const total = price + tax; // ${this.t.works}`,
       },
       varDeclaration: {
         code: `// ${this.t.varAllowedNotRecommended}
@@ -94,19 +94,19 @@ console.log(ll); // undefined
 
 // ${this.t.constLikeLet}
 const x = 1;
-x = 2;`
+x = 2;`,
       },
       stringType: {
         code: `let fullName: string = 'Bob Bobbington';
-let sentence: string = \`Hello, my name is \${ fullName }.\`;`
+let sentence: string = \`Hello, my name is \${ fullName }.\`;`,
       },
       stringType2: {
-        code: `let sentence: string = "Hello, my name is " + fullName + "."`
+        code: `let sentence: string = "Hello, my name is " + fullName + "."`,
       },
       anyType: {
         code: `let notSure: any = 4;
 notSure = "maybe a string instead";
-notSure = false; // ${this.t.definitelyBoolean}`
+notSure = false; // ${this.t.definitelyBoolean}`,
       },
       classDescription: {
         code: typeScriptWithConsoleLog(`export class Puppy {
@@ -168,17 +168,17 @@ console.log(oscar.bark());`,
           exportMatch: /export/,
           importMatch: {
             'puppy.ts': /export/,
-            'app.ts': /import/
+            'app.ts': /import/,
           },
           arrayMatch: {
-            'app.ts': [/Array<string>/, /string\[]/]
+            'app.ts': [/Array<string>/, /string\[]/],
           },
           constants: /const /,
 
           constructorMatch: { 'app.ts': [/(public name: string)/, /Édouard/] },
           modifierMatch: { 'app.ts': [/public name/, /this.name/] },
-          oscarMatch: /Oscar-Claude/
-        }
+          oscarMatch: /Oscar-Claude/,
+        },
       },
       tsExercise: typeScriptWithConsoleLog(
         `function add(a: number, b){
@@ -206,7 +206,7 @@ console.log(add(2, '2'));`
         (code.files[2] as any).bootstrap = false;
         return code;
       })(),
-      tsExerciseMatch: { 'app.ts': /'.*'/ }
+      tsExerciseMatch: { 'app.ts': /'.*'/ },
     };
   }
 }

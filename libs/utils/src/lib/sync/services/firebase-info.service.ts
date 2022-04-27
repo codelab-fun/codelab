@@ -5,7 +5,7 @@ import { FirebaseDb } from '@codelab/utils/src/lib/sync/services/common';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FirebaseInfoService {
   readonly online$ = this.syncDb
@@ -17,7 +17,7 @@ export class FirebaseInfoService {
     .object('.info')
     .object('serverTimeOffset')
     .valueChanges()
-    .pipe(map(a => Number(a)));
+    .pipe(map((a) => Number(a)));
 
   constructor(private readonly syncDb: SyncDbService<FirebaseDb>) {}
 }

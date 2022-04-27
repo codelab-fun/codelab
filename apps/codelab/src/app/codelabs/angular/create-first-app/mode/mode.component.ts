@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'codelab-slides-ng-module-mode',
   templateUrl: './mode.component.html',
-  styleUrls: ['./mode.component.css']
+  styleUrls: ['./mode.component.css'],
 })
 export class ModeComponent implements OnInit {
   modes = ['web', 'mobile', 'vr'];
@@ -38,12 +38,12 @@ export class AppModule {}`,
       matches: {
         exportClass: /export.*/,
         ngModule: /@N[^]*?\)[^]/,
-        importsArr: /imports.*/
+        importsArr: /imports.*/,
       },
       readonly: true,
       path: 'module.anatomy.ts',
-      type: 'typescript'
-    }
+      type: 'typescript',
+    },
   };
 
   constructor() {}

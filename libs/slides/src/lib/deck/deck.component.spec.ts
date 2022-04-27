@@ -8,7 +8,8 @@ describe('Deck', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [SlidesModule]
+      imports: [SlidesModule],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

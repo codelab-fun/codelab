@@ -4,7 +4,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 @Component({
   selector: 'kirjs-color',
   templateUrl: './color.component.html',
-  styleUrls: ['./color.component.css']
+  styleUrls: ['./color.component.css'],
 })
 export class ColorComponent implements OnInit {
   color: string;

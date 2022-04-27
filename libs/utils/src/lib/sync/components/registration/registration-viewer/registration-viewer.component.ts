@@ -4,7 +4,7 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
 @Component({
   selector: 'codelab-registration-viewer',
   templateUrl: './registration-viewer.component.html',
-  styleUrls: ['./registration-viewer.component.css']
+  styleUrls: ['./registration-viewer.component.css'],
 })
 export class RegistrationViewerComponent {
   constructor(readonly registrationService: SyncRegistrationService) {}

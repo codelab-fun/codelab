@@ -28,10 +28,10 @@ export const angularFire = AngularFireModule.initializeApp(
     FeedbackModule,
     SlidesModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   declarations: [RatingSummaryComponent],
   providers: [],
-  exports: [RatingSummaryComponent]
+  exports: [RatingSummaryComponent],
 })
 export class RatingSummaryModule {}

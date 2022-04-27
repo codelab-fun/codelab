@@ -3,7 +3,7 @@ import { FullScreenModeService } from '../full-screen-mode';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
-  selector: '[slideShortcuts]'
+  selector: '[slideShortcuts]',
 })
 export class ShortcutsDirective {
   constructor(

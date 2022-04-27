@@ -8,7 +8,7 @@ describe('SizePickerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SizePickerComponent]
+      declarations: [SizePickerComponent],
     }).compileComponents();
   }));
 

@@ -6,7 +6,7 @@ import { map, startWith, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'slides-overlay',
   templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.scss']
+  styleUrls: ['./overlay.component.scss'],
 })
 export class OverlayComponent implements OnInit {
   readonly layout = 'horizontal';
@@ -15,7 +15,7 @@ export class OverlayComponent implements OnInit {
     switchMap(() => {
       return this.flameLink.content.get({
         schemaKey: 'currentSession',
-        populate: true
+        populate: true,
       });
     }),
     map((a: any) => a.session)

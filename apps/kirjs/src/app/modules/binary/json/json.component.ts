@@ -2,14 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 
 function strToBin(s: string) {
   return Array.from(new TextEncoder().encode(s))
-    .map(a => a.toString(2).padStart(8, '0'))
+    .map((a) => a.toString(2).padStart(8, '0'))
     .join('');
 }
 
 @Component({
   selector: 'kirjs-json',
   templateUrl: './json.component.html',
-  styleUrls: ['./json.component.scss']
+  styleUrls: ['./json.component.scss'],
 })
 export class JsonComponent implements OnInit {
   @Input() code = `{
@@ -34,8 +34,8 @@ export class JsonComponent implements OnInit {
     this.binaries = [
       {
         binary: '',
-        comment: `we don't need to encode curly braces :)`
-      }
+        comment: `we don't need to encode curly braces :)`,
+      },
     ];
 
     let val;
@@ -48,7 +48,7 @@ export class JsonComponent implements OnInit {
     }
 
     this.binaries = this.binaries.concat(
-      Object.keys(val).map(key => {
+      Object.keys(val).map((key) => {
         const value = val[key];
         const data: any = {};
 
@@ -68,9 +68,9 @@ export class JsonComponent implements OnInit {
           data.binary = strToBin(value) + '0000000000000000';
           data.display = value
             .split('')
-            .map(value => ({
+            .map((value) => ({
               value,
-              bin: (value.charCodeAt(0).toString(2) as any).padStart(8, 0)
+              bin: (value.charCodeAt(0).toString(2) as any).padStart(8, 0),
             }))
             .concat({ value: 'Separator', bin: '000000000000000000' });
           data.type = 'string';
@@ -85,21 +85,21 @@ export class JsonComponent implements OnInit {
     this.schema = [
       {
         value: 'message {',
-        className: ''
-      }
+        className: '',
+      },
     ]
       .concat(
         this.binaries.slice(1).map((b, i) => ({
           value: `    ${b.type} ${b.key} = ${i};`,
-          className: 'highlight-' + i
+          className: 'highlight-' + i,
         }))
       )
       .concat({
         value: '}',
-        className: ''
+        className: '',
       });
 
-    this.schemaLength = this.schema.map(s => s.value).join('').length;
+    this.schemaLength = this.schema.map((s) => s.value).join('').length;
     this.match = code
       .split('\n')
       .map((a, i) => ({ match: a.trim(), className: `highlight-${i}` }));
@@ -107,7 +107,7 @@ export class JsonComponent implements OnInit {
     this.codeLength = code.replace(/\s/g, '').length;
     this.binariesLength = Math.ceil(
       this.binaries
-        .map(a => a.binary.toString().length)
+        .map((a) => a.binary.toString().length)
         .reduce((a, b) => a + b, 0) / 8
     );
   }

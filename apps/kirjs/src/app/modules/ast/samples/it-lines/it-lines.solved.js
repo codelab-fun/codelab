@@ -12,7 +12,7 @@ function addItByLine(
           node.name = 'fit';
         }
       }
-    }
+    },
   });
 
   return babelGenerator(ast).code;

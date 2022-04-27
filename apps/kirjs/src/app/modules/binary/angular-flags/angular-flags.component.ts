@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-angular-flags',
   templateUrl: './angular-flags.component.html',
-  styleUrls: ['./angular-flags.component.css']
+  styleUrls: ['./angular-flags.component.css'],
 })
 export class AngularFlagsComponent implements OnInit {
   number = 124;
@@ -45,7 +45,7 @@ export class AngularFlagsComponent implements OnInit {
     { checked: false, name: 'DynamicQuery', value: 536870912 },
     { checked: false, name: 'TypeModuleProvider', value: 1073741824 },
     { checked: false, name: 'CatQuery', value: 201326592 },
-    { checked: false, name: 'Types', value: 201347067 }
+    { checked: false, name: 'Types', value: 201347067 },
   ];
 
   checked: string[];
@@ -55,7 +55,7 @@ export class AngularFlagsComponent implements OnInit {
   }
 
   syncCheckBoxes() {
-    this.flags.forEach(f => (f.checked = !!(this.number & f.value)));
+    this.flags.forEach((f) => (f.checked = !!(this.number & f.value)));
   }
 
   ngOnInit() {}

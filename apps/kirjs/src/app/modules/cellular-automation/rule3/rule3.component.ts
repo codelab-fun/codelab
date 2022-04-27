@@ -3,7 +3,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-rule3',
   templateUrl: './rule3.component.html',
-  styleUrls: ['./rule3.component.css']
+  styleUrls: ['./rule3.component.css'],
 })
 export class Rule3Component implements OnInit, OnChanges {
   after: Array<Array<string | number>>;
@@ -21,15 +21,10 @@ export class Rule3Component implements OnInit, OnChanges {
       .substr(1)
       .split('')
       .map(Number)
-      .map(a => ['x', a, 'x']);
+      .map((a) => ['x', a, 'x']);
     // tslint:disable
     this.before = this.after
-      .map((v, i) =>
-        (8 + i)
-          .toString(2)
-          .substr(1)
-          .split('')
-      )
+      .map((v, i) => (8 + i).toString(2).substr(1).split(''))
       .reverse();
   }
 

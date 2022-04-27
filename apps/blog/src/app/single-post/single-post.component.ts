@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'codelab-single-post',
   templateUrl: './single-post.component.html',
   styleUrls: ['./single-post.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SinglePostComponent {
   @Input() post: Post;
@@ -31,7 +31,7 @@ export class SinglePostComponent {
       .then(() => {
         this.router.navigateByUrl(``);
       })
-      .catch(err => {
+      .catch((err) => {
         this.snackBar.open(`ERR: ${err}`);
       });
   }

@@ -8,7 +8,7 @@ describe('MidiComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MidiComponent]
+      declarations: [MidiComponent],
     }).compileComponents();
   }));
 

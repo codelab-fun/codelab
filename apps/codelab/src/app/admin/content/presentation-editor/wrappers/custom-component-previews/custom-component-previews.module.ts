@@ -4,6 +4,6 @@ import { CodelabCodeDemoPreviewComponent } from './codelab-code-demo-preview/cod
 
 @NgModule({
   declarations: [CodelabCodeDemoPreviewComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class CustomComponentPreviewsModule {}

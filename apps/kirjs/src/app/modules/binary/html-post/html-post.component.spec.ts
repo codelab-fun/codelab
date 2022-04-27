@@ -8,7 +8,7 @@ describe('HtmlPostComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [HtmlPostComponent]
+      declarations: [HtmlPostComponent],
     }).compileComponents();
   }));
 

@@ -27,7 +27,7 @@ export const angularFire = AngularFireModule.initializeApp(
 const appRoutes: Routes = [
   { path: 'post/:id', component: PostComponent },
   { path: '', component: FeedComponent },
-  { path: 'form', component: FormComponent }
+  { path: 'form', component: FormComponent },
 ];
 
 @NgModule({
@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     FormComponent,
     FeedComponent,
     PostComponent,
-    SinglePostComponent
+    SinglePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,10 +51,13 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     MatSnackBarModule,
 
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(appRoutes, {
+      initialNavigation: 'enabled',
+      relativeLinkResolution: 'legacy',
+    }),
   ],
   providers: [PostService],
   bootstrap: [AppComponent],
-  exports: [FormComponent]
+  exports: [FormComponent],
 })
 export class AppModule {}

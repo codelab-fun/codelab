@@ -6,6 +6,6 @@ import { TestResultsModule } from '../../test-results/test-results.module';
 @NgModule({
   declarations: [TypescriptCheckerRunnerComponent],
   exports: [TypescriptCheckerRunnerComponent],
-  imports: [CommonModule, TestResultsModule]
+  imports: [CommonModule, TestResultsModule],
 })
 export class TypescriptCheckerRunnerModule {}

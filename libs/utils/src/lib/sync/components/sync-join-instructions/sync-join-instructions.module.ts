@@ -14,7 +14,7 @@ import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/syn
     SyncDirectivesModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
 export class SyncJoinInstructionsModule {}

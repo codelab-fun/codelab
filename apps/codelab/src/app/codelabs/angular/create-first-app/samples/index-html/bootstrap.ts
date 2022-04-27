@@ -8,14 +8,14 @@ import { BrowserModule } from '@angular/platform-browser';
   template: `
     <h1>Hello I'm an Angular app!</h1>
     <h2>Very soon you will learn how to create and bootstrap me!</h2>
-  `
+  `,
 })
 export class AppComponent {}
 
 @NgModule({
   imports: [BrowserModule],
   declarations: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
 

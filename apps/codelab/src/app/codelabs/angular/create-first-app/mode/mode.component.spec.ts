@@ -8,7 +8,7 @@ describe('ModeComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [ModeComponent]
+      declarations: [ModeComponent],
     });
     fixture = TestBed.createComponent(ModeComponent);
     component = fixture.componentInstance;

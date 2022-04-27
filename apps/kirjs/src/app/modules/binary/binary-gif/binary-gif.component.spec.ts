@@ -8,7 +8,7 @@ describe('BinaryGifComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BinaryGifComponent]
+      declarations: [BinaryGifComponent],
     }).compileComponents();
   }));
 

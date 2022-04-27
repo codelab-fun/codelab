@@ -7,60 +7,36 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {
-    "codelab": {
-      "tags": []
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "2d33a6dc-15e8-4227-b14e-dedd96805cec"
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "prefix": "slides",
+      "style": "css"
     },
-    "browser": {
-      "tags": []
+    "@schematics/angular:directive": {
+      "prefix": "slides"
     },
-    "console": {
-      "tags": []
+    "@nrwl/schematics:library": {
+      "unitTestRunner": "karma",
+      "framework": "angular"
     },
-    "utils": {
-      "tags": []
+    "@nrwl/schematics:application": {
+      "unitTestRunner": "karma",
+      "e2eTestRunner": "protractor"
     },
-    "kirjs": {
-      "tags": []
+    "@nrwl/schematics:node-application": {
+      "framework": "express"
     },
-    "angular-ast-viz": {
-      "tags": []
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "angular-slides-to-pdf": {
-      "tags": []
-    },
-    "feedback": {
-      "tags": []
-    },
-    "slides": {
-      "tags": []
-    },
-    "code-demos": {
-      "tags": []
-    },
-    "live": {
-      "tags": []
-    },
-    "firebase-login": {
-      "tags": []
-    },
-    "angular-thirty-seconds": {
-      "tags": []
-    },
-    "blog": {
-      "tags": []
-    },
-    "lis": {
-      "tags": []
-    },
-    "playground": {
-      "tags": []
-    },
-    "firebase": {
-      "tags": []
-    },
-    "intro": {
-      "tags": []
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "codelab"
 }

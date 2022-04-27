@@ -8,14 +8,14 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: '[kirjs-player]',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  styleUrls: ['./player.component.css'],
 })
 export class PlayerComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('guess', { static: true }) guess: ElementRef;

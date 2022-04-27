@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 function generateData() {
-  return Array.from(new Array(10)).map(index => ({
+  return Array.from(new Array(10)).map((index) => ({
     index,
-    value: Math.round(Math.random() * 300)
+    value: Math.round(Math.random() * 300),
   }));
 }
 
@@ -29,7 +29,7 @@ function generateData() {
       </g>
       <!--<g kirjs-ticks style="transform: translate(0, 350px)" [data]="data"></g>-->
     </svg>
-  `
+  `,
 })
 export class AppComponent {
   barWidth = 30;

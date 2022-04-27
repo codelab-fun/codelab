@@ -104,7 +104,7 @@ class RenlibGame {
       .reduce(putStones, utils.generateEmptyPosition(15, 15));
 
     this.current.children
-      .map(n => n.position)
+      .map((n) => n.position)
       .reduce((stones, move) => {
         stones[move[0]][move[1]] = (game.length % 2) + 1 + 2;
         return stones;
@@ -118,7 +118,7 @@ class RenlibGame {
 @Component({
   selector: 'kirjs-gomoku',
   templateUrl: './gomoku.component.html',
-  styleUrls: ['./gomoku.component.css']
+  styleUrls: ['./gomoku.component.css'],
 })
 export class GomokuComponent {
   fontSize = 18;
@@ -468,6 +468,6 @@ export class GomokuComponent {
         'l4',
         'k3'
       )
-      .jumpToMove(39)
+      .jumpToMove(39),
   };
 }

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <div>
       <slides-circle [size]="100" [color]="circleColor"></slides-circle>
     </div>
-  `
+  `,
 })
 export class BoxComponent {
   circleColor = 'green';

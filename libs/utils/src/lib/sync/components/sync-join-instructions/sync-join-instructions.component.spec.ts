@@ -12,7 +12,7 @@ describe('SyncJoinInstructionsComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SyncJoinInstructionsModule],
-      providers: [...getSyncDbService(), ...getMockAngularFireProviders()]
+      providers: [...getSyncDbService(), ...getMockAngularFireProviders()],
     }).compileComponents();
   }));
 

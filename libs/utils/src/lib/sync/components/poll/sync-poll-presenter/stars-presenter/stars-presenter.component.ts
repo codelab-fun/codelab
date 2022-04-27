@@ -4,7 +4,7 @@ import { sum } from '@codelab/utils/src/lib/sync/common';
 @Component({
   selector: 'codelab-stars-presenter',
   templateUrl: './stars-presenter.component.html',
-  styleUrls: ['./stars-presenter.component.css']
+  styleUrls: ['./stars-presenter.component.css'],
 })
 export class StarsPresenterComponent implements OnChanges {
   @Input() votes: { [k: string]: number };

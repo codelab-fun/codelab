@@ -1,8 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
-import { environment } from '../../../../../apps/codelab/src/environments/environment';
 
 declare const require;
-const monacoVersion = environment.production ? 'min' : 'dev';
+// TOOD(kirjs): Use  the real environment
+// const monacoVersion = environment.production ? 'min' : 'dev';
+const monacoVersion = 'min';
 const monacoLoaderCode = require('!raw-loader!monaco-editor/' +
   monacoVersion +
   '/vs/loader');
@@ -23,22 +24,22 @@ export const MONACO_DEFAULTS = {
   fontSize: 12,
   folding: false,
   minimap: {
-    enabled: false
-  }
+    enabled: false,
+  },
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MonacoConfigService {
-  public static monacoReady = new Promise(resolve => {
+  public static monacoReady = new Promise((resolve) => {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.innerHTML = monacoLoaderCode;
     document.head.appendChild(script);
 
     win.require.config({
-      paths: { vs: 'assets/monaco/' + monacoVersion + '/vs' }
+      paths: { vs: 'assets/monaco/' + monacoVersion + '/vs' },
     });
 
     win.require(['vs/editor/editor.main'], () => {
@@ -66,11 +67,11 @@ export class MonacoConfigService {
       moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
       module: monaco.languages.typescript.ModuleKind.CommonJS,
       noEmit: true,
-      typeRoots: ['node_modules/@types']
+      typeRoots: ['node_modules/@types'],
     });
 
     monaco.languages.registerFoldingRangeProvider('typescript', {
-      provideFoldingRanges: function(model, context, token) {
+      provideFoldingRanges: function (model, context, token) {
         const code = model.getValue();
 
         const numberOfImports = code
@@ -81,11 +82,11 @@ export class MonacoConfigService {
             {
               start: 1,
               end: numberOfImports,
-              kind: monaco.languages.FoldingRangeKind.Imports
-            }
+              kind: monaco.languages.FoldingRangeKind.Imports,
+            },
           ];
         }
-      }
+      },
     });
 
     // Some fake Angular deps, good for catching silly errors.
@@ -101,11 +102,11 @@ export class MonacoConfigService {
   }
 
   private static addExtraLibsTest() {
-    let files = require('!!!raw-loader!../../../assets/runner/ng-dts/files.txt');
+    let files = require('!!raw-loader!../../../assets/runner/ng-dts/files.txt');
     files = JSON.parse(files);
 
-    files.forEach(file => {
-      file.paths.forEach(path => {
+    files.forEach((file) => {
+      file.paths.forEach((path) => {
         monaco.languages.typescript.typescriptDefaults.addExtraLib(
           file.content,
           'inmemory://model/' + path

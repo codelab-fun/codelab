@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'codelab-preview',
   templateUrl: './codelab-preview.component.html',
-  styleUrls: ['./codelab-preview.component.scss']
+  styleUrls: ['./codelab-preview.component.scss'],
 })
 export class CodelabPreviewComponent implements OnInit {
   @Input() milestone;
@@ -28,9 +28,9 @@ export class CodelabPreviewComponent implements OnInit {
           queryParams: {
             milestone: this.milestone,
             hideControls: true,
-            resize: true
+            resize: true,
           },
-          queryParamsHandling: 'merge'
+          queryParamsHandling: 'merge',
         })
         .toString()
     );

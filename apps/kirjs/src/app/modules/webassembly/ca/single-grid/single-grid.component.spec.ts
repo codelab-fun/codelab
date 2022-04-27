@@ -8,7 +8,7 @@ describe('SingleGridComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SingleGridComponent]
+      declarations: [SingleGridComponent],
     }).compileComponents();
   }));
 

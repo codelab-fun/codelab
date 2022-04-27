@@ -4,20 +4,18 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'app-root',
-  template: `
-    🐶 1 + 2 🦊
-  `,
-  interpolation: ['🐶', '🦊']
+  template: ` 🐶 1 + 2 🦊 `,
+  interpolation: ['🐶', '🦊'],
 })
 export class AppComponent {}
 
 @NgModule({
   imports: [BrowserModule],
   declarations: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));

@@ -8,9 +8,9 @@ import { OComponent } from './o/o.component';
 @NgModule({
   imports: [
     RouterModule.forChild([{ path: `**`, component: GomokuPrintComponent }]),
-    GomokuBoardModule
+    GomokuBoardModule,
   ],
   declarations: [GomokuPrintComponent, XComponent, OComponent],
-  exports: [GomokuPrintComponent]
+  exports: [GomokuPrintComponent],
 })
 export class GomokuPrintModule {}

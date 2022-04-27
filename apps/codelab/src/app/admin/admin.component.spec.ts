@@ -11,8 +11,11 @@ describe('AdminComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [AdminModule, RouterModule.forRoot([], { relativeLinkResolution: 'legacy' })],
-      providers: [...getMockAngularFireProviders()]
+      imports: [
+        AdminModule,
+        RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
+      ],
+      providers: [...getMockAngularFireProviders()],
     }).compileComponents();
   }));
 

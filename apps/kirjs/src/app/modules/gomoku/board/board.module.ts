@@ -6,6 +6,6 @@ import { ToolsComponent } from '../tools/tools.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [BoardComponent, ToolsComponent],
-  exports: [BoardComponent]
+  exports: [BoardComponent],
 })
 export class GomokuBoardModule {}

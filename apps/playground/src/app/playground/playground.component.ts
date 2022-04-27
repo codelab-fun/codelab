@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'codelab-playground',
   templateUrl: './playground.component.html',
-  styleUrls: ['./playground.component.css']
+  styleUrls: ['./playground.component.css'],
 })
 export class PlaygroundComponent {
   code = angularSampleCode;
@@ -28,7 +28,7 @@ export class PlaygroundComponent {
     const encoded = btoa(JSON.stringify(code));
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
-      queryParams: { code: encoded }
+      queryParams: { code: encoded },
     });
   }
 }

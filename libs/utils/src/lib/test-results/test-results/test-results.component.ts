@@ -5,11 +5,11 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import {
   TestResult,
-  TestRunResult
+  TestRunResult,
 } from '@codelab/utils/src/lib/test-results/common';
 
 @Component({
@@ -17,7 +17,7 @@ import {
   selector: 'slides-test-results',
   templateUrl: './test-results.component.html',
   styleUrls: ['./test-results.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TestResultsComponent implements OnChanges {
   @Input() result: TestRunResult;
@@ -29,7 +29,7 @@ export class TestResultsComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.result && this.result && Array.isArray(this.result.tests)) {
       let hasFailures = false;
-      this.tests = this.result.tests.map(t => {
+      this.tests = this.result.tests.map((t) => {
         const result = { ...t, featured: !t.pass && !hasFailures };
         if (!t.pass) {
           hasFailures = true;

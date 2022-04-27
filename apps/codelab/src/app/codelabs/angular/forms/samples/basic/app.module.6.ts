@@ -8,6 +8,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [BrowserModule, NoopAnimationsModule, MatInputModule, FormsModule],
   declarations: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

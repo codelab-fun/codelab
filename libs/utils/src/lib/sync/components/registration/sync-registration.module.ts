@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
     RegistrationComponent,
     RegistrationViewerComponent,
     RegistrationAdminComponent,
-    RegistrationPresenterComponent
+    RegistrationPresenterComponent,
   ],
   exports: [RegistrationComponent],
   imports: [
@@ -28,7 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     SyncDirectivesModule,
     MatCheckboxModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+  ],
 })
 export class SyncRegistrationModule {}

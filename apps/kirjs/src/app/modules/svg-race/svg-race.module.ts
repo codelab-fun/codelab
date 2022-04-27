@@ -39,7 +39,7 @@ export class SafeHtml implements PipeTransform {
     FormsModule,
     MatButtonModule,
     SyncModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     RaceComponent,
@@ -48,8 +48,8 @@ export class SafeHtml implements PipeTransform {
     TimerComponent,
     LittleCarComponent,
     FinishComponent,
-    PlayerComponent
+    PlayerComponent,
   ],
-  exports: [SvgRaceComponent]
+  exports: [SvgRaceComponent],
 })
 export class SvgRaceModule {}

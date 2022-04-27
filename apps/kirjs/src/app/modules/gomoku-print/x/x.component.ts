@@ -4,6 +4,6 @@ import { Component, OnInit } from '@angular/core';
   // tslint:disable-next-line
   selector: 'x',
   templateUrl: './x.component.html',
-  styleUrls: ['./x.component.css']
+  styleUrls: ['./x.component.css'],
 })
 export class XComponent {}

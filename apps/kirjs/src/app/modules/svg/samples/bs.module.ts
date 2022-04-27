@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'kirjs-ticks',
-  template: ''
+  template: '',
 })
 export class FakeTicksComponent {
   @Input() data: any;
@@ -17,6 +17,6 @@ export class FakeTicksComponent {
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [A1, A2, A3, A4, A5, A6, FakeTicksComponent]
+  declarations: [A1, A2, A3, A4, A5, A6, FakeTicksComponent],
 })
 export class AppModule {}

@@ -3,7 +3,7 @@ import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
 import {
   resolveFunctionKeyOrValue,
   resolveFunctionOrvalue,
-  resolveLengthOrdered
+  resolveLengthOrdered,
 } from '../utils';
 import { ParserConfig } from './common';
 
@@ -45,10 +45,7 @@ export class StringParser extends AbstractBinaryParser {
     } else {
       const len = resolveLengthOrdered(this.config.length, data) * 8;
       const rawValue = reader.read(len);
-      const value = rawValue
-        .match(/.{8}/g)
-        .map(bytesToChar)
-        .join('');
+      const value = rawValue.match(/.{8}/g).map(bytesToChar).join('');
       return { value, rawValue };
     }
   }
@@ -67,7 +64,7 @@ export class StringParser extends AbstractBinaryParser {
       description: this.config.description,
       start,
       end,
-      length
+      length,
     };
   }
 }

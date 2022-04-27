@@ -12,9 +12,9 @@ import { FormsModule } from '@angular/forms';
     PreviewComponent,
     SlidePreviewComponent,
     DynamicRendererComponent,
-    BlankComponent
+    BlankComponent,
   ],
   exports: [PreviewComponent, SlidePreviewComponent, DynamicRendererComponent],
-  imports: [CommonModule, NgxdModule, FormsModule]
+  imports: [CommonModule, NgxdModule, FormsModule],
 })
 export class PreviewModule {}

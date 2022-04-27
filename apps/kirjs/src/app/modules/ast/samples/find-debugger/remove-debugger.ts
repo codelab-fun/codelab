@@ -3,9 +3,9 @@ function removeDebugger(code, { babylon, babelTraverse, babelGenerator, log }) {
 
   let hasDebugger = false;
   babelTraverse(ast, {
-    DebuggerStatement: node => {
+    DebuggerStatement: (node) => {
       hasDebugger = true;
-    }
+    },
   });
 
   return hasDebugger;

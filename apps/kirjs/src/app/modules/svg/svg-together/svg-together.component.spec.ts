@@ -8,7 +8,7 @@ describe('SvgTogetherComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SvgTogetherComponent]
+      declarations: [SvgTogetherComponent],
     }).compileComponents();
   }));
 

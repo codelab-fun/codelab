@@ -5,7 +5,7 @@ import { Highlights } from '../highlights';
 @Component({
   selector: 'kirjs-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent {
   @Input() theme = 'gomoku';

@@ -8,7 +8,7 @@ describe('QuestionsViewerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [QuestionsViewerComponent]
+      declarations: [QuestionsViewerComponent],
     }).compileComponents();
   }));
 

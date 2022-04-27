@@ -22,7 +22,7 @@ const firebaseConfig = {
   storageBucket: 'kirjs-c884f.appspot.com',
   messagingSenderId: '651206687896',
   appId: '1:651206687896:web:3df45fa9e636bb5882a4ed',
-  measurementId: 'G-3B7YEC4QG7'
+  measurementId: 'G-3B7YEC4QG7',
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -31,7 +31,7 @@ const app = flamelink({
   firebaseApp,
   env: 'production', // optional, defaults to `production`
   locale: 'en-US', // optional, defaults to `en-US`
-  dbType: 'cf' // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
+  dbType: 'cf', // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
 });
 
 @NgModule({
@@ -39,18 +39,18 @@ const app = flamelink({
   providers: [
     {
       provide: FLAME_LINK,
-      useValue: app
-    }
+      useValue: app,
+    },
   ],
   imports: [
     RouterModule.forChild([
       {
         path: '',
-        component: OverlayComponent
-      }
+        component: OverlayComponent,
+      },
     ]),
     CommonModule,
-    MarkdownModule
-  ]
+    MarkdownModule,
+  ],
 })
 export class StreamingModule {}

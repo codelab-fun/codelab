@@ -8,7 +8,7 @@ describe('SlideMetaEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SlideMetaEditorComponent]
+      declarations: [SlideMetaEditorComponent],
     }).compileComponents();
   }));
 

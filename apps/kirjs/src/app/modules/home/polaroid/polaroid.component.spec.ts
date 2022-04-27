@@ -8,7 +8,7 @@ describe('PolaroidComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [PolaroidComponent]
+      declarations: [PolaroidComponent],
     }).compileComponents();
   }));
 

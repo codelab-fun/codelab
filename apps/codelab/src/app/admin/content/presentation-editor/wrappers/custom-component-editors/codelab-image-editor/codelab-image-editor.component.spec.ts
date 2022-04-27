@@ -8,7 +8,7 @@ describe('CodelabImageEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabImageEditorComponent]
+      declarations: [CodelabImageEditorComponent],
     }).compileComponents();
   }));
 

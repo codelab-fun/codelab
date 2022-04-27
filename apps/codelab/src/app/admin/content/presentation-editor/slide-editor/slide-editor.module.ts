@@ -16,12 +16,12 @@ import { CustomComponentEditorsModule } from '../wrappers/custom-component-edito
   declarations: [
     SlideEditorComponent,
     SlideMetaEditorComponent,
-    SlideHtmlEditorComponent
+    SlideHtmlEditorComponent,
   ],
   exports: [
     SlideEditorComponent,
     SlideMetaEditorComponent,
-    SlideHtmlEditorComponent
+    SlideHtmlEditorComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +31,7 @@ import { CustomComponentEditorsModule } from '../wrappers/custom-component-edito
     DragDropModule,
     MatButtonModule,
     ActionBarModule,
-    PreviewModule
-  ]
+    PreviewModule,
+  ],
 })
 export class SlideEditorModule {}

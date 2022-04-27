@@ -7,6 +7,6 @@ import { CellularAutomationModule } from '../../../cellular-automation/cellular-
 @NgModule({
   declarations: [VizComponent, GridComponent],
   exports: [VizComponent],
-  imports: [CommonModule, CellularAutomationModule]
+  imports: [CommonModule, CellularAutomationModule],
 })
 export class VizModule {}

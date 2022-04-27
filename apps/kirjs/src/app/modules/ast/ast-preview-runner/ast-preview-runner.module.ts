@@ -7,6 +7,6 @@ import { AngularAstVizModule } from '@codelab/angular-ast-viz';
 @NgModule({
   imports: [CommonModule, FormsModule, AngularAstVizModule],
   declarations: [AstPreviewRunnerComponent],
-  exports: [AstPreviewRunnerComponent]
+  exports: [AstPreviewRunnerComponent],
 })
 export class AstPreviewRunnerModule {}

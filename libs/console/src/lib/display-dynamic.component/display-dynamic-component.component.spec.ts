@@ -8,7 +8,7 @@ describe('DisplayDynamicComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [DisplayDynamicComponent]
+      declarations: [DisplayDynamicComponent],
     }).compileComponents();
   }));
 

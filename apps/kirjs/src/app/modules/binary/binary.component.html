@@ -16,7 +16,7 @@
       If you can't read the numbers below, move closer or go to
       <b>kirjs.com/binary/0</b>
     </h2>
-    <div style="font-size: 3vw;word-break: break-all">
+    <div style="font-size: 3vw; word-break: break-all">
       {{ binaryLittleGif.substr(0, 200) }}
     </div>
   </div>
@@ -54,7 +54,7 @@
   </div>
 
   <div *slide id="binary-file-value-2" vertical-split>
-    <code style="font-size: 2vw;font-weight: 300;word-break: break-word">
+    <code style="font-size: 2vw; font-weight: 300; word-break: break-word">
       {{ chikinGif }}
     </code>
     <kirjs-binary-gif [binary]="binaryChikinGif"></kirjs-binary-gif>
@@ -62,7 +62,7 @@
 
   <div *slide id="binary-file-string-value" vertical-split>
     <code
-      style="font-size: 10vw;font-weight: 300;word-break: break-word"
+      style="font-size: 10vw; font-weight: 300; word-break: break-word"
       contenteditable="true"
       (input)="setLittleGifBinary($event.target.innerText)"
     >
@@ -81,7 +81,7 @@
   </div>
 
   <div *slide id="binary-file-value" vertical-split>
-    <code style="font-size: 3vw; font-weight: 300;word-break: break-word">
+    <code style="font-size: 3vw; font-weight: 300; word-break: break-word">
       {{ binaryLittleGif }}
     </code>
     <kirjs-binary-gif [binary]="binaryLittleGif"></kirjs-binary-gif>
@@ -98,17 +98,17 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" style="text-align: center;">+</td>
+        <td colspan="2" style="text-align: center">+</td>
       </tr>
       <tr>
         <td i18n>Schema</td>
         <td i18n>Lol, what's this?</td>
       </tr>
       <tr>
-        <td colspan="2" style="text-align: center;">=</td>
+        <td colspan="2" style="text-align: center">=</td>
       </tr>
       <tr>
-        <td colspan="2" style="text-align: center;">
+        <td colspan="2" style="text-align: center">
           Numbers? Picture? Archive? Text?
         </td>
       </tr>
@@ -126,23 +126,23 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" style="text-align: center;">+</td>
+        <td colspan="2" style="text-align: center">+</td>
       </tr>
       <tr>
         <td i18n>Schema</td>
         <td><b i18n>This is UTF-8 string!</b></td>
       </tr>
       <tr>
-        <td colspan="2" style="text-align: center;">=</td>
+        <td colspan="2" style="text-align: center">=</td>
       </tr>
       <tr>
-        <td colspan="2" style="text-align: center;">Novi Sad</td>
+        <td colspan="2" style="text-align: center">Novi Sad</td>
       </tr>
     </table>
   </div>
 
   <div *slide id="gif-standard" vc>
-    <pre style="text-align: center;font-size: 2vw;">
+    <pre style="text-align: center; font-size: 2vw">
 GRAPHICS INTERCHANGE FORMAT(sm)
 
 <a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">Version 89a</a>
@@ -185,12 +185,12 @@ Columbus, Ohio
       <li i18n>Contains size, global pallets specs, transparency.</li>
     </ul>
     <h2 i18n>Palette (Optional, size defined )</h2>
-    <ul class="text  parent-palette">
+    <ul class="text parent-palette">
       <li i18n>Contains indexed colors</li>
     </ul>
     <h2 i18n>Extensions (Optional)</h2>
-    <div class="text  parent-extensions">
-      <ul style="margin: 0;">
+    <div class="text parent-extensions">
+      <ul style="margin: 0">
         <li i18n i18n>Actual image data</li>
         <li i18n i18n>Image Control</li>
         <li i18n i18n>Animation Control</li>
@@ -325,7 +325,7 @@ Columbus, Ohio
 
   <div *slide id="KOI8-R"><kirjs-ascii param="KOI8-R"></kirjs-ascii></div>
   <div *slide id="boxes">
-    <pre style="font-size: 3vw;font-family: monospace; line-height: 1.8vw;">
+    <pre style="font-size: 3vw; font-family: monospace; line-height: 1.8vw">
 ┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕
 │ ││  ║ ║║  ║ ║║  │ ││
 ├─┼┤  ╠═╬╣  ╟─╫╢  ╞═╪╡
@@ -467,7 +467,7 @@ Columbus, Ohio
 
   <div *slide id="compare-size">
     <h1 i18n>Serialized Size</h1>
-    <div style="display: flex;" class="compare-serialization">
+    <div style="display: flex" class="compare-serialization">
       <div class="compare-json">
         <h2 i18n>JSON</h2>
         <ul>
@@ -486,7 +486,7 @@ Columbus, Ohio
 
   <div *slide id="compare-speed">
     <h1 i18n>Serialization speed</h1>
-    <div style="display: flex;" class="compare-serialization">
+    <div style="display: flex" class="compare-serialization">
       <div class="compare-json">
         <h2 i18n>JSON</h2>
         <ul>
@@ -505,7 +505,7 @@ Columbus, Ohio
 
   <div *slide id="compare-debugging">
     <h1 i18n>Debugging</h1>
-    <div style="display: flex;" class="compare-serialization">
+    <div style="display: flex" class="compare-serialization">
       <div class="compare-json">
         <h2 i18n>JSON</h2>
 
@@ -526,7 +526,7 @@ Columbus, Ohio
 
   <div *slide id="compare-tooling">
     <h1 i18n>Tooling</h1>
-    <div style="display: flex;" class="compare-serialization">
+    <div style="display: flex" class="compare-serialization">
       <div class="compare-json">
         <h2 i18n>JSON</h2>
         <ul>
@@ -545,7 +545,7 @@ Columbus, Ohio
 
   <div *slide id="compare-schema">
     <h1 i18n>Schema</h1>
-    <div style="display: flex;" class="compare-serialization">
+    <div style="display: flex" class="compare-serialization">
       <div class="compare-json">
         <h2 i18n>JSON</h2>
         <ul>

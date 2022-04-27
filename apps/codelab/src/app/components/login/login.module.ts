@@ -7,6 +7,6 @@ import { LoginComponent } from './login.component';
 
 @NgModule({
   imports: [CommonModule, MatCardModule, RouterModule, MatButtonModule],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent],
 })
 export class LoginModule {}

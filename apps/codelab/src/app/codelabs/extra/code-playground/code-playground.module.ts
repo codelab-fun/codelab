@@ -10,6 +10,6 @@ const routes = RouterModule.forChild(SlidesRoutes.get(CodePlaygroundComponent));
 @NgModule({
   imports: [routes, SlidesModule, FeedbackModule, CommonModule],
   declarations: [CodePlaygroundComponent],
-  exports: [CodePlaygroundComponent]
+  exports: [CodePlaygroundComponent],
 })
 export class CodePlaygroundModule {}

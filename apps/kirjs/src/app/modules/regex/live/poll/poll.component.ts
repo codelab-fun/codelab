@@ -4,7 +4,7 @@ import { LiveService } from '../live.service';
 @Component({
   selector: 'kirjs-poll',
   templateUrl: './poll.component.html',
-  styleUrls: ['./poll.component.css']
+  styleUrls: ['./poll.component.css'],
 })
 export class PollComponent {
   @Input() question: string;
@@ -16,7 +16,7 @@ export class PollComponent {
   template: `
     <li (click)="service.storeMyData(value)"><ng-content></ng-content></li>
   `,
-  styleUrls: ['./poll.component.css']
+  styleUrls: ['./poll.component.css'],
 })
 export class SlidesAnswerComponent implements OnInit {
   @Input() value: string;

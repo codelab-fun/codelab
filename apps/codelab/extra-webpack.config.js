@@ -3,8 +3,10 @@ const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 const findLoader = (webpackConfig, regex) => {
   return webpackConfig.module.rules
-    .filter(rule => !!rule.use)
-    .find(rule => rule.use.find(it => !!it.loader && regex.test(it.loader)));
+    .filter((rule) => !!rule.use)
+    .find((rule) =>
+      rule.use.find((it) => !!it.loader && regex.test(it.loader))
+    );
 };
 
 module.exports = (webpackConfig, cliConfig) => {
@@ -15,7 +17,7 @@ module.exports = (webpackConfig, cliConfig) => {
     );
 
     const originalTest = loader.test;
-    loader.test = file => {
+    loader.test = (file) => {
       const isMonaco = !!file.match('node_modules/monaco-editor');
       return !isMonaco && !!file.match(originalTest);
     };

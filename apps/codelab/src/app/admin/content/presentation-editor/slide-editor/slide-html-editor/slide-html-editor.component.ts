@@ -8,7 +8,7 @@ import {
   OnChanges,
   OnDestroy,
   Output,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import MediumEditor from 'medium-editor';
 import { AsideButton } from './aside-button';
@@ -18,12 +18,13 @@ import { AsideButton } from './aside-button';
   templateUrl: './slide-html-editor.component.html',
   styleUrls: [
     './slide-html-editor.component.css',
-    '../../../../../shared/slide-styles.scss'
+    '../../../../../shared/slide-styles.scss',
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SlideHtmlEditorComponent
-  implements AfterViewInit, OnChanges, OnDestroy {
+  implements AfterViewInit, OnChanges, OnDestroy
+{
   @Input() html;
   @Output() changeHtml = new EventEmitter();
   private editor: any;
@@ -35,11 +36,11 @@ export class SlideHtmlEditorComponent
     console.log('NEW');
     this.editor = new MediumEditor(this.el.nativeElement, {
       toolbar: {
-        buttons: ['bold', 'aside', 'unorderedlist', 'removeFormat']
+        buttons: ['bold', 'aside', 'unorderedlist', 'removeFormat'],
       },
       extensions: {
-        highlighter: new AsideButton()
-      }
+        highlighter: new AsideButton(),
+      },
     });
     this.editor.setContent(this.html);
     this.editor.subscribe('editableInput', (_, element) => {

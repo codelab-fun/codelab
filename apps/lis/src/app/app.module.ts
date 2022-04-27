@@ -27,19 +27,19 @@ export const AngularFireApp = AngularFireModule.initializeApp(
         {
           path: '',
           loadChildren: () =>
-            import('./modules/rxjs/rxjs.module').then(_ => _.RxjsModule)
-        }
+            import('./modules/rxjs/rxjs.module').then((_) => _.RxjsModule),
+        },
       ],
       { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' }
-    )
+    ),
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

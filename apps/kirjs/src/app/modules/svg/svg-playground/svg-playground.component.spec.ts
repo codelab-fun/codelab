@@ -8,7 +8,7 @@ describe('RaceComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SvgPlaygroundComponent]
+      declarations: [SvgPlaygroundComponent],
     }).compileComponents();
   }));
 

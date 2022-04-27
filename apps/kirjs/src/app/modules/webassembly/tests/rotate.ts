@@ -2,17 +2,17 @@ const rowSize = 5;
 const longFowSize = 4;
 const yellow = {
   color: 'yellow',
-  text: 'Y'
+  text: 'Y',
 };
 
 const lime = {
   color: 'lime',
-  text: 'G'
+  text: 'G',
 };
 
 const red = {
   color: 'red',
-  text: 'R'
+  text: 'R',
 };
 
 export const rotate = [
@@ -26,15 +26,15 @@ export const rotate = [
         {
           ...lime,
           x: 0,
-          y: 0
+          y: 0,
         },
         {
           ...yellow,
           x: 0,
-          y: 1
-        }
-      ]
-    }
+          y: 1,
+        },
+      ],
+    },
   },
   {
     args: [rowSize, rowSize],
@@ -46,30 +46,30 @@ export const rotate = [
         {
           ...red,
           x: rowSize,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: 0,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: rowSize - 2,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: rowSize - 1,
-          y: 0
+          y: 0,
         },
         {
           ...yellow,
           x: rowSize - 1,
-          y: 1
-        }
-      ]
-    }
+          y: 1,
+        },
+      ],
+    },
   },
   {
     args: [-1, rowSize],
@@ -81,30 +81,30 @@ export const rotate = [
         {
           ...red,
           x: -1,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: 0,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: 1,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: rowSize - 1,
-          y: 0
+          y: 0,
         },
         {
           ...yellow,
           x: 0,
-          y: 1
-        }
-      ]
-    }
+          y: 1,
+        },
+      ],
+    },
   },
 
   {
@@ -117,29 +117,29 @@ export const rotate = [
         {
           ...red,
           x: longFowSize,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: 0,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: longFowSize - 2,
-          y: 0
+          y: 0,
         },
         {
           ...lime,
           x: longFowSize - 1,
-          y: 0
+          y: 0,
         },
         {
           ...yellow,
           x: longFowSize - 1,
-          y: 1
-        }
-      ]
-    }
-  }
+          y: 1,
+        },
+      ],
+    },
+  },
 ];

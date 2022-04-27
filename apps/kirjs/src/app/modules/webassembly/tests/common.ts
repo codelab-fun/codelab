@@ -11,21 +11,21 @@ export function outputCoordinates(config) {
       y: -1,
       x: config.args[0],
       color: 'yellow',
-      text: config.args[0]
+      text: config.args[0],
     },
 
     {
       x: -1,
       y: config.args[1],
       color: 'yellow',
-      text: config.args[1]
+      text: config.args[1],
     },
 
     {
       x: config.args[0],
       y: config.args[1],
       color: 'lime',
-      text: config.output
-    }
+      text: config.output,
+    },
   ];
 }

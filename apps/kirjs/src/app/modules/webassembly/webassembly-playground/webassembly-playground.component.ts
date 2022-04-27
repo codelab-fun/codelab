@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   CodeHelperBlock,
   CodePath,
-  getCodeBlockHandler
+  getCodeBlockHandler,
 } from './monaco-directives/common';
 
 interface WebassemblyPlaygroundInputs {
@@ -20,9 +20,9 @@ interface WebassemblyPlaygroundInputs {
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => WebassemblyPlaygroundComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class WebassemblyPlaygroundComponent implements ControlValueAccessor {
   @Input() modeConfig = {};
@@ -54,7 +54,7 @@ export class WebassemblyPlaygroundComponent implements ControlValueAccessor {
     }
 
     const allCode = path.blocks[path.blocks.length - 1].code;
-    this.sideBarBlocks = path.blocks.map(b => {
+    this.sideBarBlocks = path.blocks.map((b) => {
       const langConfig = this.modeConfig[path.type];
 
       if (!langConfig) {
@@ -68,7 +68,7 @@ export class WebassemblyPlaygroundComponent implements ControlValueAccessor {
         meta.name = b.name;
         meta.type = b.type;
         const handler =
-          meta.handler || getCodeBlockHandler(path.type, b.type) || (a => a);
+          meta.handler || getCodeBlockHandler(path.type, b.type) || ((a) => a);
         meta = handler(meta, b.code, allCode);
         meta.allCode = allCode;
       }
@@ -76,7 +76,7 @@ export class WebassemblyPlaygroundComponent implements ControlValueAccessor {
       return { ...b, meta };
     });
 
-    const block = this.sideBarBlocks.find(b => !!b.meta);
+    const block = this.sideBarBlocks.find((b) => !!b.meta);
     this.selectedMode = {};
     if (block) {
       // TODO(kirjs): Uncommit

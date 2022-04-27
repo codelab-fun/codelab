@@ -4,20 +4,20 @@ import {
   Input,
   OnChanges,
   OnDestroy,
-  Output
+  Output,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import {
   compileTsFilesWatch,
-  Files
+  Files,
 } from '@codelab/code-demos/src/lib/runner/compile-ts-files';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'slides-typescript-test-runner',
   templateUrl: './typescript-test-runner.component.html',
-  styleUrls: ['./typescript-test-runner.component.css']
+  styleUrls: ['./typescript-test-runner.component.css'],
 })
 export class TypescriptTestRunnerComponent implements OnChanges, OnDestroy {
   @Input() code;
@@ -28,11 +28,11 @@ export class TypescriptTestRunnerComponent implements OnChanges, OnDestroy {
 
   readonly code$ = this.codeSubject.pipe(
     compileTsFilesWatch(),
-    filter(a => Object.values(a.files).length > 0),
-    map(a => {
+    filter((a) => Object.values(a.files).length > 0),
+    map((a) => {
       return {
         code: a.files['main.js'],
-        tests: a.files['test.js']
+        tests: a.files['test.js'],
       };
     })
   );
@@ -40,7 +40,7 @@ export class TypescriptTestRunnerComponent implements OnChanges, OnDestroy {
   ngOnChanges() {
     this.codeSubject.next({
       'main.ts': this.code,
-      'test.ts': this.tests
+      'test.ts': this.tests,
     });
   }
 

@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { gifParser } from './gif-parser';
@@ -20,7 +20,7 @@ interface Chunk {
 @Component({
   selector: 'kirjs-fake-gif',
   templateUrl: './fake-gif.component.html',
-  styleUrls: ['./fake-gif.component.css']
+  styleUrls: ['./fake-gif.component.css'],
 })
 export class FakeGifComponent implements AfterViewInit {
   t: { [key: string]: string };
@@ -48,8 +48,8 @@ export class FakeGifComponent implements AfterViewInit {
     reader.onloadend = (e: any) => {
       const result = new Uint8Array(e.target.result);
       const binaries = Array.from(result)
-        .map(a => a.toString(2))
-        .map(a => (a as any).padStart(8, 0));
+        .map((a) => a.toString(2))
+        .map((a) => (a as any).padStart(8, 0));
       this.binary = binaries.join('');
     };
 

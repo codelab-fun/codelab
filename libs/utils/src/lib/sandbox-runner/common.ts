@@ -10,15 +10,15 @@ export const testReducer = produce(
   (data: TestRunResult = { tests: [] }, action: TestAction): TestRunResult => {
     if (action.type === 'reset') {
       return {
-        tests: action.data.map(name => ({
+        tests: action.data.map((name) => ({
           name,
-          pass: undefined
-        }))
+          pass: undefined,
+        })),
       };
     }
     if (action.type === 'result') {
       const index = data.tests.findIndex(
-        test => action.data.name === test.name
+        (test) => action.data.name === test.name
       );
       if (index === -1) {
         throw new Error('Test missing');

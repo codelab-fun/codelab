@@ -5,7 +5,7 @@ import { GridConfig } from './grid/grid.component';
 @Component({
   selector: 'slides-viz',
   templateUrl: './viz.component.html',
-  styleUrls: ['./viz.component.css']
+  styleUrls: ['./viz.component.css'],
 })
 export class VizComponent implements OnInit {
   @Input() config: WebAssemblyTestConfig;

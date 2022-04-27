@@ -29,7 +29,7 @@ function exerciseWithConsoleLog(moduleName: string, code: any, code2: any) {
        '<hr style="margin-left: 2vw;border: 0 solid;">'
          document.body.scrollTop = document.body.scrollHeight;
     })
-  `
+  `,
   };
 }
 
@@ -49,7 +49,7 @@ export function exercise(
     code: template,
     moduleName: moduleName,
     solution,
-    after: `export function evalJs( js ){ return eval(js);}`
+    after: `export function evalJs( js ){ return eval(js);}`,
   };
 }
 
@@ -65,7 +65,7 @@ export function test(moduleName: string, template: string): FileConfig {
     bootstrap: true,
     before: 'mochaBefore();',
     after: 'mochaAfter();',
-    hidden: true
+    hidden: true,
   };
 }
 
@@ -76,18 +76,20 @@ interface SimpleImport {
 
 export const builder = {
   imports(imports: Array<SimpleImport>) {
-    return imports.map(i => `import {${i.name}} from '${i.path}';`).join('\n');
+    return imports
+      .map((i) => `import {${i.name}} from '${i.path}';`)
+      .join('\n');
   },
   listOfComponents: (components: Array<SimpleImport>) => {
-    return `[${components.map(c => c.name).join(',')}]`;
+    return `[${components.map((c) => c.name).join(',')}]`;
   },
 
   ngModule(
     declarations: Array<SimpleImport> = [
       {
         name: 'AppComponent',
-        path: './app.component'
-      }
+        path: './app.component',
+      },
     ],
     bootstrapComponent?: Array<SimpleImport>
   ) {
@@ -138,7 +140,7 @@ platform.bootstrapModule(${module.name}, [
 ]);
 
 `;
-  }
+  },
 };
 
 export function html(path = 'app', code, solution = '') {
@@ -146,7 +148,7 @@ export function html(path = 'app', code, solution = '') {
     code,
     path: path + '.html',
     solution: solution,
-    type: 'html'
+    type: 'html',
   };
 }
 
@@ -155,7 +157,7 @@ export function stylesheet(code, solution = '') {
     code,
     path: 'style.css',
     solution: solution || code,
-    type: 'css'
+    type: 'css',
   };
 }
 
@@ -173,7 +175,7 @@ export function bootstrap(
     template,
     code: template,
     moduleName: moduleName,
-    solution
+    solution,
   };
 }
 
@@ -236,7 +238,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   })
   export class BoxComponent {
     circleColor="green"
-  }`
+  }`,
     },
     files: [
       exercise('box.component', boxCode),
@@ -257,9 +259,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
            margin-top: 50px;
            border-radius: 50%;
          }
-        `
-      }
-    ]
+        `,
+      },
+    ],
   };
 }
 
@@ -293,10 +295,10 @@ export function displayAngularComponent(
 
           h1 {font-size: 6vw;}
           h2 {font-size: 4vw;}
-        `
+        `,
       },
-      ...(testCode ? [test('test', testCode)] : [])
-    ]
+      ...(testCode ? [test('test', testCode)] : []),
+    ],
   };
 }
 
@@ -313,14 +315,14 @@ export function typeScriptWithConsoleLog(
     {
       path: 'main.css',
       type: 'css',
-      code: ``
-    }
+      code: ``,
+    },
   ];
   if (otherCode !== '') {
     files.push(exercise('puppy', otherCode));
   }
   return {
-    files
+    files,
   };
 }
 
@@ -350,19 +352,19 @@ export function displayAngularComponentWithHtml(
         code,
         path: 'app/app.html',
         solution: '',
-        type: 'html'
+        type: 'html',
       },
-      ...displayAngularComponent(componentCode).files
-    ]
+      ...displayAngularComponent(componentCode).files,
+    ],
   };
 }
 
 export function solve(exerciseConfig) {
   return {
     ...exerciseConfig,
-    files: exerciseConfig.files.map(file => ({
+    files: exerciseConfig.files.map((file) => ({
       ...file,
-      code: file.solution || file.code
-    }))
+      code: file.solution || file.code,
+    })),
   };
 }

@@ -14,16 +14,16 @@ describe('SnippetService', () => {
     gitHubService = jasmine.createSpyObj('gitHubService', [
       'getPullByPullNumber',
       'getPullFileByPullNumber',
-      'getSnippetBody'
+      'getSnippetBody',
     ]);
 
     TestBed.configureTestingModule({
       providers: [
         {
           provide: GitHubService,
-          useValue: gitHubService
-        }
-      ]
+          useValue: gitHubService,
+        },
+      ],
     });
   });
 
@@ -37,7 +37,7 @@ describe('SnippetService', () => {
 
     gitHubService.getPullByPullNumber.and.returnValue(
       of({
-        head: { ref: branchName }
+        head: { ref: branchName },
       })
     );
     const sha = 'sa sha';
@@ -47,23 +47,23 @@ describe('SnippetService', () => {
         {
           contents_url,
           sha,
-          filename: fileName
-        }
+          filename: fileName,
+        },
       ])
     );
 
     gitHubService.getSnippetBody.and.returnValue(
       of({
-        content: btoa(snippet)
+        content: btoa(snippet),
       })
     );
 
-    service.fetchPR(repoName, repoOwner, pullNumber).subscribe(result => {
+    service.fetchPR(repoName, repoOwner, pullNumber).subscribe((result) => {
       expect(result).toEqual({
         branchName,
         fileName,
         sha,
-        snippet
+        snippet,
       });
     });
   });

@@ -4,7 +4,7 @@ import { assert } from './utils';
 declare const require;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ScriptLoaderService {
   private readonly scripts = {
@@ -16,7 +16,7 @@ export class ScriptLoaderService {
     zone: require('!!raw-loader!zone.js/dist/zone.js'),
     'system-config': require('!!raw-loader!../../../assets/runner/js/system-config'),
     'mock-console': require('!!raw-loader!../../../assets/runner/js/mock-console'),
-    'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle')
+    'ng-bundle': require('!!raw-loader!../../../assets/runner/ng2/ng-bundle'),
     // TODO(kirjs): not sure we still need vue and react libs
     // vue: require('!!raw-loader!vue/dist/vue.js'),
     // react: require('!!raw-loader!react/umd/react.development.js'),

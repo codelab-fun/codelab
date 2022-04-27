@@ -38,7 +38,7 @@ export class BinaryParser {
       name,
       new VarUintParser({
         ...config,
-        size: 31
+        size: 31,
       })
     );
     return this;
@@ -68,7 +68,7 @@ export class BinaryParser {
     return this.bit('const', {
       length: value.length,
       type: 'const',
-      ...config
+      ...config,
     });
   }
 
@@ -107,10 +107,10 @@ export class BinaryParser {
     return this.bit(name, {
       type: 'number',
       length: 16,
-      converter: a => {
+      converter: (a) => {
         return parseInt(a.slice(8) + a.slice(0, 8), 2);
       },
-      ...config
+      ...config,
     });
   }
 
@@ -118,10 +118,10 @@ export class BinaryParser {
     return this.bit(name, {
       type: 'number',
       length: 24,
-      converter: a => {
+      converter: (a) => {
         return parseInt(a, 2);
       },
-      ...config
+      ...config,
     });
   }
 
@@ -129,19 +129,19 @@ export class BinaryParser {
     return this.bit(name, {
       type: 'number',
       length: 32,
-      converter: a => {
+      converter: (a) => {
         return parseInt(a, 2);
       },
-      ...config
+      ...config,
     });
   }
 
   uInt32le(name: string, config?: Partial<BaseConfig>) {
     return this.uInt32(name, {
-      converter: a => {
+      converter: (a) => {
         return beToLe32(parseInt(a, 2));
       },
-      ...config
+      ...config,
     });
   }
 
@@ -150,10 +150,10 @@ export class BinaryParser {
       type: 'number',
       subtype: 'uint8',
       length: 8,
-      converter: a => {
+      converter: (a) => {
         return parseInt(a, 2);
       },
-      ...config
+      ...config,
     });
   }
 
@@ -166,14 +166,14 @@ export class BinaryParser {
 
     return this.bit(name, {
       type: 'hex',
-      converter: data => {
+      converter: (data) => {
         return Array.from(data.match(/.{4}/g))
-          .map(a => parseInt(a.toString(), 2))
-          .map(a => a.toString(16))
+          .map((a) => parseInt(a.toString(), 2))
+          .map((a) => a.toString(16))
           .join('');
       },
       ...config,
-      length: config.length * 4
+      length: config.length * 4,
     });
   }
 
@@ -186,7 +186,7 @@ export class BinaryParser {
 
     return {
       start: start,
-      ...v
+      ...v,
     };
   }
 }

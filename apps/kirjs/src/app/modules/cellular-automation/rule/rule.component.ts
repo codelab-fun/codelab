@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-rule',
   templateUrl: './rule.component.html',
-  styleUrls: ['./rule.component.css']
+  styleUrls: ['./rule.component.css'],
 })
 export class RuleComponent implements OnInit {
   @Input() before = [];

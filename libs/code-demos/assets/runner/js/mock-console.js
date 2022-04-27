@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const consoleDiv = document.createElement('div');
   consoleDiv.className = 'codelab-console';
   document.body.appendChild(consoleDiv);

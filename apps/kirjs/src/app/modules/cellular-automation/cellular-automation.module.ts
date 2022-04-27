@@ -20,7 +20,7 @@ import { Rule4Component } from './rule3/rule4/rule4.component';
     RuleComponent,
     Rule8Component,
     OscilatorsComponent,
-    Rule4Component
+    Rule4Component,
   ],
   exports: [
     CellularAutomationComponent,
@@ -31,7 +31,7 @@ import { Rule4Component } from './rule3/rule4/rule4.component';
     Rule8Component,
     OscilatorsComponent,
     BoardComponent,
-    Rule4Component
-  ]
+    Rule4Component,
+  ],
 })
 export class CellularAutomationModule {}

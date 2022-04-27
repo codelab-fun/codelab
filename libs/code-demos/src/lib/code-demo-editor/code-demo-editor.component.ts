@@ -10,7 +10,7 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
-  NgZone
+  NgZone,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
@@ -21,21 +21,20 @@ import { CodeDemoEditorInjector } from './code-demo-editor.injector';
 
 @Component({
   selector: 'code-demo-editor',
-  template: `
-    <div #editor class="monaco-editor"></div>
-  `,
+  template: ` <div #editor class="monaco-editor"></div> `,
   styleUrls: ['editor.component.css'],
   providers: [
     CodeDemoEditorInjector,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CodeDemoEditorComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class CodeDemoEditorComponent
-  implements ControlValueAccessor, AfterViewInit, OnChanges, OnDestroy {
+  implements ControlValueAccessor, AfterViewInit, OnChanges, OnDestroy
+{
   height: number;
   @Input() minLines = 6;
   model: any;
@@ -61,7 +60,7 @@ export class CodeDemoEditorComponent
   ) {
     this.subscription = this.changeSubject
       .pipe(debounceTime(this.debounce))
-      .subscribe(a => this.change.emit(a));
+      .subscribe((a) => this.change.emit(a));
   }
 
   registerOnTouched(fn: any): void {}
@@ -122,15 +121,13 @@ export class CodeDemoEditorComponent
       this.monacoConfigService.monaco.editor.setTheme(this.theme);
     }
 
-    this.editor = this.editorInjector.editor = this.monacoConfigService.createEditor(
-      editor,
-      {
+    this.editor = this.editorInjector.editor =
+      this.monacoConfigService.createEditor(editor, {
         model: this.model,
         lineNumbers: this.lineNumbers,
         folding: true,
-        fontSize: this.fontSize
-      }
-    );
+        fontSize: this.fontSize,
+      });
 
     this.editor.onDidChangeCursorSelection(({ selection }) => {
       this.zone.run(() => {

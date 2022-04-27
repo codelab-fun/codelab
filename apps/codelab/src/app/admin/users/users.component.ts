@@ -22,7 +22,7 @@ export interface UserDb {
 @Component({
   selector: 'codelab-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
 })
 export class UsersComponent {
   readonly displayedColumns = ['isCurrentUser', 'key'];
@@ -34,12 +34,12 @@ export class UsersComponent {
 
   readonly admins$: Observable<Admin[]> = combineLatest([
     this.allAdmins$,
-    this.loginService.uid$
+    this.loginService.uid$,
   ]).pipe(
     map(([admins, currentUserUid]) => {
-      return admins.map(admin => ({
+      return admins.map((admin) => ({
         ...admin,
-        isCurrentUser: admin.key === currentUserUid
+        isCurrentUser: admin.key === currentUserUid,
       }));
     })
   );

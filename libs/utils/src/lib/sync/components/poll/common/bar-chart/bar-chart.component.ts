@@ -3,7 +3,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 @Component({
   selector: 'codelab-bar-chart',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss']
+  styleUrls: ['./bar-chart.component.scss'],
 })
 export class BarChartComponent implements OnChanges {
   @Input() highlightedIndex: number;
@@ -22,7 +22,7 @@ export class BarChartComponent implements OnChanges {
     if ('data' in changes) {
       this.breakdown = Object.entries(this.data || {}).map(([key, value]) => ({
         key,
-        value
+        value,
       }));
       this.max = Math.max(...Object.values(this.data || {}), 0);
     }

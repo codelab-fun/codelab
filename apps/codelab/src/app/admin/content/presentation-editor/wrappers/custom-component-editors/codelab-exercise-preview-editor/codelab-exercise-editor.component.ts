@@ -3,7 +3,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  Output
+  Output,
 } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../../../../ng2ts/ng2ts';
 import { ContentSlide, CustomBlock } from '../../../types';
@@ -12,7 +12,7 @@ import { ContentService } from '../../../services/content.service';
 @Component({
   selector: 'codelab-exercise-editor',
   templateUrl: './codelab-exercise-editor.component.html',
-  styleUrls: ['./codelab-exercise-editor.component.css']
+  styleUrls: ['./codelab-exercise-editor.component.css'],
 })
 export class CodelabExerciseEditorComponent implements OnChanges {
   @Input() data;
@@ -30,12 +30,12 @@ export class CodelabExerciseEditorComponent implements OnChanges {
 
   ngOnChanges() {
     this.selectedMilestone = ng2tsConfig.milestones.find(
-      m => m.name === this.milestone
+      (m) => m.name === this.milestone
     );
 
     if (this.milestone) {
       this.selectedExercise = this.selectedMilestone.exercises.find(
-        m => m.name === this.exercise
+        (m) => m.name === this.exercise
       );
     }
   }
@@ -50,8 +50,8 @@ export class CodelabExerciseEditorComponent implements OnChanges {
       props: {
         milestone: this.selectedMilestone?.name || '',
         exercise: this.selectedExercise?.name || '',
-        type: this.type
-      }
+        type: this.type,
+      },
     });
   }
 }

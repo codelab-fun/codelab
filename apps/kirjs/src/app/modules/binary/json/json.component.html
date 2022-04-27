@@ -1,7 +1,7 @@
-<div style="display: flex;" class="wrapper">
+<div style="display: flex" class="wrapper">
   <div
     class="code"
-    style="flex: 0 0 36vw; display: flex;flex-direction: column"
+    style="flex: 0 0 36vw; display: flex; flex-direction: column"
   >
     <h2 i18n>
       Data as JSON (<b>{{ codeLength }} bytes</b>)
@@ -17,12 +17,12 @@
   </div>
   <div
     class="binary"
-    style="flex: 0 0 60vw; display: flex;flex-direction: column"
+    style="flex: 0 0 60vw; display: flex; flex-direction: column"
   >
     <h2 i18n>
       Binary data (<b>{{ binariesLength }} bytes</b>)
     </h2>
-    <div *ngIf="error" style="padding: 3vw;">{{ error }}</div>
+    <div *ngIf="error" style="padding: 3vw">{{ error }}</div>
     <div>
       <span
         (click)="index = i"
@@ -34,13 +34,13 @@
           {{ item.type }}
           <span
             *ngIf="item.type === 'string'"
-            style="display: flex;flex-wrap: wrap"
+            style="display: flex; flex-wrap: wrap"
           >
             <span
               *ngFor="let l of item.display"
               style="display: flex; flex-direction: column"
             >
-              <span class="letter" style="text-align: center;"
+              <span class="letter" style="text-align: center"
                 >{{ l.value }}&nbsp;</span
               >
               <span class="bin highlight-{{ i }}">{{ l.bin }}</span>
@@ -50,7 +50,7 @@
             *ngIf="item.type === 'number'"
             style="display: flex; flex-direction: column"
           >
-            <span class="letter" style="text-align: center;">{{
+            <span class="letter" style="text-align: center">{{
               item.value
             }}</span>
             <span class="bin highlight-{{ i }}">{{ item.binary }}</span>
@@ -59,7 +59,7 @@
             *ngIf="item.type === 'boolean'"
             style="display: flex; flex-direction: column"
           >
-            <span class="letter" style="text-align: center;">{{
+            <span class="letter" style="text-align: center">{{
               item.value
             }}</span>
             <span class="bin highlight-{{ i }}">{{ item.binary }}</span>
@@ -67,7 +67,7 @@
         </span>
       </span>
     </div>
-    <h2 style="margin-top: 2vw;" i18n>
+    <h2 style="margin-top: 2vw" i18n>
       Schema (<b>{{ schemaLength }} bytes</b>)
     </h2>
 

@@ -9,7 +9,7 @@ describe('SyncPollComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [SyncPollModule]
+      imports: [SyncPollModule],
     }).compileComponents();
   }));
 

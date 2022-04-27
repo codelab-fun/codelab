@@ -6,6 +6,6 @@ import { AstTreeComponent } from './ast-tree/ast-tree.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [AstTreeComponent],
-  exports: [AstTreeComponent]
+  exports: [AstTreeComponent],
 })
 export class AngularAstVizModule {}

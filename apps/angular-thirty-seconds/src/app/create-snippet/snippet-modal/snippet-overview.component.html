@@ -1,14 +1,10 @@
-<h1 mat-dialog-title>
-  Snippet Markdown
-</h1>
+<h1 mat-dialog-title>Snippet Markdown</h1>
 <mat-dialog-content>
   <markdown [data]="snippetWithFormat"></markdown>
 </mat-dialog-content>
 <div class="snippet-modal-footer">
   <mat-dialog-actions>
-    <button mat-button (click)="this.dialogRef.close()">
-      Back to form
-    </button>
+    <button mat-button (click)="this.dialogRef.close()">Back to form</button>
     <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-submit">
       {{ isEditing ? 'Edit' : 'Create' }} Snippet
     </button>

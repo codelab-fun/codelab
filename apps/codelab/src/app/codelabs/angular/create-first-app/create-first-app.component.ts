@@ -10,8 +10,8 @@ declare const require;
   templateUrl: './create-first-app.component.html',
   styleUrls: [
     '../../../components/css/codelab-styles.scss',
-    './create-first-app.component.css'
-  ]
+    './create-first-app.component.css',
+  ],
 })
 export class CreateFirstAppComponent implements OnInit {
   t: { [key: string]: string };
@@ -46,7 +46,7 @@ export class AppComponent {
 `,
           solution: `import { Component } from '@angular/core';\n\n@Component({\n  selector: 'my-app',\n
               template: '<h1>Hello MewTube!</h1>',\n})\nexport class AppComponent {\n}\n`,
-          after: 'export function evalJs( js ){ return eval(js);}'
+          after: 'export function evalJs( js ){ return eval(js);}',
         },
         {
           bootstrap: false,
@@ -61,7 +61,7 @@ export class AppComponent {
             import { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [BrowserWindowModule],\n  declarations: [AppComponent],
             \n  bootstrap: [AppComponent]\n})\nexport class AppModule {\n}\n`,
           readonly: true,
-          collapsed: true
+          collapsed: true,
         },
         {
           bootstrap: true,
@@ -74,10 +74,10 @@ export class AppComponent {
           code: `import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport {AppModule} from './app.module';\n\n
             const platform = platformBrowserDynamic();\nplatform.bootstrapModule(AppModule);\n`,
           readonly: true,
-          collapsed: true
-        }
-      ]
-    }
+          collapsed: true,
+        },
+      ],
+    },
   ];
 
   // tslint:disable:max-line-length TODO: Clean up exercises and remove this comment.
@@ -91,13 +91,13 @@ export class AppComponent {
     this.code = {
       indexHtml: {
         'index.html': require('!!raw-loader!./samples/index-html/index.html'),
-        'bootstrap.ts': require('!!raw-loader!./samples/index-html/bootstrap.ts')
+        'bootstrap.ts': require('!!raw-loader!./samples/index-html/bootstrap.ts'),
       },
       angularApp: {
         'index.html': require('!!raw-loader!./samples/app-component/index.html'),
         'bootstrap.ts': require('!!raw-loader!./samples/app-component/bootstrap.ts'),
         'app.component.ts': require('!!raw-loader!./samples/app-component/app.component.ts'),
-        'app.module.ts': require('!!raw-loader!./samples/app-component/app.module.ts')
+        'app.module.ts': require('!!raw-loader!./samples/app-component/app.module.ts'),
       },
       indexHtmlMatches: { 'index.html': /<hello-[^]*world>/ },
       helloMatches: { 'app.component.ts': /hello-world/ },
@@ -110,7 +110,7 @@ export class AppComponent {
       declarationsMatches: { 'app.module.ts': /declarations.*/ },
       bootstrapMatches: { 'app.module.ts': /bootstrap.*/ },
       bootstrapPlatformMatches: {
-        'bootstrap.ts': /platformBrowserDynamic\(\).*/
+        'bootstrap.ts': /platformBrowserDynamic\(\).*/,
       },
       decorators: {
         code: `import {Component} from '@angular/core';
@@ -121,8 +121,8 @@ export class AppComponent {
 export class AppComponent {
   // ${this.t.decoratorGoesAboveEntity}
   // ${this.t.componentNameIsClassName}
-}`
-      }
+}`,
+      },
     };
   }
 }

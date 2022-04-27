@@ -5,7 +5,7 @@ import {
   Input,
   OnChanges,
   OnInit,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
 import { ObjectComponent } from '../object/object.component';
 import { BitsComponent } from '../bits/bits.component';
@@ -22,13 +22,13 @@ const componentMap = {
   number: NumberComponent,
   array: ArrayComponent,
   color: ColorComponent,
-  hex: HexComponent
+  hex: HexComponent,
 };
 
 @Component({
   selector: 'kirjs-block',
   templateUrl: './block.component.html',
-  styleUrls: ['./block.component.css']
+  styleUrls: ['./block.component.css'],
 })
 export class BlockComponent implements OnInit, OnChanges {
   @Input() data: any;

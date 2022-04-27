@@ -5,7 +5,7 @@ import { Result, RunResult, WebAssemblyService } from '../web-assembly.service';
 @Component({
   selector: 'kirjs-webassembly-runner',
   templateUrl: './webassembly-runner.component.html',
-  styleUrls: ['./webassembly-runner.component.css']
+  styleUrls: ['./webassembly-runner.component.css'],
 })
 export class WebassemblyRunnerComponent implements OnChanges {
   @Input() webAssemblyCode: string;

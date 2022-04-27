@@ -27,7 +27,7 @@ export class Highlights {
     let newValue;
     if (this.highlights[x][y].includes(type)) {
       newValue = this.highlights[x][y] = this.highlights[x][y].filter(
-        a => a !== type
+        (a) => a !== type
       );
     } else {
       this.highlights[x][y].push(type);
@@ -38,7 +38,7 @@ export class Highlights {
     this.history.push({
       point: [x, y],
       oldValue,
-      newValue
+      newValue,
     });
 
     this.historyIndex++;

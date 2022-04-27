@@ -8,7 +8,8 @@ describe('FeedComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [FeedComponent]
+      declarations: [FeedComponent],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

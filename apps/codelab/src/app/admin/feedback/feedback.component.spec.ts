@@ -14,8 +14,8 @@ describe('FeedbackComponent', () => {
       imports: [FeedbackModule, NoopAnimationsModule],
       providers: [
         ...getMockAngularFireProviders(),
-        { provide: GithubService, useValue: {} }
-      ]
+        { provide: GithubService, useValue: {} },
+      ],
     }).compileComponents();
   }));
 

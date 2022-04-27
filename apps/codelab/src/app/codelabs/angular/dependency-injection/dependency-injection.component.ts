@@ -5,7 +5,7 @@ import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 @Component({
   selector: 'codelab-slides-dependency-injection',
   templateUrl: './dependency-injection.component.html',
-  styleUrls: ['./dependency-injection.component.css']
+  styleUrls: ['./dependency-injection.component.css'],
 })
 export class DependencyInjectionComponent implements OnInit {
   t: { [key: string]: string };
@@ -44,11 +44,11 @@ export class Person {
 }`,
 
         matches: {
-          noDI: /this.*/
+          noDI: /this.*/,
         },
         readonly: true,
         path: 'person-noDI.ts',
-        type: 'typescript'
+        type: 'typescript',
       },
 
       withDI: {
@@ -59,11 +59,11 @@ export class Person {
   constructor(public profession: Job) {}
 }`,
         matches: {
-          constructor: /constructor.*/
+          constructor: /constructor.*/,
         },
         readonly: true,
         path: 'personDI.ts',
-        type: 'typescript'
+        type: 'typescript',
       },
       withDITesting: {
         code: `const mockProfession = new Job('lawyer');
@@ -74,11 +74,11 @@ it('should create a Person with the right profession', () => {
 });
 `,
         matches: {
-          constructor: /constructor.*/
+          constructor: /constructor.*/,
         },
         readonly: true,
         path: 'personDI.spec.ts',
-        type: 'typescript'
+        type: 'typescript',
       },
 
       classAsInjectable: {
@@ -89,10 +89,10 @@ export class UnitConverterService {
   // ...
 }`,
         matches: {
-          injectable: /@I[^]*?\)[^]/
+          injectable: /@I[^]*?\)[^]/,
         },
         readonly: true,
-        type: 'typescript'
+        type: 'typescript',
       },
 
       provideInjectable: {
@@ -106,10 +106,10 @@ import { UnitConversionComponent } from './unit-conversion.component';
 })
 export class AppModule {}`,
         matches: {
-          providers: /providers.*/
+          providers: /providers.*/,
         },
         readonly: true,
-        type: 'typescript'
+        type: 'typescript',
       },
 
       consumeInjectable: {
@@ -121,9 +121,9 @@ export class UnitConversionComponent {
   constructor(private converter: UnitConverterService) {}
 }`,
         matches: {
-          constructor: /constructor.*/
-        }
-      }
+          constructor: /constructor.*/,
+        },
+      },
     };
   }
 }

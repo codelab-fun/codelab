@@ -5,9 +5,9 @@ describe('BinaryParser', () => {
   beforeEach(() => {
     const s = 'Universal Serial Bus'
       .split('')
-      .map(a => a.charCodeAt(0))
-      .map(a => a.toString(2))
-      .map(a => (a as any).padStart(8, 0))
+      .map((a) => a.charCodeAt(0))
+      .map((a) => a.toString(2))
+      .map((a) => (a as any).padStart(8, 0))
       .join('');
     this.reader = new StringBinaryReader(s);
   });
@@ -22,7 +22,7 @@ describe('BinaryParser', () => {
       expect(parser.read(this.reader, {}).value).toEqual({
         a: '0',
         b: '1',
-        u: 'Uni'
+        u: 'Uni',
       });
     });
 
@@ -37,7 +37,7 @@ describe('BinaryParser', () => {
       expect(parser.read(this.reader).value).toEqual({
         header: { a: '0', b: '1' },
         c: '0',
-        d: '1'
+        d: '1',
       });
     });
 
@@ -65,7 +65,7 @@ describe('BinaryParser', () => {
               name: 'a',
               value: '0',
               rawValue: '0',
-              type: 'bits'
+              type: 'bits',
             },
             {
               start: 1,
@@ -74,11 +74,11 @@ describe('BinaryParser', () => {
               name: 'b',
               value: '1',
               rawValue: '1',
-              type: 'bits'
-            }
+              type: 'bits',
+            },
           ],
           rawValue: '01',
-          type: 'object'
+          type: 'object',
         },
         {
           start: 2,
@@ -87,7 +87,7 @@ describe('BinaryParser', () => {
           name: 'c',
           value: '0',
           rawValue: '0',
-          type: 'bits'
+          type: 'bits',
         },
         {
           start: 3,
@@ -96,8 +96,8 @@ describe('BinaryParser', () => {
           name: 'd',
           value: '1',
           rawValue: '1',
-          type: 'bits'
-        }
+          type: 'bits',
+        },
       ]);
     });
 

@@ -14,7 +14,7 @@ import { CellularAutomationModule } from '../../cellular-automation/cellular-aut
     WebassemblyRunnerModule,
     MatInputModule,
     FormsModule,
-    CellularAutomationModule
-  ]
+    CellularAutomationModule,
+  ],
 })
 export class FullScreenRunnerModule {}

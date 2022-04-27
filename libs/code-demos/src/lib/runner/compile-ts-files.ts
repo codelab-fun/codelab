@@ -12,7 +12,7 @@ function toObject(acc, outputFile) {
   if (outputFile) {
     return {
       ...acc,
-      [outputFile.name]: outputFile.text
+      [outputFile.name]: outputFile.text,
     };
   }
   return acc;
@@ -34,7 +34,7 @@ const compilerOptions: TsTypes.CompilerOptions = {
   emitDecoratorMetadata: true,
   noImplicitAny: true,
   declaration: true,
-  lib: ['dom', 'es6']
+  lib: ['dom', 'es6'],
 };
 
 type ObservableFiles = Observable<Files>;
@@ -45,7 +45,7 @@ function watch(
 ): Observable<Output> {
   const outputFiles: BehaviorSubject<Output> = new BehaviorSubject<Output>({
     diagnostics: [],
-    files: {}
+    files: {},
   });
 
   const files: TsTypes.MapLike<{ version: number; file: string }> = {};
@@ -57,9 +57,9 @@ function watch(
   // Create the language service host to allow the LS to communicate with the host
   const servicesHost: TsTypes.LanguageServiceHost = {
     getScriptFileNames: () => getCurrentFileNames(),
-    getScriptVersion: fileName =>
+    getScriptVersion: (fileName) =>
       files[fileName] && files[fileName].version.toString(),
-    getScriptSnapshot: fileName => {
+    getScriptSnapshot: (fileName) => {
       const file = files[fileName];
       if (!file) {
         return undefined;
@@ -72,9 +72,9 @@ function watch(
     getCurrentDirectory: () => '/',
     getCompilationSettings: () => options,
     getDefaultLibFileName: () => 'lib.d.ts',
-    fileExists: a => !!files[a],
-    readFile: a => files[a] && files[a].file,
-    readDirectory: () => getCurrentFileNames()
+    fileExists: (a) => !!files[a],
+    readFile: (a) => files[a] && files[a].file,
+    readDirectory: () => getCurrentFileNames(),
   };
 
   // Create the language service files
@@ -84,7 +84,7 @@ function watch(
   );
 
   const subscription = source$.subscribe(
-    newFiles => {
+    (newFiles) => {
       const filteredFiles = Object.entries(newFiles).filter(([fileName, _]) =>
         fileName.match(/\.ts$/)
       );
@@ -120,7 +120,7 @@ function watch(
   function extractDiagnostics(file) {
     return services
       .getSemanticDiagnostics(file)
-      .map(d => ({ ...d, name: d.file.fileName }));
+      .map((d) => ({ ...d, name: d.file.fileName }));
   }
 
   function emitFiles(fileNames: string[]) {
@@ -131,8 +131,8 @@ function watch(
       diagnostics,
       files: {
         ...outputFiles.getValue().files,
-        ...updated
-      }
+        ...updated,
+      },
     });
   }
 
@@ -144,7 +144,7 @@ function watch(
         logErrors(fileName);
       }
 
-      const file = output.outputFiles.find(file => /\.js$/.test(file.name));
+      const file = output.outputFiles.find((file) => /\.js$/.test(file.name));
 
       if (file) {
         file.name = file.name.replace(/^\//, '');
@@ -163,19 +163,18 @@ function watch(
       .concat(services.getSyntacticDiagnostics(fileName))
       .concat(services.getSemanticDiagnostics(fileName));
 
-    allDiagnostics.forEach(diagnostic => {
+    allDiagnostics.forEach((diagnostic) => {
       const message = ts.flattenDiagnosticMessageText(
         diagnostic.messageText,
         '\n'
       );
       if (diagnostic.file) {
-        const {
-          line,
-          character
-        } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
+        const { line, character } =
+          diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
         console.log(
-          `Error ${diagnostic.file.fileName} (${line + 1},${character +
-            1}): ${message}`
+          `Error ${diagnostic.file.fileName} (${line + 1},${
+            character + 1
+          }): ${message}`
         );
       } else {
         console.log(`Error: ${message}`);

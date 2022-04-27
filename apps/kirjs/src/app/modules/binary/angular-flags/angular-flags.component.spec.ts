@@ -8,7 +8,7 @@ describe('AngularFlagsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AngularFlagsComponent]
+      declarations: [AngularFlagsComponent],
     }).compileComponents();
   }));
 

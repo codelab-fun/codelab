@@ -9,12 +9,12 @@ import { PreviewWindowComponent } from './preview-window/preview-window.componen
   declarations: [
     BrowserWindowComponent,
     TerminalWindowComponent,
-    PreviewWindowComponent
+    PreviewWindowComponent,
   ],
   exports: [
     BrowserWindowComponent,
     TerminalWindowComponent,
-    PreviewWindowComponent
-  ]
+    PreviewWindowComponent,
+  ],
 })
 export class BrowserWindowModule {}

@@ -9,6 +9,6 @@ const routes = RouterModule.forChild(SlidesRoutes.get(RegexComponent));
 
 @NgModule({
   declarations: [RegexComponent],
-  imports: [routes, CommonModule, SlidesModule, LiveModule]
+  imports: [routes, CommonModule, SlidesModule, LiveModule],
 })
 export class RegexModule {}

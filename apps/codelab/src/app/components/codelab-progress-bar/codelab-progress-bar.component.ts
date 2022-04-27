@@ -4,7 +4,7 @@ import { SlidesDeckComponent } from '@ng360/slides';
 @Component({
   selector: 'codelab-progress-bar',
   templateUrl: './codelab-progress-bar.component.html',
-  styleUrls: ['./codelab-progress-bar.component.css']
+  styleUrls: ['./codelab-progress-bar.component.css'],
 })
 export class CodelabProgressBarComponent implements AfterViewInit {
   slides = [];
@@ -20,7 +20,7 @@ export class CodelabProgressBarComponent implements AfterViewInit {
       this.activeSlideIndex = this.deck.activeSlideIndex;
     });
 
-    this.deck.slideChange.subscribe(index => {
+    this.deck.slideChange.subscribe((index) => {
       this.activeSlideIndex = index;
     });
   }

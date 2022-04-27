@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-bindec',
   templateUrl: './bindec.component.html',
-  styleUrls: ['./bindec.component.css']
+  styleUrls: ['./bindec.component.css'],
 })
 export class BindecComponent implements OnInit {
   digits = [0];

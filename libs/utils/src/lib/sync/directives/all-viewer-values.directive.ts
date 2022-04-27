@@ -3,7 +3,7 @@ import {
   Directive,
   Input,
   OnDestroy,
-  Optional
+  Optional,
 } from '@angular/core';
 
 import { NgControl } from '@angular/forms';
@@ -12,7 +12,7 @@ import { Subject } from 'rxjs';
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: '[syncAllUserValues]',
-  exportAs: 'allViewerValues'
+  exportAs: 'allViewerValues',
 })
 export class AllViewerValuesDirective<T> implements AfterViewInit, OnDestroy {
   @Input() syncAllUserValues: string;

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginGuard implements CanActivate {
   constructor(private _route: Router, private loginService: LoginService) {}
@@ -15,7 +15,7 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
     return this.loginService.isAnonymous$.pipe(
-      map(res => {
+      map((res) => {
         if (res) {
           // user is anonymous
           return true;

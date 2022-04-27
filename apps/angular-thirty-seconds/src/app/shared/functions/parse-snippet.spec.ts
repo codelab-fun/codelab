@@ -3,7 +3,7 @@ import {
   testSnippetEdgeCases,
   testSnippetMd,
   testSnippetMinimal,
-  testSnippetParsed
+  testSnippetParsed,
 } from './test-data/snippet';
 
 describe('ParseSnippet', () => {
@@ -34,7 +34,7 @@ describe('ParseSnippet', () => {
         "import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport { AppModule } from './app.module';" +
         '\n\nplatformBrowserDynamic().bootstrapModule(AppModule);\n',
       'index.html': '<my-app></my-app>',
-      'app.svg': '<circle r=100 fill=red></circle>'
+      'app.svg': '<circle r=100 fill=red></circle>',
     });
   });
 });

@@ -3,14 +3,14 @@ import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import {
   SyncDataService,
-  ViewerConfig
+  ViewerConfig,
 } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { filter, map, takeUntil } from 'rxjs/operators';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: '[syncViewerValue]',
-  exportAs: 'viewerValue'
+  exportAs: 'viewerValue',
 })
 export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
   @Input() syncViewerValue: keyof ViewerConfig;
@@ -43,18 +43,18 @@ export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
       .valueChanges()
       .pipe(
         takeUntil(this.onDestroy$),
-        map(a => (a === undefined ? this.syncViewerValueDefault : a))
+        map((a) => (a === undefined ? this.syncViewerValueDefault : a))
       )
-      .subscribe(value => {
+      .subscribe((value) => {
         this.control.valueAccessor.writeValue(value);
       });
 
     this.control.valueChanges
       .pipe(
-        filter(a => a !== undefined),
+        filter((a) => a !== undefined),
         takeUntil(this.onDestroy$)
       )
-      .subscribe(newValue => {
+      .subscribe((newValue) => {
         data.set(newValue);
       });
   }

@@ -5,7 +5,7 @@ import {
   OnChanges,
   OnDestroy,
   Output,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { TestRunnerService } from '@codelab/utils/src/lib/sandbox-runner/test-runner.service';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -15,7 +15,7 @@ import { ReplaySubject } from 'rxjs';
   // tslint:disable-next-line:component-selector
   selector: 'slides-test-runner',
   templateUrl: './test-runner.component.html',
-  styleUrls: ['./test-runner.component.scss']
+  styleUrls: ['./test-runner.component.scss'],
 })
 export class TestRunnerComponent implements OnChanges, OnDestroy {
   @Input() code;
@@ -34,9 +34,9 @@ export class TestRunnerComponent implements OnChanges, OnDestroy {
   constructor(private testRunner: TestRunnerService) {
     this.result$
       .pipe(
-        filter(result => {
+        filter((result) => {
           return (
-            !!result.error || result.tests.every(t => t.pass !== undefined)
+            !!result.error || result.tests.every((t) => t.pass !== undefined)
           );
         }),
         takeUntil(this.destroy$)

@@ -44,15 +44,15 @@ import { SyncCodeGameModule } from '@codelab/utils/src/lib/sync/components/sync-
     SyncPollModule,
     SyncButtonModule,
     LeaderboardModule,
-    SyncCodeGameModule
+    SyncCodeGameModule,
   ],
   providers: [LoginService],
   declarations: [
     AllViewerValuesDirective,
     SyncPlaygroundComponent,
     SyncPlaygroundPresenterComponent,
-    SyncPlaygroundTestComponent
+    SyncPlaygroundTestComponent,
   ],
-  exports: [AllViewerValuesDirective, SyncPlaygroundComponent]
+  exports: [AllViewerValuesDirective, SyncPlaygroundComponent],
 })
 export class SyncModule {}

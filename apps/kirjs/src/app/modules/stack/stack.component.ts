@@ -4,7 +4,7 @@ import { Level } from './stack-game/stack-game.component';
 @Component({
   selector: 'kirjs-stack',
   templateUrl: './stack.component.html',
-  styleUrls: ['./stack.component.css']
+  styleUrls: ['./stack.component.css'],
 })
 export class StackComponent implements OnInit {
   itIsALemon = false;
@@ -15,16 +15,16 @@ export class StackComponent implements OnInit {
         {
           inputs: '',
           outputs: '🍏',
-          name: 'push 🍏'
+          name: 'push 🍏',
         },
         {
           inputs: '',
           outputs: '🍋',
-          name: 'push 🍋'
-        }
+          name: 'push 🍋',
+        },
       ],
       inputs: '',
-      outputs: '🍏🍋🍏'
+      outputs: '🍏🍋🍏',
     },
 
     pop: {
@@ -32,11 +32,11 @@ export class StackComponent implements OnInit {
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
-        }
+          name: 'pop',
+        },
       ],
       inputs: '🍏🍏🍏🍏🍏',
-      outputs: '🍏'
+      outputs: '🍏',
     },
 
     together: {
@@ -44,92 +44,92 @@ export class StackComponent implements OnInit {
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
+          name: 'pop',
         },
         {
           inputs: '',
           outputs: '🍓',
-          name: 'push 🍓'
+          name: 'push 🍓',
         },
         {
           inputs: '',
           outputs: '🍋',
-          name: 'push 🍋'
-        }
+          name: 'push 🍋',
+        },
       ],
       inputs: '🍏🍏',
-      outputs: '🍓🍋'
+      outputs: '🍓🍋',
     },
 
     lemonade: {
       functions: [
         {
           inputs: '',
-          outputs: '💦'
+          outputs: '💦',
         },
         {
           inputs: '',
-          outputs: '🍋'
+          outputs: '🍋',
         },
         {
           inputs: '',
-          outputs: '🍒'
+          outputs: '🍒',
         },
         {
           inputs: '🍒💦🍋',
-          outputs: '🍹'
-        }
+          outputs: '🍹',
+        },
       ],
       inputs: '',
-      outputs: '🍹'
+      outputs: '🍹',
     },
     level1: {
       functions: [
         {
           inputs: '',
-          outputs: '🍏🍏'
+          outputs: '🍏🍏',
         },
         {
           inputs: '',
-          outputs: '🍋'
+          outputs: '🍋',
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒'
+          outputs: '🍒',
         },
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
-        }
+          name: 'pop',
+        },
       ],
       inputs: '🍏',
-      outputs: '🍒'
+      outputs: '🍒',
     },
     level2: {
       functions: [
         {
           inputs: '',
           outputs: '🍏',
-          name: 'push 🍏'
+          name: 'push 🍏',
         },
         {
           inputs: '🍏🍏',
-          outputs: '🍋'
+          outputs: '🍋',
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒'
+          outputs: '🍒',
         },
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
-        }
+          name: 'pop',
+        },
       ],
       inputs: '🍏',
-      outputs: '🍒'
-    }
+      outputs: '🍒',
+    },
   };
 
   constructor() {}

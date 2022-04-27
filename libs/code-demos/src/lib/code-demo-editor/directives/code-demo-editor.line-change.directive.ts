@@ -5,7 +5,7 @@ import {
   OnDestroy,
   Output,
   Self,
-  NgZone
+  NgZone,
 } from '@angular/core';
 import { CodeDemoEditorInjector } from '../code-demo-editor.injector';
 import { IDisposable } from 'monaco-editor';
@@ -17,13 +17,13 @@ interface LineChangeContext {
 }
 
 @Directive({
-  selector: '[codeDemoLineChange]'
+  selector: '[codeDemoLineChange]',
 })
 export class CodeDemoEditorLineChangeDirective
-  implements AfterViewInit, OnDestroy {
-  @Output() codeDemoLineChange: EventEmitter<
-    LineChangeContext
-  > = new EventEmitter();
+  implements AfterViewInit, OnDestroy
+{
+  @Output() codeDemoLineChange: EventEmitter<LineChangeContext> =
+    new EventEmitter();
 
   private subscription: IDisposable;
 
@@ -56,7 +56,7 @@ export class CodeDemoEditorLineChangeDirective
     this.codeDemoLineChange.emit({
       lineNumber,
       line: model.getLineContent(lineNumber),
-      value: model.getValue()
+      value: model.getValue(),
     });
   }
 }

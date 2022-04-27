@@ -9,6 +9,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 @NgModule({
   imports: [SharedPipeModule, CommonModule, FormsModule, MatAutocompleteModule],
   declarations: [ConsoleComponent, DisplayDynamicComponent],
-  exports: [ConsoleComponent]
+  exports: [ConsoleComponent],
 })
 export class ConsoleModule {}

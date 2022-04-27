@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-object',
   templateUrl: './object.component.html',
-  styleUrls: ['./object.component.css']
+  styleUrls: ['./object.component.css'],
 })
 export class ObjectComponent implements OnInit {
   @Input() data: any;

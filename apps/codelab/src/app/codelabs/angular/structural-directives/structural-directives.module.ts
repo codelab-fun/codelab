@@ -20,9 +20,9 @@ const routes = RouterModule.forChild(
     FeedbackModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [StructuralDirectivesComponent],
-  exports: [StructuralDirectivesComponent]
+  exports: [StructuralDirectivesComponent],
 })
 export class StructuralDirectivesModule {}

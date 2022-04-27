@@ -5,7 +5,7 @@ import { StackFunction } from '../stack-game.component';
   // tslint:disable-next-line:component-selector
   selector: 'slides-stack-function-button',
   templateUrl: './stack-function-button.component.html',
-  styleUrls: ['./stack-function-button.component.css']
+  styleUrls: ['./stack-function-button.component.css'],
 })
 export class StackFunctionButtonComponent {
   @Input() func: StackFunction;

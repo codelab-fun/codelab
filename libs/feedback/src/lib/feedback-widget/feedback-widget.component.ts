@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   OnDestroy,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import { FeedbackService } from '../feedback.service';
 import { Message } from '../message';
@@ -16,7 +16,7 @@ import { AccessService } from '../../../../../apps/codelab/src/app/shared/servic
   selector: 'feedback-widget',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './feedback-widget.component.html',
-  styleUrls: ['./feedback-widget.component.scss']
+  styleUrls: ['./feedback-widget.component.scss'],
 })
 export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   messages$: Observable<Message[]>;
@@ -44,12 +44,12 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
     this.formGroup = this.fb.group({
       comment: [value, Validators.required],
       name: [localStorage.getItem('userName') || '', Validators.required],
-      email: [localStorage.getItem('userEmail') || '', []]
+      email: [localStorage.getItem('userEmail') || '', []],
     });
 
     this.formGroup.valueChanges
       .pipe(debounceTime(500), takeUntil(this.destroy))
-      .subscribe(data => {
+      .subscribe((data) => {
         localStorage[`feedback-${this.router.url}-comment`] = data.comment;
       });
   }

@@ -42,7 +42,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     MonacoScrollingDirective,
     MonacoJsPositionDirective,
     MonacoWatLoadAnswerDirective,
-    WasmContentsComponent
+    WasmContentsComponent,
   ],
   exports: [],
   imports: [
@@ -61,7 +61,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(WebassemblyComponent));
     CellularAutomationModule,
     NewProgressBarModule,
     FullScreenRunnerModule,
-    WebassemblyRunnerModule
-  ]
+    WebassemblyRunnerModule,
+  ],
 })
 export class WebassemblyModule {}

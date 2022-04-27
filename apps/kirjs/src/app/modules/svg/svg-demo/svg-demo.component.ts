@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-svg-demo',
   templateUrl: './svg-demo.component.html',
-  styleUrls: ['./svg-demo.component.css']
+  styleUrls: ['./svg-demo.component.css'],
 })
 export class SvgDemoComponent implements OnInit {
   code: string;

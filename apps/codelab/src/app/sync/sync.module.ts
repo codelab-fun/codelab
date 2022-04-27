@@ -17,14 +17,14 @@ import { SyncComponent } from './sync.component';
     SyncPollModule,
     SyncButtonModule,
     SyncDirectivesModule,
-    ConfigureSyncModule
-  ]
+    ConfigureSyncModule,
+  ],
 })
 export class SyncModule {}
 
 @Component({
   selector: 'codelab-sync-admin-wrapper',
-  template: '<codelab-sync-survey [admin]="true"></codelab-sync-survey>'
+  template: '<codelab-sync-survey [admin]="true"></codelab-sync-survey>',
 })
 export class SyncAdminWrapperComponent {}
 
@@ -34,6 +34,6 @@ const routes = RouterModule.forChild(
 
 @NgModule({
   declarations: [SyncAdminWrapperComponent],
-  imports: [SyncModule, routes]
+  imports: [SyncModule, routes],
 })
 export class SyncAdminModule {}

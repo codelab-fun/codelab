@@ -10,6 +10,6 @@ export const environment = {
     projectId: 'angular-presentation',
     storageBucket: 'angular-presentation.appspot.com',
     messagingSenderId: '1087862173437',
-    appId: '1:1087862173437:web:0bb7fe324b62580bb31894'
-  }
+    appId: '1:1087862173437:web:0bb7fe324b62580bb31894',
+  },
 };

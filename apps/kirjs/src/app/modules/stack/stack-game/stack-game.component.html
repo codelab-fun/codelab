@@ -8,16 +8,14 @@
   </slides-stack-function-button>
 </div>
 
-<div class="complete" *ngIf="isComplete">
-  ✨💖 Success! ✨💖
-</div>
+<div class="complete" *ngIf="isComplete">✨💖 Success! ✨💖</div>
 
 <div class="history">
   <div class="functions">
     <div class="item initial">Initial stack:</div>
     <div
       *ngFor="let func of functions; let last = last"
-      style="display: flex;justify-content: flex-end"
+      style="display: flex; justify-content: flex-end"
     >
       <span (click)="removeFunction()" class="remove-button" *ngIf="last"
         >ⓧ</span
@@ -37,7 +35,7 @@
 </div>
 <hr />
 
-<div class="history ">
+<div class="history">
   <div class="item initial">Expected:</div>
   <div class="item stack">
     <slides-simple-stack [value]="level.outputs"></slides-simple-stack>

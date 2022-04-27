@@ -6,7 +6,7 @@ import {
   filter,
   map,
   switchMap,
-  withLatestFrom
+  withLatestFrom,
 } from 'rxjs/operators';
 import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
@@ -42,15 +42,15 @@ function getScore(
 
 export function calculateUserScore(configs, presenterData, userData) {
   return configs
-    .filter(config => presenterData[config.key])
-    .map(config => {
+    .filter((config) => presenterData[config.key])
+    .map((config) => {
       return {
         ...config,
         answerIndex: config.options.indexOf(config.answer),
-        startTime: presenterData[config.key].startTime
+        startTime: presenterData[config.key].startTime,
       };
     })
-    .flatMap(config => {
+    .flatMap((config) => {
       if (!userData[config.key]) {
         return [];
       }
@@ -64,19 +64,22 @@ export function calculateUserScore(configs, presenterData, userData) {
               speed >= 0 &&
               answer.answer === config.answerIndex &&
               speed <= DEFAULT_TEST_TIME_SECONDS * 1000,
-            speed: speed
+            speed: speed,
           };
         }
       );
 
-      const correctResponses = responses.filter(r => r.isCorrect);
-      const slowest = Math.max(...correctResponses.map(a => a.speed), 0);
-      const fastest = Math.min(...correctResponses.map(a => a.speed), slowest);
+      const correctResponses = responses.filter((r) => r.isCorrect);
+      const slowest = Math.max(...correctResponses.map((a) => a.speed), 0);
+      const fastest = Math.min(
+        ...correctResponses.map((a) => a.speed),
+        slowest
+      );
       const range = slowest - fastest;
-      return responses.map(r => {
+      return responses.map((r) => {
         return {
           ...r,
-          score: 100 * getScore(r.isCorrect, range, r.speed, fastest)
+          score: 100 * getScore(r.isCorrect, range, r.speed, fastest),
         };
       });
     })
@@ -93,18 +96,18 @@ export class SyncPoll {
     .object(this.config.key)
     .withDefault({
       enabled: true,
-      startTime: 0
+      startTime: 0,
     });
 
   readonly isPollEnabled$ = this.presenterSettings
     .valueChanges()
-    .pipe(map(a => a.enabled));
-  readonly timestamp$: Observable<
-    number
-  > = this.presenterSettings.valueChanges().pipe(map(a => a.startTime));
+    .pipe(map((a) => a.enabled));
+  readonly timestamp$: Observable<number> = this.presenterSettings
+    .valueChanges()
+    .pipe(map((a) => a.startTime));
 
   readonly timeLeft$ = this.timestamp$.pipe(
-    switchMap(time => interval(500).pipe(map(() => time))),
+    switchMap((time) => interval(500).pipe(map(() => time))),
     withLatestFrom(
       this.firebaseInfoService.offset$.pipe(distinctUntilChanged())
     ),
@@ -122,14 +125,14 @@ export class SyncPoll {
     distinctUntilChanged()
   );
 
-  readonly $isPollRunning = this.timeLeft$.pipe(map(time => time > 0));
+  readonly $isPollRunning = this.timeLeft$.pipe(map((time) => time > 0));
   readonly hasVotes$: Observable<boolean>;
   readonly votesCount$: Observable<number>;
   private readonly viewerData = this.syncDataService
     .getCurrentViewerObject('poll')
     .object(this.key)
     .withDefault({ answer: null, time: 0 });
-  readonly myVote$ = this.viewerData.valueChanges().pipe(map(a => a.answer));
+  readonly myVote$ = this.viewerData.valueChanges().pipe(map((a) => a.answer));
   private readonly votesData = this.syncDataService
     .getAdminAllUserData('poll')
     .object(this.key)
@@ -143,22 +146,22 @@ export class SyncPoll {
     private readonly firebaseInfoService: FirebaseInfoService
   ) {
     // Reformatting breaks this if it's out of the constructor.
-    this.hasVotes$ = this.votes$.pipe(map(v => Object.keys(v).length > 0));
+    this.hasVotes$ = this.votes$.pipe(map((v) => Object.keys(v).length > 0));
     this.votesCount$ = this.votes$.pipe(
-      map(votes => Object.values(votes).length)
+      map((votes) => Object.values(votes).length)
     );
   }
 
   vote(answer: number) {
     this.viewerData.set({
       answer,
-      time: database.ServerValue.TIMESTAMP as number
+      time: database.ServerValue.TIMESTAMP as number,
     });
   }
 
   start() {
     this.presenterSettings.updateWithCallback(
-      produce(settings => {
+      produce((settings) => {
         settings.startTime = database.ServerValue.TIMESTAMP;
       })
     );
@@ -166,7 +169,7 @@ export class SyncPoll {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SyncPollService {
   constructor(
@@ -184,16 +187,16 @@ export class SyncPollService {
     const presenterData$ = this.syncDataService
       .getPresenterObject('poll')
       .valueChanges()
-      .pipe(filter(a => a !== null));
+      .pipe(filter((a) => a !== null));
     const userData$ = this.syncDataService
       .getAdminAllUserData('poll')
       .valueChanges()
-      .pipe(filter(a => a !== null));
+      .pipe(filter((a) => a !== null));
 
     const result$ = combineLatest([
       of(syncPollConfigs),
       presenterData$,
-      userData$
+      userData$,
     ]).pipe(
       map(([configs, presenterData, userData]) =>
         calculateUserScore(configs, presenterData, userData)
@@ -213,13 +216,13 @@ export class SyncPollService {
   calculateMyScore(syncPollConfigs: SyncPollConfig[]) {
     return combineLatest([
       this.calculateScores(syncPollConfigs),
-      this.syncSessionService.viewerId$
+      this.syncSessionService.viewerId$,
     ]).pipe(
       map(([scoresObj, uid]) => {
         const scores = toValuesAndKeys<{ score: number; name: string }>(
           scoresObj
         ).sort((a, b) => b.value.score - a.value.score);
-        const index = scores.findIndex(score => score.key === uid);
+        const index = scores.findIndex((score) => score.key === uid);
 
         if (index === -1) {
           return { place: 0, score: 0 };
@@ -227,7 +230,7 @@ export class SyncPollService {
 
         return {
           place: index + 1,
-          ...scores[index].value
+          ...scores[index].value,
         };
       })
     );

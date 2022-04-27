@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'kirjs-msk',
   templateUrl: './msk.component.html',
-  styleUrls: ['./msk.component.css']
+  styleUrls: ['./msk.component.css'],
 })
 export class MskComponent implements OnInit {
   polls = [
@@ -18,8 +18,8 @@ export class MskComponent implements OnInit {
         'Vue',
         'Svelte',
         'jQuery',
-        'Something else'
-      ]
+        'Something else',
+      ],
     },
     {
       key: 'skill',
@@ -31,8 +31,8 @@ export class MskComponent implements OnInit {
         'I can use it',
         'Good',
         'Really good',
-        "I'm Minko Fluin"
-      ]
+        "I'm Minko Fluin",
+      ],
     },
     {
       key: 'build-dev',
@@ -46,8 +46,8 @@ export class MskComponent implements OnInit {
         '10 - 30 seconds',
         '30 - 60 seconds',
         '1-10 minutes',
-        'More than 10 minutes'
-      ]
+        'More than 10 minutes',
+      ],
     },
     {
       key: 'build-prod',
@@ -61,8 +61,8 @@ export class MskComponent implements OnInit {
         '10 - 30 seconds',
         '30 - 60 seconds',
         '1-10 minutes',
-        'More than 10 minutes'
-      ]
+        'More than 10 minutes',
+      ],
     },
     {
       key: 'cli',
@@ -73,8 +73,8 @@ export class MskComponent implements OnInit {
         'Redesigned default app',
         'New command ng make-this-awesome',
         'Faster builds with enabled differential loading',
-        'New command ng deploy'
-      ]
+        'New command ng deploy',
+      ],
     },
     {
       key: 'tomorrow',
@@ -85,8 +85,8 @@ export class MskComponent implements OnInit {
         'CLI 9.0.0-next.0 with Ivy by default',
         'RxJS 8',
         'React 16.12',
-        'Angular XS'
-      ]
+        'Angular XS',
+      ],
     },
     {
       key: 'material',
@@ -98,9 +98,9 @@ export class MskComponent implements OnInit {
         'Windows 95 theme support',
         'Drag and drop',
         'New material-fox component',
-        'New Clipboard service + directive'
-      ]
-    }
+        'New Clipboard service + directive',
+      ],
+    },
   ];
 
   constructor() {}

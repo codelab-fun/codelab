@@ -13,7 +13,7 @@ import { FirebaseModule } from '@codelab/firebase';
     CodeDemoModule,
     CommonModule,
     FormsModule,
-    FirebaseModule
-  ]
+    FirebaseModule,
+  ],
 })
 export class PlaygroundModule {}

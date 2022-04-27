@@ -10,8 +10,6 @@
     ></codelab-question>
 
     <codelab-question-list [questions]="questions"> </codelab-question-list>
-    <div *ngIf="questions.length === 0">
-      Waiting for questions...
-    </div>
+    <div *ngIf="questions.length === 0">Waiting for questions...</div>
   </ng-container>
 </ng-container>

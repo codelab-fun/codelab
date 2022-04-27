@@ -8,7 +8,7 @@ describe('LeaderboardPresenterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [LeaderboardPresenterComponent]
+      declarations: [LeaderboardPresenterComponent],
     }).compileComponents();
   }));
 

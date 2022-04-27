@@ -6,6 +6,6 @@ import { LiveMockComponent } from './live-mock.component';
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule],
   declarations: [LiveMockComponent],
-  exports: [LiveMockComponent]
+  exports: [LiveMockComponent],
 })
 export class LiveMockModule {}

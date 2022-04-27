@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'codelab-leaderboard-presenter',
   templateUrl: './leaderboard-presenter.component.html',
-  styleUrls: ['./leaderboard-presenter.component.css']
+  styleUrls: ['./leaderboard-presenter.component.css'],
 })
 export class LeaderboardPresenterComponent implements OnInit {
   @Input() config;
@@ -16,9 +16,9 @@ export class LeaderboardPresenterComponent implements OnInit {
 
   ngOnInit() {
     this.leaderboard$ = this.syncPollService
-      .calculateScores(this.config.filter(a => a.answer))
+      .calculateScores(this.config.filter((a) => a.answer))
       .pipe(
-        map(a => {
+        map((a) => {
           return Object.values<{ name: string; score: number }>(a).reduce(
             (result, value) => {
               result[value.name] = value.score;

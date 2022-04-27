@@ -9,13 +9,13 @@ import { PreviousSlideDirective } from './previousSlide.directive';
     IsLoggedInDirective,
     CanLoadAdminDirective,
     NextSlideDirective,
-    PreviousSlideDirective
+    PreviousSlideDirective,
   ],
   exports: [
     IsLoggedInDirective,
     CanLoadAdminDirective,
     NextSlideDirective,
-    PreviousSlideDirective
-  ]
+    PreviousSlideDirective,
+  ],
 })
 export class DirectivesModule {}

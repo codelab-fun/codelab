@@ -8,7 +8,7 @@ describe('StarsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [StarsComponent]
+      declarations: [StarsComponent],
     }).compileComponents();
   }));
 

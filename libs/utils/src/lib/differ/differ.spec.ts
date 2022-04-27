@@ -41,7 +41,7 @@ describe('differ', () => {
   xit('Disallows nested diffs, and throws if they are present', () => {
     const commits = differ(`/*d:first*/AA/*d:second*/OO/*/d*/AA/*/d*/`, [
       'first',
-      'second'
+      'second',
     ]);
     expect(commits['initial']).toEqual('');
     expect(commits['first']).toEqual('AAAA');
@@ -82,7 +82,7 @@ describe('differ', () => {
       'first',
       'second',
       'third',
-      'last'
+      'last',
     ]);
     expect(commits['initial']).toEqual('hi');
     expect(commits['second']).toEqual('');

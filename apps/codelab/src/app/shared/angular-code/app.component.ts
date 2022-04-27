@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: 'Hi!'
+  template: 'Hi!',
 })
 export class AppComponent {}

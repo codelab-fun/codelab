@@ -2,7 +2,7 @@ import {
   TemplateRef,
   ViewContainerRef,
   OnDestroy,
-  Injectable
+  Injectable,
 } from '@angular/core';
 import { AccessService } from '../../shared/services/access.service';
 import { ReplaySubject, Observable } from 'rxjs';
@@ -23,7 +23,7 @@ export class AbstractPermission implements OnDestroy {
   }
 
   public render(observable: Observable<boolean>): void {
-    observable.pipe(takeUntil(this.destroy)).subscribe(hasPermission => {
+    observable.pipe(takeUntil(this.destroy)).subscribe((hasPermission) => {
       if (hasPermission) {
         this.viewContainer.createEmbeddedView(this.templateRef);
       } else {

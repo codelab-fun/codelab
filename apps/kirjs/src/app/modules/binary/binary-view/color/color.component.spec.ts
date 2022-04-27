@@ -8,7 +8,7 @@ describe('ColorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ColorComponent]
+      declarations: [ColorComponent],
     }).compileComponents();
   }));
 

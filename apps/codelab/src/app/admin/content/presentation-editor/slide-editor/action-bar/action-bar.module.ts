@@ -8,6 +8,6 @@ import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [ActionBarComponent],
   exports: [ActionBarComponent],
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatMenuModule]
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatMenuModule],
 })
 export class ActionBarModule {}

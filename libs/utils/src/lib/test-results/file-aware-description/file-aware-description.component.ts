@@ -14,7 +14,7 @@ function getTitle(test: string) {
   // tslint:disable-next-line:component-selector
   selector: 'slides-file-aware-description',
   templateUrl: './file-aware-description.component.html',
-  styleUrls: ['./file-aware-description.component.css']
+  styleUrls: ['./file-aware-description.component.css'],
 })
 export class FileAwareDescriptionComponent {
   file: string;

@@ -6,8 +6,8 @@ function listenToObservable<T>(obs: Observable<T>) {
   let error: T | undefined;
   let isComplete = false;
   const sub = obs.subscribe(
-    a => value.push(a),
-    e => (error = e),
+    (a) => value.push(a),
+    (e) => (error = e),
     () => (isComplete = true)
   );
 
@@ -15,7 +15,7 @@ function listenToObservable<T>(obs: Observable<T>) {
     unsubscribe: () => sub.unsubscribe(),
     value,
     error,
-    isComplete
+    isComplete,
   };
 }
 

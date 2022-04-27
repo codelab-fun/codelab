@@ -8,7 +8,7 @@ import {
   OnChanges,
   OnDestroy,
   SimpleChanges,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
@@ -36,17 +36,18 @@ const presets = {
     sandbox.evalJs(scriptLoaderService.getScript('react'));
     sandbox.evalJs(scriptLoaderService.getScript('react-dom'));
     // sandbox.evalJs(transform(code, {presets: ['react']}).code);
-  }
+  },
 };
 
 @Component({
   selector: 'code-demo-runner',
   templateUrl: './code-demo-runner.component.html',
   styleUrls: ['./code-demo-runner.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CodeDemoRunnerComponent
-  implements OnDestroy, AfterViewInit, OnChanges {
+  implements OnDestroy, AfterViewInit, OnChanges
+{
   @Input() code: CodeFiles = {};
   @Input() jsFiles: CodeFiles = {};
   @Input() bootstrap: string;
@@ -74,7 +75,7 @@ export class CodeDemoRunnerComponent
     if (typeof presets === 'string') {
       presets = presets.split(',');
     }
-    this.presets = presets.filter(a => a);
+    this.presets = presets.filter((a) => a);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -89,7 +90,7 @@ export class CodeDemoRunnerComponent
       this.runnerElement.nativeElement,
       {
         id: 'testing',
-        url: this.url
+        url: this.url,
       }
     );
 
@@ -100,7 +101,7 @@ export class CodeDemoRunnerComponent
 
     sandbox.evalJs(this.scriptLoaderService.getScript('mock-console'));
 
-    this.presets.forEach(preset =>
+    this.presets.forEach((preset) =>
       presets[preset](sandbox, this.scriptLoaderService)
     );
 
@@ -112,7 +113,7 @@ export class CodeDemoRunnerComponent
 
     compileTemplates(this.code, sandbox);
 
-    this.subscription = this.changedFilesSubject.subscribe(files => {
+    this.subscription = this.changedFilesSubject.subscribe((files) => {
       addMetaInformation(sandbox, files);
 
       if (files['index.html']) {

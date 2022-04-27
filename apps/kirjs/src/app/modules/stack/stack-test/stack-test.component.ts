@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   // tslint:disable-next-line:component-selector
   selector: 'slides-stack-test',
   templateUrl: './stack-test.component.html',
-  styleUrls: ['./stack-test.component.scss']
+  styleUrls: ['./stack-test.component.scss'],
 })
 export class StackTestComponent implements OnInit {
   constructor() {}

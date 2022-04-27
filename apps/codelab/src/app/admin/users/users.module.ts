@@ -6,7 +6,6 @@ import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [UsersComponent],
-  entryComponents: [UsersComponent],
-  imports: [CommonModule, MatTableModule, MatCardModule]
+  imports: [CommonModule, MatTableModule, MatCardModule],
 })
 export class UsersModule {}

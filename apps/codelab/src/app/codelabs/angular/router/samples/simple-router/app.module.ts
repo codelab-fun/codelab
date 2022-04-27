@@ -7,12 +7,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   { path: '', component: PuppyComponent },
-  { path: 'kittens', component: KittenComponent }
+  { path: 'kittens', component: KittenComponent },
 ];
 
 @NgModule({
   declarations: [AppComponent, PuppyComponent, KittenComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

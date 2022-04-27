@@ -10,9 +10,9 @@ import { LeaderboardViewerComponent } from './leaderboard-viewer/leaderboard-vie
   declarations: [
     LeaderboardComponent,
     LeaderboardPresenterComponent,
-    LeaderboardViewerComponent
+    LeaderboardViewerComponent,
   ],
   exports: [LeaderboardComponent],
-  imports: [CommonModule, BarChartModule, SyncDirectivesModule]
+  imports: [CommonModule, BarChartModule, SyncDirectivesModule],
 })
 export class LeaderboardModule {}

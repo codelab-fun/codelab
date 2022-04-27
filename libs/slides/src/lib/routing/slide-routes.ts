@@ -3,7 +3,7 @@ export class SlidesRoutes {
     return [
       { path: '', redirectTo: '0', pathMatch: 'full' },
       { path: ':id', component: Component },
-      { path: '**', component: Component }
+      { path: '**', component: Component },
     ];
   }
 }

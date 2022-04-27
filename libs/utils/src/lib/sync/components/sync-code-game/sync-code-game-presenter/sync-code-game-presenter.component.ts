@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   // tslint:disable-next-line:component-selector
   selector: 'slides-sync-code-game-presenter',
   templateUrl: './sync-code-game-presenter.component.html',
-  styleUrls: ['./sync-code-game-presenter.component.css']
+  styleUrls: ['./sync-code-game-presenter.component.css'],
 })
 export class SyncCodeGamePresenterComponent {
   readonly selectedUserSubject = new Subject<string>();
@@ -20,10 +20,10 @@ export class SyncCodeGamePresenterComponent {
 
   selectedUser$ = combineLatest([
     this.codeGameService.allStatuses$,
-    this.selectedUserSubject
+    this.selectedUserSubject,
   ]).pipe(
     map(([users, user]) => {
-      return users.find(u => u.name === user);
+      return users.find((u) => u.name === user);
     })
   );
 }

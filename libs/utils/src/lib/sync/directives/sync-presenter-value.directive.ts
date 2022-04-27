@@ -3,19 +3,20 @@ import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import {
   PresenterConfig,
-  SyncDataService
+  SyncDataService,
 } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { filter, map, takeUntil } from 'rxjs/operators';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: '[syncPresenterValue]',
-  exportAs: 'presenterValue'
+  exportAs: 'presenterValue',
 })
 export class SyncPresenterValueDirective<
   K extends keyof PresenterConfig,
   T extends PresenterConfig[K]
-> implements OnInit, OnDestroy {
+> implements OnInit, OnDestroy
+{
   @Input() syncPresenterValue: K;
   @Input() syncPresenterValueDefault: T;
 
@@ -44,19 +45,19 @@ export class SyncPresenterValueDirective<
     data
       .valueChanges()
       .pipe(
-        map(a => (a === undefined ? this.syncPresenterValueDefault : a)),
+        map((a) => (a === undefined ? this.syncPresenterValueDefault : a)),
         takeUntil(this.onDestroy$)
       )
-      .subscribe(value => {
+      .subscribe((value) => {
         this.control.valueAccessor.writeValue(value);
       });
 
     this.control.valueChanges
       .pipe(
-        filter(a => a !== undefined),
+        filter((a) => a !== undefined),
         takeUntil(this.onDestroy$)
       )
-      .subscribe(newValue => {
+      .subscribe((newValue) => {
         data.set(newValue);
       });
   }

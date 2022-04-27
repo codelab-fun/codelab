@@ -21,7 +21,7 @@
             <div class="feedback-item">
               <div class="header">
                 <span class="name">{{ item.name }}</span>
-                <div style="display: flex;">
+                <div style="display: flex">
                   <span class="date"> {{ item.timestamp | date }}</span>
                   <feedback-issue-dropdown
                     *ngIf="accessService.oldIsAdmin$ | async"

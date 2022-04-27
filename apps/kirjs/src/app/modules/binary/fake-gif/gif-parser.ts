@@ -21,16 +21,16 @@ export function gifParser(t: { [key: string]: string }) {
   const palette = new BinaryParser().array('palette', {
     parser: new BinaryParser().hex('color', {
       length: 6,
-      type: 'color'
+      type: 'color',
     }),
     length(data) {
       const paletteSize = data
-        .find(d => d.name === '_parent')
-        .value.find(d => d.name === 'header')
-        .value.find(d => d.name === 'paletteSize').value;
+        .find((d) => d.name === '_parent')
+        .value.find((d) => d.name === 'header')
+        .value.find((d) => d.name === 'paletteSize').value;
       const size = parseInt(paletteSize, 2);
       return 2 ** (size + 1);
-    }
+    },
   });
 
   const netscapeParser = new BinaryParser()
@@ -41,7 +41,7 @@ export function gifParser(t: { [key: string]: string }) {
 
   const xmpParser = new BinaryParser()
     .string('data', {
-      readUntil: '00000000'
+      readUntil: '00000000',
     })
     .hex('end', { length: 4 });
 
@@ -53,8 +53,8 @@ export function gifParser(t: { [key: string]: string }) {
       key: 'type',
       values: {
         NETSCAPE: netscapeParser,
-        'XMP Data': xmpParser
-      }
+        'XMP Data': xmpParser,
+      },
     });
 
   const graphicControlParser = new BinaryParser()
@@ -74,8 +74,8 @@ export function gifParser(t: { [key: string]: string }) {
       values: {
         f9: graphicControlParser,
         ff: extensionParser,
-        fe: commentParser
-      }
+        fe: commentParser,
+      },
     });
 
   const imageDescriptorParser = new BinaryParser()
@@ -85,31 +85,31 @@ export function gifParser(t: { [key: string]: string }) {
     .uInt16('imageHeight', { description: t.imageHeight })
     .boolean('localPalette', { description: t.localPalette })
     .boolean('isImageInterlacingEnabld', {
-      description: t.isImageInterlacingEnabld
+      description: t.isImageInterlacingEnabld,
     })
     .boolean('isLocalPaletteSorted', { description: t.isLocalPaletteSorted })
     .constBits('00', { description: t.reservedBits })
     .bit3('localPaletteSize', {
       type: 'enums',
-      description: t.localPaletteSize
+      description: t.localPaletteSize,
     })
     .uInt8('colorDepth')
     .uInt8('blockSize')
     .bit('graphicBlock', {
       description: t.graphicBlock,
-      length: fields => {
+      length: (fields) => {
         return (
-          (Object as any).values(fields).find(a => a.name === 'blockSize')
+          (Object as any).values(fields).find((a) => a.name === 'blockSize')
             .value * 8
         );
       },
       converter(bits) {
         return lzw(
           2,
-          bits.match(/.{8}/g).map(a => parseInt(a, 2)),
+          bits.match(/.{8}/g).map((a) => parseInt(a, 2)),
           4
         );
-      }
+      },
     })
     .constBits('00000000');
 
@@ -120,8 +120,8 @@ export function gifParser(t: { [key: string]: string }) {
       values: {
         '!': exclamationMarkParser,
         ';': new BinaryParser(),
-        ',': imageDescriptorParser
-      }
+        ',': imageDescriptorParser,
+      },
     });
 
   return new BinaryParser()

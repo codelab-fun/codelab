@@ -5,7 +5,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 @Component({
   selector: 'kirjs-inline',
   templateUrl: './inline.component.html',
-  styleUrls: ['./inline.component.css']
+  styleUrls: ['./inline.component.css'],
 })
 export class InlineComponent implements OnInit {
   isArray: boolean;

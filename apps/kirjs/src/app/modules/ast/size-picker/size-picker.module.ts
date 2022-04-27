@@ -3,6 +3,6 @@ import { SizePickerComponent } from './size-picker.component';
 
 @NgModule({
   declarations: [SizePickerComponent],
-  exports: [SizePickerComponent]
+  exports: [SizePickerComponent],
 })
 export class SizePickerModule {}

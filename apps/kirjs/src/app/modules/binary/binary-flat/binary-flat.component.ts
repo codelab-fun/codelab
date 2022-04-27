@@ -5,7 +5,7 @@ import {
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { StringBinaryReader } from '../parser/readers/string-reader';
@@ -38,7 +38,7 @@ export function flatten(
       item.parent = parent || item;
       item.root = item.parent.root || item.parent;
       item.path = path;
-      item.className = path.map(p => 'parent-' + p).join(' ');
+      item.className = path.map((p) => 'parent-' + p).join(' ');
       result.push(item);
     }
     return result;
@@ -48,7 +48,7 @@ export function flatten(
 @Component({
   selector: 'kirjs-binary-flat',
   templateUrl: './binary-flat.component.html',
-  styleUrls: ['./binary-flat.component.css']
+  styleUrls: ['./binary-flat.component.css'],
 })
 export class BinaryFlatComponent implements OnChanges {
   @Input() parser: BinaryParser;

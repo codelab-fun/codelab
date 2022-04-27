@@ -5,7 +5,7 @@ import {
   HostListener,
   OnDestroy,
   OnInit,
-  Output
+  Output,
 } from '@angular/core';
 import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -13,7 +13,7 @@ import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[slidesRouting]'
+  selector: '[slidesRouting]',
 })
 export class SlidesRoutingDirective implements OnInit, OnDestroy {
   activeSlideId: string;
@@ -56,13 +56,13 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
   navigate(url: string) {
     this.router.navigate(['../' + url], {
       relativeTo: this.route,
-      queryParamsHandling: 'merge'
+      queryParamsHandling: 'merge',
     });
   }
 
   getIndexFromRouteParam() {
     const id: string = this.route.snapshot.params['id'];
-    const index = this.deck.slides.findIndex(s => s.id === id);
+    const index = this.deck.slides.findIndex((s) => s.id === id);
     // TODO(kirjs): Clean this up
     return Number(index === -1 ? id : index);
   }
@@ -80,12 +80,12 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
   private handleBackButtonSlideIndexSync() {
     this.router.events
       .pipe(
-        filter(event => event instanceof NavigationEnd),
+        filter((event) => event instanceof NavigationEnd),
         map(() => this.getIndexFromRouteParam()),
         distinctUntilChanged(),
         takeUntil(this.ngUnsubscribe$)
       )
-      .subscribe(slide => {
+      .subscribe((slide) => {
         this.deck.goToSlide(slide);
       });
   }

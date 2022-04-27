@@ -8,7 +8,7 @@ describe('CodelabCodeDemoFilePathEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabCodeDemoFilePathEditorComponent]
+      declarations: [CodelabCodeDemoFilePathEditorComponent],
     }).compileComponents();
   }));
 

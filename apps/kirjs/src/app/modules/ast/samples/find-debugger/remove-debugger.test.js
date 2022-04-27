@@ -5,26 +5,26 @@ function testThings(findDebugger, callback, args) {
       title: `debugger`,
       test(func, args) {
         return '' === func(this.title, args);
-      }
+      },
     },
     {
       title: `debuggerStart();`,
       test(func, args) {
         return this.title === func(this.title, args);
-      }
+      },
     },
     {
       title: `//debugger
 console.log('hi');`,
       test(func, args) {
         return this.title === func(this.title, args);
-      }
+      },
     },
     {
       title: `'debugger';`,
       test(func, args) {
         return this.title === func(this.title, args);
-      }
+      },
     },
     {
       title: `'hi'; debugger; 'bye';`,
@@ -33,32 +33,32 @@ console.log('hi');`,
           `'hi';
 'bye';` === func(this.title, args)
         );
-      }
+      },
     },
     {
       title: `'Fake //'; debugger; `,
       test(func, args) {
         return `'Fake //';` === func(this.title, args);
-      }
+      },
     },
     {
       title: `"debugger";`,
       test(func, args) {
         return this.title === func(this.title, args);
-      }
+      },
     },
     {
       title: `\`
        debugger\`;`,
       test(func, args) {
         return this.title === func(this.title, args);
-      }
+      },
     },
     {
       title: `' \\' debugger';`,
       test(func, args) {
         return this.title === func(this.title, args);
-      }
+      },
     },
     {
       title: `/* \` 
@@ -66,14 +66,14 @@ console.log('hi');`,
         \` + '';`,
       test(func, args) {
         return !func(this.title, args).includes('debugger');
-      }
+      },
     },
     {
       title: `function hello(){ debugger; }`,
       test(func, args) {
         return `function hello() {}` === func(this.title, args);
-      }
-    }
+      },
+    },
   ];
 
   let results = [];
@@ -83,7 +83,7 @@ console.log('hi');`,
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = value => {
+        args.log = (value) => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);

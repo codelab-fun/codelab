@@ -3,7 +3,7 @@ import {
   Injectable,
   Input,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { ContentSlide, CustomBlock, SlideViewType } from '../../../types';
 import { CodelabTitleSlideEditorComponent } from '../../../wrappers/custom-component-editors/codelab-title-slide-editor/codelab-title-slide-editor.component';
@@ -25,26 +25,26 @@ export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {
       { type: 'codelab-title-slide', component: TitleSlideComponent },
       {
         type: 'codelab-code-demo-console-editor',
-        component: CodelabCodeDemoPreviewComponent
+        component: CodelabCodeDemoPreviewComponent,
       },
       {
         type: 'codelab-exercise-preview',
-        component: CodelabCodeDemoPreviewComponent
+        component: CodelabCodeDemoPreviewComponent,
       },
       { type: 'codelab-exercise', component: CodelabCodeDemoPreviewComponent },
       {
         type: 'codelab-closing-slide',
-        component: CodelabTitleSlideEditorComponent
+        component: CodelabTitleSlideEditorComponent,
       },
       {
         type: 'codelab-code-demo-file-path',
-        component: CodelabCodeDemoPreviewComponent
+        component: CodelabCodeDemoPreviewComponent,
       },
       {
         type: 'codelab-code-demo-editor',
-        component: CodelabCodeDemoPreviewComponent
+        component: CodelabCodeDemoPreviewComponent,
       },
-      { type: 'codelab-image', component: CodelabImageEditorComponent }
+      { type: 'codelab-image', component: CodelabImageEditorComponent },
     ]);
   }
 }
@@ -62,30 +62,30 @@ export class EditDynamicComponentResolver extends NgxdResolver<string, any> {
     super([
       {
         type: 'codelab-title-slide',
-        component: CodelabTitleSlideEditorComponent
+        component: CodelabTitleSlideEditorComponent,
       },
       {
         type: 'codelab-code-demo-console-editor',
-        component: CodelabCodeDemoConsoleEditorComponent
+        component: CodelabCodeDemoConsoleEditorComponent,
       },
       {
         type: 'codelab-exercise-preview',
-        component: CodelabExerciseEditorComponent
+        component: CodelabExerciseEditorComponent,
       },
       { type: 'codelab-exercise', component: CodelabExerciseEditorComponent },
       {
         type: 'codelab-closing-slide',
-        component: CodelabTitleSlideEditorComponent
+        component: CodelabTitleSlideEditorComponent,
       },
       {
         type: 'codelab-code-demo-file-path',
-        component: CodelabCodeDemoFilePathEditorComponent
+        component: CodelabCodeDemoFilePathEditorComponent,
       },
       {
         type: 'codelab-code-demo-editor',
-        component: CodeDemoEditorEditorComponent
+        component: CodeDemoEditorEditorComponent,
       },
-      { type: 'codelab-image', component: CodelabImageEditorComponent }
+      { type: 'codelab-image', component: CodelabImageEditorComponent },
     ]);
   }
 }
@@ -97,7 +97,7 @@ export class EditDynamicComponentResolver extends NgxdResolver<string, any> {
       *ngxComponentOutlet="resolver | resolve: block.tag; context: block.props"
     ></ng-container>
   `,
-  styleUrls: ['./dynamic-renderer.component.css']
+  styleUrls: ['./dynamic-renderer.component.css'],
 })
 export class DynamicRendererComponent implements OnChanges {
   @Input() block: CustomBlock;

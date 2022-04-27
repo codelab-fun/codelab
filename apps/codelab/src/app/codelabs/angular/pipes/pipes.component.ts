@@ -4,12 +4,13 @@ import { displayAngularComponent } from '../../../shared/helpers/helpers';
 @Component({
   selector: 'codelab-slides-pipes',
   templateUrl: './pipes.component.html',
-  styleUrls: ['./pipes.component.css']
+  styleUrls: ['./pipes.component.css'],
 })
 export class PipesComponent {
   code = {
     chainedPipesExample: {
-      template: displayAngularComponent(`import {Component} from '@angular/core';
+      template:
+        displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -18,10 +19,11 @@ export class PipesComponent {
 })
 export class AppComponent {
   dob = new Date(1904, 4, 11);
-}`)
+}`),
     },
     workingPipes: {
-      template: displayAngularComponent(`import {Component} from '@angular/core';
+      template:
+        displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -33,15 +35,15 @@ export class AppComponent {
   dob = new Date(1904, 4, 11);
 }`),
       matches: {
-        pipeOperator: '|'
-      }
+        pipeOperator: '|',
+      },
     },
     argumentPipes: {
       template: `<p>Your budget is {{budget | currency:'AUD'}}</p>
 <p>Your truncated name is {{name | substring:1:4}}</p>
 <!-- Maryanne -> Mary -->`,
       readonly: true,
-      path: 'argument.pipe.html'
+      path: 'argument.pipe.html',
     },
     filterPipes: {
       template: `<!-- Here we pipe team.roster through
@@ -53,7 +55,7 @@ export class AppComponent {
   </li>
 </ul>`,
       readonly: true,
-      path: 'filter.pipe.html'
+      path: 'filter.pipe.html',
     },
     creatingAPipe: {
       template: `import { Pipe, PipeTransform } from '@angular/core';
@@ -68,12 +70,12 @@ export class SubstringPipe implements PipeTransform {
         exportClass: /export.*/,
         decorator: /@Pipe/,
         pipeTransform: /PipeTransform/,
-        method: /transform[^]*?\)[^]/
+        method: /transform[^]*?\)[^]/,
       },
       readonly: true,
       path: 'substring.pipe.ts',
-      type: 'typescript'
-    }
+      type: 'typescript',
+    },
   };
 
   constructor() {}

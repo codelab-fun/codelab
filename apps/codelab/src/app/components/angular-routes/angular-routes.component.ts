@@ -5,7 +5,7 @@ import { MENU_ROUTES } from '../../common';
   selector: 'codelab-angular-routes',
   templateUrl: 'angular-routes.component.html',
   styleUrls: ['angular-routes.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AngularRoutesComponent {
   constructor(@Inject(MENU_ROUTES) readonly menuRoutes) {}

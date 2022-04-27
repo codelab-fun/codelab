@@ -5,6 +5,6 @@ import { AngularSlidesToPdfComponent } from './angular-slides-to-pdf.component';
 @NgModule({
   declarations: [AngularSlidesToPdfComponent],
   exports: [AngularSlidesToPdfComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class AngularSlidesToPdfModule {}

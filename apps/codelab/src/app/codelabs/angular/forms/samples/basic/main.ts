@@ -5,7 +5,7 @@ import * as code from './code';
 
 class MyResourceLoader extends ResourceLoader {
   get(url: string): Promise<string> {
-    const templateId = Object.keys(code).find(key =>
+    const templateId = Object.keys(code).find((key) =>
       key.includes(url.replace(/[\/\.-]/gi, '_'))
     );
     const template = code[templateId];
@@ -19,5 +19,7 @@ class MyResourceLoader extends ResourceLoader {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule, {
-  providers: [{ provide: ResourceLoader, useClass: MyResourceLoader, deps: [] }]
+  providers: [
+    { provide: ResourceLoader, useClass: MyResourceLoader, deps: [] },
+  ],
 } as any);

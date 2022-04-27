@@ -6,6 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [StarsComponent],
   exports: [StarsComponent],
-  imports: [CommonModule, MatIconModule]
+  imports: [CommonModule, MatIconModule],
 })
 export class StarsModule {}

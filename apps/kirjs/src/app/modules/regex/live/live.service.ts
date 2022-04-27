@@ -19,18 +19,17 @@ export interface LiveInfo {
 type AllData<T = any> = Record<string, T>;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LiveService<T = any> implements OnDestroy {
-  private liveInfoSubject: BehaviorSubject<LiveInfo> = new BehaviorSubject<
-    LiveInfo
-  >({
-    user: 'code',
-    sessionId: 'test',
-    status: 'presenter', // 'viewer'
-    presentationId: 'regex',
-    slide: 'config'
-  } as LiveInfo);
+  private liveInfoSubject: BehaviorSubject<LiveInfo> =
+    new BehaviorSubject<LiveInfo>({
+      user: 'code',
+      sessionId: 'test',
+      status: 'presenter', // 'viewer'
+      presentationId: 'regex',
+      slide: 'config',
+    } as LiveInfo);
   liveInfo: Observable<LiveInfo> = this.liveInfoSubject.asObservable();
   private allDataSubject: BehaviorSubject<AllData<T>> = new BehaviorSubject<
     AllData<T>

@@ -3,6 +3,301 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
+    "angular-ast-viz": {
+      "root": "libs/angular-ast-viz",
+      "sourceRoot": "libs/angular-ast-viz/src",
+      "projectType": "library",
+      "prefix": "codelab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/angular-ast-viz/tsconfig.lib.json",
+            "project": "libs/angular-ast-viz/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/angular-ast-viz/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/angular-ast-viz/src/test.ts",
+            "tsConfig": "libs/angular-ast-viz/tsconfig.spec.json",
+            "karmaConfig": "libs/angular-ast-viz/karma.conf.js"
+          }
+        }
+      },
+      "tags": []
+    },
+    "angular-slides-to-pdf": {
+      "root": "libs/angular-slides-to-pdf",
+      "sourceRoot": "libs/angular-slides-to-pdf/src",
+      "projectType": "library",
+      "prefix": "codelab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/angular-slides-to-pdf/tsconfig.lib.json",
+            "project": "libs/angular-slides-to-pdf/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/angular-slides-to-pdf/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/angular-slides-to-pdf/src/test.ts",
+            "tsConfig": "libs/angular-slides-to-pdf/tsconfig.spec.json",
+            "karmaConfig": "libs/angular-slides-to-pdf/karma.conf.js"
+          }
+        }
+      },
+      "tags": []
+    },
+    "angular-thirty-seconds": {
+      "root": "libs/angular-thirty-seconds",
+      "sourceRoot": "apps/angular-thirty-seconds/src",
+      "projectType": "application",
+      "prefix": "codelab",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/codelab/30",
+            "index": "apps/angular-thirty-seconds/src/index.html",
+            "main": "apps/angular-thirty-seconds/src/main.ts",
+            "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
+            "tsConfig": "apps/angular-thirty-seconds/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "node_modules/monaco-editor/",
+                "output": "./assets/monaco/"
+              },
+              "apps/angular-thirty-seconds/src/favicon.ico",
+              "apps/angular-thirty-seconds/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/code-demos/assets/runner/",
+                "output": "./assets/runner/"
+              }
+            ],
+            "styles": [
+              "apps/angular-thirty-seconds/src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+            ],
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-typescript.min.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+            ],
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-thirty-seconds/src/environments/environment.ts",
+                  "with": "apps/angular-thirty-seconds/src/environments/environment.prod.ts"
+                }
+              ],
+              "baseHref": "/30/",
+              "deployUrl": "/30/",
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "60mb",
+                  "maximumError": "70mb"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": ""
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-thirty-seconds:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-thirty-seconds:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-thirty-seconds:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/angular-thirty-seconds/src/test.ts",
+            "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
+            "tsConfig": "apps/angular-thirty-seconds/tsconfig.spec.json",
+            "karmaConfig": "apps/angular-thirty-seconds/karma.conf.js",
+            "styles": ["apps/angular-thirty-seconds/src/styles.scss"],
+            "scripts": [],
+            "assets": [
+              "apps/angular-thirty-seconds/src/favicon.ico",
+              "apps/angular-thirty-seconds/src/assets"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "blog": {
+      "root": "apps/blog",
+      "sourceRoot": "apps/blog/src",
+      "projectType": "application",
+      "prefix": "codelab",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/blog",
+            "index": "apps/blog/src/index.html",
+            "main": "apps/blog/src/main.ts",
+            "polyfills": "apps/blog/src/polyfills.ts",
+            "tsConfig": "apps/blog/tsconfig.app.json",
+            "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
+            "styles": ["apps/blog/src/styles.scss"],
+            "scripts": [],
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/blog/src/environments/environment.ts",
+                  "with": "apps/blog/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "20mb"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": ""
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "blog:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "blog:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "blog:build"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/blog/jest.config.js",
+            "tsConfig": "apps/blog/tsconfig.spec.json",
+            "setupFile": "apps/blog/src/test-setup.ts"
+          }
+        }
+      },
+      "tags": []
+    },
+    "browser": {
+      "root": "libs/browser",
+      "sourceRoot": "libs/browser/src",
+      "projectType": "library",
+      "prefix": "codelab",
+      "architect": {},
+      "tags": []
+    },
+    "code-demos": {
+      "root": "libs/code-demos",
+      "sourceRoot": "libs/code-demos/src",
+      "projectType": "library",
+      "prefix": "codelab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/code-demos/tsconfig.lib.json",
+            "project": "libs/code-demos/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/code-demos/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/code-demos/jest.config.js",
+            "tsConfig": "libs/code-demos/tsconfig.spec.json",
+            "setupFile": "libs/code-demos/src/test-setup.ts"
+          }
+        }
+      },
+      "tags": []
+    },
     "codelab": {
       "root": "apps/codelab",
       "sourceRoot": "apps/codelab/src",
@@ -122,36 +417,9 @@
               "apps/codelab/src/manifest.webmanifest"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/codelab/tsconfig.app.json",
-              "apps/codelab/tsconfig.spec.json"
-            ],
-            "exclude": []
-          }
         }
-      }
-    },
-    "browser": {
-      "root": "libs/browser",
-      "sourceRoot": "libs/browser/src",
-      "projectType": "library",
-      "prefix": "codelab",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/browser/tsconfig.lib.json",
-              "libs/browser/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
+      },
+      "tags": []
     },
     "console": {
       "root": "libs/console",
@@ -166,47 +434,96 @@
             "tsConfig": "libs/console/tsconfig.spec.json",
             "karmaConfig": "libs/console/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/console/tsconfig.lib.json",
-              "libs/console/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
-      }
+      },
+      "tags": []
     },
-    "utils": {
-      "root": "libs/utils",
-      "sourceRoot": "libs/utils/src",
+    "feedback": {
+      "root": "libs/feedback",
+      "sourceRoot": "libs/feedback/src",
       "projectType": "library",
       "prefix": "codelab",
       "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/feedback/tsconfig.lib.json",
+            "project": "libs/feedback/ng-package.json"
+          }
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "libs/utils/src/test.ts",
-            "tsConfig": "libs/utils/tsconfig.spec.json",
-            "karmaConfig": "libs/utils/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/utils/tsconfig.lib.json",
-              "libs/utils/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "main": "libs/feedback/src/test.ts",
+            "tsConfig": "libs/feedback/tsconfig.spec.json",
+            "karmaConfig": "libs/feedback/karma.conf.js"
           }
         }
-      }
+      },
+      "tags": []
+    },
+    "firebase": {
+      "projectType": "library",
+      "root": "libs/firebase",
+      "sourceRoot": "libs/firebase/src",
+      "prefix": "codelab",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/firebase/jest.config.js",
+            "tsConfig": "libs/firebase/tsconfig.spec.json",
+            "setupFile": "libs/firebase/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {},
+      "tags": []
+    },
+    "firebase-login": {
+      "root": "libs/firebase-login",
+      "sourceRoot": "libs/firebase-login/src",
+      "projectType": "library",
+      "prefix": "angular-presentation",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/firebase-login/tsconfig.lib.json",
+            "project": "libs/firebase-login/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/firebase-login/src/test.ts",
+            "tsConfig": "libs/firebase-login/tsconfig.spec.json",
+            "karmaConfig": "libs/firebase-login/karma.conf.js"
+          }
+        }
+      },
+      "tags": []
+    },
+    "intro": {
+      "projectType": "library",
+      "root": "libs/intro",
+      "sourceRoot": "libs/intro/src",
+      "prefix": "codelab",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/intro/jest.config.js",
+            "tsConfig": "libs/intro/tsconfig.spec.json",
+            "setupFile": "libs/intro/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {},
+      "tags": []
     },
     "kirjs": {
-      "root": "apps/kirjs/",
+      "root": "apps/kirjs",
       "sourceRoot": "apps/kirjs/src",
       "projectType": "application",
       "prefix": "kirjs",
@@ -215,7 +532,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/apps/kirjs",
             "index": "apps/kirjs/src/index.html",
             "main": "apps/kirjs/src/main.ts",
@@ -236,15 +552,18 @@
               }
             ],
             "styles": ["apps/kirjs/src/styles.css"],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "ru": {
-              "outputPath": "dist/apps/kirjs/ru",
-              "aot": true,
-              "i18nFile": "apps/kirjs/src/locale/kirjs.ru.xtb",
-              "i18nFormat": "xtb",
-              "i18nLocale": "ru"
+              "outputPath": "dist/apps/kirjs",
+              "localize": ["ru"]
             },
             "production": {
               "fileReplacements": [
@@ -257,12 +576,12 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -287,8 +606,7 @@
             "ru": {
               "outputPath": "locale/",
               "outFile": "messages.ru.untranslated.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "ru"
+              "format": "xlf"
             }
           }
         },
@@ -303,433 +621,18 @@
             "scripts": [],
             "assets": ["apps/kirjs/src/favicon.ico", "apps/kirjs/src/assets"]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/kirjs/tsconfig.app.json",
-              "apps/kirjs/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "angular-ast-viz": {
-      "root": "libs/angular-ast-viz",
-      "sourceRoot": "libs/angular-ast-viz/src",
-      "projectType": "library",
-      "prefix": "codelab",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/angular-ast-viz/tsconfig.lib.json",
-            "project": "libs/angular-ast-viz/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "libs/angular-ast-viz/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/angular-ast-viz/src/test.ts",
-            "tsConfig": "libs/angular-ast-viz/tsconfig.spec.json",
-            "karmaConfig": "libs/angular-ast-viz/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/angular-ast-viz/tsconfig.lib.json",
-              "libs/angular-ast-viz/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "angular-slides-to-pdf": {
-      "root": "libs/angular-slides-to-pdf",
-      "sourceRoot": "libs/angular-slides-to-pdf/src",
-      "projectType": "library",
-      "prefix": "codelab",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/angular-slides-to-pdf/tsconfig.lib.json",
-            "project": "libs/angular-slides-to-pdf/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "libs/angular-slides-to-pdf/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/angular-slides-to-pdf/src/test.ts",
-            "tsConfig": "libs/angular-slides-to-pdf/tsconfig.spec.json",
-            "karmaConfig": "libs/angular-slides-to-pdf/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/angular-slides-to-pdf/tsconfig.lib.json",
-              "libs/angular-slides-to-pdf/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "feedback": {
-      "root": "libs/feedback",
-      "sourceRoot": "libs/feedback/src",
-      "projectType": "library",
-      "prefix": "codelab",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/feedback/tsconfig.lib.json",
-            "project": "libs/feedback/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/feedback/src/test.ts",
-            "tsConfig": "libs/feedback/tsconfig.spec.json",
-            "karmaConfig": "libs/feedback/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/feedback/tsconfig.lib.json",
-              "libs/feedback/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "code-demos": {
-      "root": "libs/code-demos",
-      "sourceRoot": "libs/code-demos/src",
-      "projectType": "library",
-      "prefix": "codelab",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/code-demos/tsconfig.lib.json",
-            "project": "libs/code-demos/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "libs/code-demos/ng-package.prod.json"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/code-demos/tsconfig.lib.json",
-              "libs/code-demos/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/code-demos/jest.config.js",
-            "tsConfig": "libs/code-demos/tsconfig.spec.json",
-            "setupFile": "libs/code-demos/src/test-setup.ts"
-          }
-        }
-      }
-    },
-    "live": {
-      "root": "libs/live",
-      "sourceRoot": "libs/live/src",
-      "projectType": "library",
-      "prefix": "live",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/live/tsconfig.lib.json",
-            "project": "libs/live/ng-package.json"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/live/tsconfig.lib.json",
-              "libs/live/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/live/jest.config.js",
-            "tsConfig": "libs/live/tsconfig.spec.json"
-          }
         }
       },
-      "schematics": {}
-    },
-    "firebase-login": {
-      "root": "libs/firebase-login",
-      "sourceRoot": "libs/firebase-login/src",
-      "projectType": "library",
-      "prefix": "angular-presentation",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/firebase-login/tsconfig.lib.json",
-            "project": "libs/firebase-login/ng-package.json"
+      "i18n": {
+        "locales": {
+          "ru": {
+            "translation": "apps/kirjs/src/locale/kirjs.ru.xtb",
+            "baseHref": ""
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/firebase-login/src/test.ts",
-            "tsConfig": "libs/firebase-login/tsconfig.spec.json",
-            "karmaConfig": "libs/firebase-login/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/firebase-login/tsconfig.lib.json",
-              "libs/firebase-login/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "blog": {
-      "root": "apps/blog/",
-      "sourceRoot": "apps/blog/src",
-      "projectType": "application",
-      "prefix": "codelab",
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "style": "scss"
-        }
+        "sourceLocale": "ru"
       },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/blog",
-            "index": "apps/blog/src/index.html",
-            "main": "apps/blog/src/main.ts",
-            "polyfills": "apps/blog/src/polyfills.ts",
-            "tsConfig": "apps/blog/tsconfig.app.json",
-            "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
-            "styles": ["apps/blog/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/blog/src/environments/environment.ts",
-                  "with": "apps/blog/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "20mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "blog:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "blog:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "blog:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/blog/tsconfig.app.json",
-              "apps/blog/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/blog/jest.config.js",
-            "tsConfig": "apps/blog/tsconfig.spec.json",
-            "setupFile": "apps/blog/src/test-setup.ts"
-          }
-        }
-      }
-    },
-    "angular-thirty-seconds": {
-      "root": "apps/angular-thirty-seconds/",
-      "sourceRoot": "apps/angular-thirty-seconds/src",
-      "projectType": "application",
-      "prefix": "codelab",
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "style": "scss"
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/codelab/30",
-            "index": "apps/angular-thirty-seconds/src/index.html",
-            "main": "apps/angular-thirty-seconds/src/main.ts",
-            "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
-            "tsConfig": "apps/angular-thirty-seconds/tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "node_modules/monaco-editor/",
-                "output": "./assets/monaco/"
-              },
-              "apps/angular-thirty-seconds/src/favicon.ico",
-              "apps/angular-thirty-seconds/src/assets",
-              {
-                "glob": "**/*",
-                "input": "libs/code-demos/assets/runner/",
-                "output": "./assets/runner/"
-              }
-            ],
-            "styles": [
-              "apps/angular-thirty-seconds/src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.css",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
-            ],
-            "scripts": [
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/angular-thirty-seconds/src/environments/environment.ts",
-                  "with": "apps/angular-thirty-seconds/src/environments/environment.prod.ts"
-                }
-              ],
-              "baseHref": "/30/",
-              "deployUrl": "/30/",
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "60mb",
-                  "maximumError": "70mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "angular-thirty-seconds:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "angular-thirty-seconds:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "angular-thirty-seconds:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "apps/angular-thirty-seconds/src/test.ts",
-            "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
-            "tsConfig": "apps/angular-thirty-seconds/tsconfig.spec.json",
-            "karmaConfig": "apps/angular-thirty-seconds/karma.conf.js",
-            "styles": ["apps/angular-thirty-seconds/src/styles.scss"],
-            "scripts": [],
-            "assets": [
-              "apps/angular-thirty-seconds/src/favicon.ico",
-              "apps/angular-thirty-seconds/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/angular-thirty-seconds/tsconfig.app.json",
-              "apps/angular-thirty-seconds/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
+      "tags": []
     },
     "lis": {
       "projectType": "application",
@@ -762,7 +665,13 @@
               }
             ],
             "styles": ["apps/lis/src/styles.css"],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -793,7 +702,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -812,16 +722,6 @@
             "browserTarget": "lis:build"
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/lis/tsconfig.app.json",
-              "apps/lis/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/lis/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -830,7 +730,32 @@
             "setupFile": "apps/lis/src/test-setup.ts"
           }
         }
-      }
+      },
+      "tags": []
+    },
+    "live": {
+      "root": "libs/live",
+      "sourceRoot": "libs/live/src",
+      "projectType": "library",
+      "prefix": "live",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/live/tsconfig.lib.json",
+            "project": "libs/live/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/live/jest.config.js",
+            "tsConfig": "libs/live/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {},
+      "tags": []
     },
     "playground": {
       "projectType": "application",
@@ -851,7 +776,6 @@
             "main": "apps/playground/src/main.ts",
             "polyfills": "apps/playground/src/polyfills.ts",
             "tsConfig": "apps/playground/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/playground/src/favicon.ico",
               "apps/playground/src/assets",
@@ -862,7 +786,13 @@
               }
             ],
             "styles": ["apps/playground/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -876,7 +806,6 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -893,7 +822,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -912,16 +842,6 @@
             "browserTarget": "playground:build"
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/playground/tsconfig.app.json",
-              "apps/playground/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/playground/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -930,61 +850,8 @@
             "setupFile": "apps/playground/src/test-setup.ts"
           }
         }
-      }
-    },
-    "firebase": {
-      "projectType": "library",
-      "root": "libs/firebase",
-      "sourceRoot": "libs/firebase/src",
-      "prefix": "codelab",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/firebase/tsconfig.lib.json",
-              "libs/firebase/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/firebase/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/firebase/jest.config.js",
-            "tsConfig": "libs/firebase/tsconfig.spec.json",
-            "setupFile": "libs/firebase/src/test-setup.ts"
-          }
-        }
       },
-      "schematics": {}
-    },
-    "intro": {
-      "projectType": "library",
-      "root": "libs/intro",
-      "sourceRoot": "libs/intro/src",
-      "prefix": "codelab",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/intro/tsconfig.lib.json",
-              "libs/intro/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/intro/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/intro/jest.config.js",
-            "tsConfig": "libs/intro/tsconfig.spec.json",
-            "setupFile": "libs/intro/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {}
+      "tags": []
     },
     "slides": {
       "projectType": "library",
@@ -1004,16 +871,6 @@
             }
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/slides/tsconfig.lib.json",
-              "libs/slides/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/slides/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -1023,10 +880,27 @@
           }
         }
       },
-      "schematics": {}
+      "schematics": {},
+      "tags": []
+    },
+    "utils": {
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
+      "projectType": "library",
+      "prefix": "codelab",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/utils/src/test.ts",
+            "tsConfig": "libs/utils/tsconfig.spec.json",
+            "karmaConfig": "libs/utils/karma.conf.js"
+          }
+        }
+      },
+      "tags": []
     }
   },
-  "defaultProject": "codelab",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "slides",
@@ -1053,9 +927,5 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "analytics": "2d33a6dc-15e8-4227-b14e-dedd96805cec"
   }
 }

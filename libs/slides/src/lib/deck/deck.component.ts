@@ -8,14 +8,14 @@ import {
   Optional,
   Output,
   QueryList,
-  TemplateRef
+  TemplateRef,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'slide-deck',
   templateUrl: './deck.component.html',
-  styleUrls: ['./deck.component.scss']
+  styleUrls: ['./deck.component.scss'],
 })
 export class SlidesDeckComponent {
   slides: any[] = [];

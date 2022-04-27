@@ -4,7 +4,7 @@ import {
   Input,
   OnChanges,
   OnInit,
-  Output
+  Output,
 } from '@angular/core';
 import { BinaryParser } from '../../parser/binary-parser';
 import { StringBinaryReader } from '../../parser/readers/string-reader';
@@ -12,7 +12,7 @@ import { StringBinaryReader } from '../../parser/readers/string-reader';
 @Component({
   selector: 'kirjs-binary-parent',
   templateUrl: './binary-parent.component.html',
-  styleUrls: ['./binary-parent.component.scss']
+  styleUrls: ['./binary-parent.component.scss'],
 })
 export class BinaryParentComponent implements OnInit, OnChanges {
   @Input() showMeta = true;

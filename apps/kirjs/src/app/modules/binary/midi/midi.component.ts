@@ -7,7 +7,7 @@ import { StringParser } from '../parser/parsers/string-parser';
 @Component({
   selector: 'kirjs-midi',
   templateUrl: './midi.component.html',
-  styleUrls: ['./midi.component.css']
+  styleUrls: ['./midi.component.css'],
 })
 export class MidiComponent implements OnInit {
   showMeta = true;
@@ -44,17 +44,17 @@ export class MidiComponent implements OnInit {
         parser(data) {
           const type = (Object as any)
             .values(data)
-            .find(l => l.name === 'subtype').rawValue;
+            .find((l) => l.name === 'subtype').rawValue;
           const length = (Object as any)
             .values(data)
-            .find(l => l.name === 'length').value;
+            .find((l) => l.name === 'length').value;
           const parsers = {
             '00000011': new StringParser({ length }),
             '00000010': new StringParser({ length }),
             '01011000': timeSignatureParser,
             // tempo
             '01010001': new BinaryParser().uInt24('value'),
-            '00101111': theEnd
+            '00101111': theEnd,
           };
 
           if (parsers[type]) {
@@ -63,7 +63,7 @@ export class MidiComponent implements OnInit {
 
           // tslint:disable-next-line:no-debugger
           debugger;
-        }
+        },
       });
 
     const noteSwitch = new BinaryParser()
@@ -75,14 +75,15 @@ export class MidiComponent implements OnInit {
       .varuint7('delta')
       .uInt8('type')
       .choice('typeData', {
-        parser: data => {
-          const type = (Object as any).values(data).find(l => l.name === 'type')
-            .rawValue;
+        parser: (data) => {
+          const type = (Object as any)
+            .values(data)
+            .find((l) => l.name === 'type').rawValue;
           const parsers = {
             '11111111': metaParser,
             '11000000': instrumentChannel,
             '10010000': noteSwitch,
-            '10000000': noteSwitch
+            '10000000': noteSwitch,
           };
 
           if (parsers[type]) {
@@ -91,7 +92,7 @@ export class MidiComponent implements OnInit {
 
           // tslint:disable-next-line:no-debugger
           debugger;
-        }
+        },
       });
 
     const tracks = new BinaryParser()
@@ -111,8 +112,8 @@ export class MidiComponent implements OnInit {
     reader.onloadend = (e: ProgressEvent) => {
       const result = new Uint8Array((e.target as any).result);
       const binaries = Array.from(result)
-        .map(a => a.toString(2))
-        .map(a => (a as any).padStart(8, 0));
+        .map((a) => a.toString(2))
+        .map((a) => (a as any).padStart(8, 0));
       this.binary = binaries.join('');
       localStorage.setItem('midi', this.binary);
     };

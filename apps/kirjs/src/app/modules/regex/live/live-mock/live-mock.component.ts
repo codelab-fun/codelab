@@ -7,14 +7,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'kirjs-live-mock-component',
   templateUrl: './live-mock.component.html',
-  styleUrls: ['./live-mock.component.css']
+  styleUrls: ['./live-mock.component.css'],
 })
 export class LiveMockComponent implements OnInit, OnDestroy {
   data: LiveInfo;
 
   form: FormGroup = this.fb.group({
     user: this.fb.control(''),
-    status: this.fb.control('')
+    status: this.fb.control(''),
   });
 
   private onDestroy: Subject<null> = new Subject<null>();
@@ -22,11 +22,11 @@ export class LiveMockComponent implements OnInit, OnDestroy {
   constructor(private service: LiveService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.form.valueChanges.subscribe(data => {
+    this.form.valueChanges.subscribe((data) => {
       this.service.storeLiveInfo(data);
     });
 
-    this.service.liveInfo.pipe(takeUntil(this.onDestroy)).subscribe(data => {
+    this.service.liveInfo.pipe(takeUntil(this.onDestroy)).subscribe((data) => {
       this.data = data;
       this.form.patchValue(data, { emitEvent: false });
     });

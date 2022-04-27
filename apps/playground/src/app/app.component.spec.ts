@@ -6,7 +6,8 @@ import { AppModule } from './app.module';
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, AppModule]
+      imports: [RouterTestingModule, AppModule],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

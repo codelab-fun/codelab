@@ -8,7 +8,7 @@ describe('HexdecComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [HexdecComponent]
+      declarations: [HexdecComponent],
     }).compileComponents();
   }));
 

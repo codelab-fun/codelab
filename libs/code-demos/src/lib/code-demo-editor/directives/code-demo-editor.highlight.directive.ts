@@ -4,17 +4,18 @@ import {
   Input,
   OnChanges,
   Optional,
-  Self
+  Self,
 } from '@angular/core';
 import { findPosition } from '../utils/utils';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 
 @Directive({
-  selector: '[codeDemoHighlight]'
+  selector: '[codeDemoHighlight]',
 })
 export class CodeDemoEditorHighlightDirective
-  implements OnChanges, AfterViewInit {
+  implements OnChanges, AfterViewInit
+{
   decorators = [];
   @Input() codeDemoHighlight;
   @Input() ngModel;
@@ -54,7 +55,7 @@ export class CodeDemoEditorHighlightDirective
       }
 
       const decorations = this.codeDemoHighlight
-        .map(match =>
+        .map((match) =>
           typeof match !== 'string' && match.match ? match : { match }
         )
         .reduce((ranges, { match, className }) => {
@@ -64,7 +65,7 @@ export class CodeDemoEditorHighlightDirective
               match.selectionStartLineNumber,
               match.selectionStartColumn,
               match.endLineNumber,
-              match.endColumn
+              match.endColumn,
             ];
           } else {
             const position = findPosition(code, match);
@@ -75,7 +76,7 @@ export class CodeDemoEditorHighlightDirective
 
           ranges.push({
             range: new this.monacoConfigService.monaco.Range(...range),
-            options: { inlineClassName: className || 'highlighted-code' }
+            options: { inlineClassName: className || 'highlighted-code' },
           });
 
           return ranges;

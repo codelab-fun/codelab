@@ -16,13 +16,13 @@ describe('UsersComponent', () => {
       providers: [
         {
           provide: SyncDbService,
-          useValue: { list: () => ({ snapshots$: of([]) }) }
+          useValue: { list: () => ({ snapshots$: of([]) }) },
         },
         {
           provide: LoginService,
-          useValue: {}
-        }
-      ]
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   }));
 

@@ -17,7 +17,7 @@ export const TAGS_LIST = [
   'templates',
   'styling',
   'routing',
-  'performance'
+  'performance',
 ];
 
 export const LINKS_PLACEHOLDER = `https://angular.io/

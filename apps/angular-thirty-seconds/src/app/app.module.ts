@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: 'new/:repoName/:repoOwner', component: CreateSnippetComponent },
   {
     path: 'new/:repoName/:repoOwner/:pullNumber',
-    component: CreateSnippetComponent
-  }
+    component: CreateSnippetComponent,
+  },
 ];
 
 @NgModule({
@@ -36,16 +36,16 @@ const routes: Routes = [
     MatButtonModule,
     MatTableModule,
     HttpClientModule,
-    CreateSnippetModule
+    CreateSnippetModule,
   ],
   declarations: [AppComponent, PullRequestsListComponent],
   providers: [
     {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

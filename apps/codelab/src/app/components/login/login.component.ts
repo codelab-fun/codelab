@@ -6,7 +6,7 @@ import { auth } from 'firebase/app';
 @Component({
   selector: 'codelab-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   constructor(

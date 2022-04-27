@@ -37,15 +37,13 @@
   </ng-container>
   <ng-template #waiting>
     <div *ngIf="poll.$isPollRunning | async">
-      <h1 style="text-align: center;">Waiting for votes...</h1>
+      <h1 style="text-align: center">Waiting for votes...</h1>
       <div class="bunny"></div>
     </div>
   </ng-template>
 </ng-container>
 
-<ng-template #wait>
-  Poll has not been started yet.
-</ng-template>
+<ng-template #wait> Poll has not been started yet. </ng-template>
 
 <div
   *ngIf="poll.isPollEnabled$ | async; else wait"

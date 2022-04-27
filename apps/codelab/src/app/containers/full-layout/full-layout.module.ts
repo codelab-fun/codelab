@@ -6,6 +6,6 @@ import { ButtonsNavBarModule } from '../../components/buttons-nav-bar/buttons-na
 
 @NgModule({
   imports: [RouterModule, SyncModule, ButtonsNavBarModule],
-  declarations: [FullLayoutComponent]
+  declarations: [FullLayoutComponent],
 })
 export class FullLayoutModule {}

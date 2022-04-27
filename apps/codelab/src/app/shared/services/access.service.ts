@@ -7,13 +7,13 @@ import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 
 export enum Permissions {
   MANAGE_USERS = 'manage_users',
-  CAN_LOAD_ADMIN = 'can_load_admin'
+  CAN_LOAD_ADMIN = 'can_load_admin',
 }
 
 @Injectable({ providedIn: 'root' })
 export class AccessService {
   readonly oldIsAdmin$ = this.loginService.uid$.pipe(
-    switchMap(uid => {
+    switchMap((uid) => {
       return this.dbService
         .object('authorized_users')
         .object(uid)
@@ -38,7 +38,7 @@ export class AccessService {
         // TODO(kirjs): default: false
         .object(p)
         .valueChanges()
-        .pipe(filter(a => a !== null))
+        .pipe(filter((a) => a !== null))
     );
   }
 }

@@ -8,7 +8,7 @@ describe('SyncPlaygroundPresenterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SyncPlaygroundPresenterComponent]
+      declarations: [SyncPlaygroundPresenterComponent],
     }).compileComponents();
   }));
 

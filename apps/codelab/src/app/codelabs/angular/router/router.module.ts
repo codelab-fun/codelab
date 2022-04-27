@@ -21,10 +21,10 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(RouterComponent)]);
     CodelabComponentsModule,
     SlidesModule,
     FormsModule,
-    CodeDemoModule
+    CodeDemoModule,
   ],
   declarations: [RouterComponent],
   providers: [Ng2TsExercises],
-  exports: [RouterComponent]
+  exports: [RouterComponent],
 })
 export class RouterCodelabModule {}

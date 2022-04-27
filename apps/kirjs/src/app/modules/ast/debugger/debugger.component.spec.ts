@@ -8,7 +8,7 @@ describe('DebuggerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [DebuggerComponent]
+      declarations: [DebuggerComponent],
     }).compileComponents();
   }));
 

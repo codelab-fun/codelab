@@ -6,7 +6,7 @@ import { TypeScriptComponent } from './typescript/typescript.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'ignored',
-  template: '<router-outlet></router-outlet>'
+  template: '<router-outlet></router-outlet>',
 })
 export class EmptyTypeScriptComponent {}
 
@@ -14,14 +14,13 @@ const routes = [
   {
     path: '',
     component: EmptyTypeScriptComponent,
-    children: [...SlidesRoutes.get(TypeScriptComponent)]
-  }
+    children: [...SlidesRoutes.get(TypeScriptComponent)],
+  },
 ];
 
 @NgModule({
   declarations: [EmptyTypeScriptComponent],
-  entryComponents: [EmptyTypeScriptComponent],
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class TypeScriptRoutingModule {}

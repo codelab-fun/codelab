@@ -8,7 +8,7 @@ describe('ConsoleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ConsoleComponent]
+      declarations: [ConsoleComponent],
     }).compileComponents();
   }));
 

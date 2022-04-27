@@ -43,11 +43,10 @@ const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
     MatAutocompleteModule,
     SharedPipeModule,
     ConsoleModule,
-
     NewProgressBarModule,
     MatSelectModule,
     SlidesModule,
-    FeedbackModule
+    FeedbackModule,
   ],
   declarations: [
     BinaryComponent,
@@ -68,18 +67,8 @@ const routes = RouterModule.forChild(SlidesRoutes.get(BinaryComponent));
     AngularFlagsComponent,
     ColorIndexingComponent,
     BitwiseComponent,
-    ToReadComponent
+    ToReadComponent,
   ],
-  entryComponents: [
-    FakeGifComponent,
-    MidiComponent,
-    AsciiComponent,
-    BindecComponent,
-    MessageComponent,
-    JsonComponent,
-    HtmlPostComponent,
-    CompareComponent
-  ],
-  exports: [BinaryComponent]
+  exports: [BinaryComponent],
 })
 export class BinaryModule {}

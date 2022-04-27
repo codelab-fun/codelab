@@ -11,7 +11,7 @@ it('test', ()=>{
       test(func, args) {
         let result = func(this.title, 3, args);
         return result && result.includes && result.includes('fit');
-      }
+      },
     },
 
     {
@@ -24,8 +24,8 @@ describe('test', ()=>{
       test(func, args) {
         let result = func(this.title, 1, args);
         return result && result.includes && !result.includes('fit');
-      }
-    }
+      },
+    },
   ];
 
   let results = [];
@@ -35,7 +35,7 @@ describe('test', ()=>{
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = value => {
+        args.log = (value) => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);

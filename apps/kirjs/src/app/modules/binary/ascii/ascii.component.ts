@@ -3,7 +3,7 @@ import {
   Input,
   OnChanges,
   OnInit,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 
 function encode(from: number, to: number, encoding: string) {
@@ -12,7 +12,7 @@ function encode(from: number, to: number, encoding: string) {
     .split('')
     .map((value, i) => ({
       key: i + from,
-      value
+      value,
     }));
 }
 
@@ -21,7 +21,7 @@ const layouts = {};
 @Component({
   selector: 'kirjs-ascii',
   templateUrl: './ascii.component.html',
-  styleUrls: ['./ascii.component.css']
+  styleUrls: ['./ascii.component.css'],
 })
 export class AsciiComponent implements OnChanges {
   @Input() param: string;
@@ -29,24 +29,24 @@ export class AsciiComponent implements OnChanges {
   encodings = [
     {
       key: 'ascii',
-      value: encode(33, 128, 'ascii')
+      value: encode(33, 128, 'ascii'),
     },
     {
       key: 'ascii - Page 2',
-      value: encode(128, 255, 'ascii')
+      value: encode(128, 255, 'ascii'),
     },
     {
       key: 'windows-1251',
-      value: encode(128, 255, 'windows-1251')
+      value: encode(128, 255, 'windows-1251'),
     },
     {
       key: 'KOI8-R',
-      value: encode(128, 255, 'KOI8-R')
+      value: encode(128, 255, 'KOI8-R'),
     },
     {
       key: 'utf-8',
-      value: encode(1000, 1255, 'utf-16')
-    }
+      value: encode(1000, 1255, 'utf-16'),
+    },
   ];
 
   encoding = this.encodings[0];
@@ -57,7 +57,7 @@ export class AsciiComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('param' in changes) {
-      this.encoding = this.encodings.find(a => a.key === this.param);
+      this.encoding = this.encodings.find((a) => a.key === this.param);
     }
   }
 }

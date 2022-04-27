@@ -1,13 +1,13 @@
 declare const require;
 
 export function jsScriptInjector(iframe) {
-  return function(code) {
+  return function (code) {
     iframe.contentWindow.eval(code);
   };
 }
 
 export function cssInjector(iframe) {
-  return function(css) {
+  return function (css) {
     const s = iframe.contentDocument.createElement('style');
     s.innerHTML = css;
     iframe.contentDocument.getElementsByTagName('head')[0].appendChild(s);
@@ -76,20 +76,22 @@ export function createSystemJsSandbox(
   element: any,
   config: SandboxConfig
 ): Promise<SandBoxWithLoader> {
-  return injectIframe(element, config).then(sandbox => {
+  return injectIframe(element, config).then((sandbox) => {
     injectSystemJs(sandbox);
 
     function addDep(name, code) {
-      (sandbox.iframe.contentWindow as any).System.register(name, [], function(
-        exports
-      ) {
-        return {
-          setters: [],
-          execute: function() {
-            exports(code);
-          }
-        };
-      });
+      (sandbox.iframe.contentWindow as any).System.register(
+        name,
+        [],
+        function (exports) {
+          return {
+            setters: [],
+            execute: function () {
+              exports(code);
+            },
+          };
+        }
+      );
     }
 
     // TODO: Simplify
@@ -143,14 +145,14 @@ export function injectIframe(
       }
 
       // TODO(kirjs): add types later
-      (iframe.contentWindow as any).console.log = function() {
+      (iframe.contentWindow as any).console.log = function () {
         console.log.apply(console, arguments);
       };
 
-      iframe.contentWindow.onerror = function(error, message) {
+      iframe.contentWindow.onerror = function (error, message) {
         logError(error, message);
       };
-      (iframe.contentWindow as any).console.error = function(error, message) {
+      (iframe.contentWindow as any).console.error = function (error, message) {
         // handle Angular error 1/3
         logError(error, message);
 
@@ -163,7 +165,7 @@ ${message}
         evalJs,
         setHtml,
         addCss,
-        iframe
+        iframe,
       });
     };
 

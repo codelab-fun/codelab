@@ -4,7 +4,7 @@ import { extractExpressionByMatch } from '../utils';
 @Component({
   selector: 'slides-full-screen-runner',
   templateUrl: './full-screen-runner.component.html',
-  styleUrls: ['./full-screen-runner.component.css']
+  styleUrls: ['./full-screen-runner.component.css'],
 })
 export class FullScreenRunnerComponent implements OnInit, OnChanges {
   @Input() code: any;
@@ -32,7 +32,7 @@ export class FullScreenRunnerComponent implements OnInit, OnChanges {
       .split('')
       .map(Number)
       .reverse()
-      .map(n => (n ? '  $enable' : '  $disable'))
+      .map((n) => (n ? '  $enable' : '  $disable'))
       .join('\n');
 
     this.wat = this.code.wat;

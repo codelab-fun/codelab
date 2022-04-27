@@ -57,7 +57,7 @@ System.import("runner");
         it('no tests have been setup', () => {
           chai.expect(true).to.be.ok;
         });
-      });`
+      });`,
   };
 
   readonly result$: Observable<TestRunResult> = this.runner.result$.pipe(
@@ -79,7 +79,7 @@ System.import("runner");
         system ? wrapSystemJs(this.code.SystemJS) : '',
         code,
         tests,
-        system ? this.code.systemMochaRun : this.code.mochaRun
+        system ? this.code.systemMochaRun : this.code.mochaRun,
       ].join('\n')
     );
   }

@@ -8,7 +8,7 @@ describe('RaceComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RaceComponent]
+      declarations: [RaceComponent],
     }).compileComponents();
   }));
 

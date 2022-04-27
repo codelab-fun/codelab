@@ -3,7 +3,7 @@ import { forkJoin, Observable, Subject } from 'rxjs';
 import {
   Result,
   RunResult,
-  WebAssemblyService
+  WebAssemblyService,
 } from '../../web-assembly.service';
 import {
   extractAllFunctions,
@@ -16,7 +16,7 @@ import {
   hasTableCalls,
   hasTypeCalls,
   populateTestCode,
-  prepareTableCode
+  prepareTableCode,
 } from '../../../utils';
 import { wasmAnswers } from '../../../webassembly.component';
 
@@ -49,7 +49,7 @@ export interface WebAssemblyTestConfig extends TestConfig {
 
 function verifyGlobalsInTests(tests, globals) {
   if (globals.length) {
-    tests.forEach(test => {
+    tests.forEach((test) => {
       if (!test.imports) {
         throw new Error(
           'No imports present in the test. Function being tested expect the following: ' +
@@ -69,7 +69,7 @@ function verifyGlobalsInTests(tests, globals) {
 }
 
 function testsHaveMemory(config: TestConfig) {
-  return config.tests.some(t => t.memory);
+  return config.tests.some((t) => t.memory);
 }
 
 function passOrNot(m: any, blockCode, allCode) {
@@ -110,7 +110,7 @@ export function webAssemblyModuleContentHandler(
   allCode: string
 ) {
   let hasUpassed = false;
-  const milestones = config.milestones.map(m => {
+  const milestones = config.milestones.map((m) => {
     const pass = passOrNot(m, blockCode, allCode);
 
     let firstFailed = false;
@@ -122,14 +122,14 @@ export function webAssemblyModuleContentHandler(
     return {
       firstFailed,
       pass,
-      ...m
+      ...m,
     };
   });
 
   return {
     mode: config.type,
     ...config,
-    milestones
+    milestones,
   };
 }
 
@@ -140,7 +140,7 @@ export function webAssemblyTestHandler(
 ): WebAssemblyTestConfig {
   const originalCode = extractFunction(config.name, allCode);
   const funcCode = extractFunctionWithDependencies(config.name, allCode, [
-    config.name
+    config.name,
   ]);
   const globals = extractGlobals(funcCode, allCode);
 
@@ -157,14 +157,14 @@ export function webAssemblyTestHandler(
     code: funcCode,
     name: config.name,
     hasMemory,
-    types
+    types,
   });
   const answer = wasmAnswers.get(config.name) as string;
 
   return {
     code: {
       wat,
-      js: require('!!raw-loader!./runner.js')
+      js: require('!!raw-loader!./runner.js'),
     },
     answer,
     globals,
@@ -172,14 +172,14 @@ export function webAssemblyTestHandler(
     ...config,
     mode: 'test',
     highlights: originalCode,
-    originalCode
+    originalCode,
   };
 }
 
 @Component({
   selector: 'slides-wasm-test-runner',
   templateUrl: './wasm-test-runner.component.html',
-  styleUrls: ['./wasm-test-runner.component.scss']
+  styleUrls: ['./wasm-test-runner.component.scss'],
 })
 export class WasmTestRunnerComponent implements OnChanges {
   readonly result$ = new Subject<Result<TestResult[]>>();
@@ -197,8 +197,8 @@ export class WasmTestRunnerComponent implements OnChanges {
     const { tests, code, name, allCode, table } = this.config as any;
 
     let hasFailures = false;
-    const sources = (tests as any[]).map(test => {
-      return new Observable<TestResult>(subscriber => {
+    const sources = (tests as any[]).map((test) => {
+      return new Observable<TestResult>((subscriber) => {
         const wat = populateTestCode(code.wat, test, allCode, table);
 
         return this.webAssemblyService
@@ -206,9 +206,9 @@ export class WasmTestRunnerComponent implements OnChanges {
             args: test.args,
             imports: test.imports,
             memory: test.memory,
-            name
+            name,
           })
-          .subscribe(result => {
+          .subscribe((result) => {
             let pass = false;
             if (result.type === 'result') {
               if ('output' in test) {
@@ -236,14 +236,14 @@ export class WasmTestRunnerComponent implements OnChanges {
               isFirstFailed,
               pass: pass,
               result,
-              ...test
+              ...test,
             });
             subscriber.complete();
           });
       });
     });
 
-    forkJoin(sources).subscribe(results => {
+    forkJoin(sources).subscribe((results) => {
       const error = results.find(({ result }) => result.type === 'error');
       if (error) {
         this.result$.next(error.result as any);

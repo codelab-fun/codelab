@@ -3,14 +3,14 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
 } from '@angular/core';
 import { SlidesDeckComponent } from '@ng360/slides';
 
 @Component({
   selector: 'kirjs-new-progress-bar',
   templateUrl: './new-progress-bar.component.html',
-  styleUrls: ['./new-progress-bar.component.css']
+  styleUrls: ['./new-progress-bar.component.css'],
 })
 export class NewProgressBarComponent implements AfterViewInit {
   @Input() fontSize = 28;
@@ -29,7 +29,7 @@ export class NewProgressBarComponent implements AfterViewInit {
       this.activeSlideIndex = this.deck.activeSlideIndex;
     });
 
-    this.deck.slideChange.subscribe(index => {
+    this.deck.slideChange.subscribe((index) => {
       this.activeSlideIndex = index;
     });
   }

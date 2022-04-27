@@ -6,7 +6,7 @@ import { SlidesDeckComponent } from '@ng360/slides';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
-  selector: '[slides-tracking]'
+  selector: '[slides-tracking]',
 })
 export class TrackingDirective {
   auth;
@@ -20,7 +20,7 @@ export class TrackingDirective {
     private presentation: SlidesDeckComponent
   ) {
     afAuth.auth.signInAnonymously();
-    afAuth.authState.subscribe(authData => {
+    afAuth.authState.subscribe((authData) => {
       this.auth = authData;
     });
     this.lastSlideChange = Date.now();
@@ -38,7 +38,7 @@ export class TrackingDirective {
         msDiff: diffMinutes, // time user spent on the prev. slide
         route: this.router.url,
         totalSlides: this.presentation.slides.length,
-        milestone: this.router.url.split('/')[1]
+        milestone: this.router.url.split('/')[1],
       });
     }
     // TODO: use observables to preserve all data

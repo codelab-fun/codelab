@@ -4,10 +4,10 @@ export function replay(editor: any) {
   const keys = [];
   editor.addCommand(monaco.KeyCode.F9, () => {
     console.log('starting recording');
-    editor.onKeyDown(key => {
+    editor.onKeyDown((key) => {
       keys.push({
         timestamp: new Date(),
-        key
+        key,
       });
     });
     editor.trigger('keyboard', 'type', { text: 'test' });

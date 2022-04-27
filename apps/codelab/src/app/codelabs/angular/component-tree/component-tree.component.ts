@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
   Ng2TsExercises,
-  SlideTemplate
+  SlideTemplate,
 } from '../../../../../../../ng2ts/ng2ts';
 
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
@@ -16,8 +16,8 @@ declare const require;
   templateUrl: './component-tree.component.html',
   styleUrls: [
     '../../../components/css/codelab-styles.scss',
-    './component-tree.component.css'
-  ]
+    './component-tree.component.css',
+  ],
 })
 export class ComponentTreeComponent implements AfterViewInit {
   t: { [key: string]: string };
@@ -42,7 +42,7 @@ export class ComponentTreeComponent implements AfterViewInit {
 export class HelloComponent {}
 `,
       path: 'parent.component.ts',
-      type: 'typescript'
+      type: 'typescript',
     },
     childComponentSkeleton: {
       code: `import { Component } from '@angular/core';
@@ -54,7 +54,7 @@ export class HelloComponent {}
 export class WorldComponent {}
 `,
       path: 'child.component.ts',
-      type: 'typescript'
+      type: 'typescript',
     },
     appModule: {
       code: {
@@ -62,10 +62,10 @@ export class WorldComponent {}
         'circle.component.ts': require('!!raw-loader!./samples/module/circle.component.ts'),
         'box.component.ts': require('!!raw-loader!./samples/module/box.component.ts'),
         'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
-        'index.html': require('!!raw-loader!./samples/module/index.html')
+        'index.html': require('!!raw-loader!./samples/module/index.html'),
       },
       files: ['app.module.ts'],
-      highlights: { 'app.module.ts': /declarations.*/ }
+      highlights: { 'app.module.ts': /declarations.*/ },
     },
     parentComponent: {
       code: `import { Component } from '@angular/core';
@@ -80,7 +80,7 @@ export class Parent {
   results(): Result[] {...}
 }`,
       path: 'parent.component.ts',
-      type: 'typescript'
+      type: 'typescript',
     },
     childComponent: {
       code: `import { Component, Input } from '@angular/core';
@@ -94,14 +94,14 @@ export class Child {
   @Input() data: Result[];
 }`,
       path: 'child.component.ts',
-      type: 'typescript'
+      type: 'typescript',
     },
 
     boxAndCircle: boxAndCircle(),
     circleAndBox: circleAndBoxCode,
     passingDataToChildHighlights: {
-      'circle.component.ts': [/@Input\(\) size/, /@Input\(\) color/]
-    }
+      'circle.component.ts': [/@Input\(\) size/, /@Input\(\) color/],
+    },
   };
 
   constructor(private exercises: Ng2TsExercises) {

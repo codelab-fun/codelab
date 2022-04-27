@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
 import {
   displayAngularComponent,
-  displayAngularComponentWithHtml
+  displayAngularComponentWithHtml,
 } from '../../../shared/helpers/helpers';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
@@ -13,14 +13,14 @@ const baseCode = 'TODO';
 @Component({
   selector: 'codelab-slides-templates',
   templateUrl: './templates.component.html',
-  styleUrls: ['./templates.component.css']
+  styleUrls: ['./templates.component.css'],
 })
 export class TemplatesComponent implements OnInit {
   t: { [key: string]: string };
   exercises = [
     ng2tsConfig.milestones[2].exercises[1],
     ng2tsConfig.milestones[2].exercises[2],
-    ng2tsConfig.milestones[2].exercises[3]
+    ng2tsConfig.milestones[2].exercises[3],
   ];
   curlies = '{{ property }}';
 
@@ -50,7 +50,7 @@ export class AppComponent {
           curliesFullName: { 'app.component.ts': [/{{.*}}/, /fullName\(\){/] },
           curliesAttribute: { 'app.component.ts': [/"{{.*}}"/, /avatar = .*/] },
           template: { 'app.component.ts': /<h1>.*<\/h1>/ },
-          squares: { 'app.component.ts': /\[.*]/ }
+          squares: { 'app.component.ts': /\[.*]/ },
         },
         interpolation: displayAngularComponent(
           `import {Component} from '@angular/core';
@@ -67,7 +67,8 @@ export class AppComponent {
 }`,
           ''
         ),
-        interpolationMethod: displayAngularComponent(`import {Component} from '@angular/core';
+        interpolationMethod:
+          displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -80,7 +81,8 @@ export class AppComponent {
      return this.firstName + " " + this.lastName
   }
 }`),
-        dataBindingPre: displayAngularComponent(`import {Component} from '@angular/core';
+        dataBindingPre:
+          displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -94,7 +96,8 @@ export class AppComponent {
   avatar = 'assets/images/renoir.jpg';
   fullName(){  return this.firstName + " " + this.lastName }
 }`),
-        dataBinding: displayAngularComponent(`import {Component} from '@angular/core';
+        dataBinding:
+          displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -115,13 +118,14 @@ export class AppComponent {
             'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
             'app.module.ts': require('!!raw-loader!./samples/data-binding-extra/app.module.ts'),
             'number-praiser.ts': require('!!raw-loader!./samples/data-binding-extra/number-praiser.ts'),
-            'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html')
+            'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html'),
           },
-          files: ['app.component.html', 'app.component.ts']
-        }
+          files: ['app.component.html', 'app.component.ts'],
+        },
       },
       ngIfDirective: {
-        template: displayAngularComponent(`import {Component} from '@angular/core';
+        template:
+          displayAngularComponent(`import {Component} from '@angular/core';
 @Component({
   selector: 'my-app',
   template: \`<h1>Hello {{firstName}}!</h1>
@@ -134,11 +138,12 @@ export class AppComponent {
   onDisplay(){  return false } // ${this.t.tryChangingToTrue}
 }`),
         matches: {
-          ngIf: { 'app.component.ts': /\*ngIf/ }
-        }
+          ngIf: { 'app.component.ts': /\*ngIf/ },
+        },
       },
       ngForDirectivePre: {
-        template: displayAngularComponent(`import {Component} from '@angular/core';
+        template:
+          displayAngularComponent(`import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -149,7 +154,7 @@ export class AppComponent {
 export class AppComponent {
   puppies = ['Schumann', 'Mendelssohn', 'Bach'];
 }`),
-        matches: { 'app.component.ts': ['???', /puppies.*;/] }
+        matches: { 'app.component.ts': ['???', /puppies.*;/] },
       },
       ngForDirective: {
         template: displayAngularComponent(
@@ -181,8 +186,8 @@ describe('AppComponent', ()=>{
 `
         ),
         matches: {
-          ngFor: { 'app.component.ts': '*ngFor' }
-        }
+          ngFor: { 'app.component.ts': '*ngFor' },
+        },
       },
 
       templateInterpolation: `
@@ -213,10 +218,10 @@ describe('AppComponent', ()=>{
           'app.component.ts': require('!!raw-loader!./samples/event-binding/app.component.ts'),
           'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
           'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
-          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html')
+          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html'),
         },
         files: ['app.component.html'],
-        highlights: { 'app.component.html': '(click)' }
+        highlights: { 'app.component.html': '(click)' },
       },
       referenceBinding: {
         code: {
@@ -224,10 +229,10 @@ describe('AppComponent', ()=>{
           'app.component.ts': require('!!raw-loader!./samples/reference-binding/app.component.ts'),
           'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
           'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
-          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html')
+          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html'),
         },
         files: ['app.component.html'],
-        highlights: { 'app.component.html': ['#input', 'input.value'] }
+        highlights: { 'app.component.html': ['#input', 'input.value'] },
       },
       eventBindingShortcuts: {
         code: {
@@ -235,10 +240,10 @@ describe('AppComponent', ()=>{
           'app.component.ts': require('!!raw-loader!./samples/reference-binding/app.component.ts'),
           'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
           'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
-          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html')
+          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html'),
         },
         files: ['app.component.html'],
-        highlights: { 'app.component.html': '(keydown.control.enter)' }
+        highlights: { 'app.component.html': '(keydown.control.enter)' },
       },
 
       eventBindingExercise: displayAngularComponentWithHtml(
@@ -264,7 +269,7 @@ describe('AppComponent', ()=>{
       conditionalDisplayForExercise: displayAngularComponentWithHtml(
         baseCode,
         `<!--Type your template here heros -->`
-      )
+      ),
     };
   }
 }

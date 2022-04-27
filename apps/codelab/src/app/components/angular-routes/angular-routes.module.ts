@@ -6,6 +6,6 @@ import { AngularRoutesComponent } from './angular-routes.component';
 @NgModule({
   imports: [CommonModule, RouterModule],
   declarations: [AngularRoutesComponent],
-  exports: [AngularRoutesComponent]
+  exports: [AngularRoutesComponent],
 })
 export class AngularRoutesModule {}

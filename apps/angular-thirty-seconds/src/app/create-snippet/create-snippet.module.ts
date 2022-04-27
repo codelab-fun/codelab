@@ -26,7 +26,7 @@ const MAT_MODULES = [
   MatSelectModule,
   MatInputModule,
   MatDialogModule,
-  MatSnackBarModule
+  MatSnackBarModule,
 ];
 
 @NgModule({
@@ -34,9 +34,8 @@ const MAT_MODULES = [
     CreateSnippetComponent,
     SnippetInfoComponent,
     SnippetOverviewComponent,
-    SnippetSpinnerComponent
+    SnippetSpinnerComponent,
   ],
-  entryComponents: [SnippetOverviewComponent],
   imports: [
     ...MAT_MODULES,
     CommonModule,
@@ -44,7 +43,7 @@ const MAT_MODULES = [
     AngularFireAuthModule,
     MarkdownModule.forRoot(),
     CodeDemoModule,
-    RouterModule
-  ]
+    RouterModule,
+  ],
 })
 export class CreateSnippetModule {}

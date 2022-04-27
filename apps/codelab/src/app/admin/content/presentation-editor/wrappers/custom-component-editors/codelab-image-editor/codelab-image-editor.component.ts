@@ -7,7 +7,7 @@ import { ContentSlide, CustomBlock } from '../../../types';
 @Component({
   selector: 'codelab-image-editor',
   templateUrl: './codelab-image-editor.component.html',
-  styleUrls: ['./codelab-image-editor.component.scss']
+  styleUrls: ['./codelab-image-editor.component.scss'],
 })
 export class CodelabImageEditorComponent {
   @Input() src;
@@ -26,7 +26,7 @@ export class CodelabImageEditorComponent {
     if (entry.isFile) {
       const name = +Date().toString() + '_' + entry.name;
       const ref = this.storage.ref(name);
-      (entry as any).file(async file => {
+      (entry as any).file(async (file) => {
         const task = await ref.put(file);
         this.src = await task.ref.getDownloadURL();
         this.update();
@@ -37,7 +37,7 @@ export class CodelabImageEditorComponent {
   update() {
     this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...this.block,
-      props: { src: this.src }
+      props: { src: this.src },
     });
   }
 }

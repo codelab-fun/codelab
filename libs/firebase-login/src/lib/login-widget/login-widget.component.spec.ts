@@ -13,9 +13,9 @@ describe('LoginWidgetComponent', () => {
       providers: [
         {
           provide: LoginService,
-          useValue: {}
-        }
-      ]
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   }));
 

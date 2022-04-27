@@ -3,7 +3,7 @@ import {
   externalSchematic,
   Rule,
   SchematicContext,
-  Tree
+  Tree,
 } from '@angular-devkit/schematics';
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
@@ -14,7 +14,7 @@ import { classify } from '@angular-devkit/core/src/utils/strings';
 
 function overrideHtml(): Rule {
   return (host: Tree, context: SchematicContext) => {
-    const path: string = host.actions.find(a =>
+    const path: string = host.actions.find((a) =>
       a.path.endsWith('.component.html')
     ).path;
     const html = fs
@@ -31,7 +31,7 @@ interface SlideSchema {
 
 function updateSlidesModule(schema: SlideSchema): Rule {
   return (host: Tree, context: SchematicContext) => {
-    const modulePath: string = host.actions.find(a =>
+    const modulePath: string = host.actions.find((a) =>
       a.path.endsWith('.module.ts')
     ).path;
 
@@ -71,28 +71,28 @@ function updateSlidesModule(schema: SlideSchema): Rule {
       recorder.insertLeft(change.pos, change.toAdd);
     });
 
-    const classDeclaration = [...sourceFile.statements].find(s =>
+    const classDeclaration = [...sourceFile.statements].find((s) =>
       ts.isClassDeclaration(s)
     );
     recorder.insertLeft(classDeclaration.pos, code);
 
-    [...sourceFile.statements].find(s => ts.isIdentifier(s));
+    [...sourceFile.statements].find((s) => ts.isIdentifier(s));
 
     host.commitUpdate(recorder);
   };
 }
 
-export default function(schema: SlideSchema): Rule {
+export default function (schema: SlideSchema): Rule {
   return chain([
     externalSchematic('@schematics/angular', 'module', {
       name: schema.name,
-      project: schema.project
+      project: schema.project,
     }),
     updateSlidesModule(schema),
     externalSchematic('@schematics/angular', 'component', {
       name: schema.name,
-      project: schema.project
+      project: schema.project,
     }),
-    overrideHtml()
+    overrideHtml(),
   ]);
 }

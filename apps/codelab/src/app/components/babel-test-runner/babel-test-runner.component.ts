@@ -5,7 +5,7 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { TestInfo } from '../../shared/interfaces/test-info';
 import { FileConfig } from '../../shared/interfaces/file-config';
@@ -16,7 +16,7 @@ declare const require;
 @Component({
   selector: 'codelab-babel-test-runner',
   templateUrl: './babel-test-runner.component.html',
-  styleUrls: ['./babel-test-runner.component.css']
+  styleUrls: ['./babel-test-runner.component.css'],
 })
 export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
   @Input() bootstrap: string;
@@ -40,7 +40,7 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
     try {
       this.tests = test(files);
       this.result = {
-        tests: this.tests.map(test => {
+        tests: this.tests.map((test) => {
           const name =
             this.translations[test.title.replace('@@', '')] || test.title;
 
@@ -48,15 +48,15 @@ export class BabelTestRunnerComponent implements AfterViewInit, OnChanges {
             ...test,
             name,
             error: test.result,
-            pass: !!test.pass
+            pass: !!test.pass,
           };
-        })
+        }),
       };
 
-      const isSolved = this.result.tests.every(a => a.pass);
+      const isSolved = this.result.tests.every((a) => a.pass);
       this.solved.emit(isSolved);
     } catch (e) {
-      this.tests.find(t => !t.pass).result = '[Parsing error]' + e;
+      this.tests.find((t) => !t.pass).result = '[Parsing error]' + e;
     }
   }
 

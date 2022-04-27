@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import {
   CodelabExerciseComponent,
-  extractSolutions
+  extractSolutions,
 } from '../exercise/exercise.component';
 import { convertExerciseToMap } from '../../../../../../ng2ts/ng2ts';
 
 @Component({
   selector: 'codelab-exercise-preview',
-  templateUrl: 'exercise-preview.component.html'
+  templateUrl: 'exercise-preview.component.html',
   // styleUrls: ['../exercise/code-demo-code-demo.component.css'],
 })
 export class CodelabExercisePreviewComponent extends CodelabExerciseComponent {

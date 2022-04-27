@@ -44,10 +44,9 @@ import { FeedbackModule as FeedbackLibModule } from '@codelab/feedback';
     MatInputModule,
     MatExpansionModule,
     MatSortModule,
-    FeedbackLibModule
+    FeedbackLibModule,
   ],
   declarations: [FeedbackComponent, FeedbackMessageTableComponent],
   exports: [FeedbackComponent],
-  entryComponents: [FeedbackComponent]
 })
 export class FeedbackModule {}

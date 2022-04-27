@@ -8,7 +8,7 @@ describe('CodeInTheDarkComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SyncCodeGameComponent]
+      declarations: [SyncCodeGameComponent],
     }).compileComponents();
   }));
 

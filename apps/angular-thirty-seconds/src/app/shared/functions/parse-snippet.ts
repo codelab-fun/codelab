@@ -4,7 +4,7 @@ import { angularSampleCode } from '../angular-sample';
 // If you delete this you get a run time error.
 // This is needed for gray-matter
 window.Buffer = {
-  from() {}
+  from() {},
 };
 
 // @ts-ignore
@@ -90,7 +90,7 @@ export function parseSnippet(snippetBody: string) {
   if (Object.keys(demoFiles).length) {
     snippet.demo = {
       ...angularSampleCode,
-      ...demoFiles
+      ...demoFiles,
     };
   }
 

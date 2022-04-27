@@ -24,7 +24,7 @@ export class DiffFilesResolver {
     const result = [];
     const bootstrap = (files.bootstrap || []) as Array<string>;
     if (files.exercise) {
-      files.exercise.forEach(file => {
+      files.exercise.forEach((file) => {
         result.push(
           evaled(
             this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
@@ -34,7 +34,7 @@ export class DiffFilesResolver {
     }
 
     if (files.reference) {
-      files.reference.forEach(file => {
+      files.reference.forEach((file) => {
         result.push(
           ...justForReference(
             this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
@@ -43,7 +43,7 @@ export class DiffFilesResolver {
       });
     }
     if (files.hidden) {
-      files.hidden.forEach(file => {
+      files.hidden.forEach((file) => {
         result.push(
           ...hidden(
             this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
@@ -53,7 +53,7 @@ export class DiffFilesResolver {
     }
 
     if (files.test) {
-      files.test.forEach(file => {
+      files.test.forEach((file) => {
         result.push(
           ...test(
             this.getFileCodeForStage(file, stage, bootstrap.indexOf(file) >= 0)
@@ -102,7 +102,7 @@ export class DiffFilesResolver {
         template: diffs[stage],
         moduleName: path.replace('.ts', ''),
         code: diffs[stage],
-        solution: diffs[stage + 'Solved']
+        solution: diffs[stage + 'Solved'],
       };
     } else {
       return {
@@ -110,7 +110,7 @@ export class DiffFilesResolver {
         path,
         code: diffs[stage],
         template: diffs[stage],
-        solution: diffs[stage + 'Solved']
+        solution: diffs[stage + 'Solved'],
       };
     }
   }

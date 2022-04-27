@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 declare const require;
 // TODO(kirjs): Find a better way.
-const wabt = (function() {
+const wabt = (function () {
   // Needed to make umd properly export stuff.
   const exports = {};
   const module = {};
@@ -23,7 +23,7 @@ function wat2wasm(wat) {
     log: false,
     canonicalize_lebs: false,
     relocatable: false,
-    write_debug_names: false
+    write_debug_names: false,
   });
   return binary.buffer;
 }
@@ -41,20 +41,20 @@ export interface RunResult {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebAssemblyService {
   constructor() {}
 
   run<T>(wat: string, js: string, wasmConfig: RunConfig) {
-    return new Observable<Result<RunResult>>(subscriber => {
+    return new Observable<Result<RunResult>>((subscriber) => {
       try {
         const wasm = wat2wasm(wat);
 
         const setResult = (result: RunResult) => {
           subscriber.next({
             type: 'result',
-            value: result
+            value: result,
           });
           subscriber.complete();
         };
@@ -62,7 +62,7 @@ export class WebAssemblyService {
         const setError = (error: string) => {
           subscriber.next({
             type: 'error',
-            value: error
+            value: error,
           });
           subscriber.complete();
         };
@@ -81,7 +81,7 @@ export class WebAssemblyService {
       } catch (e) {
         subscriber.next({
           type: 'error',
-          value: e.message
+          value: e.message,
         });
         subscriber.complete();
       }

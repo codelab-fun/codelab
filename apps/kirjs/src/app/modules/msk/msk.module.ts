@@ -25,7 +25,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(MskComponent));
     SyncSessionService,
     SyncDbService,
     SyncPollService,
-    SyncRegistrationService
+    SyncRegistrationService,
   ],
   declarations: [MskComponent],
   imports: [
@@ -39,7 +39,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(MskComponent));
     SyncButtonModule,
     SyncDirectivesModule,
     SyncRegistrationModule,
-    SyncPollModule
-  ]
+    SyncPollModule,
+  ],
 })
 export class MskModule {}

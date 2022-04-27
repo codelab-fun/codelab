@@ -17,7 +17,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(CodeSyncComponent));
     routes,
     SyncDirectivesModule,
     SyncButtonModule,
-    AngularFireDatabaseModule
-  ]
+    AngularFireDatabaseModule,
+  ],
 })
 export class CodeSyncModule {}

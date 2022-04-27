@@ -9,7 +9,7 @@ import { SyncComponent } from './sync.component';
 
 const routes = RouterModule.forChild([
   { path: 'sessions', component: SyncSessionsComponent },
-  ...SlidesRoutes.get(SyncComponent)
+  ...SlidesRoutes.get(SyncComponent),
 ]);
 
 @NgModule({
@@ -19,7 +19,7 @@ const routes = RouterModule.forChild([
     SlidesModule,
     routes,
     SyncLibModule,
-    AngularFireAuthModule
-  ]
+    AngularFireAuthModule,
+  ],
 })
 export class SyncModule {}

@@ -5,9 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'codelab-any',
-  template: `
-    <input [(ngModel)]="lol" syncFireStore="pikachu" />
-  `
+  template: ` <input [(ngModel)]="lol" syncFireStore="pikachu" /> `,
 })
 export class TestComponent {
   lol = 'hello';
@@ -20,7 +18,8 @@ describe('SyncFireStoreDirective', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [TestComponent, SyncFireStoreDirective]
+      declarations: [TestComponent, SyncFireStoreDirective],
+      teardown: { destroyAfterEach: false },
     });
 
     fixture = TestBed.createComponent(TestComponent);

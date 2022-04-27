@@ -10,7 +10,7 @@ function addItByLine(
       if (node.name === 'fit' && parentPath.isCallExpression()) {
         node.name = 'it';
       }
-    }
+    },
   });
 
   return babelGenerator(ast).code;

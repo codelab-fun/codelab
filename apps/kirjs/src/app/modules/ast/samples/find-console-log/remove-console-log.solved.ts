@@ -14,7 +14,7 @@ function removeConsoleLogSolved(
       ) {
         path.parentPath.remove();
       }
-    }
+    },
   });
 
   return babelGenerator(ast).code;

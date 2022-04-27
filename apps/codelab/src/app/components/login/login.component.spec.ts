@@ -10,7 +10,7 @@ describe('LoginComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [LoginModule],
-      providers: [...getMockAngularFireProviders()]
+      providers: [...getMockAngularFireProviders()],
     }).compileComponents();
   }));
 

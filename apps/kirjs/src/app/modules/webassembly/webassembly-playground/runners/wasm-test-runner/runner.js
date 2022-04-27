@@ -26,6 +26,6 @@ async function run(code, { args, imports, name, memory }) {
   const result = program.instance.exports[name](...args);
   return {
     result,
-    exports: program.instance.exports
+    exports: program.instance.exports,
   };
 }

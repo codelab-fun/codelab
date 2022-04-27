@@ -5,9 +5,9 @@ const rowSize = 3;
 const viz = {
   type: 'evolve',
   rowSize,
-  text: a => a,
-  memory: test => test.actualMemory,
-  color: colorMatchesExpected
+  text: (a) => a,
+  memory: (test) => test.actualMemory,
+  color: colorMatchesExpected,
 };
 
 export const evolveCellTests = [
@@ -22,14 +22,14 @@ export const evolveCellTests = [
       'enable',
       'enable',
       'enable',
-      'enable'
+      'enable',
     ],
     expectedMemory: [0, 0, 0, 1, 0, 0],
     imports: { config: { step: 1, rowSize: 3 } },
     viz: {
       ...viz,
-      rule: 0
-    }
+      rule: 0,
+    },
   },
   {
     args: [2],
@@ -42,11 +42,11 @@ export const evolveCellTests = [
       'enable',
       'enable',
       'enable',
-      'enable'
+      'enable',
     ],
     expectedMemory: [0, 0, 0, 0, 0, 1],
     imports: { config: { step: 1, rowSize: 3 } },
-    viz
+    viz,
   },
   {
     args: [2],
@@ -59,10 +59,10 @@ export const evolveCellTests = [
       'disable',
       'disable',
       'disable',
-      'disable'
+      'disable',
     ],
     expectedMemory: [1, 1, 1, 1, 1, 0],
     imports: { config: { step: 1, rowSize: 3 } },
-    viz
-  }
+    viz,
+  },
 ];

@@ -5,9 +5,9 @@ describe('BinaryParser', () => {
   beforeEach(() => {
     const s = 'Universal Serial Bus'
       .split('')
-      .map(a => a.charCodeAt(0))
-      .map(a => a.toString(2))
-      .map(a => (a as any).padStart(8, 0))
+      .map((a) => a.charCodeAt(0))
+      .map((a) => a.toString(2))
+      .map((a) => (a as any).padStart(8, 0))
       .join('');
     this.reader = new StringBinaryReader(s);
   });
@@ -29,7 +29,7 @@ describe('BinaryParser', () => {
     });
 
     it('takes a length function which can use existing data', () => {
-      const parser = new BitParser({ length: data => data.len });
+      const parser = new BitParser({ length: (data) => data.len });
       const result = parser.read(this.reader, { len: 3 });
       expect(result.value).toBe('010');
       expect(result.rawValue).toBe('010');

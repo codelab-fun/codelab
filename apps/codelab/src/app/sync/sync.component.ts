@@ -5,14 +5,14 @@ import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-se
 import { switchMap } from 'rxjs/operators';
 import {
   canWritePresenterData,
-  SyncStatus
+  SyncStatus,
 } from '@codelab/utils/src/lib/sync/common';
 import { of } from 'rxjs';
 
 @Component({
   selector: 'codelab-sync-survey',
   templateUrl: './sync.component.html',
-  styleUrls: ['./sync.component.css']
+  styleUrls: ['./sync.component.css'],
 })
 export class SyncComponent {
   @Input() admin = false;
@@ -24,7 +24,7 @@ export class SyncComponent {
     .valueChanges();
 
   readonly shouldShowPresentation$ = this.syncSessionService.status$.pipe(
-    switchMap(s => {
+    switchMap((s) => {
       if (canWritePresenterData(s)) {
         return of(true);
       }
@@ -43,24 +43,24 @@ export class SyncComponent {
     {
       key: 'js',
       type: 'stars',
-      question: 'How well do you know JavaScript'
+      question: 'How well do you know JavaScript',
     },
     {
       key: 'ts',
       type: 'stars',
-      question: 'How well do you know TypeScript'
+      question: 'How well do you know TypeScript',
     },
     {
       key: 'angularjs',
       type: 'stars',
-      question: 'How well do you know AngularJS (Old version)'
+      question: 'How well do you know AngularJS (Old version)',
     },
     {
       key: 'angular',
       type: 'stars',
       question:
-        'How well do you know Angular (The new version we are learning today)'
-    }
+        'How well do you know Angular (The new version we are learning today)',
+    },
   ];
 
   constructor(

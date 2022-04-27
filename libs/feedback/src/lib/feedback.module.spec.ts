@@ -4,7 +4,7 @@ import { FeedbackModule } from './feedback.module';
 describe('FeedbackModule', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [FeedbackModule]
+      imports: [FeedbackModule],
     }).compileComponents();
   }));
 

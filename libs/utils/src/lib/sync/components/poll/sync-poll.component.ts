@@ -9,7 +9,7 @@ import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/comm
   selector: 'codelab-poll',
   templateUrl: './sync-poll.component.html',
   styleUrls: ['./sync-poll.component.css'],
-  providers: [SyncPollService]
+  providers: [SyncPollService],
 })
 export class SyncPollComponent {
   @Input() poll: SyncPollConfig;

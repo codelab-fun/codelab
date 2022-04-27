@@ -4,22 +4,21 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
 import { database } from 'firebase/app';
 import {
   SyncPoll,
-  SyncPollService
+  SyncPollService,
 } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
 
 @Component({
   selector: 'codelab-sync-poll-admin',
   templateUrl: './sync-poll-admin.component.html',
-  styleUrls: ['./sync-poll-admin.component.css']
+  styleUrls: ['./sync-poll-admin.component.css'],
 })
 export class SyncPollAdminComponent implements OnInit, OnChanges {
   @Input() config: SyncPollConfig;
 
   pollEnabled: boolean;
   poll!: SyncPoll;
-  private readonly timing = this.syncDataService.getPresenterObject(
-    'poll-timing'
-  );
+  private readonly timing =
+    this.syncDataService.getPresenterObject('poll-timing');
 
   constructor(
     private readonly syncDataService: SyncDataService,

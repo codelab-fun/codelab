@@ -11,7 +11,7 @@ const ts = getTypeScript();
   // tslint:disable-next-line:component-selector
   selector: 'slides-typescript-checker-runner',
   templateUrl: './typescript-checker-runner.component.html',
-  styleUrls: ['./typescript-checker-runner.component.css']
+  styleUrls: ['./typescript-checker-runner.component.css'],
 })
 export class TypescriptCheckerRunnerComponent implements OnChanges {
   private readonly codeSubject = new Subject();
@@ -22,15 +22,15 @@ export class TypescriptCheckerRunnerComponent implements OnChanges {
       experimentalDecorators: true,
       emitDecoratorMetadata: true,
       noImplicitAny: true,
-      declaration: true
+      declaration: true,
     }),
-    filter(a => Object.values(a.files).length > 0),
-    map(a => {
+    filter((a) => Object.values(a.files).length > 0),
+    map((a) => {
       return {
-        tests: a.diagnostics.map(d => ({
+        tests: a.diagnostics.map((d) => ({
           pass: false,
-          name: d.messageText.toString()
-        }))
+          name: d.messageText.toString(),
+        })),
       };
     })
   );

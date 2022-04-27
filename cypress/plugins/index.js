@@ -1,6 +1,6 @@
 const cypressTypeScriptPreprocessor = require('./cy-ts-preprocessor');
 const {
-  addMatchImageSnapshotPlugin
+  addMatchImageSnapshotPlugin,
 } = require('cypress-image-snapshot/plugin');
 
 module.exports = (on, config) => {

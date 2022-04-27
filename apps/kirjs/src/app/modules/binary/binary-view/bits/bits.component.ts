@@ -4,7 +4,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 @Component({
   selector: 'kirjs-bits',
   templateUrl: './bits.component.html',
-  styleUrls: ['./bits.component.css']
+  styleUrls: ['./bits.component.css'],
 })
 export class BitsComponent {
   @Input() data;

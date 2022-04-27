@@ -4,6 +4,6 @@ import { LiveMockModule } from './live-mock';
 import { PollModule } from './poll';
 
 @NgModule({
-  exports: [LiveMockModule, PollModule]
+  exports: [LiveMockModule, PollModule],
 })
 export class LiveModule {}

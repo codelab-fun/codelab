@@ -8,7 +8,7 @@ describe('GifPaletteComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [GifPaletteComponent]
+      declarations: [GifPaletteComponent],
     }).compileComponents();
   }));
 

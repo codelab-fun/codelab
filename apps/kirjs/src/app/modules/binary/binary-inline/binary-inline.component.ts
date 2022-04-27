@@ -6,7 +6,7 @@ import { BinaryParser } from '../parser/binary-parser';
 @Component({
   selector: 'kirjs-binary-inline',
   templateUrl: './binary-inline.component.html',
-  styleUrls: ['./binary-inline.component.css']
+  styleUrls: ['./binary-inline.component.css'],
 })
 export class BinaryInlineComponent implements OnChanges {
   @Input() filterClassName = /./;
@@ -20,7 +20,7 @@ export class BinaryInlineComponent implements OnChanges {
       try {
         this.structure = flatten(
           this.parser.readOrdered(new StringBinaryReader(this.binary)).value
-        ).filter(a => a.className.match(this.filterClassName));
+        ).filter((a) => a.className.match(this.filterClassName));
       } catch (e) {
         console.log(e);
       }

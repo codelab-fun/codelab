@@ -12,13 +12,13 @@ interface ColorTableHash {
 @Component({
   selector: 'kirjs-color-indexing',
   templateUrl: './color-indexing.component.html',
-  styleUrls: ['./color-indexing.component.css']
+  styleUrls: ['./color-indexing.component.css'],
 })
 export class ColorIndexingComponent implements OnInit {
   noIndexing = [
     ['#ff0000', '#ff0000', '#ff0000'],
     ['#fff000', '#ff0000', '#fff000'],
-    ['#ff0000', '#ff0000', '#ff0000']
+    ['#ff0000', '#ff0000', '#ff0000'],
   ];
 
   colorTable: TableItem[];

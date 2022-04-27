@@ -51,8 +51,8 @@ export const testSnippetParsed = {
     'main.ts':
       "import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport { AppModule } from './app.module';\n\nplatformBrowserDynamic().bootstrapModule(AppModule);\n",
     'index.html': '<my-app></my-app>',
-    'app.svg': '<circle r=100 fill=red></circle>'
-  }
+    'app.svg': '<circle r=100 fill=red></circle>',
+  },
 };
 
 export const testSnippetMinimal = `---

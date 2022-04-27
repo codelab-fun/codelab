@@ -2,7 +2,7 @@ import { Directive, HostListener } from '@angular/core';
 import { SlidesDeckComponent } from '@ng360/slides';
 
 @Directive({
-  selector: '[nextSlide]'
+  selector: '[nextSlide]',
 })
 export class NextSlideDirective {
   constructor(public deck: SlidesDeckComponent) {}

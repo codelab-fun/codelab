@@ -3,7 +3,7 @@ import {
   forwardRef,
   HostBinding,
   Input,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -15,9 +15,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => StarsComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class StarsComponent implements OnInit, ControlValueAccessor {
   @HostBinding('class.enabled') @Input() enabled = true;

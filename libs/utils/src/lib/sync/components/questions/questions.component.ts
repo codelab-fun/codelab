@@ -6,7 +6,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
   selector: 'codelab-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css'],
-  providers: [QuestionsService, SyncDataService]
+  providers: [QuestionsService, SyncDataService],
 })
 export class QuestionsComponent {
   constructor(public readonly questionsService: QuestionsService) {}

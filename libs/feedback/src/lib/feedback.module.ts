@@ -33,18 +33,18 @@ export const angularFire = AngularFireModule.initializeApp(
     GithubModule,
     MatMenuModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [FeedbackService, GithubService],
   declarations: [
     FeedbackWidgetComponent,
     FeedbackRatingComponent,
-    FeedbackIssueDropdownComponent
+    FeedbackIssueDropdownComponent,
   ],
   exports: [
     FeedbackWidgetComponent,
     FeedbackRatingComponent,
-    FeedbackIssueDropdownComponent
-  ]
+    FeedbackIssueDropdownComponent,
+  ],
 })
 export class FeedbackModule {}

@@ -6,6 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [LoadingIndicatorComponent],
   exports: [LoadingIndicatorComponent],
-  imports: [CommonModule, MatIconModule]
+  imports: [CommonModule, MatIconModule],
 })
 export class LoadingIndicatorModule {}

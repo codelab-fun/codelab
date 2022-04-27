@@ -6,14 +6,14 @@ function testThings(findDebugger, callback, args) {
       shouldPass: true,
       test(func, args) {
         return !!func(this.title, args);
-      }
+      },
     },
     {
       title: `debuggerStart()`,
       shouldPass: false,
       test(func, args) {
         return !func(this.title, args);
-      }
+      },
     },
     {
       title: `//debugger
@@ -21,35 +21,35 @@ console.log('hi');`,
       shouldPass: false,
       test(func, args) {
         return !func(this.title, args);
-      }
+      },
     },
     {
       title: `'debugger'`,
       shouldPass: false,
       test(func, args) {
         return !func(this.title, args);
-      }
+      },
     },
     {
       title: `'hi'; debugger; 'bye'`,
       shouldPass: true,
       test(func, args) {
         return func(this.title, args);
-      }
+      },
     },
     {
       title: `'Fake //'; debugger; `,
       shouldPass: true,
       test(func, args) {
         return func(this.title, args);
-      }
+      },
     },
     {
       title: `"debugger"`,
       shouldPass: false,
       test(func, args) {
         return !func(this.title, args);
-      }
+      },
     },
     {
       title: `\`
@@ -57,14 +57,14 @@ console.log('hi');`,
       shouldPass: false,
       test(func, args) {
         return !func(this.title, args);
-      }
+      },
     },
     {
       title: `' \\' debugger'`,
       test(func, args) {
         return !func(this.title, args);
       },
-      shouldPass: false
+      shouldPass: false,
     },
     {
       title: `/* \` 
@@ -72,7 +72,7 @@ console.log('hi');`,
         \` + ''`,
       test(func, args) {
         return func(this.title, args);
-      }
+      },
     },
     {
       title: `function hello(){ debugger; }
@@ -87,8 +87,8 @@ console.log('hi');`,
 `,
       test(func, args) {
         return func(this.title, args);
-      }
-    }
+      },
+    },
   ];
 
   let results = [];
@@ -98,14 +98,14 @@ console.log('hi');`,
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = value => {
+        args.log = (value) => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);
         results.push({
           shouldPass: test.shouldPass,
           title: test.title,
-          pass: pass
+          pass: pass,
         });
         if (!pass) {
           failed = true;
@@ -115,7 +115,7 @@ console.log('hi');`,
         results.push({
           shouldPass: test.shouldPass,
           title: test.title,
-          pass: false
+          pass: false,
         });
       }
     }

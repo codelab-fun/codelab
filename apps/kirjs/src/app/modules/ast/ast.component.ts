@@ -8,7 +8,7 @@ import {
   isType,
   processCode,
   removeDoubleWhiteLines,
-  removeLoc
+  removeLoc,
 } from './parse-hello-world-ast';
 import { exercise } from '../../../../../codelab/src/app/shared/helpers/helpers';
 
@@ -74,7 +74,7 @@ const consoleLogNoLocCode = removeDoubleWhiteLines(
 @Component({
   selector: 'kirjs-ast',
   templateUrl: './ast.component.html',
-  styleUrls: ['./ast.component.css']
+  styleUrls: ['./ast.component.css'],
 })
 export class AstComponent {
   fontSize = 28;
@@ -100,11 +100,11 @@ path.node.property.name === 'log'
 
 // with babel types
 import {isIdentifier} from 'babel-types';
-isIdentifier(path.node.property, {name: log})`
+isIdentifier(path.node.property, {name: log})`,
     },
     astHello: 'hello(console.log)',
     matches: {
-      loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/
+      loc: /"loc": \{[\s\S]*?\{[\s\S]*?\}[\s\S]*?\{[\s\S]*?\}[\s\S]*?\},/,
     },
     astExampleFull: processCode(helloWorldCodePre, { remove: [] }),
     astExample: removeDoubleWhiteLines(
@@ -130,7 +130,7 @@ isIdentifier(path.node.property, {name: log})`
       exercise(
         'find-console-log.test',
         require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')
-      )
+      ),
     ],
     findDebuggerBabel: [
       exercise(
@@ -141,7 +141,7 @@ isIdentifier(path.node.property, {name: log})`
       exercise(
         'find-debugger.test',
         require('!!raw-loader!./samples/find-debugger/find-debugger.test.js')
-      )
+      ),
     ],
     traverseConsoleLogBabel: [
       exercise(
@@ -152,7 +152,7 @@ isIdentifier(path.node.property, {name: log})`
       exercise(
         'find-console-log.test',
         require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')
-      )
+      ),
     ],
     traverseConsoleLogBabel2: [
       exercise(
@@ -163,7 +163,7 @@ isIdentifier(path.node.property, {name: log})`
       exercise(
         'find-console-log.test',
         require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')
-      )
+      ),
     ],
     removeConsoleLogBabel: [
       exercise(
@@ -174,7 +174,7 @@ isIdentifier(path.node.property, {name: log})`
       exercise(
         'remove-console-log.test',
         require('!!raw-loader!./samples/find-console-log/remove-console-log.test.js')
-      )
+      ),
     ],
     findfIt: [
       exercise(
@@ -185,7 +185,7 @@ isIdentifier(path.node.property, {name: log})`
       exercise(
         'find-fit.test',
         require('!!raw-loader!./samples/find-fit/find-fit.test.js')
-      )
+      ),
     ],
     itLines: [
       exercise(
@@ -196,10 +196,10 @@ isIdentifier(path.node.property, {name: log})`
       exercise(
         'it-lines.test',
         require('!!raw-loader!./samples/it-lines/it-lines.test.js')
-      )
+      ),
     ],
     decToBin: require('!!raw-loader!./samples/dec-to-bin.js'),
-    decToBinFixed: require('!!raw-loader!./samples/dec-to-bin-with-semicolons.js')
+    decToBinFixed: require('!!raw-loader!./samples/dec-to-bin-with-semicolons.js'),
   };
 
   constructor() {}

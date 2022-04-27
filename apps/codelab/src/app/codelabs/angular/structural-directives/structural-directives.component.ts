@@ -5,7 +5,7 @@ import {
   builder,
   exercise,
   html,
-  stylesheet
+  stylesheet,
 } from '../../../shared/helpers/helpers';
 
 declare const require;
@@ -13,7 +13,7 @@ declare const require;
 @Component({
   selector: 'codelab-slides-structural-directives',
   templateUrl: './structural-directives.component.html',
-  styleUrls: ['./structural-directives.component.css', './bsod.css']
+  styleUrls: ['./structural-directives.component.css', './bsod.css'],
 })
 export class StructuralDirectivesComponent {
   fontSize = 18;
@@ -47,8 +47,8 @@ export class StructuralDirectivesComponent {
           require('!!raw-loader!./samples/material-tabs/break-my-computer.component.ts')
         ),
         stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
-        bootstrap('main', builder.bootstrap())
-      ]
+        bootstrap('main', builder.bootstrap()),
+      ],
     },
     materialTabsStructuralDirective: [
       html(
@@ -74,11 +74,11 @@ export class StructuralDirectivesComponent {
         require('!!raw-loader!./samples/material-tabs-structural-directive/app.module.ts')
       ),
       stylesheet(require('!!raw-loader!./samples/material-tabs/style.css')),
-      bootstrap('main', builder.bootstrap())
+      bootstrap('main', builder.bootstrap()),
     ],
     microSyntax: [
       html('app', `<div *ngFor="let x of 122"></div>`),
-      bootstrap('main', require('!!raw-loader!./samples/micro-syntax/ms.ts'))
+      bootstrap('main', require('!!raw-loader!./samples/micro-syntax/ms.ts')),
     ],
 
     mdTabNavBar: [
@@ -99,7 +99,7 @@ export class StructuralDirectivesComponent {
         'app.module',
         require('!!raw-loader!./samples/mat-tab-nav-bar/app.module.ts')
       ),
-      bootstrap('main', builder.bootstrap())
+      bootstrap('main', builder.bootstrap()),
     ],
 
     structuralDirectives: {
@@ -107,8 +107,8 @@ export class StructuralDirectivesComponent {
       ngIfAfter: require('!!raw-loader!./samples/structural-directives/ng-if-after.html'),
       ngForBefore: require('!!raw-loader!./samples/structural-directives/ng-for-before.html'),
       ngForAfter: require('!!raw-loader!./samples/structural-directives/ng-for-after.html'),
-      microSyntax: require('!!raw-loader!./samples/structural-directives/microsyntax.html')
-    }
+      microSyntax: require('!!raw-loader!./samples/structural-directives/microsyntax.html'),
+    },
   };
 
   constructor() {}

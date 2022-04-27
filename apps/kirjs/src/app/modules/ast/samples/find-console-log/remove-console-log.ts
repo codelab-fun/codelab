@@ -14,7 +14,7 @@ function removeConsoleLog(
       ) {
         hasConsoleLog = true;
       }
-    }
+    },
   });
 
   return hasConsoleLog;

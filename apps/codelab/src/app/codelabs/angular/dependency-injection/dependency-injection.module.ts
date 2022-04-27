@@ -10,7 +10,7 @@ import { CodelabComponentsModule } from '../../../components/codelab-components.
 import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 
 const routes = RouterModule.forChild([
-  ...SlidesRoutes.get(DependencyInjectionComponent)
+  ...SlidesRoutes.get(DependencyInjectionComponent),
 ]);
 
 @NgModule({
@@ -21,10 +21,10 @@ const routes = RouterModule.forChild([
     CodeDemoModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [Ng2TsExercises],
   declarations: [DependencyInjectionComponent],
-  exports: [DependencyInjectionComponent]
+  exports: [DependencyInjectionComponent],
 })
 export class DependencyInjectionModule {}

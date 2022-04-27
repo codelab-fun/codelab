@@ -8,7 +8,7 @@ describe('StackTestComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [StackTestComponent]
+      declarations: [StackTestComponent],
     }).compileComponents();
   }));
 

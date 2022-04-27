@@ -5,7 +5,7 @@ import { TestResult } from '@codelab/utils/src/lib/test-results/common';
   // tslint:disable-next-line:component-selector
   selector: 'slides-test-run-results',
   templateUrl: './test-run-results.component.html',
-  styleUrls: ['./test-run-results.component.scss']
+  styleUrls: ['./test-run-results.component.scss'],
 })
 export class TestRunResultsComponent implements OnInit {
   @Output() selectFile = new EventEmitter<string>();

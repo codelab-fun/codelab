@@ -4,13 +4,13 @@ import {
   Input,
   OnInit,
   Type,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
 
 @Component({
   selector: 'console-display-dynamic-component',
   templateUrl: './display-dynamic-component.component.html',
-  styleUrls: ['./display-dynamic-component.component.css']
+  styleUrls: ['./display-dynamic-component.component.css'],
 })
 export class DisplayDynamicComponent implements OnInit {
   @Input() component: Type<any>;

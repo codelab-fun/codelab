@@ -8,7 +8,7 @@ import { bin2hex } from '../shared';
 @Component({
   selector: 'kirjs-binary-parser-demo',
   templateUrl: './binary-parser-demo.component.html',
-  styleUrls: ['./binary-parser-demo.component.css']
+  styleUrls: ['./binary-parser-demo.component.css'],
 })
 export class BinaryParserDemoComponent implements OnInit {
   @Input() helpers;

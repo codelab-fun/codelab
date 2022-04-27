@@ -4,7 +4,7 @@ import { FirebaseLoginModule } from './firebase-login.module';
 describe('FirebaseLoginModule', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [FirebaseLoginModule]
+      imports: [FirebaseLoginModule],
     }).compileComponents();
   }));
 

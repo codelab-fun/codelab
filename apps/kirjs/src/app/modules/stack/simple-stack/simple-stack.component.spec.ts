@@ -8,7 +8,7 @@ describe('SimpleStackComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SimpleStackComponent]
+      declarations: [SimpleStackComponent],
     }).compileComponents();
   }));
 

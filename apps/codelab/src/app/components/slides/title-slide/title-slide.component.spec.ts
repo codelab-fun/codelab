@@ -10,7 +10,7 @@ describe('TitleSlideComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabRippleAnimationComponent, TitleSlideComponent]
+      declarations: [CodelabRippleAnimationComponent, TitleSlideComponent],
     }).compileComponents();
   }));
 

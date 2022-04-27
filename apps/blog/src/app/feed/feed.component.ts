@@ -8,19 +8,19 @@ import { map } from 'rxjs/operators';
   selector: 'codelab-feed',
   templateUrl: './feed.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
 })
 export class FeedComponent {
   posts$: Observable<Post[]>;
 
   constructor(private postService: PostService) {
     this.posts$ = this.postService.repo$.snapshotChanges().pipe(
-      map(items => {
+      map((items) => {
         return items
-          .map(a => {
+          .map((a) => {
             return {
               ...a.payload.val(),
-              key: a.payload.key
+              key: a.payload.key,
             };
           })
           .reverse();

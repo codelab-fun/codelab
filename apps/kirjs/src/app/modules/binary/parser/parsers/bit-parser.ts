@@ -3,7 +3,7 @@ import { BinaryReader, BinaryReaderResult } from '../readers/abstract-reader';
 import {
   resolveByKey,
   resolveFunctionKeyOrValue,
-  resolveOrderedByKey
+  resolveOrderedByKey,
 } from '../utils';
 
 export class BitParser extends AbstractBinaryParser {
@@ -20,7 +20,7 @@ export class BitParser extends AbstractBinaryParser {
     len: number
   ) {
     const rawValue = reader.read(len);
-    const converter = this.config.converter || (a => a);
+    const converter = this.config.converter || ((a) => a);
     return { value: converter(rawValue), rawValue };
   }
 
@@ -65,7 +65,7 @@ export class BitParser extends AbstractBinaryParser {
       ...result,
       type: this.type,
       description: this.config && this.config.description,
-      unconverter: this.config.unconverter
+      unconverter: this.config.unconverter,
     };
   }
 }

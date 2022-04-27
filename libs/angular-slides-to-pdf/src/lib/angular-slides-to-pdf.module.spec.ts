@@ -4,7 +4,7 @@ import { AngularSlidesToPdfModule } from './angular-slides-to-pdf.module';
 describe('AngularSlidesToPdfModule', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [AngularSlidesToPdfModule]
+      imports: [AngularSlidesToPdfModule],
     }).compileComponents();
   }));
 

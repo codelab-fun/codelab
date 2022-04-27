@@ -9,7 +9,7 @@ describe('BoardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BoardComponent, ToolsComponent]
+      declarations: [BoardComponent, ToolsComponent],
     }).compileComponents();
   }));
 

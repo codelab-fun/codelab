@@ -8,7 +8,8 @@ describe('RealtimeEvalComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RealtimeEvalComponent]
+      declarations: [RealtimeEvalComponent],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

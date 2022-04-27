@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   // tslint:disable-next-line:component-selector
   selector: 'sync-code-editor',
   templateUrl: './sync-code-game.component.html',
-  styleUrls: ['./sync-code-game.component.css']
+  styleUrls: ['./sync-code-game.component.css'],
 })
 export class SyncCodeGameComponent {}

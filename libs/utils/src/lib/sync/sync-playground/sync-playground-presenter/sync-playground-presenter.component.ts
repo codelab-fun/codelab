@@ -28,10 +28,10 @@ import { SyncCodeGameService } from '@codelab/utils/src/lib/sync/components/sync
       useFactory: () => ({
         uid$: new ReplaySubject<string>(1),
         user$: new ReplaySubject<any>(1),
-        preferredStatus$: new ReplaySubject<any>(1)
-      })
-    }
-  ]
+        preferredStatus$: new ReplaySubject<any>(1),
+      }),
+    },
+  ],
 })
 export class SyncPlaygroundPresenterComponent implements OnInit {
   @Input() userId: string;
@@ -42,7 +42,7 @@ export class SyncPlaygroundPresenterComponent implements OnInit {
   ngOnInit() {
     (this.loginService.user$ as Subject<User>).next({
       uid: this.userId,
-      displayName: 'lol'
+      displayName: 'lol',
     } as User);
 
     (this.loginService.uid$ as Subject<string>).next(this.userId);

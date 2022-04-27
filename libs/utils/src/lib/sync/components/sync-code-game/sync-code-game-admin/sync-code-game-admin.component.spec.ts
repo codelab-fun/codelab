@@ -8,7 +8,7 @@ describe('SyncCodeGameAdminComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SyncCodeGameAdminComponent]
+      declarations: [SyncCodeGameAdminComponent],
     }).compileComponents();
   }));
 

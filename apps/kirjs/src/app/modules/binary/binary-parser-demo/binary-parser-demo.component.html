@@ -1,8 +1,8 @@
-<div style="display: flex;">
+<div style="display: flex">
   <div>
-    <div style="display: flex;padding: 0 1vw">
+    <div style="display: flex; padding: 0 1vw">
       <div
-        style="padding: 1vw;"
+        style="padding: 1vw"
         *ngFor="let helper of helpers; let i = index"
         class="helper"
         (click)="code = helper"
@@ -14,7 +14,7 @@
       [fontSize]="40"
       [lineNumbers]="false"
       [(ngModel)]="code"
-      style="width:50vw; height: 100vh;flex: none"
+      style="width: 50vw; height: 100vh; flex: none"
       language="javascript"
       (ngModelChange)="generateCode()"
     ></code-demo-editor>
@@ -41,7 +41,7 @@
       language="json"
       [lineNumbers]="false"
       [(ngModel)]="result"
-      style="width:50vw; height: 100vh;flex: none"
+      style="width: 50vw; height: 100vh; flex: none"
     ></code-demo-editor>
   </div>
 </div>

@@ -3,7 +3,7 @@ import { CodeDemoEditorInjector } from '../code-demo-editor.injector';
 
 @Directive({
   // tslint:disable-next-line
-  selector: '[autoFolding]'
+  selector: '[autoFolding]',
 })
 export class CodeDemoEditorAutoFoldingDirective implements AfterViewInit {
   @Input() autoFolding = true;

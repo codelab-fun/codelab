@@ -1,6 +1,6 @@
 import {
   webAssemblyModuleContentHandler,
-  webAssemblyTestHandler
+  webAssemblyTestHandler,
 } from '../runners/wasm-test-runner/wasm-test-runner.component';
 
 export interface BaseBlock {
@@ -33,11 +33,11 @@ const displayPreview = () => {
 export const codeBlockHandlers = {
   ts: {
     FunctionDeclaration: displayPreview,
-    SourceFile: displayPreview
+    SourceFile: displayPreview,
   },
   wat: {
     elem: displayPreview,
     func: webAssemblyTestHandler,
-    module: webAssemblyModuleContentHandler
-  }
+    module: webAssemblyModuleContentHandler,
+  },
 };

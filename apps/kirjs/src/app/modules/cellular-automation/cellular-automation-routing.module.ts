@@ -12,6 +12,6 @@ const routes = RouterModule.forChild(
 @NgModule({
   imports: [routes, CellularAutomationModule],
   declarations: [],
-  exports: []
+  exports: [],
 })
 export class CellularAutomationRoutingModule {}

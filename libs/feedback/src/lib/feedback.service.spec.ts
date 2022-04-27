@@ -7,19 +7,17 @@ import { FeedbackService } from './feedback.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 @Component({
-  template: `
-    <router-outlet></router-outlet>
-  `
+  template: ` <router-outlet></router-outlet> `,
 })
 class RoutingComponent {}
 
 @Component({
-  template: ''
+  template: '',
 })
 class DummyComponent {}
 
 const mockActivatedRoute = {
-  url: new BehaviorSubject<string>('')
+  url: new BehaviorSubject<string>(''),
 };
 
 const mockMessages = [
@@ -27,29 +25,29 @@ const mockMessages = [
     name: 'a',
     href: '/typescript/1',
     comment: 'blah',
-    email: 'dan@dan.com'
+    email: 'dan@dan.com',
   },
   {
     name: 'b',
     href: '/typescript/1',
     comment: 'blah',
-    email: 'dan@dan.com'
+    email: 'dan@dan.com',
   },
   {
     name: 'c',
     href: '/typescript/2',
     comment: 'blah',
-    email: 'dan@dan.com'
-  }
+    email: 'dan@dan.com',
+  },
 ];
 
 let mockMessageStream: any = new BehaviorSubject(mockMessages);
 mockMessageStream = Object.assign(mockMessageStream, {
-  push: jasmine.createSpy('push')
+  push: jasmine.createSpy('push'),
 });
 
 const mockDb = {
-  list: jasmine.createSpy('list').and.returnValue(mockMessageStream)
+  list: jasmine.createSpy('list').and.returnValue(mockMessageStream),
 };
 
 let fixture;
@@ -61,17 +59,17 @@ xdescribe('FeedbackService', () => {
         FeedbackService,
         {
           provide: AngularFireDatabase,
-          useValue: mockDb
+          useValue: mockDb,
         },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute }
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
       ],
       imports: [
         RouterTestingModule.withRoutes([
           { path: 'typescript/1', component: DummyComponent },
-          { path: 'typescript/2', component: DummyComponent }
-        ])
+          { path: 'typescript/2', component: DummyComponent },
+        ]),
       ],
-      declarations: [RoutingComponent, DummyComponent]
+      declarations: [RoutingComponent, DummyComponent],
     });
   });
 
@@ -98,7 +96,7 @@ xdescribe('FeedbackService', () => {
         router.navigateByUrl('typescript/1').then(() => {
           const stream = service
             .getMessages(_activatedRoute)
-            .subscribe(values => {
+            .subscribe((values) => {
               expect(values.length).toEqual(2);
             });
         });
@@ -116,7 +114,7 @@ xdescribe('FeedbackService', () => {
       ) => {
         let calls = 0;
         router.navigateByUrl('typescript/1').then(() => {
-          service.getMessages(_activatedRoute).subscribe(values => {
+          service.getMessages(_activatedRoute).subscribe((values) => {
             if (calls === 0) {
               expect(values.length).toEqual(2);
             }

@@ -8,7 +8,7 @@ describe('AsciiComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AsciiComponent]
+      declarations: [AsciiComponent],
     }).compileComponents();
   }));
 

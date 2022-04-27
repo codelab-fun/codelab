@@ -9,13 +9,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 const routes = [
   { path: '', component: TabComponent },
-  { path: 'danger', component: AlertComponent }
+  { path: 'danger', component: AlertComponent },
 ];
 
 @NgModule({
   imports: [BrowserModule, MatTabsModule, RouterModule.forRoot(routes)],
   declarations: [AppComponent, AlertComponent, TabComponent],
   bootstrap: [AppComponent],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/assets/runner/' }]
+  providers: [{ provide: APP_BASE_HREF, useValue: '/assets/runner/' }],
 })
 export class AppModule {}

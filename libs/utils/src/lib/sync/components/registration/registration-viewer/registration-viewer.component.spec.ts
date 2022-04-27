@@ -8,7 +8,7 @@ describe('RegistrationViewerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RegistrationViewerComponent]
+      declarations: [RegistrationViewerComponent],
     }).compileComponents();
   }));
 

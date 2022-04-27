@@ -17,40 +17,46 @@ function matchesValue(actual, expected) {
   return actual.trim() === expected.trim();
 }
 
-export const expectClass = name => ({ node, parent }) =>
-  T.isIdentifier(node, { name }) &&
-  T.isClassDeclaration(parent, { superClass: null });
+export const expectClass =
+  (name) =>
+  ({ node, parent }) =>
+    T.isIdentifier(node, { name }) &&
+    T.isClassDeclaration(parent, { superClass: null });
 
-export const expectExportedClass = name => ({ node, parent, parentPath }) =>
-  expectClass(name)({ node, parent }) &&
-  T.isExportNamedDeclaration(parentPath.parent);
+export const expectExportedClass =
+  (name) =>
+  ({ node, parent, parentPath }) =>
+    expectClass(name)({ node, parent }) &&
+    T.isExportNamedDeclaration(parentPath.parent);
 
-export const expectDecorator = name => ({ node }) =>
-  T.isDecorator(node) && node.expression.callee.name === name;
+export const expectDecorator =
+  (name) =>
+  ({ node }) =>
+    T.isDecorator(node) && node.expression.callee.name === name;
 
-export const expectDecoratorPropertyStringValue = (
-  decoratorName,
-  keyName,
-  value
-) => path => {
-  function matchesTemplateLiteral() {
+export const expectDecoratorPropertyStringValue =
+  (decoratorName, keyName, value) => (path) => {
+    function matchesTemplateLiteral() {
+      return (
+        T.isTemplateLiteral(path.node) &&
+        matchesValue(path.node.quasis[0].value.raw, value)
+      );
+    }
+
+    function matchesStringLiteral() {
+      return (
+        T.isStringLiteral(path.node) && matchesValue(path.node.value, value)
+      );
+    }
+
     return (
-      T.isTemplateLiteral(path.node) &&
-      matchesValue(path.node.quasis[0].value.raw, value)
+      (matchesTemplateLiteral() || matchesStringLiteral()) &&
+      T.isObjectProperty(path.parent) &&
+      path.parent.key.name === keyName &&
+      path.findParent(T.isDecorator).node.expression.callee.name ===
+        decoratorName
     );
-  }
-
-  function matchesStringLiteral() {
-    return T.isStringLiteral(path.node) && matchesValue(path.node.value, value);
-  }
-
-  return (
-    (matchesTemplateLiteral() || matchesStringLiteral()) &&
-    T.isObjectProperty(path.parent) &&
-    path.parent.key.name === keyName &&
-    path.findParent(T.isDecorator).node.expression.callee.name === decoratorName
-  );
-};
+  };
 
 export function babelTestSuite(filePath, tests) {
   return function test(files) {
@@ -59,7 +65,7 @@ export function babelTestSuite(filePath, tests) {
 
     const ast = babylon.parse(code, {
       sourceType: 'module',
-      plugins: ['decorators']
+      plugins: ['decorators'],
     });
 
     babel_traverse(ast, {
@@ -72,7 +78,7 @@ export function babelTestSuite(filePath, tests) {
             console.log(e);
           }
         });
-      }
+      },
     });
 
     return results;
@@ -87,7 +93,7 @@ export class MiniTsQuery {
   some(predicate: Predicate) {
     let result = false;
 
-    this.traverse(this.ast, node => {
+    this.traverse(this.ast, (node) => {
       if (predicate(node)) {
         result = true;
       }
@@ -99,7 +105,7 @@ export class MiniTsQuery {
   findOne(predicate) {
     let result;
 
-    this.traverse(this.ast, node => {
+    this.traverse(this.ast, (node) => {
       if (!result && predicate(node)) {
         result = node;
       }
@@ -118,13 +124,13 @@ export class MiniTsQuery {
 
   getIdentifier(identifier: string) {
     return this.findOne(
-      node => ts.isIdentifier(node) && node.text === identifier
+      (node) => ts.isIdentifier(node) && node.text === identifier
     );
   }
 
   hasConstructorParam(identifier: string, type: string) {
     const node = this.findOne(
-      node => ts.isIdentifier(node) && node.text === identifier
+      (node) => ts.isIdentifier(node) && node.text === identifier
     );
 
     return node ? node.parent.type.typeName.text === type : undefined;
@@ -149,9 +155,9 @@ export class MiniTsQuery {
       ts.isObjectLiteralExpression(decorator.expression.arguments[0])
     ) {
       return (decorator.expression.arguments[0] as any).properties
-        .filter(prop => prop && prop.name && prop.name.text === property)
-        .some(arrayValue =>
-          arrayValue.initializer.elements.some(a => a.text === type)
+        .filter((prop) => prop && prop.name && prop.name.text === property)
+        .some((arrayValue) =>
+          arrayValue.initializer.elements.some((a) => a.text === type)
         );
     }
     return false;
@@ -162,7 +168,7 @@ export class MiniTsQuery {
   }
 
   getDecorator(type: string): TsTypes.Decorator {
-    return this.findOne(node => {
+    return this.findOne((node) => {
       return (
         ts.isDecorator(node) &&
         node.expression &&
@@ -176,7 +182,7 @@ export class MiniTsQuery {
 
   private traverse(node, callback) {
     callback(node);
-    ts.forEachChild(node, node => this.traverse(node, callback));
+    ts.forEachChild(node, (node) => this.traverse(node, callback));
   }
 }
 

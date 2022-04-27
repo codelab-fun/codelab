@@ -9,7 +9,7 @@ const chikinGif = require('!binary-loader!./pics/chikin.gif');
 @Component({
   selector: 'kirjs-binary',
   templateUrl: './binary.component.html',
-  styleUrls: ['./binary.component.scss']
+  styleUrls: ['./binary.component.scss'],
 })
 export class BinaryComponent {
   fontSize = 30;
@@ -88,7 +88,7 @@ input.addEventListener('change', (e) => {
   };
 
   reader.readAsArrayBuffer(input.files[0]);
-});`
+});`,
   };
 
   littleGif = littleGif;
@@ -138,7 +138,7 @@ input.addEventListener('change', (e) => {
       .bit3('paletteSize')
       .uint8('background')
       .uint8('ratio')
-    `
+    `,
   ];
 
   reactBitmask = `// Don't change these two values. They're used by React Dev Tools.
@@ -232,7 +232,7 @@ var ShouldCapture = /*         */2048;`;
         length: (result) =>
             2 ** (result.paletteSize + 1)
         }
-      )`
+      )`,
   ];
 
   //
@@ -370,7 +370,7 @@ var ShouldCapture = /*         */2048;`;
 
     `explain('gif')`,
 
-    `// How to read binary data?`
+    `// How to read binary data?`,
   ];
   private evaledMessage: string;
 

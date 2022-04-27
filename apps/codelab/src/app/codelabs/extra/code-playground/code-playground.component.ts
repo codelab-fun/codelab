@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'codelab-code-playground',
   templateUrl: './code-playground.component.html',
-  styleUrls: ['./code-playground.component.css']
+  styleUrls: ['./code-playground.component.css'],
 })
 export class CodePlaygroundComponent {}
 

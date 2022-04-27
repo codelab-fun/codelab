@@ -6,7 +6,7 @@ function findFit(code, { babylon, babelTraverse, babelGenerator, log }) {
       if (node.name === 'fit' && parentPath.isCallExpression()) {
         node.name = 'it';
       }
-    }
+    },
   });
 
   return babelGenerator(ast).code;

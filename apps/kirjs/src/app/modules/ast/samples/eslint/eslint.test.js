@@ -10,7 +10,7 @@ function testThings(findDebugger, callback, args) {
       test(func, args) {
         let result = func(this.title, args);
         return result && result.includes && !result.includes('fit');
-      }
+      },
     },
     {
       title: `describe('test', ()=>{
@@ -27,8 +27,8 @@ function testThings(findDebugger, callback, args) {
           !result.includes('fit(') &&
           result.includes('let fit')
         );
-      }
-    }
+      },
+    },
   ];
 
   let results = [];
@@ -38,7 +38,7 @@ function testThings(findDebugger, callback, args) {
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = value => {
+        args.log = (value) => {
           logs.push(value);
         };
         let pass = test.test(findDebugger, args);

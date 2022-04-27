@@ -15,9 +15,9 @@ export const angularFire = AngularFireModule.initializeApp(
     CommonModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    angularFire
+    angularFire,
   ],
   declarations: [TrackingDirective],
-  exports: [TrackingDirective]
+  exports: [TrackingDirective],
 })
 export class TrackingModule {}

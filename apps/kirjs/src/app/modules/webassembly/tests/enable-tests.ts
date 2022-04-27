@@ -1,6 +1,6 @@
 export const enableTests = [
   {
     args: [],
-    output: 1
-  }
+    output: 1,
+  },
 ];

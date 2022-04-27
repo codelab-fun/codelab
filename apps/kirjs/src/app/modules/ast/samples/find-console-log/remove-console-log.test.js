@@ -3,46 +3,46 @@ function testThings(findConsoleLog, callback, args) {
   const tests = [
     {
       code: `console.log('🐶🐶🐶')`,
-      expected: ''
+      expected: '',
     },
     {
       code: `lolconsole.log();`,
-      expected: 'lolconsole.log();'
+      expected: 'lolconsole.log();',
     },
     {
       code: `console.lol();`,
-      expected: `console.lol();`
+      expected: `console.lol();`,
     },
     {
       code: `// don't use console.log();`,
-      expected: `// don't use console.log();`
+      expected: `// don't use console.log();`,
     },
     {
       code: `'console.log()';`,
-      expected: `'console.log()';`
+      expected: `'console.log()';`,
     },
     {
       code: `'hi'; console.log(123); 'bye';`,
-      expected: `'hi';\n'bye';`
+      expected: `'hi';\n'bye';`,
     },
     {
       code: `console
       .log()`,
-      expected: ``
+      expected: ``,
     },
     {
       code: `"console.log(123)";`,
-      expected: `"console.log(123)";`
+      expected: `"console.log(123)";`,
     },
     {
       code: `\`
        console.log(1234)\`;`,
       expected: `\`
-       console.log(1234)\`;`
+       console.log(1234)\`;`,
     },
     {
       code: `' \\' console.log(123)';`,
-      expected: `' \\' console.log(123)';`
+      expected: `' \\' console.log(123)';`,
     },
     {
       code: `/* \` 
@@ -50,12 +50,12 @@ function testThings(findConsoleLog, callback, args) {
         \` + '';`,
       expected: `\`
         \` + ''; /* \` 
-                       */`
+                       */`,
     },
     {
       code: `hello(console.log);`,
-      expected: `hello(console.log);`
-    }
+      expected: `hello(console.log);`,
+    },
   ];
 
   let results = [];
@@ -65,7 +65,7 @@ function testThings(findConsoleLog, callback, args) {
       let test = tests[i];
       if (!failed) {
         const logs = [];
-        args.log = value => {
+        args.log = (value) => {
           logs.push(value);
         };
 
@@ -85,7 +85,7 @@ function testThings(findConsoleLog, callback, args) {
           expected: test.expected,
           result,
           pass,
-          error
+          error,
         });
         if (!pass) {
           failed = true;

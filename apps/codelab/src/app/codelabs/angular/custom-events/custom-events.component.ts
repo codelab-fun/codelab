@@ -4,7 +4,7 @@ import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
 @Component({
   selector: 'codelab-slides-custom-events',
   templateUrl: './custom-events.component.html',
-  styleUrls: ['./custom-events.component.css']
+  styleUrls: ['./custom-events.component.css'],
 })
 export class CustomEventsComponent {
   code = {
@@ -27,7 +27,7 @@ export class CustomEventsComponent {
             `,
       path: 'test.ts',
       type: 'typescript',
-      match: /childDidSomething/
+      match: /childDidSomething/,
     },
     exercise1b: {
       // child
@@ -50,8 +50,8 @@ export class CustomEventsComponent {
             `,
       path: 'test.ts',
       type: 'typescript',
-      match: ``
-    }
+      match: ``,
+    },
   };
 
   exercises = [ng2tsConfig.milestones[5].exercises[1]];

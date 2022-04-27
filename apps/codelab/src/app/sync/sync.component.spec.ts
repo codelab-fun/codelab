@@ -7,7 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import {
   getMockAngularFireProviders,
   MockAngularFireAuth,
-  MockAngularFireDatabase
+  MockAngularFireDatabase,
 } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
 
 describe('SyncComponent', () => {
@@ -17,7 +17,7 @@ describe('SyncComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SyncModule],
-      providers: [getMockAngularFireProviders()]
+      providers: [getMockAngularFireProviders()],
     }).compileComponents();
   }));
 

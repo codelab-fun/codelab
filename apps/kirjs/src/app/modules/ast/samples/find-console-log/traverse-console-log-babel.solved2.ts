@@ -11,7 +11,7 @@ function traverseConsoleLogSolved2(code, { babylon, babelTraverse, types }) {
       ) {
         hasConsoleLog = true;
       }
-    }
+    },
   });
 
   return hasConsoleLog;

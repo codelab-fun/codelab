@@ -31,7 +31,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));
     NewProgressBarModule,
     SharedPipeModule,
     SlidesModule,
-    CodeDemoModule
+    CodeDemoModule,
   ],
   declarations: [
     SvgComponent,
@@ -39,8 +39,8 @@ const routes = RouterModule.forChild(SlidesRoutes.get(SvgComponent));
     SvgTogetherResultComponent,
     SvgDemoComponent,
     SvgPlaygroundComponent,
-    TimerComponent
+    TimerComponent,
   ],
-  exports: [SvgComponent]
+  exports: [SvgComponent],
 })
 export class SvgModule {}

@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
     SimpleStackComponent,
     StackTestComponent,
     StackFunctionComponent,
-    StackFunctionButtonComponent
+    StackFunctionButtonComponent,
   ],
   exports: [
     StackComponent,
@@ -24,8 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     SimpleStackComponent,
     StackTestComponent,
     StackFunctionComponent,
-    StackFunctionButtonComponent
+    StackFunctionButtonComponent,
   ],
-  imports: [CommonModule, SlidesModule, MatButtonModule]
+  imports: [CommonModule, SlidesModule, MatButtonModule],
 })
 export class StackModule {}

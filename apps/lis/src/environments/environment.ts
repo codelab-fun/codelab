@@ -13,8 +13,8 @@ export const environment = {
     projectId: 'angular-presentation',
     storageBucket: 'angular-presentation.appspot.com',
     messagingSenderId: '1087862173437',
-    appId: '1:1087862173437:web:0bb7fe324b62580bb31894'
-  }
+    appId: '1:1087862173437:web:0bb7fe324b62580bb31894',
+  },
 };
 
 /*
@@ -24,4 +24,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

@@ -4,7 +4,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 @Component({
   selector: 'kirjs-number',
   templateUrl: './number.component.html',
-  styleUrls: ['./number.component.css']
+  styleUrls: ['./number.component.css'],
 })
 export class NumberComponent implements OnInit {
   @Input() data: any;

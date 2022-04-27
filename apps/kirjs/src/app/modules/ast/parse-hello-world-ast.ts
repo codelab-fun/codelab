@@ -37,9 +37,9 @@ export function locToMonacoLoc(loc, className) {
       loc.start.line,
       loc.start.column + 1,
       loc.end.line,
-      loc.end.column + 1
+      loc.end.column + 1,
     ],
-    className
+    className,
   };
 }
 export function parseCode(code) {
@@ -49,13 +49,13 @@ export function parseCode(code) {
 export function processCode(code, { remove = [] }: any) {
   const ast = parse(code, {
     sourceType: 'module',
-    plugins: ['decorators']
+    plugins: ['decorators'],
   });
 
   babel_traverse(ast, {
     ObjectProperty(path) {
-      remove.forEach(callback => callback(path));
-    }
+      remove.forEach((callback) => callback(path));
+    },
   });
 
   return generate(ast, {}).code;
@@ -64,17 +64,17 @@ export function processCode(code, { remove = [] }: any) {
 export function findHighlightsObjectProp(code: string, matchers: Array<any>) {
   const ast = parse(code, {
     sourceType: 'module',
-    plugins: ['decorators']
+    plugins: ['decorators'],
   });
 
   const highlights = [];
 
   babel_traverse(ast, {
     ObjectProperty({ node }) {
-      if (matchers.some(matcher => matcher(node))) {
+      if (matchers.some((matcher) => matcher(node))) {
         highlights.push(locToMonacoLoc(node.loc, 'loc'));
       }
-    }
+    },
   });
   return highlights;
 }
@@ -82,7 +82,7 @@ export function findHighlightsObjectProp(code: string, matchers: Array<any>) {
 export function findHighlightsAll(code: string, matcher) {
   const ast = parse(code, {
     sourceType: 'module',
-    plugins: ['decorators']
+    plugins: ['decorators'],
   });
 
   const highlights = [];
@@ -93,7 +93,7 @@ export function findHighlightsAll(code: string, matcher) {
       if (className) {
         highlights.push(locToMonacoLoc(node.loc, className));
       }
-    }
+    },
   });
   return highlights;
 }

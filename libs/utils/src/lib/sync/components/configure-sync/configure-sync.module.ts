@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatCheckboxModule,
     SyncDirectivesModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
 export class ConfigureSyncModule {}

@@ -5,7 +5,7 @@ import { UserVote } from '@codelab/utils/src/lib/sync/components/poll/common/syn
 @Component({
   selector: 'codelab-choice-presenter',
   templateUrl: './choice-presenter.component.html',
-  styleUrls: ['./choice-presenter.component.css']
+  styleUrls: ['./choice-presenter.component.css'],
 })
 export class ChoicePresenterComponent implements OnChanges {
   @Input() options: string[];

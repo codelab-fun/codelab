@@ -4,7 +4,7 @@ import { BinaryParentComponent } from '../binary-parent/binary-parent.component'
 @Component({
   selector: 'kirjs-string',
   templateUrl: './string.component.html',
-  styleUrls: ['./string.component.css']
+  styleUrls: ['./string.component.css'],
 })
 export class StringComponent implements OnInit {
   get data() {
@@ -29,9 +29,9 @@ export class StringComponent implements OnInit {
   update(value) {
     const val = value
       .split('')
-      .map(a => a.charCodeAt(0))
-      .map(a => a.toString(2))
-      .map(a => (a as any).padStart(8, 0))
+      .map((a) => a.charCodeAt(0))
+      .map((a) => a.toString(2))
+      .map((a) => (a as any).padStart(8, 0))
       .join('');
 
     this.root.update(this.data, val);

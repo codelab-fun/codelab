@@ -22,5 +22,5 @@ import { AppModule } from './app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 `,
-  'index.html': '<my-app></my-app>'
+  'index.html': '<my-app></my-app>',
 };

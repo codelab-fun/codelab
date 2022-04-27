@@ -13,15 +13,15 @@ import { SlidesArrowsComponent } from './arrows/slides-arrows.component';
     SlideDirective,
     ShortcutsDirective,
     SlidesArrowsComponent,
-    SlidesRoutingDirective
+    SlidesRoutingDirective,
   ],
   exports: [
     SlidesDeckComponent,
     SlideDirective,
     ShortcutsDirective,
     SlidesArrowsComponent,
-    SlidesRoutingDirective
+    SlidesRoutingDirective,
   ],
-  imports: [CommonModule, RouterModule]
+  imports: [CommonModule, RouterModule],
 })
 export class SlidesModule {}

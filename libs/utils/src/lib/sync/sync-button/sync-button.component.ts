@@ -11,7 +11,7 @@ import {
   mergeMapTo,
   switchMapTo,
   take,
-  takeUntil
+  takeUntil,
 } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -19,15 +19,14 @@ import { Subject } from 'rxjs';
   selector: 'codelab-sync-button',
   templateUrl: './sync-button.component.html',
   styleUrls: ['./sync-button.component.css'],
-  providers: [SyncRegistrationService]
+  providers: [SyncRegistrationService],
 })
 export class SyncButtonComponent implements OnInit, OnDestroy {
   @Input() name = 'default';
   sync = {};
   private readonly onDestroy = new Subject<void>();
-  private readonly currentSlide = this.syncDataService.getPresenterObject(
-    'currentSlide'
-  );
+  private readonly currentSlide =
+    this.syncDataService.getPresenterObject('currentSlide');
 
   constructor(
     private readonly syncDataService: SyncDataService,
@@ -42,7 +41,7 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
     if (this.presentation) {
       this.syncSessionService.status$
         .pipe(
-          filter(s => s === SyncStatus.PRESENTING),
+          filter((s) => s === SyncStatus.PRESENTING),
           mergeMapTo(this.presentation.slideChange),
           distinctUntilChanged(),
           takeUntil(this.onDestroy),
@@ -54,10 +53,10 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
 
       this.syncSessionService.status$
         .pipe(
-          filter(s => s !== SyncStatus.PRESENTING),
+          filter((s) => s !== SyncStatus.PRESENTING),
           switchMapTo(this.currentSlide.valueChanges()),
           distinctUntilChanged(),
-          filter(s => s !== null && s !== undefined),
+          filter((s) => s !== null && s !== undefined),
           takeUntil(this.onDestroy)
         )
         .subscribe((slide: number) => {
@@ -90,7 +89,7 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
   copyViewerId(): void {
     this.syncSessionService.viewerId$
       .pipe(take(1))
-      .subscribe(viewerId => copyToClipboard(viewerId));
+      .subscribe((viewerId) => copyToClipboard(viewerId));
   }
 }
 

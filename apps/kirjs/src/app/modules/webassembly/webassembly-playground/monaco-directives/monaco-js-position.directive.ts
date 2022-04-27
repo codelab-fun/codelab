@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Optional,
   Output,
-  Self
+  Self,
 } from '@angular/core';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
@@ -14,12 +14,12 @@ import { CodePath } from './common';
 const ts = getTypeScript();
 
 const printer = ts.createPrinter({
-  newLine: ts.NewLineKind.LineFeed
+  newLine: ts.NewLineKind.LineFeed,
 });
 
 const usefulTypes = new Set([
   ts.SyntaxKind.SourceFile,
-  ts.SyntaxKind.FunctionDeclaration
+  ts.SyntaxKind.FunctionDeclaration,
 ]);
 
 function getName(token) {
@@ -36,20 +36,20 @@ function resolveToken(token, sourceFile) {
     code,
     type: ts.SyntaxKind[token.kind],
     ...token,
-    name
+    name,
   };
 }
 
 function processBlocks(blocks: any[], sourceFile) {
   return blocks
-    .map(b => resolveToken(b, sourceFile))
-    .filter(b => {
+    .map((b) => resolveToken(b, sourceFile))
+    .filter((b) => {
       return usefulTypes.has(b.kind);
     });
 }
 
 @Directive({
-  selector: '[slidesMonacoJsPosition]'
+  selector: '[slidesMonacoJsPosition]',
 })
 export class MonacoJsPositionDirective implements AfterViewInit {
   @Output() slidesMonacoJsPosition = new EventEmitter<CodePath>();
@@ -88,7 +88,7 @@ export class MonacoJsPositionDirective implements AfterViewInit {
         this.lastResult = key;
         this.slidesMonacoJsPosition.emit({
           type: 'ts',
-          blocks: processedBlocks
+          blocks: processedBlocks,
         });
       }
     });

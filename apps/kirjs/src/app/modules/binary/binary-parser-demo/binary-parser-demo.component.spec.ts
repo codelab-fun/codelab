@@ -8,7 +8,7 @@ describe('BinaryParserDemoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BinaryParserDemoComponent]
+      declarations: [BinaryParserDemoComponent],
     }).compileComponents();
   }));
 

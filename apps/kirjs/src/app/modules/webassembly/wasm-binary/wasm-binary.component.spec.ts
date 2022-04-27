@@ -8,7 +8,7 @@ describe('WasmBinaryComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [WasmBinaryComponent]
+      declarations: [WasmBinaryComponent],
     }).compileComponents();
   }));
 

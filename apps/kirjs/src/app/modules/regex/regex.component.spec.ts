@@ -8,7 +8,7 @@ describe('RegexComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RegexComponent]
+      declarations: [RegexComponent],
     }).compileComponents();
   }));
 

@@ -12,7 +12,7 @@ describe('SlidesRoutingDirective', () => {
 
     const routerStub = {
       navigate: () => ({}),
-      events: { pipe: () => ({ subscribe: () => ({}) }) }
+      events: { pipe: () => ({ subscribe: () => ({}) }) },
     };
 
     const slidesDeckComponentStub = {
@@ -22,7 +22,7 @@ describe('SlidesRoutingDirective', () => {
         this.slideChange.emit(n);
       },
       slideChange: new EventEmitter<number>(),
-      activeSlideIndex: 0
+      activeSlideIndex: 0,
     };
 
     TestBed.configureTestingModule({
@@ -30,8 +30,9 @@ describe('SlidesRoutingDirective', () => {
         SlidesRoutingDirective,
         { provide: ActivatedRoute, useValue: activatedRouteStub },
         { provide: Router, useValue: routerStub },
-        { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub }
-      ]
+        { provide: SlidesDeckComponent, useValue: slidesDeckComponentStub },
+      ],
+      teardown: { destroyAfterEach: false },
     });
     directive = TestBed.inject(SlidesRoutingDirective);
   });
@@ -41,9 +42,8 @@ describe('SlidesRoutingDirective', () => {
   });
 
   xit('should call navigate on slideChange event', () => {
-    const slidesDeckComponentStub: SlidesDeckComponent = TestBed.inject(
-      SlidesDeckComponent
-    );
+    const slidesDeckComponentStub: SlidesDeckComponent =
+      TestBed.inject(SlidesDeckComponent);
 
     spyOn(directive, 'getId');
     slidesDeckComponentStub.slideChange.emit(10);
@@ -54,9 +54,8 @@ describe('SlidesRoutingDirective', () => {
 
   describe('ngOnInit', () => {
     it('makes expected calls', () => {
-      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.inject(
-        SlidesDeckComponent
-      );
+      const slidesDeckComponentStub: SlidesDeckComponent =
+        TestBed.inject(SlidesDeckComponent);
       spyOn(slidesDeckComponentStub, 'goToSlide');
       directive.ngOnInit();
       expect(slidesDeckComponentStub.goToSlide).toHaveBeenCalled();
@@ -65,13 +64,12 @@ describe('SlidesRoutingDirective', () => {
 
   describe('getId', () => {
     it('should return the id prop of the slide at the given index', () => {
-      const slidesDeckComponentStub: SlidesDeckComponent = TestBed.inject(
-        SlidesDeckComponent
-      );
+      const slidesDeckComponentStub: SlidesDeckComponent =
+        TestBed.inject(SlidesDeckComponent);
 
       slidesDeckComponentStub.slides = [
         { id: 'typescript' },
-        { id: 'javascript' }
+        { id: 'javascript' },
       ];
 
       slidesDeckComponentStub.slides.forEach((slide, index, arr) => {

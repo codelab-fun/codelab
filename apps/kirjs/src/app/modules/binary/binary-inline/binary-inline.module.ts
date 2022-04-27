@@ -6,6 +6,6 @@ import { BinaryDisplayComponent } from './binary-display/binary-display.componen
 @NgModule({
   declarations: [BinaryInlineComponent, BinaryDisplayComponent],
   exports: [BinaryInlineComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class BinaryInlineModule {}

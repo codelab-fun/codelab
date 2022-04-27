@@ -24,7 +24,7 @@ export const wasmAnswers = extractAnswers(
 
 function generateArray(size = 89, callback) {
   const result = Array.from(new Array(size)).map((a, i) => 0);
-  return (callback || (a => a))(result);
+  return (callback || ((a) => a))(result);
 }
 
 function inPlace(rule) {
@@ -49,7 +49,7 @@ function inPlace(rule) {
     return result;
   }
 
-  return function(grid) {
+  return function (grid) {
     return grid.map(transformRow);
   };
 }
@@ -64,7 +64,7 @@ function transform2d(rule) {
     return a;
   }, {});
 
-  return function(grid) {
+  return function (grid) {
     return grid.map((row, y) => {
       return row.map((cell, x) => {
         const px = (row.length + x - 1) % row.length;
@@ -94,7 +94,7 @@ function transform2d(rule) {
 
 function appendTransform(rule) {
   const transform = inPlace(rule);
-  return function(grid) {
+  return function (grid) {
     const lastRow = grid[grid.length - 1];
     grid.push(transform([lastRow])[0]);
     return grid;
@@ -134,14 +134,14 @@ const labRules6 = { survive: [0, 1, 2, 3, 4, 5, 6], born: [1] };
 @Component({
   selector: 'kirjs-webassembly',
   templateUrl: './webassembly.component.html',
-  styleUrls: ['./webassembly.component.scss']
+  styleUrls: ['./webassembly.component.scss'],
 })
 export class WebassemblyComponent implements OnInit {
   patterns = {
-    rule90Start: generateArray(89, a => {
+    rule90Start: generateArray(89, (a) => {
       a[44] = 1;
       return a;
-    })
+    }),
   };
 
   fontSize = 30;
@@ -156,7 +156,7 @@ export class WebassemblyComponent implements OnInit {
 )`,
     intro: {
       inverse(pattern) {
-        return pattern.map(line => line.map(cell => (cell + 1) % 2));
+        return pattern.map((line) => line.map((cell) => (cell + 1) % 2));
       },
       rand,
       inPlace16: inPlace(16),
@@ -171,8 +171,8 @@ export class WebassemblyComponent implements OnInit {
         [0, 0, 0, 1, 0, 0, 0, 0],
         [0, 0, 0, 1, 0, 0, 0, 0],
         [0, 0, 0, 1, 0, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0, 0]
-      ]
+        [0, 0, 0, 1, 0, 0, 0, 0],
+      ],
     },
     life: {
       randomRules,
@@ -194,10 +194,10 @@ export class WebassemblyComponent implements OnInit {
           [0, 0, 0, 0],
           [0, 1, 1, 0],
           [0, 1, 1, 0],
-          [0, 0, 0, 0]
-        ]
-      }
-    }
+          [0, 0, 0, 0],
+        ],
+      },
+    },
   };
 
   code = {
@@ -212,11 +212,11 @@ export class WebassemblyComponent implements OnInit {
     )
 )
 `,
-      js: require('!!raw-loader!./samples/base.js')
+      js: require('!!raw-loader!./samples/base.js'),
     },
     simple: {
       wat: require('!!raw-loader!./samples/base.wat'),
-      js: require('!!raw-loader!./samples/base.js')
+      js: require('!!raw-loader!./samples/base.js'),
     },
     brIf: {
       wa: `(module
@@ -237,8 +237,8 @@ export class WebassemblyComponent implements OnInit {
     )
   (export "add" (func $add))
 )
-`
-    }
+`,
+    },
   };
 
   itIsALemon = false;
@@ -248,15 +248,15 @@ export class WebassemblyComponent implements OnInit {
       func: {
         add: {
           description: 'Takes two numbers and adds them together',
-          tests: addTests
-        }
-      }
-    }
+          tests: addTests,
+        },
+      },
+    },
   };
   modeConfig = {
     wat: {
       elem: {
-        default: {}
+        default: {},
       },
       module: {
         default: {
@@ -275,80 +275,80 @@ export class WebassemblyComponent implements OnInit {
             { type: 'elem', name: 'elem' },
             { type: 'func', name: 'evolveCell' },
             { type: 'func', name: 'evolveRow' },
-            { type: 'func', name: 'evolve' }
-          ]
-        }
+            { type: 'func', name: 'evolve' },
+          ],
+        },
       },
       func: {
         add: {
           description: 'Takes two numbers and adds them together',
-          tests: addTests
+          tests: addTests,
         },
         rotate: {
           description:
             'Takes an index, and rotates it to be within the range of the line',
-          tests: rotate
+          tests: rotate,
         },
         getIndex: {
           description:
             'Takes X and Y coordinate and returns index in the memory.',
-          tests: getIndex
+          tests: getIndex,
         },
         loadCell: {
           description:
             'Takes a position, calculates appropriate index and retrieves the data from memory',
-          tests: loadCellTests
+          tests: loadCellTests,
         },
         storeCell: {
           description: 'Stores single cell value im the memory',
-          tests: storeCellTests
+          tests: storeCellTests,
         },
         shift: {
           description:
             'Takes 3 0|1 value and generates 3 bit number merging them together',
-          tests: shiftTests
+          tests: shiftTests,
         },
         loadPreviousCell: {
           description: 'Loads previous cell',
-          tests: loadPreviousCellTests
+          tests: loadPreviousCellTests,
         },
         getCellScore: {
           description: 'Looks for 3 cells before, and gets a number 0-7',
-          tests: getCellScoreTests
+          tests: getCellScoreTests,
         },
         evolveCell: {
           description:
             'Evolves single cell based on values of the previous cells',
-          tests: evolveCellTests
+          tests: evolveCellTests,
         },
         evolveRow: {
           description:
             'Evolves the whole row based on valueds of the previous row',
-          tests: evolveRowTests
+          tests: evolveRowTests,
         },
         evolve: {
           description: 'Evolves the whole thing N generations',
-          tests: evolveTests
+          tests: evolveTests,
         },
 
         enable: {
           description: 'This should always return 1',
-          tests: enableTests
+          tests: enableTests,
         },
         disable: {
           description: 'This should always return 0',
-          tests: disableTests
-        }
-      }
+          tests: disableTests,
+        },
+      },
     },
     ts: {
       SourceFile: {
-        default: {}
+        default: {},
       },
       FunctionDeclaration: {
-        default: {}
-      }
-    }
+        default: {},
+      },
+    },
   };
 
   levels: Record<string, Level> = {
@@ -357,16 +357,16 @@ export class WebassemblyComponent implements OnInit {
         {
           inputs: '',
           outputs: '🍏',
-          name: 'push 🍏'
+          name: 'push 🍏',
         },
         {
           inputs: '',
           outputs: '🍋',
-          name: 'push 🍋'
-        }
+          name: 'push 🍋',
+        },
       ],
       inputs: '',
-      outputs: '🍏🍋🍏'
+      outputs: '🍏🍋🍏',
     },
 
     pop: {
@@ -374,11 +374,11 @@ export class WebassemblyComponent implements OnInit {
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
-        }
+          name: 'pop',
+        },
       ],
       inputs: '🍏🍏🍏🍏🍏',
-      outputs: '🍏'
+      outputs: '🍏',
     },
 
     together: {
@@ -386,92 +386,92 @@ export class WebassemblyComponent implements OnInit {
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
+          name: 'pop',
         },
         {
           inputs: '',
           outputs: '🍓',
-          name: 'push 🍓'
+          name: 'push 🍓',
         },
         {
           inputs: '',
           outputs: '🍋',
-          name: 'push 🍋'
-        }
+          name: 'push 🍋',
+        },
       ],
       inputs: '🍏🍏',
-      outputs: '🍓🍋'
+      outputs: '🍓🍋',
     },
 
     lemonade: {
       functions: [
         {
           inputs: '',
-          outputs: '💦'
+          outputs: '💦',
         },
         {
           inputs: '',
-          outputs: '🍋'
+          outputs: '🍋',
         },
         {
           inputs: '',
-          outputs: '🍒'
+          outputs: '🍒',
         },
         {
           inputs: '🍒💦🍋',
-          outputs: '🍹'
-        }
+          outputs: '🍹',
+        },
       ],
       inputs: '',
-      outputs: '🍹'
+      outputs: '🍹',
     },
     level1: {
       functions: [
         {
           inputs: '',
-          outputs: '🍏🍏'
+          outputs: '🍏🍏',
         },
         {
           inputs: '',
-          outputs: '🍋'
+          outputs: '🍋',
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒'
+          outputs: '🍒',
         },
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
-        }
+          name: 'pop',
+        },
       ],
       inputs: '🍏',
-      outputs: '🍒'
+      outputs: '🍒',
     },
     level2: {
       functions: [
         {
           inputs: '',
           outputs: '🍏',
-          name: 'push 🍏'
+          name: 'push 🍏',
         },
         {
           inputs: '🍏🍏',
-          outputs: '🍋'
+          outputs: '🍋',
         },
         {
           inputs: '🍋🍋',
-          outputs: '🍒'
+          outputs: '🍒',
         },
         {
           inputs: '＊',
           outputs: '',
-          name: 'pop'
-        }
+          name: 'pop',
+        },
       ],
       inputs: '🍏',
-      outputs: '🍒'
-    }
+      outputs: '🍒',
+    },
   };
 
   constructor() {}

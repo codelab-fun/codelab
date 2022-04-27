@@ -5,7 +5,7 @@ import * as firebase from 'firebase/app';
 import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GithubService {
   repo = 'codelab-fun/codelab';
@@ -16,7 +16,7 @@ export class GithubService {
     private afAuth: AngularFireAuth,
     private database: AngularFireDatabase
   ) {
-    afAuth.authState.subscribe(authData => {
+    afAuth.authState.subscribe((authData) => {
       if (authData === null) {
         this.login();
       } else {
@@ -39,7 +39,7 @@ export class GithubService {
 
     const issueData = {
       title: message.comment,
-      body: this.generateIssueBody(message)
+      body: this.generateIssueBody(message),
     };
     const accessToken = this.githubAuth.credential.accessToken;
 
@@ -67,7 +67,7 @@ export class GithubService {
 
     const issueData = {
       title: reason + ' ' + message.comment,
-      body: this.generateIssueBody(message)
+      body: this.generateIssueBody(message),
     };
     const accessToken = this.githubAuth.credential.accessToken;
 
@@ -96,7 +96,7 @@ export class GithubService {
             changes,
             options
           )
-          .subscribe(res => {
+          .subscribe((res) => {
             if (res) {
               this.markAsDone(message);
             }

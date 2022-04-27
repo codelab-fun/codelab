@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'kirjs-app',
-  template: `
-    <svg></svg>
-  `
+  template: ` <svg></svg> `,
 })
 export class AppComponent {
   y = 200;

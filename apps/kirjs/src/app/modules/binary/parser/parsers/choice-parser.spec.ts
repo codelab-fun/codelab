@@ -7,9 +7,9 @@ describe('BinaryParser', () => {
   beforeEach(() => {
     const s = 'Universal Serial Bus'
       .split('')
-      .map(a => a.charCodeAt(0))
-      .map(a => a.toString(2))
-      .map(a => (a as any).padStart(8, 0))
+      .map((a) => a.charCodeAt(0))
+      .map((a) => a.toString(2))
+      .map((a) => (a as any).padStart(8, 0))
       .join('');
     this.reader = new StringBinaryReader(s);
   });
@@ -20,8 +20,8 @@ describe('BinaryParser', () => {
         key: ({ p }) => p,
         values: {
           '1': new BitParser({ length: 8 }),
-          '2': new StringParser({ length: 2 })
-        }
+          '2': new StringParser({ length: 2 }),
+        },
       });
       expect(parser.read(this.reader, { p: '1' }).value).toEqual('01010101');
       expect(parser.read(this.reader, { p: '2' }).value).toEqual('ni');
@@ -32,8 +32,8 @@ describe('BinaryParser', () => {
         key: ({ p }) => p,
         values: {
           '1': new BitParser({ length: 8 }),
-          '2': new StringParser({ length: 2 })
-        }
+          '2': new StringParser({ length: 2 }),
+        },
       });
       expect(parser.readOrdered(this.reader, { p: '1' }).value).toEqual(
         '01010101'

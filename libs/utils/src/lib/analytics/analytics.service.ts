@@ -3,7 +3,7 @@ import {
   Event as RouterEvent,
   NavigationEnd,
   NavigationError,
-  Router
+  Router,
 } from '@angular/router';
 import { distinctUntilChanged } from 'rxjs/operators';
 
@@ -23,7 +23,7 @@ export class AnalyticsService {
   constructor(@Optional() router: Router) {
     this.ga = window['ga'] || (() => 0);
     if (router) {
-      router.events.subscribe(a => {
+      router.events.subscribe((a) => {
         if (a instanceof NavigationError) {
           console.log(a);
           throw new Error('Navigation error');

@@ -16,36 +16,8 @@ export interface GridConfig {
 }
 
 const fakeMemory = [
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0,
 ];
 
 interface DrawCellConfig extends Figure {
@@ -60,7 +32,7 @@ function drawCell({
   y,
   color,
   text,
-  type = 'rect'
+  type = 'rect',
 }: DrawCellConfig) {
   const gridShift = size;
   context.fillStyle = color;
@@ -119,7 +91,7 @@ function resolveFuncOrValue(funcOfValue: any, vizConfig, defaultValue) {
 @Component({
   selector: 'slides-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css']
+  styleUrls: ['./grid.component.css'],
 })
 export class GridComponent implements OnChanges {
   @ViewChild('canvas', { static: true }) canvas;

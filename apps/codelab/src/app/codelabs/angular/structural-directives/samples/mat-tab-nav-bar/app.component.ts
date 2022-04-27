@@ -11,17 +11,17 @@ import { Component } from '@angular/core';
     </nav>
 
     <router-outlet></router-outlet>
-  `
+  `,
 })
 export class AppComponent {
   tabs = [
     {
       link: '',
-      label: 'Tab 1'
+      label: 'Tab 1',
     },
     {
       link: 'danger',
-      label: 'Danger'
-    }
+      label: 'Danger',
+    },
   ];
 }

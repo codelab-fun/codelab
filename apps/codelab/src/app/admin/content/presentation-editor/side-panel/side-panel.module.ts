@@ -9,6 +9,6 @@ import { PreviewModule } from '../preview/preview.module';
 @NgModule({
   declarations: [SidePanelComponent],
   exports: [SidePanelComponent],
-  imports: [CommonModule, RouterModule, DragDropModule, PreviewModule]
+  imports: [CommonModule, RouterModule, DragDropModule, PreviewModule],
 })
 export class SidePanelModule {}

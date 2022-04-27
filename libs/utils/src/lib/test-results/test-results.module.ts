@@ -12,7 +12,7 @@ import { FileAwareDescriptionComponent } from './file-aware-description/file-awa
   declarations: [
     TestRunResultsComponent,
     TestResultsComponent,
-    FileAwareDescriptionComponent
+    FileAwareDescriptionComponent,
   ],
   exports: [TestResultsComponent, TestRunResultsComponent],
   imports: [
@@ -20,7 +20,7 @@ import { FileAwareDescriptionComponent } from './file-aware-description/file-awa
     MatCheckboxModule,
     FormsModule,
     MatIconModule,
-    SimpleTestsProgressModule
-  ]
+    SimpleTestsProgressModule,
+  ],
 })
 export class TestResultsModule {}

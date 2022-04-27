@@ -6,6 +6,6 @@ import { SingleGridComponent } from './single-grid/single-grid.component';
 @NgModule({
   declarations: [SingleCellComponent, SingleGridComponent],
   exports: [SingleCellComponent, SingleGridComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class CaModule {}

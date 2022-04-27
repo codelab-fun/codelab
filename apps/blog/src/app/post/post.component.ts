@@ -9,7 +9,7 @@ import { MarkdownModule } from 'ngx-markdown';
   selector: 'codelab-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostComponent implements OnInit {
   post$: Observable<Post>;

@@ -8,7 +8,7 @@ describe('DynamicRendererComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [DynamicRendererComponent]
+      declarations: [DynamicRendererComponent],
     }).compileComponents();
   }));
 

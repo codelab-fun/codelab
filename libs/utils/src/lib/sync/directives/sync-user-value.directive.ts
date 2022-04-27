@@ -7,7 +7,7 @@ import {
   first,
   mergeMapTo,
   takeUntil,
-  tap
+  tap,
 } from 'rxjs/operators';
 import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { LoginService } from '@codelab/firebase-login';
@@ -16,7 +16,7 @@ import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: '[syncUserValue]',
-  exportAs: 'presenterValue'
+  exportAs: 'presenterValue',
 })
 export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
   @Input() syncUserValue: string;
@@ -48,23 +48,23 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
       .object(this.syncUserValue);
     const dataValue$ = syncDataObject.valueChanges();
 
-    dataValue$.pipe(takeUntil(this.onDestroy$)).subscribe(value => {
+    dataValue$.pipe(takeUntil(this.onDestroy$)).subscribe((value) => {
       console.log('FROM STORE', value);
       this.control.valueAccessor.writeValue(value);
     });
 
     dataValue$
       .pipe(
-        tap(a => {
+        tap((a) => {
           console.log('data', a);
         }),
         first(),
         mergeMapTo(this.control.valueChanges),
-        filter(a => a !== undefined),
+        filter((a) => a !== undefined),
         distinctUntilChanged(),
         takeUntil(this.onDestroy$)
       )
-      .subscribe(newValue => {
+      .subscribe((newValue) => {
         console.log('FROM CONTROL', newValue);
         syncDataObject.set(newValue);
       });

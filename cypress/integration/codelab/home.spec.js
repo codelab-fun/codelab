@@ -13,7 +13,7 @@ context('home page', () => {
 
     // cy.matchImageSnapshot("home");
 
-    cy.location().should(location => {
+    cy.location().should((location) => {
       expect(location.href).to.eq('http://localhost:4200/typescript/intro');
     });
   });

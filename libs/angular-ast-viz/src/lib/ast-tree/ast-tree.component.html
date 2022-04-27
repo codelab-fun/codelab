@@ -1,6 +1,6 @@
 <ng-container *ngIf="node">
   <ng-container *ngIf="node.type">
-    <div style="display: flex;">
+    <div style="display: flex">
       <div class="box {{ node.type }}" (click)="selectNode.emit(node)" #box>
         <div class="header">{{ key ? key + ': ' : '' }}</div>
         <div class="node">{{ split(node.type) }}</div>
@@ -12,7 +12,7 @@
           {{ key }} = '{{ node[key] }}'
         </div>
       </div>
-      <div style="padding-left: 20px;">
+      <div style="padding-left: 20px">
         <ast-viz
           *ngFor="let key of objectKeys"
           [node]="node[key]"
@@ -24,7 +24,7 @@
   </ng-container>
   <ng-container *ngIf="isArray">
     <ng-container *ngIf="node.length > 0">
-      <div style="display: flex;">
+      <div style="display: flex">
         <div class="box Array" *ngIf="key">
           <div class="header">{{ key ? key + ': ' : '' }}</div>
           <div class="node">Array</div>

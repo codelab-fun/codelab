@@ -14,18 +14,18 @@ const routes = [
   {
     path: '',
     redirectTo: 'code-sync',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'angular',
     loadChildren: () =>
-      import('./playground/playground.module').then(m => m.PlaygroundModule)
+      import('./playground/playground.module').then((m) => m.PlaygroundModule),
   },
   {
     path: 'code-sync',
     loadChildren: () =>
-      import('./code-sync/code-sync.module').then(m => m.CodeSyncModule)
-  }
+      import('./code-sync/code-sync.module').then((m) => m.CodeSyncModule),
+  },
 ];
 
 export const AngularFireApp = AngularFireModule.initializeApp(
@@ -37,18 +37,21 @@ export const AngularFireApp = AngularFireModule.initializeApp(
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled',
+      relativeLinkResolution: 'legacy',
+    }),
     AngularFireApp,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

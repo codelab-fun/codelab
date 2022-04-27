@@ -13,7 +13,7 @@ import { FullLayoutModule } from '../../containers/full-layout/full-layout.modul
     CommonModule,
     HttpClientModule,
     FormsModule,
-    FullLayoutModule
-  ]
+    FullLayoutModule,
+  ],
 })
 export class ExtraModule {}

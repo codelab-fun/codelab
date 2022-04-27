@@ -8,7 +8,8 @@ describe('CodeDemoRunnerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodeDemoRunnerComponent]
+      declarations: [CodeDemoRunnerComponent],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

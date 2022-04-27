@@ -2,13 +2,13 @@ import {
   Directive,
   OnInit,
   TemplateRef,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
 import { AccessService } from '../../../shared/services/access.service';
 import { AbstractPermission } from '../abstract-permission';
 
 @Directive({
-  selector: '[isLoggedIn]'
+  selector: '[isLoggedIn]',
 })
 export class IsLoggedInDirective extends AbstractPermission implements OnInit {
   constructor(

@@ -2,7 +2,7 @@ import { CodelabFile } from '../../../shared/helpers/codelabFile';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
   ExerciseConfigTemplate,
-  Ng2TsExercises
+  Ng2TsExercises,
 } from '../../../../../../../ng2ts/ng2ts';
 import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
 
@@ -16,7 +16,7 @@ interface FileHighlights {
 @Component({
   selector: 'codelab-slides-router',
   templateUrl: './router.component.html',
-  styleUrls: ['./router.component.css']
+  styleUrls: ['./router.component.css'],
 })
 export class RouterComponent implements AfterViewInit {
   @ViewChild('translations', { static: false }) translations;
@@ -32,24 +32,24 @@ export class RouterComponent implements AfterViewInit {
       'components/puppy.ts': require('!!raw-loader!./samples/simple-router/components/puppy.ts'),
       'bootstrap.ts': require('!!raw-loader!./samples/simple-router/main.ts'),
       'index.html': require('!!raw-loader!./samples/simple-router/index.html'),
-      'components/.html': require('!!raw-loader!./samples/simple-router/index.html')
+      'components/.html': require('!!raw-loader!./samples/simple-router/index.html'),
     },
     config: {
       files: ['app.module.ts'],
-      highlights: { 'app.module.ts': /const routes[\s\S]*?];[\s\S]/ }
+      highlights: { 'app.module.ts': /const routes[\s\S]*?];[\s\S]/ },
     },
     configPass: {
       files: ['app.module.ts'],
-      highlights: { 'app.module.ts': /RouterModule.forRoot\(routes\)/ }
+      highlights: { 'app.module.ts': /RouterModule.forRoot\(routes\)/ },
     },
     routerOutlet: {
       files: ['app.component.html'],
-      highlights: { 'app.component.html': /<router-outlet><\/router-outlet>/ }
+      highlights: { 'app.component.html': /<router-outlet><\/router-outlet>/ },
     },
     menu: {
       files: ['app.component.html'],
-      highlights: { 'app.component.html': /<a[\s\S]*\/a>/ }
-    }
+      highlights: { 'app.component.html': /<a[\s\S]*\/a>/ },
+    },
   };
 
   constructor(private exercises: Ng2TsExercises) {

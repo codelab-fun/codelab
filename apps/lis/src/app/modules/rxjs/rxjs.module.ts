@@ -23,7 +23,7 @@ const routes = RouterModule.forChild(SlidesRoutes.get(RxjsComponent));
     SyncButtonModule,
     SyncRegistrationModule,
     SyncPollModule,
-    SyncDirectivesModule
-  ]
+    SyncDirectivesModule,
+  ],
 })
 export class RxjsModule {}

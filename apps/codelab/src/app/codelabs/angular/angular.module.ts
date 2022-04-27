@@ -4,6 +4,6 @@ import { FullLayoutModule } from '../../containers/full-layout/full-layout.modul
 import { AngularRoutesModule } from '../../components/angular-routes/angular-routes.module';
 
 @NgModule({
-  imports: [AngularRoutingModule, FullLayoutModule, AngularRoutesModule]
+  imports: [AngularRoutingModule, FullLayoutModule, AngularRoutesModule],
 })
 export class AngularModule {}

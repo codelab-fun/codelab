@@ -12,7 +12,8 @@ describe('CodeSyncComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [CodeSyncModule, RouterTestingModule],
-      providers: [getMockAngularFireProviders()]
+      providers: [getMockAngularFireProviders()],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

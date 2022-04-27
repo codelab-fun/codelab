@@ -8,7 +8,7 @@ describe('StackFunctionButtonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [StackFunctionButtonComponent]
+      declarations: [StackFunctionButtonComponent],
     }).compileComponents();
   }));
 

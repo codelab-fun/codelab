@@ -8,7 +8,7 @@ describe('BinaryParentComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BinaryParentComponent]
+      declarations: [BinaryParentComponent],
     }).compileComponents();
   }));
 

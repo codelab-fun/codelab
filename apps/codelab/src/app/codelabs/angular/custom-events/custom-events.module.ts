@@ -10,7 +10,7 @@ import { CodeDemoModule } from '@codelab/code-demos';
 import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 
 const routes = RouterModule.forChild([
-  ...SlidesRoutes.get(CustomEventsComponent)
+  ...SlidesRoutes.get(CustomEventsComponent),
 ]);
 
 @NgModule({
@@ -22,9 +22,9 @@ const routes = RouterModule.forChild([
     CodeDemoModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [CustomEventsComponent],
-  exports: [CustomEventsComponent]
+  exports: [CustomEventsComponent],
 })
 export class CustomEventsModule {}

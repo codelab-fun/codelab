@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
       frameborder="0"
       allowfullscreen
     ></iframe>
-  `
+  `,
 })
 export class TaetLedComponent {
   constructor() {}

@@ -8,7 +8,7 @@ describe('MskComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MskComponent]
+      declarations: [MskComponent],
     }).compileComponents();
   }));
 

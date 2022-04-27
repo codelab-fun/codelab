@@ -6,7 +6,7 @@ import {
   OnInit,
   Type,
   ViewChild,
-  ViewChildren
+  ViewChildren,
 } from '@angular/core';
 
 function escapeHtml(str) {
@@ -18,7 +18,7 @@ function escapeHtml(str) {
 @Component({
   selector: 'console-console',
   templateUrl: './console.component.html',
-  styleUrls: ['./console.component.css']
+  styleUrls: ['./console.component.css'],
 })
 export class ConsoleComponent implements OnInit, AfterViewInit {
   fontSize = 40;
@@ -51,7 +51,7 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
       this.output.push({
         code: code.dynamicComponent,
         param: code.param,
-        type: 'dynamic'
+        type: 'dynamic',
       });
     } else {
       this.output.push({ code: code, type });
@@ -80,8 +80,8 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
     (window as any).explain = (component: string, param: string) =>
       this.explain(component, param);
 
-    console.log = function() {
-      Array.from(arguments).map(a => that.post(a, 'log'));
+    console.log = function () {
+      Array.from(arguments).map((a) => that.post(a, 'log'));
     };
 
     const addChar = () => {
@@ -141,7 +141,7 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
     if (this.input.length < 3) {
       this.autocomplete = [];
     } else {
-      this.autocomplete = this.commands.filter(a => a.includes(this.input));
+      this.autocomplete = this.commands.filter((a) => a.includes(this.input));
     }
   }
 
@@ -151,7 +151,7 @@ export class ConsoleComponent implements OnInit, AfterViewInit {
     }
     return {
       dynamicComponent: this.componentMap[s],
-      param
+      param,
     };
   }
 }

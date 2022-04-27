@@ -4,7 +4,7 @@ import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/comm
 @Component({
   selector: 'codelab-sync-playground-test',
   templateUrl: './sync-playground-test.component.html',
-  styleUrls: ['./sync-playground-test.component.css']
+  styleUrls: ['./sync-playground-test.component.css'],
 })
 export class SyncPlaygroundTestComponent {
   readonly polls: SyncPollConfig[] = [
@@ -13,15 +13,15 @@ export class SyncPlaygroundTestComponent {
       type: 'choice',
       question: 'What is your favorite framework?',
       answer: 'Angular',
-      options: ['react', 'Angular', 'Vue', 'Other']
+      options: ['react', 'Angular', 'Vue', 'Other'],
     },
     {
       key: 'other',
       type: 'choice',
       question: 'Another question',
       answer: '3',
-      options: ['1', '2', '3', '4']
-    }
+      options: ['1', '2', '3', '4'],
+    },
     /* {
        key: 'js',
        type: 'stars',

@@ -8,7 +8,7 @@ describe('CodelabCodeDemoConsoleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabCodeDemoConsoleEditorComponent]
+      declarations: [CodelabCodeDemoConsoleEditorComponent],
     }).compileComponents();
   }));
 

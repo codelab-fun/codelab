@@ -17,7 +17,6 @@ import {
 @NgModule({
   declarations: [ContentComponent],
   exports: [ContentComponent],
-  entryComponents: [ContentComponent],
   providers: [
     NavigationService,
     ContentService,

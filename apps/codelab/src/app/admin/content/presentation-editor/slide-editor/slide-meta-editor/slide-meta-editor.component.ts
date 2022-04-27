@@ -4,7 +4,7 @@ import { ContentService } from '../../services/content.service';
 @Component({
   selector: 'slides-slide-meta-editor',
   templateUrl: './slide-meta-editor.component.html',
-  styleUrls: ['./slide-meta-editor.component.scss']
+  styleUrls: ['./slide-meta-editor.component.scss'],
 })
 export class SlideMetaEditorComponent implements OnInit {
   @Input() slide;

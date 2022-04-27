@@ -26,7 +26,7 @@ export function resolveFunctionKeyOrValue(val, data, resolve) {
 }
 
 export function resolveOrderedByKey(key: string, data: any[]) {
-  return Object.values(data).find(a => a.name === key).value;
+  return Object.values(data).find((a) => a.name === key).value;
 }
 
 export function resolveByKey(key: string, data: any) {
@@ -36,7 +36,7 @@ export function resolveByKey(key: string, data: any) {
 export function strToBin(str) {
   return str
     .split('')
-    .map(a => a.charCodeAt(0))
-    .map(a => a.toString(2).padStart(8, 0))
+    .map((a) => a.charCodeAt(0))
+    .map((a) => a.toString(2).padStart(8, 0))
     .join('');
 }

@@ -8,7 +8,7 @@ describe('TypescriptTestRunnerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TypescriptTestRunnerComponent]
+      declarations: [TypescriptTestRunnerComponent],
     }).compileComponents();
   }));
 

@@ -5,9 +5,9 @@ function removeDebuggerSolved(
   const ast = babylon.parse(code);
 
   babelTraverse(ast, {
-    DebuggerStatement: node => {
+    DebuggerStatement: (node) => {
       node.remove();
-    }
+    },
   });
 
   return babelGenerator(ast).code;

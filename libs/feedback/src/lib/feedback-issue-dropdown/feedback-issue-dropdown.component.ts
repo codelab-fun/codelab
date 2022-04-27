@@ -5,7 +5,7 @@ import { GithubService } from '@codelab/utils';
   selector: 'feedback-issue-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './feedback-issue-dropdown.component.html',
-  styleUrls: ['./feedback-issue-dropdown.component.scss']
+  styleUrls: ['./feedback-issue-dropdown.component.scss'],
 })
 export class FeedbackIssueDropdownComponent {
   @Input() message: object;

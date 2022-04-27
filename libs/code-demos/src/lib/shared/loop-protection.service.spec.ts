@@ -5,7 +5,8 @@ import { LoopProtectionService } from './loop-protection.service';
 describe('LoopProtectionService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoopProtectionService]
+      providers: [LoopProtectionService],
+      teardown: { destroyAfterEach: false },
     });
   });
 

@@ -26,11 +26,11 @@ a {
   font-size: 6vw;
 }
 
-:host /deep/ .slide > div {
+:host ::ng-deep .slide > div {
   width: 100%;
 }
 
-:host /deep/ .slide {
+:host ::ng-deep .slide {
   background: transparent;
 }
 
@@ -260,12 +260,12 @@ a {
   font-size: 0;
 }
 
-#debugger-regex /deep/ .solution:hover:before {
+#debugger-regex ::ng-deep .solution:hover:before {
   color: red;
   font-size: 3vw;
 }
 
-:host /deep/ #debugger-regex .solution {
+:host ::ng-deep #debugger-regex .solution {
 }
 
 .ast-preview-helper-list li:hover {

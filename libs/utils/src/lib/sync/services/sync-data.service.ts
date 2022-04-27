@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import {
   SyncDataObject,
-  SyncDbService
+  SyncDbService,
 } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { FirebaseDb } from '@codelab/utils/src/lib/sync/services/common';
 import { QuestionDb } from '@codelab/utils/src/lib/sync/components/questions/common/common';
@@ -90,12 +90,11 @@ export interface SyncDb extends FirebaseDb {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SyncDataService {
-  private readonly syncId$: Observable<
-    string
-  > = this.syncSessionService.sessionId$.pipe(filter(a => !!a));
+  private readonly syncId$: Observable<string> =
+    this.syncSessionService.sessionId$.pipe(filter((a) => !!a));
   private readonly currentSession$ = this.dbService
     .object('sync-sessions')
     .object(this.syncId$);
@@ -112,7 +111,7 @@ export class SyncDataService {
   getCurrentViewerObject<K extends keyof ViewerConfig>(key: K) {
     return this.getViewerObject(
       key,
-      this.syncSessionService.viewerId$.pipe(filter(a => !!a))
+      this.syncSessionService.viewerId$.pipe(filter((a) => !!a))
     );
   }
 
@@ -120,10 +119,7 @@ export class SyncDataService {
     key: K,
     viewerId: Observable<string> | string
   ) {
-    return this.currentSession$
-      .object('viewer')
-      .object(key)
-      .object(viewerId);
+    return this.currentSession$.object('viewer').object(key).object(viewerId);
   }
 
   getAdminAllUserData<K extends keyof ViewerConfig>(

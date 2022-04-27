@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
     <h2 style="background: #fdf700">
       🎈 {{ number }} &nbsp; 🎈 What an amazing number!!! 🎖
     </h2>
-  `
+  `,
 })
 export class BirthdayCardComponent {
   @Input() number = 0;

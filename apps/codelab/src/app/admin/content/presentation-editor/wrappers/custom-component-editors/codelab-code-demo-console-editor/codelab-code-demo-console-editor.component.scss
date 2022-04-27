@@ -2,7 +2,6 @@
   display: flex;
 }
 
-
 .file {
   display: flex;
   border-bottom: 1px #999999 solid;
@@ -24,7 +23,7 @@
 
   .highlight {
     display: flex;
-    line-height: 40px
+    line-height: 40px;
   }
 
   .highlights-header {
@@ -33,9 +32,8 @@
     h3 {
       margin: 8px 0;
       padding: 0;
-      font-family: "Helvetica Neue";
+      font-family: 'Helvetica Neue';
       font-size: 14px;
     }
   }
 }
-

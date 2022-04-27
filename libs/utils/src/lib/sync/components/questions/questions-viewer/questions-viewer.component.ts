@@ -4,7 +4,7 @@ import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questio
 @Component({
   selector: 'codelab-questions-viewer',
   templateUrl: './questions-viewer.component.html',
-  styleUrls: ['./questions-viewer.component.css']
+  styleUrls: ['./questions-viewer.component.css'],
 })
 export class QuestionsViewerComponent {
   constructor(public readonly questionsService: QuestionsService) {}

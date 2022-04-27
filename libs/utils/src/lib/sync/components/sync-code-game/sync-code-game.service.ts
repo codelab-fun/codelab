@@ -3,7 +3,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SyncCodeGameService {
   private readonly key = 'coding';
@@ -16,10 +16,10 @@ export class SyncCodeGameService {
   );
 
   readonly allStatuses$ = this.allStatus.valueChanges().pipe(
-    map(a => {
+    map((a) => {
       return Object.entries(a || {}).map(([name, value]) => ({
         name,
-        status: value.session
+        status: value.session,
       }));
     })
   );

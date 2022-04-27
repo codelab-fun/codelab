@@ -1,5 +1,5 @@
 function loadSystemModule(name, code) {
-  window.define = function(deps, callback) {
+  window.define = function (deps, callback) {
     console.log(window.System.x);
     window.System.amdDefine(name, deps, callback);
   };
@@ -153,15 +153,15 @@ System.config({
     // other libraries
     tslib: 'npm:tslib/tslib.js',
     'rxjs/operators': 'npm:rxjs/operators',
-    rxjs: 'npm:rxjs'
+    rxjs: 'npm:rxjs',
   },
   warnings: true,
   packages: {
     'rxjs/operators': {
-      main: 'index'
+      main: 'index',
     },
     rxjs: {
-      main: 'index'
-    }
-  }
+      main: 'index',
+    },
+  },
 });

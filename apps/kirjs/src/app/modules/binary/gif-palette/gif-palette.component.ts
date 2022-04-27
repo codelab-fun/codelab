@@ -10,7 +10,7 @@ interface Chunk {
 @Component({
   selector: 'kirjs-gif-palette',
   templateUrl: './gif-palette.component.html',
-  styleUrls: ['./gif-palette.component.css']
+  styleUrls: ['./gif-palette.component.css'],
 })
 export class GifPaletteComponent implements OnInit {
   @Output() change = new EventEmitter<string>();
@@ -26,16 +26,16 @@ export class GifPaletteComponent implements OnInit {
   @Input()
   set value(val: string) {
     this._value = val;
-    this.colors = Array.from(val.match(/.{24}/g)).map(a =>
-      Array.from(a.match(/.{8}/g)).map(str => parseInt(str, 2))
+    this.colors = Array.from(val.match(/.{24}/g)).map((a) =>
+      Array.from(a.match(/.{8}/g)).map((str) => parseInt(str, 2))
     );
   }
 
   serialize() {
     this._value = this.colors
-      .map(c =>
+      .map((c) =>
         c
-          .map(p => ((+p).toString(2) as any).padStart(8, 0).slice(0, 8))
+          .map((p) => ((+p).toString(2) as any).padStart(8, 0).slice(0, 8))
           .join('')
       )
       .join('');

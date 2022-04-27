@@ -8,7 +8,7 @@ declare const require;
   // tslint:disable-next-line:component-selector
   selector: 'slides-sync-code-game-viewer',
   templateUrl: './sync-code-game-viewer.component.html',
-  styleUrls: ['./sync-code-game-viewer.component.css']
+  styleUrls: ['./sync-code-game-viewer.component.css'],
 })
 export class SyncCodeGameViewerComponent implements OnInit {
   questions = [
@@ -36,7 +36,7 @@ export class SyncCodeGameViewerComponent implements OnInit {
       it('Is greater than 7', () => { chai.expect(result()).to.be.gte(7); });
       it('Is greater than 8', () => { chai.expect(result()).to.be.gte(8); });
       it('Is greater than 9', () => { chai.expect(result()).to.be.gte(9); });
-    });`
+    });`,
     },
     {
       title: 'Write an subtract function',
@@ -56,8 +56,8 @@ export class SyncCodeGameViewerComponent implements OnInit {
       it('subtracts two other numbers', () => {
         chai.expect(subtract(24,66)).to.equal(-42);
       });
-    });`
-    }
+    });`,
+    },
   ];
   code = `function add(a,b){
     return a+b;
@@ -67,7 +67,7 @@ export class SyncCodeGameViewerComponent implements OnInit {
   maxScore = 0;
 
   update(result: TestRunResult) {
-    const score = result.error ? 0 : result.tests.filter(t => t.pass).length;
+    const score = result.error ? 0 : result.tests.filter((t) => t.pass).length;
 
     const maxScore = Math.max(this.maxScore, score);
     this.maxScore = maxScore;
@@ -75,7 +75,7 @@ export class SyncCodeGameViewerComponent implements OnInit {
     this.codeGameService.viewerStatus.set({
       score,
       maxScore,
-      code: this.questions[0].code
+      code: this.questions[0].code,
     });
   }
 

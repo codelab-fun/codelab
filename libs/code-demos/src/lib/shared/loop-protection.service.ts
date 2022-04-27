@@ -34,7 +34,7 @@ const loopBreaker = (function(){
           text: source.text.substring(
             statement.getStart(source),
             statement.getEnd()
-          )
+          ),
         });
       }
 

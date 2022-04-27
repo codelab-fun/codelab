@@ -5,7 +5,7 @@ import { NavigationService } from '../presentation-editor/services/navigation.se
 @Component({
   selector: 'slides-presentation-list',
   templateUrl: './presentation-list.component.html',
-  styleUrls: ['./presentation-list.component.css']
+  styleUrls: ['./presentation-list.component.css'],
 })
 export class PresentationListComponent {
   presentations$ = this.contentService.state$;
@@ -21,7 +21,7 @@ export class PresentationListComponent {
       name: 'new presentation',
       actions: [],
       slides: [],
-      version: 0
+      version: 0,
     };
 
     this.contentService.addPresentation(presentation);

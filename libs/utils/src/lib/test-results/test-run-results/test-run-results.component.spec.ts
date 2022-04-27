@@ -8,7 +8,7 @@ describe('TestRunResultsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TestRunResultsComponent]
+      declarations: [TestRunResultsComponent],
     }).compileComponents();
   }));
 

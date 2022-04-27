@@ -8,7 +8,7 @@ describe('TimerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TimerComponent]
+      declarations: [TimerComponent],
     }).compileComponents();
   }));
 

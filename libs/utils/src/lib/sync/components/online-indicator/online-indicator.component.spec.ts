@@ -9,7 +9,7 @@ describe('OnlineIndicatorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [OnlineIndicatorModule]
+      imports: [OnlineIndicatorModule],
     }).compileComponents();
   }));
 

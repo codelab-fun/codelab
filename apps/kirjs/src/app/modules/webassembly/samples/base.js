@@ -3,7 +3,7 @@ const size = 80;
 const config = {
   rowSize: 5,
   steps: 100,
-  log: console.log
+  log: console.log,
 };
 
 function drawOnCanvas(canvas, arr) {

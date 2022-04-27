@@ -7,7 +7,7 @@ export interface VarUintParserConfig extends BaseConfig {
 }
 
 export const defaultVarUintParserConfig = {
-  size: 7
+  size: 7,
 };
 
 export class VarUintParser extends AbstractBinaryParser {

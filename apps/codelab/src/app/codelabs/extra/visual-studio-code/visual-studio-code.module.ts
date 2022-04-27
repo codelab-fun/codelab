@@ -18,9 +18,9 @@ const routes = RouterModule.forChild(
     routes,
 
     FeedbackModule,
-    CommonModule
+    CommonModule,
   ],
   declarations: [VisualStudioCodeComponent],
-  exports: [VisualStudioCodeComponent]
+  exports: [VisualStudioCodeComponent],
 })
 export class VisualStudioCodeModule {}

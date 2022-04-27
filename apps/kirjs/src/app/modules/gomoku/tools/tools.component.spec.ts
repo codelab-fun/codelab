@@ -8,7 +8,7 @@ describe('ToolsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ToolsComponent]
+      declarations: [ToolsComponent],
     }).compileComponents();
   }));
 

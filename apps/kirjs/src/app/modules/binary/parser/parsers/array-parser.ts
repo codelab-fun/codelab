@@ -56,7 +56,7 @@ export class BinaryArrayParser extends AbstractBinaryParser {
         index,
         type: this.config.parser.type,
         value: result.value,
-        rawValue: result.rawValue
+        rawValue: result.rawValue,
       });
       len += length;
       numberOfElements--;
@@ -69,7 +69,7 @@ export class BinaryArrayParser extends AbstractBinaryParser {
       end: start + len,
       value,
       rawValue,
-      type: this.type
+      type: this.type,
     };
   }
 }

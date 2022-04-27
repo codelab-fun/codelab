@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 function generateData() {
-  return Array.from(new Array(10)).map(index => ({
+  return Array.from(new Array(10)).map((index) => ({
     index,
-    value: Math.round(Math.random() * 300)
+    value: Math.round(Math.random() * 300),
   }));
 }
 
@@ -28,7 +28,7 @@ function generateData() {
         <text [attr.x]="barWidth / 2" y="-10">{{ item.value }}</text>
       </g>
     </svg>
-  `
+  `,
 })
 export class AppComponent {
   barWidth = 30;

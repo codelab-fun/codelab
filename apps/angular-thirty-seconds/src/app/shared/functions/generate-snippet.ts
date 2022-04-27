@@ -4,21 +4,21 @@ import { SEPARATOR } from '../consts';
 
 const config = {
   header: ['title', 'author', 'twitter', 'level', 'links', 'tags'],
-  body: ['content', 'bonus']
+  body: ['content', 'bonus'],
 };
 
 function arrayToMarkdownList(tagsArray: Array<string>): string {
   return tagsArray
-    .filter(a => a)
-    .map(x => `- ${x}`)
+    .filter((a) => a)
+    .map((x) => `- ${x}`)
     .join(`\n`);
 }
 
 function generateMdHeader(keys: string[], snippet: Snippet) {
   return keys
-    .map(key => ({
+    .map((key) => ({
       key,
-      value: snippet[key]
+      value: snippet[key],
     }))
     .filter(({ value }) => !!value)
     .map(({ value, key }) => {
@@ -34,7 +34,7 @@ ${arrayToMarkdownList(value)}`;
     .join(SEPARATOR);
 }
 
-const ucFirst = s => {
+const ucFirst = (s) => {
   if (typeof s !== 'string') {
     return '';
   }
@@ -43,7 +43,7 @@ const ucFirst = s => {
 
 const extensionTolanguage = {
   ts: 'typescript',
-  js: 'javascript'
+  js: 'javascript',
 };
 
 function getFileLanguage(fileName) {
@@ -64,9 +64,9 @@ ${code}
 
 function generateMdBody(keys: string[], snippet: Snippet) {
   return keys
-    .map(key => ({
+    .map((key) => ({
       key,
-      value: snippet[key]
+      value: snippet[key],
     }))
     .filter(({ value, key }) => !!value)
     .map(({ value, key }) => {

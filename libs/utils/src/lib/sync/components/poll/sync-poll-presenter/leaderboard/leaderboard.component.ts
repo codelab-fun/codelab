@@ -12,7 +12,7 @@ interface Response {
 @Component({
   selector: 'codelab-leaderboard',
   templateUrl: './leaderboard.component.html',
-  styleUrls: ['./leaderboard.component.css']
+  styleUrls: ['./leaderboard.component.css'],
 })
 export class LeaderboardComponent implements OnInit {
   @Input() config;
@@ -22,7 +22,7 @@ export class LeaderboardComponent implements OnInit {
 
   ngOnInit() {
     this.leaderboard$ = this.syncPollService.calculateScores(
-      this.config.filter(a => a.answer)
+      this.config.filter((a) => a.answer)
     );
   }
 }

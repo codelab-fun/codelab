@@ -4,7 +4,7 @@ import {
   ViewChild,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,7 +16,7 @@ const clearTags = (value: string) =>
 const clearAllTags = (values: Message[]): Message[] =>
   values.map((m: Message) => ({
     ...m,
-    header: clearTags(m.header || 'No header')
+    header: clearTags(m.header || 'No header'),
   }));
 const sortingDataAccessor = (item, property) => {
   switch (property) {
@@ -31,7 +31,7 @@ const sortingDataAccessor = (item, property) => {
   selector: 'codelab-feedback-message-table',
   templateUrl: './feedback-message-table.html',
   styleUrls: ['./feedback-message-table.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeedbackMessageTableComponent {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -49,7 +49,7 @@ export class FeedbackMessageTableComponent {
     { name: '[No fix]', reason: '[No fix]' },
     { name: '[Done]', reason: '[Done]' },
     { name: '[Nice message]', reason: '[Nice message, though not a real bug]' },
-    { name: "[Can't reproduce]", reason: "[Can't reproduce]" }
+    { name: "[Can't reproduce]", reason: "[Can't reproduce]" },
   ];
 
   tableColumns = ['comment', 'name', 'header', 'timestamp', 'actions'];

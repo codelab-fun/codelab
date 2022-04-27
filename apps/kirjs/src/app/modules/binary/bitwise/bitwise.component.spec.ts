@@ -8,7 +8,7 @@ describe('BitwiseComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BitwiseComponent]
+      declarations: [BitwiseComponent],
     }).compileComponents();
   }));
 

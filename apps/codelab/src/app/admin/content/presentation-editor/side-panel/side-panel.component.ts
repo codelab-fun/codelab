@@ -3,7 +3,7 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  Output
+  Output,
 } from '@angular/core';
 import { Location } from '@angular/common';
 
@@ -14,7 +14,7 @@ import { NavigationService } from '../services/navigation.service';
 @Component({
   selector: 'slides-side-panel',
   templateUrl: './side-panel.component.html',
-  styleUrls: ['./side-panel.component.scss']
+  styleUrls: ['./side-panel.component.scss'],
 })
 export class SidePanelComponent {
   @Input() slides;

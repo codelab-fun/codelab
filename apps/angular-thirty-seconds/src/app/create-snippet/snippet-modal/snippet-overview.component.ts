@@ -34,7 +34,7 @@ function exportSnippet(snippet) {
 @Component({
   selector: 'codelab-snippet-overview',
   templateUrl: './snippet-overview.component.html',
-  styleUrls: ['./snippet-overview.component.scss']
+  styleUrls: ['./snippet-overview.component.scss'],
 })
 export class SnippetOverviewComponent implements OnInit, OnDestroy {
   destroy = new ReplaySubject<void>(1);
@@ -92,7 +92,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
           finalize(() => (this.isPRCreating = false)),
           takeUntil(this.destroy)
         )
-        .subscribe(res =>
+        .subscribe((res) =>
           this.navigateAndShowSnackBar(
             'Success',
             'Snippet updated',
@@ -109,14 +109,14 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
           this.data.repoOwner
         )
         .pipe(
-          switchMap(res =>
+          switchMap((res) =>
             this.githubService.addLinkToEditForm(
               this.data.repoOwner,
               this.data.repoName,
               res['number']
             )
           ),
-          switchMap(res =>
+          switchMap((res) =>
             this.githubService.addSnippetLabel(
               this.data.repoOwner,
               this.data.repoName,
@@ -126,7 +126,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
           finalize(() => (this.isPRCreating = false)),
           takeUntil(this.destroy)
         )
-        .subscribe(res =>
+        .subscribe((res) =>
           this.navigateAndShowSnackBar(
             'Pull request created',
             res['title'].replace('Add - new snippet: ', ''),
@@ -140,7 +140,7 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
     this.router.navigate(['list']);
     const snakeBarRef = this._snackBar.open(text, linkLabel, {
-      duration: 20000
+      duration: 20000,
     });
     snakeBarRef
       .onAction()

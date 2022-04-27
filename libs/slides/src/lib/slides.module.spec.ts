@@ -4,7 +4,8 @@ import { SlidesModule } from './slides.module';
 describe('SlidesModule', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [SlidesModule]
+      imports: [SlidesModule],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

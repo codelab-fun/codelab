@@ -5,6 +5,6 @@ import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/
   selector: 'codelab-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
-  providers: [SyncRegistrationService]
+  providers: [SyncRegistrationService],
 })
 export class RegistrationComponent {}

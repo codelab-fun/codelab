@@ -19,10 +19,10 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(FormsComponent)]);
     BrowserWindowModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [FormsComponent],
   exports: [FormsComponent],
-  providers: [Ng2TsExercises]
+  providers: [Ng2TsExercises],
 })
 export class FormsCodelabModule {}

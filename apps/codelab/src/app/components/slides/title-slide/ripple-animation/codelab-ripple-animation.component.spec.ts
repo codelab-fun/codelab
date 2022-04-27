@@ -7,7 +7,7 @@ describe('CodelabRippleAnimationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabRippleAnimationComponent]
+      declarations: [CodelabRippleAnimationComponent],
     }).compileComponents();
   }));
 

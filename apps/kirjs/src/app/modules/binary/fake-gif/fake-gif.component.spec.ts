@@ -8,7 +8,7 @@ describe('FakeGifComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [FakeGifComponent]
+      declarations: [FakeGifComponent],
     }).compileComponents();
   }));
 

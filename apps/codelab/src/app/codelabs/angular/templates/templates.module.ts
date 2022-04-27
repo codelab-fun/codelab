@@ -16,9 +16,9 @@ const routes = RouterModule.forChild([...SlidesRoutes.get(TemplatesComponent)]);
     FeedbackModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [TemplatesComponent],
-  exports: [TemplatesComponent]
+  exports: [TemplatesComponent],
 })
 export class TemplatesModule {}

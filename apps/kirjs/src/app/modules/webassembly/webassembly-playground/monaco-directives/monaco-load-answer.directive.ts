@@ -3,7 +3,7 @@ import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-ed
 
 @Directive({
   selector: '[slidesMonacoLoadAnswer]',
-  exportAs: 'MonacoWatLoadAnswer'
+  exportAs: 'MonacoWatLoadAnswer',
 })
 export class MonacoWatLoadAnswerDirective {
   @Output() slidesMonacoLoadAnswer = new EventEmitter<void>();

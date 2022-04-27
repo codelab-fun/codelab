@@ -15,7 +15,7 @@ import { DirectivesModule } from '../../directives/directives.module';
     FirebaseLoginModule,
     MenuGithubWidgetModule,
     MenuShortcutWidgetModule,
-    DirectivesModule
+    DirectivesModule,
   ],
   declarations: [ButtonsNavBarComponent, MenuFullscreenWidgetComponent],
   exports: [
@@ -23,7 +23,7 @@ import { DirectivesModule } from '../../directives/directives.module';
     FeedbackModule,
     FirebaseLoginModule,
     MenuGithubWidgetModule,
-    MenuShortcutWidgetModule
-  ]
+    MenuShortcutWidgetModule,
+  ],
 })
 export class ButtonsNavBarModule {}

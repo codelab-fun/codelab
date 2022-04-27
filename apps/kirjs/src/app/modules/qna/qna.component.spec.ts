@@ -8,7 +8,7 @@ describe('QnaComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [QnaComponent]
+      declarations: [QnaComponent],
     }).compileComponents();
   }));
 

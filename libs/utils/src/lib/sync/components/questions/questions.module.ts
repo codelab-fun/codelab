@@ -29,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     SyncDirectivesModule,
     MatIconModule,
     FormsModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
   declarations: [
     QuestionsComponent,
@@ -37,8 +37,8 @@ import { FormsModule } from '@angular/forms';
     QuestionsViewerComponent,
     QuestionsPresenterComponent,
     QuestionComponent,
-    QuestionListComponent
+    QuestionListComponent,
   ],
-  exports: [QuestionsComponent]
+  exports: [QuestionsComponent],
 })
 export class QuestionsModule {}

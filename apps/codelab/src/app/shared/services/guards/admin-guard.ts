@@ -3,7 +3,7 @@ import {
   Router,
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
-  CanActivate
+  CanActivate,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -19,7 +19,7 @@ export class AdminGuard implements CanActivate {
   ): Observable<boolean> | boolean {
     return true;
     return this.accessService.can(Permissions.CAN_LOAD_ADMIN).pipe(
-      map(hasAccess => {
+      map((hasAccess) => {
         if (!hasAccess) {
           this._route.navigate(['login']);
           return false;

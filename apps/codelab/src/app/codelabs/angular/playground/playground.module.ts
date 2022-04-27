@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([{ path: '', component: PlaygroundComponent }]),
     CodeDemoModule,
     CommonModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
 export class PlaygroundModule {}

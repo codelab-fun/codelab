@@ -4,7 +4,8 @@ import { CodeDemoModule } from './code-demo.module';
 describe('CodeDemoModule', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [CodeDemoModule]
+      imports: [CodeDemoModule],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

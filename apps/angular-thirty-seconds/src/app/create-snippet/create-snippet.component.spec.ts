@@ -17,8 +17,8 @@ describe('CreateSnippetComponent', () => {
   beforeEach(waitForAsync(() => {
     activatedRoute = {
       snapshot: {
-        params: {}
-      }
+        params: {},
+      },
     } as any;
 
     snippetService = jasmine.createSpyObj('snippetService', ['fetchPR']);
@@ -28,13 +28,13 @@ describe('CreateSnippetComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useFactory: () => activatedRoute
+          useFactory: () => activatedRoute,
         },
         {
           provide: SnippetService,
-          useValue: snippetService
-        }
-      ]
+          useValue: snippetService,
+        },
+      ],
     }).compileComponents();
   }));
 
@@ -50,9 +50,9 @@ describe('CreateSnippetComponent', () => {
         params: {
           pullNumber,
           repoName,
-          repoOwner
-        }
-      }
+          repoOwner,
+        },
+      },
     } as any;
 
     snippetService.fetchPR.and.returnValue(of({}));

@@ -4,7 +4,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'kirjs-html-post',
   templateUrl: './html-post.component.html',
-  styleUrls: ['./html-post.component.css']
+  styleUrls: ['./html-post.component.css'],
 })
 export class HtmlPostComponent {
   html: SafeHtml;

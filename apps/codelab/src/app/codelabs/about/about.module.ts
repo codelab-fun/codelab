@@ -10,6 +10,6 @@ const routes = RouterModule.forChild(SlidesRoutes.get(AboutComponent));
 
 @NgModule({
   declarations: [AboutComponent],
-  imports: [CommonModule, SlidesModule, routes, CodeDemoModule, FormsModule]
+  imports: [CommonModule, SlidesModule, routes, CodeDemoModule, FormsModule],
 })
 export class AboutModule {}

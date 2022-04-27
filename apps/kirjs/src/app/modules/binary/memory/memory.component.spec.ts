@@ -8,7 +8,7 @@ describe('MemoryComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MemoryComponent]
+      declarations: [MemoryComponent],
     }).compileComponents();
   }));
 

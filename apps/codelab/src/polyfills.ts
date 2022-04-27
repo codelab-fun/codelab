@@ -1,5 +1,5 @@
 import 'fullscreen-api-polyfill';
-import 'zone.js/dist/zone'; // Included with Angular CLI.
+import 'zone.js'; // Included with Angular CLI.
 import '@angular/localize/init';
 
 // Needed for babel :(
@@ -10,9 +10,9 @@ import '@angular/localize/init';
   argv: {
     indexOf() {
       return 0;
-    }
+    },
   },
   getuid() {
     return 0;
-  }
+  },
 };

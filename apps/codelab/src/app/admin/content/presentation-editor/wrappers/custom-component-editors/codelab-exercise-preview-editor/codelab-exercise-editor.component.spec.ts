@@ -8,7 +8,7 @@ describe('CodelabExercisePreviewEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabExercisePreviewEditorComponent]
+      declarations: [CodelabExercisePreviewEditorComponent],
     }).compileComponents();
   }));
 

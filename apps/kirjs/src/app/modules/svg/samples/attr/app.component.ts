@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
         stroke-width="20"
       ></rect>
     </svg>
-  `
+  `,
 })
 export class AppComponent {
   y = 200;

@@ -11,7 +11,7 @@ declare const require;
 @Component({
   selector: 'kirjs-babel-test-runner',
   templateUrl: './babel-test-runner.component.html',
-  styleUrls: ['./babel-test-runner.component.css']
+  styleUrls: ['./babel-test-runner.component.css'],
 })
 export class BabelTestRunnerComponent {
   tests: Array<TestInfo> = [];
@@ -30,14 +30,14 @@ export class BabelTestRunnerComponent {
       babelTraverse,
       babelGenerator,
       types,
-      log: value => {
+      log: (value) => {
         this.logs.push(value);
-      }
+      },
     };
-    const callback = result => {
+    const callback = (result) => {
       if (result) {
         this.tests = result;
-        this.firstFailing = this.tests.find(test => !test.pass);
+        this.firstFailing = this.tests.find((test) => !test.pass);
       }
     };
 
@@ -51,7 +51,7 @@ export class BabelTestRunnerComponent {
   }
 
   firstFailingIndex() {
-    const firstFailing = this.tests.findIndex(i => !i.pass);
+    const firstFailing = this.tests.findIndex((i) => !i.pass);
     return firstFailing === -1 ? this.tests.length : firstFailing;
   }
 

@@ -4,7 +4,7 @@ export interface ParserConfig {
 
 export enum Endianness {
   BIG = 1,
-  LITTLE
+  LITTLE,
 }
 
 export interface BinaryParserConfig {
@@ -12,7 +12,7 @@ export interface BinaryParserConfig {
 }
 
 export const defaultConfig: BinaryParserConfig = {
-  endianness: Endianness.BIG
+  endianness: Endianness.BIG,
 };
 
 export function beToLe32(val) {

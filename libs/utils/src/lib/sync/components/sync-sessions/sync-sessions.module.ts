@@ -8,13 +8,12 @@ import { SyncSessionsComponent } from './sync-sessions.component';
 
 @NgModule({
   declarations: [SyncSessionsComponent],
-  entryComponents: [SyncSessionsComponent],
   imports: [
     CommonModule,
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    MatInputModule
-  ]
+    MatInputModule,
+  ],
 })
 export class SyncSessionsModule {}

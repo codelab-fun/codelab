@@ -8,7 +8,7 @@ describe('LoadingIndicatorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [LoadingIndicatorComponent]
+      declarations: [LoadingIndicatorComponent],
     }).compileComponents();
   }));
 

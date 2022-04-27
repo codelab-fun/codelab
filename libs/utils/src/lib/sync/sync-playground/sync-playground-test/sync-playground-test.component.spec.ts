@@ -12,7 +12,7 @@ describe('SyncPlaygroundTestComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SyncModule, RouterTestingModule],
-      providers: [...getMockAngularFireProviders()]
+      providers: [...getMockAngularFireProviders()],
     }).compileComponents();
   }));
 

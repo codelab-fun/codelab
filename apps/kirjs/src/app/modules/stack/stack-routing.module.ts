@@ -7,6 +7,6 @@ import { StackModule } from './stack.module';
 const routes = RouterModule.forChild(SlidesRoutes.get(StackComponent));
 
 @NgModule({
-  imports: [StackModule, routes]
+  imports: [StackModule, routes],
 })
 export class StackRoutingModule {}

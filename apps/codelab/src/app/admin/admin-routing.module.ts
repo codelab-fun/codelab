@@ -15,31 +15,31 @@ const routes = [
     component: AdminComponent,
     children: [
       { path: 'users', component: UsersComponent },
-      { path: 'feedback', component: FeedbackComponent }
-    ]
+      { path: 'feedback', component: FeedbackComponent },
+    ],
   },
   {
     path: 'content',
     children: [
       {
         path: '',
-        component: PresentationListComponent
+        component: PresentationListComponent,
       },
       {
         path: ':presentation/:slide/preview',
-        component: PreviewComponent
+        component: PreviewComponent,
       },
       {
         path: ':presentation/:slide',
         component: ContentComponent,
-        children: [{ path: '', ContentComponent }]
-      }
-    ]
-  }
+        children: [{ path: '', ContentComponent }],
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes), CommonModule],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AdminRoutingModule {}

@@ -3,19 +3,19 @@ import { FileConfig } from '../interfaces/file-config';
 export enum FileType {
   TypeScript = 'typescript',
   Html = 'html',
-  Css = 'css'
+  Css = 'css',
 }
 
 const fileConfig = {
   [FileType.TypeScript]: {
-    extension: '.ts'
+    extension: '.ts',
   },
   [FileType.Html]: {
-    extension: '.html'
+    extension: '.html',
   },
   [FileType.Css]: {
-    extension: '.css'
-  }
+    extension: '.css',
+  },
 };
 
 export class CodelabFile implements FileConfig {

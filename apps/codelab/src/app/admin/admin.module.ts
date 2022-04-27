@@ -20,8 +20,8 @@ import { PresentationListModule } from './content/presentation-list/presentation
     PresentationListModule,
     UsersModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
   ],
-  declarations: [AdminComponent]
+  declarations: [AdminComponent],
 })
 export class AdminModule {}

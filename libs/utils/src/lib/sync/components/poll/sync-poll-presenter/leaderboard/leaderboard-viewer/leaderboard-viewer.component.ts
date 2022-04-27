@@ -5,7 +5,7 @@ import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/com
 @Component({
   selector: 'codelab-leaderboard-viewer',
   templateUrl: './leaderboard-viewer.component.html',
-  styleUrls: ['./leaderboard-viewer.component.css']
+  styleUrls: ['./leaderboard-viewer.component.css'],
 })
 export class LeaderboardViewerComponent implements OnInit {
   @Input() config;
@@ -16,7 +16,7 @@ export class LeaderboardViewerComponent implements OnInit {
 
   ngOnInit() {
     this.myScore$ = this.syncPollService.calculateMyScore(
-      this.config.filter(a => a.answer)
+      this.config.filter((a) => a.answer)
     );
   }
 }

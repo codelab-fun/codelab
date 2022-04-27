@@ -30,7 +30,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     MatMenuModule,
     MatSelectModule,
     TestResultsModule,
-    DirectivesModule
+    DirectivesModule,
   ],
   declarations: [
     SimpleAngularTestRunnerComponent,
@@ -43,7 +43,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     CodelabExercisePreviewComponent,
     CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
-    CodelabRippleAnimationComponent
+    CodelabRippleAnimationComponent,
   ],
   exports: [
     SimpleAngularTestRunnerComponent,
@@ -56,7 +56,7 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
     CodelabExercisePreviewComponent,
     CodelabExercisePlaygroundComponent,
     CodelabProgressBarComponent,
-    CodelabRippleAnimationComponent
-  ]
+    CodelabRippleAnimationComponent,
+  ],
 })
 export class CodelabComponentsModule {}

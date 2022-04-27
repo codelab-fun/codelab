@@ -8,7 +8,7 @@ describe('SingleCellComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SingleCellComponent]
+      declarations: [SingleCellComponent],
     }).compileComponents();
   }));
 

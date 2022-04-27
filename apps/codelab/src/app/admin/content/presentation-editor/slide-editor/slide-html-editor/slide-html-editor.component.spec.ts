@@ -8,7 +8,7 @@ describe('SlideHtmlEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SlideHtmlEditorComponent]
+      declarations: [SlideHtmlEditorComponent],
     }).compileComponents();
   }));
 

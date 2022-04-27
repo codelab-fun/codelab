@@ -11,7 +11,7 @@ import { Ng2TsExercises } from '../../../../../../../ng2ts/ng2ts';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 
 const routes = RouterModule.forChild([
-  ...SlidesRoutes.get(ComponentTreeComponent)
+  ...SlidesRoutes.get(ComponentTreeComponent),
 ]);
 
 @NgModule({
@@ -22,10 +22,10 @@ const routes = RouterModule.forChild([
     FeedbackModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [Ng2TsExercises],
   declarations: [ComponentTreeComponent, ComponentsHierarchySvgComponent],
-  exports: [ComponentTreeComponent]
+  exports: [ComponentTreeComponent],
 })
 export class ComponentTreeModule {}

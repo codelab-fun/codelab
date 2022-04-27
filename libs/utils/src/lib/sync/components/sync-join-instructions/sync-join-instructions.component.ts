@@ -4,7 +4,7 @@ import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.
 @Component({
   selector: 'codelab-sync-join-instructions',
   templateUrl: './sync-join-instructions.component.html',
-  styleUrls: ['./sync-join-instructions.component.css']
+  styleUrls: ['./sync-join-instructions.component.css'],
 })
 export class SyncJoinInstructionsComponent {
   readonly key = 'joinUrl';

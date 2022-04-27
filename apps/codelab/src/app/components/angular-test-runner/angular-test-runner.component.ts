@@ -10,7 +10,7 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { createSystemJsSandbox } from '@codelab/code-demos/src/lib/shared/sandbox';
 import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
@@ -28,48 +28,50 @@ const ts = getTypeScript();
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
   sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
-  (sandbox.iframe.contentWindow as any).System.register('code', [], function(
-    exports
-  ) {
-    return {
-      setters: [],
-      execute: function() {
-        exports('ts', ts);
-        exports('babylon', babylon);
-        exports('babel_traverse', babel_traverse);
-        exports('babel_types', babel_types);
-        Object.entries(files)
-          .filter(([moduleName]) => moduleName.match(/\.ts$/))
-          .forEach(([path, code]) => {
-            exports(path.replace(/[\/.-]/gi, '_'), code);
-            exports(
-              path.replace(/[\/.-]/gi, '_') + '_AST',
-              ts.createSourceFile(path, code, ts.ScriptTarget.ES5)
-            );
-          });
-        Object.entries(files)
-          .filter(([moduleName]) => moduleName.match(/\.html/))
-          .forEach(([path, code]) => {
-            const templatePath = path.replace(/[\/.-]/gi, '_');
-            exports(templatePath, code);
-          });
-      }
-    };
-  });
+  (sandbox.iframe.contentWindow as any).System.register(
+    'code',
+    [],
+    function (exports) {
+      return {
+        setters: [],
+        execute: function () {
+          exports('ts', ts);
+          exports('babylon', babylon);
+          exports('babel_traverse', babel_traverse);
+          exports('babel_types', babel_types);
+          Object.entries(files)
+            .filter(([moduleName]) => moduleName.match(/\.ts$/))
+            .forEach(([path, code]) => {
+              exports(path.replace(/[\/.-]/gi, '_'), code);
+              exports(
+                path.replace(/[\/.-]/gi, '_') + '_AST',
+                ts.createSourceFile(path, code, ts.ScriptTarget.ES5)
+              );
+            });
+          Object.entries(files)
+            .filter(([moduleName]) => moduleName.match(/\.html/))
+            .forEach(([path, code]) => {
+              const templatePath = path.replace(/[\/.-]/gi, '_');
+              exports(templatePath, code);
+            });
+        },
+      };
+    }
+  );
 }
 
 @Component({
   selector: 'codelab-simple-angular-test-runner',
   templateUrl: './angular-test-runner.component.html',
-  styleUrls: ['./angular-test-runner.component.css']
+  styleUrls: ['./angular-test-runner.component.css'],
 })
 export class SimpleAngularTestRunnerComponent
-  implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+  implements OnInit, OnChanges, AfterViewInit, OnDestroy
+{
   handleMessageBound: any;
   @Output() solved: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() public selectFile: EventEmitter<string> = new EventEmitter<
-    string
-  >();
+  @Output() public selectFile: EventEmitter<string> =
+    new EventEmitter<string>();
   @Input() translations: { [key: string]: string } = {};
   @Input() code: any;
   @Input() bootstrap: string;
@@ -87,20 +89,20 @@ export class SimpleAngularTestRunnerComponent
   ) {}
 
   ngOnInit() {
-    this.handleMessageBound = message => {
+    this.handleMessageBound = (message) => {
       this.tests = handleTestMessage(message, this.tests || []);
 
       this.result = {
-        tests: this.tests.map(test => {
+        tests: this.tests.map((test) => {
           const name =
             this.translations[test.title.replace('@@', '')] || test.title;
           return { ...test, name, error: test.result };
-        })
+        }),
       };
 
       if (message.data.type === 'testEnd') {
         this.solved.emit(
-          this.tests.length > 0 && this.tests.every(test => test.pass)
+          this.tests.length > 0 && this.tests.every((test) => test.pass)
         );
       }
 
@@ -120,7 +122,7 @@ export class SimpleAngularTestRunnerComponent
       this.runnerElement.nativeElement,
       {
         id: 'testing',
-        url: '/assets/runner'
+        url: '/assets/runner',
       }
     );
 
@@ -137,7 +139,7 @@ export class SimpleAngularTestRunnerComponent
     sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
     sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
 
-    this.subscription = this.changedFilesSubject.subscribe(files => {
+    this.subscription = this.changedFilesSubject.subscribe((files) => {
       const hasErrors = Object.entries(files)
         .filter(([path]) => path.match(/\.js$/))
         .map(([path, code]) => {
@@ -158,7 +160,7 @@ export class SimpleAngularTestRunnerComponent
           }
           return false;
         })
-        .some(a => a);
+        .some((a) => a);
 
       if (!hasErrors) {
         sandbox.evalJs(`System.import('${this.bootstrap}')`);

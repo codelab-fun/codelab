@@ -4,7 +4,7 @@ import {
   SyncIsAdminDirective,
   SyncIsPresentingDirective,
   SyncIsViewingDirective,
-  SyncIsOffDirective
+  SyncIsOffDirective,
 } from '@codelab/utils/src/lib/sync/directives/is-status.directive';
 import { SyncPresenterValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-presenter-value.directive';
 import { SyncViewerValueDirective } from '@codelab/utils/src/lib/sync/directives/sync-viewer-value.directive';
@@ -18,7 +18,7 @@ import { SyncUserValueDirective } from '@codelab/utils/src/lib/sync/directives/s
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
     SyncIsOffDirective,
-    SyncUserValueDirective
+    SyncUserValueDirective,
   ],
   exports: [
     SyncIsViewingDirective,
@@ -27,8 +27,8 @@ import { SyncUserValueDirective } from '@codelab/utils/src/lib/sync/directives/s
     SyncPresenterValueDirective,
     SyncViewerValueDirective,
     SyncIsOffDirective,
-    SyncUserValueDirective
+    SyncUserValueDirective,
   ],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class SyncDirectivesModule {}

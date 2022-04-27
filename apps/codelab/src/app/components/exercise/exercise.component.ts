@@ -33,7 +33,7 @@ export function getChanges(current, previous) {
 @Component({
   selector: 'codelab-exercise',
   templateUrl: 'exercise.component.html',
-  styleUrls: ['./exercise.component.css']
+  styleUrls: ['./exercise.component.css'],
 })
 export class CodelabExerciseComponent extends CodeDemoComponent {
   isSolved = false;
@@ -64,7 +64,7 @@ export class CodelabExerciseComponent extends CodeDemoComponent {
   }
 
   retrieveFile(file, code) {
-    const f = this.filesConfig.files.find(f => f.path === file);
+    const f = this.filesConfig.files.find((f) => f.path === file);
     return (f.before || '') + code + (f.after || '');
   }
 }

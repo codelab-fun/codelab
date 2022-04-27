@@ -5,7 +5,7 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 
 declare const require;
@@ -13,7 +13,7 @@ declare const require;
 @Component({
   selector: 'slides-webassembly-code-mode',
   templateUrl: './webassembly-code-mode.component.html',
-  styleUrls: ['./webassembly-code-mode.component.css']
+  styleUrls: ['./webassembly-code-mode.component.css'],
 })
 export class WebassemblyCodeModeComponent implements OnChanges {
   @HostBinding('style.width.px') width = 0;
@@ -41,7 +41,7 @@ export class WebassemblyCodeModeComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('sideBarBlocks' in changes) {
       this.blocks = this.sideBarBlocks || [];
-      const block = this.blocks.find(b => !!b.meta);
+      const block = this.blocks.find((b) => !!b.meta);
       this.selectedMode = {};
       if (block) {
         this.selectedMode = block.meta;

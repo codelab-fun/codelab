@@ -7,6 +7,6 @@ import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-resu
 @NgModule({
   declarations: [TestRunnerComponent, TypescriptTestRunnerComponent],
   exports: [TestRunnerComponent, TypescriptTestRunnerComponent],
-  imports: [CommonModule, TestResultsModule]
+  imports: [CommonModule, TestResultsModule],
 })
 export class SandboxRunnerModule {}

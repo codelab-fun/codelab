@@ -7,6 +7,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 @NgModule({
   imports: [CommonModule, AngularFirestoreModule],
   exports: [SyncFireStoreDirective],
-  declarations: [SyncFireStoreDirective]
+  declarations: [SyncFireStoreDirective],
 })
 export class FirebaseModule {}

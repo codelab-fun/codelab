@@ -10,7 +10,7 @@ import { ExternalLinkDirectiveDirective } from '../../../components/external-lin
 import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 
 const routes = RouterModule.forChild([
-  ...SlidesRoutes.get(AngularCliComponent)
+  ...SlidesRoutes.get(AngularCliComponent),
 ]);
 
 @NgModule({
@@ -21,9 +21,9 @@ const routes = RouterModule.forChild([
     BrowserWindowModule,
     CodelabComponentsModule,
     SlidesModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [AngularCliComponent, ExternalLinkDirectiveDirective],
-  exports: [AngularCliComponent]
+  exports: [AngularCliComponent],
 })
 export class AngularCliModule {}

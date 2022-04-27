@@ -8,7 +8,7 @@ describe('JsonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [JsonComponent]
+      declarations: [JsonComponent],
     }).compileComponents();
   }));
 

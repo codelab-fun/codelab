@@ -5,7 +5,7 @@ function traverseDebuggerSolved(code, { babylon, babelTraverse, log }) {
   babelTraverse(ast, {
     DebuggerStatement: () => {
       hasCode = true;
-    }
+    },
   });
   return hasCode;
 }

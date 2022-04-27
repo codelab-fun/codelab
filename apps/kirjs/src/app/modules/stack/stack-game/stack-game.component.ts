@@ -17,7 +17,7 @@ const ANY_CHAR = '＊';
 @Component({
   selector: 'slides-stack-game',
   templateUrl: './stack-game.component.html',
-  styleUrls: ['./stack-game.component.css']
+  styleUrls: ['./stack-game.component.css'],
 })
 export class StackGameComponent implements OnInit {
   isComplete = false;
@@ -27,24 +27,24 @@ export class StackGameComponent implements OnInit {
       {
         inputs: '',
         outputs: '🍏',
-        name: 'push 🍏'
+        name: 'push 🍏',
       },
       {
         inputs: '🍏🍏',
-        outputs: '🍋'
+        outputs: '🍋',
       },
       {
         inputs: '🍋🍋',
-        outputs: '🍒'
+        outputs: '🍒',
       },
       {
         inputs: '＊',
         outputs: '',
-        name: 'pop'
-      }
+        name: 'pop',
+      },
     ],
     inputs: '🍏',
-    outputs: '🍒'
+    outputs: '🍒',
   };
 
   functions = [];

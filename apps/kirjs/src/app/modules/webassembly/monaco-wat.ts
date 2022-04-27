@@ -44,935 +44,936 @@ export function getWatCompletionItems() {
       label: 'func',
       documentation: 'function declaration',
       kind: keyword,
-      insertText: 'func'
+      insertText: 'func',
     },
     {
       label: 'param',
       documentation: 'parameter',
       kind: keyword,
-      insertText: { value: 'param ${1:identifier} ${2:type}' } as any
+      insertText: { value: 'param ${1:identifier} ${2:type}' } as any,
     },
 
     {
       label: 'i32',
       documentation: '32-bit integer',
       kind: keyword,
-      insertText: 'i32'
+      insertText: 'i32',
     },
     {
       label: 'i64',
       documentation: '64-bit integer',
       kind: keyword,
-      insertText: 'i64'
+      insertText: 'i64',
     },
     {
       label: 'f32',
       documentation: '32-bit floating point',
       kind: keyword,
-      insertText: 'f32'
+      insertText: 'f32',
     },
     {
       label: 'f64',
       documentation: '64-bit floating point',
       kind: keyword,
-      insertText: 'f64'
+      insertText: 'f64',
     },
     {
       label: 'anyfunc',
       documentation: 'function reference',
       kind: keyword,
-      insertText: 'anyfunc'
+      insertText: 'anyfunc',
     },
 
     {
       label: 'i32.load8_s',
       documentation: 'load 1 byte and sign-extend i8 to i32',
       kind: keyword,
-      insertText: 'i32.load8_s'
+      insertText: 'i32.load8_s',
     },
     {
       label: 'i32.load8_u',
       documentation: 'load 1 byte and zero-extend i8 to i32',
       kind: keyword,
-      insertText: 'i32.load8_u'
+      insertText: 'i32.load8_u',
     },
     {
       label: 'i32.load16_s',
       documentation: 'load 2 bytes and sign-extend i16 to i32',
       kind: keyword,
-      insertText: 'i32.load16_s'
+      insertText: 'i32.load16_s',
     },
     {
       label: 'i32.load16_u',
       documentation: 'load 2 bytes and zero-extend i16 to i32',
       kind: keyword,
-      insertText: 'i32.load16_u'
+      insertText: 'i32.load16_u',
     },
     {
       label: 'i32.load',
       documentation: 'load 4 bytes as i32',
       kind: keyword,
-      insertText: 'i32.load'
+      insertText: 'i32.load',
     },
     {
       label: 'i64.load8_s',
       documentation: 'load 1 byte and sign-extend i8 to i64',
       kind: keyword,
-      insertText: 'i64.load8_s'
+      insertText: 'i64.load8_s',
     },
     {
       label: 'i64.load8_u',
       documentation: 'load 1 byte and zero-extend i8 to i64',
       kind: keyword,
-      insertText: 'i64.load8_u'
+      insertText: 'i64.load8_u',
     },
     {
       label: 'i64.load16_s',
       documentation: 'load 2 bytes and sign-extend i16 to i64',
       kind: keyword,
-      insertText: 'i64.load16_s'
+      insertText: 'i64.load16_s',
     },
     {
       label: 'i64.load16_u',
       documentation: 'load 2 bytes and zero-extend i16 to i64',
       kind: keyword,
-      insertText: 'i64.load16_u'
+      insertText: 'i64.load16_u',
     },
     {
       label: 'i64.load32_s',
       documentation: 'load 4 bytes and sign-extend i32 to i64',
       kind: keyword,
-      insertText: 'i64.load32_s'
+      insertText: 'i64.load32_s',
     },
     {
       label: 'i64.load32_u',
       documentation: 'load 4 bytes and zero-extend i32 to i64',
       kind: keyword,
-      insertText: 'i64.load32_u'
+      insertText: 'i64.load32_u',
     },
     {
       label: 'i64.load',
       documentation: 'load 8 bytes as i64',
       kind: keyword,
-      insertText: 'i64.load'
+      insertText: 'i64.load',
     },
     {
       label: 'f32.load',
       documentation: 'load 4 bytes as f32',
       kind: keyword,
-      insertText: 'f32.load'
+      insertText: 'f32.load',
     },
     {
       label: 'f64.load',
       documentation: 'load 8 bytes as f64',
       kind: keyword,
-      insertText: 'f64.load'
+      insertText: 'f64.load',
     },
 
     {
       label: 'i32.store8',
       documentation: 'wrap i32 to i8 and store 1 byte',
       kind: keyword,
-      insertText: 'i32.store8'
+      insertText: 'i32.store8',
     },
     {
       label: 'i32.store16',
       documentation: 'wrap i32 to i16 and store 2 bytes',
       kind: keyword,
-      insertText: 'i32.store16'
+      insertText: 'i32.store16',
     },
     {
       label: 'i32.store',
       documentation: '(no conversion) store 4 bytes',
       kind: keyword,
-      insertText: 'i32.store'
+      insertText: 'i32.store',
     },
     {
       label: 'i64.store8',
       documentation: 'wrap i64 to i8 and store 1 byte',
       kind: keyword,
-      insertText: 'i64.store8'
+      insertText: 'i64.store8',
     },
     {
       label: 'i64.store16',
       documentation: 'wrap i64 to i16 and store 2 bytes',
       kind: keyword,
-      insertText: 'i64.store16'
+      insertText: 'i64.store16',
     },
     {
       label: 'i64.store32',
       documentation: 'wrap i64 to i32 and store 4 bytes',
       kind: keyword,
-      insertText: 'i64.store32'
+      insertText: 'i64.store32',
     },
     {
       label: 'i64.store',
       documentation: '(no conversion) store 8 bytes',
       kind: keyword,
-      insertText: 'i64.store'
+      insertText: 'i64.store',
     },
     {
       label: 'f32.store',
       documentation: '(no conversion) store 4 bytes',
       kind: keyword,
-      insertText: 'f32.store'
+      insertText: 'f32.store',
     },
     {
       label: 'f64.store',
       documentation: '(no conversion) store 8 bytes',
       kind: keyword,
-      insertText: 'f64.store'
+      insertText: 'f64.store',
     },
 
     {
       label: 'get_local',
       documentation: 'read the current value of a local variable',
       kind: keyword,
-      insertText: 'get_local'
+      insertText: 'get_local',
     },
     {
       label: 'set_local',
       documentation: 'set the current value of a local variable',
       kind: keyword,
-      insertText: 'set_local'
+      insertText: 'set_local',
     },
     {
       label: 'tee_local',
       documentation: 'like `set_local`, but also returns the set value',
       kind: keyword,
-      insertText: 'tee_local'
+      insertText: 'tee_local',
     },
 
     {
       label: 'get_global',
       documentation: 'get the current value of a global variable',
       kind: keyword,
-      insertText: 'get_global'
+      insertText: 'get_global',
     },
     {
       label: 'set_global',
       documentation: 'set the current value of a global variable',
       kind: keyword,
-      insertText: 'set_global'
+      insertText: 'set_global',
     },
 
     {
       label: 'nop',
       documentation: 'no operation, no effect',
       kind: keyword,
-      insertText: 'nop'
+      insertText: 'nop',
     },
     {
       label: 'block',
       documentation:
         'the beginning of a block construct, a sequence of instructions with a label at the end',
       kind: keyword,
-      insertText: 'block'
+      insertText: 'block',
     },
     {
       label: 'loop',
       documentation:
         'a block with a label at the beginning which may be used to form loops',
       kind: keyword,
-      insertText: 'loop'
+      insertText: 'loop',
     },
     {
       label: 'if',
       documentation:
         'the beginning of an if construct with an implicit *then* block',
       kind: keyword,
-      insertText: 'if'
+      insertText: 'if',
     },
     {
       label: 'else',
       documentation: 'marks the else block of an if',
       kind: keyword,
-      insertText: 'else'
+      insertText: 'else',
     },
     {
       label: 'br',
       documentation: 'branch to a given label in an enclosing construct',
       kind: keyword,
-      insertText: 'br'
+      insertText: 'br',
     },
     {
       label: 'br_if',
       documentation:
         'conditionally branch to a given label in an enclosing construct',
       kind: keyword,
-      insertText: 'br_if'
+      insertText: 'br_if',
     },
     {
       label: 'br_table',
       documentation:
         'a jump table which jumps to a label in an enclosing construct',
       kind: keyword,
-      insertText: 'br_table'
+      insertText: 'br_table',
     },
     {
       label: 'return',
       documentation: 'return zero or more values from this function',
       kind: keyword,
-      insertText: 'return'
+      insertText: 'return',
     },
     {
       label: 'end',
       documentation:
         'an instruction that marks the end of a block, loop, if, or function',
       kind: keyword,
-      insertText: 'end'
+      insertText: 'end',
     },
 
     {
       label: 'call',
       documentation: 'call function directly',
       kind: keyword,
-      insertText: 'call'
+      insertText: 'call',
     },
     {
       label: 'call_indirect',
       documentation: 'call function indirectly',
       kind: keyword,
-      insertText: 'call_indirect'
+      insertText: 'call_indirect',
     },
 
     {
       label: 'i64.const',
       documentation: 'produce the value of an i64 immediate',
       kind: keyword,
-      insertText: { value: 'i64.const ${1:constant}' }
+      insertText: { value: 'i64.const ${1:constant}' },
     },
     {
       label: 'i32.const',
       documentation: 'produce the value of an i32 immediate',
       kind: keyword,
-      insertText: { value: 'i32.const ${1:constant}' }
+      insertText: { value: 'i32.const ${1:constant}' },
     },
     {
       label: 'f32.const',
       documentation: 'produce the value of an f32 immediate',
       kind: keyword,
-      insertText: { value: 'f32.const ${1:constant}' }
+      insertText: { value: 'f32.const ${1:constant}' },
     },
     {
       label: 'f64.const',
       documentation: 'produce the value of an f64 immediate',
       kind: keyword,
-      insertText: { value: 'f64.const ${1:constant}' }
+      insertText: { value: 'f64.const ${1:constant}' },
     },
 
     {
       label: 'i32.add',
       documentation: 'sign-agnostic addition',
       kind: keyword,
-      insertText: 'i32.add'
+      insertText: 'i32.add',
     },
     {
       label: 'i32.sub',
       documentation: 'sign-agnostic subtraction',
       kind: keyword,
-      insertText: 'i32.sub'
+      insertText: 'i32.sub',
     },
     {
       label: 'i32.mul',
       documentation: 'sign-agnostic multiplication (lower 32-bits)',
       kind: keyword,
-      insertText: 'i32.mul'
+      insertText: 'i32.mul',
     },
     {
       label: 'i32.div_s',
       documentation: 'signed division (result is truncated toward zero)',
       kind: keyword,
-      insertText: 'i32.div_s'
+      insertText: 'i32.div_s',
     },
     {
       label: 'i32.div_u',
       documentation:
         'unsigned division (result is [floored](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions))',
       kind: keyword,
-      insertText: 'i32.div_u'
+      insertText: 'i32.div_u',
     },
     {
       label: 'i32.rem_s',
       documentation: 'signed remainder (result has the sign of the dividend)',
       kind: keyword,
-      insertText: 'i32.rem_s'
+      insertText: 'i32.rem_s',
     },
     {
       label: 'i32.rem_u',
       documentation: 'unsigned remainder',
       kind: keyword,
-      insertText: 'i32.rem_u'
+      insertText: 'i32.rem_u',
     },
     {
       label: 'i32.and',
       documentation: 'sign-agnostic bitwise and',
       kind: keyword,
-      insertText: 'i32.and'
+      insertText: 'i32.and',
     },
     {
       label: 'i32.or',
       documentation: 'sign-agnostic bitwise inclusive or',
       kind: keyword,
-      insertText: 'i32.or'
+      insertText: 'i32.or',
     },
     {
       label: 'i32.xor',
       documentation: 'sign-agnostic bitwise exclusive or',
       kind: keyword,
-      insertText: 'i32.xor'
+      insertText: 'i32.xor',
     },
     {
       label: 'i32.shl',
       documentation: 'sign-agnostic shift left',
       kind: keyword,
-      insertText: 'i32.shl'
+      insertText: 'i32.shl',
     },
     {
       label: 'i32.shr_u',
       documentation: 'zero-replicating (logical) shift right',
       kind: keyword,
-      insertText: 'i32.shr_u'
+      insertText: 'i32.shr_u',
     },
     {
       label: 'i32.shr_s',
       documentation: 'sign-replicating (arithmetic) shift right',
       kind: keyword,
-      insertText: 'i32.shr_s'
+      insertText: 'i32.shr_s',
     },
     {
       label: 'i32.rotl',
       documentation: 'sign-agnostic rotate left',
       kind: keyword,
-      insertText: 'i32.rotl'
+      insertText: 'i32.rotl',
     },
     {
       label: 'i32.rotr',
       documentation: 'sign-agnostic rotate right',
       kind: keyword,
-      insertText: 'i32.rotr'
+      insertText: 'i32.rotr',
     },
     {
       label: 'i32.eq',
       documentation: 'sign-agnostic compare equal',
       kind: keyword,
-      insertText: 'i32.eq'
+      insertText: 'i32.eq',
     },
     {
       label: 'i32.ne',
       documentation: 'sign-agnostic compare unequal',
       kind: keyword,
-      insertText: 'i32.ne'
+      insertText: 'i32.ne',
     },
     {
       label: 'i32.lt_s',
       documentation: 'signed less than',
       kind: keyword,
-      insertText: 'i32.lt_s'
+      insertText: 'i32.lt_s',
     },
     {
       label: 'i32.le_s',
       documentation: 'signed less than or equal',
       kind: keyword,
-      insertText: 'i32.le_s'
+      insertText: 'i32.le_s',
     },
     {
       label: 'i32.lt_u',
       documentation: 'unsigned less than',
       kind: keyword,
-      insertText: 'i32.lt_u'
+      insertText: 'i32.lt_u',
     },
     {
       label: 'i32.le_u',
       documentation: 'unsigned less than or equal',
       kind: keyword,
-      insertText: 'i32.le_u'
+      insertText: 'i32.le_u',
     },
     {
       label: 'i32.gt_s',
       documentation: 'signed greater than',
       kind: keyword,
-      insertText: 'i32.gt_s'
+      insertText: 'i32.gt_s',
     },
     {
       label: 'i32.ge_s',
       documentation: 'signed greater than or equal',
       kind: keyword,
-      insertText: 'i32.ge_s'
+      insertText: 'i32.ge_s',
     },
     {
       label: 'i32.gt_u',
       documentation: 'unsigned greater than',
       kind: keyword,
-      insertText: 'i32.gt_u'
+      insertText: 'i32.gt_u',
     },
     {
       label: 'i32.ge_u',
       documentation: 'unsigned greater than or equal',
       kind: keyword,
-      insertText: 'i32.ge_u'
+      insertText: 'i32.ge_u',
     },
     {
       label: 'i32.clz',
       documentation:
         'sign-agnostic count leading zero bits (All zero bits are considered leading if the value is zero)',
       kind: keyword,
-      insertText: 'i32.clz'
+      insertText: 'i32.clz',
     },
     {
       label: 'i32.ctz',
       documentation:
         'sign-agnostic count trailing zero bits (All zero bits are considered trailing if the value is zero)',
       kind: keyword,
-      insertText: 'i32.ctz'
+      insertText: 'i32.ctz',
     },
     {
       label: 'i32.popcnt',
       documentation: 'sign-agnostic count number of one bits',
       kind: keyword,
-      insertText: 'i32.popcnt'
+      insertText: 'i32.popcnt',
     },
     {
       label: 'i32.eqz',
       documentation:
         'compare equal to zero (return 1 if operand is zero, 0 otherwise)',
       kind: keyword,
-      insertText: 'i32.eqz'
+      insertText: 'i32.eqz',
     },
 
     {
       label: 'f32.add',
       documentation: 'addition',
       kind: keyword,
-      insertText: 'f32.add'
+      insertText: 'f32.add',
     },
     {
       label: 'f32.sub',
       documentation: 'subtraction',
       kind: keyword,
-      insertText: 'f32.sub'
+      insertText: 'f32.sub',
     },
     {
       label: 'f32.mul',
       documentation: 'multiplication',
       kind: keyword,
-      insertText: 'f32.mul'
+      insertText: 'f32.mul',
     },
     {
       label: 'f32.div',
       documentation: 'division',
       kind: keyword,
-      insertText: 'f32.div'
+      insertText: 'f32.div',
     },
     {
       label: 'f32.abs',
       documentation: 'absolute value',
       kind: keyword,
-      insertText: 'f32.abs'
+      insertText: 'f32.abs',
     },
     {
       label: 'f32.neg',
       documentation: 'negation',
       kind: keyword,
-      insertText: 'f32.neg'
+      insertText: 'f32.neg',
     },
     {
       label: 'f32.copysign',
       documentation: 'copysign',
       kind: keyword,
-      insertText: 'f32.copysign'
+      insertText: 'f32.copysign',
     },
     {
       label: 'f32.ceil',
       documentation: 'ceiling operator',
       kind: keyword,
-      insertText: 'f32.ceil'
+      insertText: 'f32.ceil',
     },
     {
       label: 'f32.floor',
       documentation: 'floor operator',
       kind: keyword,
-      insertText: 'f32.floor'
+      insertText: 'f32.floor',
     },
     {
       label: 'f32.trunc',
       documentation: 'round to nearest integer towards zero',
       kind: keyword,
-      insertText: 'f32.trunc'
+      insertText: 'f32.trunc',
     },
     {
       label: 'f32.nearest',
       documentation: 'round to nearest integer, ties to even',
       kind: keyword,
-      insertText: 'f32.nearest'
+      insertText: 'f32.nearest',
     },
     {
       label: 'f32.eq',
       documentation: 'compare ordered and equal',
       kind: keyword,
-      insertText: 'f32.eq'
+      insertText: 'f32.eq',
     },
     {
       label: 'f32.ne',
       documentation: 'compare unordered or unequal',
       kind: keyword,
-      insertText: 'f32.ne'
+      insertText: 'f32.ne',
     },
     {
       label: 'f32.lt',
       documentation: 'compare ordered and less than',
       kind: keyword,
-      insertText: 'f32.lt'
+      insertText: 'f32.lt',
     },
     {
       label: 'f32.le',
       documentation: 'compare ordered and less than or equal',
       kind: keyword,
-      insertText: 'f32.le'
+      insertText: 'f32.le',
     },
     {
       label: 'f32.gt',
       documentation: 'compare ordered and greater than',
       kind: keyword,
-      insertText: 'f32.gt'
+      insertText: 'f32.gt',
     },
     {
       label: 'f32.ge',
       documentation: 'compare ordered and greater than or equal',
       kind: keyword,
-      insertText: 'f32.ge'
+      insertText: 'f32.ge',
     },
     {
       label: 'f32.sqrt',
       documentation: 'square root',
       kind: keyword,
-      insertText: 'f32.sqrt'
+      insertText: 'f32.sqrt',
     },
     {
       label: 'f32.min',
       documentation:
         'minimum (binary operator); if either operand is NaN, returns NaN',
       kind: keyword,
-      insertText: 'f32.min'
+      insertText: 'f32.min',
     },
     {
       label: 'f32.max',
       documentation:
         'maximum (binary operator); if either operand is NaN, returns NaN',
       kind: keyword,
-      insertText: 'f32.max'
+      insertText: 'f32.max',
     },
 
     {
       label: 'f64.add',
       documentation: 'addition',
       kind: keyword,
-      insertText: 'f64.add'
+      insertText: 'f64.add',
     },
     {
       label: 'f64.sub',
       documentation: 'subtraction',
       kind: keyword,
-      insertText: 'f64.sub'
+      insertText: 'f64.sub',
     },
     {
       label: 'f64.mul',
       documentation: 'multiplication',
       kind: keyword,
-      insertText: 'f64.mul'
+      insertText: 'f64.mul',
     },
     {
       label: 'f64.div',
       documentation: 'division',
       kind: keyword,
-      insertText: 'f64.div'
+      insertText: 'f64.div',
     },
     {
       label: 'f64.abs',
       documentation: 'absolute value',
       kind: keyword,
-      insertText: 'f64.abs'
+      insertText: 'f64.abs',
     },
     {
       label: 'f64.neg',
       documentation: 'negation',
       kind: keyword,
-      insertText: 'f64.neg'
+      insertText: 'f64.neg',
     },
     {
       label: 'f64.copysign',
       documentation: 'copysign',
       kind: keyword,
-      insertText: 'f64.copysign'
+      insertText: 'f64.copysign',
     },
     {
       label: 'f64.ceil',
       documentation: 'ceiling operator',
       kind: keyword,
-      insertText: 'f64.ceil'
+      insertText: 'f64.ceil',
     },
     {
       label: 'f64.floor',
       documentation: 'floor operator',
       kind: keyword,
-      insertText: 'f64.floor'
+      insertText: 'f64.floor',
     },
     {
       label: 'f64.trunc',
       documentation: 'round to nearest integer towards zero',
       kind: keyword,
-      insertText: 'f64.trunc'
+      insertText: 'f64.trunc',
     },
     {
       label: 'f64.nearest',
       documentation: 'round to nearest integer, ties to even',
       kind: keyword,
-      insertText: 'f64.nearest'
+      insertText: 'f64.nearest',
     },
     {
       label: 'f64.eq',
       documentation: 'compare ordered and equal',
       kind: keyword,
-      insertText: 'f64.eq'
+      insertText: 'f64.eq',
     },
     {
       label: 'f64.ne',
       documentation: 'compare unordered or unequal',
       kind: keyword,
-      insertText: 'f64.ne'
+      insertText: 'f64.ne',
     },
     {
       label: 'f64.lt',
       documentation: 'compare ordered and less than',
       kind: keyword,
-      insertText: 'f64.lt'
+      insertText: 'f64.lt',
     },
     {
       label: 'f64.le',
       documentation: 'compare ordered and less than or equal',
       kind: keyword,
-      insertText: 'f64.le'
+      insertText: 'f64.le',
     },
     {
       label: 'f64.gt',
       documentation: 'compare ordered and greater than',
       kind: keyword,
-      insertText: 'f64.gt'
+      insertText: 'f64.gt',
     },
     {
       label: 'f64.ge',
       documentation: 'compare ordered and greater than or equal',
       kind: keyword,
-      insertText: 'f64.ge'
+      insertText: 'f64.ge',
     },
     {
       label: 'f64.sqrt',
       documentation: 'square root',
       kind: keyword,
-      insertText: 'f64.sqrt'
+      insertText: 'f64.sqrt',
     },
     {
       label: 'f64.min',
       documentation:
         'minimum (binary operator); if either operand is NaN, returns NaN',
       kind: keyword,
-      insertText: 'f64.min'
+      insertText: 'f64.min',
     },
     {
       label: 'f64.max',
       documentation:
         'maximum (binary operator); if either operand is NaN, returns NaN',
       kind: keyword,
-      insertText: 'f64.max'
+      insertText: 'f64.max',
     },
 
     {
       label: 'i32.wrap/i64',
       documentation: 'wrap a 64-bit integer to a 32-bit integer',
       kind: keyword,
-      insertText: 'i32.wrap/i64'
+      insertText: 'i32.wrap/i64',
     },
     {
       label: 'i32.trunc_s/f32',
       documentation: 'truncate a 32-bit float to a signed 32-bit integer',
       kind: keyword,
-      insertText: 'i32.trunc_s/f32'
+      insertText: 'i32.trunc_s/f32',
     },
     {
       label: 'i32.trunc_s/f64',
       documentation: 'truncate a 64-bit float to a signed 32-bit integer',
       kind: keyword,
-      insertText: 'i32.trunc_s/f64'
+      insertText: 'i32.trunc_s/f64',
     },
     {
       label: 'i32.trunc_u/f32',
       documentation: 'truncate a 32-bit float to an unsigned 32-bit integer',
       kind: keyword,
-      insertText: 'i32.trunc_u/f32'
+      insertText: 'i32.trunc_u/f32',
     },
     {
       label: 'i32.trunc_u/f64',
       documentation: 'truncate a 64-bit float to an unsigned 32-bit integer',
       kind: keyword,
-      insertText: 'i32.trunc_u/f64'
+      insertText: 'i32.trunc_u/f64',
     },
     {
       label: 'i32.reinterpret/f32',
       documentation:
         'reinterpret the bits of a 32-bit float as a 32-bit integer',
       kind: keyword,
-      insertText: 'i32.reinterpret/f32'
+      insertText: 'i32.reinterpret/f32',
     },
     {
       label: 'i64.extend_s/i32',
       documentation: 'extend a signed 32-bit integer to a 64-bit integer',
       kind: keyword,
-      insertText: 'i64.extend_s/i32'
+      insertText: 'i64.extend_s/i32',
     },
     {
       label: 'i64.extend_u/i32',
       documentation: 'extend an unsigned 32-bit integer to a 64-bit integer',
       kind: keyword,
-      insertText: 'i64.extend_u/i32'
+      insertText: 'i64.extend_u/i32',
     },
     {
       label: 'i64.trunc_s/f32',
       documentation: 'truncate a 32-bit float to a signed 64-bit integer',
       kind: keyword,
-      insertText: 'i64.trunc_s/f32'
+      insertText: 'i64.trunc_s/f32',
     },
     {
       label: 'i64.trunc_s/f64',
       documentation: 'truncate a 64-bit float to a signed 64-bit integer',
       kind: keyword,
-      insertText: 'i64.trunc_s/f64'
+      insertText: 'i64.trunc_s/f64',
     },
     {
       label: 'i64.trunc_u/f32',
       documentation: 'truncate a 32-bit float to an unsigned 64-bit integer',
       kind: keyword,
-      insertText: 'i64.trunc_u/f32'
+      insertText: 'i64.trunc_u/f32',
     },
     {
       label: 'i64.trunc_u/f64',
       documentation: 'truncate a 64-bit float to an unsigned 64-bit integer',
       kind: keyword,
-      insertText: 'i64.trunc_u/f64'
+      insertText: 'i64.trunc_u/f64',
     },
     {
       label: 'i64.reinterpret/f64',
       documentation:
         'reinterpret the bits of a 64-bit float as a 64-bit integer',
       kind: keyword,
-      insertText: 'i64.reinterpret/f64'
+      insertText: 'i64.reinterpret/f64',
     },
     {
       label: 'f32.demote/f64',
       documentation: 'demote a 64-bit float to a 32-bit float',
       kind: keyword,
-      insertText: 'f32.demote/f64'
+      insertText: 'f32.demote/f64',
     },
     {
       label: 'f32.convert_s/i32',
       documentation: 'convert a signed 32-bit integer to a 32-bit float',
       kind: keyword,
-      insertText: 'f32.convert_s/i32'
+      insertText: 'f32.convert_s/i32',
     },
     {
       label: 'f32.convert_s/i64',
       documentation: 'convert a signed 64-bit integer to a 32-bit float',
       kind: keyword,
-      insertText: 'f32.convert_s/i64'
+      insertText: 'f32.convert_s/i64',
     },
     {
       label: 'f32.convert_u/i32',
       documentation: 'convert an unsigned 32-bit integer to a 32-bit float',
       kind: keyword,
-      insertText: 'f32.convert_u/i32'
+      insertText: 'f32.convert_u/i32',
     },
     {
       label: 'f32.convert_u/i64',
       documentation: 'convert an unsigned 64-bit integer to a 32-bit float',
       kind: keyword,
-      insertText: 'f32.convert_u/i64'
+      insertText: 'f32.convert_u/i64',
     },
     {
       label: 'f32.reinterpret/i32',
       documentation:
         'reinterpret the bits of a 32-bit integer as a 32-bit float',
       kind: keyword,
-      insertText: 'f32.reinterpret/i32'
+      insertText: 'f32.reinterpret/i32',
     },
     {
       label: 'f64.promote/f32',
       documentation: 'promote a 32-bit float to a 64-bit float',
       kind: keyword,
-      insertText: 'f64.promote/f32'
+      insertText: 'f64.promote/f32',
     },
     {
       label: 'f64.convert_s/i32',
       documentation: 'convert a signed 32-bit integer to a 64-bit float',
       kind: keyword,
-      insertText: 'f64.convert_s/i32'
+      insertText: 'f64.convert_s/i32',
     },
     {
       label: 'f64.convert_s/i64',
       documentation: 'convert a signed 64-bit integer to a 64-bit float',
       kind: keyword,
-      insertText: 'f64.convert_s/i64'
+      insertText: 'f64.convert_s/i64',
     },
     {
       label: 'f64.convert_u/i32',
       documentation: 'convert an unsigned 32-bit integer to a 64-bit float',
       kind: keyword,
-      insertText: 'f64.convert_u/i32'
+      insertText: 'f64.convert_u/i32',
     },
     {
       label: 'f64.convert_u/i64',
       documentation: 'convert an unsigned 64-bit integer to a 64-bit float',
       kind: keyword,
-      insertText: 'f64.convert_u/i64'
+      insertText: 'f64.convert_u/i64',
     },
     {
       label: 'f64.reinterpret/i64',
       documentation:
         'reinterpret the bits of a 64-bit integer as a 64-bit float',
       kind: keyword,
-      insertText: 'f64.reinterpret/i64'
+      insertText: 'f64.reinterpret/i64',
     },
 
     {
       label: 'current_memory',
       documentation: 'current memory size in 64k pages',
       kind: keyword,
-      insertText: 'current_memory'
+      insertText: 'current_memory',
     },
     {
       label: 'grow_memory',
       documentation: 'grow memory size by the specified amount of 64k pages',
       kind: keyword,
-      insertText: 'grow_memory'
-    }
+      insertText: 'grow_memory',
+    },
   ]);
 }
 
 const LanguageConfiguration: IRichLanguageConfiguration = {
   // the default separators except `@$`
-  wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\'\,\.\<\>\/\?\s]+)/g,
+  wordPattern:
+    /(-?\d*\.\d\w*)|([^\`\~\!\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\'\,\.\<\>\/\?\s]+)/g,
   comments: {
-    lineComment: ';;'
+    lineComment: ';;',
   },
   brackets: [
     ['{', '}'],
     ['[', ']'],
-    ['(', ')']
+    ['(', ')'],
   ],
   autoClosingPairs: [
     { open: '{', close: '}' },
     { open: '[', close: ']' },
     { open: '(', close: ')' },
     { open: "'", close: "'" },
-    { open: "'", close: "'" }
+    { open: "'", close: "'" },
   ],
   surroundingPairs: [
     { open: '{', close: '}' },
@@ -980,8 +981,8 @@ const LanguageConfiguration: IRichLanguageConfiguration = {
     { open: '(', close: ')' },
     { open: "'", close: "'" },
     { open: "'", close: "'" },
-    { open: '<', close: '>' }
-  ]
+    { open: '<', close: '>' },
+  ],
 };
 
 const MonarchDefinitions = {
@@ -1149,7 +1150,7 @@ const MonarchDefinitions = {
     'set_global',
 
     'current_memory',
-    'grow_memory'
+    'grow_memory',
   ],
 
   typeKeywords: ['i32', 'i64', 'f32', 'f64', 'anyfunc'],
@@ -1159,14 +1160,15 @@ const MonarchDefinitions = {
   brackets: [
     ['(', ')', 'bracket.parenthesis'],
     ['{', '}', 'bracket.curly'],
-    ['[', ']', 'bracket.square']
+    ['[', ']', 'bracket.square'],
   ],
 
   // we include these common regular expressions
   symbols: /[=><!~?:&|+\-*\/\^%]+/,
 
   // C# style strings
-  escapes: /\\(?:[abfnrtv\\'']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
+  escapes:
+    /\\(?:[abfnrtv\\'']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
 
   // The main tokenizer for our languages
   tokenizer: {
@@ -1178,9 +1180,9 @@ const MonarchDefinitions = {
           cases: {
             '@keywords': 'keyword',
             '@typeKeywords': 'type',
-            '@default': 'type.identifier'
-          }
-        }
+            '@default': 'type.identifier',
+          },
+        },
       ],
 
       // numbers
@@ -1189,7 +1191,7 @@ const MonarchDefinitions = {
       // strings
       [/'/, { token: 'string.quote', bracket: '@open', next: '@string' }],
 
-      [/[{}()\[\]]/, '@brackets']
+      [/[{}()\[\]]/, '@brackets'],
     ] as any,
 
     comment: [
@@ -1197,23 +1199,23 @@ const MonarchDefinitions = {
       [/\/\*/, 'comment', '@push'], // nested comment
       ['\\*/', 'comment', '@pop'],
       [/[\/*]/, 'comment'],
-      [/;;/, 'comment']
+      [/;;/, 'comment'],
     ],
 
     string: [
       [/[^\\']+/, 'string'],
       [/@escapes/, 'string.escape'],
       [/\\./, 'string.escape.invalid'],
-      [/'/, { token: 'string.quote', bracket: '@close', next: '@pop' }]
+      [/'/, { token: 'string.quote', bracket: '@close', next: '@pop' }],
     ],
 
     whitespace: [
       [/[ \t\r\n]+/, 'white'],
       [/\/\*/, 'comment', '@comment'],
       [/\/\/.*$/, 'comment'],
-      [/;;/, 'comment']
-    ]
-  }
+      [/;;/, 'comment'],
+    ],
+  },
 };
 
 export function watWordAt(s: string, i: number) {
@@ -1229,19 +1231,19 @@ export const Wat = {
   MonarchDefinitions,
   LanguageConfiguration,
   CompletionItemProvider: {
-    provideCompletionItems: function(model: IModel, position: IPosition) {
+    provideCompletionItems: function (model: IModel, position: IPosition) {
       return getWatCompletionItems();
-    }
+    },
   },
   HoverProvider: {
-    provideHover: function(model: IModel, position: IPosition) {
+    provideHover: function (model: IModel, position: IPosition) {
       const lineContent = model.getLineContent(position.lineNumber);
       const { index, word } = watWordAt(lineContent, position.column - 1);
       if (!word) {
         return;
       }
       const watCompletionItems = getWatCompletionItems() as any;
-      const predicate = x => x.label === word;
+      const predicate = (x) => x.label === word;
       const item = watCompletionItems.find(predicate);
       if (!item) {
         return;
@@ -1255,11 +1257,11 @@ export const Wat = {
         ),
         contents: [
           '**DETAILS**',
-          { language: 'html', value: item.documentation }
-        ]
+          { language: 'html', value: item.documentation },
+        ],
       };
-    }
-  }
+    },
+  },
 };
 
 monaco.languages.onLanguage('wat', () => {
@@ -1275,13 +1277,13 @@ monaco.languages.onLanguage('wat', () => {
   monaco.languages.registerHoverProvider('wat', Wat.HoverProvider as any);
 });
 monaco.languages.register({
-  id: 'wat'
+  id: 'wat',
 });
 
 monaco.languages.registerCompletionItemProvider(
   'wat',
   {
-    provideCompletionItems: function() {
+    provideCompletionItems: function () {
       return {
         suggestions: [
           {
@@ -1289,46 +1291,46 @@ monaco.languages.registerCompletionItemProvider(
             kind: monaco.languages.CompletionItemKind.Function,
             documentation: 'i32',
             insertText: 'i32.const ${1:value}',
-            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet,
           },
           {
             label: 'function',
             kind: monaco.languages.CompletionItemKind.Keyword,
             documentation: 'i32',
             insertText: '(func $${1:name} ${2:params} (result i32)\n  ${3}\n)',
-            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet,
           },
           {
             label: 'add',
             kind: monaco.languages.CompletionItemKind.Keyword,
             documentation: 'i32',
             insertText: 'i32.add',
-            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet,
           },
           {
             label: 'param',
             kind: monaco.languages.CompletionItemKind.Keyword,
             documentation: 'i32',
             insertText: '(param $${1:name} i32) ',
-            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet,
           },
           {
             label: 'local.get',
             kind: monaco.languages.CompletionItemKind.Keyword,
             documentation: 'i32',
             insertText: 'local.get $${1:name}',
-            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
+            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet,
           },
           {
             label: 'global.get',
             kind: monaco.languages.CompletionItemKind.Keyword,
             documentation: 'i32',
             insertText: 'global.get $${1:name}',
-            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet
-          }
-        ]
+            insertTextRules: CompletionItemInsertTextRule.InsertAsSnippet,
+          },
+        ],
       };
-    }
+    },
   },
   '('
 );

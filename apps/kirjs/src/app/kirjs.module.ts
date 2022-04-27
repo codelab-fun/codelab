@@ -21,139 +21,139 @@ const routes = [
   {
     path: 'binary',
     loadChildren: () =>
-      import('./modules/binary/binary.module').then(m => m.BinaryModule),
+      import('./modules/binary/binary.module').then((m) => m.BinaryModule),
     name: 'Binary',
     description: 'Learn about Binary in JS',
     page: 'bonus',
-    prod: true
+    prod: true,
   },
   {
     path: 'gomoku',
     loadChildren: () =>
-      import('./modules/gomoku/gomoku.module').then(m => m.GomokuModule),
+      import('./modules/gomoku/gomoku.module').then((m) => m.GomokuModule),
     name: 'Gomoku',
     description: 'Gomoku',
     page: 'bonus',
-    prod: true
+    prod: true,
   },
   {
     path: 'cellular-automation',
     loadChildren: () =>
       import(
         './modules/cellular-automation/cellular-automation-routing.module'
-      ).then(m => m.CellularAutomationRoutingModule),
+      ).then((m) => m.CellularAutomationRoutingModule),
     name: 'Image inclusion',
-    description: 'Image inclusion'
+    description: 'Image inclusion',
   },
   {
     path: 'music',
     loadChildren: () =>
-      import('./modules/music/music.module').then(m => m.MusicModule),
+      import('./modules/music/music.module').then((m) => m.MusicModule),
     name: 'Music',
-    description: 'Music'
+    description: 'Music',
   },
   {
     path: 'webassembly',
     loadChildren: () =>
       import('./modules/webassembly/webassembly.module').then(
-        m => m.WebassemblyModule
+        (m) => m.WebassemblyModule
       ),
     name: 'webassembly',
-    description: 'webassembly'
+    description: 'webassembly',
   },
   {
     path: 'svg',
     loadChildren: () =>
-      import('./modules/svg/svg.module').then(m => m.SvgModule),
+      import('./modules/svg/svg.module').then((m) => m.SvgModule),
     name: 'Svg + Angular',
-    description: 'SVG '
+    description: 'SVG ',
   },
   {
     path: 'regex',
     loadChildren: () =>
-      import('./modules/regex/regex.module').then(m => m.RegexModule),
+      import('./modules/regex/regex.module').then((m) => m.RegexModule),
     name: 'Regex',
-    description: 'Regex '
+    description: 'Regex ',
   },
   {
     path: 'ast',
     loadChildren: () =>
-      import('./modules/ast/ast.module').then(m => m.AstModule),
+      import('./modules/ast/ast.module').then((m) => m.AstModule),
     name: 'Ast + Angular',
-    description: 'SVG '
+    description: 'SVG ',
   },
   {
     path: 'svg-race',
     loadChildren: () =>
-      import('./modules/svg-race/svg-race.module').then(m => m.SvgRaceModule),
+      import('./modules/svg-race/svg-race.module').then((m) => m.SvgRaceModule),
     name: 'SVG Race',
-    description: 'SVG '
+    description: 'SVG ',
   },
   {
     path: '',
     loadChildren: () =>
-      import('./modules/home/home.module').then(m => m.HomeModule),
+      import('./modules/home/home.module').then((m) => m.HomeModule),
     name: 'Home',
-    description: 'Home'
+    description: 'Home',
   },
   {
     path: 'streaming',
     loadChildren: () =>
       import('./modules/streaming/streaming.module').then(
-        m => m.StreamingModule
+        (m) => m.StreamingModule
       ),
     name: 'Home',
-    description: 'Home'
+    description: 'Home',
   },
   {
     path: 'sync',
     loadChildren: () =>
-      import('./modules/sync/sync.module').then(m => m.SyncModule),
+      import('./modules/sync/sync.module').then((m) => m.SyncModule),
     name: 'Sync',
-    description: 'Sync Session'
+    description: 'Sync Session',
   },
   {
     path: 'stack',
     loadChildren: () =>
-      import('./modules/stack/stack.module').then(m => m.StackModule),
+      import('./modules/stack/stack.module').then((m) => m.StackModule),
     name: 'Stack Module',
-    description: 'stack'
+    description: 'stack',
   },
   {
     path: 'sync',
     loadChildren: () =>
-      import('./modules/sync/sync.module').then(m => m.SyncModule),
+      import('./modules/sync/sync.module').then((m) => m.SyncModule),
     name: 'Sync',
-    description: 'Sync Session'
+    description: 'Sync Session',
   },
   {
     path: 'test',
     loadChildren: () =>
-      import('./modules/test/test.module').then(m => m.TestModule),
+      import('./modules/test/test.module').then((m) => m.TestModule),
     name: 'Home',
-    description: 'Home'
+    description: 'Home',
   },
   {
     path: 'qna',
     loadChildren: () =>
-      import('./modules/qna/qna.module').then(m => m.QnaModule),
-    name: 'Q&A'
+      import('./modules/qna/qna.module').then((m) => m.QnaModule),
+    name: 'Q&A',
   },
   {
     path: 'msk',
     loadChildren: () =>
-      import('./modules/msk/msk.module').then(m => m.MskModule),
-    name: 'Angular Moscow Meetup'
+      import('./modules/msk/msk.module').then((m) => m.MskModule),
+    name: 'Angular Moscow Meetup',
   },
   {
     path: 'stack',
     loadChildren: () =>
       import('./modules/stack/stack-routing.module').then(
-        m => m.StackRoutingModule
+        (m) => m.StackRoutingModule
       ),
     name: 'Stack Module',
-    description: 'stack'
-  }
+    description: 'stack',
+  },
 ];
 
 @NgModule({
@@ -166,24 +166,24 @@ const routes = [
     AngularFireDatabaseModule,
     angularFire,
     MatCardModule,
-    MarkdownModule
+    MarkdownModule,
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
-      multi: true
+      multi: true,
     },
     {
       provide: 'ROUTES',
-      useValue: []
+      useValue: [],
     },
     {
       provide: APP_INITIALIZER,
       useValue: monacoReady,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class KirjsModule {}

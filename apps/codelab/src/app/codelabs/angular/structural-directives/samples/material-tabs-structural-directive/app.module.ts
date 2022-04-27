@@ -9,6 +9,6 @@ import { HideMeDirective } from './hideme.directive';
 @NgModule({
   imports: [BrowserModule, MatTabsModule, NoopAnimationsModule],
   declarations: [AppComponent, AlertComponent, HideMeDirective],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

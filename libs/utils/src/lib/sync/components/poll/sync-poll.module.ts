@@ -28,7 +28,7 @@ import { LeaderboardModule } from '@codelab/utils/src/lib/sync/components/poll/s
     SyncPollComponent,
     StarsPresenterComponent,
     ChoicePresenterComponent,
-    SyncPollViewerChoiceComponent
+    SyncPollViewerChoiceComponent,
   ],
   exports: [SyncPollComponent],
   imports: [
@@ -43,7 +43,7 @@ import { LeaderboardModule } from '@codelab/utils/src/lib/sync/components/poll/s
     StarsModule,
     BarChartModule,
     MatTabsModule,
-    LeaderboardModule
-  ]
+    LeaderboardModule,
+  ],
 })
 export class SyncPollModule {}

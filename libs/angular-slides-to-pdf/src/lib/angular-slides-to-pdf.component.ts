@@ -3,7 +3,7 @@ import { SlidesDeckComponent } from '@ng360/slides';
 
 @Component({
   selector: 'slides-codelab-to-pdf',
-  template: ''
+  template: '',
 })
 export class AngularSlidesToPdfComponent {
   constructor(private presentation: SlidesDeckComponent) {}
@@ -13,11 +13,11 @@ export class AngularSlidesToPdfComponent {
     const height = 600;
 
     this.presentation.goToSlide(0);
-    const JsPDF = function() {} as any;
+    const JsPDF = function () {} as any;
     const doc = new JsPDF({
       orientation: 'landscape',
       unit: 'px',
-      format: [width, height]
+      format: [width, height],
     });
 
     for (let i = 0; i < this.presentation.slides.length; i++) {

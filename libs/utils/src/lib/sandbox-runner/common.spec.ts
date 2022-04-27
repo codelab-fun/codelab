@@ -5,13 +5,13 @@ fdescribe('Test reducer', () => {
     tests: [
       {
         name: 'hi',
-        pass: undefined
+        pass: undefined,
       },
       {
         name: 'bye',
-        pass: undefined
-      }
-    ]
+        pass: undefined,
+      },
+    ],
   };
 
   it('sets initial state', () => {
@@ -19,7 +19,7 @@ fdescribe('Test reducer', () => {
       { tests: [] },
       {
         type: 'reset',
-        data: ['hi', 'bye']
+        data: ['hi', 'bye'],
       }
     );
 
@@ -31,8 +31,8 @@ fdescribe('Test reducer', () => {
       type: 'result',
       data: {
         name: 'hi',
-        pass: true
-      }
+        pass: true,
+      },
     });
 
     expect(result.tests[0].pass).toEqual(true);
@@ -42,7 +42,7 @@ fdescribe('Test reducer', () => {
   it('sets an error', () => {
     const result = testReducer(data, {
       type: 'error',
-      data: 'lol'
+      data: 'lol',
     });
 
     expect(result.tests).toEqual(data.tests);

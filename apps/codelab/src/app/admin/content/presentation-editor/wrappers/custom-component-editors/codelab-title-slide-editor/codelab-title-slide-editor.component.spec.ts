@@ -8,7 +8,7 @@ describe('CodelabTitleSlideEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CodelabTitleSlideEditorComponent]
+      declarations: [CodelabTitleSlideEditorComponent],
     }).compileComponents();
   }));
 

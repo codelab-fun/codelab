@@ -20,7 +20,7 @@ import { SyncRegistrationModule } from '@codelab/utils/src/lib/sync/components/r
     MatIconModule,
     MatCardModule,
     MatMenuModule,
-    SyncRegistrationModule
-  ]
+    SyncRegistrationModule,
+  ],
 })
 export class SyncButtonModule {}
