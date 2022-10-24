@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LoginWidgetComponent } from './login-widget/login-widget.component';
 import { MatMenuModule } from '@angular/material/menu';
 

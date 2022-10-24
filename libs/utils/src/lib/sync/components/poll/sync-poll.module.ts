@@ -11,7 +11,7 @@ import { SyncPollViewerComponent } from '@codelab/utils/src/lib/sync/components/
 import { SyncPollComponent } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.component';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { FormsModule } from '@angular/forms';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { StarsModule } from '@codelab/utils/src/lib/sync/components/poll/common/stars/stars.module';
 import { StarsPresenterComponent } from './sync-poll-presenter/stars-presenter/stars-presenter.component';

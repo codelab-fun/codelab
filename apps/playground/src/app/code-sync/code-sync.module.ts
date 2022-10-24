@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CodeSyncComponent } from './code-sync.component';
 import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-button.module';
 import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(CodeSyncComponent));
 

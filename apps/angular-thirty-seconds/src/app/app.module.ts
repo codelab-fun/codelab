@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateSnippetComponent } from './create-snippet/create-snippet.component';
 import { CreateSnippetModule } from './create-snippet/create-snippet.module';
 import { environment } from '../../../codelab/src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule } from '@angular/fire/compat';
 import { PullRequestsListComponent } from './pull-requests-list/pull-requests-list.component';
 
 export const angularFire = AngularFireModule.initializeApp(

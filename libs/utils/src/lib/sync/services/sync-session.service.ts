@@ -14,7 +14,6 @@ import {
   shareReplay,
   switchMap,
   takeUntil,
-  tap,
 } from 'rxjs/operators';
 import {
   SyncDb,

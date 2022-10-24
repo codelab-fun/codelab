@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncComponent } from './sync.component';
 import { SyncModule } from './sync.module';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   getMockAngularFireProviders,
   MockAngularFireAuth,

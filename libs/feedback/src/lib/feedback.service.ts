@@ -1,7 +1,10 @@
 import { Event, NavigationEnd, Router } from '@angular/router';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+} from '@angular/fire/compat/database';
 import { Injectable } from '@angular/core';
-import { getRef } from '@angular/fire/database/utils';
+import { getRef } from '@angular/fire/compat/database/utils';
 import { Message } from './message';
 import { defer, Observable, of } from 'rxjs';
 import {

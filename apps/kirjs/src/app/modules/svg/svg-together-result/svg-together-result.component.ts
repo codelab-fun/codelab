@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+} from '@angular/fire/compat/database';
 
 @Component({
   selector: 'kirjs-svg-together-result',

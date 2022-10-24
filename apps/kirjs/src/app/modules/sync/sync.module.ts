@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { RouterModule } from '@angular/router';
 import { SyncModule as SyncLibModule } from '@codelab/utils/src/lib/sync/sync.module';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SyncSessionsComponent } from '@codelab/utils/src/lib/sync/components/sync-sessions/sync-sessions.component';
 import { SyncComponent } from './sync.component';
 

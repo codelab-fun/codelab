@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { first, map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';

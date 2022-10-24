@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { SlidesModule } from '@ng360/slides';
 import { QuestionsModule } from '@codelab/utils/src/lib/sync/components/questions/questions.module';
 import { SyncModule } from '@codelab/utils/src/lib/sync/sync.module';

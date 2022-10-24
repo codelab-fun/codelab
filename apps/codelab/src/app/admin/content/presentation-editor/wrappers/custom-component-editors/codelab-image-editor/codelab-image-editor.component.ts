@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ContentService } from '../../../services/content.service';
 import { ContentSlide, CustomBlock } from '../../../types';
 

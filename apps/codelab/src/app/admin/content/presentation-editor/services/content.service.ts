@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, merge, Subject } from 'rxjs';
 import { auditTime, map, scan, shareReplay, takeUntil } from 'rxjs/operators';

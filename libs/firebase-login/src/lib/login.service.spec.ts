@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoginService } from './login.service';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { of } from 'rxjs';
 
 describe('LoginService', () => {

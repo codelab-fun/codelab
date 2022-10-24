@@ -1,4 +1,7 @@
-import { AngularFireAction, DatabaseSnapshot } from '@angular/fire/database';
+import {
+  AngularFireAction,
+  DatabaseSnapshot,
+} from '@angular/fire/compat/database';
 
 export enum SyncStatus {
   OFF = 'off',

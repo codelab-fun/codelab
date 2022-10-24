@@ -12,7 +12,7 @@ import { CodelabPresetComponent } from './codelab-preset/codelab-preset.componen
 import { CodelabCodeDemoConsoleEditorComponent } from './codelab-code-demo-console-editor/codelab-code-demo-console-editor.component';
 import { CodelabImageEditorComponent } from './codelab-image-editor/codelab-image-editor.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 import { MatSelectModule } from '@angular/material/select';
 import { CodelabExerciseEditorComponent } from './codelab-exercise-preview-editor/codelab-exercise-editor.component';

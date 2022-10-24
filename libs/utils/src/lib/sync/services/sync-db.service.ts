@@ -3,7 +3,7 @@ import {
   AngularFireDatabase,
   AngularFireList,
   AngularFireObject,
-} from '@angular/fire/database';
+} from '@angular/fire/compat/database';
 import { combineLatest, isObservable, Observable, of, Subject } from 'rxjs';
 import { first, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import {

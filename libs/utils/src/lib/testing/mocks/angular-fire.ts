@@ -1,6 +1,6 @@
 import { of } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 export const MockAngularFireDatabase = {
   list: jasmine.createSpy('list').and.returnValue({

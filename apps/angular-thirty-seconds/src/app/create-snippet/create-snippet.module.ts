@@ -15,7 +15,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import { SnippetSpinnerComponent } from './snippet-spinner/snippet-spinner.component';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { RouterModule } from '@angular/router';
 
 const MAT_MODULES = [

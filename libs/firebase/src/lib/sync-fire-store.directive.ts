@@ -15,7 +15,7 @@ import {
 import {
   AngularFirestore,
   AngularFirestoreDocument,
-} from '@angular/fire/firestore';
+} from '@angular/fire/compat/firestore';
 import { Subscription } from 'rxjs';
 
 export const SYNC_FIRESTORE_VALUE_ACCESSOR = {

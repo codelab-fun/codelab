@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { V2RoutingModule } from './v2-routing.module';
 import { V2Component } from './v2.component';
 import { PresentationListModule } from './presentation-list/presentation-list.module';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ContentService } from '../admin/content/presentation-editor/services/content.service';
 import {
   NAVIGATION_BASE_URL,
