@@ -76,7 +76,7 @@
     "@angular/common": "13.3.11",
     "@angular/compiler": "13.3.11",
     "@angular/core": "13.3.11",
-    "@angular/fire": "^5.4.2",
+    "@angular/fire": "^6.1.5",
     "@angular/forms": "13.3.11",
     "@angular/localize": "13.3.11",
     "@angular/material": "12.2.13",
