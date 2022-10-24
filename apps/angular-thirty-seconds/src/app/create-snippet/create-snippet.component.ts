@@ -6,7 +6,7 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
   MatAutocomplete,
@@ -92,7 +92,7 @@ export class CreateSnippetComponent implements OnDestroy {
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private cd: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute,
     private snippetService: SnippetService,

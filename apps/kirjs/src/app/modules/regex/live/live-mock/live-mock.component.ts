@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LiveService, LiveInfo } from '../live.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'kirjs-live-mock-component',
@@ -12,14 +12,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class LiveMockComponent implements OnInit, OnDestroy {
   data: LiveInfo;
 
-  form: FormGroup = this.fb.group({
+  form: UntypedFormGroup = this.fb.group({
     user: this.fb.control(''),
     status: this.fb.control(''),
   });
 
   private onDestroy: Subject<null> = new Subject<null>();
 
-  constructor(private service: LiveService, private fb: FormBuilder) {}
+  constructor(private service: LiveService, private fb: UntypedFormBuilder) {}
 
   ngOnInit() {
     this.form.valueChanges.subscribe((data) => {

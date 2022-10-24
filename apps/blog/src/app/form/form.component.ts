@@ -1,7 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
 import { Post } from '../common';
@@ -13,12 +17,12 @@ import { Post } from '../common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
-  title = new FormControl('', Validators.required);
-  author = new FormControl('', Validators.required);
-  text = new FormControl('', Validators.required);
+  title = new UntypedFormControl('', Validators.required);
+  author = new UntypedFormControl('', Validators.required);
+  text = new UntypedFormControl('', Validators.required);
   date: Date;
   post: Observable<Post>;
-  myform = new FormGroup({
+  myform = new UntypedFormGroup({
     title: this.title,
     author: this.author,
     text: this.text,
