@@ -10,11 +10,11 @@ import {
 } from 'rxjs/operators';
 import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
-import { database } from 'firebase/app';
 import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
 import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
 import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/firebase-info.service';
+import { serverTimestamp } from '@firebase/database';
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
 
@@ -155,14 +155,14 @@ export class SyncPoll {
   vote(answer: number) {
     this.viewerData.set({
       answer,
-      time: database.ServerValue.TIMESTAMP as number,
+      time: serverTimestamp() as unknown as number,
     });
   }
 
   start() {
     this.presenterSettings.updateWithCallback(
       produce((settings) => {
-        settings.startTime = database.ServerValue.TIMESTAMP;
+        settings.startTime = serverTimestamp();
       })
     );
   }

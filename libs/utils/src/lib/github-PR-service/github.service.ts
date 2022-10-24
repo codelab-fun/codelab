@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import * as firebase from 'firebase/app';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { GithubAuthProvider } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -26,12 +26,11 @@ export class GithubService {
   }
 
   async login() {
-    const provider = new firebase.auth.GithubAuthProvider().addScope('repo');
-    this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
+    const provider = new GithubAuthProvider().addScope('repo');
+    this.githubAuth = await this.afAuth.signInWithPopup(provider);
   }
 
   // TODO clean up 'createIssue' and 'createClosedIssue' methods as 60% of code is the same
-
   async createIssue(message) {
     if (!this.githubAuth.credential) {
       await this.login();

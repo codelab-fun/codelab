@@ -5,7 +5,7 @@ import {
 } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { Post } from './common';
-import { database } from 'firebase/app';
+import { serverTimestamp } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +32,7 @@ export class PostService {
   addPost(post: Post): any {
     return this.repo$.push({
       ...post,
-      date: database.ServerValue.TIMESTAMP as string,
+      date: serverTimestamp() as any as string,
     });
   }
 

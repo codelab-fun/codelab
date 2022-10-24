@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { LoginService } from '@codelab/firebase-login';
-import { auth } from 'firebase/app';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 @Component({
   selector: 'codelab-login',
@@ -15,6 +15,6 @@ export class LoginComponent {
   ) {}
 
   login() {
-    this.auth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.auth.signInWithPopup(new GoogleAuthProvider());
   }
 }

@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { first, map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
-import { auth } from 'firebase/app';
+import { GithubAuthProvider } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -27,18 +27,18 @@ export class LoginService {
   }
 
   anonymousLogin() {
-    return this.auth.auth
+    return this.auth
       .signInAnonymously()
       .then(() => console.log('successful login'))
       .catch((error) => console.log(error));
   }
 
   async logout() {
-    await this.auth.auth.signOut();
+    await this.auth.signOut();
     this.anonymousLogin();
   }
 
   loginWithGithub() {
-    this.auth.auth.signInWithPopup(new auth.GithubAuthProvider());
+    this.auth.signInWithPopup(new GithubAuthProvider());
   }
 }

@@ -4,7 +4,7 @@ import {
   AngularFireList,
 } from '@angular/fire/compat/database';
 import { Injectable } from '@angular/core';
-import { getRef } from '@angular/fire/compat/database/utils';
+
 import { Message } from './message';
 import { defer, Observable, of } from 'rxjs';
 import {
@@ -83,7 +83,7 @@ export class FeedbackService {
 
   addRating(lesson: string, rating: string) {
     const path = 'ratings/' + lesson;
-    getRef(this.database.database, path).transaction((ratings) => {
+    this.database.database.ref(path).transaction((ratings) => {
       if (ratings == null) {
         ratings = {
           lesson: lesson,

@@ -4,9 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, merge, Subject } from 'rxjs';
 import { auditTime, map, scan, shareReplay, takeUntil } from 'rxjs/operators';
 import { nanoid } from 'nanoid';
-import * as firebase from 'firebase';
 import { ContentBlock, ContentPresentation } from '../types';
 import { reducer } from '../reducer';
+import { serverTimestamp } from '@angular/fire/database';
 
 const DOC_KEY = 'presentations';
 
@@ -77,7 +77,7 @@ export class ContentService implements OnDestroy {
     const a = {
       ...action,
       presentationId,
-      created: firebase.firestore.FieldValue.serverTimestamp(),
+      created: serverTimestamp(),
       id: this.uniqueId(),
     };
 

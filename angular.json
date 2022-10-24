@@ -387,6 +387,7 @@
           "options": {
             "browserTarget": "codelab:build"
           },
+          "defaultConfiguration": "development",
           "configurations": {
             "production": {
               "browserTarget": "codelab:build:production"
