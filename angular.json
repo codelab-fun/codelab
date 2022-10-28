@@ -30,7 +30,6 @@
           }
         }
       },
-      "tags": []
     },
     "angular-slides-to-pdf": {
       "root": "libs/angular-slides-to-pdf",
@@ -59,7 +58,6 @@
           }
         }
       },
-      "tags": []
     },
     "angular-thirty-seconds": {
       "root": "libs/angular-thirty-seconds",
@@ -174,7 +172,6 @@
           }
         }
       },
-      "tags": []
     },
     "blog": {
       "root": "apps/blog",
@@ -259,7 +256,6 @@
           }
         }
       },
-      "tags": []
     },
     "browser": {
       "root": "libs/browser",
@@ -267,7 +263,6 @@
       "projectType": "library",
       "prefix": "codelab",
       "architect": {},
-      "tags": []
     },
     "code-demos": {
       "root": "libs/code-demos",
@@ -296,7 +291,6 @@
           }
         }
       },
-      "tags": []
     },
     "codelab": {
       "root": "apps/codelab",
@@ -419,7 +413,6 @@
           }
         }
       },
-      "tags": []
     },
     "console": {
       "root": "libs/console",
@@ -436,7 +429,6 @@
           }
         }
       },
-      "tags": []
     },
     "feedback": {
       "root": "libs/feedback",
@@ -460,7 +452,6 @@
           }
         }
       },
-      "tags": []
     },
     "firebase": {
       "projectType": "library",
@@ -478,7 +469,6 @@
         }
       },
       "schematics": {},
-      "tags": []
     },
     "firebase-login": {
       "root": "libs/firebase-login",
@@ -502,7 +492,6 @@
           }
         }
       },
-      "tags": []
     },
     "intro": {
       "projectType": "library",
@@ -520,7 +509,6 @@
         }
       },
       "schematics": {},
-      "tags": []
     },
     "kirjs": {
       "root": "apps/kirjs",
@@ -632,7 +620,6 @@
         },
         "sourceLocale": "ru"
       },
-      "tags": []
     },
     "lis": {
       "projectType": "application",
@@ -731,7 +718,6 @@
           }
         }
       },
-      "tags": []
     },
     "live": {
       "root": "libs/live",
@@ -755,7 +741,6 @@
         }
       },
       "schematics": {},
-      "tags": []
     },
     "playground": {
       "projectType": "application",
@@ -851,7 +836,6 @@
           }
         }
       },
-      "tags": []
     },
     "slides": {
       "projectType": "library",
@@ -881,7 +865,6 @@
         }
       },
       "schematics": {},
-      "tags": []
     },
     "utils": {
       "root": "libs/utils",
@@ -898,7 +881,6 @@
           }
         }
       },
-      "tags": []
     }
   },
   "schematics": {
