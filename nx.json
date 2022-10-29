@@ -4,12 +4,10 @@
     "angular.json": "*",
     "package.json": "*",
     "tsconfig.json": "*",
-    "tslint.json": "*",
     "nx.json": "*"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "analytics": "2d33a6dc-15e8-4227-b14e-dedd96805cec"
+    "defaultCollection": "@nrwl/angular"
   },
   "generators": {
     "@schematics/angular:component": {

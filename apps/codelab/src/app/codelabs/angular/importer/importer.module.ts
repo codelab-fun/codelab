@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ImporterComponent } from './importer.component';
 import { RouterModule } from '@angular/router';
 import { TypeScriptComponent } from '../typescript/typescript/typescript.component';
+import { TypeScriptModule } from '../typescript/typescript-routing.module';
 
 const routes = [
   {
@@ -23,12 +24,7 @@ export class TrashComponent {}
 export class FakeDeck {}
 
 @NgModule({
-  declarations: [
-    ImporterComponent,
-    TypeScriptComponent,
-    TrashComponent,
-    FakeDeck,
-  ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  declarations: [ImporterComponent, TrashComponent, FakeDeck],
+  imports: [CommonModule, RouterModule.forChild(routes), TypeScriptModule],
 })
 export class ImporterModule {}

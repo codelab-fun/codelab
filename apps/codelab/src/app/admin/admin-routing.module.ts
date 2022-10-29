@@ -32,7 +32,7 @@ const routes = [
       {
         path: ':presentation/:slide',
         component: ContentComponent,
-        children: [{ path: '', ContentComponent }],
+        // children: [{ path: '', ContentComponent }],
       },
     ],
   },

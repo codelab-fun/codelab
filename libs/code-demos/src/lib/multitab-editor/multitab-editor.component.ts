@@ -161,7 +161,7 @@ export class MultitabEditorComponent
         const model = this.monacoConfigService.monaco.editor.createModel(
           code,
           language,
-          'inmemory://model/' + this.prefix + path
+          monaco.Uri.parse('inmemory://model/' + this.prefix + path)
         );
 
         model.onDidChangeContent(() => {
