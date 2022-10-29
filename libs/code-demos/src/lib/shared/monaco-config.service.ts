@@ -6,7 +6,7 @@ declare const require;
 const monacoVersion = 'min';
 const monacoLoaderCode = require('!raw-loader!monaco-editor/' +
   monacoVersion +
-  '/vs/loader');
+  '/vs/loader').default;
 
 const win = window as any;
 declare const monaco;

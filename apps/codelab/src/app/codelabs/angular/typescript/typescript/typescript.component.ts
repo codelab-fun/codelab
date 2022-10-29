@@ -188,7 +188,7 @@ console.log(oscar.bark());`,
 console.log(add(2, '2'));`,
         undefined,
         require(`!raw-loader!./code/mini-exercise-test.ts`)
-          .replace('@@specifyTheTypeForB', this.t.specifyTheTypeForB)
+          .default.replace('@@specifyTheTypeForB', this.t.specifyTheTypeForB)
           .replace(
             '@@typescriptHighlightsErrorFix224',
             this.t.typescriptHighlightsErrorFix224

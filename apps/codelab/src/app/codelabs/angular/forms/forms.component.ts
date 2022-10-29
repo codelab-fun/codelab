@@ -41,10 +41,7 @@ function formsConfig(code, highlights: FileHighlights = {}) {
         .setCode(require('!!raw-loader!./samples/basic/main.ts').default)
         .makeBootstrappable(),
 
-      CodelabFile.Css('styles').setCode(
-        require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
-          .default
-      ),
+      CodelabFile.Css('styles').setCode('todo'),
 
       CodelabFile.Css('extra').setCode(
         require('!!raw-loader!./samples/basic/styles.css').default

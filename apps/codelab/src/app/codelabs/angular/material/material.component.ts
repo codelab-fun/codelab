@@ -44,8 +44,9 @@ function matExercise(
         .setCode(require('!!raw-loader!./samples/basic/main.ts').default)
         .makeBootstrappable(),
       CodelabFile.Css('styles').setCode(
-        require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
-          .default
+        'TODO(kirjs)'
+        // require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
+        //   .default
       ),
       CodelabFile.Css('extra').setCode('body {padding: 0; margin: 0;}'),
     ],
@@ -64,17 +65,12 @@ export class MaterialComponent implements AfterViewInit {
   @ViewChild('translations', { static: false }) translations;
 
   themes = {
-    indigo:
-      require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
-        .default,
-    deeppurple:
-      require('!!raw-loader!@angular/material/prebuilt-themes/deeppurple-amber.css')
-        .default,
-    pink: require('!!raw-loader!@angular/material/prebuilt-themes/pink-bluegrey.css')
-      .default,
-    purple:
-      require('!!raw-loader!@angular/material/prebuilt-themes/purple-green.css')
-        .default,
+    indigo: 'TODO(kirjs)',
+    // require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
+    //   .default,
+    deeppurple: 'TODO(kirjs)',
+    pink: 'TODO(kirjs)',
+    purple: 'TODO(kirjs)',
   };
 
   code = {

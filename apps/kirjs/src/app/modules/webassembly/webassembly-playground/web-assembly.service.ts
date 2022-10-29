@@ -7,7 +7,7 @@ const wabt = (function () {
   // Needed to make umd properly export stuff.
   const exports = {};
   const module = {};
-  const code = require('!raw-loader!wabt');
+  const code = require('!raw-loader!wabt').default;
   return eval(code)();
 })();
 
