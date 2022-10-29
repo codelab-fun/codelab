@@ -29,7 +29,7 @@
             "karmaConfig": "libs/angular-ast-viz/karma.conf.js"
           }
         }
-      },
+      }
     },
     "angular-slides-to-pdf": {
       "root": "libs/angular-slides-to-pdf",
@@ -57,7 +57,7 @@
             "karmaConfig": "libs/angular-slides-to-pdf/karma.conf.js"
           }
         }
-      },
+      }
     },
     "angular-thirty-seconds": {
       "root": "libs/angular-thirty-seconds",
@@ -171,7 +171,7 @@
             ]
           }
         }
-      },
+      }
     },
     "blog": {
       "root": "apps/blog",
@@ -255,14 +255,14 @@
             "setupFile": "apps/blog/src/test-setup.ts"
           }
         }
-      },
+      }
     },
     "browser": {
       "root": "libs/browser",
       "sourceRoot": "libs/browser/src",
       "projectType": "library",
       "prefix": "codelab",
-      "architect": {},
+      "architect": {}
     },
     "code-demos": {
       "root": "libs/code-demos",
@@ -290,7 +290,7 @@
             "setupFile": "libs/code-demos/src/test-setup.ts"
           }
         }
-      },
+      }
     },
     "codelab": {
       "root": "apps/codelab",
@@ -412,7 +412,7 @@
             ]
           }
         }
-      },
+      }
     },
     "console": {
       "root": "libs/console",
@@ -428,7 +428,7 @@
             "karmaConfig": "libs/console/karma.conf.js"
           }
         }
-      },
+      }
     },
     "feedback": {
       "root": "libs/feedback",
@@ -451,7 +451,7 @@
             "karmaConfig": "libs/feedback/karma.conf.js"
           }
         }
-      },
+      }
     },
     "firebase": {
       "projectType": "library",
@@ -468,7 +468,7 @@
           }
         }
       },
-      "schematics": {},
+      "schematics": {}
     },
     "firebase-login": {
       "root": "libs/firebase-login",
@@ -491,7 +491,7 @@
             "karmaConfig": "libs/firebase-login/karma.conf.js"
           }
         }
-      },
+      }
     },
     "intro": {
       "projectType": "library",
@@ -508,7 +508,7 @@
           }
         }
       },
-      "schematics": {},
+      "schematics": {}
     },
     "kirjs": {
       "root": "apps/kirjs",
@@ -619,7 +619,7 @@
           }
         },
         "sourceLocale": "ru"
-      },
+      }
     },
     "lis": {
       "projectType": "application",
@@ -717,7 +717,7 @@
             "setupFile": "apps/lis/src/test-setup.ts"
           }
         }
-      },
+      }
     },
     "live": {
       "root": "libs/live",
@@ -740,7 +740,7 @@
           }
         }
       },
-      "schematics": {},
+      "schematics": {}
     },
     "playground": {
       "projectType": "application",
@@ -835,7 +835,7 @@
             "setupFile": "apps/playground/src/test-setup.ts"
           }
         }
-      },
+      }
     },
     "slides": {
       "projectType": "library",
@@ -864,7 +864,7 @@
           }
         }
       },
-      "schematics": {},
+      "schematics": {}
     },
     "utils": {
       "root": "libs/utils",
@@ -880,7 +880,7 @@
             "karmaConfig": "libs/utils/karma.conf.js"
           }
         }
-      },
+      }
     }
   },
   "schematics": {
@@ -903,8 +903,7 @@
       "framework": "express"
     },
     "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "unitTestRunner": "jest"
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"

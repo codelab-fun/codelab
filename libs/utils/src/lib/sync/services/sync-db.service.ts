@@ -128,7 +128,7 @@ export class SyncDataObject<T> {
     // TODO(kirjs): There should be a better way than casting to any
     const newKey$ = this.key$.pipe(
       switchMap((k) =>
-        (key$ as Observable<K>).pipe(map((key) => `${k}/${key}`))
+        (key$ as Observable<K>).pipe(map((key) => `${k}/${key.toString()}`))
       )
     ) as any;
     return this.syncDbService.object(newKey$);
@@ -142,7 +142,7 @@ export class SyncDataObject<T> {
     }
     const newKey$ = this.key$.pipe(
       switchMap((k) =>
-        (key$ as Observable<K>).pipe(map((key) => `${k}/${key}`))
+        (key$ as Observable<K>).pipe(map((key) => `${k}/${key.toString()}`))
       )
     ) as any;
 
