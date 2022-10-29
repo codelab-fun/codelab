@@ -19,7 +19,7 @@ import { Level } from '../stack/stack-game/stack-game.component';
 declare const require;
 
 export const wasmAnswers = extractAnswers(
-  require('!!raw-loader!./samples/answer.wat')
+  require('!!raw-loader!./samples/answer.wat').default
 );
 
 function generateArray(size = 89, callback) {
@@ -212,11 +212,11 @@ export class WebassemblyComponent implements OnInit {
     )
 )
 `,
-      js: require('!!raw-loader!./samples/base.js'),
+      js: require('!!raw-loader!./samples/base.js').default,
     },
     simple: {
-      wat: require('!!raw-loader!./samples/base.wat'),
-      js: require('!!raw-loader!./samples/base.js'),
+      wat: require('!!raw-loader!./samples/base.wat').default,
+      js: require('!!raw-loader!./samples/base.js').default,
     },
     brIf: {
       wa: `(module

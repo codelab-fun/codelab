@@ -90,14 +90,21 @@ export class AppComponent {
 
     this.code = {
       indexHtml: {
-        'index.html': require('!!raw-loader!./samples/index-html/index.html'),
-        'bootstrap.ts': require('!!raw-loader!./samples/index-html/bootstrap.ts'),
+        'index.html': require('!!raw-loader!./samples/index-html/index.html')
+          .default,
+        'bootstrap.ts':
+          require('!!raw-loader!./samples/index-html/bootstrap.ts').default,
       },
       angularApp: {
-        'index.html': require('!!raw-loader!./samples/app-component/index.html'),
-        'bootstrap.ts': require('!!raw-loader!./samples/app-component/bootstrap.ts'),
-        'app.component.ts': require('!!raw-loader!./samples/app-component/app.component.ts'),
-        'app.module.ts': require('!!raw-loader!./samples/app-component/app.module.ts'),
+        'index.html': require('!!raw-loader!./samples/app-component/index.html')
+          .default,
+        'bootstrap.ts':
+          require('!!raw-loader!./samples/app-component/bootstrap.ts').default,
+        'app.component.ts':
+          require('!!raw-loader!./samples/app-component/app.component.ts')
+            .default,
+        'app.module.ts':
+          require('!!raw-loader!./samples/app-component/app.module.ts').default,
       },
       indexHtmlMatches: { 'index.html': /<hello-[^]*world>/ },
       helloMatches: { 'app.component.ts': /hello-world/ },

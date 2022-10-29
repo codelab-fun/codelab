@@ -9,22 +9,31 @@ declare const require;
 })
 export class AboutComponent implements OnInit {
   code = {
-    fakeTypes: require('!!raw-loader!./samples/fake-types.d.ts.not-really'),
+    fakeTypes: require('!!raw-loader!./samples/fake-types.d.ts.not-really')
+      .default,
     slides: {
-      template: require('!!raw-loader!./samples/slides/ng-template.html'),
-      component: require('!!raw-loader!./samples/slides/slide-component.html'),
-      directive: require('!!raw-loader!./samples/slides/structural-directive.html'),
+      template: require('!!raw-loader!./samples/slides/ng-template.html')
+        .default,
+      component: require('!!raw-loader!./samples/slides/slide-component.html')
+        .default,
+      directive:
+        require('!!raw-loader!./samples/slides/structural-directive.html')
+          .default,
     },
     storingCode: {
-      plain: require('!!raw-loader!./samples/storing-code/plain.html'),
-      backticks: require('!!raw-loader!./samples/storing-code/backticks.html'),
+      plain: require('!!raw-loader!./samples/storing-code/plain.html').default,
+      backticks: require('!!raw-loader!./samples/storing-code/backticks.html')
+        .default,
       backticksMatch: [/{{`/, /`}}/],
       interpolation: {
-        'bootstrap.ts': require('!!raw-loader!./samples/storing-code/interpolations.ts'),
+        'bootstrap.ts':
+          require('!!raw-loader!./samples/storing-code/interpolations.ts')
+            .default,
       },
     },
     highlights: {
-      find: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/utils/utils'),
+      find: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/utils/utils')
+        .default,
     },
   };
 

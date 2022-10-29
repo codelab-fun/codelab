@@ -58,11 +58,17 @@ export class WorldComponent {}
     },
     appModule: {
       code: {
-        'app.module.ts': require('!!raw-loader!./samples/module/app.module.ts'),
-        'circle.component.ts': require('!!raw-loader!./samples/module/circle.component.ts'),
-        'box.component.ts': require('!!raw-loader!./samples/module/box.component.ts'),
-        'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
-        'index.html': require('!!raw-loader!./samples/module/index.html'),
+        'app.module.ts': require('!!raw-loader!./samples/module/app.module.ts')
+          .default,
+        'circle.component.ts':
+          require('!!raw-loader!./samples/module/circle.component.ts').default,
+        'box.component.ts':
+          require('!!raw-loader!./samples/module/box.component.ts').default,
+        'bootstrap.ts':
+          require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts')
+            .default,
+        'index.html': require('!!raw-loader!./samples/module/index.html')
+          .default,
       },
       files: ['app.module.ts'],
       highlights: { 'app.module.ts': /declarations.*/ },

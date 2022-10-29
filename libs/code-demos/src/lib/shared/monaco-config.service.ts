@@ -92,7 +92,7 @@ export class MonacoConfigService {
     // Some fake Angular deps, good for catching silly errors.
     // I'd still prefer to have the full version.
 
-    // const core = require('!!raw-loader!../../../assets/runner/ng-dts/bundles/@angular/core.d.ts');
+    // const core = require('!!raw-loader!../../../assets/runner/ng-dts/bundles/@angular/core.d.ts').default;
     // monaco.languages.typescript.typescriptDefaults.addExtraLib(core, 'node_modules/@angular/core.d.ts');
 
     // this.addExtraLibs();
@@ -102,7 +102,8 @@ export class MonacoConfigService {
   }
 
   private static addExtraLibsTest() {
-    let files = require('!!raw-loader!../../../assets/runner/ng-dts/files.txt');
+    let files =
+      require('!!raw-loader!../../../assets/runner/ng-dts/files.txt').default;
     files = JSON.parse(files);
 
     files.forEach((file) => {

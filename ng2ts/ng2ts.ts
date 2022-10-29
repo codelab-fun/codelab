@@ -17,7 +17,7 @@ const preloadedFiles = {
   'style.css': require('!raw-loader!./style.css'),
   'video/video-item.ts': require('!raw-loader!./video/video-item.ts'),
   'api.service.ts': require('!raw-loader!./api.service.ts'),
-  'material.css': require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
+  'material.css': require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css').default,
   'search/search.component.html': require('!raw-loader!./search/search.component.html'),
   'search/search.component.ts': require('!raw-loader!./search/search.component.ts'),
   'upload/upload.component.html': require('!raw-loader!./upload/upload.component.html'),

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 declare const require;
-const code = require('!!raw-loader!./debugger.ts');
+const code = require('!!raw-loader!./debugger.ts').default;
 
 @Component({
   selector: 'kirjs-debugger-sample',

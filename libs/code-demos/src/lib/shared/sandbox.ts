@@ -65,7 +65,7 @@ export function wrapSystemJs(systemCode) {
 }
 
 function injectSystemJs({ evalJs }) {
-  const systemCode = require('!!raw-loader!systemjs/dist/system.src');
+  const systemCode = require('!!raw-loader!systemjs/dist/system.src').default;
   // SystemJS expects document.baseURI to be set on the document.
   // Since it's a readonly property, I'm faking whole document property.
   const wrappedSystemCode = wrapSystemJs(systemCode);

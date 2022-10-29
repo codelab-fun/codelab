@@ -25,14 +25,26 @@ export class RouterComponent implements AfterViewInit {
 
   code = {
     files: {
-      'app.module.ts': require('!!raw-loader!./samples/simple-router/app.module.ts'),
-      'app.component.html': require('!!raw-loader!./samples/simple-router/app.component.html'),
-      'app.component.ts': require('!!raw-loader!./samples/simple-router/app.component.ts'),
-      'components/kitten.ts': require('!!raw-loader!./samples/simple-router/components/kitten.ts'),
-      'components/puppy.ts': require('!!raw-loader!./samples/simple-router/components/puppy.ts'),
-      'bootstrap.ts': require('!!raw-loader!./samples/simple-router/main.ts'),
-      'index.html': require('!!raw-loader!./samples/simple-router/index.html'),
-      'components/.html': require('!!raw-loader!./samples/simple-router/index.html'),
+      'app.module.ts':
+        require('!!raw-loader!./samples/simple-router/app.module.ts').default,
+      'app.component.html':
+        require('!!raw-loader!./samples/simple-router/app.component.html')
+          .default,
+      'app.component.ts':
+        require('!!raw-loader!./samples/simple-router/app.component.ts')
+          .default,
+      'components/kitten.ts':
+        require('!!raw-loader!./samples/simple-router/components/kitten.ts')
+          .default,
+      'components/puppy.ts':
+        require('!!raw-loader!./samples/simple-router/components/puppy.ts')
+          .default,
+      'bootstrap.ts': require('!!raw-loader!./samples/simple-router/main.ts')
+        .default,
+      'index.html': require('!!raw-loader!./samples/simple-router/index.html')
+        .default,
+      'components/.html':
+        require('!!raw-loader!./samples/simple-router/index.html').default,
     },
     config: {
       files: ['app.module.ts'],

@@ -124,82 +124,98 @@ isIdentifier(path.node.property, {name: log})`,
     findConsoleLog: [
       exercise(
         'find-console-log',
-        require('!!raw-loader!./samples/find-console-log/find-console-log.js'),
+        require('!!raw-loader!./samples/find-console-log/find-console-log.js')
+          .default,
         require('!!raw-loader!./samples/find-console-log/find-console-log-regex.solved.js')
+          .default
       ),
       exercise(
         'find-console-log.test',
         require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')
+          .default
       ),
     ],
     findDebuggerBabel: [
       exercise(
         'find-debugger-babel',
-        require('!!raw-loader!./samples/find-debugger/find-debugger-babel.ts'),
+        require('!!raw-loader!./samples/find-debugger/find-debugger-babel.ts')
+          .default,
         require('!!raw-loader!./samples/find-debugger/find-debugger-babel.solved.ts')
+          .default
       ),
       exercise(
         'find-debugger.test',
         require('!!raw-loader!./samples/find-debugger/find-debugger.test.js')
+          .default
       ),
     ],
     traverseConsoleLogBabel: [
       exercise(
         'traverse-console-log-babel',
-        require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.ts'),
+        require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.ts')
+          .default,
         require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved.ts')
+          .default
       ),
       exercise(
         'find-console-log.test',
         require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')
+          .default
       ),
     ],
     traverseConsoleLogBabel2: [
       exercise(
         'traverse-console-log-babel',
-        require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved.ts'),
+        require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved.ts')
+          .default,
         require('!!raw-loader!./samples/find-console-log/traverse-console-log-babel.solved2.ts')
+          .default
       ),
       exercise(
         'find-console-log.test',
         require('!!raw-loader!./samples/find-console-log/find-console-log.test.js')
+          .default
       ),
     ],
     removeConsoleLogBabel: [
       exercise(
         'remove-console-log',
-        require('!!raw-loader!./samples/find-console-log/remove-console-log.ts'),
+        require('!!raw-loader!./samples/find-console-log/remove-console-log.ts')
+          .default,
         require('!!raw-loader!./samples/find-console-log/remove-console-log.solved.ts')
+          .default
       ),
       exercise(
         'remove-console-log.test',
         require('!!raw-loader!./samples/find-console-log/remove-console-log.test.js')
+          .default
       ),
     ],
     findfIt: [
       exercise(
         'find-fit',
-        require('!!raw-loader!./samples/find-fit/find-fit.js'),
-        require('!!raw-loader!./samples/find-fit/find-fit.solved.js')
+        require('!!raw-loader!./samples/find-fit/find-fit.js').default,
+        require('!!raw-loader!./samples/find-fit/find-fit.solved.js').default
       ),
       exercise(
         'find-fit.test',
-        require('!!raw-loader!./samples/find-fit/find-fit.test.js')
+        require('!!raw-loader!./samples/find-fit/find-fit.test.js').default
       ),
     ],
     itLines: [
       exercise(
         'it-lines',
-        require('!!raw-loader!./samples/it-lines/it-lines.js'),
-        require('!!raw-loader!./samples/it-lines/it-lines.solved.js')
+        require('!!raw-loader!./samples/it-lines/it-lines.js').default,
+        require('!!raw-loader!./samples/it-lines/it-lines.solved.js').default
       ),
       exercise(
         'it-lines.test',
-        require('!!raw-loader!./samples/it-lines/it-lines.test.js')
+        require('!!raw-loader!./samples/it-lines/it-lines.test.js').default
       ),
     ],
-    decToBin: require('!!raw-loader!./samples/dec-to-bin.js'),
-    decToBinFixed: require('!!raw-loader!./samples/dec-to-bin-with-semicolons.js'),
+    decToBin: require('!!raw-loader!./samples/dec-to-bin.js').default,
+    decToBinFixed:
+      require('!!raw-loader!./samples/dec-to-bin-with-semicolons.js').default,
   };
 
   constructor() {}

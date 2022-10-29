@@ -164,7 +164,7 @@ export function webAssemblyTestHandler(
   return {
     code: {
       wat,
-      js: require('!!raw-loader!./runner.js'),
+      js: require('!!raw-loader!./runner.js').default,
     },
     answer,
     globals,

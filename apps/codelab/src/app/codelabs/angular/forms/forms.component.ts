@@ -16,9 +16,10 @@ interface FileHighlights {
 
 function formsConfig(code, highlights: FileHighlights = {}) {
   const files = {
-    appHtml: require('!!raw-loader!./samples/basic/app.1.html'),
-    appModule: require('!!raw-loader!./samples/basic/app.module.ts'),
-    appComponent: require('!!raw-loader!./samples/basic/app.component.ts'),
+    appHtml: require('!!raw-loader!./samples/basic/app.1.html').default,
+    appModule: require('!!raw-loader!./samples/basic/app.module.ts').default,
+    appComponent: require('!!raw-loader!./samples/basic/app.component.ts')
+      .default,
     ...code,
   };
 
@@ -37,15 +38,16 @@ function formsConfig(code, highlights: FileHighlights = {}) {
         .withHighlight(highlights.appComponent),
 
       CodelabFile.TypeScriptFile('bootstrap')
-        .setCode(require('!!raw-loader!./samples/basic/main.ts'))
+        .setCode(require('!!raw-loader!./samples/basic/main.ts').default)
         .makeBootstrappable(),
 
       CodelabFile.Css('styles').setCode(
         require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
+          .default
       ),
 
       CodelabFile.Css('extra').setCode(
-        require('!!raw-loader!./samples/basic/styles.css')
+        require('!!raw-loader!./samples/basic/styles.css').default
       ),
     ],
   };
@@ -61,33 +63,34 @@ export class FormsComponent implements AfterViewInit {
   exercise: ExerciseConfigTemplate;
   samples = {
     basicForm: formsConfig(
-      { appHtml: require('!!raw-loader!./samples/basic/app.1.html') },
+      { appHtml: require('!!raw-loader!./samples/basic/app.1.html').default },
       {
         appModule: /FormsModule]/,
       }
     ),
     ngModel: formsConfig(
-      { appHtml: require('!!raw-loader!./samples/basic/app.2.html') },
+      { appHtml: require('!!raw-loader!./samples/basic/app.2.html').default },
       {
         appHtml: [/ngModel/g],
       }
     ),
     ngValidation1: formsConfig(
-      { appHtml: require('!!raw-loader!./samples/basic/app.3.html') },
+      { appHtml: require('!!raw-loader!./samples/basic/app.3.html').default },
       {
         appHtml: [/required/],
       }
     ),
     ngValidation2: formsConfig(
-      { appHtml: require('!!raw-loader!./samples/basic/app.4.html') },
+      { appHtml: require('!!raw-loader!./samples/basic/app.4.html').default },
       {
         appHtml: [/#usernameModel="ngModel"/, /<div \*[\s\S]*?<\/div>/],
       }
     ),
     touched: formsConfig(
       {
-        appHtml: require('!!raw-loader!./samples/basic/app.4.html'),
-        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts'),
+        appHtml: require('!!raw-loader!./samples/basic/app.4.html').default,
+        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts')
+          .default,
       },
       {
         appComponent: /username = ''/,
@@ -95,8 +98,9 @@ export class FormsComponent implements AfterViewInit {
     ),
     touched2: formsConfig(
       {
-        appHtml: require('!!raw-loader!./samples/basic/app.5.html'),
-        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts'),
+        appHtml: require('!!raw-loader!./samples/basic/app.5.html').default,
+        appComponent: require('!!raw-loader!./samples/basic/app.component.5.ts')
+          .default,
       },
       {
         appHtml: /(usernameModel.touched \|\| usernameModel.dirty)/,
@@ -104,9 +108,9 @@ export class FormsComponent implements AfterViewInit {
     ),
     ngMaterial: formsConfig(
       {
-        appHtml: require('!!raw-loader!./samples/basic/app.6.html'),
+        appHtml: require('!!raw-loader!./samples/basic/app.6.html').default,
         appModule:
-          require('!!raw-loader!./samples/basic/app.module.6.ts').replace(
+          require('!!raw-loader!./samples/basic/app.module.6.ts').default.replace(
             'component.5',
             'component' /*Stupid hack*/
           ),

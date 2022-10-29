@@ -24,7 +24,7 @@ export function getTypeScript(): typeof ts {
     exports: {},
   };
 
-  eval(require('!!raw-loader!typescript'));
+  eval(require('!!raw-loader!typescript').default);
   w.ts = module.exports;
 
   return w.ts;

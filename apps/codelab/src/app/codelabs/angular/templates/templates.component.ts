@@ -113,12 +113,24 @@ export class AppComponent {
 }`),
         dataBindingExtra: {
           code: {
-            'app.component.html': require('!!raw-loader!./samples/data-binding-extra/app.component.html'),
-            'app.component.ts': require('!!raw-loader!./samples/data-binding-extra/app.component.ts'),
-            'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
-            'app.module.ts': require('!!raw-loader!./samples/data-binding-extra/app.module.ts'),
-            'number-praiser.ts': require('!!raw-loader!./samples/data-binding-extra/number-praiser.ts'),
-            'index.html': require('!!raw-loader!./samples/data-binding-extra/index.html'),
+            'app.component.html':
+              require('!!raw-loader!./samples/data-binding-extra/app.component.html')
+                .default,
+            'app.component.ts':
+              require('!!raw-loader!./samples/data-binding-extra/app.component.ts')
+                .default,
+            'bootstrap.ts':
+              require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts')
+                .default,
+            'app.module.ts':
+              require('!!raw-loader!./samples/data-binding-extra/app.module.ts')
+                .default,
+            'number-praiser.ts':
+              require('!!raw-loader!./samples/data-binding-extra/number-praiser.ts')
+                .default,
+            'index.html':
+              require('!!raw-loader!./samples/data-binding-extra/index.html')
+                .default,
           },
           files: ['app.component.html', 'app.component.ts'],
         },
@@ -214,33 +226,63 @@ describe('AppComponent', ()=>{
       bindingPropExerciseMatch: /user.pic/,
       eventBinding: {
         code: {
-          'app.component.html': require('!!raw-loader!./samples/event-binding/app.component.html'),
-          'app.component.ts': require('!!raw-loader!./samples/event-binding/app.component.ts'),
-          'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
-          'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
-          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html'),
+          'app.component.html':
+            require('!!raw-loader!./samples/event-binding/app.component.html')
+              .default,
+          'app.component.ts':
+            require('!!raw-loader!./samples/event-binding/app.component.ts')
+              .default,
+          'bootstrap.ts':
+            require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts')
+              .default,
+          'app.module.ts':
+            require('!!raw-loader!./../../../shared/angular-code/app.module.ts')
+              .default,
+          'index.html':
+            require('!!raw-loader!./../../../shared/angular-code/index.html')
+              .default,
         },
         files: ['app.component.html'],
         highlights: { 'app.component.html': '(click)' },
       },
       referenceBinding: {
         code: {
-          'app.component.html': require('!!raw-loader!./samples/reference-binding/app.component.html'),
-          'app.component.ts': require('!!raw-loader!./samples/reference-binding/app.component.ts'),
-          'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
-          'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
-          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html'),
+          'app.component.html':
+            require('!!raw-loader!./samples/reference-binding/app.component.html')
+              .default,
+          'app.component.ts':
+            require('!!raw-loader!./samples/reference-binding/app.component.ts')
+              .default,
+          'bootstrap.ts':
+            require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts')
+              .default,
+          'app.module.ts':
+            require('!!raw-loader!./../../../shared/angular-code/app.module.ts')
+              .default,
+          'index.html':
+            require('!!raw-loader!./../../../shared/angular-code/index.html')
+              .default,
         },
         files: ['app.component.html'],
         highlights: { 'app.component.html': ['#input', 'input.value'] },
       },
       eventBindingShortcuts: {
         code: {
-          'app.component.html': require('!!raw-loader!./samples/event-binding-shortcuts/app.component.html'),
-          'app.component.ts': require('!!raw-loader!./samples/reference-binding/app.component.ts'),
-          'bootstrap.ts': require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts'),
-          'app.module.ts': require('!!raw-loader!./../../../shared/angular-code/app.module.ts'),
-          'index.html': require('!!raw-loader!./../../../shared/angular-code/index.html'),
+          'app.component.html':
+            require('!!raw-loader!./samples/event-binding-shortcuts/app.component.html')
+              .default,
+          'app.component.ts':
+            require('!!raw-loader!./samples/reference-binding/app.component.ts')
+              .default,
+          'bootstrap.ts':
+            require('!!raw-loader!./../../../shared/angular-code/bootstrap.ts')
+              .default,
+          'app.module.ts':
+            require('!!raw-loader!./../../../shared/angular-code/app.module.ts')
+              .default,
+          'index.html':
+            require('!!raw-loader!./../../../shared/angular-code/index.html')
+              .default,
         },
         files: ['app.component.html'],
         highlights: { 'app.component.html': '(keydown.control.enter)' },

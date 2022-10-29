@@ -26,7 +26,7 @@ function matExercise(
   theme = 'purple'
 ) {
   const moduleCode =
-    require('!!raw-loader!./samples/basic/app.module.ts').replace(
+    require('!!raw-loader!./samples/basic/app.module.ts').default.replace(
       /MatCardModule, MatToolbarModule/g,
       modules
     );
@@ -38,13 +38,14 @@ function matExercise(
         .withHighlight(highlights.appModule),
       CodelabFile.Html('app').setCode(html).withHighlight(highlights.appHtml),
       CodelabFile.TypeScriptFile('app.component').setCode(
-        require('!!raw-loader!./samples/basic/app.component.ts')
+        require('!!raw-loader!./samples/basic/app.component.ts').default
       ),
       CodelabFile.TypeScriptFile('bootstrap')
-        .setCode(require('!!raw-loader!./samples/basic/main.ts'))
+        .setCode(require('!!raw-loader!./samples/basic/main.ts').default)
         .makeBootstrappable(),
       CodelabFile.Css('styles').setCode(
         require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
+          .default
       ),
       CodelabFile.Css('extra').setCode('body {padding: 0; margin: 0;}'),
     ],
@@ -63,20 +64,30 @@ export class MaterialComponent implements AfterViewInit {
   @ViewChild('translations', { static: false }) translations;
 
   themes = {
-    indigo: require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css'),
-    deeppurple: require('!!raw-loader!@angular/material/prebuilt-themes/deeppurple-amber.css'),
-    pink: require('!!raw-loader!@angular/material/prebuilt-themes/pink-bluegrey.css'),
-    purple: require('!!raw-loader!@angular/material/prebuilt-themes/purple-green.css'),
+    indigo:
+      require('!!raw-loader!@angular/material/prebuilt-themes/indigo-pink.css')
+        .default,
+    deeppurple:
+      require('!!raw-loader!@angular/material/prebuilt-themes/deeppurple-amber.css')
+        .default,
+    pink: require('!!raw-loader!@angular/material/prebuilt-themes/pink-bluegrey.css')
+      .default,
+    purple:
+      require('!!raw-loader!@angular/material/prebuilt-themes/purple-green.css')
+        .default,
   };
 
   code = {
     material: {
       step1: {
         code: {
-          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
-          'app.module.ts': require('!!raw-loader!./samples/step1/app.module.ts'),
-          'app.html': require('!!raw-loader!./samples/step1/app.html'),
-          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'app.component.ts':
+            require('!!raw-loader!./samples/basic/app.component.ts').default,
+          'app.module.ts': require('!!raw-loader!./samples/step1/app.module.ts')
+            .default,
+          'app.html': require('!!raw-loader!./samples/step1/app.html').default,
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts')
+            .default,
           'styles.css': this.themes.indigo,
         },
         files: ['app.module.ts', 'app.html'],
@@ -87,10 +98,13 @@ export class MaterialComponent implements AfterViewInit {
       },
       step2: {
         code: {
-          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
-          'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts'),
-          'app.html': require('!!raw-loader!./samples/step2/app.html'),
-          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'app.component.ts':
+            require('!!raw-loader!./samples/basic/app.component.ts').default,
+          'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts')
+            .default,
+          'app.html': require('!!raw-loader!./samples/step2/app.html').default,
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts')
+            .default,
           'styles.css': this.themes.indigo,
         },
         files: ['app.module.ts', 'app.html'],
@@ -101,10 +115,13 @@ export class MaterialComponent implements AfterViewInit {
       },
       step3: {
         code: {
-          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
-          'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts'),
-          'app.html': require('!!raw-loader!./samples/step3/app.html'),
-          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'app.component.ts':
+            require('!!raw-loader!./samples/basic/app.component.ts').default,
+          'app.module.ts': require('!!raw-loader!./samples/step2/app.module.ts')
+            .default,
+          'app.html': require('!!raw-loader!./samples/step3/app.html').default,
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts')
+            .default,
           'styles.css': this.themes.indigo,
         },
         files: ['app.html'],
@@ -114,10 +131,13 @@ export class MaterialComponent implements AfterViewInit {
       },
       step4: {
         code: {
-          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
-          'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts'),
-          'app.html': require('!!raw-loader!./samples/step4/app.html'),
-          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'app.component.ts':
+            require('!!raw-loader!./samples/basic/app.component.ts').default,
+          'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts')
+            .default,
+          'app.html': require('!!raw-loader!./samples/step4/app.html').default,
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts')
+            .default,
           'styles.css': this.themes.indigo,
         },
         files: ['app.module.ts', 'app.html'],
@@ -128,17 +148,20 @@ export class MaterialComponent implements AfterViewInit {
       },
       themes: {
         code: {
-          'app.component.ts': require('!!raw-loader!./samples/basic/app.component.ts'),
-          'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts'),
-          'app.html': require('!!raw-loader!./samples/step4/app.html'),
-          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts'),
+          'app.component.ts':
+            require('!!raw-loader!./samples/basic/app.component.ts').default,
+          'app.module.ts': require('!!raw-loader!./samples/step4/app.module.ts')
+            .default,
+          'app.html': require('!!raw-loader!./samples/step4/app.html').default,
+          'bootstrap.ts': require('!!raw-loader!./samples/basic/main.ts')
+            .default,
           'styles.css': this.themes.indigo,
         },
         files: ['app.html', 'styles.css'],
       },
       theme: matExercise(
         `MatToolbarModule,\n    MatCardModule,\n    MatButtonModule`,
-        require('!!raw-loader!./samples/basic/app.4.html')
+        require('!!raw-loader!./samples/basic/app.4.html').default
       ),
     },
   };
