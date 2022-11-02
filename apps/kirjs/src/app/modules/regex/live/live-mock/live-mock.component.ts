@@ -17,7 +17,7 @@ export class LiveMockComponent implements OnInit, OnDestroy {
     status: this.fb.control(''),
   });
 
-  private onDestroy: Subject<null> = new Subject<null>();
+  private onDestroy$: Subject<null> = new Subject<null>();
 
   constructor(private service: LiveService, private fb: UntypedFormBuilder) {}
 
@@ -26,14 +26,14 @@ export class LiveMockComponent implements OnInit, OnDestroy {
       this.service.storeLiveInfo(data);
     });
 
-    this.service.liveInfo.pipe(takeUntil(this.onDestroy)).subscribe((data) => {
+    this.service.liveInfo.pipe(takeUntil(this.onDestroy$)).subscribe((data) => {
       this.data = data;
       this.form.patchValue(data, { emitEvent: false });
     });
   }
 
   ngOnDestroy(): void {
-    this.onDestroy.next(null);
-    this.onDestroy.complete();
+    this.onDestroy$.next(null);
+    this.onDestroy$.complete();
   }
 }

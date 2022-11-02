@@ -20,7 +20,7 @@ export class SyncPresenterValueDirective<
   @Input() syncPresenterValue: K;
   @Input() syncPresenterValueDefault: T;
 
-  private onDestroy$ = new Subject();
+  private onDestroy$$ = new Subject();
 
   constructor(
     private readonly syncDataService: SyncDataService,
@@ -28,8 +28,8 @@ export class SyncPresenterValueDirective<
   ) {}
 
   ngOnDestroy(): void {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
+    this.onDestroy$$.next(null);
+    this.onDestroy$$.complete();
   }
 
   ngOnInit() {
@@ -46,7 +46,7 @@ export class SyncPresenterValueDirective<
       .valueChanges()
       .pipe(
         map((a) => (a === undefined ? this.syncPresenterValueDefault : a)),
-        takeUntil(this.onDestroy$)
+        takeUntil(this.onDestroy$$)
       )
       .subscribe((value) => {
         this.control.valueAccessor.writeValue(value);
@@ -55,7 +55,7 @@ export class SyncPresenterValueDirective<
     this.control.valueChanges
       .pipe(
         filter((a) => a !== undefined),
-        takeUntil(this.onDestroy$)
+        takeUntil(this.onDestroy$$)
       )
       .subscribe((newValue) => {
         data.set(newValue);

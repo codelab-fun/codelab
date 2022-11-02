@@ -24,7 +24,7 @@ import { Subject } from 'rxjs';
 export class SyncButtonComponent implements OnInit, OnDestroy {
   @Input() name = 'default';
   sync = {};
-  private readonly onDestroy = new Subject<void>();
+  private readonly onDestroy$ = new Subject<void>();
   private readonly currentSlide =
     this.syncDataService.getPresenterObject('currentSlide');
 
@@ -44,7 +44,7 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
           filter((s) => s === SyncStatus.PRESENTING),
           mergeMapTo(this.presentation.slideChange),
           distinctUntilChanged(),
-          takeUntil(this.onDestroy),
+          takeUntil(this.onDestroy$),
           debounceTime(200)
         )
         .subscribe((slide: number) => {
@@ -57,7 +57,7 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
           switchMapTo(this.currentSlide.valueChanges()),
           distinctUntilChanged(),
           filter((s) => s !== null && s !== undefined),
-          takeUntil(this.onDestroy)
+          takeUntil(this.onDestroy$)
         )
         .subscribe((slide: number) => {
           this.presentation.goToSlide(slide);
@@ -66,8 +66,8 @@ export class SyncButtonComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.onDestroy.next();
-    this.onDestroy.complete();
+    this.onDestroy$.next(null);
+    this.onDestroy$.complete();
   }
 
   start(): void {

@@ -66,7 +66,7 @@ export class SyncDataObject<T> {
     })
   );
 
-  private onDestroy: Subject<null> = new Subject<null>();
+  private onDestroy$: Subject<null> = new Subject<null>();
 
   constructor(
     protected readonly db$: Observable<AngularFireObject<T>>,
@@ -116,8 +116,8 @@ export class SyncDataObject<T> {
   }
 
   destroy() {
-    this.onDestroy.next(null);
-    this.onDestroy.complete();
+    this.onDestroy$.next(null);
+    this.onDestroy$.complete();
   }
 
   object<K extends keyof T>(key$: Observable<K> | K): SyncDataObject<T[K]> {

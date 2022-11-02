@@ -16,7 +16,7 @@ export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
   @Input() syncViewerValue: keyof ViewerConfig;
   @Input() syncViewerValueDefault: T;
 
-  private onDestroy$ = new Subject();
+  private onDestroy$$ = new Subject();
 
   constructor(
     private readonly syncDataService: SyncDataService,
@@ -24,8 +24,8 @@ export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
   ) {}
 
   ngOnDestroy(): void {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
+    this.onDestroy$$.next(null);
+    this.onDestroy$$.complete();
   }
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
     data
       .valueChanges()
       .pipe(
-        takeUntil(this.onDestroy$),
+        takeUntil(this.onDestroy$$),
         map((a) => (a === undefined ? this.syncViewerValueDefault : a))
       )
       .subscribe((value) => {
@@ -52,7 +52,7 @@ export class SyncViewerValueDirective<T> implements OnDestroy, OnInit {
     this.control.valueChanges
       .pipe(
         filter((a) => a !== undefined),
-        takeUntil(this.onDestroy$)
+        takeUntil(this.onDestroy$$)
       )
       .subscribe((newValue) => {
         data.set(newValue);

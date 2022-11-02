@@ -17,13 +17,13 @@ import { Subject } from 'rxjs';
 export class AllViewerValuesDirective<T> implements AfterViewInit, OnDestroy {
   @Input() syncAllUserValues: string;
   values: { key: string; value: T }[];
-  private onDestroy = new Subject();
+  private onDestroy$ = new Subject();
 
   constructor(@Optional() private readonly control: NgControl) {}
 
   ngOnDestroy(): void {
-    this.onDestroy.next();
-    this.onDestroy.complete();
+    this.onDestroy$.next(null);
+    this.onDestroy$.complete();
   }
 
   ngAfterViewInit() {

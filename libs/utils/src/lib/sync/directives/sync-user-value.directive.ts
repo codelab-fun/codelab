@@ -22,7 +22,7 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
   @Input() syncUserValue: string;
   @Input() syncUserValueDefault: T;
 
-  private onDestroy$ = new Subject();
+  private onDestroy$$ = new Subject();
 
   constructor(
     private readonly dbService: SyncDbService<SyncDb>,
@@ -31,8 +31,8 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
   ) {}
 
   ngOnDestroy(): void {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
+    this.onDestroy$$.next(null);
+    this.onDestroy$$.complete();
   }
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
       .object(this.syncUserValue);
     const dataValue$ = syncDataObject.valueChanges();
 
-    dataValue$.pipe(takeUntil(this.onDestroy$)).subscribe((value) => {
+    dataValue$.pipe(takeUntil(this.onDestroy$$)).subscribe((value) => {
       console.log('FROM STORE', value);
       this.control.valueAccessor.writeValue(value);
     });
@@ -62,7 +62,7 @@ export class SyncUserValueDirective<T> implements OnInit, OnDestroy {
         mergeMapTo(this.control.valueChanges),
         filter((a) => a !== undefined),
         distinctUntilChanged(),
-        takeUntil(this.onDestroy$)
+        takeUntil(this.onDestroy$$)
       )
       .subscribe((newValue) => {
         console.log('FROM CONTROL', newValue);

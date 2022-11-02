@@ -21,7 +21,7 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
 
   private ids: { [index: number]: string } = {};
 
-  private ngUnsubscribe$ = new Subject();
+  private onDestroy$ = new Subject();
 
   constructor(
     private router: Router,
@@ -41,8 +41,8 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.ngUnsubscribe$.next();
-    this.ngUnsubscribe$.complete();
+    this.onDestroy$.next(null);
+    this.onDestroy$.complete();
   }
 
   getId(index: number) {
@@ -83,7 +83,7 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
         filter((event) => event instanceof NavigationEnd),
         map(() => this.getIndexFromRouteParam()),
         distinctUntilChanged(),
-        takeUntil(this.ngUnsubscribe$)
+        takeUntil(this.onDestroy$)
       )
       .subscribe((slide) => {
         this.deck.goToSlide(slide);

@@ -56,21 +56,21 @@ export class ContentService implements OnDestroy {
     // TODO: There should be a better way
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
     this.state$
-      .pipe(auditTime(1000), takeUntil(this.onDestroy))
+      .pipe(auditTime(1000), takeUntil(this.onDestroy$))
       .subscribe((presentations) => {
         this.presentations.doc('presentations').set({ presentations });
       });
   }
 
-  readonly onDestroy = new Subject();
+  readonly onDestroy$ = new Subject();
 
   uniqueId() {
     return nanoid();
   }
 
   ngOnDestroy() {
-    this.onDestroy.next();
-    this.onDestroy.complete();
+    this.onDestroy$.next(null);
+    this.onDestroy$.complete();
   }
 
   dispatch(presentationId, action) {
