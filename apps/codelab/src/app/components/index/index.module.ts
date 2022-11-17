@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { SlidesModule } from '@ng360/slides';
 import { IndexComponent } from './index.component';
 import { ButtonsNavBarModule } from '../buttons-nav-bar/buttons-nav-bar.module';

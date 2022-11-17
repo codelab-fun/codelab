@@ -39,7 +39,6 @@ export const AngularFireApp = AngularFireModule.initializeApp(
     BrowserAnimationsModule,
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabled',
-      relativeLinkResolution: 'legacy',
     }),
     AngularFireApp,
     AngularFireDatabaseModule,

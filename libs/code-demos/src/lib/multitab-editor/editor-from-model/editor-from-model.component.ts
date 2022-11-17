@@ -12,7 +12,7 @@ import {
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import ITextModel = editor.ITextModel;
 
 @Component({

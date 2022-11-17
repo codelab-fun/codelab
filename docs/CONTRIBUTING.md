@@ -62,7 +62,6 @@ Most of the work will happen in `apps/codelab`, but here's the overview of the o
   - codelab                  - The actual codelab code. Most of the work will be done here.
   - angular-thirty-seconds   - 30.codelab.fun code
   - kirjs                    - @kirjs's folder for experiments
-  - lis                      - @the_kibs's folder for experiments
   - blog                     - blog is coming soon
 
 - libs                       - Libraries and helper code shared across projects

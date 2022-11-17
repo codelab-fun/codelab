@@ -6,7 +6,7 @@ import { SlideHtmlEditorComponent } from './slide-html-editor/slide-html-editor.
 
 import { MatIconModule } from '@angular/material/icon';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { ActionBarModule } from './action-bar/action-bar.module';
 import { PreviewModule } from '../preview/preview.module';
 import { CustomComponentPreviewsModule } from '../wrappers/custom-component-previews/custom-component-previews.module';

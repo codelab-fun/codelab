@@ -10,7 +10,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { OverlayComponent } from './modules/streaming/overlay/overlay.component';
-import { MatCardModule } from '@angular/material/card';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { MarkdownModule } from 'ngx-markdown';
 
 export const angularFire = AngularFireModule.initializeApp(
@@ -161,7 +161,7 @@ const routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, {}),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     angularFire,

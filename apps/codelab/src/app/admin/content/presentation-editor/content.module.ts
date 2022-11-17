@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SidePanelModule } from './side-panel/side-panel.module';
 import { ContentService } from './services/content.service';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import {
   NAVIGATION_BASE_URL,
   NavigationService,

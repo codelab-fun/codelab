@@ -4,7 +4,7 @@ import { ConsoleComponent } from './console.component';
 import { SharedPipeModule } from '../../../utils/src/lib/pipes/pipes.module';
 import { DisplayDynamicComponent } from './display-dynamic.component/display-dynamic-component.component';
 import { FormsModule } from '@angular/forms';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
 
 @NgModule({
   imports: [SharedPipeModule, CommonModule, FormsModule, MatAutocompleteModule],

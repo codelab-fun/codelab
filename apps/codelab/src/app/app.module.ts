@@ -12,7 +12,7 @@ import { menuRoutes } from './codelabs/angular/angular-routing.module';
 import { MENU_ROUTES } from './common';
 import { environment } from '../environments/environment';
 import { NotFoundModule } from './components/not-found/not-found.module';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { DirectivesModule } from './directives/directives.module';
 import { HttpClientModule } from '@angular/common/http';
 

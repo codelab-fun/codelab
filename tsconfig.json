@@ -29,7 +29,6 @@
       "@codelab/console": ["libs/console/src/index.ts"],
       "@codelab/feedback": ["libs/feedback/src/index.ts"],
       "@codelab/firebase": ["libs/firebase/src/index.ts"],
-      "@codelab/intro": ["libs/intro/src/index.ts"],
       "@codelab/utils": ["libs/utils/src/index.ts"],
       "@ng360/slides": ["libs/slides/src/index.ts"],
       "jszip": ["node_modules/jszip/dist/jszip.min.js"],

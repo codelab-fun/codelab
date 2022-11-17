@@ -47,16 +47,6 @@
       ]
     },
     {
-      "target": "lis",
-      "public": "dist/apps/lis",
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "angular-ivy",
       "public": "dist/apps/playground",
       "rewrites": [
