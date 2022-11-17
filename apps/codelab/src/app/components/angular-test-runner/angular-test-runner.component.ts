@@ -27,7 +27,8 @@ const ts = getTypeScript();
 
 // TODO(kirjs): This is a duplicate
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
-  sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
+  // sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
+
   (sandbox.iframe.contentWindow as any).System.register(
     'code',
     [],
@@ -48,6 +49,7 @@ export function addMetaInformation(sandbox, files: { [key: string]: string }) {
                 ts.createSourceFile(path, code, ts.ScriptTarget.ES5)
               );
             });
+
           Object.entries(files)
             .filter(([moduleName]) => moduleName.match(/\.html/))
             .forEach(([path, code]) => {
@@ -136,7 +138,7 @@ export class SimpleAngularTestRunnerComponent
     sandbox.evalJs(this.scriptLoaderService.getScript('test-bootstrap'));
     sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
     sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
+    // sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
     sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
 
     this.subscription = this.changedFilesSubject.subscribe((files) => {
@@ -144,12 +146,7 @@ export class SimpleAngularTestRunnerComponent
         .filter(([path]) => path.match(/\.js$/))
         .map(([path, code]) => {
           try {
-            sandbox.evalJs(
-              `System.registry.delete(System.normalizeSync('./${path.replace(
-                '.js',
-                ''
-              )}'));`
-            );
+            sandbox.evalJs(`console.log('I remove modul')`);
             addMetaInformation(sandbox, this.code);
             sandbox.evalJs(code);
           } catch (e) {

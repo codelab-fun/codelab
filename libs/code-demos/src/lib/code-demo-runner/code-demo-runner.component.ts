@@ -26,8 +26,6 @@ const presets = {
   angular(sandbox, scriptLoaderService) {
     sandbox.evalJs(scriptLoaderService.getScript('shim'));
     sandbox.evalJs(scriptLoaderService.getScript('zone'));
-    sandbox.evalJs(scriptLoaderService.getScript('system-config'));
-    sandbox.evalJs(scriptLoaderService.getScript('ng-bundle'));
   },
   react(sandbox, scriptLoaderService) {
     // TODO(kirjs): Make it work
@@ -91,6 +89,10 @@ export class CodeDemoRunnerComponent
       {
         id: 'testing',
         url: this.url,
+      },
+      ({ evalJs }) => {
+        evalJs(this.scriptLoaderService.getScript('shim'));
+        evalJs(this.scriptLoaderService.getScript('zone'));
       }
     );
 
@@ -101,9 +103,9 @@ export class CodeDemoRunnerComponent
 
     sandbox.evalJs(this.scriptLoaderService.getScript('mock-console'));
 
-    this.presets.forEach((preset) =>
-      presets[preset](sandbox, this.scriptLoaderService)
-    );
+    this.presets.forEach((preset) => {
+      presets[preset](sandbox, this.scriptLoaderService);
+    });
 
     Object.entries(this.code)
       .filter(([moduleName]) => moduleName.match(/\.css/))
@@ -114,6 +116,7 @@ export class CodeDemoRunnerComponent
     compileTemplates(this.code, sandbox);
 
     this.subscription = this.changedFilesSubject.subscribe((files) => {
+      console.log('cdr117');
       addMetaInformation(sandbox, files);
 
       if (files['index.html']) {
@@ -123,17 +126,19 @@ export class CodeDemoRunnerComponent
       const jsFiles = Object.entries(files).filter(([path]) =>
         path.match(/\.js$/)
       );
+
       const hasErrors = jsFiles.some(([path, code]) => {
-        sandbox.evalJs(
-          `System.registry.delete(System.normalizeSync('./${path.replace(
-            '.js',
-            ''
-          )}'));`
-        );
+        // sandbox.evalJs(
+        //   // `System.delete(System.normalizeSync('./${path.replace(
+        //   //   '.js',
+        //   //   ''
+        //   // )}'));`
+        // );
 
         try {
-          sandbox.evalJs(code);
+          sandbox.evalJs('' + code);
         } catch (e) {
+          debugger;
           const [errorLabel] = e.toString().split('\r\n');
           console.groupCollapsed(errorLabel);
           console.log(e);

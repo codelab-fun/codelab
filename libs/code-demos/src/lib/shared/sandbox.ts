@@ -48,35 +48,17 @@ export interface SandBoxWithLoader extends SandBox {
 
 const iframes = new WeakMap();
 
-export function wrapSystemJs(systemCode) {
-  // SystemJS expects document.baseURI to be set on the document.
-  // Since it's a readonly property, I'm faking whole document property.
-  return `
-          (function(document){
-              ${systemCode}
-            }({
-              getElementsByTagName: ()=>[],
-              body: {},
-              documentElement: window,
-              createElement: ()=>({ refList: {} }),
-              baseURI: '${document.baseURI}'
-            }));
-          `;
-}
-
 function injectSystemJs({ evalJs }) {
-  const systemCode = require('!!raw-loader!systemjs/dist/system.src').default;
-  // SystemJS expects document.baseURI to be set on the document.
-  // Since it's a readonly property, I'm faking whole document property.
-  const wrappedSystemCode = wrapSystemJs(systemCode);
-  evalJs(wrappedSystemCode);
+  evalJs(require('!!raw-loader!./fake-system-loader.js').default);
 }
 
 export function createSystemJsSandbox(
   element: any,
-  config: SandboxConfig
+  config: SandboxConfig,
+  before?: Function
 ): Promise<SandBoxWithLoader> {
   return injectIframe(element, config).then((sandbox) => {
+    before?.(sandbox);
     injectSystemJs(sandbox);
 
     function addDep(name, code) {
@@ -98,6 +80,24 @@ export function createSystemJsSandbox(
     function loadSystemJsDep(name, code) {
       (sandbox.iframe.contentWindow as any).loadSystemModule(name, code);
     }
+
+    (sandbox.iframe.contentWindow as any).System.addImportMap({
+      imports: {
+        '@angular/core':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-core.js',
+        '@angular/platform-browser':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser.js',
+        '@angular/platform-browser-dynamic':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser-dynamic.js',
+        '@angular/common':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-common.js',
+        '@angular/compiler':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-compiler.js',
+        rxjs: 'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/rxjs.js',
+        'rxjs/operators':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/rxjs-operators.js',
+      },
+    });
 
     return { ...sandbox, addDep, loadSystemJsDep };
   });

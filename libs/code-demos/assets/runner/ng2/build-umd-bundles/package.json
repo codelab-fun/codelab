@@ -1,0 +1,13 @@
+{
+  "name": "build-umd-bundles",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c /Users/kirjs/code/codelab/libs/code-demos/assets/runner/ng2/build-umd-bundles/rollup.config.js\n"
+  },
+  "dependencies": {
+    "rollup": "^3.2.5",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "systemjs": "^6.13.0"
+  }
+}
