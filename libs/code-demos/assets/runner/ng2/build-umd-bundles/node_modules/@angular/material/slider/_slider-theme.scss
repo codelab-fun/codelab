@@ -1,0 +1,104 @@
+@use 'sass:map';
+
+@use '@material/slider/slider-theme' as mdc-slider-theme;
+@use '@material/theme/theme-color' as mdc-theme-color;
+@use '@material/typography/typography' as mdc-typography;
+@use '@material/theme/variables' as mdc-theme-variables;
+@use '../core/mdc-helpers/mdc-helpers';
+@use '../core/theming/theming';
+@use '../core/typography/typography';
+
+
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+
+  @include mdc-helpers.using-mdc-theme($config) {
+    .mat-mdc-slider {
+      $is-dark: map.get($config, is-dark);
+      $on-surface: mdc-theme-color.prop-value(on-surface);
+
+      @include mdc-slider-theme.theme((
+        label-container-color: if($is-dark, white, black),
+        label-label-text-color: if($is-dark, black, white),
+        disabled-handle-color: $on-surface,
+        disabled-active-track-color: $on-surface,
+        disabled-inactive-track-color: $on-surface,
+        with-tick-marks-disabled-container-color: $on-surface,
+      ));
+
+      // Note that technically we can control this using an `rgba` color in `label-container-color`.
+      // We don't do it, because the shapes MDC uses to construct the indicator overlap which causes
+      // their color opacities to stack with an `rgba` color.
+      --mat-mdc-slider-value-indicator-opacity: #{if($is-dark, 0.9, 0.6)};
+
+      &.mat-primary {
+        @include _slider-color(primary, on-primary);
+      }
+
+      &.mat-accent {
+        @include _slider-color(secondary, on-secondary);
+      }
+
+      &.mat-warn {
+        @include _slider-color(error, on-error);
+      }
+    }
+  }
+}
+
+@mixin typography($config-or-theme) {
+  $config: typography.private-typography-to-2018-config(
+      theming.get-typography-config($config-or-theme));
+  @include mdc-helpers.using-mdc-typography($config) {
+    .mat-mdc-slider {
+      @include mdc-slider-theme.theme((
+        label-label-text-font: mdc-typography.get-font(subtitle2),
+        label-label-text-font-size: mdc-typography.get-size(subtitle2),
+        label-label-text-line-height: mdc-typography.get-line-height(subtitle2),
+        label-label-text-tracking: mdc-typography.get-tracking(subtitle2),
+        label-label-text-weight: mdc-typography.get-weight(subtitle2),
+      ));
+    }
+  }
+}
+
+@mixin density($config-or-theme) {}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mat-slider') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
+  }
+}
+
+@mixin _slider-color($color, $on-color) {
+  $ripple-color: map.get(mdc-theme-variables.$property-values, $color);
+  $resolved-color: mdc-theme-color.prop-value($color);
+  $resolved-on-color: mdc-theme-color.prop-value($on-color);
+
+  @include mdc-slider-theme.theme((
+    handle-color: $resolved-color,
+    focus-handle-color: $resolved-color,
+    hover-handle-color: $resolved-color,
+    active-track-color: $resolved-color,
+    inactive-track-color: $resolved-color,
+    with-tick-marks-active-container-color: $resolved-on-color,
+    with-tick-marks-inactive-container-color: $resolved-color,
+  ));
+
+  --mat-mdc-slider-ripple-color: #{$ripple-color};
+  --mat-mdc-slider-hover-ripple-color: #{rgba($ripple-color, 0.05)};
+  --mat-mdc-slider-focus-ripple-color: #{rgba($ripple-color, 0.2)};
+}

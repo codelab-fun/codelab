@@ -1,0 +1,62 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { _MatCellHarnessBase } from '@angular/material/table/testing';
+/**
+ * Harness for interacting with a standard Angular Material table cell.
+ * @deprecated Use `MatCellHarness` from `@angular/material/table/testing` instead. See https://material.angular.io/guide/mdc-migration for information about migrating.
+ * @breaking-change 17.0.0
+ */
+export class MatLegacyCellHarness extends _MatCellHarnessBase {
+    /**
+     * Gets a `HarnessPredicate` that can be used to search for a table cell with specific attributes.
+     * @param options Options for narrowing the search
+     * @return a `HarnessPredicate` configured with the given options.
+     */
+    static with(options = {}) {
+        return _MatCellHarnessBase._getCellPredicate(this, options);
+    }
+}
+/** The selector for the host element of a `MatCellHarness` instance. */
+MatLegacyCellHarness.hostSelector = '.mat-cell';
+/**
+ * Harness for interacting with a standard Angular Material table header cell.
+ * @deprecated Use `MatHeaderCellHarness` from `@angular/material/table/testing` instead. See https://material.angular.io/guide/mdc-migration for information about migrating.
+ * @breaking-change 17.0.0
+ */
+export class MatLegacyHeaderCellHarness extends _MatCellHarnessBase {
+    /**
+     * Gets a `HarnessPredicate` that can be used to search for
+     * a table header cell with specific attributes.
+     * @param options Options for narrowing the search
+     * @return a `HarnessPredicate` configured with the given options.
+     */
+    static with(options = {}) {
+        return _MatCellHarnessBase._getCellPredicate(this, options);
+    }
+}
+/** The selector for the host element of a `MatHeaderCellHarness` instance. */
+MatLegacyHeaderCellHarness.hostSelector = '.mat-header-cell';
+/**
+ * Harness for interacting with a standard Angular Material table footer cell.
+ * @deprecated Use `MatFooterCellHarness` from `@angular/material/table/testing` instead. See https://material.angular.io/guide/mdc-migration for information about migrating.
+ * @breaking-change 17.0.0
+ */
+export class MatLegacyFooterCellHarness extends _MatCellHarnessBase {
+    /**
+     * Gets a `HarnessPredicate` that can be used to search for
+     * a table footer cell with specific attributes.
+     * @param options Options for narrowing the search
+     * @return a `HarnessPredicate` configured with the given options.
+     */
+    static with(options = {}) {
+        return _MatCellHarnessBase._getCellPredicate(this, options);
+    }
+}
+/** The selector for the host element of a `MatFooterCellHarness` instance. */
+MatLegacyFooterCellHarness.hostSelector = '.mat-footer-cell';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2VsbC1oYXJuZXNzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsL2xlZ2FjeS10YWJsZS90ZXN0aW5nL2NlbGwtaGFybmVzcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFHSCxPQUFPLEVBQUMsbUJBQW1CLEVBQXFCLE1BQU0saUNBQWlDLENBQUM7QUFFeEY7Ozs7R0FJRztBQUNILE1BQU0sT0FBTyxvQkFBcUIsU0FBUSxtQkFBbUI7SUFJM0Q7Ozs7T0FJRztJQUNILE1BQU0sQ0FBQyxJQUFJLENBQUMsVUFBOEIsRUFBRTtRQUMxQyxPQUFPLG1CQUFtQixDQUFDLGlCQUFpQixDQUFDLElBQUksRUFBRSxPQUFPLENBQUMsQ0FBQztJQUM5RCxDQUFDOztBQVZELHdFQUF3RTtBQUNqRSxpQ0FBWSxHQUFHLFdBQVcsQ0FBQztBQVlwQzs7OztHQUlHO0FBQ0gsTUFBTSxPQUFPLDBCQUEyQixTQUFRLG1CQUFtQjtJQUlqRTs7Ozs7T0FLRztJQUNILE1BQU0sQ0FBQyxJQUFJLENBQUMsVUFBOEIsRUFBRTtRQUMxQyxPQUFPLG1CQUFtQixDQUFDLGlCQUFpQixDQUFDLElBQUksRUFBRSxPQUFPLENBQUMsQ0FBQztJQUM5RCxDQUFDOztBQVhELDhFQUE4RTtBQUN2RSx1Q0FBWSxHQUFHLGtCQUFrQixDQUFDO0FBYTNDOzs7O0dBSUc7QUFDSCxNQUFNLE9BQU8sMEJBQTJCLFNBQVEsbUJBQW1CO0lBSWpFOzs7OztPQUtHO0lBQ0gsTUFBTSxDQUFDLElBQUksQ0FBQyxVQUE4QixFQUFFO1FBQzFDLE9BQU8sbUJBQW1CLENBQUMsaUJBQWlCLENBQUMsSUFBSSxFQUFFLE9BQU8sQ0FBQyxDQUFDO0lBQzlELENBQUM7O0FBWEQsOEVBQThFO0FBQ3ZFLHVDQUFZLEdBQUcsa0JBQWtCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtIYXJuZXNzUHJlZGljYXRlfSBmcm9tICdAYW5ndWxhci9jZGsvdGVzdGluZyc7XG5pbXBvcnQge19NYXRDZWxsSGFybmVzc0Jhc2UsIENlbGxIYXJuZXNzRmlsdGVyc30gZnJvbSAnQGFuZ3VsYXIvbWF0ZXJpYWwvdGFibGUvdGVzdGluZyc7XG5cbi8qKlxuICogSGFybmVzcyBmb3IgaW50ZXJhY3Rpbmcgd2l0aCBhIHN0YW5kYXJkIEFuZ3VsYXIgTWF0ZXJpYWwgdGFibGUgY2VsbC5cbiAqIEBkZXByZWNhdGVkIFVzZSBgTWF0Q2VsbEhhcm5lc3NgIGZyb20gYEBhbmd1bGFyL21hdGVyaWFsL3RhYmxlL3Rlc3RpbmdgIGluc3RlYWQuIFNlZSBodHRwczovL21hdGVyaWFsLmFuZ3VsYXIuaW8vZ3VpZGUvbWRjLW1pZ3JhdGlvbiBmb3IgaW5mb3JtYXRpb24gYWJvdXQgbWlncmF0aW5nLlxuICogQGJyZWFraW5nLWNoYW5nZSAxNy4wLjBcbiAqL1xuZXhwb3J0IGNsYXNzIE1hdExlZ2FjeUNlbGxIYXJuZXNzIGV4dGVuZHMgX01hdENlbGxIYXJuZXNzQmFzZSB7XG4gIC8qKiBUaGUgc2VsZWN0b3IgZm9yIHRoZSBob3N0IGVsZW1lbnQgb2YgYSBgTWF0Q2VsbEhhcm5lc3NgIGluc3RhbmNlLiAqL1xuICBzdGF0aWMgaG9zdFNlbGVjdG9yID0gJy5tYXQtY2VsbCc7XG5cbiAgLyoqXG4gICAqIEdldHMgYSBgSGFybmVzc1ByZWRpY2F0ZWAgdGhhdCBjYW4gYmUgdXNlZCB0byBzZWFyY2ggZm9yIGEgdGFibGUgY2VsbCB3aXRoIHNwZWNpZmljIGF0dHJpYnV0ZXMuXG4gICAqIEBwYXJhbSBvcHRpb25zIE9wdGlvbnMgZm9yIG5hcnJvd2luZyB0aGUgc2VhcmNoXG4gICAqIEByZXR1cm4gYSBgSGFybmVzc1ByZWRpY2F0ZWAgY29uZmlndXJlZCB3aXRoIHRoZSBnaXZlbiBvcHRpb25zLlxuICAgKi9cbiAgc3RhdGljIHdpdGgob3B0aW9uczogQ2VsbEhhcm5lc3NGaWx0ZXJzID0ge30pOiBIYXJuZXNzUHJlZGljYXRlPE1hdExlZ2FjeUNlbGxIYXJuZXNzPiB7XG4gICAgcmV0dXJuIF9NYXRDZWxsSGFybmVzc0Jhc2UuX2dldENlbGxQcmVkaWNhdGUodGhpcywgb3B0aW9ucyk7XG4gIH1cbn1cblxuLyoqXG4gKiBIYXJuZXNzIGZvciBpbnRlcmFjdGluZyB3aXRoIGEgc3RhbmRhcmQgQW5ndWxhciBNYXRlcmlhbCB0YWJsZSBoZWFkZXIgY2VsbC5cbiAqIEBkZXByZWNhdGVkIFVzZSBgTWF0SGVhZGVyQ2VsbEhhcm5lc3NgIGZyb20gYEBhbmd1bGFyL21hdGVyaWFsL3RhYmxlL3Rlc3RpbmdgIGluc3RlYWQuIFNlZSBodHRwczovL21hdGVyaWFsLmFuZ3VsYXIuaW8vZ3VpZGUvbWRjLW1pZ3JhdGlvbiBmb3IgaW5mb3JtYXRpb24gYWJvdXQgbWlncmF0aW5nLlxuICogQGJyZWFraW5nLWNoYW5nZSAxNy4wLjBcbiAqL1xuZXhwb3J0IGNsYXNzIE1hdExlZ2FjeUhlYWRlckNlbGxIYXJuZXNzIGV4dGVuZHMgX01hdENlbGxIYXJuZXNzQmFzZSB7XG4gIC8qKiBUaGUgc2VsZWN0b3IgZm9yIHRoZSBob3N0IGVsZW1lbnQgb2YgYSBgTWF0SGVhZGVyQ2VsbEhhcm5lc3NgIGluc3RhbmNlLiAqL1xuICBzdGF0aWMgaG9zdFNlbGVjdG9yID0gJy5tYXQtaGVhZGVyLWNlbGwnO1xuXG4gIC8qKlxuICAgKiBHZXRzIGEgYEhhcm5lc3NQcmVkaWNhdGVgIHRoYXQgY2FuIGJlIHVzZWQgdG8gc2VhcmNoIGZvclxuICAgKiBhIHRhYmxlIGhlYWRlciBjZWxsIHdpdGggc3BlY2lmaWMgYXR0cmlidXRlcy5cbiAgICogQHBhcmFtIG9wdGlvbnMgT3B0aW9ucyBmb3IgbmFycm93aW5nIHRoZSBzZWFyY2hcbiAgICogQHJldHVybiBhIGBIYXJuZXNzUHJlZGljYXRlYCBjb25maWd1cmVkIHdpdGggdGhlIGdpdmVuIG9wdGlvbnMuXG4gICAqL1xuICBzdGF0aWMgd2l0aChvcHRpb25zOiBDZWxsSGFybmVzc0ZpbHRlcnMgPSB7fSk6IEhhcm5lc3NQcmVkaWNhdGU8TWF0TGVnYWN5SGVhZGVyQ2VsbEhhcm5lc3M+IHtcbiAgICByZXR1cm4gX01hdENlbGxIYXJuZXNzQmFzZS5fZ2V0Q2VsbFByZWRpY2F0ZSh0aGlzLCBvcHRpb25zKTtcbiAgfVxufVxuXG4vKipcbiAqIEhhcm5lc3MgZm9yIGludGVyYWN0aW5nIHdpdGggYSBzdGFuZGFyZCBBbmd1bGFyIE1hdGVyaWFsIHRhYmxlIGZvb3RlciBjZWxsLlxuICogQGRlcHJlY2F0ZWQgVXNlIGBNYXRGb290ZXJDZWxsSGFybmVzc2AgZnJvbSBgQGFuZ3VsYXIvbWF0ZXJpYWwvdGFibGUvdGVzdGluZ2AgaW5zdGVhZC4gU2VlIGh0dHBzOi8vbWF0ZXJpYWwuYW5ndWxhci5pby9ndWlkZS9tZGMtbWlncmF0aW9uIGZvciBpbmZvcm1hdGlvbiBhYm91dCBtaWdyYXRpbmcuXG4gKiBAYnJlYWtpbmctY2hhbmdlIDE3LjAuMFxuICovXG5leHBvcnQgY2xhc3MgTWF0TGVnYWN5Rm9vdGVyQ2VsbEhhcm5lc3MgZXh0ZW5kcyBfTWF0Q2VsbEhhcm5lc3NCYXNlIHtcbiAgLyoqIFRoZSBzZWxlY3RvciBmb3IgdGhlIGhvc3QgZWxlbWVudCBvZiBhIGBNYXRGb290ZXJDZWxsSGFybmVzc2AgaW5zdGFuY2UuICovXG4gIHN0YXRpYyBob3N0U2VsZWN0b3IgPSAnLm1hdC1mb290ZXItY2VsbCc7XG5cbiAgLyoqXG4gICAqIEdldHMgYSBgSGFybmVzc1ByZWRpY2F0ZWAgdGhhdCBjYW4gYmUgdXNlZCB0byBzZWFyY2ggZm9yXG4gICAqIGEgdGFibGUgZm9vdGVyIGNlbGwgd2l0aCBzcGVjaWZpYyBhdHRyaWJ1dGVzLlxuICAgKiBAcGFyYW0gb3B0aW9ucyBPcHRpb25zIGZvciBuYXJyb3dpbmcgdGhlIHNlYXJjaFxuICAgKiBAcmV0dXJuIGEgYEhhcm5lc3NQcmVkaWNhdGVgIGNvbmZpZ3VyZWQgd2l0aCB0aGUgZ2l2ZW4gb3B0aW9ucy5cbiAgICovXG4gIHN0YXRpYyB3aXRoKG9wdGlvbnM6IENlbGxIYXJuZXNzRmlsdGVycyA9IHt9KTogSGFybmVzc1ByZWRpY2F0ZTxNYXRMZWdhY3lGb290ZXJDZWxsSGFybmVzcz4ge1xuICAgIHJldHVybiBfTWF0Q2VsbEhhcm5lc3NCYXNlLl9nZXRDZWxsUHJlZGljYXRlKHRoaXMsIG9wdGlvbnMpO1xuICB9XG59XG4iXX0=

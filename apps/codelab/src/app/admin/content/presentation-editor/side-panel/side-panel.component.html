@@ -3,13 +3,12 @@
 
   <div (cdkDropListDropped)="reorder.emit($event)" cdkDropList>
     <button
-      inert
       (click)="this.navigationService.goToSlide(presentationId, i)"
       *ngFor="let slide of slides; let i = index"
       [class.selected]="i === currentSlideIndex"
       class="slide-wrapper"
     >
-      <div cdkDrag class="slide">
+      <div inert cdkDrag class="slide">
         <slides-slide-preview
           [class.selected]="i === currentSlideIndex"
           [slide]="slide"

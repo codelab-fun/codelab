@@ -44,7 +44,9 @@ export class NavigationService {
   goToSlide(presentationId: string, index: number) {
     if (index >= 0) {
       this.selectedSlideSubject.next(index);
-      this.location.replaceState(this.baseUrl + presentationId + '/' + index);
+      this.location.replaceState(
+        this.baseUrl + '/' + presentationId + '/' + index
+      );
     }
   }
 

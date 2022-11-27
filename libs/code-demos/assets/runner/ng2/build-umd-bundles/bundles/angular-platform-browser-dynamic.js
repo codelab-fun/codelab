@@ -30,8 +30,7 @@
 })(this, function (exports, compiler, i0, common, platformBrowser) {
   'use strict';
 
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
+  function _interopNamespaceDefault(e) {
     var n = Object.create(null);
     if (e) {
       Object.keys(e).forEach(function (k) {
@@ -52,14 +51,14 @@
         }
       });
     }
-    n['default'] = e;
+    n.default = e;
     return Object.freeze(n);
   }
 
-  var i0__namespace = /*#__PURE__*/ _interopNamespace(i0);
+  var i0__namespace = /*#__PURE__*/ _interopNamespaceDefault(i0);
 
   /**
-   * @license Angular v14.2.7
+   * @license Angular v15.0.1
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    */
@@ -104,7 +103,6 @@
               // let explicit values from the compiler options overwrite options
               // from the app providers
               useJit: opts.useJit,
-              jitDevMode: i0.isDevMode(),
               // let explicit values from the compiler options overwrite options
               // from the app providers
               defaultEncapsulation: opts.defaultEncapsulation,
@@ -219,7 +217,7 @@
   }
   ResourceLoaderImpl.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: ResourceLoaderImpl,
     deps: null,
@@ -227,13 +225,13 @@
   });
   ResourceLoaderImpl.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: ResourceLoaderImpl,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: ResourceLoaderImpl,
     decorators: [
@@ -329,7 +327,7 @@
   /**
    * @publicApi
    */
-  const VERSION = new i0.Version('14.2.7');
+  const VERSION = new i0.Version('15.0.1');
 
   /**
    * @license
@@ -368,6 +366,4 @@
   exports['ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS'] =
     INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS;
   exports['ɵplatformCoreDynamic'] = platformCoreDynamic;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 });

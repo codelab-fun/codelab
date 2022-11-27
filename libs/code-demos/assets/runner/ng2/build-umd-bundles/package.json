@@ -2,12 +2,23 @@
   "name": "build-umd-bundles",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c /Users/kirjs/code/codelab/libs/code-demos/assets/runner/ng2/build-umd-bundles/rollup.config.js\n"
+    "build": "rollup -c /Users/kirjs/code/codelab/libs/code-demos/assets/runner/ng2/build-umd-bundles/rollup.config.ts --configPlugin @rollup/plugin-typescript"
   },
   "dependencies": {
+    "@angular/common": "^15.0.1",
+    "@angular/compiler": "^15.0.1",
+    "@angular/core": "^15.0.1",
+    "@angular/forms": "^15.0.1",
+    "@angular/material": "^15.0.0",
+    "@angular/platform-browser": "^15.0.1",
+    "@angular/platform-browser-dynamic": "^15.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
     "rollup": "^3.2.5",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "systemjs": "^6.13.0"
+    "rxjs": "^7.5.7",
+    "systemjs": "^6.13.0",
+    "tslib": "^2.4.1",
+    "zone.js": "^0.12.0"
   }
 }

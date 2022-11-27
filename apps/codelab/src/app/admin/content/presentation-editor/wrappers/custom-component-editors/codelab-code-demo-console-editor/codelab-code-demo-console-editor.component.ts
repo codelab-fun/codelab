@@ -43,7 +43,9 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
         const subscription = editor.onDidChangeCursorPosition(() => {
           const selection = editor.getSelection();
           const text = editor.getModel().getValueInRange(selection);
-          const match = editor.getModel().uri.match(/prefix\/(.+?)\/(.*)$/);
+          const match = editor
+            .getModel()
+            .uri.path.match(/prefix\/(.+?)\/(.*)$/);
           if (text === '') {
             subscriber.next();
             return;

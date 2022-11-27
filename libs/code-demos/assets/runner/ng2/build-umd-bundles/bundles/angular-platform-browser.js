@@ -9,8 +9,7 @@
 })(this, function (exports, common, i0) {
   'use strict';
 
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
+  function _interopNamespaceDefault(e) {
     var n = Object.create(null);
     if (e) {
       Object.keys(e).forEach(function (k) {
@@ -31,14 +30,14 @@
         }
       });
     }
-    n['default'] = e;
+    n.default = e;
     return Object.freeze(n);
   }
 
-  var i0__namespace = /*#__PURE__*/ _interopNamespace(i0);
+  var i0__namespace = /*#__PURE__*/ _interopNamespaceDefault(i0);
 
   /**
-   * @license Angular v14.2.7
+   * @license Angular v15.0.1
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    */
@@ -263,7 +262,7 @@
   }
   BrowserXhr.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserXhr,
     deps: [],
@@ -271,13 +270,13 @@
   });
   BrowserXhr.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserXhr,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserXhr,
     decorators: [
@@ -368,7 +367,7 @@
   }
   EventManager.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: EventManager,
     deps: [{ token: EVENT_MANAGER_PLUGINS }, { token: i0__namespace.NgZone }],
@@ -376,13 +375,13 @@
   });
   EventManager.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: EventManager,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: EventManager,
     decorators: [
@@ -452,7 +451,7 @@
   }
   SharedStylesHost.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: SharedStylesHost,
     deps: [],
@@ -460,13 +459,13 @@
   });
   SharedStylesHost.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: SharedStylesHost,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: SharedStylesHost,
     decorators: [
@@ -513,7 +512,7 @@
   }
   DomSharedStylesHost.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSharedStylesHost,
     deps: [{ token: common.DOCUMENT }],
@@ -521,13 +520,13 @@
   });
   DomSharedStylesHost.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSharedStylesHost,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSharedStylesHost,
     decorators: [
@@ -680,7 +679,7 @@
   }
   DomRendererFactory2.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomRendererFactory2,
     deps: [
@@ -692,13 +691,13 @@
   });
   DomRendererFactory2.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomRendererFactory2,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomRendererFactory2,
     decorators: [
@@ -965,7 +964,7 @@
   }
   DomEventsPlugin.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomEventsPlugin,
     deps: [{ token: common.DOCUMENT }],
@@ -973,13 +972,13 @@
   });
   DomEventsPlugin.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomEventsPlugin,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomEventsPlugin,
     decorators: [
@@ -1190,7 +1189,7 @@
   }
   KeyEventsPlugin.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: KeyEventsPlugin,
     deps: [{ token: common.DOCUMENT }],
@@ -1198,13 +1197,13 @@
   });
   KeyEventsPlugin.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: KeyEventsPlugin,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: KeyEventsPlugin,
     decorators: [
@@ -1293,7 +1292,6 @@
    * @returns A promise that returns an `ApplicationRef` instance once resolved.
    *
    * @publicApi
-   * @developerPreview
    */
   function bootstrapApplication(rootComponent, options) {
     return i0['ɵinternalCreateApplication'](
@@ -1311,7 +1309,6 @@
    * @returns A promise that returns an `ApplicationRef` instance once resolved.
    *
    * @publicApi
-   * @developerPreview
    */
   function createApplication(options) {
     return i0['ɵinternalCreateApplication'](createProvidersConfig(options));
@@ -1340,7 +1337,6 @@
    * @returns An array of providers required to setup Testability for an application and make it
    *     available for testing using Protractor.
    *
-   * @developerPreview
    * @publicApi
    */
   function provideProtractorTestingSupport() {
@@ -1477,7 +1473,7 @@
   }
   BrowserModule.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserModule,
     deps: [
@@ -1491,14 +1487,14 @@
   });
   BrowserModule.ɵmod = i0__namespace.ɵɵngDeclareNgModule({
     minVersion: '14.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserModule,
     exports: [common.CommonModule, i0.ApplicationModule],
   });
   BrowserModule.ɵinj = i0__namespace.ɵɵngDeclareInjector({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserModule,
     providers: [...BROWSER_MODULE_PROVIDERS, ...TESTABILITY_PROVIDERS],
@@ -1506,7 +1502,7 @@
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserModule,
     decorators: [
@@ -1708,7 +1704,7 @@
   }
   Meta.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: Meta,
     deps: [{ token: common.DOCUMENT }],
@@ -1716,7 +1712,7 @@
   });
   Meta.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: Meta,
     providedIn: 'root',
@@ -1725,7 +1721,7 @@
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: Meta,
     decorators: [
@@ -1798,7 +1794,7 @@
   }
   Title.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: Title,
     deps: [{ token: common.DOCUMENT }],
@@ -1806,7 +1802,7 @@
   });
   Title.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: Title,
     providedIn: 'root',
@@ -1815,7 +1811,7 @@
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: Title,
     decorators: [
@@ -2086,7 +2082,7 @@
   }
   TransferState.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: TransferState,
     deps: [],
@@ -2094,7 +2090,7 @@
   });
   TransferState.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: TransferState,
     providedIn: 'root',
@@ -2108,7 +2104,7 @@
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: TransferState,
     decorators: [
@@ -2158,7 +2154,7 @@
   class BrowserTransferStateModule {}
   BrowserTransferStateModule.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserTransferStateModule,
     deps: [],
@@ -2166,19 +2162,19 @@
   });
   BrowserTransferStateModule.ɵmod = i0__namespace.ɵɵngDeclareNgModule({
     minVersion: '14.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserTransferStateModule,
   });
   BrowserTransferStateModule.ɵinj = i0__namespace.ɵɵngDeclareInjector({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserTransferStateModule,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: BrowserTransferStateModule,
     decorators: [
@@ -2362,7 +2358,7 @@
   }
   HammerGestureConfig.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerGestureConfig,
     deps: [],
@@ -2370,13 +2366,13 @@
   });
   HammerGestureConfig.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerGestureConfig,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerGestureConfig,
     decorators: [
@@ -2492,7 +2488,7 @@
   }
   HammerGesturesPlugin.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerGesturesPlugin,
     deps: [
@@ -2505,13 +2501,13 @@
   });
   HammerGesturesPlugin.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerGesturesPlugin,
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerGesturesPlugin,
     decorators: [
@@ -2569,7 +2565,7 @@
   class HammerModule {}
   HammerModule.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerModule,
     deps: [],
@@ -2577,13 +2573,13 @@
   });
   HammerModule.ɵmod = i0__namespace.ɵɵngDeclareNgModule({
     minVersion: '14.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerModule,
   });
   HammerModule.ɵinj = i0__namespace.ɵɵngDeclareInjector({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerModule,
     providers: [
@@ -2607,7 +2603,7 @@
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: HammerModule,
     decorators: [
@@ -2680,7 +2676,7 @@
   class DomSanitizer {}
   DomSanitizer.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSanitizer,
     deps: [],
@@ -2688,7 +2684,7 @@
   });
   DomSanitizer.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSanitizer,
     providedIn: 'root',
@@ -2698,7 +2694,7 @@
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSanitizer,
     decorators: [
@@ -2776,11 +2772,11 @@
             return i0['ɵunwrapSafeValue'](value);
           }
           throw new Error(
-            'unsafe value used in a resource URL context (see https://g.co/ng/security#xss)'
+            `unsafe value used in a resource URL context (see ${i0['ɵXSS_SECURITY_URL']})`
           );
         default:
           throw new Error(
-            `Unexpected SecurityContext ${ctx} (see https://g.co/ng/security#xss)`
+            `Unexpected SecurityContext ${ctx} (see ${i0['ɵXSS_SECURITY_URL']})`
           );
       }
     }
@@ -2802,7 +2798,7 @@
   }
   DomSanitizerImpl.ɵfac = i0__namespace.ɵɵngDeclareFactory({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSanitizerImpl,
     deps: [{ token: common.DOCUMENT }],
@@ -2810,7 +2806,7 @@
   });
   DomSanitizerImpl.ɵprov = i0__namespace.ɵɵngDeclareInjectable({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSanitizerImpl,
     providedIn: 'root',
@@ -2819,7 +2815,7 @@
   });
   i0__namespace.ɵɵngDeclareClassMetadata({
     minVersion: '12.0.0',
-    version: '14.2.7',
+    version: '15.0.1',
     ngImport: i0__namespace,
     type: DomSanitizerImpl,
     decorators: [
@@ -2867,7 +2863,7 @@
   /**
    * @publicApi
    */
-  const VERSION = new i0.Version('14.2.7');
+  const VERSION = new i0.Version('15.0.1');
 
   Object.defineProperty(exports, 'ɵgetDOM', {
     enumerable: true,
@@ -2914,6 +2910,4 @@
   exports['ɵinitDomAdapter'] = initDomAdapter;
   exports['ɵshimContentAttribute'] = shimContentAttribute;
   exports['ɵshimHostAttribute'] = shimHostAttribute;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 });

@@ -1,0 +1,34 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { HarnessPredicate } from '@angular/cdk/testing';
+import { _MatTooltipHarnessBase } from '@angular/material/tooltip/testing';
+/**
+ * Harness for interacting with a standard mat-tooltip in tests.
+ * @deprecated Use `MatTooltipHarness` from `@angular/material/tooltip/testing` instead. See https://material.angular.io/guide/mdc-migration for information about migrating.
+ * @breaking-change 17.0.0
+ */
+export class MatLegacyTooltipHarness extends _MatTooltipHarnessBase {
+    constructor() {
+        super(...arguments);
+        this._optionalPanel = this.documentRootLocatorFactory().locatorForOptional('.mat-tooltip');
+        this._hiddenClass = 'mat-tooltip-hide';
+        this._showAnimationName = 'mat-tooltip-show';
+        this._hideAnimationName = 'mat-tooltip-hide';
+    }
+    /**
+     * Gets a `HarnessPredicate` that can be used to search
+     * for a tooltip trigger with specific attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
+     */
+    static with(options = {}) {
+        return new HarnessPredicate(MatLegacyTooltipHarness, options);
+    }
+}
+MatLegacyTooltipHarness.hostSelector = '.mat-tooltip-trigger';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9vbHRpcC1oYXJuZXNzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsL2xlZ2FjeS10b29sdGlwL3Rlc3RpbmcvdG9vbHRpcC1oYXJuZXNzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVILE9BQU8sRUFBQyxnQkFBZ0IsRUFBQyxNQUFNLHNCQUFzQixDQUFDO0FBQ3RELE9BQU8sRUFBQyxzQkFBc0IsRUFBd0IsTUFBTSxtQ0FBbUMsQ0FBQztBQUVoRzs7OztHQUlHO0FBQ0gsTUFBTSxPQUFPLHVCQUF3QixTQUFRLHNCQUFzQjtJQUFuRTs7UUFDWSxtQkFBYyxHQUFHLElBQUksQ0FBQywwQkFBMEIsRUFBRSxDQUFDLGtCQUFrQixDQUFDLGNBQWMsQ0FBQyxDQUFDO1FBQ3RGLGlCQUFZLEdBQUcsa0JBQWtCLENBQUM7UUFDbEMsdUJBQWtCLEdBQUcsa0JBQWtCLENBQUM7UUFDeEMsdUJBQWtCLEdBQUcsa0JBQWtCLENBQUM7SUFZcEQsQ0FBQztJQVRDOzs7OztPQUtHO0lBQ0gsTUFBTSxDQUFDLElBQUksQ0FBQyxVQUFpQyxFQUFFO1FBQzdDLE9BQU8sSUFBSSxnQkFBZ0IsQ0FBQyx1QkFBdUIsRUFBRSxPQUFPLENBQUMsQ0FBQztJQUNoRSxDQUFDOztBQVZNLG9DQUFZLEdBQUcsc0JBQXNCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtIYXJuZXNzUHJlZGljYXRlfSBmcm9tICdAYW5ndWxhci9jZGsvdGVzdGluZyc7XG5pbXBvcnQge19NYXRUb29sdGlwSGFybmVzc0Jhc2UsIFRvb2x0aXBIYXJuZXNzRmlsdGVyc30gZnJvbSAnQGFuZ3VsYXIvbWF0ZXJpYWwvdG9vbHRpcC90ZXN0aW5nJztcblxuLyoqXG4gKiBIYXJuZXNzIGZvciBpbnRlcmFjdGluZyB3aXRoIGEgc3RhbmRhcmQgbWF0LXRvb2x0aXAgaW4gdGVzdHMuXG4gKiBAZGVwcmVjYXRlZCBVc2UgYE1hdFRvb2x0aXBIYXJuZXNzYCBmcm9tIGBAYW5ndWxhci9tYXRlcmlhbC90b29sdGlwL3Rlc3RpbmdgIGluc3RlYWQuIFNlZSBodHRwczovL21hdGVyaWFsLmFuZ3VsYXIuaW8vZ3VpZGUvbWRjLW1pZ3JhdGlvbiBmb3IgaW5mb3JtYXRpb24gYWJvdXQgbWlncmF0aW5nLlxuICogQGJyZWFraW5nLWNoYW5nZSAxNy4wLjBcbiAqL1xuZXhwb3J0IGNsYXNzIE1hdExlZ2FjeVRvb2x0aXBIYXJuZXNzIGV4dGVuZHMgX01hdFRvb2x0aXBIYXJuZXNzQmFzZSB7XG4gIHByb3RlY3RlZCBfb3B0aW9uYWxQYW5lbCA9IHRoaXMuZG9jdW1lbnRSb290TG9jYXRvckZhY3RvcnkoKS5sb2NhdG9yRm9yT3B0aW9uYWwoJy5tYXQtdG9vbHRpcCcpO1xuICBwcm90ZWN0ZWQgX2hpZGRlbkNsYXNzID0gJ21hdC10b29sdGlwLWhpZGUnO1xuICBwcm90ZWN0ZWQgX3Nob3dBbmltYXRpb25OYW1lID0gJ21hdC10b29sdGlwLXNob3cnO1xuICBwcm90ZWN0ZWQgX2hpZGVBbmltYXRpb25OYW1lID0gJ21hdC10b29sdGlwLWhpZGUnO1xuICBzdGF0aWMgaG9zdFNlbGVjdG9yID0gJy5tYXQtdG9vbHRpcC10cmlnZ2VyJztcblxuICAvKipcbiAgICogR2V0cyBhIGBIYXJuZXNzUHJlZGljYXRlYCB0aGF0IGNhbiBiZSB1c2VkIHRvIHNlYXJjaFxuICAgKiBmb3IgYSB0b29sdGlwIHRyaWdnZXIgd2l0aCBzcGVjaWZpYyBhdHRyaWJ1dGVzLlxuICAgKiBAcGFyYW0gb3B0aW9ucyBPcHRpb25zIGZvciBuYXJyb3dpbmcgdGhlIHNlYXJjaC5cbiAgICogQHJldHVybiBhIGBIYXJuZXNzUHJlZGljYXRlYCBjb25maWd1cmVkIHdpdGggdGhlIGdpdmVuIG9wdGlvbnMuXG4gICAqL1xuICBzdGF0aWMgd2l0aChvcHRpb25zOiBUb29sdGlwSGFybmVzc0ZpbHRlcnMgPSB7fSk6IEhhcm5lc3NQcmVkaWNhdGU8TWF0TGVnYWN5VG9vbHRpcEhhcm5lc3M+IHtcbiAgICByZXR1cm4gbmV3IEhhcm5lc3NQcmVkaWNhdGUoTWF0TGVnYWN5VG9vbHRpcEhhcm5lc3MsIG9wdGlvbnMpO1xuICB9XG59XG4iXX0=

@@ -2,7 +2,15 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, merge, Subject } from 'rxjs';
-import { auditTime, map, scan, shareReplay, takeUntil } from 'rxjs/operators';
+import {
+  auditTime,
+  distinctUntilChanged,
+  map,
+  scan,
+  shareReplay,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import { nanoid } from 'nanoid';
 import { ContentBlock, ContentPresentation } from '../types';
 import { reducer } from '../reducer';
@@ -16,11 +24,14 @@ export class ContentService implements OnDestroy {
 
   public readonly currentSlideIndex$ = this.currentSlideSubject;
 
-  readonly presentations = this.firestore.collection('presentations');
+  private readonly presentations = this.firestore.collection('presentations');
   private readonly presentations$ = this.presentations
     .doc(DOC_KEY)
     .valueChanges()
     .pipe(
+      distinctUntilChanged((a, b) => {
+        return JSON.stringify(a) === JSON.stringify(b);
+      }),
       map((doc: any) => {
         console.log({ doc });
         return doc?.presentations || [];
@@ -33,12 +44,16 @@ export class ContentService implements OnDestroy {
 
   readonly allActions$ = merge(
     this.presentations$.pipe(
+      // TODO(kirjs): actually make it work
+      distinctUntilChanged((a, b) => {
+        return JSON.stringify(a) === JSON.stringify(b);
+      }),
       map((presentations: ContentPresentation[] = []) => ({
         type: 'init',
         payload: presentations,
       }))
     ),
-    this.localActions$
+    this.localActions$.pipe()
   );
 
   public readonly state$ = this.allActions$.pipe(
@@ -56,7 +71,13 @@ export class ContentService implements OnDestroy {
     // TODO: There should be a better way
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
     this.state$
-      .pipe(auditTime(1000), takeUntil(this.onDestroy$))
+      .pipe(
+        tap((a) => {
+          console.log('a', a);
+        }),
+        auditTime(1000),
+        takeUntil(this.onDestroy$)
+      )
       .subscribe((presentations) => {
         this.presentations.doc('presentations').set({ presentations });
       });

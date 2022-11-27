@@ -10,7 +10,7 @@
   'use strict';
 
   /**
-   * @license Angular v14.2.7
+   * @license Angular v15.1.0-next.0
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    */
@@ -3761,6 +3761,10 @@
     name: 'ɵɵProvidersFeature',
     moduleName: CORE,
   };
+  Identifiers.HostDirectivesFeature = {
+    name: 'ɵɵHostDirectivesFeature',
+    moduleName: CORE,
+  };
   Identifiers.listener = { name: 'ɵɵlistener', moduleName: CORE };
   Identifiers.getInheritedFactory = {
     name: 'ɵɵgetInheritedFactory',
@@ -3785,6 +3789,10 @@
   };
   Identifiers.trustConstantResourceUrl = {
     name: 'ɵɵtrustConstantResourceUrl',
+    moduleName: CORE,
+  };
+  Identifiers.validateIframeAttribute = {
+    name: 'ɵɵvalidateIframeAttribute',
     moduleName: CORE,
   };
 
@@ -9298,8 +9306,146 @@
    * Use of this source code is governed by an MIT-style license that can be
    * found in the LICENSE file at https://angular.io/license
    */
+  // =================================================================================================
+  // =================================================================================================
+  // =========== S T O P   -  S T O P   -  S T O P   -  S T O P   -  S T O P   -  S T O P  ===========
+  // =================================================================================================
+  // =================================================================================================
+  //
+  //        DO NOT EDIT THIS LIST OF SECURITY SENSITIVE PROPERTIES WITHOUT A SECURITY REVIEW!
+  //                               Reach out to mprobst for details.
+  //
+  // =================================================================================================
+  /** Map from tagName|propertyName to SecurityContext. Properties applying to all tags use '*'. */
+  let _SECURITY_SCHEMA;
+  function SECURITY_SCHEMA() {
+    if (!_SECURITY_SCHEMA) {
+      _SECURITY_SCHEMA = {};
+      // Case is insignificant below, all element and attribute names are lower-cased for lookup.
+      registerContext(SecurityContext.HTML, [
+        'iframe|srcdoc',
+        '*|innerHTML',
+        '*|outerHTML',
+      ]);
+      registerContext(SecurityContext.STYLE, ['*|style']);
+      // NB: no SCRIPT contexts here, they are never allowed due to the parser stripping them.
+      registerContext(SecurityContext.URL, [
+        '*|formAction',
+        'area|href',
+        'area|ping',
+        'audio|src',
+        'a|href',
+        'a|ping',
+        'blockquote|cite',
+        'body|background',
+        'del|cite',
+        'form|action',
+        'img|src',
+        'input|src',
+        'ins|cite',
+        'q|cite',
+        'source|src',
+        'track|src',
+        'video|poster',
+        'video|src',
+      ]);
+      registerContext(SecurityContext.RESOURCE_URL, [
+        'applet|code',
+        'applet|codebase',
+        'base|href',
+        'embed|src',
+        'frame|src',
+        'head|profile',
+        'html|manifest',
+        'iframe|src',
+        'link|href',
+        'media|src',
+        'object|codebase',
+        'object|data',
+        'script|src',
+      ]);
+    }
+    return _SECURITY_SCHEMA;
+  }
+  function registerContext(ctx, specs) {
+    for (const spec of specs) _SECURITY_SCHEMA[spec.toLowerCase()] = ctx;
+  }
   /**
-   * This file is a port of shadowCSS from webcomponents.js to TypeScript.
+   * The set of security-sensitive attributes of an `<iframe>` that *must* be
+   * applied as a static attribute only. This ensures that all security-sensitive
+   * attributes are taken into account while creating an instance of an `<iframe>`
+   * at runtime.
+   *
+   * Note: avoid using this set directly, use the `isIframeSecuritySensitiveAttr` function
+   * in the code instead.
+   */
+  const IFRAME_SECURITY_SENSITIVE_ATTRS = new Set([
+    'sandbox',
+    'allow',
+    'allowfullscreen',
+    'referrerpolicy',
+    'csp',
+    'fetchpriority',
+  ]);
+  /**
+   * Checks whether a given attribute name might represent a security-sensitive
+   * attribute of an <iframe>.
+   */
+  function isIframeSecuritySensitiveAttr(attrName) {
+    // The `setAttribute` DOM API is case-insensitive, so we lowercase the value
+    // before checking it against a known security-sensitive attributes.
+    return IFRAME_SECURITY_SENSITIVE_ATTRS.has(attrName.toLowerCase());
+  }
+
+  /**
+   * @license
+   * Copyright Google LLC All Rights Reserved.
+   *
+   * Use of this source code is governed by an MIT-style license that can be
+   * found in the LICENSE file at https://angular.io/license
+   */
+  /**
+   * The following set contains all keywords that can be used in the animation css shorthand
+   * property and is used during the scoping of keyframes to make sure such keywords
+   * are not modified.
+   */
+  const animationKeywords = new Set([
+    // global values
+    'inherit',
+    'initial',
+    'revert',
+    'unset',
+    // animation-direction
+    'alternate',
+    'alternate-reverse',
+    'normal',
+    'reverse',
+    // animation-fill-mode
+    'backwards',
+    'both',
+    'forwards',
+    'none',
+    // animation-play-state
+    'paused',
+    'running',
+    // animation-timing-function
+    'ease',
+    'ease-in',
+    'ease-in-out',
+    'ease-out',
+    'linear',
+    'step-start',
+    'step-end',
+    // `steps()` function
+    'end',
+    'jump-both',
+    'jump-end',
+    'jump-none',
+    'jump-start',
+    'start',
+  ]);
+  /**
+   * The following class is a port of shadowCSS from webcomponents.js to TypeScript.
    *
    * Please make sure to keep to edits in sync with the source file.
    *
@@ -9425,6 +9571,22 @@
   class ShadowCss {
     constructor() {
       this.strictStyling = true;
+      /**
+       * Regular expression used to extrapolate the possible keyframes from an
+       * animation declaration (with possibly multiple animation definitions)
+       *
+       * The regular expression can be divided in three parts
+       *  - (^|\s+)
+       *    simply captures how many (if any) leading whitespaces are present
+       *  - (?:(?:(['"])((?:\\\\|\\\2|(?!\2).)+)\2)|(-?[A-Za-z][\w\-]*))
+       *    captures two different possible keyframes, ones which are quoted or ones which are valid css
+       * idents (custom properties excluded)
+       *  - (?=[,\s;]|$)
+       *    simply matches the end of the possible keyframe, valid endings are: a comma, a space, a
+       * semicolon or the end of the string
+       */
+      this._animationDeclarationKeyframesRe =
+        /(^|\s+)(?:(?:(['"])((?:\\\\|\\\2|(?!\2).)+)\2)|(-?[A-Za-z][\w\-]*))(?=[,\s]|$)/g;
     }
     /*
      * Shim some cssText with the given selector. Returns cssText that can
@@ -9444,6 +9606,191 @@
     _insertDirectives(cssText) {
       cssText = this._insertPolyfillDirectivesInCssText(cssText);
       return this._insertPolyfillRulesInCssText(cssText);
+    }
+    /**
+     * Process styles to add scope to keyframes.
+     *
+     * Modify both the names of the keyframes defined in the component styles and also the css
+     * animation rules using them.
+     *
+     * Animation rules using keyframes defined elsewhere are not modified to allow for globally
+     * defined keyframes.
+     *
+     * For example, we convert this css:
+     *
+     * ```
+     * .box {
+     *   animation: box-animation 1s forwards;
+     * }
+     *
+     * @keyframes box-animation {
+     *   to {
+     *     background-color: green;
+     *   }
+     * }
+     * ```
+     *
+     * to this:
+     *
+     * ```
+     * .box {
+     *   animation: scopeName_box-animation 1s forwards;
+     * }
+     *
+     * @keyframes scopeName_box-animation {
+     *   to {
+     *     background-color: green;
+     *   }
+     * }
+     * ```
+     *
+     * @param cssText the component's css text that needs to be scoped.
+     * @param scopeSelector the component's scope selector.
+     *
+     * @returns the scoped css text.
+     */
+    _scopeKeyframesRelatedCss(cssText, scopeSelector) {
+      const unscopedKeyframesSet = new Set();
+      const scopedKeyframesCssText = processRules(cssText, (rule) =>
+        this._scopeLocalKeyframeDeclarations(
+          rule,
+          scopeSelector,
+          unscopedKeyframesSet
+        )
+      );
+      return processRules(scopedKeyframesCssText, (rule) =>
+        this._scopeAnimationRule(rule, scopeSelector, unscopedKeyframesSet)
+      );
+    }
+    /**
+     * Scopes local keyframes names, returning the updated css rule and it also
+     * adds the original keyframe name to a provided set to collect all keyframes names
+     * so that it can later be used to scope the animation rules.
+     *
+     * For example, it takes a rule such as:
+     *
+     * ```
+     * @keyframes box-animation {
+     *   to {
+     *     background-color: green;
+     *   }
+     * }
+     * ```
+     *
+     * and returns:
+     *
+     * ```
+     * @keyframes scopeName_box-animation {
+     *   to {
+     *     background-color: green;
+     *   }
+     * }
+     * ```
+     * and as a side effect it adds "box-animation" to the `unscopedKeyframesSet` set
+     *
+     * @param cssRule the css rule to process.
+     * @param scopeSelector the component's scope selector.
+     * @param unscopedKeyframesSet the set of unscoped keyframes names (which can be
+     * modified as a side effect)
+     *
+     * @returns the css rule modified with the scoped keyframes name.
+     */
+    _scopeLocalKeyframeDeclarations(rule, scopeSelector, unscopedKeyframesSet) {
+      return Object.assign(Object.assign({}, rule), {
+        selector: rule.selector.replace(
+          /(^@(?:-webkit-)?keyframes(?:\s+))(['"]?)(.+)\2(\s*)$/,
+          (_, start, quote, keyframeName, endSpaces) => {
+            unscopedKeyframesSet.add(unescapeQuotes(keyframeName, quote));
+            return `${start}${quote}${scopeSelector}_${keyframeName}${quote}${endSpaces}`;
+          }
+        ),
+      });
+    }
+    /**
+     * Function used to scope a keyframes name (obtained from an animation declaration)
+     * using an existing set of unscopedKeyframes names to discern if the scoping needs to be
+     * performed (keyframes names of keyframes not defined in the component's css need not to be
+     * scoped).
+     *
+     * @param keyframe the keyframes name to check.
+     * @param scopeSelector the component's scope selector.
+     * @param unscopedKeyframesSet the set of unscoped keyframes names.
+     *
+     * @returns the scoped name of the keyframe, or the original name is the name need not to be
+     * scoped.
+     */
+    _scopeAnimationKeyframe(keyframe, scopeSelector, unscopedKeyframesSet) {
+      return keyframe.replace(
+        /^(\s*)(['"]?)(.+?)\2(\s*)$/,
+        (_, spaces1, quote, name, spaces2) => {
+          name = `${
+            unscopedKeyframesSet.has(unescapeQuotes(name, quote))
+              ? scopeSelector + '_'
+              : ''
+          }${name}`;
+          return `${spaces1}${quote}${name}${quote}${spaces2}`;
+        }
+      );
+    }
+    /**
+     * Scope an animation rule so that the keyframes mentioned in such rule
+     * are scoped if defined in the component's css and left untouched otherwise.
+     *
+     * It can scope values of both the 'animation' and 'animation-name' properties.
+     *
+     * @param rule css rule to scope.
+     * @param scopeSelector the component's scope selector.
+     * @param unscopedKeyframesSet the set of unscoped keyframes names.
+     *
+     * @returns the updated css rule.
+     **/
+    _scopeAnimationRule(rule, scopeSelector, unscopedKeyframesSet) {
+      let content = rule.content.replace(
+        /((?:^|\s+|;)(?:-webkit-)?animation(?:\s*):(?:\s*))([^;]+)/g,
+        (_, start, animationDeclarations) =>
+          start +
+          animationDeclarations.replace(
+            this._animationDeclarationKeyframesRe,
+            (
+              original,
+              leadingSpaces,
+              quote = '',
+              quotedName,
+              nonQuotedName
+            ) => {
+              if (quotedName) {
+                return `${leadingSpaces}${this._scopeAnimationKeyframe(
+                  `${quote}${quotedName}${quote}`,
+                  scopeSelector,
+                  unscopedKeyframesSet
+                )}`;
+              } else {
+                return animationKeywords.has(nonQuotedName)
+                  ? original
+                  : `${leadingSpaces}${this._scopeAnimationKeyframe(
+                      nonQuotedName,
+                      scopeSelector,
+                      unscopedKeyframesSet
+                    )}`;
+              }
+            }
+          )
+      );
+      content = content.replace(
+        /((?:^|\s+|;)(?:-webkit-)?animation-name(?:\s*):(?:\s*))([^;]+)/g,
+        (_match, start, commaSeparatedKeyframes) =>
+          `${start}${commaSeparatedKeyframes
+            .split(',')
+            .map((keyframe) =>
+              this._scopeAnimationKeyframe(
+                keyframe,
+                scopeSelector,
+                unscopedKeyframesSet
+              )
+            )
+            .join(',')}`
+      );
+      return Object.assign(Object.assign({}, rule), { content });
     }
     /*
      * Process styles to convert native ShadowDOM rules that will trip
@@ -9503,6 +9850,7 @@
       cssText = this._convertColonHostContext(cssText);
       cssText = this._convertShadowDOMSelectors(cssText);
       if (scopeSelector) {
+        cssText = this._scopeKeyframesRelatedCss(cssText, scopeSelector);
         cssText = this._scopeSelectors(cssText, scopeSelector, hostSelector);
       }
       cssText = cssText + '\n' + unscopedRules;
@@ -9944,14 +10292,14 @@
     return input.match(_commentWithHashRe) || [];
   }
   const BLOCK_PLACEHOLDER = '%BLOCK%';
-  const QUOTE_PLACEHOLDER = '%QUOTED%';
   const _ruleRe = /(\s*)([^;\{\}]+?)(\s*)((?:{%BLOCK%}?\s*;?)|(?:\s*;))/g;
-  const _quotedRe = /%QUOTED%/g;
   const CONTENT_PAIRS = new Map([['{', '}']]);
-  const QUOTE_PAIRS = new Map([
-    [`"`, `"`],
-    [`'`, `'`],
-  ]);
+  const COMMA_IN_PLACEHOLDER = '%COMMA_IN_PLACEHOLDER%';
+  const SEMI_IN_PLACEHOLDER = '%SEMI_IN_PLACEHOLDER%';
+  const COLON_IN_PLACEHOLDER = '%COLON_IN_PLACEHOLDER%';
+  const _cssCommaInPlaceholderReGlobal = new RegExp(COMMA_IN_PLACEHOLDER, 'g');
+  const _cssSemiInPlaceholderReGlobal = new RegExp(SEMI_IN_PLACEHOLDER, 'g');
+  const _cssColonInPlaceholderReGlobal = new RegExp(COLON_IN_PLACEHOLDER, 'g');
   class CssRule {
     constructor(selector, content) {
       this.selector = selector;
@@ -9959,20 +10307,16 @@
     }
   }
   function processRules(input, ruleCallback) {
-    const inputWithEscapedQuotes = escapeBlocks(
-      input,
-      QUOTE_PAIRS,
-      QUOTE_PLACEHOLDER
-    );
+    const escaped = escapeInStrings(input);
     const inputWithEscapedBlocks = escapeBlocks(
-      inputWithEscapedQuotes.escapedString,
+      escaped,
       CONTENT_PAIRS,
       BLOCK_PLACEHOLDER
     );
     let nextBlockIndex = 0;
-    let nextQuoteIndex = 0;
-    return inputWithEscapedBlocks.escapedString
-      .replace(_ruleRe, (...m) => {
+    const escapedResult = inputWithEscapedBlocks.escapedString.replace(
+      _ruleRe,
+      (...m) => {
         const selector = m[2];
         let content = '';
         let suffix = m[4];
@@ -9984,11 +10328,9 @@
         }
         const rule = ruleCallback(new CssRule(selector, content));
         return `${m[1]}${rule.selector}${m[3]}${contentPrefix}${rule.content}${suffix}`;
-      })
-      .replace(
-        _quotedRe,
-        () => inputWithEscapedQuotes.blocks[nextQuoteIndex++]
-      );
+      }
+    );
+    return unescapeInStrings(escapedResult);
   }
   class StringWithEscapedBlocks {
     constructor(escapedString, blocks) {
@@ -10034,6 +10376,113 @@
       resultParts.push(input.substring(nonBlockStartIndex));
     }
     return new StringWithEscapedBlocks(resultParts.join(''), escapedBlocks);
+  }
+  /**
+   * Object containing as keys characters that should be substituted by placeholders
+   * when found in strings during the css text parsing, and as values the respective
+   * placeholders
+   */
+  const ESCAPE_IN_STRING_MAP = {
+    ';': SEMI_IN_PLACEHOLDER,
+    ',': COMMA_IN_PLACEHOLDER,
+    ':': COLON_IN_PLACEHOLDER,
+  };
+  /**
+   * Parse the provided css text and inside strings (meaning, inside pairs of unescaped single or
+   * double quotes) replace specific characters with their respective placeholders as indicated
+   * by the `ESCAPE_IN_STRING_MAP` map.
+   *
+   * For example convert the text
+   *  `animation: "my-anim:at\"ion" 1s;`
+   * to
+   *  `animation: "my-anim%COLON_IN_PLACEHOLDER%at\"ion" 1s;`
+   *
+   * This is necessary in order to remove the meaning of some characters when found inside strings
+   * (for example `;` indicates the end of a css declaration, `,` the sequence of values and `:` the
+   * division between property and value during a declaration, none of these meanings apply when such
+   * characters are within strings and so in order to prevent parsing issues they need to be replaced
+   * with placeholder text for the duration of the css manipulation process).
+   *
+   * @param input the original css text.
+   *
+   * @returns the css text with specific characters in strings replaced by placeholders.
+   **/
+  function escapeInStrings(input) {
+    let result = input;
+    let currentQuoteChar = null;
+    for (let i = 0; i < result.length; i++) {
+      const char = result[i];
+      if (char === '\\') {
+        i++;
+      } else {
+        if (currentQuoteChar !== null) {
+          // index i is inside a quoted sub-string
+          if (char === currentQuoteChar) {
+            currentQuoteChar = null;
+          } else {
+            const placeholder = ESCAPE_IN_STRING_MAP[char];
+            if (placeholder) {
+              result = `${result.substr(0, i)}${placeholder}${result.substr(
+                i + 1
+              )}`;
+              i += placeholder.length - 1;
+            }
+          }
+        } else if (char === "'" || char === '"') {
+          currentQuoteChar = char;
+        }
+      }
+    }
+    return result;
+  }
+  /**
+   * Replace in a string all occurrences of keys in the `ESCAPE_IN_STRING_MAP` map with their
+   * original representation, this is simply used to revert the changes applied by the
+   * escapeInStrings function.
+   *
+   * For example it reverts the text:
+   *  `animation: "my-anim%COLON_IN_PLACEHOLDER%at\"ion" 1s;`
+   * to it's original form of:
+   *  `animation: "my-anim:at\"ion" 1s;`
+   *
+   * Note: For the sake of simplicity this function does not check that the placeholders are
+   * actually inside strings as it would anyway be extremely unlikely to find them outside of strings.
+   *
+   * @param input the css text containing the placeholders.
+   *
+   * @returns the css text without the placeholders.
+   */
+  function unescapeInStrings(input) {
+    let result = input.replace(_cssCommaInPlaceholderReGlobal, ',');
+    result = result.replace(_cssSemiInPlaceholderReGlobal, ';');
+    result = result.replace(_cssColonInPlaceholderReGlobal, ':');
+    return result;
+  }
+  /**
+   * Unescape all quotes present in a string, but only if the string was actually already
+   * quoted.
+   *
+   * This generates a "canonical" representation of strings which can be used to match strings
+   * which would otherwise only differ because of differently escaped quotes.
+   *
+   * For example it converts the string (assumed to be quoted):
+   *  `this \\"is\\" a \\'\\\\'test`
+   * to:
+   *  `this "is" a '\\\\'test`
+   * (note that the latter backslashes are not removed as they are not actually escaping the single
+   * quote)
+   *
+   *
+   * @param input the string possibly containing escaped quotes.
+   * @param isQuoted boolean indicating whether the string was quoted inside a bigger string (if not
+   * then it means that it doesn't represent an inner string and thus no unescaping is required)
+   *
+   * @returns the string in the "canonical" representation without escaped quotes.
+   */
+  function unescapeQuotes(str, isQuoted) {
+    return !isQuoted
+      ? str
+      : str.replace(/((?:^|[^\\])(?:\\\\)*)\\(?=['"])/g, '$1');
   }
   /**
    * Combine the `contextSelectors` with the `hostMarker` and the `otherSelectors`
@@ -17020,70 +17469,7 @@
    * Use of this source code is governed by an MIT-style license that can be
    * found in the LICENSE file at https://angular.io/license
    */
-  // =================================================================================================
-  // =================================================================================================
-  // =========== S T O P   -  S T O P   -  S T O P   -  S T O P   -  S T O P   -  S T O P  ===========
-  // =================================================================================================
-  // =================================================================================================
-  //
-  //        DO NOT EDIT THIS LIST OF SECURITY SENSITIVE PROPERTIES WITHOUT A SECURITY REVIEW!
-  //                               Reach out to mprobst for details.
-  //
-  // =================================================================================================
-  /** Map from tagName|propertyName to SecurityContext. Properties applying to all tags use '*'. */
-  let _SECURITY_SCHEMA;
-  function SECURITY_SCHEMA() {
-    if (!_SECURITY_SCHEMA) {
-      _SECURITY_SCHEMA = {};
-      // Case is insignificant below, all element and attribute names are lower-cased for lookup.
-      registerContext(SecurityContext.HTML, [
-        'iframe|srcdoc',
-        '*|innerHTML',
-        '*|outerHTML',
-      ]);
-      registerContext(SecurityContext.STYLE, ['*|style']);
-      // NB: no SCRIPT contexts here, they are never allowed due to the parser stripping them.
-      registerContext(SecurityContext.URL, [
-        '*|formAction',
-        'area|href',
-        'area|ping',
-        'audio|src',
-        'a|href',
-        'a|ping',
-        'blockquote|cite',
-        'body|background',
-        'del|cite',
-        'form|action',
-        'img|src',
-        'input|src',
-        'ins|cite',
-        'q|cite',
-        'source|src',
-        'track|src',
-        'video|poster',
-        'video|src',
-      ]);
-      registerContext(SecurityContext.RESOURCE_URL, [
-        'applet|code',
-        'applet|codebase',
-        'base|href',
-        'embed|src',
-        'frame|src',
-        'head|profile',
-        'html|manifest',
-        'iframe|src',
-        'link|href',
-        'media|src',
-        'object|codebase',
-        'object|data',
-        'script|src',
-      ]);
-    }
-    return _SECURITY_SCHEMA;
-  }
-  function registerContext(ctx, specs) {
-    for (const spec of specs) _SECURITY_SCHEMA[spec.toLowerCase()] = ctx;
-  }
+  class ElementSchemaRegistry {}
 
   /**
    * @license
@@ -17092,7 +17478,6 @@
    * Use of this source code is governed by an MIT-style license that can be
    * found in the LICENSE file at https://angular.io/license
    */
-  class ElementSchemaRegistry {}
   const BOOLEAN = 'boolean';
   const NUMBER = 'number';
   const STRING = 'string';
@@ -17152,13 +17537,13 @@
   //
   // =================================================================================================
   const SCHEMA = [
-    '[Element]|textContent,%classList,className,id,innerHTML,*beforecopy,*beforecut,*beforepaste,*copy,*cut,*paste,*search,*selectstart,*webkitfullscreenchange,*webkitfullscreenerror,*wheel,outerHTML,#scrollLeft,#scrollTop,slot' +
+    '[Element]|textContent,%ariaAtomic,%ariaAutoComplete,%ariaBusy,%ariaChecked,%ariaColCount,%ariaColIndex,%ariaColSpan,%ariaCurrent,%ariaDescription,%ariaDisabled,%ariaExpanded,%ariaHasPopup,%ariaHidden,%ariaKeyShortcuts,%ariaLabel,%ariaLevel,%ariaLive,%ariaModal,%ariaMultiLine,%ariaMultiSelectable,%ariaOrientation,%ariaPlaceholder,%ariaPosInSet,%ariaPressed,%ariaReadOnly,%ariaRelevant,%ariaRequired,%ariaRoleDescription,%ariaRowCount,%ariaRowIndex,%ariaRowSpan,%ariaSelected,%ariaSetSize,%ariaSort,%ariaValueMax,%ariaValueMin,%ariaValueNow,%ariaValueText,%classList,className,elementTiming,id,innerHTML,*beforecopy,*beforecut,*beforepaste,*fullscreenchange,*fullscreenerror,*search,*webkitfullscreenchange,*webkitfullscreenerror,outerHTML,%part,#scrollLeft,#scrollTop,slot' +
       /* added manually to avoid breaking changes */
       ',*message,*mozfullscreenchange,*mozfullscreenerror,*mozpointerlockchange,*mozpointerlockerror,*webglcontextcreationerror,*webglcontextlost,*webglcontextrestored',
-    '[HTMLElement]^[Element]|accessKey,contentEditable,dir,!draggable,!hidden,innerText,lang,*abort,*auxclick,*blur,*cancel,*canplay,*canplaythrough,*change,*click,*close,*contextmenu,*cuechange,*dblclick,*drag,*dragend,*dragenter,*dragleave,*dragover,*dragstart,*drop,*durationchange,*emptied,*ended,*error,*focus,*gotpointercapture,*input,*invalid,*keydown,*keypress,*keyup,*load,*loadeddata,*loadedmetadata,*loadstart,*lostpointercapture,*mousedown,*mouseenter,*mouseleave,*mousemove,*mouseout,*mouseover,*mouseup,*mousewheel,*pause,*play,*playing,*pointercancel,*pointerdown,*pointerenter,*pointerleave,*pointermove,*pointerout,*pointerover,*pointerup,*progress,*ratechange,*reset,*resize,*scroll,*seeked,*seeking,*select,*show,*stalled,*submit,*suspend,*timeupdate,*toggle,*volumechange,*waiting,outerText,!spellcheck,%style,#tabIndex,title,!translate',
-    'abbr,address,article,aside,b,bdi,bdo,cite,code,dd,dfn,dt,em,figcaption,figure,footer,header,i,kbd,main,mark,nav,noscript,rb,rp,rt,rtc,ruby,s,samp,section,small,strong,sub,sup,u,var,wbr^[HTMLElement]|accessKey,contentEditable,dir,!draggable,!hidden,innerText,lang,*abort,*auxclick,*blur,*cancel,*canplay,*canplaythrough,*change,*click,*close,*contextmenu,*cuechange,*dblclick,*drag,*dragend,*dragenter,*dragleave,*dragover,*dragstart,*drop,*durationchange,*emptied,*ended,*error,*focus,*gotpointercapture,*input,*invalid,*keydown,*keypress,*keyup,*load,*loadeddata,*loadedmetadata,*loadstart,*lostpointercapture,*mousedown,*mouseenter,*mouseleave,*mousemove,*mouseout,*mouseover,*mouseup,*mousewheel,*pause,*play,*playing,*pointercancel,*pointerdown,*pointerenter,*pointerleave,*pointermove,*pointerout,*pointerover,*pointerup,*progress,*ratechange,*reset,*resize,*scroll,*seeked,*seeking,*select,*show,*stalled,*submit,*suspend,*timeupdate,*toggle,*volumechange,*waiting,outerText,!spellcheck,%style,#tabIndex,title,!translate',
-    'media^[HTMLElement]|!autoplay,!controls,%controlsList,%crossOrigin,#currentTime,!defaultMuted,#defaultPlaybackRate,!disableRemotePlayback,!loop,!muted,*encrypted,*waitingforkey,#playbackRate,preload,src,%srcObject,#volume',
-    ':svg:^[HTMLElement]|*abort,*auxclick,*blur,*cancel,*canplay,*canplaythrough,*change,*click,*close,*contextmenu,*cuechange,*dblclick,*drag,*dragend,*dragenter,*dragleave,*dragover,*dragstart,*drop,*durationchange,*emptied,*ended,*error,*focus,*gotpointercapture,*input,*invalid,*keydown,*keypress,*keyup,*load,*loadeddata,*loadedmetadata,*loadstart,*lostpointercapture,*mousedown,*mouseenter,*mouseleave,*mousemove,*mouseout,*mouseover,*mouseup,*mousewheel,*pause,*play,*playing,*pointercancel,*pointerdown,*pointerenter,*pointerleave,*pointermove,*pointerout,*pointerover,*pointerup,*progress,*ratechange,*reset,*resize,*scroll,*seeked,*seeking,*select,*show,*stalled,*submit,*suspend,*timeupdate,*toggle,*volumechange,*waiting,%style,#tabIndex',
+    '[HTMLElement]^[Element]|accessKey,autocapitalize,!autofocus,contentEditable,dir,!draggable,enterKeyHint,!hidden,innerText,inputMode,lang,nonce,*abort,*animationend,*animationiteration,*animationstart,*auxclick,*beforexrselect,*blur,*cancel,*canplay,*canplaythrough,*change,*click,*close,*contextmenu,*copy,*cuechange,*cut,*dblclick,*drag,*dragend,*dragenter,*dragleave,*dragover,*dragstart,*drop,*durationchange,*emptied,*ended,*error,*focus,*formdata,*gotpointercapture,*input,*invalid,*keydown,*keypress,*keyup,*load,*loadeddata,*loadedmetadata,*loadstart,*lostpointercapture,*mousedown,*mouseenter,*mouseleave,*mousemove,*mouseout,*mouseover,*mouseup,*mousewheel,*paste,*pause,*play,*playing,*pointercancel,*pointerdown,*pointerenter,*pointerleave,*pointermove,*pointerout,*pointerover,*pointerrawupdate,*pointerup,*progress,*ratechange,*reset,*resize,*scroll,*securitypolicyviolation,*seeked,*seeking,*select,*selectionchange,*selectstart,*slotchange,*stalled,*submit,*suspend,*timeupdate,*toggle,*transitioncancel,*transitionend,*transitionrun,*transitionstart,*volumechange,*waiting,*webkitanimationend,*webkitanimationiteration,*webkitanimationstart,*webkittransitionend,*wheel,outerText,!spellcheck,%style,#tabIndex,title,!translate,virtualKeyboardPolicy',
+    'abbr,address,article,aside,b,bdi,bdo,cite,content,code,dd,dfn,dt,em,figcaption,figure,footer,header,hgroup,i,kbd,main,mark,nav,noscript,rb,rp,rt,rtc,ruby,s,samp,section,small,strong,sub,sup,u,var,wbr^[HTMLElement]|accessKey,autocapitalize,!autofocus,contentEditable,dir,!draggable,enterKeyHint,!hidden,innerText,inputMode,lang,nonce,*abort,*animationend,*animationiteration,*animationstart,*auxclick,*beforexrselect,*blur,*cancel,*canplay,*canplaythrough,*change,*click,*close,*contextmenu,*copy,*cuechange,*cut,*dblclick,*drag,*dragend,*dragenter,*dragleave,*dragover,*dragstart,*drop,*durationchange,*emptied,*ended,*error,*focus,*formdata,*gotpointercapture,*input,*invalid,*keydown,*keypress,*keyup,*load,*loadeddata,*loadedmetadata,*loadstart,*lostpointercapture,*mousedown,*mouseenter,*mouseleave,*mousemove,*mouseout,*mouseover,*mouseup,*mousewheel,*paste,*pause,*play,*playing,*pointercancel,*pointerdown,*pointerenter,*pointerleave,*pointermove,*pointerout,*pointerover,*pointerrawupdate,*pointerup,*progress,*ratechange,*reset,*resize,*scroll,*securitypolicyviolation,*seeked,*seeking,*select,*selectionchange,*selectstart,*slotchange,*stalled,*submit,*suspend,*timeupdate,*toggle,*transitioncancel,*transitionend,*transitionrun,*transitionstart,*volumechange,*waiting,*webkitanimationend,*webkitanimationiteration,*webkitanimationstart,*webkittransitionend,*wheel,outerText,!spellcheck,%style,#tabIndex,title,!translate,virtualKeyboardPolicy',
+    'media^[HTMLElement]|!autoplay,!controls,%controlsList,%crossOrigin,#currentTime,!defaultMuted,#defaultPlaybackRate,!disableRemotePlayback,!loop,!muted,*encrypted,*waitingforkey,#playbackRate,preload,!preservesPitch,src,%srcObject,#volume',
+    ':svg:^[HTMLElement]|!autofocus,nonce,*abort,*animationend,*animationiteration,*animationstart,*auxclick,*beforexrselect,*blur,*cancel,*canplay,*canplaythrough,*change,*click,*close,*contextmenu,*copy,*cuechange,*cut,*dblclick,*drag,*dragend,*dragenter,*dragleave,*dragover,*dragstart,*drop,*durationchange,*emptied,*ended,*error,*focus,*formdata,*gotpointercapture,*input,*invalid,*keydown,*keypress,*keyup,*load,*loadeddata,*loadedmetadata,*loadstart,*lostpointercapture,*mousedown,*mouseenter,*mouseleave,*mousemove,*mouseout,*mouseover,*mouseup,*mousewheel,*paste,*pause,*play,*playing,*pointercancel,*pointerdown,*pointerenter,*pointerleave,*pointermove,*pointerout,*pointerover,*pointerrawupdate,*pointerup,*progress,*ratechange,*reset,*resize,*scroll,*securitypolicyviolation,*seeked,*seeking,*select,*selectionchange,*selectstart,*slotchange,*stalled,*submit,*suspend,*timeupdate,*toggle,*transitioncancel,*transitionend,*transitionrun,*transitionstart,*volumechange,*waiting,*webkitanimationend,*webkitanimationiteration,*webkitanimationstart,*webkittransitionend,*wheel,%style,#tabIndex',
     ':svg:graphics^:svg:|',
     ':svg:animation^:svg:|*begin,*end,*repeat',
     ':svg:geometry^:svg:|',
@@ -17166,16 +17551,17 @@
     ':svg:gradient^:svg:|',
     ':svg:textContent^:svg:graphics|',
     ':svg:textPositioning^:svg:textContent|',
-    'a^[HTMLElement]|charset,coords,download,hash,host,hostname,href,hreflang,name,password,pathname,ping,port,protocol,referrerPolicy,rel,rev,search,shape,target,text,type,username',
-    'area^[HTMLElement]|alt,coords,download,hash,host,hostname,href,!noHref,password,pathname,ping,port,protocol,referrerPolicy,rel,search,shape,target,username',
+    'a^[HTMLElement]|charset,coords,download,hash,host,hostname,href,hreflang,name,password,pathname,ping,port,protocol,referrerPolicy,rel,%relList,rev,search,shape,target,text,type,username',
+    'area^[HTMLElement]|alt,coords,download,hash,host,hostname,href,!noHref,password,pathname,ping,port,protocol,referrerPolicy,rel,%relList,search,shape,target,username',
     'audio^media|',
     'br^[HTMLElement]|clear',
     'base^[HTMLElement]|href,target',
-    'body^[HTMLElement]|aLink,background,bgColor,link,*beforeunload,*blur,*error,*focus,*hashchange,*languagechange,*load,*message,*offline,*online,*pagehide,*pageshow,*popstate,*rejectionhandled,*resize,*scroll,*storage,*unhandledrejection,*unload,text,vLink',
-    'button^[HTMLElement]|!autofocus,!disabled,formAction,formEnctype,formMethod,!formNoValidate,formTarget,name,type,value',
+    'body^[HTMLElement]|aLink,background,bgColor,link,*afterprint,*beforeprint,*beforeunload,*blur,*error,*focus,*hashchange,*languagechange,*load,*message,*messageerror,*offline,*online,*pagehide,*pageshow,*popstate,*rejectionhandled,*resize,*scroll,*storage,*unhandledrejection,*unload,text,vLink',
+    'button^[HTMLElement]|!disabled,formAction,formEnctype,formMethod,!formNoValidate,formTarget,name,type,value',
     'canvas^[HTMLElement]|#height,#width',
     'content^[HTMLElement]|select',
     'dl^[HTMLElement]|!compact',
+    'data^[HTMLElement]|value',
     'datalist^[HTMLElement]|',
     'details^[HTMLElement]|!open',
     'dialog^[HTMLElement]|!open,returnValue',
@@ -17186,22 +17572,22 @@
     'font^[HTMLElement]|color,face,size',
     'form^[HTMLElement]|acceptCharset,action,autocomplete,encoding,enctype,method,name,!noValidate,target',
     'frame^[HTMLElement]|frameBorder,longDesc,marginHeight,marginWidth,name,!noResize,scrolling,src',
-    'frameset^[HTMLElement]|cols,*beforeunload,*blur,*error,*focus,*hashchange,*languagechange,*load,*message,*offline,*online,*pagehide,*pageshow,*popstate,*rejectionhandled,*resize,*scroll,*storage,*unhandledrejection,*unload,rows',
+    'frameset^[HTMLElement]|cols,*afterprint,*beforeprint,*beforeunload,*blur,*error,*focus,*hashchange,*languagechange,*load,*message,*messageerror,*offline,*online,*pagehide,*pageshow,*popstate,*rejectionhandled,*resize,*scroll,*storage,*unhandledrejection,*unload,rows',
     'hr^[HTMLElement]|align,color,!noShade,size,width',
     'head^[HTMLElement]|',
     'h1,h2,h3,h4,h5,h6^[HTMLElement]|align',
     'html^[HTMLElement]|version',
-    'iframe^[HTMLElement]|align,!allowFullscreen,frameBorder,height,longDesc,marginHeight,marginWidth,name,referrerPolicy,%sandbox,scrolling,src,srcdoc,width',
-    'img^[HTMLElement]|align,alt,border,%crossOrigin,#height,#hspace,!isMap,longDesc,lowsrc,name,referrerPolicy,sizes,src,srcset,useMap,#vspace,#width',
-    'input^[HTMLElement]|accept,align,alt,autocapitalize,autocomplete,!autofocus,!checked,!defaultChecked,defaultValue,dirName,!disabled,%files,formAction,formEnctype,formMethod,!formNoValidate,formTarget,#height,!incremental,!indeterminate,max,#maxLength,min,#minLength,!multiple,name,pattern,placeholder,!readOnly,!required,selectionDirection,#selectionEnd,#selectionStart,#size,src,step,type,useMap,value,%valueAsDate,#valueAsNumber,#width',
+    'iframe^[HTMLElement]|align,allow,!allowFullscreen,!allowPaymentRequest,csp,frameBorder,height,loading,longDesc,marginHeight,marginWidth,name,referrerPolicy,%sandbox,scrolling,src,srcdoc,width',
+    'img^[HTMLElement]|align,alt,border,%crossOrigin,decoding,#height,#hspace,!isMap,loading,longDesc,lowsrc,name,referrerPolicy,sizes,src,srcset,useMap,#vspace,#width',
+    'input^[HTMLElement]|accept,align,alt,autocomplete,!checked,!defaultChecked,defaultValue,dirName,!disabled,%files,formAction,formEnctype,formMethod,!formNoValidate,formTarget,#height,!incremental,!indeterminate,max,#maxLength,min,#minLength,!multiple,name,pattern,placeholder,!readOnly,!required,selectionDirection,#selectionEnd,#selectionStart,#size,src,step,type,useMap,value,%valueAsDate,#valueAsNumber,#width',
     'li^[HTMLElement]|type,#value',
     'label^[HTMLElement]|htmlFor',
     'legend^[HTMLElement]|align',
-    'link^[HTMLElement]|as,charset,%crossOrigin,!disabled,href,hreflang,integrity,media,referrerPolicy,rel,%relList,rev,%sizes,target,type',
+    'link^[HTMLElement]|as,charset,%crossOrigin,!disabled,href,hreflang,imageSizes,imageSrcset,integrity,media,referrerPolicy,rel,%relList,rev,%sizes,target,type',
     'map^[HTMLElement]|name',
     'marquee^[HTMLElement]|behavior,bgColor,direction,height,#hspace,#loop,#scrollAmount,#scrollDelay,!trueSpeed,#vspace,width',
     'menu^[HTMLElement]|!compact',
-    'meta^[HTMLElement]|content,httpEquiv,name,scheme',
+    'meta^[HTMLElement]|content,httpEquiv,media,name,scheme',
     'meter^[HTMLElement]|#high,#low,#max,#min,#optimum,#value',
     'ins,del^[HTMLElement]|cite,dateTime',
     'ol^[HTMLElement]|!compact,!reversed,#start,type',
@@ -17215,11 +17601,10 @@
     'pre^[HTMLElement]|#width',
     'progress^[HTMLElement]|#max,#value',
     'q,blockquote,cite^[HTMLElement]|',
-    'script^[HTMLElement]|!async,charset,%crossOrigin,!defer,event,htmlFor,integrity,src,text,type',
-    'select^[HTMLElement]|autocomplete,!autofocus,!disabled,#length,!multiple,name,!required,#selectedIndex,#size,value',
-    'shadow^[HTMLElement]|',
+    'script^[HTMLElement]|!async,charset,%crossOrigin,!defer,event,htmlFor,integrity,!noModule,%referrerPolicy,src,text,type',
+    'select^[HTMLElement]|autocomplete,!disabled,#length,!multiple,name,!required,#selectedIndex,#size,value',
     'slot^[HTMLElement]|name',
-    'source^[HTMLElement]|media,sizes,src,srcset,type',
+    'source^[HTMLElement]|#height,media,sizes,src,srcset,type,#width',
     'span^[HTMLElement]|',
     'style^[HTMLElement]|!disabled,media,type',
     'caption^[HTMLElement]|align',
@@ -17229,12 +17614,13 @@
     'tr^[HTMLElement]|align,bgColor,ch,chOff,vAlign',
     'tfoot,thead,tbody^[HTMLElement]|align,ch,chOff,vAlign',
     'template^[HTMLElement]|',
-    'textarea^[HTMLElement]|autocapitalize,autocomplete,!autofocus,#cols,defaultValue,dirName,!disabled,#maxLength,#minLength,name,placeholder,!readOnly,!required,#rows,selectionDirection,#selectionEnd,#selectionStart,value,wrap',
+    'textarea^[HTMLElement]|autocomplete,#cols,defaultValue,dirName,!disabled,#maxLength,#minLength,name,placeholder,!readOnly,!required,#rows,selectionDirection,#selectionEnd,#selectionStart,value,wrap',
+    'time^[HTMLElement]|dateTime',
     'title^[HTMLElement]|text',
     'track^[HTMLElement]|!default,kind,label,src,srclang',
     'ul^[HTMLElement]|!compact,type',
     'unknown^[HTMLElement]|',
-    'video^media|#height,poster,#width',
+    'video^media|!disablePictureInPicture,#height,*enterpictureinpicture,*leavepictureinpicture,!playsInline,poster,#width',
     ':svg:a^:svg:graphics|',
     ':svg:animate^:svg:animation|',
     ':svg:animateMotion^:svg:animation|',
@@ -17273,7 +17659,7 @@
     ':svg:filter^:svg:|',
     ':svg:foreignObject^:svg:graphics|',
     ':svg:g^:svg:graphics|',
-    ':svg:image^:svg:graphics|',
+    ':svg:image^:svg:graphics|decoding',
     ':svg:line^:svg:geometry|',
     ':svg:linearGradient^:svg:gradient|',
     ':svg:mpath^:svg:|',
@@ -21383,11 +21769,27 @@
             const [attrNamespace, attrName] = splitNsName(input.name);
             const isAttributeBinding =
               inputType === 1; /* BindingType.Attribute */
-            const sanitizationRef = resolveSanitizationFn(
+            let sanitizationRef = resolveSanitizationFn(
               input.securityContext,
               isAttributeBinding
             );
-            if (sanitizationRef) params.push(sanitizationRef);
+            if (!sanitizationRef) {
+              // If there was no sanitization function found based on the security context
+              // of an attribute/property - check whether this attribute/property is
+              // one of the security-sensitive <iframe> attributes (and that the current
+              // element is actually an <iframe>).
+              if (
+                isIframeElement(element.name) &&
+                isIframeSecuritySensitiveAttr(input.name)
+              ) {
+                sanitizationRef = importExpr(
+                  Identifiers.validateIframeAttribute
+                );
+              }
+            }
+            if (sanitizationRef) {
+              params.push(sanitizationRef);
+            }
             if (attrNamespace) {
               const namespaceLiteral = literal(attrNamespace);
               if (sanitizationRef) {
@@ -22814,6 +23216,9 @@
       node instanceof Icu$1
     );
   }
+  function isIframeElement(tagName) {
+    return tagName.toLowerCase() === 'iframe';
+  }
   function hasTextChildrenOnly(children) {
     return children.every(isTextNode);
   }
@@ -22978,6 +23383,7 @@
    * Add features to the definition map.
    */
   function addFeatures(definitionMap, meta) {
+    var _a;
     // e.g. `features: [NgOnChangesFeature]`
     const features = [];
     const providers = meta.providers;
@@ -23001,6 +23407,15 @@
     // TODO: better way of differentiating component vs directive metadata.
     if (meta.hasOwnProperty('template') && meta.isStandalone) {
       features.push(importExpr(Identifiers.StandaloneFeature));
+    }
+    if (
+      (_a = meta.hostDirectives) === null || _a === void 0 ? void 0 : _a.length
+    ) {
+      features.push(
+        importExpr(Identifiers.HostDirectivesFeature).callFn([
+          createHostDirectivesFeatureArg(meta.hostDirectives),
+        ])
+      );
     }
     if (features.length) {
       definitionMap.set('features', literalArr(features));
@@ -23172,6 +23587,7 @@
     const typeParams = createBaseDirectiveTypeParams(meta);
     typeParams.push(stringArrayAsType(meta.template.ngContentSelectors));
     typeParams.push(expressionType(literal(meta.isStandalone)));
+    typeParams.push(createHostDirectivesType(meta));
     return expressionType(
       importExpr(Identifiers.ComponentDeclaration, typeParams)
     );
@@ -23280,7 +23696,7 @@
   function stringAsType(str) {
     return expressionType(literal(str));
   }
-  function stringMapAsType(map) {
+  function stringMapAsLiteralExpression(map) {
     const mapValues = Object.keys(map).map((key) => {
       const value = Array.isArray(map[key]) ? map[key][0] : map[key];
       return {
@@ -23289,7 +23705,7 @@
         quoted: true,
       };
     });
-    return expressionType(literalMap(mapValues));
+    return literalMap(mapValues);
   }
   function stringArrayAsType(arr) {
     return arr.length > 0
@@ -23305,8 +23721,8 @@
       typeWithParameters(meta.type.type, meta.typeArgumentCount),
       selectorForType !== null ? stringAsType(selectorForType) : NONE_TYPE,
       meta.exportAs !== null ? stringArrayAsType(meta.exportAs) : NONE_TYPE,
-      stringMapAsType(meta.inputs),
-      stringMapAsType(meta.outputs),
+      expressionType(stringMapAsLiteralExpression(meta.inputs)),
+      expressionType(stringMapAsLiteralExpression(meta.outputs)),
       stringArrayAsType(meta.queries.map((q) => q.propertyName)),
     ];
   }
@@ -23320,6 +23736,7 @@
     // so that future fields align.
     typeParams.push(NONE_TYPE);
     typeParams.push(expressionType(literal(meta.isStandalone)));
+    typeParams.push(createHostDirectivesType(meta));
     return expressionType(
       importExpr(Identifiers.DirectiveDeclaration, typeParams)
     );
@@ -23468,6 +23885,21 @@
       const instructionParams = [literal(bindingName), bindingExpr.currValExpr];
       if (sanitizerFn) {
         instructionParams.push(sanitizerFn);
+      } else {
+        // If there was no sanitization function found based on the security context
+        // of an attribute/property binding - check whether this attribute/property is
+        // one of the security-sensitive <iframe> attributes.
+        // Note: for host bindings defined on a directive, we do not try to find all
+        // possible places where it can be matched, so we can not determine whether
+        // the host element is an <iframe>. In this case, if an attribute/binding
+        // name is in the `IFRAME_SECURITY_SENSITIVE_ATTRS` set - append a validation
+        // function, which would be invoked at runtime and would have access to the
+        // underlying DOM element, check if it's an <iframe> and if so - runs extra checks.
+        if (isIframeSecuritySensitiveAttr(bindingName)) {
+          instructionParams.push(
+            importExpr(Identifiers.validateIframeAttribute)
+          );
+        }
       }
       updateVariables.push(...bindingExpr.stmts);
       if (instruction === Identifiers.hostProperty) {
@@ -23715,6 +24147,96 @@
     return styles.map((style) => {
       return shadowCss.shimCssText(style, selector, hostSelector);
     });
+  }
+  function createHostDirectivesType(meta) {
+    var _a;
+    if (
+      !((_a = meta.hostDirectives) === null || _a === void 0
+        ? void 0
+        : _a.length)
+    ) {
+      return NONE_TYPE;
+    }
+    return expressionType(
+      literalArr(
+        meta.hostDirectives.map((hostMeta) =>
+          literalMap([
+            {
+              key: 'directive',
+              value: typeofExpr(hostMeta.directive.type),
+              quoted: false,
+            },
+            {
+              key: 'inputs',
+              value: stringMapAsLiteralExpression(hostMeta.inputs || {}),
+              quoted: false,
+            },
+            {
+              key: 'outputs',
+              value: stringMapAsLiteralExpression(hostMeta.outputs || {}),
+              quoted: false,
+            },
+          ])
+        )
+      )
+    );
+  }
+  function createHostDirectivesFeatureArg(hostDirectives) {
+    const expressions = [];
+    let hasForwardRef = false;
+    for (const current of hostDirectives) {
+      // Use a shorthand if there are no inputs or outputs.
+      if (!current.inputs && !current.outputs) {
+        expressions.push(current.directive.type);
+      } else {
+        const keys = [
+          { key: 'directive', value: current.directive.type, quoted: false },
+        ];
+        if (current.inputs) {
+          const inputsLiteral = createHostDirectivesMappingArray(
+            current.inputs
+          );
+          if (inputsLiteral) {
+            keys.push({ key: 'inputs', value: inputsLiteral, quoted: false });
+          }
+        }
+        if (current.outputs) {
+          const outputsLiteral = createHostDirectivesMappingArray(
+            current.outputs
+          );
+          if (outputsLiteral) {
+            keys.push({ key: 'outputs', value: outputsLiteral, quoted: false });
+          }
+        }
+        expressions.push(literalMap(keys));
+      }
+      if (current.isForwardReference) {
+        hasForwardRef = true;
+      }
+    }
+    // If there's a forward reference, we generate a `function() { return [HostDir] }`,
+    // otherwise we can save some bytes by using a plain array, e.g. `[HostDir]`.
+    return hasForwardRef
+      ? new FunctionExpr([], [new ReturnStatement(literalArr(expressions))])
+      : literalArr(expressions);
+  }
+  /**
+   * Converts an input/output mapping object literal into an array where the even keys are the
+   * public name of the binding and the odd ones are the name it was aliased to. E.g.
+   * `{inputOne: 'aliasOne', inputTwo: 'aliasTwo'}` will become
+   * `['inputOne', 'aliasOne', 'inputTwo', 'aliasTwo']`.
+   *
+   * This conversion is necessary, because hosts bind to the public name of the host directive and
+   * keeping the mapping in an object literal will break for apps using property renaming.
+   */
+  function createHostDirectivesMappingArray(mapping) {
+    const elements = [];
+    for (const publicName in mapping) {
+      if (mapping.hasOwnProperty(publicName)) {
+        elements.push(literal(publicName), literal(mapping[publicName]));
+      }
+    }
+    return elements.length > 0 ? literalArr(elements) : null;
   }
 
   /**
@@ -24138,6 +24660,7 @@
         facade.providers != null ? new WrappedNodeExpr(facade.providers) : null,
       viewQueries: facade.viewQueries.map(convertToR3QueryMetadata),
       fullInheritance: false,
+      hostDirectives: convertHostDirectivesToMetadata(facade),
     });
   }
   function convertDeclareDirectiveFacadeToMetadata(
@@ -24184,6 +24707,7 @@
       fullInheritance: false,
       isStandalone:
         (_j = declaration.isStandalone) !== null && _j !== void 0 ? _j : false,
+      hostDirectives: convertHostDirectivesToMetadata(declaration),
     };
   }
   function convertHostDeclarationToMetadata(host = {}) {
@@ -24199,6 +24723,35 @@
         styleAttr: host.styleAttribute,
       },
     };
+  }
+  function convertHostDirectivesToMetadata(metadata) {
+    var _a;
+    if (
+      (_a = metadata.hostDirectives) === null || _a === void 0
+        ? void 0
+        : _a.length
+    ) {
+      return metadata.hostDirectives.map((hostDirective) => {
+        return typeof hostDirective === 'function'
+          ? {
+              directive: wrapReference(hostDirective),
+              inputs: null,
+              outputs: null,
+              isForwardReference: false,
+            }
+          : {
+              directive: wrapReference(hostDirective.directive),
+              isForwardReference: false,
+              inputs: hostDirective.inputs
+                ? parseInputOutputs(hostDirective.inputs)
+                : null,
+              outputs: hostDirective.outputs
+                ? parseInputOutputs(hostDirective.outputs)
+                : null,
+            };
+      });
+    }
+    return null;
   }
   function convertOpaqueValuesToExpressions(obj) {
     const result = {};
@@ -24521,7 +25074,7 @@
    * Use of this source code is governed by an MIT-style license that can be
    * found in the LICENSE file at https://angular.io/license
    */
-  const VERSION = new Version('14.2.7');
+  const VERSION = new Version('15.0.1');
 
   /**
    * @license
@@ -24534,14 +25087,12 @@
     constructor({
       defaultEncapsulation = exports.ViewEncapsulation.Emulated,
       useJit = true,
-      jitDevMode = false,
       missingTranslation = null,
       preserveWhitespaces,
       strictInjectionParameters,
     } = {}) {
       this.defaultEncapsulation = defaultEncapsulation;
       this.useJit = !!useJit;
-      this.jitDevMode = !!jitDevMode;
       this.missingTranslation = missingTranslation;
       this.preserveWhitespaces = preserveWhitespacesDefault(
         noUndefined(preserveWhitespaces)
@@ -26627,8 +27178,8 @@
       );
       // Next, use the `SelectorMatcher` to get the list of directives on the node.
       const directives = [];
-      this.matcher.match(cssSelector, (_, directive) =>
-        directives.push(directive)
+      this.matcher.match(cssSelector, (_selector, results) =>
+        directives.push(...results)
       );
       if (directives.length > 0) {
         this.directives.set(node, directives);
@@ -27010,7 +27561,7 @@
   function compileDeclareClassMetadata(metadata) {
     const definitionMap = new DefinitionMap();
     definitionMap.set('minVersion', literal(MINIMUM_PARTIAL_LINKER_VERSION$6));
-    definitionMap.set('version', literal('14.2.7'));
+    definitionMap.set('version', literal('15.0.1'));
     definitionMap.set('ngImport', importExpr(Identifiers.core));
     definitionMap.set('type', metadata.type);
     definitionMap.set('decorators', metadata.decorators);
@@ -27126,9 +27677,10 @@
    * this logic for components, as they extend the directive metadata.
    */
   function createDirectiveDefinitionMap(meta) {
+    var _a;
     const definitionMap = new DefinitionMap();
     definitionMap.set('minVersion', literal(MINIMUM_PARTIAL_LINKER_VERSION$5));
-    definitionMap.set('version', literal('14.2.7'));
+    definitionMap.set('version', literal('15.0.1'));
     // e.g. `type: MyDirective`
     definitionMap.set('type', meta.internalType);
     if (meta.isStandalone) {
@@ -27165,6 +27717,14 @@
     }
     if (meta.lifecycle.usesOnChanges) {
       definitionMap.set('usesOnChanges', literal(true));
+    }
+    if (
+      (_a = meta.hostDirectives) === null || _a === void 0 ? void 0 : _a.length
+    ) {
+      definitionMap.set(
+        'hostDirectives',
+        createHostDirectives(meta.hostDirectives)
+      );
     }
     definitionMap.set('ngImport', importExpr(Identifiers.core));
     return definitionMap;
@@ -27234,6 +27794,35 @@
     } else {
       return null;
     }
+  }
+  function createHostDirectives(hostDirectives) {
+    const expressions = hostDirectives.map((current) => {
+      const keys = [
+        {
+          key: 'directive',
+          value: current.isForwardReference
+            ? generateForwardRef(current.directive.type)
+            : current.directive.type,
+          quoted: false,
+        },
+      ];
+      const inputsLiteral = current.inputs
+        ? createHostDirectivesMappingArray(current.inputs)
+        : null;
+      const outputsLiteral = current.outputs
+        ? createHostDirectivesMappingArray(current.outputs)
+        : null;
+      if (inputsLiteral) {
+        keys.push({ key: 'inputs', value: inputsLiteral, quoted: false });
+      }
+      if (outputsLiteral) {
+        keys.push({ key: 'outputs', value: outputsLiteral, quoted: false });
+      }
+      return literalMap(keys);
+    });
+    // If there's a forward reference, we generate a `function() { return [{directive: HostDir}] }`,
+    // otherwise we can save some bytes by using a plain array, e.g. `[{directive: HostDir}]`.
+    return literalArr(expressions);
   }
 
   /**
@@ -27401,7 +27990,7 @@
   function compileDeclareFactoryFunction(meta) {
     const definitionMap = new DefinitionMap();
     definitionMap.set('minVersion', literal(MINIMUM_PARTIAL_LINKER_VERSION$4));
-    definitionMap.set('version', literal('14.2.7'));
+    definitionMap.set('version', literal('15.0.1'));
     definitionMap.set('ngImport', importExpr(Identifiers.core));
     definitionMap.set('type', meta.internalType);
     definitionMap.set('deps', compileDependencies(meta.deps));
@@ -27452,7 +28041,7 @@
   function createInjectableDefinitionMap(meta) {
     const definitionMap = new DefinitionMap();
     definitionMap.set('minVersion', literal(MINIMUM_PARTIAL_LINKER_VERSION$3));
-    definitionMap.set('version', literal('14.2.7'));
+    definitionMap.set('version', literal('15.0.1'));
     definitionMap.set('ngImport', importExpr(Identifiers.core));
     definitionMap.set('type', meta.internalType);
     // Only generate providedIn property if it has a non-null value
@@ -27521,7 +28110,7 @@
   function createInjectorDefinitionMap(meta) {
     const definitionMap = new DefinitionMap();
     definitionMap.set('minVersion', literal(MINIMUM_PARTIAL_LINKER_VERSION$2));
-    definitionMap.set('version', literal('14.2.7'));
+    definitionMap.set('version', literal('15.0.1'));
     definitionMap.set('ngImport', importExpr(Identifiers.core));
     definitionMap.set('type', meta.internalType);
     definitionMap.set('providers', meta.providers);
@@ -27560,7 +28149,7 @@
   function createNgModuleDefinitionMap(meta) {
     const definitionMap = new DefinitionMap();
     definitionMap.set('minVersion', literal(MINIMUM_PARTIAL_LINKER_VERSION$1));
-    definitionMap.set('version', literal('14.2.7'));
+    definitionMap.set('version', literal('15.0.1'));
     definitionMap.set('ngImport', importExpr(Identifiers.core));
     definitionMap.set('type', meta.internalType);
     // We only generate the keys in the metadata if the arrays contain values.
@@ -27635,7 +28224,7 @@
   function createPipeDefinitionMap(meta) {
     const definitionMap = new DefinitionMap();
     definitionMap.set('minVersion', literal(MINIMUM_PARTIAL_LINKER_VERSION));
-    definitionMap.set('version', literal('14.2.7'));
+    definitionMap.set('version', literal('15.0.1'));
     definitionMap.set('ngImport', importExpr(Identifiers.core));
     // e.g. `type: MyPipe`
     definitionMap.set('type', meta.internalType);
@@ -27856,6 +28445,4 @@
   exports.splitNsName = splitNsName;
   exports.verifyHostBindings = verifyHostBindings;
   exports.visitAll = visitAll;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 });

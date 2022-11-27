@@ -1,0 +1,50 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { HarnessPredicate } from '@angular/cdk/testing';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { _MatSlideToggleHarnessBase, } from '@angular/material/slide-toggle/testing';
+/**
+ * Harness for interacting with a standard mat-slide-toggle in tests.
+ * @deprecated Use `MatSlideToggleHarness` from `@angular/material/slide-toggle/testing` instead. See https://material.angular.io/guide/mdc-migration for information about migrating.
+ * @breaking-change 17.0.0
+ */
+export class MatLegacySlideToggleHarness extends _MatSlideToggleHarnessBase {
+    constructor() {
+        super(...arguments);
+        this._inputContainer = this.locatorFor('.mat-slide-toggle-bar');
+        this._nativeElement = this.locatorFor('input');
+    }
+    /**
+     * Gets a `HarnessPredicate` that can be used to search for a `MatSlideToggleHarness` that meets
+     * certain criteria.
+     * @param options Options for filtering which slide toggle instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
+     */
+    static with(options = {}) {
+        return (new HarnessPredicate(MatLegacySlideToggleHarness, options)
+            .addOption('label', options.label, (harness, label) => HarnessPredicate.stringMatches(harness.getLabelText(), label))
+            // We want to provide a filter option for "name" because the name of the slide-toggle is
+            // only set on the underlying input. This means that it's not possible for developers
+            // to retrieve the harness of a specific checkbox with name through a CSS selector.
+            .addOption('name', options.name, async (harness, name) => (await harness.getName()) === name)
+            .addOption('checked', options.checked, async (harness, checked) => (await harness.isChecked()) == checked)
+            .addOption('disabled', options.disabled, async (harness, disabled) => (await harness.isDisabled()) == disabled));
+    }
+    /** Toggle the checked state of the slide-toggle. */
+    async toggle() {
+        return (await this._inputContainer()).click();
+    }
+    /** Whether the slide-toggle is checked. */
+    async isChecked() {
+        const checked = (await this._nativeElement()).getProperty('checked');
+        return coerceBooleanProperty(await checked);
+    }
+}
+/** The selector for the host element of a `MatSlideToggle` instance. */
+MatLegacySlideToggleHarness.hostSelector = '.mat-slide-toggle';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2xpZGUtdG9nZ2xlLWhhcm5lc3MuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvbWF0ZXJpYWwvbGVnYWN5LXNsaWRlLXRvZ2dsZS90ZXN0aW5nL3NsaWRlLXRvZ2dsZS1oYXJuZXNzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVILE9BQU8sRUFBQyxnQkFBZ0IsRUFBQyxNQUFNLHNCQUFzQixDQUFDO0FBQ3RELE9BQU8sRUFBQyxxQkFBcUIsRUFBQyxNQUFNLHVCQUF1QixDQUFDO0FBQzVELE9BQU8sRUFDTCwwQkFBMEIsR0FFM0IsTUFBTSx3Q0FBd0MsQ0FBQztBQUVoRDs7OztHQUlHO0FBQ0gsTUFBTSxPQUFPLDJCQUE0QixTQUFRLDBCQUEwQjtJQUEzRTs7UUFDVSxvQkFBZSxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsdUJBQXVCLENBQUMsQ0FBQztRQUN6RCxtQkFBYyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLENBQUM7SUFrRHRELENBQUM7SUE3Q0M7Ozs7O09BS0c7SUFDSCxNQUFNLENBQUMsSUFBSSxDQUNULFVBQXFDLEVBQUU7UUFFdkMsT0FBTyxDQUNMLElBQUksZ0JBQWdCLENBQUMsMkJBQTJCLEVBQUUsT0FBTyxDQUFDO2FBQ3ZELFNBQVMsQ0FBQyxPQUFPLEVBQUUsT0FBTyxDQUFDLEtBQUssRUFBRSxDQUFDLE9BQU8sRUFBRSxLQUFLLEVBQUUsRUFBRSxDQUNwRCxnQkFBZ0IsQ0FBQyxhQUFhLENBQUMsT0FBTyxDQUFDLFlBQVksRUFBRSxFQUFFLEtBQUssQ0FBQyxDQUM5RDtZQUNELHdGQUF3RjtZQUN4RixxRkFBcUY7WUFDckYsbUZBQW1GO2FBQ2xGLFNBQVMsQ0FDUixNQUFNLEVBQ04sT0FBTyxDQUFDLElBQUksRUFDWixLQUFLLEVBQUUsT0FBTyxFQUFFLElBQUksRUFBRSxFQUFFLENBQUMsQ0FBQyxNQUFNLE9BQU8sQ0FBQyxPQUFPLEVBQUUsQ0FBQyxLQUFLLElBQUksQ0FDNUQ7YUFDQSxTQUFTLENBQ1IsU0FBUyxFQUNULE9BQU8sQ0FBQyxPQUFPLEVBQ2YsS0FBSyxFQUFFLE9BQU8sRUFBRSxPQUFPLEVBQUUsRUFBRSxDQUFDLENBQUMsTUFBTSxPQUFPLENBQUMsU0FBUyxFQUFFLENBQUMsSUFBSSxPQUFPLENBQ25FO2FBQ0EsU0FBUyxDQUNSLFVBQVUsRUFDVixPQUFPLENBQUMsUUFBUSxFQUNoQixLQUFLLEVBQUUsT0FBTyxFQUFFLFFBQVEsRUFBRSxFQUFFLENBQUMsQ0FBQyxNQUFNLE9BQU8sQ0FBQyxVQUFVLEVBQUUsQ0FBQyxJQUFJLFFBQVEsQ0FDdEUsQ0FDSixDQUFDO0lBQ0osQ0FBQztJQUVELG9EQUFvRDtJQUNwRCxLQUFLLENBQUMsTUFBTTtRQUNWLE9BQU8sQ0FBQyxNQUFNLElBQUksQ0FBQyxlQUFlLEVBQUUsQ0FBQyxDQUFDLEtBQUssRUFBRSxDQUFDO0lBQ2hELENBQUM7SUFFRCwyQ0FBMkM7SUFDM0MsS0FBSyxDQUFDLFNBQVM7UUFDYixNQUFNLE9BQU8sR0FBRyxDQUFDLE1BQU0sSUFBSSxDQUFDLGNBQWMsRUFBRSxDQUFDLENBQUMsV0FBVyxDQUFVLFNBQVMsQ0FBQyxDQUFDO1FBQzlFLE9BQU8scUJBQXFCLENBQUMsTUFBTSxPQUFPLENBQUMsQ0FBQztJQUM5QyxDQUFDOztBQS9DRCx3RUFBd0U7QUFDakUsd0NBQVksR0FBRyxtQkFBbUIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge0hhcm5lc3NQcmVkaWNhdGV9IGZyb20gJ0Bhbmd1bGFyL2Nkay90ZXN0aW5nJztcbmltcG9ydCB7Y29lcmNlQm9vbGVhblByb3BlcnR5fSBmcm9tICdAYW5ndWxhci9jZGsvY29lcmNpb24nO1xuaW1wb3J0IHtcbiAgX01hdFNsaWRlVG9nZ2xlSGFybmVzc0Jhc2UsXG4gIFNsaWRlVG9nZ2xlSGFybmVzc0ZpbHRlcnMsXG59IGZyb20gJ0Bhbmd1bGFyL21hdGVyaWFsL3NsaWRlLXRvZ2dsZS90ZXN0aW5nJztcblxuLyoqXG4gKiBIYXJuZXNzIGZvciBpbnRlcmFjdGluZyB3aXRoIGEgc3RhbmRhcmQgbWF0LXNsaWRlLXRvZ2dsZSBpbiB0ZXN0cy5cbiAqIEBkZXByZWNhdGVkIFVzZSBgTWF0U2xpZGVUb2dnbGVIYXJuZXNzYCBmcm9tIGBAYW5ndWxhci9tYXRlcmlhbC9zbGlkZS10b2dnbGUvdGVzdGluZ2AgaW5zdGVhZC4gU2VlIGh0dHBzOi8vbWF0ZXJpYWwuYW5ndWxhci5pby9ndWlkZS9tZGMtbWlncmF0aW9uIGZvciBpbmZvcm1hdGlvbiBhYm91dCBtaWdyYXRpbmcuXG4gKiBAYnJlYWtpbmctY2hhbmdlIDE3LjAuMFxuICovXG5leHBvcnQgY2xhc3MgTWF0TGVnYWN5U2xpZGVUb2dnbGVIYXJuZXNzIGV4dGVuZHMgX01hdFNsaWRlVG9nZ2xlSGFybmVzc0Jhc2Uge1xuICBwcml2YXRlIF9pbnB1dENvbnRhaW5lciA9IHRoaXMubG9jYXRvckZvcignLm1hdC1zbGlkZS10b2dnbGUtYmFyJyk7XG4gIHByb3RlY3RlZCBfbmF0aXZlRWxlbWVudCA9IHRoaXMubG9jYXRvckZvcignaW5wdXQnKTtcblxuICAvKiogVGhlIHNlbGVjdG9yIGZvciB0aGUgaG9zdCBlbGVtZW50IG9mIGEgYE1hdFNsaWRlVG9nZ2xlYCBpbnN0YW5jZS4gKi9cbiAgc3RhdGljIGhvc3RTZWxlY3RvciA9ICcubWF0LXNsaWRlLXRvZ2dsZSc7XG5cbiAgLyoqXG4gICAqIEdldHMgYSBgSGFybmVzc1ByZWRpY2F0ZWAgdGhhdCBjYW4gYmUgdXNlZCB0byBzZWFyY2ggZm9yIGEgYE1hdFNsaWRlVG9nZ2xlSGFybmVzc2AgdGhhdCBtZWV0c1xuICAgKiBjZXJ0YWluIGNyaXRlcmlhLlxuICAgKiBAcGFyYW0gb3B0aW9ucyBPcHRpb25zIGZvciBmaWx0ZXJpbmcgd2hpY2ggc2xpZGUgdG9nZ2xlIGluc3RhbmNlcyBhcmUgY29uc2lkZXJlZCBhIG1hdGNoLlxuICAgKiBAcmV0dXJuIGEgYEhhcm5lc3NQcmVkaWNhdGVgIGNvbmZpZ3VyZWQgd2l0aCB0aGUgZ2l2ZW4gb3B0aW9ucy5cbiAgICovXG4gIHN0YXRpYyB3aXRoKFxuICAgIG9wdGlvbnM6IFNsaWRlVG9nZ2xlSGFybmVzc0ZpbHRlcnMgPSB7fSxcbiAgKTogSGFybmVzc1ByZWRpY2F0ZTxNYXRMZWdhY3lTbGlkZVRvZ2dsZUhhcm5lc3M+IHtcbiAgICByZXR1cm4gKFxuICAgICAgbmV3IEhhcm5lc3NQcmVkaWNhdGUoTWF0TGVnYWN5U2xpZGVUb2dnbGVIYXJuZXNzLCBvcHRpb25zKVxuICAgICAgICAuYWRkT3B0aW9uKCdsYWJlbCcsIG9wdGlvbnMubGFiZWwsIChoYXJuZXNzLCBsYWJlbCkgPT5cbiAgICAgICAgICBIYXJuZXNzUHJlZGljYXRlLnN0cmluZ01hdGNoZXMoaGFybmVzcy5nZXRMYWJlbFRleHQoKSwgbGFiZWwpLFxuICAgICAgICApXG4gICAgICAgIC8vIFdlIHdhbnQgdG8gcHJvdmlkZSBhIGZpbHRlciBvcHRpb24gZm9yIFwibmFtZVwiIGJlY2F1c2UgdGhlIG5hbWUgb2YgdGhlIHNsaWRlLXRvZ2dsZSBpc1xuICAgICAgICAvLyBvbmx5IHNldCBvbiB0aGUgdW5kZXJseWluZyBpbnB1dC4gVGhpcyBtZWFucyB0aGF0IGl0J3Mgbm90IHBvc3NpYmxlIGZvciBkZXZlbG9wZXJzXG4gICAgICAgIC8vIHRvIHJldHJpZXZlIHRoZSBoYXJuZXNzIG9mIGEgc3BlY2lmaWMgY2hlY2tib3ggd2l0aCBuYW1lIHRocm91Z2ggYSBDU1Mgc2VsZWN0b3IuXG4gICAgICAgIC5hZGRPcHRpb24oXG4gICAgICAgICAgJ25hbWUnLFxuICAgICAgICAgIG9wdGlvbnMubmFtZSxcbiAgICAgICAgICBhc3luYyAoaGFybmVzcywgbmFtZSkgPT4gKGF3YWl0IGhhcm5lc3MuZ2V0TmFtZSgpKSA9PT0gbmFtZSxcbiAgICAgICAgKVxuICAgICAgICAuYWRkT3B0aW9uKFxuICAgICAgICAgICdjaGVja2VkJyxcbiAgICAgICAgICBvcHRpb25zLmNoZWNrZWQsXG4gICAgICAgICAgYXN5bmMgKGhhcm5lc3MsIGNoZWNrZWQpID0+IChhd2FpdCBoYXJuZXNzLmlzQ2hlY2tlZCgpKSA9PSBjaGVja2VkLFxuICAgICAgICApXG4gICAgICAgIC5hZGRPcHRpb24oXG4gICAgICAgICAgJ2Rpc2FibGVkJyxcbiAgICAgICAgICBvcHRpb25zLmRpc2FibGVkLFxuICAgICAgICAgIGFzeW5jIChoYXJuZXNzLCBkaXNhYmxlZCkgPT4gKGF3YWl0IGhhcm5lc3MuaXNEaXNhYmxlZCgpKSA9PSBkaXNhYmxlZCxcbiAgICAgICAgKVxuICAgICk7XG4gIH1cblxuICAvKiogVG9nZ2xlIHRoZSBjaGVja2VkIHN0YXRlIG9mIHRoZSBzbGlkZS10b2dnbGUuICovXG4gIGFzeW5jIHRvZ2dsZSgpOiBQcm9taXNlPHZvaWQ+IHtcbiAgICByZXR1cm4gKGF3YWl0IHRoaXMuX2lucHV0Q29udGFpbmVyKCkpLmNsaWNrKCk7XG4gIH1cblxuICAvKiogV2hldGhlciB0aGUgc2xpZGUtdG9nZ2xlIGlzIGNoZWNrZWQuICovXG4gIGFzeW5jIGlzQ2hlY2tlZCgpOiBQcm9taXNlPGJvb2xlYW4+IHtcbiAgICBjb25zdCBjaGVja2VkID0gKGF3YWl0IHRoaXMuX25hdGl2ZUVsZW1lbnQoKSkuZ2V0UHJvcGVydHk8Ym9vbGVhbj4oJ2NoZWNrZWQnKTtcbiAgICByZXR1cm4gY29lcmNlQm9vbGVhblByb3BlcnR5KGF3YWl0IGNoZWNrZWQpO1xuICB9XG59XG4iXX0=

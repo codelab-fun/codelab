@@ -1,7 +1,7 @@
 import { RollupOptions } from 'rollup';
-
-const path = require('path');
-const dir = __dirname;
+import * as path from 'path';
+const dir =
+  '/Users/kirjs/code/codelab/libs/code-demos/assets/runner/ng2/build-umd-bundles';
 /** @type {Array<import('rollup').RollupOptions>} */
 
 const external = [
@@ -19,7 +19,7 @@ const globals = {
   '@angular/platform-browser-dynamic': 'ngPlatformBrowserDynamic',
 };
 
-module.exports = [
+export default [
   {
     input: 'node_modules/@angular/core/fesm2015/core.mjs',
     output: {
@@ -52,6 +52,16 @@ module.exports = [
     external,
   },
   {
+    input: 'node_modules/@angular/forms/fesm2015/forms.mjs',
+    output: {
+      file: path.join(dir, 'bundles', 'angular-forms.js'),
+      format: 'umd',
+      name: 'ngCompiler',
+      globals,
+    },
+    external,
+  },
+  {
     input: 'node_modules/@angular/common/fesm2015/common.mjs',
     output: {
       file: path.join(dir, 'bundles', 'angular-common.js'),
@@ -73,7 +83,7 @@ module.exports = [
     external,
   },
   {
-    input: 'node_modules/rxjs/_esm2015/index.js',
+    input: 'node_modules/rxjs/dist/esm/index.js',
     output: {
       file: path.join(dir, 'bundles', 'rxjs.js'),
       format: 'umd',
@@ -83,7 +93,17 @@ module.exports = [
     external,
   },
   {
-    input: 'node_modules/rxjs/_esm2015/operators/index.js',
+    input: 'node_modules/tslib/tslib.js',
+    output: {
+      file: path.join(dir, 'bundles', 'tslib.js'),
+      format: 'umd',
+      name: 'rxjs',
+      globals,
+    },
+    external,
+  },
+  {
+    input: 'node_modules/rxjs/dist/esm/operators/index.js',
     output: {
       file: path.join(dir, 'bundles', 'rxjs-operators.js'),
       format: 'umd',

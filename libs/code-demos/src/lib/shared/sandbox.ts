@@ -89,13 +89,17 @@ export function createSystemJsSandbox(
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser.js',
         '@angular/platform-browser-dynamic':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser-dynamic.js',
+        '@angular/forms':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-forms.js',
         '@angular/common':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-common.js',
         '@angular/compiler':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-compiler.js',
         rxjs: 'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/rxjs.js',
+        tslib:
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/tslib.js',
         'rxjs/operators':
-          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/rxjs-operators.js',
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/rxjs.js',
       },
     });
 

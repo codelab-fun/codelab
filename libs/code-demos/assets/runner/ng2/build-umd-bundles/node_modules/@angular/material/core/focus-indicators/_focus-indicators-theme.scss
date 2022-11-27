@@ -1,0 +1,13 @@
+@use './private';
+
+// stylelint-disable-next-line material/theme-mixin-api
+@mixin color($config-or-theme-or-color) {
+  @include private.strong-focus-indicators-color($config-or-theme-or-color);
+  @include private.mdc-strong-focus-indicators-color($config-or-theme-or-color);
+}
+
+// stylelint-disable-next-line material/theme-mixin-api
+@mixin theme($theme-or-color-config-or-color) {
+  @include private.strong-focus-indicators-theme($theme-or-color-config-or-color);
+  @include private.mdc-strong-focus-indicators-theme($theme-or-color-config-or-color);
+}

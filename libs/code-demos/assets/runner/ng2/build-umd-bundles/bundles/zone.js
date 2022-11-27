@@ -4,7 +4,7 @@
   'use strict';
 
   /**
-   * @license Angular v14.2.0-next.0
+   * @license Angular v15.1.0-next.0
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    */
@@ -310,6 +310,9 @@
               this.name +
               ')'
           );
+        if (task.state !== scheduled && task.state !== running) {
+          return;
+        }
         task._transitionTo(canceling, scheduled, running);
         try {
           this._zoneDelegate.cancelTask(this, task);

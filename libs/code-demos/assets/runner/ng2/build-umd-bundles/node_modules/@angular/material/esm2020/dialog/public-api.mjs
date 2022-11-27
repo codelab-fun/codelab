@@ -1,0 +1,15 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+export * from './dialog';
+export * from './dialog-config';
+export * from './dialog-ref';
+export * from './dialog-content-directives';
+export * from './dialog-container';
+export * from './module';
+export { matDialogAnimations, _defaultParams } from './dialog-animations';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9tYXRlcmlhbC9kaWFsb2cvcHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCxjQUFjLFVBQVUsQ0FBQztBQUN6QixjQUFjLGlCQUFpQixDQUFDO0FBQ2hDLGNBQWMsY0FBYyxDQUFDO0FBQzdCLGNBQWMsNkJBQTZCLENBQUM7QUFDNUMsY0FBYyxvQkFBb0IsQ0FBQztBQUNuQyxjQUFjLFVBQVUsQ0FBQztBQUN6QixPQUFPLEVBQUMsbUJBQW1CLEVBQUUsY0FBYyxFQUFDLE1BQU0scUJBQXFCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9kaWFsb2cnO1xuZXhwb3J0ICogZnJvbSAnLi9kaWFsb2ctY29uZmlnJztcbmV4cG9ydCAqIGZyb20gJy4vZGlhbG9nLXJlZic7XG5leHBvcnQgKiBmcm9tICcuL2RpYWxvZy1jb250ZW50LWRpcmVjdGl2ZXMnO1xuZXhwb3J0ICogZnJvbSAnLi9kaWFsb2ctY29udGFpbmVyJztcbmV4cG9ydCAqIGZyb20gJy4vbW9kdWxlJztcbmV4cG9ydCB7bWF0RGlhbG9nQW5pbWF0aW9ucywgX2RlZmF1bHRQYXJhbXN9IGZyb20gJy4vZGlhbG9nLWFuaW1hdGlvbnMnO1xuIl19

@@ -1,0 +1,74 @@
+@use '../core/theming/theming';
+@use '../core/mdc-helpers/mdc-helpers';
+@use '../core/typography/typography';
+@use '../core/typography/typography-utils';
+@use '@material/theme/theme-color' as mdc-theme-color;
+@use '@material/snackbar/snackbar-theme' as mdc-snackbar-theme;
+@use 'sass:color';
+@use 'sass:map';
+
+
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+  $is-dark-theme: map.get($config, is-dark);
+  $accent: map.get($config, accent);
+
+  @include mdc-helpers.using-mdc-theme($config) {
+    .mat-mdc-snack-bar-container {
+      $button-color:
+          if($is-dark-theme, currentColor, theming.get-color-from-palette($accent, text));
+      --mat-mdc-snack-bar-button-color: #{$button-color};
+
+      @include mdc-snackbar-theme.theme((
+        container-color: color.mix(
+          mdc-theme-color.prop-value(on-surface),
+          mdc-theme-color.prop-value(surface),
+          80%
+        ),
+        supporting-text-color: rgba(
+          mdc-theme-color.prop-value(surface),
+          mdc-theme-color.text-emphasis(high)
+        )
+      ));
+    }
+  }
+}
+
+@mixin typography($config-or-theme) {
+  $config: typography.private-typography-to-2018-config(
+      theming.get-typography-config($config-or-theme));
+  @include mdc-helpers.using-mdc-typography($config) {
+    @if ($config) {
+      .mat-mdc-snack-bar-container {
+        @include mdc-snackbar-theme.theme((
+          supporting-text-font: typography-utils.font-family($config, body-2),
+          supporting-text-line-height: typography-utils.line-height($config, body-2),
+          supporting-text-size: typography-utils.font-size($config, body-2),
+          supporting-text-weight: typography-utils.font-weight($config, body-2),
+        ));
+      }
+    }
+  }
+}
+
+@mixin density($config-or-theme) {}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mat-snack-bar') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
+  }
+}
+

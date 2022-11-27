@@ -1,0 +1,50 @@
+@use 'sass:map';
+@use '../core/mdc-helpers/mdc-helpers';
+@use '../core/theming/theming';
+@use '@material/circular-progress/circular-progress-theme' as mdc-circular-progress-theme;
+
+
+@mixin _palette-styles($config, $palette) {
+  $color: theming.get-color-from-palette(map.get($config, $palette));
+  @include mdc-circular-progress-theme.theme((active-indicator-color: $color));
+}
+
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+  @include mdc-helpers.using-mdc-theme($config) {
+    .mat-mdc-progress-spinner {
+      @include _palette-styles($config, primary);
+
+      &.mat-accent {
+        @include _palette-styles($config, accent);
+      }
+
+      &.mat-warn {
+        @include _palette-styles($config, warn);
+      }
+    }
+  }
+}
+
+@mixin typography($config-or-theme) {}
+
+@mixin density($config-or-theme) {}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mat-progress-spinner') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
+  }
+}

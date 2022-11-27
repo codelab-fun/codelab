@@ -1,0 +1,79 @@
+@use '../core/theming/theming';
+@use '../core/mdc-helpers/mdc-helpers';
+@use '../core/style/private';
+@use '../core/typography/typography';
+@use '@material/card/elevated-card-theme' as mdc-elevated-card-theme;
+@use '@material/card/outlined-card-theme' as mdc-outlined-card-theme;
+@use '@material/typography' as mdc-typography;
+@use '@material/theme/theme-color' as mdc-theme-color;
+@use 'sass:color';
+@use 'sass:map';
+
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+  $foreground: map.get($config, foreground);
+
+  @include mdc-helpers.using-mdc-theme($config) {
+    .mat-mdc-card {
+      // MDC's theme has `container-elevation` and `container-shadow-color` tokens, but we can't
+      // use them because they output under a `.mdc-card` selector whereas the rest of the theme
+      // isn't under any selector. Even if the mixin is pulled out of the selector, it throws a
+      // different error.
+      @include private.private-theme-elevation(1, $config);
+      @include mdc-elevated-card-theme.theme((
+        container-color: mdc-theme-color.prop-value(surface),
+      ));
+    }
+
+    .mat-mdc-card-outlined {
+      @include private.private-theme-elevation(0, $config);
+      @include mdc-outlined-card-theme.theme((
+        outline-color: color.mix(mdc-theme-color.prop-value(on-surface),
+          mdc-theme-color.prop-value(surface), 12%)
+      ));
+    }
+
+    // Card subtitles are an Angular Material construct (not MDC), so we explicitly set their
+    // color to secondary text here.
+    .mat-mdc-card-subtitle {
+      color: theming.get-color-from-palette($foreground, secondary-text);
+    }
+  }
+}
+
+@mixin typography($config-or-theme) {
+  $config: typography.private-typography-to-2018-config(
+      theming.get-typography-config($config-or-theme));
+  @include mdc-helpers.using-mdc-typography($config) {
+    // Card subtitles and titles are an Angular Material construct (not MDC), so we explicitly
+    // set their typographic styles here.
+    .mat-mdc-card-title {
+      @include mdc-typography.typography(headline6);
+    }
+
+    .mat-mdc-card-subtitle {
+      @include mdc-typography.typography(subtitle2);
+    }
+  }
+}
+
+@mixin density($config-or-theme) {}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mat-card') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
+  }
+}
