@@ -1,0 +1,9 @@
+<ng-container *ngFor="let block of slide1.blocks">
+  <ng-container *ngIf="block.type === 'custom'">
+    <slides-dynamic-renderer
+      [block]="block"
+      [mode]="'view'"
+    ></slides-dynamic-renderer>
+  </ng-container>
+  <div *ngIf="block.type === 'html'" [innerHTML]="block.code"></div>
+</ng-container>

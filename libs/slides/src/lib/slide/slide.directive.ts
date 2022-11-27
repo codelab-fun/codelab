@@ -9,6 +9,7 @@ const MILESTONE_ATTR_NAME = 'milestone';
 })
 export class SlideDirective {
   @Input() class;
+  @Input() slideId;
 
   constructor(
     private presentation: SlidesDeckComponent,

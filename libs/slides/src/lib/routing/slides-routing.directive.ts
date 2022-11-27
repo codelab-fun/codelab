@@ -62,6 +62,10 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
 
   getIndexFromRouteParam() {
     const id: string = this.route.snapshot.params['id'];
+    if (id === undefined) {
+      throw new Error('missing route');
+    }
+
     const index = this.deck.slides.findIndex((s) => s.id === id);
     // TODO(kirjs): Clean this up
     return Number(index === -1 ? id : index);

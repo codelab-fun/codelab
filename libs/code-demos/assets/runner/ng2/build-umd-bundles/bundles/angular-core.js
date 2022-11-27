@@ -12973,7 +12973,7 @@ Please check that 1) the type for the parameter at index ${index} is correct and
     if (
       embeddedViewInjector !== null ||
       (parentLView &&
-        parentLView[FLAGS] & 1024 /* LViewFlags.HasEmbeddedViewInjector */)
+        parentLView[FLAGS] & 1024) /* LViewFlags.HasEmbeddedViewInjector */
     ) {
       lView[FLAGS] |= 1024 /* LViewFlags.HasEmbeddedViewInjector */;
     }
@@ -19950,7 +19950,7 @@ Please check that 1) the type for the parameter at index ${index} is correct and
         ch === 95 /* CharCode.UNDERSCORE */ ||
         ((ch & -33) /* CharCode.UPPER_CASE */ >= 65 /* CharCode.A */ &&
           (ch & -33) /* CharCode.UPPER_CASE */ <= 90) /* CharCode.Z */ ||
-        (ch >= 48 /* CharCode.ZERO */ && ch <= 57) /* CharCode.NINE */)
+        (ch >= 48 /* CharCode.ZERO */ && ch <= 57)) /* CharCode.NINE */
     ) {
       startIndex++;
     }
@@ -21034,7 +21034,7 @@ Please check that 1) the type for the parameter at index ${index} is correct and
       (tNode.flags &
         (isClassBased
           ? 8 /* TNodeFlags.hasClassInput */
-          : 16) /* TNodeFlags.hasStyleInput */) !==
+          : 16)) /* TNodeFlags.hasStyleInput */ !==
       0
     );
   }
@@ -24064,7 +24064,7 @@ Please check that 1) the type for the parameter at index ${index} is correct and
               // Negative opCode represent `i18nExp` values offset.
               value += renderStringify(lView[bindingsStartIndex - opCode]);
             } else {
-              const nodeIndex = opCode >>> 2 /* I18nUpdateOpCode.SHIFT_REF */;
+              const nodeIndex = opCode >>> 2; /* I18nUpdateOpCode.SHIFT_REF */
               switch (opCode & 3 /* I18nUpdateOpCode.MASK_OPCODE */) {
                 case 1 /* I18nUpdateOpCode.Attr */:
                   const propName = updateOpCodes[++j];
@@ -24134,7 +24134,7 @@ Please check that 1) the type for the parameter at index ${index} is correct and
           // we still need to execute `icuUpdateCase` because the case has changed recently due to
           // previous `icuSwitchCase` instruction. (`icuSwitchCase` and `icuUpdateCase` always come in
           // pairs.)
-          const nodeIndex = opCode >>> 2 /* I18nUpdateOpCode.SHIFT_REF */;
+          const nodeIndex = opCode >>> 2; /* I18nUpdateOpCode.SHIFT_REF */
           const tIcu = getTIcu(tView, nodeIndex);
           const currentIndex = lView[tIcu.currentCaseLViewIndex];
           if (currentIndex < 0) {
@@ -28515,7 +28515,7 @@ Please check that 1) the type for the parameter at index ${index} is correct and
           if (
             read === ElementRef ||
             read === ViewContainerRef ||
-            (read === TemplateRef && tNode.type & 4 /* TNodeType.Container */)
+            (read === TemplateRef && tNode.type & 4) /* TNodeType.Container */
           ) {
             this.addMatch(tNode.index, -2);
           } else {

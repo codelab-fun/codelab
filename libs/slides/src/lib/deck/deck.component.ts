@@ -39,6 +39,10 @@ export class SlidesDeckComponent {
 
   addSlide(slide) {
     if (!this.milestone || this.milestone === slide.milestone) {
+      // TODO: It's a hack, this should be fixed
+      if (slide.id === 'infer__') {
+        slide.id = this.slides.length;
+      }
       this.slides.push(slide);
     }
   }

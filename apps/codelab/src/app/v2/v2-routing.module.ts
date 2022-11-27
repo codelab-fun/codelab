@@ -12,7 +12,7 @@ const routes: Routes = [
     component: V2Component,
   },
   {
-    path: ':presentation/:slide',
+    path: ':presentation/:id',
     component: PresentationComponent,
   },
   { path: '**', component: EmptyComponent },

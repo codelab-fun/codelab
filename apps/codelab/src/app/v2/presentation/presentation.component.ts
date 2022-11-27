@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationService } from '../../admin/content/presentation-editor/services/navigation.service';
+import { ContentService } from '../../admin/content/presentation-editor/services/content.service';
 
 @Component({
   selector: 'slides-presentation',
@@ -7,7 +8,10 @@ import { NavigationService } from '../../admin/content/presentation-editor/servi
   styleUrls: ['./presentation.component.css'],
 })
 export class PresentationComponent implements OnInit {
-  constructor(private readonly navigationService: NavigationService) {}
+  constructor(
+    private readonly navigationService: NavigationService,
+    readonly contentService: ContentService
+  ) {}
 
   ngOnInit(): void {}
 }

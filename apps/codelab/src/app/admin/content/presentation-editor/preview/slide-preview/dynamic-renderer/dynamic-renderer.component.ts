@@ -52,7 +52,7 @@ export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {
 @Injectable({ providedIn: 'root' })
 export class ViewDynamicComponentResolver extends NgxdResolver<string, any> {
   constructor() {
-    super([{ type: 'codelab-title-slide', component: BlankComponent }]);
+    super([{ type: 'codelab-title-slide', component: TitleSlideComponent }]);
   }
 }
 
