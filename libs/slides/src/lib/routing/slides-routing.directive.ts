@@ -46,11 +46,7 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
   }
 
   getId(index: number) {
-    return this.deck.slides &&
-      this.deck.slides[index] &&
-      this.deck.slides[index].id
-      ? this.deck.slides[index].id
-      : index;
+    return this.deck?.slides?.[index]?.id ?? index;
   }
 
   navigate(url: string) {
