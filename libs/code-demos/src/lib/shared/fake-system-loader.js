@@ -44,7 +44,7 @@ class System {
     throw new Error(`no module: "${id}"`);
   }
 
-  async resolveExports(...ids) {
+  async resolveExports(ids) {
     return Promise.all(
       ids.map(async (id) => {
         id = this.normalize(id);
