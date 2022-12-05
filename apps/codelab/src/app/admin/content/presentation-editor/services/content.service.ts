@@ -33,7 +33,6 @@ export class ContentService implements OnDestroy {
         return JSON.stringify(a) === JSON.stringify(b);
       }),
       map((doc: any) => {
-        console.log({ doc });
         return doc?.presentations || [];
       })
     );
@@ -71,13 +70,7 @@ export class ContentService implements OnDestroy {
     // TODO: There should be a better way
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
     this.state$
-      .pipe(
-        tap((a) => {
-          console.log('a', a);
-        }),
-        auditTime(1000),
-        takeUntil(this.onDestroy$)
-      )
+      .pipe(auditTime(5000), takeUntil(this.onDestroy$))
       .subscribe((presentations) => {
         this.presentations.doc('presentations').set({ presentations });
       });

@@ -131,6 +131,11 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   }
 
   writeValue(code: Record<string, string>) {
+    // TODO: This is a hack to prevent copied objects
+    if (JSON.stringify(code) === JSON.stringify(this.code)) {
+      return;
+    }
+
     if (code) {
       this.code = code;
       this.files = this.files || [Object.keys(this.code)[0]];

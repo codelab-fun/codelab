@@ -43,8 +43,6 @@ export class CodelabExerciseEditorComponent implements OnChanges {
   constructor(private readonly contentService: ContentService) {}
 
   update() {
-    console.log(this.selectedMilestone);
-
     this.contentService.updateBlock(this.presentationId, this.slide.id, {
       ...this.block,
       props: {

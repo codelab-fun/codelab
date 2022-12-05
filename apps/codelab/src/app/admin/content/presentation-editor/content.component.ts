@@ -38,9 +38,7 @@ export class ContentComponent {
     readonly contentService: ContentService,
     readonly navigationService: NavigationService,
     readonly activeRoute: ActivatedRoute
-  ) {
-    this.contentService.state$.subscribe((a) => console.log());
-  }
+  ) {}
 
   addSlide(presentationId: string) {
     this.contentService.addSlide(presentationId);

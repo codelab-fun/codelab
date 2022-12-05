@@ -75,7 +75,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
     private readonly contentService: ContentService
   ) {}
 
-  update() {
+  update(e?: any) {
     this.inferVars();
 
     this.contentService.updateBlock(this.presentationId, this.slide.id, {
@@ -101,8 +101,6 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
           }))
         : this.selectedFiles;
 
-    console.log('hi');
-
     this.highlights = this.selectedFiles.reduce((result, file) => {
       result[file.name] = file.highlights.map((highlight) => {
         if (typeof highlight.selection === 'string') {
@@ -117,8 +115,6 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
       });
       return result;
     }, {});
-
-    console.log(this.highlights);
 
     this.openFiles = this.selectedFiles
       .filter((file) => file.selected)

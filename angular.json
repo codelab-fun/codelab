@@ -245,7 +245,10 @@
                 "output": "./assets/runner/"
               }
             ],
-            "styles": ["apps/codelab/src/styles.scss"],
+            "styles": [
+              "apps/codelab/src/styles.scss",
+              "@angular/material/prebuilt-themes/indigo-pink.css"
+            ],
             "scripts": []
           },
           "defaultConfiguration": "development",
