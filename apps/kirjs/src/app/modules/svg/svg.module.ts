@@ -12,7 +12,7 @@ import { SvgPlaygroundComponent } from './svg-playground/svg-playground.componen
 import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
 import { SlidesModule } from '@ng360/slides';
 import { CodeDemoModule } from '@codelab/code-demos';

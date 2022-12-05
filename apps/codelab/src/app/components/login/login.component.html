@@ -1,4 +1,7 @@
-<mat-card *ngIf="(loginService.isAnonymous$ | async) === false; else userInfo">
+<mat-card
+  appearance="outlined"
+  *ngIf="(loginService.isAnonymous$ | async) === false; else userInfo"
+>
   <mat-card-content *ngIf="loginService.user$ | async as user">
     <div>user: {{ user.displayName || user.email }}</div>
     <div>uid: {{ loginService.uid$ | async }}</div>

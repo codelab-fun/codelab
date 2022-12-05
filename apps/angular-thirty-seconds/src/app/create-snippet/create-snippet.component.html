@@ -80,14 +80,14 @@
         <div>
           <label for="tags"> Tags <span class="required">*</span> </label>
           <mat-form-field>
-            <mat-chip-list #chipList>
-              <mat-chip
+            <mat-chip-grid #chipList>
+              <mat-chip-row
                 *ngFor="let tag of tags"
                 [removable]="true"
                 (removed)="removeTag(tag)"
               >
                 {{ tag }}
-              </mat-chip>
+              </mat-chip-row>
               <input
                 #tagInput
                 formControlName="tags"
@@ -98,7 +98,7 @@
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 (matChipInputTokenEnd)="addTag($event)"
               />
-            </mat-chip-list>
+            </mat-chip-grid>
             <mat-autocomplete
               #auto="matAutocomplete"
               (optionSelected)="selectedTags($event)"

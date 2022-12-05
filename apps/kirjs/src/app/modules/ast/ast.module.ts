@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';

@@ -10,7 +10,7 @@
   <ng-container
     *ngIf="syncSessionService.hasActiveSession$ | async; else noSession"
   >
-    <mat-card *isAdmin>
+    <mat-card appearance="outlined" *isAdmin>
       <button mat-icon-button (click)="present()">
         <mat-icon>present_to_all</mat-icon>
       </button>

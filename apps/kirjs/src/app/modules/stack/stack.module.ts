@@ -7,7 +7,7 @@ import { SimpleStackComponent } from './simple-stack/simple-stack.component';
 import { StackTestComponent } from './stack-test/stack-test.component';
 import { StackFunctionComponent } from './stack-game/stack-function/stack-function.component';
 import { StackFunctionButtonComponent } from './stack-game/stack-function-button/stack-function-button.component';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
