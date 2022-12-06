@@ -1,4 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
+import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
+import { editor } from "monaco-editor";
 
 declare const require;
 // TOOD(kirjs): Use  the real environment
@@ -32,7 +34,7 @@ export const MONACO_DEFAULTS = {
   providedIn: 'root',
 })
 export class MonacoConfigService {
-  public static monacoReady = new Promise((resolve) => {
+  public static monacoReady = new Promise<typeof monaco>((resolve) => {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.innerHTML = monacoLoaderCode;
@@ -47,6 +49,14 @@ export class MonacoConfigService {
       resolve(monaco);
     });
   });
+
+  public readonly editor = new Promise<IStandaloneCodeEditor>(
+    async (resolve) => {
+      ((await MonacoConfigService.monacoReady) as any).editor.onDidCreateEditor(
+        resolve
+      );
+    }
+  );
   static initialized = false;
   public monaco: any;
 

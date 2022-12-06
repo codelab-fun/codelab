@@ -721,5 +721,8 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

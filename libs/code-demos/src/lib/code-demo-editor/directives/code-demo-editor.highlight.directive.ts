@@ -9,6 +9,9 @@ import {
 import { findPosition } from '../utils/utils';
 import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
 import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+import { editor } from 'monaco-editor';
+import IEditorDecorationsCollection = editor.IEditorDecorationsCollection;
+import { rangeToDecoration } from '../../../../../../apps/codelab/src/app/admin/content/presentation-editor/wrappers/custom-component-editors/codelab-code-demo-console-editor/highlight-button/highlight-button.component';
 
 @Directive({
   selector: '[codeDemoHighlight]',
@@ -16,7 +19,8 @@ import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-c
 export class CodeDemoEditorHighlightDirective
   implements OnChanges, AfterViewInit
 {
-  decorators = [];
+  readonly decorators = [];
+  private decorationsCollection?: IEditorDecorationsCollection;
   @Input() codeDemoHighlight;
   @Input() ngModel;
 
@@ -39,9 +43,14 @@ export class CodeDemoEditorHighlightDirective
     }
 
     const editor = this.editorInjector.editor;
+
     if (editor) {
       if (!this.codeDemoHighlight || !editor.getModel()) {
         return;
+      }
+
+      if (!this.decorationsCollection) {
+        this.decorationsCollection = editor.createDecorationsCollection();
       }
 
       if (!Array.isArray(this.codeDemoHighlight)) {
@@ -54,36 +63,45 @@ export class CodeDemoEditorHighlightDirective
         return;
       }
 
-      const decorations = this.codeDemoHighlight
-        .map((match) =>
-          typeof match !== 'string' && match.match ? match : { match }
-        )
-        .reduce((ranges, { match, className }) => {
-          let range: [number, number, number, number];
-          if (match.endColumn) {
-            range = [
-              match.selectionStartLineNumber,
-              match.selectionStartColumn,
-              match.endLineNumber,
-              match.endColumn,
-            ];
-          } else {
-            const position = findPosition(code, match);
+      if (!this.codeDemoHighlight.length) {
+        return;
+      }
 
-            const { indexStart, lineStart, indexEnd, lineEnd } = position;
-            range = [lineStart, indexStart, lineEnd, indexEnd];
-          }
+      if ('startColumn' in this.codeDemoHighlight[0]) {
+        this.decorationsCollection.set(
+          this.codeDemoHighlight.map(rangeToDecoration)
+        );
+      } else {
+        const decorations = this.codeDemoHighlight
+          .map((match) =>
+            typeof match !== 'string' && match.match ? match : { match }
+          )
+          .reduce((ranges, { match, className }) => {
+            let range: [number, number, number, number];
+            if (match.endColumn) {
+              range = [
+                match.selectionStartLineNumber,
+                match.selectionStartColumn,
+                match.endLineNumber,
+                match.endColumn,
+              ];
+            } else {
+              const position = findPosition(code, match);
 
-          ranges.push({
-            range: new this.monacoConfigService.monaco.Range(...range),
-            options: { inlineClassName: className || 'highlighted-code' },
-          });
+              const { indexStart, lineStart, indexEnd, lineEnd } = position;
+              range = [lineStart, indexStart, lineEnd, indexEnd];
+            }
 
-          return ranges;
-        }, []);
+            ranges.push({
+              range: new this.monacoConfigService.monaco.Range(...range),
+              options: { inlineClassName: className || 'highlighted-code' },
+            });
 
-      this.decorators = editor.deltaDecorations(this.decorators, []);
-      this.decorators = editor.deltaDecorations(this.decorators, decorations);
+            return ranges;
+          }, []);
+
+        this.decorationsCollection.set(decorations);
+      }
     }
   }
 

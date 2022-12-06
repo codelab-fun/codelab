@@ -145,13 +145,14 @@ export class CodeDemoComponent implements ControlValueAccessor, OnDestroy {
   }
 
   update(code: Record<string, string>) {
+    if (this.onChange) {
+      this.onChange(code);
+    }
+
     if (this.showPreview === false) {
       return;
     }
 
-    if (this.onChange) {
-      this.onChange(code);
-    }
     const changesTs = getChanges(
       filterByFileType('ts', code),
       filterByFileType('ts', this.codeCache)

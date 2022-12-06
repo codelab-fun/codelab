@@ -2,13 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ContentService } from '../../../services/content.service';
 import { ContentSlide, CustomBlock } from '../../../types';
 import { MonacoConfigService } from '@codelab/code-demos';
-import { Observable } from 'rxjs';
-import { Selection } from 'monaco-editor';
+import { IRange, Selection } from 'monaco-editor';
+import { assert } from '@codelab/code-demos/src/lib/shared/utils';
+import { rangeToJSON } from './highlight-button/highlight-button.component';
 
 interface SelectableFile {
+  highlights2: IRange[];
   selected: boolean;
   name: string;
-  highlights: Highlight[];
+  highlights: IRange[];
 }
 
 interface Highlight {
@@ -17,6 +19,8 @@ interface Highlight {
   prefix: string;
   text: string;
 }
+
+type Highlights2 = Record<string, IRange[]>;
 
 @Component({
   selector: 'codelab-code-demo-console-editor',
@@ -36,35 +40,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   @Input() displayFileName = false;
   readonly defaultNewFileName = 'new.ts';
 
-  readonly selection$ = new Observable<Highlight | undefined>((subscriber) => {
-    // TODO: Unsubscribe
-    MonacoConfigService.monacoReady.then((monaco: any) => {
-      monaco.editor.onDidCreateEditor((editor) => {
-        const subscription = editor.onDidChangeCursorPosition(() => {
-          const selection = editor.getSelection();
-          const text = editor.getModel().getValueInRange(selection);
-          const match = editor
-            .getModel()
-            .uri.path.match(/prefix\/(.+?)\/(.*)$/);
-          if (text === '') {
-            subscriber.next();
-            return;
-          }
-          if (!match) {
-            return;
-          }
-          const [, prefix, file] = match;
-
-          subscriber.next({ file, prefix, selection, text });
-        });
-
-        editor.onDidDispose(() => subscription.dispose());
-      });
-    });
-  });
-
   openFiles: string[] = [];
-  highlights: Record<string, Selection>;
+  highlights2: Highlights2 = {};
 
   async ngOnInit() {
     this.inferVars();
@@ -75,7 +52,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
     private readonly contentService: ContentService
   ) {}
 
-  update(e?: any) {
+  update() {
     this.inferVars();
 
     this.contentService.updateBlock(this.presentationId, this.slide.id, {
@@ -98,21 +75,12 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
             name,
             selected: i === 0,
             highlights: [],
+            highlights2: [],
           }))
         : this.selectedFiles;
 
-    this.highlights = this.selectedFiles.reduce((result, file) => {
-      result[file.name] = file.highlights.map((highlight) => {
-        if (typeof highlight.selection === 'string') {
-          try {
-            return new RegExp(highlight.selection);
-          } catch (e) {
-            console.error('Invalid regexp', highlight.selection);
-          }
-        }
-
-        return highlight.selection;
-      });
+    this.highlights2 = this.selectedFiles.reduce((result, file) => {
+      result[file.name] = file.highlights2 ?? [];
       return result;
     }, {});
 
@@ -137,6 +105,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
         name: this.defaultNewFileName,
         selected: false,
         highlights: [],
+        highlights2: [],
       });
       this.code[this.defaultNewFileName] = '// code';
     }
@@ -149,23 +118,13 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
     );
   }
 
-  addHighlight(file: SelectableFile, highlight: Highlight) {
-    file.highlights.push(JSON.parse(JSON.stringify(highlight)));
-    this.update();
-  }
+  updateHighlights(hightlighs: Highlights2) {
+    const filenames = Object.keys(this.highlights2);
+    for (const file of filenames) {
+      assert(this.selectedFiles.find((a) => a.name === file)).highlights2 =
+        hightlighs[file].map(rangeToJSON);
+    }
 
-  deleteHighlight(file: SelectableFile, highlightIndex: number) {
-    file.highlights.splice(highlightIndex, 1);
-    this.update();
-  }
-
-  addRegexHighlight(file: SelectableFile) {
-    file.highlights.push({
-      text: 'hi',
-      prefix: 'hi',
-      file: 'dsd',
-      selection: '/dsdasdsad/',
-    });
     this.update();
   }
 }

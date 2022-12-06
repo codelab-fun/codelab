@@ -1,0 +1,11 @@
+<button
+  mat-button
+  color="primary"
+  *ngIf="selection$ | async as sel; else dis"
+  (click)="addHighlight(sel)"
+>
+  Highlight
+</button>
+<ng-template #dis>
+  <button mat-button color="primary" [disabled]="true">Highlight</button>
+</ng-template>

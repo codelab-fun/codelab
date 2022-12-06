@@ -70,7 +70,7 @@ export class ContentService implements OnDestroy {
     // TODO: There should be a better way
     // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
     this.state$
-      .pipe(auditTime(5000), takeUntil(this.onDestroy$))
+      .pipe(auditTime(2000), takeUntil(this.onDestroy$))
       .subscribe((presentations) => {
         this.presentations.doc('presentations').set({ presentations });
       });

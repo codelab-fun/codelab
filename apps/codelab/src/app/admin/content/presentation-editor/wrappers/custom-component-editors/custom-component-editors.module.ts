@@ -20,6 +20,7 @@ import { CodelabComponentsModule } from '../../../../../components/codelab-compo
 import { MatButtonModule } from '@angular/material/button';
 import { InputMatchesTextValidatorDirective } from './codelab-code-demo-console-editor/input-matches-text-validator';
 import { MatInputModule } from '@angular/material/input';
+import { HighlightButtonComponent } from './codelab-code-demo-console-editor/highlight-button/highlight-button.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatInputModule } from '@angular/material/input';
   ],
   exports: [],
   imports: [
+    HighlightButtonComponent,
     CommonModule,
     CodelabComponentsModule,
     CodeDemoModule,
