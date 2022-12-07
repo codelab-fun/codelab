@@ -5,6 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { PreviewModule } from '../presentation-editor/preview/preview.module';
+import { MatListModule } from "@angular/material/list";
+import { MatMenuModule } from "@angular/material/menu";
 
 @NgModule({
   declarations: [PresentationListComponent],
@@ -15,6 +17,8 @@ import { PreviewModule } from '../presentation-editor/preview/preview.module';
     MatIconModule,
     RouterModule,
     PreviewModule,
+    MatListModule,
+    MatMenuModule,
   ],
 })
 export class PresentationListModule {}

@@ -1,25 +1,35 @@
-<div class="wrapper">
+<mat-nav-list class="wrapper">
   <div
     *ngFor="let presentation of presentations$ | async"
-    (click)="navigationService.goToPresentation(presentation.id)"
     class="presentation"
-    role="button"
-    tabindex="0"
   >
     <div class="header">
       <div>{{ presentation.name }}</div>
-      <button mat-icon-button (click)="deletePresentation(presentation.id)">
-        <mat-icon>cancel</mat-icon>
+      <mat-menu #menu>
+        <button mat-menu-item (click)="deletePresentation(presentation.id)">
+          Delete
+        </button>
+      </mat-menu>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
       </button>
     </div>
-    <div *ngIf="presentation.slides[0] as slide" class="first-slide">
-      <slides-slide-preview
-        style="display: block; width: 200px"
-        mode="preview"
-        [slide]="slide"
-      ></slides-slide-preview>
-    </div>
+
+    <a *ngIf="presentation.slides[0] as slide" class="first-slide"
+       mat-list-item
+       [routerLink]="'./' + presentation.id + '/0'">
+      <div class="slides-slide-preview-wrapper">
+        <slides-slide-preview
+          mode="preview"
+          [slide]="slide"
+        ></slides-slide-preview>
+      </div>
+    </a>
   </div>
-</div>
+</mat-nav-list>
 
 <button mat-button (click)="addPresentation()">Create presentation</button>

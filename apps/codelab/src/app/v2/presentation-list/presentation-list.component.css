@@ -14,11 +14,28 @@
 .wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-columns: repeat(auto-fill, 256px);
   grid-gap: 20px;
 }
 
 .first-slide {
-  border: 1px #ddd solid;
   border-radius: 4px;
+  position: relative;
+  width: 220px;
+  height: 160px;
+  border: 1px #ddd solid;
+}
+
+.slides-slide-preview-wrapper {
+  transform: scale(0.2);
+  transform-origin: 0;
+  position: absolute;
+  left: 0;
+  top: -320px;
+}
+
+slides-slide-preview {
+  width: 1100px;
+  height: 800px;
+  display: block;
 }

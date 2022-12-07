@@ -20,14 +20,16 @@
     </button>
   </div>
   <div>
-    <mat-checkbox [(ngModel)]="showPreview" (ngModelChange)="update()">
-      Show preview
-    </mat-checkbox>
-  </div>
-  <div>
-    <mat-checkbox [(ngModel)]="allowSwitchingFiles" (ngModelChange)="update()">
-      Allow switching files [{{ allowSwitchingFiles }}]
-    </mat-checkbox>
+    <div>
+      <mat-checkbox [(ngModel)]="showPreview" (ngModelChange)="update()">
+        Show preview
+      </mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox [(ngModel)]="allowSwitchingFiles" (ngModelChange)="update()">
+        Allow switching files
+      </mat-checkbox>
+    </div>
   </div>
 </div>
 <slides-highlight-button
