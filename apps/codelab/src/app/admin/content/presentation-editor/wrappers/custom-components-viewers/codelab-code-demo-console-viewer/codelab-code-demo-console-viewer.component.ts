@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { CodeDemoModule, MonacoConfigService } from '@codelab/code-demos';
 
-import { ContentSlide, CustomBlock } from '../../types';
+import { ContentSlide, CustomBlock } from '../../../types';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'codelab-code-demo-console-editor',
+  selector: 'codelab-code-demo-console-viewer',
   templateUrl: './codelab-code-demo-console-viewer.component.html',
   standalone: true,
   imports: [CodeDemoModule, FormsModule],
@@ -45,17 +45,7 @@ export class CodelabCodeDemoConsoleViewerComponent implements OnInit {
         : this.selectedFiles;
 
     this.highlights = this.selectedFiles.reduce((result, file) => {
-      result[file.name] = file.highlights.map((highlight) => {
-        if (typeof highlight.selection === 'string') {
-          try {
-            return new RegExp(highlight.selection);
-          } catch (e) {
-            console.error('Invalid regexp', highlight.selection);
-          }
-        }
-
-        return highlight.selection;
-      });
+      result[file.name] = file.highlights2;
       return result;
     }, {});
 

@@ -23,7 +23,7 @@ interface Highlight {
 type Highlights2 = Record<string, IRange[]>;
 
 @Component({
-  selector: 'codelab-code-demo-console-editor',
+  selector: 'codelab-code-demo-console-viewer',
   templateUrl: './codelab-code-demo-console-editor.component.html',
   styleUrls: ['./codelab-code-demo-console-editor.component.scss'],
 })
@@ -50,7 +50,8 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   constructor(
     private readonly monacoConfigService: MonacoConfigService,
     private readonly contentService: ContentService
-  ) {}
+  ) {
+  }
 
   update() {
     this.inferVars();
@@ -69,16 +70,16 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   private inferVars() {
     this.files = Object.keys(this.code);
 
-    this.selectedFiles =
-      this.selectedFiles.length === 0
-        ? this.files.map((name, i) => ({
-            name,
-            selected: i === 0,
-            highlights: [],
-            highlights2: [],
-          }))
-        : this.selectedFiles;
 
+    if (this.selectedFiles.length === 0) {
+      console.log('regen');
+      this.selectedFiles = this.files.map((name, i) => ({
+        name,
+        selected: i === 0,
+        highlights: [],
+        highlights2: [],
+      }));
+    }
     this.highlights2 = this.selectedFiles.reduce((result, file) => {
       result[file.name] = file.highlights2 ?? [];
       return result;
@@ -86,7 +87,7 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
 
     this.openFiles = this.selectedFiles
       .filter((file) => file.selected)
-      .map(({ name }) => name);
+      .map(({name}) => name);
   }
 
   updateFileName(index: number, oldName: string, newName: string) {

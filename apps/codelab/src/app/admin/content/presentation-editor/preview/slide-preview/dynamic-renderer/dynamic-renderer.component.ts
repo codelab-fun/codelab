@@ -16,7 +16,7 @@ import { CodelabCodeDemoPreviewComponent } from '../../../wrappers/custom-compon
 import { NgxdResolver } from '@ngxd/core';
 import { CodelabExerciseEditorComponent } from '../../../wrappers/custom-component-editors/codelab-exercise-preview-editor/codelab-exercise-editor.component';
 import { TitleSlideComponent } from '../../../../../../components/slides/title-slide/title-slide.component';
-import { CodelabCodeDemoConsoleViewerComponent } from '../../../wrappers/custom-components-viewers/codelab-code-demo-console-viewer.component';
+import { CodelabCodeDemoConsoleViewerComponent } from '../../../wrappers/custom-components-viewers/codelab-code-demo-console-viewer/codelab-code-demo-console-viewer.component';
 
 @Injectable({ providedIn: 'root' })
 export class PreviewDynamicComponentResolver extends NgxdResolver<string, any> {
@@ -55,7 +55,7 @@ export class ViewDynamicComponentResolver extends NgxdResolver<string, any> {
     super([
       { type: 'codelab-title-slide', component: TitleSlideComponent },
       {
-        type: 'codelab-code-demo-console-editor',
+        type: 'codelab-code-demo-console-viewer',
         component: CodelabCodeDemoConsoleViewerComponent,
       },
     ]);

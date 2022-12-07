@@ -1,23 +1,12 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  forwardRef,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-  NgZone,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, NgZone, OnChanges, OnDestroy, OnInit, SimpleChanges, } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { editor } from 'monaco-editor';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
+import { assertObject } from '@codelab/code-demos/src/lib/shared/utils';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
-import { assertObject } from '@codelab/code-demos/src/lib/shared/utils';
 
 declare const monaco;
 const extenstionToLang = {
@@ -49,8 +38,7 @@ type Code = Record<string, string>;
   ],
 })
 export class MultitabEditorComponent
-  implements OnChanges, OnInit, OnDestroy, ControlValueAccessor
-{
+  implements OnChanges, OnInit, OnDestroy, ControlValueAccessor {
   @Input() code: Code = {};
   @Input() solutions: Code = {};
   @Input() allowSwitchingFiles = true;
@@ -76,7 +64,8 @@ export class MultitabEditorComponent
     private zone: NgZone,
     readonly monacoConfigService: MonacoConfigService,
     readonly cdr: ChangeDetectorRef
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     assertObject(this.code);
@@ -91,11 +80,13 @@ export class MultitabEditorComponent
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('setFiles' in changes) {
+      console.log(changes.setFiles);
       let files = this.setFiles;
       if (typeof files === 'string') {
         files = files.split(',');
       }
       this.files = files;
+      this.processFileChanges(changes.setFiles.currentValue, changes.setFiles.previousValue);
       this.updateOpenModels();
     }
 
@@ -104,7 +95,7 @@ export class MultitabEditorComponent
     }
   }
 
-  handleFileChange(index, { value }) {
+  handleFileChange(index, {value}) {
     if (this.models) {
       const m = this.getModelByFileName(value.path);
       m.model.setValue(m.model.getValue());
@@ -120,7 +111,8 @@ export class MultitabEditorComponent
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {}
+  registerOnTouched(fn: any): void {
+  }
 
   loadSolution(file) {
     const model = this.getModelByFileName(file).model;
@@ -140,7 +132,7 @@ export class MultitabEditorComponent
 
   getModelByFileName(file): MonacoModel | undefined {
     if (this.models) {
-      return this.models.find(({ path }) => path === file);
+      return this.models.find(({path}) => path === file);
     }
   }
 
@@ -167,7 +159,7 @@ export class MultitabEditorComponent
         model.onDidChangeContent(() => {
           this.zone.run(() => {
             this.code[path] = model.getValue();
-            this.changeSubject.next({ ...this.code });
+            this.changeSubject.next({...this.code});
           });
         });
 
@@ -188,7 +180,7 @@ export class MultitabEditorComponent
 
   writeValue(code: Code): void {
     if (code) {
-      this.code = { ...code };
+      this.code = {...code};
       this.generateModels();
     }
   }
@@ -228,5 +220,9 @@ export class MultitabEditorComponent
       this.editor.dispose();
       this.editor = null;
     }
+  }
+
+  private processFileChanges(currentValue: string[], previousValue: string[]) {
+
   }
 }
