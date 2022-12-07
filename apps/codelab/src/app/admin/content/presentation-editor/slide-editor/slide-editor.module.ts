@@ -11,6 +11,7 @@ import { ActionBarModule } from './action-bar/action-bar.module';
 import { PreviewModule } from '../preview/preview.module';
 import { CustomComponentPreviewsModule } from '../wrappers/custom-component-previews/custom-component-previews.module';
 import { CustomComponentEditorsModule } from '../wrappers/custom-component-editors/custom-component-editors.module';
+import { MatMenuModule } from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CustomComponentEditorsModule } from '../wrappers/custom-component-edito
     MatButtonModule,
     ActionBarModule,
     PreviewModule,
+    MatMenuModule,
   ],
 })
 export class SlideEditorModule {}

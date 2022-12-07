@@ -32,7 +32,8 @@ export function reducer(
       getPresentation().slides.splice(payload.index, 0, payload.slide);
       return presentations;
     case 'deleteSlide':
-      getPresentation().slides.filter(({ id }) => id !== payload.id);
+      const presentation = getPresentation();
+      presentation.slides =  presentation.slides.filter(({ id }) => id !== payload.slideId);
       return presentations;
 
     case 'addBlock': {

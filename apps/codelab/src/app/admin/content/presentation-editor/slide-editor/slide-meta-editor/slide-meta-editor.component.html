@@ -13,6 +13,17 @@
     (keyup)="updateAttr('id', $event.target.value)"
   />
 </div>
-<button mat-icon-button (click)="deleteSlide()">
-  <mat-icon>cancel</mat-icon>
+
+
+<mat-menu #menu>
+  <button mat-menu-item (click)="deleteSlide()">
+    Delete
+  </button>
+</mat-menu>
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <mat-icon>more_vert</mat-icon>
 </button>
