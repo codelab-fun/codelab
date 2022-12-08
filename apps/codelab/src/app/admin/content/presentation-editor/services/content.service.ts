@@ -1,5 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { inject, Injectable, OnDestroy } from '@angular/core';
 import { merge, Subject } from 'rxjs';
 import { auditTime, distinctUntilChanged, map, scan, shareReplay, take, takeUntil, } from 'rxjs/operators';
 import { nanoid } from 'nanoid';
@@ -7,19 +6,20 @@ import { ContentBlock, ContentPresentation } from '../types';
 import { reducer } from '../reducer';
 import { serverTimestamp } from '@angular/fire/database';
 import { NavigationService } from "./navigation.service";
+import { collection, doc, docData, Firestore, setDoc } from "@angular/fire/firestore";
 
 const DOC_KEY = 'presentations';
 
 @Injectable({providedIn: 'root'})
 export class ContentService implements OnDestroy {
+  private firestore: Firestore = inject(Firestore);
   public readonly currentSlideIndex$ = this.navigationService.currentSlideIndex$;
 
-  private readonly presentations = this.firestore.collection('presentations');
-  private readonly presentations$ = this.presentations
-    .doc(DOC_KEY)
-    .valueChanges()
+  private readonly presentations = collection(this.firestore, DOC_KEY);
+  private readonly presentations$ = docData(doc(this.presentations, DOC_KEY))
     .pipe(
       distinctUntilChanged((a, b) => {
+        debugger;
         return JSON.stringify(a) === JSON.stringify(b);
       }),
       map((doc: any) => {
@@ -28,8 +28,6 @@ export class ContentService implements OnDestroy {
     );
 
   private readonly localActions$ = new Subject();
-
-  readonly appliedActions = new Set();
 
   readonly allActions$ = merge(
     this.presentations$.pipe(
@@ -53,7 +51,6 @@ export class ContentService implements OnDestroy {
   );
 
   constructor(
-    private readonly firestore: AngularFirestore,
     private readonly navigationService: NavigationService
   ) {
     // TODO: There should be a better way
@@ -61,7 +58,7 @@ export class ContentService implements OnDestroy {
     this.state$
       .pipe(auditTime(2000), takeUntil(this.onDestroy$))
       .subscribe((presentations) => {
-        this.presentations.doc('presentations').set({presentations});
+        setDoc(doc(this.presentations, DOC_KEY), {presentations});
       });
   }
 

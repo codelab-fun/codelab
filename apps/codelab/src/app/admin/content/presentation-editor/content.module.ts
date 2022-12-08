@@ -13,6 +13,9 @@ import {
   NAVIGATION_BASE_URL,
   NavigationService,
 } from './services/navigation.service';
+import { getFirestore, provideFirestore } from "@angular/fire/firestore";
+import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
+import { environment } from "../../../../environments/environment";
 
 @NgModule({
   declarations: [ContentComponent],
@@ -23,6 +26,8 @@ import {
     { provide: NAVIGATION_BASE_URL, useValue: 'admin/content' },
   ],
   imports: [
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(()=>getFirestore()),
     CommonModule,
     SlideEditorModule,
     AngularFirestoreModule,
