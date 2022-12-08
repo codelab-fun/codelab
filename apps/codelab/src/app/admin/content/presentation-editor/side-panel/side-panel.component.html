@@ -1,21 +1,6 @@
-<div class="slides-wrapper">
+<div class="slides-wrapper" tabindex="0">
   <button (click)="addSlide()">Add</button>
 
-  <div (cdkDropListDropped)="reorder.emit($event)" cdkDropList>
-    <button
-      (click)="this.navigationService.goToSlide(presentationId, i)"
-      *ngFor="let slide of slides; let i = index"
-      [class.selected]="i === currentSlideIndex"
-      class="slide-wrapper"
-    >
-      <div inert cdkDrag class="slide">
-        <slides-slide-preview
-          [class.selected]="i === currentSlideIndex"
-          [slide]="slide"
-          mode="preview"
-        ></slides-slide-preview>
-      </div>
-    </button>
   <div
     (cdkDropListDropped)="droppedIntoList($event)"
     [class.dragging]="dragging"
@@ -34,6 +19,9 @@
       cdkDragLockAxis="y"
       cdkDrag
       [multiselectItem]="slide.id"
+      class="slide-wrapper"
+      role="button"
+    >
       <div *cdkDragPreview>
         <div *ngFor="let selectedItem of selectionModel.selected"></div>
       </div>
@@ -42,5 +30,12 @@
       </div>
 
       <div class="slide">
+        <slides-slide-preview
+          inert
+          [slide]="slide"
+          mode="preview"
+        ></slides-slide-preview>
+      </div>
+    </div>
   </div>
 </div>
