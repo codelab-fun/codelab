@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     BlankComponent,
   ],
   exports: [PreviewComponent, SlidePreviewComponent, DynamicRendererComponent],
-  imports: [CommonModule, NgxdModule, FormsModule],
+  imports: [CommonModule, NgxdModule, FormsModule,],
 })
-export class PreviewModule {}
+export class PreviewModule {
+}

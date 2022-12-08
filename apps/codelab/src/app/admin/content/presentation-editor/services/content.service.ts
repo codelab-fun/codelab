@@ -1,28 +1,18 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, merge, Subject } from 'rxjs';
-import {
-  auditTime,
-  distinctUntilChanged,
-  map,
-  scan,
-  shareReplay,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
+import { merge, Subject } from 'rxjs';
+import { auditTime, distinctUntilChanged, map, scan, shareReplay, take, takeUntil, } from 'rxjs/operators';
 import { nanoid } from 'nanoid';
 import { ContentBlock, ContentPresentation } from '../types';
 import { reducer } from '../reducer';
 import { serverTimestamp } from '@angular/fire/database';
+import { NavigationService } from "./navigation.service";
 
 const DOC_KEY = 'presentations';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class ContentService implements OnDestroy {
-  private readonly currentSlideSubject = new BehaviorSubject(0);
-
-  public readonly currentSlideIndex$ = this.currentSlideSubject;
+  public readonly currentSlideIndex$ = this.navigationService.currentSlideIndex$;
 
   private readonly presentations = this.firestore.collection('presentations');
   private readonly presentations$ = this.presentations
@@ -63,16 +53,15 @@ export class ContentService implements OnDestroy {
   );
 
   constructor(
-    readonly firestore: AngularFirestore,
-    readonly route: ActivatedRoute,
-    readonly router: Router
+    private readonly firestore: AngularFirestore,
+    private readonly navigationService: NavigationService
   ) {
     // TODO: There should be a better way
-    // this.goToSlide(router.routerState.snapshot.root.firstChild.firstChild.params.id || 0);
+
     this.state$
       .pipe(auditTime(2000), takeUntil(this.onDestroy$))
       .subscribe((presentations) => {
-        this.presentations.doc('presentations').set({ presentations });
+        this.presentations.doc('presentations').set({presentations});
       });
   }
 
@@ -99,19 +88,21 @@ export class ContentService implements OnDestroy {
   }
 
   addSlide(presentationId: string) {
-    const index = this.currentSlideIndex$.value;
-    const action = {
-      type: 'addSlide',
-      payload: {
-        slide: {
-          id: this.uniqueId(),
-          title: 'New slide',
-          blocks: [],
+    this.currentSlideIndex$.pipe(take(1)).subscribe(index => {
+      const action = {
+        type: 'addSlide',
+        payload: {
+          slide: {
+            id: this.uniqueId(),
+            title: 'New slide',
+            blocks: [],
+          },
+          index,
         },
-        index,
-      },
-    };
-    this.dispatch(presentationId, action);
+      };
+      this.dispatch(presentationId, action);
+    });
+
   }
 
   updateSlideMeta(
@@ -247,7 +238,7 @@ export class ContentService implements OnDestroy {
   deletePresentation(presentationId: string) {
     const action = {
       type: 'deletePresentation',
-      payload: { presentationId },
+      payload: {presentationId},
     };
 
     this.dispatch(presentationId, action);

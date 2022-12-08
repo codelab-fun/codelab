@@ -10,10 +10,11 @@
     </div>
     <div *ngIf="presentation.slides[0] as slide" class="first-slide">
       <div class="slides-slide-preview-wrapper">
-        <slides-slide-preview
+        <slides-small-slide-preview
+          class="medium"
           mode="preview"
           [slide]="slide"
-        ></slides-slide-preview>
+        ></slides-small-slide-preview>
       </div>
     </div>
   </a>

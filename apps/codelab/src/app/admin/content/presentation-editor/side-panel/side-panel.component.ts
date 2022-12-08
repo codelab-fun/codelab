@@ -1,13 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges
-} from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Location } from '@angular/common';
 import { CdkDragDrop, CdkDragStart, DragRef } from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,10 +8,8 @@ import { NavigationService } from '../services/navigation.service';
 import { ContentSlide } from '../types';
 
 import { MultiselectModel } from '../../../../multiselect/multiselect-model';
-import {
-  isFromContext,
-  KeyboardEventWithTarget
-} from '../../../../shared/helpers/helpers';
+import { isFromContext, KeyboardEventWithTarget } from '../../../../shared/helpers/helpers';
+import { MatSelectionListChange } from "@angular/material/list";
 
 function slideIdsMapper(slides: ContentSlide[]): string[] {
   return slides.map(slide => slide.id);
@@ -40,13 +29,14 @@ export class SidePanelComponent implements OnInit, OnChanges {
   public selectionModel: MultiselectModel<string> = new MultiselectModel();
 
   constructor(
-    readonly el: ElementRef,
-    readonly location: Location,
-    readonly route: ActivatedRoute,
-    readonly router: Router,
-    readonly contentService: ContentService,
-    readonly navigationService: NavigationService
-  ) {}
+    private readonly el: ElementRef,
+    private readonly location: Location,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly contentService: ContentService,
+    private readonly navigationService: NavigationService
+  ) {
+  }
 
   ngOnInit() {
     this.resetSelected();
@@ -57,6 +47,12 @@ export class SidePanelComponent implements OnInit, OnChanges {
       const slideIds = slideIdsMapper(changes.slides.currentValue);
 
       this.selectionModel.setItems(slideIds);
+    }
+
+    console.log(this.currentSlideIndex, '--');
+
+    if (changes.currentSlideIndex) {
+      console.log(this.currentSlideIndex);
     }
   }
 
@@ -70,9 +66,8 @@ export class SidePanelComponent implements OnInit, OnChanges {
 
   @HostListener('document:keydown.arrowdown', ['$event'])
   nextSlide(event: KeyboardEventWithTarget<HTMLElement>) {
-    if (this.isFromSidePanelContext(event.target)) {
+    if (this.isFromSidePanelContext(event.target) && this.currentSlideIndex + 1 < this.slides.length) {
       this.navigationService.nextSlide(this.presentationId);
-
       event.preventDefault();
     }
   }
@@ -169,5 +164,9 @@ export class SidePanelComponent implements OnInit, OnChanges {
     if (!this.dragging) {
       this.navigationService.goToSlide(this.presentationId, index);
     }
+  }
+
+  handleSelectionChange($event: MatSelectionListChange) {
+    debugger;
   }
 }

@@ -19,6 +19,7 @@
 }
 
 .first-slide {
+  padding: 0;
   border-radius: 4px;
   position: relative;
   width: 220px;
@@ -26,16 +27,3 @@
   border: 1px #ddd solid;
 }
 
-.slides-slide-preview-wrapper {
-  transform: scale(0.2);
-  transform-origin: 0;
-  position: absolute;
-  left: 0;
-  top: -320px;
-}
-
-slides-slide-preview {
-  width: 1100px;
-  height: 800px;
-  display: block;
-}

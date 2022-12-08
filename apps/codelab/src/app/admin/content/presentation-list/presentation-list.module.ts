@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PreviewModule } from '../presentation-editor/preview/preview.module';
 import { MatListModule } from "@angular/material/list";
 import { MatMenuModule } from "@angular/material/menu";
+import { SmallSlidePreviewComponent } from "../presentation-editor/preview/slide-preview/small-slide-preview/small-slide-preview/small-slide-preview.component";
 
 @NgModule({
   declarations: [PresentationListComponent],
@@ -19,6 +20,7 @@ import { MatMenuModule } from "@angular/material/menu";
     PreviewModule,
     MatListModule,
     MatMenuModule,
+    SmallSlidePreviewComponent,
   ],
 })
 export class PresentationListModule {}

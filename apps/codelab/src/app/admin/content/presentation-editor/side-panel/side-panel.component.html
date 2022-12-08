@@ -1,4 +1,4 @@
-<div class="slides-wrapper" tabindex="0">
+<mat-selection-list (selectionChange)="handleSelectionChange($event)" class="slides-wrapper" tabindex="0">
   <button (click)="addSlide()">Add</button>
 
   <div
@@ -23,19 +23,22 @@
       role="button"
     >
       <div *cdkDragPreview>
-        <div *ngFor="let selectedItem of selectionModel.selected"></div>
+        <div *ngFor="let selectedItem of selectionModel.selected">
+          {{selectedItem}}!
+        </div>
       </div>
       <div *cdkDragPlaceholder>
         <div class="drag-placeholder"></div>
       </div>
 
       <div class="slide">
-        <slides-slide-preview
+        <slides-small-slide-preview
+          class="small"
           inert
           [slide]="slide"
           mode="preview"
-        ></slides-slide-preview>
+        ></slides-small-slide-preview>
       </div>
     </div>
   </div>
-</div>
+</mat-selection-list>

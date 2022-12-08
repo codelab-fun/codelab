@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  width: 200px;
+  position: relative;
+  padding: 4px;
+
+}
+
+:host-context(.small) :host {
+  width: 100px;
+}
+
+:host-context(.small)  slides-slide-preview {
+  width: 500px;
+  height: 410px;
+}
+
+:host-context(.medium) {
+  width: 208px;
+  height: 150px;
+  overflow: hidden;
+}
+
+:host-context(.medium)  slides-slide-preview {
+  width: 1050px;
+  height: 780px;
+}
+
+slides-slide-preview {
+  display: block;
+  transform: scale(0.2);
+  position: absolute;
+  transform-origin: 0 0;
+  width: 500px;
+}

@@ -6,6 +6,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { PreviewModule } from '../preview/preview.module';
 import { MultiselectModule } from '../../../../multiselect/multiselect.module';
+import { MatListModule } from "@angular/material/list";
+import { SmallSlidePreviewComponent } from "../preview/slide-preview/small-slide-preview/small-slide-preview/small-slide-preview.component";
 
 @NgModule({
   declarations: [SidePanelComponent],
@@ -15,7 +17,9 @@ import { MultiselectModule } from '../../../../multiselect/multiselect.module';
     RouterModule,
     DragDropModule,
     PreviewModule,
-    MultiselectModule
+    MultiselectModule,
+    MatListModule,
+    SmallSlidePreviewComponent
   ],
 })
 export class SidePanelModule {}

@@ -22,12 +22,11 @@
     <a *ngIf="presentation.slides[0] as slide" class="first-slide"
        mat-list-item
        [routerLink]="'./' + presentation.id + '/0'">
-      <div class="slides-slide-preview-wrapper">
-        <slides-slide-preview
+        <slides-small-slide-preview
+          class="medium"
           mode="preview"
           [slide]="slide"
-        ></slides-slide-preview>
-      </div>
+        ></slides-small-slide-preview>
     </a>
   </div>
 </mat-nav-list>
