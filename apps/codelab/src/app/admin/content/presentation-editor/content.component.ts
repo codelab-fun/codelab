@@ -27,7 +27,7 @@ export class ContentComponent {
 
   currentSlide$ = combineLatest([
     this.navigationService.selectedSlide$,
-    this.presentation$,
+    this.presentation$
   ]).pipe(
     map(([slide, presentation]) => {
       return presentation.slides[slide || 0];

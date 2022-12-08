@@ -152,6 +152,29 @@ export class ContentService implements OnDestroy {
     this.dispatch(presentationId, action);
   }
 
+  deleteSlides(presentationId: string, selections: number[]) {
+    const action = {
+      type: 'deleteSlides',
+      payload: {
+        selections
+      }
+    };
+
+    this.dispatch(presentationId, action);
+  }
+
+  reorderSlides(presentationId: string, selections: number[], toIndex: number) {
+    const action = {
+      type: 'reorderSlides',
+      payload: {
+        selections,
+        toIndex
+      }
+    };
+
+    this.dispatch(presentationId, action);
+  }
+
   addBlock(presentationId: string, slideId: string, block: ContentBlock) {
     const action = {
       type: 'addBlock',

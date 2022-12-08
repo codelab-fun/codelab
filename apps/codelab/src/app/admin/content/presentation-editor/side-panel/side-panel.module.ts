@@ -5,10 +5,17 @@ import { RouterModule } from '@angular/router';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { PreviewModule } from '../preview/preview.module';
+import { MultiselectModule } from '../../../../multiselect/multiselect.module';
 
 @NgModule({
   declarations: [SidePanelComponent],
   exports: [SidePanelComponent],
-  imports: [CommonModule, RouterModule, DragDropModule, PreviewModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    DragDropModule,
+    PreviewModule,
+    MultiselectModule
+  ],
 })
 export class SidePanelModule {}
