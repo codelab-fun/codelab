@@ -18,9 +18,23 @@ export class ActionBarComponent {
     },
     angularApp: {
       code: {
-        'app.ts': '// Angular app!!',
-        'component.ts': '// C',
-        'module.ts': '// M',
+        'index.html': `
+           [<app-component></app-component>]
+        `,
+        'main.ts': `
+          import {bootstrapApplication} from '@angular/platform-browser';
+          import {AppComponent} from './app.component';
+          bootstrapApplication(AppComponent);
+        `,
+        'app.component.ts': `
+@Component({
+  selector: 'app-component',
+  template: '<h1>LOL<h1>',
+  standalone: true
+})
+export class AppComponent {
+}
+        `,
       },
     },
   };

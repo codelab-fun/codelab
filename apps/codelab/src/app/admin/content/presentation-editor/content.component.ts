@@ -3,7 +3,6 @@ import { ContentService } from './services/content.service';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
-import { ContentPresentation } from './types';
 import { NavigationService } from './services/navigation.service';
 
 @Component({
@@ -12,16 +11,7 @@ import { NavigationService } from './services/navigation.service';
   styleUrls: ['./content.component.css'],
 })
 export class ContentComponent {
-  readonly presentation$ = combineLatest([
-    this.navigationService.selectedPresentationId$,
-    this.contentService.state$,
-  ]).pipe(
-    map(([presentationId, presentations]) => {
-      return presentations.find(
-        (p: ContentPresentation) => p.id === presentationId
-      );
-    })
-  );
+  readonly presentation$ = this.contentService.presentation$;
 
   currentSlideIndex$ = this.navigationService.currentSlideIndex$;
 

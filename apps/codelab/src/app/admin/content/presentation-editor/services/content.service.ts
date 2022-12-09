@@ -1,5 +1,5 @@
 import { inject, Injectable, OnDestroy } from '@angular/core';
-import { merge, Subject } from 'rxjs';
+import { combineLatest, merge, Subject } from 'rxjs';
 import { distinctUntilChanged, map, scan, shareReplay, take, tap, } from 'rxjs/operators';
 import { nanoid } from 'nanoid';
 import { ContentBlock, ContentPresentation } from '../types';
@@ -49,6 +49,17 @@ export class ContentService implements OnDestroy {
       return reducer(state, action);
     }, {}),
     shareReplay(1),
+  );
+
+  readonly presentation$ = combineLatest([
+    this.navigationService.selectedPresentationId$,
+    this.state$,
+  ]).pipe(
+    map(([presentationId, presentations]) => {
+      return presentations.find(
+        (p: ContentPresentation) => p.id === presentationId
+      );
+    })
   );
 
   constructor(

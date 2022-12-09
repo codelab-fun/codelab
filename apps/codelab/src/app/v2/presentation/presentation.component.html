@@ -1,12 +1,12 @@
 <slide-deck
   slideShortcuts
   slidesRouting
-  *ngIf="contentService.state$ | async as presentation"
+  *ngIf="presentation$ | async as presentation"
 >
   <codelab-progress-bar></codelab-progress-bar>
 
   <slide-arrows></slide-arrows>
-  <div *ngFor="let slide of presentation[2].slides">
+  <div *ngFor="let slide of presentation.slides">
     <div *slide id="infer__">
       <slides-v2-slide [slide1]="slide"></slides-v2-slide>
     </div>

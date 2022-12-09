@@ -1,11 +1,15 @@
+
 :host ::ng-deep {
+  --font-size: 20px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
+
   aside {
     background: #ebf7ff;
     padding: 8px;
     margin: 16px -8px -8px -8px;
     border-radius: 8px;
+    font-size: var(--font-size);
 
     &:before {
       content: '❤️';
@@ -28,8 +32,11 @@
   }
 
   ul,
-  p {
+  p, // TODO(kirjs): Improve the specificity
+  li:not(.action-item):not(.action-item):not(.action-item) {
     margin-bottom: 24px;
-    font-size: 20px;
+    font-size: var(--font-size);
   }
+
+
 }
