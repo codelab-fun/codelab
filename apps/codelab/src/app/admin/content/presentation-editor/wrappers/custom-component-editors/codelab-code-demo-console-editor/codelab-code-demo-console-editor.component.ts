@@ -23,7 +23,7 @@ interface Highlight {
 type Highlights2 = Record<string, IRange[]>;
 
 @Component({
-  selector: 'codelab-code-demo-console-viewer',
+  selector: 'codelab-code-demo-console-editor',
   templateUrl: './codelab-code-demo-console-editor.component.html',
   styleUrls: ['./codelab-code-demo-console-editor.component.scss'],
 })

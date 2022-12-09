@@ -55,7 +55,7 @@ export class ViewDynamicComponentResolver extends NgxdResolver<string, any> {
     super([
       { type: 'codelab-title-slide', component: TitleSlideComponent },
       {
-        type: 'codelab-code-demo-console-viewer',
+        type: 'codelab-code-demo-console-editor',
         component: CodelabCodeDemoConsoleViewerComponent,
       },
     ]);
