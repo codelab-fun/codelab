@@ -13,6 +13,9 @@ export class ActionBarComponent {
   @Input() presentationId!: string;
 
   readonly templates = {
+    simpleHtml: {
+      code: { 'index.html': '<h1>Hello world</h1> ' },
+    },
     simpleApp: {
       code: { 'app.ts': '// Type your code here!' },
     },
@@ -27,6 +30,8 @@ export class ActionBarComponent {
           bootstrapApplication(AppComponent);
         `,
         'app.component.ts': `
+import {Component} from '@angular/core';
+
 @Component({
   selector: 'app-component',
   template: '<h1>LOL<h1>',

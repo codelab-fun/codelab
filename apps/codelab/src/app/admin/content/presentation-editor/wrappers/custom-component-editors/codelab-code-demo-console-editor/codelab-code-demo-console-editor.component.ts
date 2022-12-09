@@ -36,12 +36,14 @@ export class CodelabCodeDemoConsoleEditorComponent implements OnInit {
   @Input() presentationId!: string;
   @Input() selectedFiles: SelectableFile[] = [];
   @Input() showPreview = true;
+  @Input() showCode = true;
   @Input() allowSwitchingFiles = true;
   @Input() displayFileName = false;
   readonly defaultNewFileName = 'new.ts';
 
   openFiles: string[] = [];
   highlights2: Highlights2 = {};
+
 
   async ngOnInit() {
     this.inferVars();

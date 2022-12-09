@@ -26,6 +26,11 @@
       </mat-checkbox>
     </div>
     <div>
+      <mat-checkbox [(ngModel)]="showCode" (ngModelChange)="update()">
+        Show preview
+      </mat-checkbox>
+    </div>
+    <div>
       <mat-checkbox [(ngModel)]="allowSwitchingFiles" (ngModelChange)="update()">
         Allow switching files
       </mat-checkbox>
@@ -45,5 +50,5 @@
   (ngModelChange)="update()"
   [files]="openFiles"
   [ui]="ui"
-  [bootstrap]="'main'"
+  [bootstrap]="false"
 ></code-demo>
