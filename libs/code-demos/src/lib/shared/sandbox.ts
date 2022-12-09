@@ -2,7 +2,12 @@ declare const require;
 
 export function jsScriptInjector(iframe) {
   return function (code) {
-    iframe.contentWindow.eval(code);
+    try {
+      iframe.contentWindow.eval(code);
+    } catch (e) {
+      // TODO: (sancheez): errors when load corejs and zone.js
+      console.log(e);
+    }
   };
 }
 
@@ -49,7 +54,9 @@ export interface SandBoxWithLoader extends SandBox {
 const iframes = new WeakMap();
 
 function injectSystemJs({ evalJs }) {
+  console.log('inject systemJS')
   evalJs(require('!!raw-loader!./fake-system-loader.js').default);
+  // evalJs(require('!!raw-loader!systemjs/dist/system'));
 }
 
 export function createSystemJsSandbox(
@@ -81,14 +88,22 @@ export function createSystemJsSandbox(
       (sandbox.iframe.contentWindow as any).loadSystemModule(name, code);
     }
 
+    console.log("import MAP");
+
     (sandbox.iframe.contentWindow as any).System.addImportMap({
       imports: {
         '@angular/core':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-core.js',
+        '@angular/core/testing':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-core-testing.js',
         '@angular/platform-browser':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser.js',
+        '@angular/platform-browser/testing':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser-testing.js',
         '@angular/platform-browser-dynamic':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser-dynamic.js',
+        '@angular/platform-browser-dynamic/testing':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-platform-browser-dynamic-testing.js',
         '@angular/forms':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-forms.js',
         '@angular/common':

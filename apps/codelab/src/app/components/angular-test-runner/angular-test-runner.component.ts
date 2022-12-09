@@ -123,6 +123,10 @@ export class SimpleAngularTestRunnerComponent
       {
         id: 'testing',
         url: '/assets/runner',
+      },
+      ({ evalJs }) => {
+        // evalJs(this.scriptLoaderService.getScript('shim'));
+        // evalJs(this.scriptLoaderService.getScript('zone'));
       }
     );
 
@@ -134,18 +138,20 @@ export class SimpleAngularTestRunnerComponent
     sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
     sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
     sandbox.evalJs(this.scriptLoaderService.getScript('test-bootstrap'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
+    // sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
+    // sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
     // sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
+    // sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
 
     this.subscription = this.changedFilesSubject.subscribe((files) => {
+      addMetaInformation(sandbox, this.code);
+
+
       const hasErrors = Object.entries(files)
-        .filter(([path]) => path.match(/\.js$/))
+        .filter(([path]) => path.match(/\.js$/) && !path.startsWith('code'))
         .map(([path, code]) => {
           try {
             sandbox.evalJs(`console.log('I remove modul')`);
-            addMetaInformation(sandbox, this.code);
             sandbox.evalJs(code);
           } catch (e) {
             console.groupCollapsed(e.message);
