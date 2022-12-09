@@ -41,10 +41,15 @@ class System {
       }
       return (this.asyncModules[id] = await this.fetchModule(id));
     }
+    debugger;
     throw new Error(`no module: "${id}"`);
   }
 
-  async resolveExports(ids) {
+  async resolveExports(...ids) {
+    if (!Array.isArray(ids)) {
+      debugger;
+      throw new Error('Expected array of ids, got: ' + ids);
+    }
     return Promise.all(
       ids.map(async (id) => {
         id = this.normalize(id);
@@ -67,9 +72,9 @@ class System {
               exports[key] = value;
             }
 
-            const $__moduleContext = { id };
+            const $__moduleContext = {id};
             try {
-              const { setters, execute } = await func(
+              const {setters, execute} = await func(
                 $__export,
                 $__moduleContext
               );
@@ -79,7 +84,7 @@ class System {
               for (let i = 0; i < resolvedDeps.length; i++) {
                 setters[i](resolvedDeps[i]);
               }
-              resolve({ setters, execute, exports });
+              resolve({setters, execute, exports});
             } catch (e) {
               console.log(e);
               throw e;
@@ -91,6 +96,10 @@ class System {
   }
 
   async executeDeps(...ids) {
+    if (!Array.isArray(ids)) {
+      debugger;
+      throw new Error('Expected array of ids, got: ' + ids);
+    }
     return Promise.all(
       ids.map(async (id) => {
         id = this.normalize(id);
@@ -103,7 +112,7 @@ class System {
         return (this.executedDeps[id] = new Promise(async (resolve, reject) => {
           const [deps] = await this.getModule(id);
           const executedDeps = await this.executeDeps(...deps);
-          const { execute, exports, setters } = await this.resolvedExports[id];
+          const {execute, exports, setters} = await this.resolvedExports[id];
           for (let i = 0; i < executedDeps.length; i++) {
             setters[i](executedDeps[i]);
           }
