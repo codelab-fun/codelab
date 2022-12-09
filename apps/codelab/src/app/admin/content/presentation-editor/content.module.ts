@@ -9,25 +9,26 @@ import { SidePanelModule } from './side-panel/side-panel.module';
 import { ContentService } from './services/content.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  NAVIGATION_BASE_URL,
-  NavigationService,
-} from './services/navigation.service';
+import { NavigationService, } from './services/navigation.service';
 import { getFirestore, provideFirestore } from "@angular/fire/firestore";
 import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
 import { environment } from "../../../../environments/environment";
+import { ContentRoutingModule } from "./content-routing.module";
+import { ContentWrapperComponent } from "./content-wrapper/content-wrapper.component";
+import { AutoSaveService } from "./services/auto-save.service";
 
 @NgModule({
-  declarations: [ContentComponent],
-  exports: [ContentComponent],
+  declarations: [ContentComponent, ContentWrapperComponent],
+  exports: [ContentComponent, ContentWrapperComponent],
   providers: [
     NavigationService,
     ContentService,
-    { provide: NAVIGATION_BASE_URL, useValue: 'admin/content' },
+    AutoSaveService,
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideFirestore(()=>getFirestore()),
+    provideFirestore(() => getFirestore()),
+    ContentRoutingModule,
     CommonModule,
     SlideEditorModule,
     AngularFirestoreModule,
@@ -38,4 +39,5 @@ import { environment } from "../../../../environments/environment";
     MatButtonModule,
   ],
 })
-export class ContentModule {}
+export class ContentModule {
+}

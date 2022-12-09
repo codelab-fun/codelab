@@ -35,10 +35,12 @@ export class ContentComponent {
   );
 
   constructor(
-    readonly contentService: ContentService,
-    readonly navigationService: NavigationService,
-    readonly activeRoute: ActivatedRoute
-  ) {}
+    private readonly contentService: ContentService,
+    private readonly navigationService: NavigationService,
+    private readonly activeRoute: ActivatedRoute
+  ) {
+
+  }
 
   addSlide(presentationId: string) {
     this.contentService.addSlide(presentationId);

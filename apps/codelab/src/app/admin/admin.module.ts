@@ -9,6 +9,9 @@ import { UsersModule } from './users/users.module';
 import { ContentModule } from './content/presentation-editor/content.module';
 import { PreviewModule } from './content/presentation-editor/preview/preview.module';
 import { PresentationListModule } from './content/presentation-list/presentation-list.module';
+import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
+import { environment } from "../../environments/environment";
+import { getFirestore, provideFirestore } from "@angular/fire/firestore";
 
 @NgModule({
   imports: [
@@ -24,4 +27,5 @@ import { PresentationListModule } from './content/presentation-list/presentation
   ],
   declarations: [AdminComponent],
 })
-export class AdminModule {}
+export class AdminModule {
+}

@@ -5,41 +5,34 @@ import { UsersComponent } from './users/users.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
 import { CommonModule } from '@angular/common';
-import { PresentationListComponent } from './content/presentation-list/presentation-list.component';
-import { PreviewComponent } from './content/presentation-editor/preview/preview.component';
-import { ContentComponent } from './content/presentation-editor/content.component';
+import { NAVIGATION_BASE_URL } from "./content/presentation-editor/services/navigation.service";
+
 
 const routes = [
   {
     path: '',
     component: AdminComponent,
     children: [
-      { path: 'users', component: UsersComponent },
-      { path: 'feedback', component: FeedbackComponent },
+      {path: 'users', component: UsersComponent},
+      {path: 'feedback', component: FeedbackComponent},
     ],
   },
   {
     path: 'content',
-    children: [
-      {
-        path: '',
-        component: PresentationListComponent,
-      },
-      {
-        path: ':presentation/:slide/preview',
-        component: PreviewComponent,
-      },
-      {
-        path: ':presentation/:slide',
-        component: ContentComponent,
-        // children: [{ path: '', ContentComponent }],
-      },
-    ],
+    loadChildren: () => import('./content/presentation-editor/content.module').then(m => m.ContentModule)
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), CommonModule],
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+  ],
+  providers: [
+
+    {provide: NAVIGATION_BASE_URL, useValue: 'admin/content'},
+  ],
   exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule {
+}

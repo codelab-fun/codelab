@@ -3,17 +3,21 @@ import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
-export const NAVIGATION_BASE_URL = new InjectionToken<string>('BaseUrl');
+export const NAVIGATION_BASE_URL = new InjectionToken<string>('BaseUrl', {
+  providedIn: 'root', factory() {
+    return 'admin/content';
+  }
+});
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavigationService {
   private readonly currentSlideIndexSubject = new BehaviorSubject(0);
+  public currentSlideIndex$ = this.currentSlideIndexSubject.asObservable();
   private readonly selectedPresentationIdSubject = new BehaviorSubject<
     string | undefined
   >(undefined);
-  public currentSlideIndex$ = this.currentSlideIndexSubject.asObservable();
   public selectedPresentationId$ =
     this.selectedPresentationIdSubject.asObservable();
 

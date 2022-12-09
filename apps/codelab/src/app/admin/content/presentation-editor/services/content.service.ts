@@ -1,6 +1,6 @@
 import { inject, Injectable, OnDestroy } from '@angular/core';
 import { merge, Subject } from 'rxjs';
-import { auditTime, distinctUntilChanged, map, scan, shareReplay, take, takeUntil, } from 'rxjs/operators';
+import { distinctUntilChanged, map, scan, shareReplay, take, tap, } from 'rxjs/operators';
 import { nanoid } from 'nanoid';
 import { ContentBlock, ContentPresentation } from '../types';
 import { reducer } from '../reducer';
@@ -12,23 +12,23 @@ const DOC_KEY = 'presentations';
 
 @Injectable({providedIn: 'root'})
 export class ContentService implements OnDestroy {
-  private firestore: Firestore = inject(Firestore);
   public readonly currentSlideIndex$ = this.navigationService.currentSlideIndex$;
 
+  readonly onDestroy$ = new Subject();
+  private firestore: Firestore = inject(Firestore);
   private readonly presentations = collection(this.firestore, DOC_KEY);
-  private readonly presentations$ = docData(doc(this.presentations, DOC_KEY))
+  private readonly presentationDoc = doc(this.presentations, DOC_KEY);
+  private readonly presentations$ = docData(this.presentationDoc)
     .pipe(
       distinctUntilChanged((a, b) => {
-        debugger;
         return JSON.stringify(a) === JSON.stringify(b);
       }),
       map((doc: any) => {
+        console.log('update');
         return doc?.presentations || [];
       })
     );
-
   private readonly localActions$ = new Subject();
-
   readonly allActions$ = merge(
     this.presentations$.pipe(
       // TODO(kirjs): actually make it work
@@ -45,24 +45,19 @@ export class ContentService implements OnDestroy {
 
   public readonly state$ = this.allActions$.pipe(
     scan((state: ContentPresentation[], action: any) => {
+      console.log('aAaaa');
       return reducer(state, action);
     }, {}),
-    shareReplay(1)
+    shareReplay(1),
+    tap(() => {
+      console.log('kmon');
+    }),
   );
 
   constructor(
     private readonly navigationService: NavigationService
   ) {
-    // TODO: There should be a better way
-
-    this.state$
-      .pipe(auditTime(2000), takeUntil(this.onDestroy$))
-      .subscribe((presentations) => {
-        setDoc(doc(this.presentations, DOC_KEY), {presentations});
-      });
   }
-
-  readonly onDestroy$ = new Subject();
 
   uniqueId() {
     return nanoid();
@@ -239,5 +234,10 @@ export class ContentService implements OnDestroy {
     };
 
     this.dispatch(presentationId, action);
+  }
+
+  saveState(presentations) {
+    console.log('save');
+    setDoc(this.presentationDoc, {presentations});
   }
 }
