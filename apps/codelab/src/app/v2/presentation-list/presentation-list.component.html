@@ -1,8 +1,8 @@
 <mat-nav-list class="wrapper">
-  <a
+  <button
     *ngFor="let presentation of presentations$ | async"
     mat-list-item
-    [routerLink]="'./' + presentation.id + '/0'"
+    (click)="goToPresentation(presentation.id)"
     class="presentation"
   >
     <div class="header">
@@ -17,5 +17,5 @@
         ></slides-small-slide-preview>
       </div>
     </div>
-  </a>
+  </button>
 </mat-nav-list>

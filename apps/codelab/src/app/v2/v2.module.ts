@@ -11,6 +11,9 @@ import {
   NavigationService,
 } from '../admin/content/presentation-editor/services/navigation.service';
 import { PresentationModule } from './presentation/presentation.module';
+import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
+import { environment } from "../../environments/environment";
+import { getFirestore, provideFirestore } from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [V2Component],
@@ -20,6 +23,8 @@ import { PresentationModule } from './presentation/presentation.module';
     NavigationService,
   ],
   imports: [
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
     CommonModule,
     V2RoutingModule,
     AngularFirestoreModule,

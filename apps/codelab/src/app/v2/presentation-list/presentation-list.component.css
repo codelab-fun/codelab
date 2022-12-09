@@ -27,3 +27,9 @@
   border: 1px #ddd solid;
 }
 
+
+button {
+  background: transparent;
+  border: 0 solid;
+  text-align: start;
+}

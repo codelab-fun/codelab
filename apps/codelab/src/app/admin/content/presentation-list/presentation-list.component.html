@@ -19,9 +19,9 @@
       </button>
     </div>
 
-    <a class="first-slide"
+    <button class="first-slide"
        mat-list-item
-       [routerLink]="'./' + presentation.id + '/0'">
+       (click)="goToPresentation(presentation.id)">
       <ng-container *ngIf="presentation.slides[0] as slide else empty">
         <slides-small-slide-preview
           class="medium"
@@ -32,7 +32,7 @@
       <ng-template #empty>
         No value
       </ng-template>
-    </a>
+    </button>
   </div>
 </mat-nav-list>
 

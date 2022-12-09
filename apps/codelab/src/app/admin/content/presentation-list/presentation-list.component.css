@@ -31,3 +31,8 @@
 }
 
 
+button {
+  background: transparent;
+  border: 0 solid;
+  text-align: start;
+}

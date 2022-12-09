@@ -13,6 +13,7 @@
 :host-context(.small)  slides-slide-preview {
   width: 500px;
   height: 410px;
+  transform: scale(0.2);
 }
 
 :host-context(.medium) {
@@ -24,11 +25,12 @@
 :host-context(.medium)  slides-slide-preview {
   width: 1050px;
   height: 780px;
+  transform: scale(0.25);
 }
 
 slides-slide-preview {
   display: block;
-  transform: scale(0.2);
+
   position: absolute;
   transform-origin: 0 0;
   width: 500px;

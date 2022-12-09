@@ -27,6 +27,9 @@ export class PresentationListComponent {
     this.contentService.addPresentation(presentation);
   }
 
+  goToPresentation(presentationId: string){
+    return this.navigationService.goToPresentation(presentationId)
+  }
   deletePresentation(presentationId: string) {
     this.contentService.deletePresentation(presentationId);
   }

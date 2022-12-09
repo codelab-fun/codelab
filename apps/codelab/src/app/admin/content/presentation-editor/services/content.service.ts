@@ -49,9 +49,6 @@ export class ContentService implements OnDestroy {
       return reducer(state, action);
     }, {}),
     shareReplay(1),
-    tap(() => {
-      console.log('kmon');
-    }),
   );
 
   constructor(

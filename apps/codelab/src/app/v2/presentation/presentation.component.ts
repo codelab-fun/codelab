@@ -9,7 +9,6 @@ import { ContentService } from '../../admin/content/presentation-editor/services
 })
 export class PresentationComponent implements OnInit {
   constructor(
-    private readonly navigationService: NavigationService,
     readonly contentService: ContentService
   ) {}
 

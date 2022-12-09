@@ -13,5 +13,10 @@ export class PresentationListComponent {
   constructor(
     private readonly contentService: ContentService,
     readonly navigationService: NavigationService
-  ) {}
+  ) {
+  }
+
+  goToPresentation(presentationId: string) {
+    return this.navigationService.goToPresentation(presentationId);
+  }
 }
