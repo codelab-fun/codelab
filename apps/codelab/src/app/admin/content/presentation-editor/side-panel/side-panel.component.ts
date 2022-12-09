@@ -149,7 +149,9 @@ export class SidePanelComponent implements OnInit, OnChanges {
   }
 
   resetSelected() {
-    this.selectSingle(this.slides[this.currentSlideIndex].id);
+    if(this.slides.length > 0){
+      this.selectSingle(this.slides[this.currentSlideIndex].id);
+    }
   }
 
   getSelectedSlideIndexes(): number[] {
