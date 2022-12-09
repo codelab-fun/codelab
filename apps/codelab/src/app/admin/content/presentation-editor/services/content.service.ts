@@ -26,7 +26,8 @@ export class ContentService implements OnDestroy {
       map((doc: any) => {
         console.log('update');
         return doc?.presentations || [];
-      })
+      }),
+      take(1),
     );
   private readonly localActions$ = new Subject();
   readonly allActions$ = merge(
@@ -45,7 +46,6 @@ export class ContentService implements OnDestroy {
 
   public readonly state$ = this.allActions$.pipe(
     scan((state: ContentPresentation[], action: any) => {
-      console.log('aAaaa');
       return reducer(state, action);
     }, {}),
     shareReplay(1),
@@ -237,7 +237,6 @@ export class ContentService implements OnDestroy {
   }
 
   saveState(presentations) {
-    console.log('save');
     setDoc(this.presentationDoc, {presentations});
   }
 }

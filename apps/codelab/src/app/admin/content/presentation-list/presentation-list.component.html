@@ -19,14 +19,19 @@
       </button>
     </div>
 
-    <a *ngIf="presentation.slides[0] as slide" class="first-slide"
+    <a class="first-slide"
        mat-list-item
        [routerLink]="'./' + presentation.id + '/0'">
+      <ng-container *ngIf="presentation.slides[0] as slide else empty">
         <slides-small-slide-preview
           class="medium"
           mode="preview"
           [slide]="slide"
         ></slides-small-slide-preview>
+      </ng-container>
+      <ng-template #empty>
+        No value
+      </ng-template>
     </a>
   </div>
 </mat-nav-list>

@@ -49,8 +49,7 @@
     "postinstall": "ngcc --properties es2015 browser module main"
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   },
   "repository": {
     "type": "git",
@@ -90,6 +89,7 @@
     "husky": "^4.3.8",
     "immer": "^5.3.6",
     "inquirer": "^8.2.4",
+    "jsondiffpatch": "^0.4.1",
     "medium-editor": "^5.23.3",
     "mocha": "^7.2.0",
     "monaco-editor": "^0.34.1",
