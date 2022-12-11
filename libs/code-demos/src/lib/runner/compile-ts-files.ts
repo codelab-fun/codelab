@@ -40,10 +40,12 @@ const compilerOptions: TsTypes.CompilerOptions = {
   lib: ['dom', 'es6'],
 };
 
+// TODO(sancheez): List of named imports
 const namedRegisterModules = [
   'main',
   'code',
-  'tests/test'
+  'tests/test',
+  'bootstrap'
 ];
 
 
@@ -75,9 +77,11 @@ function watch(
         return undefined;
       }
 
-      const namedModule = namedRegisterModules.find((item) => fileName.startsWith(item));
+      const namedModule = namedRegisterModules.find((item) => fileName.toLowerCase().includes(item));
 
-      const name = namedModule ?? `./${fileName.replace('.ts', '')}`;
+      const baseName = fileName.replace('.ts', '');
+
+      const name = namedModule ? baseName:  `./${baseName}`;
 
       return ts.ScriptSnapshot.fromString(
         `/// <amd-module name="${name}" />\n` + file.file
@@ -204,8 +208,8 @@ export function compileTsFilesWatch(
   return (source: Observable<Record<string, string>>) => {
     return watch(source.pipe(
       map((files) => ({
-          'code.ts': 'export class Code {}',
-          ...files
+          'code.ts': 'export class Code {}', // TODO(sancheez): code file, maybe needs another files
+        ...files
         }))
     ), options).pipe(tap(console.log))
   };

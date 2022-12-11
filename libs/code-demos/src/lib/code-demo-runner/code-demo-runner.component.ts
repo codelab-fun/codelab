@@ -91,7 +91,7 @@ export class CodeDemoRunnerComponent
         url: this.url,
       },
       ({ evalJs }) => {
-        evalJs(this.scriptLoaderService.getScript('shim'));
+        // evalJs(this.scriptLoaderService.getScript('shim'));
         evalJs(this.scriptLoaderService.getScript('zone'));
       }
     );

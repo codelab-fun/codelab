@@ -125,8 +125,9 @@ export class SimpleAngularTestRunnerComponent
         url: '/assets/runner',
       },
       ({ evalJs }) => {
+        evalJs(this.scriptLoaderService.getScript('chai'));
         // evalJs(this.scriptLoaderService.getScript('shim'));
-        // evalJs(this.scriptLoaderService.getScript('zone'));
+        evalJs(this.scriptLoaderService.getScript('zone'));
       }
     );
 
@@ -135,13 +136,8 @@ export class SimpleAngularTestRunnerComponent
         '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
-    sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
     sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
     sandbox.evalJs(this.scriptLoaderService.getScript('test-bootstrap'));
-    // sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
-    // sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
-    // sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
-    // sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
 
     this.subscription = this.changedFilesSubject.subscribe((files) => {
       addMetaInformation(sandbox, this.code);
@@ -151,7 +147,8 @@ export class SimpleAngularTestRunnerComponent
         .filter(([path]) => path.match(/\.js$/) && !path.startsWith('code'))
         .map(([path, code]) => {
           try {
-            sandbox.evalJs(`console.log('I remove modul')`);
+
+            sandbox.evalJs(`console.log('I remove module')`);
             sandbox.evalJs(code);
           } catch (e) {
             console.groupCollapsed(e.message);

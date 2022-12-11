@@ -1,7 +1,5 @@
-(function (factory) {
-    typeof define === 'function' && define.amd ? define(factory) :
-    factory();
-})((function () { 'use strict';
+(function () {
+    'use strict';
 
     /**
      * @license Angular v15.1.0-next.0
@@ -2806,4 +2804,4 @@
         }
     });
 
-}));
+})();

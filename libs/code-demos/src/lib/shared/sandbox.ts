@@ -2,12 +2,7 @@ declare const require;
 
 export function jsScriptInjector(iframe) {
   return function (code) {
-    try {
       iframe.contentWindow.eval(code);
-    } catch (e) {
-      // TODO: (sancheez): errors when load corejs and zone.js
-      console.log(e);
-    }
   };
 }
 
@@ -56,7 +51,6 @@ const iframes = new WeakMap();
 function injectSystemJs({ evalJs }) {
   console.log('inject systemJS')
   evalJs(require('!!raw-loader!./fake-system-loader.js').default);
-  // evalJs(require('!!raw-loader!systemjs/dist/system'));
 }
 
 export function createSystemJsSandbox(
@@ -90,6 +84,7 @@ export function createSystemJsSandbox(
 
     console.log("import MAP");
 
+    // TODO(sancheez): Add material, cdk bundles
     (sandbox.iframe.contentWindow as any).System.addImportMap({
       imports: {
         '@angular/core':
@@ -108,8 +103,12 @@ export function createSystemJsSandbox(
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-forms.js',
         '@angular/common':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-common.js',
+        '@angular/router':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-router.js',
         '@angular/compiler':
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/angular-compiler.js',
+        '@angular/material/button':
+          'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/material/angular-material-button.js',
         rxjs: 'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/rxjs.js',
         tslib:
           'http://localhost:4200/assets/runner/ng2/build-umd-bundles/bundles/tslib.js',
@@ -169,9 +168,13 @@ export function injectIframe(
       };
 
       iframe.contentWindow.onerror = function (error, message) {
+
+        debugger
+
         logError(error, message);
       };
       (iframe.contentWindow as any).console.error = function (error, message) {
+        debugger
         // handle Angular error 1/3
         logError(error, message);
 
