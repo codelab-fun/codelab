@@ -91,7 +91,7 @@ export class CodeDemoRunnerComponent
         url: this.url,
       },
       ({ evalJs }) => {
-        // evalJs(this.scriptLoaderService.getScript('shim'));
+        evalJs(this.scriptLoaderService.getScript('reflectMetadata'));
         evalJs(this.scriptLoaderService.getScript('zone'));
       }
     );
@@ -157,7 +157,7 @@ export class CodeDemoRunnerComponent
 
       if (jsFiles.length) {
         if (this.bootstrap && !hasErrors) {
-          sandbox.evalJs(`System.import('${this.bootstrap}')`);
+          sandbox.evalJs(`System.import('./${this.bootstrap}')`);
         }
       }
     });

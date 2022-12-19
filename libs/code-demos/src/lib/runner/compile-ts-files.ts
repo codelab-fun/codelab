@@ -30,23 +30,15 @@ interface Output {
 }
 
 const compilerOptions: TsTypes.CompilerOptions = {
+  baseUrl: './',
   module: ts.ModuleKind.System,
   target: ts.ScriptTarget.ES2017,
   experimentalDecorators: true,
   emitDecoratorMetadata: true,
   noImplicitAny: true,
   declaration: true,
-  baseUrl: './',
   lib: ['dom', 'es6'],
 };
-
-// TODO(sancheez): List of named imports
-const namedRegisterModules = [
-  'main',
-  'code',
-  'tests/test',
-  'bootstrap'
-];
 
 
 type ObservableFiles = Observable<Files>;
@@ -77,14 +69,10 @@ function watch(
         return undefined;
       }
 
-      const namedModule = namedRegisterModules.find((item) => fileName.toLowerCase().includes(item));
-
       const baseName = fileName.replace('.ts', '');
 
-      const name = namedModule ? baseName:  `./${baseName}`;
-
       return ts.ScriptSnapshot.fromString(
-        `/// <amd-module name="${name}" />\n` + file.file
+        `/// <amd-module name="./${baseName}" />\n` + file.file
       );
     },
     getCurrentDirectory: () =>  options.baseUrl,
