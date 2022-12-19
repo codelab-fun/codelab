@@ -1,0 +1,1 @@
+!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?n(exports,require("@angular/core")):"function"==typeof define&&define.amd?define(["exports","@angular/core"],n):n((e="undefined"!=typeof globalThis?globalThis:e||self).ngCdk={},e.ngCore)}(this,(function(e,n){"use strict";const o=new n.Version("15.0.3");e.VERSION=o}));
