@@ -10,7 +10,7 @@ import {
   ArrayElement,
   FirebaseDb,
   mergeValues,
-} from '@codelab/utils/src/lib/sync/services/common';
+} from './common';
 
 @Injectable({
   providedIn: 'root',

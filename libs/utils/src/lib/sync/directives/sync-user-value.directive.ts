@@ -9,9 +9,10 @@ import {
   takeUntil,
   tap,
 } from 'rxjs/operators';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+// TODO(sancheez): check deps
 import { LoginService } from '@codelab/firebase-login';
-import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncDb } from "../services/sync-data.service";
+import { SyncDbService } from '../services/sync-db.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

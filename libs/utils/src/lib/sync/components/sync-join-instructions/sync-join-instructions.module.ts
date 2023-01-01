@@ -4,7 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SyncJoinInstructionsComponent } from './sync-join-instructions.component';
 import { FormsModule } from '@angular/forms';
-import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
+import { SyncDirectivesModule } from '../../directives/sync-directives.module';
 
 @NgModule({
   declarations: [SyncJoinInstructionsComponent],

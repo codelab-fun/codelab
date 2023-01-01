@@ -5,7 +5,7 @@ import {
   SlideTemplate,
 } from '../../../../../../../ng2ts/ng2ts';
 
-import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
+import { extractMessages } from '@codelab/utils';
 import { boxAndCircle, circleAndBox } from '../../../shared/helpers/helpers';
 
 const circleAndBoxCode = circleAndBox();

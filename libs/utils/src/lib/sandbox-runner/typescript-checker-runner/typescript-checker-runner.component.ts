@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { compileTsFilesWatch } from '@codelab/code-demos/src/lib/runner/compile-ts-files';
+import { compileTsFilesWatch } from '../runners/compile-ts-files';
 import { TestRunResult } from '../../test-results/common';
 import { getTypeScript } from '../../loaders/loaders';
 

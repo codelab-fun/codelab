@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
-import { SyncCodeGameService } from '@codelab/utils/src/lib/sync/components/sync-code-game/sync-code-game.service';
 import { combineLatest, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { SyncCodeGameService } from "../sync-code-game.service";
+import { SyncRegistrationService } from "../../registration/sync-registration.service";
 
 @Component({
   // tslint:disable-next-line:component-selector

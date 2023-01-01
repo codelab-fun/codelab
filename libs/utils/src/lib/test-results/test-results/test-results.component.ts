@@ -7,10 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import {
-  TestResult,
-  TestRunResult,
-} from '@codelab/utils/src/lib/test-results/common';
+import { TestResult, TestRunResult } from '../common';
 
 @Component({
   // tslint:disable-next-line:component-selector

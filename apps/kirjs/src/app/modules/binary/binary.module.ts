@@ -8,7 +8,7 @@ import { SlidesModule, SlidesRoutes } from '@ng360/slides';
 import { FeedbackModule } from '@codelab/feedback';
 import { ConsoleModule } from '@codelab/console';
 import { CodeDemoModule } from '@codelab/code-demos';
-import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
+import { SharedPipeModule } from '@codelab/utils';
 import { BinaryComponent } from './binary.component';
 import { FakeGifComponent } from './fake-gif/fake-gif.component';
 import { GifPaletteComponent } from './gif-palette/gif-palette.component';

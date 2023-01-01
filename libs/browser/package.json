@@ -1,0 +1,13 @@
+{
+  "name": "@codelab/browser",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "browser",
+    "codelab"
+  ],
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

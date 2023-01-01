@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { OverlayComponent } from './modules/streaming/overlay/overlay.component';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -97,15 +96,6 @@ const routes = [
     description: 'Home',
   },
   {
-    path: 'streaming',
-    loadChildren: () =>
-      import('./modules/streaming/streaming.module').then(
-        (m) => m.StreamingModule
-      ),
-    name: 'Home',
-    description: 'Home',
-  },
-  {
     path: 'sync',
     loadChildren: () =>
       import('./modules/sync/sync.module').then((m) => m.SyncModule),
@@ -157,7 +147,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, OverlayComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -7,9 +7,7 @@ export class BinaryChoiceParser extends AbstractBinaryParser {
     super();
   }
 
-  get type() {
-    return 'bich';
-  }
+  type = 'bich';
 
   read(
     reader: BinaryReader,

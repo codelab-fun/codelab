@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+import { SyncPollService } from '../../common/sync-poll.service';
 import { Observable } from 'rxjs';
 
 interface Response {

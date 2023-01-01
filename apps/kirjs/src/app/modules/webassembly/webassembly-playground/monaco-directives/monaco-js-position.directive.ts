@@ -6,8 +6,8 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
-import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+import { CodeDemoEditorInjector } from '@codelab/code-demos';
+import { getTypeScript } from '@codelab/utils';
 import { serializeBlocks } from '../../utils';
 import { CodePath } from './common';
 

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+// TODO(sancheez): check deps
 import { LoginService } from '@codelab/firebase-login';
 import {
   firebaseToValuesWithKey,
   SyncStatus,
-} from '@codelab/utils/src/lib/sync/common';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+} from '../common';
+import { SyncDbService } from './sync-db.service';
 import produce from 'immer';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import {
@@ -18,7 +19,7 @@ import {
 import {
   SyncDb,
   SyncSession,
-} from '@codelab/utils/src/lib/sync/services/sync-data.service';
+} from './sync-data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -44,13 +45,14 @@ export class SyncSessionService {
     .object('config');
 
   readonly sessionId$ = this.sessionId.asObservable();
+  readonly preferredStatus$: Observable<SyncStatus> = new BehaviorSubject(SyncStatus.ADMIN);
   readonly hasActiveSession$ = this.sessionId.pipe(
     map((sessionId) => !!sessionId),
     shareReplay(1)
   );
   private readonly preferredAdminStatusSubject = new BehaviorSubject(null);
   private readonly preferredAdminStatus$ = combineLatest([
-    this.loginService.preferredStatus$,
+    this.preferredStatus$,
     this.preferredAdminStatusSubject.asObservable(),
   ]).pipe(map(([a, b]) => b || a));
   private readonly sessions = this.dbService.objectList('sync-sessions');

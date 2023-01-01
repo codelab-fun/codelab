@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
+import { QuestionsService } from '../common/questions.service';
 
 @Component({
   selector: 'codelab-questions-presenter',

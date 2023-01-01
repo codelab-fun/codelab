@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { WebworkerRunner } from '@codelab/utils/src/lib/sandbox-runner/runners/webworker';
-import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
-import { TestRunner } from '@codelab/utils/src/lib/sandbox-runner/test-runner';
 import { Observable } from 'rxjs';
-import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
+import { TestRunner } from './test-runner';
+import { WebworkerRunner } from "./runners/webworker";
+import { TestRunResult } from '../test-results/common';
+import { ScriptLoaderService } from '../script-loader/script-loader.service';
 
 @Injectable({
   providedIn: 'root',

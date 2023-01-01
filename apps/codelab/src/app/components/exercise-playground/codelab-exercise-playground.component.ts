@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CodelabExerciseComponent } from '../exercise/exercise.component';
-import { PreviewWindowType } from '@codelab/browser/src/lib/preview-window/preview-window.component';
+import { PreviewWindowType } from '@codelab/browser';
 
 @Component({
   selector: 'codelab-exercise-playground',

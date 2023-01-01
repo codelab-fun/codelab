@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { calculateUserScore } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
+import { calculateUserScore } from './sync-poll.service';
+import { SyncPollConfig } from './common';
 
 describe('SyncPoll', () => {
   const userData = {

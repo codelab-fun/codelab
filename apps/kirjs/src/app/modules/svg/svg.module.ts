@@ -13,7 +13,7 @@ import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';
 import { MatButtonModule } from '@angular/material/button';
-import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
+import { SharedPipeModule } from '@codelab/utils';
 import { SlidesModule } from '@ng360/slides';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';

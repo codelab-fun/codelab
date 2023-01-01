@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
+import { SyncPollConfig } from './common';
 import {
   distinctUntilChanged,
   filter,
@@ -10,11 +9,12 @@ import {
 } from 'rxjs/operators';
 import { combineLatest, interval, Observable, of } from 'rxjs';
 import produce from 'immer';
-import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
-import { toValuesAndKeys } from '@codelab/utils/src/lib/sync/common';
-import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
-import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/firebase-info.service';
+import { SyncRegistrationService } from '../../registration/sync-registration.service';
+import { FirebaseInfoService } from '../../../services/firebase-info.service';
 import { serverTimestamp } from '@firebase/database';
+import { SyncSessionService } from '../../../services/sync-session.service';
+import { SyncDataService } from '../../../services/sync-data.service';
+import { toValuesAndKeys } from '../../../common';
 
 const DEFAULT_TEST_TIME_SECONDS = 20;
 

@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { SyncSessionService } from './sync-session.service';
 import {
   SyncDataObject,
   SyncDbService,
-} from '@codelab/utils/src/lib/sync/services/sync-db.service';
-import { FirebaseDb } from '@codelab/utils/src/lib/sync/services/common';
-import { QuestionDb } from '@codelab/utils/src/lib/sync/components/questions/common/common';
+} from './sync-db.service';
+import { FirebaseDb } from './common';
+import { QuestionDb } from '../components/questions/common/common';
 
-interface PresenterPollConfig {
+export interface PresenterPollConfig {
   enabled: boolean;
   startTime: number;
 }
@@ -40,7 +40,7 @@ export interface PresenterConfig {
   'poll-timing': number;
 }
 
-interface PollConfig {
+export interface PollConfig {
   [pollId: string]: ViewerPollConfig;
 }
 

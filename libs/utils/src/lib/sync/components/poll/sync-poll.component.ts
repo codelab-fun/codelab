@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
+import { SyncPollService } from './common/sync-poll.service';
+import { SyncPollConfig } from './common/common';
 
 /**
  * Coming soon.

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+import { SyncPollService } from '../../../common/sync-poll.service';
 
 @Component({
   selector: 'codelab-leaderboard-viewer',

@@ -4,10 +4,10 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
-import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { SyncStatus } from '../common';
+import { SyncSessionService } from "../services/sync-session.service";
 
 @Directive()
 export class SyncIsStatusDirective<T> implements OnInit {

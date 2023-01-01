@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { FirebaseDb } from '@codelab/utils/src/lib/sync/services/common';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { FirebaseDb } from './common';
+import { SyncDbService } from './sync-db.service';
 
 @Injectable({
   providedIn: 'root',

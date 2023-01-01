@@ -32,8 +32,8 @@ export class AboutComponent implements OnInit {
       },
     },
     highlights: {
-      find: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/utils/utils')
-        .default,
+      // find: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/utils/utils')
+      //   .default,
     },
   };
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ng2tsConfig } from '../../../../../../../ng2ts/ng2ts';
-import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
+import { extractMessages } from '@codelab/utils';
 
 declare const require;
 

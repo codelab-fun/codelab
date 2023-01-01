@@ -1,6 +1,7 @@
-import { TestRunner } from '@codelab/utils/src/lib/sandbox-runner/test-runner';
-import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
-import { Runner } from '@codelab/utils/src/lib/sandbox-runner/runners/runner';
+import { ScriptLoaderService } from "../script-loader/script-loader.service";
+import { TestRunner } from "./test-runner";
+import { Runner } from "./runners/runner";
+
 
 describe('Test runner', () => {
   it('sets initial state', () => {

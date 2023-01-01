@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { QuestionsComponent } from '@codelab/utils/src/lib/sync/components/questions/questions.component';
+import { QuestionsComponent } from '../../questions.component';
 
 describe('QuestionsComponent', () => {
   let component: QuestionsComponent;

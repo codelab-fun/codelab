@@ -6,9 +6,9 @@ import {
   Question,
   QuestionDb,
   QuestionStatus,
-} from '@codelab/utils/src/lib/sync/components/questions/common/common';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
+} from './common';
+import { SyncDataService } from '../../../services/sync-data.service';
+import { SyncRegistrationService } from '../../registration/sync-registration.service';
 
 const groupVotesByQuestionId = (a) => {
   return Object.values(a).reduce(

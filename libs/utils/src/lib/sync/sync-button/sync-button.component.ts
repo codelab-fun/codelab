@@ -1,9 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { SlidesDeckComponent } from '@ng360/slides';
-import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
-import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -14,6 +10,10 @@ import {
   takeUntil,
 } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { SyncRegistrationService } from '../components/registration/sync-registration.service';
+import { SyncDataService } from "../services/sync-data.service";
+import { SyncSessionService } from "../services/sync-session.service";
+import { SyncStatus } from '../common';
 
 @Component({
   selector: 'codelab-sync-button',

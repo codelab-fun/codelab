@@ -8,13 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
-import { QuestionsComponent } from '@codelab/utils/src/lib/sync/components/questions/questions.component';
-import { QuestionsAdminComponent } from '@codelab/utils/src/lib/sync/components/questions/questions-admin/questions-admin.component';
-import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
+import { QuestionsComponent } from './questions.component';
+import { QuestionsAdminComponent } from './questions-admin/questions-admin.component';
+import { SyncDirectivesModule } from '../../directives/sync-directives.module';
 import { QuestionsViewerComponent } from './questions-viewer/questions-viewer.component';
 import { QuestionsPresenterComponent } from './questions-presenter/questions-presenter.component';
 import { QuestionComponent } from './common/question/question.component';
-import { QuestionListComponent } from '@codelab/utils/src/lib/sync/components/questions/common/question-list/question-list.component';
+import { QuestionListComponent } from './common/question-list/question-list.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

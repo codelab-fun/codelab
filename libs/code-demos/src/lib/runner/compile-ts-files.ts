@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable, OperatorFunction } from 'rxjs';
-import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+import { getTypeScript } from '@codelab/utils';
 import * as TsTypes from 'typescript';
 
 const ts = getTypeScript();

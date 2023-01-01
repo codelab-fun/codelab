@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
+import { SyncRegistrationService } from '../sync-registration.service';
 
 @Component({
   selector: 'codelab-registration-presenter',

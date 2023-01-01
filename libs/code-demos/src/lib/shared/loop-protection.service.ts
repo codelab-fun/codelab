@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getTypeScript } from '@codelab/utils/src/lib/loaders/loaders';
+import { getTypeScript } from '@codelab/utils';
 const ts = getTypeScript();
 
 @Injectable()

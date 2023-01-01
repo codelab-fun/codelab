@@ -18,7 +18,7 @@ import { SimpleAngularTestRunnerComponent } from './angular-test-runner/angular-
 import { CodeDemoModule } from '@codelab/code-demos';
 import { CodelabPreviewComponent } from './slides-preview/codelab-preview.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { TestResultsModule } from '@codelab/utils/src/lib/test-results/test-results.module';
+import { TestResultsModule } from '@codelab/utils';
 
 @NgModule({
   imports: [

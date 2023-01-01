@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, Input, NgModule } from '@angular/core';
-import { CodeDemoEditorComponent } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.component';
+import { CodeDemoEditorComponent } from '@codelab/code-demos';
 
 // TODO(kirjs): Uncommit
 @Directive({

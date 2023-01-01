@@ -1,10 +1,9 @@
-import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
-import { Runner } from '@codelab/utils/src/lib/sandbox-runner/runners/runner';
+import { Runner } from './runners/runner';
 import { scan } from 'rxjs/operators';
-import { testReducer } from '@codelab/utils/src/lib/sandbox-runner/common';
+import { testReducer } from './common';
 import { Observable } from 'rxjs';
-import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
-import { wrapSystemJs } from '@codelab/code-demos/src/lib/shared/sandbox';
+import { TestRunResult } from '../test-results/common';
+import { ScriptLoaderService } from '../script-loader/script-loader.service';
 
 const mochaRun = `
 function flattenTests(suite) {
@@ -76,7 +75,7 @@ System.import("runner");
         this.code.chai,
         this.code.mocha,
         this.code.mochaSetup,
-        system ? wrapSystemJs(this.code.SystemJS) : '',
+        system ?? '', // TODO(sancheez): check code
         code,
         tests,
         system ? this.code.systemMochaRun : this.code.mochaRun,

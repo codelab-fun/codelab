@@ -1,13 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
 import { switchMap } from 'rxjs/operators';
-import {
-  canWritePresenterData,
-  SyncStatus,
-} from '@codelab/utils/src/lib/sync/common';
+
 import { of } from 'rxjs';
+import { canWritePresenterData, SyncDataService, SyncPollConfig, SyncSessionService, SyncStatus } from '@codelab/utils';
 
 @Component({
   selector: 'codelab-sync-survey',

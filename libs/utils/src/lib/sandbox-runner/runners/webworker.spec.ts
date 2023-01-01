@@ -1,4 +1,4 @@
-import { WebworkerRunner } from '@codelab/utils/src/lib/sandbox-runner/runners/webworker';
+import { WebworkerRunner } from './webworker';
 import { Observable } from 'rxjs';
 
 function listenToObservable<T>(obs: Observable<T>) {

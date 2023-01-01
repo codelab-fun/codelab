@@ -1,5 +1,5 @@
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { of } from 'rxjs';
+import { SyncDataService } from '../../sync/services/sync-data.service';
 
 export function getSyncDbService() {
   return [

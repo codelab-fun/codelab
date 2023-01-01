@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { sum } from '@codelab/utils/src/lib/sync/common';
+import { sum } from '../../../../common';
 
 @Component({
   selector: 'codelab-stars-presenter',

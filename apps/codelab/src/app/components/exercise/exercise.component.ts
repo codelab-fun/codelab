@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { convertExerciseToMap } from '../../../../../../ng2ts/ng2ts';
-import { CodeDemoComponent } from '@codelab/code-demos/src/lib/code-demo/code-demo.component';
+import { CodeDemoComponent } from '@codelab/code-demos';
 
 function filterByFileType(type: string, files: Record<string, string>) {
   return Object.entries(files).reduce((changedFiles, [path, code]) => {

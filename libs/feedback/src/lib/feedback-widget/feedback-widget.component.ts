@@ -14,7 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-import { AccessService } from '../../../../../apps/codelab/src/app/shared/services/access.service';
+// import { AccessService } from '../../../../../apps/codelab/src/app/shared/services/access.service';
 
 @Component({
   selector: 'feedback-widget',
@@ -34,8 +34,8 @@ export class FeedbackWidgetComponent implements OnInit, OnDestroy {
   constructor(
     private readonly fb: UntypedFormBuilder,
     private readonly activatedRoute: ActivatedRoute,
-    private readonly accessService: AccessService,
     private readonly feedbackService: FeedbackService,
+    // private readonly accessService: AccessService,
     private readonly router: Router
   ) {
     this.messages$ = this.feedbackService.getMessagesForCurrentPage();

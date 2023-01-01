@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginService } from '@codelab/firebase-login/src/lib/login.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'codelab-login-widget',

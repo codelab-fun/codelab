@@ -3,8 +3,8 @@ import {
   Question,
   QuestionStatus,
   statuses,
-} from '@codelab/utils/src/lib/sync/components/questions/common/common';
-import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
+} from '../common';
+import { QuestionsService } from '../questions.service';
 
 @Component({
   selector: 'codelab-question',

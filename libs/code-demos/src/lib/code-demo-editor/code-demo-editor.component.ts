@@ -13,10 +13,10 @@ import {
   NgZone,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+import { MonacoConfigService } from '../shared/monaco-config.service';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { Subscription } from 'rxjs';
 import { CodeDemoEditorInjector } from './code-demo-editor.injector';
 
 @Component({

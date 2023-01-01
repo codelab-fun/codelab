@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
+import { SyncPollConfig } from '../common/common';
 import {
   SyncPoll,
   SyncPollService,
-} from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+} from '../common/sync-poll.service';
 
 @Component({
   selector: 'codelab-sync-poll-viewer',

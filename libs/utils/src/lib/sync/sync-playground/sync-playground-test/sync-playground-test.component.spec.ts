@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncPlaygroundTestComponent } from './sync-playground-test.component';
-import { SyncModule } from '@codelab/utils/src/lib/sync/sync.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { getMockAngularFireProviders } from '@codelab/utils/src/lib/testing/mocks/angular-fire';
+import { SyncModule } from '../../sync.module';
+import { getMockAngularFireProviders } from '../../../testing/mocks/angular-fire';
 
 describe('SyncPlaygroundTestComponent', () => {
   let component: SyncPlaygroundTestComponent;

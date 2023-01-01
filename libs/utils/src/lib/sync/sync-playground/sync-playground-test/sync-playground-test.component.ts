@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
+import { SyncPollConfig } from "../../components/poll/common/common";
 
 @Component({
   selector: 'codelab-sync-playground-test',

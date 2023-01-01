@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Question } from '@codelab/utils/src/lib/sync/components/questions/common/common';
+import { Question } from '../common';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({

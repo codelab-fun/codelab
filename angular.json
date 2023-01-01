@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "",
   "projects": {
     "angular-ast-viz": {
       "root": "libs/angular-ast-viz",
@@ -27,6 +26,16 @@
             "main": "libs/angular-ast-viz/src/test.ts",
             "tsConfig": "libs/angular-ast-viz/tsconfig.spec.json",
             "karmaConfig": "libs/angular-ast-viz/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/angular-ast-viz/**/*.ts",
+              "libs/angular-ast-viz/**/*.html"
+            ]
           }
         }
       }
@@ -56,11 +65,21 @@
             "tsConfig": "libs/angular-slides-to-pdf/tsconfig.spec.json",
             "karmaConfig": "libs/angular-slides-to-pdf/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/angular-slides-to-pdf/**/*.ts",
+              "libs/angular-slides-to-pdf/**/*.html"
+            ]
+          }
         }
       }
     },
     "angular-thirty-seconds": {
-      "root": "libs/angular-thirty-seconds",
+      "root": "apps/angular-thirty-seconds",
       "sourceRoot": "apps/angular-thirty-seconds/src",
       "projectType": "application",
       "prefix": "codelab",
@@ -170,6 +189,16 @@
               "apps/angular-thirty-seconds/src/assets"
             ]
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "apps/angular-thirty-seconds/**/*.ts",
+              "apps/angular-thirty-seconds/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -178,7 +207,30 @@
       "sourceRoot": "libs/browser/src",
       "projectType": "library",
       "prefix": "codelab",
-      "architect": {}
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/browser/tsconfig.lib.json",
+            "project": "libs/browser/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/browser/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/browser/**/*.ts",
+              "libs/browser/**/*.html"
+            ]
+          }
+        }
+      }
     },
     "code-demos": {
       "root": "libs/code-demos",
@@ -204,6 +256,16 @@
             "jestConfig": "libs/code-demos/jest.config.js",
             "tsConfig": "libs/code-demos/tsconfig.spec.json",
             "setupFile": "libs/code-demos/src/test-setup.ts"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/code-demos/**/*.ts",
+              "libs/code-demos/**/*.html"
+            ]
           }
         }
       }
@@ -339,6 +401,16 @@
               "apps/codelab/src/manifest.webmanifest"
             ]
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "apps/codelab/**/*.ts",
+              "apps/codelab/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -354,6 +426,16 @@
             "main": "libs/console/src/test.ts",
             "tsConfig": "libs/console/tsconfig.spec.json",
             "karmaConfig": "libs/console/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/console/**/*.ts",
+              "libs/console/**/*.html"
+            ]
           }
         }
       }
@@ -378,6 +460,16 @@
             "tsConfig": "libs/feedback/tsconfig.spec.json",
             "karmaConfig": "libs/feedback/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/feedback/**/*.ts",
+              "libs/feedback/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -393,6 +485,16 @@
             "jestConfig": "libs/firebase/jest.config.js",
             "tsConfig": "libs/firebase/tsconfig.spec.json",
             "setupFile": "libs/firebase/src/test-setup.ts"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/firebase/**/*.ts",
+              "libs/firebase/**/*.html"
+            ]
           }
         }
       },
@@ -418,6 +520,16 @@
             "tsConfig": "libs/firebase-login/tsconfig.spec.json",
             "karmaConfig": "libs/firebase-login/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/firebase-login/**/*.ts",
+              "libs/firebase-login/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -427,6 +539,15 @@
       "projectType": "application",
       "prefix": "kirjs",
       "schematics": {},
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": {
+            "translation": "apps/kirjs/src/locale/kirjs.ru.xtb",
+            "baseHref": ""
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -461,7 +582,6 @@
           },
           "configurations": {
             "ru": {
-              "outputPath": "dist/apps/kirjs",
               "localize": ["ru"]
             },
             "production": {
@@ -480,7 +600,7 @@
               "buildOptimizer": true
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -492,7 +612,7 @@
               "browserTarget": "kirjs:build:production"
             },
             "ru": {
-              "browserTarget": "kirjs:build:ru"
+              "browserTarget": "kirjs:build:development,ru"
             }
           }
         },
@@ -520,16 +640,14 @@
             "scripts": [],
             "assets": ["apps/kirjs/src/favicon.ico", "apps/kirjs/src/assets"]
           }
-        }
-      },
-      "i18n": {
-        "locales": {
-          "ru": {
-            "translation": "apps/kirjs/src/locale/kirjs.ru.xtb",
-            "baseHref": ""
-          }
         },
-        "sourceLocale": "ru"
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/kirjs/**/*.ts", "apps/kirjs/**/*.html"]
+          }
+        }
       }
     },
     "live": {
@@ -550,6 +668,13 @@
           "options": {
             "jestConfig": "libs/live/jest.config.js",
             "tsConfig": "libs/live/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/live/**/*.ts", "libs/live/**/*.html"]
           }
         }
       },
@@ -647,6 +772,16 @@
             "tsConfig": "apps/playground/tsconfig.spec.json",
             "setupFile": "apps/playground/src/test-setup.ts"
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "apps/playground/**/*.ts",
+              "apps/playground/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -675,6 +810,13 @@
             "tsConfig": "libs/slides/tsconfig.spec.json",
             "setupFile": "libs/slides/src/test-setup.ts"
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/slides/**/*.ts", "libs/slides/**/*.html"]
+          }
         }
       },
       "schematics": {}
@@ -685,6 +827,18 @@
       "projectType": "library",
       "prefix": "codelab",
       "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/utils/tsconfig.lib.json",
+            "project": "libs/utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/utils/tsconfig.lib.prod.json"
+            }
+          }
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -692,37 +846,15 @@
             "tsConfig": "libs/utils/tsconfig.spec.json",
             "karmaConfig": "libs/utils/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/utils/**/*.ts", "libs/utils/**/*.html"]
+          }
         }
       }
     }
-  },
-  "schematics": {
-    "@schematics/angular:component": {
-      "prefix": "slides",
-      "style": "css"
-    },
-    "@schematics/angular:directive": {
-      "prefix": "slides"
-    },
-    "@nrwl/schematics:library": {
-      "unitTestRunner": "karma",
-      "framework": "angular"
-    },
-    "@nrwl/schematics:application": {
-      "unitTestRunner": "karma",
-      "e2eTestRunner": "protractor"
-    },
-    "@nrwl/schematics:node-application": {
-      "framework": "express"
-    },
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    }
-  },
-  "cli": {
-    "analytics": false
   }
 }

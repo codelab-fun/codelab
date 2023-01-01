@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { first, map } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import { Observable } from 'rxjs';
 import { GithubAuthProvider } from 'firebase/auth';
 
 @Injectable({
@@ -16,7 +15,6 @@ export class LoginService {
   readonly uid$: Observable<string> = this.user$.pipe(
     map((user) => user && user.uid)
   );
-  readonly preferredStatus$ = new BehaviorSubject(SyncStatus.ADMIN);
 
   constructor(private auth: AngularFireAuth) {
     this.user$.pipe(first()).subscribe((a) => {

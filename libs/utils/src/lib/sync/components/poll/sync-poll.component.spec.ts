@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SyncPollComponent } from './sync-poll.component';
-import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
+import { SyncPollModule } from "./sync-poll.module";
 
 describe('SyncPollComponent', () => {
   let component: SyncPollComponent;

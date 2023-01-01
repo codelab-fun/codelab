@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { map } from 'rxjs/operators';
+import { SyncDataService } from '../../services/sync-data.service';
 
 @Injectable({
   providedIn: 'root',

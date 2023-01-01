@@ -1,11 +1,8 @@
 import { Directive, Input, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
-import {
-  PresenterConfig,
-  SyncDataService,
-} from '@codelab/utils/src/lib/sync/services/sync-data.service';
 import { filter, map, takeUntil } from 'rxjs/operators';
+import { PresenterConfig, SyncDataService } from '../services/sync-data.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

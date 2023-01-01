@@ -1,11 +1,11 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { SyncPollConfig } from '@codelab/utils/src/lib/sync/components/poll/common/common';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncPollConfig } from '../common/common';
+import { SyncDataService } from '../../../services/sync-data.service';
 
 import {
   SyncPoll,
   SyncPollService,
-} from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+} from '../common/sync-poll.service';
 import { serverTimestamp } from '@firebase/database';
 
 @Component({

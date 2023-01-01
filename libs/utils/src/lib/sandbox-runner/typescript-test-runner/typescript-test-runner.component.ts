@@ -8,10 +8,7 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import {
-  compileTsFilesWatch,
-  Files,
-} from '@codelab/code-demos/src/lib/runner/compile-ts-files';
+import { compileTsFilesWatch, Files } from '../runners/compile-ts-files';
 
 @Component({
   // tslint:disable-next-line:component-selector

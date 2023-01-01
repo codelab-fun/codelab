@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { QuestionsService } from '@codelab/utils/src/lib/sync/components/questions/common/questions.service';
+import { QuestionsService } from '../common/questions.service';
 import { map } from 'rxjs/operators';
-import { statuses } from '@codelab/utils/src/lib/sync/components/questions/common/common';
+import { statuses } from '../common/common';
 
 @Component({
   selector: 'codelab-questions-admin',

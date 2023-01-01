@@ -1,5 +1,5 @@
 import { Directive, EventEmitter, Optional, Output, Self } from '@angular/core';
-import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
+import { CodeDemoEditorInjector } from '@codelab/code-demos';
 
 @Directive({
   selector: '[slidesMonacoLoadAnswer]',

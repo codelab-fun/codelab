@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
+import { SyncRegistrationService } from '../../registration/sync-registration.service';
 
 @Component({
   // tslint:disable-next-line:component-selector

@@ -1,15 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
+// TODO(sancheez): check deps
 import { LoginService } from '@codelab/firebase-login';
 import { ReplaySubject, Subject } from 'rxjs';
-import { User } from 'firebase/app';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
-import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
-import { SyncPollService } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
-import { SyncRegistrationService } from '@codelab/utils/src/lib/sync/components/registration/sync-registration.service';
-import { TestRunnerService } from '@codelab/utils/src/lib/sandbox-runner/test-runner.service';
-import { SyncCodeGameService } from '@codelab/utils/src/lib/sync/components/sync-code-game/sync-code-game.service';
+import { SyncSessionService } from "../../services/sync-session.service";
+import { SyncCodeGameService } from "../../components/sync-code-game/sync-code-game.service";
+import { TestRunnerService } from "../../../sandbox-runner/test-runner.service";
+import { SyncRegistrationService } from "../../components/registration/sync-registration.service";
+import { SyncPollService } from "../../components/poll/common/sync-poll.service";
+import { SyncDataService } from "../../services/sync-data.service";
+import { SyncDbService } from '../../services/sync-db.service';
+import { SyncStatus } from '../../common';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'codelab-sync-playground-presenter',
@@ -37,16 +38,18 @@ export class SyncPlaygroundPresenterComponent implements OnInit {
   @Input() userId: string;
   @Input() preferredStatus: SyncStatus;
 
-  constructor(private readonly loginService: LoginService) {}
+  constructor(
+    private readonly syncSessionService: SyncSessionService,
+    private readonly loginService: LoginService) {}
 
   ngOnInit() {
-    (this.loginService.user$ as Subject<User>).next({
+    (this.loginService.user$ as Subject<firebase.User>).next({
       uid: this.userId,
       displayName: 'lol',
-    } as User);
+    } as firebase.User);
 
     (this.loginService.uid$ as Subject<string>).next(this.userId);
-    (this.loginService.preferredStatus$ as Subject<string>).next(
+    (this.syncSessionService.preferredStatus$ as Subject<string>).next(
       this.preferredStatus
     );
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseInfoService } from '@codelab/utils/src/lib/sync/services/firebase-info.service';
+import { FirebaseInfoService } from '../../services/firebase-info.service';
 
 @Component({
   selector: 'codelab-online-indicator',

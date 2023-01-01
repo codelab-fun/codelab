@@ -7,7 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { TestRunnerService } from '@codelab/utils/src/lib/sandbox-runner/test-runner.service';
+import { TestRunnerService } from './test-runner.service';
 import { filter, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
 

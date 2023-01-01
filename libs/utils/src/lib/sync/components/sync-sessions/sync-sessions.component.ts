@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
-import { SyncDataService } from '@codelab/utils/src/lib/sync/services/sync-data.service';
-import { SyncSessionService } from '@codelab/utils/src/lib/sync/services/sync-session.service';
+import { SyncSessionService } from "../../services/sync-session.service";
+import { SyncDataService } from "../../services/sync-data.service";
+import { SyncDbService } from '../../services/sync-db.service';
 
 @Component({
   selector: 'codelab-sync-sessions',

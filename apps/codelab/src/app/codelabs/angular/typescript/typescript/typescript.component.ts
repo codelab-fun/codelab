@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
+import { extractMessages } from '@codelab/utils';
 import { ng2tsConfig } from '../../../../../../../../ng2ts/ng2ts';
 import {
   javaScriptWithConsoleLog,

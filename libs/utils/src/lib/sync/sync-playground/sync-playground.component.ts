@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SyncStatus } from '@codelab/utils/src/lib/sync/common';
+import { SyncStatus } from '../common';
 
 @Component({
   selector: 'codelab-sync-playground',

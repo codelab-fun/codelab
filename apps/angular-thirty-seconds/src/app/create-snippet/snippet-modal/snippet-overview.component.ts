@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { auth } from 'firebase/app';
 import { finalize, switchMap, take, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { SnippetService } from '../../shared/services/snippet.service';
 import { GitHubService } from '../../shared/services/github.service';
 import { generateSnippet } from '../../shared/functions/generate-snippet';
 import { SEPARATOR } from '../../shared/consts';
+import { getAuth, signInWithPopup, GithubAuthProvider } from '@angular/fire/auth';
 
 interface SnippetOverviewData {
   formValue: object;
@@ -149,8 +149,9 @@ export class SnippetOverviewComponent implements OnInit, OnDestroy {
   }
 
   async login() {
-    const provider = new auth.GithubAuthProvider().addScope('repo');
-    this.githubAuth = await this.afAuth.auth.signInWithPopup(provider);
+    const provider = new GithubAuthProvider().addScope('repo');
+    const auth = getAuth();
+    this.githubAuth = await signInWithPopup(auth, provider);
     this.data.formValue['author'] = this.githubAuth.additionalUserInfo.username;
     this.snippet = generateSnippet(exportSnippet(this.data.formValue));
   }

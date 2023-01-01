@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { LETTERS } from '@codelab/utils/src/lib/sync/components/poll/common/common';
-import { UserVote } from '@codelab/utils/src/lib/sync/components/poll/common/sync-poll.service';
+import { LETTERS } from '../../common/common';
+import { UserVote } from '../../common/sync-poll.service';
 
 @Component({
   selector: 'codelab-choice-presenter',

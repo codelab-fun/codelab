@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TestResult } from '@codelab/utils/src/lib/test-results/common';
+import { TestResult } from '../common';
 
 @Component({
   // tslint:disable-next-line:component-selector

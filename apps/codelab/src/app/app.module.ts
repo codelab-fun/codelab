@@ -15,6 +15,7 @@ import { NotFoundModule } from './components/not-found/not-found.module';
 import { MatButtonModule } from '@angular/material/button';
 import { DirectivesModule } from './directives/directives.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FeedbackModule } from '@codelab/feedback';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundModule,
     MatButtonModule,
     DirectivesModule,
+    FeedbackModule.forRoot(environment.firebaseConfig),
   ],
   declarations: [AppComponent],
   providers: [

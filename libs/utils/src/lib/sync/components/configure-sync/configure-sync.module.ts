@@ -4,8 +4,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ConfigureSyncComponent } from './configure-sync.component';
-import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
 import { FormsModule } from '@angular/forms';
+import { SyncDirectivesModule } from '../../directives/sync-directives.module';
 
 @NgModule({
   declarations: [ConfigureSyncComponent],
