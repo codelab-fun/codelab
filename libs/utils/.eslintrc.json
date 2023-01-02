@@ -32,7 +32,8 @@
         "plugin:@nrwl/nx/angular-template"
       ],
       "rules": {
-        "@angular-eslint/template/eqeqeq": "off"
+        "@angular-eslint/template/eqeqeq": "off",
+        "@angular-eslint/template/no-negated-async": "off"
       }
     }
   ]
