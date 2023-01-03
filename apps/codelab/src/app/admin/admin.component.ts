@@ -1,14 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'codelab-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
-  readonly links = [
-    { link: 'users', name: 'Users' },
-    { link: 'feedback', name: 'Feedback' },
-    { link: 'content', name: 'Content' },
-  ];
 }

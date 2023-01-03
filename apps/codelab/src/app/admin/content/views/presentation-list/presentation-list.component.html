@@ -1,0 +1,27 @@
+<mat-nav-list class="wrapper">
+  <div *ngFor="let presentation of presentations$ | async" class="presentation">
+    <div class="header">
+      <div>{{ presentation.name }}</div>
+      <mat-menu #menu>
+        <button mat-menu-item (click)="deletePresentation(presentation.id)">Delete</button>
+      </mat-menu>
+      <button mat-icon-button
+              aria-label="Example icon-button with a menu"
+              [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+    <button class="first-slide"
+            mat-list-item
+            (click)="goToPresentation(presentation.id)">
+      <slides-small-slide-preview *ngIf="presentation.slides[0] as slide else empty"
+                                  class="medium"
+                                  mode="preview"
+                                  [slide]="slide">
+      </slides-small-slide-preview>
+      <ng-template #empty>No value</ng-template>
+    </button>
+  </div>
+</mat-nav-list>
+
+<button mat-button (click)="addPresentation()">Create presentation</button>

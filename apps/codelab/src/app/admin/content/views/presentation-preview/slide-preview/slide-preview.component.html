@@ -1,0 +1,9 @@
+<div *ngIf="!slide.blocks.length" class="empty-slide">Empty slide</div>
+
+<ng-container *ngFor="let block of slide.blocks" [ngSwitch]="block.type">
+  <slides-dynamic-renderer *ngSwitchCase="'custom'"
+                           [block]="block"
+                           [mode]="mode">
+  </slides-dynamic-renderer>
+  <div *ngSwitchCase="'html'" [innerHTML]="block.code"></div>
+</ng-container>

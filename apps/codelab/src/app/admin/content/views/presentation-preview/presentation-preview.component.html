@@ -1,0 +1,6 @@
+<div *ngIf="contentService.state$ | async as presentation" class="wrapper">
+  <div *ngIf="presentation[contentService.currentSlideIndex$ | async] as slide"
+       class="editor">
+    <slides-slide-preview [slide]="slide"></slides-slide-preview>
+  </div>
+</div>

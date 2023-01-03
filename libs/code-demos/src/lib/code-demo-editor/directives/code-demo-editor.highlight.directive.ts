@@ -5,7 +5,7 @@ import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-c
 import { editor } from 'monaco-editor';
 import {
   rangeToDecoration
-} from '../../../../../../apps/codelab/src/app/admin/content/presentation-editor/wrappers/custom-component-editors/codelab-code-demo-console-editor/highlight-button/highlight-button.component';
+} from '../../../../../../apps/codelab/src/app/admin/content/views/presentation-editor/wrappers/custom-component-editors/codelab-code-demo-console-editor/highlight-button/highlight-button.component';
 import IEditorDecorationsCollection = editor.IEditorDecorationsCollection;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
