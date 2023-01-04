@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
-import { SlidesDeckComponent } from '@ng360/slides';
+import { SlidesDeckComponent } from '@codelab/slides';
 import {
   debounceTime,
   distinctUntilChanged,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SlidesDeckComponent } from '@ng360/slides';
+import { SlidesDeckComponent } from '@codelab/slides';
 
 @Component({
   selector: 'slides-codelab-to-pdf',

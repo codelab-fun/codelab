@@ -9,9 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-// TODO(sancheez): check deps
 import { LoginService } from '@codelab/firebase-login';
-import { SlidesModule } from '@ng360/slides';
+import { SlidesModule } from '@codelab/slides';
 import { LeaderboardModule } from './components/poll/sync-poll-presenter/leaderboard/leaderboard.module';
 import { SyncPollModule } from './components/poll/sync-poll.module';
 import { QuestionsModule } from './components/questions/questions.module';

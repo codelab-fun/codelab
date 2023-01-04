@@ -2,7 +2,7 @@ import { Directive, HostListener } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { SlidesDeckComponent } from '@ng360/slides';
+import { SlidesDeckComponent } from '@codelab/slides';
 
 @Directive({
   // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.

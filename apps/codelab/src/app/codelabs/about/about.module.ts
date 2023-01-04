@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '@codelab/code-demos';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { AboutComponent } from './about.component';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(AboutComponent));

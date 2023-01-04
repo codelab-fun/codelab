@@ -16,7 +16,6 @@ import { SlidesDeckComponent } from '../deck/deck.component';
   selector: '[slidesRouting]',
 })
 export class SlidesRoutingDirective implements OnInit, OnDestroy {
-  activeSlideId: string;
   @Output() change = new EventEmitter();
 
   private ids: { [index: number]: string } = {};
@@ -31,7 +30,7 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
     this.handleBackButtonSlideIndexSync();
   }
 
-  @HostListener('slideChange', ['$event']) slideChange(index) {
+  @HostListener('slideChange', ['$event']) slideChange(index: number) {
     this.navigate(this.getId(index));
   }
 

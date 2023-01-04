@@ -1,0 +1,147 @@
+{
+  "sourceRoot": "apps/codelab/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@angular-builders/custom-webpack:browser",
+      "options": {
+        "customWebpackConfig": {
+          "path": "apps/codelab/extra-webpack.config.js"
+        },
+        "outputPath": "dist/apps/codelab",
+        "index": "apps/codelab/src/index.html",
+        "main": "apps/codelab/src/main.ts",
+        "tsConfig": "apps/codelab/tsconfig.app.json",
+        "polyfills": "apps/codelab/src/polyfills.ts",
+        "aot": true,
+        "assets": [
+          "apps/codelab/src/assets",
+          "apps/codelab/src/favicon.ico",
+          "apps/codelab/src/manifest.webmanifest",
+          {
+            "glob": "**/*",
+            "input": "node_modules/monaco-editor/",
+            "output": "./assets/monaco/"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/intro/assets/",
+            "output": "./assets/intro/"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/code-demos/assets/runner/",
+            "output": "./assets/runner/"
+          }
+        ],
+        "styles": [
+          "apps/codelab/src/styles.scss",
+          "@angular/material/prebuilt-themes/indigo-pink.css"
+        ],
+        "scripts": []
+      },
+      "defaultConfiguration": "development",
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        },
+        "ru": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": true,
+          "aot": true,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "baseHref": "/ru/",
+          "deployUrl": "/ru/",
+          "fileReplacements": [
+            {
+              "replace": "apps/codelab/src/environments/environment.ts",
+              "with": "apps/codelab/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputPath": "dist/apps/codelab/ru",
+          "i18nFile": "apps/codelab/src/locale/codelab.ru.xtb",
+          "i18nFormat": "xtb",
+          "i18nLocale": "ru"
+        },
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "aot": true,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/codelab/src/environments/environment.ts",
+              "with": "apps/codelab/src/environments/environment.prod.ts"
+            }
+          ],
+          "serviceWorker": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "codelab:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "codelab:build:production"
+        },
+        "ru": {
+          "browserTarget": "codelab:build:ru"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "codelab:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/codelab/src/test.ts",
+        "karmaConfig": "apps/codelab/karma.conf.js",
+        "polyfills": "apps/codelab/src/polyfills.ts",
+        "tsConfig": "apps/codelab/tsconfig.spec.json",
+        "scripts": [],
+        "styles": [
+          "apps/codelab/src/styles.scss"
+        ],
+        "assets": [
+          "apps/codelab/src/assets",
+          "apps/codelab/src/favicon.ico",
+          "apps/codelab/src/manifest.webmanifest"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/codelab/**/*.ts",
+          "apps/codelab/**/*.html"
+        ]
+      }
+    }
+  }
+}

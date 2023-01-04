@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlidesModule } from '@ng360/slides';
+import { SlidesModule } from '@codelab/slides';
 import { StackComponent } from './stack.component';
 import { StackGameComponent } from './stack-game/stack-game.component';
 import { SimpleStackComponent } from './simple-stack/simple-stack.component';

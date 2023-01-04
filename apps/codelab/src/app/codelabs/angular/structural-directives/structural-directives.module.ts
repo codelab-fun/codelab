@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { FeedbackModule } from '@codelab/feedback';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { BrowserWindowModule } from '@codelab/browser';

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { RegexComponent } from './regex.component';
 import { LiveModule } from './live';
 

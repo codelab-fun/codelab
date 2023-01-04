@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { FeedbackModule } from '@codelab/feedback';
 import { ConsoleModule } from '@codelab/console';
 import { CodeDemoModule } from '@codelab/code-demos';

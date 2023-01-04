@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 
 import { FeedbackModule } from '@codelab/feedback';
 import { SyncModule } from '@codelab/utils';

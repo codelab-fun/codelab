@@ -1,25 +1,11 @@
 {
-  "name": "@ng360/slides",
-  "description": "Presentation creator for Angular",
-  "version": "0.2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/codelab-fun/codelab.git"
+  "name": "@codelab/slides",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
   },
-  "homepage": "https://github.com/codelab-fun/codelab/tree/master/libs/slides#readme",
-  "bugs": "https://github.com/codelab-fun/codelab/issues",
-  "license": "MIT",
-  "keywords": [
-    "angular",
-    "slides",
-    "presentation",
-    "ng360",
-    "codelab"
-  ],
   "dependencies": {
-    "tslib": "^2.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
+    "tslib": "^2.3.0"
   }
 }

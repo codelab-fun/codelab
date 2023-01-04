@@ -22,7 +22,7 @@ export class TestRunnerComponent implements OnChanges, OnDestroy {
   @Input() tests;
 
   @Output() result = new EventEmitter();
-  readonly destroy$ = new ReplaySubject(1);
+  readonly destroy$ = new ReplaySubject<void>(1);
   readonly result$ = this.testRunner.result$;
 
   ngOnChanges(changes: SimpleChanges) {

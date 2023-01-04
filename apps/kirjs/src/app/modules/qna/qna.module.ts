@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { SlidesModule } from '@ng360/slides';
+import { SlidesModule } from '@codelab/slides';
 import { QnaComponent } from './qna.component';
 import {
   SyncDataService,

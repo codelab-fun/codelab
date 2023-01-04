@@ -1,16 +1,11 @@
 {
   "name": "@codelab/utils",
-  "version": "0.1.0",
-  "license": "MIT",
-  "keywords": [
-    "angular",
-    "utils",
-    "codelab"
-  ],
-  "dependencies": {
-    "tslib": "^2.0.0"
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
   },
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@ng360/slides';
+import { SlidesRoutes } from '@codelab/slides';
 import { StackComponent } from './stack.component';
 import { StackModule } from './stack.module';
 

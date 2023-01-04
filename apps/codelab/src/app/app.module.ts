@@ -24,7 +24,6 @@ import { FeedbackModule } from '@codelab/feedback';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     NotFoundModule,

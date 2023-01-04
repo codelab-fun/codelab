@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { TypeScriptComponent } from './typescript/typescript.component';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FeedbackModule } from '@codelab/feedback';

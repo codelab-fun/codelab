@@ -1,0 +1,130 @@
+{
+  "sourceRoot": "apps/kirjs/src",
+  "projectType": "application",
+  "prefix": "kirjs",
+  "generators": {},
+  "i18n": {
+    "sourceLocale": "en-US",
+    "locales": {
+      "ru": {
+        "translation": "apps/kirjs/src/locale/kirjs.ru.xtb",
+        "baseHref": ""
+      }
+    }
+  },
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/kirjs",
+        "index": "apps/kirjs/src/index.html",
+        "main": "apps/kirjs/src/main.ts",
+        "polyfills": "apps/kirjs/src/polyfills.ts",
+        "tsConfig": "apps/kirjs/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "node_modules/monaco-editor/",
+            "output": "./assets/monaco/"
+          },
+          "apps/kirjs/src/favicon.ico",
+          "apps/kirjs/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/code-demos/assets/runner/",
+            "output": "./assets/runner/"
+          }
+        ],
+        "styles": [
+          "apps/kirjs/src/styles.css"
+        ],
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "ru": {
+          "localize": [
+            "ru"
+          ]
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/kirjs/src/environments/environment.ts",
+              "with": "apps/kirjs/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "kirjs:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "kirjs:build:production"
+        },
+        "ru": {
+          "browserTarget": "kirjs:build:development,ru"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "kirjs:build"
+      },
+      "configurations": {
+        "ru": {
+          "outputPath": "locale/",
+          "outFile": "messages.ru.untranslated.xlf",
+          "format": "xlf"
+        }
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/kirjs/src/test.ts",
+        "polyfills": "apps/kirjs/src/polyfills.ts",
+        "tsConfig": "apps/kirjs/tsconfig.spec.json",
+        "karmaConfig": "apps/kirjs/karma.conf.js",
+        "styles": [
+          "apps/kirjs/src/styles.css"
+        ],
+        "scripts": [],
+        "assets": [
+          "apps/kirjs/src/favicon.ico",
+          "apps/kirjs/src/assets"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/kirjs/**/*.ts",
+          "apps/kirjs/**/*.html"
+        ]
+      }
+    }
+  }
+}

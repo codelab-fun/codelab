@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlidesModule } from '@ng360/slides';
+import { SlidesModule } from '@codelab/slides';
 import { FeedbackModule } from '@codelab/feedback';
 
 import { CellularAutomationComponent } from './cellular-automation.component';

@@ -1,0 +1,127 @@
+{
+  "sourceRoot": "apps/angular-thirty-seconds/src",
+  "projectType": "application",
+  "prefix": "codelab",
+  "generators": {
+    "@nrwl/schematics:component": {
+      "style": "scss"
+    }
+  },
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/codelab/30",
+        "index": "apps/angular-thirty-seconds/src/index.html",
+        "main": "apps/angular-thirty-seconds/src/main.ts",
+        "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
+        "tsConfig": "apps/angular-thirty-seconds/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "node_modules/monaco-editor/",
+            "output": "./assets/monaco/"
+          },
+          "apps/angular-thirty-seconds/src/favicon.ico",
+          "apps/angular-thirty-seconds/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/code-demos/assets/runner/",
+            "output": "./assets/runner/"
+          }
+        ],
+        "styles": [
+          "apps/angular-thirty-seconds/src/styles.scss",
+          "node_modules/prismjs/themes/prism-okaidia.css",
+          "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+        ],
+        "scripts": [
+          "node_modules/prismjs/prism.js",
+          "node_modules/prismjs/components/prism-typescript.min.js",
+          "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+        ],
+        "aot": false,
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/angular-thirty-seconds/src/environments/environment.ts",
+              "with": "apps/angular-thirty-seconds/src/environments/environment.prod.ts"
+            }
+          ],
+          "baseHref": "/30/",
+          "deployUrl": "/30/",
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "aot": true,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "60mb",
+              "maximumError": "70mb"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": ""
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "angular-thirty-seconds:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-thirty-seconds:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-thirty-seconds:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/angular-thirty-seconds/src/test.ts",
+        "polyfills": "apps/angular-thirty-seconds/src/polyfills.ts",
+        "tsConfig": "apps/angular-thirty-seconds/tsconfig.spec.json",
+        "karmaConfig": "apps/angular-thirty-seconds/karma.conf.js",
+        "styles": [
+          "apps/angular-thirty-seconds/src/styles.scss"
+        ],
+        "scripts": [],
+        "assets": [
+          "apps/angular-thirty-seconds/src/favicon.ico",
+          "apps/angular-thirty-seconds/src/assets"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/angular-thirty-seconds/**/*.ts",
+          "apps/angular-thirty-seconds/**/*.html"
+        ]
+      }
+    }
+  }
+}

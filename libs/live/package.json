@@ -1,29 +1,11 @@
 {
-  "name": "@angular-presentation/live",
+  "name": "@codelab/live",
   "version": "0.0.1",
-  "dependencies": {
-    "tslib": "^2.0.0"
-  },
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
   },
-  "nx": {
-    "targets": {
-      "build": {
-        "executor": "@nrwl/angular:package",
-        "options": {
-          "tsConfig": "libs/live/tsconfig.lib.json",
-          "project": "libs/live/ng-package.json"
-        }
-      },
-      "test": {
-        "executor": "@nrwl/jest:jest",
-        "options": {
-          "jestConfig": "libs/live/jest.config.js",
-          "tsConfig": "libs/live/tsconfig.spec.json"
-        }
-      }
-    }
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }
