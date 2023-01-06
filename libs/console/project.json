@@ -1,13 +1,12 @@
 {
+  "name": "console",
   "projectType": "library",
   "sourceRoot": "libs/console/src",
   "prefix": "codelab",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": [
-        "{workspaceRoot}/dist/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/console/ng-package.json"
       },
@@ -23,9 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/console/jest.config.ts",
         "passWithNoTests": true
@@ -33,14 +30,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/console/**/*.ts",
-          "libs/console/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/console/**/*.ts", "libs/console/**/*.html"]
       }
     }
   },

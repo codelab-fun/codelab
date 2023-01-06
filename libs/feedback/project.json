@@ -1,13 +1,12 @@
 {
+  "name": "feedback",
   "projectType": "library",
   "sourceRoot": "libs/feedback/src",
   "prefix": "codelab",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": [
-        "{workspaceRoot}/dist/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/feedback/ng-package.json"
       },
@@ -23,9 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/feedback/jest.config.ts",
         "passWithNoTests": true
@@ -33,14 +30,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/feedback/**/*.ts",
-          "libs/feedback/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/feedback/**/*.ts", "libs/feedback/**/*.html"]
       }
     }
   },

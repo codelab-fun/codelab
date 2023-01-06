@@ -1,14 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "outDir": "../../dist/out-tsc",
     "types": []
   },
-  "angularCompilerOptions": {
-    "enableIvy": true
-  },
-  "exclude": ["test.ts", "**/*.spec.ts"]
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": ["src/**/*.d.ts"],
+  "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
 }

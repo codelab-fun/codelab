@@ -1,10 +1,32 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "types": ["node", "jest"]
+    "target": "es2022",
+    "useDefineForClassFields": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitOverride": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true
   },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.editor.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
   "angularCompilerOptions": {
-    "enableIvy": true
-  },
-  "include": ["**/*.ts"]
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": false
+  }
 }

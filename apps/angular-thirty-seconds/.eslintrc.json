@@ -4,6 +4,10 @@
   "overrides": [
     {
       "files": ["*.ts"],
+      "extends": [
+        "plugin:@nrwl/nx/angular",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": "off",
         "@angular-eslint/component-selector": "off",
@@ -11,11 +15,7 @@
         "@angular-eslint/no-input-rename": "off",
         "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/use-lifecycle-interface": "off"
-      },
-      "extends": [
-        "plugin:@nrwl/nx/angular",
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ]
+      }
     },
     {
       "files": ["*.html"],

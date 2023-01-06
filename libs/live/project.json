@@ -1,13 +1,12 @@
 {
+  "name": "live",
   "projectType": "library",
   "sourceRoot": "libs/live/src",
   "prefix": "codelab",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": [
-        "{workspaceRoot}/dist/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/live/ng-package.json"
       },
@@ -23,9 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/live/jest.config.ts",
         "passWithNoTests": true
@@ -33,14 +30,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/live/**/*.ts",
-          "libs/live/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/live/**/*.ts", "libs/live/**/*.html"]
       }
     }
   },
