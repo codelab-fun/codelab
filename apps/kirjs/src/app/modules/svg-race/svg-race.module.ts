@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 
 import { FeedbackModule } from '@codelab/feedback';
-import { SyncModule } from '@codelab/utils';
+import { SyncModule } from '@codelab/sync';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { TimerComponent } from './timer/timer.component';
 import { RaceComponent } from './race/race.component';

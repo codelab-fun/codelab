@@ -10,7 +10,7 @@ import { StackModule } from '../stack/stack.module';
 import { WasmBinaryComponent } from './wasm-binary/wasm-binary.component';
 import { BinaryViewModule } from '../binary/binary-view/binary-view.module';
 import { BinaryInlineModule } from '../binary/binary-inline/binary-inline.module';
-import { SyncDirectivesModule } from '@codelab/utils';
+import { SyncDirectivesModule } from '@codelab/sync';
 import { WebassemblyCodeModeComponent } from './webassembly-playground/webassembly-code-mode/webassembly-code-mode.component';
 import { MatButtonModule } from '@angular/material/button';
 

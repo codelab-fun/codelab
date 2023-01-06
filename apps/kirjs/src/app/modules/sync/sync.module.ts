@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { RouterModule } from '@angular/router';
-import { SyncModule as SyncLibModule, SyncSessionsComponent } from '@codelab/utils';
+import { SyncModule as SyncLibModule, SyncSessionsComponent } from '@codelab/sync';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SyncComponent } from './sync.component';
 

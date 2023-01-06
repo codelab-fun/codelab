@@ -1,5 +1,5 @@
 import { of } from 'rxjs';
-import { SyncDataService } from '../../sync/services/sync-data.service';
+import { SyncDataService } from '../../services/sync-data.service';
 
 export function getSyncDbService() {
   return [

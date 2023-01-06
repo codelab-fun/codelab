@@ -9,7 +9,6 @@ import {
   takeUntil,
   tap,
 } from 'rxjs/operators';
-// TODO(sancheez): check deps
 import { LoginService } from '@codelab/firebase-login';
 import { SyncDb } from "../services/sync-data.service";
 import { SyncDbService } from '../services/sync-db.service';

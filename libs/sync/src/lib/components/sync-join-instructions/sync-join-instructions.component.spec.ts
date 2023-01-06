@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { getMockAngularFireProviders } from '../../../testing/mocks/angular-fire';
-import { getSyncDbService } from '../../../testing/mocks/sync-db-service';
+import { getMockAngularFireProviders, getSyncDbService } from '@codelab/utils';
 
 import { SyncJoinInstructionsComponent } from './sync-join-instructions.component';
 import { SyncJoinInstructionsModule } from './sync-join-instructions.module';

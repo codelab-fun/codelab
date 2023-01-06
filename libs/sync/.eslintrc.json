@@ -1,26 +1,23 @@
 {
-  "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"],
+  "extends": [
+    "../../.eslintrc.json"
+  ],
+  "ignorePatterns": [
+    "!**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "codelab",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "codelab",
-            "style": "kebab-case"
-          }
-        ]
+        "@angular-eslint/directive-selector": "off",
+        "@angular-eslint/component-selector": "off",
+        "@angular-eslint/no-empty-lifecycle-method": "off",
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/component-class-suffix": "off",
+        "@angular-eslint/use-lifecycle-interface": "off",
+        "@angular-eslint/no-output-native": "off"
       },
       "extends": [
         "plugin:@nrwl/nx/angular",
@@ -28,9 +25,16 @@
       ]
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@nrwl/nx/angular-template"],
-      "rules": {}
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/angular-template"
+      ],
+      "rules": {
+        "@angular-eslint/template/eqeqeq": "off",
+        "@angular-eslint/template/no-negated-async": "off"
+      }
     }
   ]
 }

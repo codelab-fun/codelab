@@ -17,7 +17,7 @@ import {
   SyncRegistrationModule,
   SyncRegistrationService,
   SyncSessionService
-} from '@codelab/utils';
+} from '@codelab/sync';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(MskComponent));
 

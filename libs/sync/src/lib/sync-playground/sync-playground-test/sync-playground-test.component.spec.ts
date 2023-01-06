@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { SyncPlaygroundTestComponent } from './sync-playground-test.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SyncModule } from '../../sync.module';
-import { getMockAngularFireProviders } from '../../../testing/mocks/angular-fire';
+import { getMockAngularFireProviders } from '../../../../../utils/src/lib/testing/mocks/angular-fire';
 
 describe('SyncPlaygroundTestComponent', () => {
   let component: SyncPlaygroundTestComponent;

@@ -1,3 +1,5 @@
+import { CodeDemoModule } from './code-demo.module';
+
 export { EditorFromModelComponent } from './multitab-editor/editor-from-model/editor-from-model.component';
 export { MultitabEditorComponent } from './multitab-editor/multitab-editor.component';
 export { FilePathComponent } from './file-path/file-path.component';

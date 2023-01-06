@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { RouterModule } from '@angular/router';
 import { CodeSyncComponent } from './code-sync.component';
-import { SyncButtonModule, SyncDirectivesModule } from '@codelab/utils';
+import { SyncButtonModule, SyncDirectivesModule } from '@codelab/sync';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(CodeSyncComponent));

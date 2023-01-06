@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { SyncComponent } from './sync.component';
-import { ConfigureSyncModule, SyncButtonModule, SyncDirectivesModule, SyncPollModule } from '@codelab/utils';
+import { ConfigureSyncModule, SyncButtonModule, SyncDirectivesModule, SyncPollModule } from '@codelab/sync';
 
 @NgModule({
   declarations: [SyncComponent],

@@ -16,7 +16,7 @@ import {
   SyncButtonModule,
   SyncDirectivesModule,
   SyncRegistrationModule
-} from '@codelab/utils';
+} from '@codelab/sync';
 
 const routes = RouterModule.forChild([{ path: '', component: QnaComponent }]);
 

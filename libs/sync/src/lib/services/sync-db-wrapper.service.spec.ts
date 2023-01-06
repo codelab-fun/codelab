@@ -6,7 +6,7 @@ describe('SyncDbService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SyncDbService = TestBed.inject(SyncDbService);
+    const service: SyncDbService<unknown> = TestBed.inject(SyncDbService);
     expect(service).toBeTruthy();
   });
 });

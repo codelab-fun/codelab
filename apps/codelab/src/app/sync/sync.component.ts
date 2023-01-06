@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 
 import { of } from 'rxjs';
-import { canWritePresenterData, SyncDataService, SyncPollConfig, SyncSessionService, SyncStatus } from '@codelab/utils';
+import { canWritePresenterData, SyncDataService, SyncPollConfig, SyncSessionService, SyncStatus } from '@codelab/sync';
 
 @Component({
   selector: 'codelab-sync-survey',

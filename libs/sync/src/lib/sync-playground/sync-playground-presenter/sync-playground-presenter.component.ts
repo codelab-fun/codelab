@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-// TODO(sancheez): check deps
 import { LoginService } from '@codelab/firebase-login';
+import { TestRunnerService } from '@codelab/utils';
 import { ReplaySubject, Subject } from 'rxjs';
 import { SyncSessionService } from "../../services/sync-session.service";
 import { SyncCodeGameService } from "../../components/sync-code-game/sync-code-game.service";
-import { TestRunnerService } from "../../../sandbox-runner/test-runner.service";
 import { SyncRegistrationService } from "../../components/registration/sync-registration.service";
 import { SyncPollService } from "../../components/poll/common/sync-poll.service";
 import { SyncDataService } from "../../services/sync-data.service";

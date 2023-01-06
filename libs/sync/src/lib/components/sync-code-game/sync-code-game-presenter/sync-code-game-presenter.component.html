@@ -12,10 +12,9 @@
   </div>
 
   <div style="flex-grow: 1" *ngIf="selectedUser$ | async as user">
-<!--    TODO(sancheez): circle dep-->
-<!--    <code-demo-editor-->
-<!--      fontSize="20"-->
-<!--      [ngModel]="user.status.code"-->
-<!--    ></code-demo-editor>-->
+    <code-demo-editor
+      fontSize="20"
+      [ngModel]="user.status.code"
+    ></code-demo-editor>
   </div>
 </div>

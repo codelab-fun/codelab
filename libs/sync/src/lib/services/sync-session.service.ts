@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// TODO(sancheez): check deps
 import { LoginService } from '@codelab/firebase-login';
 import {
   firebaseToValuesWithKey,

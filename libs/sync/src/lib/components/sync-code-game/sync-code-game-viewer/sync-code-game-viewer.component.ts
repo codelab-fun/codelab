@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TestRunResult } from '../../../../test-results/common';
+import { TestRunResult } from '@codelab/utils';
 import { SyncCodeGameService } from "../sync-code-game.service";
 
 declare const require;

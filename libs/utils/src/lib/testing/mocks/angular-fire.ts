@@ -3,16 +3,14 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 export const MockAngularFireDatabase = {
-  list: jasmine.createSpy('list').and.returnValue({
+  list: {
     snapshotChanges: () => of([]),
     valueChanges: () => of([]),
+  },
+  object: of({
+    snapshotChanges: () => of({}),
+    valueChanges: () => of({}),
   }),
-  object: jasmine.createSpy('object').and.returnValue(
-    of({
-      snapshotChanges: () => of({}),
-      valueChanges: () => of({}),
-    })
-  ),
 };
 
 export const MockAngularFireAuth = {
