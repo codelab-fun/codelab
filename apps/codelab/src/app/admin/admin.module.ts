@@ -1,18 +1,32 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatTabsModule } from '@angular/material/tabs';
-import { AdminComponent } from './admin.component';
-import { AdminRoutingModule } from './admin-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+import { UsersComponent, UsersModule } from './pages/users';
+import { FeedbackComponent, FeedbackModule } from './pages/feedback';
+import { AdminLayoutComponent, AdminLayoutModule } from './admin-layout';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: AdminLayoutComponent,
+    children: [
+      {path: 'users', component: UsersComponent},
+      {path: 'feedback', component: FeedbackComponent},
+    ],
+  },
+  {
+    path: 'content',
+    loadChildren: () => import('./pages/content').then(m => m.ContentModule)
+  },
+];
+
 
 @NgModule({
   imports: [
-    CommonModule,
-    AdminRoutingModule,
-    MatCardModule,
-    MatTabsModule
-  ],
-  declarations: [AdminComponent]
+    AdminLayoutModule,
+    UsersModule,
+    FeedbackModule,
+    RouterModule.forChild(routes)
+  ]
 })
 export class AdminModule {
 }

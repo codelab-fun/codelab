@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { ContentSlide } from '../../../admin/content/views/presentation-editor/types';
 import { CommonModule } from '@angular/common';
-import { PresentationPreviewModule } from '../../../admin/content/views/presentation-preview';
-import { DynamicRendererModule } from '../../../admin/content/views/presentation-preview/slide-preview/dynamic-renderer';
+import { ContentSlide } from '../../../admin/pages/content/pages/presentation-editor/types';
+import { PresentationPreviewModule } from '../../../admin/pages/content/pages/presentation-preview';
+import { DynamicRendererModule } from '../../../admin/pages/content/pages/presentation-preview/components/slide-preview/dynamic-renderer';
 
 @Component({
   selector: 'slides-v2-slide',
