@@ -19,7 +19,7 @@ export class TrackingDirective {
     private router: Router,
     private presentation: SlidesDeckComponent
   ) {
-    afAuth.auth.signInAnonymously();
+    afAuth.signInAnonymously();
     afAuth.authState.subscribe((authData) => {
       this.auth = authData;
     });

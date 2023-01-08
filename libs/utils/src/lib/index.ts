@@ -1,3 +1,5 @@
+export { TrackingDirective } from './tracking/tracking.directive';
+export { TrackingModule } from './tracking/tracking.module';
 export { SimpleTestsProgressComponent } from './test-results/simple-tests-progress/simple-tests-progress.component';
 export { SimpleTestsProgressModule } from './test-results/simple-tests-progress/simple-tests-progress.module';
 export { getMockAngularFireProviders } from './testing/mocks/angular-fire';

@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { AboutComponent } from './about.component';
+import { TrackingModule } from '@codelab/utils';
 
 const routes = RouterModule.forChild(SlidesRoutes.get(AboutComponent));
 
 @NgModule({
   declarations: [AboutComponent],
-  imports: [CommonModule, SlidesModule, routes, CodeDemoModule, FormsModule],
+  imports: [CommonModule, SlidesModule, routes, CodeDemoModule, FormsModule, TrackingModule]
 })
 export class AboutModule {}
