@@ -22,7 +22,6 @@ export class Rule3Component implements OnInit, OnChanges {
       .split('')
       .map(Number)
       .map((a) => ['x', a, 'x']);
-    // tslint:disable
     this.before = this.after
       .map((v, i) => (8 + i).toString(2).substr(1).split(''))
       .reverse();

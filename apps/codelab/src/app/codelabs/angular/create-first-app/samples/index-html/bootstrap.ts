@@ -3,7 +3,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'hello-world',
   template: `
     <h1>Hello I'm an Angular app!</h1>

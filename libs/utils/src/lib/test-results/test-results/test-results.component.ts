@@ -10,7 +10,7 @@ import {
 import { TestResult, TestRunResult } from '../common';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+
   selector: 'slides-test-results',
   templateUrl: './test-results.component.html',
   styleUrls: ['./test-results.component.scss'],

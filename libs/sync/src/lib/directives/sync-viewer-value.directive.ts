@@ -5,7 +5,6 @@ import { filter, map, takeUntil } from 'rxjs/operators';
 import { SyncDataService, ViewerConfig } from "../services/sync-data.service";
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[syncViewerValue]',
   exportAs: 'viewerValue',
 })

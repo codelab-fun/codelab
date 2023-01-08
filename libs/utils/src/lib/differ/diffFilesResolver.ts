@@ -145,7 +145,6 @@ export class DiffFilesResolver {
 
   getFileByPath(path: string) {
     if (!this.files[path]) {
-      // tslint:disable-next-line
       debugger;
       throw new Error('Incorrect path:' + path);
     }

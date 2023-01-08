@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TestResult } from '../common';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'slides-test-run-results',
   templateUrl: './test-run-results.component.html',
   styleUrls: ['./test-run-results.component.scss'],

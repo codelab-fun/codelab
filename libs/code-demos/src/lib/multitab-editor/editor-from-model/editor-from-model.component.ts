@@ -24,7 +24,6 @@ import ITextModel = editor.ITextModel;
 export class EditorFromModelComponent
   implements AfterViewInit, OnChanges, OnDestroy
 {
-  // tslint:disable-next-line:no-input-rename
   @Input('model') setModel: ITextModel;
   @ViewChild('editor', { static: false }) el;
   @Input() autoSize = true;

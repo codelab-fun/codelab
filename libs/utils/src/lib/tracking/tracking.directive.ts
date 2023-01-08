@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { SlidesDeckComponent } from '@codelab/slides';
 
 @Directive({
-  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
+  // TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[slides-tracking]',
 })
 export class TrackingDirective {

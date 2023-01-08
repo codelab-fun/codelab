@@ -61,7 +61,6 @@ export class MidiComponent implements OnInit {
             return parsers[type];
           }
 
-          // tslint:disable-next-line:no-debugger
           debugger;
         },
       });
@@ -90,7 +89,6 @@ export class MidiComponent implements OnInit {
             return parsers[type];
           }
 
-          // tslint:disable-next-line:no-debugger
           debugger;
         },
       });

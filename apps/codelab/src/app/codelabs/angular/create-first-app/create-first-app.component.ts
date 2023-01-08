@@ -80,10 +80,8 @@ export class AppComponent {
     },
   ];
 
-  // tslint:disable:max-line-length TODO: Clean up exercises and remove this comment.
+  // TODO: Clean up exercises and remove this comment.
   private code: any = {};
-
-  // tslint:enable:max-line-length
 
   ngOnInit() {
     this.t = extractMessages(this.translation);

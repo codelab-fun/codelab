@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+
   selector: '[kirjs-little-car]',
   templateUrl: './little-car.component.html',
   styleUrls: ['./little-car.component.css'],

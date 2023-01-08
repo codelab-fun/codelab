@@ -11,7 +11,6 @@ class MyResourceLoader extends ResourceLoader {
     const template = code[templateId];
     if (!template) {
       console.log(template);
-      // tslint:disable-next-line:no-debugger
       debugger;
     }
     return Promise.resolve(template);

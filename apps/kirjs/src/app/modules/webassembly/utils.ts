@@ -13,7 +13,7 @@ export function extractFunction(name, code) {
 export function prepareTableCode(code) {
   const elements = extractExpressionByMatch(/\(elem/, code);
   if (!elements) {
-    // tslint:disable-next-line:no-debugger
+
     debugger;
   }
   const functions = [

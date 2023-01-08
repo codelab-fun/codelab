@@ -5,7 +5,7 @@ import { SyncCodeGameService } from "../sync-code-game.service";
 declare const require;
 
 @Component({
-  // tslint:disable-next-line:component-selector
+
   selector: 'slides-sync-code-game-viewer',
   templateUrl: './sync-code-game-viewer.component.html',
   styleUrls: ['./sync-code-game-viewer.component.css'],

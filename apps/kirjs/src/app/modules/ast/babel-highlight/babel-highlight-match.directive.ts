@@ -3,11 +3,11 @@ import { CodeDemoEditorComponent } from '@codelab/code-demos';
 
 // TODO(kirjs): Uncommit
 @Directive({
-  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
+  // TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[slidesBabelHighlightMatch]',
 })
 export class BabelHighlightDirective implements AfterViewInit {
-  // tslint:disable-next-line:all TODO: Fix linter warnings on the next line and delete this comment.
+  // TODO: Fix linter warnings on the next line and delete this comment.
   @Input('slidesBabelHighlightMatch') callback;
 
   constructor(private editorComponent: CodeDemoEditorComponent) {}

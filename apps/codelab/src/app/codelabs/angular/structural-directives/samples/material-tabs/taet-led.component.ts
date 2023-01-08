@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-/* tslint:disable */
 @Component({
   selector: 'play-terrible-russian-pop-music',
   template: `

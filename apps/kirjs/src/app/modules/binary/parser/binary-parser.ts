@@ -159,7 +159,6 @@ export class BinaryParser {
 
   hex(name: string, config?: Partial<BaseConfig>) {
     if (typeof config.length === 'function') {
-      // tslint:disable-next-line:no-debugger
       debugger;
       // TODO
     }

@@ -37,7 +37,6 @@ export class SyncIsStatusDirective<T> implements OnInit {
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[isViewing]',
 })
 export class SyncIsViewingDirective<T> extends SyncIsStatusDirective<T> {
@@ -53,7 +52,6 @@ export class SyncIsViewingDirective<T> extends SyncIsStatusDirective<T> {
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[isPresenting]',
 })
 export class SyncIsPresentingDirective<T> extends SyncIsStatusDirective<T> {
@@ -69,7 +67,6 @@ export class SyncIsPresentingDirective<T> extends SyncIsStatusDirective<T> {
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[isAdmin]',
 })
 export class SyncIsAdminDirective<T> extends SyncIsStatusDirective<T> {
@@ -85,7 +82,6 @@ export class SyncIsAdminDirective<T> extends SyncIsStatusDirective<T> {
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[isOff]',
 })
 export class SyncIsOffDirective<T> extends SyncIsStatusDirective<T> {

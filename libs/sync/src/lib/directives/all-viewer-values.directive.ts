@@ -10,7 +10,6 @@ import { NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[syncAllUserValues]',
   exportAs: 'allViewerValues',
 })

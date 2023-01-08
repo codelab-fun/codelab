@@ -14,7 +14,6 @@ import { SyncDb } from "../services/sync-data.service";
 import { SyncDbService } from '../services/sync-db.service';
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[syncUserValue]',
   exportAs: 'presenterValue',
 })
