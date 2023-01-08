@@ -1,4 +1,4 @@
-import { testReducer } from '../sandbox-runner/common';
+import { testReducer } from './common';
 
 fdescribe('Test reducer', () => {
   const data = {

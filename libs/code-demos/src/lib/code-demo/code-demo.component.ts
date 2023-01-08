@@ -20,8 +20,8 @@ import {
   Observable,
   ReplaySubject,
 } from 'rxjs';
-import { compileTsFilesWatch } from '../runner/compile-ts-files';
 import { Code } from '../shared/types';
+import { compileTsFilesWatch } from '@codelab/sandbox-runner';
 
 function filterByFileType(
   type: string,

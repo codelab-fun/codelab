@@ -13473,7 +13473,7 @@
 
           process.stdout = require('browser-stdout')();
 
-          var Mocha = require('../');
+          var Mocha = require('./.');
 
           /**
            * Create a Mocha instance.

@@ -2,8 +2,8 @@ import { Runner } from './runners/runner';
 import { scan } from 'rxjs/operators';
 import { testReducer } from './common';
 import { Observable } from 'rxjs';
-import { TestRunResult } from '../test-results/common';
-import { ScriptLoaderService } from '../script-loader/script-loader.service';
+import { TestRunResult } from '@codelab/utils';
+import { ScriptLoaderService } from './script-loader/script-loader.service';
 
 const mochaRun = `
 function flattenTests(suite) {

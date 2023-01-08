@@ -17,6 +17,8 @@
     "playground": "apps/playground",
     "slides": "libs/slides",
     "sync": "libs/sync",
-    "utils": "libs/utils"
-  }
+    "utils": "libs/utils",
+    "sandbox-runner": "libs/sandbox-runner"
+  },
+  "defaultProject": "codelab"
 }

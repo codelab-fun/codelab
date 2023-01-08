@@ -18,8 +18,9 @@ import * as babel_types from 'babel-types';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { handleTestMessage } from './tests';
-import { getTypeScript, ScriptLoaderService, TestRunResult } from "@codelab/utils";
+import { TestRunResult } from "@codelab/utils";
 import { createSystemJsSandbox } from "@codelab/code-demos";
+import { getTypeScript, ScriptLoaderService } from '@codelab/sandbox-runner';
 
 const ts = getTypeScript();
 

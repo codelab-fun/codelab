@@ -62,7 +62,7 @@ export class SyncCodeGameViewerComponent implements OnInit {
   code = `function add(a,b){
     return a+b;
 }`;
-  tests = require('!!raw-loader!../tests.ts').default;
+  tests = require('!!raw-loader!../tests.spec.ts').default;
 
   maxScore = 0;
 

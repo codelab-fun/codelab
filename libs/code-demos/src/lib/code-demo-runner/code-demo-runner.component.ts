@@ -15,7 +15,8 @@ import { BehaviorSubject } from 'rxjs';
 import { createSystemJsSandbox } from '../shared/sandbox';
 import { compileTemplates } from '../runner/prepare-templates';
 import { addMetaInformation } from '../shared/helpers';
-import { assertObject, ScriptLoaderService } from "@codelab/utils";
+import { assertObject } from "@codelab/utils";
+import { ScriptLoaderService } from '@codelab/sandbox-runner';
 
 interface CodeFiles {
   [key: string]: string;

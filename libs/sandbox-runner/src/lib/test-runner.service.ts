@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TestRunner } from './test-runner';
 import { WebworkerRunner } from "./runners/webworker";
-import { TestRunResult } from '../test-results/common';
-import { ScriptLoaderService } from '../script-loader/script-loader.service';
+import { TestRunResult } from '@codelab/utils';
+import { ScriptLoaderService } from './script-loader/script-loader.service';
 
 @Injectable({
   providedIn: 'root',

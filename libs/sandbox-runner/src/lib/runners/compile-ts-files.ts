@@ -1,6 +1,6 @@
 import { BehaviorSubject, Observable, OperatorFunction } from 'rxjs';
 import * as TsTypes from 'typescript';
-import { getTypeScript } from '../../loaders/loaders';
+import { getTypeScript } from '../loaders/loaders';
 
 const ts = getTypeScript();
 

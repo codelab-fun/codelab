@@ -2,13 +2,13 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { compileTsFilesWatch } from '../runners/compile-ts-files';
-import { TestRunResult } from '../../test-results/common';
-import { getTypeScript } from '../../loaders/loaders';
+import { TestRunResult } from '@codelab/utils';
+import { getTypeScript } from '../loaders/loaders';
 
 const ts = getTypeScript();
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'slides-typescript-checker-runner',
   templateUrl: './typescript-checker-runner.component.html',
   styleUrls: ['./typescript-checker-runner.component.css'],

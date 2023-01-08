@@ -7,7 +7,7 @@ import {
   Self,
 } from '@angular/core';
 import { CodeDemoEditorInjector } from '@codelab/code-demos';
-import { getTypeScript } from '@codelab/utils';
+import { getTypeScript } from '@codelab/sandbox-runner';
 import { serializeBlocks } from '../../utils';
 import { CodePath } from './common';
 

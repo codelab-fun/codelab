@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
-import { TestRunnerService } from '@codelab/utils';
 import { ReplaySubject, Subject } from 'rxjs';
 import { SyncSessionService } from "../../services/sync-session.service";
 import { SyncCodeGameService } from "../../components/sync-code-game/sync-code-game.service";
@@ -10,6 +9,7 @@ import { SyncDataService } from "../../services/sync-data.service";
 import { SyncDbService } from '../../services/sync-db.service';
 import { SyncStatus } from '../../common';
 import firebase from 'firebase/compat/app';
+import { TestRunnerService } from '@codelab/sandbox-runner';
 
 @Component({
   selector: 'codelab-sync-playground-presenter',

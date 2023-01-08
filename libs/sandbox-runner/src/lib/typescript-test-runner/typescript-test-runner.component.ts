@@ -11,7 +11,7 @@ import { filter, map } from 'rxjs/operators';
 import { compileTsFilesWatch, Files } from '../runners/compile-ts-files';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'slides-typescript-test-runner',
   templateUrl: './typescript-test-runner.component.html',
   styleUrls: ['./typescript-test-runner.component.css'],
@@ -20,6 +20,7 @@ export class TypescriptTestRunnerComponent implements OnChanges, OnDestroy {
   @Input() code;
   @Input() tests;
 
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() result = new EventEmitter();
   private readonly codeSubject = new Subject<Files>();
 

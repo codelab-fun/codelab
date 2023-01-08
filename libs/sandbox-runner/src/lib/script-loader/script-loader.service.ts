@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { assert } from '../shared';
+import { assert } from '@codelab/utils';
 
 declare const require;
 

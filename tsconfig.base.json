@@ -51,6 +51,9 @@
       ],
       "@codelab/utils": [
         "libs/utils/src/index.ts"
+      ],
+      "@codelab/sandbox-runner": [
+        "libs/sandbox-runner/src/index.ts"
       ]
     }
   }

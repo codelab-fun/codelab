@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TypescriptCheckerRunnerComponent } from './typescript-checker-runner.component';
-import { TestResultsModule } from '../../test-results/test-results.module';
+import { TestResultsModule } from '@codelab/utils';
 
 @NgModule({
   declarations: [TypescriptCheckerRunnerComponent],

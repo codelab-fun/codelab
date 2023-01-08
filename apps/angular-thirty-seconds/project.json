@@ -79,7 +79,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/angular-thirty-seconds/jest.config.ts",
         "passWithNoTests": true
@@ -87,9 +89,14 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/angular-thirty-seconds/**/*.ts", "apps/angular-thirty-seconds/**/*.html"]
+        "lintFilePatterns": [
+          "apps/angular-thirty-seconds/**/*.ts",
+          "apps/angular-thirty-seconds/**/*.html"
+        ]
       }
     }
   },

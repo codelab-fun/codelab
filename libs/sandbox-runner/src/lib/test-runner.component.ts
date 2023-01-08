@@ -12,7 +12,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'slides-test-runner',
   templateUrl: './test-runner.component.html',
   styleUrls: ['./test-runner.component.scss'],
@@ -21,6 +21,7 @@ export class TestRunnerComponent implements OnChanges, OnDestroy {
   @Input() code;
   @Input() tests;
 
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() result = new EventEmitter();
   readonly destroy$ = new ReplaySubject<void>(1);
   readonly result$ = this.testRunner.result$;

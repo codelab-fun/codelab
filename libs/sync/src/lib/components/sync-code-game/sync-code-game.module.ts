@@ -12,12 +12,11 @@ import { SyncCodeGameAdminComponent } from './sync-code-game-admin/sync-code-gam
 import { SyncCodeGameViewerComponent } from './sync-code-game-viewer/sync-code-game-viewer.component';
 import { MatButtonModule } from '@angular/material/button';
 import {
-  SandboxRunnerModule,
   SimpleTestsProgressModule,
   TestResultsModule,
-  TypescriptCheckerRunnerModule
 } from '@codelab/utils';
 import { CodeDemoModule } from '@codelab/code-demos';
+import { SandboxRunnerModule, TypescriptCheckerRunnerModule } from '@codelab/sandbox-runner';
 
 @NgModule({
   declarations: [

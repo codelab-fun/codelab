@@ -1,4 +1,4 @@
-import { getTypeScript } from '@codelab/utils';
+import { getTypeScript } from '@codelab/sandbox-runner';
 
 const ts = getTypeScript();
 import babel_traverse from '@babel/traverse';

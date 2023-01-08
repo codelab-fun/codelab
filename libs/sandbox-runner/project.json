@@ -1,7 +1,8 @@
 {
-  "name": "console",
+  "name": "sandbox-runner",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/console/src",
+  "sourceRoot": "libs/sandbox-runner/src",
   "prefix": "codelab",
   "targets": {
     "build": {
@@ -10,14 +11,14 @@
         "{workspaceRoot}/dist/{projectRoot}"
       ],
       "options": {
-        "project": "libs/console/ng-package.json"
+        "project": "libs/sandbox-runner/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/console/tsconfig.lib.prod.json"
+          "tsConfig": "libs/sandbox-runner/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/console/tsconfig.lib.json"
+          "tsConfig": "libs/sandbox-runner/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -28,7 +29,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "libs/console/jest.config.ts",
+        "jestConfig": "libs/sandbox-runner/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -39,8 +40,8 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "libs/console/**/*.ts",
-          "libs/console/**/*.html"
+          "libs/sandbox-runner/**/*.ts",
+          "libs/sandbox-runner/**/*.html"
         ]
       }
     }

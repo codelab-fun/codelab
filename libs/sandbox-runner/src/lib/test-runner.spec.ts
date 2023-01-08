@@ -1,4 +1,4 @@
-import { ScriptLoaderService } from "../script-loader/script-loader.service";
+import { ScriptLoaderService } from "./script-loader/script-loader.service";
 import { TestRunner } from "./test-runner";
 import { Runner } from "./runners/runner";
 

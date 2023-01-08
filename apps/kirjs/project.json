@@ -36,7 +36,9 @@
             "output": "./assets/runner/"
           }
         ],
-        "styles": ["apps/kirjs/src/styles.css"],
+        "styles": [
+          "apps/kirjs/src/styles.css"
+        ],
         "scripts": []
       },
       "defaultConfiguration": "production",
@@ -50,7 +52,9 @@
           "namedChunks": true
         },
         "ru": {
-          "localize": ["ru"]
+          "localize": [
+            "ru"
+          ]
         },
         "production": {
           "outputHashing": "all",
@@ -86,7 +90,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/kirjs/jest.config.ts",
         "passWithNoTests": true
@@ -94,9 +100,14 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/kirjs/**/*.ts", "apps/kirjs/**/*.html"]
+        "lintFilePatterns": [
+          "apps/kirjs/**/*.ts",
+          "apps/kirjs/**/*.html"
+        ]
       }
     }
   },
