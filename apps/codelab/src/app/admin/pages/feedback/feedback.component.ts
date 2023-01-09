@@ -3,7 +3,7 @@ import {
   AngularFireDatabase,
   AngularFireList,
 } from '@angular/fire/compat/database';
-import { Message } from '@codelab/feedback/src/lib/message';
+import { Message } from '@codelab/feedback';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

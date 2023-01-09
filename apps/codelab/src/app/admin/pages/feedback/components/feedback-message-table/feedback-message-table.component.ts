@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { Message } from '@codelab/feedback/src/lib/message';
+import { Message } from '@codelab/feedback';
 
 const clearTags = (value: string) =>
   value.replace(/<[^>]+>/g, '').replace(/Angular Codelab \/ /, '');

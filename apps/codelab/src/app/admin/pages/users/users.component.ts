@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
+import { SyncDbService } from '@codelab/sync';
 import { map } from 'rxjs/operators';
-import { firebaseToValuesWithKey } from '@codelab/utils/src/lib/sync/common';
 import { combineLatest, Observable } from 'rxjs';
 import { Permissions } from '../../../shared/services/access.service';
+import { firebaseToValuesWithKey } from '@codelab/sync';
 
 export interface AdminDb {
   key: string;

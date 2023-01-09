@@ -4,8 +4,8 @@ import { editor, IRange, Range } from 'monaco-editor';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
-import { MonacoSelection, MonacoSelectionService } from '@codelab/code-demos/src/lib/shared/monaco-selection.service';
+import { CodeDemoEditorInjector } from '@codelab/code-demos';
+import { MonacoSelection, MonacoSelectionService } from '@codelab/code-demos';
 import IEditorDecorationsCollection = editor.IEditorDecorationsCollection;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
