@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <div>Content</div>
+  <button mat-button [disabled]="(saveStatus$ | async) !== SaveStatus.UNSAVED" (click)="save()">
+    Save
+    <mat-icon *ngIf="(saveStatus$ | async) === SaveStatus.UNSAVED">radio_button_unchecked</mat-icon>
+    <mat-icon *ngIf="(saveStatus$ | async) === SaveStatus.SAVED">check_circle</mat-icon>
+  </button>
+</div>
+<router-outlet></router-outlet>

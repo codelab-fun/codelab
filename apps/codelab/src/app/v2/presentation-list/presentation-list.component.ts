@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ContentService } from '../../admin/content/presentation-editor/services/content.service';
-import { NavigationService } from '../../admin/content/presentation-editor/services/navigation.service';
+import { ContentService } from '../../admin/pages/content/services/content.service';
+import { NavigationService } from '../../admin/pages/content/services/navigation.service';
 
 @Component({
   selector: 'slides-presentation-list',

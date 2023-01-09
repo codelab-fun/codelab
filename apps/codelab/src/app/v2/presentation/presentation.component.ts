@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentService } from '../../admin/content/presentation-editor/services/content.service';
+import { ContentService } from '../../admin/pages/content/services/content.service';
 
 @Component({
   selector: 'slides-presentation',

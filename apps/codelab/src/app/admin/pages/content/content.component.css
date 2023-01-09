@@ -1,0 +1,8 @@
+:host {
+  padding: 0 16px;
+  display: block;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}

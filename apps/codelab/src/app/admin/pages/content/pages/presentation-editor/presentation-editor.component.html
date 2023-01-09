@@ -1,0 +1,29 @@
+<ng-container *ngIf="presentation$ | async as presentation">
+  <div>
+    <button mat-icon-button routerLink="/admin/content">
+      <mat-icon>home</mat-icon>
+    </button>
+    <input
+      [value]="presentation.name"
+      (keyup)="updatePresentationMeta(presentation.id, 'name', $event.target.value)"
+    />
+  </div>
+  <div class="wrapper">
+    <slides-side-panel
+      [presentationId]="presentation.id"
+      [currentSlideIndex]="currentSlideIndex$ | async"
+      [slides]="presentation.slides"
+    ></slides-side-panel>
+    <div class="editor" *ngIf="currentSlide$ | async as slide; else noSlide">
+      <slides-slide-editor
+        [presentationId]="presentation.id"
+        [slide]="slide"
+      ></slides-slide-editor>
+    </div>
+    <ng-template #noSlide>
+      <button mat-button (click)="addSlide(presentation.id)">
+        Create new slide
+      </button>
+    </ng-template>
+  </div>
+</ng-container>
