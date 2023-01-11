@@ -42,7 +42,6 @@ export class VarUintParser extends AbstractBinaryParser {
       value += result;
       rawValue += result;
       if (i-- < 1) {
-        // tslint:disable-next-line:no-debugger
         debugger;
       }
     }

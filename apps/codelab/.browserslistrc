@@ -6,7 +6,7 @@
 #   npx browserslist
 
 > 0.5%
-last 2 versions
-Firefox ESR
+supports es6-module and last 3 major versions
 not dead
-not IE 9-11 # For IE 9-11 support, remove 'not'.
+not IE 9-11
+not op_mini all

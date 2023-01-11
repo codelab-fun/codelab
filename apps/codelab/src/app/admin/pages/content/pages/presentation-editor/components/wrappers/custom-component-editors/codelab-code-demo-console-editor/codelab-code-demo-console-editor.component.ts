@@ -3,7 +3,7 @@ import { ContentService } from '../../../../../../services/content.service';
 import { ContentSlide, CustomBlock } from '../../../../types';
 import { MonacoConfigService } from '@codelab/code-demos';
 import { IRange, Selection } from 'monaco-editor';
-import { assert } from '@codelab/code-demos/src/lib/shared/utils';
+import { assert } from '@codelab/utils';
 import { rangeToJSON } from './highlight-button/highlight-button.component';
 
 interface SelectableFile {

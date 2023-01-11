@@ -4,7 +4,7 @@ import {
   displayAngularComponent,
   displayAngularComponentWithHtml,
 } from '../../../shared/helpers/helpers';
-import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
+import { extractMessages } from '@codelab/utils';
 
 declare const require;
 

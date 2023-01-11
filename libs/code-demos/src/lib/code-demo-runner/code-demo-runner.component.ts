@@ -11,12 +11,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { createSystemJsSandbox } from '@codelab/code-demos/src/lib/shared/sandbox';
+import { BehaviorSubject } from 'rxjs';
+import { createSystemJsSandbox } from '../shared/sandbox';
 import { compileTemplates } from '../runner/prepare-templates';
-import { ScriptLoaderService } from '@codelab/code-demos/src/lib/shared/script-loader.service';
 import { addMetaInformation } from '../shared/helpers';
-import { assertObject } from '@codelab/code-demos/src/lib/shared/utils';
+import { assertObject } from "@codelab/utils";
+import { ScriptLoaderService } from '@codelab/sandbox-runner';
 
 interface CodeFiles {
   [key: string]: string;

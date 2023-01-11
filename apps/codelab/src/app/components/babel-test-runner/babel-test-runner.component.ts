@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { TestInfo } from '../../shared/interfaces/test-info';
 import { FileConfig } from '../../shared/interfaces/file-config';
-import { TestRunResult } from '@codelab/utils/src/lib/test-results/common';
+import { TestRunResult } from '@codelab/utils';
 
 declare const require;
 

@@ -11,7 +11,7 @@ function getTitle(test: string) {
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+
   selector: 'slides-file-aware-description',
   templateUrl: './file-aware-description.component.html',
   styleUrls: ['./file-aware-description.component.css'],

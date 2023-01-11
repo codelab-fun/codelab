@@ -1,6 +1,6 @@
 import { Directive, Input, OnChanges, Optional, Self } from '@angular/core';
-import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
-import { findPosition } from '@codelab/code-demos/src/lib/code-demo-editor/utils/utils';
+import { CodeDemoEditorInjector } from '@codelab/code-demos';
+import { findPosition } from '@codelab/code-demos';
 
 @Directive({
   selector: '[slidesMonacoScrolling]',

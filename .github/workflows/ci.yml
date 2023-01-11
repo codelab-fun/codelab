@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+        with:
+          main-branch-name: master
+      - run: npm ci
+
+      - run: npx nx workspace-lint
+      # TODO(sancheez): temporarily disabled checking with prettier,
+      # before uncommenting the command needs to run format write command
+      # - run: npx nx format:check
+      - run: npx nx affected --target=lint --parallel=3
+      - run: npx nx affected --target=build --parallel=3

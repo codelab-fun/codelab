@@ -1,4 +1,4 @@
-import { FileConfig } from '../../../../../apps/codelab/src/app/shared/interfaces/file-config';
+import { FileConfig } from './diffFilesResolver';
 
 export function hidden(...files: FileConfig[]): FileConfig[] {
   return files.map((file) => Object.assign({}, file, { hidden: true }));

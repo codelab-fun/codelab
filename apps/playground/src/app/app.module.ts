@@ -38,7 +38,7 @@ export const AngularFireApp = AngularFireModule.initializeApp(
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes, {
-      initialNavigation: 'enabled',
+      initialNavigation: 'enabledBlocking'
     }),
     AngularFireApp,
     AngularFireDatabaseModule,

@@ -1,12 +1,27 @@
-import { AfterViewInit, Directive, Input, OnChanges, Optional, Self, } from '@angular/core';
-import { findPosition } from '../utils/utils';
-import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
-import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
-import { editor } from 'monaco-editor';
 import {
-  rangeToDecoration
-} from '../../../../../../apps/codelab/src/app/admin/pages/content/pages/presentation-editor/components/wrappers/custom-component-editors/codelab-code-demo-console-editor/highlight-button/highlight-button.component';
+  AfterViewInit,
+  Directive,
+  Input,
+  OnChanges,
+  Optional,
+  Self,
+} from '@angular/core';
+import { findPosition } from '../utils/utils';
+import { CodeDemoEditorInjector } from '../code-demo-editor.injector';
+import { MonacoConfigService } from '../../shared/monaco-config.service';
+import { editor, Range } from 'monaco-editor';
 import IEditorDecorationsCollection = editor.IEditorDecorationsCollection;
+
+// TODO(sancheez): duplication
+//  { rangeToDecoration } from '../../../../../../apps/codelab/src/app/admin/content/presentation-editor/wrappers/custom-component-editors/codelab-code-demo-console-editor/highlight-button/highlight-button.component';
+
+function rangeToDecoration(range: Range) {
+  return {
+    range: range,
+    options: { inlineClassName: 'highlighted-code-v2' },
+  };
+}
+import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
 @Directive({
   selector: '[codeDemoHighlight]',

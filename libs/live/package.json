@@ -1,11 +1,11 @@
 {
-  "name": "@angular-presentation/live",
+  "name": "@codelab/live",
   "version": "0.0.1",
-  "dependencies": {
-    "tslib": "^2.0.0"
-  },
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }

@@ -4,10 +4,7 @@
     "outDir": "../../dist/out-tsc",
     "types": []
   },
-  "angularCompilerOptions": {
-    "enableIvy": true
-  },
   "files": ["src/main.ts", "src/polyfills.ts"],
-  "include": ["**/*.ts"],
-  "exclude": ["src/test-setup.ts", "**/*.spec.ts"]
+  "include": ["src/**/*.d.ts"],
+  "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
 }

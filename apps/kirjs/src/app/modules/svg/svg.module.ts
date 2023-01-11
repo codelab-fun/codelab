@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { SlidesRoutes } from '@ng360/slides';
+import { SlidesRoutes } from '@codelab/slides';
 import { FeedbackModule } from '@codelab/feedback';
 import { SvgComponent } from './svg.component';
 
@@ -13,8 +13,8 @@ import { TimerComponent } from './timer/timer.component';
 import { CommonModule } from '@angular/common';
 import { SvgTogetherComponent } from './svg-together/svg-together.component';
 import { MatButtonModule } from '@angular/material/button';
-import { SharedPipeModule } from '@codelab/utils/src/lib/pipes/pipes.module';
-import { SlidesModule } from '@ng360/slides';
+import { SharedPipeModule } from '@codelab/utils';
+import { SlidesModule } from '@codelab/slides';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { SvgTogetherResultComponent } from './svg-together-result/svg-together-result.component';
 import { NewProgressBarModule } from '../ast/new-progress-bar/new-progress-bar.module';

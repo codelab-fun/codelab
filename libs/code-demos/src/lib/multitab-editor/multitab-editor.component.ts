@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, NgZone, OnChanges, OnDestroy, OnInit, SimpleChanges, } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { assertObject } from '@codelab/utils';
 import { editor } from 'monaco-editor';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { MonacoConfigService } from '../shared/monaco-config.service';
-import { assertObject } from '@codelab/code-demos/src/lib/shared/utils';
 import ITextModel = editor.ITextModel;
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
@@ -46,7 +46,6 @@ export class MultitabEditorComponent
   @Input() highlights = {};
   @Input() debounce = 250;
   @Input() autoFolding = false;
-  // tslint:disable-next-line:no-input-rename
   @Input('files') setFiles: string | string[];
   @Input() enableAutoFolding = true;
   @Input() autoSize = true;
@@ -56,7 +55,7 @@ export class MultitabEditorComponent
   private prefix = `prefix/${Math.random()}/`;
   private onChange: any;
   private editor: IStandaloneCodeEditor;
-  private models: MonacoModel[];
+  public models: MonacoModel[];
 
   private subscription: Subscription;
 

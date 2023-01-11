@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 const findLoader = (webpackConfig, regex) => {
@@ -13,7 +12,7 @@ module.exports = (webpackConfig, cliConfig) => {
   if (cliConfig.buildOptimizer) {
     const loader = findLoader(
       webpackConfig,
-      /@angular-devkit\/build-optimizer.*\/webpack-loader/
+      /@angular-devkit\/build-angular.*\/webpack-loader/
     );
 
     const originalTest = loader.test;

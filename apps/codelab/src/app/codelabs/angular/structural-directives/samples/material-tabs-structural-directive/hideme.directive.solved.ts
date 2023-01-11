@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import { MatTabGroup, MatTab } from '@angular/material/tabs';
 
-/* tslint:disable */
 @Directive({ selector: '[matHideMe]' })
 export class HideMeDirective implements AfterViewInit {
   constructor(

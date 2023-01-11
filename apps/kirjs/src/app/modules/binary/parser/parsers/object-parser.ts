@@ -46,7 +46,6 @@ export class BinaryObjectParser extends AbstractBinaryParser {
         );
       raw += rawValue;
       if (!type) {
-        // tslint:disable-next-line:no-debugger
         debugger;
       }
 

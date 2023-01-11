@@ -1,12 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
-import { SyncPollModule } from '@codelab/utils/src/lib/sync/components/poll/sync-poll.module';
-import { SyncButtonModule } from '@codelab/utils/src/lib/sync/sync-button/sync-button.module';
-import { SyncDirectivesModule } from '@codelab/utils/src/lib/sync/directives/sync-directives.module';
-import { ConfigureSyncModule } from '@codelab/utils/src/lib/sync/components/configure-sync/configure-sync.module';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { SyncComponent } from './sync.component';
+import { ConfigureSyncModule, SyncButtonModule, SyncDirectivesModule, SyncPollModule } from '@codelab/sync';
 
 @NgModule({
   declarations: [SyncComponent],

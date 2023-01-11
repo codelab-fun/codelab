@@ -1,4 +1,4 @@
-// tslint:disable:max-line-length TODO: Clean up this file and remove this comment.
+//  TODO: Clean up this file and remove this comment.
 //  TODO: This should be done using require.context
 
 import { Injectable } from '@angular/core';

@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+
   selector: '[kirjs-player]',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css'],

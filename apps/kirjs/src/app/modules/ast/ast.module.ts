@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { AngularSlidesToPdfModule } from '@codelab/angular-slides-to-pdf';
 import { BrowserWindowModule } from '@codelab/browser';
 import { FeedbackModule } from '@codelab/feedback';

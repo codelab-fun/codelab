@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FirebaseLoginModule } from '../firebase-login.module';
+import { LoginService } from '../login.service';
 
 import { LoginWidgetComponent } from './login-widget.component';
-import { FirebaseLoginModule, LoginService } from '@codelab/firebase-login';
 
 describe('LoginWidgetComponent', () => {
   let component: LoginWidgetComponent;

@@ -5,8 +5,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { TestResultsComponent } from './test-results/test-results.component';
-import { SimpleTestsProgressModule } from '@codelab/utils/src/lib/test-results/simple-tests-progress/simple-tests-progress.module';
 import { FileAwareDescriptionComponent } from './file-aware-description/file-aware-description.component';
+import { SimpleTestsProgressModule } from "./simple-tests-progress/simple-tests-progress.module";
 
 @NgModule({
   declarations: [

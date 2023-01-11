@@ -1,5 +1,5 @@
 import { Directive, HostListener } from '@angular/core';
-import { SlidesDeckComponent } from '@ng360/slides';
+import { SlidesDeckComponent } from '@codelab/slides';
 
 @Directive({
   selector: '[nextSlide]',

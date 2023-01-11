@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { monacoReady } from '@codelab/code-demos';
 import { editor, Range } from 'monaco-editor';
 import { Observable } from 'rxjs';
+import { monacoReady } from './monaco-config.service';
 
 export interface MonacoSelection {
   editor: editor.IStandaloneCodeEditor;

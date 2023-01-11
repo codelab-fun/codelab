@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { RouterModule } from '@angular/router';
-import { SyncModule as SyncLibModule } from '@codelab/utils/src/lib/sync/sync.module';
+import { SyncModule as SyncLibModule, SyncSessionsComponent } from '@codelab/sync';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { SyncSessionsComponent } from '@codelab/utils/src/lib/sync/components/sync-sessions/sync-sessions.component';
 import { SyncComponent } from './sync.component';
 
 const routes = RouterModule.forChild([

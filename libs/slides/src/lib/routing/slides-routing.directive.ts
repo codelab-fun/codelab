@@ -12,11 +12,10 @@ import { Subject } from 'rxjs';
 import { SlidesDeckComponent } from '../deck/deck.component';
 
 @Directive({
-  // tslint:disable-next-line:all TODO: Fix linter warnings on the selector and delete this comment.
+  // TODO: Fix linter warnings on the selector and delete this comment.
   selector: '[slidesRouting]',
 })
 export class SlidesRoutingDirective implements OnInit, OnDestroy {
-  activeSlideId: string;
   @Output() change = new EventEmitter();
 
   private ids: { [index: number]: string } = {};
@@ -31,7 +30,7 @@ export class SlidesRoutingDirective implements OnInit, OnDestroy {
     this.handleBackButtonSlideIndexSync();
   }
 
-  @HostListener('slideChange', ['$event']) slideChange(index) {
+  @HostListener('slideChange', ['$event']) slideChange(index: number) {
     this.navigate(this.getId(index));
   }
 

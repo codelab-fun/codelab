@@ -1,0 +1,48 @@
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  Output,
+} from '@angular/core';
+import { Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { compileTsFilesWatch, Files } from '../runners/compile-ts-files';
+
+@Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'slides-typescript-test-runner',
+  templateUrl: './typescript-test-runner.component.html',
+  styleUrls: ['./typescript-test-runner.component.css'],
+})
+export class TypescriptTestRunnerComponent implements OnChanges, OnDestroy {
+  @Input() code;
+  @Input() tests;
+
+  // eslint-disable-next-line @angular-eslint/no-output-native
+  @Output() result = new EventEmitter();
+  private readonly codeSubject = new Subject<Files>();
+
+  readonly code$ = this.codeSubject.pipe(
+    compileTsFilesWatch(),
+    filter((a) => Object.values(a.files).length > 0),
+    map((a) => {
+      return {
+        code: a.files['main.js'],
+        tests: a.files['test.js'],
+      };
+    })
+  );
+
+  ngOnChanges() {
+    this.codeSubject.next({
+      'main.ts': this.code,
+      'test.ts': this.tests,
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.codeSubject.complete();
+  }
+}

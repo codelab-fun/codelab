@@ -7,7 +7,7 @@ import { BrowserWindowModule } from '@codelab/browser';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 import { FormsModule } from '@angular/forms';
 import { ExternalLinkDirectiveDirective } from '../../../components/external-link-directive/external-link-directive.directive';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 
 const routes = RouterModule.forChild([
   ...SlidesRoutes.get(AngularCliComponent),

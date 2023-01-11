@@ -26,7 +26,6 @@ export const SYNC_FIRESTORE_VALUE_ACCESSOR = {
 
 // TODO(kirjs): This is not yet working
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[syncFireStore]',
 })
 export class SyncFireStoreDirective<T> implements OnChanges {

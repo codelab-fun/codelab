@@ -5,7 +5,7 @@ import { BrowserWindowModule } from '@codelab/browser';
 import { CodeDemoModule } from '@codelab/code-demos';
 import { FeedbackModule } from '@codelab/feedback';
 import { CodelabComponentsModule } from '../../components/codelab-components.module';
-import { SlidesModule } from '@ng360/slides';
+import { SlidesModule } from '@codelab/slides';
 import { FormsModule } from '@angular/forms';
 import { SlideComponent } from './slide/slide.component';
 

@@ -32,12 +32,15 @@ export class AboutComponent implements OnInit {
       },
     },
     highlights: {
-      find: require('!!raw-loader!@codelab/code-demos/src/lib/code-demo-editor/utils/utils')
+      // TODO(sancheez): original file:
+      //  libs/code-demos/src/lib/code-demo-editor/utils/utils.ts
+      find: require('!!raw-loader!./samples/find-position.ts.file')
         .default,
     },
   };
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {}
 }

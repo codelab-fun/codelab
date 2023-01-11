@@ -1,4 +1,3 @@
-// tslint:ignore
 function findConsoleLogSolved(code, { babylon, babelTraverse, log }) {
   return babylon
     .parse(code)

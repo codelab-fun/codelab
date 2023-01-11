@@ -8,8 +8,8 @@ const MILESTONE_ATTR_NAME = 'milestone';
   selector: '[slide]',
 })
 export class SlideDirective {
-  @Input() class;
-  @Input() slideId;
+  @Input() class: unknown;
+  @Input() slideId: unknown;
 
   constructor(
     private presentation: SlidesDeckComponent,
@@ -21,10 +21,10 @@ export class SlideDirective {
     // Ivy
     if ((template as any)._declarationTContainer) {
       const attrs = (template as any)._declarationTContainer.attrs || [];
-      const indexPredicate = (n) => n === ID_ATTR_NAME;
+      const indexPredicate = (n: unknown) => n === ID_ATTR_NAME;
 
       const idIndex = attrs.findIndex(indexPredicate);
-      const milestoneIndex = attrs.findIndex((n) => n === MILESTONE_ATTR_NAME);
+      const milestoneIndex = attrs.findIndex((n: unknown) => n === MILESTONE_ATTR_NAME);
       slide = {
         id: idIndex !== -1 ? attrs[idIndex + 1] : undefined,
         milestone:

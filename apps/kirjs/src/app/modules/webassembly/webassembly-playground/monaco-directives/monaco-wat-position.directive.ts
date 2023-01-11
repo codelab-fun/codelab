@@ -6,7 +6,7 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
+import { CodeDemoEditorInjector } from '@codelab/code-demos';
 import { extractBlocks, populateBlocks, serializeBlocks } from '../../utils';
 import { CodePath } from './common';
 

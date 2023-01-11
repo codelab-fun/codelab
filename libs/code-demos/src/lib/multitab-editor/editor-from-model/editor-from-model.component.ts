@@ -9,9 +9,9 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import { MonacoConfigService } from '@codelab/code-demos/src/lib/shared/monaco-config.service';
+import { MonacoConfigService } from '../../shared/monaco-config.service';
 import { editor, IDisposable } from 'monaco-editor';
-import { CodeDemoEditorInjector } from '@codelab/code-demos/src/lib/code-demo-editor/code-demo-editor.injector';
+import { CodeDemoEditorInjector } from '../../code-demo-editor/code-demo-editor.injector';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import ITextModel = editor.ITextModel;
 
@@ -24,7 +24,6 @@ import ITextModel = editor.ITextModel;
 export class EditorFromModelComponent
   implements AfterViewInit, OnChanges, OnDestroy
 {
-  // tslint:disable-next-line:no-input-rename
   @Input('model') setModel: ITextModel;
   @ViewChild('editor', { static: false }) el;
   @Input() autoSize = true;

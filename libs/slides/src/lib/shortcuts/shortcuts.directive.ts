@@ -13,7 +13,7 @@ export class ShortcutsDirective {
 
   @HostListener('window:keydown.ArrowRight', ['$event.target'])
   @HostListener('window:keydown.PageDown', ['$event.target'])
-  next(target) {
+  next(target: HTMLElement) {
     if (this.canNavigate(target) && this.deck.canGoNext()) {
       this.deck.nextSlide();
     }
@@ -21,14 +21,14 @@ export class ShortcutsDirective {
 
   @HostListener('window:keydown.ArrowLeft', ['$event.target'])
   @HostListener('window:keydown.PageUp', ['$event.target'])
-  previous(target) {
+  previous(target: HTMLElement) {
     if (this.canNavigate(target) && this.deck.canGoPrevious()) {
       this.deck.previousSlide();
     }
   }
 
   @HostListener('window:keydown.alt.enter', ['$event'])
-  fullScreenModeToggle(e) {
+  fullScreenModeToggle(e: KeyboardEvent) {
     // prevent page reload
     e.preventDefault();
 
@@ -47,7 +47,7 @@ export class ShortcutsDirective {
    * focusable elements used for slide navigation.
    */
   private isFromContext(target: HTMLElement) {
-    let parent = target;
+    let parent: HTMLElement | null = target;
 
     while (parent) {
       if (parent.classList.contains('shortcuts-context')) {

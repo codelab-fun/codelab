@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { LoginService } from '@codelab/firebase-login';
-import { SyncDbService } from '@codelab/utils/src/lib/sync/services/sync-db.service';
 import { filter, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { SyncDb } from '@codelab/utils/src/lib/sync/services/sync-data.service';
+import { SyncDb, SyncDbService } from '@codelab/sync';
 
 export enum Permissions {
   MANAGE_USERS = 'manage_users',

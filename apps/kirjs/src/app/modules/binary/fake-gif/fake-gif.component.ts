@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { BinaryParser } from '../parser/binary-parser';
 import { gifParser } from './gif-parser';
-import { extractMessages } from '@codelab/utils/src/lib/i18n/i18n-tools';
+import { extractMessages } from '@codelab/utils';
 
 interface Chunk {
   name: string;

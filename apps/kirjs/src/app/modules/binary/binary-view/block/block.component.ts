@@ -54,7 +54,6 @@ export class BlockComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     if (!componentMap[this.data.type]) {
-      // tslint:disable-next-line:no-debugger
       debugger;
     }
 

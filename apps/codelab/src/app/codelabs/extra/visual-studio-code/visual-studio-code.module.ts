@@ -3,7 +3,7 @@ import { FeedbackModule } from '@codelab/feedback';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlidesModule, SlidesRoutes } from '@ng360/slides';
+import { SlidesModule, SlidesRoutes } from '@codelab/slides';
 import { VisualStudioCodeComponent } from './visual-studio-code.component';
 import { CodelabComponentsModule } from '../../../components/codelab-components.module';
 

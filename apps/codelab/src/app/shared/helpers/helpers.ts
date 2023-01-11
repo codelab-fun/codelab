@@ -120,7 +120,6 @@ class MyResourceLoader extends ResourceLoader {
     const template = code[templateId];
     if (!template) {
       console.log(template);
-      // tslint:disable-next-line:no-debugger
       debugger;
     }
     return Promise.resolve(template);
@@ -269,7 +268,7 @@ export function displayAngularComponent(
   componentCode: string,
   testCode?: string
 ) {
-  // tslint:disable-next-line:max-line-length TODO: Clean up next line and remove this comment.
+  // TODO: Clean up next line and remove this comment.
   const moduleCode = builder.ngModule();
   const bootstrapCode = builder.bootstrap();
 

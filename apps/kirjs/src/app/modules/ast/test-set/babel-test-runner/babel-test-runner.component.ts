@@ -42,7 +42,6 @@ export class BabelTestRunnerComponent {
     };
 
     try {
-      // tslint:disable
       const func = eval('(' + files[0].code + ')');
       eval('(' + files[1].code + ')')(func, callback, args);
     } catch (e) {
