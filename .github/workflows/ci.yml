@@ -18,6 +18,8 @@ jobs:
       - run: npm ci
 
       - run: npx nx workspace-lint
-      #      - run: npx nx format:check
+      # TODO(sancheez): temporarily disabled checking with prettier,
+      # before uncommenting the command needs to run format write command
+      # - run: npx nx format:check
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=build --parallel=3

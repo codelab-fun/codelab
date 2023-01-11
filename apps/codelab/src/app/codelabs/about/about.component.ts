@@ -32,6 +32,8 @@ export class AboutComponent implements OnInit {
       },
     },
     highlights: {
+      // TODO(sancheez): original file:
+      //  libs/code-demos/src/lib/code-demo-editor/utils/utils.ts
       find: require('!!raw-loader!./samples/find-position.ts.file')
         .default,
     },
