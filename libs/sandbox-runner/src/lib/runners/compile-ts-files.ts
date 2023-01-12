@@ -1,10 +1,9 @@
 import { BehaviorSubject, Observable, OperatorFunction } from 'rxjs';
 import * as TsTypes from 'typescript';
+import { map, tap } from 'rxjs/operators';
 import { getTypeScript } from '../loaders/loaders';
 
 const ts = getTypeScript();
-
-// TODO(sancheez): Duplication
 
 export interface Files {
   [key: string]: string;
@@ -30,8 +29,9 @@ interface Output {
 }
 
 const compilerOptions: TsTypes.CompilerOptions = {
+  baseUrl: './',
   module: ts.ModuleKind.System,
-  target: ts.ScriptTarget.ES2017,
+  target: ts.ScriptTarget.ES2022,
   experimentalDecorators: true,
   emitDecoratorMetadata: true,
   noImplicitAny: true,
@@ -67,11 +67,13 @@ function watch(
         return undefined;
       }
 
+      const baseName = fileName.replace('.ts', '');
+
       return ts.ScriptSnapshot.fromString(
-        `/// <amd-module name="${fileName.replace('.ts', '')}" />\n` + file.file
+        `/// <amd-module name="./${baseName}" />\n` + file.file
       );
     },
-    getCurrentDirectory: () => '/',
+    getCurrentDirectory: () => options.baseUrl,
     getCompilationSettings: () => options,
     getDefaultLibFileName: () => 'lib.d.ts',
     fileExists: (a) => !!files[a],
@@ -190,6 +192,14 @@ export function compileTsFilesWatch(
   options = compilerOptions
 ): OperatorFunction<Record<string, string>, Output> {
   return (source: Observable<Record<string, string>>) => {
-    return watch(source, options);
+    return watch(
+      source.pipe(
+        map((files) => ({
+          'code.ts': 'export class Code {}', // TODO(sancheez): code file, maybe needs another files
+          ...files,
+        }))
+      ),
+      options
+    ).pipe(tap(console.log));
   };
 }
