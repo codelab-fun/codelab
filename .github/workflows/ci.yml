@@ -12,14 +12,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: nrwl/nx-set-shas@v3
-        with:
-          main-branch-name: master
+      - run: echo "NX_BASE=$(git rev-parse origin/$GITHUB_BASE_REF)" >> $GITHUB_ENV
+      - run: echo "NX_HEAD=$(git rev-parse origin/$GITHUB_HEAD_REF)" >> $GITHUB_ENV
+      - run: echo "base=$NX_BASE head=$NX_HEAD"
       - run: npm ci
-
       - run: npx nx workspace-lint
-      # TODO(sancheez): temporarily disabled checking with prettier,
-      # before uncommenting the command needs to run format write command
-      # - run: npx nx format:check
+      - run: npx nx format:check
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=build --parallel=3

@@ -15,10 +15,9 @@
     "kirjs": "apps/kirjs",
     "live": "libs/live",
     "playground": "apps/playground",
+    "sandbox-runner": "libs/sandbox-runner",
     "slides": "libs/slides",
     "sync": "libs/sync",
-    "utils": "libs/utils",
-    "sandbox-runner": "libs/sandbox-runner"
-  },
-  "defaultProject": "codelab"
+    "utils": "libs/utils"
+  }
 }

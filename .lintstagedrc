@@ -1,0 +1,6 @@
+{
+  '{libs,apps}/**/*.{ts,json,md,html,?(s)css}': [
+    'npm run affected:lint:write',
+    'npm run format:write'
+  ]
+}
