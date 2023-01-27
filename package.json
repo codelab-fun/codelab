@@ -35,7 +35,7 @@
     "affected:build": "ng affected --target=build --parallel=3",
     "affected:test": "ng affected --target=test --parallel=3",
     "affected:lint": "ng affected --target=lint --parallel=3",
-    "affected:lint:write": "ng affected --target=lint --parallel=3 --fix --uncommited",
+    "affected:lint:write": "ng affected --target=lint --parallel=3 --fix",
     "format:write": "npx nx format:write --uncommitted",
     "format:check": "nx format:check",
     "update": "ng update @nrwl/workspace",
