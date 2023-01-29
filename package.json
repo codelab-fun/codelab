@@ -90,7 +90,7 @@
     "monaco-editor-webpack-plugin": "^7.0.1",
     "nanoid": "^3.3.3",
     "ng2-medium-editor": "^1.0.0",
-    "ngx-file-drop": "^13.0.0",
+    "ngx-file-drop": "^14.0.2",
     "ngx-markdown": "^14.0.1",
     "rangy": "^1.3.0",
     "raw-loader": "^4.0.2",
