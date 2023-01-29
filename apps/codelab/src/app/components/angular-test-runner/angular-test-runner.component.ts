@@ -15,11 +15,10 @@ import {
 import babel_traverse from '@babel/traverse';
 import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { handleTestMessage } from './tests';
-import { TestRunResult } from "@codelab/utils";
-import { createSystemJsSandbox } from "@codelab/code-demos";
+import { TestRunResult } from '@codelab/utils';
+import { createSystemJsSandbox } from '@codelab/code-demos';
 import { getTypeScript, ScriptLoaderService } from '@codelab/sandbox-runner';
 
 const ts = getTypeScript();

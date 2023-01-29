@@ -15,9 +15,7 @@ import {
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Observable } from 'rxjs/internal/Observable';
-import { finalize, map } from 'rxjs/operators';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
+import { Observable, ReplaySubject, finalize, map } from 'rxjs';
 import { SnippetOverviewComponent } from './snippet-modal/snippet-overview.component';
 import {
   angularSampleCode,
