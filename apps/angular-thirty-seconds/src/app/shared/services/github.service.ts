@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError, map } from 'rxjs/operators';
-import { throwError } from 'rxjs/internal/observable/throwError';
-import { MonoTypeOperatorFunction } from 'rxjs/internal/types';
+import {
+  Observable,
+  throwError,
+  MonoTypeOperatorFunction,
+  catchError,
+  map,
+} from 'rxjs';
 import {
   Branch,
   CommitInfo,

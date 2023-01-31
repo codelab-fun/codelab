@@ -4,12 +4,16 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { finalize, switchMap, take, takeUntil } from 'rxjs/operators';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
+import { ReplaySubject } from 'rxjs';
 import { SnippetService } from '../../shared/services/snippet.service';
 import { GitHubService } from '../../shared/services/github.service';
 import { generateSnippet } from '../../shared/functions/generate-snippet';
 import { SEPARATOR } from '../../shared/consts';
-import { getAuth, signInWithPopup, GithubAuthProvider } from '@angular/fire/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  GithubAuthProvider,
+} from '@angular/fire/auth';
 
 interface SnippetOverviewData {
   formValue: object;
