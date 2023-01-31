@@ -6,10 +6,8 @@ import * as babylon from 'babylon';
 import * as babel_types from 'babel-types';
 
 export function addMetaInformation(sandbox, files: { [key: string]: string }) {
-  // sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
-
   (sandbox.iframe.contentWindow as any).System.register(
-    'code',
+    './code',
     [],
     function (exports) {
       return {

@@ -24,8 +24,8 @@ interface CodeFiles {
 
 const presets = {
   angular(sandbox, scriptLoaderService) {
-    sandbox.evalJs(scriptLoaderService.getScript('shim'));
-    sandbox.evalJs(scriptLoaderService.getScript('zone'));
+    // sandbox.evalJs(scriptLoaderService.getScript('shim'));
+    // sandbox.evalJs(scriptLoaderService.getScript('zone'));
   },
   react(sandbox, scriptLoaderService) {
     // TODO(kirjs): Make it work
@@ -91,7 +91,7 @@ export class CodeDemoRunnerComponent
         url: this.url,
       },
       ({ evalJs }) => {
-        evalJs(this.scriptLoaderService.getScript('shim'));
+        evalJs(this.scriptLoaderService.getScript('reflectMetadata'));
         evalJs(this.scriptLoaderService.getScript('zone'));
       }
     );
@@ -102,7 +102,6 @@ export class CodeDemoRunnerComponent
     );
 
     sandbox.evalJs(this.scriptLoaderService.getScript('mock-console'));
-
     this.presets.forEach((preset) => {
       presets[preset](sandbox, this.scriptLoaderService);
     });
@@ -117,6 +116,7 @@ export class CodeDemoRunnerComponent
 
     this.subscription = this.changedFilesSubject.subscribe((files) => {
       console.log('cdr117');
+      console.log(files)
       addMetaInformation(sandbox, files);
 
       if (files['index.html']) {
@@ -124,7 +124,7 @@ export class CodeDemoRunnerComponent
       }
 
       const jsFiles = Object.entries(files).filter(([path]) =>
-        path.match(/\.js$/)
+        path.match(/\.js$/)  && !path.startsWith('code')
       );
 
       const hasErrors = jsFiles.some(([path, code]) => {
@@ -157,7 +157,7 @@ export class CodeDemoRunnerComponent
 
       if (jsFiles.length) {
         if (this.bootstrap && !hasErrors) {
-          sandbox.evalJs(`System.import('${this.bootstrap}')`);
+          sandbox.evalJs(`System.import('./${this.bootstrap}')`);
         }
       }
     });

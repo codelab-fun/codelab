@@ -6,7 +6,10 @@ import { VideoService } from '../video/video.service';
 import 'initTestBed';
 
 beforeEach(() => {
-  TestBed.resetTestingModule();
+   try {
+     TestBed.resetTestingModule();
+   } catch (e) {}
+
   TestBed.configureTestingModule({
     providers: [VideoService],
     declarations: [AppComponent]

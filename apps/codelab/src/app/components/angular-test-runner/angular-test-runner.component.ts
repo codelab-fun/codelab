@@ -12,53 +12,11 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import babel_traverse from '@babel/traverse';
-import * as babylon from 'babylon';
-import * as babel_types from 'babel-types';
+import { addMetaInformation, createSystemJsSandbox } from '@codelab/code-demos';
+import { ScriptLoaderService } from '@codelab/sandbox-runner';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { handleTestMessage } from './tests';
 import { TestRunResult } from '@codelab/utils';
-import { createSystemJsSandbox } from '@codelab/code-demos';
-import { getTypeScript, ScriptLoaderService } from '@codelab/sandbox-runner';
-
-const ts = getTypeScript();
-
-// TODO(kirjs): This is a duplicate
-export function addMetaInformation(sandbox, files: { [key: string]: string }) {
-  // sandbox.evalJs(`System.registry.delete(System.normalizeSync('./code'));`);
-
-  (sandbox.iframe.contentWindow as any).System.register(
-    'code',
-    [],
-    function (exports) {
-      return {
-        setters: [],
-        execute: function () {
-          exports('ts', ts);
-          exports('babylon', babylon);
-          exports('babel_traverse', babel_traverse);
-          exports('babel_types', babel_types);
-          Object.entries(files)
-            .filter(([moduleName]) => moduleName.match(/\.ts$/))
-            .forEach(([path, code]) => {
-              exports(path.replace(/[\/.-]/gi, '_'), code);
-              exports(
-                path.replace(/[\/.-]/gi, '_') + '_AST',
-                ts.createSourceFile(path, code, ts.ScriptTarget.ES5)
-              );
-            });
-
-          Object.entries(files)
-            .filter(([moduleName]) => moduleName.match(/\.html/))
-            .forEach(([path, code]) => {
-              const templatePath = path.replace(/[\/.-]/gi, '_');
-              exports(templatePath, code);
-            });
-        },
-      };
-    }
-  );
-}
+import { handleTestMessage } from './tests';
 
 @Component({
   selector: 'codelab-simple-angular-test-runner',
@@ -123,6 +81,11 @@ export class SimpleAngularTestRunnerComponent
       {
         id: 'testing',
         url: '/assets/runner',
+      },
+      ({ evalJs }) => {
+        evalJs(this.scriptLoaderService.getScript('chai'));
+        evalJs(this.scriptLoaderService.getScript('zone'));
+        evalJs(this.scriptLoaderService.getScript('reflectMetadata'));
       }
     );
 
@@ -131,21 +94,19 @@ export class SimpleAngularTestRunnerComponent
         '<app-root></app-root><my-app></my-app><div class="error"></div>'
     );
 
-    sandbox.evalJs(this.scriptLoaderService.getScript('chai'));
     sandbox.evalJs(this.scriptLoaderService.getScript('mocha'));
     sandbox.evalJs(this.scriptLoaderService.getScript('test-bootstrap'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('shim'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('zone'));
-    // sandbox.evalJs(this.scriptLoaderService.getScript('system-config'));
-    sandbox.evalJs(this.scriptLoaderService.getScript('ng-bundle'));
 
     this.subscription = this.changedFilesSubject.subscribe((files) => {
+      addMetaInformation(sandbox, this.code);
+
+
       const hasErrors = Object.entries(files)
-        .filter(([path]) => path.match(/\.js$/))
+        .filter(([path]) => path.match(/\.js$/) && !path.startsWith('code'))
         .map(([path, code]) => {
           try {
-            sandbox.evalJs(`console.log('I remove modul')`);
-            addMetaInformation(sandbox, this.code);
+
+            sandbox.evalJs(`console.log('I remove module')`);
             sandbox.evalJs(code);
           } catch (e) {
             console.groupCollapsed(e.message);
@@ -158,7 +119,7 @@ export class SimpleAngularTestRunnerComponent
         .some((a) => a);
 
       if (!hasErrors) {
-        sandbox.evalJs(`System.import('${this.bootstrap}')`);
+        sandbox.evalJs(`System.import('./${this.bootstrap}')`);
       }
     });
   }

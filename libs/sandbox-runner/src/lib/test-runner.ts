@@ -35,7 +35,6 @@ export class TestRunner {
   private readonly code = {
     mocha: this.scriptLoaderService.getScript('mocha'),
     chai: this.scriptLoaderService.getScript('chai'),
-    SystemJS: this.scriptLoaderService.getScript('SystemJS'),
     polyfill: `const window = globalThis;`,
     mochaSetup: `mocha.setup('bdd').reporter(function(a) {});`,
     mochaRun: mochaRun,
