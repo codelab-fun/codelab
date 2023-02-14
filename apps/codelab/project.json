@@ -4,6 +4,12 @@
   "projectType": "application",
   "sourceRoot": "apps/codelab/src",
   "prefix": "codelab",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush"
+    }
+  },
   "i18n": {
     "sourceLocale": "en-US",
     "locales": {
