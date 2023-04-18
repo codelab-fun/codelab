@@ -133,7 +133,7 @@
     "cypress-image-snapshot": "^3.0.0",
     "dotenv": "8.2.0",
     "eslint": "^6.8.0",
-    "firebase-tools": "^7.13.0",
+    "firebase-tools": "^11.27.0",
     "fs-extra": "^9.0.0",
     "github-api": "^3.0.0",
     "gomoku-tools": "^0.1.0",
