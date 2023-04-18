@@ -99,7 +99,7 @@
     "gray-matter": "^4.0.2",
     "husky": "^4.2.3",
     "immer": "^5.3.6",
-    "mocha": "^7.0.1",
+    "mocha": "^10.2.0",
     "monaco-editor": "^0.20.0",
     "monaco-editor-webpack-plugin": "^1.8.2",
     "ngx-markdown": "^8.2.2",
