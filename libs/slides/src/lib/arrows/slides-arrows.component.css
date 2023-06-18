@@ -21,9 +21,9 @@
 .arrow-right {
   top: calc(44.7% - 6vh / 2);
   position: fixed;
-  font-size: 6vh;
+  font-size: 3vh;
   z-index: 100;
-  padding: 20px 5px;
+  padding: 15px 2px;
   background: #ddd;
   cursor: pointer;
   line-height: 12vh;
